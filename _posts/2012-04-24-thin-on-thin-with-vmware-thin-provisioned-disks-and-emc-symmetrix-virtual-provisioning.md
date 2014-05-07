@@ -1,0 +1,148 @@
+---
+title: '&#8220;Thin on Thin&#8221; With VMware Thin Provisioned Disks and EMC Symmetrix Virtual Provisioning'
+author: Karim Elatov
+layout: post
+permalink: /2012/04/thin-on-thin-with-vmware-thin-provisioned-disks-and-emc-symmetrix-virtual-provisioning/
+dsq_thread_id:
+  - 1405567150
+categories:
+  - Storage
+  - VMware
+tags:
+  - eagerzeroed thick
+  - EMC Symmetrix
+  - lazyzeroed thick
+  - thick
+  - thin
+  - thin provisioning
+  - vmfs
+---
+Recently, someone me asked with the following question.
+
+> I added a VM and didn&#8217;t specify an option for thin or thick, which should result in zeroedthick rather than eagerzerothick. I added a new VM w/250GB disk. It takes no space on the Symmetrix LUN, but takes 250GB from the 500 GB LUN on VMware. One more 250GB disk like this and there would be no free space to VMWare, but 500 GB still free on Symmetrix. What am I missing?
+
+This VMware article <a href="http://www.vmware.com/files/pdf/VMware-DynamicStorageProv-WP-EN.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/VMware-DynamicStorageProv-WP-EN.pdf']);">Dynamic Storage Provisioning</a> has a good table of what some differences between the VMware disk provisioning types are:
+
+> <table summary="" border="1" cellspacing="1" cellpadding="1">
+>   <tr>
+>     <td>
+>       <strong>VMDK Format</strong>
+>     </td>
+>     
+>     <td>
+>       <strong>Space Dedicated</strong>
+>     </td>
+>     
+>     <td>
+>       <strong>Zeroed Out Blocks</strong>
+>     </td>
+>     
+>     <td>
+>       <strong>Incremental Growth</strong>
+>     </td>
+>   </tr>
+>   
+>   <tr>
+>     <td>
+>       Thin
+>     </td>
+>     
+>     <td>
+>       Reservation only
+>     </td>
+>     
+>     <td>
+>       As it is Grows
+>     </td>
+>     
+>     <td>
+>       1 VMFS block at a time
+>     </td>
+>   </tr>
+>   
+>   <tr>
+>     <td>
+>       Zeroed Thick
+>     </td>
+>     
+>     <td>
+>       Full Amount
+>     </td>
+>     
+>     <td>
+>       As It Grows
+>     </td>
+>     
+>     <td>
+>       No
+>     </td>
+>   </tr>
+>   
+>   <tr>
+>     <td>
+>       Eager Zeroed Thick
+>     </td>
+>     
+>     <td>
+>       Zeroed Thick
+>     </td>
+>     
+>     <td>
+>       At Creation Time
+>     </td>
+>     
+>     <td>
+>       No
+>     </td>
+>   </tr>
+> </table>
+
+The most confusing one might the thin vmdk and this article <a href="http://www.vmware.com/files/pdf/VMware-vStorage-Thin-Provisioning-DS-EN.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/VMware-vStorage-Thin-Provisioning-DS-EN.pdf']);">VMware vStorage Thin Provisioning</a> has a good picture of the concept. So the described behavior in the inquiry above is actually expected. Another great article which has great content regarding VMware thin provisioning and EMC Virtual Provisioning is <a href="http://www.emc.com/collateral/hardware/white-papers/h6813-implting-symmetrix-vrtl-prvsning-vsphere-wp.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.emc.com/collateral/hardware/white-papers/h6813-implting-symmetrix-vrtl-prvsning-vsphere-wp.pdf']);">Implementing EMC Symmetrix Virtual Provisioning with VMware vShpere</a>. The article has good description why the above is expected:
+
+> The &#8220;Thick Provision Lazy Zeroed&#8221; or “Thick” selection is actually the &#8220;zeroedthick&#8221; format. In this allocation scheme, the storage required for the virtual disks is reserved in the datastore but the VMware kernel does not initialize all the blocks. The blocks are initialized by the guest operating system as write activities to  
+> previously uninitialized blocks are performed. The VMFS will return zeros to the guest operating system if it attempts to read blocks of data that it has not previously written to.  
+> &#8230;  
+> &#8230;  
+> The virtual disks will not require more space on the VMFS volume as their reserved size is static with this allocation mechanism and more space will be needed only if additional virtual disks are added. Therefore, the only free capacity that must be monitored diligently is the free capacity on the thin pool itself.  
+> &#8230;  
+> &#8230;  
+> since the VMware kernel does not actually initialize unused blocks, the full 10 GB is not consumed on the thin device
+
+So even though we create a thick vmdk it&#8217;s not zeroed out (like eager-zeroed thick would be) and therefore the thin provisioned LUN will show that the total used space on the LUN is only the size of the pre-allocated space of the thick vmdk (not the total vmdk size). Now for VMFS, thick is thick, so it will show the utilized space as the total space of the thick disk even though it&#8217;s not pre-allocated.  
+Going back to original question, what type of vmdk format would only show the used(zeroed out) space both on VMFS and on a thin provisioned LUN? That would be a thin vmdk on a thin (virtuallly) provisioned LUN. It used to be best practice to do thick vmdks on thin provisioned LUNS, per <a href="http://www.emc.com/collateral/hardware/solution-overview/h2529-vmware-esx-svr-w-symmetrix-wp-ldv.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.emc.com/collateral/hardware/solution-overview/h2529-vmware-esx-svr-w-symmetrix-wp-ldv.pdf']);">Using EMC Symmetrix Storage in VMware vSphere Environments</a>:
+
+> Virtual disk type recommendations  
+> In general, before vSphere 4.1, EMC recommended using “zeroedthick” instead of “thin” virtual disks when using Symmetrix Virtual Provisioning. The reason that “thin on thin” was not always recommended is that using thin provisioning on two separate layers (host and array) increases the risk of out-of-space conditions for the virtual machines. vSphere 4.1 (and even more so in vSphere 5) in conjunction with the latest release of Enginuity integrate these layers better than ever. Consequently, using thin on thin is now acceptable in far more situations, but it is important to remember that risks still remain in doing so. For this reason, EMC recommends “zeroedthick” (for better reliability as only the array must be monitored) or “eagerzeroedthick” (for absolute reliability as all space is completely reserved) for mission critical virtual machines.
+
+But this has changed, thin on thin can be used as long as you properly monitor your space usage. From the <a href="http://www.emc.com/collateral/hardware/white-papers/h6813-implting-symmetrix-vrtl-prvsning-vsphere-wp.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.emc.com/collateral/hardware/white-papers/h6813-implting-symmetrix-vrtl-prvsning-vsphere-wp.pdf']);">Implementing EMC Symmetrix Virtual Provisioning with VMware vSphere</a>:
+
+> Like zeroedthick, the &#8220;thin&#8221; allocation mechanism is also Virtual Provisioning-friendly, but, as will be explained in this section, should only be used with caution in conjunction with Symmetrix Virtual Provisioning. &#8220;Thin&#8221; virtual disks increase the efficiency of storage utilization for virtualization environments by using only the amount of underlying storage resources needed for that virtual disk, exactly like zeroedthick. But unlike zeroedthick, thin devices do not reserve space on the VMFS volume-allowing more virtual disks per VMFS. Upon the initial provisioning of the virtual disk, the disk is provided with an allocation equal to one block size worth of storage from the datastore. As that space is filled, additional chunks of storage in multiples of the VMFS block size are allocated for the virtual disk so that the underlying storage demand will grow as its size increases.  
+> ..  
+> ..  
+> However, as previously mentioned, VMware and EMC have recently ameliorated the practicality of using thin virtual disks with Symmetrix Virtual Provisioning. This has been achieved through:
+> 
+> 1.  Refining vCenter and array reporting while also widening the breadth of directSymmetrix integration through features such as the vStorage API for StorageAwareness (VASA—vSphere 5 only).
+> 2.  Removing the slight performance overhead that existed with thin VMDKs. This was caused by zeroing-on-demand and intermittent expansion of the virtual disk as new blocks were written to by the guest OS and has been respectively significantly diminished with the advent of Block Zero and Hardware-Assisted Locking (ATS).
+> 3.  The introduction of Storage Dynamic Resource Scheduler in vSphere 5 (SDRS) further reduces the risk of running out of space on a VMFS volume as it can be configured to migrate virtual machines from a datastore when that datastore reaches a user-specified percent-full threshold. This all but eliminates the risk of running out of space on VMFS volumes, with the only assumption being that there is available capacity elsewhere to move the virtual machines to.
+> 
+> These improvements can make &#8220;thin on thin&#8221; a much more viable option—especially in vSphere 5. Essentially, it depends on how risk-averse an organization is and the importance/priority of an application running in a virtual machine. If virtual machine density and storage efficiency is valued above the added protection provided by a thick virtual disk (or simply the possible risk of an out-of-space condition is acceptable), “thin on thin” may be used. If &#8220;thin on thin&#8221; is used, alerts on the vCenter level and the array level should be configured.
+
+The same article has a section entitled &#8220;Thin pool management&#8221; and it has great examples on how to configure the array and vCenter to monitor the space usage of a thin Lun. All in all, using thin provisioned vmdks on thin provisioned LUNs is not a bad thing as long as you running ESX 4.1 or above and you monitor the disk usage appropriately. Here are some blogs that talk about similar topics: <a href="http://virtualgeek.typepad.com/virtual_geek/2009/04/thin-on-thin-where-should-you-do-thin-provisioning-vsphere-40-or-array-level.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtualgeek.typepad.com/virtual_geek/2009/04/thin-on-thin-where-should-you-do-thin-provisioning-vsphere-40-or-array-level.html']);">Thin on Thin? Where should you do Thin Provisioning – vSphere 4.0 or Array-Level?</a> and  <a href="http://vpivot.com/2012/02/01/vmware-thin-disks-on-emc-virtual-provisioning/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://vpivot.com/2012/02/01/vmware-thin-disks-on-emc-virtual-provisioning/']);">VMware Thin Disks on EMC Virtual Provisioning</a>.
+
+Along the same topic, sometimes performance between thick and thin VMDKs comes up. There is a good study that was done regarding that: <a href="http://www.vmware.com/pdf/vsp_4_thinprov_perf.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/vsp_4_thinprov_perf.pdf']);">Performance Study of VMware vStorage Thin Provisioning</a>. I don&#8217;t want to get side tracked, so I might discuss that specific topic in another post.
+
+<div class="SPOSTARBUST-Related-Posts">
+  <H3>
+    Related Posts
+  </H3>
+  
+  <ul class="entry-meta">
+    <li class="SPOSTARBUST-Related-Post">
+      <a title="VMFS Datastore not Auto-Mounting on an ESX(i) Host because the VMFS Partition is Overwritten" href="http://virtuallyhyper.com/2012/09/vmfs-datastore-not-auto-mounting-on-an-esxi-host/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/09/vmfs-datastore-not-auto-mounting-on-an-esxi-host/']);" rel="bookmark">VMFS Datastore not Auto-Mounting on an ESX(i) Host because the VMFS Partition is Overwritten</a>
+    </li>
+  </ul>
+</div>
+
+<p class="wp-flattr-button">
+  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/04/thin-on-thin-with-vmware-thin-provisioned-disks-and-emc-symmetrix-virtual-provisioning/" title=" &#8220;Thin on Thin&#8221; With VMware Thin Provisioned Disks and EMC Symmetrix Virtual Provisioning" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:eagerzeroed thick,EMC Symmetrix,lazyzeroed thick,thick,thin,thin provisioning,vmfs,blog;button:compact;">We had two LUNs presented to a host: [code] ~ # esxcfg-scsidevs -c | grep ^naa naa.600144f0928c010000004fc511ec0001 Direct-Access /vmfs/devices/disks/naa.600144f0928c010000004fc511ec0001 102400MB NMP OI iSCSI Disk (naa.600144f0928c010000004fc511ec0001) naa.600144f0928c010000004fc90a3a0001 Direct-Access /vmfs/devices/disks/naa.600144f0928c010000004fc90a3a0001 133120MB NMP...</a>
+</p>

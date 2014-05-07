@@ -1,0 +1,154 @@
+---
+title: VCAP5-DCD Objective 2.3 – Build Availability Requirements into the Logical Design
+author: Karim Elatov
+layout: post
+permalink: /2012/08/vcap5-dcd-objective-2-3-build-availability-requirements-into-the-logical-design/
+dsq_thread_id:
+  - 1404673450
+categories:
+  - VCAP5-DCD
+  - VMware
+tags:
+  - VCAP5-DCD
+---
+### Understand what logical availability services are provided by VMware solutions
+
+From <a href="http://www.virten.net/2012/06/vdcd510-objective-2-3-build-availability-requirements-into-the-logical-design/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.virten.net/2012/06/vdcd510-objective-2-3-build-availability-requirements-into-the-logical-design/']);">this</a> blog:
+
+> **VMware Availability Services**  
+> **vSphere High Availability (HA)** minimizes your downtime by restarting virtual machines on remaining hosts in case of hardware failures.
+> 
+> **vSphere Fault Tolerance (FT)**  
+> provides continuous availability for virtual machines by creating a live copy of a virtual machine to another physical host.
+
+From the <a href="http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap5-dca-availability-dr/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap5-dca-availability-dr/']);">APAC BrownBag Session 4</a> slide deck:
+
+<a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/availability_features.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/availability_features.png']);"><img class="alignnone size-full wp-image-2761" title="availability_features" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/availability_features.png" alt="availability features VCAP5 DCD Objective 2.3 – Build Availability Requirements into the Logical Design " width="1003" height="458" /></a>
+
+### Identify and differentiate infrastructure qualities (Availability, Manageability, Performance, Recoverability, Security)
+
+From <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.pdf']);">this</a> PDF:
+
+> **Design Criteria**
+> 
+> 1.  Usability 
+>     1.  Performance &#8211; maybe measured by throughput, latency, transaction&#8230;etc
+>     2.  Availability &#8211; defined as access to resources when needed 
+>         *   Achieved using redundancy
+>         *   Defined in SLA
+>     3.  Scalability &#8211; support future growth while maintaining acceptable performance
+> 2.  Manageability 
+>     *   Easy to deploy
+>     *   Easy to administer and maintain
+>     *   Easy to update and upgrade
+>     *   Simplification is law
+>     *   unnecessary complexities can lead to failture, rises in cost&#8230; etc
+> 3.  Security 
+>     *   Minimizes risks
+>     *   is easy to secure
+>     *   good security design typically applies defense in depth
+>     *   authentication, firewalls, DMZ, IPS, IDS, filters, VPN&#8230; etc
+>     *   biometrics, smart cards, tokens&#8230; etc
+> 4.  Cost 
+>     *   The design needs to be &#8220;good enough&#8221; to meet business requirements
+>     *   The design needs to fit within the budget
+
+and from <a href="http://www.virten.net/2012/06/vdcd510-objective-2-3-build-availability-requirements-into-the-logical-design/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.virten.net/2012/06/vdcd510-objective-2-3-build-availability-requirements-into-the-logical-design/']);">this</a> blog:
+
+> **Availability** is the ability of a system or service to perform its required function when required. It is usually calculated as a percentage like 99,9%.
+> 
+> **Manageability** describes the expense of running the system. If you have a huge platform that is managed by a tiny team the operational costs are very low.
+> 
+> **Performance** is the measure of what is delivered by a system. This accomplishment is usually measured against known standards of speed completeness and speed.
+> 
+> **Recoverability** describes the ability to return a system or service to a working state. This is usually required after a system failure and repair.
+> 
+> **Security** is the process of ensuring that services are used in an appropriate way.
+
+### Describe the concept of redundancy and the risks associated with single points of failure
+
+From the same blog again:
+
+> **Redundancy and Single Point of Failure** A single point of failure is a component of a system that, if it fails, will cause the entire system to fail. Systems can be made robust by adding redundancy. A server usually attains internal component redundancy by having multiple hard drives, network connections or power supplies. By having multiple servers attached to a cluster you can achieve server hardware redundancy.
+
+Also from this VMware article &#8220;<a href="http://blogs.vmware.com/tp/files/vsphere-ha-5-best-practices-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://blogs.vmware.com/tp/files/vsphere-ha-5-best-practices-guide.pdf']);">vSphere High Availability Deployment Best Practices</a>&#8220;, linked in the blue print:
+
+> **Design Principles for High Availability**  
+> The key to architecting a highly available computing environment is to eliminate single points of failure. With the potential of occurring anywhere in the environment, failures can affect both hardware and software. Building redundancy at vulnerable points helps reduce or eliminate downtime caused by [implied] hardware failures. These include redundancies at the following layers:
+> 
+> *   Server components such as network adaptors and host bus adaptors (HBAs)
+> *   Servers, including blades and blade chassis
+> *   Networking components
+> *   Storage arrays and storage networking
+
+### Differentiate Business Continuity and Disaster Recovery concepts
+
+From <a href="http://www.virten.net/2012/06/vdcd510-objective-2-3-build-availability-requirements-into-the-logical-design/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.virten.net/2012/06/vdcd510-objective-2-3-build-availability-requirements-into-the-logical-design/']);">this</a> blog:
+
+> **Differentiate Business Continuity and Disaster Recovery**  
+> **Business Continuity** is focused on avoiding or mitigateing the impact of a risk. (Proactive)
+> 
+> **Disaster Recovery** is focused on how to restore the services after a outage occurs. (Reactive)
+
+Here a slide from the <a href="http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap5-dca-availability-dr/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap5-dca-availability-dr/']);">APAC BrownBag Session 4</a>:
+
+<a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/dr_vs_bc.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/dr_vs_bc.png']);"><img class="alignnone size-full wp-image-2764" title="dr_vs_bc" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/dr_vs_bc.png" alt="dr vs bc VCAP5 DCD Objective 2.3 – Build Availability Requirements into the Logical Design " width="1166" height="514" /></a>
+
+### Determine availability component of service level agreements (SLAs) and service level management processes
+
+From <a href="http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap5-dca-availability-dr/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap5-dca-availability-dr/']);">APAC BrownBag Session 4</a> slide deck:
+
+<a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/types_of_failures.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/types_of_failures.png']);"><img class="alignnone size-full wp-image-2765" title="types_of_failures" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/types_of_failures.png" alt="types of failures VCAP5 DCD Objective 2.3 – Build Availability Requirements into the Logical Design " width="458" height="476" /></a>
+
+Define an SLA for each and design a setup that will accommodate. For example if your SLA for a certain VM failure is 0, then configure that VM for FT. Or if your SLA is a couple minutes then VMware HA should be good enough. If there are other services that you commit to (i.e. performance) then create storage tiers as necessary.
+
+### Explain availability solutions for a logical design based on customer requirements
+
+The popular logical design that we have seen is the remote site replication, here is that diagram:
+
+<a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/srm-logical-diagram.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/srm-logical-diagram.png']);"><img class="alignnone size-full wp-image-2768" title="srm-logical-diagram" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/srm-logical-diagram.png" alt="srm logical diagram VCAP5 DCD Objective 2.3 – Build Availability Requirements into the Logical Design " width="656" height="287" /></a>
+
+### Define an availability plan, including maintenance processes.
+
+Another good link from the blue print is &#8220;<a href="http://www.vmware.com/business-continuity/high-availability" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.vmware.com/business-continuity/high-availability']);">Business Continuity</a>&#8220;. From one of the articles:
+
+> VMware vSphere makes it possible to reduce both planned and unplanned downtime without the cost and complexity of alternative solutions. Organizations using VMware can slash planned downtime by eliminating most scheduled downtime for hardware maintenance. VMware VMotion™ technology, VMware Distributed Resource Scheduler (DRS) maintenance mode, and VMware Storage VMotion™ make it possible to move running workloads from one physical server to another without downtime or service interruption, enabling zero-downtime hardware maintenance.
+
+Depending on what type of failure you are defining a plan for, do it properly. For SRM create an appropriate Run book. This will be used during a site failure. For host upgrades, make a plan to vMotion all the VMs and ensure there are available resources for all the VMs with one host down, then update the host. For VM maintenance take a snapshot and then revert back if the VM upgrade didn&#8217;t go well.
+
+### Prioritize each service in the Service Catalog according to availability requirements
+
+Using VMware HA set the reboot priority depending on the availability requirements. Most important Services/VMs can have the highest priority during an HA failover. From the &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf']);">vSphere Availability</a>&#8221; PDF, liked in the blue print:
+
+> **VM Restart Priority Setting**  
+> VM restart priority determines the relative order in which virtual machines are restarted after a host failure.Such virtual machines are restarted sequentially on new hosts, with the highest priority virtual machines first and continuing to those with lower priority until all virtual machines are restarted or no more cluster resources are available.
+
+### Balance availability requirements with other infrastructure qualities
+
+From the <a href="http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap5-dca-availability-dr/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap5-dca-availability-dr/']);">APAC BrownBag Session 4</a>:
+
+<a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/infra_qualities.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/infra_qualities.png']);"><img class="alignnone size-full wp-image-2770" title="infra_qualities" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/infra_qualities.png" alt="infra qualities VCAP5 DCD Objective 2.3 – Build Availability Requirements into the Logical Design " width="990" height="568" /></a>
+
+From the VMware Article &#8220;<a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/Improving_Business_Continuity_With_VMware_Virtualization.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://virtuallyhyper.com/wp-content/uploads/2012/11/Improving_Business_Continuity_With_VMware_Virtualization.pdf']);">Improving Business Continuity with VMware Virtualization</a>&#8220;
+
+> VMware also helps protect against unplanned downtime from common failures, including:
+> 
+> *   **Network and storage interface failures**. Support for redundant network and storage interfaces is built into VMware ESX™. Redundant network and storage interface cards can be shared by multiple virtual machines on a server, reducing the cost of implementing redundancy. VMware virtualization also makes it easy to create redundant servers without additional hardware purchases by allowing for the provisioning of virtual machines to existing underutilized servers.
+> *   **Server failures**. VMware High Availability (HA) and VMware Fault Tolerance deliver protection against server failures without the cost and complexity often associated with implementing and maintaining traditional solutions. VMware HA automatically restarts virtual machines affected by server failures on other servers to reduce downtime from such failures to minutes, while VMware Fault Tolerance ensures continuous availability for virtual machines by using VMware vLockstep technology to create a live shadow instance of a virtual machine on another server and allow instantaneous, stateful failover between the two instances.
+> *   **Overloaded servers**. VMware VMotion, VMware Distributed Resource Scheduler (DRS), and VMware Storage VMotion help you to proactively balance workloads across a pool of servers and storage.
+
+Using vMotion,HA, DRS and redundant network and storage components we can balance availability across all the infrastructure components.
+
+I would recommend watching:
+
+*   <a href="http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap5-dca-availability-dr/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap5-dca-availability-dr/']);">APAC BrownBag Session 4</a>
+
+There is also an excellent VMware course on this:
+
+*   <a href="http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&a=one&id_subject=20313" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&a=one&id_subject=20313']);">DRBC Design – Disaster Recovery and Business Continuity Fundamentals</a>
+
+If you are a VMware Employee it&#8217;s free <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile VCAP5 DCD Objective 2.3 – Build Availability Requirements into the Logical Design " class="wp-smiley" title="VCAP5 DCD Objective 2.3 – Build Availability Requirements into the Logical Design " /> 
+
+<p class="wp-flattr-button">
+  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-2-3-build-availability-requirements-into-the-logical-design/" title=" VCAP5-DCD Objective 2.3 – Build Availability Requirements into the Logical Design" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCD,blog;button:compact;">Understand what logical availability services are provided by VMware solutions From this blog: VMware Availability Services vSphere High Availability (HA) minimizes your downtime by restarting virtual machines on remaining hosts...</a>
+</p>
