@@ -104,37 +104,37 @@ JB :
   # Set 'provider' to the comment provider you want to use.
   # Set 'provider' to false to turn commenting off globally.
   #
-  comments :
-    provider : duoshuo
-    duoshuo :
-      short_name : simpleyyt
-    disqus :
-      short_name : simpleyyt
-    livefyre :
-      site_id : 123
-    intensedebate :
-      account : 123abc
-    facebook :
-      appid : 123
-      num_posts: 5
-      width: 580
-      colorscheme: light
+  #comments :
+  #  provider : duoshuo
+  #  duoshuo :
+  #    short_name : simpleyyt
+  #  disqus :
+  #    short_name : simpleyyt
+  #  livefyre :
+  #    site_id : 123
+  #  intensedebate :
+  #    account : 123abc
+  #  facebook :
+  #    appid : 123
+  #    num_posts: 5
+  #    width: 580
+  #    colorscheme: light
    
   # Settings for analytics helper
   # Set 'provider' to the analytics provider you want to use.
   # Set 'provider' to false to turn analytics off globally.
   #        
-  analytics :
-    provider : google 
-    google : 
-        tracking_id : 'UA-123-12'
-    getclicky :
-      site_id : 
-    mixpanel :
-        token : '_MIXPANEL_TOKEN_'
-    piwik :
-        baseURL : 'myserver.tld/piwik' # Piwik installation address (without protocol)
-        idsite : '1'                   # the id of the site on Piwik
+  #analytics :
+  #  provider : google 
+  #  google : 
+  #      tracking_id : 'UA-123-12'
+  #  getclicky :
+  #    site_id : 
+  #  mixpanel :
+  #      token : '_MIXPANEL_TOKEN_'
+  #  piwik :
+  #      baseURL : 'myserver.tld/piwik' # Piwik installation address (without protocol)
+  #      idsite : '1'                   # the id of the site on Piwik
 
   # Settings for sharing helper. 
   # Sharing is for things like tweet, plusone, like, reddit buttons etc.
