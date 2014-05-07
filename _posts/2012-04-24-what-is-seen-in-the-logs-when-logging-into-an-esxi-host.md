@@ -27,55 +27,55 @@ I was recently contacted by a company to determine if a certain user had accesse
 
 When logging to an ESXi host directly via ssh you will see the following in /var/log/secure:
 
-[code]  
-Apr 16 20:28:23 esx_host sshd[20996]: Accepted password for root from 10.16.244.81 port 55941 ssh2  
-Apr 16 20:28:23 esx\_host sshd[20996]: pam\_unix(system-auth-generic:session): session opened for user root by (uid=0)  
-[/code]
+	  
+	Apr 16 20:28:23 esx_host sshd[20996]: Accepted password for root from 10.16.244.81 port 55941 ssh2  
+	Apr 16 20:28:23 esx\_host sshd[20996]: pam\_unix(system-auth-generic:session): session opened for user root by (uid=0)  
+	
 
 If you have the wtmp file on your ESXi host, you can copy that file from the host to a Linux machine and run the following on it (because the \`last\` command does not exist on ESXi, but it does exist on ESX classic):
 
-[code]  
-[root@machine log]# last -f /var/log/wtmp | head  
-root pts/2 10.16.244.81 Mon Apr 16 20:28 - 20:31 (00:02)  
-root pts/1 10.16.244.81 Mon Apr 16 20:27 still logged in  
-root pts/1 10.16.185.12 Fri Apr 13 18:00 - 18:04 (00:03)  
-root pts/1 10.16.185.12 Fri Apr 13 11:58 - 14:12 (02:14)  
-[/code]
+	  
+	# last -f /var/log/wtmp | head  
+	root pts/2 10.16.244.81 Mon Apr 16 20:28 - 20:31 (00:02)  
+	root pts/1 10.16.244.81 Mon Apr 16 20:27 still logged in  
+	root pts/1 10.16.185.12 Fri Apr 13 18:00 - 18:04 (00:03)  
+	root pts/1 10.16.185.12 Fri Apr 13 11:58 - 14:12 (02:14)  
+	
 
 You will notice that it will list the IP and the duration of the login.
 
 When logging into an ESXi host via ssh, you will see the following under /var/log/messages
 
-[code]  
-Apr 22 13:27:27 dropbear[7302]: Child connection from 10.0.1.1:53262  
-Apr 22 13:27:30 dropbear[7302]: pam\_per\_user: create\_subrequest\_handle(): doing map lookup for user "root"  
-Apr 22 13:27:30 dropbear[7302]: pam\_per\_user: create\_subrequest\_handle(): creating new subrequest (user="root", service="system-auth-generic")  
-Apr 22 13:27:30 shell[7721]: Interactive shell session started  
-[/code]
+	  
+	Apr 22 13:27:27 dropbear[7302]: Child connection from 10.0.1.1:53262  
+	Apr 22 13:27:30 dropbear[7302]: pam\_per\_user: create\_subrequest\_handle(): doing map lookup for user "root"  
+	Apr 22 13:27:30 dropbear[7302]: pam\_per\_user: create\_subrequest\_handle(): creating new subrequest (user="root", service="system-auth-generic")  
+	Apr 22 13:27:30 shell[7721]: Interactive shell session started  
+	
 
 If you have physical access to an ESXi host and you log in directly via the console (ALT-F1), you will see the following:
 
-[code]  
-Apr 22 08:49:37 localhost login: pam\_per\_user: create\_subrequest\_handle(): doing map lookup for user "root"  
-Apr 22 08:49:37 localhost login: pam\_per\_user: create\_subrequest\_handle(): creating new subrequest (user="root", service="system-auth-generic")  
-Apr 22 08:49:39 localhost login: pam_unix(system-auth-generic:session): session opened for user root by LOGIN(uid=0)  
-Apr 22 08:49:39 localhost login: ROOT LOGIN ON tty1  
-[/code]
+	  
+	Apr 22 08:49:37 localhost login: pam\_per\_user: create\_subrequest\_handle(): doing map lookup for user "root"  
+	Apr 22 08:49:37 localhost login: pam\_per\_user: create\_subrequest\_handle(): creating new subrequest (user="root", service="system-auth-generic")  
+	Apr 22 08:49:39 localhost login: pam_unix(system-auth-generic:session): session opened for user root by LOGIN(uid=0)  
+	Apr 22 08:49:39 localhost login: ROOT LOGIN ON tty1  
+	
 
 And if you have access to the /var/log/wtmp file you can again copy it to a Linux machine and run the following:
 
-[code]  
-[root@localhost log]# last -f /var/log/wtmp | head  
-root tty1 Sun Apr 22 08:49 still logged in  
-root tty1 Sun Apr 22 08:48 - 08:49 (00:00)  
-root pts/0 10.0.1.1 Sun Apr 22 08:48 still logged in  
-[/code]
+	  
+	# last -f /var/log/wtmp | head  
+	root tty1 Sun Apr 22 08:49 still logged in  
+	root tty1 Sun Apr 22 08:48 - 08:49 (00:00)  
+	root pts/0 10.0.1.1 Sun Apr 22 08:48 still logged in  
+	
 
 Notice it shows tty1 instead of pts/0 (compared to when you logged in via SSH). From the man page of <a href="http://linux.die.net/man/4/console" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://linux.die.net/man/4/console']);">console(4)</a>.
 
 > A Linux system has up to 63 virtual consoles (character devices with major number 4 and minor number 1 to 63), usually called /dev/ttyn with 1 ..  
 > ..  
-> Common ways to switch consoles are: (a) use Alt+Fn or Ctrl+Alt+Fn to switch to console n; AltGr+Fn might bring you to console n+12 [here Alt and AltGr refer to the left and right Alt keys, respectively];
+> Common ways to switch consoles are: (a) use Alt+Fn or Ctrl+Alt+Fn to switch to console n; AltGr+Fn might bring you to console n+12 ;
 
 So when you are physically in front of a Linux machine, you get a virtual console and you can switch between them by clicking ALT-F#. Depending on which # you select that will be your virtual console # (ie tty1, tty2.,etc&#8230;). Now from the man page of <a href="http://linux.die.net/man/4/pts" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://linux.die.net/man/4/pts']);">pts(4)</a>:
 
@@ -87,12 +87,12 @@ So when you are physically in front of a Linux machine, you get a virtual consol
 
 So if you login to a Linux machine via SSH you get a pseudoterminal and it get incremented with the number of logins (ie first login will be on /dev/pts/0, second login will be on /dev/pts/1, and so on). So from the same output as before:
 
-[code]  
-[root@localhost log]# last -f /var/log/wtmp | head  
-root     tty1                          Sun Apr 22 08:49   still logged in  
-root     tty1                          Sun Apr 22 08:48 - 08:49  (00:00)  
-root     pts/0        10.0.1.1         Sun Apr 22 08:48   still logged in  
-[/code]
+	  
+	# last -f /var/log/wtmp | head  
+	root     tty1                          Sun Apr 22 08:49   still logged in  
+	root     tty1                          Sun Apr 22 08:48 - 08:49  (00:00)  
+	root     pts/0        10.0.1.1         Sun Apr 22 08:48   still logged in  
+	
 
 We can see that someone had physical access to the ESX host and he clicked &#8220;ALT-F1&#8243; (ended up utilizing the virtual terminal tty1) and logged in, one minute later logged off. He then loggged back in and is still logged in. We also see that one machine with IP 10.0.1.1 logged via ssh (ended up using a pseudoterminal pts/0) and is also still logged in.
 
@@ -100,61 +100,61 @@ We can see that someone had physical access to the ESX host and he clicked &#822
 
 If you have physical access to an ESXi host and you connect directly to the DCUI (Direct Console User Interface), you will see the following under /var/log/messages:
 
-[code]  
-Apr 22 13:32:21 DCUI: pam\_per\_user: create\_subrequest\_handle(): doing map lookup for user "root"  
-Apr 22 13:32:21 DCUI: pam\_per\_user: create\_subrequest\_handle(): creating new subrequest (user="root", service="system-auth-generic")  
-Apr 22 13:32:21 DCUI: pam_unix(system-auth-generic:auth): authentication failure; logname= uid=0 euid=0 tty= ruser= rhost= user=root  
-Apr 22 13:32:26 DCUI: pam\_per\_user: create\_subrequest\_handle(): doing map lookup for user "root"  
-Apr 22 13:32:26 DCUI: pam\_per\_user: create\_subrequest\_handle(): creating new subrequest (user="root", service="system-auth-generic")  
-Apr 22 13:32:26 DCUI: authentication of user root succeeded  
-[/code]
+	  
+	Apr 22 13:32:21 DCUI: pam\_per\_user: create\_subrequest\_handle(): doing map lookup for user "root"  
+	Apr 22 13:32:21 DCUI: pam\_per\_user: create\_subrequest\_handle(): creating new subrequest (user="root", service="system-auth-generic")  
+	Apr 22 13:32:21 DCUI: pam_unix(system-auth-generic:auth): authentication failure; logname= uid=0 euid=0 tty= ruser= rhost= user=root  
+	Apr 22 13:32:26 DCUI: pam\_per\_user: create\_subrequest\_handle(): doing map lookup for user "root"  
+	Apr 22 13:32:26 DCUI: pam\_per\_user: create\_subrequest\_handle(): creating new subrequest (user="root", service="system-auth-generic")  
+	Apr 22 13:32:26 DCUI: authentication of user root succeeded  
+	
 
 From the DCUI, you can enable Tech Support Mode (TSM) and then login to get an interactive shell by clicking ALT-F1. More information regarding TSM and how to enable it, can be found in VMware KB <a href="http://kb.vmware.com/kb/1017910" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1017910']);">1017910</a>. If you do that then you will see the following logs in your /var/log/messages file:
 
-[code]  
-Apr 22 13:36:06 root: TSM Displaying TSM login: runlevel =  
-Apr 22 13:36:06 init: init: process '/sbin/initterm.sh TTY1 /sbin/techsupport.sh ++min=0,swap' (pid 13818) exited. Scheduling it for restart.  
-Apr 22 13:36:06 init: init: starting pid 13868, tty '/dev/tty1': '/bin/sh'  
-Apr 22 13:36:06 root: techsupport VMware Tech Support Mode available  
-Apr 22 13:36:15 login[13876]: pam\_per\_user: create\_subrequest\_handle(): doing map lookup for user "root"  
-Apr 22 13:36:15 login[13876]: pam\_per\_user: create\_subrequest\_handle(): creating new subrequest (user="root", service="system-auth-generic")  
-Apr 22 13:36:17 login[13876]: pam_unix(system-auth-generic:session): session opened for user root by (uid=0)  
-Apr 22 13:36:17 login[13876]: pam\_env(system-auth-generic:setcred): Unable to open config file: /etc/security/pam\_env.conf: No such file or directory  
-Apr 22 13:36:17 login[13876]: root login on 'UNKNOWN'  
-Apr 22 13:36:17 shell[13876]: Interactive shell session started  
-[/code]
+	  
+	Apr 22 13:36:06 root: TSM Displaying TSM login: runlevel =  
+	Apr 22 13:36:06 init: init: process '/sbin/initterm.sh TTY1 /sbin/techsupport.sh ++min=0,swap' (pid 13818) exited. Scheduling it for restart.  
+	Apr 22 13:36:06 init: init: starting pid 13868, tty '/dev/tty1': '/bin/sh'  
+	Apr 22 13:36:06 root: techsupport VMware Tech Support Mode available  
+	Apr 22 13:36:15 login[13876]: pam\_per\_user: create\_subrequest\_handle(): doing map lookup for user "root"  
+	Apr 22 13:36:15 login[13876]: pam\_per\_user: create\_subrequest\_handle(): creating new subrequest (user="root", service="system-auth-generic")  
+	Apr 22 13:36:17 login[13876]: pam_unix(system-auth-generic:session): session opened for user root by (uid=0)  
+	Apr 22 13:36:17 login[13876]: pam\_env(system-auth-generic:setcred): Unable to open config file: /etc/security/pam\_env.conf: No such file or directory  
+	Apr 22 13:36:17 login[13876]: root login on 'UNKNOWN'  
+	Apr 22 13:36:17 shell[13876]: Interactive shell session started  
+	
 
 # Logging in via vSphere Client (to ESX host)
 
 Now if you login to the ESX or ESXi host via the vsphere client, you will see the following in your /var/log/vmware/hostd.log:
 
-[code]  
-\[2012-04-16 20:35:04.594 F6417B90 info 'Vimsvc'\] \[Auth\]: User root  
-[2012-04-16 20:35:04.594 F6417B90 info 'ha-eventmgr'] Event 35 : User root 10.131.3.116 logged in  
-[/code]
+	  
+	\[2012-04-16 20:35:04.594 F6417B90 info 'Vimsvc'\] \[Auth\]: User root  
+	[2012-04-16 20:35:04.594 F6417B90 info 'ha-eventmgr'] Event 35 : User root 10.131.3.116 logged in  
+	
 
 You will also see the following in /var/log/messages:
 
-[code]  
-Apr 16 20:35:04 esx_host /usr/lib/vmware/bin/vmware-hostd[23877]: Accepted password for user root from 10.131.3.116  
-[/code]
+	  
+	Apr 16 20:35:04 esx_host /usr/lib/vmware/bin/vmware-hostd[23877]: Accepted password for user root from 10.131.3.116  
+	
 
 and finally you will see the following in /var/log/secure (only under ESX and not on ESXi):
 
-[code]  
-Apr 16 20:35:04 esx\_host /usr/lib/vmware/bin/vmware-hostd[23877]: pam\_per\_user: create\_subrequest_handle(): doing map lookup for user "root"  
-Apr 16 20:35:04 esx\_host /usr/lib/vmware/bin/vmware-hostd[23877]: pam\_per\_user: create\_subrequest_handle(): creating new subrequest (user="root", service="system-auth-generic")  
-[/code]
+	  
+	Apr 16 20:35:04 esx\_host /usr/lib/vmware/bin/vmware-hostd[23877]: pam\_per\_user: create\_subrequest_handle(): doing map lookup for user "root"  
+	Apr 16 20:35:04 esx\_host /usr/lib/vmware/bin/vmware-hostd[23877]: pam\_per\_user: create\_subrequest_handle(): creating new subrequest (user="root", service="system-auth-generic")  
+	
 
 # Logging in via vSphere Client (to vCenter)
 
 If you connect to the vCenter using the vSphere client, you will only see the login attempt on the vCenter it self and not on the ESX(i) host. That will be under C:\Documents and Settings\AllUsers\Application Data\VMware\VMware VirtualCenter\Logs\vpxd.log. You will see the following in the logs:
 
-[code]  
-\[2012-04-16 21:42:11.096 02584 info 'App'\] \[VpxLRO\] -- BEGIN task-internal-1788204 \-- -- vim.SessionManager.loginBySSPI -- 0CCF336E-E963-44C9-8AF6-90D4B10EFE74  
-\[2012-04-16 21:42:11.096 02584 info 'App'\] \[Auth\]: User NETLAB\kelatov  
-\[2012-04-16 21:42:11.111 02584 info 'App'\] \[VpxLRO\] -- FINISH task-internal-1788204 \-- -- vim.SessionManager.loginBySSPI -- 0CCF336E-E963-44C9-8AF6-90D4B10EFE74  
-[/code]
+	  
+	\[2012-04-16 21:42:11.096 02584 info 'App'\] \[VpxLRO\] -- BEGIN task-internal-1788204 \-- -- vim.SessionManager.loginBySSPI -- 0CCF336E-E963-44C9-8AF6-90D4B10EFE74  
+	\[2012-04-16 21:42:11.096 02584 info 'App'\] \[Auth\]: User NETLAB\kelatov  
+	\[2012-04-16 21:42:11.111 02584 info 'App'\] \[VpxLRO\] -- FINISH task-internal-1788204 \-- -- vim.SessionManager.loginBySSPI -- 0CCF336E-E963-44C9-8AF6-90D4B10EFE74  
+	
 
 **Note:** Log location depends on your Windows version, please consult VMware KB <a href="http://kb.vmware.com/kb/1021804" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1021804']);">1021804</a> to make sure you are looking at the correct location.
 

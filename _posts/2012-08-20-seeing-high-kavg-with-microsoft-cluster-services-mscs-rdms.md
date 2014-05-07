@@ -23,13 +23,13 @@ I came across an interesting issue the other day. I would randomly see high KAVG
 
 We can see that there actually isn&#8217;t that much IO going to that LUN. As the issue was happening, I would see the following in the logs:
 
-[code]  
-Aug 16 20:09:17 vmkernel: 3:12:40:56.871 cpu16:4112)ScsiDeviceIO: 1688: Command 0x1a to device "naa.60060xxxx" failed H:0x5 D:0x0 P:0x0 Possible sense data: 0x0 0x0 0x0.  
-Aug 16 20:09:57 vmkernel: 3:12:41:36.916 cpu5:4101)ScsiDeviceIO: 1688: Command 0x28 to device "naa.60060xxxx" failed H:0x5 D:0x0 P:0x0 Possible sense data: 0x0 0x0 0x0.  
-Aug 16 20:10:37 vmkernel: 3:12:42:16.972 cpu6:4102)ScsiDeviceIO: 1688: Command 0x28 to device "naa.60060xxxxx" failed H:0x5 D:0x0 P:0x0 Possible sense data: 0x0 0x0 0x0.  
-Aug 16 20:10:37 vmkernel: 3:12:42:16.972 cpu1:1551133)WARNING: Partition: 801: Partition table read from device naa.60060xxx failed: I/O error  
-Aug 16 20:11:17 vmkernel: 3:12:42:56.982 cpu4:4100)ScsiDeviceIO: 1688: Command 0x28 to device "naa.60060xxxx" failed H:0x5 D:0x0 P:0x0 Possible sense data: 0x0 0x0 0x0.  
-[/code]
+	  
+	Aug 16 20:09:17 vmkernel: 3:12:40:56.871 cpu16:4112)ScsiDeviceIO: 1688: Command 0x1a to device "naa.60060xxxx" failed H:0x5 D:0x0 P:0x0 Possible sense data: 0x0 0x0 0x0.  
+	Aug 16 20:09:57 vmkernel: 3:12:41:36.916 cpu5:4101)ScsiDeviceIO: 1688: Command 0x28 to device "naa.60060xxxx" failed H:0x5 D:0x0 P:0x0 Possible sense data: 0x0 0x0 0x0.  
+	Aug 16 20:10:37 vmkernel: 3:12:42:16.972 cpu6:4102)ScsiDeviceIO: 1688: Command 0x28 to device "naa.60060xxxxx" failed H:0x5 D:0x0 P:0x0 Possible sense data: 0x0 0x0 0x0.  
+	Aug 16 20:10:37 vmkernel: 3:12:42:16.972 cpu1:1551133)WARNING: Partition: 801: Partition table read from device naa.60060xxx failed: I/O error  
+	Aug 16 20:11:17 vmkernel: 3:12:42:56.982 cpu4:4100)ScsiDeviceIO: 1688: Command 0x28 to device "naa.60060xxxx" failed H:0x5 D:0x0 P:0x0 Possible sense data: 0x0 0x0 0x0.  
+	
 
 VMware KB <a href="http://kb.vmware.com/kb/1016106" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1016106']);">1016106</a>, matches the error. We were using MSCS but already had the patch applied mentioned in the above KB and the following option set:
 
@@ -38,30 +38,30 @@ VMware KB <a href="http://kb.vmware.com/kb/1016106" onclick="javascript:_gaq.pus
 
 I also wanted to confirm the device that was experiencing the high KAVG was in fact an RDM. Checking the RDM vmdk of my VM I found the VML identifier of the RDM:
 
-[code]  
-\# vmkfstools -q /vmfs/volumes/datastore/MSCS\_NODE/MSCS\_NODE_3.vmdk  
-Disk /vmfs/volumes/datastore/MSCS\_NODE/MSCS\_NODE_3.vmdk is a Passthrough Raw Device Mapping  
-Maps to: vml.0200050000600601603df02d00d06e9cf71b6fe111565241494420  
-[/code]
+	  
+	\# vmkfstools -q /vmfs/volumes/datastore/MSCS\_NODE/MSCS\_NODE_3.vmdk  
+	Disk /vmfs/volumes/datastore/MSCS\_NODE/MSCS\_NODE_3.vmdk is a Passthrough Raw Device Mapping  
+	Maps to: vml.0200050000600601603df02d00d06e9cf71b6fe111565241494420  
+	
 
 Searching for that vml, I saw the following:
 
-[code]  
-~ # esxcfg-scsidevs -l | grep vml.0200050000600601603df02d00d06e9cf71b6fe111565241494420 -B 12  
-naa.60060xxxxx  
-Device Type: Direct-Access  
-Size: 20480 MB  
-Display Name: DGC iSCSI Disk (naa.60060xxxx)  
-Multipath Plugin: NMP  
-Console Device: /vmfs/devices/disks/naa.60060160xxxx  
-Devfs Path: /vmfs/devices/disks/naa.60060xxxx  
-Vendor: DGC Model: VRAID Revis: 0531  
-SCSI Level: 4 Is Pseudo: false Status: on  
-Is RDM Capable: true Is Removable: false  
-Is Local: false  
-Other Names:  
-vml.0200050000600601603df02d00d06e9cf71b6fe111565241494420  
-[/code]
+	  
+	~ # esxcfg-scsidevs -l | grep vml.0200050000600601603df02d00d06e9cf71b6fe111565241494420 -B 12  
+	naa.60060xxxxx  
+	Device Type: Direct-Access  
+	Size: 20480 MB  
+	Display Name: DGC iSCSI Disk (naa.60060xxxx)  
+	Multipath Plugin: NMP  
+	Console Device: /vmfs/devices/disks/naa.60060160xxxx  
+	Devfs Path: /vmfs/devices/disks/naa.60060xxxx  
+	Vendor: DGC Model: VRAID Revis: 0531  
+	SCSI Level: 4 Is Pseudo: false Status: on  
+	Is RDM Capable: true Is Removable: false  
+	Is Local: false  
+	Other Names:  
+	vml.0200050000600601603df02d00d06e9cf71b6fe111565241494420  
+	
 
 it did correspond to one of the NAAs that I saw the high KAVG for. I wanted to see if I was seeing Reservation Conflicts on the devices that were experiencing the high KAVG. So I followed the instructions described in the yellow brick blog entitled &#8220;<a href="http://www.yellow-bricks.com/2010/10/26/did-you-know-scsi-reservations/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.yellow-bricks.com/2010/10/26/did-you-know-scsi-reservations/']);">Did you know? SCSI Reservations…</a>&#8220;. This is what I saw in my esxtop output:
 
@@ -69,27 +69,27 @@ it did correspond to one of the NAAs that I saw the high KAVG for. I wanted to s
 
 We can see that the column &#8220;CONS/S&#8221; has a high number for the device that is experiencing the high KAVG. Also looking at the device statistics:
 
-[code highlight="9"]  
-~ # vsish -e cat /storage/scsifw/devices/naa.60060xxxx/stats  
-Statistics {  
-commands:11816  
-blocksRead:36628  
-blocksWritten:0  
-readOps:7468  
-writeOps:0  
-reserveOps:0  
-reservationConflicts:10221  
-total cmds split:0  
-total pae cmds:0  
-per split-type stats:Split type statistics {  
-align:0  
-maxxfer:0  
-pae:0  
-sgsize:0  
-forcedCopy:0  
-forcedSplit:0  
-}  
-[/code]
+	  
+	~ # vsish -e cat /storage/scsifw/devices/naa.60060xxxx/stats  
+	Statistics {  
+	commands:11816  
+	blocksRead:36628  
+	blocksWritten:0  
+	readOps:7468  
+	writeOps:0  
+	reserveOps:0  
+	reservationConflicts:10221  
+	total cmds split:0  
+	total pae cmds:0  
+	per split-type stats:Split type statistics {  
+	align:0  
+	maxxfer:0  
+	pae:0  
+	sgsize:0  
+	forcedCopy:0  
+	forcedSplit:0  
+	}  
+	
 
 We can see that we have a high number of Reservation Conflicts on this device. This is a known issue and from this VMware KB <a href="http://kb.vmware.com/kb/1009287" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1009287']);">1009287</a> here is why:
 

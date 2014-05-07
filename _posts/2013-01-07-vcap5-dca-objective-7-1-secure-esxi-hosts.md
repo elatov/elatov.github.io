@@ -16,56 +16,56 @@ tags:
 
 Here are the config files for SSH:
 
-[code]  
-~ # ls /etc/ssh/  
-keys-root ssh\_host\_dsa\_key ssh\_host\_rsa\_key sshd_config  
-moduli ssh\_host\_dsa\_key.pub ssh\_host\_rsa\_key.pub  
-[/code]
+	  
+	~ # ls /etc/ssh/  
+	keys-root ssh\_host\_dsa\_key ssh\_host\_rsa\_key sshd_config  
+	moduli ssh\_host\_dsa\_key.pub ssh\_host\_rsa\_key.pub  
+	
 
 SSH is used to securely manage a host from a remote client. Here are the ssl certificates that used to encrypt data between vCenter and an ESXi host:
 
-[code]  
-~ # ls /etc/vmware/ssl/  
-rui.crt rui.key  
-[/code]
+	  
+	~ # ls /etc/vmware/ssl/  
+	rui.crt rui.key  
+	
 
 Here are the files that contain all the firewall rules for the ESXi host:
 
-[code]  
-~ # ls /etc/vmware/firewall/  
-fdm.xml service.xml  
-[/code]
+	  
+	~ # ls /etc/vmware/firewall/  
+	fdm.xml service.xml  
+	
 
 Here are all the network security settings store under */etc/vmware/esx.conf* for all the virtual switches configured on a host:
 
-[code]  
-~ # grep security /etc/vmware/esx.conf  
-/net/vswitch/child[0000]/securityPolicy/forgedTx = "true"  
-/net/vswitch/child[0000]/securityPolicy/interPgTx = "true"  
-/net/vswitch/child[0000]/securityPolicy/localPackets = "true"  
-/net/vswitch/child[0000]/securityPolicy/macChange = "true"  
-/net/vswitch/child[0000]/securityPolicy/promiscuous = "false"  
-/net/vswitch/child[0001]/securityPolicy/forgedTx = "true"  
-/net/vswitch/child[0001]/securityPolicy/interPgTx = "true"  
-/net/vswitch/child[0001]/securityPolicy/localPackets = "true"  
-/net/vswitch/child[0001]/securityPolicy/macChange = "true"  
-/net/vswitch/child[0001]/securityPolicy/promiscuous = "false"  
-/net/vswitch/child[0002]/securityPolicy/forgedTx = "true"  
-/net/vswitch/child[0002]/securityPolicy/macChange = "true"  
-/net/vswitch/child[0002]/securityPolicy/promiscuous = "false"  
-/net/vswitch/child[0003]/securityPolicy/forgedTx = "true"  
-/net/vswitch/child[0003]/securityPolicy/macChange = "true"  
-/net/vswitch/child[0003]/securityPolicy/promiscuous = "false"  
-[/code]
+	  
+	~ # grep security /etc/vmware/esx.conf  
+	/net/vswitch/child[0000]/securityPolicy/forgedTx = "true"  
+	/net/vswitch/child[0000]/securityPolicy/interPgTx = "true"  
+	/net/vswitch/child[0000]/securityPolicy/localPackets = "true"  
+	/net/vswitch/child[0000]/securityPolicy/macChange = "true"  
+	/net/vswitch/child[0000]/securityPolicy/promiscuous = "false"  
+	/net/vswitch/child[0001]/securityPolicy/forgedTx = "true"  
+	/net/vswitch/child[0001]/securityPolicy/interPgTx = "true"  
+	/net/vswitch/child[0001]/securityPolicy/localPackets = "true"  
+	/net/vswitch/child[0001]/securityPolicy/macChange = "true"  
+	/net/vswitch/child[0001]/securityPolicy/promiscuous = "false"  
+	/net/vswitch/child[0002]/securityPolicy/forgedTx = "true"  
+	/net/vswitch/child[0002]/securityPolicy/macChange = "true"  
+	/net/vswitch/child[0002]/securityPolicy/promiscuous = "false"  
+	/net/vswitch/child[0003]/securityPolicy/forgedTx = "true"  
+	/net/vswitch/child[0003]/securityPolicy/macChange = "true"  
+	/net/vswitch/child[0003]/securityPolicy/promiscuous = "false"  
+	
 
 Here is a list of supported functions that use pam for authentication:
 
-[code]  
-~ # ls /etc/pam.d/  
-dcui other sshd system-auth-local  
-login passwd system-auth vmware-authd  
-openwsman sfcb system-auth-generic  
-[/code]
+	  
+	~ # ls /etc/pam.d/  
+	dcui other sshd system-auth-local  
+	login passwd system-auth vmware-authd  
+	openwsman sfcb system-auth-generic  
+	
 
 ### Identify virtual switch security characteristics
 
@@ -163,10 +163,10 @@ Here is how it looks like from vCenter:
 
 You can also set a timeout for the shell with the following advanced option:
 
-[code]  
-~ # esxcfg-advcfg -l | grep -i ESXiShell  
-/UserVars/ESXiShellTimeOut [Integer] : Timeout for local and remote shell access (in seconds)  
-[/code]
+	  
+	~ # esxcfg-advcfg -l | grep -i ESXiShell  
+	/UserVars/ESXiShellTimeOut [Integer] : Timeout for local and remote shell access (in seconds)  
+	
 
 ### Enable/Disable certificate checking
 
@@ -200,15 +200,15 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 > **Procedure**
 > 
 > 1.  Log in to the ESXi Shell and acquire root privileges.
-> 2.  In the directory /etc/vmware/ssl, back up any existing certificates by renaming them using the following commands.[code]  
->     mv rui.crt orig.rui.crt  
->     mv rui.key orig.rui.key  
->     [/code]
+	> 2.  In the directory /etc/vmware/ssl, back up any existing certificates by renaming them using the following commands.  
+	>     mv rui.crt orig.rui.crt  
+	>     mv rui.key orig.rui.key  
+	>     
 > 3.  Run the command */sbin/generate-certificates* to generate new certificates.
 > 4.  Restart the host after you install the new certificate. Alternatively, you can put the host into maintenance mode, install the new certificate, and then use the Direct Console User Interface (DCUI) to restart the management agents.
-> 5.  Confirm that the host successfully generated new certificates by using the following command and comparing the time stamps of the new certificate files with orig.rui.crt and orig.rui.key.[code]  
->     ls -la  
->     [/code]
+	> 5.  Confirm that the host successfully generated new certificates by using the following command and comparing the time stamps of the new certificate files with orig.rui.crt and orig.rui.key.  
+	>     ls -la  
+	>     
 
 ### Enable ESXi lockdown mode
 
@@ -284,10 +284,10 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 > **Procedure**
 > 
 > 1.  Log in to the ESXi Shell and acquire root privileges.
-> 2.  In the directory /etc/vmware/ssl, rename the existing certificates using the following commands.[code]  
->     mv rui.crt orig.rui.crt  
->     mv rui.key orig.rui.key  
->     [/code]
+	> 2.  In the directory /etc/vmware/ssl, rename the existing certificates using the following commands.  
+	>     mv rui.crt orig.rui.crt  
+	>     mv rui.key orig.rui.key  
+	>     
 > 3.  Copy the new certificate and key to /etc/vmware/ssl.
 > 4.  Rename the new certificate and key to rui.crt and rui.key.
 > 5.  Restart the host after you install the new certificate. Alternatively, you can put the host into maintenance mode, install the new certificate, and then use the Direct Console User Interface (DCUI) to restart the management agents.
@@ -307,32 +307,32 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 > 1.  Log in to the ESXi Shell and acquire root privileges.
 > 2.  Change to the directory **/etc/vmware/hostd/**.
 > 3.  Use a text editor to open the config.xml file.
-> 4.  Enter the value in milliseconds. For example, to set the Read Timeout to 20 seconds, enter the following command.[code language="xml"]  
->     20000  
->     [/code]
-> 5.  Enter the value in milliseconds. For example, to set the Handshake Timeout to 20 seconds, enter the following command.[code language="xml"]  
->     20000  
->     [/code]
+	> 4.  Enter the value in milliseconds. For example, to set the Read Timeout to 20 seconds, enter the following command.  
+	>     20000  
+	>     
+	> 5.  Enter the value in milliseconds. For example, to set the Handshake Timeout to 20 seconds, enter the following command.  
+	>     20000  
+	>     
 > 6.  Save your changes and close the file.
-> 7.  Restart the hostd process:[code]  
->     /etc/init.d/hostd restart  
->     [/code]
+	> 7.  Restart the hostd process:  
+	>     /etc/init.d/hostd restart  
+	>     
 > 
 > **Example: Configuration File** The following section from the file */etc/vmware/hostd/config.xml* shows where to enter the SSL timeout settings.
 > 
-> [code language="xml"]
-> 
-> ...
-> 
-> 20000
-> 
-> ...
-> 
-> ...  
-> 20000  
-> ...
-> 
-> [/code]
+	> 
+	> 
+	> ...
+	> 
+	> 20000
+	> 
+	> ...
+	> 
+	> ...  
+	> 20000  
+	> ...
+	> 
+	> 
 
 ### Configure vSphere Authentication Proxy
 
@@ -395,7 +395,7 @@ Now we need to export the certificates from the CAM service and upload it to our
 >     3.  Browse to the certificate and select Open.
 > 3.  Select the Configuration tab and click Authentication Services.
 > 4.  Click Import Certificate.
-> 5.  Enter the full path to the authentication proxy server certificate file on the host and the IP address of the authentication proxy server.Use the form [datastore name] file path to enter the path to the proxy server.
+> 5.  Enter the full path to the authentication proxy server certificate file on the host and the IP address of the authentication proxy server.Use the form  file path to enter the path to the proxy server.
 > 6.  Click Import.
 
 Lastly use the Proxy to add a host to a domain:
@@ -446,18 +446,18 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 > 
 > 1.  Log in to the ESXi Shell and acquire root privileges.
 > 2.  Open the passwd file with a text editor.For example, **vi /etc/pam.d/passwd**
-> 3.  Edit the following line.[code]  
->     password requisite /lib/security/$ISA/pam_passwdqc.so retry=N min=N0,N1,N2,N3,N4  
->     [/code]
+	> 3.  Edit the following line.  
+	>     password requisite /lib/security/$ISA/pam_passwdqc.so retry=N min=N0,N1,N2,N3,N4  
+	>     
 > 4.  Save the file.
 
 Here is an example from the same document:
 
 > **Example: Editing /etc/pam.d/passwd**
 > 
-> [code]  
-> password requisite /lib/security/$ISA/pam_passwdqc.so retry=3 min=12,9,8,7,6  
-> [/code]
+	>   
+	> password requisite /lib/security/$ISA/pam_passwdqc.so retry=3 min=12,9,8,7,6  
+	> 
 > 
 > With this setting in effect, the password requirements are:
 > 
@@ -513,25 +513,25 @@ Here is how it looks like in vCenter:
 
 Most of those will be in the **/var/log/vmkernel.log** file. For example when I run tcpdump on a vmk inside a vSwitch that doesn&#8217;t have promiscuos mode enabled, I always see this:
 
-[code]  
-2012-12-23T01:12:51.889Z cpu0:352565)etherswitch: L2Sec_EnforcePortCompliance:226: client vmk0 requested promiscuous mode on port 0x1000003, disallowed by vswitch policy  
-[/code]
+	  
+	2012-12-23T01:12:51.889Z cpu0:352565)etherswitch: L2Sec_EnforcePortCompliance:226: client vmk0 requested promiscuous mode on port 0x1000003, disallowed by vswitch policy  
+	
 
 If you want to check out the commands that were executed on the host, you can check out **/var/log/shell.log**:
 
-[code]  
-~ # tail /var/log/shell.log  
-2012-12-22T23:26:54Z shell[277438]: esxcfg-resgrp -l  
-2012-12-22T23:27:00Z shell[277438]: esxcfg-resgrp -l | less  
-2012-12-23T00:10:48Z shell[277438]: cd /etc/pam.d/  
-2012-12-23T00:10:49Z shell[277438]: ls  
-2012-12-23T00:11:05Z shell[277438]: grep passwd passwd  
-2012-12-23T01:12:51Z shell[277438]: tcpdump-uw -i vmk0  
-2012-12-23T01:12:57Z shell[277438]: tail /var/log/vmkernel.log  
-2012-12-23T01:14:02Z shell[277438]: tail /var/log/shell.log  
-2012-12-23T01:14:14Z shell[277438]: cd  
-2012-12-23T01:14:16Z shell[277438]: tail /var/log/shell.log  
-[/code]
+	  
+	~ # tail /var/log/shell.log  
+	2012-12-22T23:26:54Z shell[277438]: esxcfg-resgrp -l  
+	2012-12-22T23:27:00Z shell[277438]: esxcfg-resgrp -l | less  
+	2012-12-23T00:10:48Z shell[277438]: cd /etc/pam.d/  
+	2012-12-23T00:10:49Z shell[277438]: ls  
+	2012-12-23T00:11:05Z shell[277438]: grep passwd passwd  
+	2012-12-23T01:12:51Z shell[277438]: tcpdump-uw -i vmk0  
+	2012-12-23T01:12:57Z shell[277438]: tail /var/log/vmkernel.log  
+	2012-12-23T01:14:02Z shell[277438]: tail /var/log/shell.log  
+	2012-12-23T01:14:14Z shell[277438]: cd  
+	2012-12-23T01:14:16Z shell[277438]: tail /var/log/shell.log  
+	
 
 ### Manage Active Directory integration
 
@@ -559,5 +559,5 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 >     <a href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-7-1-secure-esxi-hosts/ad_integration/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/vcap5-dca-objective-7-1-secure-esxi-hosts/ad_integration/']);" rel="attachment wp-att-5512"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/ad_integration.png" alt="ad integration VCAP5 DCA Objective 7.1 – Secure ESXi Hosts " width="919" height="511" class="alignnone size-full wp-image-5512" title="VCAP5 DCA Objective 7.1 – Secure ESXi Hosts " /></a>
 >     
 >     <p class="wp-flattr-button">
->       <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-7-1-secure-esxi-hosts/" title=" VCAP5-DCA Objective 7.1 – Secure ESXi Hosts" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCA,blog;button:compact;">Identify configuration files related to network security Here are the config files for SSH: [code] ~ # ls /etc/ssh/ keys-root ssh_host_dsa_key ssh_host_rsa_key sshd_config moduli ssh_host_dsa_key.pub ssh_host_rsa_key.pub [/code] SSH is used...</a>
->     </p>
+	>       <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-7-1-secure-esxi-hosts/" title=" VCAP5-DCA Objective 7.1 – Secure ESXi Hosts" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCA,blog;button:compact;">Identify configuration files related to network security Here are the config files for SSH:  SSH is used...</a>
+	>     </p>

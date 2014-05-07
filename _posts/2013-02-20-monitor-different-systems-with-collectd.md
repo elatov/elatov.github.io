@@ -512,14 +512,14 @@ There are no SMART capabilities, so the only thing I can check is whether the di
 
 we have two disks that are online. Collectd has a plugin called **exec**, it allows you to run a command and plot values from the results of that command. More information can be seen <a href="http://collectd.org/documentation/manpages/collectd-exec.5.shtml" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://collectd.org/documentation/manpages/collectd-exec.5.shtml']);">here</a> and <a href="https://collectd.org/wiki/index.php/Plugin:Exec" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','']);">here</a>. If we had SMART capabilities, we could use the scripts created from <a href="http://devel.dob.sk/collectd-scripts/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://devel.dob.sk/collectd-scripts/']);">this</a> post. But I will settle with just plotting how many disks are currently online. So I wrote this script:
 
-<pre>#!/usr/local/bin/bash
-HOST=$(hostname -f)
-INTERVAL=300
-while sleep "$INTERVAL"; do
-        val=$(/usr/local/sbin/arcconf getconfig 1 PD | grep State | grep Online| /usr/bin/wc -l)
-        echo "PUTVAL \"$HOST/exec-raid/gauge\" interval=$INTERVAL N:$(eval echo \$val)"
-done
-</pre>
+	#!/usr/local/bin/bash
+	HOST=$(hostname -f)
+	INTERVAL=300
+	while sleep "$INTERVAL"; do
+	        val=$(/usr/local/sbin/arcconf getconfig 1 PD | grep State | grep Online| /usr/bin/wc -l)
+	        echo "PUTVAL \"$HOST/exec-raid/gauge\" interval=$INTERVAL N:$(eval echo \$val)"
+	done
+	
 
 Nothing fancy, it just counts how many disks are online and sets the interval to be 300 (5 minutes). As a quick test change the interval value to 10 and run the script, it should produce something similar to this:
 

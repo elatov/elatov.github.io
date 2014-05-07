@@ -30,66 +30,66 @@ First off we need to find out what our current LUNs are actually using.
 
 **NOTE:** ESXi 5.x changed the structure of esxcli. In 5.x the commands will have a &#8220;storage&#8221; in them before nmp. They will look like the following.
 
-<pre>~ # esxcli storage nmp device list</pre>
-
-**NOTE:** ESX/ESXi 4.x does not have the extra storage in them. The command for esxcli is below. For the purposes of this example I will use the 5.x format. If you need to run this on 4.x please drop the &#8220;storage&#8221;.
-
-<pre>~ # esxcli nmp device list</pre>
+	~ # esxcli storage nmp device list
+	
+	**NOTE:** ESX/ESXi 4.x does not have the extra storage in them. The command for esxcli is below. For the purposes of this example I will use the 5.x format. If you need to run this on 4.x please drop the &#8220;storage&#8221;.
+	
+	~ # esxcli nmp device list
 
 The output will show all of the LUNs; the excerpt below is only from one of these LUN. We can see that this is claimed by the SATP VMW\_SATP\_ALUA and is using the VMW\_PSP\_MRU PSP. This is only one of the LUNs that I want to move to VMW\_PSP\_RR. From the command below, we need to note the PSP and SATP. I have only included the output from a single LUN below.
 
-<pre>~ # esxcli storage nmp device list
-naa.600144f070cc440000004e9f25580001
-   Device Display Name: NEXENTA iSCSI Disk (naa.600144f070cc440000004e9f25580001)
-   Storage Array Type: <strong>VMW_SATP_ALUA</strong>
-   Storage Array Type Device Config: {implicit_support=on;explicit_support=off; explicit_allow=on;alua_followover=on;{TPG_id=0,TPG_state=AO}}
-   Path Selection Policy: <strong>VMW_PSP_MRU</strong>
-   Path Selection Policy Device Config: Current Path=vmhba37:C1:T0:L10
-   Path Selection Policy Device Custom Config:
-   Working Paths: vmhba37:C1:T0:L10</pre>
+	~ # esxcli storage nmp device list
+	naa.600144f070cc440000004e9f25580001
+	   Device Display Name: NEXENTA iSCSI Disk (naa.600144f070cc440000004e9f25580001)
+	   Storage Array Type: <strong>VMW_SATP_ALUA</strong>
+	   Storage Array Type Device Config: {implicit_support=on;explicit_support=off; explicit_allow=on;alua_followover=on;{TPG_id=0,TPG_state=AO}}
+	   Path Selection Policy: <strong>VMW_PSP_MRU</strong>
+	   Path Selection Policy Device Config: Current Path=vmhba37:C1:T0:L10
+	   Path Selection Policy Device Custom Config:
+	   Working Paths: vmhba37:C1:T0:L10
 
 Before changing the default PSP for VMW\_SATP\_ALUA to VMW\_PSP\_RR we need to know what the default PSP really is. It would seem that the default PSP is VMW\_PSP\_MRU, but let&#8217;s confirm. The command below (remember that it would be &#8220;esxcli nmp satp list&#8221; in ESX/ESXi 4.x) shows us that the default PSP for VMW\_SATP\_ALUA is indeed VMW\_PSP\_MRU.
 
-<pre>~ # esxcli storage nmp satp list
-Name                 Default PSP    Description
--------------------  -------------  -------------------------------------------------------
-<strong>VMW_SATP_ALUA    VMW_PSP_MRU</strong>    Supports non-specific arrays that use the ALUA protocol
-VMW_SATP_MSA         VMW_PSP_MRU    Placeholder (plugin not loaded)
-VMW_SATP_DEFAULT_AP  VMW_PSP_MRU    Placeholder (plugin not loaded)
-VMW_SATP_SVC         VMW_PSP_FIXED  Placeholder (plugin not loaded)
-VMW_SATP_EQL         VMW_PSP_FIXED  Placeholder (plugin not loaded)
-VMW_SATP_INV         VMW_PSP_FIXED  Placeholder (plugin not loaded)
-VMW_SATP_EVA         VMW_PSP_FIXED  Placeholder (plugin not loaded)
-VMW_SATP_ALUA_CX     VMW_PSP_FIXED  Placeholder (plugin not loaded)
-VMW_SATP_SYMM        VMW_PSP_FIXED  Placeholder (plugin not loaded)
-VMW_SATP_CX          VMW_PSP_MRU    Placeholder (plugin not loaded)
-VMW_SATP_LSI         VMW_PSP_MRU    Placeholder (plugin not loaded)
-VMW_SATP_DEFAULT_AA  VMW_PSP_FIXED  Supports non-specific active/active arrays
-VMW_SATP_LOCAL       VMW_PSP_FIXED  Supports direct attached devices</pre>
+	~ # esxcli storage nmp satp list
+	Name                 Default PSP    Description
+	-------------------  -------------  -------------------------------------------------------
+	<strong>VMW_SATP_ALUA    VMW_PSP_MRU</strong>    Supports non-specific arrays that use the ALUA protocol
+	VMW_SATP_MSA         VMW_PSP_MRU    Placeholder (plugin not loaded)
+	VMW_SATP_DEFAULT_AP  VMW_PSP_MRU    Placeholder (plugin not loaded)
+	VMW_SATP_SVC         VMW_PSP_FIXED  Placeholder (plugin not loaded)
+	VMW_SATP_EQL         VMW_PSP_FIXED  Placeholder (plugin not loaded)
+	VMW_SATP_INV         VMW_PSP_FIXED  Placeholder (plugin not loaded)
+	VMW_SATP_EVA         VMW_PSP_FIXED  Placeholder (plugin not loaded)
+	VMW_SATP_ALUA_CX     VMW_PSP_FIXED  Placeholder (plugin not loaded)
+	VMW_SATP_SYMM        VMW_PSP_FIXED  Placeholder (plugin not loaded)
+	VMW_SATP_CX          VMW_PSP_MRU    Placeholder (plugin not loaded)
+	VMW_SATP_LSI         VMW_PSP_MRU    Placeholder (plugin not loaded)
+	VMW_SATP_DEFAULT_AA  VMW_PSP_FIXED  Supports non-specific active/active arrays
+	VMW_SATP_LOCAL       VMW_PSP_FIXED  Supports direct attached devices
 
 Now it is time to change the default PSP for VMW\_SATP\_ALUA to VMW\_PSP\_RR.
 
-<pre>~ # esxcli storage nmp satp  set  -s VMW_SATP_ALUA -P VMW_PSP_RR
-Default PSP for VMW_SATP_ALUA is now VMW_PSP_RR</pre>
+	~ # esxcli storage nmp satp  set  -s VMW_SATP_ALUA -P VMW_PSP_RR
+	Default PSP for VMW_SATP_ALUA is now VMW_PSP_RR
 
 Lets confirm that the the default PSP has changed.
 
-<pre>~ # esxcli storage nmp satp  list
-Name                 Default PSP    Description
--------------------  -------------  -------------------------------------------------------
-<strong>VMW_SATP_ALUA     VMW_PSP_RR</strong>     Supports non-specific arrays that use the ALUA protocol
-VMW_SATP_MSA         VMW_PSP_MRU    Placeholder (plugin not loaded)
-VMW_SATP_DEFAULT_AP  VMW_PSP_MRU    Placeholder (plugin not loaded)
-VMW_SATP_SVC         VMW_PSP_FIXED  Placeholder (plugin not loaded)
-VMW_SATP_EQL         VMW_PSP_FIXED  Placeholder (plugin not loaded)
-VMW_SATP_INV         VMW_PSP_FIXED  Placeholder (plugin not loaded)
-VMW_SATP_EVA         VMW_PSP_FIXED  Placeholder (plugin not loaded)
-VMW_SATP_ALUA_CX     VMW_PSP_FIXED  Placeholder (plugin not loaded)
-VMW_SATP_SYMM        VMW_PSP_FIXED  Placeholder (plugin not loaded)
-VMW_SATP_CX          VMW_PSP_MRU    Placeholder (plugin not loaded)
-VMW_SATP_LSI         VMW_PSP_MRU    Placeholder (plugin not loaded)
-VMW_SATP_DEFAULT_AA  VMW_PSP_FIXED  Supports non-specific active/active arrays
-VMW_SATP_LOCAL       VMW_PSP_FIXED  Supports direct attached devices</pre>
+	~ # esxcli storage nmp satp  list
+	Name                 Default PSP    Description
+	-------------------  -------------  -------------------------------------------------------
+	<strong>VMW_SATP_ALUA     VMW_PSP_RR</strong>     Supports non-specific arrays that use the ALUA protocol
+	VMW_SATP_MSA         VMW_PSP_MRU    Placeholder (plugin not loaded)
+	VMW_SATP_DEFAULT_AP  VMW_PSP_MRU    Placeholder (plugin not loaded)
+	VMW_SATP_SVC         VMW_PSP_FIXED  Placeholder (plugin not loaded)
+	VMW_SATP_EQL         VMW_PSP_FIXED  Placeholder (plugin not loaded)
+	VMW_SATP_INV         VMW_PSP_FIXED  Placeholder (plugin not loaded)
+	VMW_SATP_EVA         VMW_PSP_FIXED  Placeholder (plugin not loaded)
+	VMW_SATP_ALUA_CX     VMW_PSP_FIXED  Placeholder (plugin not loaded)
+	VMW_SATP_SYMM        VMW_PSP_FIXED  Placeholder (plugin not loaded)
+	VMW_SATP_CX          VMW_PSP_MRU    Placeholder (plugin not loaded)
+	VMW_SATP_LSI         VMW_PSP_MRU    Placeholder (plugin not loaded)
+	VMW_SATP_DEFAULT_AA  VMW_PSP_FIXED  Supports non-specific active/active arrays
+	VMW_SATP_LOCAL       VMW_PSP_FIXED  Supports direct attached devices
 
 Now we have a few options. We can try to reclaim the LUNs, or we can reboot the ESX/ESXi host. The better way is to reboot the host. This would ensure that all LUNs are not in use and can change the PSP. LUNs with high I/O may not be able to do a reclaim.
 
@@ -97,19 +97,19 @@ A reclaim will unclaim and claim the LUNs by the ESX/ESXi host. That means that 
 
 A reclaim can be done live, but I would recommend putting the host into Maintenance Mode (MM) before making any major changes on a host. I would personally recommend rebooting the host, but you can use the following command to reclaim all of the LUNs on the ESX/ESXi host. Instead of for loops, I opted for <a href="http://unixhelp.ed.ac.uk/CGI/man-cgi?xargs" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://unixhelp.ed.ac.uk/CGI/man-cgi?xargs']);" target="_blank">xargs</a>.
 
-<pre>~ # esxcfg-scsidevs -c | egrep -o "^naa.[0-9a-f]+" |xargs -n 1 esxcli storage core claiming reclaim -d</pre>
-
-After the reboot (or reclaim) let&#8217;s take a look at our LUN configuration. It is now showing that VMW\_PSP\_RR is the PSP that our LUN is using. New LUNs will use this PSP. Remember that any LUN that had another PSP specified will not be affected by this change.
-
-<pre>~ # esxcli storage nmp device list -d naa.600144f070cc440000004e9f25580001
-naa.600144f070cc440000004e9f25580001
-   Device Display Name: NEXENTA iSCSI Disk (naa.600144f070cc440000004e9f25580001)
-   Storage Array Type: VMW_SATP_ALUA
-   Storage Array Type Device Config: {implicit_support=on;explicit_support=off; explicit_allow=on;alua_followover=on;{TPG_id=0,TPG_state=AO}}
-   Path Selection Policy: <strong>VMW_PSP_RR</strong>
-   Path Selection Policy Device Config: {policy=rr,iops=1000,bytes=10485760,useANO=0;lastPathIndex=0: NumIOsPending=0,numBytesPending=0}
-   Path Selection Policy Device Custom Config:
-   Working Paths: vmhba37:C0:T0:L10, vmhba37:C1:T0:L10</pre>
+	~ # esxcfg-scsidevs -c | egrep -o "^naa.[0-9a-f]+" |xargs -n 1 esxcli storage core claiming reclaim -d
+	
+	After the reboot (or reclaim) let&#8217;s take a look at our LUN configuration. It is now showing that VMW\_PSP\_RR is the PSP that our LUN is using. New LUNs will use this PSP. Remember that any LUN that had another PSP specified will not be affected by this change.
+	
+	~ # esxcli storage nmp device list -d naa.600144f070cc440000004e9f25580001
+	naa.600144f070cc440000004e9f25580001
+	   Device Display Name: NEXENTA iSCSI Disk (naa.600144f070cc440000004e9f25580001)
+	   Storage Array Type: VMW_SATP_ALUA
+	   Storage Array Type Device Config: {implicit_support=on;explicit_support=off; explicit_allow=on;alua_followover=on;{TPG_id=0,TPG_state=AO}}
+	   Path Selection Policy: <strong>VMW_PSP_RR</strong>
+	   Path Selection Policy Device Config: {policy=rr,iops=1000,bytes=10485760,useANO=0;lastPathIndex=0: NumIOsPending=0,numBytesPending=0}
+	   Path Selection Policy Device Custom Config:
+	   Working Paths: vmhba37:C0:T0:L10, vmhba37:C1:T0:L10
 
 ## Select the PSP for each LUN
 
@@ -127,31 +127,31 @@ Manually doing this on all hosts for all LUNs can get very time consuming and te
 
 First lets take a look at the LUNs that we have on the system. As above, I will be running the commands for ESXi 5.x, you can run these on ESX/ESXi 4.x by removing the &#8220;storage&#8221; after esxcli. The output has been truncated to only include a single LUN.
 
-<pre>~ # esxcli storage nmp device list
-<strong>naa.600144f070cc440000004e9f25580001</strong>
-   Device Display Name: NEXENTA iSCSI Disk (naa.600144f070cc440000004e9f25580001)
-   Storage Array Type: VMW_SATP_ALUA
-   Storage Array Type Device Config: {implicit_support=on;explicit_support=off; explicit_allow=on;alua_followover=on;{TPG_id=0,TPG_state=AO}}
-   Path Selection Policy:<strong> VMW_PSP_MRU</strong>
-   Path Selection Policy Device Config: Current Path=vmhba37:C1:T0:L10
-   Path Selection Policy Device Custom Config:
-   Working Paths: vmhba37:C1:T0:L10</pre>
+	~ # esxcli storage nmp device list
+	<strong>naa.600144f070cc440000004e9f25580001</strong>
+	   Device Display Name: NEXENTA iSCSI Disk (naa.600144f070cc440000004e9f25580001)
+	   Storage Array Type: VMW_SATP_ALUA
+	   Storage Array Type Device Config: {implicit_support=on;explicit_support=off; explicit_allow=on;alua_followover=on;{TPG_id=0,TPG_state=AO}}
+	   Path Selection Policy:<strong> VMW_PSP_MRU</strong>
+	   Path Selection Policy Device Config: Current Path=vmhba37:C1:T0:L10
+	   Path Selection Policy Device Custom Config:
+	   Working Paths: vmhba37:C1:T0:L10
 
 We can see that it is set up for VMW\_PSP\_MRU currently. We want to change this to use VMW\_PSP\_RR so we can set it for this LUN by running the following command. We will use the naa provided above along with the PSP that we want to change it to.
 
-<pre>~ # esxcli storage nmp device set --device naa.600144f070cc440000004e9f25580001 --psp VMW_PSP_RR</pre>
-
-Lets confirm that the changes took. This time we will run the list command only on this LUN to avoid extraneous output.
-
-<pre>~ # esxcli storage nmp device list -d naa.600144f070cc440000004e9f25580001
-naa.600144f070cc440000004e9f25580001
-   Device Display Name: NEXENTA iSCSI Disk (naa.600144f070cc440000004e9f25580001)
-   Storage Array Type: VMW_SATP_ALUA
-   Storage Array Type Device Config: {implicit_support=on;explicit_support=off; explicit_allow=on;alua_followover=on;{TPG_id=0,TPG_state=AO}}
-   Path Selection Policy: <strong>VMW_PSP_RR</strong>
-   Path Selection Policy Device Config: {policy=rr,iops=1000,bytes=10485760,useANO=0;lastPathIndex=1: NumIOsPending=0,numBytesPending=0}
-   Path Selection Policy Device Custom Config:
-   Working Paths: vmhba37:C1:T0:L10, vmhba37:C1:T1:L10</pre>
+	~ # esxcli storage nmp device set --device naa.600144f070cc440000004e9f25580001 --psp VMW_PSP_RR
+	
+	Lets confirm that the changes took. This time we will run the list command only on this LUN to avoid extraneous output.
+	
+	~ # esxcli storage nmp device list -d naa.600144f070cc440000004e9f25580001
+	naa.600144f070cc440000004e9f25580001
+	   Device Display Name: NEXENTA iSCSI Disk (naa.600144f070cc440000004e9f25580001)
+	   Storage Array Type: VMW_SATP_ALUA
+	   Storage Array Type Device Config: {implicit_support=on;explicit_support=off; explicit_allow=on;alua_followover=on;{TPG_id=0,TPG_state=AO}}
+	   Path Selection Policy: <strong>VMW_PSP_RR</strong>
+	   Path Selection Policy Device Config: {policy=rr,iops=1000,bytes=10485760,useANO=0;lastPathIndex=1: NumIOsPending=0,numBytesPending=0}
+	   Path Selection Policy Device Custom Config:
+	   Working Paths: vmhba37:C1:T0:L10, vmhba37:C1:T1:L10
 
 Now we can see that the PSP has been set to VMW\_PSP\_RR. This can be tedious as well, so we can script it. As with &#8220;Changing the default PSP for an SATP&#8221;, the steps below will set all LUNs from an array to Round Robin. If you are using MSCS, please <a href="http://kb.vmware.com/kb/1036189" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1036189']);" target="_blank">set LUNs can be set back to Fixed or MRU by specifying the PSP</a>.
 
@@ -159,44 +159,44 @@ First thing we need to do is identify the LUNs that we want to set to Round Robi
 
 The command below will take all LUNs presented to the ESX host that begin with naa and grab their naa. This list will contain all FC, iSCSI and SAS drives connected to the host. (Different array vendors will have a different unique identifier, this can be changed to a EUI,T10 or any other unique identifier)
 
-<pre>~ # esxcfg-scsidevs -c |egrep -o "^naa.[0-9a-f]+"
-<strong>naa.600144f070cc440000004</strong>cd42fa10001
-<strong>naa.600144f070cc440000004</strong>cd432260002
-<strong>naa.600144f070cc440000004</strong>dd9c9310002
-<strong>naa.600144f070cc440000004</strong>dd9c9460003
-<strong>naa.600144f070cc440000004</strong>dd9c95f0004
-<strong>naa.600144f070cc440000004</strong>dd9e7c20005
-<strong>naa.600144f070cc440000004</strong>dda7ec40006
-<strong>naa.600144f070cc4400</strong>11104dda7ec40006</pre>
+	~ # esxcfg-scsidevs -c |egrep -o "^naa.[0-9a-f]+"
+	<strong>naa.600144f070cc440000004</strong>cd42fa10001
+	<strong>naa.600144f070cc440000004</strong>cd432260002
+	<strong>naa.600144f070cc440000004</strong>dd9c9310002
+	<strong>naa.600144f070cc440000004</strong>dd9c9460003
+	<strong>naa.600144f070cc440000004</strong>dd9c95f0004
+	<strong>naa.600144f070cc440000004</strong>dd9e7c20005
+	<strong>naa.600144f070cc440000004</strong>dda7ec40006
+	<strong>naa.600144f070cc4400</strong>11104dda7ec40006
 
 Above we can see that naa.600144f070cc440000004 is consistent across all of the LUNs that we want to set. naa.600144f070cc440011104dda7ec40006 is not a LUN that we want to set as Round Robin (it is a shared LUN between two cluster VMs in my environment). If we use naa.600144f070cc440000004 as part of the pattern match it will not match naa.600144f070cc440011104dda7ec40006, so we can set all LUNs that begin with naa.600144f070cc440000004. This will be different in every environment.
 
 Now that we have a pattern match, we can now set all of the LUNs with a command. There are MANY ways to do this, but I prefer <a href="http://unixhelp.ed.ac.uk/CGI/man-cgi?xargs" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://unixhelp.ed.ac.uk/CGI/man-cgi?xargs']);" target="_blank">xargs</a>.
 
-<pre>~ # esxcfg-scsidevs -c |egrep -o "^naa.[0-9a-f]+" |grep naa.600144f070cc440000004 |xargs -n 1 esxcli storage nmp device set --psp VMW_PSP_RR -d</pre>
-
-Now that we have specifically set every one of our pattern matching LUN to use RoundRobin, let&#8217;s confirm on a single LUN.
-
-<pre>~ # esxcli storage nmp device list -d naa.600144f070cc440000004e9f25580001
-naa.600144f070cc440000004e9f25580001
-   Device Display Name: NEXENTA iSCSI Disk (naa.600144f070cc440000004e9f25580001)
-   Storage Array Type: VMW_SATP_ALUA
-   Storage Array Type Device Config: {implicit_support=on;explicit_support=off; explicit_allow=on;alua_followover=on;{TPG_id=0,TPG_state=AO}}
-   Path Selection Policy: <strong>VMW_PSP_RR</strong>
-   Path Selection Policy Device Config: {policy=rr,iops=1000,bytes=10485760,useANO=0;lastPathIndex=1: NumIOsPending=0,numBytesPending=0}
-   Path Selection Policy Device Custom Config:
-   Working Paths: vmhba37:C1:T0:L10, vmhba37:C1:T1:L10</pre>
+	~ # esxcfg-scsidevs -c |egrep -o "^naa.[0-9a-f]+" |grep naa.600144f070cc440000004 |xargs -n 1 esxcli storage nmp device set --psp VMW_PSP_RR -d
+	
+	Now that we have specifically set every one of our pattern matching LUN to use RoundRobin, let&#8217;s confirm on a single LUN.
+	
+	~ # esxcli storage nmp device list -d naa.600144f070cc440000004e9f25580001
+	naa.600144f070cc440000004e9f25580001
+	   Device Display Name: NEXENTA iSCSI Disk (naa.600144f070cc440000004e9f25580001)
+	   Storage Array Type: VMW_SATP_ALUA
+	   Storage Array Type Device Config: {implicit_support=on;explicit_support=off; explicit_allow=on;alua_followover=on;{TPG_id=0,TPG_state=AO}}
+	   Path Selection Policy: <strong>VMW_PSP_RR</strong>
+	   Path Selection Policy Device Config: {policy=rr,iops=1000,bytes=10485760,useANO=0;lastPathIndex=1: NumIOsPending=0,numBytesPending=0}
+	   Path Selection Policy Device Custom Config:
+	   Working Paths: vmhba37:C1:T0:L10, vmhba37:C1:T1:L10
 
 That looks good. Let&#8217;s confirm across all LUNs. All of the LUNs are set for RoundRobin, except for the LUN that we excluded (It did not match our pattern).
 
-<pre>~ # esxcli storage nmp device list |grep "Path Selection Policy:" |sort |uniq -c
-<strong>1</strong>    Path Selection Policy: <strong>VMW_PSP_FIXED</strong>
-<strong>7</strong>    Path Selection Policy: <strong>VMW_PSP_RR</strong></pre>
+	~ # esxcli storage nmp device list |grep "Path Selection Policy:" |sort |uniq -c
+	<strong>1</strong>    Path Selection Policy: <strong>VMW_PSP_FIXED</strong>
+	<strong>7</strong>    Path Selection Policy: <strong>VMW_PSP_RR</strong>
 
 New LUNs will have to be manually changed, or the command above can be run again when new LUNs are presented. This command specifies the PSP for this LUN, so it will put an entry in the /etc/vmware/esx.conf. The entry looks like the one below.
 
-<pre>/storage/plugin/NMP/config[VMW_SATP_ALUA]/defaultpsp = "VMW_PSP_RR"
-/storage/plugin/NMP/device[naa.600144f070cc440000004dda7ec40006]/psp = "VMW_PSP_RR"</pre>
+	/storage/plugin/NMP/config[VMW_SATP_ALUA]/defaultpsp = "VMW_PSP_RR"
+	/storage/plugin/NMP/device[naa.600144f070cc440000004dda7ec40006]/psp = "VMW_PSP_RR"
 
 <div class="SPOSTARBUST-Related-Posts">
   <H3>

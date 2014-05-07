@@ -21,42 +21,42 @@ tags:
 ---
 In my previous <a href="http://virtuallyhyper.com/2012/10/mounting-an-ntfs-disk-in-write-mode-in-freebsd-9/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/10/mounting-an-ntfs-disk-in-write-mode-in-freebsd-9/']);">post</a>, I blogged about mounting an NTFS volume in FreeBSD. Now I decided to make the process easier by using the */etc/fstab* file. I thought this would be a pretty straightforward process, but it took a while to figure out so I decided to put my notes here. First figure out what is the device identifier of your NTFS disk. For example:
 
-[code highlight="3"]  
-elatov@freebsd:~>sudo camcontrol devlist  
-<TEAC CD-224E K.9A> at scbus0 target 0 lun 0 (cd0,pass0)  
-<SanDisk 1.26> at scbus2 target 0 lun 0 (pass1,da0)  
-[/code]
+	  
+	elatov@freebsd:~>sudo camcontrol devlist  
+	<TEAC CD-224E K.9A> at scbus0 target 0 lun 0 (cd0,pass0)  
+	<SanDisk 1.26> at scbus2 target 0 lun 0 (pass1,da0)  
+	
 
 I was actually using a USB disk, so my device is */dev/da0*. Then figure out which partition corresponds to your NTFS partition:
 
-[code highlight="4"]  
-elatov@freebsd:~>gpart show /dev/da0  
-=> 63 15633345 da0 MBR (7.5G)  
-63 1985 - free - (992k)  
-2048 15631360 1 ntfs (7.5G)  
-[/code]
+	  
+	elatov@freebsd:~>gpart show /dev/da0  
+	=> 63 15633345 da0 MBR (7.5G)  
+	63 1985 - free - (992k)  
+	2048 15631360 1 ntfs (7.5G)  
+	
 
 In the above output we can see it&#8217;s the first one. So I will be mounting */dev/da0s1*. Here is the entry I had to put into my */etc/fstab* file to get the mount point to work:
 
-[code]  
-elatov@freebsd:~>grep da0 /etc/fstab  
-/dev/da0s1 /mnt/usb ntfs rw,mountprog=/usr/local/bin/ntfs-3g,uid=500,gid=500,late 0 0  
-[/code]
+	  
+	elatov@freebsd:~>grep da0 /etc/fstab  
+	/dev/da0s1 /mnt/usb ntfs rw,mountprog=/usr/local/bin/ntfs-3g,uid=500,gid=500,late 0 0  
+	
 
 With above setup, I could type &#8216;mount /dev/da0s1&#8242; or &#8216;mount /mnt/usb&#8217; and my disk would mount with the appropriate permissions. Here is how it looks like when it&#8217;s mounted:
 
-[code]  
-elatov@freebsd:~>sudo mount /mnt/usb  
-elatov@freebsd:~>df -h | grep usb  
-/dev/fuse0 7.5G 3.3G 4.1G 44% /mnt/usb  
-[/code]
+	  
+	elatov@freebsd:~>sudo mount /mnt/usb  
+	elatov@freebsd:~>df -h | grep usb  
+	/dev/fuse0 7.5G 3.3G 4.1G 44% /mnt/usb  
+	
 
 Next I actually wanted to label the disk so the entry in the */etc/fstab* file didn&#8217;t depend on the device identifier/node. I got most of the information regarding labeling from &#8220;<a href="http://www.freebsd.org/doc/handbook/geom-glabel.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.freebsd.org/doc/handbook/geom-glabel.html']);">Labeling Disk Devices</a>&#8220;. So first un-mount the disk:
 
-[code]  
-elatov@freebsd:~>sudo umount /mnt/usb  
-elatov@freebsd:~>  
-[/code]
+	  
+	elatov@freebsd:~>sudo umount /mnt/usb  
+	elatov@freebsd:~>  
+	
 
 From the above page:
 
@@ -104,105 +104,105 @@ So there are a couple of ways to label a disk: *newfs*, *tunefs*, and *glabel*. 
 
 So first let&#8217;s check if our disk already has a label:
 
-[code]  
-elatov@freebsd:~>sudo glabel dump /dev/da0s1  
-Can't read metadata from /dev/da0s1: Invalid argument.  
-glabel: Not fully done.  
-[/code]
+	  
+	elatov@freebsd:~>sudo glabel dump /dev/da0s1  
+	Can't read metadata from /dev/da0s1: Invalid argument.  
+	glabel: Not fully done.  
+	
 
 That looks good (since I didn&#8217;t have a label on the device), next label the disk:
 
-[code]  
-elatov@freebsd:~>sudo glabel label usb /dev/da0s1  
-[/code]
+	  
+	elatov@freebsd:~>sudo glabel label usb /dev/da0s1  
+	
 
 Now check to see if the label is there:
 
-[code highlight="5"]  
-elatov@freebsd:~>sudo glabel dump /dev/da0s1  
-Metadata on /dev/da0s1:  
-Magic string: GEOM::LABEL  
-Metadata version: 2  
-Label: usb  
-[/code]
+	  
+	elatov@freebsd:~>sudo glabel dump /dev/da0s1  
+	Metadata on /dev/da0s1:  
+	Magic string: GEOM::LABEL  
+	Metadata version: 2  
+	Label: usb  
+	
 
 Lastly check if the device has been created:
 
-[code]  
-elatov@freebsd:~>ls -l /dev/label/  
-total 0  
-crw-r\----- 1 root operator 0, 105 Oct 21 16:41 usb  
-[/code]
+	  
+	elatov@freebsd:~>ls -l /dev/label/  
+	total 0  
+	crw-r\----- 1 root operator 0, 105 Oct 21 16:41 usb  
+	
 
 Also a more concise view would look like this:
 
-[code]  
-elatov@freebsd:~>sudo glabel status  
-Name Status Components  
-gptid/676a5c5d-0a0b-11e2-aca4-00c09f41c5fa N/A aacd0p1  
-label/usb N/A da0s1  
-[/code]
+	  
+	elatov@freebsd:~>sudo glabel status  
+	Name Status Components  
+	gptid/676a5c5d-0a0b-11e2-aca4-00c09f41c5fa N/A aacd0p1  
+	label/usb N/A da0s1  
+	
 
 Now edit your */etc/fstab* to look like this:
 
-[code]  
-elatov@freebsd:~>grep label /etc/fstab  
-/dev/label/usb /mnt/usb ntfs noauto,rw,mountprog=/usr/local/bin/ntfs-3g,uid=500,gid=500,late 0 0  
-[/code]
+	  
+	elatov@freebsd:~>grep label /etc/fstab  
+	/dev/label/usb /mnt/usb ntfs noauto,rw,mountprog=/usr/local/bin/ntfs-3g,uid=500,gid=500,late 0 0  
+	
 
 Finally, mounting worked without any issues:
 
-[code]  
-elatov@freebsd:~>sudo mount /mnt/usb  
-elatov@freebsd:~>df -h | grep usb  
-/dev/fuse0 7.5G 3.3G 4.1G 44% /mnt/usb  
-[/code]
+	  
+	elatov@freebsd:~>sudo mount /mnt/usb  
+	elatov@freebsd:~>df -h | grep usb  
+	/dev/fuse0 7.5G 3.3G 4.1G 44% /mnt/usb  
+	
 
 and now I don&#8217;t have to worry about the order that I plug in the device. You can also use the *ntfslabel* tool to label at the file system level:
 
-[code]  
-elatov@freebsd:~>sudo ntfslabel /dev/da0s1 usb_ntfs  
-[/code]
+	  
+	elatov@freebsd:~>sudo ntfslabel /dev/da0s1 usb_ntfs  
+	
 
 You can check with the same tool to see if it worked:
 
-[code]  
-elatov@freebsd:~>sudo ntfslabel /dev/da0s1  
-usb_ntfs  
-[/code]
+	  
+	elatov@freebsd:~>sudo ntfslabel /dev/da0s1  
+	usb_ntfs  
+	
 
 or you can check with the *glabel*
 
-[code]  
-elatov@freebsd:~>sudo glabel status  
-Name Status Components  
-gptid/676a5c5d-0a0b-11e2-aca4-00c09f41c5fa N/A aacd0p1  
-label/usb N/A da0s1  
-ntfs/usb_ntfs N/A da0s1  
-[/code]
+	  
+	elatov@freebsd:~>sudo glabel status  
+	Name Status Components  
+	gptid/676a5c5d-0a0b-11e2-aca4-00c09f41c5fa N/A aacd0p1  
+	label/usb N/A da0s1  
+	ntfs/usb_ntfs N/A da0s1  
+	
 
 So now we have a file system label and a device label. I went ahead and plugged in the disk to my Fedora laptop and here is what I saw:
 
-[code]  
-[elatov@klaptop ~]$ sudo ntfslabel /dev/sdb1  
-usb_ntfs  
-[elatov@klaptop ~]$ blkid | grep usb  
-/dev/sdb1: LABEL="usb_ntfs" UUID="218F49247215AD83" TYPE="ntfs"  
-[/code]
+	  
+	$ sudo ntfslabel /dev/sdb1  
+	usb_ntfs  
+	$ blkid | grep usb  
+	/dev/sdb1: LABEL="usb_ntfs" UUID="218F49247215AD83" TYPE="ntfs"  
+	
 
 Now I can create an entry on my Fedora laptop in the /etc/fstab file, like so:
 
-[code]  
-LABEL=usb_ntfs /mnt/usb ntfs noauto,uid=500,rw 0 0  
-[/code]
+	  
+	LABEL=usb_ntfs /mnt/usb ntfs noauto,uid=500,rw 0 0  
+	
 
 and then I can mount the disk, like this:
 
-[code]  
-[elatov@klaptop ~]$ sudo mount /mnt/usb  
-[elatov@klaptop ~]$ df -hT | grep usb  
-/dev/sdb1 fuseblk 7.5G 3.4G 4.2G 45% /mnt/usb  
-[/code]
+	  
+	$ sudo mount /mnt/usb  
+	$ df -hT | grep usb  
+	/dev/sdb1 fuseblk 7.5G 3.4G 4.2G 45% /mnt/usb  
+	
 
 Of course the Windows machines mounted the device just fine as well. 
 

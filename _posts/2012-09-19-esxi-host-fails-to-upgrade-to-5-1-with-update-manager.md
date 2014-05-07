@@ -40,44 +40,44 @@ So I rebooted the host and kicked off another remediation that failed saying tha
 
 So I went searching for the logs. In the vmware-vum-server-log4cpp.log on the <a href="http://kb.vmware.com/kb/1003693" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1003693']);" target="_blank">VUM server</a> and found the following.
 
-[code]  
-\[2012-09-10 15:14:46:519 'NfcClientWrapper' 2840 INFO\] \[nfcClientWrapper, 155\] Copying file: local = C:/WINDOWS/TEMP/upgradekejxxzsf.tmp/metadata.zip, remote = /tmp/vuaScript-oDoyLu/metadata.zip  
-\[2012-09-10 15:14:46:519 'NfcClientWrapper' 2840 INFO\] \[nfcClientWrapper, 155\] Copying file: local = C:/WINDOWS/TEMP/upgradekejxxzsf.tmp/precheck.py, remote = /tmp/vuaScript-oDoyLu/precheck.py  
-\[2012-09-10 15:14:46:660 'NfcClientWrapper' 2840 INFO\] \[nfcClientWrapper, 155\] Copying file: local = C:/WINDOWS/TEMP/upgradekejxxzsf.tmp/esximage.zip, remote = /tmp/vuaScript-oDoyLu/esximage.zip  
-\[2012-09-10 15:14:53:706 'HU-Upgrader' 2840 ERROR\] \[upgraderImpl, 421\] Script execution failed on host: 192.168.5.33)  
-[/code]
+	  
+	\[2012-09-10 15:14:46:519 'NfcClientWrapper' 2840 INFO\] \[nfcClientWrapper, 155\] Copying file: local = C:/WINDOWS/TEMP/upgradekejxxzsf.tmp/metadata.zip, remote = /tmp/vuaScript-oDoyLu/metadata.zip  
+	\[2012-09-10 15:14:46:519 'NfcClientWrapper' 2840 INFO\] \[nfcClientWrapper, 155\] Copying file: local = C:/WINDOWS/TEMP/upgradekejxxzsf.tmp/precheck.py, remote = /tmp/vuaScript-oDoyLu/precheck.py  
+	\[2012-09-10 15:14:46:660 'NfcClientWrapper' 2840 INFO\] \[nfcClientWrapper, 155\] Copying file: local = C:/WINDOWS/TEMP/upgradekejxxzsf.tmp/esximage.zip, remote = /tmp/vuaScript-oDoyLu/esximage.zip  
+	\[2012-09-10 15:14:53:706 'HU-Upgrader' 2840 ERROR\] \[upgraderImpl, 421\] Script execution failed on host: 192.168.5.33)  
+	
 
 The logs above are not very informative, so I went to the host to see why it failed copying the &#8216;esximage.zip&#8217; over to the host. In the vpxa.log I found the following.
 
-[code]  
-2012-09-11T05:02:32.447Z \[FFCF5B90 verbose 'Default' opID=task-internal-233-fb0a87f0\] \[VpxaDatastoreContext\] No conversion for localpath /tmp/vuaScript-oDoyLu/esximage.zip  
-2012-09-11T05:02:33.337Z \[FFCF5B90 warning 'Libs' opID=task-internal-233-fb0a87f0\] \[NFC ERROR\] NfcFile_ContinueReceive: reached EOF  
-[/code]
+	  
+	2012-09-11T05:02:32.447Z \[FFCF5B90 verbose 'Default' opID=task-internal-233-fb0a87f0\] \[VpxaDatastoreContext\] No conversion for localpath /tmp/vuaScript-oDoyLu/esximage.zip  
+	2012-09-11T05:02:33.337Z \[FFCF5B90 warning 'Libs' opID=task-internal-233-fb0a87f0\] \[NFC ERROR\] NfcFile_ContinueReceive: reached EOF  
+	
 
 It looks like it was failing to copy over the files to the bootbanks. I kicked off another remediation and took a look at the system while it was upgrading. The host creates a new ramdisk to stage the changes. It is called the &#8216;upgradescratch&#8217;.
 
-[code]  
-\# vdu -h |tail -n 1  
-ramdisk upgradescratch: 300M ( 103 inodes)  
-[/code]
+	  
+	\# vdu -h |tail -n 1  
+	ramdisk upgradescratch: 300M ( 103 inodes)  
+	
 
 I ran a df to see how much space was used in the ram disk.
 
-[code]  
-\# df -h  
-Filesystem Size Used Available Use% Mounted on  
-...  
-vfat 285.9M 37.8M 248.1M 13% /vmfs/volumes/c968084a-b7429e1a-770c-aa784ee74000  
-[/code]
+	  
+	\# df -h  
+	Filesystem Size Used Available Use% Mounted on  
+	...  
+	vfat 285.9M 37.8M 248.1M 13% /vmfs/volumes/c968084a-b7429e1a-770c-aa784ee74000  
+	
 
 So we know that it was copying over the files. I ran it again and found that it was indeed increasing the used space.
 
-[code]  
-\# df -h  
-Filesystem Size Used Available Use% Mounted on  
-...  
-vfat 285.9M 240.0M 45.8M 84% /vmfs/volumes/c968084a-b7429e1a-770c-aa784ee74000  
-[/code]
+	  
+	\# df -h  
+	Filesystem Size Used Available Use% Mounted on  
+	...  
+	vfat 285.9M 240.0M 45.8M 84% /vmfs/volumes/c968084a-b7429e1a-770c-aa784ee74000  
+	
 
 Since update manager was copying over the files and it was failing when trying to run the script, I went ahead and took a look at the bootbanks. There are 2 bootbanks in ESXi; /bootbank and /altbootbank. <a href="http://www.vmware.com/files/pdf/ESXi_architecture.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/ESXi_architecture.pdf']);" target="_blank">This document</a> describes boot banks as the following.
 
@@ -93,40 +93,40 @@ Since update manager was copying over the files and it was failing when trying t
 
 In the /bootbank I did an ls -la and found the following files.
 
-[code]  
-\# ls -la |head -n 5  
-drwxr-xr-x 1 root root 512 Sep 18 05:33 ..  
-drwxr-xr-x 1 root root 8 Jan 1 1970 .Spotlight-V100  
-drwxr-xr-x 1 root root 8 Jan 1 1970 .Trashes  
--rwx\---\--- 1 root root 4096 Aug 22 21:33 ._.Trashes  
-drwxr-xr-x 1 root root 8 Jan 1 1970 .fseventsd  
-[/code]
+	  
+	\# ls -la |head -n 5  
+	drwxr-xr-x 1 root root 512 Sep 18 05:33 ..  
+	drwxr-xr-x 1 root root 8 Jan 1 1970 .Spotlight-V100  
+	drwxr-xr-x 1 root root 8 Jan 1 1970 .Trashes  
+	-rwx\---\--- 1 root root 4096 Aug 22 21:33 ._.Trashes  
+	drwxr-xr-x 1 root root 8 Jan 1 1970 .fseventsd  
+	
 
 From this <a href="http://coolestguyplanettech.com/downtown/spotlight-out-control-mac-os-x-lion-107" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://coolestguyplanettech.com/downtown/spotlight-out-control-mac-os-x-lion-107']);" target="_blank" class="broken_link">blog post</a>, you can see that I once <a href="http://www.ghacks.net/2009/08/19/spotlight-v100-and-trashes-folders-on-usb-flash-drives/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.ghacks.net/2009/08/19/spotlight-v100-and-trashes-folders-on-usb-flash-drives/']);" target="_blank">attached this usb boot drive to my Mac</a> and the Mac added the .Spotlight-V100, .Trashes, ._.Trashes, and .fseventsd files when it mounted the volume. The truth is that I used OSX to <a href="http://vmwire.com/2011/09/11/creating-vsphere-5-esxi-embedded-usb-stick/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://vmwire.com/2011/09/11/creating-vsphere-5-esxi-embedded-usb-stick/']);" target="_blank">dd install</a> ESXi 5.0. Once the DD had finished it auto mounted the partitions.
 
 Since these files will never be used in ESXi, I decided to remove them.
 
-[code]  
-\# rm -rf .fseventsd/ ._.Trashes .Trashes/ .Spotlight-V100/  
-[/code]
+	  
+	\# rm -rf .fseventsd/ ._.Trashes .Trashes/ .Spotlight-V100/  
+	
 
 Since any filesystem that was mounted by OSX would contain these, I decided to clean up the /altbootbank as well. Here are the files in the /altbootbank.
 
-[code]  
-\# ls -la  
-drwxr-xr-x 1 root root 512 Sep 18 05:36 ..  
-drwxr-xr-x 1 root root 8 Jan 1 1970 .Spotlight-V100  
-drwxr-xr-x 1 root root 8 Jan 1 1970 .fseventsd  
--rwx\---\--- 1 root root 96 Jun 29 13:49 boot.cfg  
--rwx\---\--- 1 root root 197 Aug 23 11:53 imgdb.tgz  
--rwx\---\--- 1 root root 20 Sep 14 08:50 useropts.gz  
-[/code]
+	  
+	\# ls -la  
+	drwxr-xr-x 1 root root 512 Sep 18 05:36 ..  
+	drwxr-xr-x 1 root root 8 Jan 1 1970 .Spotlight-V100  
+	drwxr-xr-x 1 root root 8 Jan 1 1970 .fseventsd  
+	-rwx\---\--- 1 root root 96 Jun 29 13:49 boot.cfg  
+	-rwx\---\--- 1 root root 197 Aug 23 11:53 imgdb.tgz  
+	-rwx\---\--- 1 root root 20 Sep 14 08:50 useropts.gz  
+	
 
 I removed the .Spotlight-V100 and .fseventsd from the altbootbank
 
-[code]  
-\# rm -rf .Spotlight-V100/ .fseventsd/  
-[/code]
+	  
+	\# rm -rf .Spotlight-V100/ .fseventsd/  
+	
 
 I did another remediation of the upgrade and it went through just fine. So these OSX specific files were disrupting the upgrade.
 

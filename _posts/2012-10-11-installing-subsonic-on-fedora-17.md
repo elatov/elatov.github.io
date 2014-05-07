@@ -35,78 +35,78 @@ It seemed that everyone was really liking SubSonic. I actually used SqueezeBox a
 
 Most of the instructions are laid out in &#8220;<a href="http://www.subsonic.org/pages/installation.jsp" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.subsonic.org/pages/installation.jsp']);">Installing Subsonic</a>&#8221; page, but I had to make some changes to accommodate to my OS:
 
-[code]  
-moxz:~> yum install java-1.7.0-openjdk  
-[/code]
+	  
+	moxz:~> yum install java-1.7.0-openjdk  
+	
 
 If you are planning to do some transcoding, install additional codecs. To do so, first enable the repo for free codecs:
 
-[code]  
-moxz:~>rpm -ivh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm  
-[/code]
+	  
+	moxz:~>rpm -ivh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm  
+	
 
 After that install the necessary codecs:
 
-[code]  
-moxz:~> yum install lame flac faad2 vorbis-tools ffmpeg  
-[/code]
+	  
+	moxz:~> yum install lame flac faad2 vorbis-tools ffmpeg  
+	
 
 ### 2. Install the SubSonic Package
 
 From the install page, download the rpm and then install it:
 
-[code]  
-moxz:~>sudo rpm -ivh subsonic-4.7.rpm  
-Preparing... ########################################### [100%]  
-1:subsonic ########################################### [100%]  
-Starting subsonic (via systemctl):  
-[/code]
+	  
+	moxz:~>sudo rpm -ivh subsonic-4.7.rpm  
+	Preparing... ########################################### [100%]  
+	1:subsonic ########################################### [100%]  
+	Starting subsonic (via systemctl):  
+	
 
 The install actually includes it&#8217;s own transcoding application binaries:
 
-[code]  
-moxz:~> rpm -ql subsonic-4.7-3105.i386  
-/etc/init.d/subsonic  
-/etc/sysconfig/subsonic  
-/usr/share/subsonic/subsonic-booter-jar-with-dependencies.jar  
-/usr/share/subsonic/subsonic.sh  
-/usr/share/subsonic/subsonic.war  
-/var/subsonic/transcode/ffmpeg  
-/var/subsonic/transcode/lame  
-[/code]
+	  
+	moxz:~> rpm -ql subsonic-4.7-3105.i386  
+	/etc/init.d/subsonic  
+	/etc/sysconfig/subsonic  
+	/usr/share/subsonic/subsonic-booter-jar-with-dependencies.jar  
+	/usr/share/subsonic/subsonic.sh  
+	/usr/share/subsonic/subsonic.war  
+	/var/subsonic/transcode/ffmpeg  
+	/var/subsonic/transcode/lame  
+	
 
 The files under the &#8216;/var/subsonic/transcode&#8217; folder are the custom binaries. You can change which binaries it uses if it&#8217;s necessary.
 
 For some reason with my setup, subsonic would fail to start with the following message:
 
-[code]  
-java not found  
-[/code]
+	  
+	java not found  
+	
 
 I had to update my java config to fix that, here is the command I ran:
 
-[code]  
-moxz:~> update-alternatives --set java /usr/lib/jvm/jre-1.7.0-openjdk/bin/java  
-[/code]
+	  
+	moxz:~> update-alternatives --set java /usr/lib/jvm/jre-1.7.0-openjdk/bin/java  
+	
 
 ### 3. Customize the SubSonic settings
 
 I didn&#8217;t have many things to change, I just changed the user it ran as and bound it to my IP. I edited /etc/sysconfig/subsonic and made the following changes:
 
-[code]  
-SUBSONIC_ARGS="--host=192.168.1.102 --max-memory=150"  
-SUBSONIC_USER=elatov  
-[/code]
+	  
+	SUBSONIC_ARGS="--host=192.168.1.102 --max-memory=150"  
+	SUBSONIC_USER=elatov  
+	
 
 ### 4. Restart the service and make sure it starts up
 
 After I fixed my java issue and made some changes to the settings, I wanted to make sure everything was okay:
 
-[code]  
-moxz:~>systemctl restart subsonic.service  
-moxz:~>ps -eaf | grep subsonic | grep -v grep  
-elatov 2153 1 27 15:51 ? 00:00:05 java -Xmx150m -Dsubsonic.home=/var/subsonic -Dsubsonic.host=192.168.1.102 -Dsubsonic.port=4040 -Dsubsonic.httpsPort=0 -Dsubsonic.contextPath=/ -Dsubsonic.defaultMusicFolder=/var/music -Dsubsonic.defaultPodcastFolder=/var/music/Podcast -Dsubsonic.defaultPlaylistFolder=/var/playlists -Djava.awt.headless=true -verbose:gc -jar subsonic-booter-jar-with-dependencies.jar  
-[/code]
+	  
+	moxz:~>systemctl restart subsonic.service  
+	moxz:~>ps -eaf | grep subsonic | grep -v grep  
+	elatov 2153 1 27 15:51 ? 00:00:05 java -Xmx150m -Dsubsonic.home=/var/subsonic -Dsubsonic.host=192.168.1.102 -Dsubsonic.port=4040 -Dsubsonic.httpsPort=0 -Dsubsonic.contextPath=/ -Dsubsonic.defaultMusicFolder=/var/music -Dsubsonic.defaultPodcastFolder=/var/music/Podcast -Dsubsonic.defaultPlaylistFolder=/var/playlists -Djava.awt.headless=true -verbose:gc -jar subsonic-booter-jar-with-dependencies.jar  
+	
 
 That looked good.
 
@@ -114,16 +114,16 @@ That looked good.
 
 Since there is Web Management portal, we need to open up the port with iptables:
 
-[code]  
-moxz:~> iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 4040 -j ACCEPT  
-[/code]
+	  
+	moxz:~> iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 4040 -j ACCEPT  
+	
 
 Then save the iptables config:
 
-[code]  
-moxz:~>sudo /usr/libexec/iptables.init save  
-iptables: Saving firewall rules to /etc/sysconfig/iptables:  
-[/code]
+	  
+	moxz:~>sudo /usr/libexec/iptables.init save  
+	iptables: Saving firewall rules to /etc/sysconfig/iptables:  
+	
 
 ### 6. Connect to SubSonic with you browser
 

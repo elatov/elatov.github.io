@@ -31,28 +31,28 @@ After we installed the driver and rebooted the host, we saw the following PSOD:
 
 here is the backtrace:
 
-[code]  
-0x412242f1a850:[0x41803745573e]be\_char\_ioctl'@'<None>#<None>+0xc8 stack: 0x412242f1ad21  
-0x412242f1a960:[0x418037646620]LinuxCharIoctl'@'com.vmware.driverAPI#9.2+0x127 stack: 0x412242f27040  
-0x412242f1a9e0:[0x418036d51292]VMKAPICharDevDevfsWrapIoctl'@'vmkernel#nover+0x109 stack: 0x412242f1aa  
-0x412242f1ac10:[0x4180370dc4d8]DevFSIoctl'@'vmkernel#nover+0x9bf stack: 0x412242f1ad8c  
-0x412242f1ac70:[0x41803709d35d]FSS2_IoctlByFH'@'vmkernel#nover+0x434 stack: 0xbcd42f1ad20  
-0x412242f1acc0:[0x41803709ceb0]FSS_IoctlByFH'@'vmkernel#nover+0x8f stack: 0xffd6223cc0105500  
-0x412242f1ace0:[0x41803745573e]UserFile_PassthroughIoctl'@'<None>#<None>+0x41 stack: 0x412242f1ad60  
-0x412242f1ad60:[0x418037511822]UserVmfs_Ioctl'@'<None>#<None>+0xa9 stack: 0x41003eba39e0  
-0x412242f1adc0:[0x4180374744b4]LinuxFileDesc_Ioctl'@'<None>#<None>+0x163 stack: 0x412242f1ae00  
-0x412242f1af10:[0x418036d3e0e9]User_LinuxSyscallHandler@vmkernel#nover+0x1c stack: 0xffd62258  
-[/code]
+	  
+	0x412242f1a850:[0x41803745573e]be\_char\_ioctl'@'<None>#<None>+0xc8 stack: 0x412242f1ad21  
+	0x412242f1a960:[0x418037646620]LinuxCharIoctl'@'com.vmware.driverAPI#9.2+0x127 stack: 0x412242f27040  
+	0x412242f1a9e0:[0x418036d51292]VMKAPICharDevDevfsWrapIoctl'@'vmkernel#nover+0x109 stack: 0x412242f1aa  
+	0x412242f1ac10:[0x4180370dc4d8]DevFSIoctl'@'vmkernel#nover+0x9bf stack: 0x412242f1ad8c  
+	0x412242f1ac70:[0x41803709d35d]FSS2_IoctlByFH'@'vmkernel#nover+0x434 stack: 0xbcd42f1ad20  
+	0x412242f1acc0:[0x41803709ceb0]FSS_IoctlByFH'@'vmkernel#nover+0x8f stack: 0xffd6223cc0105500  
+	0x412242f1ace0:[0x41803745573e]UserFile_PassthroughIoctl'@'<None>#<None>+0x41 stack: 0x412242f1ad60  
+	0x412242f1ad60:[0x418037511822]UserVmfs_Ioctl'@'<None>#<None>+0xa9 stack: 0x41003eba39e0  
+	0x412242f1adc0:[0x4180374744b4]LinuxFileDesc_Ioctl'@'<None>#<None>+0x163 stack: 0x412242f1ae00  
+	0x412242f1af10:[0x418036d3e0e9]User_LinuxSyscallHandler@vmkernel#nover+0x1c stack: 0xffd62258  
+	
 
 we see a *be* and that is pointing to the *be2net* or *be2iscsi* driver causing the PSOD. We were already updating to the latest version of the be2iscsi driver, so the next thing to try is to update the *be2net* driver. I rebooted the host and the *be2iscsi* driver was automatically removed and the host rebooted fine (no PSODs were seen). I checked out the driver version of be2net, and I saw the following:
 
-[code highlight="5"]  
-~ # vmkload_mod -s be2net | head -4  
-vmkload_mod module information  
-input file: /usr/lib/vmware/vmkmod/be2net  
-License: GPL  
-Version: Version 4.0.88.0, Build: 515841, Interface: 9.2 Built on: Oct 28 2011  
-[/code]
+	  
+	~ # vmkload_mod -s be2net | head -4  
+	vmkload_mod module information  
+	input file: /usr/lib/vmware/vmkmod/be2net  
+	License: GPL  
+	Version: Version 4.0.88.0, Build: 515841, Interface: 9.2 Built on: Oct 28 2011  
+	
 
 I actually ran into VMware KB <a href="http://kb.vmware.com/kb/2007397" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/2007397']);">2007397</a>, from that KB:
 
@@ -72,13 +72,13 @@ I actually ran into VMware KB <a href="http://kb.vmware.com/kb/2007397" onclick=
 
 I decided to update my *be2net* driver from 4.0.88 to 4.0.355 (link to driver is above). I installed the driver and rebooted, here is how my driver/firmware looked like:
 
-[code]  
-~ # ethtool -i vmnic4  
-driver: be2net  
-version: 4.0.355.1  
-firmware-version: 4.1.450.16  
-bus-info: 0000.0e:00.0  
-[/code]
+	  
+	~ # ethtool -i vmnic4  
+	driver: be2net  
+	version: 4.0.355.1  
+	firmware-version: 4.1.450.16  
+	bus-info: 0000.0e:00.0  
+	
 
 And I didn&#8217;t see another PSOD. I then re-installed *be2iscsi* version 4.1.334.3 on the same host. I then rebooted one more time and no PSOD occurred. It looks like I needed to update the *be2net* driver first, before applying the latest *be2iscsi* driver.
 

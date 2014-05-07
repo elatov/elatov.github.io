@@ -22,50 +22,50 @@ tags:
 ---
 We were troubleshooting an issue with the N1K, where random VMs would lose network connectivity. Upon running a &#8220;show mod&#8221; on the N1K we saw the following:
 
-[code]  
-switch# show mod | no-more  
-Mod Ports Module-Type Model Status  
-\--- \---\-- -\---\---\---\---\---\---\---\---\---\---\- --\---\---\---\---\---\- --\---\---\----  
-1 0 Virtual Supervisor Module Nexus1000V active *  
-3 248 Virtual Ethernet Module NA licensed  
-4 248 Virtual Ethernet Module NA licensed  
-5 248 Virtual Ethernet Module NA licensed
-
-Mod Sw Hw  
-\--- \---\---\---\---\---\- --\---\---\---\---\---\---\---\---\---\---\---\---\---\---\----  
-1 4.2(1)SV1(4b) 0.0  
-3 4.2(1)SV1(4b) VMware ESXi 4.1.0 Releasebuild-348481 (2.0)  
-4 4.2(1)SV1(4b) VMware ESXi 4.1.0 Releasebuild-348481 (2.0)  
-5 4.2(1)SV1(4b) VMware ESXi 4.1.0 Releasebuild-348481 (2.0)
-
-Mod MAC-Address(es) Serial-Num  
-\--- \---\---\---\---\---\---\---\---\---\---\---\---\-- -\---\---\---  
-1 00-19-07-6c-5a-a8 to 00-19-07-6c-62-a8 NA  
-3 02-00-0c-00-03-00 to 02-00-0c-00-03-80 NA  
-4 02-00-0c-00-04-00 to 02-00-0c-00-04-80 NA  
-5 02-00-0c-00-05-00 to 02-00-0c-00-05-80 NA
-
-Mod Server-IP Server-UUID Server-Name  
-\--- \---\---\---\---\--- \---\---\---\---\---\---\---\---\---\---\---\--- \---\---\---\---\---\-----  
-1 192.168.1.139 NA NA  
-3 192.168.1.134 00000000-0000-0000-0000-000000000000 localhost1.  
-4 192.168.1.136 00000000-0000-0000-0000-000000000000 localhost2.  
-5 192.168.1.137 42343a8f-65b9-e0ae-acf2-b6d4e3995147 localhost3.  
-[/code]
+	  
+	switch# show mod | no-more  
+	Mod Ports Module-Type Model Status  
+	\--- \---\-- -\---\---\---\---\---\---\---\---\---\---\- --\---\---\---\---\---\- --\---\---\----  
+	1 0 Virtual Supervisor Module Nexus1000V active *  
+	3 248 Virtual Ethernet Module NA licensed  
+	4 248 Virtual Ethernet Module NA licensed  
+	5 248 Virtual Ethernet Module NA licensed
+	
+	Mod Sw Hw  
+	\--- \---\---\---\---\---\- --\---\---\---\---\---\---\---\---\---\---\---\---\---\---\----  
+	1 4.2(1)SV1(4b) 0.0  
+	3 4.2(1)SV1(4b) VMware ESXi 4.1.0 Releasebuild-348481 (2.0)  
+	4 4.2(1)SV1(4b) VMware ESXi 4.1.0 Releasebuild-348481 (2.0)  
+	5 4.2(1)SV1(4b) VMware ESXi 4.1.0 Releasebuild-348481 (2.0)
+	
+	Mod MAC-Address(es) Serial-Num  
+	\--- \---\---\---\---\---\---\---\---\---\---\---\---\-- -\---\---\---  
+	1 00-19-07-6c-5a-a8 to 00-19-07-6c-62-a8 NA  
+	3 02-00-0c-00-03-00 to 02-00-0c-00-03-80 NA  
+	4 02-00-0c-00-04-00 to 02-00-0c-00-04-80 NA  
+	5 02-00-0c-00-05-00 to 02-00-0c-00-05-80 NA
+	
+	Mod Server-IP Server-UUID Server-Name  
+	\--- \---\---\---\---\--- \---\---\---\---\---\---\---\---\---\---\---\--- \---\---\---\---\---\-----  
+	1 192.168.1.139 NA NA  
+	3 192.168.1.134 00000000-0000-0000-0000-000000000000 localhost1.  
+	4 192.168.1.136 00000000-0000-0000-0000-000000000000 localhost2.  
+	5 192.168.1.137 42343a8f-65b9-e0ae-acf2-b6d4e3995147 localhost3.  
+	
 
 Two of the VEM modules were showing up with the UUID value of all zeros. Running &#8216;vemcmd show card&#8217; on the working host we saw the following:
 
-[code]  
-~ # vemcmd show card | grep UUID  
-Card UUID type 2: 42343a8f-65b9-e0ae-acf2-b6d4e3995147  
-[/code]
+	  
+	~ # vemcmd show card | grep UUID  
+	Card UUID type 2: 42343a8f-65b9-e0ae-acf2-b6d4e3995147  
+	
 
 On one of the two non-working hosts, we saw the following:
 
-[code]  
-~ # vemcmd show card | grep UUID  
-Card UUID type 2: 00000000-0000-0000-0000-000000000000  
-[/code]
+	  
+	~ # vemcmd show card | grep UUID  
+	Card UUID type 2: 00000000-0000-0000-0000-000000000000  
+	
 
 I then ran across <a href="https://supportforums.cisco.com/thread/2166139" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://supportforums.cisco.com/thread/2166139']);">this</a> cisco forums page. And from that page:
 
@@ -82,17 +82,17 @@ I then ran across <a href="https://supportforums.cisco.com/thread/2166139" oncli
 
 So the UUID is obtained from &#8220;esxcfg-info -u&#8221;. Running that command on working and non-working hosts, I saw the following:
 
-[code]  
-~ # esxcfg-info -u  
-42343A8F-65B9-E0AE-ACF2-B6D4E3995147  
-[/code]
+	  
+	~ # esxcfg-info -u  
+	42343A8F-65B9-E0AE-ACF2-B6D4E3995147  
+	
 
 and from one of the non-working host:
 
-[code]  
-~ # esxcfg-info -u  
-00000000-0000-0000-0000-000000000000  
-[/code]
+	  
+	~ # esxcfg-info -u  
+	00000000-0000-0000-0000-000000000000  
+	
 
 Looking over VMware KB <a href="http://kb.vmware.com/kb/1006250" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1006250']);">1006250</a>, we see the following:
 
@@ -103,92 +103,92 @@ Looking over VMware KB <a href="http://kb.vmware.com/kb/1006250" onclick="javasc
 
 We were using ESXi and no &#8216;dmidecode&#8217; utility is available. However we can use &#8216;vsish&#8217; and &#8216;vim-cmd&#8217; to query the same information. Here is output for a good host:
 
-[code]  
-~ # vsish -e cat /hardware/bios/dmiInfo | head -5  
-System Information (type1) {  
-Product Name:R250-2480805W  
-Vendor Name:Cisco Systems Inc  
-Serial Number:FCH1551v06J  
-UUID:[0]: 0x42  
-[/code]
+	  
+	~ # vsish -e cat /hardware/bios/dmiInfo | head -5  
+	System Information (type1) {  
+	Product Name:R250-2480805W  
+	Vendor Name:Cisco Systems Inc  
+	Serial Number:FCH1551v06J  
+	UUID:[0]: 0x42  
+	
 
 and here is the vim-cmd results:
 
-[code]  
-~ # vim-cmd hostsvc/hosthardware | grep uuid -B 6  
-(vim.host.HardwareInfo) {  
-dynamicType = ,  
-systemInfo = (vim.host.SystemInfo) {  
-dynamicType = ,  
-vendor = "Cisco Systems Inc",  
-model = "R250-2480805W",  
-uuid = "42343a8f-65b9-e0ae-acf2-b6d4e3995147",  
-[/code]
+	  
+	~ # vim-cmd hostsvc/hosthardware | grep uuid -B 6  
+	(vim.host.HardwareInfo) {  
+	dynamicType = ,  
+	systemInfo = (vim.host.SystemInfo) {  
+	dynamicType = ,  
+	vendor = "Cisco Systems Inc",  
+	model = "R250-2480805W",  
+	uuid = "42343a8f-65b9-e0ae-acf2-b6d4e3995147",  
+	
 
 And here were the results from a non-working host:
 
-[code]  
-~ # vsish -e cat /hardware/bios/dmiInfo | head -5  
-System Information (type1) {  
-Product Name:  
-Vendor Name:  
-Serial Number:  
-UUID:[0]: 0x00  
-[/code]
+	  
+	~ # vsish -e cat /hardware/bios/dmiInfo | head -5  
+	System Information (type1) {  
+	Product Name:  
+	Vendor Name:  
+	Serial Number:  
+	UUID:[0]: 0x00  
+	
 
 and the vim-cmd results:
 
-[code]  
-~ # vim-cmd hostsvc/hosthardware | grep uuid -B 6  
-(vim.host.HardwareInfo) {  
-dynamicType = ,  
-systemInfo = (vim.host.SystemInfo) {  
-dynamicType = ,  
-vendor = "",  
-model = "",  
-uuid = "00000000-0000-0000-0000-000000000000",  
-[/code]
+	  
+	~ # vim-cmd hostsvc/hosthardware | grep uuid -B 6  
+	(vim.host.HardwareInfo) {  
+	dynamicType = ,  
+	systemInfo = (vim.host.SystemInfo) {  
+	dynamicType = ,  
+	vendor = "",  
+	model = "",  
+	uuid = "00000000-0000-0000-0000-000000000000",  
+	
 
 So the BIOS of the Cisco Servers were not returning the smbios information. We rebooted the host and the issue persisted. We then powered off the host and unplugged the power cables for 5 minutes and then powered it back on and the values showed up without issues. When the host came back up, the &#8216;show mod&#8217; had the new modules connected but it also had the old 0&#8242;ed modules as well. It looks like this:
 
-[code]  
-switch# show mod | no-more  
-...  
-...  
-Mod Server-IP Server-UUID Server-Name  
-\--- \---\---\---\---\--- \---\---\---\---\---\---\---\---\---\---\---\--- \---\---\---\---\---\-----  
-1 192.168.1.139 NA NA  
-3 192.168.1.134 00000000-0000-0000-0000-000000000000 localhost1.  
-4 192.168.1.136 00000000-0000-0000-0000-000000000000 localhost2.  
-5 192.168.1.137 423416ec-385c-3be9-c26c-2f01b6b48ca7 localhost3.  
-6 192.168.1.134 42343a8f-65b9-e0ae-acf2-b6d4e3995147 192.168.1.134  
-[/code]
+	  
+	switch# show mod | no-more  
+	...  
+	...  
+	Mod Server-IP Server-UUID Server-Name  
+	\--- \---\---\---\---\--- \---\---\---\---\---\---\---\---\---\---\---\--- \---\---\---\---\---\-----  
+	1 192.168.1.139 NA NA  
+	3 192.168.1.134 00000000-0000-0000-0000-000000000000 localhost1.  
+	4 192.168.1.136 00000000-0000-0000-0000-000000000000 localhost2.  
+	5 192.168.1.137 423416ec-385c-3be9-c26c-2f01b6b48ca7 localhost3.  
+	6 192.168.1.134 42343a8f-65b9-e0ae-acf2-b6d4e3995147 192.168.1.134  
+	
 
 We tried to remove the VEM module manually:
 
-[code]  
-switch# conf t  
-Enter configuration commands, one per line. End with CNTL/Z.  
-switch(config)# no vem 3  
-ERROR: module 3 is inserted, cannot remove  
-[/code]
+	  
+	switch# conf t  
+	Enter configuration commands, one per line. End with CNTL/Z.  
+	switch(config)# no vem 3  
+	ERROR: module 3 is inserted, cannot remove  
+	
 
 But it failed. So we ran the following:
 
-[code]  
-switch# system switchover  
-[/code]
+	  
+	switch# system switchover  
+	
 
 That failed over to the other HA standby VSM (if you have it setup) and then the stale module was gone. We did the same thing for the other host that had all zeros for it&#8217;s UUID and it worked just fine. 
 
 One last note, don&#8217;t confuse this UUID for the &#8220;System UUID&#8221;, they are two completely different UUIDs. To find out the &#8220;System UUID&#8221; you can do the following:
 
-[code]  
-~ # grep uuid /etc/vmware/esx.conf  
-/system/uuid = "4ff35a91-ab62-fc60-8199-0050561721df"  
-~ # esxcfg-info -y | grep "System UUID"  
-|\----System UUID.................................................4ff35a91-ab62-fc60-8199-0050561721df  
-[/code]
+	  
+	~ # grep uuid /etc/vmware/esx.conf  
+	/system/uuid = "4ff35a91-ab62-fc60-8199-0050561721df"  
+	~ # esxcfg-info -y | grep "System UUID"  
+	|\----System UUID.................................................4ff35a91-ab62-fc60-8199-0050561721df  
+	
 
 VMware KB <a href="http://kb.vmware.com/kb/1008728" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1008728']);">1008728</a> and VMware KB <a href="http://kb.vmware.com/kb/1024791" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1024791']);">1024791</a> talk about it&#8217;s uses. Here are a couple:
 
@@ -197,12 +197,12 @@ VMware KB <a href="http://kb.vmware.com/kb/1008728" onclick="javascript:_gaq.pus
 
 And I am sure there are lot of other VMware functions that rely on that value, but again it&#8217;s different from the &#8220;BIOS UUID&#8221;, which the Cisco VEM depends on. Here are both values seen from the same host:
 
-[code]  
-~ # esxcfg-info -a | grep -E 'BIOS UUID|System UUID'  
-|\----BIOS UUID................................................0x42 0x34 0x3a 0x8f 0x65 0xb9 0xe0 0xae 0xac 0xf2 0xb6 0xd4 0xe3 0x99 0x51 0x47  
-|\----System UUID..............................................4ff35a91-ab62-fc60-8199-0050561721df  
-[/code]
+	  
+	~ # esxcfg-info -a | grep -E 'BIOS UUID|System UUID'  
+	|\----BIOS UUID................................................0x42 0x34 0x3a 0x8f 0x65 0xb9 0xe0 0xae 0xac 0xf2 0xb6 0xd4 0xe3 0x99 0x51 0x47  
+	|\----System UUID..............................................4ff35a91-ab62-fc60-8199-0050561721df  
+	
 
 <p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/01/esxi-hosts-show-up-as-a-vem-module-with-all-zeros-for-uuids-on-the-nexus-1000v/" title=" ESXi Hosts Show Up as a VEM Module with All Zeros for UUIDs on the Nexus 1000v" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:/hardware/bios/dmiInfo,Bios UUID,esxcfg-info,hostsvc/hosthardware,Nexus 1000v,show mod,System UUID,vemcmd show card,vim-cmd,vsish,blog;button:compact;">We were troubleshooting an issue with the N1K, where random VMs would lose network connectivity. Upon running a &#8220;show mod&#8221; on the N1K we saw the following: [code] switch# show...</a>
-</p>
+	  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/01/esxi-hosts-show-up-as-a-vem-module-with-all-zeros-for-uuids-on-the-nexus-1000v/" title=" ESXi Hosts Show Up as a VEM Module with All Zeros for UUIDs on the Nexus 1000v" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:/hardware/bios/dmiInfo,Bios UUID,esxcfg-info,hostsvc/hosthardware,Nexus 1000v,show mod,System UUID,vemcmd show card,vim-cmd,vsish,blog;button:compact;">We were troubleshooting an issue with the N1K, where random VMs would lose network connectivity. Upon running a &#8220;show mod&#8221; on the N1K we saw the following:  switch# show...</a>
+	</p>

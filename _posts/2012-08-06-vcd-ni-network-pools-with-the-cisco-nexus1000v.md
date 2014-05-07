@@ -26,72 +26,72 @@ I was recently messing around with my vCloud Lab and I decided to see how the Ne
 
 First enable the segmentation features on the N1K:
 
-[code]  
-switch# conf t  
-switch(config)# feature network-segmentation-manager  
-switch(config)# feature segmentation  
-switch# show network-segment manager switch  
-switch: default_switch  
-state: enabled  
-dvs-uuid: 21 ba 33 50 89 1a e8 ca-42 07 57 77 59 92 97 f4  
-dvs-name: switch  
-mgmt-srv-uuid: 40C987D3-60EC-47A3-8E53-1708035AE618  
-reg status: unregistered  
-last alert: - seconds ago  
-connection status: disconnected
-
-switch# show feature | grep seg  
-network-segmentation 1 enabled  
-segmentation 1 enabled  
-[/code]
+	  
+	switch# conf t  
+	switch(config)# feature network-segmentation-manager  
+	switch(config)# feature segmentation  
+	switch# show network-segment manager switch  
+	switch: default_switch  
+	state: enabled  
+	dvs-uuid: 21 ba 33 50 89 1a e8 ca-42 07 57 77 59 92 97 f4  
+	dvs-name: switch  
+	mgmt-srv-uuid: 40C987D3-60EC-47A3-8E53-1708035AE618  
+	reg status: unregistered  
+	last alert: - seconds ago  
+	connection status: disconnected
+	
+	switch# show feature | grep seg  
+	network-segmentation 1 enabled  
+	segmentation 1 enabled  
+	
 
 Next create a Port Profile which will be used for your type of Network Segmentation Policies:
 
-[code]  
-switch# conf t  
-switch(config)# port-profile type vethernet profile\_for\_segmentation  
-switch(config-port-prof)# no shutdown  
-switch(config-port-prof)# state enabled  
-switch(config-port-prof)# switchport mode access  
-switch(config-port-prof)# switchport access vlan 2002  
-switch(config-port-prof)# show running-config port-profile profile\_for\_segmentation
-
-!Command: show running-config port-profile profile\_for\_segmentation  
-!Time: Sun Aug 5 17:54:07 2012
-
-version 4.2(1)SV1(5.1)  
-port-profile type vethernet profile\_for\_segmentation  
-switchport mode access  
-switchport access vlan 2002  
-no shutdown  
-state enabled  
-[/code]
+	  
+	switch# conf t  
+	switch(config)# port-profile type vethernet profile\_for\_segmentation  
+	switch(config-port-prof)# no shutdown  
+	switch(config-port-prof)# state enabled  
+	switch(config-port-prof)# switchport mode access  
+	switch(config-port-prof)# switchport access vlan 2002  
+	switch(config-port-prof)# show running-config port-profile profile\_for\_segmentation
+	
+	!Command: show running-config port-profile profile\_for\_segmentation  
+	!Time: Sun Aug 5 17:54:07 2012
+	
+	version 4.2(1)SV1(5.1)  
+	port-profile type vethernet profile\_for\_segmentation  
+	switchport mode access  
+	switchport access vlan 2002  
+	no shutdown  
+	state enabled  
+	
 
 ***Note** make sure you have a uplink (type ethernet) port-profile that allows the above VLAN
 
 Next we create a Network Segmentation Policy, this actually depends on your Tenant ID of your Organization Instance from vCloud director. To obtain the Tenant ID follow the instructions laid out in VMware KB <a href="http://kb.vmware.com/kb/2012943" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/2012943']);">2012943</a>. My Tenant ID is &#8220;e461e9cc-1205-40f4-9f36-ad0e841d9c73&#8243;, so here is how the creating of the policy looked like:
 
-[code]  
-switch# conf t  
-switch(config)# network-segment policy vcd-ni-pol  
-switch(config-network-segment-policy)# description policy\_for\_vcd_ni  
-switch(config-network-segment-policy)# type segmentation  
-switch(config-network-segment-policy)# id e461e9cc-1205-40f4-9f36-ad0e841d9c73  
-switch(config-network-segment-policy)# import port-profile profile\_for\_segmentation  
-switch(config-network-segment-policy)# show run network-segment policy vcd-ni-pol
-
-!Command: show running-config network-segment policy vcd-ni-pol  
-!Time: Sun Aug 5 18:02:59 2012
-
-version 4.2(1)SV1(5.1)  
-feature network-segmentation-manager
-
-network-segment policy vcd-ni-pol  
-id e461e9cc-1205-40f4-9f36-ad0e841d9c73  
-description policy\_for\_vcd_ni  
-type segmentation  
-import port-profile profile\_for\_segmentation  
-[/code]
+	  
+	switch# conf t  
+	switch(config)# network-segment policy vcd-ni-pol  
+	switch(config-network-segment-policy)# description policy\_for\_vcd_ni  
+	switch(config-network-segment-policy)# type segmentation  
+	switch(config-network-segment-policy)# id e461e9cc-1205-40f4-9f36-ad0e841d9c73  
+	switch(config-network-segment-policy)# import port-profile profile\_for\_segmentation  
+	switch(config-network-segment-policy)# show run network-segment policy vcd-ni-pol
+	
+	!Command: show running-config network-segment policy vcd-ni-pol  
+	!Time: Sun Aug 5 18:02:59 2012
+	
+	version 4.2(1)SV1(5.1)  
+	feature network-segmentation-manager
+	
+	network-segment policy vcd-ni-pol  
+	id e461e9cc-1205-40f4-9f36-ad0e841d9c73  
+	description policy\_for\_vcd_ni  
+	type segmentation  
+	import port-profile profile\_for\_segmentation  
+	
 
 Next we register the Nexus1000v Network Segmentation Manager with vShield Manager as a switch provider. Here is step by step process taken from the Cisco article:
 
@@ -119,17 +119,17 @@ Since VCD-NI uses multicast to encapsulate traffic, we define the range of multi
 
 After connecting to the Nexus, here is what I saw on the VSM (Virtual Supervisor Module):
 
-[code]  
-switch# show network-segment manager switch  
-switch: default_switch  
-state: enabled  
-dvs-uuid: 21 ba 33 50 89 1a e8 ca-42 07 57 77 59 92 97 f4  
-dvs-name: switch  
-mgmt-srv-uuid: 40C987D3-60EC-47A3-8E53-1708035AE618  
-reg status: registered  
-last alert: 103 seconds ago  
-connection status: connected  
-[/code]
+	  
+	switch# show network-segment manager switch  
+	switch: default_switch  
+	state: enabled  
+	dvs-uuid: 21 ba 33 50 89 1a e8 ca-42 07 57 77 59 92 97 f4  
+	dvs-name: switch  
+	mgmt-srv-uuid: 40C987D3-60EC-47A3-8E53-1708035AE618  
+	reg status: registered  
+	last alert: 103 seconds ago  
+	connection status: connected  
+	
 
 Now that this is all setup, we can setup a vCloud Organization to use it. First we need to add a new Network Pool of type &#8220;Network Isolation-Backed&#8221;, to do so follow these instructions:
 
@@ -179,72 +179,72 @@ Now if we create a new vApp with in this Organization and create a new vApp Netw
 
 Upon powering on this vApp, I saw the the new DvPortgroup created and the VM added to it. Then checking out the N1K, I saw the following:
 
-[code]  
-switch# show network-segment policy usage
-
-network-segment policy default\_segmentation\_template
-
-network-segment policy default\_vlan\_template
-
-network-segment policy vcd-ni-pol  
-dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f  
-[/code]
+	  
+	switch# show network-segment policy usage
+	
+	network-segment policy default\_segmentation\_template
+	
+	network-segment policy default\_vlan\_template
+	
+	network-segment policy vcd-ni-pol  
+	dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f  
+	
 
 We can see that from our &#8220;vcd-ni-policy&#8221; network segment a new port-group has been created with the vApp Network Name in it (test). Checking out the multi-cast groups, I saw the following:
 
-[code]  
-switch# show bridge-domain
-
-Bridge-domain dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f  
-(1 ports in all)  
-Segment ID: 5000 (Manual/Active)  
-Group IP: 224.0.4.1  
-State: UP Mac learning: Enabled  
-Veth3  
-[/code]
+	  
+	switch# show bridge-domain
+	
+	Bridge-domain dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f  
+	(1 ports in all)  
+	Segment ID: 5000 (Manual/Active)  
+	Group IP: 224.0.4.1  
+	State: UP Mac learning: Enabled  
+	Veth3  
+	
 
 We can see that it starts with Segment ID 5000 and the group IP is &#8220;224.0.4.1&#8243;. This makes sense since this these are the settings we applied when adding the N1K as a switch provider to the vShield Manager. We can see that &#8220;veth3&#8243; is in that bridge domain. Checking out that virtual interface we can see that it corresponds to our VM from the vApp:
 
-[code highlight="9,10"]  
-switch# show run int vethernet 3
-
-!Command: show running-config interface Vethernet3  
-!Time: Mon Aug 6 21:57:33 2012
-
-version 4.2(1)SV1(5.1)
-
-interface Vethernet3  
-inherit port-profile dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f  
-description OI (3adadd61-75c1-4af2-9d76-ff467e42e965), Network Adapter 1  
-vmware dvport 161 dvswitch uuid &quot;21 ba 33 50 89 1a e8 ca-42 07 57 77 59 92 97  
-f4&quot;  
-vmware vm mac 0050.5601.0002  
-[/code]
+	  
+	switch# show run int vethernet 3
+	
+	!Command: show running-config interface Vethernet3  
+	!Time: Mon Aug 6 21:57:33 2012
+	
+	version 4.2(1)SV1(5.1)
+	
+	interface Vethernet3  
+	inherit port-profile dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f  
+	description OI (3adadd61-75c1-4af2-9d76-ff467e42e965), Network Adapter 1  
+	vmware dvport 161 dvswitch uuid &quot;21 ba 33 50 89 1a e8 ca-42 07 57 77 59 92 97  
+	f4&quot;  
+	vmware vm mac 0050.5601.0002  
+	
 
 On the host we can see that virtual port looks like this:
 
-[code]  
-~ # vemcmd show segment  
-Number of valid BDS: 7  
-BD 6, vdc 1, segment id 5000, segment group IP 224.0.4.1, swbd 4096, 1 ports, &quot;dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f&quot;  
-Portlist:
-
-~ # vemcmd show bd 6  
-BD 6, vdc 1, segment id 5000, segment group IP 224.0.4.1, swbd 4096, 1 ports, &quot;dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f&quot;  
-Portlist:  
-49 OI (3adadd61-7...7e42e965).eth0  
-[/code]
+	  
+	~ # vemcmd show segment  
+	Number of valid BDS: 7  
+	BD 6, vdc 1, segment id 5000, segment group IP 224.0.4.1, swbd 4096, 1 ports, &quot;dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f&quot;  
+	Portlist:
+	
+	~ # vemcmd show bd 6  
+	BD 6, vdc 1, segment id 5000, segment group IP 224.0.4.1, swbd 4096, 1 ports, &quot;dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f&quot;  
+	Portlist:  
+	49 OI (3adadd61-7...7e42e965).eth0  
+	
 
 We can see our segment (5000) belong to BD (Broadcast Domain) 6, then checking that BD we can see our VM is in it.
 
 And lastly here is the generic information about our ports:
 
-[code]  
-~ # vemcmd show pd-port  
-LTL Port DVport Type Link-valid State Duplex Speed PG-Name Status Client-Name  
-18 50331672 0 PHYS 1 UP 1 1000 dvportgroup-88 Success vmnic1  
-49 50331673 161 VIRT 0 0 0 dvportgroup-85 Success OI (3adadd61-75c1-4af2-9d76-ff467e42e965).eth0  
-[/code]
+	  
+	~ # vemcmd show pd-port  
+	LTL Port DVport Type Link-valid State Duplex Speed PG-Name Status Client-Name  
+	18 50331672 0 PHYS 1 UP 1 1000 dvportgroup-88 Success vmnic1  
+	49 50331673 161 VIRT 0 0 0 dvportgroup-85 Success OI (3adadd61-75c1-4af2-9d76-ff467e42e965).eth0  
+	
 
 That all looks good.
 
@@ -279,58 +279,58 @@ I then deployed a new vApp, added a new VM to the vApp and put the nic of this V
 
 Now checking out the settings on the N1K, I saw the following:
 
-[code]
-
-switch# show network-segment policy usage
-
-network-segment policy default\_segmentation\_template
-
-network-segment policy default\_vlan\_template
-
-network-segment policy vcd-ni-pol  
-dvs.VCDVSorg\_net\_using\_n1k\_vcd-ni_pool-25717f9d-78cc-48c1-8506-c38b429f3565  
-dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f  
-[/code]
+	
+	
+	switch# show network-segment policy usage
+	
+	network-segment policy default\_segmentation\_template
+	
+	network-segment policy default\_vlan\_template
+	
+	network-segment policy vcd-ni-pol  
+	dvs.VCDVSorg\_net\_using\_n1k\_vcd-ni_pool-25717f9d-78cc-48c1-8506-c38b429f3565  
+	dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f  
+	
 
 Now we have two dvPortGroups: one for the test vApp Network and second for the &#8220;org\_net\_using\_n1k\_vcd-ni_pool&#8221; Org Network. Then for the bridge domains:
 
-[code]
-
-switch# show bridge-domain
-
-Bridge-domain dvs.VCDVSorg\_net\_using\_n1k\_vcd-ni_pool-25717f9d-78cc-48c1-8506-c38  
-b429f3565 (1 ports in all)  
-Segment ID: 5001 (Manual/Active)  
-Group IP: 224.0.4.2  
-State: UP Mac learning: Enabled  
-Veth4
-
-Bridge-domain dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f  
-(1 ports in all)  
-Segment ID: 5000 (Manual/Active)  
-Group IP: 224.0.4.1  
-State: UP Mac learning: Enabled  
-Veth3  
-[/code]
+	
+	
+	switch# show bridge-domain
+	
+	Bridge-domain dvs.VCDVSorg\_net\_using\_n1k\_vcd-ni_pool-25717f9d-78cc-48c1-8506-c38  
+	b429f3565 (1 ports in all)  
+	Segment ID: 5001 (Manual/Active)  
+	Group IP: 224.0.4.2  
+	State: UP Mac learning: Enabled  
+	Veth4
+	
+	Bridge-domain dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f  
+	(1 ports in all)  
+	Segment ID: 5000 (Manual/Active)  
+	Group IP: 224.0.4.1  
+	State: UP Mac learning: Enabled  
+	Veth3  
+	
 
 Now we have two of those, which also makes sense. One more thing, I noticed the following on the upstream switch:
 
-[code]  
-D04\_5010\_A# sho mac-address-table vlan 2002  
-VLAN MAC Address Type Age Port  
-\---\---\---+\---\---\---\---\-----+\---\----+\---\---\---+\---\---\---\---\---\---\---\---\---\---  
-2002 0013.f501.00f3 dynamic 30 Po112  
-2002 0013.f501.0103 dynamic 0 Po112  
-Total MAC Addresses: 2  
-[/code]
+	  
+	D04\_5010\_A# sho mac-address-table vlan 2002  
+	VLAN MAC Address Type Age Port  
+	\---\---\---+\---\---\---\---\-----+\---\----+\---\---\---+\---\---\---\---\---\---\---\---\---\---  
+	2002 0013.f501.00f3 dynamic 30 Po112  
+	2002 0013.f501.0103 dynamic 0 Po112  
+	Total MAC Addresses: 2  
+	
 
 And also the following on the VEM:
 
-[code]  
-~ # vemcmd show l2 all | grep '00:13:f5'  
-Dynamic 00:13:f5:01:00:f3 18 197  
-Dynamic 00:13:f5:01:01:03 18 21  
-[/code]
+	  
+	~ # vemcmd show l2 all | grep '00:13:f5'  
+	Dynamic 00:13:f5:01:00:f3 18 197  
+	Dynamic 00:13:f5:01:01:03 18 21  
+	
 
 Check out the 00:13:f5 prefix for the Mac addresses. When VCD-NI is used you will not see the regular 00:50:56 prefix since Mac-in-Mac encapsulation is utilized. That is why only one vlan is necessary to use a VCD-NI network pool. If you want know more information on how VCD-NI works, check out <a href="http://blog.ioshints.info/2011/04/vcloud-director-networking.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blog.ioshints.info/2011/04/vcloud-director-networking.html']);">vCloud Director Networking Infrastructure (VCDNI) Scalability</a>, <a href="http://www.borgcube.com/blogs/2011/03/vcd-network-isolation-vcdni/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.borgcube.com/blogs/2011/03/vcd-network-isolation-vcdni/']);">vCD Network Isolation-vCDNI</a>, or VMware Communities Forum <a href="http://communities.vmware.com/thread/286475?start=15&tstart=0" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/thread/286475?start=15&tstart=0']);">286475</a>. The last link actually has a sample pcap file, which you can examine and see the same Mac Address prefix that I see above.
 

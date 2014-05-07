@@ -23,12 +23,12 @@ And here is how the DV Port Group looked like:
 
 We grabbed a &#8216;*show tech-support svs*&#8216; from the N1K. More information on what a &#8216;*show tech-support svs*&#8216; is, can be found at the following cisco <a href="http://www.cisco.com/en/US/docs/switches/datacenter/nexus1000/sw/4_0/troubleshooting/configuration/guide/trouble_18b4contact.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.cisco.com/en/US/docs/switches/datacenter/nexus1000/sw/4_0/troubleshooting/configuration/guide/trouble_18b4contact.html']);">web-page</a>. From the logs we saw the following messages that corresponded to the DV Uplink port Group:
 
-[code]  
-Event:E_DEBUG, length:351, at 951023 usecs after Fri Apr 13 14:46:54 2012  
-[102] msp\_vppm\_handle\_port\_profile\_update\_resp(434): (ERR) profile DV\_Uplink\_PG update failed: Syserr code: 0x41b1001d,  
-user string: [port-profile alias 'DV\_Uplink\_PG' not included in current vCenter Server sync operation]  
-internal string: [port-profile alias 'DV\_Uplink\_PG' not included in current vCenter Server sync operation]  
-[/code]
+	  
+	Event:E_DEBUG, length:351, at 951023 usecs after Fri Apr 13 14:46:54 2012  
+	[102] msp\_vppm\_handle\_port\_profile\_update\_resp(434): (ERR) profile DV\_Uplink\_PG update failed: Syserr code: 0x41b1001d,  
+	user string:   
+	internal string:   
+	
 
 We contacted Cisco and they had identified a known bug on the N1K. If you have cisco account you can check out bug <a href="http://tools.cisco.com/Support/BugToolKit/search/getBugDetails.do?method=fetchBugDetails&bugId=CSCtz24512" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://tools.cisco.com/Support/BugToolKit/search/getBugDetails.do?method=fetchBugDetails&bugId=CSCtz24512']);">CSCtz24512</a>. It&#8217;s just a cosmetic bug and no network traffic is impacted by this issue. It looks like this also made it to the VMware communities (<a href="http://communities.vmware.com/message/2025321" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/message/2025321']);">2025321</a>)
 

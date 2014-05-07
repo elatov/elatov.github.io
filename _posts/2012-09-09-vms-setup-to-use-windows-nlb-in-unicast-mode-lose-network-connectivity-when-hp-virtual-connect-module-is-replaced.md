@@ -72,121 +72,121 @@ Let&#8217;s get back on track. Upon replacing the Virtual Connect Module (VCM), 
 
 I wasn&#8217;t present when the VMC replacement took place but we grabbed logs right as the incident occurred. From the logs, I saw the following NICs on the HP Blade Server:
 
-[code]  
-commands$ head -11 nicinfo.sh.txt  
-Network Interface Cards Information.
-
-Name PCI Device Driver Link Speed Duplex MAC Address MTU Description  
-\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\----  
-vmnic0 0000:002:00.0 be2net Up 1000 Full 00:17:a4:77:00:c6 1500 Emulex Corporation NC553i 10Gb 2-port FlexFabric Converged Network Adapter  
-vmnic1 0000:002:00.1 be2net Up 1000 Full 00:17:a4:77:00:c8 1500 Emulex Corporation NC553i 10Gb 2-port FlexFabric Converged Network Adapter  
-vmnic2 0000:002:00.4 be2net Up 4000 Full 00:17:a4:77:00:ca 1500 Emulex Corporation NC553i 10Gb 2-port FlexFabric Converged Network Adapter  
-vmnic3 0000:002:00.5 be2net Up 4000 Full 00:17:a4:77:00:cc 1500 Emulex Corporation NC553i 10Gb 2-port FlexFabric Converged Network Adapter  
-vmnic4 0000:002:00.6 be2net Up 1000 Full 00:17:a4:77:00:ce 1500 Emulex Corporation NC553i 10Gb 2-port FlexFabric Converged Network Adapter  
-vmnic5 0000:002:00.7 be2net Up 1000 Full 00:17:a4:77:00:d0 1500 Emulex Corporation NC553i 10Gb 2-port FlexFabric Converged Network Adapter  
-[/code]
+	  
+	commands$ head -11 nicinfo.sh.txt  
+	Network Interface Cards Information.
+	
+	Name PCI Device Driver Link Speed Duplex MAC Address MTU Description  
+	\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\----  
+	vmnic0 0000:002:00.0 be2net Up 1000 Full 00:17:a4:77:00:c6 1500 Emulex Corporation NC553i 10Gb 2-port FlexFabric Converged Network Adapter  
+	vmnic1 0000:002:00.1 be2net Up 1000 Full 00:17:a4:77:00:c8 1500 Emulex Corporation NC553i 10Gb 2-port FlexFabric Converged Network Adapter  
+	vmnic2 0000:002:00.4 be2net Up 4000 Full 00:17:a4:77:00:ca 1500 Emulex Corporation NC553i 10Gb 2-port FlexFabric Converged Network Adapter  
+	vmnic3 0000:002:00.5 be2net Up 4000 Full 00:17:a4:77:00:cc 1500 Emulex Corporation NC553i 10Gb 2-port FlexFabric Converged Network Adapter  
+	vmnic4 0000:002:00.6 be2net Up 1000 Full 00:17:a4:77:00:ce 1500 Emulex Corporation NC553i 10Gb 2-port FlexFabric Converged Network Adapter  
+	vmnic5 0000:002:00.7 be2net Up 1000 Full 00:17:a4:77:00:d0 1500 Emulex Corporation NC553i 10Gb 2-port FlexFabric Converged Network Adapter  
+	
 
 So we had 6 NICs presented to the Host and they are a Flex-10 CNA (so we can partition one port into many virtual ports, this was described above). Now as the VCM was pulled I saw the following in the &#8216;vmkernel.log&#8217; file:
 
-[code]  
-2012-08-30T05:42:07.494Z cpu9:4105)vmnic0 : 02:00.0 Link Down  
-2012-08-30T05:42:07.494Z cpu21:4117)vmnic2 : 02:00.4 Link Down  
-2012-08-30T05:42:07.494Z cpu21:4117)vmnic4 : 02:00.6 Link Down  
-2012-08-30T05:42:07.494Z cpu0:4804)lpfc820 0000:02:00.2: 0:1305 Link Down Event x2 received Data: x2 x20 x800110 x0 x0  
-2012-08-30T05:42:17.496Z cpu18:4759) rport-0:0-3: blocked FC remote port time out: saving binding  
-2012-08-30T05:42:17.496Z cpu15:4766) rport-0:0-2: blocked FC remote port time out: saving binding  
-2012-08-30T05:42:17.496Z cpu16:4804)lpfc820 0000:02:00.2: 0:(0):0203 Devloss timeout on WWPN 20:23:00:02:ac:00:13:f0 NPort x013500 Data: x0 x7 x0  
-2012-08-30T05:42:17.496Z cpu16:4804)lpfc820 0000:02:00.2: 0:(0):0203 Devloss timeout on WWPN 21:23:00:02:ac:00:13:f0 NPort x012800 Data: x0 x7 x0  
-[/code]
+	  
+	2012-08-30T05:42:07.494Z cpu9:4105)vmnic0 : 02:00.0 Link Down  
+	2012-08-30T05:42:07.494Z cpu21:4117)vmnic2 : 02:00.4 Link Down  
+	2012-08-30T05:42:07.494Z cpu21:4117)vmnic4 : 02:00.6 Link Down  
+	2012-08-30T05:42:07.494Z cpu0:4804)lpfc820 0000:02:00.2: 0:1305 Link Down Event x2 received Data: x2 x20 x800110 x0 x0  
+	2012-08-30T05:42:17.496Z cpu18:4759) rport-0:0-3: blocked FC remote port time out: saving binding  
+	2012-08-30T05:42:17.496Z cpu15:4766) rport-0:0-2: blocked FC remote port time out: saving binding  
+	2012-08-30T05:42:17.496Z cpu16:4804)lpfc820 0000:02:00.2: 0:(0):0203 Devloss timeout on WWPN 20:23:00:02:ac:00:13:f0 NPort x013500 Data: x0 x7 x0  
+	2012-08-30T05:42:17.496Z cpu16:4804)lpfc820 0000:02:00.2: 0:(0):0203 Devloss timeout on WWPN 21:23:00:02:ac:00:13:f0 NPort x012800 Data: x0 x7 x0  
+	
 
 We can see that vmnic0, vmnic2, and vmnic4 all went down. This is expected, since the other vmnics (vmnic1,vmnic3, and vmnic5) are configured to connect the other VCM (which was active) and didn&#8217;t go down.
 
 We were using a DVS, so just looking at the DVS section, I saw the following:
 
-[code highlight="14,15"]  
-commands$ sed -n '/DVS/,$p' esxcfg-vswitch_-l.txt  
-DVS Name Num Ports Used Ports Configured Ports MTU Uplinks  
-dvSwitch 256 19 256 1500 vmnic3,vmnic2
-
-DVPort ID In Use Client  
-354 1 vmnic2  
-355 1 vmnic3  
-164 0  
-16 1 VM1.eth0  
-139 1 VM2.eth0  
-264 1 VM3 ethernet0  
-399 1 VM4 ethernet0  
-360 1 VM5 ethernet0  
-431 1 NLB_VM1 ethernet0  
-430 1 NLB_VM2 ethernet0  
-103 1 VM6 ethernet0  
-162 1 VM7 ethernet0  
-126 1 VM8 ethernet0  
-11 1 VM9 ethernet0  
-156 1 VM10 ethernet0  
-401 1 VM11 ethernet0  
-403 1 VM12 ethernet0  
-[/code]
+	  
+	commands$ sed -n '/DVS/,$p' esxcfg-vswitch_-l.txt  
+	DVS Name Num Ports Used Ports Configured Ports MTU Uplinks  
+	dvSwitch 256 19 256 1500 vmnic3,vmnic2
+	
+	DVPort ID In Use Client  
+	354 1 vmnic2  
+	355 1 vmnic3  
+	164 0  
+	16 1 VM1.eth0  
+	139 1 VM2.eth0  
+	264 1 VM3 ethernet0  
+	399 1 VM4 ethernet0  
+	360 1 VM5 ethernet0  
+	431 1 NLB_VM1 ethernet0  
+	430 1 NLB_VM2 ethernet0  
+	103 1 VM6 ethernet0  
+	162 1 VM7 ethernet0  
+	126 1 VM8 ethernet0  
+	11 1 VM9 ethernet0  
+	156 1 VM10 ethernet0  
+	401 1 VM11 ethernet0  
+	403 1 VM12 ethernet0  
+	
 
 The VMs that had the issue were &#8220;NLB\_VM1&#8243; and &#8220;NLB\_VM2&#8243;. Checking for the virtual ports (that these VMs correspond to) in vsish, I see that they correspond to the following:
 
-[code highlight="32,33,34,35"]  
-$ for i in \`vsish -c vsi\_traverse\_-s.txt -e ls /net/portsets/DvsPortset-0/ports/\`; do echo $i; vsish -c vsi\_traverse\_-s.txt -e cat /net/portsets/DvsPortset-0/ports/"$i"status|grep clientName;done  
-50331649/  
-clientName:Management  
-50331650/  
-clientName:vmnic2  
-50331651/  
-clientName:vmnic3  
-50331678/  
-clientName:VM1.eth0  
-50331686/  
-clientName:VM2.eth0  
-50331687/  
-clientName:VM3 ethernet0  
-50331688/  
-clientName:VM4 ethernet0  
-50331689/  
-clientName:VM5 ethernet0  
-50331690/  
-clientName:VM6 ethernet0  
-50331691/  
-clientName:VM7 ethernet0  
-50331692/  
-clientName:VM8 ethernet0  
-50331693/  
-clientName:VM9 ethernet0  
-50331695/  
-clientName:VM10 ethernet0  
-50331697/  
-clientName:VM11 ethernet0  
-50331698/  
-clientName:VM12 ethernet0  
-50331700/  
-clientName:NLB_VM1 ethernet0  
-50331701/  
-clientName:NLB_VM2 ethernet0  
-50331702/  
-[/code]
+	  
+	$ for i in \`vsish -c vsi\_traverse\_-s.txt -e ls /net/portsets/DvsPortset-0/ports/\`; do echo $i; vsish -c vsi\_traverse\_-s.txt -e cat /net/portsets/DvsPortset-0/ports/"$i"status|grep clientName;done  
+	50331649/  
+	clientName:Management  
+	50331650/  
+	clientName:vmnic2  
+	50331651/  
+	clientName:vmnic3  
+	50331678/  
+	clientName:VM1.eth0  
+	50331686/  
+	clientName:VM2.eth0  
+	50331687/  
+	clientName:VM3 ethernet0  
+	50331688/  
+	clientName:VM4 ethernet0  
+	50331689/  
+	clientName:VM5 ethernet0  
+	50331690/  
+	clientName:VM6 ethernet0  
+	50331691/  
+	clientName:VM7 ethernet0  
+	50331692/  
+	clientName:VM8 ethernet0  
+	50331693/  
+	clientName:VM9 ethernet0  
+	50331695/  
+	clientName:VM10 ethernet0  
+	50331697/  
+	clientName:VM11 ethernet0  
+	50331698/  
+	clientName:VM12 ethernet0  
+	50331700/  
+	clientName:NLB_VM1 ethernet0  
+	50331701/  
+	clientName:NLB_VM2 ethernet0  
+	50331702/  
+	
 
 So our virtual ports are as follows; 50331700 is NLB\_VM1, and 50331701 is NLB\_VM2.
 
 Now checking for what uplinks those are using at the time of when the logs were taken, I see the following:
 
-[code]  
-$ vsish -c vsi\_traverse\_-s.txt -e cat /net/portsets/DvsPortset-0/ports/50331700/teamUplink  
-vmnic2  
-$ vsish -c vsi\_traverse\_-s.txt -e cat /net/portsets/DvsPortset-0/ports/50331701/teamUplink  
-vmnic2  
-[/code]
+	  
+	$ vsish -c vsi\_traverse\_-s.txt -e cat /net/portsets/DvsPortset-0/ports/50331700/teamUplink  
+	vmnic2  
+	$ vsish -c vsi\_traverse\_-s.txt -e cat /net/portsets/DvsPortset-0/ports/50331701/teamUplink  
+	vmnic2  
+	
 
 So the uplink (vmnic2) that those two VMs were using went down. Now looking at the logs later on, I see the following:
 
-[code]  
-2012-08-30T05:51:43.931Z cpu7:4103)vmnic0 : 02:00.0 Link Up - 10 Gbps Full Duplex  
-2012-08-30T05:51:44.117Z cpu23:444906)vmnic2 : 02:00.4 Link Up - 10 Gbps Full Duplex  
-2012-08-30T05:51:44.230Z cpu21:444905)vmnic4 : 02:00.6 Link Up - 10 Gbps Full Duplex  
-[/code]
+	  
+	2012-08-30T05:51:43.931Z cpu7:4103)vmnic0 : 02:00.0 Link Up - 10 Gbps Full Duplex  
+	2012-08-30T05:51:44.117Z cpu23:444906)vmnic2 : 02:00.4 Link Up - 10 Gbps Full Duplex  
+	2012-08-30T05:51:44.230Z cpu21:444905)vmnic4 : 02:00.6 Link Up - 10 Gbps Full Duplex  
+	
 
 So right as we replaced the VCM the NICs came up and the VMs regained network connectivity. Remember we were using NLB in Unicast mode, from this VMware KB <a href="http://kb.vmware.com/kb/1006778" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1006778']);">1006778</a>:
 
@@ -195,93 +195,93 @@ So right as we replaced the VCM the NICs came up and the VMs regained network co
 
 From the above port we know the dvports are &#8217;430&#8242; and &#8217;431&#8242;. So let&#8217;s check out the setting of DVport 431:
 
-[code highlight="12"]  
-commands$ sed -n '/port 431:/,/port [0-9]*:/p' net-dvs_-l.txt  
-port 431:  
-com.vmware.common.port.alias = , propType = CONFIG  
-com.vmware.common.port.connectid = 2066096687 , propType = CONFIG  
-com.vmware.common.port.portgroupid = dvportgroup-1628 , propType = CONFIG  
-com.vmware.common.port.block = false , propType = CONFIG  
-com.vmware.common.port.ptAllowed = 0x 0. 0. 0. 0  
-propType = CONFIG  
-com.vmware.etherswitch.port.teaming:  
-load balancing = source virtual port id  
-link selection = link state up; beacon state ok; link speed>=10Mbps;  
-link behavior = reverse filter; best effort on failure; shotgun on failure;  
-active = dvUplink1; dvUplink2;  
-standby =  
-propType = CONFIG  
-com.vmware.etherswitch.port.security = deny promiscuous; allow mac change; allow forged frames  
-propType = CONFIG  
-com.vmware.etherswitch.port.vlan = VLAN 98  
-propType = CONFIG  
-com.vmware.etherswitch.port.txUplink = normal , propType = CONFIG  
-com.vmware.common.port.volatile.persist = /vmfs/volumes/5036eb9b-0c48192e-c742-0017a4770080/.dvsData/57 9b 3e 50 29 db d8 56-40 28 67 2d b4 1c 1b 2e/431 , propType = CONFIG  
-com.vmware.common.port.volatile.vlan = VLAN 98  
-propType = RUNTIME VOLATILE  
-com.vmware.common.port.statistics:  
-pktsInUnicast = 114179  
-bytesInUnicast = 34335744  
-pktsInMulticast = 10286  
-bytesInMulticast = 3027483  
-pktsInBroadcast = 507082  
-bytesInBroadcast = 698493176  
-pktsOutUnicast = 237699  
-bytesOutUnicast = 143759547  
-pktsOutMulticast = 10856  
-bytesOutMulticast = 1688073  
-pktsOutBroadcast = 2145701  
-bytesOutBroadcast = 2170216215  
-pktsInDropped = 0  
-pktsOutDropped = 0  
-pktsInException = 0  
-pktsOutException = 0  
-propType = RUNTIME  
-com.vmware.common.port.volatile.status = inUse linkUp portID=50331701 propType = RUNTIME  
-com.vmware.common.port.volatile.ptstatus = noPassthruReason=32, propType = RUNTIME  
-port 430:  
-[/code]
+	  
+	commands$ sed -n '/port 431:/,/port [0-9]*:/p' net-dvs_-l.txt  
+	port 431:  
+	com.vmware.common.port.alias = , propType = CONFIG  
+	com.vmware.common.port.connectid = 2066096687 , propType = CONFIG  
+	com.vmware.common.port.portgroupid = dvportgroup-1628 , propType = CONFIG  
+	com.vmware.common.port.block = false , propType = CONFIG  
+	com.vmware.common.port.ptAllowed = 0x 0. 0. 0. 0  
+	propType = CONFIG  
+	com.vmware.etherswitch.port.teaming:  
+	load balancing = source virtual port id  
+	link selection = link state up; beacon state ok; link speed>=10Mbps;  
+	link behavior = reverse filter; best effort on failure; shotgun on failure;  
+	active = dvUplink1; dvUplink2;  
+	standby =  
+	propType = CONFIG  
+	com.vmware.etherswitch.port.security = deny promiscuous; allow mac change; allow forged frames  
+	propType = CONFIG  
+	com.vmware.etherswitch.port.vlan = VLAN 98  
+	propType = CONFIG  
+	com.vmware.etherswitch.port.txUplink = normal , propType = CONFIG  
+	com.vmware.common.port.volatile.persist = /vmfs/volumes/5036eb9b-0c48192e-c742-0017a4770080/.dvsData/57 9b 3e 50 29 db d8 56-40 28 67 2d b4 1c 1b 2e/431 , propType = CONFIG  
+	com.vmware.common.port.volatile.vlan = VLAN 98  
+	propType = RUNTIME VOLATILE  
+	com.vmware.common.port.statistics:  
+	pktsInUnicast = 114179  
+	bytesInUnicast = 34335744  
+	pktsInMulticast = 10286  
+	bytesInMulticast = 3027483  
+	pktsInBroadcast = 507082  
+	bytesInBroadcast = 698493176  
+	pktsOutUnicast = 237699  
+	bytesOutUnicast = 143759547  
+	pktsOutMulticast = 10856  
+	bytesOutMulticast = 1688073  
+	pktsOutBroadcast = 2145701  
+	bytesOutBroadcast = 2170216215  
+	pktsInDropped = 0  
+	pktsOutDropped = 0  
+	pktsInException = 0  
+	pktsOutException = 0  
+	propType = RUNTIME  
+	com.vmware.common.port.volatile.status = inUse linkUp portID=50331701 propType = RUNTIME  
+	com.vmware.common.port.volatile.ptstatus = noPassthruReason=32, propType = RUNTIME  
+	port 430:  
+	
 
 Notice this line:
 
-[code]  
-link behavior = reverse filter; best effort on failure; shotgun on failure;  
-[/code]
+	  
+	link behavior = reverse filter; best effort on failure; shotgun on failure;  
+	
 
 Whenever &#8216;Notify Switch&#8221; is enabled you see it in that line. For example we know that VM1 was okay and it was using DVport &#8217;16&#8242;. So let&#8217;s check out the setting of that port:
 
-[code highlight="5"]  
-commands$ sed -n '/port 16:/,/port [0-9]*:/p' net-dvs_-l.txt | sed -n '/com.vmware.etherswitch.port.teaming/,/propType/p'  
-com.vmware.etherswitch.port.teaming:  
-load balancing = source virtual port id  
-link selection = link state up; beacon state ok; link speed>=10Mbps;  
-link behavior = notify switch; reverse filter; best effort on failure; shotgun on failure;  
-active = dvUplink1; dvUplink2;  
-standby =  
-propType = CONFIG  
-[/code]
+	  
+	commands$ sed -n '/port 16:/,/port [0-9]*:/p' net-dvs_-l.txt | sed -n '/com.vmware.etherswitch.port.teaming/,/propType/p'  
+	com.vmware.etherswitch.port.teaming:  
+	load balancing = source virtual port id  
+	link selection = link state up; beacon state ok; link speed>=10Mbps;  
+	link behavior = notify switch; reverse filter; best effort on failure; shotgun on failure;  
+	active = dvUplink1; dvUplink2;  
+	standby =  
+	propType = CONFIG  
+	
 
 and as we expected there is a &#8216;notify switch&#8217; option in our &#8216;link behavior&#8217; section. Again here is how our ports looked like:
 
-[code highlight="5,14"]  
-commands$ sed -n '/port 430:/,/port [0-9]*:/p' net-dvs_-l.txt | sed -n '/com.vmware.etherswitch.port.teaming/,/propType/p'  
-com.vmware.etherswitch.port.teaming:  
-load balancing = source virtual port id  
-link selection = link state up; beacon state ok; link speed>=10Mbps;  
-link behavior = reverse filter; best effort on failure; shotgun on failure;  
-active = dvUplink1; dvUplink2;  
-standby =  
-propType = CONFIG
-
-commands$ sed -n '/port 431:/,/port [0-9]*:/p' net-dvs_-l.txt | sed -n '/com.vmware.etherswitch.port.teaming/,/propType/p'  
-com.vmware.etherswitch.port.teaming:  
-load balancing = source virtual port id  
-link selection = link state up; beacon state ok; link speed>=10Mbps;  
-link behavior = reverse filter; best effort on failure; shotgun on failure;  
-active = dvUplink1; dvUplink2;  
-standby =  
-propType = CONFIG  
-[/code]
+	  
+	commands$ sed -n '/port 430:/,/port [0-9]*:/p' net-dvs_-l.txt | sed -n '/com.vmware.etherswitch.port.teaming/,/propType/p'  
+	com.vmware.etherswitch.port.teaming:  
+	load balancing = source virtual port id  
+	link selection = link state up; beacon state ok; link speed>=10Mbps;  
+	link behavior = reverse filter; best effort on failure; shotgun on failure;  
+	active = dvUplink1; dvUplink2;  
+	standby =  
+	propType = CONFIG
+	
+	commands$ sed -n '/port 431:/,/port [0-9]*:/p' net-dvs_-l.txt | sed -n '/com.vmware.etherswitch.port.teaming/,/propType/p'  
+	com.vmware.etherswitch.port.teaming:  
+	load balancing = source virtual port id  
+	link selection = link state up; beacon state ok; link speed>=10Mbps;  
+	link behavior = reverse filter; best effort on failure; shotgun on failure;  
+	active = dvUplink1; dvUplink2;  
+	standby =  
+	propType = CONFIG  
+	
 
 So we know those two ports do not have the &#8220;Notify Switch&#8221; option set, which is good since this is necessary for NLB in unicast to work properly. Now what does the option &#8216;notify switch&#8217; do exactly. Upon any changes to a VM, the VMkernel sends a Gratuitous ARP to the physical switch to make sure it updates it&#8217;s CAM tables. If that option is disabled then the VMkernel doesn&#8217;t send the GARP out and the physical switch doesn&#8217;t know if a VM had moved over to another physical NIC. From VMware KB <a href="http://kb.vmware.com/kb/1556" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1556']);">1556</a>:
 

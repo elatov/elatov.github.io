@@ -52,51 +52,51 @@ Let&#8217;s take a look at the files that are created in a snapshot operation.
 
 Files in the directory before the snapshot operation.
 
-[bash]# ls  
-vmware-1.log vps-0264bf9d.vswp vps.vmsd  
-vmware-2.log vps-flat.vmdk vps.vmx  
-vmware.log vps.nvram vps.vmxf  
-vmx-vps-40157085-1.vswp vps.vmdk  
-[/bash]
+	# ls  
+	vmware-1.log vps-0264bf9d.vswp vps.vmsd  
+	vmware-2.log vps-flat.vmdk vps.vmx  
+	vmware.log vps.nvram vps.vmxf  
+	vmx-vps-40157085-1.vswp vps.vmdk  
+	
 
 Let&#8217;s check out what disk the VM is running on.
 
-[bash]# grep vmdk vps.vmx  
-scsi0:0.fileName = &quot;vps.vmdk&quot;[/bash]
+	# grep vmdk vps.vmx  
+	scsi0:0.fileName = &quot;vps.vmdk&quot;
 
 Now I took a snapshot through the vSphere Client and there are three new files (I did not include the VM&#8217;s memory when taking the snapshot). The actual snapshot is the newly created disk: vps-000001.vmdk and vps-000001-delta.vmdk. The other file, vps-Snapshot1.vmsn, is the snapshot memory file. See the &#8220;Do not trust the Snapshot Manager!&#8221; section for more information on this file.
 
-[bash]# ls  
-vmware-1.log vps-000001.vmdk vps.vmdk  
-vmware-2.log vps-0264bf9d.vswp vps.vmsd  
-vmware.log vps-Snapshot1.vmsn vps.vmx  
-vmx-vps-40157085-1.vswp vps-flat.vmdk vps.vmxf  
-vps-000001-delta.vmdk vps.nvram[/bash]
+	# ls  
+	vmware-1.log vps-000001.vmdk vps.vmdk  
+	vmware-2.log vps-0264bf9d.vswp vps.vmsd  
+	vmware.log vps-Snapshot1.vmsn vps.vmx  
+	vmx-vps-40157085-1.vswp vps-flat.vmdk vps.vmxf  
+	vps-000001-delta.vmdk vps.nvram
 
 Let&#8217;s check to see what disk the VM is running off of. We can see that it is now running off of the snapshot vps-000001.vmdk.
 
-[bash]# grep vmdk vps.vmx  
-scsi0:0.fileName = &quot;vps-000001.vmdk&quot;[/bash]
+	# grep vmdk vps.vmx  
+	scsi0:0.fileName = &quot;vps-000001.vmdk&quot;
 
 vps-000001.vmdk is a descriptor file that points to the data file. In the case of a snapshot this is a -delta file, so it contains the information about vps-000001-delta.vmdk. In the file we see parentFileNameHint which points to the descriptor of this snapshot&#8217;s parent. Since there is only one snapshot, this points to the base disk.
 
-[bash highlight="5,6,9"]# cat vps-000001.vmdk  
-\# Disk DescriptorFile  
-version=1  
-encoding=&quot;UTF-8&quot;  
-CID=4f5b98ad  
-parentCID=79229daf  
-isNativeSnapshot=&quot;no&quot;  
-createType=&quot;vmfsSparse&quot;  
-parentFileNameHint=&quot;vps.vmdk&quot;  
-\# Extent description  
-RW 20971520 VMFSSPARSE &quot;vps-000001-delta.vmdk&quot;
-
-\# The Disk Data Base  
-#DDB
-
-ddb.longContentID = &quot;193b848abd4542a6593461434f5b98ad&quot;  
-[/bash]
+	# cat vps-000001.vmdk  
+	\# Disk DescriptorFile  
+	version=1  
+	encoding=&quot;UTF-8&quot;  
+	CID=4f5b98ad  
+	parentCID=79229daf  
+	isNativeSnapshot=&quot;no&quot;  
+	createType=&quot;vmfsSparse&quot;  
+	parentFileNameHint=&quot;vps.vmdk&quot;  
+	\# Extent description  
+	RW 20971520 VMFSSPARSE &quot;vps-000001-delta.vmdk&quot;
+	
+	\# The Disk Data Base  
+	#DDB
+	
+	ddb.longContentID = &quot;193b848abd4542a6593461434f5b98ad&quot;  
+	
 
 In the descriptor above we also see a CID and parentCID. These are unique IDs for the disks and snapshots on a system. The CID is ID for this disk/snapshot. The parentCID is the CID of the parent of this disk/snapshot. We will touch more on this in the advanced troubleshooting.
 
@@ -120,38 +120,38 @@ The underlying process is that it will take a new snapshot (remember that a snap
 
 As with the example in Taking a Snapshot, we have a single snapshot vps-000001.vmdk. Below is the directory listing of only the vmdks and the disk that the VM is running on.
 
-[bash]# ls *.vmdk  
-vps-000001-delta.vmdk vps-flat.vmdk  
-vps-000001.vmdk vps.vmdk
-
-\# grep vmdk vps.vmx  
-scsi0:0.fileName = &quot;vps-000001.vmdk&quot;  
-[/bash]
+	# ls *.vmdk  
+	vps-000001-delta.vmdk vps-flat.vmdk  
+	vps-000001.vmdk vps.vmdk
+	
+	\# grep vmdk vps.vmx  
+	scsi0:0.fileName = &quot;vps-000001.vmdk&quot;  
+	
 
 I used the instructions above to revert to a previous snapshot. Since there is only a single snapshot on this VM I selected the snapshot and hit GO TO. After the snapshot reverted let&#8217;s take a look at the vmdks and the disk that the VM is running on. We notice that we are now running on a snapshot called vps-000002.vmdk and that vps-000001.vmdk is no longer there.
 
-[bash]# ls *.vmdk  
-vps-000002-delta.vmdk vps-flat.vmdk  
-vps-000002.vmdk vps.vmdk
-
-\# grep vmdk vps.vmx  
-scsi0:0.fileName = &quot;vps-000002.vmdk&quot;  
-[/bash]
+	# ls *.vmdk  
+	vps-000002-delta.vmdk vps-flat.vmdk  
+	vps-000002.vmdk vps.vmdk
+	
+	\# grep vmdk vps.vmx  
+	scsi0:0.fileName = &quot;vps-000002.vmdk&quot;  
+	
 
 When doing a snapshot revert, the current snapshot (delta disk) will be removed and a new one will be created linking to the parent disk. Let&#8217;s confirm the parentFileNameHint in the new snapshot, vps-000002.vmdk. We can see that it does in fact link to the base disk.
 
-[bash]# grep parentFileNameHint vps-000002.vmdk  
-parentFileNameHint=&quot;vps.vmdk&quot;[/bash]
+	# grep parentFileNameHint vps-000002.vmdk  
+	parentFileNameHint=&quot;vps.vmdk&quot;
 
 To get back to the base disk we will need to &#8220;delete&#8221; the snapshot after reverting. The main concept is that the base disk in this case contains the state that we want to revert to, but reverting to the snapshot will leave a snapshot. So in order to revert to the original state and get off of a snapshot we need to run the revert and then run a &#8220;delete&#8221; operation on the snapshot.
 
 I went in and &#8220;deleted&#8221; the snapshot and we no longer see any snapshots on the VM.
 
-[bash]# ls *.vmdk  
-vps-flat.vmdk vps.vmdk
-
-\# grep vmdk vps.vmx  
-scsi0:0.fileName = &quot;vps.vmdk&quot;[/bash]
+	# ls *.vmdk  
+	vps-flat.vmdk vps.vmdk
+	
+	\# grep vmdk vps.vmx  
+	scsi0:0.fileName = &quot;vps.vmdk&quot;
 
 ### Deleting Snapshots
 
@@ -175,37 +175,37 @@ There are two options for doing a commit: &#8220;delete&#8221; and &#8220;delete
 
 To illustrate what happens when we do a single &#8220;delete&#8221; operation, I have taken two snapshots on a VM. Below we can see the snapshot files and the chain.
 
-[bash]# ls *.vmdk  
-vps-000001-delta.vmdk vps-000002-delta.vmdk vps-flat.vmdk  
-vps-000001.vmdk vps-000002.vmdk vps.vmdk
-
-\# grep vmdk vps.vmx  
-scsi0:0.fileName = &quot;vps-000002.vmdk&quot;
-
-\# grep parentFileNameHint vps-00000?.vmdk  
-vps-000001.vmdk:parentFileNameHint=&quot;vps.vmdk&quot;  
-vps-000002.vmdk:parentFileNameHint=&quot;vps-000001.vmdk&quot;  
-[/bash]
+	# ls *.vmdk  
+	vps-000001-delta.vmdk vps-000002-delta.vmdk vps-flat.vmdk  
+	vps-000001.vmdk vps-000002.vmdk vps.vmdk
+	
+	\# grep vmdk vps.vmx  
+	scsi0:0.fileName = &quot;vps-000002.vmdk&quot;
+	
+	\# grep parentFileNameHint vps-00000?.vmdk  
+	vps-000001.vmdk:parentFileNameHint=&quot;vps.vmdk&quot;  
+	vps-000002.vmdk:parentFileNameHint=&quot;vps-000001.vmdk&quot;  
+	
 
 So let&#8217;s actually look at the sizes of the snapshots. Snapshots will grow by 16MB chunks. We can see that there is 0 data in vps-000001-delta.vmdk since it is only taking up one sub block (Look for a post about VMFS structure later) of 24k. vps-000002-delta.vmdk is 32MB, so it has more than 16MB of changes in it, but less than 32MB.
 
-[bash]# ls -lh *delta.vmdk  
--rw&#8212;&#8212;- 1 root root 24.0k Apr 9 19:43 vps-000001-delta.vmdk  
--rw&#8212;&#8212;- 1 root root 32.0M Apr 9 19:52 vps-000002-delta.vmdk[/bash]
+	# ls -lh *delta.vmdk  
+	-rw&#8212;&#8212;- 1 root root 24.0k Apr 9 19:43 vps-000001-delta.vmdk  
+	-rw&#8212;&#8212;- 1 root root 32.0M Apr 9 19:52 vps-000002-delta.vmdk
 
 I now went in and &#8220;deleted&#8221; the second created snapshot, vps-000002.vmdk. The size reflects the changes that were committed to vps-000002.vmdk&#8217;s parent snapshot vps-000001.vmdk. vps-000001-delta.vmdk is now 32MB, which contains the changes that were in vps-000002-delta.vmdk.
 
-[bash]# ls -lh *delta.vmdk  
--rw&#8212;&#8212;- 1 root root 32.0M Apr 9 19:56 vps-000001-delta.vmdk  
-[/bash]
+	# ls -lh *delta.vmdk  
+	-rw&#8212;&#8212;- 1 root root 32.0M Apr 9 19:56 vps-000001-delta.vmdk  
+	
 
 Since the VM was in a running state, we needed a place to write the new changes while we were actively committing vps-000002.vmdk. To have a place to write the changes, we create a new snapshot that gets committed after vps-000002.vmdk is finished committing. I ran a &#8220;ls&#8221; while vps-000002.vmdk was being committed and it shows that vps-000003.vmdk was created to hold the changes during the commit.
 
-[bash]# ls -lh *delta.vmdk  
--rw&#8212;&#8212;- 1 root root 16.0M Apr 9 19:56 vps-000001-delta.vmdk  
--rw&#8212;&#8212;- 1 root root 32.0M Apr 9 19:56 vps-000002-delta.vmdk  
--rw&#8212;&#8212;- 1 root root 24.0k Apr 9 19:56 vps-000003-delta.vmdk  
-[/bash]
+	# ls -lh *delta.vmdk  
+	-rw&#8212;&#8212;- 1 root root 16.0M Apr 9 19:56 vps-000001-delta.vmdk  
+	-rw&#8212;&#8212;- 1 root root 32.0M Apr 9 19:56 vps-000002-delta.vmdk  
+	-rw&#8212;&#8212;- 1 root root 24.0k Apr 9 19:56 vps-000003-delta.vmdk  
+	
 
 In the output above we can also see that vps-000001-delta.vmdk is increasing in size as the changes from vps-000002-delta.vmdk are getting pushed into it. At this point in the commit it had written less than 16MB into vps-000001-delta.vmdk.
 
@@ -219,20 +219,20 @@ The snapshot manager is a great utility, but it often has the wrong information 
 
 The snapshot manager gets it&#8217;s information from a configuration file in the VM&#8217;s directory. This file is named.vmsd. It is the virtual machine snapshot descriptor file. Below we have an example of a .vmsd with a single snapshot in it.
 
-[bash highlight="6,7,13"]# cat vps.vmsd  
-.encoding = &quot;UTF-8&quot;  
-snapshot.lastUID = &quot;4&quot;  
-snapshot.current = &quot;2&quot;  
-snapshot0.uid = &quot;2&quot;  
-snapshot0.filename = &quot;vps-Snapshot2.vmsn&quot;  
-snapshot0.displayName = &quot;test1&quot;  
-snapshot0.createTimeHigh = &quot;310596&quot;  
-snapshot0.createTimeLow = &quot;938781285&quot;  
-snapshot0.numDisks = &quot;1&quot;  
-snapshot0.disk0.fileName = &quot;vps.vmdk&quot;  
-snapshot0.disk0.node = &quot;scsi0:0&quot;  
-snapshot.numSnapshots = &quot;1&quot;  
-[/bash]
+	# cat vps.vmsd  
+	.encoding = &quot;UTF-8&quot;  
+	snapshot.lastUID = &quot;4&quot;  
+	snapshot.current = &quot;2&quot;  
+	snapshot0.uid = &quot;2&quot;  
+	snapshot0.filename = &quot;vps-Snapshot2.vmsn&quot;  
+	snapshot0.displayName = &quot;test1&quot;  
+	snapshot0.createTimeHigh = &quot;310596&quot;  
+	snapshot0.createTimeLow = &quot;938781285&quot;  
+	snapshot0.numDisks = &quot;1&quot;  
+	snapshot0.disk0.fileName = &quot;vps.vmdk&quot;  
+	snapshot0.disk0.node = &quot;scsi0:0&quot;  
+	snapshot.numSnapshots = &quot;1&quot;  
+	
 
 We can see that snapshot.numSnapshots = 1, so we only have a single snapshot. That snapshot is identified by the displayName, test1, and refers to vps-Snapshot2.vmsn. The vps-Snapshot2.vmsn file is the snapshot memory file. It actually contains a little more than just the memory. If you were to hexdump this file you would see that it is a binary file that contains a copy of the vmx at the time and more. The file points to the delta disk files as well. So this file would contain everything needed to restore to the state the VM was running at when the snapshot was taken. In this case we did not take the memory in the snapshot so it is small and does not contain the memory dump. A list of VMware files can be found <a href="https://www.vmware.com/support/ws55/doc/ws_learning_files_in_a_vm.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.vmware.com/support/ws55/doc/ws_learning_files_in_a_vm.html']);" target="_blank">here</a>.
 
@@ -244,13 +244,13 @@ The best way to determine if a VM is running on a snapshot is to query the VMX f
 
 In the example below we can see that the VM is running of snapshot vps-000001.vmdk.
 
-[bash]# grep vmdk vps.vmx  
-scsi0:0.fileName = &quot;vps-000001.vmdk&quot;[/bash]
+	# grep vmdk vps.vmx  
+	scsi0:0.fileName = &quot;vps-000001.vmdk&quot;
 
 In the example below the VM is running of a base disk on a different datastore.
 
-[bash]# grep vmdk vps.vmx  
-scsi0:0.fileName = &quot;/vmfs/volumes/4e4043f8-160ce551-98d6-00221591be89/vps/vps.vmdk&quot;[/bash]
+	# grep vmdk vps.vmx  
+	scsi0:0.fileName = &quot;/vmfs/volumes/4e4043f8-160ce551-98d6-00221591be89/vps/vps.vmdk&quot;
 
 #### Old Snapshot files can be left around in the VM&#8217;s Directory
 
@@ -258,35 +258,35 @@ It is not uncommon to find VMs that have old snapshot laying around that are not
 
 To confirm we go to the command line and see what disk the VM is running on.
 
-[bash]# grep vmdk vps.vmx  
-scsi0:0.fileName = &quot;vps.vmdk&quot;[/bash]
+	# grep vmdk vps.vmx  
+	scsi0:0.fileName = &quot;vps.vmdk&quot;
 
 In this case it is running off of the base disk, so let&#8217;s look at the VMDKs in the VM&#8217;s directory.
 
-[bash]# ls *.vmdk  
-vps-000001-delta.vmdk vps-000001.vmdk vps-flat.vmdk vps.vmdk  
-[/bash]
+	# ls *.vmdk  
+	vps-000001-delta.vmdk vps-000001.vmdk vps-flat.vmdk vps.vmdk  
+	
 
 We can see above that there is indeed a snapshot in the directory that is not in use by this VM. Since this VM is turned on and using the base disk, this snapshot would be invalidated. Let&#8217;s confirm that it was pointing to the base disk, vps.vmdk.
 
-[bash]# grep parentFileNameHint vps-000001.vmdk  
-parentFileNameHint=&quot;vps.vmdk&quot;  
-[/bash]
+	# grep parentFileNameHint vps-000001.vmdk  
+	parentFileNameHint=&quot;vps.vmdk&quot;  
+	
 
 Since the parentFileNameHint is vps.vmdk, we know that it was pointing to the base disk. Since the timestamp of the vps-flat.vmdk is newer than the vps-000001-delta.vmdk, this snapshot is likely invalidated.
 
-[bash]# ls -lrt *.vmdk  
--rw&#8212;&#8212;- 1 root root 332 Apr 9 20:01 vps-000001.vmdk  
--rw&#8212;&#8212;- 1 root root 33579008 Apr 9 22:08 vps-000001-delta.vmdk  
--rw&#8212;&#8212;- 1 root root 513 Apr 9 22:10 vps.vmdk  
--rw&#8212;&#8212;- 1 root root 10737418240 Apr 9 22:11 vps-flat.vmdk  
-[/bash]
+	# ls -lrt *.vmdk  
+	-rw&#8212;&#8212;- 1 root root 332 Apr 9 20:01 vps-000001.vmdk  
+	-rw&#8212;&#8212;- 1 root root 33579008 Apr 9 22:08 vps-000001-delta.vmdk  
+	-rw&#8212;&#8212;- 1 root root 513 Apr 9 22:10 vps.vmdk  
+	-rw&#8212;&#8212;- 1 root root 10737418240 Apr 9 22:11 vps-flat.vmdk  
+	
 
 We can move these files out of the way and remove them at a later time. The idea behind removing them later is for the sake of data integrity. If you remove a file that contains important data, it could cost thousands of dollars to get a datarecovery company to recover it. My policy is to always create a deleteme folder and move the file there. In a week or so I will go back and remove the file.
 
-[bash]# mkdir deleteme  
-\# mv vps-000001.vmdk vps-000001-delta.vmdk deleteme/  
-[/bash]
+	# mkdir deleteme  
+	\# mv vps-000001.vmdk vps-000001-delta.vmdk deleteme/  
+	
 
 ### Committing Snapshots
 
@@ -326,37 +326,37 @@ When cloning a VMDK the new VMDK will not have any snapshots, but it will contai
 
 The syntax for the clone is below
 
-[bash]# vmkfstools [-d disk type] -i <source>.vmdk <destination>.vmdk[/bash]
-
-This example will clone the current snapshot to the same folder with a new name. The disk will be in ZeroedThick format.
-
-[bash]# grep vmdk vps.vmx  
-scsi0:0.fileName = &quot;vps-000001.vmdk&quot;
-
-\# vmkfstools -i vps-000001.vmdk vps.new.vmdk  
-Destination disk format: VMFS zeroedthick  
-Cloning disk &#8216;vps-000001.vmdk&#8217;&#8230;  
-Clone: 100% done.  
-[/bash]
+	
+	
+	This example will clone the current snapshot to the same folder with a new name. The disk will be in ZeroedThick format.
+	
+	# grep vmdk vps.vmx  
+	scsi0:0.fileName = &quot;vps-000001.vmdk&quot;
+	
+	\# vmkfstools -i vps-000001.vmdk vps.new.vmdk  
+	Destination disk format: VMFS zeroedthick  
+	Cloning disk &#8216;vps-000001.vmdk&#8217;&#8230;  
+	Clone: 100% done.  
+	
 
 The example below will do the same thing, but make the destination disk thin provisioned.
 
-[bash]# grep vmdk vps.vmx  
-scsi0:0.fileName = &quot;vps-000001.vmdk&quot;
-
-\# vmkfstools -d thin -i vps-000001.vmdk vps.new.vmdk  
-Destination disk format: VMFS thin-provisioned  
-Cloning disk &#8216;vps-000001.vmdk&#8217;&#8230;  
-Clone: 100% done.  
-[/bash]
+	# grep vmdk vps.vmx  
+	scsi0:0.fileName = &quot;vps-000001.vmdk&quot;
+	
+	\# vmkfstools -d thin -i vps-000001.vmdk vps.new.vmdk  
+	Destination disk format: VMFS thin-provisioned  
+	Cloning disk &#8216;vps-000001.vmdk&#8217;&#8230;  
+	Clone: 100% done.  
+	
 
 The example below will clone the snapshot to another datastore using thin.
 
-[bash]# vmkfstools -d thin -i vps-000001.vmdk /vmfs/volumes/iscsi_dev/vps/vps.vmdk  
-Destination disk format: VMFS thin-provisioned  
-Cloning disk &#8216;vps-000001.vmdk&#8217;&#8230;  
-Clone: 100% done  
-[/bash]
+	# vmkfstools -d thin -i vps-000001.vmdk /vmfs/volumes/iscsi_dev/vps/vps.vmdk  
+	Destination disk format: VMFS thin-provisioned  
+	Cloning disk &#8216;vps-000001.vmdk&#8217;&#8230;  
+	Clone: 100% done  
+	
 
 #### VM Level Clones
 

@@ -36,21 +36,21 @@ You will see something like this:
 
 But when you login directly to the host via ssh and run &#8216;esxcfg-vswitch -l&#8217; you will see uplinks attached to the DVS. It will look something like this:
 
-[code]  
-~ # esxcfg-vswitch -l  
-DVS Name Num Ports Used Ports Configured Ports MTU Uplinks  
-dvSwitch 512 42 512 1500 vmnic3,vmnic2
-
-DVPort ID In Use Client  
-96 1 vmnic3  
-97 1 vmnic2  
-98 0  
-129 1 vmk0  
-130 1 vmk1  
-131 1 vmk2  
-200 1 vm2.eth0  
-201 1 test.eth0  
-[/code]
+	  
+	~ # esxcfg-vswitch -l  
+	DVS Name Num Ports Used Ports Configured Ports MTU Uplinks  
+	dvSwitch 512 42 512 1500 vmnic3,vmnic2
+	
+	DVPort ID In Use Client  
+	96 1 vmnic3  
+	97 1 vmnic2  
+	98 0  
+	129 1 vmk0  
+	130 1 vmk1  
+	131 1 vmk2  
+	200 1 vm2.eth0  
+	201 1 test.eth0  
+	
 
 3. If you Edit Setting of your VMs and select the Network Card, under Network Label it shows &#8220;Invalid Backing&#8221;
 
@@ -78,171 +78,171 @@ Most of these steps are laid out in &#8220;<a href="http://www.vmware.com/files/
 
 1. Create a new Stardard Virtual Switch
 
-[code]  
-~ # esxcfg-vswitch -a vSwitch3  
-~ # esxcfg-vswitch -l  
-Switch Name Num Ports Used Ports Configured Ports MTU Uplinks  
-vSwitch3 128 1 128 1500
-
-PortGroup Name VLAN ID Used Ports Uplinks
-
-DVS Name Num Ports Used Ports Configured Ports MTU Uplinks  
-dvswitch 512 40 512 1500 vmnic2,vmnic3
-
-DVPort ID In Use Client  
-96 1 vmnic3  
-97 1 vmnic2  
-...  
-...  
-[/code]
+	  
+	~ # esxcfg-vswitch -a vSwitch3  
+	~ # esxcfg-vswitch -l  
+	Switch Name Num Ports Used Ports Configured Ports MTU Uplinks  
+	vSwitch3 128 1 128 1500
+	
+	PortGroup Name VLAN ID Used Ports Uplinks
+	
+	DVS Name Num Ports Used Ports Configured Ports MTU Uplinks  
+	dvswitch 512 40 512 1500 vmnic2,vmnic3
+	
+	DVPort ID In Use Client  
+	96 1 vmnic3  
+	97 1 vmnic2  
+	...  
+	...  
+	
 
 2. Remove the Uplink from the Distributed Virtual Switch and add it to the newly created Standard switch
 
-[code]  
-~ # esxcfg-vswitch -Q vmnic2 -V 97 dvswitch  
-~ # esxcfg-vswitch -L vmnic2 vSwitch3  
-~ # esxcfg-vswitch -l  
-Switch Name Num Ports Used Ports Configured Ports MTU Uplinks  
-vSwitch3 128 2 128 1500 vmnic2
-
-PortGroup Name VLAN ID Used Ports Uplinks
-
-DVS Name Num Ports Used Ports Configured Ports MTU Uplinks  
-dvswitch 512 40 512 1500 vmnic3
-
-DVPort ID In Use Client  
-96 1 vmnic3  
-97 0  
-...  
-...  
-[/code]
+	  
+	~ # esxcfg-vswitch -Q vmnic2 -V 97 dvswitch  
+	~ # esxcfg-vswitch -L vmnic2 vSwitch3  
+	~ # esxcfg-vswitch -l  
+	Switch Name Num Ports Used Ports Configured Ports MTU Uplinks  
+	vSwitch3 128 2 128 1500 vmnic2
+	
+	PortGroup Name VLAN ID Used Ports Uplinks
+	
+	DVS Name Num Ports Used Ports Configured Ports MTU Uplinks  
+	dvswitch 512 40 512 1500 vmnic3
+	
+	DVPort ID In Use Client  
+	96 1 vmnic3  
+	97 0  
+	...  
+	...  
+	
 
 ### Create the necessary Port Groups
 
 1. Create the appropriate Port Groups on the Standard Virtual Switch  
 Let say you had four types of networks: Mgmt (vlan 100), vMotion (vlan 101), NFS (vlan 102), and VM (103). So let&#8217;s create 4 different Port Groups with the appropriate VLAN Tags.
 
-[code]  
-~ # esxcfg-vswitch -A Mgmt vSwitch3  
-~ # esxcfg-vswitch -v 100 -p Mgmt vSwitch3  
-~ # esxcfg-vswitch -A vMotion vSwitch3  
-~ # esxcfg-vswitch -v 101 -p vMotion vSwitch3  
-~ # esxcfg-vswitch -A NFS vSwitch3  
-~ # esxcfg-vswitch -v 102 -p NFS vSwitch3  
-~ # esxcfg-vswitch -A VM vSwitch3  
-~ # esxcfg-vswitch -v 103 -p VM vSwitch3  
-~ # esxcfg-vswitch -l  
-Switch Name Num Ports Used Ports Configured Ports MTU Uplinks  
-vSwitch3 128 2 128 1500 vmnic2
-
-PortGroup Name VLAN ID Used Ports Uplinks  
-VM 103 0 vmnic2  
-NFS 102 0 vmnic2  
-vMotion 101 0 vmnic2  
-Mgmt 100 0 vmnic2
-
-DVS Name Num Ports Used Ports Configured Ports MTU Uplinks  
-dvswitch 512 40 512 1500 vmnic3
-
-DVPort ID In Use Client  
-96 1 vmnic3  
-97 0  
-...  
-...  
-[/code]
+	  
+	~ # esxcfg-vswitch -A Mgmt vSwitch3  
+	~ # esxcfg-vswitch -v 100 -p Mgmt vSwitch3  
+	~ # esxcfg-vswitch -A vMotion vSwitch3  
+	~ # esxcfg-vswitch -v 101 -p vMotion vSwitch3  
+	~ # esxcfg-vswitch -A NFS vSwitch3  
+	~ # esxcfg-vswitch -v 102 -p NFS vSwitch3  
+	~ # esxcfg-vswitch -A VM vSwitch3  
+	~ # esxcfg-vswitch -v 103 -p VM vSwitch3  
+	~ # esxcfg-vswitch -l  
+	Switch Name Num Ports Used Ports Configured Ports MTU Uplinks  
+	vSwitch3 128 2 128 1500 vmnic2
+	
+	PortGroup Name VLAN ID Used Ports Uplinks  
+	VM 103 0 vmnic2  
+	NFS 102 0 vmnic2  
+	vMotion 101 0 vmnic2  
+	Mgmt 100 0 vmnic2
+	
+	DVS Name Num Ports Used Ports Configured Ports MTU Uplinks  
+	dvswitch 512 40 512 1500 vmnic3
+	
+	DVPort ID In Use Client  
+	96 1 vmnic3  
+	97 0  
+	...  
+	...  
+	
 
 ### Migrate your vmkernel interfaces from the Ghosted Distributed Virtual Switch to the Standard switch
 
 1. Determine the IP settings of your current vmkernel interfaces
 
-[code]  
-~ # esxcfg-vmknic -l  
-Interface DVPort IP Address Netmask Broadcast MAC Address MTU Enabled  
-vmk0 129 1.1.1.2 255.255.255.0 1.1.1.255 00:50:56:17:21:df 1500 true  
-vmk1 130 1.1.2.2 255.255.255.0 1.1.2.255 00:50:56:70:4c:6f 1500 true  
-vmk2 131 1.1.3.2 255.255.255.0 1.1.3.255 00:50:56:75:4c:6f 1500 true
-
-~ # esxcfg-vswitch -l  
-Switch Name Num Ports Used Ports Configured Ports MTU Uplinks  
-vSwitch3 128 2 128 1500 vmnic2
-
-PortGroup Name VLAN ID Used Ports Uplinks  
-VM 103 0 vmnic2  
-NFS 102 0 vmnic2  
-vMotion 101 0 vmnic2  
-Mgmt 100 0 vmnic2
-
-DVS Name Num Ports Used Ports Configured Ports MTU Uplinks  
-dvswitch 512 40 512 1500 vmnic3
-
-DVPort ID In Use Client  
-96 1 vmnic3  
-97 0  
-98 0  
-99 0  
-100 0  
-101 0  
-102 0  
-129 1 vmk0  
-130 1 vmk1  
-131 1 vmk2  
-...  
-...  
-[/code]
+	  
+	~ # esxcfg-vmknic -l  
+	Interface DVPort IP Address Netmask Broadcast MAC Address MTU Enabled  
+	vmk0 129 1.1.1.2 255.255.255.0 1.1.1.255 00:50:56:17:21:df 1500 true  
+	vmk1 130 1.1.2.2 255.255.255.0 1.1.2.255 00:50:56:70:4c:6f 1500 true  
+	vmk2 131 1.1.3.2 255.255.255.0 1.1.3.255 00:50:56:75:4c:6f 1500 true
+	
+	~ # esxcfg-vswitch -l  
+	Switch Name Num Ports Used Ports Configured Ports MTU Uplinks  
+	vSwitch3 128 2 128 1500 vmnic2
+	
+	PortGroup Name VLAN ID Used Ports Uplinks  
+	VM 103 0 vmnic2  
+	NFS 102 0 vmnic2  
+	vMotion 101 0 vmnic2  
+	Mgmt 100 0 vmnic2
+	
+	DVS Name Num Ports Used Ports Configured Ports MTU Uplinks  
+	dvswitch 512 40 512 1500 vmnic3
+	
+	DVPort ID In Use Client  
+	96 1 vmnic3  
+	97 0  
+	98 0  
+	99 0  
+	100 0  
+	101 0  
+	102 0  
+	129 1 vmk0  
+	130 1 vmk1  
+	131 1 vmk2  
+	...  
+	...  
+	
 
 So vmk0 is Mgmt, vmk1 is vMotion, and vmk2 is NFS.
 
 2. Remove the vmkernel interfaces from the Ghosted Distributed Virtual Switch  
 **NOTE** If you were doing the above steps via an SSH session, the below commands will disrupt your Management interface. If you have a DRAC/ILO ( any out-of-band management tool) please use them. This will NOT disrupt your VM traffic.  
-[code]  
-~ # esxcfg-vmknic -d -v 129 -s dvswitch  
-~ # esxcfg-vmknic -d -v 130 -s dvswitch  
-~ # esxcfg-vmknic -d -v 131 -s dvswitch  
-~ # esxcfg-vswitch -l  
-Switch Name Num Ports Used Ports Configured Ports MTU Uplinks  
-vSwitch3 128 2 128 1500 vmnic2
-
-PortGroup Name VLAN ID Used Ports Uplinks  
-VM 103 0 vmnic2  
-NFS 102 0 vmnic2  
-vMotion 101 0 vmnic2  
-Mgmt 100 0 vmnic2
-
-DVS Name Num Ports Used Ports Configured Ports MTU Uplinks  
-dvswitch 512 40 512 1500 vmnic3
-
-DVPort ID In Use Client  
-96 1 vmnic3  
-97 0  
-98 0  
-99 0  
-100 0  
-101 0  
-102 0  
-129 0  
-130 0  
-131 0  
-..  
-..  
-[/code]
+	  
+	~ # esxcfg-vmknic -d -v 129 -s dvswitch  
+	~ # esxcfg-vmknic -d -v 130 -s dvswitch  
+	~ # esxcfg-vmknic -d -v 131 -s dvswitch  
+	~ # esxcfg-vswitch -l  
+	Switch Name Num Ports Used Ports Configured Ports MTU Uplinks  
+	vSwitch3 128 2 128 1500 vmnic2
+	
+	PortGroup Name VLAN ID Used Ports Uplinks  
+	VM 103 0 vmnic2  
+	NFS 102 0 vmnic2  
+	vMotion 101 0 vmnic2  
+	Mgmt 100 0 vmnic2
+	
+	DVS Name Num Ports Used Ports Configured Ports MTU Uplinks  
+	dvswitch 512 40 512 1500 vmnic3
+	
+	DVPort ID In Use Client  
+	96 1 vmnic3  
+	97 0  
+	98 0  
+	99 0  
+	100 0  
+	101 0  
+	102 0  
+	129 0  
+	130 0  
+	131 0  
+	..  
+	..  
+	
 
 You can see that they are gone from the DvSwitch.
 
 3. Recreate the vmkernel interfaces on the standard virtual switch
 
-[code]  
-~ # esxcfg-vmknic -a -i 1.1.1.2 -n 255.255.255.0 -p Mgmt  
-[2012-09-22 16:39:03 'NotifyDCUI' warning] Notifying the DCUI of configuration change  
-~ # esxcfg-vmknic -a -i 1.1.2.2 -n 255.255.255.0 -p vMotion  
-[2012-09-22 16:39:21 'NotifyDCUI' warning] Notifying the DCUI of configuration change  
-~ # esxcfg-vmknic -a -i 1.1.3.2 -n 255.255.255.0 -p NFS  
-[2012-09-22 16:39:33 'NotifyDCUI' warning] Notifying the DCUI of configuration change  
-~ # esxcfg-vmknic -l  
-Interface Port Group/DVPort IP Address Netmask Broadcast MAC Address MTU Enabled  
-vmk0 Mgmt 1.1.1.2 255.255.255.0 1.1.1.255 00:50:56:7c:ec:ca 1500 true  
-vmk1 vMotion 1.1.2.2 255.255.255.0 1.1.2.255 00:50:56:7e:69:07 1500 true  
-vmk3 NFS 1.1.3.2 255.255.255.0 1.1.3.255 00:50:56:73:5a:3b 1500 true  
-[/code]
+	  
+	~ # esxcfg-vmknic -a -i 1.1.1.2 -n 255.255.255.0 -p Mgmt  
+	[2012-09-22 16:39:03 'NotifyDCUI' warning] Notifying the DCUI of configuration change  
+	~ # esxcfg-vmknic -a -i 1.1.2.2 -n 255.255.255.0 -p vMotion  
+	[2012-09-22 16:39:21 'NotifyDCUI' warning] Notifying the DCUI of configuration change  
+	~ # esxcfg-vmknic -a -i 1.1.3.2 -n 255.255.255.0 -p NFS  
+	[2012-09-22 16:39:33 'NotifyDCUI' warning] Notifying the DCUI of configuration change  
+	~ # esxcfg-vmknic -l  
+	Interface Port Group/DVPort IP Address Netmask Broadcast MAC Address MTU Enabled  
+	vmk0 Mgmt 1.1.1.2 255.255.255.0 1.1.1.255 00:50:56:7c:ec:ca 1500 true  
+	vmk1 vMotion 1.1.2.2 255.255.255.0 1.1.2.255 00:50:56:7e:69:07 1500 true  
+	vmk3 NFS 1.1.3.2 255.255.255.0 1.1.3.255 00:50:56:73:5a:3b 1500 true  
+	
 
 Notice that under the &#8220;Port Group/DVPort&#8221; column it has the name of the port group from the standard virtual switch instead of the dvPort ID. That is when you know you are on the Standard Virtual Switch instead of the DvSwitch.
 
@@ -254,66 +254,66 @@ If vCenter is not up, then login directly to the host with the vShpere Client an
 
 After you are done migrating all the VMs off the &#8216;esxcfg-vswitch -l&#8217; output should look like this:
 
-[code]  
-DVS Name Num Ports Used Ports Configured Ports MTU Uplinks  
-dvswitch 512 1 512 1500 vmnic3
-
-DVPort ID In Use Client  
-96 1 vmnic3  
-97 0  
-98 0  
-99 0  
-100 0  
-101 0  
-102 0  
-129 0  
-130 0  
-131 0  
-200 0  
-201 0  
-[/code]
+	  
+	DVS Name Num Ports Used Ports Configured Ports MTU Uplinks  
+	dvswitch 512 1 512 1500 vmnic3
+	
+	DVPort ID In Use Client  
+	96 1 vmnic3  
+	97 0  
+	98 0  
+	99 0  
+	100 0  
+	101 0  
+	102 0  
+	129 0  
+	130 0  
+	131 0  
+	200 0  
+	201 0  
+	
 
 Remember when we started it looks like this:
 
-[code]  
-DVS Name Num Ports Used Ports Configured Ports MTU Uplinks  
-dvSwitch 512 42 512 1500 vmnic3,vmnic2
-
-DVPort ID In Use Client  
-96 1 vmnic3  
-97 1 vmnic2  
-98 0  
-129 1 vmk0  
-130 1 vmk1  
-131 1 vmk2  
-200 1 vm2.eth0  
-201 1 test.eth0  
-[/code]
+	  
+	DVS Name Num Ports Used Ports Configured Ports MTU Uplinks  
+	dvSwitch 512 42 512 1500 vmnic3,vmnic2
+	
+	DVPort ID In Use Client  
+	96 1 vmnic3  
+	97 1 vmnic2  
+	98 0  
+	129 1 vmk0  
+	130 1 vmk1  
+	131 1 vmk2  
+	200 1 vm2.eth0  
+	201 1 test.eth0  
+	
 
 ### Remove any left over Uplinks from the DvSwitch
 
 Now that we have migrated everything to the standard switch we need to make sure nothing is using the DvSwitch so we can actually remove it from the host. In my case I only had vmnic3, so I ran the following to remove it:
 
-[code]  
-~ # esxcfg-vswitch -Q vmnic3 -V 96 dvswitch  
-~ # esxcgf-vswitch -l  
-DVS Name Num Ports Used Ports Configured Ports MTU Uplinks  
-dvswitch 512 0 512 1500 
-
-DVPort ID In Use Client  
-96 0  
-97 0  
-98 0  
-99 0  
-100 0  
-101 0  
-102 0  
-129 0  
-130 0  
-131 0  
-200 0  
-201 0  
-[/code]
+	  
+	~ # esxcfg-vswitch -Q vmnic3 -V 96 dvswitch  
+	~ # esxcgf-vswitch -l  
+	DVS Name Num Ports Used Ports Configured Ports MTU Uplinks  
+	dvswitch 512 0 512 1500 
+	
+	DVPort ID In Use Client  
+	96 0  
+	97 0  
+	98 0  
+	99 0  
+	100 0  
+	101 0  
+	102 0  
+	129 0  
+	130 0  
+	131 0  
+	200 0  
+	201 0  
+	
 
 Notice that your &#8220;Used Ports&#8221; should be &#8217;0&#8242;.
 

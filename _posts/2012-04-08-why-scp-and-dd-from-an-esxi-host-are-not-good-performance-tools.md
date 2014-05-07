@@ -18,24 +18,24 @@ tags:
 ---
 I am sure many have noticed that whenever you try to scp a file to or from an ESX(i) host the performance is a little slow. Let&#8217;s take the following example, here is an scp between two hosts on the same switch utilizing links that are 1GB.
 
-<pre>~# scp 1gb_File 10.10.10.10:/vmfs/volumes/datastore_1
-root@10.10.10.10's password:
-1gb_File                                       100% 1000MB  24.4MB/s   00:41</pre>
+	~# scp 1gb_File 10.10.10.10:/vmfs/volumes/datastore_1
+	root@10.10.10.10's password:
+	1gb_File                                       100% 1000MB  24.4MB/s   00:41
 
 Now running a test with netperf from within two VMs on those two sames host, going through the same path (ie: using the same vmnics), we see the following:
 
-[code]  
-~ # /tmp/netserver  
-Starting netserver at port 12865
-
-~ # /tmp/netperf -H 10.10.10.11 -t TCP_STREAM -l 30  
-TCP STREAM TEST to 10.10.10.11  
-Recv Send Send  
-Socket Socket Message Elapsed  
-Size Size Size Time Throughput  
-bytes bytes bytes secs. 10^6bits/sec  
-65536 32768 32768 30.00 939.59  
-[/code]
+	  
+	~ # /tmp/netserver  
+	Starting netserver at port 12865
+	
+	~ # /tmp/netperf -H 10.10.10.11 -t TCP_STREAM -l 30  
+	TCP STREAM TEST to 10.10.10.11  
+	Recv Send Send  
+	Socket Socket Message Elapsed  
+	Size Size Size Time Throughput  
+	bytes bytes bytes secs. 10^6bits/sec  
+	65536 32768 32768 30.00 939.59  
+	
 
 So we are capable of utilizing the full 1GB but the hypervisor is limiting the userworlds other than VMs (ie: dd, scp). I do understand that this is not an apples-to-apples comparison (scp is actually reading and writing data to and from the local disks) but we are seeing scp transferring at 195Mb/s while netperf reaches 939Mb/s.
 

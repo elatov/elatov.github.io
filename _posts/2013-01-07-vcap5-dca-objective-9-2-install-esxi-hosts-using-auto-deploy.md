@@ -80,31 +80,31 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 > **Procedure**
 > 
 > 1.  Connect to the vCenter Server system you want to use and bind the associated license manager to avariable.  
->     [code]  
->     Connect-VIServer -Server 192.XXX.X.XX -User username -Password password  
->     $licenseDataManager = Get-LicenseDataManager  
->     [/code]
+	>       
+	>     Connect-VIServer -Server 192.XXX.X.XX -User username -Password password  
+	>     $licenseDataManager = Get-LicenseDataManager  
+	>     
 > 2.  Run a cmdlet that retrieves the datacenter in which the hosts for which you want to use the bulk licensing feature are located.  
->     [code]  
->     $hostContainer = Get-Datacenter -Name Datacenter-X  
->     [/code]</p> 
+	>       
+	>     $hostContainer = Get-Datacenter -Name Datacenter-X  
+	>     </p> 
 >     You can also run a cmdlet that retrieves a cluster to use bulk licensing for all hosts in a cluster, or retrieves a folder to use bulk licensing for all hosts in a folder.</li> 
 >     *   Create a new LicenseData object and a LicenseKeyEntry object with associated type ID and license key.  
->         [code]  
->         $licenseData = New-Object VMware.VimAutomation.License.Types.LicenseData  
->         $licenseKeyEntry = New-Object Vmware.VimAutomation.License.Types.LicenseKeyEntry  
->         $licenseKeyEntry.TypeId = "vmware-vsphere”  
->         $licenseKeyEntry.LicenseKey = "XXXXX-XXXXX-XXXXX-XXXXX-XXXXX"  
->         [/code]
+	>           
+	>         $licenseData = New-Object VMware.VimAutomation.License.Types.LicenseData  
+	>         $licenseKeyEntry = New-Object Vmware.VimAutomation.License.Types.LicenseKeyEntry  
+	>         $licenseKeyEntry.TypeId = "vmware-vsphere”  
+	>         $licenseKeyEntry.LicenseKey = "XXXXX-XXXXX-XXXXX-XXXXX-XXXXX"  
+	>         
 >     *   Associate the LicenseKeys attribute of the LicenseData object you created in step 3 with the LicenseKeyEntry object.  
->         [code]  
->         $licenseData.LicenseKeys += $licenseKeyEntry  
->         [/code]
+	>           
+	>         $licenseData.LicenseKeys += $licenseKeyEntry  
+	>         
 >     *   Update the license data for the data center with the LicenseData object and verify that the license is associated with the host container.  
->         [code]  
->         $licenseDataManager.UpdateAssociatedLicenseData($hostContainer.Uid, $licenseData)  
->         $licenseDataManager.QueryAssociatedLicenseData($hostContainer.Uid)  
->         [/code]
+	>           
+	>         $licenseDataManager.UpdateAssociatedLicenseData($hostContainer.Uid, $licenseData)  
+	>         $licenseDataManager.QueryAssociatedLicenseData($hostContainer.Uid)  
+	>         
 >     *   Provision one or more hosts with Auto Deploy and assign them to the data center or cluster that you assigned the license data to.
 >     *   Verify that the host is successfully assigned to the default license XXXXX-XXXXX-XXXXX-XXXXX-XXXXX. 
 >         *   Using a vSphere Client, log in to the vCenter Server system.
@@ -129,39 +129,39 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 >         > 
 >         > Start by listing the available image profiles as follows:
 >         > 
->         > [code]  
->         > PowerCLI C:\> Get-EsxImageProfile
->         > 
->         > Name Vendor Last Modified Acceptance Level  
->         > \---\- --\---\- --\---\---\---\-- -\---\---\---\---\---  
->         > ESXi-5.0.0-20120301001s-no-... VMware, Inc. 2/17/2012 11... PartnerSupported  
->         > My\_Cloned\_Profile VMware, Inc. 12/25/2012 1... PartnerSupported  
->         > ESXi-5.0.0-20120302001-no-t... VMware, Inc. 2/17/2012 11... PartnerSupported  
->         > ESXi-5.0.0-20120301001s-sta... VMware, Inc. 2/17/2012 11... PartnerSupported  
->         > My\_Manual\_Profile VMware 12/25/2012 1... VMwareCertified  
->         > ESXi-5.0.0-20120302001-stan... VMware, Inc. 2/17/2012 11... PartnerSupported  
->         > [/code]
+	>         >   
+	>         > PowerCLI C:\> Get-EsxImageProfile
+	>         > 
+	>         > Name Vendor Last Modified Acceptance Level  
+	>         > \---\- --\---\- --\---\---\---\-- -\---\---\---\---\---  
+	>         > ESXi-5.0.0-20120301001s-no-... VMware, Inc. 2/17/2012 11... PartnerSupported  
+	>         > My\_Cloned\_Profile VMware, Inc. 12/25/2012 1... PartnerSupported  
+	>         > ESXi-5.0.0-20120302001-no-t... VMware, Inc. 2/17/2012 11... PartnerSupported  
+	>         > ESXi-5.0.0-20120301001s-sta... VMware, Inc. 2/17/2012 11... PartnerSupported  
+	>         > My\_Manual\_Profile VMware 12/25/2012 1... VMwareCertified  
+	>         > ESXi-5.0.0-20120302001-stan... VMware, Inc. 2/17/2012 11... PartnerSupported  
+	>         > 
 >         > 
 >         > Next, identify the IP subnet for the hosts that will be deployed using Auto Deploy. In this example, all the ESXi hosts are on the 10.91.243.0 subnet.  
 >         > With the image profile and IP subnet, we can create an Auto Deploy rule to assign the image profile My\_Cloned\_Profile to any hosts that boot on the 10.91.243.0 IP subnet.
 >         > 
->         > [code]  
->         > PowerCLI C:\> New-DeployRule -Name AssignImageRule1 -Item My\_Manual\_Profile -Pattern "ipv4=10.91.243.1-10.91.243.254"
->         > 
->         > Name : AssignImageRule1  
->         > PatternList : {ipv4=10.91.243.1-10.91.243.254}  
->         > ItemList : {My\_Manual\_Profile}  
->         > [/code]
+	>         >   
+	>         > PowerCLI C:\> New-DeployRule -Name AssignImageRule1 -Item My\_Manual\_Profile -Pattern "ipv4=10.91.243.1-10.91.243.254"
+	>         > 
+	>         > Name : AssignImageRule1  
+	>         > PatternList : {ipv4=10.91.243.1-10.91.243.254}  
+	>         > ItemList : {My\_Manual\_Profile}  
+	>         > 
 >         > 
 >         > After Auto Deploy rules are created, they must be activated. This is done by moving the rule into the active rule set with the Add-DeployRule cmdlet.
 >         > 
->         > [code]  
->         > PowerCLI C:\> Add-DeployRule AssignImageRule1
->         > 
->         > Name : AssignImageRule1  
->         > PatternList : {ipv4=10.91.243.1-10.91.243.254}  
->         > ItemList : {My\_Manual\_Profile}  
->         > [/code]
+	>         >   
+	>         > PowerCLI C:\> Add-DeployRule AssignImageRule1
+	>         > 
+	>         > Name : AssignImageRule1  
+	>         > PatternList : {ipv4=10.91.243.1-10.91.243.254}  
+	>         > ItemList : {My\_Manual\_Profile}  
+	>         > 
 >         
 >         Now we can create another rule to put all the hosts into a specific cluster. From the same guide:
 >         
@@ -170,40 +170,40 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 >         > 
 >         > List the available vCenter clusters using the Get-Cluster cmdlet, as follows:
 >         > 
->         > [code]  
->         > PowerCLI C:\> get-Cluster
->         > 
->         > Name HAEnabled HAFailover DrsEnabled DrsAutomationLe  
->         > Level vel  
->         > \---\- --\---\---\- --\---\---\-- -\---\---\--- \---\---\---\---\---  
->         > vsphere4 False 1 False FullyAutomated  
->         > vsphere5 False 1 False FullyAutomated  
->         > [/code]
+	>         >   
+	>         > PowerCLI C:\> get-Cluster
+	>         > 
+	>         > Name HAEnabled HAFailover DrsEnabled DrsAutomationLe  
+	>         > Level vel  
+	>         > \---\- --\---\---\- --\---\---\-- -\---\---\--- \---\---\---\---\---  
+	>         > vsphere4 False 1 False FullyAutomated  
+	>         > vsphere5 False 1 False FullyAutomated  
+	>         > 
 >         > 
 >         > Create an Auto Deploy rule to provision new hosts on the subnet 10.91.243.0 into the cluster vsphere5.
 >         > 
->         > [code]  
->         > PowerCLI C:\> New-DeployRule -Name AssignClusterRule -Item vsphere5 -Pattern "ip  
->         > v4=10.91.243.1-10.91.243.254"
->         > 
->         > Name : AssignClusterRule  
->         > PatternList : {ipv4=10.91.243.1-10.91.243.254}  
->         > ItemList : {vsphere5}  
->         > [/code]
+	>         >   
+	>         > PowerCLI C:\> New-DeployRule -Name AssignClusterRule -Item vsphere5 -Pattern "ip  
+	>         > v4=10.91.243.1-10.91.243.254"
+	>         > 
+	>         > Name : AssignClusterRule  
+	>         > PatternList : {ipv4=10.91.243.1-10.91.243.254}  
+	>         > ItemList : {vsphere5}  
+	>         > 
 >         > 
 >         > Next, we activate the rule by moving it into the active rule set.
 >         > 
->         > [code]  
->         > PowerCLI C:\> Add-DeployRule AssignClusterRule
->         > 
->         > Name : AssignImageRule1  
->         > PatternList : {ipv4=10.91.243.1-10.91.243.254}  
->         > ItemList : {My\_Manual\_Profile}
->         > 
->         > Name : AssignClusterRule  
->         > PatternList : {ipv4=10.91.243.1-10.91.243.254}  
->         > ItemList : {vsphere5}  
->         > [/code]
+	>         >   
+	>         > PowerCLI C:\> Add-DeployRule AssignClusterRule
+	>         > 
+	>         > Name : AssignImageRule1  
+	>         > PatternList : {ipv4=10.91.243.1-10.91.243.254}  
+	>         > ItemList : {My\_Manual\_Profile}
+	>         > 
+	>         > Name : AssignClusterRule  
+	>         > PatternList : {ipv4=10.91.243.1-10.91.243.254}  
+	>         > ItemList : {vsphere5}  
+	>         > 
 >         
 >         Now we are ready to provision/deploy a host:
 >         
@@ -229,42 +229,42 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 >         > 
 >         > List the host profiles defined on the vCenter server as follows:
 >         > 
->         > [code]  
->         > PowerCLI C:\> Get-VMHostProfile
->         > 
->         > Name Description ReferenceHostId  
->         > \---\- --\---\---\--- \---\---\---\---\---  
->         > 5.0_Profile HostSystem-hos...  
->         > [/code]
+	>         >   
+	>         > PowerCLI C:\> Get-VMHostProfile
+	>         > 
+	>         > Name Description ReferenceHostId  
+	>         > \---\- --\---\---\--- \---\---\---\---\---  
+	>         > 5.0_Profile HostSystem-hos...  
+	>         > 
 >         > 
 >         > Create an Auto Deploy rule to apply the host profile 5.0_Profile to hosts provisioned on the 10.91.243.0 subnet as follows:
 >         > 
->         > [code]  
->         > PowerCLI C:\> New-DeployRule -Name AssignHPRule -Item 5.0_Profile -Pattern "ipv4  
->         > =10.91.243.1-10.91.243.254"
->         > 
->         > Name : AssignHPRule  
->         > PatternList : {ipv4=10.91.243.1-10.91.243.254}  
->         > ItemList : {5.0_Profile}  
->         > [/code]
+	>         >   
+	>         > PowerCLI C:\> New-DeployRule -Name AssignHPRule -Item 5.0_Profile -Pattern "ipv4  
+	>         > =10.91.243.1-10.91.243.254"
+	>         > 
+	>         > Name : AssignHPRule  
+	>         > PatternList : {ipv4=10.91.243.1-10.91.243.254}  
+	>         > ItemList : {5.0_Profile}  
+	>         > 
 >         > 
 >         > Activate the rule by moving it into the active rule set.
 >         > 
->         > [code]  
->         > PowerCLI C:\> Add-DeployRule AssignHPRule
->         > 
->         > Name : AssignImageRule1  
->         > PatternList : {ipv4=10.91.243.1-10.91.243.254}  
->         > ItemList : {My\_Manual\_Profile}
->         > 
->         > Name : AssignClusterRule  
->         > PatternList : {ipv4=10.91.243.1-10.91.243.254}  
->         > ItemList : {vsphere5}
->         > 
->         > Name : AssignHPRule  
->         > PatternList : {ipv4=10.91.243.1-10.91.243.254}  
->         > ItemList : {5.0_Profile}  
->         > [/code]
+	>         >   
+	>         > PowerCLI C:\> Add-DeployRule AssignHPRule
+	>         > 
+	>         > Name : AssignImageRule1  
+	>         > PatternList : {ipv4=10.91.243.1-10.91.243.254}  
+	>         > ItemList : {My\_Manual\_Profile}
+	>         > 
+	>         > Name : AssignClusterRule  
+	>         > PatternList : {ipv4=10.91.243.1-10.91.243.254}  
+	>         > ItemList : {vsphere5}
+	>         > 
+	>         > Name : AssignHPRule  
+	>         > PatternList : {ipv4=10.91.243.1-10.91.243.254}  
+	>         > ItemList : {5.0_Profile}  
+	>         > 
 >         > 
 >         > At this point, we have created the following three Auto Deploy rules:
 >         > 

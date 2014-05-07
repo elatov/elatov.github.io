@@ -42,160 +42,160 @@ tags:
 <h2>Generating and Installing vCenter certificates</h2>
 <p>There are many set of instructions to follow when generating and installing custom certs for vCenter. <a href="http://kb.vmware.com/kb/1003921" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1003921']);" target="_blank">KB 1003921</a> describes the basic process. I will not go in depth here, but I will list my steps for generating the certificates. If you are looking for some more detail please see <a href="http://geeksilver.wordpress.com/2011/05/13/how-to-use-ca-certificate-to-replace-vmware-certificate-on-esxi-4-and-vcenter/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://geeksilver.wordpress.com/2011/05/13/how-to-use-ca-certificate-to-replace-vmware-certificate-on-esxi-4-and-vcenter/']);" target="_blank">this blog post</a> or <a href="http://www.wooditwork.com/2011/11/30/vsphere-5-certificates-3-replacing-the-default-vcenter-5-server-certificate-2-2/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.wooditwork.com/2011/11/30/vsphere-5-certificates-3-replacing-the-default-vcenter-5-server-certificate-2-2/']);" target="_blank">this one</a>.  See <a href="http://longwhiteclouds.com/2012/02/13/vcenter-server-virtual-appliance-changing-ssl-certs-made-easy/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://longwhiteclouds.com/2012/02/13/vcenter-server-virtual-appliance-changing-ssl-certs-made-easy/']);" target="_blank">this blog post</a> if you are using the Linux vCenter appliance.</p>
 <p>First we need to generate the CSR. We can do this with openssl. I changed my openssl.cnf, so I do not have to type in the some values, so you should enter your information correctly.</p>
-<p>[code]</p>
-<h1>mkdir vcenter-prod &amp;&amp; cd vcenter-prod</h1>
-<h1>openssl req -new -newkey rsa:2048 -sha1  -nodes -out rui.csr -keyout rui.key</h1>
-<p>You are about to be asked to enter information that will be incorporated<br />
-into your certificate request.<br />
-What you are about to enter is what is called a Distinguished Name or a DN.<br />
-There are quite a few fields but you can leave some blank<br />
-For some fields there will be a default value,</p>
-<h2>If you enter '.', the field will be left blank.</h2>
-<p>Country Name (2 letter code) [US]: US<br />
-State or Province Name (full name) [Colorado]: Colorado<br />
-Locality Name (eg, city) [Boulder]: Boulder<br />
-Organization Name (eg, company) [Virtuallyhyper]: Virtuallyhyper<br />
-Organizational Unit Name (eg, section) [Lab]: Lab<br />
-Common Name (eg, YOUR name) []:srm-prod.virtuallyhyper.com<br />
-Email Address [admin'@'virtuallyhyper.com]:admin'@'virtuallyhyper.com</p>
-<p>Please enter the following 'extra' attributes<br />
-to be sent with your certificate request<br />
-A challenge password []:<br />
-An optional company name []:<br />
-[/code]</p>
+	<p></p>
+	<h1>mkdir vcenter-prod &amp;&amp; cd vcenter-prod</h1>
+	<h1>openssl req -new -newkey rsa:2048 -sha1  -nodes -out rui.csr -keyout rui.key</h1>
+	<p>You are about to be asked to enter information that will be incorporated<br />
+	into your certificate request.<br />
+	What you are about to enter is what is called a Distinguished Name or a DN.<br />
+	There are quite a few fields but you can leave some blank<br />
+	For some fields there will be a default value,</p>
+	<h2>If you enter '.', the field will be left blank.</h2>
+	<p>Country Name (2 letter code) [US]: US<br />
+	State or Province Name (full name) [Colorado]: Colorado<br />
+	Locality Name (eg, city) [Boulder]: Boulder<br />
+	Organization Name (eg, company) [Virtuallyhyper]: Virtuallyhyper<br />
+	Organizational Unit Name (eg, section) [Lab]: Lab<br />
+	Common Name (eg, YOUR name) []:srm-prod.virtuallyhyper.com<br />
+	Email Address :admin'@'virtuallyhyper.com</p>
+	<p>Please enter the following 'extra' attributes<br />
+	to be sent with your certificate request<br />
+	A challenge password []:<br />
+	An optional company name []:<br />
+	</p>
 <p>Now we need to sign the CSR. You will do with with your root CA, so the steps will likely be different.</p>
-<p>[code]</p>
-<h1>openssl ca -days 3650 -in rui.csr -out rui.crt</h1>
-<p>[/code]</p>
+	<p></p>
+	<h1>openssl ca -days 3650 -in rui.csr -out rui.crt</h1>
+	<p></p>
 <p>Next we have to merge the signed certificate and the private key into the PFX file. The PFX will require a password, which will be set to &#8220;testpassword&#8221; in the command. vCenter will expect this to be &#8220;testpassword&#8221;, so please do not change it.</p>
-<p>[code]</p>
-<h1>openssl pkcs12 -export -in rui.crt -inkey rui.key -name &quot;rui&quot; -passout pass:testpassword -out rui.pfx</h1>
-<p>[/code]</p>
+	<p></p>
+	<h1>openssl pkcs12 -export -in rui.crt -inkey rui.key -name &quot;rui&quot; -passout pass:testpassword -out rui.pfx</h1>
+	<p></p>
 <p>Now that we have generated and signed our certificate we need to install it for vCenter. You need to copy the rui.pfx, rui.key and the rui.crt to the SSL directory for vCenter. Make sure to back up the original ones first. The SSL folder is located in the application directory for vCenter.</p>
-<p>[code]<br />
-Windows 2003 C:\Documents and Settings\All Users\Application Data\VMware\VMware VirtualCenter\SSL<br />
-Windows 2008/R2 C:\ProgramData\VMware\VMware VirtualCenter\SSL<br />
-[/code]</p>
+	<p><br />
+	Windows 2003 C:\Documents and Settings\All Users\Application Data\VMware\VMware VirtualCenter\SSL<br />
+	Windows 2008/R2 C:\ProgramData\VMware\VMware VirtualCenter\SSL<br />
+	</p>
 <p>Now we should stop the vCenter service and <a href="http://kb.vmware.com/kb/1003070" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1003070']);" target="_blank">update the database password</a>. Make sure to run the Command Prompt as an Administrator.</p>
-<p>[code]<br />
-C:\Documents and Settings\jarret&gt; net stop vpxd<br />
-C:\Documents and Settings\jarret&gt;&quot;c:\Program Files\VMware\Infrastructure\Virtual<br />
-Center Server\vpxd.exe&quot; -p<br />
-C:\Documents and Settings\jarret&gt; net start vpxd<br />
-C:\Documents and Settings\jarret&gt; net start vctomcat<br />
-[/code]</p>
+	<p><br />
+	C:\Documents and Settings\jarret&gt; net stop vpxd<br />
+	C:\Documents and Settings\jarret&gt;&quot;c:\Program Files\VMware\Infrastructure\Virtual<br />
+	Center Server\vpxd.exe&quot; -p<br />
+	C:\Documents and Settings\jarret&gt; net start vpxd<br />
+	C:\Documents and Settings\jarret&gt; net start vctomcat<br />
+	</p>
 <p>Now you can test vCenter to confirm that everything is working and the new certificate is installed. Make sure to generate and install the certificate on both the protected and the recovery sites. Go ahead and reconnect all of the hosts.</p>
 <h2>Generating and installing SRM certs</h2>
 <p>There is an excellent write up about this that can be found <a href="http://communities.vmware.com/docs/DOC-11411" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/docs/DOC-11411']);" target="_blank">here</a>. The requirements are listed in <a href="http://kb.vmware.com/kb/1008390" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1008390']);" target="_blank">this KB article</a>. The problem is that the details are easy to miss and it can be a huge headache. The biggest thing to remember is that the <strong>Subject for both certificates need to be the same</strong>. That means that the <strong>CN,O,OU,C,S and L need to be the same for the certificates for both SRM servers</strong>.</p>
 <h3>Generating the Protected Site SRM Certificate</h3>
 <p>First lets generate the CSR for the protected site SRM server. I did not set up a separate SRM server in this lab, so I am installing SRM on to the vCenter server. We still need to generate a new certificate for SRM on this server.</p>
 <p>We need to make some changes to the openssl.cnf. First lets copy this to our current directory so we can modify some properties for this certificate. If you are using windows, there will be a local copy of openssl.cfg. Copy that to another file name (I.e srm-prod.cnf) and make the changes there.</p>
-<p>[code]</p>
-<h1>mkdir srm-prod &amp;&amp; cd srm-prod</h1>
-<h1>cp /etc/ssl/openssl.cnf srm-prod.cnf</h1>
-<p>[/code]</p>
+	<p></p>
+	<h1>mkdir srm-prod &amp;&amp; cd srm-prod</h1>
+	<h1>cp /etc/ssl/openssl.cnf srm-prod.cnf</h1>
+	<p></p>
 <p>Open up the srm-dr.cnf and make sure to add a subjectAltName. It should look like the one below. Make sure that it is correct case, as it is case sensitive. We also need to add clientAuth to all for client authentication. This is a requirement for trusted certs with SRM. Make sure not to put the subjectAltName into the subject section ([ req_distinguished_name ]) as the subjects need to be the same for both certs. To get by this we can add it as an extension of the certificate.</p>
 <p>Find the line below and uncomment it. It should be found in the [ req ] section</p>
-<p>[code]<br />
-req_extensions = v3_req<br />
-[/code]</p>
+	<p><br />
+	req_extensions = v3_req<br />
+	</p>
 <p>The go down to the [ v3_ca ] section and put in the following lines.</p>
-<p>[code]<br />
-subjectAltName=DNS:srm-prod.virtuallyhyper.com<br />
-extendedKeyUsage = serverAuth, clientAuth<br />
-[/code]</p>
+	<p><br />
+	subjectAltName=DNS:srm-prod.virtuallyhyper.com<br />
+	extendedKeyUsage = serverAuth, clientAuth<br />
+	</p>
 <p>Now we can generate the CSR. Notice how the CN is &#8220;srm&#8221;. The Subject (all of the fields below) needs to be exactly the same across both SRM certificates. The subjectAltName above is what will define the hostname for SRM. Check out this post about using <a href="http://virtuallyhyper.com/2012/08/srm-5-x-custom-ssl-certificates-with-multiple-subject-alternative-names/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/08/srm-5-x-custom-ssl-certificates-with-multiple-subject-alternative-names/']);" title="SRM 5.x Custom SSL Certificates with Multiple Subject Alternative Names" target="_blank">multiple subjectAltNames</a>.</p>
-<p>[code]</p>
-<h1>openssl req -new -newkey rsa:2048 -sha1  -nodes -out srm-prod.csr -keyout srm-prod.key -config srm-prod.cnf</h1>
-<p>You are about to be asked to enter information that will be incorporated<br />
-into your certificate request.<br />
-What you are about to enter is what is called a Distinguished Name or a DN.<br />
-There are quite a few fields but you can leave some blank<br />
-For some fields there will be a default value,</p>
-<h2>If you enter '.', the field will be left blank.</h2>
-<p>Country Name (2 letter code) [US]: US<br />
-State or Province Name (full name) [Colorado]: Colorado<br />
-Locality Name (eg, city) [Boulder]: Boulder<br />
-Organization Name (eg, company) [Virtuallyhyper]: Virtuallyhyper<br />
-Organizational Unit Name (eg, section) [Lab]: Lab<br />
-Common Name (eg, YOUR name) []:srm<br />
-Email Address [admin'@'virtuallyhyper.com]: admin'@'virtuallyhyper.com</p>
-<p>Please enter the following 'extra' attributes<br />
-to be sent with your certificate request<br />
-A challenge password []:<br />
-An optional company name []:<br />
-[/code]</p>
+	<p></p>
+	<h1>openssl req -new -newkey rsa:2048 -sha1  -nodes -out srm-prod.csr -keyout srm-prod.key -config srm-prod.cnf</h1>
+	<p>You are about to be asked to enter information that will be incorporated<br />
+	into your certificate request.<br />
+	What you are about to enter is what is called a Distinguished Name or a DN.<br />
+	There are quite a few fields but you can leave some blank<br />
+	For some fields there will be a default value,</p>
+	<h2>If you enter '.', the field will be left blank.</h2>
+	<p>Country Name (2 letter code) [US]: US<br />
+	State or Province Name (full name) [Colorado]: Colorado<br />
+	Locality Name (eg, city) [Boulder]: Boulder<br />
+	Organization Name (eg, company) [Virtuallyhyper]: Virtuallyhyper<br />
+	Organizational Unit Name (eg, section) [Lab]: Lab<br />
+	Common Name (eg, YOUR name) []:srm<br />
+	Email Address : admin'@'virtuallyhyper.com</p>
+	<p>Please enter the following 'extra' attributes<br />
+	to be sent with your certificate request<br />
+	A challenge password []:<br />
+	An optional company name []:<br />
+	</p>
 <p>Check to ensure that the subjectAltName and client authentication is in the CSR. You can open the certificate in Windows and visually check it.</p>
-<p>[code]</p>
-<h1>openssl req -text -noout  -in srm-prod.csr |egrep -A 1 &quot;Subject Alternative Name|Extended Key Usage&quot;</h1>
-<pre><code>        X509v3 Subject Alternative Name:
-            DNS:srm-prod.virtuallyhyper.com
-        X509v3 Extended Key Usage:
-            TLS Web Server Authentication, TLS Web Client Authentication
-</code></pre>
-<p>[/code]</p>
+	<p></p>
+	<h1>openssl req -text -noout  -in srm-prod.csr |egrep -A 1 &quot;Subject Alternative Name|Extended Key Usage&quot;</h1>
+		        X509v3 Subject Alternative Name:
+		            DNS:srm-prod.virtuallyhyper.com
+		        X509v3 Extended Key Usage:
+		            TLS Web Server Authentication, TLS Web Client Authentication
+		
+	<p></p>
 <p>Now sign your certificate with your Root CA. This step will be different in your environment. You will likely have to sent the CSR to the security administrator, or insert it into a central Root CA website.</p>
-<p>[code]</p>
-<h1>openssl ca -days 3650 -in srm-prod.csr -out srm-prod.crt</h1>
-<p>[/code]</p>
+	<p></p>
+	<h1>openssl ca -days 3650 -in srm-prod.csr -out srm-prod.crt</h1>
+	<p></p>
 <p>Let&#8217;s make sure that the CA did not strip off our extensions. Again you can check this visually by opening the certificate in Windows.</p>
-<p>[code]</p>
-<h1>openssl x509 -in srm-prod.crt -text -noout |egrep -A 1 &quot;Subject Alternative Name|Extended Key Usage&quot;</h1>
-<pre><code>        X509v3 Subject Alternative Name:
-            DNS:srm-prod.virtuallyhyper.com
-        X509v3 Extended Key Usage:
-            TLS Web Server Authentication, TLS Web Client Authentication
-</code></pre>
-<p>[/code]</p>
+	<p></p>
+	<h1>openssl x509 -in srm-prod.crt -text -noout |egrep -A 1 &quot;Subject Alternative Name|Extended Key Usage&quot;</h1>
+		        X509v3 Subject Alternative Name:
+		            DNS:srm-prod.virtuallyhyper.com
+		        X509v3 Extended Key Usage:
+		            TLS Web Server Authentication, TLS Web Client Authentication
+		
+	<p></p>
 <p>Next we need to create the p12.  ( SRM needs a p12 and vCenter needs a PFX)  When running the command below it will ask you for a password. This will need to be entered when importing the SRM certificate when adding the p12.</p>
-<p>[code]</p>
-<h1>openssl pkcs12 -export -in srm-prod.crt -inkey srm-prod.key -out srm-prod.p12</h1>
-<p>[/code]</p>
+	<p></p>
+	<h1>openssl pkcs12 -export -in srm-prod.crt -inkey srm-prod.key -out srm-prod.p12</h1>
+	<p></p>
 <h3>Generating the Recovery Site SRM Certificate</h3>
 <p>No we have to generate the recovery site SRM certificate. Let&#8217;s copy over the openssl.cnf into our new folder.</p>
-<p>[code]</p>
-<h1>mkdir srm-dr &amp;&amp; cd srm-dr</h1>
-<h1>cp /etc/ssl/openssl.cnf srm-dr.cnf</h1>
-<p>[/code]</p>
+	<p></p>
+	<h1>mkdir srm-dr &amp;&amp; cd srm-dr</h1>
+	<h1>cp /etc/ssl/openssl.cnf srm-dr.cnf</h1>
+	<p></p>
 <p>Make the modifications to srm-dr.cnf again.</p>
-<p>[code]<br />
-req_extensions = v3_req</p>
-<p>...</p>
-<p>subjectAltName=DNS:srm-dr.virtuallyhyper.com<br />
-extendedKeyUsage = serverAuth, clientAuth<br />
-[/code]</p>
+	<p><br />
+	req_extensions = v3_req</p>
+	<p>...</p>
+	<p>subjectAltName=DNS:srm-dr.virtuallyhyper.com<br />
+	extendedKeyUsage = serverAuth, clientAuth<br />
+	</p>
 <p>Generate the CSR and sign it. Remember this is with the same values as above.</p>
-<p>[code]</p>
-<h1>openssl req -new -newkey rsa:2048 -sha1  -nodes -out srm-dr.csr -keyout srm-dr.key -config srm-dr.cnf</h1>
-<p>You are about to be asked to enter information that will be incorporated<br />
-into your certificate request.<br />
-What you are about to enter is what is called a Distinguished Name or a DN.<br />
-There are quite a few fields but you can leave some blank<br />
-For some fields there will be a default value,</p>
-<h2>If you enter '.', the field will be left blank.</h2>
-<p>Country Name (2 letter code) [US]: US<br />
-State or Province Name (full name) [Colorado]: Colorado<br />
-Locality Name (eg, city) [Boulder]: Boulder<br />
-Organization Name (eg, company) [Virtuallyhyper]: Virtuallyhyper<br />
-Organizational Unit Name (eg, section) [Lab]: Lab<br />
-Common Name (eg, YOUR name) []:srm<br />
-Email Address [admin'@'virtuallyhyper.com]:admin'@'virtuallyhyper.com</p>
-<p>Please enter the following 'extra' attributes<br />
-to be sent with your certificate request<br />
-A challenge password []:<br />
-An optional company name []:</p>
-<h1>openssl ca -days 3650 -in srm-dr.csr -out srm-dr.crt</h1>
-<h1>openssl pkcs12 -export -in srm-dr.crt -inkey srm-dr.key -out srm-dr.p12</h1>
-<p>[/code]</p>
+	<p></p>
+	<h1>openssl req -new -newkey rsa:2048 -sha1  -nodes -out srm-dr.csr -keyout srm-dr.key -config srm-dr.cnf</h1>
+	<p>You are about to be asked to enter information that will be incorporated<br />
+	into your certificate request.<br />
+	What you are about to enter is what is called a Distinguished Name or a DN.<br />
+	There are quite a few fields but you can leave some blank<br />
+	For some fields there will be a default value,</p>
+	<h2>If you enter '.', the field will be left blank.</h2>
+	<p>Country Name (2 letter code) [US]: US<br />
+	State or Province Name (full name) [Colorado]: Colorado<br />
+	Locality Name (eg, city) [Boulder]: Boulder<br />
+	Organization Name (eg, company) [Virtuallyhyper]: Virtuallyhyper<br />
+	Organizational Unit Name (eg, section) [Lab]: Lab<br />
+	Common Name (eg, YOUR name) []:srm<br />
+	Email Address :admin'@'virtuallyhyper.com</p>
+	<p>Please enter the following 'extra' attributes<br />
+	to be sent with your certificate request<br />
+	A challenge password []:<br />
+	An optional company name []:</p>
+	<h1>openssl ca -days 3650 -in srm-dr.csr -out srm-dr.crt</h1>
+	<h1>openssl pkcs12 -export -in srm-dr.crt -inkey srm-dr.key -out srm-dr.p12</h1>
+	<p></p>
 <p>Let&#8217;s check to ensure that the CA did not strip off our extensions.</p>
-<p>[code]</p>
-<h1>openssl x509 -in srm-prod.crt -text -noout |egrep -A 1 &quot;Subject Alternative Name|Extended Key Usage&quot;</h1>
-<pre><code>        X509v3 Subject Alternative Name:
-            DNS:srm-dr.virtuallyhyper.com
-        X509v3 Extended Key Usage:
-            TLS Web Server Authentication, TLS Web Client Authentication
-</code></pre>
-<p>[/code]</p>
+	<p></p>
+	<h1>openssl x509 -in srm-prod.crt -text -noout |egrep -A 1 &quot;Subject Alternative Name|Extended Key Usage&quot;</h1>
+		        X509v3 Subject Alternative Name:
+		            DNS:srm-dr.virtuallyhyper.com
+		        X509v3 Extended Key Usage:
+		            TLS Web Server Authentication, TLS Web Client Authentication
+		
+	<p></p>
 <h3>Installing SRM with the certificates</h3>
 <p>Now what we have generated the certificates we need to install SRM with them. Open up the SRM installer as an administrator. Make sure to use FQDN for all of the answers. If you already have SRM installed you can add them by doing a &#8220;Modify&#8221; install.</p>
 <p>Make sure to enter the FQDN of the vCenter server and an administrator account on the vCenter Server. It does not have to the local administrator account.</p>

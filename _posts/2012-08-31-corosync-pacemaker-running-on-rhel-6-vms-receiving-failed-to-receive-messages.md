@@ -73,66 +73,66 @@ So it&#8217;s not that the VMware Virtual Switch doesn&#8217;t support IGMPv3 Sn
 
 So from the ESX side of things, there is nothing to be done when working with multicast traffic. For testing we set the &#8220;*IGMP Version*&#8221; setting on the ESX to &#8217;2&#8242; and changed the RHEL VMs to also use IGMP version 2, you can check the setting from the VM like this:
 
-[code]  
-[root@node1 ~]# cat /proc/net/igmp  
-Idx Device : Count Querier Group Users Timer Reporter  
-1 lo : 1 V3  
-010000E0 1 0:00000000 0  
-2 eth0 : 1 V3  
-010000E0 1 0:00000000 0  
-3 eth1 : 1 V3  
-010000E0 1 0:00000000 0  
-4 eth2 : 2 V3  
-150BC0EF 1 0:00000000 0  
-010000E0 1 0:00000000 0  
-[/code]
+	  
+	# cat /proc/net/igmp  
+	Idx Device : Count Querier Group Users Timer Reporter  
+	1 lo : 1 V3  
+	010000E0 1 0:00000000 0  
+	2 eth0 : 1 V3  
+	010000E0 1 0:00000000 0  
+	3 eth1 : 1 V3  
+	010000E0 1 0:00000000 0  
+	4 eth2 : 2 V3  
+	150BC0EF 1 0:00000000 0  
+	010000E0 1 0:00000000 0  
+	
 
 The above output is showing the VM using IGMP V3. After we changed to version to 2, it didn&#8217;t make a difference. We checked out the VMware blog &#8220;<a href="http://blogs.vmware.com/performance/2011/08/multicast-performance-on-vsphere-50.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/performance/2011/08/multicast-performance-on-vsphere-50.html']);">Multicast Performance on vSphere 5.0</a>&#8220;. There is a new setting called &#8220;splitRxMode&#8221;, which can improve multicast traffic but we were running 4.x so this didn&#8217;t apply to us. 
 
 We knew that Multicast traffic uses the UDP protocol, so we decided to run two iperf tests to compare if there is a difference between tcp traffic and udp traffic. For UDP traffic we ran the following:
 
 On node1:  
-[code]  
-$ iperf --udp -p 333 -s  
-[/code]
+	  
+	$ iperf --udp -p 333 -s  
+	
 
 On node2, run:
 
-[code]  
-$ iperf -c node1 --udp -p 333 -b 2000M -l 4000  
-[/code]
+	  
+	$ iperf -c node1 --udp -p 333 -b 2000M -l 4000  
+	
 
 And we did a similar test with TCP:
 
-[code]  
-$ iperf -p 333 -s  
-$ iperf -c node1 -p 333  
-[/code]
+	  
+	$ iperf -p 333 -s  
+	$ iperf -c node1 -p 333  
+	
 
 As we doing the testing, using UDP, the server only received a maximum of around 800 Mbits/sec. We were seeing consistent results over 6Gbits/sec with the TCP test (VMs were on the same host, that is why it was so fast). We were sending at a rate of 4 Gbit/sec but the receiver was only handling 800 Mbits/sec maximum. Also checking out the netstat statistics, we saw the following:
 
-[code highlight="9"]  
-$ netstat -su  
-IcmpMsg:  
-InType8: 1  
-OutType0: 1  
-OutType3: 7  
-Udp:  
-3461 packets received  
-4 packets to unknown port received.  
-1000 packet receive errors  
-3499 packets sent  
-0 receive buffer errors  
-0 send buffer errors  
-UdpLite:  
-IpExt:  
-InMcastPkts: 50  
-OutMcastPkts: 58  
-InOctets: 86818219  
-OutOctets: 32431252  
-InMcastOctets: 11803  
-OutMcastOctets: 12364  
-[/code]
+	  
+	$ netstat -su  
+	IcmpMsg:  
+	InType8: 1  
+	OutType0: 1  
+	OutType3: 7  
+	Udp:  
+	3461 packets received  
+	4 packets to unknown port received.  
+	1000 packet receive errors  
+	3499 packets sent  
+	0 receive buffer errors  
+	0 send buffer errors  
+	UdpLite:  
+	IpExt:  
+	InMcastPkts: 50  
+	OutMcastPkts: 58  
+	InOctets: 86818219  
+	OutOctets: 32431252  
+	InMcastOctets: 11803  
+	OutMcastOctets: 12364  
+	
 
 So we were dropping a lot of the UDP traffic. We checked out Vmware blog &#8220;<a href="http://blogs.vmware.com/vsphere/2009/04/considerations-for-maximum-network-performance.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vsphere/2009/04/considerations-for-maximum-network-performance.html']);">Considerations for Maximizing UDP Performance</a>&#8220;. We checked all the recommendations:
 
@@ -145,24 +145,24 @@ So we were dropping a lot of the UDP traffic. We checked out Vmware blog &#8220;
 
 Checking over Esxtop we didn&#8217;t see any dropped packets, but we followed the intructions laid out in VMware KB <a href="http://kb.vmware.com/kb/1010071" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1010071']);">1010071</a> and increased our ring buffers:
 
-[code]  
-ethtool -G eth1 rx 4096  
-[/code]
+	  
+	ethtool -G eth1 rx 4096  
+	
 
 But that didn&#8217;t make a difference. We then ran into VMware KB <a href="http://kb.vmware.com/kb/1026055" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1026055']);">1026055</a>, it suggested to disable msi, by adding:
 
-[code]  
-pci=nomsi  
-[/code]
+	  
+	pci=nomsi  
+	
 
 to the kernel line of the grub menu, but it didn&#8217;t help out either. We then saw &#8220;<a href="https://access.redhat.com/knowledge/docs/en-US/JBoss_Enterprise_Web_Platform/5/html/Administration_And_Configuration_Guide/jgroups-perf-udpbuffer.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://access.redhat.com/knowledge/docs/en-US/JBoss_Enterprise_Web_Platform/5/html/Administration_And_Configuration_Guide/jgroups-perf-udpbuffer.html']);">Improving UDP Performance by Configuring OS UDP Buffer Limits</a>&#8220;, and we decide to increase our UDP Buffer limit from within the RHEL Guest. We ran this:
 
-[code]  
-sysctl -w net.core.rmem_max=26214400  
-sysctl -w net.core.wmem_max=26214400  
-sysctl -w net.core.rmem_default=26214400  
-sysctl -w net.core.wmem_default=26214400  
-[/code]
+	  
+	sysctl -w net.core.rmem_max=26214400  
+	sysctl -w net.core.wmem_max=26214400  
+	sysctl -w net.core.rmem_default=26214400  
+	sysctl -w net.core.wmem_default=26214400  
+	
 
 The bottom 3 were just in case, and probably weren&#8217;t needed. After we changed those values, the packets stopped dropping and were able to achieve above 4Gb/sec for UDP traffic. Also after that, the Corosync Pacemaker stopped having random disconnects.
 

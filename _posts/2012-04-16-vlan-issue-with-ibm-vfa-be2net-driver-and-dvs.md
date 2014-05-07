@@ -23,9 +23,9 @@ I came across a really strange issue today with one of my customers. A VM would 
 
 ## Physical Switchport
 
-[shell]  
-switchport mode trunk  
-[/shell]
+	  
+	switchport mode trunk  
+	
 
 ## DVS Configuration
 
@@ -74,13 +74,13 @@ Per the &#8220;Known Networking Issues&#8221; found in the <a title="VMware vSp
 
 I checked his driver version:
 
-[shell]  
-~ # ethtool -i vmnic2  
-driver: be2net  
-version: 4.0.355.1  
-firmware-version: 4.0.1062.0  
-bus-info: 0000:08:00.1  
-[/shell]
+	  
+	~ # ethtool -i vmnic2  
+	driver: be2net  
+	version: 4.0.355.1  
+	firmware-version: 4.0.1062.0  
+	bus-info: 0000:08:00.1  
+	
 
 and per the <a title="VMware hardware compatibility list" href="http://www.vmware.com/resources/compatibility/search.php" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.vmware.com/resources/compatibility/search.php']);" target="_blank">VMware hardware compatibility list</a>, he was running the Inbox driver that came bundled with ESXi 5.
 

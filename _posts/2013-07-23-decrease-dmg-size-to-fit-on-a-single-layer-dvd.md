@@ -475,7 +475,7 @@ rm -f /private/tmp/Mountain\ Lion\ DVD\ Image\ read-write.dmg
 
 echo "Image Creation Complete. Please burn '~/Desktop/Mountain Lion DVD Image.dmg' to a DVD using Disk Utility."
 open ~/Desktop/
-</pre>
+
 
 ### 2. Mac OS X 10.8 Has a Built-in Recovery Partition
 

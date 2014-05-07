@@ -27,69 +27,69 @@ I was recently working on case which had the following setup:
 
 Over night the even hosts would start having a lot of disconnects and path changes/thrashing. On the array end we could see a lot of logins and logouts from the hosts as well. The configuration on the host side looked really good. We had two VMkernel interface setup with iSCSI NIC binding:
 
-[code highlight="5,6"]  
-~ # esxcfg-vmknic -l  
-Interface Port Group IP Address Netmask MAC Address MTU Enabled Type  
-vmk0 Mgmt 10.10.222.23 255.255.255.0 00:50:56:72:5d:58 1500 true STATIC  
-vmk1 vMotion 10.10.221.24 255.255.255.0 00:50:56:7a:59:e9 1500 true STATIC  
-vmk2 iSCSI-VLAN22 10.10.22.102 255.255.255.0 00:50:56:73:4e:46 1500 true STATIC  
-vmk3 iSCSI-VLAN24 10.10.24.102 255.255.255.0 00:50:56:78:a2:cf 1500 true STATIC  
-[/code]
+	  
+	~ # esxcfg-vmknic -l  
+	Interface Port Group IP Address Netmask MAC Address MTU Enabled Type  
+	vmk0 Mgmt 10.10.222.23 255.255.255.0 00:50:56:72:5d:58 1500 true STATIC  
+	vmk1 vMotion 10.10.221.24 255.255.255.0 00:50:56:7a:59:e9 1500 true STATIC  
+	vmk2 iSCSI-VLAN22 10.10.22.102 255.255.255.0 00:50:56:73:4e:46 1500 true STATIC  
+	vmk3 iSCSI-VLAN24 10.10.24.102 255.255.255.0 00:50:56:78:a2:cf 1500 true STATIC  
+	
 
 The bottom two VMkernel interfaces were used for SW-iSCSI binding:
 
-[code highlight="2,3,23,24"]  
-~ # esxcli swiscsi nic list -d vmhba39  
-vmk2  
-pNic name: vmnic4  
-ipv4 address: 10.10.22.102  
-ipv4 net mask: 255.255.255.0  
-ipv6 addresses:  
-mac address: 00:26:55:df:c9:98  
-mtu: 1500  
-toe: false  
-tso: true  
-tcp checksum: false  
-vlan: true  
-vlanId: 0  
-ports reserved: 63488~65536  
-link connected: true  
-ethernet speed: 1000  
-packets received: 425589374  
-packets sent: 404543288  
-NIC driver: e1000e  
-driver version: 1.1.2-NAPI  
-firmware version: 5.11-2
-
-vmk3  
-pNic name: vmnic5  
-ipv4 address: 10.10.24.102  
-ipv4 net mask: 255.255.255.0  
-ipv6 addresses:  
-mac address: 00:26:55:df:c9:99  
-mtu: 1500  
-toe: false  
-tso: true  
-tcp checksum: false  
-vlan: true  
-vlanId: 0  
-ports reserved: 63488~65536  
-link connected: true  
-ethernet speed: 1000  
-packets received: 320691695  
-packets sent: 311646049  
-NIC driver: e1000e  
-driver version: 1.1.2-NAPI
-
-[/code]
+	  
+	~ # esxcli swiscsi nic list -d vmhba39  
+	vmk2  
+	pNic name: vmnic4  
+	ipv4 address: 10.10.22.102  
+	ipv4 net mask: 255.255.255.0  
+	ipv6 addresses:  
+	mac address: 00:26:55:df:c9:98  
+	mtu: 1500  
+	toe: false  
+	tso: true  
+	tcp checksum: false  
+	vlan: true  
+	vlanId: 0  
+	ports reserved: 63488~65536  
+	link connected: true  
+	ethernet speed: 1000  
+	packets received: 425589374  
+	packets sent: 404543288  
+	NIC driver: e1000e  
+	driver version: 1.1.2-NAPI  
+	firmware version: 5.11-2
+	
+	vmk3  
+	pNic name: vmnic5  
+	ipv4 address: 10.10.24.102  
+	ipv4 net mask: 255.255.255.0  
+	ipv6 addresses:  
+	mac address: 00:26:55:df:c9:99  
+	mtu: 1500  
+	toe: false  
+	tso: true  
+	tcp checksum: false  
+	vlan: true  
+	vlanId: 0  
+	ports reserved: 63488~65536  
+	link connected: true  
+	ethernet speed: 1000  
+	packets received: 320691695  
+	packets sent: 311646049  
+	NIC driver: e1000e  
+	driver version: 1.1.2-NAPI
+	
+	
 
 We were using vmnic4 and vmnic5 for the binding. Checking out those Nics:
 
-[code]  
-~ # esxcfg-nics -l | egrep 'vmnic4|vmnic5'  
-vmnic4 0000:0b:00.00 e1000e Up 1000Mbps Full 00:26:55:df:c9:98 1500 Intel Corporation NC360T PCI Express Dual Port Gigabit Server Adapter  
-vmnic5 0000:0b:00.01 e1000e Up 1000Mbps Full 00:26:55:df:c9:99 1500 Intel Corporation NC360T PCI Express Dual Port Gigabit Server Adapter  
-[/code]
+	  
+	~ # esxcfg-nics -l | egrep 'vmnic4|vmnic5'  
+	vmnic4 0000:0b:00.00 e1000e Up 1000Mbps Full 00:26:55:df:c9:98 1500 Intel Corporation NC360T PCI Express Dual Port Gigabit Server Adapter  
+	vmnic5 0000:0b:00.01 e1000e Up 1000Mbps Full 00:26:55:df:c9:99 1500 Intel Corporation NC360T PCI Express Dual Port Gigabit Server Adapter  
+	
 
 We saw that from the &#8216;esxcli swscsi nic list&#8217; output we were using e1000e driver version 1.1.2. Checking out the <a href="http://partnerweb.vmware.com/comp_guide2/detail.php?deviceCategory=io&productid=985&deviceCategory=io&VID=8086&DID=105e&SVID=103c&SSID=7044&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://partnerweb.vmware.com/comp_guide2/detail.php?deviceCategory=io&productid=985&deviceCategory=io&VID=8086&DID=105e&SVID=103c&SSID=7044&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc']);">HCL</a> for the above NIC. We were at the latest version:
 
@@ -110,37 +110,37 @@ Here is diagram from that same article:
 
 We can confirm our configuration by looking inside the SW-iSCSI database. First dump the database into a text file:
 
-[code]  
-~ # vmkiscsid --dump-db db.txt  
-Dumping Configuration DB to db.txt  
-Dump Complete  
-[/code]
+	  
+	~ # vmkiscsid --dump-db db.txt  
+	Dumping Configuration DB to db.txt  
+	Dump Complete  
+	
 
 The database is broken into the following sections:
 
-[code]
-
-~ # grep "^=====" db.txt  
-=========[ISID]=========  
-=========[InitiatorNodes]=========  
-=========[Targets]=========  
-=========[discovery]=========  
-=========[ifaces]=========  
-=========[internal]=========  
-=========[nodes]=========  
-=========[route]=========  
-=========[route\_vs\_iface]=========  
-[/code]
+	
+	
+	~ # grep "^=====" db.txt  
+	=========[ISID]=========  
+	=========[InitiatorNodes]=========  
+	=========[Targets]=========  
+	==================  
+	=========[ifaces]=========  
+	=========[internal]=========  
+	=========[nodes]=========  
+	==================  
+	==================  
+	
 
 To figure out what IPs we are using to connect to the VNX we can check out the Target section, and search for the following:
 
-[code]  
-~ # sed -n '/Targets/,/\[discovery/p' db.txt | egrep 'node.name|node.conn\[[0-9]\].address'  
-\`node.name\`='iqn.1992-04.com.emc:cx.xxx3301534.a5'  
-\`node.conn[0].address\`='10.10.22.21'  
-\`node.name\`='iqn.1992-04.com.emc:cx.xxx3301534.b5'  
-\`node.conn[0].address\`='10.10.24.21'  
-[/code]
+	  
+	~ # sed -n '/Targets/,/\.address'  
+	\`node.name\`='iqn.1992-04.com.emc:cx.xxx3301534.a5'  
+	\`node.conn[0].address\`='10.10.22.21'  
+	\`node.name\`='iqn.1992-04.com.emc:cx.xxx3301534.b5'  
+	\`node.conn[0].address\`='10.10.24.21'  
+	
 
 Since the customer was only using one port from each SP:
 
@@ -149,12 +149,12 @@ Since the customer was only using one port from each SP:
 
 they decided to separate each port from each SP by subnet. Checking out the paths for one LUN I saw the following:
 
-[code]  
-~ # esxcfg-mpath -b | head -4  
-naa.60060xxxxxxxxxxx : DGC iSCSI Disk (naa.60060xxxxxxxxxxxxxx)  
-vmhba39:C0:T4:L12 LUN:12 state:active iscsi Adapter: iqn.1998-01.com.vmware:host2-55c15df4 Target: IQN=iqn.1992-04.com.emc:cx.xxx00113301534.b5 Alias= Session=00023d000002 PortalTag=2  
-vmhba39:C0:T0:L12 LUN:12 state:active iscsi Adapter: iqn.1998-01.com.vmware:host2-55c15df4 Target: IQN=iqn.1992-04.com.emc:cx.xxx3301534.a5 Alias= Session=00023d000001 PortalTag=1  
-[/code]
+	  
+	~ # esxcfg-mpath -b | head -4  
+	naa.60060xxxxxxxxxxx : DGC iSCSI Disk (naa.60060xxxxxxxxxxxxxx)  
+	vmhba39:C0:T4:L12 LUN:12 state:active iscsi Adapter: iqn.1998-01.com.vmware:host2-55c15df4 Target: IQN=iqn.1992-04.com.emc:cx.xxx00113301534.b5 Alias= Session=00023d000002 PortalTag=2  
+	vmhba39:C0:T0:L12 LUN:12 state:active iscsi Adapter: iqn.1998-01.com.vmware:host2-55c15df4 Target: IQN=iqn.1992-04.com.emc:cx.xxx3301534.a5 Alias= Session=00023d000001 PortalTag=1  
+	
 
 We had two active paths, one from each SP (T4 is SPB\_B5 and T0 is SPA\_A5). Since this was an Active/Passive array the customer enabled ALUA on the array (check out this <a href="http://virtuallyhyper.com/2012/04/seeing-a-high-number-of-trespasses-from-a-clariion-array-with-esx-hosts/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/04/seeing-a-high-number-of-trespasses-from-a-clariion-array-with-esx-hosts/']);">post</a> if you want to know more about ALUA). From the EMC article:
 
@@ -162,16 +162,16 @@ We had two active paths, one from each SP (T4 is SPB\_B5 and T0 is SPA\_A5). Sin
 
 and from the host:
 
-[code highlight="4,8"]  
-~ # esxcli nmp device list -d naa.60060xxxx  
-naa.60060xxxx  
-Device Display Name: DGC iSCSI Disk (naa.60060xxxx)  
-Storage Array Type: VMW\_SATP\_ALUA_CX  
-Storage Array Type Device Config: {navireg=on, ipfilter=on}{implicit\_support=on;explicit\_support=on; explicit\_allow=on;alua\_followover=on;{TPG\_id=2,TPG\_state=AO}{TPG\_id=1,TPG\_state=ANO}}  
-Path Selection Policy: VMW\_PSP\_FIXED_AP  
-Path Selection Policy Device Config: {preferred=vmhba39:C0:T0:L12;current=vmhba39:C0:T4:L12}  
-Working Paths: vmhba39:C0:T4:L12  
-[/code]
+	  
+	~ # esxcli nmp device list -d naa.60060xxxx  
+	naa.60060xxxx  
+	Device Display Name: DGC iSCSI Disk (naa.60060xxxx)  
+	Storage Array Type: VMW\_SATP\_ALUA_CX  
+	Storage Array Type Device Config: {navireg=on, ipfilter=on}{implicit\_support=on;explicit\_support=on; explicit\_allow=on;alua\_followover=on;{TPG\_id=2,TPG\_state=AO}{TPG\_id=1,TPG\_state=ANO}}  
+	Path Selection Policy: VMW\_PSP\_FIXED_AP  
+	Path Selection Policy Device Config: {preferred=vmhba39:C0:T0:L12;current=vmhba39:C0:T4:L12}  
+	Working Paths: vmhba39:C0:T4:L12  
+	
 
 The Path Selection Policy is set to Fixed and that is okay. From the EMC article:
 
@@ -181,65 +181,65 @@ The Path Selection Policy is set to Fixed and that is okay. From the EMC article
 
 After confirming that the setup is okay, checking out the logs, I saw the following:
 
-[code]  
-Aug 15 06:07:13 vobd: Aug 15 06:07:13.285: 171974745962us: [esx.problem.storage.connectivity.lost] Lost connectivity to storage device naa.60060xxx. Path vmhba39:C0:T0:L0 is down. Affected datastores: "VMFS_Volume01"..  
-Aug 15 06:07:13 vobd: Aug 15 06:07:13.285: 171971079169us: [vob.scsi.scsipath.pathstate.dead] scsiPath vmhba39:C0:T0:L1 changed state from on.  
-Aug 15 06:07:13 vmkernel: 1:23:46:11.079 cpu23:4257)vmw\_psp\_fixed\_ap: psp\_fixed_apSelectPathToActivateInt: Changing active path from vmhba39:C0:T0:L1 to vmhba39:C0:T4:L1 for device "naa.60060xxxx".  
-Aug 15 06:07:13 vmkernel: 1:23:46:11.079 cpu23:4257)VMW\_SATP\_ALUA: satp\_alua\_activatePaths: Activation disallowed due to follow-over.  
-Aug 15 06:07:13 vobd: Aug 15 06:07:13.286: 171974746430us: [esx.problem.storage.redundancy.lost] Lost path redundancy to storage device naa.6006xxx. Path vmhba39:C0:T0:L1 is down. Affected datastores: "VMFS_Volume02"..  
-Aug 15 06:07:13 vmkernel: 1:23:46:11.099 cpu13:882014)WARNING: NMP: nmp_IssueCommandToDevice: I/O could not be issued to device "naa.6006xxx" due to Not found  
-Aug 15 06:07:13 vmkernel: 1:23:46:11.099 cpu13:882014)WARNING: NMP: nmp_DeviceRetryCommand: Device "naa.60060160xxxxx": awaiting fast path state update for failover with I/O blocked. No prior reservation exists on the device.  
-Aug 15 06:07:13 vmkernel: 1:23:46:11.099 cpu13:882014)WARNING: NMP: nmp_DeviceStartLoop: NMP Device "naa.6006016xxxx" is blocked. Not starting I/O from device.  
-[/code]
+	  
+	Aug 15 06:07:13 vobd: Aug 15 06:07:13.285: 171974745962us:  Lost connectivity to storage device naa.60060xxx. Path vmhba39:C0:T0:L0 is down. Affected datastores: "VMFS_Volume01"..  
+	Aug 15 06:07:13 vobd: Aug 15 06:07:13.285: 171971079169us: [vob.scsi.scsipath.pathstate.dead] scsiPath vmhba39:C0:T0:L1 changed state from on.  
+	Aug 15 06:07:13 vmkernel: 1:23:46:11.079 cpu23:4257)vmw\_psp\_fixed\_ap: psp\_fixed_apSelectPathToActivateInt: Changing active path from vmhba39:C0:T0:L1 to vmhba39:C0:T4:L1 for device "naa.60060xxxx".  
+	Aug 15 06:07:13 vmkernel: 1:23:46:11.079 cpu23:4257)VMW\_SATP\_ALUA: satp\_alua\_activatePaths: Activation disallowed due to follow-over.  
+	Aug 15 06:07:13 vobd: Aug 15 06:07:13.286: 171974746430us:  Lost path redundancy to storage device naa.6006xxx. Path vmhba39:C0:T0:L1 is down. Affected datastores: "VMFS_Volume02"..  
+	Aug 15 06:07:13 vmkernel: 1:23:46:11.099 cpu13:882014)WARNING: NMP: nmp_IssueCommandToDevice: I/O could not be issued to device "naa.6006xxx" due to Not found  
+	Aug 15 06:07:13 vmkernel: 1:23:46:11.099 cpu13:882014)WARNING: NMP: nmp_DeviceRetryCommand: Device "naa.60060160xxxxx": awaiting fast path state update for failover with I/O blocked. No prior reservation exists on the device.  
+	Aug 15 06:07:13 vmkernel: 1:23:46:11.099 cpu13:882014)WARNING: NMP: nmp_DeviceStartLoop: NMP Device "naa.6006016xxxx" is blocked. Not starting I/O from device.  
+	
 
 Checking out the frequency of the path thrashing and what LUN this kept happening to, I saw the following:
 
-[code]  
-/var/log # grep 'Changing active path from' messages* | awk '{print $12,$14}' | sort | uniq -c | sort -nr | head  
-24 vmhba39:C0:T4:L1 vmhba39:C0:T0:L1  
-24 vmhba39:C0:T0:L1 vmhba39:C0:T4:L1  
-5 vmhba39:C0:T5:L1 vmhba39:C0:T2:L1  
-5 vmhba39:C0:T4:L9 vmhba39:C0:T0:L9  
-5 vmhba39:C0:T4:L15 vmhba39:C0:T0:L15  
-5 vmhba39:C0:T4:L12 vmhba39:C0:T0:L12  
-5 vmhba39:C0:T4:L10 vmhba39:C0:T0:L10  
-5 vmhba39:C0:T2:L1 vmhba39:C0:T5:L1  
-5 vmhba39:C0:T0:L9 vmhba39:C0:T4:L9  
-5 vmhba39:C0:T0:L15 vmhba39:C0:T4:L15  
-[/code]
+	  
+	/var/log # grep 'Changing active path from' messages* | awk '{print $12,$14}' | sort | uniq -c | sort -nr | head  
+	24 vmhba39:C0:T4:L1 vmhba39:C0:T0:L1  
+	24 vmhba39:C0:T0:L1 vmhba39:C0:T4:L1  
+	5 vmhba39:C0:T5:L1 vmhba39:C0:T2:L1  
+	5 vmhba39:C0:T4:L9 vmhba39:C0:T0:L9  
+	5 vmhba39:C0:T4:L15 vmhba39:C0:T0:L15  
+	5 vmhba39:C0:T4:L12 vmhba39:C0:T0:L12  
+	5 vmhba39:C0:T4:L10 vmhba39:C0:T0:L10  
+	5 vmhba39:C0:T2:L1 vmhba39:C0:T5:L1  
+	5 vmhba39:C0:T0:L9 vmhba39:C0:T4:L9  
+	5 vmhba39:C0:T0:L15 vmhba39:C0:T4:L15  
+	
 
 We saw LUN 1 jump back an forth between both of Targets 24 times but we also saw other LUNs jump back and forth as well. The above messages matched VMware KB <a href="http://kb.vmware.com/kb/2005369" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/2005369']);">2005369</a>. I asked the customer if we were seeing trespasses and we did, but not as much as we saw of Login and Logout events on the array. Checking the logs to see if we disconnected from the array, I saw the following:
 
-[code]  
-/var/log # egrep 'OFFLINE|ONLINE' messages* | awk '{print $9,$10,$17}' | sort | uniq -c  
-5 vmhba39:CH:0 T:0 "OFFLINE"  
-6 vmhba39:CH:0 T:0 "ONLINE"  
-5 vmhba39:CH:0 T:4 "OFFLINE"  
-5 vmhba39:CH:0 T:4 "ONLINE"  
-[/code]
+	  
+	/var/log # egrep 'OFFLINE|ONLINE' messages* | awk '{print $9,$10,$17}' | sort | uniq -c  
+	5 vmhba39:CH:0 T:0 "OFFLINE"  
+	6 vmhba39:CH:0 T:0 "ONLINE"  
+	5 vmhba39:CH:0 T:4 "OFFLINE"  
+	5 vmhba39:CH:0 T:4 "ONLINE"  
+	
 
 Looks like we disconnected from both of the Targets about the same amount of times but we re-connected as well. Looking closer into the devices, I noticed that for some LUNs were using the non-optimized path:
 
-[code highlight="9,18"]  
-~ # esxcli nmp path list -d naa.60060xxxx  
-iqn.1998-01.com.vmware:host2,iqn.1992-04.com.emc:cx.xxx3301534.b5,t,2-naa.60060xxx  
-Runtime Name: vmhba39:C0:T4:L12  
-Device: naa.60060xxxx  
-Device Display Name: DGC iSCSI Disk (naa.6006xxxx)  
-Group State: active unoptimized  
-Array Priority: 1  
-Storage Array Type Path Config: {TPG\_id=2,TPG\_state=ANO,RTP\_id=12,RTP\_health=UP}  
-Path Selection Policy Path Config: {current: no; preferred: yes}
-
-iqn.1998-01.com.vmware:host2,iqn.1992-04.com.emc:cx.xxx3301534.a5,t,1-naa.60060xxxx  
-Runtime Name: vmhba39:C0:T2:L12  
-Device: naa.60060xxxx  
-Device Display Name: DGC iSCSI Disk (naa.60060xxxx)  
-Group State: active  
-Array Priority: 0  
-Storage Array Type Path Config: {TPG\_id=1,TPG\_state=AO,RTP\_id=6,RTP\_health=UP}  
-Path Selection Policy Path Config: {current: yes; preferred: no}  
-[/code]
+	  
+	~ # esxcli nmp path list -d naa.60060xxxx  
+	iqn.1998-01.com.vmware:host2,iqn.1992-04.com.emc:cx.xxx3301534.b5,t,2-naa.60060xxx  
+	Runtime Name: vmhba39:C0:T4:L12  
+	Device: naa.60060xxxx  
+	Device Display Name: DGC iSCSI Disk (naa.6006xxxx)  
+	Group State: active unoptimized  
+	Array Priority: 1  
+	Storage Array Type Path Config: {TPG\_id=2,TPG\_state=ANO,RTP\_id=12,RTP\_health=UP}  
+	Path Selection Policy Path Config: {current: no; preferred: yes}
+	
+	iqn.1998-01.com.vmware:host2,iqn.1992-04.com.emc:cx.xxx3301534.a5,t,1-naa.60060xxxx  
+	Runtime Name: vmhba39:C0:T2:L12  
+	Device: naa.60060xxxx  
+	Device Display Name: DGC iSCSI Disk (naa.60060xxxx)  
+	Group State: active  
+	Array Priority: 0  
+	Storage Array Type Path Config: {TPG\_id=1,TPG\_state=AO,RTP\_id=6,RTP\_health=UP}  
+	Path Selection Policy Path Config: {current: yes; preferred: no}  
+	
 
 Notice &#8220;Path Selection Policy Path Config&#8221; setting. If were using the active optimized path we would see &#8216;{current: yes; preferred: yes}&#8217;, but we didn&#8217;t see that. From the above VMware KB, here are some reasons why we would use a non-optimized path:
 
@@ -261,9 +261,9 @@ The PSP setting is only available for Round Robin and not for Fixed:
 So in our case, since the active optimized path was unavailable we started using the non-optimized path. During our trouble shooting efforts we trespassed all the LUNs over to SPB and left it over night and the issue didn&#8217;t occur. As soon as we trespassed the LUNs back to SPA the issue came up again. The customer replaced the whole SPA on the VNX but it didn&#8217;t help out.
 
 After the above test we knew that it had to do something with VLAN 22(path to SPA), because when we only used VLAN 24 (path to SPB) we didn&#8217;t see any issues. After much investigation it turned out that one of the stacked switches had QOS enabled and that was causing a bottle neck. The customer ran the following command on the offending switch:  
-[code]  
-no mls qos  
-[/code]
+	  
+	no mls qos  
+	
 
 and the path thrashing stopped.
 

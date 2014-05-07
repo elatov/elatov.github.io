@@ -19,25 +19,25 @@ tags:
 ---
 I had an interesting issue that took a while to solve. Whenever we consolidated snapshots it would take a while and the VM would lose a high number of pings. Some ping loss is okay and is expected since we are stunning the VM during the commit of the snapshot. More information on snapshot consolidation can be found in VMware KB <a href="http://kb.vmware.com/kb/1002836" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1002836']);">1002836</a>.  However an excessive amount of ping loss should not be seen. Looking over the vmware.log file of the VM we saw the following messages:
 
-[code]  
-2012-03-23T16:22:51.876Z| vcpu-0| Checkpoint_Unstun: vm stopped for 3658889 us  
-[/code]
+	  
+	2012-03-23T16:22:51.876Z| vcpu-0| Checkpoint_Unstun: vm stopped for 3658889 us  
+	
 
 That is the time it took for the VM to unstun. Looking over the history of VM and taking a look at how long some other unstun times looked like, we saw the following:
 
-[code]  
-$ grep Unstun vmware* | awk '{print $7}' | sort -nr | head  
-237087978  
-236039834  
-206802872  
-187750987  
-184177029  
-183631162  
-179726671  
-178677816  
-177677873  
-175575889  
-[/code]
+	  
+	$ grep Unstun vmware* | awk '{print $7}' | sort -nr | head  
+	237087978  
+	236039834  
+	206802872  
+	187750987  
+	184177029  
+	183631162  
+	179726671  
+	178677816  
+	177677873  
+	175575889  
+	
 
 It looks like some snapshots took 237 seconds (237087978us) to unstun, that is a pretty long time. I asked the customer to test some other settings while doing a snapshot removal (disable cbt, no vmware tools, and local storage vs shared storage). Here is a table of our results:
 
@@ -742,20 +742,20 @@ Local Storage was out performing the SAN in every single test. We were using an 
 
 After we applied all the above changes the snapshot consolidation looked much better. The customer sent me a log bundle after the above changes were applied and I saw the following:
 
-[code highlight="9"]  
-2012-05-14T13:34:34.351Z| vcpu-0| DISKLIB-CBT : Shutting down change tracking for untracked fid 5277995.  
-2012-05-14T13:34:34.351Z| vcpu-0| DISKLIB-CBT : Successfully disconnected CBT node.  
-2012-05-14T13:34:34.366Z| vcpu-0| DISKLIB-VMFS : "/vmfs/volumes/4ecad5e9-a50e5738354b180373f5105d/VM/VM_1-000002-delta.vmdk" : closed.  
-2012-05-14T13:34:34.368Z| vcpu-0| DISKLIB-VMFS : "/vmfs/volumes/4ecad5e9-a50e5738-354b180373f5105d/VM/VM_1-flat.vmdk" : closed.  
-2012-05-14T13:34:34.377Z| vcpu-0| DISKLIB-VMFS : "/vmfs/volumes/4ecad5e9-a50e5738-354b180373f5105d/VM/VM_1-000002-delta.vmdk" : open successful (1041) size = 34992128, hd = 0. Type 8  
-2012-05-14T13:34:34.377Z| vcpu-0| DISKLIB-LIB : Resuming change tracking.  
-2012-05-14T13:34:34.390Z| vcpu-0| DISKLIB-VMFS : "/vmfs/volumes/4ecad5e9-a50e5738-354b180373f5105d/VM/VM_1-000002-delta.vmdk" : closed.  
-2012-05-14T13:34:34.412Z| vcpu-0| CPT current = 2, requesting 6  
-2012-05-14T13:34:34.412Z| vcpu-0| Checkpoint_Unstun: vm stopped for 4233332 us  
-2012-05-14T13:34:34.412Z| vcpu-1| Done Sync monModules(6).  
-2012-05-14T13:34:34.412Z| vcpu-0| Done Sync monModules(6).  
-2012-05-14T13:34:34.412Z| vcpu-0| CPT: monitor ACKing mode 6  
-[/code]
+	  
+	2012-05-14T13:34:34.351Z| vcpu-0| DISKLIB-CBT : Shutting down change tracking for untracked fid 5277995.  
+	2012-05-14T13:34:34.351Z| vcpu-0| DISKLIB-CBT : Successfully disconnected CBT node.  
+	2012-05-14T13:34:34.366Z| vcpu-0| DISKLIB-VMFS : "/vmfs/volumes/4ecad5e9-a50e5738354b180373f5105d/VM/VM_1-000002-delta.vmdk" : closed.  
+	2012-05-14T13:34:34.368Z| vcpu-0| DISKLIB-VMFS : "/vmfs/volumes/4ecad5e9-a50e5738-354b180373f5105d/VM/VM_1-flat.vmdk" : closed.  
+	2012-05-14T13:34:34.377Z| vcpu-0| DISKLIB-VMFS : "/vmfs/volumes/4ecad5e9-a50e5738-354b180373f5105d/VM/VM_1-000002-delta.vmdk" : open successful (1041) size = 34992128, hd = 0. Type 8  
+	2012-05-14T13:34:34.377Z| vcpu-0| DISKLIB-LIB : Resuming change tracking.  
+	2012-05-14T13:34:34.390Z| vcpu-0| DISKLIB-VMFS : "/vmfs/volumes/4ecad5e9-a50e5738-354b180373f5105d/VM/VM_1-000002-delta.vmdk" : closed.  
+	2012-05-14T13:34:34.412Z| vcpu-0| CPT current = 2, requesting 6  
+	2012-05-14T13:34:34.412Z| vcpu-0| Checkpoint_Unstun: vm stopped for 4233332 us  
+	2012-05-14T13:34:34.412Z| vcpu-1| Done Sync monModules(6).  
+	2012-05-14T13:34:34.412Z| vcpu-0| Done Sync monModules(6).  
+	2012-05-14T13:34:34.412Z| vcpu-0| CPT: monitor ACKing mode 6  
+	
 
 So the snapshot did happen and the unstun took 4 seconds, which was much better than ~230 seconds and is expected with active I/O and Change Block Tracking enabled.
 

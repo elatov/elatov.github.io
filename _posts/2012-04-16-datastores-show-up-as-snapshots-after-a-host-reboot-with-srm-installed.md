@@ -30,27 +30,27 @@ The original datastores showed up as Inactive in the same view and looked exactl
 
 We wanted to find out why this happened so the customer sent me the logs from all the hosts in the cluster. I wrote down one the datastore names that had the issue and from the logs I found what the naa of that datastores was. I then searched for that naa across all the logs:
 
-[code]  
-elatov@host ~$ find . -name 'vmkernel*' -exec grep 'naa.xxx' {} \;  
-Mar 28 14:26:11 esx_host vmkernel: 259:19:17:51.738 cpu0:4110)LVM: 7404: Device naa.xxx:1 detected to be a snapshot:  
-Mar 28 14:26:11 esx_host vmkernel: 259:19:17:51.738 cpu2:4110)LVM: 2710: Device naa.xxx:1 is detected as being in volume 497924f8-0ba43178-cffe-001517515780 (0x417f80077808)  
-[/code]
+	  
+	elatov@host ~$ find . -name 'vmkernel*' -exec grep 'naa.xxx' {} \;  
+	Mar 28 14:26:11 esx_host vmkernel: 259:19:17:51.738 cpu0:4110)LVM: 7404: Device naa.xxx:1 detected to be a snapshot:  
+	Mar 28 14:26:11 esx_host vmkernel: 259:19:17:51.738 cpu2:4110)LVM: 2710: Device naa.xxx:1 is detected as being in volume 497924f8-0ba43178-cffe-001517515780 (0x417f80077808)  
+	
 
 And I saw the same logs across all the hosts. This LUN was showing up as snapshots, <a href="http://kb.vmware.com/kb/1011385" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1011385']);">KB 1011385</a> talks about how LUN snapshots are detected. I then wanted to see when the LUNs were resignatured (since the customer said they had not done so themselves). And I saw the following in the logs:
 
-[code]  
-elatov@host$ find . -name 'vmkernel*' -exec grep -i 'resig' {} \;  
-Mar 28 15:26:29 esx_host vmkernel: 148:01:06:09.203 cpu16:4127)Vol3: 871: Begin resignaturing volume label: snap-6104d589-xxxx, uuid: 4f73356a-32ea5b26-5943-0015178085e8  
-Mar 28 15:26:29 esx_host vmkernel: 148:01:06:09.353 cpu9:4127)Vol3: 952: End resignaturing volume label: snap-44d69109-xxx, uuid: 4f7373f5-6cb5476a-4156-842b2b5eee22  
-Mar 28 15:26:25 esx_host vmkernel: 217:01:40:33.156 cpu9:4126)LVM: 4893: Snapshot LV <snap-634ad2b0-xxxx> successfully resignatured  
-[/code]
+	  
+	elatov@host$ find . -name 'vmkernel*' -exec grep -i 'resig' {} \;  
+	Mar 28 15:26:29 esx_host vmkernel: 148:01:06:09.203 cpu16:4127)Vol3: 871: Begin resignaturing volume label: snap-6104d589-xxxx, uuid: 4f73356a-32ea5b26-5943-0015178085e8  
+	Mar 28 15:26:29 esx_host vmkernel: 148:01:06:09.353 cpu9:4127)Vol3: 952: End resignaturing volume label: snap-44d69109-xxx, uuid: 4f7373f5-6cb5476a-4156-842b2b5eee22  
+	Mar 28 15:26:25 esx_host vmkernel: 217:01:40:33.156 cpu9:4126)LVM: 4893: Snapshot LV <snap-634ad2b0-xxxx> successfully resignatured  
+	
 
 Only one host was resignaturing the LUNs that were showing up as snapshots. I then wanted to check if the *EnableResignature* option has been enabled and I saw the following:
 
-[code]  
-elatov@host ~$ grep EnableResignature etc/vmware/esx.conf  
-/adv/LVM/EnableResignature = "1"  
-[/code]
+	  
+	elatov@host ~$ grep EnableResignature etc/vmware/esx.conf  
+	/adv/LVM/EnableResignature = "1"  
+	
 
 That option was enabled, <a href="http://kb.vmware.com/kb/2010051" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/2010051']);">KB 2010051</a> talks about what that option does:
 

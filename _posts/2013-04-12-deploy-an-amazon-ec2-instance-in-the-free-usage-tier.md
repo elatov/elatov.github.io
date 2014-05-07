@@ -80,14 +80,14 @@ tags:
 <p>I then clicked &#8220;Continue&#8221; and was presented with the &#8220;Create Key Pair&#8221; page. When you deploy a Linux VM in EC2, an SSH key pair is created so you can use it to login to the VM. I named my key:</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/03/Create_new_Key_Pair.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/03/Create_new_Key_Pair.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/Create_new_Key_Pair.png" alt="Create new Key Pair Deploy an Amazon EC2 instance in the Free Usage Tier" width="861" height="580" class="alignnone size-full wp-image-7861" title="Deploy an Amazon EC2 instance in the Free Usage Tier" /></a></p>
 <p>I then clicked &#8220;Create and Download Key&#8221; and the key was downloaded to my download directory:</p>
-<pre><code>elatov@crbook:~$ ls downloads/*.pem
-downloads/Ubuntu_VM.pem
-</code></pre>
+	elatov@crbook:~$ ls downloads/*.pem
+	downloads/Ubuntu_VM.pem
+	
 <p>This was just the private key of the SSH Key pair:</p>
-<pre><code>elatov@crbook:~$ head -1 downloads/Ubuntu_VM.pem &amp;&amp; tail -1 downloads/Ubuntu_VM.pem 
------BEGIN RSA PRIVATE KEY-----
------END RSA PRIVATE KEY-----
-</code></pre>
+	elatov@crbook:~$ head -1 downloads/Ubuntu_VM.pem &amp;&amp; tail -1 downloads/Ubuntu_VM.pem 
+	-----BEGIN RSA PRIVATE KEY-----
+	-----END RSA PRIVATE KEY-----
+	
 <p>In between are the contents of the private key <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Deploy an Amazon EC2 instance in the Free Usage Tier" class="wp-smiley" title="Deploy an Amazon EC2 instance in the Free Usage Tier" />  It then took me to the &#8220;Security Groups&#8221; Page. From the User Guide:</p>
 <blockquote>
 <p>A security group defines firewall rules for your instances.These rules specify which incoming network traffic is delivered to your instance. All other traffic is ignored.</p>
@@ -128,58 +128,58 @@ downloads/Ubuntu_VM.pem
 <p>I selected my Instance from the drop down menu and then clicked &#8220;Yes, Associate&#8221;. Then I saw the following in the &#8220;Elastic IPs&#8221; section:</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/03/EIP_Associated.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/03/EIP_Associated.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/EIP_Associated.png" alt="EIP Associated Deploy an Amazon EC2 instance in the Free Usage Tier" width="1259" height="517" class="alignnone size-full wp-image-7871" title="Deploy an Amazon EC2 instance in the Free Usage Tier" /></a></p>
 <p>We can see that is&#8217; associated to our EC2 instance. At this point you can assign the EIP to a more friendly hostname if you have your own DNS service:</p>
-<pre><code>elatov@crbook:~$ host awsub.dnsd.me
-awsub.dnsd.me has address 54.244.249.93
-elatov@crbook:~$ host 54.244.249.93
-93.249.244.54.in-addr.arpa domain name pointer ec2-54-244-249-93.us-west-2.compute.amazonaws.com.
-</code></pre>
+	elatov@crbook:~$ host awsub.dnsd.me
+	awsub.dnsd.me has address 54.244.249.93
+	elatov@crbook:~$ host 54.244.249.93
+	93.249.244.54.in-addr.arpa domain name pointer ec2-54-244-249-93.us-west-2.compute.amazonaws.com.
+	
 <p>Now let&#8217;s connect to our EC2 Instance.</p>
 <h3>Connect and Configure EC2 Linux Instance</h3>
 <p>We have the private SSH downloaded and we have setup an EIP for our instance, so now we can connect to our VM:</p>
-<pre><code>elatov@crbook:~$ chmod 600 downloads/Ubuntu_VM.pem 
-elatov@crbook:~$ ssh -i downloads/Ubuntu_VM.pem root@54.244.249.93
-Please login as the user "ubuntu" rather than the user "root".
-
-Connection to 54.244.249.93 closed.
-elatov@crbook:~$ ssh -i downloads/Ubuntu_VM.pem ubuntu@54.244.249.93
-Welcome to Ubuntu 12.04.1 LTS (GNU/Linux 3.2.0-36-virtual i686)
-</code></pre>
+	elatov@crbook:~$ chmod 600 downloads/Ubuntu_VM.pem 
+	elatov@crbook:~$ ssh -i downloads/Ubuntu_VM.pem root@54.244.249.93
+	Please login as the user "ubuntu" rather than the user "root".
+	
+	Connection to 54.244.249.93 closed.
+	elatov@crbook:~$ ssh -i downloads/Ubuntu_VM.pem ubuntu@54.244.249.93
+	Welcome to Ubuntu 12.04.1 LTS (GNU/Linux 3.2.0-36-virtual i686)
+	
 <p>Now let&#8217;s add a regular user:</p>
-<pre><code>ubuntu@ip-10-248-36-122:~$ sudo adduser elatov
-Adding user `elatov' ...
-Adding new group `elatov' (1001) ...
-Adding new user `elatov' (1001) with group `elatov' ...
-Creating home directory `/home/elatov' ...
-Copying files from `/etc/skel' ...
-Enter new UNIX password: 
-Retype new UNIX password: 
-passwd: password updated successfully
-Changing the user information for elatov
-Enter the new value, or press ENTER for the default
-    Full Name []: 
-    Room Number []: 
-    Work Phone []: 
-    Home Phone []: 
-    Other []: 
-Is the information correct? [Y/n] y
-ubuntu@ip-10-248-36-122:~$ sudo usermod -a -G admin elatov
-</code></pre>
+	ubuntu@ip-10-248-36-122:~$ sudo adduser elatov
+	Adding user `elatov' ...
+	Adding new group `elatov' (1001) ...
+	Adding new user `elatov' (1001) with group `elatov' ...
+	Creating home directory `/home/elatov' ...
+	Copying files from `/etc/skel' ...
+	Enter new UNIX password: 
+	Retype new UNIX password: 
+	passwd: password updated successfully
+	Changing the user information for elatov
+	Enter the new value, or press ENTER for the default
+	    Full Name []: 
+	    Room Number []: 
+	    Work Phone []: 
+	    Home Phone []: 
+	    Other []: 
+	Is the information correct? [Y/n] y
+	ubuntu@ip-10-248-36-122:~$ sudo usermod -a -G admin elatov
+	
 <p>Now let&#8217;s allow regular SSH login, not just via SSH keys:</p>
-<pre><code>ubuntu@ip-10-248-36-122:~$ sudo sed -i 's/PasswordAuthentication\ no/PasswordAuthentication\ yes/' /etc/ssh/sshd_config
-ubuntu@ip-10-248-36-122:~$ sudo service ssh restart
-ssh stop/waiting
-ssh start/running, process 1293
-</code></pre>
+	ubuntu@ip-10-248-36-122:~$ sudo sed -i 's/PasswordAuthentication\ no/PasswordAuthentication\ yes/' /etc/ssh/sshd_config
+	ubuntu@ip-10-248-36-122:~$ sudo service ssh restart
+	ssh stop/waiting
+	ssh start/running, process 1293
+	
 <p>Now let&#8217;s try to login as a regular user with password authentication:</p>
-<pre><code>elatov@crbook:~$ ssh elatov@54.244.249.93
-elatov@54.244.249.93's password: 
-Welcome to Ubuntu 12.04.1 LTS (GNU/Linux 3.2.0-36-virtual i686)
-</code></pre>
+	elatov@crbook:~$ ssh elatov@54.244.249.93
+	elatov@54.244.249.93's password: 
+	Welcome to Ubuntu 12.04.1 LTS (GNU/Linux 3.2.0-36-virtual i686)
+	
 <p>That is good, now let&#8217;s update the system:</p>
-<pre><code>elatov@ip-10-248-36-122:~$ sudo apt-get update
-elatov@ip-10-248-36-122:~$ sudo apt-get upgrade
-elatov@ip-10-248-36-122:~$ sudo apt-get dist-upgrade
-</code></pre>
+	elatov@ip-10-248-36-122:~$ sudo apt-get update
+	elatov@ip-10-248-36-122:~$ sudo apt-get upgrade
+	elatov@ip-10-248-36-122:~$ sudo apt-get dist-upgrade
+	
 <p>And now you can configure a web server or whatever you desire and use it for a year for free. Just keep an eye on your usage.</p>
 <h2>Monitor EC2 Instance Usage</h2>
 <p>If you want a general over view of the usage you can go to <strong>http://aws.amazon.com</strong> then hover over &#8220;My Account/Console&#8221; and from the drop down menu select &#8220;Account Activity&#8221;. From here scroll down to the &#8220;AWS Service Charges&#8221; and Expand &#8220;Amazon Elastic Compute Cloud&#8221; and &#8220;AWS Data Transfer&#8221;. You will then see the following:</p>

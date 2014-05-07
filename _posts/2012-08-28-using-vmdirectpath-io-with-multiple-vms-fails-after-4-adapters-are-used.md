@@ -36,21 +36,21 @@ We can see that there can be up to 4 Pass through PCI devices per VM with a maxi
 
 We booted one of the Windows VMs and all of the HBAs dropped off the fabric. Looking in the vmkernel.log we see the messages below.
 
-[code]  
-2012-08-07T07:57:31.269Z cpu9:739725)WARNING: IntrVector: 290: Out of interrupt vectors  
-2012-08-07T07:57:31.269Z cpu9:739725)MSI: 570: Couldn't allocate a vector number 16 for device 000:008:00.0  
-2012-08-07T07:57:31.269Z cpu9:739725)VMKPCIPassthru: 2454: Failed to allocate 32 MSIX vectors  
-2012-08-07T07:57:49.787Z cpu12:739725)VMKPCIPassthru: 2500: BDF = 008:00.1 intrType = 4 numVectors: 32  
-2012-08-07T07:57:49.787Z cpu12:739725)WARNING: IntrVector: 290: Out of interrupt vectors  
-[/code]
+	  
+	2012-08-07T07:57:31.269Z cpu9:739725)WARNING: IntrVector: 290: Out of interrupt vectors  
+	2012-08-07T07:57:31.269Z cpu9:739725)MSI: 570: Couldn't allocate a vector number 16 for device 000:008:00.0  
+	2012-08-07T07:57:31.269Z cpu9:739725)VMKPCIPassthru: 2454: Failed to allocate 32 MSIX vectors  
+	2012-08-07T07:57:49.787Z cpu12:739725)VMKPCIPassthru: 2500: BDF = 008:00.1 intrType = 4 numVectors: 32  
+	2012-08-07T07:57:49.787Z cpu12:739725)WARNING: IntrVector: 290: Out of interrupt vectors  
+	
 
 From the logs above, we can see that the host cannot allocate enough interrupt vectors for the device. The device is asking for 32 MSI-X vectors. So the Windows driver is likely allocating all of the vectors up front, so I wanted to see how many vectors the host can allocate.
 
-[code]  
-\# vsish -e ls /hardware/interrupts/vectorList/ |wc -l  
-170
-
-[/code]
+	  
+	\# vsish -e ls /hardware/interrupts/vectorList/ |wc -l  
+	170
+	
+	
 
 So this ESXi host has about 170 vectors (some are shared) to allocate. With 8 devices requesting 32 vectors it would need 256. MSIs are all <a href="http://publib.boulder.ibm.com/infocenter/pseries/v5r3/index.jsp?topic=/com.ibm.aix.kernelext/doc/kernextc/interrupts.htm" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://publib.boulder.ibm.com/infocenter/pseries/v5r3/index.jsp?topic=/com.ibm.aix.kernelext/doc/kernextc/interrupts.htm']);" target="_blank">edge-triggered interrupts</a>, so they cannot be shared, thus requiring 256 unique vectors.
 

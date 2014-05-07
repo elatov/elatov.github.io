@@ -44,13 +44,13 @@ Like I mentioned, some RARPs are actually okay. Whenever you have &#8216;notify 
 
 The way that an ESX host updates the switch is by sending a GARP (<a href="http://wiki.wireshark.org/Gratuitous_ARP" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.wireshark.org/Gratuitous_ARP']);">Gratuitous ARP</a>). Here is how it looks like from the ESXi host when I run tcpdump-uw (I fired a vMotion of a VM with the mac address of 00:50:56:9b:4f:0d):
 
-<pre>listening on vmk0, link-type EN10MB (Ethernet), capture size 96 bytes
-01:21:56.178929 00:50:56:9b:4f:0d &gt; ff:ff:ff:ff:ff:ff, ethertype Reverse ARP (0x8035), length 60: Reverse Request who-is 00:50:56:9b:4f:0d tell 00:50:56:9b:4f:0d, length 46
-01:21:56.964847 00:50:56:9b:4f:0d &gt; ff:ff:ff:ff:ff:ff, ethertype Reverse ARP (0x8035), length 60: Reverse Request who-is 00:50:56:9b:4f:0d tell 00:50:56:9b:4f:0d, length 46
-01:21:57.964780 00:50:56:9b:4f:0d &gt; ff:ff:ff:ff:ff:ff, ethertype Reverse ARP (0x8035), length 60: Reverse Request who-is 00:50:56:9b:4f:0d tell 00:50:56:9b:4f:0d, length 46
-01:21:58.964792 00:50:56:9b:4f:0d &gt; ff:ff:ff:ff:ff:ff, ethertype Reverse ARP (0x8035), length 60: Reverse Request who-is 00:50:56:9b:4f:0d tell 00:50:56:9b:4f:0d, length 46
-01:22:00.964920 00:50:56:9b:4f:0d &gt; ff:ff:ff:ff:ff:ff, ethertype Reverse ARP (0x8035), length 60: Reverse Request who-is 00:50:56:9b:4f:0d tell 00:50:56:9b:4f:0d, length 46
-01:22:03.964933 00:50:56:9b:4f:0d &gt; ff:ff:ff:ff:ff:ff, ethertype Reverse ARP (0x8035), length 60: Reverse Request who-is 00:50:56:9b:4f:0d tell 00:50:56:9b:4f:0d, length 46</pre>
+	listening on vmk0, link-type EN10MB (Ethernet), capture size 96 bytes
+	01:21:56.178929 00:50:56:9b:4f:0d &gt; ff:ff:ff:ff:ff:ff, ethertype Reverse ARP (0x8035), length 60: Reverse Request who-is 00:50:56:9b:4f:0d tell 00:50:56:9b:4f:0d, length 46
+	01:21:56.964847 00:50:56:9b:4f:0d &gt; ff:ff:ff:ff:ff:ff, ethertype Reverse ARP (0x8035), length 60: Reverse Request who-is 00:50:56:9b:4f:0d tell 00:50:56:9b:4f:0d, length 46
+	01:21:57.964780 00:50:56:9b:4f:0d &gt; ff:ff:ff:ff:ff:ff, ethertype Reverse ARP (0x8035), length 60: Reverse Request who-is 00:50:56:9b:4f:0d tell 00:50:56:9b:4f:0d, length 46
+	01:21:58.964792 00:50:56:9b:4f:0d &gt; ff:ff:ff:ff:ff:ff, ethertype Reverse ARP (0x8035), length 60: Reverse Request who-is 00:50:56:9b:4f:0d tell 00:50:56:9b:4f:0d, length 46
+	01:22:00.964920 00:50:56:9b:4f:0d &gt; ff:ff:ff:ff:ff:ff, ethertype Reverse ARP (0x8035), length 60: Reverse Request who-is 00:50:56:9b:4f:0d tell 00:50:56:9b:4f:0d, length 46
+	01:22:03.964933 00:50:56:9b:4f:0d &gt; ff:ff:ff:ff:ff:ff, ethertype Reverse ARP (0x8035), length 60: Reverse Request who-is 00:50:56:9b:4f:0d tell 00:50:56:9b:4f:0d, length 46
 
 So you can see that the Mac address 00:50:56:9b:4f:0d (the mac address of the VM) is sending a GARP (but the packet capture shows it as a RARP) and you can see the target machine is itself (tell 00:50:56:9b:4f:0d). If you don&#8217;t want to apply the patches above, you can just set the &#8216;notify-switch&#8217; option to &#8216;no&#8217;. Instructions can be found here: <a href="http://pubs.vmware.com/vsphere-50/index.jsp?topic=/com.vmware.vsphere.networking.doc_50/GUID-D5EA6315-5DCD-463E-A701-B3D8D9250FB5.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://pubs.vmware.com/vsphere-50/index.jsp?topic=/com.vmware.vsphere.networking.doc_50/GUID-D5EA6315-5DCD-463E-A701-B3D8D9250FB5.html']);">Edit Failover and Load Balancing Policy for a vSphere Standard Switch</a>
 

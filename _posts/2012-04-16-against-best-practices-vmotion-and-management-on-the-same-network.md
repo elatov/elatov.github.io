@@ -31,24 +31,24 @@ If you do not want to adhere to best practices and would like to avoid that prob
 
 For the folks who live in the command line, here is how you set Migrate.BindToVmknic to 1 via the console/SSH.
 
-[code]  
-~ # esxcfg-advcfg -s 1 /Migrate/BindToVmknic  
-~ #  
-[/code]
+	  
+	~ # esxcfg-advcfg -s 1 /Migrate/BindToVmknic  
+	~ #  
+	
 
 Verify that it is actually set properly:
 
-[code]  
-~ # esxcfg-advcfg -g /Migrate/BindToVmknic  
-Value of BindToVmknic is 1  
-[/code]
+	  
+	~ # esxcfg-advcfg -g /Migrate/BindToVmknic  
+	Value of BindToVmknic is 1  
+	
 
 or
 
-[code]  
-~ # grep Migrate /etc/vmware/esx.conf  
-/adv/Migrate/BindToVmknic = "1"  
-[/code]
+	  
+	~ # grep Migrate /etc/vmware/esx.conf  
+	/adv/Migrate/BindToVmknic = "1"  
+	
 
 This should force the vMotion to go over the vmkernel port that vMotion is enabled on, rather than consulting the vmkernel routing table to determine which vmkernel interface to send traffic out.
 

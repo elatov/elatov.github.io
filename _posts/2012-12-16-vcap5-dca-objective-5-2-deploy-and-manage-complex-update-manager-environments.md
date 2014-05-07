@@ -80,27 +80,27 @@ And more from the same document:
 >     The default location in 64-bit Windows is C:\Program Files(x86)\VMware\Infrastructure\UpdateManager.
 > 3.  Specify the updates to download. 
 >     *   To set up a download of all ESX/ESXi host updates and all virtual  appliance upgrades, run the following command:  
->         [code]  
->         vmware-umds -S --enable-host --enable-va  
->         [/code]
+	>           
+	>         vmware-umds -S --enable-host --enable-va  
+	>         
 >     *   To set up a download of all ESX/ESXi host updates and disable the download of virtual appliance upgrades, run the following command:  
->         [code]  
->         vmware-umds -S --enable-host --disable-va  
->         [/code]
+	>           
+	>         vmware-umds -S --enable-host --disable-va  
+	>         
 >     *   To set up a download of all virtual appliance upgrades and disable the download of host updates, run the following command:  
->         [code]  
->         vmware-umds -S --disable-host --enable-va  
->         [/code]
+	>           
+	>         vmware-umds -S --disable-host --enable-va  
+	>         
 >     *   To set up a download of only ESX 4.0 and ESXi 4.0 host updates, run the following commands:  
->         [code]  
->         vmware-umds -S --disable-host  
->         vmware-umds -S -e esx-4.0.0 embeddedEsx-4.0.0  
->         [/code]
+	>           
+	>         vmware-umds -S --disable-host  
+	>         vmware-umds -S -e esx-4.0.0 embeddedEsx-4.0.0  
+	>         
 >     *   To set up a download of all ESX/ESXi 4.x and ESXi 5.0 updates, and to disable downloading of only ESX 3.5 and ESXi 3.5 host updates, run the following commands:  
->         [code]  
->         vmware-umds -S --enable-host  
->         vmware-umds -S -d esx-3.5.0 embeddedEsx-3.5.0  
->         [/code]
+	>           
+	>         vmware-umds -S --enable-host  
+	>         vmware-umds -S -d esx-3.5.0 embeddedEsx-3.5.0  
+	>         
 
 Also check out &#8220;<a href="http://www.jasemccarty.com/blog/?p=1859" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.jasemccarty.com/blog/?p=1859']);">VMware Update Manager Download Service on Windows 2008 R2 Core</a>&#8221; for a step-by-step guide with pictures. Another good step-by-step guide is &#8220;<a href="http://kunaludapi.blogspot.com/2012/08/installing-and-configuring-umds-update.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kunaludapi.blogspot.com/2012/08/installing-and-configuring-umds-update.html']);">Installing and Configuring UMDS Update manager download services.</a>&#8220;, and <a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/umds.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://virtuallyhyper.com/wp-content/uploads/2012/12/umds.pdf']);">here</a> is the pdf version of that site.
 
@@ -389,16 +389,16 @@ Also from the same document:
 > 
 > *   To generate a report containing the latest scan results for all objects in the inventory and for all patches for an inventory object, run the query in Microsoft SQL Client.
 > 
-> [code language="sql"]  
-> SELECT r.entity\_uid,r.ENTITY\_STATUS,  
-> u.meta_uid, u.title, u.description, u.type, u.severity,  
-> (case when u.SPECIAL_ATTRIBUTE is null then 'false'  
-> else 'true'  
-> end) as IS\_SERVICE\_PACK,  
-> r.scanh\_id, r.scan\_start\_time, r.scan\_end_time  
-> FROM VUMV\_UPDATES u JOIN VUMV\_ENTITY\_SCAN\_RESULTS r ON (u.meta\_uid = r.update\_metauid)  
-> ORDER BY r.entity\_uid, u.meta\_uid  
-> [/code]
+	>   
+	> SELECT r.entity\_uid,r.ENTITY\_STATUS,  
+	> u.meta_uid, u.title, u.description, u.type, u.severity,  
+	> (case when u.SPECIAL_ATTRIBUTE is null then 'false'  
+	> else 'true'  
+	> end) as IS\_SERVICE\_PACK,  
+	> r.scanh\_id, r.scan\_start\_time, r.scan\_end_time  
+	> FROM VUMV\_UPDATES u JOIN VUMV\_ENTITY\_SCAN\_RESULTS r ON (u.meta\_uid = r.update\_metauid)  
+	> ORDER BY r.entity\_uid, u.meta\_uid  
+	> 
 > 
 > The query displays all patches that are applicable to the scanned objects in the inventory.
 
@@ -468,111 +468,111 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 >             > You can export and import patch baselines from one Update Manager server to another by using an Update Manager PowerCLI script. The following example script creates a duplicate of the baseline MyBaseline on the $destinationServer.  
 >             > NOTE The script works for fixed and dynamic patch baselines as well as for extension baselines.
 >             > 
->             > [code language="powershell"]  
->             > \# $destinationServer = Connect-VIServer  
->             > \# $sourceServer = Connect-VIServer  
->             > \# $baselines = Get-PatchBaseline MyBaseline -Server $sourceServer  
->             > \# ExportImportBaselines.ps1 $baselines $destinationServer  
->             > Param([VMware.VumAutomation.Types.Baseline[]] $baselines,  
->             > [VMware.VimAutomation.Types.VIServer[]]$destinationServers)  
->             > $ConfirmPreference = 'None'  
->             > $includePatches = @()  
->             > $excludePatches = @()  
->             > function ExtractPatchesFromServer([VMware.VumAutomation.Types.Patch[]]$patches,  
->             > [VMware.VimAutomation.Types.VIServer]$destinationServer){  
->             > $result = @()  
->             > if ($patches -ne $null){  
->             > foreach($patch in $patches){  
->             > $extractedPatches = Get-Patch -Server $destinationServer -SearchPhrase  
->             > $patch.Name  
->             > if ($extractedPatches -eq $null){  
->             > Write-Warning -Message "Patch '$($patch.Name)' is not available on the server  
->             > $destinationServer"  
->             > } else {  
->             > $isFound = $false  
->             > foreach ($newPatch in $extractedPatches){  
->             > if ($newPatch.IdByVendor -eq $patch.IdByVendor){  
->             > $result += $newPatch  
->             > $isFound = $true  
->             > }  
->             > }  
->             > if ($isFound -eq $false) {  
->             > Write-Warning -Message "Patch '$($patch.Name)' with VendorId '$($patch.IdByVendor)' is  
->             > not available on the server $destinationServer"  
->             > }  
->             > }  
->             > }  
->             > }  
->             > return .$result;  
->             > }  
->             > function  
->             > CreateStaticBaseline([VMware.VumAutomation.Types.Baseline]$baseline,  
->             > [VMware.VimAutomation.Types.VIServer]$destinationServer){  
->             > $includePatches = ExtractPatchesFromServer $baseline.CurrentPatches $destinationServer  
->             > if ($includePatches.Count -lt 1){  
->             > write-error "Static baseline '$($baseline.Name)' can't be imported. No one of the patches  
->             > it contains are available on the server $destinationServer"  
->             > } else {  
->             > $command = 'New-PatchBaseline -Server $destinationServer -Name $baseline.Name -Description  
->             > $baseline.Description -Static -TargetType $baseline.TargetType -IncludePatch $includePatches'  
->             > if ($baseline.IsExtension) {  
->             > $command += ' -Extension'  
->             > }  
->             > Invoke-Expression $command  
->             > }  
->             > }  
->             > function  
->             > CreateDynamicBaseline([VMware.VumAutomation.Types.Baseline]$baseline,  
->             > [VMware.VimAutomation.Types.VIServer]$destinationServer)  
->             > {  
->             > if ($baseline.BaselineContentType -eq 'Dynamic'){  
->             > $command = 'New-PatchBaseline -Server $destinationServer -Name $baseline.Name -Description  
->             > $baseline.Description -TargetType $baseline.TargetType -Dynamic -SearchPatchStartDate  
->             > $baseline.SearchPatchStartDate - SearchPatchEndDate $baseline.SearchPatchEndDate -  
->             > SearchPatchProduct $baseline.SearchPatchProduct -SearchPatchSeverity  
->             > $baseline.SearchPatchSeverity -SearchPatchVendor $baseline.SearchPatchVendor'  
->             > } elseif ($baseline.BaselineContentType -eq 'Both'){  
->             > $includePatches = ExtractPatchesFromServer $baseline.InclPatches $destinationServer  
->             > $excludePatches = ExtractPatchesFromServer $baseline.ExclPatches $destinationServer  
->             > $command = 'New-PatchBaseline -Server $destinationServer -Name $baseline.Name -Description  
->             > $baseline.Description -TargetType $baseline.TargetType -Dynamic -SearchPatchStartDate  
->             > $baseline.SearchPatchStartDate -SearchPatchEndDate $baseline.SearchPatchEndDate -  
->             > SearchPatchProduct $baseline.SearchPatchProduct -SearchPatchSeverity  
->             > $baseline.SearchPatchSeverity -SearchPatchVendor $baseline.SearchPatchVendor'  
->             > if ($includePatches.Count -gt 0){  
->             > $command += ' -IncludePatch $includePatches'  
->             > }  
->             > if ($excludePatches.Count -gt 0){  
->             > $command += ' -ExcludePatch $excludePatches'  
->             > }  
->             > }  
->             > #check for null because there is known issue for creating baseline with null  
->             > SearchPatchPhrase  
->             > if ($baseline.SearchPatchPhrase -ne $null){  
->             > $command += ' -SearchPatchPhrase $baseline.SearchPatchPhrase'  
->             > }  
->             > Invoke-Expression $command  
->             > }  
->             > foreach ($destinationServer in $destinationServers) {  
->             > if ($baselines -eq $null) {  
->             > Write-Error "The baselines parameter is null"  
->             > } else {  
->             > foreach($baseline in $baselines){  
->             > if ($baseline.GetType().FullName -eq 'VMware.VumAutomation.Types.PatchBaselineImpl'){  
->             > Write-Host "Import '" $baseline.Name "' to the server $destinationServer"  
->             > if($baseline.BaselineContentType -eq 'Static'){  
->             > CreateStaticBaseline $baseline $destinationServer  
->             > } else {  
->             > CreateDynamicBaseline $baseline $destinationServer  
->             > }  
->             > } else {  
->             > Write-Warning -Message "Baseline '$($baseline.Name)' is not patch baseline and will be  
->             > skipped."  
->             > }  
->             > }  
->             > }  
->             > }  
->             > [/code]
+	>             >   
+	>             > \# $destinationServer = Connect-VIServer  
+	>             > \# $sourceServer = Connect-VIServer  
+	>             > \# $baselines = Get-PatchBaseline MyBaseline -Server $sourceServer  
+	>             > \# ExportImportBaselines.ps1 $baselines $destinationServer  
+	>             > Param([VMware.VumAutomation.Types.Baseline[]] $baselines,  
+	>             > [VMware.VimAutomation.Types.VIServer[]]$destinationServers)  
+	>             > $ConfirmPreference = 'None'  
+	>             > $includePatches = @()  
+	>             > $excludePatches = @()  
+	>             > function ExtractPatchesFromServer([VMware.VumAutomation.Types.Patch[]]$patches,  
+	>             > [VMware.VimAutomation.Types.VIServer]$destinationServer){  
+	>             > $result = @()  
+	>             > if ($patches -ne $null){  
+	>             > foreach($patch in $patches){  
+	>             > $extractedPatches = Get-Patch -Server $destinationServer -SearchPhrase  
+	>             > $patch.Name  
+	>             > if ($extractedPatches -eq $null){  
+	>             > Write-Warning -Message "Patch '$($patch.Name)' is not available on the server  
+	>             > $destinationServer"  
+	>             > } else {  
+	>             > $isFound = $false  
+	>             > foreach ($newPatch in $extractedPatches){  
+	>             > if ($newPatch.IdByVendor -eq $patch.IdByVendor){  
+	>             > $result += $newPatch  
+	>             > $isFound = $true  
+	>             > }  
+	>             > }  
+	>             > if ($isFound -eq $false) {  
+	>             > Write-Warning -Message "Patch '$($patch.Name)' with VendorId '$($patch.IdByVendor)' is  
+	>             > not available on the server $destinationServer"  
+	>             > }  
+	>             > }  
+	>             > }  
+	>             > }  
+	>             > return .$result;  
+	>             > }  
+	>             > function  
+	>             > CreateStaticBaseline([VMware.VumAutomation.Types.Baseline]$baseline,  
+	>             > [VMware.VimAutomation.Types.VIServer]$destinationServer){  
+	>             > $includePatches = ExtractPatchesFromServer $baseline.CurrentPatches $destinationServer  
+	>             > if ($includePatches.Count -lt 1){  
+	>             > write-error "Static baseline '$($baseline.Name)' can't be imported. No one of the patches  
+	>             > it contains are available on the server $destinationServer"  
+	>             > } else {  
+	>             > $command = 'New-PatchBaseline -Server $destinationServer -Name $baseline.Name -Description  
+	>             > $baseline.Description -Static -TargetType $baseline.TargetType -IncludePatch $includePatches'  
+	>             > if ($baseline.IsExtension) {  
+	>             > $command += ' -Extension'  
+	>             > }  
+	>             > Invoke-Expression $command  
+	>             > }  
+	>             > }  
+	>             > function  
+	>             > CreateDynamicBaseline([VMware.VumAutomation.Types.Baseline]$baseline,  
+	>             > [VMware.VimAutomation.Types.VIServer]$destinationServer)  
+	>             > {  
+	>             > if ($baseline.BaselineContentType -eq 'Dynamic'){  
+	>             > $command = 'New-PatchBaseline -Server $destinationServer -Name $baseline.Name -Description  
+	>             > $baseline.Description -TargetType $baseline.TargetType -Dynamic -SearchPatchStartDate  
+	>             > $baseline.SearchPatchStartDate - SearchPatchEndDate $baseline.SearchPatchEndDate -  
+	>             > SearchPatchProduct $baseline.SearchPatchProduct -SearchPatchSeverity  
+	>             > $baseline.SearchPatchSeverity -SearchPatchVendor $baseline.SearchPatchVendor'  
+	>             > } elseif ($baseline.BaselineContentType -eq 'Both'){  
+	>             > $includePatches = ExtractPatchesFromServer $baseline.InclPatches $destinationServer  
+	>             > $excludePatches = ExtractPatchesFromServer $baseline.ExclPatches $destinationServer  
+	>             > $command = 'New-PatchBaseline -Server $destinationServer -Name $baseline.Name -Description  
+	>             > $baseline.Description -TargetType $baseline.TargetType -Dynamic -SearchPatchStartDate  
+	>             > $baseline.SearchPatchStartDate -SearchPatchEndDate $baseline.SearchPatchEndDate -  
+	>             > SearchPatchProduct $baseline.SearchPatchProduct -SearchPatchSeverity  
+	>             > $baseline.SearchPatchSeverity -SearchPatchVendor $baseline.SearchPatchVendor'  
+	>             > if ($includePatches.Count -gt 0){  
+	>             > $command += ' -IncludePatch $includePatches'  
+	>             > }  
+	>             > if ($excludePatches.Count -gt 0){  
+	>             > $command += ' -ExcludePatch $excludePatches'  
+	>             > }  
+	>             > }  
+	>             > #check for null because there is known issue for creating baseline with null  
+	>             > SearchPatchPhrase  
+	>             > if ($baseline.SearchPatchPhrase -ne $null){  
+	>             > $command += ' -SearchPatchPhrase $baseline.SearchPatchPhrase'  
+	>             > }  
+	>             > Invoke-Expression $command  
+	>             > }  
+	>             > foreach ($destinationServer in $destinationServers) {  
+	>             > if ($baselines -eq $null) {  
+	>             > Write-Error "The baselines parameter is null"  
+	>             > } else {  
+	>             > foreach($baseline in $baselines){  
+	>             > if ($baseline.GetType().FullName -eq 'VMware.VumAutomation.Types.PatchBaselineImpl'){  
+	>             > Write-Host "Import '" $baseline.Name "' to the server $destinationServer"  
+	>             > if($baseline.BaselineContentType -eq 'Static'){  
+	>             > CreateStaticBaseline $baseline $destinationServer  
+	>             > } else {  
+	>             > CreateDynamicBaseline $baseline $destinationServer  
+	>             > }  
+	>             > } else {  
+	>             > Write-Warning -Message "Baseline '$($baseline.Name)' is not patch baseline and will be  
+	>             > skipped."  
+	>             > }  
+	>             > }  
+	>             > }  
+	>             > }  
+	>             > 
 >             > 
 >             > You have now exported the tested baseline to another Update Manager server.
 >             

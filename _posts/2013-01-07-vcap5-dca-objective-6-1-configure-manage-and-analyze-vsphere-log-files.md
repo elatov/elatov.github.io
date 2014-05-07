@@ -78,87 +78,87 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 
 I had configured &#8220;Syslog Collector&#8221; as per the instructions below and then I ran the following to check the syslog settings on the host:
 
-[code]  
-~ # esxcli system syslog config get  
-Default Rotation Size: 1024  
-Default Rotations: 8  
-Log Output: /scratch/log  
-Log To Unique Subdirectory: false  
-Remote Host:  
-[/code]
+	  
+	~ # esxcli system syslog config get  
+	Default Rotation Size: 1024  
+	Default Rotations: 8  
+	Log Output: /scratch/log  
+	Log To Unique Subdirectory: false  
+	Remote Host:  
+	
 
 Now to see if I can connect to our syslog server over port 514:
 
-[code]  
-~ # nc -z 192.168.0.121 514  
-~ #  
-[/code]
+	  
+	~ # nc -z 192.168.0.121 514  
+	~ #  
+	
 
 It doesn&#8217;t look like I can connect to that port.
 
 Now checking out the ESXi firewall and looking for the syslog server, I saw these ports part of the rule:
 
-[code]  
-~ # esxcli network firewall ruleset rule list -r syslog  
-Ruleset Direction Protocol Port Type Port Begin Port End  
-\---\---\- --\---\---\- --\---\--- \---\---\--- \---\---\---\- --\---\---  
-syslog Outbound UDP Dst 514 514  
-syslog Outbound TCP Dst 514 514  
-syslog Outbound TCP Dst 1514 1514  
-[/code]
+	  
+	~ # esxcli network firewall ruleset rule list -r syslog  
+	Ruleset Direction Protocol Port Type Port Begin Port End  
+	\---\---\- --\---\---\- --\---\--- \---\---\--- \---\---\---\- --\---\---  
+	syslog Outbound UDP Dst 514 514  
+	syslog Outbound TCP Dst 514 514  
+	syslog Outbound TCP Dst 1514 1514  
+	
 
 Now checking if the rule is active and I saw the following:
 
-[code]  
-~ # esxcli network firewall ruleset list -r syslog  
-Name Enabled  
-\---\--- \---\----  
-syslog false  
-[/code]
+	  
+	~ # esxcli network firewall ruleset list -r syslog  
+	Name Enabled  
+	\---\--- \---\----  
+	syslog false  
+	
 
 Looks like it&#8217;s off, now enabling that rule:
 
-[code]  
-~ # esxcli network firewall ruleset set --ruleset-id=syslog --enabled=true  
-~ # esxcli network firewall refresh  
-[/code]
+	  
+	~ # esxcli network firewall ruleset set --ruleset-id=syslog --enabled=true  
+	~ # esxcli network firewall refresh  
+	
 
 Now checking to see if I can connect to our syslog server, I see it succeeding:
 
-[code]  
-~ # nc -z 192.168.0.121 514  
-Connection to 192.168.0.121 514 port [tcp/shell] succeeded!  
-[/code]
+	  
+	~ # nc -z 192.168.0.121 514  
+	Connection to 192.168.0.121 514 port [tcp/shell] succeeded!  
+	
 
 Now to configure the host to log to the syslog collector server, I ran the following:
 
-[code]  
-~ # esxcli system syslog config set --loghost='tcp://192.168.0.21:514'  
-~ # esxcli system syslog config get  
-Default Rotation Size: 1024  
-Default Rotations: 8  
-Log Output: /scratch/log  
-Log To Unique Subdirectory: false  
-Remote Host: tcp://192.168.0.21:514  
-~ # esxcli system syslog reload  
-[/code]
+	  
+	~ # esxcli system syslog config set --loghost='tcp://192.168.0.21:514'  
+	~ # esxcli system syslog config get  
+	Default Rotation Size: 1024  
+	Default Rotations: 8  
+	Log Output: /scratch/log  
+	Log To Unique Subdirectory: false  
+	Remote Host: tcp://192.168.0.21:514  
+	~ # esxcli system syslog reload  
+	
 
 ### Test centralized logging configuration
 
 You can run the following command on the ESXi host to send a test message:
 
-[code]  
-/var/log # esxcli system syslog mark --message="testing\_syslog\_config"  
-/var/log # grep testing /var/log/syslog.log  
-2012-12-14T18:49:11Z mark: testing\_syslog\_config
-
-[/code]
+	  
+	/var/log # esxcli system syslog mark --message="testing\_syslog\_config"  
+	/var/log # grep testing /var/log/syslog.log  
+	2012-12-14T18:49:11Z mark: testing\_syslog\_config
+	
+	
 
 Now go to the Machine where Syslog Collector is running and open up Explorer to the following location:
 
-[code]  
-C:\ProgramData\VMware\VMware Syslog Collector\Data\192.168.0.103  
-[/code]
+	  
+	C:\ProgramData\VMware\VMware Syslog Collector\Data\192.168.0.103  
+	
 
 You will see something like this:
 
@@ -172,10 +172,10 @@ Open up the latest file with notepad and then search for the string that you use
 
 You can check */var/log/syslog* to see how we logged into an iSCSI array. You will see something like this:
 
-[code]  
-2012-12-14T18:59:58Z iscsid: Login Success: iqn.2010-09.org.openindiana:02:bd79a6ff-33c2-41d3-8f0e-9c8d8b6e9fcb if=default addr=192.168.1.107:3260 (TPGT:1 ISID:0x1)  
-2012-12-14T18:59:58Z iscsid: connection 1:0 (iqn.2010-09.org.openindiana:02:bd79a6ff-33c2-41d3-8f0e-9c8d8b6e9fcb if=default addr=192.168.1.107:3260 (TPGT:1 ISID:0x1) (T0 C0)) is operational  
-[/code]
+	  
+	2012-12-14T18:59:58Z iscsid: Login Success: iqn.2010-09.org.openindiana:02:bd79a6ff-33c2-41d3-8f0e-9c8d8b6e9fcb if=default addr=192.168.1.107:3260 (TPGT:1 ISID:0x1)  
+	2012-12-14T18:59:58Z iscsid: connection 1:0 (iqn.2010-09.org.openindiana:02:bd79a6ff-33c2-41d3-8f0e-9c8d8b6e9fcb if=default addr=192.168.1.107:3260 (TPGT:1 ISID:0x1) (T0 C0)) is operational  
+	
 
 From the above we see that we are connecting to IP &#8220;192.168.1.107&#8243; and the iqn of the array is &#8220;iqn.2010-09.org.openindiana:02:bd79a6ff-33c2-41d3-8f0e-9c8d8b6e9fcb&#8221; which is an openIndiana OpenSolaris serving up iSCSI LUNs. Fiber Channel which show similar logins and you can determine the wwnp and wwnn values of the array.
 
@@ -185,32 +185,32 @@ This is a per-issue kind of scenario. It really depends on what you are searchin
 
 > When a user or script reboots a VMware ESX host, it generates a series events under /var/log/messages similar to:
 > 
-> [code]  
-> Mar 9 10:01:49 localhost logger: (1265803308) hb: vmk loaded, 1746.98, 1745.148, 0, 208167, 208167, 0, vmware-h-59580, sfcbd-7660, sfcbd-3524  
-> Mar 9 10:24:42 localhost vmkhalt: (1268148282) Rebooting system...  
-> Mar 9 10:26:13 localhost vmkhalt: (1268148374) Starting system...  
-> Mar 9 10:26:47 localhost logger: (1268148407) loaded VMkernel
-> 
-> Hostd: [2010-03-16 12:51:54.284 27D13B90 info 'TaskManager'] Task Created : haTask-ha-host-vim.HostSystem.reboot-50  
-> [/code]
+	>   
+	> Mar 9 10:01:49 localhost logger: (1265803308) hb: vmk loaded, 1746.98, 1745.148, 0, 208167, 208167, 0, vmware-h-59580, sfcbd-7660, sfcbd-3524  
+	> Mar 9 10:24:42 localhost vmkhalt: (1268148282) Rebooting system...  
+	> Mar 9 10:26:13 localhost vmkhalt: (1268148374) Starting system...  
+	> Mar 9 10:26:47 localhost logger: (1268148407) loaded VMkernel
+	> 
+	> Hostd: [2010-03-16 12:51:54.284 27D13B90 info 'TaskManager'] Task Created : haTask-ha-host-vim.HostSystem.reboot-50  
+	> 
 > 
 > Determine if the VMware ESX host was deliberately shut down. When a user or script shuts down a VMware ESX host, it generates a series events similar to:
 > 
-> [code]  
-> Mar 9 10:01:49 localhost logger: (1265803308) hb: vmk loaded, 1746.98, 1745.148, 0, 208167, 208167, 0, vmware-h-59580, sfcbd-7660, sfcbd-3524  
-> Mar 9 10:42:34 localhost vmkhalt: (1268149354) Halting system...  
-> Mar 9 10:44:46 localhost vmkhalt: (1268149486) Starting system...  
-> Mar 9 10:45:40 localhost logger: (1268149540) loaded VMkernel  
-> [/code]
+	>   
+	> Mar 9 10:01:49 localhost logger: (1265803308) hb: vmk loaded, 1746.98, 1745.148, 0, 208167, 208167, 0, vmware-h-59580, sfcbd-7660, sfcbd-3524  
+	> Mar 9 10:42:34 localhost vmkhalt: (1268149354) Halting system...  
+	> Mar 9 10:44:46 localhost vmkhalt: (1268149486) Starting system...  
+	> Mar 9 10:45:40 localhost logger: (1268149540) loaded VMkernel  
+	> 
 > 
 > Determine if the ESX host experienced a kernel error. When an ESX host experiences a kernel error, it generates a series of events similar to:
 > 
-> [code]  
-> Sep 1 02:01:09 vsphere5 logger: (1251788469) hb: vmk loaded, 3597562.98, 3597450.113, 13, 164009, 164009, 356, vmware-h-79976, vpxa-54148, sfcbd-12600  
-> Sep 1 04:26:35 vsphere5 vmkhalt: (1251797195) Starting system...  
-> Sep 1 04:26:46 vsphere5 logger: (1251797206) VMkernel error  
-> Sep 1 04:27:41 vsphere5 logger: (1251797261) loaded VMkernel  
-> [/code]
+	>   
+	> Sep 1 02:01:09 vsphere5 logger: (1251788469) hb: vmk loaded, 3597562.98, 3597450.113, 13, 164009, 164009, 356, vmware-h-79976, vpxa-54148, sfcbd-12600  
+	> Sep 1 04:26:35 vsphere5 vmkhalt: (1251797195) Starting system...  
+	> Sep 1 04:26:46 vsphere5 logger: (1251797206) VMkernel error  
+	> Sep 1 04:27:41 vsphere5 logger: (1251797261) loaded VMkernel  
+	> 
 
 ### Install and configure VMware syslog Collector and ESXi Dump Collector
 
@@ -240,12 +240,12 @@ Then click Next and then Finish. After that you will see the service starts unde
 
 You can also check if the ports are in a listening state on the windows machine:
 
-[code]  
-C:\Users\Administrator>netstat -ab | findstr 514  
-TCP 0.0.0.0:514 WIN-2K5GMV25I0E:0 LISTENING  
-TCP 0.0.0.0:1514 WIN-2K5GMV25I0E:0 LISTENING  
-UDP 0.0.0.0:514 \*:\*  
-[/code]
+	  
+	C:\Users\Administrator>netstat -ab | findstr 514  
+	TCP 0.0.0.0:514 WIN-2K5GMV25I0E:0 LISTENING  
+	TCP 0.0.0.0:1514 WIN-2K5GMV25I0E:0 LISTENING  
+	UDP 0.0.0.0:514 \*:\*  
+	
 
 Now you can configure hosts to log to this syslog collector. This setup for that was covered in previous objectives
 

@@ -14,18 +14,18 @@ tags:
 ---
 I recently ran into an issue where a live migration from one host to another cause the physical switch to experience unicast flooding. After much investigation, the solution was quite simple: Don&#8217;t setup your management and your vMotion network traffic to be on the same subnet. Now let&#8217;s take a look as to why this is a bad idea. Another person from the VMware communities ran into the same issue (<a href="http://communities.vmware.com/thread/306862" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/thread/306862']);">vMotion Causing Unicast Flooding</a>). He described his discoveries in the following manner. He initially saw the mgmt mac-address initiate the connection but after the connection has been established another mac-address is seen transferring the data. Now why is that? Well, let&#8217;s take a closer look. Let&#8217;s say we have the following setup on our ESXi host:
 
-<pre>~ # esxcfg-vmknic -l
-Interface Port_Group IP_Family IP_Address Netmask       Broadcast  MAC Address       MTU   Enabled Type
-vmk0     Management  IPv4      10.0.1.128 255.255.255.0 10.0.1.255 00:0c:29:2c:54:17 1500  true    DHCP
-vmk1     SC2         IPv4      10.0.1.129 255.255.255.0 10.0.1.255 00:50:56:79:aa:91 1500  true    STATIC</pre>
+	~ # esxcfg-vmknic -l
+	Interface Port_Group IP_Family IP_Address Netmask       Broadcast  MAC Address       MTU   Enabled Type
+	vmk0     Management  IPv4      10.0.1.128 255.255.255.0 10.0.1.255 00:0c:29:2c:54:17 1500  true    DHCP
+	vmk1     SC2         IPv4      10.0.1.129 255.255.255.0 10.0.1.255 00:50:56:79:aa:91 1500  true    STATIC
 
 So we have vmk0 as 10.0.1.128 and vmk1 as 10.0.1.129 (so both of the vmkernel interfaces are on the same subnet). The vmkernel routing table will look like the following for the above setup:
 
-<pre>~ # esxcfg-route -l
-VMkernel Routes:
-Network   Netmask       Gateway       Interface
-10.0.1.0  255.255.255.0 Local Subnet   vmk0
-default   0.0.0.0       10.0.1.2       vmk0</pre>
+	~ # esxcfg-route -l
+	VMkernel Routes:
+	Network   Netmask       Gateway       Interface
+	10.0.1.0  255.255.255.0 Local Subnet   vmk0
+	default   0.0.0.0       10.0.1.2       vmk0
 
 Notice that the traffic destined for 10.0.1.0 subnet will leave out of vmk0 if it&#8217;s using the routing table to choose its destination. During the first 10% of the vMotion that is the connection establishment stage, at that point, it uses the routing table and leaves out of vmk0 since that is the default interface that has access to that subnet. Now, after the connection is finished establishing, it then sends the traffic out of vmk1 since it&#8217;s labeled as a vMotion interface at which point it ignores the routing table. I have actually seen it the other way around as well, where the connection starts out on vmk1 and then switches to vmk0; it just depends on what you are doing. In the end, my recommendation is to never have two interfaces on the same subnet, that is just asking for trouble :). There is a lot of VMware documentation that alludes to this fact, but it&#8217;s never very direct. For example in this PDF, &#8220;<a href="http://www.vmware.com/pdf/vsphere4/r41/vsp_41_esxi_server_config.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/vsphere4/r41/vsp_41_esxi_server_config.pdf']);">4.1 ESXi configuration Guide</a>&#8220;, under the Networking Best Practices, we see the following:
 

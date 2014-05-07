@@ -105,9 +105,9 @@ After that is done, for your DVPortGroup set the &#8220;VLAN type&#8221; to Priv
 
 Check VLAN assignments on SVS:
 
-[code]  
-esxcli network vswitch standard portgroup list  
-[/code]
+	  
+	esxcli network vswitch standard portgroup list  
+	
 
 Check VLAN assignments on DVS. &#8220;Networking&#8221; View -> Select DVS -> Select the &#8220;Networks&#8221; Tab. It will look something like this:
 
@@ -115,9 +115,9 @@ Check VLAN assignments on DVS. &#8220;Networking&#8221; View -> Select DVS -> Se
 
 or run the following:
 
-[code]  
-net-dvs -l  
-[/code]
+	  
+	net-dvs -l  
+	
 
 <p class="wp-flattr-button">
   <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-2-configure-and-maintain-vlans-pvlans-and-vlan-settings/" title=" VCAP5-DCA Objective 2.2 – Configure and Maintain VLANs, PVLANs and VLAN Settings" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCA,blog;button:compact;">Identify types of VLANs and PVLANs From vSphere Networkin ESXi 5.0: VLAN Configuration Virtual LANs (VLANs) enable a single physical LAN segment to be further segmented so that groups of...</a>

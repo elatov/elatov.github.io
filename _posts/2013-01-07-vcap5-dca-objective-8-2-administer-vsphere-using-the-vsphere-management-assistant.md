@@ -167,42 +167,42 @@ I logged in via the VM Console and checked out the messages file and I saw the f
 
 Checking out the file and that line, I saw the following:
 
-[code]  
-localhost:~ # tail -n +64 /etc/hosts.allow  
-ALL: KNOWN  
-[/code]
+	  
+	localhost:~ # tail -n +64 /etc/hosts.allow  
+	ALL: KNOWN  
+	
 
 Then checking out the deny file:
 
-[code]  
-localhost:~ #cat /etc/hosts.deny
-
-# /etc/hosts.deny
-
-# See 'man tcpd' and 'man 5 hosts_access' as well as /etc/hosts.allow
-
-# for a detailed description.
-
-http-rman : ALL EXCEPT LOCAL
-
-ALL: ALL  
-[/code]
+	  
+	localhost:~ #cat /etc/hosts.deny
+	
+	# /etc/hosts.deny
+	
+	# See 'man tcpd' and 'man 5 hosts_access' as well as /etc/hosts.allow
+	
+	# for a detailed description.
+	
+	http-rman : ALL EXCEPT LOCAL
+	
+	ALL: ALL  
+	
 
 Looks like we are blocking everything. So I just moved the &#8216;hosts.deny&#8217; file out of the way:
 
-[code]  
-localhost:~ # mv /etc/hosts.deny /tmp  
-[/code]
+	  
+	localhost:~ # mv /etc/hosts.deny /tmp  
+	
 
 And then I was able to ssh to the machine with putty without issues:
 
-[code]  
-Using username &quot;vi-admin&quot;.  
-Welcome to vSphere Management Assistant  
-vi-admin'@'192.168.2.109's password:  
-Last login: Mon Dec 24 23:30:02 2012 from 192.168.2.110  
-vi-admin'@'localhost:~>  
-[/code]
+	  
+	Using username &quot;vi-admin&quot;.  
+	Welcome to vSphere Management Assistant  
+	vi-admin'@'192.168.2.109's password:  
+	Last login: Mon Dec 24 23:30:02 2012 from 192.168.2.110  
+	vi-admin'@'localhost:~>  
+	
 
 ### Add/Remove target servers
 
@@ -216,91 +216,91 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/P
 > 
 > 1.  1 Log in to vMA as vi‐admin.
 > 2.  2 Add a server as a vMA target by running the following command:  
->     [code]  
->     vifp addserver vc1.mycomp.com --authpolicy adauth --username ADDOMAIN\\user1  
->     [/code]</p> 
+	>       
+	>     vifp addserver vc1.mycomp.com --authpolicy adauth --username ADDOMAIN\\user1  
+	>     </p> 
 >     Here, &#8211;authpolicy adauth indicates that the target needs to use the Active Directory authentication.If you run this command without the &#8211;username option, vMA prompts for the name of the user that can connect to the vCenter Server system. You can specify this user name as shown in the following example:
 >     
->     [code]  
->     Enter username for machinename.example.com: ADDOMAIN\user1  
->     [/code]
+	>       
+	>     Enter username for machinename.example.com: ADDOMAIN\user1  
+	>     
 >     
 >     If &#8211;authpolicy is not specified in the command, then fpauth is taken as the default authentication  
 >     policy.</li> 
 >     *   3 Verify that the target server has been added.  
 >         The display shows all target servers and the authentication policy used for each target.  
->         [code]  
->         vifp listservers --long  
->         server1.mycomp.com ESX adauth  
->         server2.mycomp.com ESX fpauth  
->         server3.mycomp.com ESXi adauth  
->         vc1.mycomp.com vCenter adauth  
->         [/code]
+	>           
+	>         vifp listservers --long  
+	>         server1.mycomp.com ESX adauth  
+	>         server2.mycomp.com ESX fpauth  
+	>         server3.mycomp.com ESXi adauth  
+	>         vc1.mycomp.com vCenter adauth  
+	>         
 >     *   4 Set the target as the default for the current session:  
->         [code]  
->         vifptarget --set | -s  
->         [/code]
+	>           
+	>         vifptarget --set | -s  
+	>         
 >     *   5 Verify that you can run a vSphere CLI command without authentication by running a command on one  
 >         of the ESXi hosts, for example:  
->         [code language="xml"]  
->         esxcli --server <VC\_server> --vihost <esx\_host> network nic list  
->         [/code]</p> 
+	>           
+	>         esxcli --server <VC\_server> --vihost <esx\_host> network nic list  
+	>         </p> 
 >         The command runs without prompting for authentication information</li> </ol> </blockquote> 
 >         Here is how adding vCenter to the vMA looks like:
 >         
->         [code]  
->         vi-admin'@'localhost:~> vifp addserver 192.168.2.110 --username administrator  
->         administrator'@'192.168.2.110's password:  
->         This will store username and password in credential store which is a security risk. Do you want to continue?(yes/no): yes  
->         vi-admin'@'localhost:~> vifp listservers --long  
->         192.168.2.110 vCenter fpauth  
->         [/code]
+	>           
+	>         vi-admin'@'localhost:~> vifp addserver 192.168.2.110 --username administrator  
+	>         administrator'@'192.168.2.110's password:  
+	>         This will store username and password in credential store which is a security risk. Do you want to continue?(yes/no): yes  
+	>         vi-admin'@'localhost:~> vifp listservers --long  
+	>         192.168.2.110 vCenter fpauth  
+	>         
 >         
 >         Now you can either add the hosts to the vMA or manage the hosts by using vCenter. To manage the host via vCenter from the vMA you must know the name of the hosts. There is actually a communities <a href="http://communities.vmware.com/thread/321162" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/thread/321162']);">thread</a> on this. If you want to list the hosts connected to the vCenter from vMA you can use the script that is provided in the communities page. Here is how it looks like:
 >         
->         [code]  
->         vi-admin'@'localhost:~> vi gethosts.pl  
->         vi-admin'@'localhost:~> chmod +x gethosts.pl  
->         vi-admin'@'localhost:~> ./gethosts.pl --server 192.168.2.110 --username administrator  
->         Enter password:  
->         ESX(i) hosts residing on 192.168.2.110  
->         192.168.0.103 VMware ESXi 5.0.0 build-623860  
->         192.168.0.101 VMware ESXi 4.1.0 build-348481  
->         192.168.0.104 VMware ESX 4.0.0 build-208167  
->         [/code]
+	>           
+	>         vi-admin'@'localhost:~> vi gethosts.pl  
+	>         vi-admin'@'localhost:~> chmod +x gethosts.pl  
+	>         vi-admin'@'localhost:~> ./gethosts.pl --server 192.168.2.110 --username administrator  
+	>         Enter password:  
+	>         ESX(i) hosts residing on 192.168.2.110  
+	>         192.168.0.103 VMware ESXi 5.0.0 build-623860  
+	>         192.168.0.101 VMware ESXi 4.1.0 build-348481  
+	>         192.168.0.104 VMware ESX 4.0.0 build-208167  
+	>         
 >         
 >         So now if I wanted to list all the nfs mounts on my 5.0 host by going through the vCenter, I can do this:
 >         
->         [code]  
->         vi-admin'@'localhost:~> esxcli -s 192.168.2.110 -h 192.168.0.103 -u administrator storage nfs list  
->         Enter password:  
->         Volume Name Host Share Accessible Mounted Hardware Acceleration
->         
->         * * *
->         
->         nfs 192.168.1.107 /data/nfs_share true true Not Supported  
->         [/code]
+	>           
+	>         vi-admin'@'localhost:~> esxcli -s 192.168.2.110 -h 192.168.0.103 -u administrator storage nfs list  
+	>         Enter password:  
+	>         Volume Name Host Share Accessible Mounted Hardware Acceleration
+	>         
+	>         * * *
+	>         
+	>         nfs 192.168.1.107 /data/nfs_share true true Not Supported  
+	>         
 >         
 >         Notice that I had to type in the admin password to login to the VC. Since I saved the credentials, I can actually use fastpath to connect to the vCenter and from there when I run commands it will automatically run against the vCenter. Here is what we have to do to accomplish that:
 >         
->         [code]  
->         vi-admin'@'localhost:~> vifp listservers -l  
->         192.168.2.110 vCenter fpauth  
->         vi-admin'@'localhost:~> vifptarget -s 192.168.2.110  
->         vi-admin'@'localhost:~[192.168.2.110]> esxcli -h 192.168.0.103 storage nfs list  
->         Volume Name Host Share Accessible Mounted Hardware Acceleration
->         
->         * * *
->         
->         nfs 192.168.1.107 /data/nfs_share true true Not Supported  
->         [/code]
+	>           
+	>         vi-admin'@'localhost:~> vifp listservers -l  
+	>         192.168.2.110 vCenter fpauth  
+	>         vi-admin'@'localhost:~> vifptarget -s 192.168.2.110  
+	>         vi-admin'@'localhost:~[192.168.2.110]> esxcli -h 192.168.0.103 storage nfs list  
+	>         Volume Name Host Share Accessible Mounted Hardware Acceleration
+	>         
+	>         * * *
+	>         
+	>         nfs 192.168.1.107 /data/nfs_share true true Not Supported  
+	>         
 >         
 >         Notice that my prompt changes to the server that I am authenticated against and also notice that I didn&#8217;t have to type in the password because I am using fastpass. To leave that server from fastpass we can do the following:
 >         
->         [code]  
->         vi-admin'@'localhost:~[192.168.2.110]> vifptarget -c  
->         vi-admin'@'localhost:~>  
->         [/code]
+	>           
+	>         vi-admin'@'localhost:~[192.168.2.110]> vifptarget -c  
+	>         vi-admin'@'localhost:~>  
+	>         
 >         
 >         Notice how my prompt changed again.
 >         
@@ -334,30 +334,30 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/P
 >         
 >         vmkfstools has the same options as on the host itself. In my example I will use vMA to create a VMFS datastore with vmkfstools. I have presented two LUNs from my OpenIndiana VM to my 5.0 ESXi host. Lun0 is 100GB and LUN1 is 130GB. Lun0 already had VMFS on it and LUN1 is blank. So first let&#8217;s see if we can see the LUNS:
 >         
->         [code]  
->         vi-admin@localhost:~> vifp listservers -l  
->         192.168.2.110 vCenter fpauth  
->         vi-admin'@'localhost:~> vifptarget -s 192.168.2.110  
->         vi-admin'@'localhost:~[192.168.2.110]> esxcfg-scsidevs -h 192.168.0.103 -c | grep OI  
->         naa.600144f0928c010000004fc90a3a0001 disk /vmfs/devices/disks/naa.600144f0928c010000004fc90a3a0001 133120MB NMP OI iSCSI Disk (naa.600144f0928c010000004fc90a3a0001)  
->         naa.600144f0928c010000004fc511ec0001 disk /vmfs/devices/disks/naa.600144f0928c010000004fc511ec0001 102400MB NMP OI iSCSI Disk (naa.600144f0928c010000004fc511ec0001)  
->         [/code]
+	>           
+	>         vi-admin@localhost:~> vifp listservers -l  
+	>         192.168.2.110 vCenter fpauth  
+	>         vi-admin'@'localhost:~> vifptarget -s 192.168.2.110  
+	>         vi-admin'@'localhost:~[192.168.2.110]> esxcfg-scsidevs -h 192.168.0.103 -c | grep OI  
+	>         naa.600144f0928c010000004fc90a3a0001 disk /vmfs/devices/disks/naa.600144f0928c010000004fc90a3a0001 133120MB NMP OI iSCSI Disk (naa.600144f0928c010000004fc90a3a0001)  
+	>         naa.600144f0928c010000004fc511ec0001 disk /vmfs/devices/disks/naa.600144f0928c010000004fc511ec0001 102400MB NMP OI iSCSI Disk (naa.600144f0928c010000004fc511ec0001)  
+	>         
 >         
 >         Those are my 2 LUNs. Now checking out the VMFS datastores, I see the following:
 >         
->         [code]  
->         vi-admin@localhost:~[192.168.2.110]> esxcli -h 192.168.0.103 storage filesystem list | grep VMFS  
->         /vmfs/volumes/4fc903bb-6298d17d-8417-00505617149e OI_LUN0 4fc903bb-6298d17d-8417-00505617149e true VMFS-3 107105746944 102479429632  
->         /vmfs/volumes/4fc3c05b-c677ee28-ba3c-0050561712cb datastore1 4fc3c05b-c677ee28-ba3c-0050561712cb true VMFS-5 63350767616 58986594304  
->         [/code]
+	>           
+	>         vi-admin@localhost:~[192.168.2.110]> esxcli -h 192.168.0.103 storage filesystem list | grep VMFS  
+	>         /vmfs/volumes/4fc903bb-6298d17d-8417-00505617149e OI_LUN0 4fc903bb-6298d17d-8417-00505617149e true VMFS-3 107105746944 102479429632  
+	>         /vmfs/volumes/4fc3c05b-c677ee28-ba3c-0050561712cb datastore1 4fc3c05b-c677ee28-ba3c-0050561712cb true VMFS-5 63350767616 58986594304  
+	>         
 >         
 >         So the bottom one is the local drive with VMFS5 and the top on is LUN0 of size 100GB with VMFS3 on it. First we need to create a gpt partition table on the LUN. First let&#8217;s see what information partedUtil can see (this has to be done directly from the host):
 >         
->         [code]  
->         ~ # partedUtil getptbl /vmfs/devices/disks/naa.600144f0928c010000004fc90a3a0001  
->         msdos  
->         16970 255 63 272629760  
->         [/code]
+	>           
+	>         ~ # partedUtil getptbl /vmfs/devices/disks/naa.600144f0928c010000004fc90a3a0001  
+	>         msdos  
+	>         16970 255 63 272629760  
+	>         
 >         
 >         From VMware KB <a href="http://kb.vmware.com/kb/1036609" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1036609']);">1036609</a>:
 >         
@@ -366,27 +366,27 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/P
 >         > Note: The label msdos does not mean that the device contains a Windows file system or is being used by a Windows machine. It only means that it is a MBR (Master Boot Record) partition.
 >         > 
 >         > The second line displays the disk geometry information read from the underlying device:  
->         > [code]  
->         > 17834 255 63 286513152  
->         > | | | |  
->         > | | | \-\---- quantity of sectors  
->         > | | \-\---\---- quantity of sectors per track  
->         > | \-\---\---\----- quantity of heads  
->         > \-\---\---\---\---\----- quantity of cylinders  
->         > [/code] 
+	>         >   
+	>         > 17834 255 63 286513152  
+	>         > | | | |  
+	>         > | | | \-\---- quantity of sectors  
+	>         > | | \-\---\---- quantity of sectors per track  
+	>         > | \-\---\---\----- quantity of heads  
+	>         > \-\---\---\---\---\----- quantity of cylinders  
+	>         >  
 >         
 >         So we have no partitions defined and currently it has an &#8216;msdos&#8217; disklabel. Since we are going to create a VMFS-5 volume we will change that to GPT. Also converting the sectors to GB, we get the following:
 >         
->         [code]  
->         (272629760 * 512 / 1024 /1024 /1024) = 130 GB  
->         [/code]
+	>           
+	>         (272629760 * 512 / 1024 /1024 /1024) = 130 GB  
+	>         
 >         
 >         That matches our LUN1 size. From the KB here is what is necessary to create a gpt partition:
 >         
 >         > For ESXi/ESX 4.1 and later, use the command:  
->         > [code]  
->         > partedUtil setptbl &quot;/vmfs/devices/disks/DeviceName&quot; DiskLabel [&quot;partNum startSector endSector type/guid attribute&quot;]*  
->         > [/code] 
+	>         >   
+	>         > partedUtil setptbl &quot;/vmfs/devices/disks/DeviceName&quot; DiskLabel [&quot;partNum startSector endSector type/guid attribute&quot;]*  
+	>         >  
 >         
 >         And here is information regarding all the parameters:
 >         
@@ -406,10 +406,10 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/P
 >         
 >         Since we are taking up the whole partition the *endSector* will be the last sector of usable space. We can check that by running the following:
 >         
->         [code]  
->         ~ # partedUtil getUsableSectors /dev/disks/naa.600144f0928c010000004fc90a3a0001  
->         1 272629759  
->         [/code]
+	>           
+	>         ~ # partedUtil getUsableSectors /dev/disks/naa.600144f0928c010000004fc90a3a0001  
+	>         1 272629759  
+	>         
 >         
 >         So our *endSector* will be &#8217;272629759&#8242;. If we keep going:
 >         
@@ -417,20 +417,20 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/P
 >         
 >         To see the full list we can do the following:
 >         
->         [code]  
->         ~ # partedUtil showGuids  
->         Partition Type GUID  
->         vmfs AA31E02A400F11DB9590000C2911D1B8  
->         vmkDiagnostic 9D27538040AD11DBBF97000C2911D1B8  
->         VMware Reserved 9198EFFC31C011DB8F78000C2911D1B8  
->         Basic Data EBD0A0A2B9E5443387C068B6B72699C7  
->         Linux Swap 0657FD6DA4AB43C484E50933C84B4F4F  
->         Linux Lvm E6D6D379F50744C2A23C238F2A3DF928  
->         Linux Raid A19D880F05FC4D3BA006743F0F84911E  
->         Efi System C12A7328F81F11D2BA4B00A0C93EC93B  
->         Microsoft Reserved E3C9E3160B5C4DB8817DF92DF00215AE  
->         Unused Entry 00000000000000000000000000000000  
->         [/code]
+	>           
+	>         ~ # partedUtil showGuids  
+	>         Partition Type GUID  
+	>         vmfs AA31E02A400F11DB9590000C2911D1B8  
+	>         vmkDiagnostic 9D27538040AD11DBBF97000C2911D1B8  
+	>         VMware Reserved 9198EFFC31C011DB8F78000C2911D1B8  
+	>         Basic Data EBD0A0A2B9E5443387C068B6B72699C7  
+	>         Linux Swap 0657FD6DA4AB43C484E50933C84B4F4F  
+	>         Linux Lvm E6D6D379F50744C2A23C238F2A3DF928  
+	>         Linux Raid A19D880F05FC4D3BA006743F0F84911E  
+	>         Efi System C12A7328F81F11D2BA4B00A0C93EC93B  
+	>         Microsoft Reserved E3C9E3160B5C4DB8817DF92DF00215AE  
+	>         Unused Entry 00000000000000000000000000000000  
+	>         
 >         
 >         We are going to be using VMFS so our &#8216;*type/guid*&#8216; will be &#8220;AA31E02A400F11DB9590000C2911D1B8&#8243;. And lastly:
 >         
@@ -438,62 +438,62 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/P
 >         
 >         Since we are not going to boot from our VMFS volume, our *attribute* will be &#8217;0&#8242;. Now putting everything together, we get the following:
 >         
->         [code]  
->         partedUtil setptbl /dev/disks/naa.600144f0928c010000004fc90a3a0001 gpt &quot;1 2048 272629759 AA31E02A400F11DB9590000C2911D1B8 0&quot;  
->         [/code]
+	>           
+	>         partedUtil setptbl /dev/disks/naa.600144f0928c010000004fc90a3a0001 gpt &quot;1 2048 272629759 AA31E02A400F11DB9590000C2911D1B8 0&quot;  
+	>         
 >         
 >         Let&#8217;s see what happens when we run it:
 >         
->         [code]  
->         ~ # partedUtil setptbl /dev/disks/naa.600144f0928c010000004fc90a3a0001 gpt &quot;1 2048 272629759 AA31E02A400F11DB9590000C2911D1B8 0&quot;  
->         gpt  
->         0 0 0 0  
->         1 2048 272629759 AA31E02A400F11DB9590000C2911D1B8 0  
->         Error: Unable to satisfy all constraints on the partition.  
->         [/code]
+	>           
+	>         ~ # partedUtil setptbl /dev/disks/naa.600144f0928c010000004fc90a3a0001 gpt &quot;1 2048 272629759 AA31E02A400F11DB9590000C2911D1B8 0&quot;  
+	>         gpt  
+	>         0 0 0 0  
+	>         1 2048 272629759 AA31E02A400F11DB9590000C2911D1B8 0  
+	>         Error: Unable to satisfy all constraints on the partition.  
+	>         
 >         
 >         Looks like it failed. Since I had an msdos disklabel, I decided to first change it to GPT and see if that helps out:
 >         
->         [code]  
->         ~ # partedUtil mklabel /dev/disks/naa.600144f0928c010000004fc90a3a0001 gpt  
->         ~ # partedUtil getptbl /dev/disks/naa.600144f0928c010000004fc90a3a0001  
->         gpt  
->         16970 255 63 272629760  
->         [/code]
+	>           
+	>         ~ # partedUtil mklabel /dev/disks/naa.600144f0928c010000004fc90a3a0001 gpt  
+	>         ~ # partedUtil getptbl /dev/disks/naa.600144f0928c010000004fc90a3a0001  
+	>         gpt  
+	>         16970 255 63 272629760  
+	>         
 >         
 >         That looks better. Now checking the usable sectors again:
 >         
->         [code]  
->         ~ # partedUtil getUsableSectors /dev/disks/naa.600144f0928c010000004fc90a3a0001  
->         34 272629726  
->         [/code]
+	>           
+	>         ~ # partedUtil getUsableSectors /dev/disks/naa.600144f0928c010000004fc90a3a0001  
+	>         34 272629726  
+	>         
 >         
 >         My last usable sector is different, so changing my command and running it, I got the following:
 >         
->         [code]  
->         ~ # partedUtil setptbl /dev/disks/naa.600144f0928c010000004fc90a3a0001 gpt &quot;1 2048 272629726 AA31E02A400F11DB9590000C2911D1B8 0&quot;  
->         gpt  
->         0 0 0 0  
->         1 2048 272629726 AA31E02A400F11DB9590000C2911D1B8 0  
->         ~ # partedUtil getptbl /dev/disks/naa.600144f0928c010000004fc90a3a0001  
->         gpt  
->         16970 255 63 272629760  
->         1 2048 272629726 AA31E02A400F11DB9590000C2911D1B8 vmfs 0  
->         [/code]
+	>           
+	>         ~ # partedUtil setptbl /dev/disks/naa.600144f0928c010000004fc90a3a0001 gpt &quot;1 2048 272629726 AA31E02A400F11DB9590000C2911D1B8 0&quot;  
+	>         gpt  
+	>         0 0 0 0  
+	>         1 2048 272629726 AA31E02A400F11DB9590000C2911D1B8 0  
+	>         ~ # partedUtil getptbl /dev/disks/naa.600144f0928c010000004fc90a3a0001  
+	>         gpt  
+	>         16970 255 63 272629760  
+	>         1 2048 272629726 AA31E02A400F11DB9590000C2911D1B8 vmfs 0  
+	>         
 >         
 >         That looks much better, now back to our vMA console and to create our VMFS-5 Datastore.
 >         
->         [code]  
->         vi-admin'@'localhost:~[192.168.2.110]> vmkfstools -h 192.168.0.103 -C vmfs5 /vmfs/devices/disks/naa.600144f0928c010000004fc90a3a0001:1 -S OI_LUN1
->         
->         Creating vmfs5 file system on naa.600144f0928c010000004fc90a3a0001:1 with blockSize 1048576 and volume label OI_LUN1
->         
->         Successfully created new volume:50da04db-949786bb-eece-0050561712cb  
->         vi-admin'@'localhost:~[192.168.2.110]> esxcli -h 192.168.0.103 storage filesystem list | grep VMFS  
->         /vmfs/volumes/4fc903bb-6298d17d-8417-00505617149e OI_LUN0 4fc903bb-6298d17d-8417-00505617149e true VMFS-3 107105746944 102479429632  
->         /vmfs/volumes/4fc3c05b-c677ee28-ba3c-0050561712cb datastore1 4fc3c05b-c677ee28-ba3c-0050561712cb true VMFS-5 63350767616 58986594304  
->         /vmfs/volumes/50da04db-949786bb-eece-0050561712cb OI_LUN1 50da04db-949786bb-eece-0050561712cb true VMFS-5 139318001664 138299834368  
->         [/code]
+	>           
+	>         vi-admin'@'localhost:~[192.168.2.110]> vmkfstools -h 192.168.0.103 -C vmfs5 /vmfs/devices/disks/naa.600144f0928c010000004fc90a3a0001:1 -S OI_LUN1
+	>         
+	>         Creating vmfs5 file system on naa.600144f0928c010000004fc90a3a0001:1 with blockSize 1048576 and volume label OI_LUN1
+	>         
+	>         Successfully created new volume:50da04db-949786bb-eece-0050561712cb  
+	>         vi-admin'@'localhost:~[192.168.2.110]> esxcli -h 192.168.0.103 storage filesystem list | grep VMFS  
+	>         /vmfs/volumes/4fc903bb-6298d17d-8417-00505617149e OI_LUN0 4fc903bb-6298d17d-8417-00505617149e true VMFS-3 107105746944 102479429632  
+	>         /vmfs/volumes/4fc3c05b-c677ee28-ba3c-0050561712cb datastore1 4fc3c05b-c677ee28-ba3c-0050561712cb true VMFS-5 63350767616 58986594304  
+	>         /vmfs/volumes/50da04db-949786bb-eece-0050561712cb OI_LUN1 50da04db-949786bb-eece-0050561712cb true VMFS-5 139318001664 138299834368  
+	>         
 >         
 >         That looks good.
 >         
@@ -501,73 +501,73 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/P
 >         
 >         The commands are the same as they were before, here is a list of options:
 >         
->         [code]  
->         vi-admin@localhost:~[192.168.2.110]> vmware-cmd  
->         Usage: vmware-cmd <options> <vm-cfg-path> <vm-action> <arguments>  
->         vmware-cmd -s <options> <server-action> <arguments>
->         
->              Options:
->                Connection Options:
->                   -H or --server &amp;lt;host&amp;gt;            specifies an ESX host or a vCenter Server
->                   -h or --vihost &amp;lt;target host&amp;gt;     specifies a target host if host is a virtual center
->                   -O &amp;lt;port&amp;gt;                        specifies an alternative port
->                   -Q &amp;lt;protocol&amp;gt;                    specifies an alternative protocol
->                   -U or --username &amp;lt;username&amp;gt;      specifies a username
->                   -P or --password &amp;lt;password&amp;gt;      specifies a password
->                   --sessionfile                    specifies a sessionfile path
->                   --passthroughauth                specifies a login by sspi option
->                   --credstore                      specifies to fetch Credential store information
->                   --encoding                       specifies encoding option
->                General Options:
->                   -h More detailed help.
->                   -q Quiet. Minimal output
->                   -v Verbose.
->             
->              Server Operations:
->                vmware-cmd -l
->                vmware-cmd -s register &amp;lt;config_file_path&amp;gt; &amp;lt;datacenter&amp;gt; &amp;lt;resource pool&amp;gt;
->                vmware-cmd -s unregister &amp;lt;config_file_path&amp;gt;
->             
->              VM Operations:
->                vmware-cmd &amp;lt;cfg&amp;gt; getstate
->                vmware-cmd &amp;lt;cfg&amp;gt; start &amp;lt;powerop_mode&amp;gt;
->                vmware-cmd &amp;lt;cfg&amp;gt; stop &amp;lt;powerop_mode&amp;gt;
->                vmware-cmd &amp;lt;cfg&amp;gt; reset &amp;lt;powerop_mode&amp;gt;
->                vmware-cmd &amp;lt;cfg&amp;gt; suspend &amp;lt;powerop_mode&amp;gt;
->                vmware-cmd &amp;lt;cfg&amp;gt; setguestinfo &amp;lt;variable&amp;gt; &amp;lt;value&amp;gt;
->                vmware-cmd &amp;lt;cfg&amp;gt; getguestinfo &amp;lt;variable&amp;gt;
->                vmware-cmd &amp;lt;cfg&amp;gt; getproductinfo &amp;lt;prodinfo&amp;gt;
->                vmware-cmd &amp;lt;cfg&amp;gt; connectdevice &amp;lt;device_name&amp;gt;
->                vmware-cmd &amp;lt;cfg&amp;gt; disconnectdevice &amp;lt;device_name&amp;gt;
->                vmware-cmd &amp;lt;cfg&amp;gt; getconfigfile
->                vmware-cmd &amp;lt;cfg&amp;gt; getuptime
->                vmware-cmd &amp;lt;cfg&amp;gt; answer
->                vmware-cmd &amp;lt;cfg&amp;gt; gettoolslastactive
->                vmware-cmd &amp;lt;cfg&amp;gt; hassnapshot
->                vmware-cmd &amp;lt;cfg&amp;gt; createsnapshot &amp;lt;name&amp;gt; &amp;lt;description&amp;gt; &amp;lt;quiesce&amp;gt; &amp;lt;memory&amp;gt;
->                vmware-cmd &amp;lt;cfg&amp;gt; revertsnapshot
->                vmware-cmd &amp;lt;cfg&amp;gt; removesnapshots
->             
->         
->         [/code]
+	>           
+	>         vi-admin@localhost:~[192.168.2.110]> vmware-cmd  
+	>         Usage: vmware-cmd <options> <vm-cfg-path> <vm-action> <arguments>  
+	>         vmware-cmd -s <options> <server-action> <arguments>
+	>         
+	>              Options:
+	>                Connection Options:
+	>                   -H or --server &amp;lt;host&amp;gt;            specifies an ESX host or a vCenter Server
+	>                   -h or --vihost &amp;lt;target host&amp;gt;     specifies a target host if host is a virtual center
+	>                   -O &amp;lt;port&amp;gt;                        specifies an alternative port
+	>                   -Q &amp;lt;protocol&amp;gt;                    specifies an alternative protocol
+	>                   -U or --username &amp;lt;username&amp;gt;      specifies a username
+	>                   -P or --password &amp;lt;password&amp;gt;      specifies a password
+	>                   --sessionfile                    specifies a sessionfile path
+	>                   --passthroughauth                specifies a login by sspi option
+	>                   --credstore                      specifies to fetch Credential store information
+	>                   --encoding                       specifies encoding option
+	>                General Options:
+	>                   -h More detailed help.
+	>                   -q Quiet. Minimal output
+	>                   -v Verbose.
+	>             
+	>              Server Operations:
+	>                vmware-cmd -l
+	>                vmware-cmd -s register &amp;lt;config_file_path&amp;gt; &amp;lt;datacenter&amp;gt; &amp;lt;resource pool&amp;gt;
+	>                vmware-cmd -s unregister &amp;lt;config_file_path&amp;gt;
+	>             
+	>              VM Operations:
+	>                vmware-cmd &amp;lt;cfg&amp;gt; getstate
+	>                vmware-cmd &amp;lt;cfg&amp;gt; start &amp;lt;powerop_mode&amp;gt;
+	>                vmware-cmd &amp;lt;cfg&amp;gt; stop &amp;lt;powerop_mode&amp;gt;
+	>                vmware-cmd &amp;lt;cfg&amp;gt; reset &amp;lt;powerop_mode&amp;gt;
+	>                vmware-cmd &amp;lt;cfg&amp;gt; suspend &amp;lt;powerop_mode&amp;gt;
+	>                vmware-cmd &amp;lt;cfg&amp;gt; setguestinfo &amp;lt;variable&amp;gt; &amp;lt;value&amp;gt;
+	>                vmware-cmd &amp;lt;cfg&amp;gt; getguestinfo &amp;lt;variable&amp;gt;
+	>                vmware-cmd &amp;lt;cfg&amp;gt; getproductinfo &amp;lt;prodinfo&amp;gt;
+	>                vmware-cmd &amp;lt;cfg&amp;gt; connectdevice &amp;lt;device_name&amp;gt;
+	>                vmware-cmd &amp;lt;cfg&amp;gt; disconnectdevice &amp;lt;device_name&amp;gt;
+	>                vmware-cmd &amp;lt;cfg&amp;gt; getconfigfile
+	>                vmware-cmd &amp;lt;cfg&amp;gt; getuptime
+	>                vmware-cmd &amp;lt;cfg&amp;gt; answer
+	>                vmware-cmd &amp;lt;cfg&amp;gt; gettoolslastactive
+	>                vmware-cmd &amp;lt;cfg&amp;gt; hassnapshot
+	>                vmware-cmd &amp;lt;cfg&amp;gt; createsnapshot &amp;lt;name&amp;gt; &amp;lt;description&amp;gt; &amp;lt;quiesce&amp;gt; &amp;lt;memory&amp;gt;
+	>                vmware-cmd &amp;lt;cfg&amp;gt; revertsnapshot
+	>                vmware-cmd &amp;lt;cfg&amp;gt; removesnapshots
+	>             
+	>         
+	>         
 >         
 >         So let&#8217;s list the VMs currently registered on our 5.0 host and check the state of each VM:
 >         
->         [code]  
->         vi-admin@localhost:~[192.168.2.110]> vmware-cmd -h 192.168.0.103 -l
->         
->         /vmfs/volumes/4fc3c05b-c677ee28-ba3c-0050561712cb/test/test.vmx  
->         /vmfs/volumes/4fc3c05b-c677ee28-ba3c-0050561712cb/vMA5\_1/vMA5\_1.vmx  
->         [/code]
+	>           
+	>         vi-admin@localhost:~[192.168.2.110]> vmware-cmd -h 192.168.0.103 -l
+	>         
+	>         /vmfs/volumes/4fc3c05b-c677ee28-ba3c-0050561712cb/test/test.vmx  
+	>         /vmfs/volumes/4fc3c05b-c677ee28-ba3c-0050561712cb/vMA5\_1/vMA5\_1.vmx  
+	>         
 >         
 >         Now to check the state of the VMs:
 >         
->         [code]  
->         vi-admin'@'localhost:~[192.168.2.110]> vmware-cmd -h 192.168.0.103 /vmfs/volumes/4fc3c05b-c677ee28-ba3c-0050561712cb/test/test.vmx getstate  
->         getstate() = off  
->         vi-admin'@'localhost:~[192.168.2.110]> vmware-cmd -h 192.168.0.103 /vmfs/volumes/4fc3c05b-c677ee28-ba3c-0050561712cb/vMA5\_1/vMA5\_1.vmx getstate  
->         getstate() = on  
->         [/code]
+	>           
+	>         vi-admin'@'localhost:~[192.168.2.110]> vmware-cmd -h 192.168.0.103 /vmfs/volumes/4fc3c05b-c677ee28-ba3c-0050561712cb/test/test.vmx getstate  
+	>         getstate() = off  
+	>         vi-admin'@'localhost:~[192.168.2.110]> vmware-cmd -h 192.168.0.103 /vmfs/volumes/4fc3c05b-c677ee28-ba3c-0050561712cb/vMA5\_1/vMA5\_1.vmx getstate  
+	>         getstate() = on  
+	>         
 >         
 >         You can obviously power on and off any VMs that you want with the vmware-cmd command, if you just follow the options that are available.
 >         
@@ -575,29 +575,29 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/P
 >         
 >         Any command that you can use on the host with esxcli you can do from the vMA as well. Here is a list of all the available options:
 >         
->         [code]  
->         vi-admin@localhost:~[192.168.2.110]> esxcli -h 192.168.0.103  
->         Usage: esxcli [options] {namespace}+ {cmd} [cmd options]
->         
->         Available Namespaces:  
->         esxcli Commands that operate on the esxcli system itself  
->         allowing users to get additional information.  
->         fcoe VMware FCOE commands.  
->         hardware VMKernel hardware properties and commands for  
->         configuring hardware.  
->         iscsi VMware iSCSI commands.  
->         network Operations that pertain to the maintenance of  
->         networking on an ESX host. This includes a wide  
->         variety of commands to manipulate virtual networking  
->         components (vswitch, portgroup, etc) as well as local  
->         host IP, DNS and general host networking settings.  
->         software Manage the ESXi software image and packages  
->         storage VMware storage commands.  
->         system VMKernel system properties and commands for  
->         configuring properties of the kernel core system.  
->         vm A small number of operations that allow a user to  
->         Control Virtual Machine operations.  
->         [/code]
+	>           
+	>         vi-admin@localhost:~[192.168.2.110]> esxcli -h 192.168.0.103  
+	>         Usage: esxcli 
+	>         
+	>         Available Namespaces:  
+	>         esxcli Commands that operate on the esxcli system itself  
+	>         allowing users to get additional information.  
+	>         fcoe VMware FCOE commands.  
+	>         hardware VMKernel hardware properties and commands for  
+	>         configuring hardware.  
+	>         iscsi VMware iSCSI commands.  
+	>         network Operations that pertain to the maintenance of  
+	>         networking on an ESX host. This includes a wide  
+	>         variety of commands to manipulate virtual networking  
+	>         components (vswitch, portgroup, etc) as well as local  
+	>         host IP, DNS and general host networking settings.  
+	>         software Manage the ESXi software image and packages  
+	>         storage VMware storage commands.  
+	>         system VMKernel system properties and commands for  
+	>         configuring properties of the kernel core system.  
+	>         vm A small number of operations that allow a user to  
+	>         Control Virtual Machine operations.  
+	>         
 >         
 >         Most of these were covered throughout the whole blue print.
 >         
@@ -611,9 +611,9 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/P
 >         > <a href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/troubleshooting_vma/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/troubleshooting_vma/']);" rel="attachment wp-att-5610"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/troubleshooting_vma.png" alt="troubleshooting vma VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " width="592" height="491" class="alignnone size-full wp-image-5610" title="VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " /></a>
 >         > 
 >         > This release of vMA provides the vma-support script that enables you to collect various system configuration information and other logs. You can run this script by issuing the following command:  
->         > [code language="xml"]  
->         > > sudo vma-support  
->         > [/code]
+	>         >   
+	>         > > sudo vma-support  
+	>         > 
 >         > 
 >         > The script generates the information and log bundle and appends it to the vmware.log file on the ESXi host on which vMA is deployed. 
 >         

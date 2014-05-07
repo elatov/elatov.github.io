@@ -37,23 +37,23 @@ Run through the command described in &#8220;<a href="http://virtuallyhyper.com/2
 
 Make sure the upstream switch configuration is correct. Here is a small example:
 
-[code]  
-interface fa0/3  
-switchport mode private-vlan host  
-switchport private-vlan host-association 10 104  
-!  
-interface fa0/4  
-switchport mode private-vlan host  
-switchport private-vlan host-association 10 104  
-!  
-interface fa0/7  
-switchport mode private-vlan host  
-switchport private-vlan host-association 10 102  
-!  
-interface fa0/8  
-switchport mode private-vlan host  
-switchport private-vlan host-association 10 102  
-[/code]
+	  
+	interface fa0/3  
+	switchport mode private-vlan host  
+	switchport private-vlan host-association 10 104  
+	!  
+	interface fa0/4  
+	switchport mode private-vlan host  
+	switchport private-vlan host-association 10 104  
+	!  
+	interface fa0/7  
+	switchport mode private-vlan host  
+	switchport private-vlan host-association 10 102  
+	!  
+	interface fa0/8  
+	switchport mode private-vlan host  
+	switchport private-vlan host-association 10 102  
+	
 
 Make you sure to check out the PVLAN settings on the DVS and ensure the appropriate VLAN type is assigned to the appropriate PVLAN number. For example make sure community is PVLAN 102 and promiscuous is PVLAN 104
 
@@ -61,99 +61,99 @@ Make you sure to check out the PVLAN settings on the DVS and ensure the appropri
 
 List all the vmkernel interfaces:
 
-[code]  
-~ # esxcli network ip interface ipv4 get  
-Name IPv4 Address IPv4 Netmask IPv4 Broadcast Address Type DHCP DNS  
-\---\- --\---\---\---\-- -\---\---\---\--- \---\---\---\---\-- -\---\---\---\-- -\---\----  
-vmk0 192.168.0.103 255.255.255.0 192.168.0.255 STATIC false  
-vmk1 192.168.1.106 255.255.255.0 192.168.1.255 STATIC false  
-vmk2 192.168.3.102 255.255.255.0 192.168.3.255 STATIC false  
-[/code]
+	  
+	~ # esxcli network ip interface ipv4 get  
+	Name IPv4 Address IPv4 Netmask IPv4 Broadcast Address Type DHCP DNS  
+	\---\- --\---\---\---\-- -\---\---\---\--- \---\---\---\---\-- -\---\---\---\-- -\---\----  
+	vmk0 192.168.0.103 255.255.255.0 192.168.0.255 STATIC false  
+	vmk1 192.168.1.106 255.255.255.0 192.168.1.255 STATIC false  
+	vmk2 192.168.3.102 255.255.255.0 192.168.3.255 STATIC false  
+	
 
 Figure out which one is used for Management:
 
-[code]  
-~ # grep -i ManagementIface /etc/vmware/esx.conf  
-/adv/Net/ManagementIface = "vmk0"  
-[/code]
+	  
+	~ # grep -i ManagementIface /etc/vmware/esx.conf  
+	/adv/Net/ManagementIface = "vmk0"  
+	
 
 Figure out which one is used for vMotion:
 
-[code]  
-~ # grep -i /migrate /etc/vmware/esx.conf  
-/adv/Migrate/Vmknic = "vmk2"  
-[/code]
+	  
+	~ # grep -i /migrate /etc/vmware/esx.conf  
+	/adv/Migrate/Vmknic = "vmk2"  
+	
 
 Figure out which one is used for Fault Tolerance logging:
 
-[code]  
-~ # grep /FT /etc/vmware/esx.conf  
-/adv/FT/Vmknic = "vmk1"  
-[/code]
+	  
+	~ # grep /FT /etc/vmware/esx.conf  
+	/adv/FT/Vmknic = "vmk1"  
+	
 
 ### Troubleshoot DNS and routing related issues
 
 List the dns search domain:
 
-[code]  
-~ # esxcli network ip dns search list  
-DNSSearch Domains:  
-[/code]
+	  
+	~ # esxcli network ip dns search list  
+	DNSSearch Domains:  
+	
 
 List the DNS servers on the host:
 
-[code]  
-~ # esxcli network ip dns server list  
-DNSServers:  
-[/code]
+	  
+	~ # esxcli network ip dns server list  
+	DNSServers:  
+	
 
 Add or remove DNS search domains and DNS servers:
 
-[code]  
-~ # esxcli network ip dns search add -d test.com  
-~ # esxcli network ip dns search list  
-DNSSearch Domains: test.com  
-[/code]
+	  
+	~ # esxcli network ip dns search add -d test.com  
+	~ # esxcli network ip dns search list  
+	DNSSearch Domains: test.com  
+	
 
 Add a DNS server:
 
-[code]  
-~ # esxcli network ip dns server add -s 192.168.1.30  
-~ # esxcli network ip dns server list  
-DNSServers: 192.168.1.30  
-[/code]
+	  
+	~ # esxcli network ip dns server add -s 192.168.1.30  
+	~ # esxcli network ip dns server list  
+	DNSServers: 192.168.1.30  
+	
 
 List the routing table on the ESXi host:
 
-[code]  
-~ # esxcfg-route -l  
-VMkernel Routes:  
-Network Netmask Gateway Interface  
-192.168.0.0 255.255.255.0 Local Subnet vmk0  
-192.168.1.0 255.255.255.0 Local Subnet vmk1  
-192.168.3.0 255.255.255.0 Local Subnet vmk2  
-[/code]
+	  
+	~ # esxcfg-route -l  
+	VMkernel Routes:  
+	Network Netmask Gateway Interface  
+	192.168.0.0 255.255.255.0 Local Subnet vmk0  
+	192.168.1.0 255.255.255.0 Local Subnet vmk1  
+	192.168.3.0 255.255.255.0 Local Subnet vmk2  
+	
 
 Add a static route to reach network 10.12.10.0/24 via 192.168.1.2 gateway:
 
-[code]  
-~ # esxcfg-route -a 10.12.10.0/24 192.168.1.2  
-Adding static route 10.12.10.0/24 to VMkernel  
-~ # esxcfg-route -l  
-VMkernel Routes:  
-Network Netmask Gateway Interface  
-10.12.10.0 255.255.255.0 192.168.1.2 vmk1  
-192.168.0.0 255.255.255.0 Local Subnet vmk0  
-192.168.1.0 255.255.255.0 Local Subnet vmk1  
-192.168.3.0 255.255.255.0 Local Subnet vmk2  
-[/code]
+	  
+	~ # esxcfg-route -a 10.12.10.0/24 192.168.1.2  
+	Adding static route 10.12.10.0/24 to VMkernel  
+	~ # esxcfg-route -l  
+	VMkernel Routes:  
+	Network Netmask Gateway Interface  
+	10.12.10.0 255.255.255.0 192.168.1.2 vmk1  
+	192.168.0.0 255.255.255.0 Local Subnet vmk0  
+	192.168.1.0 255.255.255.0 Local Subnet vmk1  
+	192.168.3.0 255.255.255.0 Local Subnet vmk2  
+	
 
 Remove a route from the routing table:
 
-[code]  
-~ # esxcfg-route -d 10.12.10.0/24 192.168.1.2  
-Deleting static route 10.12.10.0/24 from VMkernel  
-[/code]
+	  
+	~ # esxcfg-route -d 10.12.10.0/24 192.168.1.2  
+	Deleting static route 10.12.10.0/24 from VMkernel  
+	
 
 ### Use esxtop/resxtop to identify network performance problems
 
@@ -190,56 +190,56 @@ From &#8220;<a href="http://communities.vmware.com/servlet/JiveServlet/previewBo
 
 Check out esxtop and if you see any Drops (received or transmitted) it maybe CPU limitation or buffering issue with in the Guest OS. If you check out physical NIC statistics like so:
 
-[code]  
-~ # ethtool -S vmnic0  
-NIC statistics:  
-rx_packets: 3711232  
-tx_packets: 7100469  
-rx_bytes: 495915330  
-tx_bytes: 1247347860  
-rx_broadcast: 0  
-tx_broadcast: 0  
-rx_multicast: 0  
-tx_multicast: 0  
-rx_errors: 0  
-tx_errors: 0  
-tx_dropped: 0  
-multicast: 0  
-collisions: 0  
-rx\_length\_errors: 0  
-rx\_over\_errors: 0  
-rx\_crc\_errors: 0  
-rx\_frame\_errors: 0  
-rx\_no\_buffer_count: 0  
-rx\_missed\_errors: 0  
-tx\_aborted\_errors: 0  
-tx\_carrier\_errors: 0  
-tx\_fifo\_errors: 0  
-tx\_heartbeat\_errors: 0  
-tx\_window\_errors: 0  
-tx\_abort\_late_coll: 0  
-tx\_deferred\_ok: 0  
-tx\_single\_coll_ok: 0  
-tx\_multi\_coll_ok: 0  
-tx\_timeout\_count: 0  
-tx\_restart\_queue: 0  
-rx\_long\_length_errors: 0  
-rx\_short\_length_errors: 0  
-rx\_align\_errors: 0  
-tx\_tcp\_seg_good: 14887  
-tx\_tcp\_seg_failed: 0  
-rx\_flow\_control_xon: 0  
-rx\_flow\_control_xoff: 0  
-tx\_flow\_control_xon: 0  
-tx\_flow\_control_xoff: 0  
-rx\_long\_byte_count: 495915330  
-rx\_csum\_offload_good: 3036558  
-rx\_csum\_offload_errors: 0  
-alloc\_rx\_buff_failed: 0  
-tx_smbus: 0  
-rx_smbus: 0  
-dropped_smbus: 0  
-[/code]
+	  
+	~ # ethtool -S vmnic0  
+	NIC statistics:  
+	rx_packets: 3711232  
+	tx_packets: 7100469  
+	rx_bytes: 495915330  
+	tx_bytes: 1247347860  
+	rx_broadcast: 0  
+	tx_broadcast: 0  
+	rx_multicast: 0  
+	tx_multicast: 0  
+	rx_errors: 0  
+	tx_errors: 0  
+	tx_dropped: 0  
+	multicast: 0  
+	collisions: 0  
+	rx\_length\_errors: 0  
+	rx\_over\_errors: 0  
+	rx\_crc\_errors: 0  
+	rx\_frame\_errors: 0  
+	rx\_no\_buffer_count: 0  
+	rx\_missed\_errors: 0  
+	tx\_aborted\_errors: 0  
+	tx\_carrier\_errors: 0  
+	tx\_fifo\_errors: 0  
+	tx\_heartbeat\_errors: 0  
+	tx\_window\_errors: 0  
+	tx\_abort\_late_coll: 0  
+	tx\_deferred\_ok: 0  
+	tx\_single\_coll_ok: 0  
+	tx\_multi\_coll_ok: 0  
+	tx\_timeout\_count: 0  
+	tx\_restart\_queue: 0  
+	rx\_long\_length_errors: 0  
+	rx\_short\_length_errors: 0  
+	rx\_align\_errors: 0  
+	tx\_tcp\_seg_good: 14887  
+	tx\_tcp\_seg_failed: 0  
+	rx\_flow\_control_xon: 0  
+	rx\_flow\_control_xoff: 0  
+	tx\_flow\_control_xon: 0  
+	tx\_flow\_control_xoff: 0  
+	rx\_long\_byte_count: 495915330  
+	rx\_csum\_offload_good: 3036558  
+	rx\_csum\_offload_errors: 0  
+	alloc\_rx\_buff_failed: 0  
+	tx_smbus: 0  
+	rx_smbus: 0  
+	dropped_smbus: 0  
+	
 
 If any of the failed or dropped counters are high, it could be a sign of a bad Nic Driver or some upstream issues. Also if you check out the logs under */var/log/vmkernel.log* and you see driver related errors then it&#8217;s most like a driver/firmware issue and checking out the vendor recipes is recommended to make sure they are up to the recommended versions.
 

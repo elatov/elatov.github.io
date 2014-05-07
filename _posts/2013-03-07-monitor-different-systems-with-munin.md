@@ -186,7 +186,7 @@ Then checking the logs after the Cron job ran, I saw the following:
     2013/02/20 11:55:09 [INFO]: Munin-update finished for node dnsd.me;freebsd.dnsd.me (6.15 sec) 
     2013/02/20 11:55:09 [INFO] Reaping Munin::Master::UpdateWorker<dnsd .me;kerch.dnsd.me>. Exit value/signal: 0/0 
     2013/02/20 11:55:09 [INFO] Reaping Munin::Master::UpdateWorker</dnsd><dnsd .me;freebsd.dnsd.me>. Exit value/signal: 0/0 
-    2013/02/20 11:55:10 [INFO]: Munin-update finished (7.05 sec) [/code] 
+    2013/02/20 11:55:10 [INFO]: Munin-update finished (7.05 sec)  
     
 
 We can see that both nodes have been updated. You can also check under **/var/lib/munin** to make sure information about both nodes exist:
@@ -302,7 +302,7 @@ EOM
 esac
 val=$(/usr/local/sbin/arcconf getconfig 1 PD | grep State | grep Online| /usr/bin/wc -l)
 echo "raid.value $(echo $val)"
-</pre>
+
 
 Here is what the script produced as ouput:
 

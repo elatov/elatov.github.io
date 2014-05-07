@@ -21,10 +21,10 @@ Recently ran into an issue when cloning a VM. The clone would start and would ru
 
 Checking out the /var/log/vmware/hostd.log file, I saw the following error:
 
-[code]  
-[2012-10-03 22:19:06.743 62040B90 error 'App' opID=D6A05DBB-0000170C-d4-bd-7b] Failed to get data ring: vmodl.fault.InvalidArgument  
-[2012-10-03 22:19:06.783 62040B90 error 'vm:/vmfs/volumes/4f5275da-25b5f33c-40e5-0019b9d0aecd/New Virtual Machine/New Virtual Machine.vmx' opID=D6A05DBB-0000170C-d4-bd-7b] vim.VirtualMachine vim.VirtualMachine:512 does not have any configuration information.  
-[/code]
+	  
+	[2012-10-03 22:19:06.743 62040B90 error 'App' opID=D6A05DBB-0000170C-d4-bd-7b] Failed to get data ring: vmodl.fault.InvalidArgument  
+	[2012-10-03 22:19:06.783 62040B90 error 'vm:/vmfs/volumes/4f5275da-25b5f33c-40e5-0019b9d0aecd/New Virtual Machine/New Virtual Machine.vmx' opID=D6A05DBB-0000170C-d4-bd-7b] vim.VirtualMachine vim.VirtualMachine:512 does not have any configuration information.  
+	
 
 It looks like as it was creating the newly cloned VM, it would fail with some invalid configuration message. I actually ran across VMware KB <a href="http://kb.vmware.com/kb/2012959" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/2012959']);">2012959</a>. The KB matched my above message and from KB here are the symptoms:
 
@@ -42,18 +42,18 @@ It looks like as it was creating the newly cloned VM, it would fail with some in
 
 First I wanted to check if this vm has CTK enabled. Looking at the vmx file, I see the following:
 
-[code]  
-/vmfs/volumes/4f5275da-25b5f33c-40e5-0019b9d0aecd/vm/ # grep ide0 vm.vmx | grep ctk  
-ide0:0.ctkEnabled = "TRUE"  
-[/code]
+	  
+	/vmfs/volumes/4f5275da-25b5f33c-40e5-0019b9d0aecd/vm/ # grep ide0 vm.vmx | grep ctk  
+	ide0:0.ctkEnabled = "TRUE"  
+	
 
 That was the case. Then checking out the version of ESXi:
 
-[code]  
-~ # vmware -lv  
-VMware ESXi 4.1.0 build-348481  
-VMware ESXi 4.1.0 Update 1  
-[/code]
+	  
+	~ # vmware -lv  
+	VMware ESXi 4.1.0 build-348481  
+	VMware ESXi 4.1.0 Update 1  
+	
 
 I was definitely on version 4 of ESXi, lastly vCenter was at version 5. So I matched all the symptoms. I then followed the instructions in the KB on how to get around the issue:
 
@@ -65,10 +65,10 @@ I was definitely on version 4 of ESXi, lastly vCenter was at version 5. So I mat
 > 4.  Click Configuration Parameters.
 > 5.  Locate the values below for the IDE disk and set the values to FALSE.  
 >     for example:  
->     [code]  
->     ide0:0.ctkEnabled = "TRUE"  
->     ctkEnabled = "TRUE"  
->     [/code]
+	>       
+	>     ide0:0.ctkEnabled = "TRUE"  
+	>     ctkEnabled = "TRUE"  
+	>     
 > 6.  Click OK then OK again.
 > 7.  Power-on the virtual machine and retry the clone operation.
 

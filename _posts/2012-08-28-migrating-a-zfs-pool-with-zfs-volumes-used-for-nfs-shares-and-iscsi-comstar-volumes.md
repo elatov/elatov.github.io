@@ -20,72 +20,72 @@ tags:
   - ZFS Import
   - ZFS sharenfs
 ---
-If you had a chance to read my previous [blog][1] regarding migrating the root ZFS pool to a smaller drive, first of all I wanted to apologize for the longevity of that blog, secondly I decided to do some additional steps after the migration. I wanted to rename my zpool from &#8216;rpool1&#8242; to &#8216;data&#8217;. Usually you can do this with just a zpool export and import, but I was using some of the ZFS volumes as NFS shares and some of them for Comstar iSCSI Volumes, so there were some additional steps necessary to make the migration complete appropriately. First of all here are my zpools:
+If you had a chance to read my previous  regarding migrating the root ZFS pool to a smaller drive, first of all I wanted to apologize for the longevity of that blog, secondly I decided to do some additional steps after the migration. I wanted to rename my zpool from &#8216;rpool1&#8242; to &#8216;data&#8217;. Usually you can do this with just a zpool export and import, but I was using some of the ZFS volumes as NFS shares and some of them for Comstar iSCSI Volumes, so there were some additional steps necessary to make the migration complete appropriately. First of all here are my zpools:
 
-[code]  
-root@openindiana:~# zpool status  
-pool: rpool1  
-state: ONLINE  
-scan: none requested  
-config:
-
-NAME STATE READ WRITE CKSUM  
-rpool1 ONLINE 0 0 0  
-c3t0d0s0 ONLINE 0 0 0
-
-errors: No known data errors
-
-pool: syspool  
-state: ONLINE  
-scan: none requested  
-config:
-
-NAME STATE READ WRITE CKSUM  
-syspool ONLINE 0 0 0  
-c4t0d0s0 ONLINE 0 0 0
-
-errors: No known data errors  
-[/code]
+	  
+	root@openindiana:~# zpool status  
+	pool: rpool1  
+	state: ONLINE  
+	scan: none requested  
+	config:
+	
+	NAME STATE READ WRITE CKSUM  
+	rpool1 ONLINE 0 0 0  
+	c3t0d0s0 ONLINE 0 0 0
+	
+	errors: No known data errors
+	
+	pool: syspool  
+	state: ONLINE  
+	scan: none requested  
+	config:
+	
+	NAME STATE READ WRITE CKSUM  
+	syspool ONLINE 0 0 0  
+	c4t0d0s0 ONLINE 0 0 0
+	
+	errors: No known data errors  
+	
 
 And here are my ZFS Volumes:
 
-[code]  
-root@openindiana:~# zfs list -r rpool1  
-NAME USED AVAIL REFER MOUNTPOINT  
-rpool1 238G 11.8G 46K /rpool1  
-rpool1/iscsi_share 103G 110G 4.71G -  
-rpool1/iscsi_share2 134G 146G 26.5M -  
-rpool1/nfs\_share 1000M 11.8G 1000M /rpool1/nfs\_share  
-[/code]
+	  
+	root@openindiana:~# zfs list -r rpool1  
+	NAME USED AVAIL REFER MOUNTPOINT  
+	rpool1 238G 11.8G 46K /rpool1  
+	rpool1/iscsi_share 103G 110G 4.71G -  
+	rpool1/iscsi_share2 134G 146G 26.5M -  
+	rpool1/nfs\_share 1000M 11.8G 1000M /rpool1/nfs\_share  
+	
 
 As you have probably guessed &#8216;iscsi\_share&#8217; and &#8216;iscsi\_share2&#8242; are used as iSCSI Comstar Volumes, BTW if you want information on Comstar, I would recommend reading the Oracle Documentation &#8220;<a href="http://docs.oracle.com/cd/E19963-01/html/821-1459/fncpi.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://docs.oracle.com/cd/E19963-01/html/821-1459/fncpi.html']);">Configuring COMSTAR (Task Map)</a>&#8220;:
 
-[code]  
-root@openindiana:~# sbdadm list-lu
-
-Found 2 LU(s)
-
-GUID DATA SIZE SOURCE  
-\---\---\---\---\---\---\---\---\---\---\-- -\---\---\---\---\---\--- \---\---\---\---\----  
-600144f0928c010000004fc511ec0001 107374182400 /dev/zvol/rdsk/rpool1/iscsi_share  
-600144f0928c010000004fc90a3a0001 139586437120 /dev/zvol/rdsk/rpool1/iscsi_share2  
-[/code]
+	  
+	root@openindiana:~# sbdadm list-lu
+	
+	Found 2 LU(s)
+	
+	GUID DATA SIZE SOURCE  
+	\---\---\---\---\---\---\---\---\---\---\-- -\---\---\---\---\---\--- \---\---\---\---\----  
+	600144f0928c010000004fc511ec0001 107374182400 /dev/zvol/rdsk/rpool1/iscsi_share  
+	600144f0928c010000004fc90a3a0001 139586437120 /dev/zvol/rdsk/rpool1/iscsi_share2  
+	
 
 And &#8216;nfs_share&#8217; is used as an NFS Share:
 
-[code]
-
-root@openindiana:~# zfs get sharenfs rpool1/nfs_share  
-NAME PROPERTY VALUE SOURCE  
-rpool1/nfs_share sharenfs rw,root=192.168.1.108 local  
-[/code]
+	
+	
+	root@openindiana:~# zfs get sharenfs rpool1/nfs_share  
+	NAME PROPERTY VALUE SOURCE  
+	rpool1/nfs_share sharenfs rw,root=192.168.1.108 local  
+	
 
 Trying to export the ZFS pool, we actually get an error saying that it&#8217;s in use:
 
-[code]  
-root@openindiana:~# zpool export rpool1  
-cannot export 'rpool1': pool is busy  
-[/code]
+	  
+	root@openindiana:~# zpool export rpool1  
+	cannot export 'rpool1': pool is busy  
+	
 
 This is actually expected, from the Oracle Documenation, &#8216;<a href="http://docs.oracle.com/cd/E19963-01/html/821-1448/gaypf.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://docs.oracle.com/cd/E19963-01/html/821-1448/gaypf.html']);">ZFS Volumes</a>&#8216;:
 
@@ -99,18 +99,18 @@ When working with Comstar iSCSI there are usually two services in play. The firs
 
 My service was, of course, online, since I had LUNs provisioned from the Comstar Framework:
 
-[code]  
-root@openindiana:~# svcs -l stmf  
-fmri svc:/system/stmf:default  
-name STMF  
-enabled true  
-state online  
-next_state none  
-state_time August 22, 2012 02:23:33 AM MDT  
-logfile /var/svc/log/system-stmf:default.log  
-restarter svc:/system/svc/restarter:default  
-dependency require_all/none svc:/system/filesystem/local:default (online)  
-[/code]
+	  
+	root@openindiana:~# svcs -l stmf  
+	fmri svc:/system/stmf:default  
+	name STMF  
+	enabled true  
+	state online  
+	next_state none  
+	state_time August 22, 2012 02:23:33 AM MDT  
+	logfile /var/svc/log/system-stmf:default.log  
+	restarter svc:/system/svc/restarter:default  
+	dependency require_all/none svc:/system/filesystem/local:default (online)  
+	
 
 The second aspect of the COMSTAR Framework is the &#8216;iscsi-target&#8217;, this used to be handled by the *iscsitadm*, from the Oracle Document &#8220;<a href="http://docs.oracle.com/cd/E23824_01/html/E24456/storage-7.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://docs.oracle.com/cd/E23824_01/html/E24456/storage-7.html']);">COMSTAR Replaces iSCSI Target Daemon</a>&#8220;:
 
@@ -144,205 +144,205 @@ But now you can do with the comstar iscsi-target service, from the Oracle docume
 
 I can see that my iscsi-target service was running as well:
 
-[code]  
-root@openindiana:~# svcs -l iscsi/target  
-fmri svc:/network/iscsi/target:default  
-name iscsi target  
-enabled true  
-state online  
-next_state none  
-state_time August 22, 2012 02:23:34 AM MDT  
-logfile /var/svc/log/network-iscsi-target:default.log  
-restarter svc:/system/svc/restarter:default  
-dependency require_any/error svc:/milestone/network (online)  
-dependency require_all/none svc:/system/stmf:default (online)  
-[/code]
+	  
+	root@openindiana:~# svcs -l iscsi/target  
+	fmri svc:/network/iscsi/target:default  
+	name iscsi target  
+	enabled true  
+	state online  
+	next_state none  
+	state_time August 22, 2012 02:23:34 AM MDT  
+	logfile /var/svc/log/network-iscsi-target:default.log  
+	restarter svc:/system/svc/restarter:default  
+	dependency require_any/error svc:/milestone/network (online)  
+	dependency require_all/none svc:/system/stmf:default (online)  
+	
 
 we can also see that it depends on the stmf service and this makes sense since the stmf creates the LUNs and the iscsi-target serves up the LUNs. Without the LUNs there will nothing to serve. So let&#8217;s see if we can stop the stmf service and then try to our export one more time.
 
-[code]  
-root@openindiana:~# zpool export -f rpool1  
-cannot export 'rpool1': pool is busy
-
-root@openindiana:~# svcadm disable stmf  
-root@openindiana:~# svcadm disable iscsi/target
-
-root@openindiana:~# zpool export -f rpool1  
-cannot export 'rpool1': pool is busy  
-[/code]
+	  
+	root@openindiana:~# zpool export -f rpool1  
+	cannot export 'rpool1': pool is busy
+	
+	root@openindiana:~# svcadm disable stmf  
+	root@openindiana:~# svcadm disable iscsi/target
+	
+	root@openindiana:~# zpool export -f rpool1  
+	cannot export 'rpool1': pool is busy  
+	
 
 I still couldn&#8217;t export. I even checked the connection table to make sure nothing was mounting the volumes:
 
-[code]  
-root@openindiana:/var/svc/log# netstat -an -f inet
-
-UDP: IPv4  
-Local Address Remote Address State  
-\---\---\---\---\---\---\-- -\---\---\---\---\---\---\- --\---\-----  
-*.111 Idle  
-\*.\* Unbound  
-*.57026 Idle  
-*.111 Idle  
-\*.\* Unbound  
-*.53050 Idle  
-\*.\* Unbound  
-\*.\* Unbound  
-\*.\* Unbound  
-*.4045 Idle  
-*.4045 Idle  
-*.50102 Idle  
-*.53843 Idle  
-*.35042 Idle  
-*.58998 Idle
-
-TCP: IPv4  
-Local Address Remote Address Swind Send-Q Rwind Recv-Q State  
-\---\---\---\---\---\---\-- -\---\---\---\---\---\---\- --\--- \---\--- \---\-- -\---\-- -\---\---\----  
-\*.111 \*.* 0 0 128000 0 LISTEN  
-\*.\* \*.\* 0 0 128000 0 IDLE  
-\*.111 \*.* 0 0 128000 0 LISTEN  
-\*.\* \*.\* 0 0 128000 0 IDLE  
-\*.4045 \*.* 0 0 1049200 0 LISTEN  
-\*.4045 \*.* 0 0 1048952 0 LISTEN  
-\*.35450 \*.* 0 0 128000 0 LISTEN  
-\*.46501 \*.* 0 0 128000 0 LISTEN  
-\*.22 \*.* 0 0 128000 0 LISTEN  
-\*.65075 \*.* 0 0 128000 0 LISTEN  
-\*.59457 \*.* 0 0 128000 0 LISTEN  
-127.0.0.1.25 \*.\* 0 0 128000 0 LISTEN  
-127.0.0.1.587 \*.\* 0 0 128000 0 LISTEN  
-192.168.1.107.22 192.168.1.100.56242 64768 51 128480 0 ESTABLISHED  
-[/code]
+	  
+	root@openindiana:/var/svc/log# netstat -an -f inet
+	
+	UDP: IPv4  
+	Local Address Remote Address State  
+	\---\---\---\---\---\---\-- -\---\---\---\---\---\---\- --\---\-----  
+	*.111 Idle  
+	\*.\* Unbound  
+	*.57026 Idle  
+	*.111 Idle  
+	\*.\* Unbound  
+	*.53050 Idle  
+	\*.\* Unbound  
+	\*.\* Unbound  
+	\*.\* Unbound  
+	*.4045 Idle  
+	*.4045 Idle  
+	*.50102 Idle  
+	*.53843 Idle  
+	*.35042 Idle  
+	*.58998 Idle
+	
+	TCP: IPv4  
+	Local Address Remote Address Swind Send-Q Rwind Recv-Q State  
+	\---\---\---\---\---\---\-- -\---\---\---\---\---\---\- --\--- \---\--- \---\-- -\---\-- -\---\---\----  
+	\*.111 \*.* 0 0 128000 0 LISTEN  
+	\*.\* \*.\* 0 0 128000 0 IDLE  
+	\*.111 \*.* 0 0 128000 0 LISTEN  
+	\*.\* \*.\* 0 0 128000 0 IDLE  
+	\*.4045 \*.* 0 0 1049200 0 LISTEN  
+	\*.4045 \*.* 0 0 1048952 0 LISTEN  
+	\*.35450 \*.* 0 0 128000 0 LISTEN  
+	\*.46501 \*.* 0 0 128000 0 LISTEN  
+	\*.22 \*.* 0 0 128000 0 LISTEN  
+	\*.65075 \*.* 0 0 128000 0 LISTEN  
+	\*.59457 \*.* 0 0 128000 0 LISTEN  
+	127.0.0.1.25 \*.\* 0 0 128000 0 LISTEN  
+	127.0.0.1.587 \*.\* 0 0 128000 0 LISTEN  
+	192.168.1.107.22 192.168.1.100.56242 64768 51 128480 0 ESTABLISHED  
+	
 
 I then double checked the services, and both were disabled:
 
-[code]  
-root@openindiana:~# svcs -l iscsi/target  
-fmri svc:/network/iscsi/target:default  
-name iscsi target  
-enabled false  
-state disabled  
-next_state none  
-state_time August 26, 2012 01:14:28 AM MDT  
-logfile /var/svc/log/network-iscsi-target:default.log  
-restarter svc:/system/svc/restarter:default  
-dependency require_any/error svc:/milestone/network (online)  
-dependency require_all/none svc:/system/stmf:default (disabled)
-
-root@openindiana:~# svcs -l stmf  
-fmri svc:/system/stmf:default  
-name STMF  
-enabled false  
-state disabled  
-next_state none  
-state_time August 26, 2012 01:12:27 AM MDT  
-logfile /var/svc/log/system-stmf:default.log  
-restarter svc:/system/svc/restarter:default  
-dependency require_all/none svc:/system/filesystem/local:default (online)  
-[/code]
+	  
+	root@openindiana:~# svcs -l iscsi/target  
+	fmri svc:/network/iscsi/target:default  
+	name iscsi target  
+	enabled false  
+	state disabled  
+	next_state none  
+	state_time August 26, 2012 01:14:28 AM MDT  
+	logfile /var/svc/log/network-iscsi-target:default.log  
+	restarter svc:/system/svc/restarter:default  
+	dependency require_any/error svc:/milestone/network (online)  
+	dependency require_all/none svc:/system/stmf:default (disabled)
+	
+	root@openindiana:~# svcs -l stmf  
+	fmri svc:/system/stmf:default  
+	name STMF  
+	enabled false  
+	state disabled  
+	next_state none  
+	state_time August 26, 2012 01:12:27 AM MDT  
+	logfile /var/svc/log/system-stmf:default.log  
+	restarter svc:/system/svc/restarter:default  
+	dependency require_all/none svc:/system/filesystem/local:default (online)  
+	
 
 I then rebooted my openindiana VM:
 
-[code]  
-root@openindiana:~# reboot  
-[/code]
+	  
+	root@openindiana:~# reboot  
+	
 
 After it rebooted my export succeeded without any issues:
 
-[code]  
-root@openindiana:~# zpool export rpool1  
-root@openindiana:~#  
-[/code]
+	  
+	root@openindiana:~# zpool export rpool1  
+	root@openindiana:~#  
+	
 
 I then re-imported the ZFS Pool with another name:
 
-[code]  
-root@openindiana:~# zpool import rpool1 data  
-root@openindiana:~# zfs list -r data  
-NAME USED AVAIL REFER MOUNTPOINT  
-data 238G 11.8G 46K /data  
-data/iscsi_share 103G 110G 4.71G -  
-data/iscsi_share2 134G 146G 26.5M -  
-data/nfs\_share 1000M 11.8G 1000M /data/nfs\_share  
-[/code]
+	  
+	root@openindiana:~# zpool import rpool1 data  
+	root@openindiana:~# zfs list -r data  
+	NAME USED AVAIL REFER MOUNTPOINT  
+	data 238G 11.8G 46K /data  
+	data/iscsi_share 103G 110G 4.71G -  
+	data/iscsi_share2 134G 146G 26.5M -  
+	data/nfs\_share 1000M 11.8G 1000M /data/nfs\_share  
+	
 
 That looks good, I then re-enabled the services and checked for my LUNs:
 
-[code]  
-root@openindiana:~# svcadm enable stmf  
-root@openindiana:~# svcadm enable iscsi/target  
-root@openindiana:~# sbdadm list-lu  
-root@openindiana:~#  
-[/code]
+	  
+	root@openindiana:~# svcadm enable stmf  
+	root@openindiana:~# svcadm enable iscsi/target  
+	root@openindiana:~# sbdadm list-lu  
+	root@openindiana:~#  
+	
 
 Since the LUNs depend on the ZFS Volume full path, I will have to re-add them using the same guid. Jarret actually ran into this recently in his lab, check out his <a href="http://virtuallyhyper.com/2012/08/restoring-from-backup-in-my-home-lab/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/08/restoring-from-backup-in-my-home-lab/']);">post</a>. Here is what I did to re-add my ZFS volumes back to sdbadm, so they can be seen as LUNs again:
 
-[code]  
-root@openindiana:~# stmfadm create-lu -p guid=600144f0928c010000004fc511ec0001 /dev/zvol/rdsk/data/iscsi_share  
-Logical unit created: 600144F0928C010000004FC511EC0001
-
-root@openindiana:~# stmfadm create-lu -p guid=600144f0928c010000004fc90a3a0001 /dev/zvol/rdsk/data/iscsi_share2  
-Logical unit created: 600144F0928C010000004FC90A3A0001  
-[/code]
+	  
+	root@openindiana:~# stmfadm create-lu -p guid=600144f0928c010000004fc511ec0001 /dev/zvol/rdsk/data/iscsi_share  
+	Logical unit created: 600144F0928C010000004FC511EC0001
+	
+	root@openindiana:~# stmfadm create-lu -p guid=600144f0928c010000004fc90a3a0001 /dev/zvol/rdsk/data/iscsi_share2  
+	Logical unit created: 600144F0928C010000004FC90A3A0001  
+	
 
 Now checking out sbdadm, I saw the following:
 
-[code]  
-root@openindiana:~# sbdadm list-lu
-
-Found 2 LU(s)
-
-GUID DATA SIZE SOURCE  
-\---\---\---\---\---\---\---\---\---\---\-- -\---\---\---\---\---\--- \---\---\---\---\----  
-600144f0928c010000004fc511ec0001 107374182400 /dev/zvol/rdsk/data/iscsi_share  
-600144f0928c010000004fc90a3a0001 139586437120 /dev/zvol/rdsk/data/iscsi_share2  
-[/code]
+	  
+	root@openindiana:~# sbdadm list-lu
+	
+	Found 2 LU(s)
+	
+	GUID DATA SIZE SOURCE  
+	\---\---\---\---\---\---\---\---\---\---\-- -\---\---\---\---\---\--- \---\---\---\---\----  
+	600144f0928c010000004fc511ec0001 107374182400 /dev/zvol/rdsk/data/iscsi_share  
+	600144f0928c010000004fc90a3a0001 139586437120 /dev/zvol/rdsk/data/iscsi_share2  
+	
 
 That looks perfect. Since the GUID stayed the same, I didn&#8217;t have to worry about my views or target port group settings. I had to use the original GUIDs, so this process would&#8217;ve worked if I didn&#8217;t have them written down or saved somewhere. Lastly checking the NFS share settings, I saw the following:
 
-[code]  
-root@openindiana:~# zfs get sharenfs data/nfs_share  
-NAME PROPERTY VALUE SOURCE  
-data/nfs_share sharenfs rw,root=192.168.1.108 local
-
-root@openindiana:~# sharemgr show -vp  
-default nfs=()  
-zfs nfs=()  
-zfs/data/nfs_share nfs=() nfs:sys=(rw="*" root="192.168.1.108")  
-/data/nfs_share  
-[/code]
+	  
+	root@openindiana:~# zfs get sharenfs data/nfs_share  
+	NAME PROPERTY VALUE SOURCE  
+	data/nfs_share sharenfs rw,root=192.168.1.108 local
+	
+	root@openindiana:~# sharemgr show -vp  
+	default nfs=()  
+	zfs nfs=()  
+	zfs/data/nfs_share nfs=() nfs:sys=(rw="*" root="192.168.1.108")  
+	/data/nfs_share  
+	
 
 Those settings stuck around, so I didn&#8217;t have to do anything with that. I went to the esx hosts that were connecting to the openindiana VM and did a rescan and all the iSCSI LUNs showed up just fine. I did check the NFS mount point and it was pointing to the old location:
 
-[code]  
-~ # esxcfg-nas -l  
-nfs is /rpool1/nfs_share from 192.168.1.107 mounted  
-[/code]
+	  
+	~ # esxcfg-nas -l  
+	nfs is /rpool1/nfs_share from 192.168.1.107 mounted  
+	
 
 But it was actually mounting the NFS share without an issue. It was probably cached or something, just for good measure I went ahead and removed the mount point and remounted it:
 
-[code]  
-~ # esxcfg-nas -d nfs  
-NAS volume nfs deleted.
-
-~ # esxcfg-nas -a -o 192.168.1.107 -s /data/nfs_share nfs  
-Connecting to NAS volume: nfs  
-nfs created and connected.
-
-~ # esxcfg-nas -l  
-nfs is /data/nfs_share from 192.168.1.107 mounted  
-[/code]
+	  
+	~ # esxcfg-nas -d nfs  
+	NAS volume nfs deleted.
+	
+	~ # esxcfg-nas -a -o 192.168.1.107 -s /data/nfs_share nfs  
+	Connecting to NAS volume: nfs  
+	nfs created and connected.
+	
+	~ # esxcfg-nas -l  
+	nfs is /data/nfs_share from 192.168.1.107 mounted  
+	
 
 That was good. I was able to create files and everything was working as expected. Lastly checking the network connections, I saw all the hosts connected to the openindiana VM:
 
-[code]  
-root@openindiana:~# netstat -an -f inet | egrep '3260|2049' | grep ESTABLISHED  
-192.168.1.107.3260 192.168.1.109.50823 263536 0 263536 0 ESTABLISHED  
-192.168.1.107.3260 192.168.1.108.60249 263536 0 263536 0 ESTABLISHED  
-192.168.1.107.3260 192.168.1.106.57857 263168 0 263536 0 ESTABLISHED  
-192.168.1.107.2049 192.168.1.108.792 66608 0 1049800 0 ESTABLISHED  
-192.168.1.107.2049 192.168.1.108.793 66608 0 1049800 0 ESTABLISHED  
-[/code]
+	  
+	root@openindiana:~# netstat -an -f inet | egrep '3260|2049' | grep ESTABLISHED  
+	192.168.1.107.3260 192.168.1.109.50823 263536 0 263536 0 ESTABLISHED  
+	192.168.1.107.3260 192.168.1.108.60249 263536 0 263536 0 ESTABLISHED  
+	192.168.1.107.3260 192.168.1.106.57857 263168 0 263536 0 ESTABLISHED  
+	192.168.1.107.2049 192.168.1.108.792 66608 0 1049800 0 ESTABLISHED  
+	192.168.1.107.2049 192.168.1.108.793 66608 0 1049800 0 ESTABLISHED  
+	
 
 All was back to normal.
 
@@ -353,35 +353,35 @@ All was back to normal.
 > 
 > Use the zfs set share command to create an NFS or SMB share of ZFS file system and also set the sharenfs property.
 > 
-> [code]  
-> \# zfs create rpool/fs1  
-> \# zfs set share=name=fs1,path=/rpool/fs1,prot=nfs rpool/fs1  
-> name=fs1,path=/rpool/fs1,prot=nfs  
-> [/code]
+	>   
+	> \# zfs create rpool/fs1  
+	> \# zfs set share=name=fs1,path=/rpool/fs1,prot=nfs rpool/fs1  
+	> name=fs1,path=/rpool/fs1,prot=nfs  
+	> 
 > 
 > The share is not published until the sharenfs or sharesmb property is set to on. For example:
 > 
-> [code]  
-> \# zfs set sharenfs=on rpool/fs1  
-> \# cat /etc/dfs/sharetab  
-> /rpool/fs1 fs1 nfs sec=sys,rw  
-> [/code]
+	>   
+	> \# zfs set sharenfs=on rpool/fs1  
+	> \# cat /etc/dfs/sharetab  
+	> /rpool/fs1 fs1 nfs sec=sys,rw  
+	> 
 > 
 > A public NFS share can be created as follows:
 > 
-> [code]  
-> \# zfs set share=name=pp,path=/pub,prot=nfs,sec=sys,rw=*,public rpool/public  
-> name=pp,path=/pub,prot=nfs,public=true,sec=sys,rw=*  
-> \# zfs set sharenfs=on rpool/public  
-> \# cat /etc/dfs/sharetab  
-> /pub pp nfs public,sec=sys,rw  
-> [/code]
+	>   
+	> \# zfs set share=name=pp,path=/pub,prot=nfs,sec=sys,rw=*,public rpool/public  
+	> name=pp,path=/pub,prot=nfs,public=true,sec=sys,rw=*  
+	> \# zfs set sharenfs=on rpool/public  
+	> \# cat /etc/dfs/sharetab  
+	> /pub pp nfs public,sec=sys,rw  
+	> 
 > 
 > You can also create a share of a newly created ZFS file system by using syntax similar to the following:
 > 
-> [code]  
-> \# zfs create -o mountpoint=/ds -o sharenfs=on rpool/ds  
-> [/code]
+	>   
+	> \# zfs create -o mountpoint=/ds -o sharenfs=on rpool/ds  
+	> 
 
 This was kind of hindsight, so I didn&#8217;t have a chance to plan accordingly and try it out.
 

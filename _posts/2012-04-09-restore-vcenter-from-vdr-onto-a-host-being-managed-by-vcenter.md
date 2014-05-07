@@ -19,9 +19,9 @@ I recently had an issue where I was unable to restore vCenter (running in a virt
 
 Here is the error we were getting:
 
-[code]  
-Access to resource settings on the host is restricted to the server 'x.x.x.x' which is managing it.  
-[/code]
+	  
+	Access to resource settings on the host is restricted to the server 'x.x.x.x' which is managing it.  
+	
 
 So we need to trick the hosts into thinking they aren&#8217;t being managed by vCenter. This may or may not be supported officially by VMware, but it worked for me.
 
@@ -35,62 +35,62 @@ ESX and ESXi 4.x and prior:
 ESXi 5:  
 /etc/vmware/vpxa/vpxa.cfg
 
-[code]  
-~ # cp /etc/vmware/vpxa/vpxa.cfg /etc/vmware/vpxa/vpxa.cfg.bak  
-~ # ls /etc/vmware/vpxa  
-dasConfig.xml vpxa.cfg vpxa.cfg.bak  
-[/code]
+	  
+	~ # cp /etc/vmware/vpxa/vpxa.cfg /etc/vmware/vpxa/vpxa.cfg.bak  
+	~ # ls /etc/vmware/vpxa  
+	dasConfig.xml vpxa.cfg vpxa.cfg.bak  
+	
 
 - edit vpxa.cfg with the command-line text editor, &#8220;vi&#8221; (how to use vi is outside the scope of this post, but there are plenty of resources online if you would like to learn more about it):
 
-[code]  
-~ # vi /etc/vmware/vpxa/vpxa.cfg  
-[/code]
+	  
+	~ # vi /etc/vmware/vpxa/vpxa.cfg  
+	
 
 - and replace
 
-[code]  
-<vpxa>  
-<bundleVersion>1000000</bundleVersion>  
-<datastorePrincipal>root</datastorePrincipal>  
-<hostIp>192.168.1.200</hostIp>  
-<hostKey>52137432-cb9e-05d5-3bbf-001ffd2baa57</hostKey>  
-<hostPort>443</hostPort>  
-<licenseExpiryNotificationThreshold>15</licenseExpiryNotificationThreshold>  
-<memoryCheckerTimeInSecs>30</memoryCheckerTimeInSecs>  
-<serverIp>192.168.1.2</serverIp>  
-<serverPort>902</serverPort>  
-</vpxa>  
-[/code]
+	  
+	<vpxa>  
+	<bundleVersion>1000000</bundleVersion>  
+	<datastorePrincipal>root</datastorePrincipal>  
+	<hostIp>192.168.1.200</hostIp>  
+	<hostKey>52137432-cb9e-05d5-3bbf-001ffd2baa57</hostKey>  
+	<hostPort>443</hostPort>  
+	<licenseExpiryNotificationThreshold>15</licenseExpiryNotificationThreshold>  
+	<memoryCheckerTimeInSecs>30</memoryCheckerTimeInSecs>  
+	<serverIp>192.168.1.2</serverIp>  
+	<serverPort>902</serverPort>  
+	</vpxa>  
+	
 
 with:
 
-[code]  
-<vpxa>  
-</vpxa>  
-[/code]
+	  
+	<vpxa>  
+	</vpxa>  
+	
 
 essentially removing everything between:
 
-[code]<vpxa>[/code]
-
-and
-
-[code]</vpxa>[/code]
+	
+	
+	and
+	
+	
 
 - restart the management agents (other ways to do this in ESX and ESXi are shown in <a title="Restarting the Management agents on an ESX or ESXi Server" href="http://kb.vmware.com/kb/1003490" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1003490']);" target="_blank">VMware KB 1003490 &#8211; Restarting the Management agents on an ESX or ESXi Server</a>, but what I show below is for an ESXi host:
 
-[code]  
-~ # /sbin/services.sh restart  
-[/code]
+	  
+	~ # /sbin/services.sh restart  
+	
 
 - Proceed with restore of vCenter server from VDR to the host that was managed by that very vCenter
 
 **NOTE:** Prior to booting up vCenter again after the restore, I highly recommend you restore vpxa.cfg:
 
-[code]  
-~ # cp /etc/vmware/vpxa/vpxa.cfg.bak /etc/vmware/vpxa/vpxa.cfg  
-[/code]
+	  
+	~ # cp /etc/vmware/vpxa/vpxa.cfg.bak /etc/vmware/vpxa/vpxa.cfg  
+	
 
 <div class="SPOSTARBUST-Related-Posts">
   <H3>

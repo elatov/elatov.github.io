@@ -35,22 +35,22 @@ If the issue is still present, you can SSH into ESX-B and run the following to d
 
 - run the following command
 
-[shell]esxtop[/shell]
-
-- type &#8216;n&#8217; (for Networking)
-
-You will be presented with a screen like this:
-
-[shell highlight="10"] 1:07:14am up 2:33, 163 worlds; CPU load average: 0.01, 0.05, 0.02
-
-PORT-ID USED-BY TEAM-PNIC DNAME PKTTX/s MbTX/s PKTRX/s MbRX/s %DRPTX %DRPRX  
-16777217 Management n/a vSwitch0 0.00 0.00 0.00 0.00 0.00 0.00  
-16777218 vmnic0 &#8211; vSwitch0 27.13 0.07 0.00 0.00 0.00 0.00  
-16777219 vmk0 vmnic0 vSwitch0 27.13 0.07 0.00 0.00 0.00 0.00  
-33554433 Management n/a vSwitch1 0.00 0.00 0.00 0.00 0.00 0.00  
-33554434 vmnic2 &#8211; vSwitch1 0.00 0.00 27.13 0.07 0.00 0.00  
-33554435 vmnic3 &#8211; vSwitch1 0.00 0.00 0.00 0.00 0.00 0.00  
-33554436 21153:Test vmnic3 vSwitch1 0.00 0.00 0.00 0.00 0.00 0.00[/shell]
+	
+	
+	- type &#8216;n&#8217; (for Networking)
+	
+	You will be presented with a screen like this:
+	
+	 1:07:14am up 2:33, 163 worlds; CPU load average: 0.01, 0.05, 0.02
+	
+	PORT-ID USED-BY TEAM-PNIC DNAME PKTTX/s MbTX/s PKTRX/s MbRX/s %DRPTX %DRPRX  
+	16777217 Management n/a vSwitch0 0.00 0.00 0.00 0.00 0.00 0.00  
+	16777218 vmnic0 &#8211; vSwitch0 27.13 0.07 0.00 0.00 0.00 0.00  
+	16777219 vmk0 vmnic0 vSwitch0 27.13 0.07 0.00 0.00 0.00 0.00  
+	33554433 Management n/a vSwitch1 0.00 0.00 0.00 0.00 0.00 0.00  
+	33554434 vmnic2 &#8211; vSwitch1 0.00 0.00 27.13 0.07 0.00 0.00  
+	33554435 vmnic3 &#8211; vSwitch1 0.00 0.00 0.00 0.00 0.00 0.00  
+	33554436 21153:Test vmnic3 vSwitch1 0.00 0.00 0.00 0.00 0.00 0.00
 
 Under the USED-BY column, look for the name of your virtual machine. The TEAM-PNIC column will indicate the vmnic it is currently bound to (this does not work if you are using IP hash with port-channels).
 

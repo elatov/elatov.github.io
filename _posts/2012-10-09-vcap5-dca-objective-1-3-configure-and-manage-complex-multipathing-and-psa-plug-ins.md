@@ -62,128 +62,128 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 
 > To list VMware SATPs, run the following command:
 > 
-> [code]  
-> ~ # esxcli storage nmp satp list  
-> Name Default PSP Description  
-> \---\---\---\---\---\---\- --\---\---\---\-- -\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---  
-> VMW\_SATP\_ALUA VMW\_PSP\_MRU Supports non-specific arrays that use the ALUA protocol  
-> VMW\_SATP\_MSA VMW\_PSP\_MRU Placeholder (plugin not loaded)  
-> VMW\_SATP\_DEFAULT\_AP VMW\_PSP_MRU Placeholder (plugin not loaded)  
-> VMW\_SATP\_SVC VMW\_PSP\_FIXED Placeholder (plugin not loaded)  
-> VMW\_SATP\_EQL VMW\_PSP\_FIXED Placeholder (plugin not loaded)  
-> VMW\_SATP\_INV VMW\_PSP\_FIXED Placeholder (plugin not loaded)  
-> VMW\_SATP\_EVA VMW\_PSP\_FIXED Placeholder (plugin not loaded)  
-> VMW\_SATP\_ALUA\_CX VMW\_PSP_FIXED Placeholder (plugin not loaded)  
-> VMW\_SATP\_SYMM VMW\_PSP\_FIXED Placeholder (plugin not loaded)  
-> VMW\_SATP\_CX VMW\_PSP\_MRU Placeholder (plugin not loaded)  
-> VMW\_SATP\_LSI VMW\_PSP\_MRU Placeholder (plugin not loaded)  
-> VMW\_SATP\_DEFAULT\_AA VMW\_PSP_FIXED Supports non-specific active/active arrays  
-> VMW\_SATP\_LOCAL VMW\_PSP\_FIXED Supports direct attached devices  
-> [/code]
+	>   
+	> ~ # esxcli storage nmp satp list  
+	> Name Default PSP Description  
+	> \---\---\---\---\---\---\- --\---\---\---\-- -\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---  
+	> VMW\_SATP\_ALUA VMW\_PSP\_MRU Supports non-specific arrays that use the ALUA protocol  
+	> VMW\_SATP\_MSA VMW\_PSP\_MRU Placeholder (plugin not loaded)  
+	> VMW\_SATP\_DEFAULT\_AP VMW\_PSP_MRU Placeholder (plugin not loaded)  
+	> VMW\_SATP\_SVC VMW\_PSP\_FIXED Placeholder (plugin not loaded)  
+	> VMW\_SATP\_EQL VMW\_PSP\_FIXED Placeholder (plugin not loaded)  
+	> VMW\_SATP\_INV VMW\_PSP\_FIXED Placeholder (plugin not loaded)  
+	> VMW\_SATP\_EVA VMW\_PSP\_FIXED Placeholder (plugin not loaded)  
+	> VMW\_SATP\_ALUA\_CX VMW\_PSP_FIXED Placeholder (plugin not loaded)  
+	> VMW\_SATP\_SYMM VMW\_PSP\_FIXED Placeholder (plugin not loaded)  
+	> VMW\_SATP\_CX VMW\_PSP\_MRU Placeholder (plugin not loaded)  
+	> VMW\_SATP\_LSI VMW\_PSP\_MRU Placeholder (plugin not loaded)  
+	> VMW\_SATP\_DEFAULT\_AA VMW\_PSP_FIXED Supports non-specific active/active arrays  
+	> VMW\_SATP\_LOCAL VMW\_PSP\_FIXED Supports direct attached devices  
+	> 
 > 
 > To list multipathing modules, run the following command:
 > 
-> [code]  
-> ~ # esxcli storage core plugin list  
-> Plugin name Plugin class  
-> \---\---\---\-- -\---\---\-----  
-> NMP MP  
-> [/code]
+	>   
+	> ~ # esxcli storage core plugin list  
+	> Plugin name Plugin class  
+	> \---\---\---\-- -\---\---\-----  
+	> NMP MP  
+	> 
 > 
 > **Example: Defining an NMP SATP Rule**  
 > The following sample command assigns the VMW\_SATP\_INV plug-in to manage storage arrays with vendor string NewVend and model string NewMod.
 > 
-> [code]  
-> \# esxcli storage nmp satp rule add -V NewVend -M NewMod -s VMW\_SATP\_INV  
-> [/code]
+	>   
+	> \# esxcli storage nmp satp rule add -V NewVend -M NewMod -s VMW\_SATP\_INV  
+	> 
 
 From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf']);">vSphere Command-Line Interface Concepts and Examples ESXi 5.0</a>&#8221;
 
 Add a new SATP
 
-[code]  
-esxcli storage nmp satp rule add --satp VMW\_SATP\_DEFAULT_AA --vendor="ABC" --model="^120*  
-[/code]
+	  
+	esxcli storage nmp satp rule add --satp VMW\_SATP\_DEFAULT_AA --vendor="ABC" --model="^120*  
+	
 
 Change the SATP for a device/LUN:
 
-[code]  
-esxcli storage nmp satp generic deviceconfig set -c VMW\_SATP\_ALUA_CX -d naa.xxx  
-[/code]
+	  
+	esxcli storage nmp satp generic deviceconfig set -c VMW\_SATP\_ALUA_CX -d naa.xxx  
+	
 
 Change the default PSP for an SATP:
 
-[code]  
-\# esxcli storage nmp satp set --default-psp VMW\_PSP\_FIXED --satp VMW\_SATP\_ALUA_CX  
-[/code]
+	  
+	\# esxcli storage nmp satp set --default-psp VMW\_PSP\_FIXED --satp VMW\_SATP\_ALUA_CX  
+	
 
 List all the plugins:
 
-[code]  
-~ # esxcli storage core plugin registration list  
-Module Name Plugin Name Plugin Class Dependencies Full Path  
-\---\---\---\---\---\---\- --\---\---\---\---\---\-- -\---\---\---\-- -\---\---\---\---\---\---\---\---\---\- --\---\----  
-mask\_path\_plugin MASK_PATH MP  
-nmp NMP MP  
-vmw\_satp\_symm VMW\_SATP\_SYMM SATP  
-vmw\_satp\_svc VMW\_SATP\_SVC SATP  
-vmw\_satp\_msa VMW\_SATP\_MSA SATP  
-vmw\_satp\_lsi VMW\_SATP\_LSI SATP  
-vmw\_satp\_inv VMW\_SATP\_INV SATP vmw\_satp\_lib_cx  
-vmw\_satp\_eva VMW\_SATP\_EVA SATP  
-vmw\_satp\_eql VMW\_SATP\_EQL SATP  
-vmw\_satp\_cx VMW\_SATP\_CX SATP vmw\_satp\_lib_cx  
-vmw\_satp\_alua\_cx VMW\_SATP\_ALUA\_CX SATP vmw\_satp\_alua,vmw\_satp\_lib_cx  
-vmw\_satp\_lib_cx None SATP  
-vmw\_satp\_alua VMW\_SATP\_ALUA SATP  
-vmw\_satp\_default\_ap VMW\_SATP\_DEFAULT\_AP SATP  
-vmw\_satp\_default\_aa VMW\_SATP\_DEFAULT\_AA SATP  
-vmw\_satp\_local VMW\_SATP\_LOCAL SATP  
-vmw\_psp\_lib None PSP  
-vmw\_psp\_mru VMW\_PSP\_MRU PSP vmw\_psp\_lib  
-vmw\_psp\_rr VMW\_PSP\_RR PSP vmw\_psp\_lib  
-vmw\_psp\_fixed VMW\_PSP\_FIXED PSP vmw\_psp\_lib  
-vmw\_vaaip\_emc None VAAI  
-vmw\_vaaip\_mask VMW\_VAAIP\_MASK VAAI  
-vmw\_vaaip\_symm VMW\_VAAIP\_SYMM VAAI vmw\_vaaip\_emc  
-vmw\_vaaip\_netapp VMW\_VAAIP\_NETAPP VAAI  
-vmw\_vaaip\_lhn VMW\_VAAIP\_LHN VAAI  
-vmw\_vaaip\_hds VMW\_VAAIP\_HDS VAAI  
-vmw\_vaaip\_eql VMW\_VAAIP\_EQL VAAI  
-vmw\_vaaip\_cx VMW\_VAAIP\_CX VAAI vmw\_vaaip\_emc,vmw\_satp\_lib_cx  
-vaai\_filter VAAI\_FILTER Filter  
-[/code]
+	  
+	~ # esxcli storage core plugin registration list  
+	Module Name Plugin Name Plugin Class Dependencies Full Path  
+	\---\---\---\---\---\---\- --\---\---\---\---\---\-- -\---\---\---\-- -\---\---\---\---\---\---\---\---\---\- --\---\----  
+	mask\_path\_plugin MASK_PATH MP  
+	nmp NMP MP  
+	vmw\_satp\_symm VMW\_SATP\_SYMM SATP  
+	vmw\_satp\_svc VMW\_SATP\_SVC SATP  
+	vmw\_satp\_msa VMW\_SATP\_MSA SATP  
+	vmw\_satp\_lsi VMW\_SATP\_LSI SATP  
+	vmw\_satp\_inv VMW\_SATP\_INV SATP vmw\_satp\_lib_cx  
+	vmw\_satp\_eva VMW\_SATP\_EVA SATP  
+	vmw\_satp\_eql VMW\_SATP\_EQL SATP  
+	vmw\_satp\_cx VMW\_SATP\_CX SATP vmw\_satp\_lib_cx  
+	vmw\_satp\_alua\_cx VMW\_SATP\_ALUA\_CX SATP vmw\_satp\_alua,vmw\_satp\_lib_cx  
+	vmw\_satp\_lib_cx None SATP  
+	vmw\_satp\_alua VMW\_SATP\_ALUA SATP  
+	vmw\_satp\_default\_ap VMW\_SATP\_DEFAULT\_AP SATP  
+	vmw\_satp\_default\_aa VMW\_SATP\_DEFAULT\_AA SATP  
+	vmw\_satp\_local VMW\_SATP\_LOCAL SATP  
+	vmw\_psp\_lib None PSP  
+	vmw\_psp\_mru VMW\_PSP\_MRU PSP vmw\_psp\_lib  
+	vmw\_psp\_rr VMW\_PSP\_RR PSP vmw\_psp\_lib  
+	vmw\_psp\_fixed VMW\_PSP\_FIXED PSP vmw\_psp\_lib  
+	vmw\_vaaip\_emc None VAAI  
+	vmw\_vaaip\_mask VMW\_VAAIP\_MASK VAAI  
+	vmw\_vaaip\_symm VMW\_VAAIP\_SYMM VAAI vmw\_vaaip\_emc  
+	vmw\_vaaip\_netapp VMW\_VAAIP\_NETAPP VAAI  
+	vmw\_vaaip\_lhn VMW\_VAAIP\_LHN VAAI  
+	vmw\_vaaip\_hds VMW\_VAAIP\_HDS VAAI  
+	vmw\_vaaip\_eql VMW\_VAAIP\_EQL VAAI  
+	vmw\_vaaip\_cx VMW\_VAAIP\_CX VAAI vmw\_vaaip\_emc,vmw\_satp\_lib_cx  
+	vaai\_filter VAAI\_FILTER Filter  
+	
 
 List all the devices claimed by NMP:
 
-[code]  
-~ # esxcli storage nmp device list  
-naa.600144f0928c010000004fc511ec0001  
-Device Display Name: OI iSCSI Disk (naa.600144f0928c010000004fc511ec0001)  
-Storage Array Type: VMW\_SATP\_ALUA  
-Storage Array Type Device Config: {implicit\_support=on;explicit\_support=off; explicit\_allow=on;alua\_followover=on;{TPG\_id=0,TPG\_state=AO}}  
-Path Selection Policy: VMW\_PSP\_MRU  
-Path Selection Policy Device Config: Current Path=vmhba33:C0:T0:L0  
-Path Selection Policy Device Custom Config:  
-Working Paths: vmhba33:C0:T0:L0  
-[/code]
+	  
+	~ # esxcli storage nmp device list  
+	naa.600144f0928c010000004fc511ec0001  
+	Device Display Name: OI iSCSI Disk (naa.600144f0928c010000004fc511ec0001)  
+	Storage Array Type: VMW\_SATP\_ALUA  
+	Storage Array Type Device Config: {implicit\_support=on;explicit\_support=off; explicit\_allow=on;alua\_followover=on;{TPG\_id=0,TPG\_state=AO}}  
+	Path Selection Policy: VMW\_PSP\_MRU  
+	Path Selection Policy Device Config: Current Path=vmhba33:C0:T0:L0  
+	Path Selection Policy Device Custom Config:  
+	Working Paths: vmhba33:C0:T0:L0  
+	
 
 List all the PSPs:
 
-[code]  
-~ # esxcli storage nmp psp list  
-Name Description  
-\---\---\---\---\- --\---\---\---\---\---\---\---\---\---\----  
-VMW\_PSP\_MRU Most Recently Used Path Selection  
-VMW\_PSP\_RR Round Robin Path Selection  
-VMW\_PSP\_FIXED Fixed Path Selection  
-[/code]
+	  
+	~ # esxcli storage nmp psp list  
+	Name Description  
+	\---\---\---\---\- --\---\---\---\---\---\---\---\---\---\----  
+	VMW\_PSP\_MRU Most Recently Used Path Selection  
+	VMW\_PSP\_RR Round Robin Path Selection  
+	VMW\_PSP\_FIXED Fixed Path Selection  
+	
 
 Change PSP for device/LUN:
 
-[code]  
-esxcli storage nmp device set -d naa.xx -P VMW\_PSP\_MRU  
-[/code]
+	  
+	esxcli storage nmp device set -d naa.xx -P VMW\_PSP\_MRU  
+	
 
 ### Understand different multipathing policy functionalities
 
@@ -212,60 +212,60 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 
 > List all devices with their corresponding paths, state of the path, adapter type, and other information:
 > 
-> [code]  
-> esxcli storage core path list  
-> [/code]
+	>   
+	> esxcli storage core path list  
+	> 
 > 
 > Limit the display to only a specified path or device:
 > 
-> [code]  
-> esxcli storage core path list --path vmhba32:C0:T1:L0  
-> esxcli storage core path list --device naa.xxx  
-> [/code]
+	>   
+	> esxcli storage core path list --path vmhba32:C0:T1:L0  
+	> esxcli storage core path list --device naa.xxx  
+	> 
 > 
 > List detailed information for the paths for the device specified with &#8211;device:
 > 
-> [code]  
-> esxcli storage core path list -d naa.xxx  
-> [/code]
+	>   
+	> esxcli storage core path list -d naa.xxx  
+	> 
 > 
 > Set the state of a LUN path to off:
 > 
-> [code]  
-> esxcli storage core path set --state off --path vmhba32:C0:T1:L0  
-> [/code]
+	>   
+	> esxcli storage core path set --state off --path vmhba32:C0:T1:L0  
+	> 
 > 
 > Set the path state to active again:
 > 
-> [code]  
-> esxcli storage core path set --state active --path vmhba32:C0:T1:L0  
-> [/code]
+	>   
+	> esxcli storage core path set --state active --path vmhba32:C0:T1:L0  
+	> 
 > 
 > Set the path policy using esxcli:
 > 
-> [code]  
-> esxcli storage nmp device set --device naa.xxx --psp VMW\_PSP\_RR  
-> [/code]
+	>   
+	> esxcli storage nmp device set --device naa.xxx --psp VMW\_PSP\_RR  
+	> 
 > 
 > If you specified the VMW\_PSP\_FIXED policy, you must make sure the preferred path is set  
 > correctly. Check which path is the preferred path for a device:
 > 
-> [code]  
-> esxcli storage nmp psp fixed deviceconfig get --device naa.xxx  
-> [/code]
+	>   
+	> esxcli storage nmp psp fixed deviceconfig get --device naa.xxx  
+	> 
 > 
 > Change the preferred path:
 > 
-> [code]  
-> esxcli storage nmp psp fixed deviceconfig set --device naa.xxx --path vmhba3:C0:T5:L3  
-> [/code]
+	>   
+	> esxcli storage nmp psp fixed deviceconfig set --device naa.xxx --path vmhba3:C0:T5:L3  
+	> 
 > 
 > **To view and manipulate round robin path selection settings with ESXCLI**  
 > Retrieve path selection settings for a device that is using the roundrobin PSP
 > 
-> [code]  
-> esxcli storage nmp psp roundrobin deviceconfig get --device naa.xxx  
-> [/code]
+	>   
+	> esxcli storage nmp psp roundrobin deviceconfig get --device naa.xxx  
+	> 
 > 
 > Set the path selection. You can specify when the path should change, and whether unoptimized paths should be included.
 > 
@@ -273,15 +273,15 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 > 
 > Set the device specified by &#8211;device to switch to the next path each time 12345 bytes have been sent along the current path.
 > 
-> [code]  
-> esxcli storage nmp psp roundrobin deviceconfig set --type "bytes" -B 12345 --device naa.xxx  
-> [/code]
+	>   
+	> esxcli storage nmp psp roundrobin deviceconfig set --type "bytes" -B 12345 --device naa.xxx  
+	> 
 > 
 > Set the device specified by &#8211;device to switch after 4200 I/O operations have been performed on a path.
 > 
-> [code]  
-> esxcli storage nmp psp roundrobin deviceconfig set --type=iops --iops 4200 --device naa.xxx  
-> [/code]
+	>   
+	> esxcli storage nmp psp roundrobin deviceconfig set --type=iops --iops 4200 --device naa.xxx  
+	> 
 
 ### Change a multipath policy
 
@@ -289,9 +289,9 @@ From above:
 
 > Set the path policy using esxcli:
 > 
-> [code]  
-> esxcli storage nmp device set --device naa.xxx --psp VMW\_PSP\_RR  
-> [/code]
+	>   
+	> esxcli storage nmp device set --device naa.xxx --psp VMW\_PSP\_RR  
+	> 
 
 ### Configure Software iSCSI port binding
 
@@ -299,60 +299,60 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 
 Create a virtual Switch and enable jumbo frames on it:
 
-[code]  
-~ # esxcli network vswitch standard add -v vSwitch1  
-~ # esxcli network vswitch standard set -m 9000 -v vSwitch1  
-[/code]
+	  
+	~ # esxcli network vswitch standard add -v vSwitch1  
+	~ # esxcli network vswitch standard set -m 9000 -v vSwitch1  
+	
 
 Create a PortGroup that will be used for iSCSI:
 
-[code]  
-~ # esxcli network vswitch standard portgroup add -p iSCSI1 -v vSwitch1  
-[/code]
+	  
+	~ # esxcli network vswitch standard portgroup add -p iSCSI1 -v vSwitch1  
+	
 
 Add a vmkernel interface to our iSCSI PortGroup
 
-[code]  
-esxcli network ip interface add -i vmk4 -p iSCSI1  
-esxcli network ip interface ipv4 set -i vmk4 -I 1.1.1.2 -N 255.255.255.0 -t static  
-[/code]
+	  
+	esxcli network ip interface add -i vmk4 -p iSCSI1  
+	esxcli network ip interface ipv4 set -i vmk4 -I 1.1.1.2 -N 255.255.255.0 -t static  
+	
 
 Enable software iSCSI
 
-[code]  
-esxcli iscsi software set --enabled=true  
-[/code]
+	  
+	esxcli iscsi software set --enabled=true  
+	
 
 Check the status:
 
-[code]  
-esxcli iscsi software get  
-[/code]
+	  
+	esxcli iscsi software get  
+	
 
 Check whether a network portal, that is, a bound port, exists for iSCSI traffic.
 
-[code]  
-esxcli iscsi adapter list  
-[/code]
+	  
+	esxcli iscsi adapter list  
+	
 
 Bind the vmkernel interface to the sw-iSCSI vmhba:
 
-[code]  
-esxcli iscsi networkportal add -n vmk4 -A vmhba3#  
-[/code]
+	  
+	esxcli iscsi networkportal add -n vmk4 -A vmhba3#  
+	
 
 With dynamic discovery, all storage targets associated with a host name orIP address are discovered.You run the following command.
 
-[code]  
-esxcli iscsi adapter discovery sendtarget add --address='ip/dns[:port]' --adapter=vmhba3#  
-[/code]
+	  
+	esxcli iscsi adapter discovery sendtarget add --address='ip/dns[:port]' --adapter=vmhba3#  
+	
 
 After setup is complete, perform rediscovery and rescan all storage devices
 
-[code]  
-esxcli iscsi adapter discovery rediscover  
-esxcli storage core adapter rescan --adapter=vmhba36  
-[/code]
+	  
+	esxcli iscsi adapter discovery rediscover  
+	esxcli storage core adapter rescan --adapter=vmhba36  
+	
 
 <p class="wp-flattr-button">
   <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/10/vcap5-dca-objective-1-3-configure-and-manage-complex-multipathing-and-psa-plug-ins/" title=" VCAP5-DCA Objective 1.3 – Configure and Manage Complex Multipathing and PSA Plug-ins" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCA,blog;button:compact;">Explain the Pluggable Storage Architecture (PSA) layout From this VMware KB 1011375: Pluggable Storage Architecture (PSA) To manage storage multipathing, ESX/ESXi uses a special VMkernel layer, Pluggable Storage Architecture (PSA)....</a>

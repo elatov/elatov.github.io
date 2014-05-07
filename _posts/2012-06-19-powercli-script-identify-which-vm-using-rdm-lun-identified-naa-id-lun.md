@@ -19,9 +19,9 @@ tags:
 ---
 I recently had a interesting query: &#8220;Given the naa_id of a LUN which is an RDM, how do you find which VM that LUN is connected to?&#8221; Doing some quick searching in the VMware KB, I found VMware articles <a href="http://kb.vmware.com/kb/1005937" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1005937']);">1005937</a> and <a href="http://kb.vmware.com/kb/2001823 " onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/2001823']);">2001823</a>. KB <a href="http://kb.vmware.com/kb/1005937" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1005937']);">1005937</a> had a powercli script which showed the size of the RDM and the full path of the RDM:
 
-[powershell]  
-Get-Datastore | Get-HardDisk -DiskType "RawPhysical","RawVirtual" | Select "Filename","CapacityKB" | fl  
-[/powershell]
+	  
+	Get-Datastore | Get-HardDisk -DiskType "RawPhysical","RawVirtual" | Select "Filename","CapacityKB" | fl  
+	
 
 Sample ouput:
 
@@ -30,9 +30,9 @@ Sample ouput:
 
 Although helpful, but not exactly what we were looking for. The same KB (<a href="http://kb.vmware.com/kb/1005937" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1005937']);">1005937</a>) also had a way of doing through the command line of the esx host:
 
-[code]  
-~ # find /vmfs/volumes/ -type f -name '\*.vmdk' -size -1024k -exec grep -l '^createType=.\*RawDeviceMap' {} \; | xargs -L 1 vmkfstools -q  
-[/code]
+	  
+	~ # find /vmfs/volumes/ -type f -name '\*.vmdk' -size -1024k -exec grep -l '^createType=.\*RawDeviceMap' {} \; | xargs -L 1 vmkfstools -q  
+	
 
 Sample output:
 
@@ -48,9 +48,9 @@ Sample output:
 
 This is perfect however this had to be run on each individual host since there is lock on the vmdk files from the host where the VM resides. Again helpful but a lot work. In the second KB <a href="http://kb.vmware.com/kb/2001823 " onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/2001823']);">2001823</a>, there was another powercli script:
 
-[powershell]  
-Get-VM | Get-HardDisk -DiskType "RawPhysical","RawVirtual" | Select Parent,Name,DiskType,ScsiCanonicalName,DeviceName | fl  
-[/powershell]
+	  
+	Get-VM | Get-HardDisk -DiskType "RawPhysical","RawVirtual" | Select Parent,Name,DiskType,ScsiCanonicalName,DeviceName | fl  
+	
 
 Sample output:
 
@@ -62,34 +62,34 @@ Sample output:
 
 This was actually very close but it listed all the VMs with an RDM disk, where we wanted to just find one LUN. I took the above command and rewrote it to be a little bit more comprehensive. Here is what I ended up with:
 
-[powershell]  
-\# define the IP of your vCenter  
-$vc = "10.x.x.x"  
-\# Connect to your vCenter, this will ask your for your credentials  
-\# * you can pass in the user and password parameters, but I left those out  
-Connect-VIserver $vc  
-\# Get the list of all the VMs in the Vcenter Inventory  
-$vms = Get-VM  
-\# Iterate over all the VMs  
-foreach ($vm in $vms){  
-\# Iterate over each hard-disk of each VM that is a virtual or Physical RDM  
-foreach ($hd in ($vm | Get-HardDisk -DiskType "RawPhysical","RawVirtual" )){  
-\# Check to see if a certain hard disk matches our naa_id  
-if ( $hd.ScsiCanonicalName -eq "naa.600601607290250060ae06da248be111"){  
-\# Print out VM Name  
-write $hd.Parent.Name  
-\# Print Hard Disk Name  
-write $hd.Name  
-\# Print Hard Disk Type  
-write $hd.DidkType  
-\# Print NAA Device ID  
-write $hd.ScsiCanonicalName  
-\# Print out the VML Device ID  
-write $hd.DeviceName  
-}  
-}  
-}  
-[/powershell]
+	  
+	\# define the IP of your vCenter  
+	$vc = "10.x.x.x"  
+	\# Connect to your vCenter, this will ask your for your credentials  
+	\# * you can pass in the user and password parameters, but I left those out  
+	Connect-VIserver $vc  
+	\# Get the list of all the VMs in the Vcenter Inventory  
+	$vms = Get-VM  
+	\# Iterate over all the VMs  
+	foreach ($vm in $vms){  
+	\# Iterate over each hard-disk of each VM that is a virtual or Physical RDM  
+	foreach ($hd in ($vm | Get-HardDisk -DiskType "RawPhysical","RawVirtual" )){  
+	\# Check to see if a certain hard disk matches our naa_id  
+	if ( $hd.ScsiCanonicalName -eq "naa.600601607290250060ae06da248be111"){  
+	\# Print out VM Name  
+	write $hd.Parent.Name  
+	\# Print Hard Disk Name  
+	write $hd.Name  
+	\# Print Hard Disk Type  
+	write $hd.DidkType  
+	\# Print NAA Device ID  
+	write $hd.ScsiCanonicalName  
+	\# Print out the VML Device ID  
+	write $hd.DeviceName  
+	}  
+	}  
+	}  
+	
 
 Sample output:
 
@@ -100,10 +100,10 @@ Sample output:
 
 If you prefer one liners, there is a version for that:
 
-[powershell]  
-Get-VM | Get-HardDisk -DiskType "RawPhysical","RawVirtual" | where { $_.ScsiCanonicalName -eq  
-"naa.600601607290250060ae06da248be111"} | Select Parent,Name,DiskType,ScsiCanonicalName,DeviceName | fl  
-[/powershell]
+	  
+	Get-VM | Get-HardDisk -DiskType "RawPhysical","RawVirtual" | where { $_.ScsiCanonicalName -eq  
+	"naa.600601607290250060ae06da248be111"} | Select Parent,Name,DiskType,ScsiCanonicalName,DeviceName | fl  
+	
 
 Sample Output:
 

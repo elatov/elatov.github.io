@@ -171,21 +171,21 @@ Use putty or any ssh client of your choice
 
 #### 2. Add the NFS mount
 
-[code]  
-~ # esxcfg-nas -a -o 10.131.9.153 -s /nfs\_share Win2k8\_Share  
-Connecting to NAS volume: Win2k8_Share  
-Win2k8_Share created and connected.  
-[/code]
+	  
+	~ # esxcfg-nas -a -o 10.131.9.153 -s /nfs\_share Win2k8\_Share  
+	Connecting to NAS volume: Win2k8_Share  
+	Win2k8_Share created and connected.  
+	
 
 #### 3. Ensure newly created files are owned by root
 
-[code]  
-~ # cd /vmfs/volumes/Win2k8_Share/  
-/vmfs/volumes/17212d56-03dc308d # ls  
-/vmfs/volumes/17212d56-03dc308d # mkdir test  
-/vmfs/volumes/17212d56-03dc308d # ls -l  
-drwxr-xr-x 1 root root 64 May 28 04:11 test  
-[/code]
+	  
+	~ # cd /vmfs/volumes/Win2k8_Share/  
+	/vmfs/volumes/17212d56-03dc308d # ls  
+	/vmfs/volumes/17212d56-03dc308d # mkdir test  
+	/vmfs/volumes/17212d56-03dc308d # ls -l  
+	drwxr-xr-x 1 root root 64 May 28 04:11 test  
+	
 
 <p class="wp-flattr-button">
   <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/06/configure-windows-2008-nfs-share-vmware-esx/" title=" Configure Windows 2008 as NFS share for VMware ESX" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Anonymous,nfs,Server Roles,Windows 2008 R2,Windows 2008 R2 NFS Server,blog;button:compact;">I decided to expand on the following VMware blog: How to Enable NFS on Windows 2008 and Present to ESX. The same warning applies to this post as well: Warning: Windows...</a>

@@ -19,20 +19,20 @@ I had a customer trying to cold migrate a VM across datacenters (across a WAN co
 Both of the hosts are managed by the same vCenter server. So we are trying to move the VM from ESX\_1 to ESX\_2. I definitely agree that there are much better solutions and here is a great tech paper that talks about some of the alternatives: <a href="http://www.emc.com/collateral/software/white-papers/h8063-data-migration-vsphere-wp.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.emc.com/collateral/software/white-papers/h8063-data-migration-vsphere-wp.pdf']);">Data Migrations Techniques for VMware vSphere</a>, but we were just stuck with this setup for now.  
 Whenever we tried to cold migrate, we would see the following in the vpxa logs (/var/log/vmware/vpx/vpxa.log in ESX 4.x or /var/log/vpxa.log in ESXi 5.0) of the source host:
 
-[code]  
-2012-03-14 16:31:45.288 1C69CB90 warning 'Libs' opID=C65743A5-0000024D-5c] [NFC ERROR] NfcNetTcpWrite: bWritten: -1  
-\[2012-03-14 16:31:45.288 1C69CB90 warning 'Libs' opID=C65743A5-0000024D-5c\] \[NFC ERROR\] NfcNet_Send: requested 262040, sent only -1 bytes  
-\[2012-03-14 16:31:45.288 1C69CB90 warning 'Libs' opID=C65743A5-0000024D-5c\] \[NFC ERROR\] NfcFile_SendMessage: data send failed:  
-\[2012-03-14 16:31:45.288 1C69CB90 warning 'Libs' opID=C65743A5-0000024D-5c\] \[NFC ERROR\] NfcBuf_Send: failed to send next file portion  
-\[2012-03-14 16:31:45.288 1C69CB90 warning 'Libs' opID=C65743A5-0000024D-5c\] \[NFC ERROR\] Nfc_PutFile: failed to send the buffer  
-\[2012-03-14 16:31:45.324 1C69CB90 error 'App' opID=C65743A5-0000024D-5c\] \[VpxNfcClient\] File transfer [sanfs://vmfs\_uuid:4db8365c-341937db-860e-xxxxx/VM1/VM1.vmdk -> sanfs://vmfs\_uuid:4da87053-584f06cc-bc80-xxxxxxxxx/VM1/VM1.vmdk] failed:  
-\[2012-03-14 16:31:45.324 1C69CB90 verbose 'App' opID=C65743A5-0000024D-5c\] \[VpxNfcClient\] Closing NFC connection to server  
-\[2012-03-14 16:31:45.324 1C69CB90 warning 'Libs' opID=C65743A5-0000024D-5c\] \[NFC ERROR\] NfcNetTcpWrite: bWritten: -1  
-\[2012-03-14 16:31:45.324 1C69CB90 warning 'Libs' opID=C65743A5-0000024D-5c\] \[NFC ERROR\] NfcNet_Send: requested 264, sent only -1 bytes  
-\[2012-03-14 16:31:45.324 1C69CB90 warning 'Libs' opID=C65743A5-0000024D-5c\] \[NFC ERROR\] NfcSendMessage: send failed:  
-[2012-03-14 16:31:45.325 1C69CB90 verbose 'PropertyProvider' opID=C65743A5-0000024D-5c] RecordOp ASSIGN: info.state, task-10646  
-[2012-03-14 16:31:45.325 1C69CB90 verbose 'PropertyProvider' opID=C65743A5-0000024D-5c] RecordOp ASSIGN: info.cancelable, task-10646  
-[/code]
+	  
+	2012-03-14 16:31:45.288 1C69CB90 warning 'Libs' opID=C65743A5-0000024D-5c] [NFC ERROR] NfcNetTcpWrite: bWritten: -1  
+	\[2012-03-14 16:31:45.288 1C69CB90 warning 'Libs' opID=C65743A5-0000024D-5c\] \[NFC ERROR\] NfcNet_Send: requested 262040, sent only -1 bytes  
+	\[2012-03-14 16:31:45.288 1C69CB90 warning 'Libs' opID=C65743A5-0000024D-5c\] \[NFC ERROR\] NfcFile_SendMessage: data send failed:  
+	\[2012-03-14 16:31:45.288 1C69CB90 warning 'Libs' opID=C65743A5-0000024D-5c\] \[NFC ERROR\] NfcBuf_Send: failed to send next file portion  
+	\[2012-03-14 16:31:45.288 1C69CB90 warning 'Libs' opID=C65743A5-0000024D-5c\] \[NFC ERROR\] Nfc_PutFile: failed to send the buffer  
+	\[2012-03-14 16:31:45.324 1C69CB90 error 'App' opID=C65743A5-0000024D-5c\] \[VpxNfcClient\] File transfer  failed:  
+	\[2012-03-14 16:31:45.324 1C69CB90 verbose 'App' opID=C65743A5-0000024D-5c\] \[VpxNfcClient\] Closing NFC connection to server  
+	\[2012-03-14 16:31:45.324 1C69CB90 warning 'Libs' opID=C65743A5-0000024D-5c\] \[NFC ERROR\] NfcNetTcpWrite: bWritten: -1  
+	\[2012-03-14 16:31:45.324 1C69CB90 warning 'Libs' opID=C65743A5-0000024D-5c\] \[NFC ERROR\] NfcNet_Send: requested 264, sent only -1 bytes  
+	\[2012-03-14 16:31:45.324 1C69CB90 warning 'Libs' opID=C65743A5-0000024D-5c\] \[NFC ERROR\] NfcSendMessage: send failed:  
+	[2012-03-14 16:31:45.325 1C69CB90 verbose 'PropertyProvider' opID=C65743A5-0000024D-5c] RecordOp ASSIGN: info.state, task-10646  
+	[2012-03-14 16:31:45.325 1C69CB90 verbose 'PropertyProvider' opID=C65743A5-0000024D-5c] RecordOp ASSIGN: info.cancelable, task-10646  
+	
 
 We see a lot of Network File Copy (NFC) errors, NFC is the protocol used to transfer files between hosts when using the management agents. We see from the logs that we are unable to receive the expected data. NFC is a really sensitive protocol and any packet loss would cause the NFC process to time-out.
 

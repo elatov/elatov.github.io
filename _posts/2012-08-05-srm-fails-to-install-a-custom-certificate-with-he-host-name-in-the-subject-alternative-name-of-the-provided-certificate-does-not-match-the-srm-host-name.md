@@ -20,17 +20,17 @@ I was running through some SRM certificate configuration tests for a customer an
 
 Looking at the installer logs (C:\Documents and Settings\jarret\Local Settings\Temp\VMSrmInst.log) we can see error that the installer is complaining about.
 
-[code]  
-2012-08-02T12:00:54.493-06:00 [04636 info 'Default'] Vmacore::InitSSL: doVersionCheck = true, handshakeTimeoutUs = 20000000  
-Enter password for certificate file C:\Documents and Settings\jarret\Desktop\srm-prod\srm-prod.p12: Error [76]: The DNS of the certificate, does not match the SRM host. The expected DNS name is: srm-prod.virtuallyhyper.com. The provided SRM host is: 192.168.10.72
-
-VMware: Srm::Installation::Utility::LaunchApplication: INFORMATION: Child process stderr:
-
-VMware: Srm::Installation::Utility::LaunchApplication: INFORMATION: Executable finished executing. Result code=76  
-VMware: Srm::Installation::DirectoryChanger::~DirectoryChanger: INFORMATION: Restored directory. Directory=C:\Documents and Settings\jarret\Desktop\srm-prod  
-VMware: Srm::Installation::Utility::GetMsgFromErrorTable: INFORMATION: Error message is The host name in the Subject Alternative Name of the provided certificate does not match the SRM host name.  
-VMware: Srm::Installation::Utility::GetMsgFromErrorTable: INFORMATION: Error message is Failed to validate certificate.%n%nDetails:%n  
-[/code]
+	  
+	2012-08-02T12:00:54.493-06:00 [04636 info 'Default'] Vmacore::InitSSL: doVersionCheck = true, handshakeTimeoutUs = 20000000  
+	Enter password for certificate file C:\Documents and Settings\jarret\Desktop\srm-prod\srm-prod.p12: Error [76]: The DNS of the certificate, does not match the SRM host. The expected DNS name is: srm-prod.virtuallyhyper.com. The provided SRM host is: 192.168.10.72
+	
+	VMware: Srm::Installation::Utility::LaunchApplication: INFORMATION: Child process stderr:
+	
+	VMware: Srm::Installation::Utility::LaunchApplication: INFORMATION: Executable finished executing. Result code=76  
+	VMware: Srm::Installation::DirectoryChanger::~DirectoryChanger: INFORMATION: Restored directory. Directory=C:\Documents and Settings\jarret\Desktop\srm-prod  
+	VMware: Srm::Installation::Utility::GetMsgFromErrorTable: INFORMATION: Error message is The host name in the Subject Alternative Name of the provided certificate does not match the SRM host name.  
+	VMware: Srm::Installation::Utility::GetMsgFromErrorTable: INFORMATION: Error message is Failed to validate certificate.%n%nDetails:%n  
+	
 
 From the logs we can see that the subjectAltName (srm-prod.virtuallyhyper.com) does not match the SRM host (192.168.10.72), so the error makes perfect sense. The problem is that the message does not indicate why the SRM host is by IP address instead of the FQDN.
 
@@ -46,17 +46,17 @@ We can change the configuration files in order to fix this. On the SRM server, o
 
 Since we updated the extensions in the xml file, we also have to update the extensions in vCenter. To do this we will use the srm-config.exe. Open up a command prompt with administrative privileges and run the following commands.
 
-[code]  
-C:\> cd C:\Program Files (x86)\VMware\VMware vCenter Site Recovery Manager\bin  
-C:\Program Files (x86)\VMware\VMware vCenter Site Recovery Manager\bin>srm-config.exe -cmd updateext -cfg ..\config\vmware-dr.xml -extcfg ..\config\extension.xml  
-[/code]
+	  
+	C:\> cd C:\Program Files (x86)\VMware\VMware vCenter Site Recovery Manager\bin  
+	C:\Program Files (x86)\VMware\VMware vCenter Site Recovery Manager\bin>srm-config.exe -cmd updateext -cfg ..\config\vmware-dr.xml -extcfg ..\config\extension.xml  
+	
 
 Now we should restart SRM to ensure that the changes are taken.
 
-[code]  
-C:\> net stop vmware-dr  
-C:\> net start vmware-dr  
-[/code]
+	  
+	C:\> net stop vmware-dr  
+	C:\> net start vmware-dr  
+	
 
 Now try to run the &#8220;modify&#8221; installation and insert your custom cert.
 
@@ -74,32 +74,32 @@ Another way is to regenerate the certificate. This way we can put in more subjec
 
 When generating the csr for the CA to sign, you had to add a <a href="http://kb.vmware.com/kb/1008390" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1008390']);" target="_blank">subjectAltName as per the requirements</a>. To do this you would put a definition of the subjectAltName in the openssl.cnf (openssl.cfg on windows).
 
-[code]  
-subjectAltName = DNS: SRM1.example.com  
-[/code]
+	  
+	subjectAltName = DNS: SRM1.example.com  
+	
 
 According to the <a href="http://www.openssl.org/docs/apps/x509v3_config.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.openssl.org/docs/apps/x509v3_config.html']);" target="_blank">openssl documents</a>, we can add in a subjectAltName of an IP as well. So we can regernerate our CSR with the following lines in the openssl.cnf.
 
-[code]  
-subjectAltName = DNS: srm-prod.virtuallyhyper.com,IP: 192.168.10.72  
-[/code]
+	  
+	subjectAltName = DNS: srm-prod.virtuallyhyper.com,IP: 192.168.10.72  
+	
 
 Generate the csr again. (Make sure that you still have the clientAuth in the openssl.cnf)
 
-[code]  
-\# openssl req -new -newkey rsa:2048 -sha256 -nodes -out srm-prod.csr -keyout srm-prod.key -config openssl.cnf  
-[/code]
+	  
+	\# openssl req -new -newkey rsa:2048 -sha256 -nodes -out srm-prod.csr -keyout srm-prod.key -config openssl.cnf  
+	
 
 Check the csr for the new alternative names.
 
-[code]  
-\# openssl req -text -noout -in srm-prod.csr |egrep -A 1 "Subject Alternative Name|Extended Key Usage"  
-X509v3 Subject Alternative Name:  
-DNS:srm-prod.virtuallyhyper.com, IP Address:192.168.10.72  
-X509v3 Extended Key Usage:  
-TLS Web Server Authentication, TLS Web Client Authentication
-
-[/code]
+	  
+	\# openssl req -text -noout -in srm-prod.csr |egrep -A 1 "Subject Alternative Name|Extended Key Usage"  
+	X509v3 Subject Alternative Name:  
+	DNS:srm-prod.virtuallyhyper.com, IP Address:192.168.10.72  
+	X509v3 Extended Key Usage:  
+	TLS Web Server Authentication, TLS Web Client Authentication
+	
+	
 
 Now get the csr signed, converted to a p12 and then try to do the &#8220;modify&#8221; install on SRM. This time the IP should match the SRM name.
 

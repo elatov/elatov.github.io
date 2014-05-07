@@ -52,68 +52,68 @@ It&#8217;s almost the same as the &#8220;Windows Scenario&#8221; but instead of 
 
 ##### Fedora/CentOs/RedHat
 
-<pre>[root@rac1 ~]$ yum install zerofree
-updates/metalink | 12 kB 00:00
-updates | 4.5 kB 00:00
-updates/primary_db | 4.3 MB 00:21
-Setting up Install Process
-Resolving Dependencies
-Running transaction check
-Package zerofree.i686 0:1.0.1-8.fc15 will be installed
-Finished Dependency Resolution
-
-Dependencies Resolved
-
-================================================================================
-Package Arch Version Repository Size
-================================================================================
-Installing:
-zerofree i686 1.0.1-8.fc15 fedora 20 k
-
-Transaction Summary
-================================================================================
-Install 1 Package
-
-Total download size: 20 k
-Installed size: 20 k
-Is this ok [y/N]: y
-Downloading Packages:
-zerofree-1.0.1-8.fc15.i686.rpm | 20 kB 00:00
-Running Transaction Check
-Running Transaction Test
-Transaction Test Succeeded
-Running Transaction
-Installing : zerofree-1.0.1-8.fc15.i686 1/1
-
-Installed:
-zerofree.i686 0:1.0.1-8.fc15
-
-Complete!</pre>
+	[root@rac1 ~]$ yum install zerofree
+	updates/metalink | 12 kB 00:00
+	updates | 4.5 kB 00:00
+	updates/primary_db | 4.3 MB 00:21
+	Setting up Install Process
+	Resolving Dependencies
+	Running transaction check
+	Package zerofree.i686 0:1.0.1-8.fc15 will be installed
+	Finished Dependency Resolution
+	
+	Dependencies Resolved
+	
+	================================================================================
+	Package Arch Version Repository Size
+	================================================================================
+	Installing:
+	zerofree i686 1.0.1-8.fc15 fedora 20 k
+	
+	Transaction Summary
+	================================================================================
+	Install 1 Package
+	
+	Total download size: 20 k
+	Installed size: 20 k
+	Is this ok [y/N]: y
+	Downloading Packages:
+	zerofree-1.0.1-8.fc15.i686.rpm | 20 kB 00:00
+	Running Transaction Check
+	Running Transaction Test
+	Transaction Test Succeeded
+	Running Transaction
+	Installing : zerofree-1.0.1-8.fc15.i686 1/1
+	
+	Installed:
+	zerofree.i686 0:1.0.1-8.fc15
+	
+	Complete!
 
 ##### For Debian/Ubuntu:
 
-<pre>[root@rac1 ~]$ apt-get install zerofree
-Reading package lists... Done
-Building dependency tree
-Reading state information... Done
-The following NEW packages will be installed:
-zerofree
-0 upgraded, 1 newly installed, 0 to remove and 17 not upgraded.
-Need to get 7,272 B of archives.
-After this operation, 61.4 kB of additional disk space will be used.
-Get:1 http://ubuntu.cs.utah.edu/ubuntu/ oneiric/universe zerofree amd64 1.0.1-2ubuntu1 [7,272 B]
-Fetched 7,272 B in 0s (41.5 kB/s)
-Selecting previously deselected package zerofree.
-(Reading database ... 22748 files and directories currently installed.)
-Unpacking zerofree (from .../zerofree_1.0.1-2ubuntu1_amd64.deb) ...
-Processing triggers for man-db ...
-Setting up zerofree (1.0.1-2ubuntu1) ...</pre>
+	[root@rac1 ~]$ apt-get install zerofree
+	Reading package lists... Done
+	Building dependency tree
+	Reading state information... Done
+	The following NEW packages will be installed:
+	zerofree
+	0 upgraded, 1 newly installed, 0 to remove and 17 not upgraded.
+	Need to get 7,272 B of archives.
+	After this operation, 61.4 kB of additional disk space will be used.
+	Get:1 http://ubuntu.cs.utah.edu/ubuntu/ oneiric/universe zerofree amd64 1.0.1-2ubuntu1 [7,272 B]
+	Fetched 7,272 B in 0s (41.5 kB/s)
+	Selecting previously deselected package zerofree.
+	(Reading database ... 22748 files and directories currently installed.)
+	Unpacking zerofree (from .../zerofree_1.0.1-2ubuntu1_amd64.deb) ...
+	Processing triggers for man-db ...
+	Setting up zerofree (1.0.1-2ubuntu1) ...
 
 Then you need to mount the partition as read-only and run zerofree on it. If you need perform this on your OS/root partition, then power off your VM and attach the OS disk to another Linux VM. Here is how it looks like:
 
-<pre>[root@rac1 ~]$ mount -o remount,ro /dev/mapper/test-lvol0
-[root@rac1 ~]$ zerofree -v /dev/mapper/test-lvol0
-1106/485301/512000</pre>
+	[root@rac1 ~]$ mount -o remount,ro /dev/mapper/test-lvol0
+	[root@rac1 ~]$ zerofree -v /dev/mapper/test-lvol0
+	1106/485301/512000
 
 Then Storage vMotion the VM to another datastore with another block size converting the disk to thin.
 

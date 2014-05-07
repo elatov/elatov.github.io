@@ -77,11 +77,11 @@ The first part of the solution was already in place in VDR 2.0.1, so we didn&#82
 
 We then re-enabled the Email\_Server\_Backup_Job and it started to fail right away and it actually kept leaving VMware snapshots behind. I then wanted to concentrate on the VMware snapshots failing. The first thing I noticed that that the VM was actually on Virtual HW # 4:
 
-[code]  
-$ egrep 'virtualHW.v|display' Email.vmx  
-virtualHW.version = "4"  
-displayName = "Email"  
-[/code]
+	  
+	$ egrep 'virtualHW.v|display' Email.vmx  
+	virtualHW.version = "4"  
+	displayName = "Email"  
+	
 
 Since VDR uses Change Block Tracking (CBT) to efficiently make backups, the VM actually has to be at Virtual HW # 7 to be able to use CBT. From the VDR admin guide:
 
@@ -91,30 +91,30 @@ Since VDR uses Change Block Tracking (CBT) to efficiently make backups, the VM a
 
 Following the instructions laid out in VMware KB <a href="http://kb.vmware.com/kb/1010675" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1010675']);">1010675</a>, we updated the virtual HW to version 7, but it didn&#8217;t help out. I then looked at the *vmware.log* file as the snapshot deletion process was going and I saw the following:
 
-[code]  
-2012-07-06T21:01:10.891Z| vcpu-0| DISKLIB-CBT : Opening cbt node /vmfs/devices/cbt/88f0572-cbt  
-2012-07-06T21:01:10.893Z| vcpu-0| AIOGNRC: Failed to open '/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000002-delta.vmdk' : Failed to lock the file (400000003) (0x2013).  
-2012-07-06T21:01:10.893Z| vcpu-0| AIOMGR: AIOMgr_OpenWithRetry: Descriptor file '/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000002-delta.vmdk' locked (try 0)  
-2012-07-06T21:01:11.196Z| vcpu-0| AIOGNRC: Failed to open '/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000002-delta.vmdk' : Failed to lock the file (400000003) (0x2013).  
-2012-07-06T21:01:11.196Z| vcpu-0| AIOMGR: AIOMgr_OpenWithRetry: Descriptor file '/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000002-delta.vmdk' locked (try 1)  
-2012-07-06T21:01:11.498Z| vcpu-0| AIOGNRC: Failed to open '/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000002-delta.vmdk' : Failed to lock the file (400000003) (0x2013).  
-2012-07-06T21:01:11.498Z| vcpu-0| AIOMGR: AIOMgr_OpenWithRetry: Descriptor file '/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000002-delta.vmdk' locked (try 2)  
-2012-07-06T21:01:11.798Z| vcpu-0| AIOGNRC: Failed to open '/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000002-delta.vmdk' : Failed to lock the file (400000003) (0x2013).  
-2012-07-06T21:01:11.798Z| vcpu-0| AIOMGR: AIOMgr_OpenWithRetry: Descriptor file '/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000002-delta.vmdk' locked (try 3)  
-2012-07-06T21:01:12.108Z| vcpu-0| AIOGNRC: Failed to open '/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000002-delta.vmdk' : Failed to lock the file (400000003) (0x2013).  
-2012-07-06T21:01:12.108Z| vcpu-0| AIOMGR: AIOMgr_OpenWithRetry: Descriptor file '/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000002-delta.vmdk' locked (try 4)  
-2012-07-06T21:01:12.410Z| vcpu-0| AIOGNRC: Failed to open '/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000002-delta.vmdk' : Failed to lock the file (400000003) (0x2013).  
-2012-07-06T21:01:12.410Z| vcpu-0| DISKLIB-VMFS : "/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000002-delta.vmdk" : failed to open (Failed to lock the file): AIOMgr_Open failed. Type 8  
-2012-07-06T21:01:12.410Z| vcpu-0| DISKLIB-LINK : "/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email000002.vmdk" : failed to open (Failed to lock the file).  
-2012-07-06T21:01:12.410Z| vcpu-0| DISKLIB-CHAIN : "/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000002.vmdk" : failed to open (Failed to lock the file).  
-2012-07-06T21:01:12.410Z| vcpu-0| DISKLIB-LIB : Failed to open '/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000002.vmdk' with flags 0x8 Failed to lock the file (16392).  
-2012-07-06T21:01:12.410Z| vcpu-0| SNAPSHOT:Failed to open disk /vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000002.vmdk : Failed to lock the file (16392)  
-2012-07-06T21:01:12.411Z| vcpu-0| DISKLIB-CBT : Shutting down change tracking for untracked fid 233964902.  
-2012-07-06T21:01:12.412Z| vcpu-0| DISKLIB-CBT : Successfully disconnected CBT node.  
-2012-07-06T21:01:12.420Z| vcpu-0| DISKLIB-VMFS : "/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000004-delta.vmdk" : closed.  
-2012-07-06T21:01:12.420Z| vcpu-0| DISKLIB-VMFS : "/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000003-delta.vmdk" : closed.  
-2012-07-06T21:01:12.420Z| vcpu-0| DISK: Failed to open disk for consolidate '/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000004.vmdk' : Failed to lock the file (16392) 5345  
-[/code]
+	  
+	2012-07-06T21:01:10.891Z| vcpu-0| DISKLIB-CBT : Opening cbt node /vmfs/devices/cbt/88f0572-cbt  
+	2012-07-06T21:01:10.893Z| vcpu-0| AIOGNRC: Failed to open '/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000002-delta.vmdk' : Failed to lock the file (400000003) (0x2013).  
+	2012-07-06T21:01:10.893Z| vcpu-0| AIOMGR: AIOMgr_OpenWithRetry: Descriptor file '/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000002-delta.vmdk' locked (try 0)  
+	2012-07-06T21:01:11.196Z| vcpu-0| AIOGNRC: Failed to open '/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000002-delta.vmdk' : Failed to lock the file (400000003) (0x2013).  
+	2012-07-06T21:01:11.196Z| vcpu-0| AIOMGR: AIOMgr_OpenWithRetry: Descriptor file '/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000002-delta.vmdk' locked (try 1)  
+	2012-07-06T21:01:11.498Z| vcpu-0| AIOGNRC: Failed to open '/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000002-delta.vmdk' : Failed to lock the file (400000003) (0x2013).  
+	2012-07-06T21:01:11.498Z| vcpu-0| AIOMGR: AIOMgr_OpenWithRetry: Descriptor file '/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000002-delta.vmdk' locked (try 2)  
+	2012-07-06T21:01:11.798Z| vcpu-0| AIOGNRC: Failed to open '/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000002-delta.vmdk' : Failed to lock the file (400000003) (0x2013).  
+	2012-07-06T21:01:11.798Z| vcpu-0| AIOMGR: AIOMgr_OpenWithRetry: Descriptor file '/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000002-delta.vmdk' locked (try 3)  
+	2012-07-06T21:01:12.108Z| vcpu-0| AIOGNRC: Failed to open '/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000002-delta.vmdk' : Failed to lock the file (400000003) (0x2013).  
+	2012-07-06T21:01:12.108Z| vcpu-0| AIOMGR: AIOMgr_OpenWithRetry: Descriptor file '/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000002-delta.vmdk' locked (try 4)  
+	2012-07-06T21:01:12.410Z| vcpu-0| AIOGNRC: Failed to open '/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000002-delta.vmdk' : Failed to lock the file (400000003) (0x2013).  
+	2012-07-06T21:01:12.410Z| vcpu-0| DISKLIB-VMFS : "/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000002-delta.vmdk" : failed to open (Failed to lock the file): AIOMgr_Open failed. Type 8  
+	2012-07-06T21:01:12.410Z| vcpu-0| DISKLIB-LINK : "/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email000002.vmdk" : failed to open (Failed to lock the file).  
+	2012-07-06T21:01:12.410Z| vcpu-0| DISKLIB-CHAIN : "/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000002.vmdk" : failed to open (Failed to lock the file).  
+	2012-07-06T21:01:12.410Z| vcpu-0| DISKLIB-LIB : Failed to open '/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000002.vmdk' with flags 0x8 Failed to lock the file (16392).  
+	2012-07-06T21:01:12.410Z| vcpu-0| SNAPSHOT:Failed to open disk /vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000002.vmdk : Failed to lock the file (16392)  
+	2012-07-06T21:01:12.411Z| vcpu-0| DISKLIB-CBT : Shutting down change tracking for untracked fid 233964902.  
+	2012-07-06T21:01:12.412Z| vcpu-0| DISKLIB-CBT : Successfully disconnected CBT node.  
+	2012-07-06T21:01:12.420Z| vcpu-0| DISKLIB-VMFS : "/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000004-delta.vmdk" : closed.  
+	2012-07-06T21:01:12.420Z| vcpu-0| DISKLIB-VMFS : "/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000003-delta.vmdk" : closed.  
+	2012-07-06T21:01:12.420Z| vcpu-0| DISK: Failed to open disk for consolidate '/vmfs/volumes/4d9ad894-9c46d712-92ac-842b2b659fb0/Email/Email-000004.vmdk' : Failed to lock the file (16392) 5345  
+	
 
 It seems that we are having a lot of locking issues when cleaning up our snapshots. I was looking over the release notes of <a href="https://www.vmware.com/support/developer/vddk/VDDK-501-ReleaseNotes.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.vmware.com/support/developer/vddk/VDDK-501-ReleaseNotes.html']);">VDDK 5.0U1</a>, and I noticed this section:
 
@@ -129,9 +129,9 @@ We were running 5.0GA, so we went ahead and updated to 5.0U1 (vCenter and ESXi) 
 
 We re-configured the backup jobs to now point to the new Dedupe Stores and re-enabled the Email\_Server\_Backup_Job and it still failed to even start the backup. We logged into the VDR appliance via ssh as root and we checked out the */var/vmware/datarecovery/datarecovery-0.log* file. When it was failing we saw the following log entry:
 
-[code]  
-7/7/2012 18:06:28.000: 0x0123e6a8: $[*20750]Trouble reading files, error -3956 ( operation failed)  
-[/code]
+	  
+	7/7/2012 18:06:28.000: 0x0123e6a8: $[*20750]Trouble reading files, error -3956 ( operation failed)  
+	
 
 As I was logged into the appliance I saw that the hostname of the appliance was *localhost*. If the appliance has the name of *localhost* it usually means that DNS is currently not setup properly, some times that cause random backup issues. From VMware KB <a href="http://kb.vmware.com/kb/1037995" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1037995']);">1037995</a>:
 
@@ -190,18 +190,18 @@ Since my DNS was all setup, I just rebooted the appliance and then all the DNS c
 
 After working through the DNS issues the Backup still failed with the same log message from */var/vmware/datarecovery/datarecovery-0.log*, but I also checked out the */var/log/datarecovery/vcbAPI-0.log* and I saw the following:
 
-[code]  
-2012-07-08T18:01:33.608-04:00 [4BFC8940 warning 'Default'] VcbAPI::Snapshot::GetChangeInfo: Cannot look for changes past the end of the disk, disk size: 268506040320, offset: 268506040320.  
-2012-07-08T18:04:52.804-04:00 [4B5C7940 error 'Default'] vcbAPI::Snapshot::Read: Main read failed for disk [SAN] Email/Email-000001.vmdk, error: 2338  
-2012-07-08T18:04:52.832-04:00 [4B5C7940 error 'Default'] RealPartitionReader: File i/o error ($1)  
-2012-07-08T18:06:52.837-04:00 [4B5C7940 error 'Default'] vcbAPI::Snapshot::Read: Main read failed for disk [SAN] Email/Email-000001.vmdk, error: 2338  
-2012-07-08T18:06:52.837-04:00 [4B5C7940 error 'Default'] RealPartitionReader: File i/o error ($1)  
-2012-07-08T18:06:52.837-04:00 [4B5C7940 info 'Default'] VcbAPI::Snapshot::GetUnusedFileInfo: Could not obtain file blocks for "pagefile.sys" on one of Partitions of path: "[SAN] Email/Email-000001.vmdk", error: 32771  
-2012-07-08T18:06:53.452-04:00 [4B5C7940 info 'Default'] VcbAPI::Snapshot::GetChangeInfo: Got InvalidArgument exception: vmodl.fault.InvalidArgument  
-2012-07-08T18:06:53.477-04:00 [4B5C7940 error 'Default'] Exception in VCBSnapshot_GetDiskChanges: Error code: 1318  
-2012-07-08T18:08:53.513-04:00 [4B5C7940 error 'Default'] vcbAPI::Snapshot::Read: Main read failed for disk [SAN] Email/Email-00001.vmdk, error: 2338  
-2012-07-08T18:08:53.513-04:00 [4B5C7940 error 'Default'] Exception in VCBSnapshot_ReadFile: Error code: 1315  
-[/code]
+	  
+	2012-07-08T18:01:33.608-04:00 [4BFC8940 warning 'Default'] VcbAPI::Snapshot::GetChangeInfo: Cannot look for changes past the end of the disk, disk size: 268506040320, offset: 268506040320.  
+	2012-07-08T18:04:52.804-04:00 [4B5C7940 error 'Default'] vcbAPI::Snapshot::Read: Main read failed for disk [SAN] Email/Email-000001.vmdk, error: 2338  
+	2012-07-08T18:04:52.832-04:00 [4B5C7940 error 'Default'] RealPartitionReader: File i/o error ($1)  
+	2012-07-08T18:06:52.837-04:00 [4B5C7940 error 'Default'] vcbAPI::Snapshot::Read: Main read failed for disk [SAN] Email/Email-000001.vmdk, error: 2338  
+	2012-07-08T18:06:52.837-04:00 [4B5C7940 error 'Default'] RealPartitionReader: File i/o error ($1)  
+	2012-07-08T18:06:52.837-04:00 [4B5C7940 info 'Default'] VcbAPI::Snapshot::GetUnusedFileInfo: Could not obtain file blocks for "pagefile.sys" on one of Partitions of path: "[SAN] Email/Email-000001.vmdk", error: 32771  
+	2012-07-08T18:06:53.452-04:00 [4B5C7940 info 'Default'] VcbAPI::Snapshot::GetChangeInfo: Got InvalidArgument exception: vmodl.fault.InvalidArgument  
+	2012-07-08T18:06:53.477-04:00 [4B5C7940 error 'Default'] Exception in VCBSnapshot_GetDiskChanges: Error code: 1318  
+	2012-07-08T18:08:53.513-04:00 [4B5C7940 error 'Default'] vcbAPI::Snapshot::Read: Main read failed for disk [SAN] Email/Email-00001.vmdk, error: 2338  
+	2012-07-08T18:08:53.513-04:00 [4B5C7940 error 'Default'] Exception in VCBSnapshot_ReadFile: Error code: 1315  
+	
 
 I then ran across VMware KB <a href="http://kb.vmware.com/kb/2013450" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/2013450']);">2013450</a>, which had the following instructions to fix the above issue:
 
@@ -259,32 +259,32 @@ All was well for a while, but then one day one of the Integrity check failed aga
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/vdr-int-check-failing.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/vdr-int-check-failing.png']);"><img class="alignnone size-full wp-image-3161" title="vdr-int-check-failing" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/vdr-int-check-failing.png" alt="vdr int check failing VDR Appliance Fails to Complete Integrity Check and Fails to Backup Certain VMs" width="1075" height="438" /></a>  
 We logged into the appliance again and checking out the */var/vmware/datarecovery/datarecovery-0.log*, we saw the following:
 
-[code]  
-Aug 17 14:06:13 vdr datarecovery: Can't load restore point tree for 8/17/2012 7:00:56 AM, error -2249 ( could not find restore point)  
-Aug 17 14:06:14 vdr datarecovery: Job "Integrity Check" incomplete  
-[/code]
+	  
+	Aug 17 14:06:13 vdr datarecovery: Can't load restore point tree for 8/17/2012 7:00:56 AM, error -2249 ( could not find restore point)  
+	Aug 17 14:06:14 vdr datarecovery: Job "Integrity Check" incomplete  
+	
 
 I also noticed that earlier in the day this occured in the logs:
 
-[code]
-
-Aug 17 07:14:42 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM0)" completed successfully  
-Aug 17 07:26:52 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM1)" completed successfully  
-Aug 17 07:28:32 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM2)" completed successfully  
-Aug 17 07:32:19 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM3)" completed successfully  
-Aug 17 07:35:47 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM4)" completed successfully  
-Aug 17 07:48:37 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM5)" completed successfully  
-Aug 17 07:49:28 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM6)" completed successfully  
-Aug 17 07:50:27 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM7)" completed successfully  
-Aug 17 07:59:46 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM8)" completed successfully  
-Aug 17 08:00:01 vdr datarecovery: Job terminated at specified stop time.  
-Aug 17 08:00:01 vdr last message repeated 4 times  
-Aug 17 08:00:05 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM9)" incomplete  
-Aug 17 08:03:47 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM10)" incomplete  
-Aug 17 08:03:54 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM11)" incomplete  
-Aug 17 08:04:11 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM12)" incomplete  
-Aug 17 08:04:25 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM13)" incomplete  
-[/code]
+	
+	
+	Aug 17 07:14:42 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM0)" completed successfully  
+	Aug 17 07:26:52 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM1)" completed successfully  
+	Aug 17 07:28:32 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM2)" completed successfully  
+	Aug 17 07:32:19 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM3)" completed successfully  
+	Aug 17 07:35:47 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM4)" completed successfully  
+	Aug 17 07:48:37 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM5)" completed successfully  
+	Aug 17 07:49:28 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM6)" completed successfully  
+	Aug 17 07:50:27 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM7)" completed successfully  
+	Aug 17 07:59:46 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM8)" completed successfully  
+	Aug 17 08:00:01 vdr datarecovery: Job terminated at specified stop time.  
+	Aug 17 08:00:01 vdr last message repeated 4 times  
+	Aug 17 08:00:05 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM9)" incomplete  
+	Aug 17 08:03:47 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM10)" incomplete  
+	Aug 17 08:03:54 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM11)" incomplete  
+	Aug 17 08:04:11 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM12)" incomplete  
+	Aug 17 08:04:25 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM13)" incomplete  
+	
 
 It looks like we had backups going but they didn&#8217;t finish by 8 AM, which is when our backup windows stops, so the jobs were forcefully stopped. That can cause the Intergrity check to fail since we had data that was half backed up. After we increased our backup window, the Integrity Check stopped failing, since all the VMs had enough time to be backed up.
 

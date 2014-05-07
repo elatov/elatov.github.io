@@ -29,12 +29,12 @@ This comes from the old &#8220;<a href="http://www.vmware.com/pdf/vsphere4/r41/v
 
 You can check the default action like so:
 
-[code]  
-~ # esxcli network firewall get  
-Default Action: DROP  
-Enabled: true  
-Loaded: true  
-[/code]
+	  
+	~ # esxcli network firewall get  
+	Default Action: DROP  
+	Enabled: true  
+	Loaded: true  
+	
 
 So if the default Action is &#8220;DROP&#8221; then we are at high. If the the default action is &#8220;PASS&#8221; then we are at low. If we have an nfs mount point, this opens up all outgoing ports, then we are at medium. From the security guide:
 
@@ -52,79 +52,79 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 > **To limit shell access**
 > 
 > 1.  Check firewall status and sshServer ruleset status.  
->     [code]  
->     esxcli <conn_options> network firewall get  
->     Default Action: DROP  
->     Enabled: true  
->     Loaded: true  
->     [/code]</p> 
+	>       
+	>     esxcli <conn_options> network firewall get  
+	>     Default Action: DROP  
+	>     Enabled: true  
+	>     Loaded: true  
+	>     </p> 
 >     and
 >     
->     [code]  
->     esxcli network firewall ruleset list --ruleset-id sshServer  
->     Name Enabled  
->     \---\---\--- \---\----  
->     sshServer true  
->     [/code]</li> 
+	>       
+	>     esxcli network firewall ruleset list --ruleset-id sshServer  
+	>     Name Enabled  
+	>     \---\---\--- \---\----  
+	>     sshServer true  
+	>     </li> 
 >     *   Enable the sshServer ruleset if it is disabled.  
->         [code]  
->         esxcli network firewall ruleset set --ruleset-id sshServer --enabled true  
->         [/code]</ol> </blockquote> 
+	>           
+	>         esxcli network firewall ruleset set --ruleset-id sshServer --enabled true  
+	>         </ol> </blockquote> 
 >     To get a list of available services, you can do the following:
 >     
->     [code]  
->     ~ # esxcli network firewall ruleset list  
->     Name Enabled  
->     \---\---\---\---\---\--- \---\----  
->     sshServer true  
->     sshClient false  
->     nfsClient true  
->     dhcp true  
->     dns true  
->     snmp true  
->     ntpClient false  
->     CIMHttpServer true  
->     CIMHttpsServer true  
->     CIMSLP true  
->     iSCSI true  
->     vpxHeartbeats true  
->     updateManager false  
->     faultTolerance true  
->     webAccess true  
->     vMotion true  
->     vSphereClient true  
->     activeDirectoryAll false  
->     NFC true  
->     HBR true  
->     ftpClient false  
->     httpClient true  
->     gdbserver false  
->     DVFilter false  
->     DHCPv6 false  
->     DVSSync false  
->     syslog true  
->     IKED false  
->     WOL true  
->     vSPC true  
->     remoteSerialPort true  
->     netDump true  
->     fdm false  
->     [/code]
+	>       
+	>     ~ # esxcli network firewall ruleset list  
+	>     Name Enabled  
+	>     \---\---\---\---\---\--- \---\----  
+	>     sshServer true  
+	>     sshClient false  
+	>     nfsClient true  
+	>     dhcp true  
+	>     dns true  
+	>     snmp true  
+	>     ntpClient false  
+	>     CIMHttpServer true  
+	>     CIMHttpsServer true  
+	>     CIMSLP true  
+	>     iSCSI true  
+	>     vpxHeartbeats true  
+	>     updateManager false  
+	>     faultTolerance true  
+	>     webAccess true  
+	>     vMotion true  
+	>     vSphereClient true  
+	>     activeDirectoryAll false  
+	>     NFC true  
+	>     HBR true  
+	>     ftpClient false  
+	>     httpClient true  
+	>     gdbserver false  
+	>     DVFilter false  
+	>     DHCPv6 false  
+	>     DVSSync false  
+	>     syslog true  
+	>     IKED false  
+	>     WOL true  
+	>     vSPC true  
+	>     remoteSerialPort true  
+	>     netDump true  
+	>     fdm false  
+	>     
 >     
 >     To enable or disable any of the above services you can do the following:
 >     
->     [code]  
->     ~ # esxcli network firewall ruleset set -r fdm -e true  
->     ~ # esxcli network firewall ruleset list -r fdm  
->     Name Enabled  
->     \---\- --\-----  
->     fdm true  
->     ~ # esxcli network firewall ruleset set -r fdm -e false  
->     ~ # esxcli network firewall ruleset list -r fdm  
->     Name Enabled  
->     \---\- --\-----  
->     fdm false  
->     [/code]
+	>       
+	>     ~ # esxcli network firewall ruleset set -r fdm -e true  
+	>     ~ # esxcli network firewall ruleset list -r fdm  
+	>     Name Enabled  
+	>     \---\- --\-----  
+	>     fdm true  
+	>     ~ # esxcli network firewall ruleset set -r fdm -e false  
+	>     ~ # esxcli network firewall ruleset list -r fdm  
+	>     Name Enabled  
+	>     \---\- --\-----  
+	>     fdm false  
+	>     
 >     
 >     ### Configure service behavior automation
 >     
@@ -165,87 +165,87 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 >     
 >     Every pre-defined service has associated ports with the service. Here is a list of all the services and their corresponding ports:
 >     
->     [code]  
->     ~ # esxcli network firewall ruleset rule list  
->     Ruleset Direction Protocol Port Type Port Begin Port End  
->     \---\---\---\---\---\--- \---\---\--- \---\---\-- -\---\---\-- -\---\---\--- \---\-----  
->     sshServer Inbound TCP Dst 22 22  
->     sshClient Outbound TCP Dst 22 22  
->     nfsClient Outbound TCP Dst 0 65535  
->     dhcp Inbound UDP Dst 68 68  
->     dhcp Outbound UDP Src 68 68  
->     dns Inbound UDP Dst 53 53  
->     dns Outbound UDP Dst 53 53  
->     dns Outbound TCP Dst 53 53  
->     snmp Inbound UDP Dst 161 161  
->     ntpClient Outbound UDP Dst 123 123  
->     CIMHttpServer Inbound TCP Dst 5988 5988  
->     CIMHttpsServer Inbound TCP Dst 5989 5989  
->     CIMSLP Inbound UDP Dst 427 427  
->     CIMSLP Outbound UDP Src 427 427  
->     CIMSLP Inbound TCP Dst 427 427  
->     CIMSLP Outbound TCP Src 427 427  
->     iSCSI Outbound TCP Dst 3260 3260  
->     vpxHeartbeats Outbound UDP Dst 902 902  
->     updateManager Outbound TCP Dst 80 80  
->     updateManager Outbound TCP Dst 9000 9100  
->     faultTolerance Outbound TCP Dst 80 80  
->     faultTolerance Inbound TCP Dst 8100 8100  
->     faultTolerance Outbound TCP Dst 8100 8100  
->     faultTolerance Inbound UDP Dst 8200 8200  
->     faultTolerance Outbound UDP Dst 8200 8200  
->     webAccess Inbound TCP Dst 80 80  
->     vMotion Inbound TCP Dst 8000 8000  
->     vMotion Outbound TCP Dst 8000 8000  
->     vSphereClient Inbound TCP Dst 902 902  
->     vSphereClient Inbound TCP Dst 443 443  
->     activeDirectoryAll Outbound UDP Dst 88 88  
->     activeDirectoryAll Outbound TCP Dst 88 88  
->     activeDirectoryAll Outbound UDP Dst 123 123  
->     activeDirectoryAll Outbound UDP Dst 137 137  
->     activeDirectoryAll Outbound TCP Dst 139 139  
->     activeDirectoryAll Outbound TCP Dst 389 389  
->     activeDirectoryAll Outbound UDP Dst 389 389  
->     activeDirectoryAll Outbound TCP Dst 445 445  
->     activeDirectoryAll Outbound UDP Dst 464 464  
->     activeDirectoryAll Outbound TCP Dst 464 464  
->     activeDirectoryAll Outbound TCP Dst 3268 3268  
->     activeDirectoryAll Outbound TCP Dst 51915 51915  
->     NFC Inbound TCP Dst 902 902  
->     NFC Outbound TCP Dst 902 902  
->     HBR Outbound TCP Dst 31031 31031  
->     HBR Outbound TCP Dst 44046 44046  
->     ftpClient Outbound TCP Dst 21 21  
->     ftpClient Inbound TCP Src 20 20  
->     httpClient Outbound TCP Dst 80 80  
->     httpClient Outbound TCP Dst 443 443  
->     gdbserver Inbound TCP Dst 1000 9999  
->     gdbserver Inbound TCP Dst 50000 50999  
->     DVFilter Inbound TCP Dst 2222 2222  
->     DHCPv6 Outbound TCP Dst 547 547  
->     DHCPv6 Inbound TCP Dst 546 546  
->     DHCPv6 Outbound UDP Dst 547 547  
->     DHCPv6 Inbound UDP Dst 546 546  
->     DVSSync Outbound UDP Dst 8302 8302  
->     DVSSync Inbound UDP Dst 8301 8301  
->     DVSSync Outbound UDP Dst 8301 8301  
->     DVSSync Inbound UDP Dst 8302 8302  
->     syslog Outbound UDP Dst 514 514  
->     syslog Outbound TCP Dst 514 514  
->     syslog Outbound TCP Dst 1514 1514  
->     IKED Outbound UDP Dst 500 500  
->     IKED Inbound UDP Dst 500 500  
->     WOL Outbound UDP Dst 9 9  
->     vSPC Outbound TCP Dst 0 65535  
->     remoteSerialPort Outbound TCP Dst 0 65535  
->     remoteSerialPort Inbound TCP Dst 23 23  
->     remoteSerialPort Inbound TCP Dst 1024 65535  
->     netDump Outbound UDP Dst 6500 6500  
->     fdm Inbound TCP Dst 8182 8182  
->     fdm Outbound TCP Dst 8182 8182  
->     fdm Inbound UDP Dst 8182 8182  
->     fdm Outbound UDP Dst 8182 8182  
->     [/code]
+	>       
+	>     ~ # esxcli network firewall ruleset rule list  
+	>     Ruleset Direction Protocol Port Type Port Begin Port End  
+	>     \---\---\---\---\---\--- \---\---\--- \---\---\-- -\---\---\-- -\---\---\--- \---\-----  
+	>     sshServer Inbound TCP Dst 22 22  
+	>     sshClient Outbound TCP Dst 22 22  
+	>     nfsClient Outbound TCP Dst 0 65535  
+	>     dhcp Inbound UDP Dst 68 68  
+	>     dhcp Outbound UDP Src 68 68  
+	>     dns Inbound UDP Dst 53 53  
+	>     dns Outbound UDP Dst 53 53  
+	>     dns Outbound TCP Dst 53 53  
+	>     snmp Inbound UDP Dst 161 161  
+	>     ntpClient Outbound UDP Dst 123 123  
+	>     CIMHttpServer Inbound TCP Dst 5988 5988  
+	>     CIMHttpsServer Inbound TCP Dst 5989 5989  
+	>     CIMSLP Inbound UDP Dst 427 427  
+	>     CIMSLP Outbound UDP Src 427 427  
+	>     CIMSLP Inbound TCP Dst 427 427  
+	>     CIMSLP Outbound TCP Src 427 427  
+	>     iSCSI Outbound TCP Dst 3260 3260  
+	>     vpxHeartbeats Outbound UDP Dst 902 902  
+	>     updateManager Outbound TCP Dst 80 80  
+	>     updateManager Outbound TCP Dst 9000 9100  
+	>     faultTolerance Outbound TCP Dst 80 80  
+	>     faultTolerance Inbound TCP Dst 8100 8100  
+	>     faultTolerance Outbound TCP Dst 8100 8100  
+	>     faultTolerance Inbound UDP Dst 8200 8200  
+	>     faultTolerance Outbound UDP Dst 8200 8200  
+	>     webAccess Inbound TCP Dst 80 80  
+	>     vMotion Inbound TCP Dst 8000 8000  
+	>     vMotion Outbound TCP Dst 8000 8000  
+	>     vSphereClient Inbound TCP Dst 902 902  
+	>     vSphereClient Inbound TCP Dst 443 443  
+	>     activeDirectoryAll Outbound UDP Dst 88 88  
+	>     activeDirectoryAll Outbound TCP Dst 88 88  
+	>     activeDirectoryAll Outbound UDP Dst 123 123  
+	>     activeDirectoryAll Outbound UDP Dst 137 137  
+	>     activeDirectoryAll Outbound TCP Dst 139 139  
+	>     activeDirectoryAll Outbound TCP Dst 389 389  
+	>     activeDirectoryAll Outbound UDP Dst 389 389  
+	>     activeDirectoryAll Outbound TCP Dst 445 445  
+	>     activeDirectoryAll Outbound UDP Dst 464 464  
+	>     activeDirectoryAll Outbound TCP Dst 464 464  
+	>     activeDirectoryAll Outbound TCP Dst 3268 3268  
+	>     activeDirectoryAll Outbound TCP Dst 51915 51915  
+	>     NFC Inbound TCP Dst 902 902  
+	>     NFC Outbound TCP Dst 902 902  
+	>     HBR Outbound TCP Dst 31031 31031  
+	>     HBR Outbound TCP Dst 44046 44046  
+	>     ftpClient Outbound TCP Dst 21 21  
+	>     ftpClient Inbound TCP Src 20 20  
+	>     httpClient Outbound TCP Dst 80 80  
+	>     httpClient Outbound TCP Dst 443 443  
+	>     gdbserver Inbound TCP Dst 1000 9999  
+	>     gdbserver Inbound TCP Dst 50000 50999  
+	>     DVFilter Inbound TCP Dst 2222 2222  
+	>     DHCPv6 Outbound TCP Dst 547 547  
+	>     DHCPv6 Inbound TCP Dst 546 546  
+	>     DHCPv6 Outbound UDP Dst 547 547  
+	>     DHCPv6 Inbound UDP Dst 546 546  
+	>     DVSSync Outbound UDP Dst 8302 8302  
+	>     DVSSync Inbound UDP Dst 8301 8301  
+	>     DVSSync Outbound UDP Dst 8301 8301  
+	>     DVSSync Inbound UDP Dst 8302 8302  
+	>     syslog Outbound UDP Dst 514 514  
+	>     syslog Outbound TCP Dst 514 514  
+	>     syslog Outbound TCP Dst 1514 1514  
+	>     IKED Outbound UDP Dst 500 500  
+	>     IKED Inbound UDP Dst 500 500  
+	>     WOL Outbound UDP Dst 9 9  
+	>     vSPC Outbound TCP Dst 0 65535  
+	>     remoteSerialPort Outbound TCP Dst 0 65535  
+	>     remoteSerialPort Inbound TCP Dst 23 23  
+	>     remoteSerialPort Inbound TCP Dst 1024 65535  
+	>     netDump Outbound UDP Dst 6500 6500  
+	>     fdm Inbound TCP Dst 8182 8182  
+	>     fdm Outbound TCP Dst 8182 8182  
+	>     fdm Inbound UDP Dst 8182 8182  
+	>     fdm Outbound UDP Dst 8182 8182  
+	>     
 >     
 >     If you want to open up any of those port, just enable the service per the instructions laid out above.
 >     
@@ -268,123 +268,123 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 >     > 
 >     > **Example: Rule Set Configuration File**
 >     > 
->     > [code language="xml"]  
->     > <ConfigRoot>  
->     > <service id='0000'>  
->     > <id>serviceName</id>  
->     > <rule id = '0000'>  
->     > <direction>inbound</direction>  
->     > <protocol>tcp</protocol>  
->     > <porttype>dst</porttype>  
->     > <port>80</port>  
->     > </rule>  
->     > <rule id='0001'>  
->     > <direction>inbound</direction>  
->     > <protocol>tcp</protocol>  
->     > <porttype>src</porttype>  
->     > <port>  
->     > <begin>1020</begin>  
->     > <end>1050</end>  
->     > </port>  
->     > </rule>  
->     > <enabled>true</enabled>  
->     > <required>false</required>  
->     > </service>  
->     > </ConfigRoot>  
->     > [/code]
+	>     >   
+	>     > <ConfigRoot>  
+	>     > <service id='0000'>  
+	>     > <id>serviceName</id>  
+	>     > <rule id = '0000'>  
+	>     > <direction>inbound</direction>  
+	>     > <protocol>tcp</protocol>  
+	>     > <porttype>dst</porttype>  
+	>     > <port>80</port>  
+	>     > </rule>  
+	>     > <rule id='0001'>  
+	>     > <direction>inbound</direction>  
+	>     > <protocol>tcp</protocol>  
+	>     > <porttype>src</porttype>  
+	>     > <port>  
+	>     > <begin>1020</begin>  
+	>     > <end>1050</end>  
+	>     > </port>  
+	>     > </rule>  
+	>     > <enabled>true</enabled>  
+	>     > <required>false</required>  
+	>     > </service>  
+	>     > </ConfigRoot>  
+	>     > 
 >     
 >     Here is what we can do to create a custom rule. First create a file under /etc/vmware/firewall with the appropriate rule. Here is how mine looked like:
 >     
->     [code language="xml"]  
->     ~ # cat /etc/vmware/firewall/karim.xml  
->     <ConfigRoot>  
->     <service>  
->     <id>karim</id>  
->     <rule id='0000'>  
->     <direction>inbound</direction>  
->     <protocol>tcp</protocol>  
->     <porttype>dst</porttype>  
->     <port>1024</port>  
->     </rule>  
->     <enabled>false</enabled>  
->     <required>false</required>  
->     </service>  
->     </ConfigRoot>  
->     [/code]
+	>       
+	>     ~ # cat /etc/vmware/firewall/karim.xml  
+	>     <ConfigRoot>  
+	>     <service>  
+	>     <id>karim</id>  
+	>     <rule id='0000'>  
+	>     <direction>inbound</direction>  
+	>     <protocol>tcp</protocol>  
+	>     <porttype>dst</porttype>  
+	>     <port>1024</port>  
+	>     </rule>  
+	>     <enabled>false</enabled>  
+	>     <required>false</required>  
+	>     </service>  
+	>     </ConfigRoot>  
+	>     
 >     
 >     Then reload the firewall:
 >     
->     [code]  
->     ~ # esxcli network firewall refresh  
->     [/code]
+	>       
+	>     ~ # esxcli network firewall refresh  
+	>     
 >     
 >     Then check to see if the rule is correctly configured:
 >     
->     [code]  
->     ~ # esxcli network firewall ruleset list -r karim  
->     Name Enabled  
->     \---\-- -\---\---  
->     karim false  
->     ~ # esxcli network firewall ruleset rule list -r karim  
->     Ruleset Direction Protocol Port Type Port Begin Port End  
->     \---\---\- --\---\---\- --\---\--- \---\---\--- \---\---\---\- --\---\---  
->     karim Inbound TCP Dst 1024 1024  
->     [/code]
+	>       
+	>     ~ # esxcli network firewall ruleset list -r karim  
+	>     Name Enabled  
+	>     \---\-- -\---\---  
+	>     karim false  
+	>     ~ # esxcli network firewall ruleset rule list -r karim  
+	>     Ruleset Direction Protocol Port Type Port Begin Port End  
+	>     \---\---\- --\---\---\- --\---\--- \---\---\--- \---\---\---\- --\---\---  
+	>     karim Inbound TCP Dst 1024 1024  
+	>     
 >     
 >     ### Set firewall security level
 >     
 >     Set the firewall to &#8220;PASS&#8221; all traffic, setting the security level to low:
 >     
->     [code]  
->     ~ # esxcli network firewall get  
->     Default Action: DROP  
->     Enabled: true  
->     Loaded: true  
->     ~ # esxcli network firewall set -d true  
->     ~ # esxcli network firewall get  
->     Default Action: PASS  
->     Enabled: true  
->     Loaded: true  
->     [/code]
+	>       
+	>     ~ # esxcli network firewall get  
+	>     Default Action: DROP  
+	>     Enabled: true  
+	>     Loaded: true  
+	>     ~ # esxcli network firewall set -d true  
+	>     ~ # esxcli network firewall get  
+	>     Default Action: PASS  
+	>     Enabled: true  
+	>     Loaded: true  
+	>     
 >     
 >     Set it back to DROP, setting the security to high:
 >     
->     [code]  
->     ~ # esxcli network firewall set -d false  
->     ~ # esxcli network firewall get  
->     Default Action: DROP  
->     Enabled: true  
->     Loaded: true  
->     [/code]
+	>       
+	>     ~ # esxcli network firewall set -d false  
+	>     ~ # esxcli network firewall get  
+	>     Default Action: DROP  
+	>     Enabled: true  
+	>     Loaded: true  
+	>     
 >     
 >     Find a rule that allows all outgoing ports to be allowed through and enabled it, setting the security level to medium:
 >     
->     [code]  
->     ~ # esxcli network firewall ruleset rule list | grep 65535 | grep Outbound  
->     nfsClient Outbound TCP Dst 0 65535  
->     vSPC Outbound TCP Dst 0 65535  
->     remoteSerialPort Outbound TCP Dst 0 65535  
->     [/code]
+	>       
+	>     ~ # esxcli network firewall ruleset rule list | grep 65535 | grep Outbound  
+	>     nfsClient Outbound TCP Dst 0 65535  
+	>     vSPC Outbound TCP Dst 0 65535  
+	>     remoteSerialPort Outbound TCP Dst 0 65535  
+	>     
 >     
 >     Enable any of the above rules:
 >     
->     [code]  
->     ~ # esxcli network firewall ruleset set -r vSPC -e true  
->     ~ # esxcli network firewall ruleset list -r vSPC  
->     Name Enabled  
->     \---\- --\-----  
->     vSPC true  
->     [/code]
+	>       
+	>     ~ # esxcli network firewall ruleset set -r vSPC -e true  
+	>     ~ # esxcli network firewall ruleset list -r vSPC  
+	>     Name Enabled  
+	>     \---\- --\-----  
+	>     vSPC true  
+	>     
 >     
 >     Lastly you can completely disable the firewall like so:
 >     
->     [code]  
->     ~ # esxcli network firewall set -e false  
->     ~ # esxcli network firewall get  
->     Default Action: DROP  
->     Enabled: false  
->     Loaded: true  
->     [/code]
+	>       
+	>     ~ # esxcli network firewall set -e false  
+	>     ~ # esxcli network firewall get  
+	>     Default Action: DROP  
+	>     Enabled: false  
+	>     Loaded: true  
+	>     
 >     
 >     This would also set the security level to low.
 >     

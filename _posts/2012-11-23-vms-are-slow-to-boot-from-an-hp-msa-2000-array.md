@@ -21,13 +21,13 @@ We were trying to power on a couple of VMs on an ESX 3.5 host and they would tak
 
 At the same time we saw a lot of aborts to the array:
 
-[code]  
-Nov 14 01:15:37 esx vmkernel: 0:02:09:02.494 cpu3:1043)FS3: 4831: Reclaimed timed out heartbeat [HB state abcdef02 offset 3159552 gen 174 stamp 7738206575 uuid 50a2d28e-497dcab4-7e86-001b78bbdd58 jrnl <FB 121075> drv 4.31]  
-Nov 14 01:15:46 esx vmkernel: 0:02:09:11.075 cpu0:1066)<6>qla24xx\_abort\_command(0): handle to abort=122  
-Nov 14 01:15:46 esx vmkernel: 0:02:09:11.075 cpu0:1035)StorageMonitor: 196: vmhba1:0:1:0 status = 0/2 0x0 0x0 0x0  
-Nov 14 01:15:50 esx vmkernel: 0:02:09:14.987 cpu0:1024)StorageMonitor: 196: vmhba1:0:1:0 status = 0/2 0x0 0x0 0x0  
-Nov 14 01:15:51 esx vmkernel: 0:02:09:16.149 cpu0:1066)<6>qla24xx\_abort\_command(0): handle to abort=132  
-[/code]
+	  
+	Nov 14 01:15:37 esx vmkernel: 0:02:09:02.494 cpu3:1043)FS3: 4831: Reclaimed timed out heartbeat [HB state abcdef02 offset 3159552 gen 174 stamp 7738206575 uuid 50a2d28e-497dcab4-7e86-001b78bbdd58 jrnl <FB 121075> drv 4.31]  
+	Nov 14 01:15:46 esx vmkernel: 0:02:09:11.075 cpu0:1066)<6>qla24xx\_abort\_command(0): handle to abort=122  
+	Nov 14 01:15:46 esx vmkernel: 0:02:09:11.075 cpu0:1035)StorageMonitor: 196: vmhba1:0:1:0 status = 0/2 0x0 0x0 0x0  
+	Nov 14 01:15:50 esx vmkernel: 0:02:09:14.987 cpu0:1024)StorageMonitor: 196: vmhba1:0:1:0 status = 0/2 0x0 0x0 0x0  
+	Nov 14 01:15:51 esx vmkernel: 0:02:09:16.149 cpu0:1066)<6>qla24xx\_abort\_command(0): handle to abort=132  
+	
 
 The IO was aborting cause the latency was so high, as we see from the esxtop output above, it&#8217;s at 5000ms. While I was looking at esxtop I saw values up to 10000ms. We decided to check out the array manager. We logged into the MSA web based management and as soon as we logged in, we saw the following pop up:
 

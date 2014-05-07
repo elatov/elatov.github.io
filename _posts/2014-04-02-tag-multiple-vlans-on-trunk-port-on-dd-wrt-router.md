@@ -56,7 +56,7 @@ Now let&#8217;s bring up the vlan3 interface on boot. To do this:
     <pre class="brush: /bin/ash; notranslate">PATH="/sbin:/usr/sbin:/bin:/usr/bin:${PATH}"
 ifconfig vlan3 10.0.0.1 netmask 255.255.255.0
 ifconfig vlan3 up
-</pre>
+
 
 3.  Click **Save Startup**
 

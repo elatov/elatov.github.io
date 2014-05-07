@@ -25,33 +25,33 @@ This great feature will allow us to save bandwidth on a per VM basis, but we can
 
 First we need to copy the template over to the recovery site. Once the template is on the recovery site, we can copy the disk over to be the seed disk for each VM. In this case I have copied my template over to the recovery site. I can now create a folder and clone the seed disk. 
 
-[code]  
-\# mkdir /vmfs/volumes/dr/webserver  
-\# vmkfstools -d thin -i /vmfs/volumes/dr/template/template.vmdk /vmfs/volumes/dr/webserver/webserver.vmdk  
-Destination disk format: VMFS thin-provisioned  
-Cloning disk '/vmfs/volumes/dr/template/template.vmdk'...  
-Clone: 100% done.  
-[/code]
+	  
+	\# mkdir /vmfs/volumes/dr/webserver  
+	\# vmkfstools -d thin -i /vmfs/volumes/dr/template/template.vmdk /vmfs/volumes/dr/webserver/webserver.vmdk  
+	Destination disk format: VMFS thin-provisioned  
+	Cloning disk '/vmfs/volumes/dr/template/template.vmdk'...  
+	Clone: 100% done.  
+	
 
 Now we can update the descriptor to match the UUID of the protected site descriptor. On the protected site we can get the UUID of the disk.
 
-[code]  
-\# grep uuid webserver.vmdk  
-ddb.uuid = "60 00 C2 96 a4 c8 0d bf-5b 26 af 92 63 56 ee 79"  
-[/code]
+	  
+	\# grep uuid webserver.vmdk  
+	ddb.uuid = "60 00 C2 96 a4 c8 0d bf-5b 26 af 92 63 56 ee 79"  
+	
 
 Now on the recovery edit the descriptor /vmfs/volumes/dr/webserver/webserver.vmdk. Replace the existing UUID with the one we found on the protected site.
 
 Replace  
-[code]  
-ddb.uuid = "60 00 C2 97 37 2f b4 9b-4f 08 67 98 11 4c 96 e8"  
-[/code]
+	  
+	ddb.uuid = "60 00 C2 97 37 2f b4 9b-4f 08 67 98 11 4c 96 e8"  
+	
 
 With 
 
-[code]  
-ddb.uuid = "60 00 C2 96 a4 c8 0d bf-5b 26 af 92 63 56 ee 79"  
-[/code]
+	  
+	ddb.uuid = "60 00 C2 96 a4 c8 0d bf-5b 26 af 92 63 56 ee 79"  
+	
 
 Now that the vmdk has been added from the template to the recovery site VM directory and we fixed the UUID, we can set up replication.
 
@@ -59,13 +59,13 @@ Now that the vmdk has been added from the template to the recovery site VM direc
 
 After configuring the replication we can check the replication state. In the output below we can see about 1.9MB transfered out of 1.1GB checksummed
 
-[code]  
-\# vim-cmd hbrsvc/vmreplica.getState 8  
-Retrieve VM running replication state:  
-The VM is configured for replication. Current replication state: Group: GID-4d007bd1-6279-474f-8eb2-6d016bfdac97 (generation=349359825571115)  
-Group State: full sync (10% done: checksummed 1.1 GB of 10 GB, transferred 1.9 MB of 1.9 MB)  
-DiskID RDID-50435ddb-d688-47cc-af26-7cc2aa6e948e State: full sync (checksummed 1.1 GB of 10 GB, transferred 1.9 MB of 1.9 MB)  
-[/code]
+	  
+	\# vim-cmd hbrsvc/vmreplica.getState 8  
+	Retrieve VM running replication state:  
+	The VM is configured for replication. Current replication state: Group: GID-4d007bd1-6279-474f-8eb2-6d016bfdac97 (generation=349359825571115)  
+	Group State: full sync (10% done: checksummed 1.1 GB of 10 GB, transferred 1.9 MB of 1.9 MB)  
+	DiskID RDID-50435ddb-d688-47cc-af26-7cc2aa6e948e State: full sync (checksummed 1.1 GB of 10 GB, transferred 1.9 MB of 1.9 MB)  
+	
 
 If you do this for all of the VMs that used that template, you can save a significant amount of bandwidth while initially setting up the replication. 
 

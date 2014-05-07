@@ -36,37 +36,37 @@ If you want to check what your queues are currently set to, you can take a look 
 
 Not a lot of things touch upon for the Adapter Queue Length (AQLEN). The Emulex driver has an option for this (but apparently this is not settable after ESX 3.5, more information <a href="http://www.yellow-bricks.com/2008/01/31/queue-depth-and-alike-settings-lost-after-an-upgrade-to-esx-35/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.yellow-bricks.com/2008/01/31/queue-depth-and-alike-settings-lost-after-an-upgrade-to-esx-35/']);">here</a>):
 
-[code]  
-~ # vmkload\_mod -s lpfc820 | grep lpfc\_hba\_queue\_depth -A 1  
-lpfc\_hba\_queue_depth: int  
-Max number of FCP commands we can queue to a lpfc HBA  
-[/code]
+	  
+	~ # vmkload\_mod -s lpfc820 | grep lpfc\_hba\_queue\_depth -A 1  
+	lpfc\_hba\_queue_depth: int  
+	Max number of FCP commands we can queue to a lpfc HBA  
+	
 
 If you are using Software iSCSI there is an option for this as well:
 
-[code]  
-~ # vmkload\_mod -s iscsi\_vmk | grep iscsivmk_HostQDepth -A 1  
-iscsivmk_HostQDepth: int  
-Maximum Outstanding Commands Per Adapter  
-[/code]
+	  
+	~ # vmkload\_mod -s iscsi\_vmk | grep iscsivmk_HostQDepth -A 1  
+	iscsivmk_HostQDepth: int  
+	Maximum Outstanding Commands Per Adapter  
+	
 
 Like mentioned in the above VMware blog the typical size is 1024 (or something in the thousands) but usually the default size is good. The vendor knows the best option for this piece of hardware and it&#8217;s rarely possible to change that value.
 
 The interesting setting is the LUN/Device Queue Length (DQLEN). There are many ways to tweak this option. The first way is to do it via the driver, more on this in <a href="http://kb.vmware.com/kb/1267" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1267']);">VMware KB 1267</a>. For each of the drivers the options are the following:
 
-[code]  
-~ # vmkload\_mod -s lpfc820 | grep lpfc\_lun\_queue\_depth -A 1  
-lpfc\_lun\_queue_depth: int  
-Max number of FCP commands we can queue to a specific LUN
-
-~ # vmkload\_mod -s iscsi\_vmk | grep iscsivmk_LunQDepth -A 1  
-iscsivmk_LunQDepth: int  
-Maximum Outstanding Commands Per LUN
-
-~ # vmkload_mod -s qla2xxx | grep ql2xmaxqdepth -A 1  
-ql2xmaxqdepth: int  
-Maximum queue depth to report for target devices.  
-[/code]
+	  
+	~ # vmkload\_mod -s lpfc820 | grep lpfc\_lun\_queue\_depth -A 1  
+	lpfc\_lun\_queue_depth: int  
+	Max number of FCP commands we can queue to a specific LUN
+	
+	~ # vmkload\_mod -s iscsi\_vmk | grep iscsivmk_LunQDepth -A 1  
+	iscsivmk_LunQDepth: int  
+	Maximum Outstanding Commands Per LUN
+	
+	~ # vmkload_mod -s qla2xxx | grep ql2xmaxqdepth -A 1  
+	ql2xmaxqdepth: int  
+	Maximum queue depth to report for target devices.  
+	
 
 The Cisco VIC sets the DQLEN value to be 32. From the Cisco article &#8220;<a href="http://www.cisco.com/en/US/prod/collateral/ps10265/ps10276/whitepaper_c11-702584.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.cisco.com/en/US/prod/collateral/ps10265/ps10276/whitepaper_c11-702584.html']);">Cisco Unified Computing System (UCS) Storage Connectivity Options and Best Practices with NetApp Storage</a>&#8220;.
 

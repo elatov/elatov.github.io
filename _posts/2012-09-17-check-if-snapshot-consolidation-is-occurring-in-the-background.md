@@ -21,50 +21,50 @@ tags:
 ---
 Someone had asked me recently: What happens if the snapshot consolidation process take a long time and the task is no longer seen in the vShpere client? First I would recommend to login directly to the host and check if the VM has a running task. An example can be seen in VMware KB <a href="http://kb.vmware.com/kb/1013003" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1013003']);">1013003</a>. From the KB, first find the VM_ID of your VM:
 
-[code]  
-~ # vmware-vim-cmd vmsvc/getallvms  
-Vmid Name File Guest OS Version Annotation  
-112 VM-1 [Datastore] VM-3/VM-3.vmx winLonghornGuest vmx-04  
-128 VM-2 [Datastore] VM-3/VM-3.vmx winXPProGuest vmx-04  
-144 VM-3 [Datastore] VM-3/VM-3.vmx winNetStandardGuest vmx-04  
-[/code]
+	  
+	~ # vmware-vim-cmd vmsvc/getallvms  
+	Vmid Name File Guest OS Version Annotation  
+	112 VM-1 [Datastore] VM-3/VM-3.vmx winLonghornGuest vmx-04  
+	128 VM-2 [Datastore] VM-3/VM-3.vmx winXPProGuest vmx-04  
+	144 VM-3 [Datastore] VM-3/VM-3.vmx winNetStandardGuest vmx-04  
+	
 
 Let&#8217;s say we were committing snapshots on VM-1, so our VM_ID is 112. Then check for active tasks for that VM, by running the following:
 
-[code]  
-~ # vmware-vim-cmd vmsvc/get.tasklist 112  
-(ManagedObjectReference) [  
-'vim.Task:haTask-112-vim.VirtualMachine.createSnapshot-3887'  
-]  
-[/code]
+	  
+	~ # vmware-vim-cmd vmsvc/get.tasklist 112  
+	(ManagedObjectReference) [  
+	'vim.Task:haTask-112-vim.VirtualMachine.createSnapshot-3887'  
+	]  
+	
 
 Each task has an identifier as well. From the above output we see that out task identifier is &#8217;3887&#8242;. If you want you can check for more information regarding that task, you can do it like so:
 
-[code]  
-~ # vmware-vim-cmd vimsvc/task_info 3887  
-(vmodl.fault.ManagedObjectNotFound) {  
-dynamicType = <unset>,  
-faultCause = (vmodl.MethodFault) null,  
-obj = 'vim.Task:3887',  
-msg = "The object has already been deleted or has not been completely created",  
-}  
-[/code]
+	  
+	~ # vmware-vim-cmd vimsvc/task_info 3887  
+	(vmodl.fault.ManagedObjectNotFound) {  
+	dynamicType = <unset>,  
+	faultCause = (vmodl.MethodFault) null,  
+	obj = 'vim.Task:3887',  
+	msg = "The object has already been deleted or has not been completely created",  
+	}  
+	
 
 This is a pretty quick test to see if there is a snapshot commit in progress. Another thing you can do is check if there is actual changes going on with the vmdk files. When you commit a snapshot you basically take the delta files and merge them into the base disk. If you want to know more about the snapshots, I would suggest reading &#8220;<a href="http://virtuallyhyper.com/2012/04/vmware-snapshot-troubleshooting/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/04/vmware-snapshot-troubleshooting/']);">VMware Snapshot Troubleshooting</a>&#8221; written by Jarret or &#8220;<a href="http://vmutils.t15.org/TVMsp/TVMsp.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://vmutils.t15.org/TVMsp/TVMsp.html']);">Troubleshooting Virtual Machine snapshot problems</a>&#8221; written by Ruben Gargia. To see if there are changes happening with the vmdks you can run the following command:
 
 For ESX:
 
-[code]  
-[root@localhost ~]# cd /vmfs/volumes/Storage1/VM-1  
-[root@localhost VM-1]# watch -d "ls -l --full-time \*-delta.vmdk \*-flat.vmdk"  
-[/code]
+	  
+	# cd /vmfs/volumes/Storage1/VM-1  
+	# watch -d "ls -l --full-time \*-delta.vmdk \*-flat.vmdk"  
+	
 
 For ESXi:
 
-[code]  
-~ # cd /vmfs/volumes/datastore1/VM-1  
-/vmfs/volumes/datastore1/VM-1 # watch -d 'ls -lut | grep -E "delta|flat"'  
-[/code]
+	  
+	~ # cd /vmfs/volumes/datastore1/VM-1  
+	/vmfs/volumes/datastore1/VM-1 # watch -d 'ls -lut | grep -E "delta|flat"'  
+	
 
 The above command is described in VMware KB <a href="http://kb.vmware.com/kb/1007566" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1007566']);">1007566</a>, from that KB:
 
@@ -90,15 +90,15 @@ In the same KB it talks about increasing the timeout, from the KB:
 
 > To increase the timeout values for the virtual machine migration task, add the following timeout parameter in the vpxd.cfg file:
 > 
-> [xml]  
-> <config>  
-> ..  
-> <task>  
-> <timeout>10800</timeout>  
-> </task>  
-> ..  
-> </config>  
-> [/xml]
+	>   
+	> <config>  
+	> ..  
+	> <task>  
+	> <timeout>10800</timeout>  
+	> </task>  
+	> ..  
+	> </config>  
+	> 
 > 
 > Note: The value 10800 can be changed based on your requirements. This example uses 10800 seconds, or 3 hours.
 

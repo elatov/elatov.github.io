@@ -27,13 +27,13 @@ tags:
 ---
 I was recently working with a customer who was experiencing a high number of Trespasses on his CLARiiON Array with 3 ESX 4.0 hosts. While this was happening I saw the following in the logs across all the hosts:
 
-[code]  
-Apr 19 09:25:54 ESX\_Host vmkernel: 0:18:55:02.430 cpu2:4262)VMW\_SATP\_ALUA: satp\_alua_activatePaths: Activation disallowed due to follow-over.  
-Apr 19 09:36:36 ESX\_Host vmkernel: 0:19:05:45.146 cpu0:4478)NMP: nmp\_CompleteCommandForPath: Command 0x2a (0x410001032580) to NMP device &quot;naa.60060160467029002acca5f7836fe111&quot; failed on physical path &quot;vmhba2:C0:T1:L3&quot; H:0x0 D:0x2 P:0x0 Valid sense data: 0x6 0x2a 0x6.  
-Apr 19 09:36:36 ESX\_Host vmkernel: 0:19:05:45.146 cpu0:4478)WARNING: NMP: nmp\_DeviceRetryCommand: Device &quot;naa.60060160467029002acca5f7836fe111&quot;: awaiting fast path state update for failover with I/O blocked. No prior reservation exists on the device.  
-Apr 19 09:36:37 ESX\_Host vmkernel: 0:19:05:46.147 cpu2:4222)WARNING: NMP: nmp\_DeviceAttemptFailover: Retry world failover device &quot;naa.60060160467029002acca5f7836fe111&quot; - issuing command 0x410001032580  
-Apr 19 09:36:37 ESX\_Host vmkernel: 0:19:05:46.147 cpu0:4096)NMP: nmp\_CompleteRetryForPath: Retry world recovered device &quot;naa.60060160467029002acca5f7836fe111&quot;  
-[/code]
+	  
+	Apr 19 09:25:54 ESX\_Host vmkernel: 0:18:55:02.430 cpu2:4262)VMW\_SATP\_ALUA: satp\_alua_activatePaths: Activation disallowed due to follow-over.  
+	Apr 19 09:36:36 ESX\_Host vmkernel: 0:19:05:45.146 cpu0:4478)NMP: nmp\_CompleteCommandForPath: Command 0x2a (0x410001032580) to NMP device &quot;naa.60060160467029002acca5f7836fe111&quot; failed on physical path &quot;vmhba2:C0:T1:L3&quot; H:0x0 D:0x2 P:0x0 Valid sense data: 0x6 0x2a 0x6.  
+	Apr 19 09:36:36 ESX\_Host vmkernel: 0:19:05:45.146 cpu0:4478)WARNING: NMP: nmp\_DeviceRetryCommand: Device &quot;naa.60060160467029002acca5f7836fe111&quot;: awaiting fast path state update for failover with I/O blocked. No prior reservation exists on the device.  
+	Apr 19 09:36:37 ESX\_Host vmkernel: 0:19:05:46.147 cpu2:4222)WARNING: NMP: nmp\_DeviceAttemptFailover: Retry world failover device &quot;naa.60060160467029002acca5f7836fe111&quot; - issuing command 0x410001032580  
+	Apr 19 09:36:37 ESX\_Host vmkernel: 0:19:05:46.147 cpu0:4096)NMP: nmp\_CompleteRetryForPath: Retry world recovered device &quot;naa.60060160467029002acca5f7836fe111&quot;  
+	
 
 The customer had setup the CLARiiON to use ALUA (Assymetric Logical Unit Access) mode (fail over mode 4). From <a href="http://www.emc.com/collateral/hardware/white-papers/h1416-emc-clariion-intgtn-vmware-wp.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.emc.com/collateral/hardware/white-papers/h1416-emc-clariion-intgtn-vmware-wp.pdf']);">EMC CLARiiON Integration with VMware ESX</a>:
 
@@ -109,34 +109,34 @@ depending the owner and preference.
 Now that we got that out of the way let&#8217;s back to logs, so we saw  
 the following sense code returned: *H:0&#215;0 D:0&#215;2 0&#215;6 0x2a 0&#215;6*. Translating that we get the following:
 
-[code]  
-ASC/ASCQ: 2Ah / 06h  
-ASC Details: ASYMMETRIC ACCESS STATE CHANGED  
-Status: 02h - CHECK CONDITION  
-Hostebyte: 0x00 - DID_OK - No error  
-Sensekey: 6h  
-Sensekey MSG: UNIT ATTENTION  
-[/code]
+	  
+	ASC/ASCQ: 2Ah / 06h  
+	ASC Details: ASYMMETRIC ACCESS STATE CHANGED  
+	Status: 02h - CHECK CONDITION  
+	Hostebyte: 0x00 - DID_OK - No error  
+	Sensekey: 6h  
+	Sensekey MSG: UNIT ATTENTION  
+	
 
 We are getting an *Access State Changed*, and that is expected since this was a trespass. Now looking at  
 the output of the &#8216;nmp device&#8217; we saw the following
 
-[code]  
-\# esxcli nmp device list -d naa.600601604670290026cca5f7836fe111  
-naa.600601604670290026cca5f7836fe111  
-Device Display Name: DGC Fibre Channel Disk (naa.600601604670290026cca5f7836fe111)  
-Storage Array Type: VMW\_SATP\_ALUA_CX  
-Storage Array Type Device Config: {navireg=on, ipfilter=on}{implicit\_support=on;explicit\_support=on;explicit\_allow=on;alua\_followover=on;{TPG\_id=1,TPG\_state=ANO}{TPG\_id=2,TPG\_state=AO}}  
-Path Selection Policy: VMW\_PSP\_FIXED  
-Path Selection Policy Device Config: {preferred=vmhba2:C0:T1:L1;current=vmhba2:C0:T1:L1}  
-Working Paths: vmhba2:C0:T1:L1  
-[/code]
+	  
+	\# esxcli nmp device list -d naa.600601604670290026cca5f7836fe111  
+	naa.600601604670290026cca5f7836fe111  
+	Device Display Name: DGC Fibre Channel Disk (naa.600601604670290026cca5f7836fe111)  
+	Storage Array Type: VMW\_SATP\_ALUA_CX  
+	Storage Array Type Device Config: {navireg=on, ipfilter=on}{implicit\_support=on;explicit\_support=on;explicit\_allow=on;alua\_followover=on;{TPG\_id=1,TPG\_state=ANO}{TPG\_id=2,TPG\_state=AO}}  
+	Path Selection Policy: VMW\_PSP\_FIXED  
+	Path Selection Policy Device Config: {preferred=vmhba2:C0:T1:L1;current=vmhba2:C0:T1:L1}  
+	Working Paths: vmhba2:C0:T1:L1  
+	
 
 The most important line is the following:
 
-[code]  
-Storage Array Type Device Config: {navireg=on, ipfilter=on}{implicit\_support=on;explicit\_support=on;explicit\_allow=on;alua\_followover=on;{TPG\_id=1,TPG\_state=ANO}{TPG\_id=2,TPG\_state=AO}}  
-[/code]
+	  
+	Storage Array Type Device Config: {navireg=on, ipfilter=on}{implicit\_support=on;explicit\_support=on;explicit\_allow=on;alua\_followover=on;{TPG\_id=1,TPG\_state=ANO}{TPG\_id=2,TPG\_state=AO}}  
+	
 
 Definitions of all the settings can be found at VMware KB <a href="http://kb.vmware.com/kb/1022030" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1022030']);">1022030</a>:
 
@@ -178,9 +178,9 @@ Devices][1]&#8216; .
 
 Lastly we also see the following from the *nmp device* command that we haven&#8217;t defined yet:
 
-[code]  
-{TPG\_id=1,TPG\_state=AO}{TPG\_id=2,TPG\_state=ANO}  
-[/code]
+	  
+	{TPG\_id=1,TPG\_state=AO}{TPG\_id=2,TPG\_state=ANO}  
+	
 
 and from the above blog:
 
@@ -188,24 +188,24 @@ and from the above blog:
 
 Now running the *nmp path* commands, we saw the following:
 
-[code]  
-\# esxcli nmp path list -d naa.600601604670290026cca5f7836fe111  
-fc.20000000c96eb647:10000000c96eb647-fc.50060160bea038b6:5006016d3ea038b6-naa.600601604670290026cca5f7836fe111  
-Runtime Name: vmhba2:C0:T1:L1  
-Device: naa.600601604670290026cca5f7836fe111  
-Device Display Name: DGC Fibre Channel Disk (naa.600601604670290026cca5f7836fe111)  
-Group State: active  
-Storage Array Type Path Config: {TPG\_id=2,TPG\_state=AO,RTP\_id=14,RTP\_health=UP}  
-Path Selection Policy Path Config: {current: yes; preferred: yes}
-
-fc.20000000c96eb647:10000000c96eb647-fc.50060160bea038b6:500601643ea038b6-naa.600601604670290026cca5f7836fe111  
-Runtime Name: vmhba2:C0:T0:L1  
-Device: naa.600601604670290026cca5f7836fe111  
-Device Display Name: DGC Fibre Channel Disk (naa.600601604670290026cca5f7836fe111)  
-Group State: active unoptimized  
-Storage Array Type Path Config: {TPG\_id=1,TPG\_state=ANO,RTP\_id=5,RTP\_health=UP}  
-Path Selection Policy Path Config: {current: no; preferred: no}  
-[/code]
+	  
+	\# esxcli nmp path list -d naa.600601604670290026cca5f7836fe111  
+	fc.20000000c96eb647:10000000c96eb647-fc.50060160bea038b6:5006016d3ea038b6-naa.600601604670290026cca5f7836fe111  
+	Runtime Name: vmhba2:C0:T1:L1  
+	Device: naa.600601604670290026cca5f7836fe111  
+	Device Display Name: DGC Fibre Channel Disk (naa.600601604670290026cca5f7836fe111)  
+	Group State: active  
+	Storage Array Type Path Config: {TPG\_id=2,TPG\_state=AO,RTP\_id=14,RTP\_health=UP}  
+	Path Selection Policy Path Config: {current: yes; preferred: yes}
+	
+	fc.20000000c96eb647:10000000c96eb647-fc.50060160bea038b6:500601643ea038b6-naa.600601604670290026cca5f7836fe111  
+	Runtime Name: vmhba2:C0:T0:L1  
+	Device: naa.600601604670290026cca5f7836fe111  
+	Device Display Name: DGC Fibre Channel Disk (naa.600601604670290026cca5f7836fe111)  
+	Group State: active unoptimized  
+	Storage Array Type Path Config: {TPG\_id=1,TPG\_state=ANO,RTP\_id=5,RTP\_health=UP}  
+	Path Selection Policy Path Config: {current: no; preferred: no}  
+	
 
 So the top path is going through TGP2 and the state of that TPG is AO (active/optimal) and that is the  
 preferred path. The bottom path is going through TPG1 and the state is ANO (Active/non-optimal) and  
@@ -213,9 +213,9 @@ that is not the preffered path. I checked the other hosts and they looked the sa
 paths have been set and all the host are going through the AO path.  
 I also found VMware KB <a href="http://kb.vmware.com/kb/2005369" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/2005369']);">2005369</a>  and it talks about how with Round Robin you can allow the ESX host to use Active Non-Optimized paths:
 
-[code]  
-#esxcli nmp psp setconfig --config useANO=1 --device <device uid>  
-[/code]
+	  
+	#esxcli nmp psp setconfig --config useANO=1 --device <device uid>  
+	
 
 But we weren&#8217;t using Round Robin and all the hosts were consistent in their preffered path to be the Active  
 Optimized Path. The article <a href="http://www.emc.com/collateral/hardware/white-papers/h1416-emc-clariion-intgtn-vmware-wp.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.emc.com/collateral/hardware/white-papers/h1416-emc-clariion-intgtn-vmware-wp.pdf']);">EMC CLARiiON Integration with VMware ESX</a>, talks about some pros and cons of Round Robin Vs. FIXED:

@@ -14,11 +14,15 @@ tags:
   - cli
 ---
 ESXi 5  
-[shell]~ # grep serverIp /etc/vmware/vpxa/vpxa.cfg  
-10.131.11.183[/shell]  
+
+	~ # grep serverIp /etc/vmware/vpxa/vpxa.cfg  
+	10.131.11.183  
+
 ESX and ESXi 4.x and prior  
-[shell]~ # grep serverIp /etc/opt/vmware/vpxa/vpxa.cfg  
-10.131.11.183[/shell]  
+
+	~ # grep serverIp /etc/opt/vmware/vpxa/vpxa.cfg  
+	10.131.11.183  
+
 Note: The location of the vpxa configuration directory changed from /etc/**opt**/vmware/vpxa to /etc/vmware/vpxa in ESXi 5.
 
 <div class="SPOSTARBUST-Related-Posts">

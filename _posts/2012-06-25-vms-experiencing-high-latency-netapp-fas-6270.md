@@ -51,24 +51,24 @@ Notice the GAVG for the to NFS datastore is ~25ms. We would consistently see 20-
 
 Looks like the VMs are experiencing Write Latency to the NetApp Array. Looking over the network configuation of the ESX host I saw the following:
 
-[code]  
-$ esxcfg-vmknic -l  
-Interface Port Group/DVPort IP Family IP Address Netmask Broadcast MAC Address MTU TSO MSS Enabled Type  
-vmk0 89 IPv4 10.195.x.22 255.255.255.0 10.195.x.255 00:50:56:78:bf:60 1500 65535 true STATIC  
-vmk1 13 IPv4 10.205.x.22 255.255.255.0 10.205.x.255 00:50:56:70:d4:32 1500 65535 true STATIC  
-[/code]
+	  
+	$ esxcfg-vmknic -l  
+	Interface Port Group/DVPort IP Family IP Address Netmask Broadcast MAC Address MTU TSO MSS Enabled Type  
+	vmk0 89 IPv4 10.195.x.22 255.255.255.0 10.195.x.255 00:50:56:78:bf:60 1500 65535 true STATIC  
+	vmk1 13 IPv4 10.205.x.22 255.255.255.0 10.205.x.255 00:50:56:70:d4:32 1500 65535 true STATIC  
+	
 
 Looking at the NAS connections, I saw the following:
 
-[code]  
-$ esxcfg-nas -l  
-export\_1 is /vol/export\_1 from 10.204.x.29 mounted  
-export\_2 is /vol/export\_2 from 10.204.x.29 mounted  
-export\_3 is /vol/export\_3 from 10.204.x.30 mounted  
-export\_4 is /vol/export\_4 from 10.204.x.30 mounted  
-...  
-...  
-[/code]
+	  
+	$ esxcfg-nas -l  
+	export\_1 is /vol/export\_1 from 10.204.x.29 mounted  
+	export\_2 is /vol/export\_2 from 10.204.x.29 mounted  
+	export\_3 is /vol/export\_3 from 10.204.x.30 mounted  
+	export\_4 is /vol/export\_4 from 10.204.x.30 mounted  
+	...  
+	...  
+	
 
 The first thing that stood out was the fact that the vmkernel interface used for the NFS connection (10.205.x.22) was not on the same subnet as the NAS itself (10.204.x.29).  
 I wanted to see what the network topology looked like, and it was something like this:

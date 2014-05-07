@@ -29,32 +29,32 @@ tags:
 ---
 We were following the instructions laid out in VMware KB <a href="http://kb.vmware.com/kb/1004089" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1004089']);">1004089</a> to set a NIC to auto negotiate with the upstream switch. Upon running the command, we would see the following message:
 
-[code]  
-~ # esxcfg-nics -a vmnic7  
-Error: Invalid argument: Invalid argument  
-[/code]
+	  
+	~ # esxcfg-nics -a vmnic7  
+	Error: Invalid argument: Invalid argument  
+	
 
 Here is the model of NIC:
 
-[code]  
-~ # esxcfg-nics -l | grep vmnic7  
-vmnic7 ixgbe Up 10000Mbps Full Intel Corporation Ethernet X520 10GbE Dual Port KX4-KR Mezz  
-[/code]
+	  
+	~ # esxcfg-nics -l | grep vmnic7  
+	vmnic7 ixgbe Up 10000Mbps Full Intel Corporation Ethernet X520 10GbE Dual Port KX4-KR Mezz  
+	
 
 And here is the Vendor information of the NIC.
 
-[code]  
-~ # vmkchdev -l | grep vmnic7  
-000:002:00.0 8086:10f8 8086:000c vmkernel vmnic7  
-[/code]
+	  
+	~ # vmkchdev -l | grep vmnic7  
+	000:002:00.0 8086:10f8 8086:000c vmkernel vmnic7  
+	
 
 Lastly, here is the ESXi version of the host:
 
-[code]  
-~ # vmware -lv  
-VMware ESXi 4.1.0 build-502767  
-VMware ESXi 4.1.0 Update 2  
-[/code]
+	  
+	~ # vmware -lv  
+	VMware ESXi 4.1.0 build-502767  
+	VMware ESXi 4.1.0 Update 2  
+	
 
 We went to VMware <a href="http://www.vmware.com/resources/compatibility/search.php?deviceCategory=io" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.vmware.com/resources/compatibility/search.php?deviceCategory=io']);">HCL</a> and entered the following information under the &#8220;IO Devices&#8221; Section of the HCL:
 
@@ -76,13 +76,13 @@ That led us to the <a href="http://www.vmware.com/resources/compatibility/detail
 
 So the latest driver for this card is 3.9.13, while we were running the following:
 
-[code]  
-~ # ethtool -i vmnic7  
-driver: ixgbe  
-version: 3.1.17.1-NAPI  
-firmware-version: 1.0-3  
-bus-info: 0000:02:00.0  
-[/code]
+	  
+	~ # ethtool -i vmnic7  
+	driver: ixgbe  
+	version: 3.1.17.1-NAPI  
+	firmware-version: 1.0-3  
+	bus-info: 0000:02:00.0  
+	
 
 We decided to try out the latest driver. <a href="https://my.vmware.com/web/vmware/details?downloadGroup=DT-ESX4X-Intel-ixgbe-3913&productId=230" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://my.vmware.com/web/vmware/details?downloadGroup=DT-ESX4X-Intel-ixgbe-3913&productId=230']);">Here</a> is the link to the ixgbe 3.9.13 driver for ESX(i) 4.x. We read over the instructions laid out in the VMware KB Entitled <a href="http://kb.vmware.com/kb/1032936" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1032936']);">Installing async drivers on ESX/ESXi 4.x</a> and here are the instructions from the KB:
 
@@ -97,153 +97,153 @@ We decided to try out the latest driver. <a href="https://my.vmware.com/web/vmwa
 > 5.  Enter maintenance mode.
 > 6.  Navigate to /vmfs/volumes// and locate the .zip file.
 > 7.  Run this command to install drivers using the offline bundle:  
->     [code]  
->     esxupdate --bundle=OFFLINE_BUNDLE.zip update  
->     [/code] 
+	>       
+	>     esxupdate --bundle=OFFLINE_BUNDLE.zip update  
+	>      
 > 8.  Reboot the ESX or ESXi host.
 > 9.  Exit maintenance mode.
 
 Here is what I did to get the offline zip file from the ISO (I used my fedora laptop). After I downloaded the driver, I had the following file:
 
-[code]  
-[elatov@klaptop ~]$ ls -l | grep iso  
--rw-rw-r-- 1 elatov elatov 1906688 Oct 27 12:43 vmware-esx-drivers-net-ixgbe_400.3.9.13-1vmw.2.17.249663.697530.iso  
-[/code]
+	  
+	$ ls -l | grep iso  
+	-rw-rw-r-- 1 elatov elatov 1906688 Oct 27 12:43 vmware-esx-drivers-net-ixgbe_400.3.9.13-1vmw.2.17.249663.697530.iso  
+	
 
 I then mounted the iso:
 
-[code]  
-[elatov@klaptop ~]$ sudo mkdir /media/iso  
-[elatov@klaptop ~]$ sudo mount vmware-esx-drivers-net-ixgbe_400.3.9.13-1vmw.2.17.249663.697530.iso /media/iso  
-[/code]
+	  
+	$ sudo mkdir /media/iso  
+	$ sudo mount vmware-esx-drivers-net-ixgbe_400.3.9.13-1vmw.2.17.249663.697530.iso /media/iso  
+	
 
 Then checking out the contents of the iso, I saw the following:
 
-[code]  
-[elatov@klaptop ~]$ tree /media/iso  
-/media/iso  
-├── doc  
-│   ├── open\_source\_licenses\_vmware-esx-drivers-net-ixgbe\_400.3.9.13-1vmw.2.17.249663.txt  
-│   ├── README.txt  
-│   ├── release\_note\_vmware-esx-drivers-net-ixgbe_400.3.9.13-1vmw.2.17.249663.txt  
-│   └── TRANS.TBL  
-├── drivers.xml  
-├── offline-bundle  
-│   ├── INT-intel-lad-ddk-ixgbe-400.3.9.13-1.249663-offline_bundle-697530.zip  
-│   └── TRANS.TBL  
-├── source  
-│   ├── driver-source-vmware-esx-drivers-net-ixgbe_400.3.9.13-1vmw.2.17.249663.tar  
-│   └── TRANS.TBL  
-└── TRANS.TBL
-
-3 directories, 10 files  
-[/code]
+	  
+	$ tree /media/iso  
+	/media/iso  
+	├── doc  
+	│   ├── open\_source\_licenses\_vmware-esx-drivers-net-ixgbe\_400.3.9.13-1vmw.2.17.249663.txt  
+	│   ├── README.txt  
+	│   ├── release\_note\_vmware-esx-drivers-net-ixgbe_400.3.9.13-1vmw.2.17.249663.txt  
+	│   └── TRANS.TBL  
+	├── drivers.xml  
+	├── offline-bundle  
+	│   ├── INT-intel-lad-ddk-ixgbe-400.3.9.13-1.249663-offline_bundle-697530.zip  
+	│   └── TRANS.TBL  
+	├── source  
+	│   ├── driver-source-vmware-esx-drivers-net-ixgbe_400.3.9.13-1vmw.2.17.249663.tar  
+	│   └── TRANS.TBL  
+	└── TRANS.TBL
+	
+	3 directories, 10 files  
+	
 
 I went ahead and uploaded the &#8216;INT-intel-lad-ddk-ixgbe-400.3.9.13-1.249663-offline_bundle-697530.zip&#8217; file to the ESXi host:
 
-[code]  
-[elatov@klaptop ~]$ scp /media/iso/offline-bundle/INT-intel-lad-ddk-ixgbe-400.3.9.13-1.249663-offline_bundle-697530.zip root'@'10.0.1.128:/vmfs/volumes/datastore1/.  
-root'@'10.0.1.128's password  
-INT-intel-lad-ddk-ixgbe-400.3.9.13-1.249663-o 100% 102KB 102.1KB/s 00:00  
-[/code]
+	  
+	$ scp /media/iso/offline-bundle/INT-intel-lad-ddk-ixgbe-400.3.9.13-1.249663-offline_bundle-697530.zip root'@'10.0.1.128:/vmfs/volumes/datastore1/.  
+	root'@'10.0.1.128's password  
+	INT-intel-lad-ddk-ixgbe-400.3.9.13-1.249663-o 100% 102KB 102.1KB/s 00:00  
+	
 
 I then put the host in maintenance mode.
 
-[code]  
-~ # vim-cmd hostsvc/maintenance\_mode\_enter  
-'vim.Task:haTask-ha-host-vim.HostSystem.enterMaintenanceMode-20'  
-[/code]
+	  
+	~ # vim-cmd hostsvc/maintenance\_mode\_enter  
+	'vim.Task:haTask-ha-host-vim.HostSystem.enterMaintenanceMode-20'  
+	
 
 I let DRS move all the VMs off and then confirming that the host is in maintenance mode:
 
-[code]  
-~ # vim-cmd hostsvc/runtimeinfo | grep -i maint  
-inMaintenanceMode = true,  
-[/code]
+	  
+	~ # vim-cmd hostsvc/runtimeinfo | grep -i maint  
+	inMaintenanceMode = true,  
+	
 
 That looked good. Now checking the driver version:
 
-[code highlight="2"]  
-~ # esxupdate --bundle=/vmfs/volumes/datastore1/INT-intel-lad-ddk-ixgbe-400.3.9.13-1.249663-offline_bundle-697530.zip info  
-ID - INT-intel-lad-ddk-ixgbe-400.3.9.13-1.249663  
-Release Date - 2012-04-25T16:50:07  
-Vendor - Intel  
-Summary - ixgbe: Intel(R) 10GbE PCI Express Ethernet Connection driver  
-for VMware ESX Server 4.0  
-Severity - general  
-Urgency -  
-Category - general  
-Install Date -  
-Description - This package contains the VMware ESX 4.0 driver for the  
-Intel(R) 10GbE PCI Express Family of Server Adapters.  
-KB URL -
-
-http://www.intel.com/network/connectivity/products/server_adap
-
-ters.htm  
-Contact - linux.nics'@'intel.com  
-Compliant - False  
-RebootRequired - True  
-HostdRestart - False  
-MaintenanceMode - True  
-List of constituent VIBs:  
-cross\_vmware-esx-drivers-net-ixgbe\_400.3.9.13-1vmw.2.17.249663  
-[/code]
+	  
+	~ # esxupdate --bundle=/vmfs/volumes/datastore1/INT-intel-lad-ddk-ixgbe-400.3.9.13-1.249663-offline_bundle-697530.zip info  
+	ID - INT-intel-lad-ddk-ixgbe-400.3.9.13-1.249663  
+	Release Date - 2012-04-25T16:50:07  
+	Vendor - Intel  
+	Summary - ixgbe: Intel(R) 10GbE PCI Express Ethernet Connection driver  
+	for VMware ESX Server 4.0  
+	Severity - general  
+	Urgency -  
+	Category - general  
+	Install Date -  
+	Description - This package contains the VMware ESX 4.0 driver for the  
+	Intel(R) 10GbE PCI Express Family of Server Adapters.  
+	KB URL -
+	
+	http://www.intel.com/network/connectivity/products/server_adap
+	
+	ters.htm  
+	Contact - linux.nics'@'intel.com  
+	Compliant - False  
+	RebootRequired - True  
+	HostdRestart - False  
+	MaintenanceMode - True  
+	List of constituent VIBs:  
+	cross\_vmware-esx-drivers-net-ixgbe\_400.3.9.13-1vmw.2.17.249663  
+	
 
 That also looked good, then finally installing the driver:
 
-[code]  
-~ # esxupdate --bundle=/vmfs/volumes/datastore1/INT-intel-lad-ddk-ixgbe-400.3.9.13-1.249663-offline_bundle-697530.zip update  
-Unpacking cross_vmware-esx-dr.. ######################################## [100%]
-
-Removing packages :vmware-esx.. ######################################## [100%]
-
-Installing packages :cross_vm.. ######################################## [100%]
-
-Running [/usr/sbin/vmkmod-install.sh]...  
-ok.  
-The update completed successfully, but the system needs to be rebooted for the  
-changes to be effective.  
-[/code]
+	  
+	~ # esxupdate --bundle=/vmfs/volumes/datastore1/INT-intel-lad-ddk-ixgbe-400.3.9.13-1.249663-offline_bundle-697530.zip update  
+	Unpacking cross_vmware-esx-dr.. ######################################## [100%]
+	
+	Removing packages :vmware-esx.. ######################################## [100%]
+	
+	Installing packages :cross_vm.. ######################################## [100%]
+	
+	Running [/usr/sbin/vmkmod-install.sh]...  
+	ok.  
+	The update completed successfully, but the system needs to be rebooted for the  
+	changes to be effective.  
+	
 
 After the install, I rebooted the host:
 
-[code]  
-~ # reboot  
-[/code]
+	  
+	~ # reboot  
+	
 
 After the host rebooted, I then exited maintenance mode:
 
-[code]  
-~ # vim-cmd hostsvc/maintenance\_mode\_exit  
-'vim.Task:haTask-ha-host-vim.HostSystem.exitMaintenanceMode-18'  
-[/code]
+	  
+	~ # vim-cmd hostsvc/maintenance\_mode\_exit  
+	'vim.Task:haTask-ha-host-vim.HostSystem.exitMaintenanceMode-18'  
+	
 
 and I was able to set the NIC to auto negotiate:
 
-[code]  
-~ # esxcfg-nics -a vmnic7  
-~ # ethtool vmnic7 | grep auto  
-Supports auto-negotiation: Yes  
-Advertised auto-negotiation: Yes  
-[/code]
+	  
+	~ # esxcfg-nics -a vmnic7  
+	~ # ethtool vmnic7 | grep auto  
+	Supports auto-negotiation: Yes  
+	Advertised auto-negotiation: Yes  
+	
 
 Lastly confirming the driver:
 
-[code]  
-~ # vmkload_mod -s ixgbe | grep -i version  
-Version: Version 3.9.13-NAPI, Build: 249663, Interface: 9.0, Built on: Apr 12 2012  
-[/code]
+	  
+	~ # vmkload_mod -s ixgbe | grep -i version  
+	Version: Version 3.9.13-NAPI, Build: 249663, Interface: 9.0, Built on: Apr 12 2012  
+	
 
 and 
 
-[code]  
-~ # ethtool -i vmnic7  
-driver: ixgbe  
-version: 3.9.13-NAPI  
-firmware-version: 0x54600001  
-bus-info: 0000:02:00.0  
-[/code]
+	  
+	~ # ethtool -i vmnic7  
+	driver: ixgbe  
+	version: 3.9.13-NAPI  
+	firmware-version: 0x54600001  
+	bus-info: 0000:02:00.0  
+	
 
 Everything was working as expected: I had the latest driver installed and I was able to set my NIC to auto negotiate.
 

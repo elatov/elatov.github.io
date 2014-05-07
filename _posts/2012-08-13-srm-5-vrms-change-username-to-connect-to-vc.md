@@ -30,46 +30,46 @@ The basic steps are below.
 
 The first thing we need to do is encode the password to put it in the database. I dug through the web interface (VAMI) to find the cgi script that encodes the password in the database. In /opt/vmware/share/htdocs/service/hms/cgi/commands.py we can see how the password is saved. We can encode the password using the same mechanism.
 
-[code]  
-\# python -c "import base64; print(base64.b64encode('virtuallyhyper'))"  
-dmlydHVhbGx5aHlwZXI=  
-[/code]
+	  
+	\# python -c "import base64; print(base64.b64encode('virtuallyhyper'))"  
+	dmlydHVhbGx5aHlwZXI=  
+	
 
 Now we should update the values in the hms-configuration.xml file. Use the password encoded in the last step and the new username to update the following lines in the /opt/vmware/hms/conf/hms-configuration.xml on the VRMS.
 
-[code language="xml"]  
-srmsvc  
-dmlydHVhbGx5aHlwZXI=  
-[/code]
+	  
+	srmsvc  
+	dmlydHVhbGx5aHlwZXI=  
+	
 
 Now we should open up the database and check out the columns that we need to update. Below is a select command that will pull the key and value pairs for the configuration.
 
-[code]  
-SELECT configKey,configValue FROM [srm51hbr-vrms-prod].[dbo].[ConfigEntryEntity]  
-[/code]
+	  
+	SELECT configKey,configValue FROM   
+	
 
 Now it is time to update the username and password for the localvc user.
 
-[code]  
-UPDATE [srm51hbr-vrms-prod].[dbo].[ConfigEntryEntity] SET configValue = 'srmsvc' WHERE configKey = 'hms-localvc-user'  
-UPDATE [srm51hbr-vrms-prod].[dbo].[ConfigEntryEntity] SET configValue = 'dmlydHVhbGx5aHlwZXI=' WHERE configKey = 'hms-localvc-password'  
-[/code]
+	  
+	UPDATE  SET configValue = 'srmsvc' WHERE configKey = 'hms-localvc-user'  
+	UPDATE  SET configValue = 'dmlydHVhbGx5aHlwZXI=' WHERE configKey = 'hms-localvc-password'  
+	
 
 Let&#8217;s do a select to see what the new values are.
 
-[code]  
-SELECT configKey,configValue FROM [srm51hbr-vrms-prod].[dbo].[ConfigEntryEntity] WHERE configKey IN ('hms-localvc-password', 'hms-localvc-user')  
-configKey configValue  
-hms-localvc-password dmlydHVhbGx5aHlwZXI=  
-hms-localvc-user srmsvc  
-[/code]
+	  
+	SELECT configKey,configValue FROM  WHERE configKey IN ('hms-localvc-password', 'hms-localvc-user')  
+	configKey configValue  
+	hms-localvc-password dmlydHVhbGx5aHlwZXI=  
+	hms-localvc-user srmsvc  
+	
 
 Now that we have updated the configuration files and the database, we can restart the service to take the new changes.
 
-[code]  
-\# /etc/init.d/hms restart  
-Using default configuration at /opt/vmware/hms/conf/hms-configuration.xml  
-[/code]
+	  
+	\# /etc/init.d/hms restart  
+	Using default configuration at /opt/vmware/hms/conf/hms-configuration.xml  
+	
 
 If everything was done correctly, the VRMS should connect back to vCenter and continue working. If there are problems, you will want to reconfigure connection between VRMS and reregister the VRS.
 

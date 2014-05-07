@@ -31,22 +31,22 @@ When a host goes to put a new disk on a datastore that does not have a vmname.vm
 
 Below is an example of a VM that has a disk across multiple datastores. We can see that the disk attached to scsi0:1 is on a different datastore because the absolute path is specified. scsi0:0 uses the relative path since it is on the same datastore as the VMX.
 
-[bash]# grep vmdk sql.vmx  
-scsi0:0.fileName = &quot;sql.vmdk&quot;  
-scsi0:1.fileName = &quot;/vmfs/volumes/4e264751-cf9b8809-301e-00e08176b934/sql/sql.vmdk&quot;[/bash]
+	# grep vmdk sql.vmx  
+	scsi0:0.fileName = &quot;sql.vmdk&quot;  
+	scsi0:1.fileName = &quot;/vmfs/volumes/4e264751-cf9b8809-301e-00e08176b934/sql/sql.vmdk&quot;
 
 When we take a snapshot of a VM, the snapshot name will have the <a href="http://www.manpagez.com/man/1/basename" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.manpagez.com/man/1/basename']);" target="_blank">basename</a> of it&#8217;s parent. Since both disks have the same name, we would expect the snapshots to have the same name. The snapshot process will create the snapshot for the first disk first, so it will get the name sql-000001.vmdk. Since this file already exists when creating the snapshot for the second disk, the name will be incremented to sql-000002.vmdk.
 
-[bash]# grep vmdk sql.vmx  
-scsi0:0.fileName = &quot;sql-000001.vmdk&quot;  
-scsi0:1.fileName = &quot;sql-000002.vmdk&quot;
-
-\# grep parentFileNameHint sql-000001.vmdk  
-parentFileNameHint=&quot;sql.vmdk&quot;
-
-\# grep parentFileNameHint sql-000002.vmdk  
-parentFileNameHint=&quot;/vmfs/volumes/4e264751-cf9b8809-301e-00e08176b934/sql/sql.vmdk&quot;  
-[/bash]
+	# grep vmdk sql.vmx  
+	scsi0:0.fileName = &quot;sql-000001.vmdk&quot;  
+	scsi0:1.fileName = &quot;sql-000002.vmdk&quot;
+	
+	\# grep parentFileNameHint sql-000001.vmdk  
+	parentFileNameHint=&quot;sql.vmdk&quot;
+	
+	\# grep parentFileNameHint sql-000002.vmdk  
+	parentFileNameHint=&quot;/vmfs/volumes/4e264751-cf9b8809-301e-00e08176b934/sql/sql.vmdk&quot;  
+	
 
 If we were to add more snapshots to this VM, the first disk would have snapshots sql-000001.vmdk, sql-000003.vmdk &#8230; sql-00000N.vmdk. The second disk would have snapshots sql-000002.vmdk, sql-000004.vmdk &#8230; sql-00000N.vmdk.
 
@@ -60,47 +60,47 @@ When snapshots that are in the middle of a chain are deleted, the snapshot names
 
 To illustrate this we will take a VM with single disk and two snapshots.
 
-[bash]# ls *.vmdk  
-sql-000001-delta.vmdk sql-000002-delta.vmdk sql-flat.vmdk  
-sql-000001.vmdk sql-000002.vmdk sql.vmdk
-
-\# grep vmdk sql.vmx  
-scsi0:0.fileName = &quot;sql-000002.vmdk&quot;
-
-\# grep parentFileNameHint sql-000002.vmdk  
-parentFileNameHint=&quot;sql-000001.vmdk&quot;
-
-\# grep parentFileNameHint sql-000001.vmdk  
-parentFileNameHint=&quot;sql.vmdk&quot;  
-[/bash]
+	# ls *.vmdk  
+	sql-000001-delta.vmdk sql-000002-delta.vmdk sql-flat.vmdk  
+	sql-000001.vmdk sql-000002.vmdk sql.vmdk
+	
+	\# grep vmdk sql.vmx  
+	scsi0:0.fileName = &quot;sql-000002.vmdk&quot;
+	
+	\# grep parentFileNameHint sql-000002.vmdk  
+	parentFileNameHint=&quot;sql-000001.vmdk&quot;
+	
+	\# grep parentFileNameHint sql-000001.vmdk  
+	parentFileNameHint=&quot;sql.vmdk&quot;  
+	
 
 If we delete the first snapshot, the changes in sql-000001.vmdk will be pushed into sql.vmdk and the files will be removed. Then sql-000002.vmdk&#8217;s parent will be set back to sql.vmdk. The VM will continue to run off of sql-000002.vmdk.
 
-[bash]# ls *.vmdk  
-sql-000002-delta.vmdk sql-000002.vmdk sql-flat.vmdk sql.vmdk
-
-\# grep vmdk sql.vmx  
-scsi0:0.fileName = &quot;sql-000002.vmdk&quot;
-
-\# grep parentFileNameHint sql-000002.vmdk  
-parentFileNameHint=&quot;sql.vmdk&quot;  
-[/bash]
+	# ls *.vmdk  
+	sql-000002-delta.vmdk sql-000002.vmdk sql-flat.vmdk sql.vmdk
+	
+	\# grep vmdk sql.vmx  
+	scsi0:0.fileName = &quot;sql-000002.vmdk&quot;
+	
+	\# grep parentFileNameHint sql-000002.vmdk  
+	parentFileNameHint=&quot;sql.vmdk&quot;  
+	
 
 Now if we were to create another snapshot, it would take the first available name, which would be sql-000001.vmdk. This would actually be the second snapshot.
 
-[bash]# ls *.vmdk  
-sql-000001-delta.vmdk sql-000002-delta.vmdk sql-flat.vmdk  
-sql-000001.vmdk sql-000002.vmdk sql.vmdk
-
-\# grep vmdk sql.vmx  
-scsi0:0.fileName = &quot;sql-000001.vmdk&quot;
-
-\# grep parentFileNameHint sql-000001.vmdk  
-parentFileNameHint=&quot;sql-000002.vmdk&quot;
-
-\# grep parentFileNameHint sql-000002.vmdk  
-parentFileNameHint=&quot;sql.vmdk&quot;  
-[/bash]
+	# ls *.vmdk  
+	sql-000001-delta.vmdk sql-000002-delta.vmdk sql-flat.vmdk  
+	sql-000001.vmdk sql-000002.vmdk sql.vmdk
+	
+	\# grep vmdk sql.vmx  
+	scsi0:0.fileName = &quot;sql-000001.vmdk&quot;
+	
+	\# grep parentFileNameHint sql-000001.vmdk  
+	parentFileNameHint=&quot;sql-000002.vmdk&quot;
+	
+	\# grep parentFileNameHint sql-000002.vmdk  
+	parentFileNameHint=&quot;sql.vmdk&quot;  
+	
 
 The next snapshot would be named sql-000003.vmdk and so forth. It is important not to trust the numbering scheme, but rather follow the chain from with in the descriptors.
 
@@ -114,23 +114,23 @@ When dealing with any snapshot case, it is important to confirm the snapshot cha
 
 In the example below we run the vmkfstools command on the current snapshot. It goes through and opens each of the snapshots and verifies its descriptor is consistent (CID/PID matching and RW values). It will then open the base disk and fail because the base disk is not and RDM. The failure is expected.
 
-[bash]# grep vmdk sql.vmx  
-scsi0:0.fileName = &quot;sql-000003.vmdk&quot;
-
-\# vmkfstools -v10 -q sql-000003.vmdk  
-DISKLIB-VMFS : &quot;./sql-000003-delta.vmdk&quot; : open successful (23) size = 20480, hd = 0. Type 8  
-DISKLIB-VMFS : &quot;/vmfs/volumes/4e4043f8-160ce551-98d6-00221591be89/sql/sql-000004-delta.vmdk&quot; : open successful (23) size = 20480, hd = 0. Type 8  
-DISKLIB-VMFS : &quot;/vmfs/volumes/4e4043f8-160ce551-98d6-00221591be89/sql/sql-000001-delta.vmdk&quot; : open successful (23) size = 20480, hd = 0. Type 8  
-DISKLIB-VMFS : &quot;/vmfs/volumes/4e4043f8-160ce551-98d6-00221591be89/sql/sql-000002-delta.vmdk&quot; : open successful (23) size = 20480, hd = 0. Type 8  
-DISKLIB-VMFS : &quot;/vmfs/volumes/4e4043f8-160ce551-98d6-00221591be89/sql/sql-flat.vmdk&quot; : open successful (23) size = 8589934592, hd = 0. Type 3  
-sql-000003.vmdk is not an rdm  
-DISKLIB-VMFS : &quot;./sql-000003-delta.vmdk&quot; : closed.  
-DISKLIB-VMFS : &quot;/vmfs/volumes/4e4043f8-160ce551-98d6-00221591be89/sql/sql-000004-delta.vmdk&quot; : closed.  
-DISKLIB-VMFS : &quot;/vmfs/volumes/4e4043f8-160ce551-98d6-00221591be89/sql/sql-000001-delta.vmdk&quot; : closed.  
-DISKLIB-VMFS : &quot;/vmfs/volumes/4e4043f8-160ce551-98d6-00221591be89/sql/sql-000002-delta.vmdk&quot; : closed.  
-DISKLIB-VMFS : &quot;/vmfs/volumes/4e4043f8-160ce551-98d6-00221591be89/sql/sql-flat.vmdk&quot; : closed.  
-AIOMGR-S : stat o=5 r=15 w=0 i=0 br=245760 bw=0  
-[/bash]
+	# grep vmdk sql.vmx  
+	scsi0:0.fileName = &quot;sql-000003.vmdk&quot;
+	
+	\# vmkfstools -v10 -q sql-000003.vmdk  
+	DISKLIB-VMFS : &quot;./sql-000003-delta.vmdk&quot; : open successful (23) size = 20480, hd = 0. Type 8  
+	DISKLIB-VMFS : &quot;/vmfs/volumes/4e4043f8-160ce551-98d6-00221591be89/sql/sql-000004-delta.vmdk&quot; : open successful (23) size = 20480, hd = 0. Type 8  
+	DISKLIB-VMFS : &quot;/vmfs/volumes/4e4043f8-160ce551-98d6-00221591be89/sql/sql-000001-delta.vmdk&quot; : open successful (23) size = 20480, hd = 0. Type 8  
+	DISKLIB-VMFS : &quot;/vmfs/volumes/4e4043f8-160ce551-98d6-00221591be89/sql/sql-000002-delta.vmdk&quot; : open successful (23) size = 20480, hd = 0. Type 8  
+	DISKLIB-VMFS : &quot;/vmfs/volumes/4e4043f8-160ce551-98d6-00221591be89/sql/sql-flat.vmdk&quot; : open successful (23) size = 8589934592, hd = 0. Type 3  
+	sql-000003.vmdk is not an rdm  
+	DISKLIB-VMFS : &quot;./sql-000003-delta.vmdk&quot; : closed.  
+	DISKLIB-VMFS : &quot;/vmfs/volumes/4e4043f8-160ce551-98d6-00221591be89/sql/sql-000004-delta.vmdk&quot; : closed.  
+	DISKLIB-VMFS : &quot;/vmfs/volumes/4e4043f8-160ce551-98d6-00221591be89/sql/sql-000001-delta.vmdk&quot; : closed.  
+	DISKLIB-VMFS : &quot;/vmfs/volumes/4e4043f8-160ce551-98d6-00221591be89/sql/sql-000002-delta.vmdk&quot; : closed.  
+	DISKLIB-VMFS : &quot;/vmfs/volumes/4e4043f8-160ce551-98d6-00221591be89/sql/sql-flat.vmdk&quot; : closed.  
+	AIOMGR-S : stat o=5 r=15 w=0 i=0 br=245760 bw=0  
+	
 
 In the example above we can see that the chain (from child to parent) goes sql-000003-delta.vmdk -> sql-000004-delta.vmdk -> sql-000001-delta.vmdk -> sql-000002-delta.vmdk -> sql-flat.vmdk. It did not complain about any CID/PID or RW Value mismatches, so the chain is intact.
 

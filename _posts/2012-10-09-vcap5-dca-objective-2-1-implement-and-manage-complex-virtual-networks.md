@@ -85,9 +85,9 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 
 > To configure SNMP communities,run vicfg-snmp -c, specifying a comma‐separated list of communities. For example:
 > 
-> [code]  
-> vicfg-snmp -c public, internal  
-> [/code]
+	>   
+	> vicfg-snmp -c public, internal  
+	> 
 
 From the same document:
 
@@ -97,20 +97,20 @@ From the same document:
 > **To configure a trap destination**  
 > 1 Make sure a community is set up.
 > 
-> [code]  
-> vicfg-snmp --show  
-> Current SNMP agent settings:  
-> Enabled: 1  
-> UDP port: 161  
-> Communities: public  
-> Notification targets:  
-> [/code]
+	>   
+	> vicfg-snmp --show  
+	> Current SNMP agent settings:  
+	> Enabled: 1  
+	> UDP port: 161  
+	> Communities: public  
+	> Notification targets:  
+	> 
 > 
 > 2 Run vicfg-snmp &#8211;target with the target address, port number, and community.
 > 
-> [code]  
-> vicfg-snmp -t target.example.com@163/public  
-> [/code]
+	>   
+	> vicfg-snmp -t target.example.com@163/public  
+	> 
 > 
 > Each time you specify a target with this command, the settings you specify overwrite all previously specified settings. To specify multiple targets, separate them with a comma.
 > 
@@ -118,15 +118,15 @@ From the same document:
 > 
 > 3 (Optional) Enable the SNMP agent if it is not yet running.
 > 
-> [code]  
-> vicfg-snmp --enable  
-> [/code]
+	>   
+	> vicfg-snmp --enable  
+	> 
 > 
 > 4 (Optional) Send a test trap to verify that the agent is configured correctly.
 > 
-> [code]  
-> vicfg-snmp --test  
-> [/code]
+	>   
+	> vicfg-snmp --test  
+	> 
 > 
 > The agent sends a warmStart trap to the configured target.
 
@@ -140,9 +140,9 @@ And the last section:
 > **To configure the SNMP agent for polling**  
 > 1 Run vicfg-snmp &#8211;target with the target address, port number, and community.
 > 
-> [code]  
-> vicfg-snmp -c public -t target.example.com@163/public  
-> [/code]
+	>   
+	> vicfg-snmp -c public -t target.example.com@163/public  
+	> 
 > 
 > Each time you specify a target with this command, the settings you specify overwrite all previously specified settings. To specify multiple targets, separate them with a comma.
 > 
@@ -150,52 +150,52 @@ And the last section:
 > 
 > 2 (Optional) Specify a port for listening for polling requests.
 > 
-> [code]  
-> vicfg-snmp -p  
-> [/code]
+	>   
+	> vicfg-snmp -p  
+	> 
 > 
 > 3 (Optional) If the SNMP agent is not enabled, enable it.
 > 
-> [code]  
-> vicfg-snmp --enable  
-> [/code]
+	>   
+	> vicfg-snmp --enable  
+	> 
 > 
 > 4 Run vicfg-snmp &#8211;test to validate the configuration.  
 > The following example shows how the commands are run in sequence.
 > 
-> [code]  
-> vicfg-snmp –c public –t example.com@162/private --enable  
-> \# next validate your config by doing these things:  
-> vicfg-snmp -–test  
-> walk –v1 –c public esx-host  
-> [/code] 
+	>   
+	> vicfg-snmp –c public –t example.com@162/private --enable  
+	> \# next validate your config by doing these things:  
+	> vicfg-snmp -–test  
+	> walk –v1 –c public esx-host  
+	>  
 
 The above commands have to be run either from VMA or vCLI. If you don&#8217;t want to use any of those tools, you can do it manually. From this blog &#8220;<a href="http://thebashline.wordpress.com/2012/01/14/esxi-add-snmp/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://thebashline.wordpress.com/2012/01/14/esxi-add-snmp/']);">Esxi – Add SNMP</a>&#8220;:
 
 > Log onto esxi CLI
 > 
-> [code]  
-> vi /etc/vmware/snmp.xml  
-> [/code]
+	>   
+	> vi /etc/vmware/snmp.xml  
+	> 
 > 
 > Make the following changes detailed below
 > 
-> [xml]  
-> <config>  
-> <snmpSettings>  
-> <communities>public</communities>  
-> <enable>true</enable>  
-> <port>161</port>  
-> <targets>target.example.com@161 public</targets>  
-> </snmpSettings>  
-> </config>  
-> [/xml]
+	>   
+	> <config>  
+	> <snmpSettings>  
+	> <communities>public</communities>  
+	> <enable>true</enable>  
+	> <port>161</port>  
+	> <targets>target.example.com@161 public</targets>  
+	> </snmpSettings>  
+	> </config>  
+	> 
 > 
 > Apply the changes by restarting the services:
 > 
-> [code]  
-> services.sh restart  
-> [/code]
+	>   
+	> services.sh restart  
+	> 
 > 
 > The server should now be available to be polled via snmp. 
 
@@ -271,402 +271,402 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 
 > On ESXi 5.0, ifconfig information should be the information of the VMkernel NIC that attaches to the Management Network port group. You can retrieve information by using ESXCLI commands.
 > 
-> [code]  
-> esxcli network ip interface list  
-> esxcli network ip interface ipv4 get -n vmkX  
-> esxcli network ip interface ipv6 get -n vmkX  
-> esxcli network ip interface ipv6 address list  
-> [/code]
+	>   
+	> esxcli network ip interface list  
+	> esxcli network ip interface ipv4 get -n vmkX  
+	> esxcli network ip interface ipv6 get -n vmkX  
+	> esxcli network ip interface ipv6 address list  
+	> 
 > 
 > For information corresponding to the Linux netstat command, use the following ESXCLI command.  
-> [code]  
-> esxcli network ip connection list  
-> [/code]
+	>   
+	> esxcli network ip connection list  
+	> 
 > 
 > List all virtual switches and associated port groups.  
-> [code]  
-> esxcli network vswitch standard list  
-> [/code]
+	>   
+	> esxcli network vswitch standard list  
+	> 
 > 
 > List the network policy settings (security policy, traffic shaping policy, and failover policy) for the virtual switch. The following commands are supported.
 > 
-> [code]  
-> esxcli network vswitch standard policy failover get  
-> esxcli network vswitch standard policy security get  
-> esxcli network vswitch standard policy shaping get  
-> [/code]
+	>   
+	> esxcli network vswitch standard policy failover get  
+	> esxcli network vswitch standard policy security get  
+	> esxcli network vswitch standard policy shaping get  
+	> 
 > 
 > Add a virtual switch.  
-> [code]  
-> esxcli network vswitch standard add --vswitch-name=vSwitch42  
-> [/code]
+	>   
+	> esxcli network vswitch standard add --vswitch-name=vSwitch42  
+	> 
 > 
 > You can specify the number of port groups while adding the virtual switch. If you do not specify a value, the default value is used. The system‐wide port count cannot be greater than 4096.  
-> [code]  
-> esxcli network vswitch standard add --vswitch-name=vSwitch42 --ports=8  
-> [/code]
+	>   
+	> esxcli network vswitch standard add --vswitch-name=vSwitch42 --ports=8  
+	> 
 > 
 > Delete a virtual switch.  
-> [code]  
-> esxcli network vswitch standard remove --vswitch-name=vSwitch42  
-> [/code]
+	>   
+	> esxcli network vswitch standard remove --vswitch-name=vSwitch42  
+	> 
 > 
 > Set the MTU for a vSwitch.  
-> [code]  
-> esxcli network vswitch standard set --mtu=9000 --vswitch-name=vSwitch1  
-> [/code]
+	>   
+	> esxcli network vswitch standard set --mtu=9000 --vswitch-name=vSwitch1  
+	> 
 > 
 > Set the CDP value for a vSwitch. You can set status to down, listen, advertise, or both.
 > 
-> [code]  
-> esxcli network vswitch standard set --cdp-status=listen --vswitch-name=vSwitch1  
-> [/code]
+	>   
+	> esxcli network vswitch standard set --cdp-status=listen --vswitch-name=vSwitch1  
+	> 
 > 
 > List port groups currently associated with a virtual switch.  
-> [code]  
-> esxcli network vswitch standard portgroup list  
-> [/code]
+	>   
+	> esxcli network vswitch standard portgroup list  
+	> 
 > 
 > Add a port group.  
-> [code]  
-> esxcli network vswitch standard portgroup add --portgroup-name=NAME --vswitch-name=vSwitch1  
-> [/code]  
+	>   
+	> esxcli network vswitch standard portgroup add --portgroup-name=NAME --vswitch-name=vSwitch1  
+	>   
 > Delete one of the existing port groups.  
-> [code]  
-> esxcli network vswitch standard portgroup remove --portgroup-name=NAME --vswitch-name=vSwitch1  
-> [/code]
+	>   
+	> esxcli network vswitch standard portgroup remove --portgroup-name=NAME --vswitch-name=vSwitch1  
+	> 
 > 
 > Connect a port group with an uplink adapter.  
-> [code]  
-> esxcli network vswitch standard portgroup policy failover set --active-uplinks=vmnic1,vmnic6,vmnic7  
-> [/code]
+	>   
+	> esxcli network vswitch standard portgroup policy failover set --active-uplinks=vmnic1,vmnic6,vmnic7  
+	> 
 > 
 > Make some of the adapters standby instead of active.  
-> [code]  
-> esxcli network vswitch standard portgroup policy failover set --standby-uplinks=vmnic1,vmnic6,vmnic7  
-> [/code]
+	>   
+	> esxcli network vswitch standard portgroup policy failover set --standby-uplinks=vmnic1,vmnic6,vmnic7  
+	> 
 > 
 > Allow port groups to reach port groups located on other VLANs.  
-> [code]  
-> esxcli network vswitch standard portgroup set -p <pg_name> --vlan-id 4095  
-> [/code] 
+	>   
+	> esxcli network vswitch standard portgroup set -p <pg_name> --vlan-id 4095  
+	>  
 > 
 > List all uplinks and information about each device.  
-> [code]  
-> esxcli network nic list  
-> [/code]
+	>   
+	> esxcli network nic list  
+	> 
 > 
 > Bring down one of the uplink adapters.  
-> [code]  
-> esxcli network nic down --nic-name=vmnic0  
-> [/code]
+	>   
+	> esxcli network nic down --nic-name=vmnic0  
+	> 
 > 
 > Add a new VMkernel network interface.  
-> [code]  
-> esxcli network ip interface add --interface-name=vmkX-portgroup-name=PORTGROUP  
-> [/code]
+	>   
+	> esxcli network ip interface add --interface-name=vmkX-portgroup-name=PORTGROUP  
+	> 
 > 
 > Configure the interface as an IPv4 interface. You must specify the IP address using &#8211;ip, the netmask, and the name. For the following examples, assume that VMSF‐VMK‐363 is a port group to which you want to add a VMkernel network interface.  
-> [code]  
-> esxcli network ip interface ipv4 set --ip=<ip_address> --netmask=255.255.255.0 --interface-name=vmkX  
-> [/code]
+	>   
+	> esxcli network ip interface ipv4 set --ip=<ip_address> --netmask=255.255.255.0 --interface-name=vmkX  
+	> 
 > 
 > List information about all VMkernel network interfaces on the system.  
-> [code]  
-> esxcli network ip interface list  
-> [/code] 
+	>   
+	> esxcli network ip interface list  
+	>  
 
 From VMware KB <a href="http://kb.vmware.com/kb/1008127" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1008127']);">1008127</a>:
 
 > These commands allow you to add or remove network cards (known as uplinks) to or from a vNetwork Distributed Switch (vDS):  
-> [code]  
-> esxcfg-vswitch -Q vmnic -V dvPort\_ID\_of_vmnic dvSwitch # unlink a DVS uplink  
-> esxcfg-vswitch -P vmnic -V unused\_dvPort\_ID dvSwitch # add a DVS uplink  
-> [/code]
+	>   
+	> esxcfg-vswitch -Q vmnic -V dvPort\_ID\_of_vmnic dvSwitch # unlink a DVS uplink  
+	> esxcfg-vswitch -P vmnic -V unused\_dvPort\_ID dvSwitch # add a DVS uplink  
+	> 
 > 
 > To create an ESX Service Console management interface (vswif) and uplink it to the vDS, run the command:  
-> [code]  
-> esxcfg-vswif -a -i IP\_address -n Netmask -V dvSwitch -P DVPort\_ID vswif0  
-> [/code]
+	>   
+	> esxcfg-vswif -a -i IP\_address -n Netmask -V dvSwitch -P DVPort\_ID vswif0  
+	> 
 > 
 > Delete an existing VMkernel port from a vDS with the command:  
-> [code]  
-> esxcfg-vmknic -d -s DVswitchname -v virtual\_port\_ID  
-> [/code]
+	>   
+	> esxcfg-vmknic -d -s DVswitchname -v virtual\_port\_ID  
+	> 
 > 
 > To create a VMkernel port and attach it to the DVPort ID on a vDS, run the command:  
-> [code]  
-> esxcfg-vmknic -a -i IP\_address -n netmask -s DVswitchname -v virtual\_port_ID  
-> [/code] 
+	>   
+	> esxcfg-vmknic -a -i IP\_address -n netmask -s DVswitchname -v virtual\_port_ID  
+	>  
 
 ### Analyze command line output to identify vSS and vDS configuration details
 
 List your vSwitches:
 
-[code]  
-~ # esxcli network vswitch standard list  
-vSwitch0  
-Name: vSwitch0  
-Class: etherswitch  
-Num Ports: 128  
-Used Ports: 3  
-Configured Ports: 128  
-MTU: 1500  
-CDP Status: listen  
-Beacon Enabled: false  
-Beacon Interval: 1  
-Beacon Threshold: 3  
-Beacon Required By:  
-Uplinks: vmnic0  
-Portgroups: Management Network
-
-vSwitch1  
-Name: vSwitch1  
-Class: etherswitch  
-Num Ports: 128  
-Used Ports: 3  
-Configured Ports: 128  
-MTU: 1500  
-CDP Status: listen  
-Beacon Enabled: false  
-Beacon Interval: 1  
-Beacon Threshold: 3  
-Beacon Required By:  
-Uplinks: vmnic1  
-Portgroups: ISCSI_1
-
-vSwitch2  
-Name: vSwitch2  
-Class: etherswitch  
-Num Ports: 128  
-Used Ports: 2  
-Configured Ports: 128  
-MTU: 1500  
-CDP Status: listen  
-Beacon Enabled: false  
-Beacon Interval: 1  
-Beacon Threshold: 3  
-Beacon Required By:  
-Uplinks: vmnic3  
-Portgroups: VM_Net
-
-vSwitch3  
-Name: vSwitch3  
-Class: etherswitch  
-Num Ports: 128  
-Used Ports: 3  
-Configured Ports: 128  
-MTU: 1500  
-CDP Status: listen  
-Beacon Enabled: false  
-Beacon Interval: 1  
-Beacon Threshold: 3  
-Beacon Required By:  
-Uplinks: vmnic2  
-Portgroups: vMotion  
-[/code]
+	  
+	~ # esxcli network vswitch standard list  
+	vSwitch0  
+	Name: vSwitch0  
+	Class: etherswitch  
+	Num Ports: 128  
+	Used Ports: 3  
+	Configured Ports: 128  
+	MTU: 1500  
+	CDP Status: listen  
+	Beacon Enabled: false  
+	Beacon Interval: 1  
+	Beacon Threshold: 3  
+	Beacon Required By:  
+	Uplinks: vmnic0  
+	Portgroups: Management Network
+	
+	vSwitch1  
+	Name: vSwitch1  
+	Class: etherswitch  
+	Num Ports: 128  
+	Used Ports: 3  
+	Configured Ports: 128  
+	MTU: 1500  
+	CDP Status: listen  
+	Beacon Enabled: false  
+	Beacon Interval: 1  
+	Beacon Threshold: 3  
+	Beacon Required By:  
+	Uplinks: vmnic1  
+	Portgroups: ISCSI_1
+	
+	vSwitch2  
+	Name: vSwitch2  
+	Class: etherswitch  
+	Num Ports: 128  
+	Used Ports: 2  
+	Configured Ports: 128  
+	MTU: 1500  
+	CDP Status: listen  
+	Beacon Enabled: false  
+	Beacon Interval: 1  
+	Beacon Threshold: 3  
+	Beacon Required By:  
+	Uplinks: vmnic3  
+	Portgroups: VM_Net
+	
+	vSwitch3  
+	Name: vSwitch3  
+	Class: etherswitch  
+	Num Ports: 128  
+	Used Ports: 3  
+	Configured Ports: 128  
+	MTU: 1500  
+	CDP Status: listen  
+	Beacon Enabled: false  
+	Beacon Interval: 1  
+	Beacon Threshold: 3  
+	Beacon Required By:  
+	Uplinks: vmnic2  
+	Portgroups: vMotion  
+	
 
 List your PortGroups:
 
-[code]  
-~ # esxcli network vswitch standard portgroup list  
-Name Virtual Switch Active Clients VLAN ID  
-\---\---\---\---\---\--- \---\---\---\---\-- -\---\---\---\---\- --\-----  
-ISCSI_1 vSwitch1 1 0  
-Management Network vSwitch0 1 0  
-VM_Net vSwitch2 0 0  
-vMotion vSwitch3 1 0  
-[/code]
+	  
+	~ # esxcli network vswitch standard portgroup list  
+	Name Virtual Switch Active Clients VLAN ID  
+	\---\---\---\---\---\--- \---\---\---\---\-- -\---\---\---\---\- --\-----  
+	ISCSI_1 vSwitch1 1 0  
+	Management Network vSwitch0 1 0  
+	VM_Net vSwitch2 0 0  
+	vMotion vSwitch3 1 0  
+	
 
 List your VMkernel Interfaces
 
-[code]  
-~ # esxcli network ip interface list  
-vmk0  
-Name: vmk0  
-MAC Address: 00:50:56:17:12:cb  
-Enabled: true  
-Portset: vSwitch0  
-Portgroup: Management Network  
-VDS Name: N/A  
-VDS Port: N/A  
-VDS Connection: -1  
-MTU: 1500  
-TSO MSS: 65535  
-Port ID: 16777219
-
-vmk1  
-Name: vmk1  
-MAC Address: 00:50:56:17:16:07  
-Enabled: true  
-Portset: vSwitch1  
-Portgroup: ISCSI_1  
-VDS Name: N/A  
-VDS Port: N/A  
-VDS Connection: -1  
-MTU: 1500  
-TSO MSS: 65535  
-Port ID: 33554435
-
-vmk2  
-Name: vmk2  
-MAC Address: 00:50:56:17:16:58  
-Enabled: true  
-Portset: vSwitch3  
-Portgroup: vMotion  
-VDS Name: N/A  
-VDS Port: N/A  
-VDS Connection: -1  
-MTU: 1500  
-TSO MSS: 65535  
-Port ID: 67108867  
-[/code]
+	  
+	~ # esxcli network ip interface list  
+	vmk0  
+	Name: vmk0  
+	MAC Address: 00:50:56:17:12:cb  
+	Enabled: true  
+	Portset: vSwitch0  
+	Portgroup: Management Network  
+	VDS Name: N/A  
+	VDS Port: N/A  
+	VDS Connection: -1  
+	MTU: 1500  
+	TSO MSS: 65535  
+	Port ID: 16777219
+	
+	vmk1  
+	Name: vmk1  
+	MAC Address: 00:50:56:17:16:07  
+	Enabled: true  
+	Portset: vSwitch1  
+	Portgroup: ISCSI_1  
+	VDS Name: N/A  
+	VDS Port: N/A  
+	VDS Connection: -1  
+	MTU: 1500  
+	TSO MSS: 65535  
+	Port ID: 33554435
+	
+	vmk2  
+	Name: vmk2  
+	MAC Address: 00:50:56:17:16:58  
+	Enabled: true  
+	Portset: vSwitch3  
+	Portgroup: vMotion  
+	VDS Name: N/A  
+	VDS Port: N/A  
+	VDS Connection: -1  
+	MTU: 1500  
+	TSO MSS: 65535  
+	Port ID: 67108867  
+	
 
 List your arp table:
 
-[code]  
-~ # esxcli network ip neighbor list  
-Neighbor Mac Address Vmknic Expiry State  
-\---\---\---\---\- --\---\---\---\---\--- \---\--- \---\---\-- -\----  
-192.168.0.121 00:50:56:17:45:9c vmk0 1183 sec  
-192.168.1.107 00:50:56:17:14:bf vmk1 1196 sec  
-[/code]
+	  
+	~ # esxcli network ip neighbor list  
+	Neighbor Mac Address Vmknic Expiry State  
+	\---\---\---\---\- --\---\---\---\---\--- \---\--- \---\---\-- -\----  
+	192.168.0.121 00:50:56:17:45:9c vmk0 1183 sec  
+	192.168.1.107 00:50:56:17:14:bf vmk1 1196 sec  
+	
 
 List your active port connections:
 
-[code]  
-~ # esxcli network ip connection list  
-Proto Recv Q Send Q Local Address Foreign Address State World ID World Name  
-\---\-- -\---\-- -\---\-- -\---\---\---\---\---\--- \---\---\---\---\---\---\- --\---\---\--- \---\---\-- -\---\---\---\-----  
-tcp 0 0 127.0.0.1:8307 127.0.0.1:53938 ESTABLISHED 2813 hostd-worker  
-tcp 0 0 127.0.0.1:53938 127.0.0.1:8307 ESTABLISHED 4374 hostd-worker  
-tcp 0 0 127.0.0.1:443 127.0.0.1:52899 ESTABLISHED 2787 hostd-worker  
-tcp 0 0 127.0.0.1:52899 127.0.0.1:443 ESTABLISHED 64586 python  
-[/code]
+	  
+	~ # esxcli network ip connection list  
+	Proto Recv Q Send Q Local Address Foreign Address State World ID World Name  
+	\---\-- -\---\-- -\---\-- -\---\---\---\---\---\--- \---\---\---\---\---\---\- --\---\---\--- \---\---\-- -\---\---\---\-----  
+	tcp 0 0 127.0.0.1:8307 127.0.0.1:53938 ESTABLISHED 2813 hostd-worker  
+	tcp 0 0 127.0.0.1:53938 127.0.0.1:8307 ESTABLISHED 4374 hostd-worker  
+	tcp 0 0 127.0.0.1:443 127.0.0.1:52899 ESTABLISHED 2787 hostd-worker  
+	tcp 0 0 127.0.0.1:52899 127.0.0.1:443 ESTABLISHED 64586 python  
+	
 
 List your DVS information:
 
-[code]  
-~ # esxcli network vswitch dvs vmware list  
-test  
-Name: test  
-VDS ID: 8a fa 1a 50 90 33 85 47-be 84 61 e0 c4 4c e2 ff  
-Class: etherswitch  
-Num Ports: 256  
-Used Ports: 2  
-Configured Ports: 256  
-MTU: 1500  
-CDP Status: listen  
-Beacon Timeout: -1  
-Uplinks: vmnic4  
-VMware Branded: true  
-DVPort:  
-Client: vmnic4  
-DVPortgroup ID: dvportgroup-102  
-In Use: true  
-Port ID: 136
-
-Client:  
-DVPortgroup ID: dvportgroup-102  
-In Use: false  
-Port ID: 137
-
-Client:  
-DVPortgroup ID: dvportgroup-102  
-In Use: false  
-Port ID: 138
-
-Client:  
-DVPortgroup ID: dvportgroup-102  
-In Use: false  
-Port ID: 139  
-[/code]
+	  
+	~ # esxcli network vswitch dvs vmware list  
+	test  
+	Name: test  
+	VDS ID: 8a fa 1a 50 90 33 85 47-be 84 61 e0 c4 4c e2 ff  
+	Class: etherswitch  
+	Num Ports: 256  
+	Used Ports: 2  
+	Configured Ports: 256  
+	MTU: 1500  
+	CDP Status: listen  
+	Beacon Timeout: -1  
+	Uplinks: vmnic4  
+	VMware Branded: true  
+	DVPort:  
+	Client: vmnic4  
+	DVPortgroup ID: dvportgroup-102  
+	In Use: true  
+	Port ID: 136
+	
+	Client:  
+	DVPortgroup ID: dvportgroup-102  
+	In Use: false  
+	Port ID: 137
+	
+	Client:  
+	DVPortgroup ID: dvportgroup-102  
+	In Use: false  
+	Port ID: 138
+	
+	Client:  
+	DVPortgroup ID: dvportgroup-102  
+	In Use: false  
+	Port ID: 139  
+	
 
 Use the unsupported net-dvs command to list all the DVS information:
 
-[code]  
-~ # net-dvs -l | less  
-switch 8a fa 1a 50 90 33 85 47-be 84 61 e0 c4 4c e2 ff (etherswitch)  
-max ports: 256  
-global properties:  
-com.vmware.common.alias = test , propType = CONFIG  
-com.vmware.common.version = 0x 0. 0. 0. 0  
-propType = CONFIG  
-com.vmware.etherswitch.mtu = 1500 , propType = CONFIG  
-com.vmware.etherswitch.cdp = CDP, listen  
-propType = CONFIG  
-com.vmware.common.uplinkPorts:  
-dvUplink1, dvUplink2, dvUplink3, dvUplink4  
-propType = CONFIG  
-com.vmware.common.respools.list:  
-netsched.pools.persist.ft  
-netsched.pools.persist.iscsi  
-netsched.pools.persist.mgmt  
-netsched.pools.persist.nfs  
-netsched.pools.persist.vm  
-netsched.pools.persist.vmotion  
-propType = CONFIG  
-com.vmware.common.respools.sched:  
-inactive  
-propType = CONFIG  
-host properties:  
-com.vmware.common.host.portset = DvsPortset-0 , propType = CONFIG  
-com.vmware.common.host.volatile.status = green , propType = CONFIG  
-com.vmware.common.host.uplinkPorts:  
-136, 137, 138, 139  
-propType = CONFIG  
-port 136:  
-com.vmware.common.port.alias = dvUplink1 , propType = CONFIG  
-com.vmware.common.port.connectid = 503318012 , propType = CONFIG  
-com.vmware.common.port.portgroupid = dvportgroup-102 , propType = CONFIG  
-com.vmware.common.port.block = false , propType = CONFIG  
-com.vmware.common.port.ptAllowed = 0x 0. 0. 0. 0  
-propType = CONFIG  
-com.vmware.etherswitch.port.teaming:  
-load balancing = source virtual port id  
-link selection = link state up; link speed>=10Mbps;  
-link behavior = notify switch; reverse filter; best effort on failure; shotgun on failure;  
-active =  
-standby =  
-propType = CONFIG  
-com.vmware.etherswitch.port.security = deny promiscuous; allow mac change; allow forged frames  
-propType = CONFIG  
-com.vmware.etherswitch.port.vlan = Guest VLAN tagging  
-ranges = 0-4094  
-propType = CONFIG  
-com.vmware.etherswitch.port.txUplink = normal , propType = CONFIG  
-com.vmware.common.port.respools.cfg:  
-netsched.pools.persist.ft:50:-1:0  
-netsched.pools.persist.iscsi:50:-1:0  
-netsched.pools.persist.mgmt:50:-1:0  
-netsched.pools.persist.nfs:50:-1:0  
-netsched.pools.persist.vm:100:-1:0  
-netsched.pools.persist.vmotion:50:-1:0  
-propType = CONFIG  
-com.vmware.common.port.volatile.vlan = VLAN 0  
-ranges = 0-4094  
-propType = CONFIG  
-com.vmware.common.port.statistics:  
-pktsInUnicast = 0  
-bytesInUnicast = 0  
-pktsInMulticast = 0  
-bytesInMulticast = 0  
-pktsInBroadcast = 0  
-bytesInBroadcast = 0  
-pktsOutUnicast = 0  
-bytesOutUnicast = 0  
-pktsOutMulticast = 0  
-bytesOutMulticast = 0  
-pktsOutBroadcast = 0  
-bytesOutBroadcast = 0  
-pktsInDropped = 0  
-pktsOutDropped = 0  
-pktsInException = 0  
-pktsOutException = 0  
-propType = CONFIG  
-com.vmware.common.port.volatile.status = inUse linkUp portID=83886082 propType = CONFIG  
-com.vmware.common.port.volatile.ptstatus = noPassthruReason=1, propType = CONFIG  
-[/code]
+	  
+	~ # net-dvs -l | less  
+	switch 8a fa 1a 50 90 33 85 47-be 84 61 e0 c4 4c e2 ff (etherswitch)  
+	max ports: 256  
+	global properties:  
+	com.vmware.common.alias = test , propType = CONFIG  
+	com.vmware.common.version = 0x 0. 0. 0. 0  
+	propType = CONFIG  
+	com.vmware.etherswitch.mtu = 1500 , propType = CONFIG  
+	com.vmware.etherswitch.cdp = CDP, listen  
+	propType = CONFIG  
+	com.vmware.common.uplinkPorts:  
+	dvUplink1, dvUplink2, dvUplink3, dvUplink4  
+	propType = CONFIG  
+	com.vmware.common.respools.list:  
+	netsched.pools.persist.ft  
+	netsched.pools.persist.iscsi  
+	netsched.pools.persist.mgmt  
+	netsched.pools.persist.nfs  
+	netsched.pools.persist.vm  
+	netsched.pools.persist.vmotion  
+	propType = CONFIG  
+	com.vmware.common.respools.sched:  
+	inactive  
+	propType = CONFIG  
+	host properties:  
+	com.vmware.common.host.portset = DvsPortset-0 , propType = CONFIG  
+	com.vmware.common.host.volatile.status = green , propType = CONFIG  
+	com.vmware.common.host.uplinkPorts:  
+	136, 137, 138, 139  
+	propType = CONFIG  
+	port 136:  
+	com.vmware.common.port.alias = dvUplink1 , propType = CONFIG  
+	com.vmware.common.port.connectid = 503318012 , propType = CONFIG  
+	com.vmware.common.port.portgroupid = dvportgroup-102 , propType = CONFIG  
+	com.vmware.common.port.block = false , propType = CONFIG  
+	com.vmware.common.port.ptAllowed = 0x 0. 0. 0. 0  
+	propType = CONFIG  
+	com.vmware.etherswitch.port.teaming:  
+	load balancing = source virtual port id  
+	link selection = link state up; link speed>=10Mbps;  
+	link behavior = notify switch; reverse filter; best effort on failure; shotgun on failure;  
+	active =  
+	standby =  
+	propType = CONFIG  
+	com.vmware.etherswitch.port.security = deny promiscuous; allow mac change; allow forged frames  
+	propType = CONFIG  
+	com.vmware.etherswitch.port.vlan = Guest VLAN tagging  
+	ranges = 0-4094  
+	propType = CONFIG  
+	com.vmware.etherswitch.port.txUplink = normal , propType = CONFIG  
+	com.vmware.common.port.respools.cfg:  
+	netsched.pools.persist.ft:50:-1:0  
+	netsched.pools.persist.iscsi:50:-1:0  
+	netsched.pools.persist.mgmt:50:-1:0  
+	netsched.pools.persist.nfs:50:-1:0  
+	netsched.pools.persist.vm:100:-1:0  
+	netsched.pools.persist.vmotion:50:-1:0  
+	propType = CONFIG  
+	com.vmware.common.port.volatile.vlan = VLAN 0  
+	ranges = 0-4094  
+	propType = CONFIG  
+	com.vmware.common.port.statistics:  
+	pktsInUnicast = 0  
+	bytesInUnicast = 0  
+	pktsInMulticast = 0  
+	bytesInMulticast = 0  
+	pktsInBroadcast = 0  
+	bytesInBroadcast = 0  
+	pktsOutUnicast = 0  
+	bytesOutUnicast = 0  
+	pktsOutMulticast = 0  
+	bytesOutMulticast = 0  
+	pktsOutBroadcast = 0  
+	bytesOutBroadcast = 0  
+	pktsInDropped = 0  
+	pktsOutDropped = 0  
+	pktsInException = 0  
+	pktsOutException = 0  
+	propType = CONFIG  
+	com.vmware.common.port.volatile.status = inUse linkUp portID=83886082 propType = CONFIG  
+	com.vmware.common.port.volatile.ptstatus = noPassthruReason=1, propType = CONFIG  
+	
 
 ### Configure NetFlow
 
