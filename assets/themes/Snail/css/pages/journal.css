@@ -128,7 +128,7 @@
 	font-family:georgia,serif;
 	color:#999;
 }
-.the-article blockquote::before {
+/*.the-article blockquote::before {
 	content:"\201C";
 	margin-left:-10px;
 	float:left;
@@ -136,7 +136,7 @@
 .the-article blockquote::after {
 	content:"\201D";
 	float:right;
-}
+}*/
 #journal-articles-block .journal-article .journal-body img {
 	clear:both;
 }

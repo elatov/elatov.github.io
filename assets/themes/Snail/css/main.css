@@ -17,7 +17,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 	font:inherit;
 	vertical-align:baseline;
 }
-article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+*article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
 	display:block;
 }
 body {
@@ -26,19 +26,24 @@ body {
 ol,ul {
 	list-style:none;
 }
-blockquote,q {
-	quotes:none;
+blockquote {
+	background-color: #F5F5F5;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	box-shadow: 1px 1px 1px #ccc;
+	font-style: italic;
+	background-image:none;
 }
-blockquote:before,blockquote:after,q:before,q:after {
-	content:'';
-	content:none;
+blockquote cite:before {
+	content: "\2014 \2009";
 }
+
 code {
 	padding: .15em .5em;
 	font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
 	border:1px solid #ccc;
 	border-radius:3px;
-	background:#efefef;
+	background:#FDF5E6;
 	/* color:#777; */
 }
 pre code {

@@ -16,11 +16,11 @@ tags:
   - OpenVAS
   - Wapiti
 ---
-### OpenVAS
+## OpenVAS
 
 I wanted to run a vulnerability scan against my home lab to see if snort catches the event (snort setup <a href="http://virtuallyhyper.com/2014/04/snort-debian/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2014/04/snort-debian/']);">here</a>). As I kept reading up on scanners, I ran into <a href="http://www.openvas.org/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.openvas.org/']);">OpenVAS</a>. From their site:
 
-    OpenVAS is a framework of several services and tools offering a comprehensive and powerful vulnerability scanning and vulnerability management solution.
+> OpenVAS is a framework of several services and tools offering a comprehensive and powerful vulnerability scanning and vulnerability management solution.
     
 
 From their <a href="http://www.openvas.org/software.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.openvas.org/software.html']);">software</a> page here are the components of OpenVAS:
@@ -29,7 +29,7 @@ From their <a href="http://www.openvas.org/software.html" onclick="javascript:_g
 
 The software looked good to me, so I decided to install OpenVAS on CentOS.
 
-#### Install OpenVAS on CentOS
+### Install OpenVAS on CentOS
 
 Most of the instructions are laid out in <a href="http://www.openvas.org/install-packages.html#openvas_centos_atomic" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.openvas.org/install-packages.html#openvas_centos_atomic']);">OpenVAS for CentOS via Atomic</a>. You just need to enable the atomic YUM repository:
 
@@ -203,7 +203,7 @@ If you need to make sure the configuration is all good, you can run the followin
     elatov@ccl:~$sudo /usr/bin/openvas-check-setup
     
 
-#### Running a scan with OpenVAS
+### Running a scan with OpenVAS
 
 Go to the GreenBone Security Assistant (https://IP:9293) and you should see the following:
 
@@ -253,7 +253,7 @@ Here is the scan kicked off:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/04/scan-started.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/04/scan-started.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/scan-started.png" alt="scan started OpenVAS on CentOS" width="377" height="172" class="alignnone size-full wp-image-10606" title="OpenVAS on CentOS" /></a>
 
-#### Getting OpenVAS Scan Results
+### Getting OpenVAS Scan Results
 
 After the scan is finished, you will see the following under the **Tasks** section:
 
@@ -269,7 +269,7 @@ Then click on the &#8220;**Magnifying Glass**&#8221; (to see the details of the 
 
 From there you can download the the PDF version of the scan results.
 
-#### Fixing the Watipi and Arachni Warnings
+### Fixing the Watipi and Arachni Warnings
 
 Initially I was see the following warnings on my scan results:
 
@@ -353,7 +353,7 @@ It looks like it worked this time around. Running another scan and the results s
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/04/watipi-results-included_i1.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/04/watipi-results-included_i1.jpg']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/watipi-results-included_i1.jpg" alt="watipi results included i1 OpenVAS on CentOS" width="693" height="307" class="alignnone size-full wp-image-10623" title="OpenVAS on CentOS" /></a>
 
-#### Checking out the Progress of a Scan
+### Checking out the Progress of a Scan
 
 You can enable extra logging on the scanner. Here is the option for that:
 
@@ -401,7 +401,7 @@ Then if you check out the KB file, you will see all the events:
     1397586988 3 Launched/1.3.6.1.4.1.25623.1.0.58620=1
     
 
-#### Limiting the Cron Jobs for OpenVAS
+### Limiting the Cron Jobs for OpenVAS
 
 By default the following rules are added by the openvas install:
 
@@ -418,7 +418,7 @@ The **rsync** was causing an IO spike on my little VM, so I decided to limit the
     0 1 * * * root /usr/bin/nice -n 19 /usr/bin/ionice -c2 -n7 /usr/sbin/openvas-scapdata-sync > /dev/null
     
 
-#### Snort Catching the OpenVAS Scan
+### Snort Catching the OpenVAS Scan
 
 After I ran the scan against a web server, I saw snort catching the scan right away:
 
