@@ -46,7 +46,7 @@ search :
   # Your Google custom search engine ID
   #
   gcse :
-    cx : 001912851300668510249:qatni_pvtqg'
+    cx : 001912851300668510249:qatni_pvtqg
   
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
