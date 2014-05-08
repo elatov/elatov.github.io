@@ -14,8 +14,16 @@ tagline: Virtualization stuff
 
 # Information about author
 #
-author :
-  name : VirtuallyHyper
+author:
+	name: virtuallyhyper
+
+authors :
+ elatov:
+    name: Karim Elatov
+    display_name: Karim
+    web: http://elatob.github.io
+    twitter: elatov
+    github: elatov
   
 # Information for contacts
 #
@@ -38,7 +46,7 @@ search :
   # Your Google custom search engine ID
   #
   gcse :
-    cx : 004255214185073801838:_icnlls8kds
+    cx : 001912851300668510249:qatni_pvtqg'
   
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 

@@ -16,7 +16,8 @@
 				<span class="the-article">
 				{{ content }}
 				</span>
-				<div class="journal-date">Published {{ page.date | date_to_long_string }}</div>
+				{% assign author = site.authors[page.author] %}
+				<div class="journal-date">Published by {{ page.author }} on {{ page.date | date_to_long_string }}</div>
 				<div class="journal-tags">
 				{% assign tags_list = page.tags %}
 				{% include themes/Snail/tags_list %}
