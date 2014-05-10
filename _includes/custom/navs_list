@@ -1,0 +1,39 @@
+{% for nav2 in site.JB.navs_list.navigation2 %}
+    {% if nav2 == current_page  %}
+        <li class="dropdown active">
+    {% else %}
+        <li class="dropdown">
+    {% endif %}
+        <a href="{{ BASE_PATH }}{{node.url}}" class="dropdown-toggle" data-toggle="dropdown">
+            {{ nav2 }}
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+            {% for node in pages_list %}
+                {% if node.title != null and node.group2 == nav2 %}
+                    {% if page.url == node.url %}
+                        <li class="active"><a href="{{ BASE_PATH }}{{node.url}}" class="active">{{node.title}}</a></li>
+                    {% else %}
+                        <li><a href="{{ BASE_PATH }}{{node.url}}">{{node.title}}</a></li>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </li>
+{% endfor %}
+{% for node in pages_list %}
+    {% if node.title != null %}
+      {% if group == null or group == node.group or node.group2 != nil %}
+        {% if node.group2 == null %}
+            {% if page.url == node.url %}
+            <li class="active"><a href="{{ BASE_PATH }}{{node.url}}" class="active">{{node.title}}</a></li>
+            {% else %}
+            <li><a href="{{ BASE_PATH }}{{node.url}}">{{node.title}}</a></li>
+            {% endif %}
+        {% endif %}
+      {% endif %}
+    {% endif %}
+{% endfor %}
+{% assign pages_list = nil %}
+{% assign group = nil %}
+{% assign group2 = nil %}

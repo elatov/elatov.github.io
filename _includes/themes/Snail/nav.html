@@ -1,4 +1,5 @@
 <nav>
+	<script src="{{ ASSET_PATH }}/js/file.js"></script>
 	<div id="nav-l">
 	</div>
 	<div id="nav-c">
@@ -16,7 +17,24 @@
 					<span class="nav-r-active"></span>
 					</li>
 					{% else %}
+                                        {% if node.title == "test" %}
+					<li id = "{{node.title}}">
+					<div class="click-nav">
+					  <ul class="no-js">
+					    <li>
+					      <a href="#" class="clicker">Certification</a>
+				      		<ul>
+				        	<li><a href="#">VCAP_DCD</a></li>
+				        	<li><a href="#">VCAP_DCA</a></li>
+				        	<li><a href="#">RHCE_RHCSA</a></li>
+				      	</ul>
+				    	</li>
+					  </ul>
+					</div>
+					</li>
+					{% else %}
 					<li id = "{{node.title}}"><a href="{{ BASE_PATH }}{{node.url}}">{{node.title}}</a></li>
+					{% endif %}
 					{% endif %}
 				  {% endif %}
 				{% endif %}

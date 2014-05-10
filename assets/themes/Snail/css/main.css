@@ -1368,3 +1368,39 @@ a.action-icon.action-solution {
 	background-position:-90px 0;
 	width:14px;
 }
+
+.click-nav {width:200px;}
+.click-nav ul {
+	position:relative;
+	font-weight:900;
+}
+.click-nav ul li {position:relative;list-style:none;cursor:pointer;}
+.click-nav ul li ul {position:absolute;left:0;right:0;}
+.click-nav ul .clicker {
+	color:#636363;
+        text-shadow:#FFF 0 1px 0;
+        white-space:nowrap;
+        font-size:14px;
+        font-family:"Open Sans","Droid Sans",Arial,sans-serif;
+        height:30px;
+        display:block;
+        padding:16px 23px 0;
+
+}
+.click-nav ul .clicker:hover,.click-nav ul .active {background:#196F9A;}
+.click-nav img {position:absolute;top:9px;left:12px;}
+.click-nav ul li a {
+	transition:background-color 0.2s ease-in-out;
+	-webkit-transition:background-color 0.2s ease-in-out;
+	-moz-transition:background-color 0.2s ease-in-out;
+	display:block;
+	padding:8px 10px 8px 40px;
+	background:#FFF;
+	color:#333;
+	text-decoration:none;
+}
+.click-nav ul li a:hover {background:#F2F2F2;}
+
+/* Fallbacks */
+.click-nav .no-js ul {display:none;}
+.click-nav .no-js:hover ul {display:block;}
