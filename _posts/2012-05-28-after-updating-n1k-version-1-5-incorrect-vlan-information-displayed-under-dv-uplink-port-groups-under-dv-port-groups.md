@@ -53,6 +53,3 @@ We contacted Cisco and they had identified a known bug on the N1K. If you have c
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/05/after-updating-n1k-version-1-5-incorrect-vlan-information-displayed-under-dv-uplink-port-groups-under-dv-port-groups/" title=" After Updating N1K to Version 1.5, Incorrect VLAN Information Displayed Under DV Uplink Port Groups but not Under DV Port Groups" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:DV Port Group,DV Uplink Port Group,N1K,Nexus 1000v,show tech-support svs,VLAN ID,blog;button:compact;">I was trying to get a VM up on the network and I getting getting an error message saying that I don&#8217;t have any free ports on my Nexus 1000v...</a>
-</p>

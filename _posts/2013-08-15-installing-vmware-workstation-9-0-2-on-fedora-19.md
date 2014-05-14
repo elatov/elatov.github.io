@@ -160,6 +160,3 @@ and then I saw the following:
 
 I was able to make all the changes that I needed.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/08/installing-vmware-workstation-9-0-2-on-fedora-19/" title=" Installing VMware Workstation 9.0.2 on Fedora 19" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:fedora,vmware-gksu,VMware_Workstation,blog;button:compact;">I ran into some issues setting up my VMware Workstation on my Fedora 19 install, so I decided to put together all the notes on how I got around them....</a>
-</p>

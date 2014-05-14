@@ -46,6 +46,3 @@ If you are unable to get into the network provider switches or it&#8217;s too mu
 
 I would, of course, recommend fixing the issue upstream, because moving VMDKs manually (workarounds #2 and #3) could possibly cause other issues, but the above workarounds will get the files across without any time-out issues.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/04/timeouts-during-a-cold-migration-across-datacenters/" title=" Timeouts During a Cold Migration Across Datacenters" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:NFC,ROBO,VEEAM FastSCP,VMware Converter,WAN,blog;button:compact;">I had a customer trying to cold migrate a VM across datacenters (across a WAN connection). Probably not the best setup, but it should work. Here is good white paper...</a>
-</p>

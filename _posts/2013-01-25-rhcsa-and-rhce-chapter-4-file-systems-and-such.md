@@ -1736,6 +1736,3 @@ If you want to remove those permissions for user1 we can do the following:
     other::r--
     
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-4-file-systems-and-such/" title=" RHCSA and RHCE Chapter 4 File Systems and Such" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:/dev/urandom,/etc/fstab,/etc/mtab,/proc/mounts,badblocks,blkid,cryptsetup,dd,df,dumpe2fs,e2label,edquota,ext2,ext3,filesystem,findmnt,getfacl,luks,mkfs,mount,quota,quotacheck,quotaoff,quotaon,repquota,setfacl,usrquota,blog;button:compact;">File Systems After we have partitioned our drives to our heart&#8217;s desire, we should actually start using them. The first thing that we need to do is put a file...</a>
-</p>

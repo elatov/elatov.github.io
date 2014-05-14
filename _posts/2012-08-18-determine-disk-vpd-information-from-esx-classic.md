@@ -68,6 +68,3 @@ From the above output you can see the NAA ID of my OpenIndiana LUN presented ove
 
 You can see that the device has a Unit Serial Number and an NAA ID.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/determine-disk-vpd-information-from-esx-classic/" title=" Determine Disk VPD Information from ESX Classic" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:NAA_ID,page 0x80,page 0x83,SCSI Inquiry,sg_vpd,Unit Serial Number,Vital Product Data,VPD Pages,blog;button:compact;">ESX issues an INQUIRY to get the list of supported Vital Product Data (VPD) pages. If page 83 is supported, ESX issues an INQUIRY on that page and extracts an...</a>
-</p>

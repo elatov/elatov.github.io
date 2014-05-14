@@ -84,6 +84,3 @@ In our case we have 5GB available which as I mentioned is automatically selected
 
 Now we can apply more updates <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Extending the System Drive on Windows 2008 Running Under KVM" class="wp-smiley" title="Extending the System Drive on Windows 2008 Running Under KVM" /> 
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/04/extending-the-system-drive-on-windows-2008-running-as-a-kvm-vm/" title=" Extending the System Drive on Windows 2008 Running Under KVM" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:diskmgmt.msc,qemu-img resize,WIN2k8,blog;button:compact;">While I was writing this post I first allocated 15GB for my Windows install. I quickly realized that after a plethora of updates that is not enough space. Luckily it&#8217;s...</a>
-</p>

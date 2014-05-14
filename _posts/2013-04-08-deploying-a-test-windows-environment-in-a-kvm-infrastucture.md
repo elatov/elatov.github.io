@@ -634,6 +634,3 @@ and then you will see the following:
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/04/deploying-a-test-windows-environment-in-a-kvm-infrastucture/" title=" Deploying a Test Windows Environment in a KVM Infrastucture" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Active Directory,KVM,SPICE,blog;button:compact;">I installed Active Directory by selecting the &#8220;Active Directory Domain Services&#8221; Role from the Server Manager Dialogue. Step by step instructions can be seen in Deploying a Test Windows Environment...</a>
-</p>

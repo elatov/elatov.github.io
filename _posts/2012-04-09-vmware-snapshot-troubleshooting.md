@@ -413,6 +413,3 @@ There are many problems that one can run into with snapshot problems. The issues
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/04/vmware-snapshot-troubleshooting/" title=" VMware Snapshot Troubleshooting" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:clone,command line,quiesce,snapshots,Storage,troubleshooting,vmkfstools,vss,blog;button:compact;">I had an interesting issue that took a while to solve. Whenever we consolidated snapshots it would take a while and the VM would lose a high number of pings....</a>
-</p>

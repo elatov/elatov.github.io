@@ -206,6 +206,3 @@ and then I can mount the disk, like this:
 
 Of course the Windows machines mounted the device just fine as well. 
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/10/mounting-an-ntfs-volume-on-freebsd-9-with-etcfstab-file/" title=" Mounting an NTFS Volume in FreeBSD 9 with the /etc/fstab File" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:/etc/fstab,camcontrol devlist,df,glabel,gpart,mount,newfs,ntfslabel,tunefs,blog;button:compact;">In my previous post, I blogged about mounting an NTFS volume in FreeBSD. Now I decided to make the process easier by using the /etc/fstab file. I thought this would...</a>
-</p>

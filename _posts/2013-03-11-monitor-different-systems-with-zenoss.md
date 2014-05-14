@@ -638,4 +638,3 @@ tags:
 </ul>
 <p>So I will extend this series to one more post <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Monitor Different Systems with Zenoss" class="wp-smiley" title="Monitor Different Systems with Zenoss" /> </p>
 <p><root> </root></p>
-<p class="wp-flattr-button"><a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/03/monitor-different-systems-with-zenoss/" title=" Monitor Different Systems with Zenoss" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Monitoring,Zenoss,blog;button:compact;">This is the third part and continuation of the &#8216;Network Monitoring Software Comparison&#8217; series. Here is the link to the first part and here is the second one. Let&#8217;s check...</a></p>

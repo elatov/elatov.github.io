@@ -385,8 +385,5 @@ All was back to normal.
 
 This was kind of hindsight, so I didn&#8217;t have a chance to plan accordingly and try it out.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/migrating-a-zfs-pool-with-zfs-volumes-used-for-nfs-shares-and-iscsi-comstar-volumes/" title=" Migrating a ZFS Pool with ZFS Volumes Used for NFS Shares and iSCSI Comstar Volumes" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:COMSTAR,comstar iscsi-target,esxcfg-nas,sbdadm,STMF,ZFS,ZFS Export,ZFS Import,ZFS sharenfs,blog;button:compact;">If you had a chance to read my previous blog regarding migrating the root ZFS pool to a smaller drive, first of all I wanted to apologize for the longevity...</a>
-</p>
 
  [1]: http://virtuallyhyper.com/2012/08/migrating-the-root-zfs-pool-to-a-smaller-drive

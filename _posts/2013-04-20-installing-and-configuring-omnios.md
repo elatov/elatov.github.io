@@ -469,6 +469,3 @@ I ran a *zpool import* and it ran fine, so I then imported the *zpools*:
     root@megatron:/dev# zpool import -f vms
     
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/04/installing-and-configuring-omnios/" title=" Installing and Configuring OmniOS" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:OmniOS,sharectl,ZFS,blog;button:compact;">Installing OmniOS is pretty straight forward. The installation documentation from OmniOs can be found here. From that document: Boot the disk and follow the directions. Aside from selecting a disk...</a>
-</p>

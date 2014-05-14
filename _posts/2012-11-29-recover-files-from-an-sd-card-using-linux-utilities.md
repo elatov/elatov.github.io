@@ -621,6 +621,3 @@ In conclusion, there are a lot of recovery tools out there, so pick your poison:
 
 So try everything out and sees what works best <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Recover Files from an SD Card Using Linux Utilities" class="wp-smiley" title="Recover Files from an SD Card Using Linux Utilities" /> 
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/11/recover-files-from-an-sd-card-using-linux-utilities/" title=" Recover Files from an SD Card Using Linux Utilities" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:./configure,/dev/mmcblk0,bash,dd,fdisk,ffind,fls,ForeMost,fsstat,ils,MagicRescue,make,make install,photorec,sd card,Sleuth Kit,testdisk,tsk_recover,yum,blog;button:compact;">I recently dropped my phone and right after I picked it back up the Android OS has been unable to see the contents of the SD Card. I had a...</a>
-</p>

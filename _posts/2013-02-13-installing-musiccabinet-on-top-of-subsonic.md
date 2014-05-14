@@ -367,6 +367,3 @@ Now if you search for something there will be an option to do an &#8220;Advanced
 
 You now can also view your library by Tags, I still prefer the File-based browsing but this just adds more functionality. Also, every time you play a song it updates your *lastfm* library as well. I am sure there are a lot more updates, but those are the ones that stood out to me.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/02/installing-musiccabinet-on-top-of-subsonic/" title=" Installing MusicCabinet on Top of SubSonic" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:/usr/share/subsonic,/var/lib/pgsql/data/pg_hba.conf,/var/subsonic,getent,lastfm,MusicCabinet,PostgreSQL,postgresql-setup initdb,psql,rpm -ql,scrobbling,subsonic,systemctl,tar cpvjf,unzip,wget,\password postgres,blog;button:compact;">A while back I posted about installing subsonic. While I was using the application, I noticed that the search feature is very limited and I wanted to expand it. So...</a>
-</p>

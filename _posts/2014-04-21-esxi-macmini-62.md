@@ -859,6 +859,3 @@ Since we copied the files (we need to let ESX know whether we *moved it* or *cop
 
 And that&#8217;s it, the VM is now completely migrated over and it way quicker than the **ovftool** approach. But I still really like the simplicity of the **ovftool**.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2014/04/esxi-macmini-62/" title=" ESXi on MacMini 6,2" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:ESXi,MacMini,ovftool,powercli,blog;button:compact;">I decided to install ESXi on MacMini 6,2 (Late 2012). I am definitely not the first one to try this. Check out some notes on other people trying this out:...</a>
-</p>

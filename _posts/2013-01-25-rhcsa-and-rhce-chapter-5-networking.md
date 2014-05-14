@@ -848,6 +848,3 @@ and I ran the following on rhel01 at the same time:
 
 Notice that I excluded **ssh** traffic. Since I **ssh**&#8216;ed from rhel01 to rhel02, **tcpdump** would show the SSH traffic and I didn&#8217;t want to fill the **tcpdump** output with extra traffic. But from the above output we can see **ICMP** requests and **ICMP** replies. This is what **ping** uses to confirm connectivity between two nodes on a network.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-5-networking/" title=" RHCSA and RHCE Chapter 5 Networking" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:/etc/hosts,/etc/sysconfig/network-scripts/route-eth,getent hosts,host,ICMP,ifconfig,ifdown,ifup,ip route,lsof -i,netstat,nsswitch.conf,ping,route,blog;button:compact;">The basics of this were covered in Chapter 1. Here is quick look at my ifconfig output: [root@rhel01 ~]# ifconfig eth0 Link encap:Ethernet HWaddr 00:50:56:17:1B:A4 inet addr:10.131.65.22 Bcast:10.131.79.255 Mask:255.255.240.0 inet6...</a>
-</p>

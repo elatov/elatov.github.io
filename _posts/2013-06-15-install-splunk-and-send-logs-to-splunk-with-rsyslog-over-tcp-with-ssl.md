@@ -573,6 +573,3 @@ And here is how it looks like with SSL enabled:
         0x0110:  d363 bd6d 1f16 849b 4f                   .c.m....O
     
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/06/install-splunk-and-send-logs-to-splunk-with-rsyslog-over-tcp-with-ssl/" title=" Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Rsyslog,Splunk,SSL,blog;button:compact;">Splunk There are a couple of components of Splunk. From Components of a Splunk deployment: Indexer Splunk indexers, or index servers, provide indexing capability for local and remote data and...</a>
-</p>

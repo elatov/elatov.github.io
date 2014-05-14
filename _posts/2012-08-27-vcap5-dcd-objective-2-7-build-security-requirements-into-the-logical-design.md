@@ -122,6 +122,3 @@ Recommended readings/recordings:
 *   <a href="http://communities.vmware.com/servlet/JiveServlet/download/1633024-44565/VMUG%20Presentation.pptx" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/servlet/JiveServlet/download/1633024-44565/VMUG%20Presentation.pptx']);">VMware Security Briefing</a>
 *   <a href="http://www.vmware.com/files/pdf/cloud/vmware-cloud-solution-security-in-the-cloud-wp-en.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/cloud/vmware-cloud-solution-security-in-the-cloud-wp-en.pdf']);">Infrastructure Security: Getting to the Bottom of Compliance in the Cloud</a>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-2-7-build-security-requirements-into-the-logical-design/" title=" VCAP5-DCD Objective 2.7 – Build Security Requirements into the Logical Design" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCD,blog;button:compact;">Understand what security services are provided by VMware solutions vShield is the most popular service. If you need PCI compliance you can check out &#8220;VMware Compliance Center&#8221; page. It has...</a>
-</p>

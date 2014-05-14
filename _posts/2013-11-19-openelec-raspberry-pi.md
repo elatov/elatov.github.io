@@ -591,6 +591,3 @@ You can check the current resolution with the following command:
     state 0x40001 [NTSC 4:3], 720x480 @ 60Hz, interlaced
     
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/11/openelec-raspberry-pi/" title=" OpenELEC on Raspberry Pi" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:OpenELEC,Raspberry_Pi,xbmc,blog;button:compact;">Raspberry Pi I received a free Raspberry Pi from Simplivity for being a vExpert (Congrats to Joe and Jarret on achieving the same!) It was very nice of them. It...</a>
-</p>

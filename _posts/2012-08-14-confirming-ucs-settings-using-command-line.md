@@ -779,6 +779,3 @@ Then Connect to the adapter and confirm the model and do the rest
 	- WWPN : 50:0a:09:82:8f:3f:52:ad  
 	
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/confirming-ucs-settings-using-command-line/" title=" Checking UCS Settings from the UCS Manager CLI" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:UCS,UCS Polices,UCS Pools,UCS Service Profiles,UCSM,Unified Cisco Systems,vHBA,vNIC,blog;button:compact;">I was recently using the UCS Manager CLI and I wanted to share my findings. You can SSH to the UCSM (UCS Manager) and then run commands to figure out...</a>
-</p>

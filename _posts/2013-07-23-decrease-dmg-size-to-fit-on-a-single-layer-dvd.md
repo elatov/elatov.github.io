@@ -502,6 +502,3 @@ From &#8220;<a href="http://support.apple.com/kb/dl1433" onclick="javascript:_ga
 
 Well at least I have a cheap bootable OS 10.6 DVD now <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Decrease DMG Size to Fit on a Single Layer DVD" class="wp-smiley" title="Decrease DMG Size to Fit on a Single Layer DVD" /> 
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/07/decrease-dmg-size-to-fit-on-a-single-layer-dvd/" title=" Decrease DMG Size to Fit on a Single Layer DVD" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:hdiutil,Mac OS X,Sparse Image,blog;button:compact;">I wanted to create a recovery DVD for my Mac OS X install and all I had was an old DMG of Mac OS X version 10.6. hdiutil Image Information...</a>
-</p>

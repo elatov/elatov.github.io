@@ -72,6 +72,3 @@ The issue is fixed in 4.1U3. Checking out my version:
 
 From &#8220;<a href="http://www.virten.net/vmware/esxi-release-build-number-history/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.virten.net/vmware/esxi-release-build-number-history/']);">ESXi Release and Build Number History</a>&#8220;, we can see that build # 702113 is 4.1P7 and 4.1U3 is build # 800380, so I was definitely behind on updates. After updating to 4.1U3 the random disconnects stopped.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/10/esxi-host-randomly-disconnects-from-vcenter-server-due-to-hostd-back-tracing/" title=" ESX(i) Host  Randomly Disconnects from vCenter Server due to Hostd Backtracing" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:/var/log/vmware/hostd.log,ESXi 4.1U3,Hostd Core Dump,vix-async-pipe-zdump.000,blog;button:compact;">At random times, I would see the following messages from my SNMP Server regarding my ESX(i) hosts: Time of Event: 10/4/2012 3:05:37 AM Source Machine Name: SNMP_Server Object Name: SNMP:...</a>
-</p>

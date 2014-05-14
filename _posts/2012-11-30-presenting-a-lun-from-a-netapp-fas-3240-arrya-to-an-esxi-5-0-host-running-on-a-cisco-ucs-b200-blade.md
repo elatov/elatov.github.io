@@ -562,6 +562,3 @@ After that, you can put VMFS on that LUN or present it as an RDM to a VM.
 
 <root> </root>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/11/presenting-a-lun-from-a-netapp-fas-3240-arrya-to-an-esxi-5-0-host-running-on-a-cisco-ucs-b200-blade/" title=" Presenting a LUN over Fibre Channel from a NetApp FAS 3240 Array to an ESXi 5.0 Host Running on a Cisco UCS B200 Blade" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Cisco UCS B200,NetApp FAS3240,VMware ESX,blog;button:compact;">Confirming UCS Hardware on ESX(i) First, let&#8217;s SSH over to the host and confirm the version of ESXi: ~ # vmware -lv VMware ESXi 5.0.0 build-469512 VMware ESXi 5.0.0 GA...</a>
-</p>

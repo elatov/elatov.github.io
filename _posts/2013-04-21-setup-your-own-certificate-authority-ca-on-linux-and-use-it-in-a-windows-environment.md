@@ -431,6 +431,3 @@ It&#8217;s trusted and I feel so much safer.
 
 <root> </root>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/04/setup-your-own-certificate-authority-ca-on-linux-and-use-it-in-a-windows-environment/" title=" Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Cert_Authority,gnomint,Group_Policies,blog;button:compact;">In this previous post, I deployed a test IIS Server and used a self signed SSL Certificate to encrypt the HTTP traffic. I am sure everyone have seen this page...</a>
-</p>

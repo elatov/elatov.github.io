@@ -72,6 +72,3 @@ So you can see that the Mac address 00:50:56:9b:4f:0d (the mac address of the VM
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/03/possible-reasons-for-rarp-storms-from-an-esx-host/" title=" Possible reasons for RARP storms from an ESX host" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:beacon probing,GARP,Gratuitous ARP,multicast,pxe boot,RARP,RARP Flood,blog;button:compact;">I was recently messing around with my vCloud Lab and I decided to see how the Nexus 1000v integrates with vCloud Director. After figuring out how it works, I decided...</a>
-</p>

@@ -99,6 +99,3 @@ We were actually using ESX 4.0, so I decided to change the pathing policy from F
 
 I did that across all the hosts and then after 5-10 minutes the DAVG went down, the SYNC CR messages stopped, and the performance of the VMs returned to normal.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/04/esx-host-experiencing-high-latency-to-a-hitachi-array/" title=" ESX Host Experiencing High Latency to a Hitachi HDS Array" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:davg,ESX,Hitachi HDS,blog;button:compact;">Recently I received a call from a European customer saying that they were having performance issues with their VMs. Whenever I hear performance issues, I automatically think esxtop. To check...</a>
-</p>

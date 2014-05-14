@@ -651,6 +651,3 @@ That&#8217;s it <img src="http://virtuallyhyper.com/wp-includes/images/smilies/i
     $ vlc file1.avi --sub-file file1.sub
     
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/09/combine-vobsub-subidx-format-subtitles-single-subrip-srt-format-file/" title=" Combine VobSub (sub/idx) Format Subtitles into a Single SubRip (srt) Format File" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:SubRip,tesseract,VobSub,blog;button:compact;">I recently had a situation where I had 2 Avi files and 2 Sub/Idx files, and I just wanted to combine them into one Avi file and one srt file....</a>
-</p>

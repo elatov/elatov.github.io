@@ -93,6 +93,3 @@ So I went ahead and disabled that path since we were having issues sending IO do
 
 Notice that the rescan time went down and I no longer saw the above messages. From this point I would track down the path and see where the issue exists but this is just a quick troubleshooting step to see if a path is causing issues.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/quick-troubleshooting-step-for-pathing-issues/" title=" Quick Troubleshooting Step for Pathing Issues" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:disable path,Disk.PathEvalTime,esxcfg-mpath,esxcfg-rescan,H:0x8,TUR,blog;button:compact;">I was having weird issues in our lab. When IO was going down one HBA, all was well, but when it went down the other path, it was very intermittent....</a>
-</p>

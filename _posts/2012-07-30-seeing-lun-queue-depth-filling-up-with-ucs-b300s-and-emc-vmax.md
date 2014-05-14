@@ -115,6 +115,3 @@ The second way the DQLEN can be impacted is by enabling SIOC on the Datastore. 
 
 One note about SIOC is, if enabled it will ignore the DSNRO variable and adjusts the DQLEN to match the performance of the LUN.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/07/seeing-lun-queue-depth-filling-up-with-ucs-b300s-and-emc-vmax/" title=" Seeing LUN Queue Depth Filling up with UCS B230/B200 using Cisco VICs and EMC VMAX" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Adapter Queue Length,Adaptive Queue Depth Algorithm,AQLEN,Disk.SchedNumReqOutstanding,DQLEN,DSNRO,LUN/Device Queue Length,Queue Depth,SIOC,Storage Queues,blog;button:compact;">Recently I ran into an issue where the device queue length was filling up. Looking at esxtop here is how it looked like:As I ran into this issue I realized...</a>
-</p>

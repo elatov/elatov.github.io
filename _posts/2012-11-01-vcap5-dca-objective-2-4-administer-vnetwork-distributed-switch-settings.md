@@ -235,6 +235,3 @@ There is also a very good example in the VMware blog &#8220;<a href="http://blog
 
 This was covered in <a href="http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/']);">VCAP5-DCA Objective 2.1</a>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/11/vcap5-dca-objective-2-4-administer-vnetwork-distributed-switch-settings/" title=" VCAP5-DCA Objective 2.4 – Administer vNetwork Distributed Switch Settings" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCA,blog;button:compact;">Describe the relationship between vDS and the vSS vSS (virtual Standard Switch) is just a regular vswitch and is configured on a per host basis. Most of the configurations are...</a>
-</p>

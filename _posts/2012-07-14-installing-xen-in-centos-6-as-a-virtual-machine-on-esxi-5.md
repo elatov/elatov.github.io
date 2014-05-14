@@ -278,6 +278,3 @@ So now we can connect to that host on port 5900 with a VNC client and configure 
 *   http://wiki.xen.org/wiki/RHEL6&#95;Xen4&#95;Tutorial#Using&#95;libvirt&#95;and&#95;virt-manager&#95;with_Xen
 *   http://www.phoenixxie.com/?p=186
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/07/installing-xen-in-centos-6-as-a-virtual-machine-on-esxi-5/" title=" Installing Xen in CentOS 6 as a Virtual Machine on ESXi 5" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:libvirt,nested Xen,Xen,blog;button:compact;">I have been installing different hyper-visors in my lab. Since I did not have extra servers lying around, I have been deploying the hyper-visors in ESXi 5.x VMs. Here I...</a>
-</p>

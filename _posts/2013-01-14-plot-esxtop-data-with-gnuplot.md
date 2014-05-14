@@ -336,6 +336,3 @@ More information from the same document:
 	>   
 > Each plot style has its own expected set of data entries in a data fi le. For example by default the lines style expects either a single column of y values (with implicit x ordering) or a pair of columns with x in the fi rst and y in the second. 
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/01/plot-esxtop-data-with-gnuplot/" title=" Plot Esxtop Data With gnuplot" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Average Guest MilliSec/Read,awk,CSV,esxtop,esxtop batch mode,gnuplot,head,headers,Reads/sec,set format x,set timefmt,tail,blog;button:compact;">Let&#8217;s say you collected esxtop batch data per the instructions laid out in VMware KB 1004953. So in the end you just had a huge CSV (Comma Separated Values) file, with...</a>
-</p>

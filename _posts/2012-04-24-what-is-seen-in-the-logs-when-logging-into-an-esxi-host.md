@@ -170,6 +170,3 @@ If you connect to the vCenter using the vSphere client, you will only see the lo
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/04/what-is-seen-in-the-logs-when-logging-into-an-esxi-host/" title=" What is Seen in the Logs When Logging Into an ESX(i) Host" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:/var/log/messages,/var/log/secure,/var/log/vmware/hostd.log,/var/log/wtmp,dcui,dropbear,last,logs,pts,sshd,TSM,tty,blog;button:compact;">At random times, I would see the following messages from my SNMP Server regarding my ESX(i) hosts: Time of Event: 10/4/2012 3:05:37 AM Source Machine Name: SNMP_Server Object Name: SNMP:...</a>
-</p>

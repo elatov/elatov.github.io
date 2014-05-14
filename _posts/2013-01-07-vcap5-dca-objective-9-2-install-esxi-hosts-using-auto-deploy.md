@@ -272,6 +272,3 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 >         > *   **AssignClusterRule** places hosts in the 10.91.243.0 subnet into the vsphere5 cluster.
 >         > *   **AssignHostProfileRule** applies the host profile 5.0_Profile to hosts in the 10.91.243.0 subnet.
 >         
->         <p class="wp-flattr-button">
->           <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-9-2-install-esxi-hosts-using-auto-deploy/" title=" VCAP5-DCA Objective 9.2 – Install ESXi Hosts Using Auto Deploy" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCA,blog;button:compact;">Identify Auto Deploy requirements From &#8220;VMware vSphere 5.0 Evaluation Guide Volume Four – Auto Deploy&#8220;: Auto Deploy Requirements The following components are required for Auto Deploy: PXE boot infrastructure (DHCP/TFTP)...</a>
->         </p>

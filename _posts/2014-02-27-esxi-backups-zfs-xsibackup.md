@@ -316,6 +316,3 @@ The speeds were really good, I also checked out **esxtop** and latency was prett
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/02/esxtop-during-backup2_g.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/02/esxtop-during-backup2_g.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/02/esxtop-during-backup2_g-1024x96.png" alt="esxtop during backup2 g 1024x96 ESXi Backups with ZFS and XSIBackup" width="620" height="58" class="alignnone size-large wp-image-10122" title="ESXi Backups with ZFS and XSIBackup" /></a>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2014/02/esxi-backups-zfs-xsibackup/" title=" ESXi Backups with ZFS and XSIBackup" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:iSCSI,XSIBackup,ZFS,blog;button:compact;">ZFS Setup I had two zpools in my setup: root@zfs:~#zpool list NAME SIZE ALLOC FREE EXPANDSZ CAP DEDUP HEALTH ALTROOT data 928G 238G 690G - 25% 1.00x ONLINE - other...</a>
-</p>

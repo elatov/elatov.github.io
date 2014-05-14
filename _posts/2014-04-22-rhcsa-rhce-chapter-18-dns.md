@@ -1521,6 +1521,3 @@ There are a few things you could do to secure the named install. One is to use A
 > *   **/etc/named.iscdlv.key**
 > *   **/etc/named.root.key**
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2014/04/rhcsa-rhce-chapter-18-dns/" title=" RHCSA and RHCE Chapter 18 &#8211; DNS" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:BIND,DNS,rhcsa_and_rhce,blog;button:compact;">DNS From the Deployment Guide: DNS (Domain Name System), also known as a nameserver, is a network system that associates hostnames with their respective IP addresses. For users, this has...</a>
-</p>

@@ -71,6 +71,3 @@ We replaced his old 70-persistent-net.rules with:
 
 We then rebooted the VCVA, and it came online with no problems.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/04/accidentally-removed-vnic-from-virtualcenter-virtual-appliance/" title=" Accidentally Removed vNIC from VirtualCenter Virtual Appliance" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:linux,networking,suse,vcva,blog;button:compact;">I recently had a customer who had accidentally removed the vNIC from his VCVA. Upon boot up, the VCVA had issues connecting to the network. Normally, I would suggest just...</a>
-</p>

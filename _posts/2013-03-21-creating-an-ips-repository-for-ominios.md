@@ -249,6 +249,3 @@ Since it is on there, we can now install it.
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/03/creating-an-ips-repository-for-ominios/" title=" Creating an IPS Repository for OminiOS" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:IPS,irssi,OmniOS,blog;button:compact;">Fail2Ban is a program that will trigger actions based on patterns found in logs. I am setting up fail2ban to stop ssh brute forcing on my external ssh port. With...</a>
-</p>

@@ -558,6 +558,3 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 >     
 >     <a href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-7-1-secure-esxi-hosts/ad_integration/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/vcap5-dca-objective-7-1-secure-esxi-hosts/ad_integration/']);" rel="attachment wp-att-5512"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/ad_integration.png" alt="ad integration VCAP5 DCA Objective 7.1 – Secure ESXi Hosts " width="919" height="511" class="alignnone size-full wp-image-5512" title="VCAP5 DCA Objective 7.1 – Secure ESXi Hosts " /></a>
 >     
->     <p class="wp-flattr-button">
-	>       <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-7-1-secure-esxi-hosts/" title=" VCAP5-DCA Objective 7.1 – Secure ESXi Hosts" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCA,blog;button:compact;">Identify configuration files related to network security Here are the config files for SSH:  SSH is used...</a>
-	>     </p>

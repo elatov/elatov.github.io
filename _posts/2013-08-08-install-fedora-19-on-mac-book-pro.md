@@ -298,6 +298,3 @@ Then select &#8220;Macintosh HD&#8221; and it will reboot into Mac OS X permanen
     sudo bless --mount "/Volumes/Macintosh HD/" --setboot
     
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/08/install-fedora-19-on-mac-book-pro/" title=" Install Fedora 19 on Mac Book Pro" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Dual_Boot,Mac_OS_X,UEFI,blog;button:compact;">I was using my new Mac and there are just something that I missed from my previous Linux Laptops. So I decided to install Fedora on my new MacBook Pro...</a>
-</p>

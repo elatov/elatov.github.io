@@ -416,6 +416,3 @@ I added a new user called &#8216;test2&#8242; and made sure it was replicated. I
 
 We again see the changes.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/06/configure-ad-replication-with-windows-2008/" title=" Configure AD Replication with Windows 2008" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Active Directory,AD Replication,repadmin,blog;button:compact;">Types of AD replication With Active Directory (AD) there are multiple types of replication. From &#8220;What Is Active Directory Replication Topology?&#8220;: As such, replication within sites generally occurs at high...</a>
-</p>

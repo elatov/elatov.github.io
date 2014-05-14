@@ -201,6 +201,3 @@ reverseReplication is a new command that is built in for reprotect. This command
 	  </ul>
 	</div>
 	
-	<p class="wp-flattr-button">
-	  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/03/how-does-srm-communicate-with-the-array/" title=" How does SRM communicate with the array?" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:command line,command.pl,discoverArrays,discoverDevices,logs,sra,srm,testFailoverStart,xml,blog;button:compact;">A little while ago I had a customer that had accidentally changed the password for the user VRMS used to connect to vCenter. Since the VRMS could not connect to...</a>
-	</p>

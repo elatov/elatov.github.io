@@ -67,6 +67,3 @@ I went back and reinstalled SSO with a password as recommended and everything wo
 *   A trailing &#8221; &#8221; space
 *   Non-ASCII characters
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/10/installing-vcenter-fails-invalid-credentials/" title=" Installing vCenter 5.5 fails with Invalid Credentials" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:SSO,vcenter,blog;button:compact;">Recently I was doing a deployment in my lab with vCenter 5.5 and ran into a small issue. After installing vCenter Single Sign On (SSO), I went to install the...</a>
-</p>

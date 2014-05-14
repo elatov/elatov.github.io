@@ -82,6 +82,3 @@ The default should be enough for most cases. It depends on how many people are a
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-3-1-transition-from-a-logical-design-to-a-vsphere-5-physical-design/" title=" VCAP5-DCD Objective 3.1 – Transition from a Logical Design to a vSphere 5 Physical Design" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCD,blog;button:compact;">Describe best practices with respect to CPU family choices From &#8220;Performance Best Practices for VMware vSphere 5.0&#8220;: Hardware CPU Considerations General CPU Considerations When selecting hardware, it is a good...</a>
-</p>

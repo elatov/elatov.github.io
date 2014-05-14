@@ -251,6 +251,3 @@ You can also use &#8216;**sdbtool**&#8216; to confirm the connection as well:
 
 I actually used the bluetooth keyboard to write this post <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Setup Apple Wireless Keyboard via Bluetooth on Fedora 17" class="wp-smiley" title="Setup Apple Wireless Keyboard via Bluetooth on Fedora 17" /> 
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/09/setup-apple-wireless-keyboard-via-bluetooth-on-fedora-17/" title=" Setup Apple Wireless Keyboard via Bluetooth on Fedora 17" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Apple Wireless Keyboard,Bluetooth,Bluetooth Pairing,Bluez,DBUS,hciconfig,hcitool,HID2HCI,l2ping,rfkill,sdbtool,simple-agent,blog;button:compact;">There are a couple of steps to the setup. Step 1: Install and Enable the Bluetooth Service [elatov@klaptop ~]$ sudo yum install bluez bluez-libs After it&#8217;s installed you should see...</a>
-</p>

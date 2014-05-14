@@ -222,6 +222,3 @@ New LUNs will have to be manually changed, or the command above can be run again
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/03/changing-the-path-selection-policy-to-round-robin/" title=" Changing the Path Selection Policy to Round Robin" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Change PSP,esxcli,LUNs,PSP,Round Robin,SATP,blog;button:compact;">I ran into an interesting issue the other day. We were seeing high DAVG to the SAN. I first wanted to find out if the SAN was on the HCL...</a>
-</p>

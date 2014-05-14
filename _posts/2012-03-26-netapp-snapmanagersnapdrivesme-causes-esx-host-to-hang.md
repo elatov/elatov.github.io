@@ -240,6 +240,3 @@ The customer didn&#8217;t want to update to either and only cared about the **ho
 
 **Update**: removing the */var/lib/vmware/hostd/stats/hostAgentStats-20.stats* file and restarting the managements agents, helped to workaround the issue.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/03/netapp-snapmanagersnapdrivesme-causes-esx-host-to-hang/" title=" NetApp SnapManager/SnapDrive/SME Causes ESX Host to Hang" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:SnapManager SMVI Exchange VSS SME SnapDrive NetApp,blog;button:compact;">I had a customer use the following setup/versioning: VMware NetApp Windows ESXi 4.1U1 Data OnTap 8.01P5 W2K8 ENT. SP2 64bit vCenter 4.1 SME 6.0P2 OS is vmdk SnapDrive 6.3P2 Exchange...</a>
-</p>

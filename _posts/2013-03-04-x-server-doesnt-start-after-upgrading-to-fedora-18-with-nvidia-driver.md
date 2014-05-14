@@ -185,6 +185,3 @@ My X Server started up without any issues and we see the kernel module loaded as
 
 After I removed that line, kernel updates started to work. That was the source of my problem all along.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/03/x-server-doesnt-start-after-upgrading-to-fedora-18-with-nvidia-driver/" title=" X Server Doesn&#8217;t Start After Upgrading to Fedora 18 with Nvidia Driver" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Fedora 18,nVidia,blog;button:compact;">I updated my machine to Fedora 18 and I had the Nvidia driver installed (check out this previous post for the Nvidia setup), but after I rebooted, X wouldn&#8217;t start....</a>
-</p>

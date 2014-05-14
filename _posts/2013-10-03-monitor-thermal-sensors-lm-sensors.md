@@ -967,6 +967,3 @@ So we can see that most of the components go through the PCH. Also from <a href=
 
 I would say the PCH Temperature basically represents the Temperature of the motherboard.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/10/monitor-thermal-sensors-lm-sensors/" title=" Monitor Thermal Sensors With lm-sensors" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Exynos5250,lm-sensors,Thermal_Management_Framework,blog;button:compact;">After setting up zabbix to plot hard drive temperatures, I wanted to go further and monitor CPU and MotherBoard (M/B) temperatures as well. Install and Configure lm-sensors To check any...</a>
-</p>

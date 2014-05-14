@@ -141,6 +141,3 @@ I was using <a href="http://virtuallyhyper.com/2013/04/use-fwbuilder-to-deploy-a
 
 Now I can configure two Virtual PortGroups on my Virtual Switch and tag vlans 1 and 3 on them. Then I can put any VM on any of those networks just by assigning their nics to the appropriate port group.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2014/04/tag-multiple-vlans-on-trunk-port-on-dd-wrt-router/" title=" Tag Multiple VLANs on Trunk Port on DD-WRT Router" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:DD-WRT,Trunk Port,blog;button:compact;">I was running an ESXi host in my home network and I wanted to dedicate on NIC of the ESXi for VM traffic. Since I was planning on having different...</a>
-</p>

@@ -409,6 +409,3 @@ I logged in with user **elatov** (from above I set his email to be **test@moxz.m
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/01/logged-into-gmail-from-lemonldap.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/01/logged-into-gmail-from-lemonldap.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/01/logged-into-gmail-from-lemonldap-1024x134.png" alt="logged into gmail from lemonldap 1024x134 LemonLDAP NG With LDAP and SAML Google Apps" width="620" height="81" class="alignnone size-large wp-image-10044" title="LemonLDAP NG With LDAP and SAML Google Apps" /></a>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2014/02/lemonldap-ng-ldap-saml-google-apps/" title=" LemonLDAP-NG With LDAP and SAML Google Apps" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:389-Directory-Server,LemonLDAP-NG,SAML,blog;button:compact;">I wanted to try out a WebSSO program and I ran into LemonLDAP::NG. The application can handle SAML applications and can also do the regular reverse proxy approach for enabling...</a>
-</p>

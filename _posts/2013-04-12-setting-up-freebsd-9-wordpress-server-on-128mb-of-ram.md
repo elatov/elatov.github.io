@@ -413,6 +413,3 @@ More information can be found on the following web sites.
 *   http://www.freebsd.org/doc/handbook/firewalls-pf.html
 *   http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/ports-using.html
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/04/setting-up-freebsd-9-wordpress-server-on-128mb-of-ram/" title=" Setting up a FreeBSD 9 WordPress Server on 128MB of RAM" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:freebsd,VPS,wordpress,blog;button:compact;">A while ago I bought a KVM VPS and configured it to run FreeBSD 9. It was meant to replace the OpenVZ VM that currently runs virtuallyhyper.com. Karim went on...</a>
-</p>

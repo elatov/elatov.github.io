@@ -190,8 +190,5 @@ Check both neighbors and ensure that **0.0.0.0/0** default route is no longer sh
 
 We have confirmed the default routes are no longer being advertised.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/04/astaro-security-gateway-routing/" title=" Astaro Security Gateway Routing" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:ASG,aws,BGP,blog;button:compact;">I had an issue where bringing up an Sophos Astaro Security Gateway (ASG) site-to-site VPN connection between VPC&#8217;s caused another connectivity across another VPN connection to fail. Looking into the...</a>
-</p>
 
  [1]: http://virtuallyhyper.com/wp-content/uploads/2013/03/astaro-network-diagram.jpg "Astaro AWS VPN Network Diagram"

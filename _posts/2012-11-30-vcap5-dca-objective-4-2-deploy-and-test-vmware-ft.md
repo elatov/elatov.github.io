@@ -244,6 +244,3 @@ I actually don&#8217;t have CPU capable of supporting FT, but there is a great s
 > 
 > <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step8_c.jpeg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step8_c.jpeg']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step8_c.jpeg" alt=" VCAP5 DCA Objective 4.2 – Deploy and Test VMware FT" title="ft_step8_c" width="507" height="386" class="alignnone size-full wp-image-5045" /></a>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/11/vcap5-dca-objective-4-2-deploy-and-test-vmware-ft/" title=" VCAP5-DCA Objective 4.2 – Deploy and Test VMware FT" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCA,blog;button:compact;">Identify VMware FT hardware requirements From &#8220;vSphere Availability ESXi 5.0&#8220;: Host Requirements for Fault Tolerance You must meet the following host requirements before you use Fault Tolerance. Hosts must have...</a>
-</p>

@@ -714,6 +714,3 @@ After that, the blog shows you snapshots of the installation process. If there i
 
 Syslog will help you in any troubleshooting scenarios, and personally I think it should be configured regardless of the amount of hosts that you have.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-3-6-determine-datacenter-management-options-for-a-vsphere-5-physical-design/" title=" VCAP5-DCD Objective 3.6 – Determine Datacenter Management Options for a vSphere 5 Physical Design" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCD,blog;button:compact;">Differentiate and describe client access options From &#8220;vCenter Server and Host Management ESXi 5.0&#8220;: vSphere Client Interfaces vSphere Client A required component and the primary interface for creating, managing, and...</a>
-</p>

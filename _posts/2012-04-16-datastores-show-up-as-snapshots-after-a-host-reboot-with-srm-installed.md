@@ -78,6 +78,3 @@ All in all, we ran into 3 issues:
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/04/datastores-show-up-as-snapshots-after-a-host-reboot-with-srm-installed/" title=" Datastores show up as Snapshots after a host reboot with SRM installed" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:EnableResignature,logs,Resignature,Snapshot LUN,srm,blog;button:compact;">As I was writing this blog post about VPD (Vital Product Data) Pages, I ended up breaking my test ESX host for a little bit. By default virtual disks presented...</a>
-</p>

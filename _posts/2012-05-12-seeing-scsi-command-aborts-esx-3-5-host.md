@@ -155,6 +155,3 @@ That is a lot of LUNS from the same HBA. Those messages are described in VMware 
 
 We updated the firmware on the HBAs and the issues stopped.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/05/seeing-scsi-command-aborts-esx-3-5-host/" title=" Seeing SCSI Command Aborts on an ESX 3.5 Host" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:HBA Firmware,lpfc,SCSI Aborts,SCSI Reservation Conflicts,SCSI Reservations,blog;button:compact;">I recently ran into an interesting issue with an ESX 3.5 host. We were seeing SCSI aborts on multiple hosts. Looking at the logs of one of the hosts we...</a>
-</p>

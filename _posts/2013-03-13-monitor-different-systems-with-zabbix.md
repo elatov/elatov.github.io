@@ -441,6 +441,3 @@ and then fixing the script to return the correct value, allowed the trigger to b
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/03/monitor-different-systems-with-zabbix/" title=" Monitor Different Systems with Zabbix" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Monitoring,Zabbix,blog;button:compact;">In my previous post I setup my pogoplug device as a backup server. Since it was holding somewhat important information, I wanted to monitor the disk that I plugged into...</a>
-</p>

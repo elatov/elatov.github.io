@@ -249,6 +249,3 @@ and here is latency for the disk:
 
 Everything looked perfect.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/06/monitor-disk-io-stats-with-zabbix/" title=" Monitor Disk IO Stats with Zabbix" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:/proc/diskstats,Monitoring,Zabbix,blog;button:compact;">I wanted to get a feel how much IO my machines are doing each day. As I was going through the zabbix graphs I noticed that IO statistics are not...</a>
-</p>

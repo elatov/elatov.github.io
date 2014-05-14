@@ -176,6 +176,3 @@ A reboot of each host is required if done after the creation of the DVS. <a href
   </tr>
 </table>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/07/receiving-no-free-ports-available-connecting-vm-nexus-1000v/" title=" Receiving &#8220;No Free Ports&#8221; Available when Connecting a VM to the Nexus 1000v" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Ephemeral Port Binding,Limit Exceeded,max ports dvs,Nexus 1000v,powercli dvs,ProxySwitch,Static Port Binding,blog;button:compact;">I was trying to get a VM up on the network and I getting getting an error message saying that I don&#8217;t have any free ports on my Nexus 1000v...</a>
-</p>

@@ -96,6 +96,3 @@ From the <a href="http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUTac
 >     
 >     
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/09/make-anonymous-amazon-s3-rest-request/" title=" How to Make an Anonymous Amazon S3 REST Request" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Amazon_S3,aws,REST,blog;button:compact;">How to make an anonymous S3 REST request I recently had a problem where the bucket owner could not access or modify an object. It turns out that the object...</a>
-</p>

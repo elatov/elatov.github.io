@@ -203,6 +203,3 @@ And I am sure there are lot of other VMware functions that rely on that value, b
 	|\----System UUID..............................................4ff35a91-ab62-fc60-8199-0050561721df  
 	
 
-<p class="wp-flattr-button">
-	  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/01/esxi-hosts-show-up-as-a-vem-module-with-all-zeros-for-uuids-on-the-nexus-1000v/" title=" ESXi Hosts Show Up as a VEM Module with All Zeros for UUIDs on the Nexus 1000v" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:/hardware/bios/dmiInfo,Bios UUID,esxcfg-info,hostsvc/hosthardware,Nexus 1000v,show mod,System UUID,vemcmd show card,vim-cmd,vsish,blog;button:compact;">We were troubleshooting an issue with the N1K, where random VMs would lose network connectivity. Upon running a &#8220;show mod&#8221; on the N1K we saw the following:  switch# show...</a>
-	</p>

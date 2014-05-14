@@ -247,6 +247,3 @@ and
 
 Everything was working as expected: I had the latest driver installed and I was able to set my NIC to auto negotiate.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/10/cant-set-x520-10gbe-intel-nic-to-auto-negotiate-on-esxi/" title=" Can&#8217;t Set X520 10GbE Intel NIC to Auto Negotiate on ESX(i)" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:auto-negotiate,DID,esxcfg-nics,ethtool -i,ixgbe,mount ISO,scp,SDID,SVID,tree,VID,vim-cmd hostsvc/maintenance_mode_enter,vim-cmd hostsvc/runtimeinfo,vmkchdev,vmkload_mod,VMware HCL,X520 10GbE,blog;button:compact;">We were following the instructions laid out in VMware KB 1004089 to set a NIC to auto negotiate with the upstream switch. Upon running the command, we would see the...</a>
-</p>

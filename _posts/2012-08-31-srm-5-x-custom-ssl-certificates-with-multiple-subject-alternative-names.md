@@ -77,6 +77,3 @@ I ran through the installer and it went through just fine. So we know that the S
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/srm-5-x-custom-ssl-certificates-with-multiple-subject-alternative-names/" title=" SRM 5.x Custom SSL Certificates with Multiple Subject Alternative Names" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Certifications,openssl,srm,SSL,subjectAltName,blog;button:compact;">Splunk There are a couple of components of Splunk. From Components of a Splunk deployment: Indexer Splunk indexers, or index servers, provide indexing capability for local and remote data and...</a>
-</p>

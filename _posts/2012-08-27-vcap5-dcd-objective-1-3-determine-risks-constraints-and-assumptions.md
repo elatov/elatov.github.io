@@ -57,6 +57,3 @@ From the <a href="http://www.slideshare.net/ProfessionalVMware/professionalvmwar
 
 Basically try to be flexible with best practices, not everything falls under best practices or a certain criteria. For this section the Blue Print has a link to an excellent document from Glasshouse, I would definitely recommend reading it: <a href="http://communities.vmware.com/docs/DOC-17431" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/docs/DOC-17431']);">Developing Your Virtualization Strategy and Deployment Plan</a>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-1-3-determine-risks-constraints-and-assumptions/" title=" VCAP5-DCD Objective 1.3 – Determine Risks, Constraints, and Assumptions" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCD,blog;button:compact;">Differentiate between the general concepts of a risk, a requirement, a constraint, and an assumption. From the US BrownBag Objective 1 Slide Deck: and from the APAC BrownBag Session 1...</a>
-</p>

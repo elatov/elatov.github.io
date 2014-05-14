@@ -224,6 +224,3 @@ Also if an FCoE capable infrastructure is already in place then definitely try t
 
 Check out the <a href="http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap-dcd-networking-design/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap-dcd-networking-design/']);">APAC BrownBag Session 3</a>, it covers most of the material above.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-3-2-create-a-vsphere-5-physical-network-design-from-an-existing-logical-design/" title=" VCAP5-DCD Objective 3.2 – Create a vSphere 5 Physical Network Design from an Existing Logical Design" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCD,blog;button:compact;">Describe VLAN options, including Private VLANs, with respect to virtual and physical switches From VMware KB 1003806: Virtual LAN (VLAN) implementation is recommended in ESX/ESXi networking environments because: It integrates...</a>
-</p>

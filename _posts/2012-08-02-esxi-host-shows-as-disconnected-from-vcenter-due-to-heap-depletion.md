@@ -183,6 +183,3 @@ We contacted TrendMicro and it turned out that the customer had re-installed ESX
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/esxi-host-shows-as-disconnected-from-vcenter-due-to-heap-depletion/" title=" ESXi Host Shows as Disconnected from vCenter due to Heap Depletion" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Deep Security Virtual Appliance,DSVA,hostd,netGPHeap,vpxa,vShield EndPoint,blog;button:compact;">ESXi hostd Crash (5.1GA) Due to Leftover SNMP Traps One day I tried to open console on a VM and I got the MKS error: I logged into the host...</a>
-</p>

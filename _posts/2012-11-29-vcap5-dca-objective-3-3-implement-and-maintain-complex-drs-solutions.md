@@ -464,6 +464,3 @@ From the same document, here are some things you can do with a DRS Cluster:
 > *   “Managing Power Resources,”
 > *   “Using DRS Affinity Rules,”
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/11/vcap5-dca-objective-3-3-implement-and-maintain-complex-drs-solutions/" title=" VCAP5-DCA Objective 3.3 – Implement and Maintain Complex DRS Solutions" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCA,blog;button:compact;">Explain DRS / storage DRS affinity and anti-affinity rules From &#8220;vSphere Resource Management ESXi 5.0&#8220;: Using DRS Affinity Rules You can control the placement of virtual machines on hosts within...</a>
-</p>

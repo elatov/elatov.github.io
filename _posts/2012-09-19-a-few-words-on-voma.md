@@ -91,6 +91,3 @@ One interesting thing about VOMA, is that it gets a reservation on the volume to
 	2012-09-15T07:32:00.246Z cpu2:66489)Resv: 407: Executed out-of-band release on naa.600144f0e8cb470000005053b9b50001  
 	
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/09/a-few-words-on-voma/" title=" A Few Words on VOMA" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:5.1,corruption,ESXi,filesystem,heartbeat,vmfs,vmfs3,VMFS5,voma,blog;button:compact;">VOMA is the vSphere On-Disk Metadata Analyzer that shipped with ESXi 5.1. It allows you to check the metadata on a LUN without having to upload a dump to support....</a>
-</p>

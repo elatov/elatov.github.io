@@ -474,6 +474,3 @@ Another thing that was mentioned thought the guide is **Upstart**. RHEL 6 doesn&
     serial stop/waiting
     
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-2-system-initialization/" title=" RHCSA and RHCE Chapter 2 System Initialization" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:/boot/grub/grub.conf,/etc/inittab,/etc/rc.d/init.d/,/etc/rc.d/init.d/functions,/etc/rc.d/rc.local,/etc/rc.d/rc.sysinit,/etc/rc.d/rcX.d/,/etc/sysconfig/clock,/etc/sysconfig/desktop,/sbin/init,initctl,linux rescue,SysV,blog;button:compact;">Red Hat Boot Process The process is described in &#8220;Red Hat Enterprise Linux 6 Installation Guide&#8220;: F.2. A Detailed Look at the Boot Process The beginning of the boot process...</a>
-</p>

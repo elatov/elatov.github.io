@@ -46,6 +46,3 @@ To install an ESXi host
 
 And the instructions keep going <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile VCAP5 DCD Objective 4.3 – Create an Installation Guide " class="wp-smiley" title="VCAP5 DCD Objective 4.3 – Create an Installation Guide " /> 
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-4-3-create-an-installation-guide/" title=" VCAP5-DCD Objective 4.3 – Create an Installation Guide" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCD,blog;button:compact;">Identify standard resources required to construct an installation guide If you are within an organization which has pre-made templates for this, then definitely check them out. Other than that, VMware...</a>
-</p>

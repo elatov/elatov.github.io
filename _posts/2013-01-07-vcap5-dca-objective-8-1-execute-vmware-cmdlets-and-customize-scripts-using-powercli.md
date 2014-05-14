@@ -806,6 +806,3 @@ And more examples from the same guide:
 	>         Sunday, December 23, 2012 4:55:26 PM  
 	>         
 >         
->         <p class="wp-flattr-button">
->           <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-1-execute-vmware-cmdlets-and-customize-scripts-using-powercli/" title=" VCAP5-DCA Objective 8.1 – Execute VMware Cmdlets and Customize Scripts Using PowerCLI" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCA,blog;button:compact;">Identify vSphere PowerCLI requirements From &#8220;vSphere PowerCLI User’s Guide PowerCLI 5.0&#8220;: PowerCLI Installation Prerequisites To install vSphere PowerCLI, you must have installed the following software .NET 2.0 SP1 Windows PowerShell...</a>
->         </p>

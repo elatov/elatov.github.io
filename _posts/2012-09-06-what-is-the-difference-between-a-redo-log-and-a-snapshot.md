@@ -66,6 +66,3 @@ So they are essentially the same. The real difference is that redo logs are dele
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/redo-log-delete.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/redo-log-delete.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/09/redo-log-delete.png" alt="redo log delete What is the difference between a Redo log and a Snapshot?" title="redo log delete confirmation" width="358" height="193" class="aligncenter size-full wp-image-3432" /></a>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/09/what-is-the-difference-between-a-redo-log-and-a-snapshot/" title=" What is the difference between a Redo log and a Snapshot?" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:redo logs,snapshots,vmdk,vmfsSparse,blog;button:compact;">Most people confuse redo logs with snapshots, but there is a subtle difference in the terminology. If you look at my previous post about snapshots, it goes into how to...</a>
-</p>

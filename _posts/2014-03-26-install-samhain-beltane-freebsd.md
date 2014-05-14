@@ -899,6 +899,3 @@ Notice you can either **acknowledge** the alarm (this is why beltane needs **upd
 
 The &#8220;Beltane I&#8221; UI is a little slow and the &#8220;Beltane II&#8221; project looks a little better, hopefully I will have a chance to try it out soon.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2014/03/install-samhain-beltane-freebsd/" title=" Install Samhain with Beltane on FreeBSD" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:beltane,freebsd,hids,samhain,blog;button:compact;">I wanted to add extra security to my home lab and I heard good things about the HIDS (Host-based Intrusion Detection System) software called Samhain. Samhain From their site, here...</a>
-</p>

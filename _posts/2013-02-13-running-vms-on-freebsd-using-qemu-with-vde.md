@@ -451,6 +451,3 @@ Lastly, create the *VDE*-Switch boot. Add the following to the **/etc/rc.local**
 	  </ul>
 	</div>
 	
-	<p class="wp-flattr-button">
-	  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/02/running-vms-on-freebsd-using-qemu-with-vde/" title=" Running VMs On FreeBSD using QEMU with VDE" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:/dev/tap0,/etc/devfs.conf,/etc/rc.conf,/etc/rc.local,/etc/sysctl.conf,aio,BHyve,freebsd,ifconfig bridge,kldload,kldstat,KQemu,KVM,net.link.tap.up_on_open,net.link.tap.user_open,Qemu,qemu-img,sysctl,tcpdump,tigervnc,TUN/TAP,unixterm,VDE,vdeqemu,vde_switch,VirtualBox,blog;button:compact;">Recently I had migrated laptops and I wanted to move my VMware workstation VMs to VirtualBox. All of my VMs were in the .vmware folder so I just copied that...</a>
-	</p>

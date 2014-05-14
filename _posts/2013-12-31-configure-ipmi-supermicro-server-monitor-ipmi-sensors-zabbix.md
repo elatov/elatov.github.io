@@ -375,6 +375,3 @@ ESXi comes with a CIM agent. You can use the **cim-diagnostic.sh** script to che
                     CurrentReading = 6500
     
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/12/configure-ipmi-supermicro-server-monitor-ipmi-sensors-zabbix/" title=" Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:IPMI,SuperMicro,Zabbix,blog;button:compact;">At home I have a SuperMicro X8DTU-F server and I noticed that it has a dedicated NIC for IPMI (Intelligent Platform Management Interface). Enable IPMI on SuperMicro The process is...</a>
-</p>

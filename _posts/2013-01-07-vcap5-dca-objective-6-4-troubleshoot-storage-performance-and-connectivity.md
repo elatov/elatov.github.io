@@ -612,6 +612,3 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 	>     >     >         </ol> 
 >     >     >     **Note:** Since the storage stack handles failover identically for FC, this sequence, with the exception of steps 1, 2, 3, and 11, applies</blockquote> 
 >     >     >     
->     >     >     <p class="wp-flattr-button">
->     >     >       <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-4-troubleshoot-storage-performance-and-connectivity/" title=" VCAP5-DCA Objective 6.4 – Troubleshoot Storage Performance and Connectivity" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCA,blog;button:compact;">Identify logs used to troubleshoot storage issues /var/log/vmkernel.log &#8211; generic NMP messages, iSCSI and fibre channel messages, drivers and so on /var/log/vmkwarning.log &#8211; generic storage messages, like disconnects /var/log/storagerm.log &#8211;...</a>
->     >     >     </p>

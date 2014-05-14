@@ -100,6 +100,3 @@ Definitely read over this document to get a good feeling of how to setup SRM and
 There is a lot of cases studies for SRM found here:  
 <a href="http://www.vmware.com/products/datacenter-virtualization/site-recovery-manager/customer-case-studies.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.vmware.com/products/datacenter-virtualization/site-recovery-manager/customer-case-studies.html']);">VMware vCenter Site Recovery Manager</a>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-2-6-build-recoverability-requirements-into-the-logical-design/" title=" VCAP5-DCD Objective 2.6 – Build Recoverability Requirements into the Logical Design" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCD,blog;button:compact;">Understand what recoverability services are provided by VMware solutions Here is a list of VMware provides for recoverability: Site Recovery Manager (SRM) Allows for site failures VMware Data Recovery (VDR)...</a>
-</p>

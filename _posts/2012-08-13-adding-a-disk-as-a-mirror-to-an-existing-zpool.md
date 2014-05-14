@@ -117,6 +117,3 @@ So now it is setup and ready to run as a mirrored zpool. In my case I wanted to 
 
 I would recommend running the syspool on a mirror, as I will when I replace the original disk.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/adding-a-disk-as-a-mirror-to-an-existing-zpool/" title=" Adding a Physical Disk as a Mirror to an Existing Zpool" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:mirror,NCP,Nexenta,OS,Solaris,syspool,vtip,ZFS,blog;button:compact;">Recently the disk that my syspool sits on started to lock up on my Nexenta (NCP) server. I decided to take this opportunity to set up a mirror to migrate...</a>
-</p>

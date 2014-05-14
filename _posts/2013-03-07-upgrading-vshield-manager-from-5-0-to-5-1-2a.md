@@ -121,9 +121,6 @@ The next screen will show that the vShield Manager is restoring the backup. Wait
 
 Once the operation has completed, log into the web client again and confirm the settings. vShield Manager has been upgraded. If you have vShield App appliances, the bottom of <a href="http://kb.vmware.com/kb/2034699" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/2034699']);">this KB</a> lists the instructions for upgrading vShield App and Edge appliances.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/03/upgrading-vshield-manager-from-5-0-to-5-1-2a/" title=" Upgrading vShield Manager from 5.0 to 5.1.2a" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:#vCNS,#vShieldManager,#vShieldUpgrade,VMware,blog;button:compact;">Recently I had to upgrade a vCloud Director (vCD) instance from 1.5 to 5.1.1. One of the dependencies of the upgrade is vShield Manager, so I upgraded it. Requirements for...</a>
-</p>
 
  [1]: http://virtuallyhyper.com/wp-content/uploads/2013/03/vShield-Manager-Space.jpg "Upgrading vShield Manager from 5.0 to 5.1.2a"
  [2]: http://virtuallyhyper.com/wp-content/uploads/2013/03/vShield-Manager-Upload-Settings.jpg "Upgrading vShield Manager from 5.0 to 5.1.2a"

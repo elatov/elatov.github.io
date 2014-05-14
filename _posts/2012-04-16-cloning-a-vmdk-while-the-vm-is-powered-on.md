@@ -45,6 +45,3 @@ Since the base VMDK does not have an exclusive lock on it, we can clone it.
 	Clone: 100% done.  
 	
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/04/cloning-a-vmdk-while-the-vm-is-powered-on/" title=" Cloning a VMDK While the VM is Powered On" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:00000000-00000000-0000-000000000000,clone,command line,mode 2,snapshots,vmdk,vmfs locks,vtip,blog;button:compact;">We can clone VMDKs that we can get a read only lock on. When a VM is actively writing to a VMDK, it needs the lock to be be read-write,...</a>
-</p>

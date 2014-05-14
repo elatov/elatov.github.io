@@ -193,6 +193,3 @@ That&#8217;s all good. Now listing the available devices with **adb**, we see th
     HT164T500742 device
     
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/02/fixing-android-phone-device-permissions-on-fedora-17/" title=" Fixing Android Phone Device Permissions on Fedora 17" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:/dev/bus/usb/001/019,/dev/sdb,/etc/udev/rules.d/,/lib/udev/rules.d/50-udev-default.rules,adb,dmesg,HTC,lsusb,systemctl,udev,udevadm,udevadm control --reload-rules,blog;button:compact;">I was connecting my HTC phone to another Fedora computer and I realized I didn&#8217;t have appropriate permissions to the device. After I plugged in the device, adb gave me...</a>
-</p>

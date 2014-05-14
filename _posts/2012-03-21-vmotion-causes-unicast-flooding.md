@@ -46,6 +46,3 @@ VMware KB <a href="http://kb.vmware.com/kb/2010877" onclick="javascript:_gaq.pu
 
 &nbsp;
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/03/vmotion-causes-unicast-flooding/" title=" vMotion Causes Unicast Flooding" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:unicast flooding,vmotion,blog;button:compact;">I recently ran into an issue where a live migration from one host to another cause the physical switch to experience unicast flooding. After much investigation, the solution was quite...</a>
-</p>

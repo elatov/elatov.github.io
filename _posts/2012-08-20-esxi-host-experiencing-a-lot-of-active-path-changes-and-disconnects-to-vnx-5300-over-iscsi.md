@@ -273,6 +273,3 @@ So here is a summary of what happened. One of the stacked switches had QOS enabl
 
 Eventually the path would become available and we would switch back to the optimized path and the cycle would start all over again. At times a trespass wouldn&#8217;t occur and we would just jump back and forth between the paths.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/esxi-host-experiencing-a-lot-of-active-path-changes-and-disconnects-to-vnx-5300-over-iscsi/" title=" ESX(i) Host Experiencing a lot of Active Path Changes and Disconnects to/from VNX 5300 over iSCSI" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:ALUA,path thrashing,QOS,software iSCSI binding,Stack Switches,Storage Processor,Trespass,useANO,vmkiscsid,VNX 5300,blog;button:compact;">I was recently working on case which had the following setup: Over night the even hosts would start having a lot of disconnects and path changes/thrashing. On the array end...</a>
-</p>

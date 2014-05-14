@@ -367,6 +367,3 @@ After that I was able to copy files just fine <img src="http://virtuallyhyper.co
 
 And no kernel panic occurred.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/10/mounting-an-ntfs-disk-in-write-mode-in-freebsd-9/" title=" Mounting an NTFS Disk with Write Capabilties in FreeBSD 9" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:/dev/da0,/etc/rc.conf,Fatal trap 12,fdisk,freebsd,fusefs,fusefs-ntfs,gpart,kldstat,make extract,make fetch,makewhatis,mount_ntfs,NTFS,ntfs-3g,ntfs-3g.probe,pkg_info,blog;button:compact;">I was trying to share data between a Windows Machine and FreeBSD machine. They were not connected over the network so I decided to use my USB drive to transfer...</a>
-</p>

@@ -100,6 +100,3 @@ That matched my issue pretty closely. I went ahead and followed the instruction 
 
 Since rebooting the host (to apply the above setting), we haven&#8217;t seen any more disconnects from the blades.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/11/ibm-hs22-blades-running-esxi-5-0-experience-random-hangs/" title=" IBM HS22 Blades Running ESXi 5.0 Experience Random Hangs" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:esxcli storage core,IBM HS22,interrupt remapping,iovDisableIR,performance has deteriorated,Transient file system condition,blog;button:compact;">Every couple of days we would see one of our ESXi host disconnect from vCenter and it would stay disconnected until we rebooted the host. Checking out the logs, prior...</a>
-</p>

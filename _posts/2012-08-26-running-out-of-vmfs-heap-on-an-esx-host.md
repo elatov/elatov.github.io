@@ -200,6 +200,3 @@ Keep an eye on the *percent free of max size* option, that is what your is heap 
 
 That is much more realistic estimation of how much open space can be handled by the different heap sizes. With the above recommendation we consolidated our cluster to 5 hosts, this way we would have about 20TB per host. Also, if ever needed to upgrade our servers then we would do a rolling reboot and one host would be down. In that scenario we would be down to 4 hosts with 25TB for each hosts and that is still acceptable.
 
-<p class="wp-flattr-button">
-	  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/running-out-of-vmfs-heap-on-an-esx-host/" title=" Running out of VMFS Heap on an ESX Host" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:MaxHeapSizeMB,Unified VMFS Block Size,VAAI,VMFS Heap,VMFS5,vmware-vimdump.txt,blog;button:compact;">Recently I ran into an issue where we were running out of VMFS3 Heap. We would see the following in the logs:  2012-07-20T04:34:19.377Z cpu22:6518)WARNING: Heap: 2900: Heap_Align(vmfs3, 6184/6184 bytes,...</a>
-	</p>

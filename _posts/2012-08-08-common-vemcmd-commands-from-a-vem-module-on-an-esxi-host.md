@@ -563,6 +563,3 @@ I will try to add commands that I find useful later on.
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/common-vemcmd-commands-from-a-vem-module-on-an-esxi-host/" title=" Common &#8216;vemcmd&#8217; Commands from a VEM Module on an ESX(i) Host" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:DR (Designated Receiver),VEM,vemcmd,Virtual Ethernet Module,blog;button:compact;">In this example I used version 4.2(1)SV1(5.1) of the Nexus. First and foremost download the Nexus1000v software. Once you logged in to your Cisco account and found the download, it...</a>
-</p>

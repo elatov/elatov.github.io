@@ -116,6 +116,3 @@ essentially removing everything between:
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/04/restore-vcenter-from-vdr-onto-a-host-being-managed-by-vcenter/" title=" Restore vCenter from VDR onto a Host Being Managed by vCenter" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:restore,vcenter,vdr,virtualcenter,vmware data recovery,vpxa,blog;button:compact;">I recently had a very interesting issue. An ESXi host was showing up as disconnected in vCenter, however going directly to the host worked fine. Trying to reconnect the host...</a>
-</p>

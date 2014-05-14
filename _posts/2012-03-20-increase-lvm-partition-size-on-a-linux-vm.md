@@ -514,6 +514,3 @@ If you run out of partitions (4 primary or 3 primary and 1 extended with 11 logi
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/03/increase-lvm-partition-size-on-a-linux-vm/" title=" Increase LVM Partition Size on a Linux VM" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:ext3,linux,lvm,partition,blog;button:compact;">Often I will see VMFS partitions that are not aligned to the standard 128 or 2048 sectors. This occurs on datastores that are on the ESXi boot volume and partitions...</a>
-</p>

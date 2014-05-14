@@ -166,6 +166,3 @@ and luckily **hostd** was up and running:
     hostd is running.
     
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2014/01/updating-esxi-5-0u2-esxi-5-1u1/" title=" Updating ESXi 5.0U2 to ESXi 5.1U1" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:esxcli,VMware,blog;button:compact;">I decided to update my ESXi host to 5.1 just cause it was time to catch up on updates. Using esxcli to Perform the Update I was currently on 5.0U2:...</a>
-</p>

@@ -565,6 +565,3 @@ Here are the installed versions:
 
 Audio (with pulseaudio) and Video worked fine without any issues.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2014/02/install-arch-linux-samsung-chromebook/" title=" Install Arch Linux on Samsung Chromebook" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Arch Linux,Samsung Chromebook,blog;button:compact;">I decided to try out Arch Linux on the Samsung Chromebook. Before I was running Ubuntu, to check out the install process for Chrubuntu check out my previous posts: Install...</a>
-</p>

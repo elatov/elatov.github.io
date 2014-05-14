@@ -242,8 +242,5 @@ It turned out that the SAN Admin was doing some maintenance on the array and was
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/04/seeing-a-high-number-of-trespasses-from-a-clariion-array-with-esx-hosts/" title=" Seeing a High Number of Trespasses from a CLARiiON Array with ESX Hosts" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Active/Non-Optimal Path,Active/Optimal Path,Active/Passive,ALUA,Assymetric Logical Unit Access,CLARiiON,Explicit/Implicit Failover,failover mode 4,NDU,Preferred Path,Storage Processor,TGP,TGPS,Trespass,useANO,blog;button:compact;">I was recently working on case which had the following setup: Over night the even hosts would start having a lot of disconnects and path changes/thrashing. On the array end...</a>
-</p>
 
  [1]: http://blogs.vmware.com/vsphere/2012/02/configuration-settings-for-alua-devices.html

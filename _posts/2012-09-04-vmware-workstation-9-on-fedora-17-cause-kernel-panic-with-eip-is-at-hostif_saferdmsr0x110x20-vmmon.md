@@ -277,6 +277,3 @@ I then went inside the patch directory and applied the patch:
 
 The shell script patched the &#8220;vmmon-only/linux/hostif.c&#8221; file and then recompiled the VMware Workstation kernel modules. After the modules re-compiled, I was successfully able to power on my VMs.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/09/vmware-workstation-9-on-fedora-17-cause-kernel-panic-with-eip-is-at-hostif_saferdmsr0x110x20-vmmon/" title=" VMware Workstation 9 on Fedora 17 Causes Kernel Error with Message &#8220;EIP is at HostIF_SafeRDMSR+0&#215;11/0&#215;20 [vmmon]&#8220;" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:fedora 17,vmware workstation,blog;button:compact;">I recently updated my VMware Workstation from version 8 to version 9. The install went well and the compile of the modules didn&#8217;t fail either. But as soon as I...</a>
-</p>

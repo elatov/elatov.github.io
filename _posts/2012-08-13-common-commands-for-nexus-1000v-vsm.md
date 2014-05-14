@@ -910,6 +910,3 @@ Show different bridge domains when using network segments
 	Veth3, Veth4  
 	
 
-<p class="wp-flattr-button">
-	  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/common-commands-for-nexus-1000v-vsm/" title=" Common Commands for Nexus 1000v VSM" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:show tech-support svs,Virtual Supervisor Module,VSM,blog;button:compact;">Most of these command can be seen by executing &#8216;show tech-suppport svs&#8217; on the VSM (Virtual Supervisor Module) Show local time of the N1K  switch# show clock Wed Aug...</a>
-	</p>

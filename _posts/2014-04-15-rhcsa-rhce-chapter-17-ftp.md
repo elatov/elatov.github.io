@@ -798,6 +798,3 @@ From the Managing Confined Services guide:
 > 
 > The upload succeeds as the **allow\_ftpd\_anon_write** Boolean is enabled.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2014/04/rhcsa-rhce-chapter-17-ftp/" title=" RHCSA and RHCE Chapter 17 – FTP" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:FTP,rhcsa_and_rhce,vsftpd,blog;button:compact;">FTP From the Deployment Guide: File Transfer Protocol (FTP) is one of the oldest and most commonly used protocols found on the Internet today. Its purpose is to reliably transfer...</a>
-</p>

@@ -122,6 +122,3 @@ Below are the rules that fail2ban put in place for banning the IP.
 
 Everything works as we expected.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/04/installing-and-configuring-fail2ban-on-omnios/" title=" Installing and Configuring Fail2Ban on OmniOS" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:fail2ban,OmniOS,blog;button:compact;">Fail2Ban is a program that will trigger actions based on patterns found in logs. I am setting up fail2ban to stop ssh brute forcing on my external ssh port. With...</a>
-</p>

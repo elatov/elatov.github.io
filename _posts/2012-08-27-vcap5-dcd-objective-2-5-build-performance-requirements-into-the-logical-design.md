@@ -96,6 +96,3 @@ For Troubleshooting Performance issues, I would suggest to read the following:
 *   <a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>
 *   <a href="http://www.vmware.com/products/vmmark/overview.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.vmware.com/products/vmmark/overview.html']);">Virtual Performance</a>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-2-5-build-performance-requirements-into-the-logical-design/" title=" VCAP5-DCD Objective 2.5 – Build Performance Requirements into the Logical Design" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCD,blog;button:compact;">Understand what logical performance services are provided by VMware solutions From the this blog: Memory VMware offers the following features to manage the memory efficiently Transparent Page Sharing: Shares identical...</a>
-</p>

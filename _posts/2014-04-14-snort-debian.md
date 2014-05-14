@@ -710,6 +710,3 @@ After a couple of days, I saw the following alert:
 
 <a href="http://humbug.me.uk/linux/trojan.htm" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://humbug.me.uk/linux/trojan.htm']);">Here</a> is a little more information about the attack and here is a <a href="http://wiki.vpslink.com/Defend_Against_Web_Application_Exploits:_Remote_File_Inclusion_and_Local_Filesystem_Access" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','']);">link</a> that talks about disabling PHP Remote File Inclusion.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2014/04/snort-debian/" title=" Snort On Debian" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:barnyard2,DD-WRT,snorby,snort,blog;button:compact;">I decided to install Snort on Debian. By default the debian apt sources do have a snort package but it&#8217;s out of date. Snort Version on Debian Here is the...</a>
-</p>

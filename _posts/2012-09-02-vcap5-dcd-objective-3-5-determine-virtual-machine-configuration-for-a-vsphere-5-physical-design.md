@@ -315,6 +315,3 @@ So if you want a centralized Anti-Virus application, setup vShield End-Point. Th
 > *   Improves consolidation ratios of virtual desktops by offloading antivirus functions to a separate security virtual machine. The enterprise antivirus engine and the signature file are located on the virtual appliance, instead of on each virtual machine. This frees up virtual desktop system resources.
 > *   Agentless solution: Instead of an antivirus agent installed on each desktop to be protected, vShield Endpoint utilizes a small-footprint driver on each desktop. This driver is part of VMware Tools, and no additional provisioning is required. The antivirus scanner and virus signatures are installed only in the virtual appliance. This saves space on each desktop.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-3-5-determine-virtual-machine-configuration-for-a-vsphere-5-physical-design/" title=" VCAP5-DCD Objective 3.5 – Determine Virtual Machine Configuration for a vSphere 5 Physical Design" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCD,blog;button:compact;">Describe the applicability of using an RDM or a virtual disk for a given VM This was covered in Objective 3.3. Also from APAC BrownBag Session 12: Based on the...</a>
-</p>

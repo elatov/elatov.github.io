@@ -127,6 +127,3 @@ Hope this helps someone out.
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/06/powercli-script-identify-which-vm-using-rdm-lun-identified-naa-id-lun/" title=" PowerCLI Script to Identify Which VM is using an RDM LUN Identified by the NAA-ID of the LUN" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:NAA_ID,Physical RDM,powercli,RDM,Virtual RDM,vmkfstools,VML_ID,blog;button:compact;">ESX issues an INQUIRY to get the list of supported Vital Product Data (VPD) pages. If page 83 is supported, ESX issues an INQUIRY on that page and extracts an...</a>
-</p>

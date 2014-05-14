@@ -717,6 +717,3 @@ For anyone that is interested, here is a <a href="http://virtuallyhyper.com/wp-c
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/06/iscsi-login-packet-capture/" title=" iSCSI Login in a Packet Capture" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:iSCSI,iSCSI Initiator,iSCSI Target,packet capture,tshark,wireshark,blog;button:compact;">We have an application running on a Windows 8 virtual machine which provides a file using HTTP when requested. When accessed from a Linux physical machine, the file is often...</a>
-</p>

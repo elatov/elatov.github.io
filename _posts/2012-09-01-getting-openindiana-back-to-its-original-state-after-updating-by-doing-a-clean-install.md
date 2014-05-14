@@ -459,6 +459,3 @@ and the host already auto-mounted the NFS share:
     nfs is /data/nfs_share from 192.168.1.107 mounted
     
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/09/getting-openindiana-back-to-its-original-state-after-updating-by-doing-a-clean-install/" title=" Getting OpenIndiana Back to it&#8217;s Original State After Updating by Doing a Clean Install" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:COMSTAR HostGroup,COMSTAR View,dladm,OpenIndiana 151a5,pkg install,pkg publisher,sbdadm,stmfadm,svcadm,svcs,vmkiscsi-tool,ZFS,ZFS sharenfs,zpool,zpool upgrade,blog;button:compact;">I decided to update from oi_151a4 to oi_151a5. I tried using pkg: ~# pkg image-update I followed the instruction laid out in &#8220;Upgrading OpenIndiana&#8220;, but nothing worked. I re-setup my...</a>
-</p>

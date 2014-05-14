@@ -473,6 +473,3 @@ It turned out that the **osspd** package was trying to load it for some reason. 
 
 And now my update is done <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Update ChrUbuntu 13.04 to 13.10 on the Samsung Chromebook" class="wp-smiley" title="Update ChrUbuntu 13.04 to 13.10 on the Samsung Chromebook" /> If I discover any new issues, I will try to post them as they come up.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/11/update-chrubuntu-13-04-13-10-samsung-chromebook/" title=" Update ChrUbuntu 13.04 to 13.10 on the Samsung Chromebook" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:ChromeBook,ChrUbuntu,pulseaudio,blog;button:compact;">I logged into my Chromebook with SSH and it displayed a message saying that I can update to Ubuntu 13.10: New release '13.10' available. Run 'do-release-upgrade' to upgrade to it....</a>
-</p>

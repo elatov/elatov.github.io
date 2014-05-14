@@ -1249,6 +1249,3 @@ And then finally we will see the package starting to install:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/03/package_installation_g.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/03/package_installation_g.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/package_installation_g.png" alt="package installation g RHCSA and RHCE Chapter 8 Network Installs" width="719" height="400" class="alignnone size-full wp-image-7679" title="RHCSA and RHCE Chapter 8 Network Installs" /></a>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/03/rhcsa-and-rhce-chapter-8-network-installs/" title=" RHCSA and RHCE Chapter 8 Network Installs" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:kickstart,RHCE,RHCSA,blog;button:compact;">The easiest way to do a network install with any Linux Distribution is to use Kickstart. From the &#8220;Red Hat Enterprise Linux 6 Installation Guide&#8220;: RHEL Kickstart Chapter 32. Kickstart...</a>
-</p>

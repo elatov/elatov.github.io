@@ -541,6 +541,3 @@ and of course the warning was cleared on the vSphere Client side as well. Checki
 
 We can see that last event code is **0x00f9**, from the above MegaCLI events, we can see that corresponds to *VirtualDisk is Optimal*. BTW a full list of *megasas* events can be seen in <a href="http://virtuallyhyper.com/wp-content/uploads/2014/01/A_Event_Info.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://virtuallyhyper.com/wp-content/uploads/2014/01/A_Event_Info.pdf']);">this PDF</a>.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2014/01/installing-lsi-cim-providers-megaraid-8704elp-local-controller-esxi/" title=" Installing LSI CIM Providers for MegaRaid 8704ELP Local Controller on ESXi 5.0" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:LSI,veeam,VMware,blog;button:compact;">I wanted to check the status of the local LSI controller in the vSphere Client. Going to the Health Status Tab and checking the Sensor information, I didn&#8217;t see any...</a>
-</p>

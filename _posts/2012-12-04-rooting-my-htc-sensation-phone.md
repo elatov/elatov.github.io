@@ -286,6 +286,3 @@ I then decided to see if my restore would work out. So I connected my phone to l
 
 Then opened up my phone and it asked to allow the restore process and I did. I must say, even though with the back up process it&#8217;s all or nothing (you can&#8217;t choose what apps to restore), the restore went very well. I was able to start up all of my old applications without any issues.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/12/rooting-my-htc-sensation-phone/" title=" Rooting my HTC Sensation Phone" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:adb backup,bootloader,ClockWorkMod Recovery,ControlBear,fastboot,HTC CID,HTC Sensation,S-OFF,Wire Trick,blog;button:compact;">I wanted to root my HTC Sensation phone, since I have been putting it off for a while. I read some good guides on how to do it, here is...</a>
-</p>

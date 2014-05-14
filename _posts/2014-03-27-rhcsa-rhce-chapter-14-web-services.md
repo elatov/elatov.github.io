@@ -1261,6 +1261,3 @@ Notice the first time I got a TCP_MISS (this was my first visit), and the next I
 
 The bottom two are the once going through the proxy and we can see that the IP (**192.168.2.2**) is the same as the server it self. This makes sense since the proxy server is running locally.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2014/03/rhcsa-rhce-chapter-14-web-services/" title=" RHCSA and RHCE Chapter 14 – Web Services" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:apache,rhcsa_and_rhce,Squid,blog;button:compact;">Apache From the Deployment Guide: HTTP (Hypertext Transfer Protocol) server, or a web server, is a network service that serves content to a client over the web. This typically means...</a>
-</p>

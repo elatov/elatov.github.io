@@ -86,6 +86,3 @@ Great that worked, but I have no interest in running this manually on each host,
 
 Running this basic script worked for this environment. All LUNs were claimed properly and with the correct SATP, PSP, and PSP properties.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/10/automating-3par-satp-rule-creation-powercli/" title=" Automating the 3PAR ESXi SATP Rule Creation with PowerCli" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:3PAR,esxcli,powercli,blog;button:compact;">Recently I was working with a customer to install a new 3PAR array and migrate VMs to it. The 3PAR array will work with the default settings, but it has...</a>
-</p>

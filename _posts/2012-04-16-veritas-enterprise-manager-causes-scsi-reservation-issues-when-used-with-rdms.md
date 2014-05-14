@@ -94,6 +94,3 @@ I asked the customer what that RDM was used for, and to check if there is any sp
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/04/veritas-enterprise-manager-causes-scsi-reservation-issues-when-used-with-rdms/" title=" Veritas Enterprise Manager Causes SCSI Reservation issues when used with RDMs" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:fdisk,RDM,SCSI Reservations,Veritas Enterprise Administrator,blog;button:compact;">I recently ran into an interesting issue with an ESX 3.5 host. We were seeing SCSI aborts on multiple hosts. Looking at the logs of one of the hosts we...</a>
-</p>

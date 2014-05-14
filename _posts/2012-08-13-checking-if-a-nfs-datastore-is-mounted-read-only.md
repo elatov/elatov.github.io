@@ -58,6 +58,3 @@ Another way to check this is using vsish.
 	readOnly:1  
 	
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/checking-if-a-nfs-datastore-is-mounted-read-only/" title=" Checking if an NFS datastore is Mounted Read-Only on ESX(i) Host" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:esxcfg-nas,esxcli,nfs,read-only,blog;button:compact;">Recently I saw a customer that had trouble vMotioning VMs on NFS datastores. This was occurring on multiple hosts across multiple datastores. It turns out that the customer had mounted...</a>
-</p>

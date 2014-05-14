@@ -438,6 +438,3 @@ And from KB 1003928:
 >     >             
 >     >             This was covered in &#8220;<a href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-3-troubleshoot-network-performance-and-connectivity/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-3-troubleshoot-network-performance-and-connectivity/']);">VCAP5-DCA Objective 6.3</a>&#8221;
 >     >             
->     >             <p class="wp-flattr-button">
-	>     >               <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-5-troubleshoot-vcenter-server-and-esxi-host-management/" title=" VCAP5-DCA Objective 6.5 – Troubleshoot vCenter Server and ESXi Host Management" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCA,blog;button:compact;">Identify CLI commands and tools used to troubleshoot management issues The easiest thing to try is to restart the management agents. Here is how that looks like:  ~ #...</a>
-	>     >             </p>

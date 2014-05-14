@@ -126,6 +126,3 @@ So I decided to install be2net driver 4.1.334.48, here is a <a href="https://my.
 
 After that, the ESXi hosts stopped experiencing the PSODs.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/11/experiencing-psods-on-hp-465c-g7-blades-with-nc551i-nics/" title=" Experiencing PSODs on HP 465C G7 Blades with NC551i NICs" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:465C,be2net,be_mcc_mailbox_notify_and_wait,NC551i,PSOD,blog;button:compact;">After updating our HP Virtual Connect firmware to version 3.60, our ESXi host we would see the following PSOD after a certain amount of time: Here is the actual backtrace:...</a>
-</p>

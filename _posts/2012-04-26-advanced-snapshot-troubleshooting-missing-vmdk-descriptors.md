@@ -225,6 +225,3 @@ The command above has two refferences to sql-000001.vmdk in it. Since we cannot 
 
 After the chain has been identified with any of the methods above, recreate the descriptors and check them with vmkfstools. If everything checks out, I would suggest doing a clone of the latest snapshot using vmkfstools as described in <a title="VMware Snapshot Troubleshooting" href="http://virtuallyhyper.com/2012/04/vmware-snapshot-troubleshooting/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/04/vmware-snapshot-troubleshooting/']);" target="_blank">VMware Snapshot Troubleshooting</a>. This will not modify the files, so if we guessed wrong on he chain we can change the order of the chain and try again.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/04/advanced-snapshot-troubleshooting-missing-vmdk-descriptors/" title=" Advanced Snapshot Troubleshooting: Missing VMDK Descriptors" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:clone,command line,failed to open parent,snapshots,troubleshooting,vmdk,vmkfstools,blog;button:compact;">A common problem with snapshots is missing descriptors. If you have been following this series of VMware Snapshot Troubleshooting, we have touched on the descriptor properties. In this article we...</a>
-</p>

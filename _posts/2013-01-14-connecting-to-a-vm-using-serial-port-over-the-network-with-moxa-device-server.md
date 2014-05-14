@@ -357,6 +357,3 @@ then trying my **nc** connection:
 
 It worked without any custom firewall rules. Must be a bug in ESXi 5.0u1, but I am glad that it&#8217;s fixed in ESXi 5.1GA. After I added the custom rule to my 5.0 install I was able to connect to my VM over the Moxa device.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/01/connecting-to-a-vm-using-serial-port-over-the-network-with-moxa-device-server/" title=" Connecting to a VM using &#8220;Serial Port Over the Network&#8221; With a Moxa Device Server" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Moxa,netcat,Virtual Serial Port,blog;button:compact;">Before we get into how to set this up, let&#8217;s get a good diagram going to better understand how all the components work. Here is what I came up with:...</a>
-</p>

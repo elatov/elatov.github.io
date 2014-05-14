@@ -629,6 +629,3 @@ Almost the full pipe <img src="http://virtuallyhyper.com/wp-includes/images/smil
 
 Good enough for me.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2014/01/zfs-iscsi-benchmarks-tests/" title=" ZFS iSCSI Benchmark Tests on ESX" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:iSCSI,OmniOS,ZFS,blog;button:compact;">Let me just start out by saying that my setup is not perfect, I would actually call it bad. All I have is a 1 1TB SATA disk and 4GB...</a>
-</p>

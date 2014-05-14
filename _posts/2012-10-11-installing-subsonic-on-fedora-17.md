@@ -163,6 +163,3 @@ The cool thing about SubSonic is the variety of applications that can be used to
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/10/installing-subsonic-on-fedora-17/" title=" Installing Subsonic on Fedora 17" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:iptables,java-openjdk,rpm,subsonic,systemctl,update-alternatives,blog;button:compact;">A while back I posted about installing subsonic. While I was using the application, I noticed that the search feature is very limited and I wanted to expand it. So...</a>
-</p>

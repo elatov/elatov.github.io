@@ -219,6 +219,3 @@ So the RW values should be correct now, so let&#8217;s confirm with vmkfstools a
 
 This time the descriptors are correct. Now we can clone the disk or try to commit the snapshots. See <a href="http://virtuallyhyper.com/2012/04/vmware-snapshot-troubleshooting/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/04/vmware-snapshot-troubleshooting/']);" title="VMware Snapshot Troubleshooting">VMware Snapshot Troubleshooting</a> for information on cloning or committing.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/04/advanced-snapshot-troubleshooting-incorrect-vmdk-geometry/" title=" Advanced Snapshot Troubleshooting: Incorrect VMDK Geometry" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:clone,command line,failed to open parent,snapshots,troubleshooting,vmdk,vmkfstools,blog;button:compact;">In VMware Snapshot Troubleshooting we discussed basic snapshot operations. In the &#8220;Invalid parentCID/CID Chain&#8221; article, we discussed how to identify invalid snapshot chains. In this article we will discuss disk...</a>
-</p>

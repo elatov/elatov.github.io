@@ -583,6 +583,3 @@ I then launched VirtualBox and powered on the VM, it booted without any issues:
 <root>  
 </root>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/06/migrate-from-libvirt-kvm-to-virtualbox/" title=" Migrate from Libvirt KVM to Virtualbox" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:KVM,libvirt,xml,blog;button:compact;">I was recently trying to migrate some VM from our KVM server to my laptop to run in my VirtualBox install locally. As I was going through the process I...</a>
-</p>

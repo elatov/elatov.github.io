@@ -58,6 +58,3 @@ This template expects the helper scripts to be pre-installed on your AMI, but th
 
 I created my own AMI from the Amazon EBS-Backed Windows Server 2008 R2 English 64-bit &#8211; Base for CloudFormation AMI, installed my application, then installed the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-helper-scripts-reference.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-helper-scripts-reference.html']);">helper scripts</a>. Afterwards, I created an AMI from that instance and used that as a base for my CloudFormation template (which expects the helper scripts and existence of **cfn-signal.exe** which now exist!).
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/02/cloudformation-waitcondition-timed-out-error/" title=" CloudFormation WaitCondition Timed Out Error" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Amazon Machine Images,AWS CloudFormation,blog;button:compact;">Update (05/14/13): Amazon no longer supports the AMI I had linked previously. They now bake the helper scripts into the base Windows AMIs. If you are running an older AMI...</a>
-</p>

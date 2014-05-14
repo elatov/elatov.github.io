@@ -514,6 +514,3 @@ and you will see the following:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/09/tunblk-disconnected.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/09/tunblk-disconnected.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/09/tunblk-disconnected.png" alt="tunblk disconnected Connecting to an OpenVPN Server with Various Clients" width="250" height="182" class="alignnone size-full wp-image-9429" title="Connecting to an OpenVPN Server with Various Clients" /></a>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/09/onnecting-to-an-openvpn-server-with-various-clients/" title=" Connecting to an OpenVPN Server with Various Clients" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Network Manager,OpenVPN,Tunnelblick,blog;button:compact;">OpenVPN From their how-to: OpenVPN is a full-featured SSL VPN which implements OSI layer 2 or 3 secure network extension using the industry standard SSL/TLS protocol, supports flexible client authentication...</a>
-</p>

@@ -121,6 +121,3 @@ Let&#8217;s check vmkfstools again. This time is opens all of the snapshots and 
 
 After making the chain we should be able to power on the VM, or clone the latest snapshot.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/04/advanced-snapshot-troubleshooting-invalid-parentcidcid-chain/" title=" Advanced Snapshot Troubleshooting: Invalid parentCID/CID chain" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:CID,clone,command line,parentCID,snapshots,troubleshooting,vmkfstools,blog;button:compact;">The most common snapshot descriptor issue that we run into is an invalid CID/parentCID chain. In VMware Snapshot Troubleshooting we went over the snapshot basics. Here we will discuss the...</a>
-</p>

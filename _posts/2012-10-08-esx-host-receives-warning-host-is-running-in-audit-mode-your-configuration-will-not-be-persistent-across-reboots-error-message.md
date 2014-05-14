@@ -50,6 +50,3 @@ After some research found VMware Communities <a href="http://communities.vmware.
 
 Remove that line per the instructions above and the server rebooted without going into Audit Mode again.
 
-<p class="wp-flattr-button">
-	  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/10/esx-host-receives-warning-host-is-running-in-audit-mode-your-configuration-will-not-be-persistent-across-reboots-error-message/" title=" ESXi Host Receives &#8220;Warning: Host is running in audit mode. Your configuration will not be persistent across reboots&#8221; Error Message" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:/bootbank/boot.cfg,ESX Audit Mode,kernelopt=auditMode=TRUE,blog;button:compact;">Recently saw the message outlined in the title from an ESXi host. Logged into the host via ssh and checked out the logs. Here is what I saw:  /var/log...</a>
-	</p>

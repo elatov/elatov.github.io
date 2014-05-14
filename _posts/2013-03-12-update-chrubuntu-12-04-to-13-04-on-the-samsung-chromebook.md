@@ -236,6 +236,3 @@ And that&#8217;s it. Last note, you can check the status of your battery with th
         percentage:          34.1355%
     
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/03/update-chrubuntu-12-04-to-13-04-on-the-samsung-chromebook/" title=" Update ChrUbuntu 12.04 to 13.04 on the Samsung Chromebook" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:ChromeBook,ChrUbuntu,blog;button:compact;">The update process is not as smooth as the install process which I blogged about here. Most of the instructions are laid at the following two sites: How to update...</a>
-</p>

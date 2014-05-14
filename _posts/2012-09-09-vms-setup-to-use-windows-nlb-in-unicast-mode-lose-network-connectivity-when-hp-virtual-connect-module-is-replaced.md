@@ -314,6 +314,3 @@ So lesson learned, VMs that participate in NLB in unicast mode will be down if t
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/09/vms-setup-to-use-windows-nlb-in-unicast-mode-lose-network-connectivity-when-hp-virtual-connect-module-is-replaced/" title=" VMs Setup to Use Windows NLB in Unicast Mode Lose Network Connectivity When HP Virtual Connect Module is Replaced" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Flex-10 CNA,Flex-10 Mezzanine Card,GARP,NLB Unicast Mode,Notify Switch,Virtual Connect Flex Fabric,Virtual Connect Module,Windows NLB,blog;button:compact;">Here is quick diagram of what I was trying to achieve: IIS-1 Primary/cluster interface: 192.168.250.47 Secondary Interface: 192.168.250.48 IIS-2 Primary/Cluster Interface: 192.168.250.49 Secondary Interface: 192.168.250.50 Cluster Virtual IP: 192.168.250.51 I...</a>
-</p>

@@ -350,6 +350,3 @@ If you are interest below are some links for further reading.
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/07/installing-kvm-as-a-virtual-machine-on-esxi5-with-bridged-networking/" title=" Installing KVM as a Virtual Machine on ESXi 5 with Bridged Networking" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:bridged networking,CentOs,command line,hypervisor,iptables,KVM,libvirt,linux,blog;button:compact;">I recently posted on how to setup MediaTomb on FreeBSD, and I had an extra box laying around which I wanted to dedicate for audio streaming. MediaTomb would take care...</a>
-</p>

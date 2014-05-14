@@ -82,6 +82,3 @@ I decided to update my *be2net* driver from 4.0.88 to 4.0.355 (link to driver is
 
 And I didn&#8217;t see another PSOD. I then re-installed *be2iscsi* version 4.1.334.3 on the same host. I then rebooted one more time and no PSOD occurred. It looks like I needed to update the *be2net* driver first, before applying the latest *be2iscsi* driver.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/11/installing-be2iscsi-version-4-1-334-3-on-bl495c-g6-for-nc553m-cnas-causes-esxi-host-to-psod/" title=" Installing be2iscsi Driver Version 4.1.334.3 on HP BL495c G6 with NC553m CNAs Causes ESXi Host to PSOD" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:be2iscsi,be2net,be_char_ioctl,BL495c,hp recipe,NC553m,PSOD,vmkload_mod,blog;button:compact;">We were looking at the September 2012 VMware FW and Software Recipe page and we wanted to install the latest be2iscsi driver. From the page here is the recommended version:...</a>
-</p>

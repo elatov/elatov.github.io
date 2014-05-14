@@ -659,6 +659,3 @@ And that is all it took <img src="http://virtuallyhyper.com/wp-includes/images/s
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/10/setup-fedora-17-with-nvidia-geforce-6200-to-connect-to-a-tv-and-function-as-an-xbmc-media-center/" title=" Setup Fedora 17 with nVidia GeForce 6200 Video Card to Connect to a TV and Function as an XBMC Media Center" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:.xinitrc,/etc/default/grub,/etc/gdm/custom.conf,/etc/sysconfig/desktop,/etc/systemd/system/default.target,/lib/kbd/consolefonts,akmod-nvidia,akmods,console font,CPU0: Core temperature above threshold,dracut,GDM,gfxpayload,GRUB_CMDLINE_LINUX,GRUB_GFXPAYLOAD_LINUX,iptables,nouveau,Nvidia GeForce 6200,nvidia-xconfig,RPMFusion,setfont,setsysfont,startx,systemd runlevel,thermal paste,tv-out,vga=789,XBMC Remote,Xorg-Server,xorg-x11-drv-nvidia,xorg.conf,blog;button:compact;">Red Hat Boot Process The process is described in &#8220;Red Hat Enterprise Linux 6 Installation Guide&#8220;: F.2. A Detailed Look at the Boot Process The beginning of the boot process...</a>
-</p>

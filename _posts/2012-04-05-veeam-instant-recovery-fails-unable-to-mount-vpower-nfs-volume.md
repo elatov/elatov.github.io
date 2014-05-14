@@ -74,6 +74,3 @@ We stopped the Microsoft NFS service and restarted the VEEAM vPower NFS Service,
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/04/veeam-instant-recovery-fails-unable-to-mount-vpower-nfs-volume/" title=" VEEAM Instant Recovery Fails: Unable to mount vPower NFS volume" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:nfs,veeam,vpower nfs,blog;button:compact;">I was recently presented with the following environment: VMware ESX NetAPP ESX 4.1P03 FAS 6240 With this setup all the VMs from the ESX that resided on the NFS Datastores...</a>
-</p>

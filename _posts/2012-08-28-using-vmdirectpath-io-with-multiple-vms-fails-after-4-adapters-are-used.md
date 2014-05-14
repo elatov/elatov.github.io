@@ -76,6 +76,3 @@ On each of the Windows VMs, we opened up regedit browsed to the location of the 
 
 After changing the setting on all of the ports, we rebooted the VM and the LPe12000&#8242;s were able to log into the fabric across all of the VMs.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/using-vmdirectpath-io-with-multiple-vms-fails-after-4-adapters-are-used/" title=" Using VMDirectPath I/O with Multiple VMs Fails After 4 Adapters are Used" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Emulex,interrupt vectors,IOAPIC,IRQ,LPe12000,MSI,MSI-X,Passthrough,PCI,VMDirectPath I/O,vsish,blog;button:compact;">I recently had a customer that was using VMDirectPath I/O to pass through multiple Emulex LPe12000&#8242;s to a few VMs. They were doing this because they needed to present and...</a>
-</p>

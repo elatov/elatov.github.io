@@ -130,6 +130,3 @@ I removed the .Spotlight-V100 and .fseventsd from the altbootbank
 
 I did another remediation of the upgrade and it went through just fine. So these OSX specific files were disrupting the upgrade.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/09/esxi-host-fails-to-upgrade-to-5-1-with-update-manager/" title=" ESXi host fails to upgrade to 5.1 with Update Manager" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:.fseventsd,.Spotlight-V100,5.1,altbootbank,bootbank,dpm,OSX,upgrade,VUM,blog;button:compact;">Today I was running through some upgrades in my lab to ESXi 5.1 with update manager. One small issue was that after adding a base line to the host and...</a>
-</p>

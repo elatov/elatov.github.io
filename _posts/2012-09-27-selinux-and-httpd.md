@@ -91,6 +91,3 @@ If you want to leave SELinux on, but allow an exception for httpd to talk to you
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/09/selinux-and-httpd/" title=" WordPress &#8211; Error establishing a database connection, but able to connect via command line &#8211; SELinux and httpd" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:drupal,httpd,linux,selinux,wordpress,blog;button:compact;">I was recently trying to set up multiple websites joesite.joechan.us and evesite.joechan.us with Apache VirtualHosts on a single EC2 instance behind an Elastic Load Balancer (ELB), but I also wanted...</a>
-</p>

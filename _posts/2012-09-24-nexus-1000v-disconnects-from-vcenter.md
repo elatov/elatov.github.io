@@ -31,6 +31,3 @@ So we lost connection for about 3 minutes, but we see that in the mean time ther
 
 We put the vCenter VM and the N1K VSM on the same host to see what happens. As soon as we did that the disconnects stopped. That right away told me that it&#8217;s an external networking issue. The customer actually didn&#8217;t want to deal with his networking team, so we setup DRS VM-To-VM Affinity rules to ensure that these two VMs always stayed together and all was well.
 
-<p class="wp-flattr-button">
-	  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/09/nexus-1000v-disconnects-from-vcenter/" title=" Nexus 1000v Disconnects from vCenter" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:DRS VM-to-VM Affinity,Nexus 1000v,VSM_CONN_DISCONNECT,blog;button:compact;">Looking over the VSM logs (show tech svs), I saw the following:  2012 Sep 1 21:05:42.599 n1k_vsm %VMS-3-CONNECTION_ERROR: Unable to communicate with vCenter Server/ESX. Disconnecting.. 2012 Sep 1...</a>
-	</p>

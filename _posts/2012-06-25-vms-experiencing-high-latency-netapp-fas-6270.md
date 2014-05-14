@@ -97,6 +97,3 @@ Layer 3 NFS is not supported with ESX until ESX 5.0U1. From the <a href="https:/
 
 After we moved the NetApp NAS to be on the same switch as the ESX hosts and changed the IP of the NAS to be on the same subnet as the ESX host, the latency stopped.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/06/vms-experiencing-high-latency-netapp-fas-6270/" title=" VMs are Experiencing High Latency to NetApp FAS 6240" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:ESX 5.0U1,GAVG,L3 NFS,Latency,NetApp 6240,nfs,blog;button:compact;">I was recently presented with the following environment: VMware ESX NetAPP ESX 4.1P03 FAS 6240 With this setup all the VMs from the ESX that resided on the NFS Datastores...</a>
-</p>

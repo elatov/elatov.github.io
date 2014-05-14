@@ -143,6 +143,3 @@ Along the same topic, sometimes performance between thick and thin VMDKs comes u
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-	  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/04/thin-on-thin-with-vmware-thin-provisioned-disks-and-emc-symmetrix-virtual-provisioning/" title=" &#8220;Thin on Thin&#8221; With VMware Thin Provisioned Disks and EMC Symmetrix Virtual Provisioning" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:eagerzeroed thick,EMC Symmetrix,lazyzeroed thick,thick,thin,thin provisioning,vmfs,blog;button:compact;">We had two LUNs presented to a host:  ~ # esxcfg-scsidevs -c | grep ^naa naa.600144f0928c010000004fc511ec0001 Direct-Access /vmfs/devices/disks/naa.600144f0928c010000004fc511ec0001 102400MB NMP OI iSCSI Disk (naa.600144f0928c010000004fc511ec0001) naa.600144f0928c010000004fc90a3a0001 Direct-Access /vmfs/devices/disks/naa.600144f0928c010000004fc90a3a0001 133120MB NMP...</a>
-	</p>

@@ -378,6 +378,3 @@ If it fails for some reason, grab that command and try to mount it manually to t
     fuse4x                               1
     
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/07/mount-various-file-system-with-autofs-on-mac-os-x-mountain-lion/" title=" Mount Various File Systems with Autofs on Mac OS X Mountain Lion" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:autofs,mac-ports,sshfs,blog;button:compact;">I recently go a new Mac and I wanted to setup autofs on it, just like I did on my previous Linux Laptops. I am running Mac OS X Mountain...</a>
-</p>

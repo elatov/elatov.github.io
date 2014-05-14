@@ -1559,6 +1559,3 @@ That looks good. And here are my Samba SELinux booleans:
 
 Just for reference here is another pretty good guide: <a href="http://www.redhat.com/rhecm/rest-rhecm/jcr/repository/collaboration/jcr:system/jcr:versionStorage/361057860a0526010a1da39b0d2743fc/1/jcr:frozenNode/rh:resourceFile" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','']);">Deploying a Red Hat Enterprise Linux 6 based Samba Server in a Windows Active Directory Domain</a>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2014/04/rhcsa-rhce-chapter-16-samba/" title=" RHCSA and RHCE Chapter 16 &#8211; Samba" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:rhcsa_and_rhce,samba,blog;button:compact;">Samba From the Deployment Guide: Samba is an open source implementation of the Server Message Block (SMB) protocol. It allows the networking of Microsoft Windows, Linux, UNIX, and other operating...</a>
-</p>

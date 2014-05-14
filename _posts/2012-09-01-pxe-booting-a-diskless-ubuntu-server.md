@@ -161,6 +161,3 @@ Thats it. It is time to boot the machine. The client was then booted and my fron
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/09/pxe-booting-a-diskless-ubuntu-server/" title=" PXE Booting a Diskless Ubuntu Server" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:dhcpd,pxe,rdiff-backup,tftp,xbmc,blog;button:compact;">Raspberry Pi I received a free Raspberry Pi from Simplivity for being a vExpert (Congrats to Joe and Jarret on achieving the same!) It was very nice of them. It...</a>
-</p>

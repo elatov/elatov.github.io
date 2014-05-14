@@ -108,6 +108,3 @@ You then re-export everything from the /etc/exports file by running the followin
 
 After that I was able to touch files under the NFS mount point and all the VMs successfully powered on.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/04/getting-permission-denied-using-netapp-nas-on-esxi/" title=" Getting Permission Denied Using NetApp NAS on ESX(i)" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:/etc/exports,exportfs,NAS,netapp,nfs,nfsnobody,nosuid,no_root_squash,root_squash,setuid,blog;button:compact;">A couple of days ago I had an issue with powering on VMs that resided on a NetApp NAS datastore. I logged into the host and tried to see if...</a>
-</p>

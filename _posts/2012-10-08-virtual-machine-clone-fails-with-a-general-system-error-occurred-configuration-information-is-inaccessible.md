@@ -74,6 +74,3 @@ I was definitely on version 4 of ESXi, lastly vCenter was at version 5. So I mat
 
 After disabling Change Block Tracking on the IDE Hard Drive, the clone succeeded without any issues.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/10/virtual-machine-clone-fails-with-a-general-system-error-occurred-configuration-information-is-inaccessible/" title=" Virtual Machine Clone Fails with &#8216;A general system error occurred: Configuration information is inaccessible&#8217; Error Message" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Change Block Tracking,clone,CTK,IDE Hard Disk,ide0:0.ctkEnabled,blog;button:compact;">Recently ran into an issue when cloning a VM. The clone would start and would run and at about 99% it would fail with the following error: Checking out the...</a>
-</p>

@@ -252,6 +252,3 @@ It was still showing the old pWWN. We had to commit the changes that we had made
 
 After that we ran *show zoneset active* and we didn&#8217;t see any asterisks (*) next to any zones, which means that all the zones loaded up just fine. And also after doing a rescan from the ESX host, all the original LUNs showed up on the host and all the grayed out VMs came be into inventory without any issues.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/06/esx-host-lost-access-lun-now-all-vms-showing-invalid/" title=" ESX Host Lost Access to a LUN and Now All the VMs are Showing up as Invalid" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:fcalias,mds 9020,qla2xxx,zones,zonesets,zoning,blog;button:compact;">I had recently received a call saying that all of the VMs are grayed out in his inventory when logged into the vCenter and checking the storage view doesn&#8217;t show...</a>
-</p>

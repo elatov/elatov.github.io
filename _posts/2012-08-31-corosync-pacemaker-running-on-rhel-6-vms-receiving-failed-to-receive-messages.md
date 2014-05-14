@@ -166,6 +166,3 @@ to the kernel line of the grub menu, but it didn&#8217;t help out either. We the
 
 The bottom 3 were just in case, and probably weren&#8217;t needed. After we changed those values, the packets stopped dropping and were able to achieve above 4Gb/sec for UDP traffic. Also after that, the Corosync Pacemaker stopped having random disconnects.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/corosync-pacemaker-running-on-rhel-6-vms-receiving-failed-to-receive-messages/" title=" Corosync Pacemaker running on RHEL 6 VMs Receiving &#8220;Failed To Receive&#8221; Messages" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Corosync,IGMP,IGMPv3 Snooping,iperf,MSI,multicast,net.core.rmem_max,OS UDP Buffer,Pacemaker,Rx ring size,TCP,UDP,blog;button:compact;">I ran into in an interesting issue with Corosync Pacemaker. Before we get down to the trouble shooting let&#8217;s figure out what Corosync Pacemaker is, from the Corosync FAQ: Why...</a>
-</p>

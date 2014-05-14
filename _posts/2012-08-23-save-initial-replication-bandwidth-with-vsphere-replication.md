@@ -69,6 +69,3 @@ After configuring the replication we can check the replication state. In the out
 
 If you do this for all of the VMs that used that template, you can save a significant amount of bandwidth while initially setting up the replication. 
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/save-initial-replication-bandwidth-with-vsphere-replication/" title=" Decrease Initial Replication Bandwidth and Time with vSphere Replication" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:bandwidth,clone,srm,vmdk,vmkfstools,VRMS,vSphere Replication,vtip,blog;button:compact;">vSphere Replication has a great feature that allows us to specify the seed disk for the inital sync. The idea is that you can ship a hard copy of the...</a>
-</p>

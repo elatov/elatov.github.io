@@ -593,6 +593,3 @@ This is steps 7 and 8 from the diagram. Using Cookies and **RelayState** we are 
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/05/set-up-simplesamlphp-as-an-idp-to-be-used-in-an-sp-initiated-sso-with-google-apps/" title=" Set up simpleSAMLphp as an IdP to be Used in an SP-Initiated SSO with Google Apps" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:SAML,SimpleSAMLPHP,SSO,blog;button:compact;">I wanted to try out a WebSSO program and I ran into LemonLDAP::NG. The application can handle SAML applications and can also do the regular reverse proxy approach for enabling...</a>
-</p>

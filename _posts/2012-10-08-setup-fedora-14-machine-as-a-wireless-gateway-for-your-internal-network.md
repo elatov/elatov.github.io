@@ -328,6 +328,3 @@ In the end, here is how my **iptables** configuration file looked like:
 
 The setup worked out quite well for my needs.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/10/setup-fedora-14-machine-as-a-wireless-gateway-for-your-internal-network/" title=" Setup Fedora 14 Machine as a Wireless Gateway for an Internal Network" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:BCM4321,DNAT,MASQUERADE NAT,blog;button:compact;">First of all, let me explain why I did this. I used to have a basement and in the basement I had a couple of physical machines. I wanted to...</a>
-</p>

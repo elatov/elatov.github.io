@@ -1187,6 +1187,3 @@ and the date is correct. The **batch** utility works in the same way except you 
 > 
 > The root user can always execute **at** and **batch** commands, regardless of the content of the access control files.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/06/rhcsa-and-rhce-chapter-9-system-logging-monitoring-and-automation/" title=" RHCSA and RHCE Chapter 9 &#8211; System Logging, Monitoring, and Automation" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:RHCE,RHCSA,RHEL,blog;button:compact;">Syslog From Red Hat Enterprise Linux 6 Deployment Guide: Chapter 20. Viewing and Managing Log Files Log files are files that contain messages about the system, including the kernel, services,...</a>
-</p>

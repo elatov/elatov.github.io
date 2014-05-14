@@ -137,8 +137,5 @@ I hope that this helps some of you out there trying to configure CloudFront with
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/11/cloudfront-with-elb-and-apache-virtualhosts/" title=" CloudFront with ELB and Apache VirtualHosts" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:apache,aws,cloudfront,ec2,elb,httpd,vhosts,virtualhosts,web,webserver,blog;button:compact;">I had an issue where bringing up an Sophos Astaro Security Gateway (ASG) site-to-site VPN connection between VPC&#8217;s caused another connectivity across another VPN connection to fail. Looking into the...</a>
-</p>
 
  [1]: http://media.amazonwebservices.com/blog/cloudfront&#95;dynamic&#95;web&#95;sites&#95;full_1.jpg "CloudFront with ELB and Apache VirtualHosts"

@@ -389,6 +389,3 @@ Now we can check the memory on the appliance using the **free** command again.
 
 We are down to 1.7G utilization on this server. I have 2 hosts and 15 VMs attached to this vCenter Appliance. I have lowered the RAM to 3G and it works great. </size>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/04/lowering-the-memory-usage-on-the-vcenter-appliance/" title=" Lowering the Memory Usage on the vCenter Appliance" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:ps_mem,vcenter,VirtualAppliance,blog;button:compact;">I set up many virtual labs that include one or more vCenters. In vCenter 5.1+ the default memory allocation has grown to 8GB, which is way more than I want...</a>
-</p>

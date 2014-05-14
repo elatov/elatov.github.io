@@ -1594,6 +1594,3 @@ Now to add this repository to yum. From the guide:
 >         
 >         <root> </kdudka></rel></root>
 >         
->         <p class="wp-flattr-button">
->           <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/03/rhcsa-and-rhce-chapter-6-package-management/" title=" RHCSA and RHCE Chapter 6 Package Management" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:createrepo,rpm,rpmbuild,yum,blog;button:compact;">The easiest way to install software on RHEL is to use RPM. RPM From &#8220;Red Hat Enterprise Linux 6 Deployment Guide&#8220;: RPMThe RPM Package Manager (RPM) is an open packaging...</a>
->         </p>

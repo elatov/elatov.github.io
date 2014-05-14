@@ -129,8 +129,5 @@ This is certainly not an all-inclusive guide and none of it is new information, 
 *   <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html']);">Launch Auto Scaling Instances into Amazon VPC</a>
 *   <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForVPC.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForVPC.html']);">Deploying Elastic Load Balancing in Amazon VPC</a>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/02/setting-up-a-tiered-aws-web-application-architecture-in-using-autoscaling-and-elb-within-vpc/" title=" Setting Up a Tiered AWS Web Application Architecture in using AutoScaling and ELB within VPC" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:aws,Elastic Load Balancing,Virtual Private Cloud,blog;button:compact;">Sample AWS Web Application Architecture using AutoScaling and ELB within VPC The purpose of this guide is to help you set up some of the AWS Web Application Architecture using...</a>
-</p>
 
  [1]: http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/images/ELB-VPCArchFigure.png "Setting Up a Tiered AWS Web Application Architecture in using AutoScaling and ELB within VPC"

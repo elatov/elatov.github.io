@@ -400,6 +400,3 @@ and make sure the rule is in place:
 
 That should be it. Only local access is allowed to the Splunk Web Portal directly, and to access the Splunk Web Portal externally you have to go through the reverse proxy which is password protected.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/12/installing-splunk-freebsd/" title=" Installing Splunk on FreeBSD" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:freebsd,mod_proxy,Splunk,blog;button:compact;">I had an old box laying around that wasn&#8217;t really doing anything. It only had 1GB of RAM, but that is good enough for a splunk install. Splunk I checked...</a>
-</p>

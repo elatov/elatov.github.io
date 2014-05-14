@@ -58,6 +58,3 @@ The way it works is **Lazy CheckPointing** iterates through the memory and write
 
 By increasing the **ioBlockPages** and decreasing the **ioWait** values, we can cut down on both the number of iterations and waiting time ( which in turn will decrease the total time to dump the memory to disk).
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/04/snapshots-take-a-long-time-when-keep-memory-is-checked/" title=" Snapshots Take a Long Time When &#8220;Keep Memory&#8221; is Enabled" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Lazy CheckPoint,Memory snapshots,VMware Snapshots,blog;button:compact;">When taking a snapshot with memory, the VM may be unresponsive and the snapshot may take a long time to complete. This is because the ESX host has to dump...</a>
-</p>

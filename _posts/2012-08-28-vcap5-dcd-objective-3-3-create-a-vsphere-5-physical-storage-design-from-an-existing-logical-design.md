@@ -517,6 +517,3 @@ The technology is kind of new and has it&#8217;s issues. It does allow you to ha
 
 I would suggest watching <a href="http://professionalvmware.com/2012/02/apac-brownbag-vcap-dcd-storage-follow-up/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://professionalvmware.com/2012/02/apac-brownbag-vcap-dcd-storage-follow-up/']);">APAC BrownBag Session 2</a>, it covers most of the above material.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-3-3-create-a-vsphere-5-physical-storage-design-from-an-existing-logical-design/" title=" VCAP5-DCD Objective 3.3 – Create a vSphere 5 Physical Storage Design from an Existing Logical Design" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCD,blog;button:compact;">Describe selection criteria for commonly used RAID types From &#8220;Best Practices for Microsoft SQL Server on Hitachi Universal Storage Platform VM&#8220;: RAID-1+ is best suited to applications with low cache-hit...</a>
-</p>

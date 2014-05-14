@@ -66,6 +66,3 @@ From this blog:
 
 Create vApps if necessary to put Web,DB, and Application servers together. You can set the boot order of all the VMs (i.e start DB server first). This way you can ensure proper dependency takes place.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-2-2-map-service-dependencies/" title=" VCAP5-DCD Objective 2.2 – Map Service Dependencies" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCD,blog;button:compact;">Identify basic service dependencies for infrastructure and application services This should be done during the Current-State Analysis process. If you want to automate this process you can use an application...</a>
-</p>

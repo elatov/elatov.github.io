@@ -348,6 +348,3 @@ So when we cleanup the test failover, we will see the folder (52bcb8b0-7d08-a617
 
 Notice that the there is a new delta (hbrdisk.RDID-aa0132e8-3cc4-4d2b-ab71-4fda0b4a4f62.53.200892301402003-delta.vmdk) that is only 24k (one subblock).
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/files-created-for-a-test-failover-with-vsphere-replication/" title=" Files created for a test failover with vSphere Replication" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:command line,delta,light-weight-delta,lwd,PSF,snapshots,srm,VRMS,vSphere Replication,blog;button:compact;">I have been writing a lot about SRM and vSphere Replication recently, but I have not written about how it all works. There is a great blog on how vSphere...</a>
-</p>

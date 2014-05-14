@@ -170,6 +170,3 @@ I went back to the host where the VM was running and checked replication again. 
 	Progress: 18% (checksum: 3224371200/17179869184; transfer: 0/0)  
 	
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/vsphere-replication-shows-inactive-replication/" title=" vSphere Replication Shows Replication as &#8220;not active&#8221;" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:command line,hostd.log,logs,not active replication,srm,VRMS,VRS,vSphere Replication,blog;button:compact;">I was messing around in my SRM lab and ran into this issue. It is a common issue that we see, but it has different causes. I set up replication...</a>
-</p>

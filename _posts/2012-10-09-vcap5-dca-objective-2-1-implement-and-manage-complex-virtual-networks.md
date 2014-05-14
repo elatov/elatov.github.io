@@ -746,6 +746,3 @@ Here is how it looks like:
 
 Pick the one that matches your physical environment. If you have Cisco switches then use CDP, if you have a non-cisco environment then use LLDP.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/" title=" VCAP5-DCA Objective 2.1 – Implement and Manage Complex Virtual Networks" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCA,blog;button:compact;">Identify common virtual switch configurations From VMware Virtual Networking Concepts Load Balancing Load balancing allows you to spread network traffic from virtual machines on a virtual switch across two or...</a>
-</p>

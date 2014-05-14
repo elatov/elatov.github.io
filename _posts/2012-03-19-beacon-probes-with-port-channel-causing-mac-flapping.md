@@ -37,6 +37,3 @@ So now each beacon can and will be seen across both of the ports on the switch (
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/03/beacon-probes-with-port-channel-causing-mac-flapping/" title=" Beacon Probes with Port-Channel Causing Mac-Flapping" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:beacon probes,beacon probing,beacons,flapping,port channels,blog;button:compact;">I see a lot of different reasons for a RARP storms from an ESX host. The biggest one that I ran into is a PXE boot environment (ie: Citrix Provisioning...</a>
-</p>

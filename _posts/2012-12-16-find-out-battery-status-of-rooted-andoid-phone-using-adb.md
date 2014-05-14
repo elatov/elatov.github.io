@@ -68,6 +68,3 @@ This is a little bit more organized. Again, if you want to just see the percenta
 	level: 92  
 	
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/12/find-out-battery-status-of-rooted-andoid-phone-using-adb/" title=" Find Out Battery Status of Rooted Andoid Phone Using ADB" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:/sys/class/power_supply/battery/batt_attr_text,adb,Android,battery status,cat,dumpsys,blog;button:compact;">There are two ways to go about finding out battery status of a rooted Android phone. One is simple and uses cat, the other is android specific. Here is how...</a>
-</p>

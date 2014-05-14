@@ -103,6 +103,3 @@ Check the csr for the new alternative names.
 
 Now get the csr signed, converted to a p12 and then try to do the &#8220;modify&#8221; install on SRM. This time the IP should match the SRM name.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/srm-fails-to-install-a-custom-certificate-with-he-host-name-in-the-subject-alternative-name-of-the-provided-certificate-does-not-match-the-srm-host-name/" title=" SRM fails to install a custom certificate with &#8220;The host name in the Subject Alternative Name of the provided certificate does not match the SRM host name.&#8221; during a modify install" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Certifications,installation,openssl,srm,blog;button:compact;">I was running through some SRM certificate configuration tests for a customer and ran into this issue. It is actually expected behavior, but the error message is very misleading. I...</a>
-</p>

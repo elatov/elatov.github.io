@@ -97,6 +97,3 @@ So the SSO service could not connect to the SQL service. I fired up a command pr
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/02/vcenter-5-1-service-fails-to-start/" title=" vCenter 5.1 Service Fails to Start" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:SSO,vcenter,blog;button:compact;">SP-Initiated SAML SSO Hopefully the title of the post isn&#8217;t too confusing. To clear up what I am trying to achieve let&#8217;s check out &#8220;SP-initiated Single Sign-On POST/Artifact Bindings&#8220;. Here...</a>
-</p>

@@ -426,6 +426,3 @@ After I ran the scan against a web server, I saw snort catching the scan right a
 
 I was also running **ossec** with active-responses enabled, that blocked the IP of the scanner right away.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2014/05/openvas-centos/" title=" OpenVAS on CentOS" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Arachni,CentOs,OpenVAS,Wapiti,blog;button:compact;">OpenVAS I wanted to run a vulnerability scan against my home lab to see if snort catches the event (snort setup here). As I kept reading up on scanners, I...</a>
-</p>

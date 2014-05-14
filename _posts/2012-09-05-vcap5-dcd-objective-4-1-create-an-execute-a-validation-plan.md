@@ -177,6 +177,3 @@ I think this table from &#8220;<a href="http://www.vmware.com/files/pdf/partners
 
 Shows very good example of tracing the business requirement. You can follow the flow and performance of a business workload. The frequency of execution can be compared to the metrics to make sure they meet the goals set.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-4-1-create-an-execute-a-validation-plan/" title=" VCAP5-DCD Objective 4.1 – Create an Execute a Validation Plan" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCD,blog;button:compact;">Recall standard functional test areas for design and operational verification From &#8220;Functional versus Non-functional Requirements&#8220;: Functional Requirements The official definition for a functional requirement specifies what the system should do:...</a>
-</p>

@@ -137,6 +137,3 @@ Also from the same KB:
 
 This actually didn&#8217;t negatively impact any of VMs or hosts, I just wanted to know what was going on. I left the setup as is and didn&#8217;t see any issues, but once I update to ESXi 5.0 I will definitely set all the RDM LUNs used for MSCS as perennially reserved.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/seeing-high-kavg-with-microsoft-cluster-services-mscs-rdms/" title=" Seeing High KAVG with Microsoft Cluster Services  (MSCS) RDMs" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:CONS/S Field,esxtop,MSCS,Perennially Reserved,RDM,SCSI Reservation Conflicts,Scsi.CRTimeoutDuringBoot,blog;button:compact;">I came across an interesting issue the other day. I would randomly see high KAVG and QAVG on my ESX hosts. It would look something like this: We can see...</a>
-</p>

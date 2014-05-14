@@ -388,6 +388,3 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 >     
 >     This would also set the security level to low.
 >     
->     <p class="wp-flattr-button">
->       <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-7-2-configure-and-maintain-the-esxi-firewall/" title=" VCAP5-DCA Objective 7.2 – Configure and Maintain the ESXi Firewall" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCA,blog;button:compact;">Identify esxcli firewall configuration commands From &#8220;vSphere Security ESXi 5.0&#8220;: Firewall Configuration Using the ESXi Shell The vSphere Client graphical user interface provides the preferred means of performing many configuration tasks....</a>
->     </p>

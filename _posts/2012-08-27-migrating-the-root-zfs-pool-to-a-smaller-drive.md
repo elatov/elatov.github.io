@@ -1211,6 +1211,3 @@ and that is it. Now my OS has a separate pool from my data pool:
 
 That was pretty easy.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/migrating-the-root-zfs-pool-to-a-smaller-drive/" title=" Migrating the Root ZFS Pool to a Smaller Drive" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:beadm,boot-sign,bootadm,Disk Labels,dumpadm,EFI,fast reboot,Fdisk Partitions,findroot,format utility,menu.lst,prtvtoc,root zpool,SMI,Solaris Slices,sparc,VTOC,x86,ZFS,zfs recieve,zfs send,zfs snapshot,zpool,zvol,blog;button:compact;">I made a mistake of showing the co-author of this post, Jarret, my test lab, so he rediculed me and made fun of me. I am pretty new to ZFS...</a>
-</p>

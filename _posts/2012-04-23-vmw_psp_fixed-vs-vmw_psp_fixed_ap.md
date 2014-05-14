@@ -33,6 +33,3 @@ The great thing about this is that the array should not let the host use an acti
 
 The real difference is that VMW\_PSP\_FIXED does not implement #2 and VMW\_PSP\_FIXED_AP also implements <a href="http://blogs.vmware.com/vsphere/2012/02/configuration-settings-for-alua-devices.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vsphere/2012/02/configuration-settings-for-alua-devices.html']);" target="_blank">follow-over</a>. Asymmetric state change is explained <a href="http://deinoscloud.wordpress.com/2011/07/04/it-all-started-with-this-question/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://deinoscloud.wordpress.com/2011/07/04/it-all-started-with-this-question/']);" target="_blank">here</a> in much more detail.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/04/vmw_psp_fixed-vs-vmw_psp_fixed_ap/" title=" VMW_PSP_FIXED vs. VMW_PSP_FIXED_AP" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:fixed,psa,PSP,SATP,VMW_SATP_FIXED,VMW_SATP_FIXED_AP,vtip,blog;button:compact;">Recently a vendor asked me what the difference between VMW_PSP_FIXED and VMW_PSP_FIXED_AP is. Since VMW_PSP_FIXED_AP is not specifically listed on the HCL, the vendor was confused on why the SATP...</a>
-</p>

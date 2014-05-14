@@ -85,6 +85,3 @@ Try to expand the steps, like this:
     3.  Configure IP Settings for the ESXi host using the DCUI.
     4.  Configure DNS Settings for the ESXi host from the DCUI.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-4-2-create-an-implementation-plan/" title=" VCAP5-DCD Objective 4.2 – Create an Implementation Plan" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCD,blog;button:compact;">Based on key phases of enterprise vSphere 5 implementations, map customer development needs to a standard implementation plan template. Most organizations have a pre-built template for these designs. Actually Duncan...</a>
-</p>

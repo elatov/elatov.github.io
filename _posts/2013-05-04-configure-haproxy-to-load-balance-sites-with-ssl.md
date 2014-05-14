@@ -379,6 +379,3 @@ Lastly, after I connected a couple of times, I saw the following stats:
 
 We can see that multiple servers are utilized.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/05/configure-haproxy-to-load-balance-sites-with-ssl/" title=" Configure HAProxy to Load Balance Sites With SSL" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:HAproxy,Load Balancing,SSL Termination,blog;button:compact;">Starting with HAproxy version 1.5, SSL is supported. From the main Haproxy site: Update [2012/09/11] : native SSL support was implemented in 1.5-dev12. Prepare System for the HAProxy Install I...</a>
-</p>

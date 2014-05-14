@@ -63,6 +63,3 @@ Manager\storage\sra\EMC Symmetrix\`, but found the same error when running the c
 
 After a little more research I found <a href="http://blog.stfu.se/?p=308" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blog.stfu.se/?p=308']);">this blog article</a> describing a similar issue. They seemed to find a workaround by putting the binaries in the correct *C:* location and then installing it back to the &#42;D:&#42; drive. Unfortunately I doubt that EMC would support this in production, so I did not implement it in the customers environment. I went back and reinstalled SRM, Soultions Enabler, and the SRDF SRA on the &#42;C:&#42; drive. After installing everything back on the *C:* drive, everything worked alright for SRDF.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/10/site-recovery-manager-srdf-sra-fails-initialize/" title=" Site Recovery Manager SRDF SRA Fails to Initialize" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:sra,srdf,srm,blog;button:compact;">While configuring a Site Recovery Manager (SRM) instance for a customer, I ran into an issue with the EMC SRDF 5.1.0.0 SRA. After installing Solutions Enabler and then installing the...</a>
-</p>

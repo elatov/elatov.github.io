@@ -394,6 +394,3 @@ Lastly add a UPnP Share by going to Videos -> Files -> Add Videos -> Browse -> U
 
 After you have added your share, you can go back to Videos -> Files and your share will be there. There are actually many other UPnP clients out there, I just heard of XBMC before and decided to try it out and I actually really like it. Here is a <a href="http://www.makeuseof.com/tag/using-your-linux-computer-as-a-media-center-part-1/</full></performnud></rxcsum></up>&#8221;>link</a> that talks about other Media Centers.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/10/installing-mediatomb-on-freebsd-9-and-connecting-to-it-with-xbmc-from-a-fedora-17-os/" title=" Installing Mediatomb on FreeBSD 9 and Connecting to it with XBMC from a Fedora 17 OS" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:dlna,mediatomb,upnp,blog;button:compact;">I recently got some new hardware and wanted to setup a video streaming server in my home. There are a lot of choices out there, for example check out the...</a>
-</p>

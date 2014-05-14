@@ -676,6 +676,3 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 >     >                             
 >     >                             This was discussed in &#8220;<a href="http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-3-6-determine-datacenter-management-options-for-a-vsphere-5-physical-design/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-3-6-determine-datacenter-management-options-for-a-vsphere-5-physical-design/']);">VCAP5-DCD Objective 3.6</a>&#8221;
 >     >                             
->     >                             <p class="wp-flattr-button">
->     >                               <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-9-1-install-esxi-hosts-with-custom-settings/" title=" VCAP5-DCA Objective 9.1 – Install ESXi hosts with custom settings" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCA,blog;button:compact;">Identify custom installation options From &#8220;vSphere Installation and Setup vSphere 5.0&#8220;: Options for Installing ESXi ESXi can be installed in several ways. To ensure the best vSphere deployment, understand the...</a>
->     >                             </p>

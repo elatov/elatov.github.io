@@ -1525,6 +1525,3 @@ Also in the logs of the client, I saw the following:
     Apr 20 13:22:17 rhel2 ntpd[18049]: kernel time sync enabled 0001
     
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2014/05/rhcsa-rhce-chapter-19-network-services/" title=" RHCSA and RHCE Chapter 19 &#8211; Network Services" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:DHCP,NTP,rhcsa_and_rhce,telnet,xinetd,blog;button:compact;">Xinetd From the Security Guide: The xinetd daemon is a TCP-wrapped super service which controls access to a subset of popular network services, including FTP, IMAP, and Telnet. It also...</a>
-</p>

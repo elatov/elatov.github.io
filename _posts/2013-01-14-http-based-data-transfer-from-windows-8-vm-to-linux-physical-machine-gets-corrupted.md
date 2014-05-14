@@ -85,6 +85,3 @@ Stopped the packet corruption. Here is how the default (prior to any changes) co
     RFC 1323 Timestamps                 : disabled
     
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/01/http-based-data-transfer-from-windows-8-vm-to-linux-physical-machine-gets-corrupted/" title=" HTTP Based Data Transfers from Windows 8 VM to Linux Physical Machine are Corrupted" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:HTTP,md5sum,netsh int tcp set global autotuninglevel=disabled,netsh int tcp show global,TSO,wireshark,blog;button:compact;">We have an application running on a Windows 8 virtual machine which provides a file using HTTP when requested. When accessed from a Linux physical machine, the file is often...</a>
-</p>

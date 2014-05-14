@@ -578,6 +578,3 @@ There were a bunch of new reports created which provided a bunch of cool informa
 
 Last thing to note is that by default OSSEC installs a couple of active response script. If you are using PF as a firewall, you will need to a new table to make it work. For more information check out <a href="http://taosecurity.blogspot.com/2008/12/ossec-and-pf-on-freebsd-to-limit-ssh.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://taosecurity.blogspot.com/2008/12/ossec-and-pf-on-freebsd-to-limit-ssh.html']);">this</a> post.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2014/04/ossec-freebsd/" title=" OSSEC on FreeBSD" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:freebsd,OSSEC,Splunk,blog;button:compact;">After trying out Samhain and Beltane (check out the previous post on that setup), I decided to try out another HIDS. This time around I went with OSSEC. OSSEC From...</a>
-</p>

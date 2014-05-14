@@ -54,8 +54,5 @@ This should force the vMotion to go over the vmkernel port that vMotion is enabl
 
 Please keep in mind that this is still not something I would recommend. But if you have some reason where you ABSOLUTELY CAN NOT separate the vMotion network onto a different network, this little tip may help you configure your host so that vMotion will behave as expected.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/04/against-best-practices-vmotion-and-management-on-the-same-network/" title=" Against Best Practices: vMotion and Management on the Same Network" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:advanced configuration,best practice,management,routing table,tips,vmk,vmkernel,vmotion,blog;button:compact;">I recently spoke with someone who was running into the vMotion Causes Unicast Flooding issue Karim blogged about. As he states, it is mentioned in many of VMware&#8217;s best practice...</a>
-</p>
 
  [1]: http://www.vmware.com/pdf/vsphere4/r41/vsp_41_esxi_server_config.pdf

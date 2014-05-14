@@ -69,6 +69,3 @@ On the ASA, it&#8217;s comes from lines like this in the config:
      access-list acl-amzn extended permit ip any 10.0.0.0 255.255.0.0
     
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/04/aws-vpn-cisco-asa-and-sla-monitor/" title=" AWS VPN Cisco ASA and SLA Monitor" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:aws,Cisco ASA,IPSec,blog;button:compact;">When configuring the AWS VPC VPN with a Cisco ASA, Amazon recommends that you configure SLA monitoring. In the pregenerated Cisco ASA configuration downloaded from the AWS VPN Management console...</a>
-</p>

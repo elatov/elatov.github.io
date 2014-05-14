@@ -560,6 +560,3 @@ After some time the graph started to populate with data. Here is a very small sa
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/02/monitor-different-systems-with-collectd/" title=" Monitor Different Systems with Collectd" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Collectd,Monitoring,blog;button:compact;">This is the second part and continuation of the &#8216;Network Monitoring Software Comparison&#8217; series. Here is the link to the first part. Let&#8217;s go ahead and check out our software:...</a>
-</p>

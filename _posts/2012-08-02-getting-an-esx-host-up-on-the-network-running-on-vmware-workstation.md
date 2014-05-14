@@ -162,6 +162,3 @@ So for security reasons VMware workstation is not allowing to send traffic with 
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/getting-an-esx-host-up-on-the-network-running-on-vmware-workstation/" title=" Getting an ESX Host Up on the Network, Running on VMware Workstation" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:NAT,nested ESX,vswif,workstation,blog;button:compact;">I decided to learn how FWBuilder works and what is better than deploying in a home environment and making sure nothing breaks in the process? At home I have a...</a>
-</p>

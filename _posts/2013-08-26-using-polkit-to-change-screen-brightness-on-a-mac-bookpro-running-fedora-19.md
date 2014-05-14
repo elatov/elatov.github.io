@@ -429,6 +429,3 @@ You can use a similar method as above to create keyboard shorts to change bright
     $ sudo su -c 'echo 8 > /sys/class/leds/smc::kbd_backlight/brightness'
     
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/08/using-polkit-to-change-screen-brightness-on-a-mac-bookpro-running-fedora-19/" title=" Using PolKit to Change Screen Brightness on a Mac BookPro Running Fedora 19" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:MacBookPro,PolicyKit,sudo,blog;button:compact;">I wanted to create some keyboard short cuts to change the brightness of my screen (similar to what I did here). On my Fedora install I didn&#8217;t have any gnome...</a>
-</p>

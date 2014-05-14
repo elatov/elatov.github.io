@@ -63,6 +63,3 @@ and on RHEL
     36000c2993b74b940e6952b381d6be0d5
     
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/03/missing-links-to-devices-on-linux-vms-under-devdiskby-id/" title=" Missing links to devices on Linux VMs under /dev/disk/by-id/" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:vpd scsi_0x83 disk.enableuuid scsi_id,blog;button:compact;">Recently, I ran into an issue where all links under /dev/disk/by-id were missing. The way that devices show up under /dev/disk/by-id is when the scsi_id command queries the devices for...</a>
-</p>

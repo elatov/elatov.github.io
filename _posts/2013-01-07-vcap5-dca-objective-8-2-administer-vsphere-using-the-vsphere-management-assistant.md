@@ -617,6 +617,3 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/P
 >         > 
 >         > The script generates the information and log bundle and appends it to the vmware.log file on the ESXi host on which vMA is deployed. 
 >         
->         <p class="wp-flattr-button">
->           <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/" title=" VCAP5-DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCA,blog;button:compact;">Identify vMA prerequisites From &#8220;vSphere Management Assistant Guide vSphere 5.1&#8220;: Hardware Requirements To set up vMA, you must have an ESXi host. Because vMA runs a 64‐bit Linux guest operating...</a>
->         </p>

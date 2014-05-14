@@ -61,6 +61,3 @@ After that we don&#8217;t see all the paths set as working paths:
 
 After setting changing the PSP, both VMs booted up just fine and didn&#8217;t have any issue sharing the RDM. Since we are using iSCSI, I would also recommend not presenting RDMs but instead using an in-guest iSCSI initiator to get to a supported configuration. See <a href="http://kb.vmware.com/kb/1037959" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1037959']);" target="_blank">this KB</a> for more information on supported MSCS configurations.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/04/microsoft-cluster-servers-dont-work-on-equalogic-array-using-the-dell_psp_eql_routed-plugin/" title=" Microsoft Cluster Servers Don&#8217;t Work on Equalogic Array Using the DELL_PSP_EQL_ROUTED Plugin" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:DELL_PSP_EQL_ROUTED,EqualLogic,exscli,MSCS,PSP,RDM,VMW_SATP_EQL,VMW_SATP_FIXED,blog;button:compact;">Recently I ran into an issue with Microsoft Cluster Servers (MSCS) on two VMware VMs. The first VM would boot up just fine, but the second VM would take a...</a>
-</p>

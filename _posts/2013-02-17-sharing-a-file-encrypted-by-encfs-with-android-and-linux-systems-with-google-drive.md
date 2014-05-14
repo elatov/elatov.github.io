@@ -414,6 +414,3 @@ You can always script something to automate the encrypting, decrypting, and sync
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/02/sharing-a-file-encrypted-by-encfs-with-android-and-linux-systems-with-google-drive/" title=" Sharing a File Encrypted by EncFS with Android and Linux Systems with Google Drive" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Android,BoxCryptor,EncFS,fedora,Google Drive,Grive,ubuntu,blog;button:compact;">I ran into some issues setting up my VMware Workstation on my Fedora 19 install, so I decided to put together all the notes on how I got around them....</a>
-</p>

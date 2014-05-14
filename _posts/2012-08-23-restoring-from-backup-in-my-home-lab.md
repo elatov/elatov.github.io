@@ -221,6 +221,3 @@ I started booting my VMs and took a look at esxtop to see how my latency was. Th
 	{NFS}vmware isos - - 0 \- - - 0.00 0.00 0.00 0.00 0.00 - - 0.00  
 	
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/restoring-from-backup-in-my-home-lab/" title=" Restoring from Backup in my Home Lab" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:COMSTAR,iSCSI,Nexenta,replication,sbdadm,stmfadm,svcffg,vdev,ZFS,zpool,zvol,blog;button:compact;">Today I woke up to an email telling me that 3 drives failed in my Nexenta Server. This is a result of using old green drives in a raid and...</a>
-</p>

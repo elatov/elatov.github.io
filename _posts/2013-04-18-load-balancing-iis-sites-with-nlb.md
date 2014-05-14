@@ -241,6 +241,3 @@ Now from the client go to the same page (**http://cluster/test.html**) and you s
 
 Now we know NLB is working properly, go back to the NLB Manager and start the node back up.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/04/load-balancing-iis-sites-with-nlb/" title=" Load Balancing IIS Sites with NLB" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:nlbmgr,Windows IIS,Windows NLB,blog;button:compact;">Here is quick diagram of what I was trying to achieve: IIS-1 Primary/cluster interface: 192.168.250.47 Secondary Interface: 192.168.250.48 IIS-2 Primary/Cluster Interface: 192.168.250.49 Secondary Interface: 192.168.250.50 Cluster Virtual IP: 192.168.250.51 I...</a>
-</p>

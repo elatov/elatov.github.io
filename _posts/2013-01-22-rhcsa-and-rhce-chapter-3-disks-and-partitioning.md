@@ -1759,6 +1759,3 @@ Lastly make sure no partitions are there after re-reading the table:
 
 That looks good.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-3-disks-and-partitioning/" title=" RHCSA and RHCE Chapter 3 Disks and Partitioning" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:/proc/mdstat,/proc/partitions,extended partition,fdisk,logical partition,Logical Volume,lvcreate,lvdisplay,lvextend,lvm,lvreduce,lvremove,lvs,lvscan,mdadm,parted,partprobe,Physical Volume,primary partition,pvcreate,pvdisplay,pvs,pvscan,raid,rhcsa_and_rhce,vgcreate,vgdisplay,vgextend,vgreduce,vgs,vgscan,Volume Group,yum.repos.d,blog;button:compact;">RHEL DVD as a Software Repository Before we keep going with disk and partitioning, I want to setup the RHEL Install DVD as a Software Repository (I will cover this...</a>
-</p>

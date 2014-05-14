@@ -741,6 +741,3 @@ Similar steps can be taken to setup **LDAP** authentication. From the same guide
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/03/rhcsa-and-rhce-chapter-7-user-administration/" title=" RHCSA and RHCE Chapter 7 User Administration" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:RHCE,RHCSA,User Management,blog;button:compact;">The easiest way to do a network install with any Linux Distribution is to use Kickstart. From the &#8220;Red Hat Enterprise Linux 6 Installation Guide&#8220;: RHEL Kickstart Chapter 32. Kickstart...</a>
-</p>

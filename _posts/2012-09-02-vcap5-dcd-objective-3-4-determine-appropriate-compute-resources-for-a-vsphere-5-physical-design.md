@@ -503,6 +503,3 @@ Since there is such a small requirement for the OS, you should install the OS on
 
 Make sure it&#8217;s a similar CPU family. If it&#8217;s an older CPU set, enable EVC to use the host for HA, vMotion&#8230; etc Make sure the PCI slot config is similar, this way you can use Host profiles. Also make sure the CPU size and Memory Size is similar, if it&#8217;s too big of a difference it will throw off the HA calculations. Of course check to make sure the Host is on the HCL. Make sure you can enabled HT, Intel VT, and eXecute Disable. Make sure it can handle 64bit.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-3-4-determine-appropriate-compute-resources-for-a-vsphere-5-physical-design/" title=" VCAP5-DCD Objective 3.4 – Determine Appropriate Compute Resources for a vSphere 5 Physical Design" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCD,blog;button:compact;">Describe best practices with respect to CPU family choices From &#8220;Performance Best Practices for VMware vSphere 5.0&#8220;: Hardware CPU Considerations General CPU Considerations When selecting hardware, it is a good...</a>
-</p>

@@ -347,6 +347,3 @@ To correct this we went into unisphere and selected the hostgroup and clicked ed
 
 After making the change, we ran the test failover again and it worked with out any problems. 
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/srm-5-0-times-out-on-a-test-failover-when-using-mirrorview-sra-5-0-1/" title=" SRM 5.0 Times out on a test failover when using Mirrorview SRA 5.0.1" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:EMC,EMC Clariion,logs,sra,srm,troubleshooting,blog;button:compact;">Recently I had a customer that could not get a test failover to work. The test would fail during &#8220;Prepare Storage&#8221; after 300 seconds. After increasing the timeout to 15...</a>
-</p>

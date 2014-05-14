@@ -274,6 +274,3 @@ Reboot the machine and make sure it&#8217;s auto mounted.
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/10/creating-an-lvm-volume-from-two-used-partitions/" title=" Creating an LVM Logical Volume From Two Used Partitions" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:/etc/fstab,fdisk,Logical Group,Logical Volume,lvm,Physical Volume,blog;button:compact;">In my previous post, I blogged about mounting an NTFS volume in FreeBSD. Now I decided to make the process easier by using the /etc/fstab file. I thought this would...</a>
-</p>

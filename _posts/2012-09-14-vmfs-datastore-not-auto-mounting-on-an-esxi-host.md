@@ -238,6 +238,3 @@ I definitely don't see a UUID, and checking out the section where the VMFS Volum
 
 The VMFS file system was overwritten with some random data. Luckily there was just one VM running on that VMFS Datastore, so we used VMware Converter to P2V the VM and all the data was okay.
 
-<p class="wp-flattr-button">
-	  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/09/vmfs-datastore-not-auto-mounting-on-an-esxi-host/" title=" VMFS Datastore not Auto-Mounting on an ESX(i) Host because the VMFS Partition is Overwritten" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Dynamic Disks,FileSystem ID 42,hexdump,NTFS,partitions,SFS,vmfs,blog;button:compact;">We had two LUNs presented to a host:  ~ # esxcfg-scsidevs -c | grep ^naa naa.600144f0928c010000004fc511ec0001 Direct-Access /vmfs/devices/disks/naa.600144f0928c010000004fc511ec0001 102400MB NMP OI iSCSI Disk (naa.600144f0928c010000004fc511ec0001) naa.600144f0928c010000004fc90a3a0001 Direct-Access /vmfs/devices/disks/naa.600144f0928c010000004fc90a3a0001 133120MB NMP...</a>
-	</p>

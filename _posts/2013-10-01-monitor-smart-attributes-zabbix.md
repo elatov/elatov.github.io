@@ -401,6 +401,3 @@ and after some time, I saw the following graph in zabbix:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/09/zabbix_pogo_hd_temp.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/09/zabbix_pogo_hd_temp.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/09/zabbix_pogo_hd_temp.png" alt="zabbix pogo hd temp Monitor SMART Attributes with Zabbix" width="1187" height="490" class="alignnone size-full wp-image-9580" title="Monitor SMART Attributes with Zabbix" /></a>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/10/monitor-smart-attributes-zabbix/" title=" Monitor SMART Attributes with Zabbix" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:pogoplug,smartmontools,Zabbix,blog;button:compact;">In my previous post I setup my pogoplug device as a backup server. Since it was holding somewhat important information, I wanted to monitor the disk that I plugged into...</a>
-</p>

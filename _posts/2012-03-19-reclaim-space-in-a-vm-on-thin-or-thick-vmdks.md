@@ -156,6 +156,3 @@ Use VMware Converter and P2V the VM. Ensure you use the thin disk.
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/03/reclaim-space-in-a-vm-on-thin-or-thick-vmdks/" title=" Reclaim Space in a VM on Thin or Thick VMDKs" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:sdelete,space reclam,thick provisioning,thin provisioning,vmdk,zerofree,blog;button:compact;">In VMware Snapshot Troubleshooting we discussed basic snapshot operations. In the &#8220;Invalid parentCID/CID Chain&#8221; article, we discussed how to identify invalid snapshot chains. In this article we will discuss disk...</a>
-</p>

@@ -397,9 +397,6 @@ Looks like our average value is 2, which is perfect. Going to the site and zoomi
 4.  The setup depends on *cron*, if you made a change, you need to wait 5 minutes for the changes to occur, with *Collectd* you can just restart the agent
 5.  Traffic is TCP, more overhead. *Collectd* uses udp.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/03/monitor-different-systems-with-munin/" title=" Monitor Different Systems with Munin" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Monitoring,Munin,blog;button:compact;">This is the second part and continuation of the &#8216;Network Monitoring Software Comparison&#8217; series. Here is the link to the first part. Let&#8217;s go ahead and check out our software:...</a>
-</p>
 
  [1]: virtuallyhyper.com/2013/02/monitor-different-systems-with-collectd/
  [2]: http://munin-monitoring.org/

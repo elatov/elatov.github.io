@@ -354,6 +354,3 @@ After setup is complete, perform rediscovery and rescan all storage devices
 	esxcli storage core adapter rescan --adapter=vmhba36  
 	
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/10/vcap5-dca-objective-1-3-configure-and-manage-complex-multipathing-and-psa-plug-ins/" title=" VCAP5-DCA Objective 1.3 – Configure and Manage Complex Multipathing and PSA Plug-ins" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCA,blog;button:compact;">Explain the Pluggable Storage Architecture (PSA) layout From this VMware KB 1011375: Pluggable Storage Architecture (PSA) To manage storage multipathing, ESX/ESXi uses a special VMkernel layer, Pluggable Storage Architecture (PSA)....</a>
-</p>

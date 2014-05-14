@@ -93,6 +93,3 @@ So now it was kind of setup as EST (External Switch Tagging). More information r
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/09/vms-on-portgroup-that-is-tagging-vlan-1-dont-have-network-connectivity/" title=" VMs on PortGroup with VLAN Tag 1, Don&#8217;t Have Network Connectivity" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:802.1Q trunk,CDP,Default VLAN,EST,Trunk Port,VLAN 1,VST,blog;button:compact;">I was running an ESXi host in my home network and I wanted to dedicate on NIC of the ESXi for VM traffic. Since I was planning on having different...</a>
-</p>

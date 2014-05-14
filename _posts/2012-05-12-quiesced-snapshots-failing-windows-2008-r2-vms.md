@@ -50,6 +50,3 @@ Then remove your current version of vmware-tools following the intructions from 
 
 After the ISO is mounted just execute setup.exe to install the older version of vmware-tools. Now your quiesced snapshots should work.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/05/quiesced-snapshots-failing-windows-2008-r2-vms/" title=" Quiesced Snapshots Failing in Windows 2008 R2 VMs" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:ISO,mount ISO,Quiesced Snapshots,vmware-tools,Windows 2008 R2,blog;button:compact;">I ran into a very interesting issue. Whenever we took a quiesced snapshot of Windows 2008 R2 VMs running on an ESX 4.1U2 host we saw the following error in...</a>
-</p>

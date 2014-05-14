@@ -47,6 +47,3 @@ This is a reference on how to to Update the AWS CLI tools running on Linux. This
     aws-cli/0.8.1 Python/2.6.8 Linux/3.2.37-2.47.amzn1.x86_64
     
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/04/how-to-update-the-aws-cli-tools-linux/" title=" How to Update the AWS CLI Tools (Linux)" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:aws,cli,ec2,linux,vtip,blog;button:compact;">How to Update the AWS CLI Tools (Linux) This is a reference on how to to Update the AWS CLI tools running on Linux. This is specifically for the AWS...</a>
-</p>

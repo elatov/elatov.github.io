@@ -343,6 +343,3 @@ For the VM it self, you can go &#8220;Edit Settings&#8221; of the VM and then go
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/10/vm_swap_setting.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/10/vm_swap_setting.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/10/vm_swap_setting.png" alt="vm swap setting VCAP5 DCA Objective 3.2 – Optimize Virtual Machine Resources " title="vm_swap_setting" width="696" height="615" class="alignnone size-full wp-image-4615" /></a>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/11/vcap5-dca-objective-3-2-optimize-virtual-machine-resources/" title=" VCAP5-DCA Objective 3.2 – Optimize Virtual Machine Resources" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCA,blog;button:compact;">Compare and contrast virtual and physical hardware resources From &#8220;Transform your Business with Virtualization&#8220;: What is a Virtual Machine? A virtual machine is a tightly isolated software container that can...</a>
-</p>

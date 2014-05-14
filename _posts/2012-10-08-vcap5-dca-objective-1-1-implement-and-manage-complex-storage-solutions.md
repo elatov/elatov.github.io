@@ -923,6 +923,3 @@ Also from the same guide:
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/10/vcap5-dca-objective-1-1-implement-and-manage-complex-storage-solutions/" title=" VCAP5-DCA Objective 1.1 – Implement and Manage Complex Storage Solutions" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCA,blog;button:compact;">Identify the three admission control policies for HA From vSphere Availability ESXi 5.0: vSphere HA Admission Control vCenter Server uses admission control to ensure that sufficient resources are available in...</a>
-</p>

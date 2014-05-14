@@ -203,6 +203,3 @@ After logging in you can manage everything graphically.
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/installing-openvz-on-centos-6-in-an-esxi-5-vm/" title=" Installing OpenVZ on CentOS 6 in an ESXi 5 VM" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:hypervisor,nested,openvz,selinux,sysctl,vzctl,blog;button:compact;">Most of the information is covered in Security-Enhanced Linux Guide. From the guide here is what SELinux is: Security-Enhanced Linux (SELinux) is an implementation of a mandatory access control mechanism...</a>
-</p>

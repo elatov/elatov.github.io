@@ -94,6 +94,3 @@ and here is another flow chart for VM memory issues:
 
 If you discover then the VM needs more resources, then follow the instruction laid out in <a href="http://virtuallyhyper.com/2012/11/vcap5-dca-objective-3-2-optimize-virtual-machine-resources/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/11/vcap5-dca-objective-3-2-optimize-virtual-machine-resources/']);">VCAP5-DCA Objective 3.2</a> to hot add memory or CPU
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-2-troubleshoot-cpu-and-memory-performance/" title=" VCAP5-DCA Objective 6.2 – Troubleshoot CPU and Memory Performance" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCA,blog;button:compact;">Identify resxtop/esxtop metrics related to memory and CPU From &#8220;vSphere Monitoring and Performance&#8220;, here are the CPU counters: Here are more of CPU counters: From the same pdf, here are...</a>
-</p>

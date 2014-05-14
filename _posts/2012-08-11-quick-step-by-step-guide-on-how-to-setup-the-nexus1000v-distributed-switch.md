@@ -449,6 +449,3 @@ Then on your host you will see the following:
 
 Notice the Mode of the physical port is &#8216;A&#8217;, which in production will never work out, but in the lab it will be fine.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/quick-step-by-step-guide-on-how-to-setup-the-nexus1000v-distributed-switch/" title=" Quick Step by Step Guide on how to Setup the Nexus1000v Distributed Switch" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Control VLAN,Management VLAN,Nexus1000v,Packet VLAN,Port-Profiles,vCenter Plugin-Manager,VEM,vemcmd,vethernet,Virtual Ethernet Module,Virtual Supervisor Module,VSM,blog;button:compact;">In this example I used version 4.2(1)SV1(5.1) of the Nexus. First and foremost download the Nexus1000v software. Once you logged in to your Cisco account and found the download, it...</a>
-</p>

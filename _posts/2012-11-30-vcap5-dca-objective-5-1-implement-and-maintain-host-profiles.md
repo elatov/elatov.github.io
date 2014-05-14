@@ -194,6 +194,3 @@ Also here is how editing the answer file looks like, by selecting &#8220;Update 
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/update_answer_files.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/update_answer_files.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/11/update_answer_files.png" alt="update answer files VCAP5 DCA Objective 5.1 – Implement and Maintain Host Profiles" title="update_answer_files" width="995" height="734" class="alignnone size-full wp-image-5067" /></a>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/11/vcap5-dca-objective-5-1-implement-and-maintain-host-profiles/" title=" VCAP5-DCA Objective 5.1 – Implement and Maintain Host Profiles" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCA,blog;button:compact;">Use Profile Editor to edit and/or disable policies From &#8220;vSphere Host Profiles ESXi 5.0&#8220;: Access Host Profiles View The Host Profiles main view lists all available profiles. Administrators can also...</a>
-</p>

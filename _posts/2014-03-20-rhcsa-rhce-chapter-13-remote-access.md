@@ -571,6 +571,3 @@ Lastly to confirm it&#8217;s not running:
     user1     2704  2610  0 12:10 pts/0    00:00:00 grep vnc
     
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2014/03/rhcsa-rhce-chapter-13-remote-access/" title=" RHCSA and RHCE Chapter 13 – Remote Access" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:OpenSSH,rhcsa_and_rhce,VNC,blog;button:compact;">OpenSSH There are a couple of ways to manage RHEL machines. The primary one is over SSH. SSH is described in the Deployment Guide. From the Deployment Guide: SSH (Secure...</a>
-</p>

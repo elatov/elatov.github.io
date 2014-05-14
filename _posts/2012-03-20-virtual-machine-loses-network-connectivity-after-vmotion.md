@@ -94,6 +94,3 @@ These steps can be repeated for however many vmnics you have attached to the por
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/03/virtual-machine-loses-network-connectivity-after-vmotion/" title=" Virtual Machine Gets Disconnected After vMotion" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:network,troubleshooting,vmnic,vmotion,blog;button:compact;">Recently, I wrote up an article about VMware Snapshot Troubleshooting. In the article we discussed how to do some basic snapshot troubleshooting. Today, we will look a little deeper into...</a>
-</p>

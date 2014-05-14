@@ -74,6 +74,3 @@ All of the above were taken from <a href="http://ptgmedia.pearsoncmg.com/images/
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/12/rhcsa-and-rhce-study-guide/" title=" RHCSA and RHCE Study Guide" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:rhcsa_and_rhce,blog;button:compact;">OpenSSH There are a couple of ways to manage RHEL machines. The primary one is over SSH. SSH is described in the Deployment Guide. From the Deployment Guide: SSH (Secure...</a>
-</p>

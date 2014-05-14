@@ -110,6 +110,3 @@ The output was much larger. This only works for ESX and not for ESXi and as the 
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/04/enabling-more-host-resources-information-from-the-net-snmp-mib-on-esx-classic/" title=" Enabling More Host-Resources Information from the Net-SNMP MIB on ESX Classic" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:ESX,ESXi,Host_Resources_MIB,net-snmp,snmpwalk,blog;button:compact;">Recently I received a call from a European customer saying that they were having performance issues with their VMs. Whenever I hear performance issues, I automatically think esxtop. To check...</a>
-</p>

@@ -76,6 +76,3 @@ We were on 5.0, so we ran the top command. After running the above command the m
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/11/receiving-failed-write-command-to-write-quiesced-partition-messages-when-utilizing-qlogic-qmi8142-cna/" title=" Receiving &#8221; Failed write command to write-quiesced partition&#8221; Messages When Utilizing Qlogic QMI8142 CNA" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:FCoE,HS22V,ibm,interrupt remmaping,MSI-X,qlogic,QMI8142,blog;button:compact;">I was experiencing a lot of disconnects from my storage over FCoE when using HP Blades with a NC553i CNA card. During the issue, I would see the following in...</a>
-</p>

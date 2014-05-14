@@ -128,6 +128,3 @@ Confirm that it is now running on the RDM.
 
 Everything worked as I had hoped. I would not use this in a production environment as it has not been fully vetted, but it is nice to know that the option is there.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/converting-a-vmdk-to-an-rdm-while-the-vm-is-powered-on/" title=" Converting a VMDK to an RDM while the VM is powered on" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:clone,RDM,storage vmotion,vim-cmd,Virtual RDM,vmkfstools,blog;button:compact;">I recently had a customer that inadvertently converted his virtual RDM to virtual disks. He had storage vMotioned the VM and the disks were converted to VMDKs. There are many...</a>
-</p>

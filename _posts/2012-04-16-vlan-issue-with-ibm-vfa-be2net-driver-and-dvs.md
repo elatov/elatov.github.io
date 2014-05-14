@@ -117,6 +117,3 @@ It looks like the issue is resolved in a future release of the driver.
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/04/vlan-issue-with-ibm-vfa-be2net-driver-and-dvs/" title=" VLAN issue with IBM VFA, be2net driver, and DVS" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:be2net,dvs,ibm,portgroups,vfa,vlan,vmnic,blog;button:compact;">After updating our HP Virtual Connect firmware to version 3.60, our ESXi host we would see the following PSOD after a certain amount of time: Here is the actual backtrace:...</a>
-</p>

@@ -181,6 +181,3 @@ The clone above succeeded so I created a new VM and attached the disk to it. If 
 
 In this case, powering up the new VM works. So now it is time to check the consistency of the data in the guest OS. I would advise asking the application administrator to verify this for you.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/04/accidently-changed-the-disk-size-when-the-vm-was-running-on-snapshots/" title=" Accidently Changed the Disk Size when the VM was Running on Snapshots" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:clone,command line,failed to open parent,snapshots,vmdk,vmkfstools,blog;button:compact;">Changing the size of a base VMDK when the VM is running on snapshots is a very common issue. The best way to ensure that this does not happen is...</a>
-</p>

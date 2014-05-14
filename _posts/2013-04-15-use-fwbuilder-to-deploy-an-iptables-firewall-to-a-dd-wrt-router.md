@@ -684,6 +684,3 @@ Now I have completely replaced the default **iptables** firewall on the DD-WRT R
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/04/use-fwbuilder-to-deploy-an-iptables-firewall-to-a-dd-wrt-router/" title=" Use FWBuilder to Deploy an IPtables Firewall to a DD-WRT Router" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:DD-WRT,FWBuilder,NAT,blog;button:compact;">I decided to install Snort on Debian. By default the debian apt sources do have a snort package but it&#8217;s out of date. Snort Version on Debian Here is the...</a>
-</p>

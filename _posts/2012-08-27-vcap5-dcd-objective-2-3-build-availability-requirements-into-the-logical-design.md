@@ -149,6 +149,3 @@ There is also an excellent VMware course on this:
 
 If you are a VMware Employee it&#8217;s free <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile VCAP5 DCD Objective 2.3 – Build Availability Requirements into the Logical Design " class="wp-smiley" title="VCAP5 DCD Objective 2.3 – Build Availability Requirements into the Logical Design " /> 
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-2-3-build-availability-requirements-into-the-logical-design/" title=" VCAP5-DCD Objective 2.3 – Build Availability Requirements into the Logical Design" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCD,blog;button:compact;">Understand what logical availability services are provided by VMware solutions From this blog: VMware Availability Services vSphere High Availability (HA) minimizes your downtime by restarting virtual machines on remaining hosts...</a>
-</p>

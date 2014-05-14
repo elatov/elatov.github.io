@@ -138,6 +138,3 @@ The benefits of this command come in when there are many snapshots and when we w
 
 If the &#8220;vmkfstools -v 10 -q vmname.vmdk&#8221; command is able to open the whole chain, you can commit the snapshots or clone the VMDK. The procedures for committing and cloning are explained in &#8220;<a title="VMware Snapshot Troubleshooting" href="http://virtuallyhyper.com/?p=703" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/?p=703']);">VMware Snapshot Troubleshooting</a>&#8220;. If there are problems with the chain, an upcoming post &#8220;Advanced Snapshot Troubleshooting: Invalid PID/CID chain&#8221; should address some of these issues.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/04/advanced-snapshot-troubleshooting-non-linear-vmware-snapshot-chain/" title=" Advanced Snapshot Troubleshooting: Non-Linear VMware Snapshot Chain" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:clone,command line,snapshots,troubleshooting,vmkfstools,blog;button:compact;">Recently, I wrote up an article about VMware Snapshot Troubleshooting. In the article we discussed how to do some basic snapshot troubleshooting. Today, we will look a little deeper into...</a>
-</p>

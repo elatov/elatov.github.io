@@ -218,6 +218,3 @@ In the same Cluster Settings Window you can edit DRS options as well. Here is ho
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/10/DRS_Advanced_options.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/10/DRS_Advanced_options.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/10/DRS_Advanced_options.png" alt="DRS Advanced options VCAP5 DCA Objective 3.1 – Tune and Optimize vSphere Performance " title="DRS_Advanced_options" width="708" height="582" class="alignnone size-full wp-image-4585" /></a>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/11/vcap5-dca-objective-3-1-tune-and-optimize-vsphere-performance/" title=" VCAP5-DCA Objective 3.1 – Tune and Optimize vSphere Performance" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCA,blog;button:compact;">Identify appropriate BIOS and firmware setting requirements for optimal ESXi host performance From &#8220;Performance Best Practices for VMware vSphere 5.0&#8220;: General BIOS Settings Make sure you are running the latest...</a>
-</p>

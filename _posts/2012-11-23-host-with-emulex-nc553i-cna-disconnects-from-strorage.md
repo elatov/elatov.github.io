@@ -76,6 +76,3 @@ The firmware fixes another issue as well:
 
 Here is the <a href="http://h20000.www2.hp.com/bizsupport/TechSupport/SoftwareDescription.jsp?lang=en&#038;cc=lamerica_nsc_carib&#038;prodTypeId=329290&#038;prodSeriesId=4324629&#038;swItem=co-106538-1&#038;prodNameId=4324630&#038;swEnvOID=54&#038;swLang=8&#038;taskId=135&#038;mode=4&#038;idx=1&#038;adid=10428184&#038;affpid=3662453&#038;aoid=35252" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://h20000.www2.hp.com/bizsupport/TechSupport/SoftwareDescription.jsp?lang=en&cc=lamerica_nsc_carib&prodTypeId=329290&prodSeriesId=4324629&swItem=co-106538-1&prodNameId=4324630&swEnvOID=54&swLang=8&taskId=135&mode=4&idx=1&adid=10428184&affpid=3662453&aoid=35252']);">link</a> to the firmware. After installing the firmware, the disconnects stopped occurring.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/11/host-with-emulex-nc553i-cna-disconnects-from-strorage/" title=" ESX(i) Host with Emulex NC553i CNA Disconnects from Strorage" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:4.1.402.20,CNA,DID_REQUEUE,FCoE,H:0xb,NC553i,blog;button:compact;">I was experiencing a lot of disconnects from my storage over FCoE when using HP Blades with a NC553i CNA card. During the issue, I would see the following in...</a>
-</p>

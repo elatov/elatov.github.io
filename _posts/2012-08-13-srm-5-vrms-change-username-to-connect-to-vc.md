@@ -85,6 +85,3 @@ If everything was done correctly, the VRMS should connect back to vCenter and co
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/srm-5-vrms-change-username-to-connect-to-vc/" title=" Changing the User and Password that VRMS Uses to Connect to vCenter" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:command line,python,SQL,srm,VRMS,vSphere Replication,blog;button:compact;">I wrote a previous post about running subsonic. I really liked the software cause it uses the file system directory structure as your music library. I have a lot of...</a>
-</p>

@@ -229,6 +229,3 @@ After that, whatever Storage DRS settings you setup will be applied.
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/10/vcap5-dca-objective-1-2-manage-storage-capacity-in-a-vsphere-environment/" title=" VCAP5-DCA Objective 1.2 – Manage Storage Capacity in a vSphere Environment" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCA,blog;button:compact;">Explain the Pluggable Storage Architecture (PSA) layout From this VMware KB 1011375: Pluggable Storage Architecture (PSA) To manage storage multipathing, ESX/ESXi uses a special VMkernel layer, Pluggable Storage Architecture (PSA)....</a>
-</p>

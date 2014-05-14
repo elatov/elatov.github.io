@@ -652,6 +652,3 @@ Here is example usage:
 > 1.  Run the **semanage fcontext -a options file-name|directory-name** command, remembering to use the full path to the file or directory.
 > 2.  Run the **restorecon -v file-name|directory-name** command to apply the context changes.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2014/03/rhcsa-rhce-chapter-11-selinux/" title=" RHCSA and RHCE Chapter 11 &#8211; SELinux" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:RHCE,RHCSA,selinux,blog;button:compact;">Most of the information is covered in Security-Enhanced Linux Guide. From the guide here is what SELinux is: Security-Enhanced Linux (SELinux) is an implementation of a mandatory access control mechanism...</a>
-</p>

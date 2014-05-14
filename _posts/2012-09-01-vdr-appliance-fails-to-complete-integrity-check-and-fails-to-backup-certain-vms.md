@@ -288,6 +288,3 @@ I also noticed that earlier in the day this occured in the logs:
 
 It looks like we had backups going but they didn&#8217;t finish by 8 AM, which is when our backup windows stops, so the jobs were forcefully stopped. That can cause the Intergrity check to fail since we had data that was half backed up. After we increased our backup window, the Integrity Check stopped failing, since all the VMs had enough time to be backed up.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/09/vdr-appliance-fails-to-complete-integrity-check-and-fails-to-backup-certain-vms/" title=" VDR Appliance Fails to Complete Integrity Check and Fails to Backup Certain VMs" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:BackupUnusedData,CBT,Change Block Tracking,datarecovery.ini,DedupeFullIgnoreDataCheck,DedupeIncrementalDoDataCheck,Integrity Check,Quiesced Snapshots,RDM,Recatalog,snapshots,vami,vdr,Virtual Hardware,blog;button:compact;">I recently ran into an issue with the VMware VDR appliance. The Integrity Check was failing and a VM (the Email Server VM) was failing to successfully back up. First...</a>
-</p>

@@ -192,6 +192,3 @@ Or we can use replay mode:
 >         esxtop -R VM-SUPPORT_DIR_PATH
 >         
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/11/vcap5-dca-objective-3-4-utilize-advanced-vsphere-performance-monitoring-tools/" title=" VCAP5-DCA Objective 3.4 – Utilize Advanced vSphere Performance Monitoring Tools" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCA,blog;button:compact;">Identify hot keys and fields used with resxtop/esxtop If you launch Esxtop and type &#8216;h&#8216; it will show you the following: The most important ones are: c = cpu m...</a>
-</p>

@@ -1287,6 +1287,3 @@ From the deployment guide:
 > 
 > Each time the system boots, the init program runs the **/etc/rc.d/rc.sysinit** script. This script contains a command to execute **sysctl** using **/etc/sysctl.conf** to determine the values passed to the kernel. Any values added to **/etc/sysctl.conf** therefore take effect each time the system boots.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/07/rhcsa-and-rhce-chapter-10-the-kernel/" title=" RHCSA and RHCE Chapter 10 &#8211; The Kernel" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:RHCE,RHCSA,RHEL,blog;button:compact;">Kernel The kernel is a very complex concept, I will try to use some references to put it all together. From Important parts of the kernel: The Linux kernel consists...</a>
-</p>

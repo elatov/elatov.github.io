@@ -216,6 +216,3 @@ Since the apt-xapian-index just indexes all the aptitude packages, I didn&#8217;
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/04/ubuntu-11-10-vms-experience-high-storage-latency-on-esxi-5-0/" title=" Ubuntu 11.10 VMs Experience High Storage Latency on ESXi 5.0" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:apt-xapian-index,esxtop,io latency,iostat,ubuntu,blog;button:compact;">I came across an interesting issue the other day. I would randomly see high KAVG and QAVG on my ESX hosts. It would look something like this: We can see...</a>
-</p>

@@ -55,6 +55,3 @@ In our specific case we noticed that 60% into the backup process, it would rever
 
 If you only have a single disk on the backup proxy, you can add small &#8220;placeholder&#8221; disks to add additional SCSI controllers. To add another controller, you need to add a new disk, or move an existing disk to another SCSI slot. To move a disk to another SCSI Controller, change the controller to SCSI 1:* (i.e SCSI 1:0) for that specific virtual disk, at that point ESX will automatically add a new controller.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/backup-software-failing-back-to-nbd-when-using-hotadd/" title=" Backup Software Fails Back to NBD When Using HotAdd" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Backups,Hot-add,NBD,blog;button:compact;">During a backup window, random Virtual Machines (VMs) would fail back to NBD mode instead of using HotAdd. This occurred on 60% of the VMs every night, but the VMs...</a>
-</p>

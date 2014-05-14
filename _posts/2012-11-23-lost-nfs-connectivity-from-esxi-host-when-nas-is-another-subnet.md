@@ -91,6 +91,3 @@ So here is how the network looked like:
 
 In the beginning we were connecting through the top switch (mgmt\_switch) and since the new security in place, we couldn&#8217;t go that way. After we added the static route, we were connecting through the bottom switch (NFS\_Switch) and that is the way it&#8217;s supposed to be. I realize the setup is not the best, and the best way to fix this would be to put the NAS server on the same network (10.178.46.x) as the NFS interface (for performance and security reasons) but some times the physical setup is outside of our control.
 
-<p class="wp-flattr-button">
-	  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/11/lost-nfs-connectivity-from-esxi-host-when-nas-is-another-subnet/" title=" Lost NFS Connectivity from ESX(i) Host when NAS is Another Subnet" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:esxcfg-nas,esxcfg-route,nfs,NFS Disconnect,RPC error 13,static route,blog;button:compact;">All of a sudden on my ESXi host we saw a disconnect from our NAS. I saw the following in the logs:  Nov 8 10:10:53 vmkernel: O:O1:19:58.809 cpu10:4922)WARNING: NFS:...</a>
-	</p>

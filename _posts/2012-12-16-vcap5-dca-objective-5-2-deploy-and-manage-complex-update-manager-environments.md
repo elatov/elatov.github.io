@@ -609,6 +609,3 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 >             
 >             <a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/vum_utility.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/12/vum_utility.png']);"><img class="alignnone size-full wp-image-5223" title="vum_utility" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/vum_utility.png" alt="vum utility VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="556" height="291" /></a>
 >             
->             <p class="wp-flattr-button">
->               <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/12/vcap5-dca-objective-5-2-deploy-and-manage-complex-update-manager-environments/" title=" VCAP5-DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCA,blog;button:compact;">Identify firewall access rules for Update Manager From &#8220;Installing and Administering VMware vSphere Update Manager&#8220;, here is table of ports used by update manager: Install and configure Update Manager Download...</a>
->             </p>

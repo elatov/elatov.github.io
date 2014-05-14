@@ -69,6 +69,3 @@ If you want more information on Service Catalog, I would suggest reading this pa
 
 *   <a href="http://communities.vmware.com/docs/DOC-17410" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/docs/DOC-17410']);">ITIL v3 Introduction and Overview</a>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-2-1-map-business-requirements-to-the-logical-design/" title=" VCAP5-DCD Objective 2.1 –Map Business Requirements to the Logical Design" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCD,blog;button:compact;">Explain the common components of logical design I covered this in the previous objective, but I will use the same material: Logical Design Design includes relationships between all major components...</a>
-</p>

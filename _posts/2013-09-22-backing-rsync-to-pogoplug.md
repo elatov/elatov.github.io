@@ -953,6 +953,3 @@ After it&#8217;s all done, here is all my backed up data:
 
 All the backups, under 7GB&#8230; not bad.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/09/backing-rsync-to-pogoplug/" title=" Backing Up with Rsync to Pogoplug" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:optware,pogoplug,rsync,blog;button:compact;">PogoPlug Series 4 Someone had given me a PogoPlug Series 4 (PogoPlug_Series4) and I wanted to utilize it to it&#8217;s full potential. PogoPlug is a small computer (running an embedded...</a>
-</p>

@@ -124,6 +124,3 @@ So these version of the drivers are available:
 
 Even though version &#8220;13.10.02.00.1vmw&#8221; wasn&#8217;t on HCL for this device, we went ahead and installed it on our hardware and the PSODs haven&#8217;t happened for over two weeks now. Here is the <a href="https://my.vmware.com/web/vmware/details?downloadGroup=DT-ESXI50-LSI-mpt2sas-131002001vmw&productId=24" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://my.vmware.com/web/vmware/details?downloadGroup=DT-ESXI50-LSI-mpt2sas-131002001vmw&productId=24']);">link</a> to that driver. Hopefully this helps someone out.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/psod-failed-at-vmkdriverssrc_9vmklinux_9vmwarelinux_scsi-c2221-not-reached/" title=" PSOD Failed at vmkdrivers/src_9/vmklinux_9/vmware/linux_scsi.c:2221 — NOT REACHED" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:esxcfg-info,IBM x3690 X5,LSI2008,mpt2sas,PSOD,blog;button:compact;">I recently ran into the following PSOD: Some other people in the VMware communities have seen the same PSOD. Here is a link to the communities page. We are crashing...</a>
-</p>

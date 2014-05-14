@@ -498,6 +498,3 @@ Now let&#8217;s do the actual LDAP query with MozLDAP over LDAPS:
 
 Now we have confirmed in many different ways that LDAPS on the AD server is working.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/06/enabling-ldaps-on-windows-2008-active-directory-server/" title=" Enabling LDAPS on Windows 2008 Active Directory Server" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:Active Directory,MozLDAP,OpenLDAP,blog;button:compact;">I installed Active Directory by selecting the &#8220;Active Directory Domain Services&#8221; Role from the Server Manager Dialogue. Step by step instructions can be seen in Deploying a Test Windows Environment...</a>
-</p>

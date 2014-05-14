@@ -56,6 +56,3 @@ This is by design and makes perfect sense. We want all our resources dedicated t
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/04/why-scp-and-dd-from-an-esxi-host-are-not-good-performance-tools/" title=" Why SCP and DD from an ESX(i) Host are not Good Performance Tools" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:dd,io analyzer,netperf,performance,scp,blog;button:compact;">We were following the instructions laid out in VMware KB 1004089 to set a NIC to auto negotiate with the upstream switch. Upon running the command, we would see the...</a>
-</p>

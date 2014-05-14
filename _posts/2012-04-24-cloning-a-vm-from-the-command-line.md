@@ -121,6 +121,3 @@ We know that we copied it, so we answer question 0 with option 2.
 
 The VM powers on and we now have manually cloned the virtual machine from the command line.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/04/cloning-a-vm-from-the-command-line/" title=" Cloning a VM from the Command Line" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:clone,command line,register vm,snapshots,vmdk,vmkfstools,vtip,blog;button:compact;">Creating a new VM and attaching a disk to it can easily be done through the vSphere Client, but it can be more challenging through the command line. In order...</a>
-</p>

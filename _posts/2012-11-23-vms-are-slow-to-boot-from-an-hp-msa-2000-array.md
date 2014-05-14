@@ -48,6 +48,3 @@ Here are the messages that stood out were:
 
 We contacted HP and they mentioned that even though the disk is offline/disabled, it could still be causing an issue. We tried to get a log bundle from the web management interface but it never completed since the array was so slow. HP then suggested to completely remove the disk. After we removed the bad hard driver, the latency subsided and we were able to power on VMs without issues.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/11/vms-are-slow-to-boot-from-an-hp-msa-2000-array/" title=" VMs are Slow to Boot from an HP MSA 2000 Array" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:davg,Drive Channel 0 link degraded,esxtop,HP MSA 2000,qla24xx_abort_command,blog;button:compact;">We were trying to power on a couple of VMs on an ESX 3.5 host and they would take forever to boot. Opening esxtop and checking the latency to the...</a>
-</p>

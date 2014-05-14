@@ -144,6 +144,3 @@ For this objective, I would recommend reading/watching:
 *   <a href="http://professionalvmware.com/2012/04/apac-vbrownbag-follow-up-management-design/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://professionalvmware.com/2012/04/apac-vbrownbag-follow-up-management-design/']);">APAC BrownBag Session 11</a> 
     *   Good recording and discussion on how to manage a vSphere Environment
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-2-4-build-manageability-requirements-into-the-logical-design/" title=" VCAP5-DCD Objective 2.4 – Build Manageability Requirements into the Logical Design" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCD,blog;button:compact;">Understand what management services are provided by VMware solutions The APAC BrownBag Session 11 Slide Deck, covers these, here is a list from the slide deck: vMA vCenter PowerCLI vCLI...</a>
-</p>

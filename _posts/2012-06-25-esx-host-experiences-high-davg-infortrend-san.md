@@ -164,6 +164,3 @@ But I decided to reboot the host to make sure everything worked as expected. Aft
 
 No SATP of *VMW\_SATP\_ALUA* was seen and the DAVG to the array lowered.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/06/esx-host-experiences-high-davg-infortrend-san/" title=" ESX Host Experiences High DAVG to an Infortrend SAN" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:ALUA,claimrules,davg,Infortrend,SATP,blog;button:compact;">I ran into an interesting issue the other day. We were seeing high DAVG to the SAN. I first wanted to find out if the SAN was on the HCL...</a>
-</p>

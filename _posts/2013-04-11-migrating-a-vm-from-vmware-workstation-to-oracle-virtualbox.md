@@ -509,6 +509,3 @@ Notice the &#8220;*&#8221; (star) next to the partition after making it active. 
 
 </root></mb></n></name></type></ovf>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/04/migrating-a-vm-from-vmware-workstation-to-oracle-virtualbox/" title=" Migrating a VM from VMware Workstation to Oracle VirtualBox" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:ovftool,VDDK,VirtualBox,blog;button:compact;">Recently I had migrated laptops and I wanted to move my VMware workstation VMs to VirtualBox. All of my VMs were in the .vmware folder so I just copied that...</a>
-</p>

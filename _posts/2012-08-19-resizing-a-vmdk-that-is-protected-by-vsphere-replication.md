@@ -109,6 +109,3 @@ Finish the wizard and it will configure replication. When it finishes the new si
 	DiskID RDID-4bc95cb4-31aa-4858-9b19-6f2e02ef1393 State: full sync (checksummed 2.0 GB of 11 GB, transferred 688 KB of 688 KB)  
 	
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/resizing-a-vmdk-that-is-protected-by-vsphere-replication/" title=" Resizing a VMDK that is protected by vSphere Replication" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:clone,command line,srm,vmdk,vmkfstools,vSphere Replication,vtip,blog;button:compact;">I have been writing a lot about vSphere Replication recently. I just deployed it again while writing this post and I keep finding limitations of the software. It is a...</a>
-</p>

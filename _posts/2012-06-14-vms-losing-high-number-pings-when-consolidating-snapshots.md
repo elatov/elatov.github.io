@@ -771,6 +771,3 @@ So the snapshot did happen and the unstun took 4 seconds, which was much better 
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/06/vms-losing-high-number-pings-when-consolidating-snapshots/" title=" VMs Losing High Number of Pings When Consolidating Snapshots" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:CBT,Change Block Tracking,EqualLogic PS4100X,IOMeter,Snapshot Consolidation,snapshots,Unstun Time,blog;button:compact;">Someone had asked me recently: What happens if the snapshot consolidation process take a long time and the task is no longer seen in the vShpere client? First I would...</a>
-</p>

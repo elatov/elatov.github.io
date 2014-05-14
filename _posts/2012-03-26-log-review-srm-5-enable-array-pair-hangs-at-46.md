@@ -106,6 +106,3 @@ The next thing to check is to have the user in the administrators group for both
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/03/log-review-srm-5-enable-array-pair-hangs-at-46/" title=" SRM 5 Enable Array Pair Hangs at 46%" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:array pair,dr,logs,sra,srm,blog;button:compact;">Today I ran into an interesting issue. A customer called in saying that his VMs are down and some of his Datastores are showing up as snapshots. Looking at the...</a>
-</p>

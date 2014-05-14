@@ -150,6 +150,3 @@ The version in the command matches of what we found in the info file above. That
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/03/install-chrubuntu-12-04-on-samsung-chromebook/" title=" Install ChrUbuntu 12.04 on Samsung Chromebook" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:ChromeBook,ChrUbuntu,blog;button:compact;">The update process is not as smooth as the install process which I blogged about here. Most of the instructions are laid at the following two sites: How to update...</a>
-</p>

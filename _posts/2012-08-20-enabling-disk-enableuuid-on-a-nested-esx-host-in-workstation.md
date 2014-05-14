@@ -304,6 +304,3 @@ Either option you choose, after it&#8217;s said and done you should see your loc
 
 Notice your local drive has an NAA ID while your cd-rom remained with the mpx ID.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/enabling-disk-enableuuid-on-a-nested-esx-host-in-workstation/" title=" Enabling disk.EnableUUID on a Nested ESX Host in Workstation" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:disk.enableuuid,esxcfg-volume,ForceMount VMFS,Persistent Mount VMFS,Resignature VMFS,Snapshot LUN,VMFS UUID,VPD Pages,vsd-mount,blog;button:compact;">As I was writing this blog post about VPD (Vital Product Data) Pages, I ended up breaking my test ESX host for a little bit. By default virtual disks presented...</a>
-</p>

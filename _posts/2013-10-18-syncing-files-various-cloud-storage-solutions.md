@@ -695,6 +695,3 @@ This definitely fit my needs and I was happy with the setup. Lastly you can chec
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/10/seafile_client_browser.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/10/seafile_client_browser.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/10/seafile_client_browser.png" alt="seafile client browser Syncing Files with Various Cloud Storage Solutions" width="639" height="191" class="alignnone size-full wp-image-9673" title="Syncing Files with Various Cloud Storage Solutions" /></a>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/10/syncing-files-various-cloud-storage-solutions/" title=" Syncing Files with Various Cloud Storage Solutions" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:cloud storage,seacloud,seafile,blog;button:compact;">A while ago I wrote this post on how to use Grive. Grive is a cross platform/architecture client that allowed me to sync files with Google Drive. I really liked...</a>
-</p>

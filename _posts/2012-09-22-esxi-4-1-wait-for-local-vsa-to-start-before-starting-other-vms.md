@@ -182,6 +182,3 @@ You will see it power on the VM, then wait for at least 30 seconds. After this y
 
 Now go ahead and reboot the server and confrim that everything comes up correctly. In my case, the VSA comes online and then it waits long enough to have the LUNs presented before continuing to boot.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/09/esxi-4-1-wait-for-local-vsa-to-start-before-starting-other-vms/" title=" ESXi 4.1 Wait for Local VSA to Start Before Starting Other VMs" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:ash,auto-backup.sh,boot,command line,ESXi,rc.local,script,vim-cmd,VSA,blog;button:compact;">I have an interesting siuation in my lab. I have a ESXi 4.1U2 host that uses PCI passthrough to a VSA to provide the storage for the host. The problem...</a>
-</p>

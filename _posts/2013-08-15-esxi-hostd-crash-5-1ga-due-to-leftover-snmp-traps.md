@@ -176,6 +176,3 @@ For now we disabled SNMP logging and also cleaned up the left over SNMP files:
 
 After we update to 5.1U1, I am sure the issue will be fixed.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/08/esxi-hostd-crash-5-1ga-due-to-leftover-snmp-traps/" title=" ESXi hostd Crash (5.1GA) Due to Leftover SNMP Traps" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:hostd,snmp,VMware,blog;button:compact;">ESXi hostd Crash (5.1GA) Due to Leftover SNMP Traps One day I tried to open console on a VM and I got the MKS error: I logged into the host...</a>
-</p>

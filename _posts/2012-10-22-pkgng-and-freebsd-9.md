@@ -107,6 +107,3 @@ and lastly recompile your port management tool to do the same. I use *portmaster
 
 Now every time you install a new port with *portmaster* it will be registered with the new *pkgng* database and you can use the above commands to query all the information you need.
 
-<p class="wp-flattr-button">
-	  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/10/pkgng-and-freebsd-9/" title=" Pkgng and Freebsd 9" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:freebsd,make config,make showconfig,pkg,pkg2ng,pkgng,portmaster,blog;button:compact;">I updated my portmaster package the other day and I saw the following message:  elatov@freebsd:~>pkg info -D -x portmaster If you are upgrading from the old package format, there...</a>
-	</p>

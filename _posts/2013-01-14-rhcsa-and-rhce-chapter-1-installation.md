@@ -624,6 +624,3 @@ And here is how it looked like after I was done:
 
 I did the other installs and configured the network as necessary.
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-1-installation/" title=" RHCSA and RHCE Chapter 1 &#8211; Installation" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:/etc/sysconfig/network,/etc/sysconfig/network-scripts/ifcfg-eth0,MBR,rhcsa_and_rhce,blog;button:compact;">There is a lot of good information in &#8220;Red Hat Enterprise Linux 6 Installation Guide&#8220;. From that Guide: 9&#046;3. Welcome to Red Hat Enterprise Linux The Welcome screen does not...</a>
-</p>

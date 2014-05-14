@@ -115,6 +115,3 @@ I would also suggest to watch the following recordings as well:
 *   <a href="http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap-dcd-study-group/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap-dcd-study-group/']);">APAC VCAP5-DCD BrownBag Session 1</a>
 *   <a href="http://professionalvmware.com/2011/09/brownbag-follow-up-vcap-dcd-objective-1-jason-boche/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://professionalvmware.com/2011/09/brownbag-follow-up-vcap-dcd-objective-1-jason-boche/']);">US VCAP5-DCD BrownBag Objective 1</a>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-1-1-gather-and-analyze-business-requirements/" title=" VCAP5-DCD Objective 1.1 – Gather and analyze business requirements" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCD,blog;button:compact;">Associate a stakeholder with the information that needs to be collected. From the APAC BrownBag Session 1 Slide Deck: From this blog: Project participants (SMEs / Key Stakeholders) A design...</a>
-</p>

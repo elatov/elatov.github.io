@@ -656,6 +656,3 @@ As mentioned above, by default SELinux allows NFS to share directories. I didn&#
 
 On top of SELinux, we can also use TCP wrappers and IPtables (which we did) to limit access to the NFS Shares (both of these topics were covered in <a href="http://virtuallyhyper.com/2014/03/rhcsa-rhce-chapter-12-system-security/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2014/03/rhcsa-rhce-chapter-12-system-security/']);">Chapter 12</a>)
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2014/04/rhcsa-rhce-chapter-15-nfs/" title=" RHCSA and RHCE Chapter 15 – NFS" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:nfs,rhcsa_and_rhce,blog;button:compact;">NFS From the Storage Administration Guide: A Network File System (NFS) allows remote hosts to mount file systems over a network and interact with those file systems as though they...</a>
-</p>

@@ -170,6 +170,3 @@ Finally, we use the new `Origin: https://origin5.joeataws.info` header with a ne
 *   <a href="http://www.html5rocks.com/en/tutorials/cors/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.html5rocks.com/en/tutorials/cors/']);">Good post from html5rocks.com about CORS</a>
 *   <a href="http://matthewgbaldwin.com/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://matthewgbaldwin.com/']);">CloudFront and S3 CORS demo from Matthew Baldwin</a>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/08/cors-with-cloudfront-s3-and-multiple-domains/" title=" CORS with CloudFront, S3, and Multiple Domains" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:aws,cloudfront,cors,s3,blog;button:compact;">Here is a tutorial on how to set up CORS with AWS S3, CloudFront and multiple domains. What is CORS? CORS stands for Cross Origin Resource Sharing and it&#8217;s a...</a>
-</p>

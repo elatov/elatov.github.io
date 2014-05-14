@@ -91,6 +91,3 @@ Use VST and trunk ports on the physical switch and try to isolate your traffic b
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/10/vswitch_example.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/10/vswitch_example.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/10/vswitch_example.png" alt="vswitch example VCAP5 DCA Objective 2.3 – Deploy and Maintain Scalable Virtual Networking " title="vswitch_example" width="477" height="660" class="alignnone size-full wp-image-4271" /></a>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-3-deploy-and-maintain-scalable-virtual-networking/" title=" VCAP5-DCA Objective 2.3 – Deploy and Maintain Scalable Virtual Networking" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCA,blog;button:compact;">Identify VMware NIC Teaming policies From &#8220;vSphere Networking ESXi 5.0&#8221; Edit Failover and Load Balancing Policy for a vSphere Standard Switch Use Load Balancing and Failover policies to determine how...</a>
-</p>

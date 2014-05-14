@@ -448,9 +448,6 @@ Now let’s check that the partition was created correctly.
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/09/recreating-vmfs-partitions-using-hexdump/" title=" Recreating VMFS Partitions using Hexdump" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:cylinders,fdisk,Fdisk Partitions,GPT,hexdump,MBR,partedUtil,partition,partitions,sectors,vmfs,vmfs3,blog;button:compact;">There is a lot of good information in &#8220;Red Hat Enterprise Linux 6 Installation Guide&#8220;. From that Guide: 9&#046;3. Welcome to Red Hat Enterprise Linux The Welcome screen does not...</a>
-</p>
 
  [1]: http://virtuallyhyper.com/wp-content/uploads/2013/05/VMware-PatredUtil-Output.jpg "Recreating VMFS Partitions using Hexdump"
  [2]: http://virtuallyhyper.com/wp-content/uploads/2013/05/VMware-PatredUtil-Output-partition.jpg "Recreating VMFS Partitions using Hexdump"

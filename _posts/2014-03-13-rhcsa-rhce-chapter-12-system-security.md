@@ -1321,6 +1321,3 @@ Also on the rhel2 machine, we will see the following in the logs:
 
 Lastly don&#8217;t forget that you can change default password age and length using the **/etc/login.defs** file. This was covered in <a href="http://virtuallyhyper.com/2013/03/rhcsa-and-rhce-chapter-7-user-administration/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/03/rhcsa-and-rhce-chapter-7-user-administration/']);">RHCSA and RHCE Chapter 7</a>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2014/03/rhcsa-rhce-chapter-12-system-security/" title=" RHCSA and RHCE Chapter 12 – System Security" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:iptables,PAM,RHCE,RHCSA,TCP_Wrappers,blog;button:compact;">TCP Wrappers From the Security Guide: The TCP Wrappers packages (tcp_wrappers and tcp_wrappers-libs) are installed by default and provide host-based access control to network services. The most important component within...</a>
-</p>

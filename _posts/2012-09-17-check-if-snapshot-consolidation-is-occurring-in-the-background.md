@@ -132,6 +132,3 @@ In conclusion there are many ways on how to check if VM is still going through s
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/09/check-if-snapshot-consolidation-is-occurring-in-the-background/" title=" Check if Snapshot Consolidation is Occurring in the Background on an ESX(i) Host" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:delta,powercli,RVtools,Snapshot Consolidation,vCenter Task Time Out,vCheck,VM Task,VMware Snapshots,watch,blog;button:compact;">When taking a snapshot with memory, the VM may be unresponsive and the snapshot may take a long time to complete. This is because the ESX host has to dump...</a>
-</p>

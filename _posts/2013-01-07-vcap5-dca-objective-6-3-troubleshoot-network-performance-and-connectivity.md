@@ -470,6 +470,3 @@ Here are the rest of the options:
 >     
 >     <a href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-3-troubleshoot-network-performance-and-connectivity/dcui_options/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-3-troubleshoot-network-performance-and-connectivity/dcui_options/']);" rel="attachment wp-att-5331"><img class="alignnone size-full wp-image-5331" alt="dcui options VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/dcui_options.png" width="1011" height="239" title="VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity " /></a>
 >     
->     <p class="wp-flattr-button">
->       <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-3-troubleshoot-network-performance-and-connectivity/" title=" VCAP5-DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:VCAP5-DCA,blog;button:compact;">Identify vCLI commands and tools used to troubleshoot vSphere networking configurations This was covered in &#8220;VCAP5-DCA Objective 2.1&#8221; Identify logs used to troubleshoot network issues Here is a good summary:...</a>
->     </p>

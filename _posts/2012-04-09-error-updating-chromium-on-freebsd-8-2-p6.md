@@ -110,6 +110,3 @@ And that would forcefully recompile all of your packages.
   </ul>
 </div>
 
-<p class="wp-flattr-button">
-  <a class="FlattrButton" style="display:none;" href="http://virtuallyhyper.com/2012/04/error-updating-chromium-on-freebsd-8-2-p6/" title=" Error updating Chromium on FreeBSD 8.2-p6" rev="flattr;uid:virtuallyhyper;language:en_GB;category:text;tags:chromium,freebsd,gcc,ports,portupgrade,blog;button:compact;">I decided to run some VMs on my FreeBSD server. Checking over this wikipedia page, it seems that KVM, QUME, and VirtualBox were my only options. I remember using VirtualBox...</a>
-</p>
