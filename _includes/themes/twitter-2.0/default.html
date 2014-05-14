@@ -44,23 +44,9 @@
           <a class="brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
           <div class="nav-collapse">
             <ul class="nav">
-              {% assign pages_list = site.pages %}
-              {% assign group = 'navigation' %}
-              {% include JB/pages_list %}
+		{% include themes/twitter-2.0/nav.html %}
             </ul>
           </div><!--/.nav-collapse -->
-		  <div id='cssmenu'>
-		  <ul>
-		     <li class='has-sub last'><a href=''><span>Certifications</span></a>
-		        <ul>
-		                 <li><a href='{{ BASE_PATH }}/2012/08/vcap5-dcd/'><span>VCAP-DCD</span></a></li>
-		                 <li><a href='{{ BASE_PATH }}/2012/09/vcap5-dca/'><span>VCAP-DCA</span></a></li>
-		                 <li><a href='{{ BASE_PATH }}/2012/12/rhcsa-and-rhce-study-guide/'><span>RHCSA_RHCE</span></a></li>
-		           </li>
-		        </ul>
-		     </li>
-		  </ul>
-		  </div><!--/cssmenu -->
         </div>
       </div>
     </div>

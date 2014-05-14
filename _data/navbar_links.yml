@@ -1,0 +1,18 @@
+- name: "Archive"
+  url: "/archive.html"
+
+- name: "Categories"
+  url: "/categories.html"
+
+- name: "Search"
+  url: "/search.html"
+
+- name: "Certifications"
+  child_links:
+    - name: "VCAP_DCD"
+      url: "/articles/"
+    - name: "VCAP_DCD"
+      url: "/blog/"
+      divider: true
+    - name: "RHCSA_RCHE"
+      url: "/art/"
