@@ -188,7 +188,7 @@ Next I wanted to try a similar test between the **omnios** machine and the **ESX
     Starting netserver at hostname 0.0.0.0 port 12865 and family AF_UNSPEC
     
 
-Then I copied the old binary to the ESXi machine and it still worked out <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile ZFS iSCSI Benchmark Tests on ESX" class="wp-smiley" title="ZFS iSCSI Benchmark Tests on ESX" /> Here are my results:
+Then I copied the old binary to the ESXi machine and it still worked out :) Here are my results:
 
     ~ # /tmp/netperf -H zfs
     TCP STREAM TEST to zfs
@@ -317,7 +317,7 @@ I then installed a windows VM and installed **IOmeter** on it. I then added a **
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/12/iometer-results-reg-test1.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/12/iometer-results-reg-test1.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/iometer-results-reg-test1.png" alt="iometer results reg test1 ZFS iSCSI Benchmark Tests on ESX" width="1298" height="542" class="alignnone size-full wp-image-9852" title="ZFS iSCSI Benchmark Tests on ESX" /></a>
 
-That is actually pretty good, I am getting about **105-111 MB/s** for small IO sizes between **4K** and **32K**. We can see that the latency looks good as well **1-9ms**. And of course as the block size increases so does the latency <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile ZFS iSCSI Benchmark Tests on ESX" class="wp-smiley" title="ZFS iSCSI Benchmark Tests on ESX" /> I decided to do a test with larger IO. I modified the test to include **128K-1M** sequential read and writes. Here were the results:
+That is actually pretty good, I am getting about **105-111 MB/s** for small IO sizes between **4K** and **32K**. We can see that the latency looks good as well **1-9ms**. And of course as the block size increases so does the latency :) I decided to do a test with larger IO. I modified the test to include **128K-1M** sequential read and writes. Here were the results:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/12/iometer-big-tests1.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/12/iometer-big-tests1.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/iometer-big-tests1.png" alt="iometer big tests1 ZFS iSCSI Benchmark Tests on ESX" width="1311" height="713" class="alignnone size-full wp-image-9851" title="ZFS iSCSI Benchmark Tests on ESX" /></a>
 
@@ -613,7 +613,7 @@ And checking out my NIC Utilization during the above test:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/12/nic-usage.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/12/nic-usage.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/nic-usage.png" alt="nic usage ZFS iSCSI Benchmark Tests on ESX" width="831" height="125" class="alignnone size-full wp-image-9863" title="ZFS iSCSI Benchmark Tests on ESX" /></a>
 
-Almost the full pipe <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile ZFS iSCSI Benchmark Tests on ESX" class="wp-smiley" title="ZFS iSCSI Benchmark Tests on ESX" /> Lastly here is how the *omnios* **iostat** looked like:
+Almost the full pipe :) Lastly here is how the *omnios* **iostat** looked like:
 
     root@zfs:~# iostat -xM sd1 1
                      extended device statistics                 

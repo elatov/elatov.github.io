@@ -147,5 +147,5 @@ There is also an excellent VMware course on this:
 
 *   <a href="http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&a=one&id_subject=20313" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&a=one&id_subject=20313']);">DRBC Design – Disaster Recovery and Business Continuity Fundamentals</a>
 
-If you are a VMware Employee it's free <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile VCAP5 DCD Objective 2.3 – Build Availability Requirements into the Logical Design " class="wp-smiley" title="VCAP5 DCD Objective 2.3 – Build Availability Requirements into the Logical Design " /> 
+If you are a VMware Employee it's free :) 
 

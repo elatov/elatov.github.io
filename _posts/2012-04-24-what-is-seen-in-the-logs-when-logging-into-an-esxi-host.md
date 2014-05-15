@@ -129,7 +129,7 @@ From the DCUI, you can enable Tech Support Mode (TSM) and then login to get an i
 Now if you login to the ESX or ESXi host via the vsphere client, you will see the following in your /var/log/vmware/hostd.log:
 
 	  
-	\[2012-04-16 20:35:04.594 F6417B90 info 'Vimsvc'\] \[Auth\]: User root  
+	[2012-04-16 20:35:04.594 F6417B90 info 'Vimsvc'] [Auth]: User root  
 	[2012-04-16 20:35:04.594 F6417B90 info 'ha-eventmgr'] Event 35 : User root 10.131.3.116 logged in  
 	
 
@@ -151,9 +151,9 @@ and finally you will see the following in /var/log/secure (only under ESX and no
 If you connect to the vCenter using the vSphere client, you will only see the login attempt on the vCenter it self and not on the ESX(i) host. That will be under C:\Documents and Settings\AllUsers\Application Data\VMware\VMware VirtualCenter\Logs\vpxd.log. You will see the following in the logs:
 
 	  
-	\[2012-04-16 21:42:11.096 02584 info 'App'\] \[VpxLRO\] -- BEGIN task-internal-1788204 \-- -- vim.SessionManager.loginBySSPI -- 0CCF336E-E963-44C9-8AF6-90D4B10EFE74  
-	\[2012-04-16 21:42:11.096 02584 info 'App'\] \[Auth\]: User NETLAB\kelatov  
-	\[2012-04-16 21:42:11.111 02584 info 'App'\] \[VpxLRO\] -- FINISH task-internal-1788204 \-- -- vim.SessionManager.loginBySSPI -- 0CCF336E-E963-44C9-8AF6-90D4B10EFE74  
+	[2012-04-16 21:42:11.096 02584 info 'App'] [VpxLRO] -- BEGIN task-internal-1788204 -- -- vim.SessionManager.loginBySSPI -- 0CCF336E-E963-44C9-8AF6-90D4B10EFE74  
+	[2012-04-16 21:42:11.096 02584 info 'App'] [Auth]: User NETLAB\kelatov  
+	[2012-04-16 21:42:11.111 02584 info 'App'] [VpxLRO] -- FINISH task-internal-1788204 -- -- vim.SessionManager.loginBySSPI -- 0CCF336E-E963-44C9-8AF6-90D4B10EFE74  
 	
 
 **Note:** Log location depends on your Windows version, please consult VMware KB <a href="http://kb.vmware.com/kb/1021804" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1021804']);">1021804</a> to make sure you are looking at the correct location.

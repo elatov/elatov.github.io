@@ -26,19 +26,19 @@ This VMware article <a href="http://www.vmware.com/files/pdf/VMware-DynamicStora
 > <table summary="" border="1" cellspacing="1" cellpadding="1">
 >   <tr>
 >     <td>
->       <strong>VMDK Format</strong>
+>       **VMDK Format**
 >     </td>
 >     
 >     <td>
->       <strong>Space Dedicated</strong>
+>       **Space Dedicated**
 >     </td>
 >     
 >     <td>
->       <strong>Zeroed Out Blocks</strong>
+>       **Zeroed Out Blocks**
 >     </td>
 >     
 >     <td>
->       <strong>Incremental Growth</strong>
+>       **Incremental Growth**
 >     </td>
 >   </tr>
 >   

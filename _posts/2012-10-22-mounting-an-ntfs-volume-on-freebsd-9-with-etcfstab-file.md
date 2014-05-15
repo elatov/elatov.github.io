@@ -131,7 +131,7 @@ Lastly check if the device has been created:
 	  
 	elatov@freebsd:~>ls -l /dev/label/  
 	total 0  
-	crw-r\----- 1 root operator 0, 105 Oct 21 16:41 usb  
+	crw-r----- 1 root operator 0, 105 Oct 21 16:41 usb  
 	
 
 Also a more concise view would look like this:

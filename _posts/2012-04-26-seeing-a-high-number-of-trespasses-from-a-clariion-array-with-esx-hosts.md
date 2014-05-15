@@ -29,10 +29,10 @@ I was recently working with a customer who was experiencing a high number of Tre
 
 	  
 	Apr 19 09:25:54 ESX_Host vmkernel: 0:18:55:02.430 cpu2:4262)VMW_SATP_ALUA: satp_alua_activatePaths: Activation disallowed due to follow-over.  
-	Apr 19 09:36:36 ESX_Host vmkernel: 0:19:05:45.146 cpu0:4478)NMP: nmp_CompleteCommandForPath: Command 0x2a (0x410001032580) to NMP device &quot;naa.60060160467029002acca5f7836fe111&quot; failed on physical path &quot;vmhba2:C0:T1:L3&quot; H:0x0 D:0x2 P:0x0 Valid sense data: 0x6 0x2a 0x6.  
-	Apr 19 09:36:36 ESX_Host vmkernel: 0:19:05:45.146 cpu0:4478)WARNING: NMP: nmp_DeviceRetryCommand: Device &quot;naa.60060160467029002acca5f7836fe111&quot;: awaiting fast path state update for failover with I/O blocked. No prior reservation exists on the device.  
-	Apr 19 09:36:37 ESX_Host vmkernel: 0:19:05:46.147 cpu2:4222)WARNING: NMP: nmp_DeviceAttemptFailover: Retry world failover device &quot;naa.60060160467029002acca5f7836fe111&quot; - issuing command 0x410001032580  
-	Apr 19 09:36:37 ESX_Host vmkernel: 0:19:05:46.147 cpu0:4096)NMP: nmp_CompleteRetryForPath: Retry world recovered device &quot;naa.60060160467029002acca5f7836fe111&quot;  
+	Apr 19 09:36:36 ESX_Host vmkernel: 0:19:05:45.146 cpu0:4478)NMP: nmp_CompleteCommandForPath: Command 0x2a (0x410001032580) to NMP device 'naa.60060160467029002acca5f7836fe111' failed on physical path 'vmhba2:C0:T1:L3' H:0x0 D:0x2 P:0x0 Valid sense data: 0x6 0x2a 0x6.  
+	Apr 19 09:36:36 ESX_Host vmkernel: 0:19:05:45.146 cpu0:4478)WARNING: NMP: nmp_DeviceRetryCommand: Device 'naa.60060160467029002acca5f7836fe111': awaiting fast path state update for failover with I/O blocked. No prior reservation exists on the device.  
+	Apr 19 09:36:37 ESX_Host vmkernel: 0:19:05:46.147 cpu2:4222)WARNING: NMP: nmp_DeviceAttemptFailover: Retry world failover device 'naa.60060160467029002acca5f7836fe111' - issuing command 0x410001032580  
+	Apr 19 09:36:37 ESX_Host vmkernel: 0:19:05:46.147 cpu0:4096)NMP: nmp_CompleteRetryForPath: Retry world recovered device 'naa.60060160467029002acca5f7836fe111'  
 	
 
 The customer had setup the CLARiiON to use ALUA (Assymetric Logical Unit Access) mode (fail over mode 4). From <a href="http://www.emc.com/collateral/hardware/white-papers/h1416-emc-clariion-intgtn-vmware-wp.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.emc.com/collateral/hardware/white-papers/h1416-emc-clariion-intgtn-vmware-wp.pdf']);">EMC CLARiiON Integration with VMware ESX</a>:
@@ -122,7 +122,7 @@ We are getting an *Access State Changed*, and that is expected since this was a 
 the output of the 'nmp device' we saw the following
 
 	  
-	\# esxcli nmp device list -d naa.600601604670290026cca5f7836fe111  
+	# esxcli nmp device list -d naa.600601604670290026cca5f7836fe111  
 	naa.600601604670290026cca5f7836fe111  
 	Device Display Name: DGC Fibre Channel Disk (naa.600601604670290026cca5f7836fe111)  
 	Storage Array Type: VMW_SATP_ALUA_CX  
@@ -189,7 +189,7 @@ and from the above blog:
 Now running the *nmp path* commands, we saw the following:
 
 	  
-	\# esxcli nmp path list -d naa.600601604670290026cca5f7836fe111  
+	# esxcli nmp path list -d naa.600601604670290026cca5f7836fe111  
 	fc.20000000c96eb647:10000000c96eb647-fc.50060160bea038b6:5006016d3ea038b6-naa.600601604670290026cca5f7836fe111  
 	Runtime Name: vmhba2:C0:T1:L1  
 	Device: naa.600601604670290026cca5f7836fe111  
@@ -228,7 +228,7 @@ Optimized Path. The article <a href="http://www.emc.com/collateral/hardware/whit
 > When using Round Robin there is no auto-restore functionality, hence after an NDU all LUNs will end up  
 > on a single SP. A user would need to manually trespass some LUNs to the other SP in order to balance the load. The benefit of Round Robin is that not too many manual setups are necessary during initial setup; by default it uses the optimal path and does primitive load balancing (however, it still sends I/O down only a single path at a time). If multiple LUNs are used in the environment, you might see some performance boost. If you had a script that takes care of the manual trespass issue, then Round Robin would be the way to avoid manual configuration.
 
-It turned out that the SAN Admin was doing some maintenance on the array and was manually trespassing the LUN to perform updates on the SPs. So the above logs were expected and there was nothing to worry about <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Seeing a High Number of Trespasses from a CLARiiON Array with ESX Hosts" class="wp-smiley" title="Seeing a High Number of Trespasses from a CLARiiON Array with ESX Hosts" /> 
+It turned out that the SAN Admin was doing some maintenance on the array and was manually trespassing the LUN to perform updates on the SPs. So the above logs were expected and there was nothing to worry about :) 
 
 <div class="SPOSTARBUST-Related-Posts">
   <H3>

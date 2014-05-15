@@ -232,7 +232,7 @@ Check out one of my <a href="http://virtuallyhyper.com/2012/08/enabling-disk-ena
 > To list the volumes detected as snapshots, run this command:
 > 
 	>   
-	> \# esxcli storage vmfs snapshot list  
+	> # esxcli storage vmfs snapshot list  
 	> 
 > 
 > The output appears similar to:
@@ -251,40 +251,40 @@ Check out one of my <a href="http://virtuallyhyper.com/2012/08/enabling-disk-ena
 > To mount a snapshot/replica LUN that is persistent across reboots, run this command:
 > 
 	>   
-	> \# esxcli storage vmfs snapshot mount -l label|-u uuid  
+	> # esxcli storage vmfs snapshot mount -l label|-u uuid  
 	> 
 > 
 > For example:
 > 
 	>   
-	> \# esxcli storage vmfs snapshot mount -l VMFS_1  
-	> \# esxcli storage vmfs snapshot mount -u 49d22e2e-996a0dea-b555-001f2960aed8  
+	> # esxcli storage vmfs snapshot mount -l VMFS_1  
+	> # esxcli storage vmfs snapshot mount -u 49d22e2e-996a0dea-b555-001f2960aed8  
 	> 
 > 
 > To mount a snapshot/replica LUN that is not persistent across reboots, run this command:
 > 
 	>   
-	> \# esxcli storage vmfs snapshot mount -n -l label|-u uuid  
+	> # esxcli storage vmfs snapshot mount -n -l label|-u uuid  
 	> 
 > 
 > For example:
 > 
 	>   
-	> \# esxcli storage vmfs snapshot mount -n -l VMFS_1  
-	> \# esxcli storage vmfs snapshot mount -n -u 49d22e2e-996a0dea-b555-001f2960aed8  
+	> # esxcli storage vmfs snapshot mount -n -l VMFS_1  
+	> # esxcli storage vmfs snapshot mount -n -u 49d22e2e-996a0dea-b555-001f2960aed8  
 	> 
 > 
 > To resignature a snapshot/replica LUN, run this command:
 > 
 	>   
-	> \# esxcli storage vmfs snapshot resignature -l label|-u uuid  
+	> # esxcli storage vmfs snapshot resignature -l label|-u uuid  
 	> 
 > 
 > For example:
 > 
 	>   
-	> \# esxcli storage vmfs snapshot resignature -l VMFS_1  
-	> \# esxcli storage vmfs snapshot resignature -u 49d22e2e-996a0dea-b555-001f2960aed8  
+	> # esxcli storage vmfs snapshot resignature -l VMFS_1  
+	> # esxcli storage vmfs snapshot resignature -u 49d22e2e-996a0dea-b555-001f2960aed8  
 	> 
 
 ### Understand and apply LUN masking using PSA-related commands
@@ -511,7 +511,7 @@ From the same article:
 > *   The output shows the hardware acceleration, or VAAI, status that can be unknown, supported, or unsupported.
 > 
 	>   
-	> \# esxcli storage core device list -d naa.XXXXXXXXXXXX4c  
+	> # esxcli storage core device list -d naa.XXXXXXXXXXXX4c  
 	> naa.XXXXXXXXXXXX4c  
 	> Display Name: XXXX Fibre Channel Disk(naa.XXXXXXXXXXXX4c)  
 	> Size: 20480  
@@ -534,7 +534,7 @@ And more from the same document:
 > *   If the device is managed by a VAAI plug-in, the output shows the name of the plug-in attached to the device. The output also shows the support status for each T10 SCSI based primitive, if available. Output appears in the following example:
 > 
 	>   
-	> \# esxcli storage core device vaai status get -d naa.XXXXXXXXXXXX4c  
+	> # esxcli storage core device vaai status get -d naa.XXXXXXXXXXXX4c  
 	> naa.XXXXXXXXXXXX4c  
 	> VAAI Plugin Name: VMW_VAAIP_SYMM  
 	> ATS Status: supported  
@@ -710,14 +710,14 @@ Also check out KB "<a href="http://kb.vmware.com/kb/2004605" onclick="javascript
 > If the LUN is an RDM, skip to step 4. Otherwise, to get a list of all datastores mounted to an ESXi host, run the command:
 > 
 	>   
-	> \# esxcli storage filesystem list  
+	> # esxcli storage filesystem list  
 	> 
 > 
 > The output, which lists all VMFS datastores, is similar to:
 > 
 	>   
 	> Mount Point Volume Name UUID Mounted Type Size Free  
-	> \---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\- --\---\---\--- \---\---\---\---\---\---\---\---\---\---\---\-- -\---\--- \---\--- \---\---\---\-- -\---\---\----  
+	> ------------------------------------------------- ----------- ----------------------------------- ------- ------ ----------- -----------  
 	> /vmfs/volumes/4de4cb24-4cff750f-85f5-0019b9f1ecf6 datastore1 4de4cb24-4cff750f-85f5-0019b9f1ecf6 true VMFS-5 140660178944 94577360896  
 	> /vmfs/volumes/4c5fbff6-f4069088-af4f-0019b9f1ecf4 Storage2 4c5fbff6-f4069088-af4f-0019b9f1ecf4 true VMFS-3 146028888064 7968129024  
 	> /vmfs/volumes/4c5fc023-ea0d4203-8517-0019b9f1ecf4 Storage4 4c5fc023-ea0d4203-8517-0019b9f1ecf4 true VMFS-3 146028888064 121057050624  
@@ -727,15 +727,15 @@ Also check out KB "<a href="http://kb.vmware.com/kb/2004605" onclick="javascript
 > Unmount the datastore by running the command:
 > 
 	>   
-	> \# esxcli storage filesystem unmount [-u | -l <label> | -p ]  
+	> # esxcli storage filesystem unmount [-u | -l <label> | -p ]  
 	> 
 > 
 > For example, use one of these commands to unmount the LUN01 datastore:
 > 
 	>   
-	> \# esxcli storage filesystem unmount -l LUN01  
-	> \# esxcli storage filesystem unmount -u 4e414917-a8d75514-6bae-0019b9f1ecf4  
-	> \# esxcli storage filesystem unmount -p /vmfs/volumes/4e414917-a8d75514-6bae-0019b9f1ecf4  
+	> # esxcli storage filesystem unmount -l LUN01  
+	> # esxcli storage filesystem unmount -u 4e414917-a8d75514-6bae-0019b9f1ecf4  
+	> # esxcli storage filesystem unmount -p /vmfs/volumes/4e414917-a8d75514-6bae-0019b9f1ecf4  
 	> 
 > 
 > Note: If the VMFS filesystem you are attempting to unmount has active I/O or has not fulfilled the prerequisites to unmount the VMFS datastore, the vmkernel logs show this error:
@@ -748,14 +748,14 @@ Also check out KB "<a href="http://kb.vmware.com/kb/2004605" onclick="javascript
 > To verify that the datastore has been unmounted, run the command:
 > 
 	>   
-	> \# esxcli storage filesystem list  
+	> # esxcli storage filesystem list  
 	> 
 > 
 > The output is similar to:
 > 
 	>   
 	> Mount Point Volume Name UUID Mounted Type Size Free  
-	> \---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\- --\---\---\--- \---\---\---\---\---\---\---\---\---\---\---\-- -\---\--- \---\--- \---\---\---\-- -\---\---\----  
+	> ------------------------------------------------- ----------- ----------------------------------- ------- ------ ----------- -----------  
 	> /vmfs/volumes/4de4cb24-4cff750f-85f5-0019b9f1ecf6 datastore1 4de4cb24-4cff750f-85f5-0019b9f1ecf6 true VMFS-5 140660178944 94577360896  
 	> /vmfs/volumes/4c5fbff6-f4069088-af4f-0019b9f1ecf4 Storage2 4c5fbff6-f4069088-af4f-0019b9f1ecf4 true VMFS-3 146028888064 7968129024  
 	> /vmfs/volumes/4c5fc023-ea0d4203-8517-0019b9f1ecf4 Storage4 4c5fc023-ea0d4203-8517-0019b9f1ecf4 true VMFS-3 146028888064 121057050624  
@@ -769,13 +769,13 @@ Also check out KB "<a href="http://kb.vmware.com/kb/2004605" onclick="javascript
 > To detach the device/LUN, run this command:
 > 
 	>   
-	> \# esxcli storage core device set --state=off -d NAA_ID  
+	> # esxcli storage core device set --state=off -d NAA_ID  
 	> 
 > 
 > To verify that the device is offline, run this command:
 > 
 	>   
-	> \# esxcli storage core device list -d NAA_ID  
+	> # esxcli storage core device list -d NAA_ID  
 	> 
 > 
 > The output, which shows that the status of the disk is off, is similar to:
@@ -811,7 +811,7 @@ Also check out KB "<a href="http://kb.vmware.com/kb/2004605" onclick="javascript
 > For example:
 > 
 	>   
-	> \# partedUtil getptbl /vmfs/devices/disks/naa.60a98000572d54724a34655733506751
+	> # partedUtil getptbl /vmfs/devices/disks/naa.60a98000572d54724a34655733506751
 	> 
 	> Error: Could not stat device /vmfs/devices/disks/naa.60a98000572d54724a34655733506751- No such file or directory.  
 	> Unable to get device /vmfs/devices/disks/naa.60a98000572d54724a34655733506751  
@@ -821,7 +821,7 @@ Also check out KB "<a href="http://kb.vmware.com/kb/2004605" onclick="javascript
 > To rescan all devices on the ESXi host, run the command:
 > 
 	>   
-	> \# esxcli storage core adapter rescan [ -A vmhba# | --all ]  
+	> # esxcli storage core adapter rescan [ -A vmhba# | --all ]  
 	> 
 > 
 > The devices are automatically removed from the Storage Adapters.
@@ -831,7 +831,7 @@ Also check out KB "<a href="http://kb.vmware.com/kb/2004605" onclick="javascript
 > Note: When the device is detached, it stays in an unmounted state even if the device is represented (that is, the detached state is persistent). To bring the device back online, the device needs to be attached. To do this via the command line, run the command:
 > 
 	>   
-	> \# esxcli storage core device set --state=on -d NAA_ID  
+	> # esxcli storage core device set --state=on -d NAA_ID  
 	> 
 > 
 > If the device is to be permanently decommissioned from an ESXi servers(s), (that is, the LUN has been destroyed), remove the NAA entries from the host configuration by issuing these commands:
@@ -839,14 +839,14 @@ Also check out KB "<a href="http://kb.vmware.com/kb/2004605" onclick="javascript
 > To list the permanently detached devices:
 > 
 	>   
-	> \# esxcli storage core device detached list  
+	> # esxcli storage core device detached list  
 	> 
 > 
 > The output is similar to:
 > 
 	>   
 	> Device UID State  
-	> \---\---\---\---\---\---\---\---\---\- --\---  
+	> ---------------------------- -----  
 	> naa.50060160c46036df50060160c46036df off  
 	> naa.6006016094602800c8e3e1c5d3c8e011 off  
 	> 
@@ -854,13 +854,13 @@ Also check out KB "<a href="http://kb.vmware.com/kb/2004605" onclick="javascript
 > To permanently remove the device configuration information from the system:
 > 
 	>   
-	> \# esxcli storage core device detached remove -d NAA_ID  
+	> # esxcli storage core device detached remove -d NAA_ID  
 	> 
 > 
 > For example:
 > 
 	>   
-	> \# esxcli storage core device detached remove -d naa.50060160c46036df50060160c46036df  
+	> # esxcli storage core device detached remove -d naa.50060160c46036df50060160c46036df  
 	> 
 > 
 > The reference to the device configuration is permanently removed from the ESXi host's configuration.

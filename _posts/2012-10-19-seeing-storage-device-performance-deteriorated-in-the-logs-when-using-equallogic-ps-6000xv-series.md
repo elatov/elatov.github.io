@@ -171,12 +171,10 @@ The windows copy had random spikes of different block sizes and sometimes went a
 > 
 > The base volumes were mounted on one Windows host, and the snapshot volumes on the other. A workload was simultaneously run against the base volumes while running the backup workload on the snapshot volumes to simulate an application. The test started with two volumes and then incremented the volumes and associated snapshots by two until there were 12 total volumes and the latency approached 20 ms. The IOmeter workloads used to simulate the backup application and application workload are shown in the following table. 
 > 
-> | Workload  
-> type | \# workers |  I/O type  | Read/Write  
-> mix | Block Size |  Volume  | Volume Access |
-> | ----------------- |:----------:|:----------:|:------------------:|:----------:|:--------:| -------------:|
+> | Workload type | # workers |  I/O type  | Read/Write  mix | Block Size |  Volume  | Volume Access |
+> | ---------|:----------:|:----------:|:------------------:|:----------:|:--------:| -------------:|
 > | Backup            |     1      | sequential |       100/0        |    128K    | Snapshot |       100.00% |
-> | Application       |     8      |   random   |       67/33        |     8K     |   Base   |        10.00% |
+> | Application       |     8      |   random   |       67/33        |     8K     |   Base   |        10.00% | 
 > 
 > ...  
 > ...

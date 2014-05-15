@@ -25,28 +25,28 @@ We were troubleshooting an issue with the N1K, where random VMs would lose netwo
 	  
 	switch# show mod | no-more  
 	Mod Ports Module-Type Model Status  
-	\--- \---\-- -\---\---\---\---\---\---\---\---\---\---\- --\---\---\---\---\---\- --\---\---\----  
+	--- ----- -------------------------------- ------------------ ------------  
 	1 0 Virtual Supervisor Module Nexus1000V active *  
 	3 248 Virtual Ethernet Module NA licensed  
 	4 248 Virtual Ethernet Module NA licensed  
 	5 248 Virtual Ethernet Module NA licensed
 	
 	Mod Sw Hw  
-	\--- \---\---\---\---\---\- --\---\---\---\---\---\---\---\---\---\---\---\---\---\---\----  
+	--- ---------------- ------------------------------------------------  
 	1 4.2(1)SV1(4b) 0.0  
 	3 4.2(1)SV1(4b) VMware ESXi 4.1.0 Releasebuild-348481 (2.0)  
 	4 4.2(1)SV1(4b) VMware ESXi 4.1.0 Releasebuild-348481 (2.0)  
 	5 4.2(1)SV1(4b) VMware ESXi 4.1.0 Releasebuild-348481 (2.0)
 	
 	Mod MAC-Address(es) Serial-Num  
-	\--- \---\---\---\---\---\---\---\---\---\---\---\---\-- -\---\---\---  
+	--- -------------------------------------- ----------  
 	1 00-19-07-6c-5a-a8 to 00-19-07-6c-62-a8 NA  
 	3 02-00-0c-00-03-00 to 02-00-0c-00-03-80 NA  
 	4 02-00-0c-00-04-00 to 02-00-0c-00-04-80 NA  
 	5 02-00-0c-00-05-00 to 02-00-0c-00-05-80 NA
 	
 	Mod Server-IP Server-UUID Server-Name  
-	\--- \---\---\---\---\--- \---\---\---\---\---\---\---\---\---\---\---\--- \---\---\---\---\---\-----  
+	--- --------------- ------------------------------------ --------------------  
 	1 192.168.1.139 NA NA  
 	3 192.168.1.134 00000000-0000-0000-0000-000000000000 localhost1.  
 	4 192.168.1.136 00000000-0000-0000-0000-000000000000 localhost2.  
@@ -156,7 +156,7 @@ So the BIOS of the Cisco Servers were not returning the smbios information. We r
 	...  
 	...  
 	Mod Server-IP Server-UUID Server-Name  
-	\--- \---\---\---\---\--- \---\---\---\---\---\---\---\---\---\---\---\--- \---\---\---\---\---\-----  
+	--- --------------- ------------------------------------ --------------------  
 	1 192.168.1.139 NA NA  
 	3 192.168.1.134 00000000-0000-0000-0000-000000000000 localhost1.  
 	4 192.168.1.136 00000000-0000-0000-0000-000000000000 localhost2.  
@@ -187,7 +187,7 @@ One last note, don't confuse this UUID for the "System UUID", they are two compl
 	~ # grep uuid /etc/vmware/esx.conf  
 	/system/uuid = "4ff35a91-ab62-fc60-8199-0050561721df"  
 	~ # esxcfg-info -y | grep "System UUID"  
-	|\----System UUID.................................................4ff35a91-ab62-fc60-8199-0050561721df  
+	|----System UUID.................................................4ff35a91-ab62-fc60-8199-0050561721df  
 	
 
 VMware KB <a href="http://kb.vmware.com/kb/1008728" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1008728']);">1008728</a> and VMware KB <a href="http://kb.vmware.com/kb/1024791" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1024791']);">1024791</a> talk about it's uses. Here are a couple:
@@ -199,7 +199,7 @@ And I am sure there are lot of other VMware functions that rely on that value, b
 
 	  
 	~ # esxcfg-info -a | grep -E 'BIOS UUID|System UUID'  
-	|\----BIOS UUID................................................0x42 0x34 0x3a 0x8f 0x65 0xb9 0xe0 0xae 0xac 0xf2 0xb6 0xd4 0xe3 0x99 0x51 0x47  
-	|\----System UUID..............................................4ff35a91-ab62-fc60-8199-0050561721df  
+	|----BIOS UUID................................................0x42 0x34 0x3a 0x8f 0x65 0xb9 0xe0 0xae 0xac 0xf2 0xb6 0xd4 0xe3 0x99 0x51 0x47  
+	|----System UUID..............................................4ff35a91-ab62-fc60-8199-0050561721df  
 	
 

@@ -253,7 +253,7 @@ SSH to the host and install the VEM. First check to see if the file is there,
 
 	  
 	~ # ls -l /vmfs/volumes/OI_ISCSI/  
-	-rw\---\---- 1 root root 3677460 Aug 4 00:29 cisco-vem-v140-4.2.1.1.5.1.0-3.0.1.zip  
+	-rw------- 1 root root 3677460 Aug 4 00:29 cisco-vem-v140-4.2.1.1.5.1.0-3.0.1.zip  
 	
 
 Next confirm that no other VEM module exists on the host:
@@ -333,22 +333,22 @@ On the N1K, check to make sure the module (host) is there:
 	  
 	switch# show mod  
 	Mod Ports Module-Type Model Status  
-	\--- \---\-- -\---\---\---\---\---\---\---\---\---\---\- --\---\---\---\---\---\- --\---\---\----  
+	--- ----- -------------------------------- ------------------ ------------  
 	1 0 Virtual Supervisor Module Nexus1000V active *  
 	3 248 Virtual Ethernet Module NA other
 	
 	Mod Sw Hw  
-	\--- \---\---\---\---\---\--- \---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---  
+	--- ------------------ ------------------------------------------------  
 	1 4.2(1)SV1(5.1) 0.0  
 	3 4.2(1)SV1(5.1) VMware ESXi 5.0.0 Releasebuild-469512 (3.0)
 	
 	Mod MAC-Address(es) Serial-Num  
-	\--- \---\---\---\---\---\---\---\---\---\---\---\---\-- -\---\---\---  
+	--- -------------------------------------- ----------  
 	1 00-19-07-6c-5a-a8 to 00-19-07-6c-62-a8 NA  
 	3 02-00-0c-00-03-00 to 02-00-0c-00-03-80 NA
 	
 	Mod Server-IP Server-UUID Server-Name  
-	\--- \---\---\---\---\--- \---\---\---\---\---\---\---\---\---\---\---\--- \---\---\---\---\---\-----  
+	--- --------------- ------------------------------------ --------------------  
 	1 10.131.6.7 NA NA  
 	3 10.131.1.98 80c34566-7e89-b601-b4f9-001a64dc9054 my-esxi-host
 	

@@ -84,7 +84,7 @@ Lastly I wanted to compare it to a large application just to see it's Pro's and 
 *   <a href="http://community.zenoss.org/docs/DOC-5858" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://community.zenoss.org/docs/DOC-5858']);">Zennos VS. Nagios</a> 
 *   <a href="http://www.longitudetech.com/linux-unix/zenoss-we-can-ditch-nagios-now/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.longitudetech.com/linux-unix/zenoss-we-can-ditch-nagios-now/']);">Zenoss: We Can Ditch Nagios Now</a>
 
-Zenoss seemed comparable <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Monitor Different Systems with Collectd" class="wp-smiley" title="Monitor Different Systems with Collectd" /> 
+Zenoss seemed comparable :) 
 
 Since I picked 3 different applications, I will break this post into 3 different parts; one per application.
 

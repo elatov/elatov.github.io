@@ -59,7 +59,7 @@ So first find out what is the name of the server that you are working with. You 
 	
 	p2-ucsm-A# show service-profile inventory  
 	Service Profile Name Type Server Assignment Association  
-	\---\---\---\---\---\---\-- -\---\---\---\---\---\- --\---\-- -\---\---\--- \---\---\-----  
+	-------------------- ----------------- ------- ---------- -----------  
 	p2-b200 Initial Template Unassigned Unassociated  
 	p2-b200-1 Instance 1/1 Assigned Associated  
 	p2-b200-2 Instance 1/2 Assigned Associated  
@@ -77,7 +77,7 @@ Each Server has a Service Profile Attached to it. I will be working with p2-b200
 	
 	FC Interface:  
 	Id Wwn Model Name Operability  
-	\---\---\---\- --\---\---\---\---\---\---\--- \---\---\---\- --\---\---\-- -\---\---\----  
+	---------- ----------------------- ---------- ---------- -----------  
 	1 20:00:00:25:B5:02:0B:02 N20-AC0002 fc1 Operable  
 	2 20:00:00:25:B5:02:0A:02 N20-AC0002 fc0 Operable  
 	
@@ -89,7 +89,7 @@ We can see we have two HBAs on the server and their corresponding WWPNs. We can 
 	
 	Eth Interface:  
 	ID Dynamic MAC Address Name Operability  
-	\---\---\---\- --\---\---\---\---\---\-- -\---\---\--- \---\---\-----  
+	---------- ------------------- ---------- -----------  
 	1 00:25:B5:02:01:01 eth0 Operable  
 	2 00:25:B5:02:02:01 eth1 Operable  
 	3 00:25:B5:02:03:01 eth2 Operable  
@@ -106,7 +106,7 @@ You can see that there are different MACs and WWPNs assigned for this server. To
 	Eth Interface:
 	
 	Adapter Interface Vnic Dn Dynamic MAC Addr Type  
-	\---\---\- --\---\---\- --\---\---\-- -\---\---\---\---\--- \----  
+	------- --------- ---------- ---------------- ----  
 	1 1 org-root/ls-p2-b200-1/ether-eth0 00:25:B5:02:01:02 Ether  
 	1 2 org-root/ls-p2-b200-1/ether-eth1 00:25:B5:02:02:02 Ether  
 	1 3 org-root/ls-p2-b200-1/ether-eth2 00:25:B5:02:03:02 Ether  
@@ -117,7 +117,7 @@ You can see that there are different MACs and WWPNs assigned for this server. To
 	FC Interface:
 	
 	Adapter Interface Vnic Dn Dynamic WWPN Type  
-	\---\---\- --\---\---\- --\---\---\-- -\---\---\---\-- -\---  
+	------- --------- ---------- ------------ ----  
 	1 1 org-root/ls-p2-b200-1/fc-fc1 20:00:00:25:B5:02:0B:01 Fc  
 	1 2 org-root/ls-p2-b200-1/fc-fc0 20:00:00:25:B5:02:0A:01 Fc  
 	
@@ -192,7 +192,7 @@ You can see that vHBA1 (fc0) is from WWPN_Pod2_A and vHBA2 (fc1) is from WWPN_Po
 	
 	WWN Pool:  
 	Name Purpose Size Assigned  
-	\---\---\---\---\---\---\-- -\---\---\---\---\---\--- \---\---\---\- --\---\---  
+	-------------------- ------------------- ---------- --------  
 	default Port Wwn Assignment 0 0  
 	node-default Node Wwn Assignment 0 0  
 	USL_Pod2 Node Wwn Assignment 3 3  
@@ -215,7 +215,7 @@ We are using the bottom two. Just to see the pattern of the pool let's check out
 	
 	WWN Initiator Block:  
 	From To  
-	\---\---\---\---\---\---\---\-- --  
+	----------------------- --  
 	20:00:00:25:B5:02:0A:00 20:00:00:25:B5:02:0A:02
 	
 	WWN Initiator:  
@@ -242,7 +242,7 @@ So our range is defined as follows; 20:00:00:25:B5:02:0A:00 to  20:00:00:25:B5
 	
 	WWN Initiator:  
 	Id Name Assigned Assigned To Dn  
-	\---\---\---\---\---\---\---\-- -\---\---\--- \---\---\-- -\---\---\---\----  
+	----------------------- ---------- -------- --------------  
 	20:00:00:25:B5:02:0A:00 Yes org-root/ls-p2-b250-3/fc-fc0  
 	20:00:00:25:B5:02:0A:01 Yes org-root/ls-p2-b200-1/fc-fc0  
 	20:00:00:25:B5:02:0A:02 Yes org-root/ls-p2-b200-2/fc-fc0  
@@ -256,7 +256,7 @@ You can check similar setting for the mac pools as well. If you have two IO Modu
 	
 	IOM:  
 	ID Side Fabric ID Overall Status  
-	\---\---\---\- --\--- \---\---\--- \---\---\---\-----  
+	---------- ----- --------- --------------  
 	1 Left A Operable  
 	2 Right B Operable
 	
@@ -289,7 +289,7 @@ We can see our connection path is to A and B, both of our fabrics. For each Fabr
 	
 	Fabric Interconnect:  
 	ID OOB IP Addr OOB Gateway OOB Netmask Operability  
-	\---\- --\---\---\---\---\- --\---\---\---\---\- --\---\---\---\---\- --\---\---\---  
+	---- --------------- --------------- --------------- -----------  
 	A 10.102.100.13 10.102.100.1 255.255.255.0 Operable  
 	B 10.102.100.15 10.102.100.1 255.255.255.0 Operable  
 	
@@ -313,7 +313,7 @@ To check which HBA goes to which fabric we can run the following:
 	
 	vHBA:  
 	Name Fabric ID Dynamic WWPN  
-	\---\---\---\- --\---\---\- --\---\---\----  
+	---------- --------- ------------  
 	fc0 A 20:00:00:25:B5:02:0A:02  
 	fc1 B 20:00:00:25:B5:02:0B:02  
 	
@@ -338,7 +338,7 @@ To check the NIC pinning we can run the following:
 	
 	vNIC:  
 	Name Fabric ID Dynamic MAC Addr  
-	\---\---\---\- --\---\---\- --\---\---\---\-----  
+	---------- --------- ----------------  
 	eth0 A 00:25:B5:02:01:01  
 	eth1 A 00:25:B5:02:02:01  
 	eth2 A 00:25:B5:02:03:01  
@@ -402,7 +402,7 @@ To see how the physical ports correspond to the virtual ports on the Fabric Inte
 	Server: 1/2  
 	Fabric ID: A  
 	VIF vNIC Link State Overall Status Prot State Prot Role Admin Pin Oper Pin Transport  
-	\---\- --\---\- --\---\---\--- \---\---\---\---\-- -\---\---\---\--- \---\---\---\-- -\---\---\--- \---\---\---\- --\---\----  
+	---- ------ ----------- -------------- ------------- ----------- ---------- ---------- ---------  
 	43 Error Error 0/0 0/0 Unknown  
 	711 eth0 Up Active No Protection Unprotected 0/0 0/11 Ether  
 	712 eth1 Up Active No Protection Unprotected 0/0 0/11 Ether  
@@ -414,7 +414,7 @@ To see how the physical ports correspond to the virtual ports on the Fabric Inte
 	8912 Up Active No Protection Unprotected 0/0 0/0 Ether  
 	Fabric ID: B  
 	VIF vNIC Link State Overall Status Prot State Prot Role Admin Pin Oper Pin Transport  
-	\---\- --\---\- --\---\---\--- \---\---\---\---\-- -\---\---\---\--- \---\---\---\-- -\---\---\--- \---\---\---\- --\---\----  
+	---- ------ ----------- -------------- ------------- ----------- ---------- ---------- ---------  
 	44 Error Error 0/0 0/0 Unknown  
 	719 fc1 Up Active No Protection Unprotected 0/0 0/0 Fc  
 	8911 Up Active No Protection Unprotected 0/0 0/0 Ether  
@@ -706,7 +706,7 @@ Now we can see that we will connect to first "50:0A:09:83:8D:1F:72:B5" using fc0
 	
 	Boot Policy:  
 	Name Purpose Reboot on Update  
-	\---\---\---\---\---\---\-- -\---\---\---\- --\---\---\---\-----  
+	-------------------- ----------- ----------------  
 	default Operational No  
 	diag Utility No  
 	Local_Only Operational Yes  
@@ -744,7 +744,7 @@ First list the available adapters on a blade:
 	p1-ucsm-A# show server adapter 9/1  
 	Server 9/1:  
 	Adapter PID Vendor Serial Overall Status  
-	\---\---\- --\---\---\-- -\---\---\---\---\---\- --\---\---\---\- --\---\---\---\---  
+	------- ---------- ----------------- ------------ --------------  
 	1 N20-AC0002 Cisco Systems Inc QCI1515ACEY Operable  
 	
 
@@ -759,9 +759,9 @@ Then Connect to the adapter and confirm the model and do the rest
 	sw_version: "2.0(1w)"  
 	adapter 9/1/1 (top):1# attach-fls  
 	adapter 9/1/1 (fls):1# vnic  
-	\---\- --\-- -\--- \---\---\- --\-----  
+	---- ---- ---- ------- -------  
 	vnic ecpu type state lif  
-	\---\- --\-- -\--- \---\---\- --\-----  
+	---- ---- ---- ------- -------  
 	13 1 fc active 10  
 	14 2 fc active 11  
 	adapter 9/1/1 (fls):2# lunlist 13  

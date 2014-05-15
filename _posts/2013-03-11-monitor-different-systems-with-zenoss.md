@@ -12,7 +12,7 @@ tags:
   - Monitoring
   - Zenoss
 ---
-This is the third part and continuation of the 'Network Monitoring Software Comparison' series. Here is the link to the <a href="http://virtuallyhyper.com/2013/02/monitor-different-systems-with-collectd" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/02/monitor-different-systems-with-collectd']);">first</a> part and here is the <a href="http://virtuallyhyper.com/2013/03/monitor-different-systems-with-munin" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/03/monitor-different-systems-with-munin']);">second</a> one. Let's check out what <strong>Zenoss</strong> is about. From their <a href="http://wiki.zenoss.org/Main_Page" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.zenoss.org/Main_Page']);">wiki</a> page, we see the followin
+This is the third part and continuation of the 'Network Monitoring Software Comparison' series. Here is the link to the <a href="http://virtuallyhyper.com/2013/02/monitor-different-systems-with-collectd" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/02/monitor-different-systems-with-collectd']);">first</a> part and here is the <a href="http://virtuallyhyper.com/2013/03/monitor-different-systems-with-munin" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/03/monitor-different-systems-with-munin']);">second</a> one. Let's check out what **Zenoss** is about. From their <a href="http://wiki.zenoss.org/Main_Page" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.zenoss.org/Main_Page']);">wiki</a> page, we see the followin
 
 > What is Zenoss?
 > 
@@ -21,7 +21,7 @@ This is the third part and continuation of the 'Network Monitoring Software Comp
 Now to start the install. Reading over the <a href="http://community.zenoss.org/community/documentation/official_documentation/installation-guide" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://community.zenoss.org/community/documentation/official_documentation/installation-guide']);">Installation Guide</a>, I saw that there is section on how to compile the software from source. This sparked an interest to install the software on my FreeBSD system.
 
 ###1. Setup a MySQL Database for the Zenoss Install
-I decided to setup Zenoss on my FreeBSD machine, since my Ubuntu box was already running the other monitoring applications and I knew that the source for Zenoss was available. Zenoss uses MySQL for it's database, I actually had a MySQL instance running on the Ubuntu machine, hence I decided to allow remote access for root to MySQL. I would rarely do this, but since this was a test setup, I decided to just go all out :)Before any changes, I was able to login as <strong>root</strong> locally:
+I decided to setup Zenoss on my FreeBSD machine, since my Ubuntu box was already running the other monitoring applications and I knew that the source for Zenoss was available. Zenoss uses MySQL for it's database, I actually had a MySQL instance running on the Ubuntu machine, hence I decided to allow remote access for root to MySQL. I would rarely do this, but since this was a test setup, I decided to just go all out :)Before any changes, I was able to login as **root** locally:
 
 	kerch:~>mysql -u root -p
 	Enter password: 
@@ -70,7 +70,7 @@ Flush the privileges to apply the settings:
 	mysql> flush privileges;
 	Query OK, 0 rows affected (0.04 sec)
 	
-By default the MySQL install binds the server to the <strong>localhost</strong> interface for security reasons. To allow remote connections we need to bind the instance to a non-local IP. This is done by editing the **/etc/mysql/my.cnf** file and changing this line:
+By default the MySQL install binds the server to the **localhost** interface for security reasons. To allow remote connections we need to bind the instance to a non-local IP. This is done by editing the **/etc/mysql/my.cnf** file and changing this line:
 
 	bind-address = 127.0.0.1
 	
@@ -78,7 +78,7 @@ to this:
 
 	bind-address = 192.168.1.100
 	
-To apply the above changes, restart the <strong>mysql</strong> service:
+To apply the above changes, restart the **mysql** service:
 
 	kerch:~>sudo service mysql restart 
 	mysql stop/waiting
@@ -102,7 +102,7 @@ Lastly I had to open up port **3306** on the firewall as well. This is done by e
 
 	-A INPUT -s 192.168.1.0/24 -p tcp -m state --state NEW -m tcp --dport 3306 --tcp-flags FIN,SYN,RST,ACK SYN -j ACCEPT
 	
-To apply the changes to the filewall, just restart the <strong>iptables</strong> service:
+To apply the changes to the filewall, just restart the **iptables** service:
 
 	kerch:~>sudo service iptables-persistent restart 
 	* Loading iptables rules... 
@@ -277,7 +277,7 @@ I decided to use SNMP for the FreeBSD and Fedora Machines, and SSH for the Ubunt
 Now let’s start monitoring our nodes.
 
 ###3. Monitor our Ubuntu Machine with Zenoss via SSH
-To get any useful information from SSH it’s recommended to install the *LinuxMonitor ZenPack*, more information is seen in <a href="http://community.zenoss.org/docs/DOC-3435" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://community.zenoss.org/docs/DOC-3435']);">this</a> community page. Instructions on how to install <em>ZenPacks</em> are found in <a href="http://community.zenoss.org/docs/DOC-2935" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://community.zenoss.org/docs/DOC-2935']);">this</a> community page. Similar instructions are found in the <a href="http://community.zenoss.org/community/documentation/official_documentation/zenoss-guide" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://community.zenoss.org/community/documentation/official_documentation/zenoss-guide']);">Admin Guide</a>. Here is a description of ZenPacks from that guide:
+To get any useful information from SSH it’s recommended to install the *LinuxMonitor ZenPack*, more information is seen in <a href="http://community.zenoss.org/docs/DOC-3435" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://community.zenoss.org/docs/DOC-3435']);">this</a> community page. Instructions on how to install *ZenPacks* are found in <a href="http://community.zenoss.org/docs/DOC-2935" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://community.zenoss.org/docs/DOC-2935']);">this</a> community page. Similar instructions are found in the <a href="http://community.zenoss.org/community/documentation/official_documentation/zenoss-guide" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://community.zenoss.org/community/documentation/official_documentation/zenoss-guide']);">Admin Guide</a>. Here is a description of ZenPacks from that guide:
 
 > **13.1. About ZenPacks**
 > 
@@ -294,12 +294,12 @@ To get any useful information from SSH it’s recommended to install the *LinuxM
 > - Model extensions
 > - Product definitions
 
-I uploaded the ZenPack file to the <strong>Products</strong> directory of the Zenoss install:
+I uploaded the ZenPack file to the **Products** directory of the Zenoss install:
 
 	freebsd:~>sudo cp ZenPacks.zenoss.LinuxMonitor-1.1.5-py2.6.egg.zip ~zenoss/Products/.
 	freebsd:~>sudo chown zenoss:zenoss ~zenoss/Products/ZenPacks.zenoss.LinuxMonitor-1.1.5-py2.6.egg 
 	
-and then I switched to the <strong>zenoss</strong> user and installed the ZenPack:
+and then I switched to the **zenoss** user and installed the ZenPack:
 
 	freebsd:~>sudo su - zenoss
 	$ zenpack --install Products/ZenPacks.zenoss.LinuxMonitor-1.1.5-py2.6.egg
@@ -313,7 +313,7 @@ You could do the same thing from the web page. Basically from the Dashboard go t
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_install_zenpack.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_install_zenpack.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_install_zenpack.png" alt="zenoss install zenpack Monitor Different Systems with Zenoss" width="723" height="308" class="alignnone size-full wp-image-6590" title="Monitor Different Systems with Zenoss" /></a>
 
-After the ZenPack is installed, we need to restart <strong>zenoss</strong>. Here is how that looks:
+After the ZenPack is installed, we need to restart **zenoss**. Here is how that looks:
 
 	freebsd:~>sudo service zenoss restart
 	Password:
@@ -353,7 +353,7 @@ After the ZenPack is installed, we need to restart <strong>zenoss</strong>. Here
 	Daemon: zenwin starting...
 	Daemon: zeneventlog starting.
 	
-You can confirm if the ZenPack is installed by switching back to the <strong>zenoss</strong> user and running the following:
+You can confirm if the ZenPack is installed by switching back to the **zenoss** user and running the following:
 
 	freebsd:~>sudo su - zenoss
 	$ zenpack --list
@@ -410,7 +410,7 @@ After everything have been configured, you should be able to see the device on t
 Now let's move to our FreeBSD machine.
 
 ###4. Monitor FreeBSD with Zenoss via SNMP
-Install instructions are found in <a href="http://community.zenoss.org/docs/DOC-9132" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://community.zenoss.org/docs/DOC-9132']);">this</a> Zenoss community page. First let's install the desired <strong>snmpd</strong> server:
+Install instructions are found in <a href="http://community.zenoss.org/docs/DOC-9132" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://community.zenoss.org/docs/DOC-9132']);">this</a> Zenoss community page. First let's install the desired **snmpd** server:
 
 	freebsd:~>cd /usr/ports/net-mgmt/bsnmp-ucd
 	freebsd:/usr/ports/net-mgmt/bsnmp-ucd>sudo make install clean
@@ -490,7 +490,7 @@ After the device is added, we can see new components from the host:
 Not as many as for Linux Host but still enough. Now let's monitor the Fedora Machine.
 
 ###5. Monitor the Fedora Machine with Zenoss via SNMP
-For regular Linux machines we can just use the <strong>net-snmp</strong> package, so let's go ahead and install that:
+For regular Linux machines we can just use the **net-snmp** package, so let's go ahead and install that:
 
 	moxz:~>sudo yum install net-snmp
 	...
@@ -542,7 +542,7 @@ The only thing left to do is open up the firewall for UDP port **161**. Edit the
 
 	-A INPUT -m state --state NEW -m udp -p udp -s 192.168.1.0/24 --dport 161 -j ACCEPT
 	
-Then restart <strong>iptables</strong> to apply the changes:
+Then restart **iptables** to apply the changes:
 
 	moxz:~>sudo systemctl restart iptables
 	
@@ -552,7 +552,7 @@ Now let's do an **snmpwalk** from our Zenoss server:
 	SNMPv2-MIB::sysDescr.0 = STRING: Linux moxz.dnsd.me 3.7.8-202.fc18.i686 #1 SMP Fri Feb 15 17:57:07 UTC 2013 i686
 	SNMPv2-MIB::sysObjectID.0 = OID: NET-SNMP-MIB::netSnmpAgentOIDs.10
 	DISMAN-EVENT-MIB::sysUpTimeInstance = Timeticks: (46827) 0:07:48.27
-	SNMPv2-MIB::sysContact.0 = STRING: Root &lt;/root>&lt;root @localhost> (configure /etc/snmp/snmp.local.conf)
+	SNMPv2-MIB::sysContact.0 = STRING: Root </root><root @localhost> (configure /etc/snmp/snmp.local.conf)
 	SNMPv2-MIB::sysName.0 = STRING: moxz.dnsd.me
 	SNMPv2-MIB::sysLocation.0 = STRING: Unknown (edit /etc/snmp/snmpd.conf)
 	SNMPv2-MIB::sysORLastChange.0 = Timeticks: (8) 0:00:00.08
@@ -665,7 +665,7 @@ Looks like it went through just fine (the appropriate return status is seen). I 
 	$ libexec/check_aacraid 
 	controller status seems fine|disks=2
 	
-After make that addition, here is how output from the above <strong>zencommand</strong> looked like:
+After make that addition, here is how output from the above **zencommand** looked like:
 
 	2013-02-24 18:40:57,103 DEBUG zen.zencommand: Queueing event {'manager': 'freebsd.dnsd.me', 'eventKey': 'Raid_Check', 'device': '192.168.1.101', 'eventClass': '/Status', 'summary': 'Cmd: /usr/local/zenoss/libexec/check_aacraid - Code: 0 - Msg: Success', 'component': 'Raid
 	_Status', 'monitor': 'localhost', 'agent': 'zencommand', 'severity': 0}

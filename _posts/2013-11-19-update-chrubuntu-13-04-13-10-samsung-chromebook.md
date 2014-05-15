@@ -471,5 +471,5 @@ It turned out that the **osspd** package was trying to load it for some reason. 
     $ sudo apt-get remove --purge osspd
     
 
-And now my update is done <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Update ChrUbuntu 13.04 to 13.10 on the Samsung Chromebook" class="wp-smiley" title="Update ChrUbuntu 13.04 to 13.10 on the Samsung Chromebook" /> If I discover any new issues, I will try to post them as they come up.
+And now my update is done :) If I discover any new issues, I will try to post them as they come up.
 

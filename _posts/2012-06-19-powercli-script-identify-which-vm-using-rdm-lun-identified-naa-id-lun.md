@@ -63,28 +63,28 @@ Sample output:
 This was actually very close but it listed all the VMs with an RDM disk, where we wanted to just find one LUN. I took the above command and rewrote it to be a little bit more comprehensive. Here is what I ended up with:
 
 	  
-	\# define the IP of your vCenter  
+	# define the IP of your vCenter  
 	$vc = "10.x.x.x"  
-	\# Connect to your vCenter, this will ask your for your credentials  
-	\# * you can pass in the user and password parameters, but I left those out  
+	# Connect to your vCenter, this will ask your for your credentials  
+	# * you can pass in the user and password parameters, but I left those out  
 	Connect-VIserver $vc  
-	\# Get the list of all the VMs in the Vcenter Inventory  
+	# Get the list of all the VMs in the Vcenter Inventory  
 	$vms = Get-VM  
-	\# Iterate over all the VMs  
+	# Iterate over all the VMs  
 	foreach ($vm in $vms){  
-	\# Iterate over each hard-disk of each VM that is a virtual or Physical RDM  
+	# Iterate over each hard-disk of each VM that is a virtual or Physical RDM  
 	foreach ($hd in ($vm | Get-HardDisk -DiskType "RawPhysical","RawVirtual" )){  
-	\# Check to see if a certain hard disk matches our naa_id  
+	# Check to see if a certain hard disk matches our naa_id  
 	if ( $hd.ScsiCanonicalName -eq "naa.600601607290250060ae06da248be111"){  
-	\# Print out VM Name  
+	# Print out VM Name  
 	write $hd.Parent.Name  
-	\# Print Hard Disk Name  
+	# Print Hard Disk Name  
 	write $hd.Name  
-	\# Print Hard Disk Type  
+	# Print Hard Disk Type  
 	write $hd.DidkType  
-	\# Print NAA Device ID  
+	# Print NAA Device ID  
 	write $hd.ScsiCanonicalName  
-	\# Print out the VML Device ID  
+	# Print out the VML Device ID  
 	write $hd.DeviceName  
 	}  
 	}  

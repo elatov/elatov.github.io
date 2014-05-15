@@ -73,7 +73,7 @@ Checking out that setting on my setup:
 
     kerch:~>grep ignore /etc/munin/munin-node.conf
     # Regexps for files to ignore
-    ignore_file [\#~]$
+    ignore_file [#~]$
     ignore_file DEADJOE$
     ignore_file \.bak$
     ignore_file %$
@@ -287,7 +287,7 @@ Instructions on how to write a plug-in for *Munin* are <a href="http://munin-mon
 
 <pre class="brush: /bin/sh; notranslate">case $1 in
    config)
-        cat &lt; &lt;'EOM'
+        cat < <'EOM'
 graph_title Raid_Status 
 graph_vlabel #_Disks
 raid.label #_Disks

@@ -57,7 +57,7 @@ From the Getting Starting Guide:
 
 Most of the Instructions on how to Deploy an EC2 instance can be found in "<a href="http://awsdocs.s3.amazonaws.com/EC2/latest/ec2-ug.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://awsdocs.s3.amazonaws.com/EC2/latest/ec2-ug.pdf']);">Amazon Elastic Compute Cloud User Guide</a>"
 
-To get this started we have go to the "Amazon EC2 console". To get to the console, we first have to go to the "AWS Management Console". Go to <strong>http://aws.amazon.com</strong> and then click on the "My Account/Console" and you will see the following:
+To get this started we have go to the "Amazon EC2 console". To get to the console, we first have to go to the "AWS Management Console". Go to **http://aws.amazon.com** and then click on the "My Account/Console" and you will see the following:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/03/aws_my_account_console.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/03/aws_my_account_console.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/aws_my_account_console.png" alt="aws my account console Deploy an Amazon EC2 instance in the Free Usage Tier" width="975" height="201" class="alignnone size-full wp-image-7849" title="Deploy an Amazon EC2 instance in the Free Usage Tier" /></a>
 
@@ -133,7 +133,7 @@ This was just the private key of the SSH Key pair:
 	-----BEGIN RSA PRIVATE KEY-----
 	-----END RSA PRIVATE KEY-----
 	
-In between are the contents of the private key <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Deploy an Amazon EC2 instance in the Free Usage Tier" class="wp-smiley" title="Deploy an Amazon EC2 instance in the Free Usage Tier" />  It then took me to the "Security Groups" Page. From the User Guide:
+In between are the contents of the private key :)  It then took me to the "Security Groups" Page. From the User Guide:
 
 > A security group defines firewall rules for your instances.These rules specify which incoming network traffic is delivered to your instance. All other traffic is ignored.
 >
@@ -174,7 +174,7 @@ Also here more information:
 >
 > To ensure efficient use of Elastic IP addresses, we impose a small hourly charge when these IP addresses are not associated with a running instance, or when they are associated with a stopped instance or an unattached network interface.
 
-So we can use one EIP and if it's not associated with a running instance for more than 1 hour we get charged. Something to keep in mind <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Deploy an Amazon EC2 instance in the Free Usage Tier" class="wp-smiley" title="Deploy an Amazon EC2 instance in the Free Usage Tier" />  To associate an EIP with my EC2 instance, from the EC2 Dashboard I clicked on "Elastic IPs" and saw the following:
+So we can use one EIP and if it's not associated with a running instance for more than 1 hour we get charged. Something to keep in mind :)  To associate an EIP with my EC2 instance, from the EC2 Dashboard I clicked on "Elastic IPs" and saw the following:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/03/EIPs.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/03/EIPs.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/EIPs.png" alt="EIPs Deploy an Amazon EC2 instance in the Free Usage Tier" width="1266" height="524" class="alignnone size-full wp-image-7867" title="Deploy an Amazon EC2 instance in the Free Usage Tier" /></a>
 

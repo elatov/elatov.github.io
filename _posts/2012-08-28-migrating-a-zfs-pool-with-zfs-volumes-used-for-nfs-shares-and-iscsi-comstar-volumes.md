@@ -66,7 +66,7 @@ As you have probably guessed 'iscsi_share' and 'iscsi_share2' are used as iSCSI 
 	Found 2 LU(s)
 	
 	GUID DATA SIZE SOURCE  
-	\---\---\---\---\---\---\---\---\---\---\-- -\---\---\---\---\---\--- \---\---\---\---\----  
+	-------------------------------- ------------------- ----------------  
 	600144f0928c010000004fc511ec0001 107374182400 /dev/zvol/rdsk/rpool1/iscsi_share  
 	600144f0928c010000004fc90a3a0001 139586437120 /dev/zvol/rdsk/rpool1/iscsi_share2  
 	
@@ -178,7 +178,7 @@ I still couldn't export. I even checked the connection table to make sure nothin
 	
 	UDP: IPv4  
 	Local Address Remote Address State  
-	\---\---\---\---\---\---\-- -\---\---\---\---\---\---\- --\---\-----  
+	-------------------- -------------------- ----------  
 	*.111 Idle  
 	*.* Unbound  
 	*.57026 Idle  
@@ -197,7 +197,7 @@ I still couldn't export. I even checked the connection table to make sure nothin
 	
 	TCP: IPv4  
 	Local Address Remote Address Swind Send-Q Rwind Recv-Q State  
-	\---\---\---\---\---\---\-- -\---\---\---\---\---\---\- --\--- \---\--- \---\-- -\---\-- -\---\---\----  
+	-------------------- -------------------- ----- ------ ----- ------ -----------  
 	*.111 *.* 0 0 128000 0 LISTEN  
 	*.* *.* 0 0 128000 0 IDLE  
 	*.111 *.* 0 0 128000 0 LISTEN  
@@ -293,7 +293,7 @@ Now checking out sbdadm, I saw the following:
 	Found 2 LU(s)
 	
 	GUID DATA SIZE SOURCE  
-	\---\---\---\---\---\---\---\---\---\---\-- -\---\---\---\---\---\--- \---\---\---\---\----  
+	-------------------------------- ------------------- ----------------  
 	600144f0928c010000004fc511ec0001 107374182400 /dev/zvol/rdsk/data/iscsi_share  
 	600144f0928c010000004fc90a3a0001 139586437120 /dev/zvol/rdsk/data/iscsi_share2  
 	
@@ -354,33 +354,33 @@ All was back to normal.
 > Use the zfs set share command to create an NFS or SMB share of ZFS file system and also set the sharenfs property.
 > 
 	>   
-	> \# zfs create rpool/fs1  
-	> \# zfs set share=name=fs1,path=/rpool/fs1,prot=nfs rpool/fs1  
+	> # zfs create rpool/fs1  
+	> # zfs set share=name=fs1,path=/rpool/fs1,prot=nfs rpool/fs1  
 	> name=fs1,path=/rpool/fs1,prot=nfs  
 	> 
 > 
 > The share is not published until the sharenfs or sharesmb property is set to on. For example:
 > 
 	>   
-	> \# zfs set sharenfs=on rpool/fs1  
-	> \# cat /etc/dfs/sharetab  
+	> # zfs set sharenfs=on rpool/fs1  
+	> # cat /etc/dfs/sharetab  
 	> /rpool/fs1 fs1 nfs sec=sys,rw  
 	> 
 > 
 > A public NFS share can be created as follows:
 > 
 	>   
-	> \# zfs set share=name=pp,path=/pub,prot=nfs,sec=sys,rw=*,public rpool/public  
+	> # zfs set share=name=pp,path=/pub,prot=nfs,sec=sys,rw=*,public rpool/public  
 	> name=pp,path=/pub,prot=nfs,public=true,sec=sys,rw=*  
-	> \# zfs set sharenfs=on rpool/public  
-	> \# cat /etc/dfs/sharetab  
+	> # zfs set sharenfs=on rpool/public  
+	> # cat /etc/dfs/sharetab  
 	> /pub pp nfs public,sec=sys,rw  
 	> 
 > 
 > You can also create a share of a newly created ZFS file system by using syntax similar to the following:
 > 
 	>   
-	> \# zfs create -o mountpoint=/ds -o sharenfs=on rpool/ds  
+	> # zfs create -o mountpoint=/ds -o sharenfs=on rpool/ds  
 	> 
 
 This was kind of hindsight, so I didn't have a chance to plan accordingly and try it out.

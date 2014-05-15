@@ -161,19 +161,19 @@ and that was the case. When working with snapshots there are usually three thing
 
 > 1. Mount the volume without performing a resignature of that volume (this volume is unmounted when the ESX host is rebooted), run this command:
 > 
-> \# esxcfg-volume -m
+> # esxcfg-volume -m
 
 Or you can
 
 > 2. Persistently mount the volume without performing a resignaturing of that volume (this volume is mounted when the ESX host is rebooted), run this command:
 > 
-> \# esxcfg-volume -M
+> # esxcfg-volume -M
 
 And lastly you can
 
 > 3. Resignature the volume (the volume is mounted immediately after the resignature):
 > 
-> \# esxcfg-volume -r
+> # esxcfg-volume -r
 
 These are all take from VMware KB <a href="http://kb.vmware.com/kb/1011387" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1011387']);">1011387</a>. Option 1 didn't really suit me cause I wanted my fix to be permanent, so I will discuss options 2 and 3.
 

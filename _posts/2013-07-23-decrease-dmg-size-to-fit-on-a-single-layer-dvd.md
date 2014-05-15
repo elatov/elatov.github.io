@@ -500,5 +500,5 @@ From "<a href="http://support.apple.com/kb/dl1433" onclick="javascript:_gaq.push
 
 > The OS X Recovery Disk Assistant lets you create OS X Recovery on an external drive that has all of the same capabilities as the built-in OS X Recovery: reinstall Lion or Mountain Lion, repair the disk using Disk Utility, restore from a Time Machine backup, or browse the web with Safari.
 
-Well at least I have a cheap bootable OS 10.6 DVD now <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Decrease DMG Size to Fit on a Single Layer DVD" class="wp-smiley" title="Decrease DMG Size to Fit on a Single Layer DVD" /> 
+Well at least I have a cheap bootable OS 10.6 DVD now :) 
 

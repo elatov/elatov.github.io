@@ -111,12 +111,12 @@ So it looks like the "update-apt-xapian-index" is what's causing the high disk I
 	sda 658.65 15638.46 319.23 16264 332  
 	
 
-We consistently see very high %iowait and our reads are at ~15-20MB/s. Don't forget this is on local storage too <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Ubuntu 11.10 VMs Experience High Storage Latency on ESXi 5.0" class="wp-smiley" title="Ubuntu 11.10 VMs Experience High Storage Latency on ESXi 5.0" />  
+We consistently see very high %iowait and our reads are at ~15-20MB/s. Don't forget this is on local storage too :)  
 I wanted to find out what this apt-xapian process is, I did some research and I found a bug (<a href="https://bugs.launchpad.net/ubuntu/+source/apt-xapian-index/+bug/363695" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://bugs.launchpad.net/ubuntu/+source/apt-xapian-index/+bug/363695']);">363695</a>) from ubuntu. They tried to fix it by throttling the IO by using ionice, my install had that enabled:
 
 	  
 	root@uaclass39:/etc/cron.weekly# grep -i ionice apt-xapian-index  
-	\# ionice should not be called in a virtual environment  
+	# ionice should not be called in a virtual environment  
 	egrep -q '(envID|VxID):.*[1-9]' /proc/self/status || IONICE=/usr/bin/ionice  
 	if [ -x "$IONICE" ]  
 	nice -n 19 $IONICE -c 3 $CMD --quiet  
@@ -181,7 +181,7 @@ But I didn't want to do that just yet. Just as an FYI, here are the spec of each
 	x86info v1.25. Dave Jones 2001-2009
 	
 	Found 1 CPU  
-	\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\-----  
+	--------------------------------------------------------------------------  
 	EFamily: 0 EModel: 0 Family: 6 Model: 15 Stepping: 7  
 	CPU Model: Core 2 Quad (Kentsfield)  
 	Processor name string: Intel(R) Xeon(R) CPU X5355 @ 2.66GHz  

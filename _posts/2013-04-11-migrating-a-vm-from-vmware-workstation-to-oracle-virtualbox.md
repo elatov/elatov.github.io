@@ -58,7 +58,7 @@ There are only two VMs: UCSPM (the UCS Manager Emulator) and Windows XP Professi
     Windows XP Professional.vmxf
     
 
-Pretty standard stuff, but I realized that when I created that VM I used the 2GB Split Sparse VMDK format. I don't even know why I did that. I was probably thinking that if I was backing up to a FAT32 partition then this might help out. But who uses FAT partitions anymore? <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Migrating a VM from VMware Workstation to Oracle VirtualBox" class="wp-smiley" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" /> 
+Pretty standard stuff, but I realized that when I created that VM I used the 2GB Split Sparse VMDK format. I don't even know why I did that. I was probably thinking that if I was backing up to a FAT32 partition then this might help out. But who uses FAT partitions anymore? :) 
 
 So the first thing I wanted to do, was to convert the 2GB Split Spare VMDKs into a single monolithic VMDK (also reffered to as Monolithic Sparse VMDK). You can check out all the VMDK formats in the <a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vddk51_programming.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vddk51_programming.pdf']);">Virtual Disk Programming Guide Virtual Disk Development Kit (VDDK) 5.1</a>. Here is a table from that pdf:
 

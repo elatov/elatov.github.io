@@ -204,7 +204,7 @@ Check to make sure it looks good.
 	  
 	moxz:~>sudo lvs  
 	LV VG Attr LSize Pool Origin Data% Move Log Copy% Convert  
-	data vg_data -wi-a\--- 193.56g  
+	data vg_data -wi-a--- 193.56g  
 	
 
 ### 6. Put a file system on the Logical Volume

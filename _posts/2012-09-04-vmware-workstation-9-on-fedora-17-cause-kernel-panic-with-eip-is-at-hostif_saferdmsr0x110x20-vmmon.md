@@ -34,45 +34,45 @@ I recently updated my VMware Workstation from version 8 to version 9. The instal
 	Aug 23 10:32:27 klaptop kernel: [ 92.965006] 09f92468 eed45c9c f91f3529 f0278440 f0278440 eed45cb0 f91f6375 00000001  
 	Aug 23 10:32:27 klaptop kernel: [ 92.965006] f0278440 ffffffea eed45f14 f91f107f f2a4ca80 f39c1d10 f5651640 f7004600  
 	Aug 23 10:32:27 klaptop kernel: [ 92.965006] Call Trace:  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] Vmx86GetMSR+0x6e/0xc0 [vmmon]  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? HostIF_AllocKernelMem+0x18/0x50 [vmmon]  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? Vmx86GetUnavailPerfCtrsOnCPU+0x1b0/0x1b0 [vmmon]  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] HostIF_CallOnEachCPU+0x19/0x40 [vmmon]  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] Vmx86_GetAllMSRs+0x25/0x50 [vmmon]  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] LinuxDriver_Ioctl+0x32f/0xd00 [vmmon]  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? __mem_cgroup_commit_charge+0x144/0x2b0  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? radix_tree_lookup_slot+0xd/0x10  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? find_get_page+0x1e/0xe0  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? find_lock_page+0x35/0x90  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? shmem_getpage_gfp+0x8d/0x6f0  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? kmap_atomic_prot+0xfe/0x160  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? unlock_page+0x4e/0x70  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? shmem_write_end+0x56/0xe0  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? iov_iter_copy_from_user_atomic+0x55/0x80  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? shmem_write_begin+0x40/0x50  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? generic_file_buffered_write+0x17d/0x220  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? radix_tree_lookup_slot+0xd/0x10  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? find_get_page+0x1e/0xe0  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? filemap_fault+0xef/0x3b0  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? mem_cgroup_update_page_stat+0x1a/0x50  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? unlock_page+0x4e/0x70  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? __do_fault+0x420/0x5a0  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? __lock_page_or_retry+0xa0/0xa0  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? handle_pte_fault+0x90/0xb00  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? handle_mm_fault+0x1dd/0x280  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? LinuxDriver_Ioctl+0xd00/0xd00 [vmmon]  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] LinuxDriver_UnlockedIoctl+0x19/0x20 [vmmon]  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] do_vfs_ioctl+0x7a/0x580  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? vmalloc_fault+0x181/0x181  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? do_page_fault+0x1b7/0x450  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? vfs_write+0xe8/0x160  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? wait_on_retry_sync_kiocb+0x50/0x50  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] sys_ioctl+0x68/0x80  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] sysenter_do_call+0x12/0x28  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? __schedule+0x730/0x770  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] Vmx86GetMSR+0x6e/0xc0 [vmmon]  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] ? HostIF_AllocKernelMem+0x18/0x50 [vmmon]  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] ? Vmx86GetUnavailPerfCtrsOnCPU+0x1b0/0x1b0 [vmmon]  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] HostIF_CallOnEachCPU+0x19/0x40 [vmmon]  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] Vmx86_GetAllMSRs+0x25/0x50 [vmmon]  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] LinuxDriver_Ioctl+0x32f/0xd00 [vmmon]  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] ? __mem_cgroup_commit_charge+0x144/0x2b0  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] ? radix_tree_lookup_slot+0xd/0x10  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] ? find_get_page+0x1e/0xe0  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] ? find_lock_page+0x35/0x90  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] ? shmem_getpage_gfp+0x8d/0x6f0  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] ? kmap_atomic_prot+0xfe/0x160  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] ? unlock_page+0x4e/0x70  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] ? shmem_write_end+0x56/0xe0  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] ? iov_iter_copy_from_user_atomic+0x55/0x80  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] ? shmem_write_begin+0x40/0x50  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] ? generic_file_buffered_write+0x17d/0x220  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] ? radix_tree_lookup_slot+0xd/0x10  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] ? find_get_page+0x1e/0xe0  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] ? filemap_fault+0xef/0x3b0  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] ? mem_cgroup_update_page_stat+0x1a/0x50  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] ? unlock_page+0x4e/0x70  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] ? __do_fault+0x420/0x5a0  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] ? __lock_page_or_retry+0xa0/0xa0  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] ? handle_pte_fault+0x90/0xb00  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] ? handle_mm_fault+0x1dd/0x280  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] ? LinuxDriver_Ioctl+0xd00/0xd00 [vmmon]  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] LinuxDriver_UnlockedIoctl+0x19/0x20 [vmmon]  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] do_vfs_ioctl+0x7a/0x580  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] ? vmalloc_fault+0x181/0x181  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] ? do_page_fault+0x1b7/0x450  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] ? vfs_write+0xe8/0x160  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] ? wait_on_retry_sync_kiocb+0x50/0x50  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] sys_ioctl+0x68/0x80  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] sysenter_do_call+0x12/0x28  
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] [] ? __schedule+0x730/0x770  
 	Aug 23 10:32:27 klaptop kernel: [ 92.965006] Code: 77 ef 89 d8 e8 51 8c 34 c7 90 eb a5 8b 43 08 e8 d6 d4 24 c7 eb d3 8d 74 26 00 55 89 e5 56 66 66 66 66 90 89 c1 31 c0 89 d6 89 c2 32 31 c9 89 06 89 c8 89 56 04 5e 5d c3 90 55 89 e5 57 56 53  
 	Aug 23 10:32:27 klaptop kernel: [ 92.965006] EIP: [] HostIF_SafeRDMSR+0x11/0x20 [vmmon] SS:ESP 0068:eed45c68  
-	Aug 23 10:32:27 klaptop kernel: [ 93.259084] \---[ end trace 41e66149eea61e4b ]\---  
+	Aug 23 10:32:27 klaptop kernel: [ 93.259084] ---[ end trace 41e66149eea61e4b ]---  
 	
 
 Here are the version of my OS and Workstation:

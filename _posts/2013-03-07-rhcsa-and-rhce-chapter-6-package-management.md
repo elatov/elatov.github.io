@@ -1158,7 +1158,7 @@ Now let's install the **createrepo** package and create a database from the 'my_
 
 Now for the magic:
 
-    [root@rhel1 ~\]# createrepo -d my_repo/ 
+    [root@rhel1 ~]# createrepo -d my_repo/ 
     1/1 - tcsh-6.17-12.el6.i686.rpm 
     Saving Primary metadata 
     Saving file lists metadata 

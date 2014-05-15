@@ -254,7 +254,7 @@ And from KB 1003928:
 	>     >     Loaded: true  
 	>     >     esxcli network firewall ruleset list --ruleset-id sshServer  
 	>     >     Name Enabled  
-	>     >     \---\---\--- \---\----  
+	>     >     --------- -------  
 	>     >     sshServer true  
 	>     >     
 >     > 2.  Enable the sshServer ruleset if it is disabled.  
@@ -265,7 +265,7 @@ And from KB 1003928:
 	>     >       
 	>     >     esxcli network firewall ruleset allowedip list --ruleset-id sshServer  
 	>     >     Ruleset Allowed IP Addresses  
-	>     >     \---\---\--- \---\---\---\---\---\-----  
+	>     >     --------- --------------------  
 	>     >     sshServer All  
 	>     >     
 >     > 4.  Set the status of the allowedAll flag to false.  
@@ -281,7 +281,7 @@ And from KB 1003928:
 	>     >       
 	>     >     esxcli network firewall ruleset allowedip list --ruleset-id sshServer  
 	>     >     Ruleset Allowed IP Addresses  
-	>     >     \---\---\--- \---\---\---\---\---\---\---\---\-----  
+	>     >     --------- -----------------------------  
 	>     >     sshServer 192.XXX.10.10, 192.XXX.1.0/24  
 	>     >     
 >     
@@ -291,9 +291,9 @@ And from KB 1003928:
 >     > 1.  Open an SSH connection to the host.
 >     > 2.  List the firewall rules with this command:  
 	>     >       
-	>     >     \# esxcli network firewall ruleset list  
+	>     >     # esxcli network firewall ruleset list  
 	>     >     Name Enabled  
-	>     >     \---\---\---\---\---\---\---\---\---\----  
+	>     >     -------------------------------  
 	>     >     sshServer true  
 	>     >     sshClient false  
 	>     >     nfsClient true  
@@ -355,15 +355,15 @@ And from KB 1003928:
 	>     >          </li> 
 >     >         *   Refresh the firewall rules for the changes to take effect with this command: 
 	>     >               
-	>     >             \# esxcli network firewall refresh  
+	>     >             # esxcli network firewall refresh  
 	>     >             
 >     >             
 >     >             Note: This setting does not persist after a reboot. To make it persistent, refer KB 2011818.</li> 
 >     >             *   List the rules again using this command:  
 	>     >                   
-	>     >                 \# esxcli network firewall ruleset list  
+	>     >                 # esxcli network firewall ruleset list  
 	>     >                 Name Enabled  
-	>     >                 \---\---\---\---\-- -\---\---\---\---\----  
+	>     >                 -------------- -----------------  
 	>     >                 sshServer true  
 	>     >                 sshClient false  
 	>     >                 nfsClient true  
@@ -387,7 +387,7 @@ And from KB 1003928:
 	>     >             PING 192.168.0.101 (192.168.0.101): 56 data bytes  
 	>     >             64 bytes from 192.168.0.101: icmp_seq=0 ttl=64 time=0.848 ms
 	>     >             
-	>     >             \--- 192.168.0.101 ping statistics \---  
+	>     >             --- 192.168.0.101 ping statistics ---  
 	>     >             1 packets transmitted, 1 packets received, 0% packet loss  
 	>     >             round-trip min/avg/max = 0.848/0.848/0.848 ms  
 	>     >             
@@ -401,7 +401,7 @@ And from KB 1003928:
 	>     >             PING 192.168.0.121 (192.168.0.121): 56 data bytes  
 	>     >             64 bytes from 192.168.0.121: icmp_seq=0 ttl=128 time=0.906 ms
 	>     >             
-	>     >             \--- 192.168.0.121 ping statistics \---  
+	>     >             --- 192.168.0.121 ping statistics ---  
 	>     >             1 packets transmitted, 1 packets received, 0% packet loss  
 	>     >             round-trip min/avg/max = 0.906/0.906/0.906 ms  
 	>     >             

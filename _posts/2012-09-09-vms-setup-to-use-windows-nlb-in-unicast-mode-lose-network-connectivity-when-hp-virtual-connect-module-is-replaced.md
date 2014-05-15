@@ -77,7 +77,7 @@ I wasn't present when the VMC replacement took place but we grabbed logs right a
 	Network Interface Cards Information.
 	
 	Name PCI Device Driver Link Speed Duplex MAC Address MTU Description  
-	\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\----  
+	----------------------------------------------------------------------------------------  
 	vmnic0 0000:002:00.0 be2net Up 1000 Full 00:17:a4:77:00:c6 1500 Emulex Corporation NC553i 10Gb 2-port FlexFabric Converged Network Adapter  
 	vmnic1 0000:002:00.1 be2net Up 1000 Full 00:17:a4:77:00:c8 1500 Emulex Corporation NC553i 10Gb 2-port FlexFabric Converged Network Adapter  
 	vmnic2 0000:002:00.4 be2net Up 4000 Full 00:17:a4:77:00:ca 1500 Emulex Corporation NC553i 10Gb 2-port FlexFabric Converged Network Adapter  

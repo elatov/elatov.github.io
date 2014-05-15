@@ -589,7 +589,7 @@ Our top CPU process is **sshd**:
         1 root      20   0  2852 1384 1192 S  0.0  0.3   0:00.80 init                         
     
 
-And that is a whopping 0.3% <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile RHCSA and RHCE Chapter 9   System Logging, Monitoring, and Automation" class="wp-smiley" title="RHCSA and RHCE Chapter 9   System Logging, Monitoring, and Automation" /> Here is how **ps** looks like:
+And that is a whopping 0.3% :) Here is how **ps** looks like:
 
     [root@rhel1 ~]# ps aux
     USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND

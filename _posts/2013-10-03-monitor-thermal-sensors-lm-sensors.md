@@ -630,7 +630,7 @@ My output looked like this:
     CPU Temp:     +34.0°C  (crit = +85.0°C)
     
 
-Now all that I had to do was plot those values in zabbix <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Monitor Thermal Sensors With lm sensors" class="wp-smiley" title="Monitor Thermal Sensors With lm sensors" /> 
+Now all that I had to do was plot those values in zabbix :) 
 
 ## Sensors On MacBook Pro
 

@@ -249,5 +249,5 @@ You can also use '**sdbtool**' to confirm the connection as well:
         Version: 0x0100
     
 
-I actually used the bluetooth keyboard to write this post <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Setup Apple Wireless Keyboard via Bluetooth on Fedora 17" class="wp-smiley" title="Setup Apple Wireless Keyboard via Bluetooth on Fedora 17" /> 
+I actually used the bluetooth keyboard to write this post :) 
 

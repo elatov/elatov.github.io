@@ -331,7 +331,7 @@ There are many tools out there that can help with this:
 *   <a href="http://fiddler2.com/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://fiddler2.com/']);">Diddler</a> 
 *   <a href="https://addons.mozilla.org/en-us/firefox/addon/live-http-headers/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://addons.mozilla.org/en-us/firefox/addon/live-http-headers/']);">Live HTTP Headers</a>
 
-I prefer Charles Proxy because it's a stand alone application. You point your browser to proxy all of it's traffic through Charles and you can see everything. While the other tools, attach themselves to the Browser and show you the traffic. For ease of use, I will use *Live HTTP Headers* cause it easy to copy Header information from it <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" class="wp-smiley" title="Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" /> 
+I prefer Charles Proxy because it's a stand alone application. You point your browser to proxy all of it's traffic through Charles and you can see everything. While the other tools, attach themselves to the Browser and show you the traffic. For ease of use, I will use *Live HTTP Headers* cause it easy to copy Header information from it :) 
 
 Here is what I saw after I hit "Sign In" from gmail:
 

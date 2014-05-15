@@ -120,7 +120,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     >       
 	>     >     ~ # esxcli iscsi adapter discovery sendtarget list  
 	>     >     Adapter Sendtarget  
-	>     >     \---\---\- --\---\---\---\---\----  
+	>     >     ------- ------------------  
 	>     >     vmhba33 192.168.1.107:3260  
 	>     >     
 >     >     
@@ -135,7 +135,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     >       
 	>     >     ~ # esxcli iscsi adapter target list  
 	>     >     Adapter Target Max Cons Discovery Method Last Error  
-	>     >     \---\---\- --\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\-- -\---\---\- --\---\---\---\---\-- -\---\---\----  
+	>     >     ------- ------------------------------------------------------------------- -------- ---------------- -----------  
 	>     >     vmhba33 iqn.2010-09.org.openindiana:02:d5773f2f-d5b1-6c61-8ad4-b5a2dac34294 0 SENDTARGETS No Error  
 	>     >     vmhba33 iqn.2010-09.org.openindiana:02:bd79a6ff-33c2-41d3-8f0e-9c8d8b6e9fcb 0 SENDTARGETS Unqualified Login Status. (Error=0x40000)  
 	>     >     
@@ -145,7 +145,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     >       
 	>     >     ~ # esxcli iscsi adapter target portal list  
 	>     >     Adapter Target IP Port Tpgt  
-	>     >     \---\---\- --\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\-- -\---\---\---\--- \---\- ----  
+	>     >     ------- ------------------------------------------------------------------- ------------- ---- ----  
 	>     >     vmhba33 iqn.2010-09.org.openindiana:02:bd79a6ff-33c2-41d3-8f0e-9c8d8b6e9fcb 192.168.1.107 3260 1  
 	>     >     vmhba33 iqn.2010-09.org.openindiana:02:bd79a6ff-33c2-41d3-8f0e-9c8d8b6e9fcb 10.131.67.12 3260 1  
 	>     >     
@@ -167,7 +167,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     >       
 	>     >     ~ # esxcli iscsi adapter param get -A vmhba33  
 	>     >     Name Current Default Min Max Settable Inherit  
-	>     >     \---\---\---\---\---\---\-- -\---\---\--- \---\---\---\- --\- --\---\--- \---\---\-- -\---\---  
+	>     >     -------------------- ---------- ---------- --- -------- -------- -------  
 	>     >     ErrorRecoveryLevel 0 0 0 2 false false  
 	>     >     InitialLoginRetryMax 4 4 0 64 false false  
 	>     >     InitialR2T false false na na false false  
@@ -194,7 +194,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     >       
 	>     >     ~ # esxcli iscsi adapter target portal param get -A vmhba33 -a 192.168.1.107 -n iqn.2010-09.org.openindiana:02:bd79a6ff-33c2-41d3-8f0e-9c8d8b6e9fcb  
 	>     >     Name Current Default Min Max Settable Inherit  
-	>     >     \---\---\---\---\---\---\-- -\---\---\--- \---\---\---\- --\- --\---\--- \---\---\-- -\---\---  
+	>     >     -------------------- ---------- ---------- --- -------- -------- -------  
 	>     >     ErrorRecoveryLevel 0 0 0 2 false true  
 	>     >     InitialLoginRetryMax 4 4 0 64 false true  
 	>     >     InitialR2T false false na na false true  
@@ -221,7 +221,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     >       
 	>     >     ~ # esxcli iscsi physicalnetworkportal list  
 	>     >     Adapter Vmnic MAC Address MAC Address Valid Current Speed Max Speed Max Frame Size  
-	>     >     \---\---\- --\---\- --\---\---\---\---\--- \---\---\---\---\---\-- -\---\---\---\--- \---\---\--- \---\---\---\-----  
+	>     >     ------- ------ ----------------- ----------------- ------------- --------- --------------  
 	>     >     vmhba33 vmnic4 00:50:56:17:16:a5 true 1000 1000 1500  
 	>     >     vmhba33 vmnic0 00:50:56:17:12:cb true 1000 1000 1500  
 	>     >     vmhba33 vmnic1 00:50:56:17:16:07 true 1000 1000 1500  
@@ -235,7 +235,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     >       
 	>     >     ~ # esxcli iscsi logicalnetworkportal list  
 	>     >     Adapter Vmknic MAC Address MAC Address Valid Compliant  
-	>     >     \---\---\- --\---\- --\---\---\---\---\--- \---\---\---\---\---\-- -\---\-----  
+	>     >     ------- ------ ----------------- ----------------- ---------  
 	>     >     vmhba33 vmk0 00:50:56:17:12:cb true true  
 	>     >     vmhba33 vmk1 00:50:56:17:16:07 true true  
 	>     >     vmhba33 vmk2 00:50:56:17:16:58 true true  
@@ -397,7 +397,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     >       
 	>     >     ~ # esxcli storage nfs list  
 	>     >     Volume Name Host Share Accessible Mounted Hardware Acceleration  
-	>     >     \---\---\---\-- -\---\---\---\--- \---\---\---\---\--- \---\---\---\- --\---\-- -\---\---\---\---\---\-----  
+	>     >     ----------- ------------- --------------- ---------- ------- ---------------------  
 	>     >     NFS 192.168.1.107 /data/nfs_share true true Not Supported  
 	>     >     ~ # cd /vmfs/volumes/NFS  
 	>     >     /vmfs/volumes/68f39598-81703e7b # touch j  

@@ -25,11 +25,11 @@ I updated my *portmaster* package the other day and I saw the following message:
 	
 	Enable PKGNG as your package format:
 	
-	\# echo 'WITH_PKGNG=yes' >> /etc/make.conf
+	# echo 'WITH_PKGNG=yes' >> /etc/make.conf
 	
 	Then convert your /var/db/pkg database to the new pkg format:
 	
-	\# pkg2ng
+	# pkg2ng
 	
 	
 
@@ -58,28 +58,28 @@ After you run the above command, commands like *pkg_info*, *pkg_version*, and *p
 But have no fear, all the commands that could be run with the previous tools are available with the *pkg* utility. For instances here are some examples:
 
 	  
-	\# old way, install binary version of the package  
+	# old way, install binary version of the package  
 	$ pkg_add -r PKG_NAME
 	
-	\# New way, install binary version of package  
+	# New way, install binary version of package  
 	$ pkg install PKG_NAME  
 	* You need to setup a repository before running this command (more info in the above blog)
 	
-	\# old way to list outdated packages  
+	# old way to list outdated packages  
 	pkg_version -vIL=
 	
-	\# New way to list outdated packages  
+	# New way to list outdated packages  
 	pkg version -vIL=
 	
-	\# Old way, list files installed by package  
+	# Old way, list files installed by package  
 	pkg_info -L PKG_NAME  
-	\# New way, list files installed by package  
+	# New way, list files installed by package  
 	pkg info -l PKG_NAME
 	
-	\# Old way, list package that installed a file  
+	# Old way, list package that installed a file  
 	pkg_info -W /path/to/file
 	
-	\# New way, list package that installed a file  
+	# New way, list package that installed a file  
 	pkg which /path/to/file  
 	
 

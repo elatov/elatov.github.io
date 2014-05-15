@@ -256,7 +256,7 @@ Selecting "Finish" from the above window prompted for a restart. After the resta
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/ad_server_joined_to_domain.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/ad_server_joined_to_domain.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/ad_server_joined_to_domain.png" alt="ad server joined to domain Deploying a Test Windows Environment in a KVM Infrastucture" width="1042" height="886" class="alignnone size-full wp-image-7992" title="Deploying a Test Windows Environment in a KVM Infrastucture" /></a>
 
-Indicating that I was part of the "elatov" domain <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Deploying a Test Windows Environment in a KVM Infrastucture" class="wp-smiley" title="Deploying a Test Windows Environment in a KVM Infrastucture" /> After I logged in I checked the IP settings and I saw the following:
+Indicating that I was part of the "elatov" domain :) After I logged in I checked the IP settings and I saw the following:
 
     C:\Users\Administrator>ipconfig /all
     
@@ -567,7 +567,7 @@ After the install is done, restart the VM one more time. After the VM reboots yo
     vdagent.exe                    912 Console                    1      3,488 K
     
 
-I actually copied that from the guest <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Deploying a Test Windows Environment in a KVM Infrastucture" class="wp-smiley" title="Deploying a Test Windows Environment in a KVM Infrastucture" /> 
+I actually copied that from the guest :) 
 
 ### Using Spice Clients to Connect to Spice-Enabled VMs
 

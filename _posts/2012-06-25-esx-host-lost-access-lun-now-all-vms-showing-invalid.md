@@ -37,7 +37,7 @@ Checking out the proc node for the card that is showing **link-na** and is the o
 	  
 	 # cat /proc/scsi/qla2xxx/7  
 	QLogic PCI to Pibre Channel Host Adapter for QLE2460:  
-	Firmware uersion 4.04.09 \[IP\] \[Multi-ID\] [84XX] , Driuer uersion 8.02.01-X1-vmw43  
+	Firmware uersion 4.04.09 [IP] [Multi-ID] [84XX] , Driuer uersion 8.02.01-X1-vmw43  
 	BIOS version 2.02  
 	FCODE version 2.00  
 	EPI version 2.00  
@@ -92,7 +92,7 @@ We moved the HBA around and it was discovered that the original HBA went bad and
 	  
 	 # cat /proc/scsi/qla2xxx/7  
 	QLogic PCI to Pibre Channel Host Adapter for QLE2460:  
-	Firmware uersion 4.04.09 \[IP\] \[Multi-ID\] [84XX] , Driuer uersion 8.02.01-X1-vmw43  
+	Firmware uersion 4.04.09 [IP] [Multi-ID] [84XX] , Driuer uersion 8.02.01-X1-vmw43  
 	BIOS version 2.02  
 	FCODE version 2.00  
 	EPI version 2.00  
@@ -152,9 +152,9 @@ But now we had to modify the zoning on the SAN switch to allow the new WWN of th
 	Last reset at 32933643 usecs after Thu Nou 13 19:29:26 2008  
 	Reason: ResetByInstaller
 	
-	\---\---\---\---\---\---\---\---\---\---  
+	------------------------------  
 	Switch hardware ID information  
-	\---\---\---\---\---\---\---\---\---\---
+	------------------------------
 	
 	MDS Switch is booted up  
 	Model number is DS-C9020-20K9  
@@ -169,9 +169,9 @@ First we needed to make sure that we see our WWN logged into the switch:
 
 	  
 	san_switch# show flogi database  
-	\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\----  
+	-------------------------------------------------------------------  
 	INTERFACE FCID PORT_NAME NODE_NAME  
-	\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\----
+	-------------------------------------------------------------------
 	
 	fc1/3 0x760200 50:03:08:c0:9c:00:80:01 50:03:08:c0:9c:00:80:00  
 	fc1/4 0x760300 21:00:00:e0:8b:93:8d:5a 20:00:00:e0:8b:93:8d:5a  

@@ -101,7 +101,7 @@ Now checking out the ESXi firewall and looking for the syslog server, I saw thes
 	  
 	~ # esxcli network firewall ruleset rule list -r syslog  
 	Ruleset Direction Protocol Port Type Port Begin Port End  
-	\---\---\- --\---\---\- --\---\--- \---\---\--- \---\---\---\- --\---\---  
+	------- --------- -------- --------- ---------- --------  
 	syslog Outbound UDP Dst 514 514  
 	syslog Outbound TCP Dst 514 514  
 	syslog Outbound TCP Dst 1514 1514  
@@ -112,7 +112,7 @@ Now checking if the rule is active and I saw the following:
 	  
 	~ # esxcli network firewall ruleset list -r syslog  
 	Name Enabled  
-	\---\--- \---\----  
+	------ -------  
 	syslog false  
 	
 

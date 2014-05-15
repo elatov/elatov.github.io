@@ -257,7 +257,7 @@ and the **dd** results:
     sys 0m 12.52s
     
 
-so my SanDisk was slower than my 2.5 SATA disk (5MB/s vs 35MB/s) <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Backing Up with Rsync to Pogoplug" class="wp-smiley" title="Backing Up with Rsync to Pogoplug" /> The speeds weren't crazy fast, but I wasn't worried about that.
+so my SanDisk was slower than my 2.5 SATA disk (5MB/s vs 35MB/s) :) The speeds weren't crazy fast, but I wasn't worried about that.
 
 #### Pogoplug Networking
 

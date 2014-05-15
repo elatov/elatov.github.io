@@ -94,7 +94,7 @@ But when I tried to write files to it, I couldn't. I then wanted to find any *ma
 	mount_ntfs(8) - mount an NTFS file system  
 	
 
-Not much there <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Mounting an NTFS Disk with Write Capabilties in FreeBSD 9" class="wp-smiley" title="Mounting an NTFS Disk with Write Capabilties in FreeBSD 9" /> Checking out the *man* page, I saw the following:
+Not much there :) Checking out the *man* page, I saw the following:
 
 > **CAVEATS**  
 > This utility is primarily used for read access to an NTFS volume. See the WRITING section for details about writing to an NTFS volume.
@@ -355,7 +355,7 @@ And then re-installed both:
 	elatov@freebsd:> sudo /usr/local/etc/rc.d/fusefs start  
 	
 
-After that I was able to copy files just fine <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Mounting an NTFS Disk with Write Capabilties in FreeBSD 9" class="wp-smiley" title="Mounting an NTFS Disk with Write Capabilties in FreeBSD 9" /> 
+After that I was able to copy files just fine :) 
 
 	  
 	elatov@freebsd:~>touch test  

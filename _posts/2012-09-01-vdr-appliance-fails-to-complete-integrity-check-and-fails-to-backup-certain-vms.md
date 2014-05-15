@@ -213,7 +213,7 @@ I then ran across VMware KB <a href="http://kb.vmware.com/kb/2013450" onclick="j
 > 
 > 3. Stop the data recovery service with this command:
 > 
-> \# service datarecovery stop
+> # service datarecovery stop
 > 
 > 4. Open the /var/vmware/datarecovery/datarecovery.ini file in a plain text editor and ensure it contains these values:
 > 
@@ -227,7 +227,7 @@ I then ran across VMware KB <a href="http://kb.vmware.com/kb/2013450" onclick="j
 > 
 > 5. Start the data recovery service with this command:
 > 
-> \# service datarecovery start
+> # service datarecovery start
 
 After removing the original entries from datarecovery.ini file and replacing them with the above, the backup started to work. We left the backup job running for a couple of days and it was successful for a couple of days, but one of the days it failed with the following:
 

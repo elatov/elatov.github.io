@@ -358,7 +358,7 @@ You can also get file system information by running *fsstat* like so:
 	  
 	$ /usr/local/sleuthkit/bin/fsstat sd.img | less  
 	FILE SYSTEM INFORMATION  
-	\---\---\---\---\---\---\---\---\---\---\---\---\---\-----  
+	--------------------------------------------  
 	File System Type: FAT16
 	
 	OEM Name: MSDOS5.0  
@@ -387,18 +387,18 @@ Now I wanted to recover all the files. I ran into a couple of other links: '<a h
 
 	  
 	#!/bin/bash  
-	\# make sure 2 arguments are passed into the script  
+	# make sure 2 arguments are passed into the script  
 	if [ $# -ne 2 ]; then  
 	echo "supply image name and output directory name"  
 	echo "ex: $0 /path/to/filesystem.img output/dir";  
 	exit 1;  
 	fi
 	
-	\# Take in passed in arguments  
+	# Take in passed in arguments  
 	IMG_FILE=$1;  
 	OUTPUT_DIR=$2;
 	
-	\# make sure Img and Directory exist  
+	# make sure Img and Directory exist  
 	if [ ! -f $IMG_FILE ]; then  
 	echo "Image File $IMG_FILE doesn't exist";  
 	exit 1  
@@ -409,11 +409,11 @@ Now I wanted to recover all the files. I ran into a couple of other links: '<a h
 	exit 1  
 	fi 
 	
-	\# Read in the output of the fls command (part of sleuthkit)  
+	# Read in the output of the fls command (part of sleuthkit)  
 	/usr/local/sleuthkit/bin/fls -r -p $IMG_FILE |  
 	while read line  
 	do  
-	\# Read in 3 different variables  
+	# Read in 3 different variables  
 	file_type=\`echo "$line" | awk {'print $1'}\`  
 	inode_number=\`echo "$line" | cut -d : -f 1 |awk {'print $NF'}\`  
 	inode_number=${inode_number%:}  
@@ -424,10 +424,10 @@ Now I wanted to recover all the files. I ran into a couple of other links: '<a h
 	#echo "$inode_number"  
 	#echo "$file_name"
 	
-	\# If a directory, then create it  
+	# If a directory, then create it  
 	if [ $file_type == "d/d" ]; then  
 	mkdir -p $OUTPUT_DIR/"$file_name"  
-	\# Else it's a file, so recover the file to output directory  
+	# Else it's a file, so recover the file to output directory  
 	else  
 	/usr/local/sleuthkit/bin/icat -r $IMG_FILE "$inode_number" > $OUTPUT_DIR/"$file_name"  
 	fi  
@@ -554,7 +554,7 @@ Then running the program:
 	Invocation: /usr/local/foremost/bin/foremost -v -o test3 sd.img  
 	Output directory: /home/elatov/test3  
 	Configuration file: /usr/local/foremost/etc/foremost.conf  
-	\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---  
+	------------------------------------------------------------------  
 	File: sd.img  
 	Start: Wed Nov 21 07:57:29 2012  
 	Length: 974 MB (1021837312 bytes)
@@ -576,7 +576,7 @@ Then running the program:
 	jpg:= 113  
 	jpg:= 22  
 	jpg:= 7768  
-	\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---
+	------------------------------------------------------------------
 	
 	Foremost finished at Wed Nov 21 07:57:46 2012  
 	
@@ -603,7 +603,7 @@ and that will recover all the files.
 
 Foremost recovered the most amount of jpeg files (7903), but most of them were unreadable. I would say it recovered maybe 1 or 2 more actual readable jpeg files than the rest.
 
-In conclusion, there are a lot of recovery tools out there, so pick your poison:) I personally liked Sleuth Kit for recovery in general, it provided a lot of granular tools. For recovering specific type of files, each (photorec, magicrescue, and foremost) program had their own quirks. Foremost recovered the most but it took a while to manually sit and figure out which one is a valid picture. MagicRescue was good, but it didn't have that many built in recipes. PhotoRec was the easiest to use but it recovered the least amount of pictures but a lot of mp3 files <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Recover Files from an SD Card Using Linux Utilities" class="wp-smiley" title="Recover Files from an SD Card Using Linux Utilities" /> I ran all of them and I was pleased with each one in different ways. So if you are looking for pictures in a disk image just run them all and then sort out the pictures as necessary. I will end with a quote from the man page of <a href="http://www.itu.dk/people/jobr/magicrescue/manpage.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.itu.dk/people/jobr/magicrescue/manpage.html']);">MagicRescue</a>:
+In conclusion, there are a lot of recovery tools out there, so pick your poison:) I personally liked Sleuth Kit for recovery in general, it provided a lot of granular tools. For recovering specific type of files, each (photorec, magicrescue, and foremost) program had their own quirks. Foremost recovered the most but it took a while to manually sit and figure out which one is a valid picture. MagicRescue was good, but it didn't have that many built in recipes. PhotoRec was the easiest to use but it recovered the least amount of pictures but a lot of mp3 files :) I ran all of them and I was pleased with each one in different ways. So if you are looking for pictures in a disk image just run them all and then sort out the pictures as necessary. I will end with a quote from the man page of <a href="http://www.itu.dk/people/jobr/magicrescue/manpage.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.itu.dk/people/jobr/magicrescue/manpage.html']);">MagicRescue</a>:
 
 > **When not to use MagicRescue**
 > 
@@ -619,5 +619,5 @@ In conclusion, there are a lot of recovery tools out there, so pick your poison:
 > 
 > In many cases you will want to use Magic Rescue in addition to the tools mentioned above. They are not mutually exclusive, e.g. combining magicrescue with dls from The Sleuth Kit could give good results. In many cases you'll want to use magicrescue to extract its known file types and another utility to extract the rest. 
 
-So try everything out and sees what works best <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Recover Files from an SD Card Using Linux Utilities" class="wp-smiley" title="Recover Files from an SD Card Using Linux Utilities" /> 
+So try everything out and sees what works best :) 
 

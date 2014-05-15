@@ -106,7 +106,7 @@ From VMware KB <a href="http://kb.vmware.com/kb/1022312" onclick="javascript:_ga
 > **Note:** Ephemeral portgroups should be used only for recovery purposes when you want to provision ports directly on host bypassing vCenter Server, not for any other case. This is true for several reasons:
 > 
 > <p style="padding-left: 30px;">
->   <strong>Scalability</strong>
+>   **Scalability**
 > </p>
 > 
 > <p style="padding-left: 30px;">
@@ -114,7 +114,7 @@ From VMware KB <a href="http://kb.vmware.com/kb/1022312" onclick="javascript:_ga
 > </p>
 > 
 > <p style="padding-left: 30px;">
->   <strong>Performance</strong>
+>   **Performance**
 > </p>
 > 
 > <p style="padding-left: 30px;">
@@ -164,7 +164,7 @@ From "<a href="http://www.cisco.com/en/US/prod/collateral/switches/ps9441/ps9902
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/10/p3_dvs_features.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/10/p3_dvs_features.png']);"><img class="alignnone size-full wp-image-4563" title="p3_dvs_features" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/p3_dvs_features.png" alt="p3 dvs features VCAP5 DCA Objective 2.4 – Administer vNetwork Distributed Switch Settings " width="519" height="428" /></a>
 
-Everything depends on the requirements, if you need QOS, then you can set that up. If you need to monitor the your network traffic then you can use NetFlow. If you need resource allocation then use NIOC. If you need DMZs then use PVLANs or just regular VLANs. The sky is the limit <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile VCAP5 DCA Objective 2.4 – Administer vNetwork Distributed Switch Settings " class="wp-smiley" title="VCAP5 DCA Objective 2.4 – Administer vNetwork Distributed Switch Settings " /> 
+Everything depends on the requirements, if you need QOS, then you can set that up. If you need to monitor the your network traffic then you can use NetFlow. If you need resource allocation then use NIOC. If you need DMZs then use PVLANs or just regular VLANs. The sky is the limit :) 
 
 ### Configure and administer vSphere Network I/O Control
 

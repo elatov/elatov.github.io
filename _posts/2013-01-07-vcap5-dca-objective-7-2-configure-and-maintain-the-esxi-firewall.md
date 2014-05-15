@@ -63,7 +63,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>       
 	>     esxcli network firewall ruleset list --ruleset-id sshServer  
 	>     Name Enabled  
-	>     \---\---\--- \---\----  
+	>     --------- -------  
 	>     sshServer true  
 	>     </li> 
 >     *   Enable the sshServer ruleset if it is disabled.  
@@ -75,7 +75,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>       
 	>     ~ # esxcli network firewall ruleset list  
 	>     Name Enabled  
-	>     \---\---\---\---\---\--- \---\----  
+	>     ------------------ -------  
 	>     sshServer true  
 	>     sshClient false  
 	>     nfsClient true  
@@ -117,12 +117,12 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     ~ # esxcli network firewall ruleset set -r fdm -e true  
 	>     ~ # esxcli network firewall ruleset list -r fdm  
 	>     Name Enabled  
-	>     \---\- --\-----  
+	>     ---- -------  
 	>     fdm true  
 	>     ~ # esxcli network firewall ruleset set -r fdm -e false  
 	>     ~ # esxcli network firewall ruleset list -r fdm  
 	>     Name Enabled  
-	>     \---\- --\-----  
+	>     ---- -------  
 	>     fdm false  
 	>     
 >     
@@ -168,7 +168,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>       
 	>     ~ # esxcli network firewall ruleset rule list  
 	>     Ruleset Direction Protocol Port Type Port Begin Port End  
-	>     \---\---\---\---\---\--- \---\---\--- \---\---\-- -\---\---\-- -\---\---\--- \---\-----  
+	>     ------------------ --------- -------- --------- ---------- --------  
 	>     sshServer Inbound TCP Dst 22 22  
 	>     sshClient Outbound TCP Dst 22 22  
 	>     nfsClient Outbound TCP Dst 0 65535  
@@ -323,11 +323,11 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>       
 	>     ~ # esxcli network firewall ruleset list -r karim  
 	>     Name Enabled  
-	>     \---\-- -\---\---  
+	>     ----- -------  
 	>     karim false  
 	>     ~ # esxcli network firewall ruleset rule list -r karim  
 	>     Ruleset Direction Protocol Port Type Port Begin Port End  
-	>     \---\---\- --\---\---\- --\---\--- \---\---\--- \---\---\---\- --\---\---  
+	>     ------- --------- -------- --------- ---------- --------  
 	>     karim Inbound TCP Dst 1024 1024  
 	>     
 >     
@@ -372,7 +372,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     ~ # esxcli network firewall ruleset set -r vSPC -e true  
 	>     ~ # esxcli network firewall ruleset list -r vSPC  
 	>     Name Enabled  
-	>     \---\- --\-----  
+	>     ---- -------  
 	>     vSPC true  
 	>     
 >     

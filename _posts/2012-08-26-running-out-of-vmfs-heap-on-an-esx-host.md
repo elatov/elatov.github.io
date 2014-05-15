@@ -27,7 +27,7 @@ Recently I ran into an issue where we were running out of VMFS3 Heap. We would s
 I grabbed the logs from all the hosts in the clusters to get a feeling for how much space we are using. In the logs you can check out the *vmware-vimdump.txt* file and that will have the description of all the VMs. If you want to check all the flat files in a host's inventory you can run the following:
 
 	  
-	$ grep "\-flat.vmdk" vmware-vimdump.txt -A 3  
+	$ grep "-flat.vmdk" vmware-vimdump.txt -A 3  
 	name = '[Datastore] vm/vm-flat.vmdk',  
 	type = 'diskExtent',  
 	size = 33130807296L  
@@ -137,29 +137,29 @@ So we are approximately using 100TB of space across all the eight hosts. The iss
 	  
 	$ for log in \`ls -d esx-*\`; do echo $log; grep '\.MaxHeapSizeMB' -A 1 $log/commands/esxcfg-info_-a.txt; done  
 	esx-host1.com-2012-08-20--19.28  
-	|\----Option Name..................................MaxHeapSizeMB  
-	|\----Current Value................................256  
+	|----Option Name..................................MaxHeapSizeMB  
+	|----Current Value................................256  
 	esx-host2.com-2012-08-20--19.36  
-	|\----Option Name..................................MaxHeapSizeMB  
-	|\----Current Value................................256  
+	|----Option Name..................................MaxHeapSizeMB  
+	|----Current Value................................256  
 	esx-host3.com-2012-08-20--19.44  
-	|\----Option Name..................................MaxHeapSizeMB  
-	|\----Current Value................................256  
+	|----Option Name..................................MaxHeapSizeMB  
+	|----Current Value................................256  
 	esx-host4.com-2012-08-20--19.52  
-	|\----Option Name..................................MaxHeapSizeMB  
-	|\----Current Value................................256  
+	|----Option Name..................................MaxHeapSizeMB  
+	|----Current Value................................256  
 	esx-host5.com-2012-08-20--19.21  
-	|\----Option Name..................................MaxHeapSizeMB  
-	|\----Current Value................................256  
+	|----Option Name..................................MaxHeapSizeMB  
+	|----Current Value................................256  
 	esx-host6.com-2012-08-20--19.59  
-	|\----Option Name..................................MaxHeapSizeMB  
-	|\----Current Value................................256  
+	|----Option Name..................................MaxHeapSizeMB  
+	|----Current Value................................256  
 	esx-host7.com-2012-08-20--20.07  
-	|\----Option Name..................................MaxHeapSizeMB  
-	|\----Current Value................................256  
+	|----Option Name..................................MaxHeapSizeMB  
+	|----Current Value................................256  
 	esx-host8.com-2012-08-20--20.15  
-	|\----Option Name..................................MaxHeapSizeMB  
-	|\----Current Value................................256  
+	|----Option Name..................................MaxHeapSizeMB  
+	|----Current Value................................256  
 	
 
 Now that KB has a very theoretical calculation. If there were no other resources (ie just open VMDKs) then we could reach that. But if we have VAAI enabled and are using ATS, or if we use SIOC enabled on the Datastores, then these things also contribute to the VMFS heap. As we know VMFS5 uses a Unified 1MB Block size and if we have a VMDK bigger than 256GB, which is the max file size with that block size for VMFS3 (block size of 1MB), then this also uses more VMFS heap. More information on the new features of VMFS5 can be seen in the VMware blog entitled "<a href="http://blogs.vmware.com/vsphere/2011/07/new-vsphere-50-storage-features-part-1-vmfs-5.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vsphere/2011/07/new-vsphere-50-storage-features-part-1-vmfs-5.html']);">vSphere 5.0 Storage Features Part 1 – VMFS-5</a>" and more information on VAAI and it's features can be found in the VMware blog entitled "<a href="http://blogs.vmware.com/vsphere/2012/06/low-level-vaai-behaviour.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vsphere/2012/06/low-level-vaai-behaviour.html']);">Low Level VAAI Behaviour</a>".  
@@ -176,7 +176,7 @@ All of these things make it very hard to calculate VMFS heap usage. If you want 
 	upper memory PA limit:-1  
 	may use reserved memory:0  
 	memory pool:19  
-	\# of ranges allocated:2  
+	# of ranges allocated:2  
 	dlmalloc overhead:1008  
 	current heap size:12587984  
 	initial heap size:2097152  

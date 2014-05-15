@@ -21,15 +21,15 @@ Whenever we tried to cold migrate, we would see the following in the vpxa logs (
 
 	  
 	2012-03-14 16:31:45.288 1C69CB90 warning 'Libs' opID=C65743A5-0000024D-5c] [NFC ERROR] NfcNetTcpWrite: bWritten: -1  
-	\[2012-03-14 16:31:45.288 1C69CB90 warning 'Libs' opID=C65743A5-0000024D-5c\] \[NFC ERROR\] NfcNet_Send: requested 262040, sent only -1 bytes  
-	\[2012-03-14 16:31:45.288 1C69CB90 warning 'Libs' opID=C65743A5-0000024D-5c\] \[NFC ERROR\] NfcFile_SendMessage: data send failed:  
-	\[2012-03-14 16:31:45.288 1C69CB90 warning 'Libs' opID=C65743A5-0000024D-5c\] \[NFC ERROR\] NfcBuf_Send: failed to send next file portion  
-	\[2012-03-14 16:31:45.288 1C69CB90 warning 'Libs' opID=C65743A5-0000024D-5c\] \[NFC ERROR\] Nfc_PutFile: failed to send the buffer  
-	\[2012-03-14 16:31:45.324 1C69CB90 error 'App' opID=C65743A5-0000024D-5c\] \[VpxNfcClient\] File transfer  failed:  
-	\[2012-03-14 16:31:45.324 1C69CB90 verbose 'App' opID=C65743A5-0000024D-5c\] \[VpxNfcClient\] Closing NFC connection to server  
-	\[2012-03-14 16:31:45.324 1C69CB90 warning 'Libs' opID=C65743A5-0000024D-5c\] \[NFC ERROR\] NfcNetTcpWrite: bWritten: -1  
-	\[2012-03-14 16:31:45.324 1C69CB90 warning 'Libs' opID=C65743A5-0000024D-5c\] \[NFC ERROR\] NfcNet_Send: requested 264, sent only -1 bytes  
-	\[2012-03-14 16:31:45.324 1C69CB90 warning 'Libs' opID=C65743A5-0000024D-5c\] \[NFC ERROR\] NfcSendMessage: send failed:  
+	[2012-03-14 16:31:45.288 1C69CB90 warning 'Libs' opID=C65743A5-0000024D-5c] [NFC ERROR] NfcNet_Send: requested 262040, sent only -1 bytes  
+	[2012-03-14 16:31:45.288 1C69CB90 warning 'Libs' opID=C65743A5-0000024D-5c] [NFC ERROR] NfcFile_SendMessage: data send failed:  
+	[2012-03-14 16:31:45.288 1C69CB90 warning 'Libs' opID=C65743A5-0000024D-5c] [NFC ERROR] NfcBuf_Send: failed to send next file portion  
+	[2012-03-14 16:31:45.288 1C69CB90 warning 'Libs' opID=C65743A5-0000024D-5c] [NFC ERROR] Nfc_PutFile: failed to send the buffer  
+	[2012-03-14 16:31:45.324 1C69CB90 error 'App' opID=C65743A5-0000024D-5c] [VpxNfcClient] File transfer  failed:  
+	[2012-03-14 16:31:45.324 1C69CB90 verbose 'App' opID=C65743A5-0000024D-5c] [VpxNfcClient] Closing NFC connection to server  
+	[2012-03-14 16:31:45.324 1C69CB90 warning 'Libs' opID=C65743A5-0000024D-5c] [NFC ERROR] NfcNetTcpWrite: bWritten: -1  
+	[2012-03-14 16:31:45.324 1C69CB90 warning 'Libs' opID=C65743A5-0000024D-5c] [NFC ERROR] NfcNet_Send: requested 264, sent only -1 bytes  
+	[2012-03-14 16:31:45.324 1C69CB90 warning 'Libs' opID=C65743A5-0000024D-5c] [NFC ERROR] NfcSendMessage: send failed:  
 	[2012-03-14 16:31:45.325 1C69CB90 verbose 'PropertyProvider' opID=C65743A5-0000024D-5c] RecordOp ASSIGN: info.state, task-10646  
 	[2012-03-14 16:31:45.325 1C69CB90 verbose 'PropertyProvider' opID=C65743A5-0000024D-5c] RecordOp ASSIGN: info.cancelable, task-10646  
 	

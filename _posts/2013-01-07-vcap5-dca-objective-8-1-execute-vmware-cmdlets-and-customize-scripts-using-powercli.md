@@ -62,13 +62,13 @@ From the help page:
 Here are some examples.
 
 	  
-	\# show all environment variables  
+	# show all environment variables  
 	get-item -path env:*  
-	\# set $var equal to the $path environment  
+	# set $var equal to the $path environment  
 	$var = $env:path  
-	\# list pwd  
+	# list pwd  
 	get-item .  
-	\# list all files in current working directory  
+	# list all files in current working directory  
 	get-item *  
 	
 
@@ -178,7 +178,7 @@ Here is how that looks like from PowerCLI:
 	* The certificate's CN name does not match the passed value.
 	
 	Name Port User  
-	\---\- --\-- -\---  
+	---- ---- ----  
 	192.168.0.103 443 root  
 	
 
@@ -225,13 +225,13 @@ Here is how that looks like from PowerCLI:
 	PowerCLI C:\Program Files (x86)\VMware\Infrastructure\vSphere PowerCLI> get-vm
 	
 	Name PowerState Num CPUs Memory (MB)  
-	\---\- --\---\---\-- -\---\---\- --\---\---\---  
+	---- ---------- -------- -----------  
 	test PoweredOff 1 4096
 	
 	PowerCLI C:\Program Files (x86)\VMware\Infrastructure\vSphere PowerCLI> Get-HardDisk test
 	
 	CapacityKB Persistence Filename  
-	\---\---\---\- --\---\---\--- \---\-----  
+	---------- ----------- --------  
 	5242880 Persistent  test/test.vmdk  
 	
 
@@ -561,13 +561,13 @@ And more examples from the same guide:
 	>         PowerCLI vmstore:\> dir
 	>         
 	>         Name Type Id  
-	>         \---\- --\-- --  
+	>         ---- ---- --  
 	>         ha-datacenter Datacenter Datacenter-h...  
 	>         PowerCLI vmstore:\> cd ha-datacenter  
 	>         PowerCLI vmstore:\ha-datacenter> dir
 	>         
 	>         Name FreeSpaceMB CapacityMB  
-	>         \---\- --\---\---\--- \---\---\----  
+	>         ---- ----------- ----------  
 	>         OI_LUN0 97732 102144  
 	>         datastore1 58657 60416  
 	>         nfs 12091 13091
@@ -578,7 +578,7 @@ And more examples from the same guide:
 	>         Datastore path: [OI_LUN0]
 	>         
 	>         LastWriteTime Type Length Name  
-	>         \---\---\---\---\- --\-- -\---\-- -\---  
+	>         ------------- ---- ------ ----  
 	>         10/15/2012 6:38 PM Folder IOAnalyzer1.1  
 	>         7/5/2012 5:47 PM Folder doc  
 	>         7/5/2012 5:47 PM Folder source  
@@ -608,7 +608,7 @@ And more examples from the same guide:
 	>         WARNING: column "CurrentLocation" does not fit into the display and was removed.
 	>         
 	>         Name Used (GB) Free (GB) Provider Root  
-	>         \---\- --\---\---\- --\---\---\- --\---\--- \----  
+	>         ---- --------- --------- -------- ----  
 	>         ds VimDatastore \192.168.0.103@443\ha-d...  
 	>         
 >         
@@ -665,7 +665,7 @@ And more examples from the same guide:
 	>         Datastore path: [OI_LUN0]
 	>         
 	>         LastWriteTime Type Length Name  
-	>         \---\---\---\---\- --\-- -\---\-- -\---  
+	>         ------------- ---- ------ ----  
 	>         10/15/2012 6:38 PM Folder IOAnalyzer1.1  
 	>         7/5/2012 5:47 PM Folder doc  
 	>         7/5/2012 5:47 PM Folder source  
@@ -675,7 +675,7 @@ And more examples from the same guide:
 	>         Datastore path: [OI_LUN0] IOAnalyzer1.1
 	>         
 	>         LastWriteTime Type Length Name  
-	>         \---\---\---\---\- --\-- -\---\-- -\---  
+	>         ------------- ---- ------ ----  
 	>         6/11/2012 6:51 PM VmLogFile 57213 vmware-7.log  
 	>         7/5/2012 5:05 PM VmLogFile 113177 vmware-10.log  
 	>         7/5/2012 5:05 PM VmLogFile 104886 vmware-9.log  
@@ -719,7 +719,7 @@ And more examples from the same guide:
 	>         PowerCLI C:\Program Files (x86)\VMware\Infrastructure\vSphere PowerCLI> C:\Users\Administrator\Desktop\snap.ps1
 	>         
 	>         Name Port User  
-	>         \---\- --\-- -\---  
+	>         ---- ---- ----  
 	>         192.168.0.103 443 root  
 	>         VM: test Name: ws Size: 0.04  
 	>         
@@ -732,7 +732,7 @@ And more examples from the same guide:
 	>         TypeName: VMware.VimAutomation.ViCore.Impl.V1.VM.SnapshotImpl
 	>         
 	>         Name MemberType Definition  
-	>         \---\- --\---\---\-- -\---\---\---  
+	>         ---- ---------- ----------  
 	>         Equals Method bool Equals(System.Object obj)  
 	>         GetHashCode Method int GetHashCode()  
 	>         GetType Method type GetType()  
@@ -768,8 +768,8 @@ And more examples from the same guide:
 	>         Sends output to a file.
 	>         
 	>         SYNTAX  
-	>         Out-File \[-FilePath] <string> [[-Encoding] <string>\] \[-Append\] [-Force] [-I  
-	>         nputObject <psobject>] \[-NoClobber\] \[-Width <int>\] \[-Confirm\] \[-WhatIf\] [<C  
+	>         Out-File [-FilePath] <string> [[-Encoding] <string>] [-Append] [-Force] [-I  
+	>         nputObject <psobject>] [-NoClobber] [-Width <int>] [-Confirm] [-WhatIf] [<C  
 	>         ommonParameters>]
 	>         
 	>         DESCRIPTION  

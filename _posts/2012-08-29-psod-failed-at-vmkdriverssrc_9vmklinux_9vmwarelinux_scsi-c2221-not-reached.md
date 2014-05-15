@@ -38,24 +38,24 @@ Checking for the device drivers and the Vendor IDs, I see the following:
 
 	  
 	~ # esxcfg-info -a | sed -n '/SCSI\ Interface/,/BAR\ Info/p' | grep 'Name.*vmhba1' -A 16 | egrep 'Name|Driver|Vendor\ Id|Device\ Id|Sub-Vendor\ Id|Sub-Device\ Id'  
-	|\----Name............................................vmhba1  
-	|\----Driver..........................................mpt2sas  
-	|\----Vendor Id....................................0x1000  
-	|\----Device Id....................................0x0072  
-	|\----Sub-Vendor Id................................0x1014  
-	|\----Sub-Device Id................................0x03ca  
+	|----Name............................................vmhba1  
+	|----Driver..........................................mpt2sas  
+	|----Vendor Id....................................0x1000  
+	|----Device Id....................................0x0072  
+	|----Sub-Vendor Id................................0x1014  
+	|----Sub-Device Id................................0x03ca  
 	
 
 vmhba3 was the same as above, and here is what I saw for vmhba2:
 
 	  
 	~ # esxcfg-info -a | sed -n '/SCSI\ Interface/,/BAR\ Info/p' | grep 'Name.*vmhba2' -A 16 | egrep 'Name|Driver|Vendor\ Id|Device\ Id|Sub-Vendor\ Id|Sub-Device\ Id'  
-	|\----Name............................................vmhba2  
-	|\----Driver..........................................megaraid_sas  
-	|\----Vendor Id....................................0x1000  
-	|\----Device Id....................................0x0073  
-	|\----Sub-Vendor Id................................0x1014  
-	|\----Sub-Device Id................................0x03b1  
+	|----Name............................................vmhba2  
+	|----Driver..........................................megaraid_sas  
+	|----Vendor Id....................................0x1000  
+	|----Device Id....................................0x0073  
+	|----Sub-Vendor Id................................0x1014  
+	|----Sub-Device Id................................0x03b1  
 	
 
 So we are using the mpt2sas and megaraid_sas drivers for our local drives. Here is HCL <a href="http://www.vmware.com/resources/compatibility/detail.php?deviceCategory=io&productid=13971&deviceCategory=io&VID=1000&DID=0072&SVID=0000&SSID=0000&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.vmware.com/resources/compatibility/detail.php?deviceCategory=io&productid=13971&deviceCategory=io&VID=1000&DID=0072&SVID=0000&SSID=0000&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc']);">link</a> for vmhba1 and here is the <a href="http://partnerweb.vmware.com/comp_guide2/detail.php?deviceCategory=io&productid=12373&deviceCategory=io&VID=1000&DID=0073&SVID=1014&SSID=03b1&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://partnerweb.vmware.com/comp_guide2/detail.php?deviceCategory=io&productid=12373&deviceCategory=io&VID=1000&DID=0073&SVID=1014&SSID=03b1&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc']);">link</a> for vmhba2.

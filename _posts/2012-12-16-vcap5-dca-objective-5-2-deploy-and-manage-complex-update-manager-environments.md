@@ -469,10 +469,10 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 >             > NOTE The script works for fixed and dynamic patch baselines as well as for extension baselines.
 >             > 
 	>             >   
-	>             > \# $destinationServer = Connect-VIServer  
-	>             > \# $sourceServer = Connect-VIServer  
-	>             > \# $baselines = Get-PatchBaseline MyBaseline -Server $sourceServer  
-	>             > \# ExportImportBaselines.ps1 $baselines $destinationServer  
+	>             > # $destinationServer = Connect-VIServer  
+	>             > # $sourceServer = Connect-VIServer  
+	>             > # $baselines = Get-PatchBaseline MyBaseline -Server $sourceServer  
+	>             > # ExportImportBaselines.ps1 $baselines $destinationServer  
 	>             > Param([VMware.VumAutomation.Types.Baseline[]] $baselines,  
 	>             > [VMware.VimAutomation.Types.VIServer[]]$destinationServers)  
 	>             > $ConfirmPreference = 'None'  

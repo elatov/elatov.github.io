@@ -197,7 +197,7 @@ Looks like we are blocking everything. So I just moved the 'hosts.deny' file out
 And then I was able to ssh to the machine with putty without issues:
 
 	  
-	Using username &quot;vi-admin&quot;.  
+	Using username 'vi-admin'.  
 	Welcome to vSphere Management Assistant  
 	vi-admin'@'192.168.2.109's password:  
 	Last login: Mon Dec 24 23:30:02 2012 from 192.168.2.110  
@@ -369,10 +369,10 @@ From "<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma
 	>         >   
 	>         > 17834 255 63 286513152  
 	>         > | | | |  
-	>         > | | | \-\---- quantity of sectors  
-	>         > | | \-\---\---- quantity of sectors per track  
-	>         > | \-\---\---\----- quantity of heads  
-	>         > \-\---\---\---\---\----- quantity of cylinders  
+	>         > | | | ----- quantity of sectors  
+	>         > | | -------- quantity of sectors per track  
+	>         > | ------------ quantity of heads  
+	>         > ------------------ quantity of cylinders  
 	>         >  
 >         
 >         So we have no partitions defined and currently it has an 'msdos' disklabel. Since we are going to create a VMFS-5 volume we will change that to GPT. Also converting the sectors to GB, we get the following:
@@ -385,7 +385,7 @@ From "<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma
 >         
 >         > For ESXi/ESX 4.1 and later, use the command:  
 	>         >   
-	>         > partedUtil setptbl &quot;/vmfs/devices/disks/DeviceName&quot; DiskLabel [&quot;partNum startSector endSector type/guid attribute&quot;]*  
+	>         > partedUtil setptbl '/vmfs/devices/disks/DeviceName' DiskLabel ['partNum startSector endSector type/guid attribute']*  
 	>         >  
 >         
 >         And here is information regarding all the parameters:
@@ -439,13 +439,13 @@ From "<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma
 >         Since we are not going to boot from our VMFS volume, our *attribute* will be '0'. Now putting everything together, we get the following:
 >         
 	>           
-	>         partedUtil setptbl /dev/disks/naa.600144f0928c010000004fc90a3a0001 gpt &quot;1 2048 272629759 AA31E02A400F11DB9590000C2911D1B8 0&quot;  
+	>         partedUtil setptbl /dev/disks/naa.600144f0928c010000004fc90a3a0001 gpt '1 2048 272629759 AA31E02A400F11DB9590000C2911D1B8 0'  
 	>         
 >         
 >         Let's see what happens when we run it:
 >         
 	>           
-	>         ~ # partedUtil setptbl /dev/disks/naa.600144f0928c010000004fc90a3a0001 gpt &quot;1 2048 272629759 AA31E02A400F11DB9590000C2911D1B8 0&quot;  
+	>         ~ # partedUtil setptbl /dev/disks/naa.600144f0928c010000004fc90a3a0001 gpt '1 2048 272629759 AA31E02A400F11DB9590000C2911D1B8 0'  
 	>         gpt  
 	>         0 0 0 0  
 	>         1 2048 272629759 AA31E02A400F11DB9590000C2911D1B8 0  
@@ -471,7 +471,7 @@ From "<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma
 >         My last usable sector is different, so changing my command and running it, I got the following:
 >         
 	>           
-	>         ~ # partedUtil setptbl /dev/disks/naa.600144f0928c010000004fc90a3a0001 gpt &quot;1 2048 272629726 AA31E02A400F11DB9590000C2911D1B8 0&quot;  
+	>         ~ # partedUtil setptbl /dev/disks/naa.600144f0928c010000004fc90a3a0001 gpt '1 2048 272629726 AA31E02A400F11DB9590000C2911D1B8 0'  
 	>         gpt  
 	>         0 0 0 0  
 	>         1 2048 272629726 AA31E02A400F11DB9590000C2911D1B8 0  
@@ -508,12 +508,12 @@ From "<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma
 	>         
 	>              Options:
 	>                Connection Options:
-	>                   -H or --server &amp;lt;host&amp;gt;            specifies an ESX host or a vCenter Server
-	>                   -h or --vihost &amp;lt;target host&amp;gt;     specifies a target host if host is a virtual center
-	>                   -O &amp;lt;port&amp;gt;                        specifies an alternative port
-	>                   -Q &amp;lt;protocol&amp;gt;                    specifies an alternative protocol
-	>                   -U or --username &amp;lt;username&amp;gt;      specifies a username
-	>                   -P or --password &amp;lt;password&amp;gt;      specifies a password
+	>                   -H or --server <host>            specifies an ESX host or a vCenter Server
+	>                   -h or --vihost <target host>     specifies a target host if host is a virtual center
+	>                   -O <port>                        specifies an alternative port
+	>                   -Q <protocol>                    specifies an alternative protocol
+	>                   -U or --username <username>      specifies a username
+	>                   -P or --password <password>      specifies a password
 	>                   --sessionfile                    specifies a sessionfile path
 	>                   --passthroughauth                specifies a login by sspi option
 	>                   --credstore                      specifies to fetch Credential store information
@@ -525,28 +525,28 @@ From "<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma
 	>             
 	>              Server Operations:
 	>                vmware-cmd -l
-	>                vmware-cmd -s register &amp;lt;config_file_path&amp;gt; &amp;lt;datacenter&amp;gt; &amp;lt;resource pool&amp;gt;
-	>                vmware-cmd -s unregister &amp;lt;config_file_path&amp;gt;
+	>                vmware-cmd -s register <config_file_path> <datacenter> <resource pool>
+	>                vmware-cmd -s unregister <config_file_path>
 	>             
 	>              VM Operations:
-	>                vmware-cmd &amp;lt;cfg&amp;gt; getstate
-	>                vmware-cmd &amp;lt;cfg&amp;gt; start &amp;lt;powerop_mode&amp;gt;
-	>                vmware-cmd &amp;lt;cfg&amp;gt; stop &amp;lt;powerop_mode&amp;gt;
-	>                vmware-cmd &amp;lt;cfg&amp;gt; reset &amp;lt;powerop_mode&amp;gt;
-	>                vmware-cmd &amp;lt;cfg&amp;gt; suspend &amp;lt;powerop_mode&amp;gt;
-	>                vmware-cmd &amp;lt;cfg&amp;gt; setguestinfo &amp;lt;variable&amp;gt; &amp;lt;value&amp;gt;
-	>                vmware-cmd &amp;lt;cfg&amp;gt; getguestinfo &amp;lt;variable&amp;gt;
-	>                vmware-cmd &amp;lt;cfg&amp;gt; getproductinfo &amp;lt;prodinfo&amp;gt;
-	>                vmware-cmd &amp;lt;cfg&amp;gt; connectdevice &amp;lt;device_name&amp;gt;
-	>                vmware-cmd &amp;lt;cfg&amp;gt; disconnectdevice &amp;lt;device_name&amp;gt;
-	>                vmware-cmd &amp;lt;cfg&amp;gt; getconfigfile
-	>                vmware-cmd &amp;lt;cfg&amp;gt; getuptime
-	>                vmware-cmd &amp;lt;cfg&amp;gt; answer
-	>                vmware-cmd &amp;lt;cfg&amp;gt; gettoolslastactive
-	>                vmware-cmd &amp;lt;cfg&amp;gt; hassnapshot
-	>                vmware-cmd &amp;lt;cfg&amp;gt; createsnapshot &amp;lt;name&amp;gt; &amp;lt;description&amp;gt; &amp;lt;quiesce&amp;gt; &amp;lt;memory&amp;gt;
-	>                vmware-cmd &amp;lt;cfg&amp;gt; revertsnapshot
-	>                vmware-cmd &amp;lt;cfg&amp;gt; removesnapshots
+	>                vmware-cmd <cfg> getstate
+	>                vmware-cmd <cfg> start <powerop_mode>
+	>                vmware-cmd <cfg> stop <powerop_mode>
+	>                vmware-cmd <cfg> reset <powerop_mode>
+	>                vmware-cmd <cfg> suspend <powerop_mode>
+	>                vmware-cmd <cfg> setguestinfo <variable> <value>
+	>                vmware-cmd <cfg> getguestinfo <variable>
+	>                vmware-cmd <cfg> getproductinfo <prodinfo>
+	>                vmware-cmd <cfg> connectdevice <device_name>
+	>                vmware-cmd <cfg> disconnectdevice <device_name>
+	>                vmware-cmd <cfg> getconfigfile
+	>                vmware-cmd <cfg> getuptime
+	>                vmware-cmd <cfg> answer
+	>                vmware-cmd <cfg> gettoolslastactive
+	>                vmware-cmd <cfg> hassnapshot
+	>                vmware-cmd <cfg> createsnapshot <name> <description> <quiesce> <memory>
+	>                vmware-cmd <cfg> revertsnapshot
+	>                vmware-cmd <cfg> removesnapshots
 	>             
 	>         
 	>         

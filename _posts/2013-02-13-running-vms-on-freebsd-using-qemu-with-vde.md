@@ -286,7 +286,7 @@ Now let's login into the virtual switch:
     1000 Success 
     
 
-Most of the information regarding the *VDE* was taken from <a href="http://wiki.v2.cs.unibo.it/wiki/index.php?title=VDE#Some_usage_examples" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.v2.cs.unibo.it/wiki/index.php?title=VDE#Some_usage_examples']);">here</a>. BTW, there is also a web and telnet client for the *VDE*-switch. Instructions on how to set that up are <a href="http://wiki.v2.cs.unibo.it/wiki/index.php?title=Vdetelweb:_Telnet_and_Web_management_for_VDE" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','']);">here</a>; '**unixterm**' was good enough for me <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Running VMs On FreeBSD using QEMU with VDE" class="wp-smiley" title="Running VMs On FreeBSD using QEMU with VDE" /> 
+Most of the information regarding the *VDE* was taken from <a href="http://wiki.v2.cs.unibo.it/wiki/index.php?title=VDE#Some_usage_examples" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.v2.cs.unibo.it/wiki/index.php?title=VDE#Some_usage_examples']);">here</a>. BTW, there is also a web and telnet client for the *VDE*-switch. Instructions on how to set that up are <a href="http://wiki.v2.cs.unibo.it/wiki/index.php?title=Vdetelweb:_Telnet_and_Web_management_for_VDE" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','']);">here</a>; '**unixterm**' was good enough for me :) 
 
 Now starting up the VM and connecting it to our *VDE*-Switch:
 

@@ -44,7 +44,7 @@ so we saw that our vpxa agent was actually crashing and it was due to the fact t
 	dynamically growable:1  
 	physical contiguity:Heap_PhysContigType: 1 -> Any Physical Contiguity  
 	memory type:MM_AllocType: 0 -> Any  
-	\# of ranges allocated:20  
+	# of ranges allocated:20  
 	maximum # of ranges:200  
 	dlmalloc overhead:2448  
 	current heap size:67109968  
@@ -140,7 +140,7 @@ Usually each of the DSVA VMs is deployed on one host but we had 3 on the same ho
 	dynamically growable:1  
 	physical contiguity:Heap_PhysContigType: 1 -> Any Physical Contiguity  
 	memory type:MM_AllocType: 0 -> Any  
-	\# of ranges allocated:20  
+	# of ranges allocated:20  
 	maximum # of ranges:200  
 	dlmalloc overhead:2448  
 	current heap size:67109968  

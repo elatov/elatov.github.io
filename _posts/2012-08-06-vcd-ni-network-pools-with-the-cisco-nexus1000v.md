@@ -216,8 +216,8 @@ We can see that it starts with Segment ID 5000 and the group IP is "224.0.4.1". 
 	interface Vethernet3  
 	inherit port-profile dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f  
 	description OI (3adadd61-75c1-4af2-9d76-ff467e42e965), Network Adapter 1  
-	vmware dvport 161 dvswitch uuid &quot;21 ba 33 50 89 1a e8 ca-42 07 57 77 59 92 97  
-	f4&quot;  
+	vmware dvport 161 dvswitch uuid '21 ba 33 50 89 1a e8 ca-42 07 57 77 59 92 97  
+	f4'  
 	vmware vm mac 0050.5601.0002  
 	
 
@@ -226,11 +226,11 @@ On the host we can see that virtual port looks like this:
 	  
 	~ # vemcmd show segment  
 	Number of valid BDS: 7  
-	BD 6, vdc 1, segment id 5000, segment group IP 224.0.4.1, swbd 4096, 1 ports, &quot;dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f&quot;  
+	BD 6, vdc 1, segment id 5000, segment group IP 224.0.4.1, swbd 4096, 1 ports, 'dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f'  
 	Portlist:
 	
 	~ # vemcmd show bd 6  
-	BD 6, vdc 1, segment id 5000, segment group IP 224.0.4.1, swbd 4096, 1 ports, &quot;dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f&quot;  
+	BD 6, vdc 1, segment id 5000, segment group IP 224.0.4.1, swbd 4096, 1 ports, 'dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f'  
 	Portlist:  
 	49 OI (3adadd61-7...7e42e965).eth0  
 	
@@ -318,7 +318,7 @@ Now we have two of those, which also makes sense. One more thing, I noticed the 
 	  
 	D04_5010_A# sho mac-address-table vlan 2002  
 	VLAN MAC Address Type Age Port  
-	\---\---\---+\---\---\---\---\-----+\---\----+\---\---\---+\---\---\---\---\---\---\---\---\---\---  
+	---------+-----------------+-------+---------+------------------------------  
 	2002 0013.f501.00f3 dynamic 30 Po112  
 	2002 0013.f501.0103 dynamic 0 Po112  
 	Total MAC Addresses: 2  

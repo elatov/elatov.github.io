@@ -494,7 +494,7 @@ Show port channel information, if used
 	  
 	~ # vemcmd show pc  
 	pce_ind chan pc_ltl pce_in_pc LACP SG_ID NumVethsPinned mbrs  
-	\---\---\- --\-- -\---\-- -\---\---\-- -\--- \---\-- -\---\---\---\---\- ----  
+	------- ---- ------ --------- ---- ----- -------------- ----  
 	
 
 Show LACP information
@@ -502,34 +502,34 @@ Show LACP information
 	  
 	~ # vemcmd show pc  
 	pce_ind chan pc_ltl pce_in_pc LACP SG_ID NumVethsPinned mbrs  
-	\---\---\- --\-- -\---\-- -\---\---\-- -\--- \---\-- -\---\---\---\---\- ----  
+	------- ---- ------ --------- ---- ----- -------------- ----  
 	~ # vemcmd show lacp  
 	LACP Offload is Disabled  
 	Phy LTL List : 18  
 	PC LTL in LACP Carrier List : 0
 	
-	\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---  
+	---------------------------------------------------  
 	LACP PDU Cache for LTL 18  
-	\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---  
+	---------------------------------------------------  
 	Upgrade Notify is Disabled  
 	LACP Bit Set : No  
 	VSM Actor Info  
-	\---\---\---\-----  
+	--------------  
 	Sys ID : Sys Pri(0), Sys MAC(00:00:00:00:00:00)  
 	Port ID : Key(0), Port Num(0x0), Port Pri(0)  
 	State : 0  
 	VSM Partner Info  
-	\---\---\---\---\----  
+	----------------  
 	Sys ID : Sys Pri(0), Sys MAC(00:00:00:00:00:00)  
 	Port ID : Key(0), Port Num(0x0), Port Pri(0)  
 	State : 0  
 	Upstream Actor Info  
-	\---\---\---\---\---\----  
+	-------------------  
 	Sys ID : Sys Pri(0), Sys MAC(00:00:00:00:00:00)  
 	Port ID : Key(0), Port Num(0x0), Port Pri(0)  
 	State : 0  
 	Upstream Partner Info  
-	\---\---\---\---\---\---\---  
+	---------------------  
 	Sys ID : Sys Pri(0), Sys MAC(00:00:00:00:00:00)  
 	Port ID : Key(0), Port Num(0x0), Port Pri(0)  
 	State : 0  

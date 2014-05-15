@@ -645,7 +645,7 @@ I then saved the *iptables* settings.
     iptables: Saving firewall rules to /etc/sysconfig/iptables:
     
 
-And that is all it took <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Setup Fedora 17 with nVidia GeForce 6200 Video Card to Connect to a TV and Function as an XBMC Media Center" class="wp-smiley" title="Setup Fedora 17 with nVidia GeForce 6200 Video Card to Connect to a TV and Function as an XBMC Media Center" /> I was able to watch videos on my TV from my PC and use my phone as a remote control for my PC.
+And that is all it took :) I was able to watch videos on my TV from my PC and use my phone as a remote control for my PC.
 
 <div class="SPOSTARBUST-Related-Posts">
   <H3>

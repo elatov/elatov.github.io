@@ -75,7 +75,7 @@ Here is how the install looks like with *YUM*:
 	$ sudo yum install postgresql postgresql-server  
 	Resolving Dependencies  
 	--> Running transaction check  
-	\---> Package postgresql.i686 0:9.1.7-1.fc17 will be installed  
+	---> Package postgresql.i686 0:9.1.7-1.fc17 will be installed  
 	...  
 	...  
 	Installed:  
@@ -144,18 +144,18 @@ Then using the **postgres** user, reset the password for itself:
 Lastly, allow logins with local password authentication to the *psql* instance. Edit the following file: **/var/lib/pgsql/data/pg_hba.conf** and change these lines:
 
 	  
-	\# "local" is for Unix domain socket connections only  
+	# "local" is for Unix domain socket connections only  
 	local all all peer  
-	\# IPv4 local connections:  
+	# IPv4 local connections:  
 	host all all 127.0.0.1/32 ident  
 	
 
 to look like this:
 
 	  
-	\# "local" is for Unix domain socket connections only  
+	# "local" is for Unix domain socket connections only  
 	local all all md5  
-	\# IPv4 local connections:  
+	# IPv4 local connections:  
 	host all all 127.0.0.1/32 md5  
 	
 

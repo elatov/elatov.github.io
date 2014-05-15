@@ -165,7 +165,7 @@ And the last section:
 > 
 	>   
 	> vicfg-snmp –c public –t example.com@162/private --enable  
-	> \# next validate your config by doing these things:  
+	> # next validate your config by doing these things:  
 	> vicfg-snmp -–test  
 	> walk –v1 –c public esx-host  
 	>  
@@ -471,7 +471,7 @@ List your PortGroups:
 	  
 	~ # esxcli network vswitch standard portgroup list  
 	Name Virtual Switch Active Clients VLAN ID  
-	\---\---\---\---\---\--- \---\---\---\---\-- -\---\---\---\---\- --\-----  
+	------------------ -------------- -------------- -------  
 	ISCSI_1 vSwitch1 1 0  
 	Management Network vSwitch0 1 0  
 	VM_Net vSwitch2 0 0  
@@ -527,7 +527,7 @@ List your arp table:
 	  
 	~ # esxcli network ip neighbor list  
 	Neighbor Mac Address Vmknic Expiry State  
-	\---\---\---\---\- --\---\---\---\---\--- \---\--- \---\---\-- -\----  
+	------------- ----------------- ------ -------- -----  
 	192.168.0.121 00:50:56:17:45:9c vmk0 1183 sec  
 	192.168.1.107 00:50:56:17:14:bf vmk1 1196 sec  
 	
@@ -537,7 +537,7 @@ List your active port connections:
 	  
 	~ # esxcli network ip connection list  
 	Proto Recv Q Send Q Local Address Foreign Address State World ID World Name  
-	\---\-- -\---\-- -\---\-- -\---\---\---\---\---\--- \---\---\---\---\---\---\- --\---\---\--- \---\---\-- -\---\---\---\-----  
+	----- ------ ------ ------------------- ------------------- ----------- -------- ---------------  
 	tcp 0 0 127.0.0.1:8307 127.0.0.1:53938 ESTABLISHED 2813 hostd-worker  
 	tcp 0 0 127.0.0.1:53938 127.0.0.1:8307 ESTABLISHED 4374 hostd-worker  
 	tcp 0 0 127.0.0.1:443 127.0.0.1:52899 ESTABLISHED 2787 hostd-worker  

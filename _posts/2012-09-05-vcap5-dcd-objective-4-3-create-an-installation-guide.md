@@ -44,5 +44,5 @@ To install an ESXi host
 3.  Press Enter to start the installer.  
     <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/esxi-install-2nd.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/esxi-install-2nd.png']);"><img class="alignnone size-full wp-image-3395" title="esxi-install-2nd" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/esxi-install-2nd.png" alt="esxi install 2nd VCAP5 DCD Objective 4.3 – Create an Installation Guide " width="1024" height="768" /></a>
 
-And the instructions keep going <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile VCAP5 DCD Objective 4.3 – Create an Installation Guide " class="wp-smiley" title="VCAP5 DCD Objective 4.3 – Create an Installation Guide " /> 
+And the instructions keep going :) 
 

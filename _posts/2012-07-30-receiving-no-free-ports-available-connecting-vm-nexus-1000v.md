@@ -25,9 +25,9 @@ I was trying to get a VM up on the network and I getting getting an error messag
 I saw the following:
 
 	  
-	\[2012-07-03 13:46:22.586 06604 error 'App' opID=322CAECC-000000A2\] \[MoDVPortGroup::GetFreePortInt\] No free port found in the portgroup [My_N1K_DV_PortGroup]  
-	\[2012-07-03 13:46:22.586 06604 error 'App' opID=322CAECC-000000A2\] \[MoDVSwitch::ProcessVmConfigSpecInt\] No free portin the portgroup . Rolling back the previously reserved ports  
-	\[2012-07-03 13:46:22.586 06604 error 'App' opID=322CAECC-000000A2]  (My_Test_VM) Unexpected exception (vim.fault.ResourceNotAvailable) while reconfiguring VM. Aborting.  
+	[2012-07-03 13:46:22.586 06604 error 'App' opID=322CAECC-000000A2] [MoDVPortGroup::GetFreePortInt] No free port found in the portgroup [My_N1K_DV_PortGroup]  
+	[2012-07-03 13:46:22.586 06604 error 'App' opID=322CAECC-000000A2] [MoDVSwitch::ProcessVmConfigSpecInt] No free portin the portgroup . Rolling back the previously reserved ports  
+	[2012-07-03 13:46:22.586 06604 error 'App' opID=322CAECC-000000A2]  (My_Test_VM) Unexpected exception (vim.fault.ResourceNotAvailable) while reconfiguring VM. Aborting.  
 	
 
 Looking on the host, I would see the following in the hostd logs:

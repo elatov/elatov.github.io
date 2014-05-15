@@ -64,7 +64,7 @@ List all the vmkernel interfaces:
 	  
 	~ # esxcli network ip interface ipv4 get  
 	Name IPv4 Address IPv4 Netmask IPv4 Broadcast Address Type DHCP DNS  
-	\---\- --\---\---\---\-- -\---\---\---\--- \---\---\---\---\-- -\---\---\---\-- -\---\----  
+	---- ------------- ------------- -------------- ------------ --------  
 	vmk0 192.168.0.103 255.255.255.0 192.168.0.255 STATIC false  
 	vmk1 192.168.1.106 255.255.255.0 192.168.1.255 STATIC false  
 	vmk2 192.168.3.102 255.255.255.0 192.168.3.255 STATIC false  

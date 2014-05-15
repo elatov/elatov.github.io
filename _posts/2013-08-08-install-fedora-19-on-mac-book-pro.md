@@ -188,7 +188,7 @@ I rebooted one more time and I saw the GRUB menu. After it auto-selected the "Fe
 
 > error: failure to read sector 0x0 from hd0
 
-But then kept booting without issues <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Install Fedora 19 on Mac Book Pro" class="wp-smiley" title="Install Fedora 19 on Mac Book Pro" /> Apparently there is workaround described <a href="http://forums.gentoo.org/viewtopic-t-942130-start-0.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://forums.gentoo.org/viewtopic-t-942130-start-0.html']);">here</a>, but I wasn't too worried about it.
+But then kept booting without issues :) Apparently there is workaround described <a href="http://forums.gentoo.org/viewtopic-t-942130-start-0.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://forums.gentoo.org/viewtopic-t-942130-start-0.html']);">here</a>, but I wasn't too worried about it.
 
 ### Installing the Wireless Firmware
 

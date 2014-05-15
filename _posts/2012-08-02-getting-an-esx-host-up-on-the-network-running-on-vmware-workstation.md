@@ -117,13 +117,13 @@ Looking at the packet captures I noticed that the ESXi host was using the follow
 
 	[root@localhost ~]# esxcfg-nics -l
 	Name   PCI   Driver Link Speed    Duplex MAC Address MTU Description
-	vmnic0 02:01 e1000  Up   1000Mbps Full <strong>00:0c:29:d3:3d:34</strong> 1500 Intel PRO/1000 MT Single Port Adapt.
+	vmnic0 02:01 e1000  Up   1000Mbps Full **00:0c:29:d3:3d:34** 1500 Intel PRO/1000 MT Single Port Adapt.
 	
 
 Now looking at the MAC Address of the vswif0 interface, we see the following:
 
 	[root@localhost ~]# ifconfig vswif0
-	vswif0    Link encap:Ethernet  HWaddr <strong>00:50:56:4C:E5:09</strong>
+	vswif0    Link encap:Ethernet  HWaddr **00:50:56:4C:E5:09**
 	          inet addr:10.0.1.130  Bcast:10.0.1.255  Mask:255.255.255.0
 	          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
 	          RX packets:1 errors:0 dropped:0 overruns:0 frame:0
@@ -136,14 +136,14 @@ Now looking at the ESXi host, we see the following:
 
 	~ # esxcfg-nics -l
 	Name   PCI    Driver Link Speed    Duplex MAC Address       MTU  Description
-	vmnic0 02:00  e1000  Up   1000Mbps Full   <strong>00:0c:29:2c:54:17</strong> 1500 Intel PRO/1000 MT Single Port Adapter
+	vmnic0 02:00  e1000  Up   1000Mbps Full   **00:0c:29:2c:54:17** 1500 Intel PRO/1000 MT Single Port Adapter
 	
 
 In Bold is the physical MAC address assigned to the ESXi host. Now looking at the MAC address of the Vmk interface used for management I saw the following:
 
 	# esxcfg-vmknic -l
 	Interface Port_Group         IP_Address Netmask       Broadcast  MAC Address       MTU  Enabled Type
-	vmk0      Management Network 10.0.1.128 255.255.255.0 10.0.1.255 <strong>00:0c:29:2c:54:17</strong> 1500 true    STATIC
+	vmk0      Management Network 10.0.1.128 255.255.255.0 10.0.1.255 **00:0c:29:2c:54:17** 1500 true    STATIC
 	
 
 So the management interface of the ESXi host uses the same MAC as the physical NIC. Where on the ESX host the management interface creates a virtual MAC address and uses that. This is actually expected and per KB <a href="http://kb.vmware.com/kb/1031111" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1031111']);">1031111</a> you can change the behavior with a setting.

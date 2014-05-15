@@ -33,7 +33,7 @@ ESXi 5.0 U1 fixes similar issues, from the <a href="https://www.vmware.com/suppo
 </div>
 
 > <div>
->   <strong>ESXi host generates excessive RARP broadcasts with multicast traffic</strong><br /> ESXi host generates excessive Reverse Address Resolution Protocol (RARP) packets when virtual machines join or leave multicast groups.This issue is resolved in this release.
+>   **ESXi host generates excessive RARP broadcasts with multicast traffic**<br /> ESXi host generates excessive Reverse Address Resolution Protocol (RARP) packets when virtual machines join or leave multicast groups.This issue is resolved in this release.
 > </div>
 
 And lastly, I have seen a lot of RARPs when you have Beacon probes enabled. Another person actually blogged about it already: <a href="http://virtualrj.wordpress.com/2009/01/14/beacon-probing-resulting-in-excessive-broadcasts/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtualrj.wordpress.com/2009/01/14/beacon-probing-resulting-in-excessive-broadcasts/']);">Beacon probing resulting in excessive broadcasts</a>.

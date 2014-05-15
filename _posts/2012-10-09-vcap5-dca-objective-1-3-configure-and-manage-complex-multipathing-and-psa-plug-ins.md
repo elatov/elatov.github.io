@@ -65,7 +65,7 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 	>   
 	> ~ # esxcli storage nmp satp list  
 	> Name Default PSP Description  
-	> \---\---\---\---\---\---\- --\---\---\---\-- -\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---  
+	> ------------------- ------------- -------------------------------------------------------  
 	> VMW_SATP_ALUA VMW_PSP_MRU Supports non-specific arrays that use the ALUA protocol  
 	> VMW_SATP_MSA VMW_PSP_MRU Placeholder (plugin not loaded)  
 	> VMW_SATP_DEFAULT_AP VMW_PSP_MRU Placeholder (plugin not loaded)  
@@ -86,7 +86,7 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 	>   
 	> ~ # esxcli storage core plugin list  
 	> Plugin name Plugin class  
-	> \---\---\---\-- -\---\---\-----  
+	> ----------- ------------  
 	> NMP MP  
 	> 
 > 
@@ -94,7 +94,7 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 > The following sample command assigns the VMW_SATP_INV plug-in to manage storage arrays with vendor string NewVend and model string NewMod.
 > 
 	>   
-	> \# esxcli storage nmp satp rule add -V NewVend -M NewMod -s VMW_SATP_INV  
+	> # esxcli storage nmp satp rule add -V NewVend -M NewMod -s VMW_SATP_INV  
 	> 
 
 From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf']);">vSphere Command-Line Interface Concepts and Examples ESXi 5.0</a>"
@@ -114,7 +114,7 @@ Change the SATP for a device/LUN:
 Change the default PSP for an SATP:
 
 	  
-	\# esxcli storage nmp satp set --default-psp VMW_PSP_FIXED --satp VMW_SATP_ALUA_CX  
+	# esxcli storage nmp satp set --default-psp VMW_PSP_FIXED --satp VMW_SATP_ALUA_CX  
 	
 
 List all the plugins:
@@ -122,7 +122,7 @@ List all the plugins:
 	  
 	~ # esxcli storage core plugin registration list  
 	Module Name Plugin Name Plugin Class Dependencies Full Path  
-	\---\---\---\---\---\---\- --\---\---\---\---\---\-- -\---\---\---\-- -\---\---\---\---\---\---\---\---\---\- --\---\----  
+	------------------- ------------------- ------------ ----------------------------- ---------  
 	mask_path_plugin MASK_PATH MP  
 	nmp NMP MP  
 	vmw_satp_symm VMW_SATP_SYMM SATP  
@@ -173,7 +173,7 @@ List all the PSPs:
 	  
 	~ # esxcli storage nmp psp list  
 	Name Description  
-	\---\---\---\---\- --\---\---\---\---\---\---\---\---\---\----  
+	------------- ---------------------------------  
 	VMW_PSP_MRU Most Recently Used Path Selection  
 	VMW_PSP_RR Round Robin Path Selection  
 	VMW_PSP_FIXED Fixed Path Selection  

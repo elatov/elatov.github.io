@@ -103,7 +103,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     PowerCLI C:\> Add-EsxSoftwareDepot C:\Users\Administrator\Desktop\isos\update-from-esxi5.0-5.0_update01.zip
 	>     
 	>     Depot Url  
-	>     \---\---\---  
+	>     ---------  
 	>     zip:C:\Users\Administrator\Desktop\isos\update-from-esxi5.0-5.0_update01.zip...  
 	>     
 >     
@@ -113,7 +113,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     PowerCLI C:\> Get-EsxImageProfile | select Name,Vendor
 	>     
 	>     Name Vendor  
-	>     \---\- --\----  
+	>     ---- ------  
 	>     ESXi-5.0.0-20120302001-standard VMware, Inc.  
 	>     ESXi-5.0.0-20120302001-no-tools VMware, Inc.  
 	>     ESXi-5.0.0-20120301001s-standard VMware, Inc.  
@@ -126,7 +126,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     PowerCLI C:\> Get-EsxSoftwarePackage
 	>     
 	>     Name Version Vendor Release Date  
-	>     \---\- --\---\-- -\---\-- -\---\---\-----  
+	>     ---- ------- ------ ------------  
 	>     net-ixgbe 2.0.84.8.2-10vmw.500.0.0.46... VMware 8/19/2011...  
 	>     net-nx-nic 4.0.557-3vmw.500.1.11.623860 VMware 2/17/2012...  
 	>     scsi-rste 2.0.2.0088-1vmw.500.1.11.62... VMware 2/17/2012...  
@@ -206,7 +206,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     PowerCLI C:\> Get-EsxImageProfile ESXi-5.0.0-20120302001-no-tools | select -ExpandProperty VibList
 	>     
 	>     Name Version Vendor Release Date  
-	>     \---\- --\---\-- -\---\-- -\---\---\-----  
+	>     ---- ------- ------ ------------  
 	>     ata-pata-atiixp 0.4.6-3vmw.500.0.0.469512 VMware 8/19/2011...  
 	>     net-nx-nic 4.0.557-3vmw.500.1.11.623860 VMware 2/17/2012...  
 	>     scsi-rste 2.0.2.0088-1vmw.500.1.11.62... VMware 2/17/2012...  
@@ -274,13 +274,13 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     PowerCLI C:\> New-EsxImageProfile -CloneProfile ESXi-5.0.0-20120302001-no-tools -Name My_Cloned_Profile
 	>     
 	>     Name Vendor Last Modified Acceptance Level  
-	>     \---\- --\---\- --\---\---\---\-- -\---\---\---\---\---  
+	>     ---- ------ ------------- ----------------  
 	>     My_Cloned_Profile VMware, Inc. 2/17/2012 11... PartnerSupported
 	>     
 	>     PowerCLI C:\> Get-EsxImageProfile
 	>     
 	>     Name Vendor Last Modified Acceptance Level  
-	>     \---\- --\---\- --\---\---\---\-- -\---\---\---\---\---  
+	>     ---- ------ ------------- ----------------  
 	>     My_Cloned_Profile VMware, Inc. 2/17/2012 11... PartnerSupported  
 	>     ESXi-5.0.0-20120302001-stan... VMware, Inc. 2/17/2012 11... PartnerSupported  
 	>     ESXi-5.0.0-20120302001-no-t... VMware, Inc. 2/17/2012 11... PartnerSupported  
@@ -294,25 +294,25 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     PowerCLI C:\> New-EsxImageProfile -NewProfile My_Manual_Profile -vendor VMware -SoftwarePackage esx-base
 	>     
 	>     Name Vendor Last Modified Acceptance Level  
-	>     \---\- --\---\- --\---\---\---\-- -\---\---\---\---\---  
+	>     ---- ------ ------------- ----------------  
 	>     My_Manual_Profile VMware 12/25/2012 3... VMwareCertified
 	>     
 	>     PowerCLI C:\> Add-EsxSoftwarePackage -ImageProfile My_Manual_Profile -SoftwarePackage esx-tboot
 	>     
 	>     Name Vendor Last Modified Acceptance Level  
-	>     \---\- --\---\- --\---\---\---\-- -\---\---\---\---\---  
+	>     ---- ------ ------------- ----------------  
 	>     My_Manual_Profile VMware 12/25/2012 3... VMwareCertified
 	>     
 	>     PowerCLI C:\> Add-EsxSoftwarePackage -ImageProfile My_Manual_Profile -SoftwarePackage misc-drivers
 	>     
 	>     Name Vendor Last Modified Acceptance Level  
-	>     \---\- --\---\- --\---\---\---\-- -\---\---\---\---\---  
+	>     ---- ------ ------------- ----------------  
 	>     My_Manual_Profile VMware 12/25/2012 3... VMwareCertified
 	>     
 	>     PowerCLI C:\> Add-EsxSoftwarePackage -ImageProfile My_Manual_Profile -SoftwarePackage net-e1000e
 	>     
 	>     Name Vendor Last Modified Acceptance Level  
-	>     \---\- --\---\- --\---\---\---\-- -\---\---\---\---\---  
+	>     ---- ------ ------------- ----------------  
 	>     My_Manual_Profile VMware 12/25/2012 3... VMwareCertified  
 	>     
 >     
@@ -322,7 +322,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     PowerCLI C:\> Get-EsxImageProfile
 	>     
 	>     Name Vendor Last Modified Acceptance Level  
-	>     \---\- --\---\- --\---\---\---\-- -\---\---\---\---\---  
+	>     ---- ------ ------------- ----------------  
 	>     ESXi-5.0.0-20120301001s-no-... VMware, Inc. 2/17/2012 11... PartnerSupported  
 	>     My_Cloned_Profile VMware, Inc. 2/17/2012 11... PartnerSupported  
 	>     ESXi-5.0.0-20120302001-no-t... VMware, Inc. 2/17/2012 11... PartnerSupported  
@@ -333,7 +333,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     PowerCLI C:\> Get-EsxImageProfile My_Manual_Profile | select -ExpandProperty VibList
 	>     
 	>     Name Version Vendor Release Date  
-	>     \---\- --\---\-- -\---\-- -\---\---\-----  
+	>     ---- ------- ------ ------------  
 	>     net-e1000e 1.1.2-3vmw.500.1.11.623860 VMware 2/17/2012...  
 	>     esx-tboot 5.0.0-0.0.469512 VMware 8/19/2011...  
 	>     esx-base 5.0.0-1.11.623860 VMware 2/17/2012...  
@@ -346,7 +346,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     PowerCLI C:\> Get-EsxImageProfile My_Manual_Profile | select -ExpandProperty VibList
 	>     
 	>     Name Version Vendor Release Date  
-	>     \---\- --\---\-- -\---\-- -\---\---\-----  
+	>     ---- ------- ------ ------------  
 	>     net-e1000e 1.1.2-3vmw.500.1.11.623860 VMware 2/17/2012...  
 	>     esx-tboot 5.0.0-0.0.469512 VMware 8/19/2011...  
 	>     esx-base 5.0.0-1.11.623860 VMware 2/17/2012...  
@@ -355,13 +355,13 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     PowerCLI C:\> Remove-EsxSoftwarePackage -ImageProfile My_Manual_Profile -SoftwarePackage net-e1000e
 	>     
 	>     Name Vendor Last Modified Acceptance Level  
-	>     \---\- --\---\- --\---\---\---\-- -\---\---\---\---\---  
+	>     ---- ------ ------------- ----------------  
 	>     My_Manual_Profile VMware 12/25/2012 3... VMwareCertified
 	>     
 	>     PowerCLI C:\> Get-EsxImageProfile My_Manual_Profile | select -ExpandProperty VibList
 	>     
 	>     Name Version Vendor Release Date  
-	>     \---\- --\---\-- -\---\-- -\---\---\-----  
+	>     ---- ------- ------ ------------  
 	>     esx-tboot 5.0.0-0.0.469512 VMware 8/19/2011...  
 	>     esx-base 5.0.0-1.11.623860 VMware 2/17/2012...  
 	>     misc-drivers 5.0.0-1.11.623860 VMware 2/17/2012...  
@@ -378,8 +378,8 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 >     
 	>       
 	>     PowerCLI C:\> dir c:\share | findstr Manual  
-	>     -a\--- 12/25/2012 3:28 PM 142745600 myManualProfile.iso  
-	>     -a\--- 12/25/2012 3:29 PM 133309774 myManualProfile.zip  
+	>     -a--- 12/25/2012 3:28 PM 142745600 myManualProfile.iso  
+	>     -a--- 12/25/2012 3:29 PM 133309774 myManualProfile.zip  
 	>     
 >     
 >     ### Install/uninstall custom drivers
@@ -407,7 +407,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 >     >     The output appears similar to:  
 	>     >       
 	>     >     Depot Url  
-	>     >     \---\---\---  
+	>     >     ---------  
 	>     >     zip:C:\path\to\new-async-driver-offline-bundle.zip?index.xml  
 	>     >     zip:C:\VMware-ESXi-5.0.0-469512-depot.zip?index.xml  
 	>     >     </li> 
@@ -419,7 +419,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 >     >         The output appears similar to:  
 	>     >           
 	>     >         Name Version Vendor Release Date  
-	>     >         \---\---\---\---\---\---\- --\---\-- -\---\---\--- \---\---\---\---  
+	>     >         ------------------- ------- ---------- ------------  
 	>     >         driver-package-name 1.2.3.4 vendorname mm/dd/yyyy  
 	>     >         </li> 
 >     >         *   Clone an existing image profile: 
@@ -431,7 +431,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 >     >                 The output appears similar to:  
 	>     >                   
 	>     >                 Name Vendor Last Modified Acceptance  
-	>     >                 \---\---\---\---\---\---\---\---\-- -\---\-- -\---\---\---\--- \---\---\---\---\---  
+	>     >                 -------------------------- ------ ------------- ---------------  
 	>     >                 ESXi-5.0.0-456551-standard VMware mm/dd/yyyy PartnerSupported  
 	>     >                 ESXi-5.0.0-456551-no-tools VMware mm/dd/yyyy PartnerSupported  
 	>     >                 </li> 
@@ -443,7 +443,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 >     >                     The output appears similar to:  
 	>     >                       
 	>     >                     Name Vendor Last Modified Acceptance Level  
-	>     >                     \---\---\---\---\--- \---\--- \---\---\---\---\- --\---\---\---\-----  
+	>     >                     --------------- ------ ------------- ----------------  
 	>     >                     NewAsyncProfile MyCorp mm/dd/yyyy PartnerSupported  
 	>     >                     </li> </ul> </li> 
 >     >                     *   Use the **Add-EsxSoftwarePackage** commandlet to add the async driver to the new image profile, specifying the package name from step 5. 
@@ -454,7 +454,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 >     >                         The output appears similar to:  
 	>     >                           
 	>     >                         Name Vendor Last Modified Acceptance Level  
-	>     >                         \---\---\---\---\--- \---\--- \---\---\---\---\- --\---\---\---\-----  
+	>     >                         --------------- ------ ------------- ----------------  
 	>     >                         NewAsyncProfile VMware today PartnerSupported  
 	>     >                         </li> 
 >     >                         *   Export the new image profile. Run the **Export-EsxImageProfile** command to export the image profile as an ISO. 
@@ -477,13 +477,13 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     >                             PowerCLI C:\> Add-EsxSoftwareDepot C:\Users\Administrator\Desktop\isos\igb-3.1.17-455019\igb-3.1.17-offline_bundle-455019.zip
 	>     >                             
 	>     >                             Depot Url  
-	>     >                             \---\---\---  
+	>     >                             ---------  
 	>     >                             zip:C:\Users\Administrator\Desktop\isos\igb-3.1.17-455019\igb-3.1.17-offline...
 	>     >                             
 	>     >                             PowerCLI C:\> Get-EsxSoftwarePackage -Name "*igb*"
 	>     >                             
 	>     >                             Name Version Vendor Release Date  
-	>     >                             \---\- --\---\-- -\---\-- -\---\---\-----  
+	>     >                             ---- ------- ------ ------------  
 	>     >                             net-igb 2.1.11.1-3vmw.500.0.0.469512 VMware 8/19/2011...  
 	>     >                             net-igb 3.1.17-1OEM.500.0.0.406165 Intel 7/1/2011 ...  
 	>     >                             
@@ -494,7 +494,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     >                             PowerCLI C:\> Get-EsxImageProfile
 	>     >                             
 	>     >                             Name Vendor Last Modified Acceptance Level  
-	>     >                             \---\- --\---\- --\---\---\---\-- -\---\---\---\---\---  
+	>     >                             ---- ------ ------------- ----------------  
 	>     >                             ESXi-5.0.0-20120301001s-no-... VMware, Inc. 2/17/2012 11... PartnerSupported  
 	>     >                             My_Cloned_Profile VMware, Inc. 2/17/2012 11... PartnerSupported  
 	>     >                             ESXi-5.0.0-20120302001-no-t... VMware, Inc. 2/17/2012 11... PartnerSupported  
@@ -512,7 +512,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     >                             PowerCLI C:\> Remove-EsxSoftwarePackage -ImageProfile My_Cloned_Profile -SoftwarePackage net-igb
 	>     >                             
 	>     >                             Name Vendor Last Modified Acceptance Level  
-	>     >                             \---\- --\---\- --\---\---\---\-- -\---\---\---\---\---  
+	>     >                             ---- ------ ------------- ----------------  
 	>     >                             My_Cloned_Profile VMware, Inc. 12/25/2012 4... PartnerSupported  
 	>     >                             
 >     >                             
@@ -522,14 +522,14 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     >                             PowerCLI C:\> Get-EsxSoftwarePackage -Name "*igb*"
 	>     >                             
 	>     >                             Name Version Vendor Release Date  
-	>     >                             \---\- --\---\-- -\---\-- -\---\---\-----  
+	>     >                             ---- ------- ------ ------------  
 	>     >                             net-igb 2.1.11.1-3vmw.500.0.0.469512 VMware 8/19/2011...  
 	>     >                             net-igb 3.1.17-1OEM.500.0.0.406165 Intel 7/1/2011 ...
 	>     >                             
 	>     >                             PowerCLI C:\> Add-EsxSoftwarePackage -ImageProfile My_Cloned_Profile -SoftwarePackage "net-igb 3.1.*"
 	>     >                             
 	>     >                             Name Vendor Last Modified Acceptance Level  
-	>     >                             \---\- --\---\- --\---\---\---\-- -\---\---\---\---\---  
+	>     >                             ---- ------ ------------- ----------------  
 	>     >                             My_Cloned_Profile VMware, Inc. 12/25/2012 4... PartnerSupported
 	>     >                             
 	>     >                             PowerCLI C:\> Get-EsxImageProfile My_Cloned_Profile | Select -ExpandProperty VibList | findstr igb  
@@ -565,7 +565,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     >                               
 	>     >                             ~ # ls -l /vmfs/volumes/OI_LUN0/  
 	>     >                             drwxr-xr-x 1 root root 2800 Oct 16 00:38 IOAnalyzer1.1  
-	>     >                             -rw\---\---- 1 root root 444806 Jul 5 23:45 igb-3.1.17-455019.zip  
+	>     >                             -rw------- 1 root root 444806 Jul 5 23:45 igb-3.1.17-455019.zip  
 	>     >                             
 >     >                             
 >     >                             Now checking out the currently installed version of igb, I see the following:
@@ -659,14 +659,14 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 >     >                             > The boot.cfg file has the following syntax:
 >     >                             > 
 	>     >                             >   
-	>     >                             > \# boot.cfg -- mboot configuration file  
+	>     >                             > # boot.cfg -- mboot configuration file  
 	>     >                             > #  
-	>     >                             > \# Any line preceded with '#' is a comment.  
+	>     >                             > # Any line preceded with '#' is a comment.  
 	>     >                             > title=STRING  
 	>     >                             > kernel=FILEPATH  
 	>     >                             > kernelopt=STRING  
-	>     >                             > modules=FILEPATH1 \--- FILEPATH2... \--- FILEPATHn  
-	>     >                             > \# Any other line must remain unchanged.  
+	>     >                             > modules=FILEPATH1 --- FILEPATH2... --- FILEPATHn  
+	>     >                             > # Any other line must remain unchanged.  
 	>     >                             >   
 >     >                             > The commands in boot.cfg configure the boot loader.
 >     >                             > 

@@ -441,7 +441,7 @@ I was using one as a VMFS datastore (OI_LUN0) and the other as an RDM. Here are 
     naa.600144f0928c010000004fc90a3a0001 Direct-Access /vmfs/devices/disks/naa.600144f0928c010000004fc90a3a0001 133120MB NMP OI iSCSI Disk (naa.600144f0928c010000004fc90a3a0001)
     
 
-the NAAs even match <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Getting OpenIndiana Back to its Original State After Updating by Doing a Clean Install" class="wp-smiley" title="Getting OpenIndiana Back to its Original State After Updating by Doing a Clean Install" /> For NFS, nothing had to be done since the path stayed the same:
+the NAAs even match :) For NFS, nothing had to be done since the path stayed the same:
 
     root@openindiana:~# zfs get sharenfs data/nfs_share
     NAME PROPERTY VALUE SOURCE

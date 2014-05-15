@@ -63,8 +63,8 @@ Now the last question was why are we were seeing snapshot'ed LUNs in the environ
 All in all, we ran into 3 issues:
 
 1.  <span style="line-height: 22px;">LUNs showing up as snapshots (will present LUNs in an appropriate manner to prevent that)</span>
-2.  <span style="line-height: 22px;">LUNs were auto resignatured after a host reboot (had the <em>EnableResignature</em> option enabled)</span>
-3.  <span style="line-height: 22px;">The <em>EnableResignature</em> Option is set automatically (when Using SRM this is expected behavior, customer will change option manually after an SRM failover)</span>
+2.  <span style="line-height: 22px;">LUNs were auto resignatured after a host reboot (had the *EnableResignature* option enabled)</span>
+3.  <span style="line-height: 22px;">The *EnableResignature* Option is set automatically (when Using SRM this is expected behavior, customer will change option manually after an SRM failover)</span>
 
 <div class="SPOSTARBUST-Related-Posts">
   <H3>

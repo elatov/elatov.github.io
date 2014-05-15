@@ -839,7 +839,7 @@ Let's make sure the disk locations are correct:
     200.000         Persistent                                    [M2] M2/M2_1.vmdk
     
 
-I was surprised to see this automatically pick up the correct locations, but it did <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile ESXi on MacMini 6,2" class="wp-smiley" title="ESXi on MacMini 6,2" /> (I was thinking that I would have to fix the VM settings with other commands).Then go ahead and start the VM:
+I was surprised to see this automatically pick up the correct locations, but it did :) (I was thinking that I would have to fix the VM settings with other commands).Then go ahead and start the VM:
 
     PowerCLI C:\> Start-VM M2
     Start-VM : 4/5/2014 11:42:48 AM    Start-VM        This VM has questions that m

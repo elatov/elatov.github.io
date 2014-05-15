@@ -61,7 +61,7 @@ While I was on the NAS array I decided to double check the qtree settings. I was
 	  
 	NA-NAS05>qtree status  
 	Volume Tree Style Oplocks Status  
-	\---\---\-- -\---\---\- --\--- \---\---\-- -\---\-----  
+	-------- -------- ----- -------- ---------  
 	vol0 ntfs enabled normal  
 	NA_NFS1 unix enabled normal  
 	

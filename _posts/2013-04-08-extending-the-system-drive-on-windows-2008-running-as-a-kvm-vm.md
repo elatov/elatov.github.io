@@ -82,5 +82,5 @@ In our case we have 5GB available which as I mentioned is automatically selected
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/c_part_extended.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/c_part_extended.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/c_part_extended.png" alt="c part extended Extending the System Drive on Windows 2008 Running Under KVM" width="636" height="542" class="alignnone size-full wp-image-8062" title="Extending the System Drive on Windows 2008 Running Under KVM" /></a>
 
-Now we can apply more updates <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Extending the System Drive on Windows 2008 Running Under KVM" class="wp-smiley" title="Extending the System Drive on Windows 2008 Running Under KVM" /> 
+Now we can apply more updates :) 
 

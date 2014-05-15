@@ -35,7 +35,7 @@ tags:
   - tag2utf.py
   - transliterate
 ---
-I wrote a <a href="http://virtuallyhyper.com/2012/10/installing-subsonic-on-fedora-17/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/10/installing-subsonic-on-fedora-17/']);">previous</a> post about running <em>subsonic</em>. I really liked the software cause it uses the file system directory structure as your music library. I have a lot of custom playlists and they don't belong to any album, therefore I organize my playlists by folders. Some of these songs are from Russian CDs which are combinations of songs for that year (this is pretty typical in Russia, it's equivalent of the "<a href="http://www.nowthatsmusic.com/home/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.nowthatsmusic.com/home/']);">Now, That's What I Call Music</a>" CDs in the US).
+I wrote a <a href="http://virtuallyhyper.com/2012/10/installing-subsonic-on-fedora-17/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/10/installing-subsonic-on-fedora-17/']);">previous</a> post about running *subsonic*. I really liked the software cause it uses the file system directory structure as your music library. I have a lot of custom playlists and they don't belong to any album, therefore I organize my playlists by folders. Some of these songs are from Russian CDs which are combinations of songs for that year (this is pretty typical in Russia, it's equivalent of the "<a href="http://www.nowthatsmusic.com/home/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.nowthatsmusic.com/home/']);">Now, That's What I Call Music</a>" CDs in the US).
 
 I used to have an *iPod* and I used to use *Songbird* as my music player and this ended up messing up my file names and even the *id3* tags of the audio files. For example here is a sample folder with my songs:
 	
@@ -122,7 +122,7 @@ Here is an example from their site on how to compile the application, once you h
 I was able to compile the source, and then trying to query one of the songs, I saw the following:
 
 	[elatov@moxz mus_2003]$ ~/downloads/echoprint-codegen-release-4.12/echoprint-codegen \?\?-\?\?.mp3 10 30 
-	{"metadata":{"artist":"A. Russo &amp; K. Agati ", "release":"", "title":"Mechti Zbilis'", "genre":"Other", 
+	{"metadata":{"artist":"A. Russo & K. Agati ", "release":"", "title":"Mechti Zbilis'", "genre":"Other", 
 	"bitrate":128,"sample_rate":44100, "duration":184, "filename":"??-??.mp3", "samples_decoded":330902, "given_duration":30, "start_offset":10, "version":4.12, "codegen_time":0.666698, "decode_time":5.102925}, "code_count":798, "code":"eJztWG2SLSkK3ZIoo", "tag":0} 
 	
 That actually looked okay. For testing reasons, I wanted to write a python script to basically try to acoustically fingerprint every file in a directory. I haven't done python in a while, so I just went with it. I actually decided to parse the output of the above command and then rename the file accordingly. Hindsight, I should have used a python API provided for *echoprint*, but I was too anxious and I just went for it. Here is how my python script looked like:
@@ -321,7 +321,7 @@ and lastly, here is the aftermath:
 	[elatov@moxz best]$ ls mus_2003 
 	Alsu-Vchera.mp3 A_Russo_K_Agati-Mechti_Zbilis.mp3 Gazmanov_Oleg-Na_Zare.mp3 
 	
-That looked perfect except that it fails back to tags if the file can't be fingerprinted. What if the tags were gone and we can't fingerprint it. If I was doing this across regular/popular/US songs, I bet the above would've sufficed for my library. I then ran into <a href="http://forum.xbmc.org/showthread.php?tid=37230" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://forum.xbmc.org/showthread.php?tid=37230']);">this</a> <em>xbmc</em> forum. From that Forum:
+That looked perfect except that it fails back to tags if the file can't be fingerprinted. What if the tags were gone and we can't fingerprint it. If I was doing this across regular/popular/US songs, I bet the above would've sufficed for my library. I then ran into <a href="http://forum.xbmc.org/showthread.php?tid=37230" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://forum.xbmc.org/showthread.php?tid=37230']);">this</a> *xbmc* forum. From that Forum:
 
 > - **Last.fm fingerprints** - Uses an open source library to fingerprint and a web service to identify the song. Used by banshee-extension-lastfm fingerprint, for example.
 > - **MusicDNS/PUID** - Open source fingerprinting with libofa, closed database queries. MusicDNS was sold to Sony-owned Gracenote and is expected to be shit-canned. Thus, MusicBrainz is ditching it for Echoprint & Acoustid (see above article from 6/23/11).
@@ -481,7 +481,7 @@ At this point we have all the audio files named **ARTIST-TITLE.EXT**. The artist
 	TIT2 (Title/songname/content description): 0 70@5 
 	TCOM (Composer): 
 	TOPE (Original artist(s)/performer(s)): 
-	TPE1 (Lead performer(s)/Soloist(s)): 07&lt;0=>2 ;53 
+	TPE1 (Lead performer(s)/Soloist(s)): 07<0=>2 ;53 
 	
 	id3v1 tag info for mus_2003/Alsu-Vchera.mp3: 
 	Title : ��� 
@@ -507,7 +507,7 @@ At this point we have all the audio files named **ARTIST-TITLE.EXT**. The artist
 	
 	id3v1 tag info for mus_2003/Orbakayte_Kristina_Russo_Avraam-Lyubovi_Kotoroy_Bolishe_Net.mp3:
 	Title : Mechti Zbilis' 
-	Artist: A. Russo &amp; K. Agati 
+	Artist: A. Russo & K. Agati 
 	Album : Year: , 
 	Genre: Other (12) 
 	Comment: 
@@ -515,7 +515,7 @@ At this point we have all the audio files named **ARTIST-TITLE.EXT**. The artist
 	TIT2 (Title/songname/content description): Mechti Zbilis' 
 	TCON (Content type): 
 	Other (12) 
-	TPE1 (Lead performer(s)/Soloist(s)): A. Russo &amp; K. Agati 
+	TPE1 (Lead performer(s)/Soloist(s)): A. Russo & K. Agati 
 	
 We can see that both *id3v1* and *id3v2* tags are all over the place. If you wanted to, you could strip all the tags, like so:
 

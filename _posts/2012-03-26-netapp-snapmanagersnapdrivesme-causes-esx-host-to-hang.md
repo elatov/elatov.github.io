@@ -9,66 +9,21 @@ categories:
   - Storage
   - VMware
 tags:
-  - SnapManager SMVI Exchange VSS SME SnapDrive NetApp
+  - SnapManager 
+  - SMVI 
+  - Exchange 
+  - VSS 
+  - SME 
+  - SnapDrive 
+  - NetApp
 ---
 I had a customer use the following setup/versioning:
 
-<table>
-  <tr>
-    <th>
-      VMware
-    </th>
-    
-    <th align="center">
-      NetApp
-    </th>
-    
-    <th align="right">
-      Windows
-    </th>
-  </tr>
-  
-  <tr>
-    <td>
-      ESXi 4.1U1
-    </td>
-    
-    <td align="center">
-      Data OnTap 8.01P5
-    </td>
-    
-    <td align="right">
-      W2K8 ENT. SP2 64bit
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      vCenter 4.1
-    </td>
-    
-    <td align="center">
-      SME 6.0P2
-    </td>
-    
-    <td align="right">
-      OS is vmdk
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-    </td>
-    
-    <td align="center">
-      SnapDrive 6.3P2
-    </td>
-    
-    <td align="right">
-      Exchange Data RDM LUNs
-    </td>
-  </tr>
-</table>
+| VMware      | NetApp            | Windows                |
+|-------------|-------------------|------------------------|
+| ESXi 4.1U1  | Data OnTap 8.01P5 | W2K8 ENT. SP2 64bit    |  
+| vCenter 4.1 | SME 6.0P2         | OS is vmdk             |
+|             | SnapDrive 6.3P2   | Exchange Data RDM LUNs | 
 
 That is a lot of components, so let's break them down. NetApp SnapManager for Virtual Infrastructure (SMVI) integrates with VMware vCenter to automate backups of VMs. NetApp describes it best:
 
@@ -103,7 +58,7 @@ But both options can be used together, from the same white paper we see this:
 > 
 > Another recommendation for these environments is to use physical mode RDM LUNs, instead of Microsoft iSCSI Software Initiator LUNs, when provisioning storage in order to get the maximum protection level from the combined SMVI and SDW/SM solution: guest file system consistency for OS images using VSS-assisted SMVI backups, and application-consistent backups and fine-grained recovery for application data using the SnapManager applications.
 
-A lot of people ran into issue with having two VSS writers (<a href="https://communities.netapp.com/thread/14067" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.netapp.com/thread/14067']);">VSC - Backups Hanging</a> , <a href="https://communities.netapp.com/thread/3015?tstart=3" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.netapp.com/thread/3015?tstart=3']);">VSS Components Conflicting</a> , and <a href="https://communities.netapp.com/message/30383" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.netapp.com/message/30383']);">Problem with vmware quiesced snapshot (and smvi) and iscsi rdm</a>). There were also a couple of issues with using SnapDrive to add an RDM (<a href="https://communities.netapp.com/message/45241" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.netapp.com/message/45241']);">FC RDM Luns in ESX4.1 virtual machines</a> and <a href="http://kb.vmware.com/kb/1029963" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1029963']);">VMware KB 1029963</a> ). The Snapdrive and RDM issues seem to be fixed with the latest versions of all the products <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_wink.gif" alt="icon wink NetApp SnapManager/SnapDrive/SME Causes ESX Host to Hang" class="wp-smiley" title="NetApp SnapManager/SnapDrive/SME Causes ESX Host to Hang" /> The former seems to still come up and it depends on what your goal is, but that last Netapp community page has a good description of what to try.
+A lot of people ran into issue with having two VSS writers (<a href="https://communities.netapp.com/thread/14067" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.netapp.com/thread/14067']);">VSC - Backups Hanging</a> , <a href="https://communities.netapp.com/thread/3015?tstart=3" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.netapp.com/thread/3015?tstart=3']);">VSS Components Conflicting</a> , and <a href="https://communities.netapp.com/message/30383" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.netapp.com/message/30383']);">Problem with vmware quiesced snapshot (and smvi) and iscsi rdm</a>). There were also a couple of issues with using SnapDrive to add an RDM (<a href="https://communities.netapp.com/message/45241" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.netapp.com/message/45241']);">FC RDM Luns in ESX4.1 virtual machines</a> and <a href="http://kb.vmware.com/kb/1029963" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1029963']);">VMware KB 1029963</a> ). The Snapdrive and RDM issues seem to be fixed with the latest versions of all the products ;) The former seems to still come up and it depends on what your goal is, but that last Netapp community page has a good description of what to try.
 
 If you want to see a good picture of the setup with the OS disks being vmdks and Exchange data disks are RDMs, I would suggest looking over this article, <a href="http://media.netapp.com/documents/tr-3785.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://media.netapp.com/documents/tr-3785.pdf']);">Running Microsoft Enterprise Applications on VMware vSphere, NetApp Unified Storage, and Cisco Unified Fabric</a>
 
@@ -236,7 +191,7 @@ After some time, **hostd** did start up fine, but it was still concerning that h
 > 
 > This error is caused by contention on the system while multiple operations attempt to gather system configuration information while the host profiles apply operation sets configuration. Because of these errors and other timeout-related errors, even after the host profiles apply operation completes on the system, the configuration captured in the host profile might not be fully applied. Checking the host for compliance shows which parts of the configuration failed to apply, and perform an Apply operation to fix those remaining non-compliance issues.
 
-The customer didn't want to update to either and only cared about the **hostdstats** filling up to 100%. So for now as test we will apply the workaround listed above every week and see if that helps out. I will keep you posted <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile NetApp SnapManager/SnapDrive/SME Causes ESX Host to Hang" class="wp-smiley" title="NetApp SnapManager/SnapDrive/SME Causes ESX Host to Hang" /> 
+The customer didn't want to update to either and only cared about the **hostdstats** filling up to 100%. So for now as test we will apply the workaround listed above every week and see if that helps out. I will keep you posted :) 
 
 **Update**: removing the */var/lib/vmware/hostd/stats/hostAgentStats-20.stats* file and restarting the managements agents, helped to workaround the issue.
 

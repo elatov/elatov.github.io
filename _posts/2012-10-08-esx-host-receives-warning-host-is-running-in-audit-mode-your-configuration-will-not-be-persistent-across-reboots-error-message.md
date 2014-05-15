@@ -25,7 +25,7 @@ It looks like AuditMode was set to true. Checking out the 'boot.cfg' file, I saw
 	~ # cat /bootbank/boot.cfg  
 	kernel=b.z  
 	kernelopt=auditMode=TRUE  
-	modules=k.z \--- s.z \--- c.z \--- oem.tgz \--- license.tgz \--- m.z  
+	modules=k.z --- s.z --- c.z --- oem.tgz --- license.tgz --- m.z  
 	build=4.1.0-800380  
 	updated=1  
 	bootstate=0  

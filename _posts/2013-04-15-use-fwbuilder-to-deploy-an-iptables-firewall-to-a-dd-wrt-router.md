@@ -218,7 +218,7 @@ Looking at it from a firewall aspect: **vlan2** represents the external/public i
     default         via 67.172.134.1 dev vlan2 
     
 
-Nothing crazy, **vlan2** is used for the public IP space and **br0** is used for the private IP space <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" class="wp-smiley" title="Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" /> 
+Nothing crazy, **vlan2** is used for the public IP space and **br0** is used for the private IP space :) 
 
 ### Enabling JFFS on DD-WRT
 
@@ -424,7 +424,7 @@ Allow any traffic that is sourced from our internal network, this is good to hav
     $IPTABLES -A RULE_9  -j DROP
     
 
-Deny the rest <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" class="wp-smiley" title="Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" /> Without looking at the specific **iptables** commands, you can just look at the **Policy** and get the same feel of the rules.
+Deny the rest :) Without looking at the specific **iptables** commands, you can just look at the **Policy** and get the same feel of the rules.
 
 ### Allow DNS Queries to the Firewall
 
@@ -668,7 +668,7 @@ This is covered in the FWBuilder chapter entitled "<a href="http://www.fwbuilder
 
 > Hairpinning allows two endpoints on the internal side of the NAT to communicate even if they only use each other's external IP addresses and ports.
 
-Now I have completely replaced the default **iptables** firewall on the DD-WRT Router with the firewall I built with FWBuilder. Now if I need to make any changes I can just fire up FWBuilder and drag-and-drop objects to create my new rules and feel like I am a enterprise network administrator <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" class="wp-smiley" title="Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" /> 
+Now I have completely replaced the default **iptables** firewall on the DD-WRT Router with the firewall I built with FWBuilder. Now if I need to make any changes I can just fire up FWBuilder and drag-and-drop objects to create my new rules and feel like I am a enterprise network administrator :) 
 
 <root> </root>
 

@@ -645,7 +645,7 @@ Now we can just concatenate them both and reset the caption ids:
     $ srttool -r -i files.srt -o files-sorted.srt
     
 
-That's it <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Combine VobSub (sub/idx) Format Subtitles into a Single SubRip (srt) Format File" class="wp-smiley" title="Combine VobSub (sub/idx) Format Subtitles into a Single SubRip (srt) Format File" /> As a side note, you could play the media files and include the **vobsub** subtitles like so:
+That's it :) As a side note, you could play the media files and include the **vobsub** subtitles like so:
 
     $ mplayer file1.avi -vobsub file1 -vobsubid 4
     $ vlc file1.avi --sub-file file1.sub

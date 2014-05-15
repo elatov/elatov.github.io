@@ -133,7 +133,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>         > PowerCLI C:\> Get-EsxImageProfile
 	>         > 
 	>         > Name Vendor Last Modified Acceptance Level  
-	>         > \---\- --\---\- --\---\---\---\-- -\---\---\---\---\---  
+	>         > ---- ------ ------------- ----------------  
 	>         > ESXi-5.0.0-20120301001s-no-... VMware, Inc. 2/17/2012 11... PartnerSupported  
 	>         > My_Cloned_Profile VMware, Inc. 12/25/2012 1... PartnerSupported  
 	>         > ESXi-5.0.0-20120302001-no-t... VMware, Inc. 2/17/2012 11... PartnerSupported  
@@ -175,7 +175,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>         > 
 	>         > Name HAEnabled HAFailover DrsEnabled DrsAutomationLe  
 	>         > Level vel  
-	>         > \---\- --\---\---\- --\---\---\-- -\---\---\--- \---\---\---\---\---  
+	>         > ---- --------- ---------- ---------- ---------------  
 	>         > vsphere4 False 1 False FullyAutomated  
 	>         > vsphere5 False 1 False FullyAutomated  
 	>         > 
@@ -233,7 +233,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>         > PowerCLI C:\> Get-VMHostProfile
 	>         > 
 	>         > Name Description ReferenceHostId  
-	>         > \---\- --\---\---\--- \---\---\---\---\---  
+	>         > ---- ----------- ---------------  
 	>         > 5.0_Profile HostSystem-hos...  
 	>         > 
 >         > 
