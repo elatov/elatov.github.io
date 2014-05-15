@@ -15,7 +15,7 @@ tags:
   - net-snmp
   - snmpwalk
 ---
-I wanted to get more host information from an ESX host when querying the host with snmp. Specifically, I was interested in the Host_Resources MIB (<a href="http://www.net-snmp.org/docs/mibs/host.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.net-snmp.org/docs/mibs/host.html']);">net-snmp HOST-RESOURCES-MIB</a>). Following the instructions from the &#8220;<a href="http://www.vmware.com/pdf/vsp_4_snmp_config.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/vsp_4_snmp_config.pdf']);">Configuring the Net-SNMP Agent on ESX Hosts</a>&#8221; article, I ran the following to enable snmpd:
+I wanted to get more host information from an ESX host when querying the host with snmp. Specifically, I was interested in the Host_Resources MIB (<a href="http://www.net-snmp.org/docs/mibs/host.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.net-snmp.org/docs/mibs/host.html']);">net-snmp HOST-RESOURCES-MIB</a>). Following the instructions from the "<a href="http://www.vmware.com/pdf/vsp_4_snmp_config.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/vsp_4_snmp_config.pdf']);">Configuring the Net-SNMP Agent on ESX Hosts</a>" article, I ran the following to enable snmpd:
 
 	  
 	# service snmpd start  
@@ -37,7 +37,7 @@ This is actually expected since net-snmp on ESX is not supported as per KB <a hr
 	view systemview included .1.3.6.1.2.1.25.1.1  
 	
 
-That MIB is limited, the root OID of the Host-Resources MIB is .1.3.6.1.2.1.25, but we are limiting the OID to be a subset of the OID (.1.3.6.1.2.1.25<span style="text-decoration: underline;"><strong>.1.1</strong></span>). More information regarding how OIDs work can be found <a href="http://en.wikipedia.org/wiki/Object_identifier" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org/wiki/Object_identifier']);">here</a>. So let&#8217;s go ahead and allow the whole MIB to be queried. Edit the file with vi:
+That MIB is limited, the root OID of the Host-Resources MIB is .1.3.6.1.2.1.25, but we are limiting the OID to be a subset of the OID (.1.3.6.1.2.1.25<span style="text-decoration: underline;"><strong>.1.1</strong></span>). More information regarding how OIDs work can be found <a href="http://en.wikipedia.org/wiki/Object_identifier" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org/wiki/Object_identifier']);">here</a>. So let's go ahead and allow the whole MIB to be queried. Edit the file with vi:
 
 	  
 	# vi /etc/snmp/snmpd.conf  
@@ -55,7 +55,7 @@ and make it look like this:
 	view systemview included .1.3.6.1.2.1.25  
 	
 
-After you make the change, exit vi (by typing &#8220;:wq&#8221;) and confirm the file was edited properly:
+After you make the change, exit vi (by typing ":wq") and confirm the file was edited properly:
 
 	  
 	# grep 1.3.6.1.2.1.25 /etc/snmp/snmpd.conf  
@@ -90,7 +90,7 @@ And if you run the same query again:
 	...  
 	
 
-The output was much larger. This only works for ESX and not for ESXi and as the &#8220;<a href="http://www.vmware.com/pdf/vsp_4_snmp_config.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/vsp_4_snmp_config.pdf']);">Configuring the Net-SNMP Agent on ESX Hosts</a>&#8221; article mentions, this is actually not supported, so use with care. Checking out KB <a href="http://kb.vmware.com/kb/2005377" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/2005377']);">2005377</a>, the Host-Resources MIB is added for ESXi 5.0, so if you want to get that information on an ESXi host, then update to 5.0 <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Enabling More Host Resources Information from the Net SNMP MIB on ESX Classic" class="wp-smiley" title="Enabling More Host Resources Information from the Net SNMP MIB on ESX Classic" /> 
+The output was much larger. This only works for ESX and not for ESXi and as the "<a href="http://www.vmware.com/pdf/vsp_4_snmp_config.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/vsp_4_snmp_config.pdf']);">Configuring the Net-SNMP Agent on ESX Hosts</a>" article mentions, this is actually not supported, so use with care. Checking out KB <a href="http://kb.vmware.com/kb/2005377" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/2005377']);">2005377</a>, the Host-Resources MIB is added for ESXi 5.0, so if you want to get that information on an ESXi host, then update to 5.0 <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Enabling More Host Resources Information from the Net SNMP MIB on ESX Classic" class="wp-smiley" title="Enabling More Host Resources Information from the Net SNMP MIB on ESX Classic" /> 
 
 <div class="SPOSTARBUST-Related-Posts">
   <H3>

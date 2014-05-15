@@ -14,13 +14,13 @@ tags:
 ---
 ### Identify logs used to troubleshoot storage issues
 
-/var/log/vmkernel.log &#8211; generic NMP messages, iSCSI and fibre channel messages, drivers and so on  
-/var/log/vmkwarning.log &#8211; generic storage messages, like disconnects  
-/var/log/storagerm.log &#8211; If SIOC is enabled then all the logs regarding that will be here
+/var/log/vmkernel.log - generic NMP messages, iSCSI and fibre channel messages, drivers and so on  
+/var/log/vmkwarning.log - generic storage messages, like disconnects  
+/var/log/storagerm.log - If SIOC is enabled then all the logs regarding that will be here
 
 ### Describe the attributes of the VMFS-5 file system
 
-From &#8220;<a href="http://www.vmware.com/files/pdf/vmfs-best-practices-wp.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/vmfs-best-practices-wp.pdf']);">VMware vSphere VMFS</a>&#8220;:
+From "<a href="http://www.vmware.com/files/pdf/vmfs-best-practices-wp.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/vmfs-best-practices-wp.pdf']);">VMware vSphere VMFS</a>":
 
 > **Features of VMFS **  
 > The following technical features of VMFS are among those that make it suitable for use in a virtual environment:
@@ -35,14 +35,14 @@ From &#8220;<a href="http://www.vmware.com/files/pdf/vmfs-best-practices-wp.pdf"
 > *   Encapsulation of the entire virtual machine state in a single directory
 > *   Support for VMware vSphere Storage APIs – Array Integration (VAAI)
 
-Also from &#8220;<a href="http://www.vmware.com/files/pdf/techpaper/VMFS-5_Upgrade_Considerations.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/techpaper/VMFS-5_Upgrade_Considerations.pdf']);">VMware vSphere VMFS-5 Upgrade Considerations</a>&#8220;:
+Also from "<a href="http://www.vmware.com/files/pdf/techpaper/VMFS-5_Upgrade_Considerations.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/techpaper/VMFS-5_Upgrade_Considerations.pdf']);">VMware vSphere VMFS-5 Upgrade Considerations</a>":
 
 > **VMFS-5 Enhancements**  
 > The following is a complete list of enhancements made in VMFS-5.  
 > **New Unified 1MB File Block Size**  
 > Earlier versions of VMFS used 1, 2, 4 or 8MB file blocks. These larger blocks were needed to create large files (>256GB). These different file blocks sizes are no longer needed to create large files on VMFS-5. Very large files can now be created on VMFS-5 using the new unified 1MB file blocks. Earlier versions of VMFS will still have to use larger file blocks to create large files.  
 > **Large Single Extent Volumes**  
-> In earlier versions of VMFS, the largest single extent was 2TB &#8211; 512 bytes. An extent is a partition on which one can place a VMFS. To create a 64TB VMFS-5, one needed to create 32 x 2TB extents/partitions and join them together. With VMFS-5, this limit for a single extent/partition has been increased to 64TB. This significantly reduces the management overhead when using very large VMFS volumes.  
+> In earlier versions of VMFS, the largest single extent was 2TB - 512 bytes. An extent is a partition on which one can place a VMFS. To create a 64TB VMFS-5, one needed to create 32 x 2TB extents/partitions and join them together. With VMFS-5, this limit for a single extent/partition has been increased to 64TB. This significantly reduces the management overhead when using very large VMFS volumes.  
 > **Smaller Sub-Blocks**  
 > VMFS-5 introduces smaller sub-blocks. Sub-blocks are now 8KB rather than 64KB as used in the earlier versions. With VMFS-5, small files (< 8KB, but > 1KB) in size will consume only 8KB rather than 64KB. This will reduce the amount of disk space stranded by small files. Also, there are many more sub-blocks in VMFS-5 than there were in VMFS-3 (32,000 on VMFS-5 compared to approximately 4,000 on VMFS-3).  
 > **Small File Support**  
@@ -58,14 +58,14 @@ Also from &#8220;<a href="http://www.vmware.com/files/pdf/techpaper/VMFS-5_Upgra
 
 ### Use esxcli to troubleshoot multipathing and PSA-related issues
 
-This was covered in &#8220;<a href="http://virtuallyhyper.com/2012/10/vcap5-dca-objective-1-3-configure-and-manage-complex-multipathing-and-psa-plug-ins/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/10/vcap5-dca-objective-1-3-configure-and-manage-complex-multipathing-and-psa-plug-ins/']);">VCAP5-DCA Objective 1.3</a>&#8221; and in &#8220;<a href="http://virtuallyhyper.com/2012/10/vcap5-dca-objective-1-1-implement-and-manage-complex-storage-solutions/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/10/vcap5-dca-objective-1-1-implement-and-manage-complex-storage-solutions/']);">VCAP5-DCA Objective 1.1</a>&#8221;
+This was covered in "<a href="http://virtuallyhyper.com/2012/10/vcap5-dca-objective-1-3-configure-and-manage-complex-multipathing-and-psa-plug-ins/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/10/vcap5-dca-objective-1-3-configure-and-manage-complex-multipathing-and-psa-plug-ins/']);">VCAP5-DCA Objective 1.3</a>" and in "<a href="http://virtuallyhyper.com/2012/10/vcap5-dca-objective-1-1-implement-and-manage-complex-storage-solutions/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/10/vcap5-dca-objective-1-1-implement-and-manage-complex-storage-solutions/']);">VCAP5-DCA Objective 1.1</a>"
 
 ### Use esxcli to troubleshoot VMkernel storage module configurations
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-troubleshooting-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-troubleshooting-guide.pdf']);">vSphere Troubleshooting ESXi 5.0</a>&#8221;
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-troubleshooting-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-troubleshooting-guide.pdf']);">vSphere Troubleshooting ESXi 5.0</a>"
 
 > **Adjust Queue Depth for QLogic and Emulex HBAs**  
-> If you are not satisfied with your host&#8217;s performance, change the maximum queue depth for the QLogic or Emulex HBA.
+> If you are not satisfied with your host's performance, change the maximum queue depth for the QLogic or Emulex HBA.
 > 
 > To adjust the maximum queue depth parameter, use the vCLI commands.
 > 
@@ -106,7 +106,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 	>     >         </ol> </blockquote> 
 >     >     ### Use esxcli to troubleshoot iSCSI related issues
 >     >     
->     >     From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf']);">vSphere Command-Line Interface Concepts and Examples</a>&#8220;:
+>     >     From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf']);">vSphere Command-Line Interface Concepts and Examples</a>":
 >     >     
 >     >     Check whether software iSCSI is enabled:
 >     >     
@@ -379,7 +379,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 >     >     
 >     >     ### Troubleshoot NFS mounting and permission issues
 >     >     
->     >     From &#8220;<a href="http://www.vmware.com/files/pdf/VMware_NFS_BestPractices_WP_EN.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/VMware_NFS_BestPractices_WP_EN.pdf']);">Best Practices for running VMware vSphere on Network Attached Storage</a>&#8221;
+>     >     From "<a href="http://www.vmware.com/files/pdf/VMware_NFS_BestPractices_WP_EN.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/VMware_NFS_BestPractices_WP_EN.pdf']);">Best Practices for running VMware vSphere on Network Attached Storage</a>"
 >     >     
 >     >     > VMware vSphere implementation of NFS supports NFS version 3 in TCP. There is currently no support for NFS  
 >     >     > version 2, UDP, or CIFS/SMB
@@ -410,7 +410,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 >     >     
 >     >     ### Use esxtop/resxtop and vscsiStats to identify storage performance issues
 >     >     
->     >     The vscsiStats were covered in &#8220;<a href="http://virtuallyhyper.com/2012/11/vcap5-dca-objective-3-4-utilize-advanced-vsphere-performance-monitoring-tools/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/11/vcap5-dca-objective-3-4-utilize-advanced-vsphere-performance-monitoring-tools/']);">VCAP5-DCA Objective 3.4</a>&#8221;
+>     >     The vscsiStats were covered in "<a href="http://virtuallyhyper.com/2012/11/vcap5-dca-objective-3-4-utilize-advanced-vsphere-performance-monitoring-tools/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/11/vcap5-dca-objective-3-4-utilize-advanced-vsphere-performance-monitoring-tools/']);">VCAP5-DCA Objective 3.4</a>"
 >     >     
 >     >     As for esxtop, from <a href="http://www.vmworld.net/wp-content/uploads/2012/05/Esxtop_Troubleshooting_eng.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmworld.net/wp-content/uploads/2012/05/Esxtop_Troubleshooting_eng.pdf']);">this</a> pdf:
 >     >     
@@ -424,7 +424,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 >     >     > **ABRTS/s**: Commands aborted per second. If the storage system has not responded within 60 seconds VMs with an Windows Operating System will issue an abort. (Trouble when > 1)  
 >     >     > **GAVG**: GAVG = DAVG + KAVG, what the guest actually experiences. (Trouble when > 25)
 >     >     
->     >     From &#8220;<a href="http://www.vmware.com/resources/techresources/10179" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.vmware.com/resources/techresources/10179']);">Performance Troubleshooting for vSphere 4.1</a>&#8220;:
+>     >     From "<a href="http://www.vmware.com/resources/techresources/10179" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.vmware.com/resources/techresources/10179']);">Performance Troubleshooting for vSphere 4.1</a>":
 >     >     
 >     >     <a href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-4-troubleshoot-storage-performance-and-connectivity/storage_performance_troubleshooting/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-4-troubleshoot-storage-performance-and-connectivity/storage_performance_troubleshooting/']);" rel="attachment wp-att-5367"><img class="alignnone size-full wp-image-5367" alt="storage performance troubleshooting VCAP5 DCA Objective 6.4 – Troubleshoot Storage Performance and Connectivity " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/storage_performance_troubleshooting.png" width="744" height="578" title="VCAP5 DCA Objective 6.4 – Troubleshoot Storage Performance and Connectivity " /></a>
 >     >     
@@ -450,7 +450,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 	>     >     vmfsPath  
 	>     >     
 >     >     
->     >     From the &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf']);">vSphere Storage ESXi 5.0</a>&#8220;:
+>     >     From the "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf']);">vSphere Storage ESXi 5.0</a>":
 >     >     
 >     >     > **vmkfstools Options**  
 >     >     > The vmkfstools command has several options. Some of the options are suggested for advanced users only.  
@@ -494,12 +494,12 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 	>     >     > -S --setfsname datastore  
 	>     >     > 
 >     >     > 
->     >     > This option creates a VMFS3 or VMFS5 datastore on the specified SCSI partition, such as disk_ID:P. The partition becomes the file system&#8217;s head partition.
+>     >     > This option creates a VMFS3 or VMFS5 datastore on the specified SCSI partition, such as disk_ID:P. The partition becomes the file system's head partition.
 >     >     > 
 >     >     > You can specify the following suboptions with the -C option:
 >     >     > 
->     >     > *   **-b &#8211;blocksize** – Define the block size for the VMFS datastore.For VMFS5, the only available block size is 1MB. For VMFS3, the default block size is 1MB. Depending on your needs, the block size can be 1MB, 2MB, 4MB, and 8MB. When you enter the size, indicate the unit type by adding a suffix, such as m or M. The unit type is not case sensitive.
->     >     > *   **-S &#8211;setfsname** – Define the volume label of the VMFS datastore you are creating. Use this suboption only in conjunction with the -C option. The label you specify can be up to 128 characters long and cannot contain any leading or trailing blank spaces.
+>     >     > *   **-b -blocksize** – Define the block size for the VMFS datastore.For VMFS5, the only available block size is 1MB. For VMFS3, the default block size is 1MB. Depending on your needs, the block size can be 1MB, 2MB, 4MB, and 8MB. When you enter the size, indicate the unit type by adding a suffix, such as m or M. The unit type is not case sensitive.
+>     >     > *   **-S -setfsname** – Define the volume label of the VMFS datastore you are creating. Use this suboption only in conjunction with the -C option. The label you specify can be up to 128 characters long and cannot contain any leading or trailing blank spaces.
 >     >     > 
 >     >     > After you define a volume label, you can use it whenever you specify the VMFS datastore for the  
 >     >     > vmkfstools command. The volume label appears in listings generated for the ls -l command and as a symbolic link to the VMFS volume under the /vmfs/volumes directory.
@@ -555,7 +555,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 	>     >     
 	>     >     ### Troubleshoot snapshot and re-signaturing issues
 	>     >     
-	>     >     This was covered in &#8220;<a href="http://virtuallyhyper.com/2012/10/vcap5-dca-objective-1-1-implement-and-manage-complex-storage-solutions/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/10/vcap5-dca-objective-1-1-implement-and-manage-complex-storage-solutions/']);">VCAP5-DCA Objective 1.1</a>&#8221;
+	>     >     This was covered in "<a href="http://virtuallyhyper.com/2012/10/vcap5-dca-objective-1-1-implement-and-manage-complex-storage-solutions/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/10/vcap5-dca-objective-1-1-implement-and-manage-complex-storage-solutions/']);">VCAP5-DCA Objective 1.1</a>"
 	>     >     
 	>     >     ### Analyze log files to identify storage and multipathing problems
 	>     >     
@@ -579,7 +579,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 	>     >     > 5.  Once the NMP receives this host status, it will send a TEST\_UNIT\_READY (TUR) command down that path to confirm that it is down, before initiating a failover. For example:  
 	>     >     >     vmkernel: 188:04:24:16.970 cpu1:4286)WARNING: NMP: nmp_DeviceRetryCommand: Device "naa.60060160d5c12200ccd66fd74a81de11": awaiting fast path state update for failover with I/O blocked. No prior reservation exists on the device.  
 	>     >     >     
-	>     >     > 6.  If this command also fails, the ESX/ESXi host&#8217;s Path Selection Policy (PSP) activates the next path for the device (LUN). For example:  
+	>     >     > 6.  If this command also fails, the ESX/ESXi host's Path Selection Policy (PSP) activates the next path for the device (LUN). For example:  
 	>     >     >     vmkernel: 188:04:24:16.989 cpu1:4131)vmw\_psp\_mru: psp_mruSelectPathToActivateInt: Changing active path from vmhba33:C0:T1:L7 to vmhba33:C0:T0:L7 for device "naa.60060160d5c12200ccd66fd74a81de11".  
 	>     >     >     
 	>     >     > 7.  This line indicates that the path change was successful. The NMP retries the queued commands down this path to ensure they complete successfully, despite a failover condition being triggered. For example:  
@@ -605,7 +605,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 	>     >     >     *   Indication that the path failover was successful and commands are able to complete via the new path looks similar to:  
 	>     >     >         vmkernel: 188:04:24:17.975 cpu12:4108)NMP: nmp_CompleteRetryForPath: Retry world recovered device "naa.60060160d5c12200ccd66fd74a81de11"  
 	>     >     >         
-	>     >     >     *   Finally, as this is a S/W iSCSI-based example, you also see the session marked &#8220;ONLINE&#8221; again:  
+	>     >     >     *   Finally, as this is a S/W iSCSI-based example, you also see the session marked "ONLINE" again:  
 	>     >     >         vmkernel: 188:04:24:20.405 cpu9:4288)WARNING: iscsi\_vmk: iscsivmk\_StartConnection: vmhba33:CH:0 T:1 CN:0: iSCSI connection is being marked "ONLINE"  
 	>     >     >         vmkernel: 188:04:24:20.405 cpu9:4288)WARNING: iscsi\_vmk: iscsivmk\_StartConnection: Sess [ISID: 00023d000001 TARGET: iqn.1992-04.com.emc:cx.sl7e2091300074.b1 TPGT: 2 TSIH: 0]  
 	>     >     >         vmkernel: 188:04:24:20.405 cpu9:4288)WARNING: iscsi\_vmk: iscsivmk\_StartConnection: Conn [CID: 0 L: 192.168.2.16:52160 R: 192.168.2.8:3260]  

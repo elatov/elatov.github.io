@@ -21,11 +21,11 @@ tags:
 
 There are many different scenarios where this comes into play, and there many different ways to get the desired results.
 
-## Scenario 1 &#8211; Reclaim unused space from a thick disk
+## Scenario 1: Reclaim unused space from a thick disk
 
 **Solution 1:**
 
-****Storage vMotion the VM to another datastore and convert it to thin. See the following link on how to do that: <a href="http://www.thelowercasew.com/reclaiming-disk-space-with-storage-vmotion-and-thin-provisioning" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.thelowercasew.com/reclaiming-disk-space-with-storage-vmotion-and-thin-provisioning']);">Reclaiming disk Space with Storage vMotion and Thin Provisioning</a>. When storage vMotioning the VM, ensure the source and destination datastores have a different block size. This link talks about why: <a href="http://www.yellow-bricks.com/2011/02/18/blocksize-impact/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.yellow-bricks.com/2011/02/18/blocksize-impact/']);">Blocksize Impact</a>.
+Storage vMotion the VM to another datastore and convert it to thin. See the following link on how to do that: <a href="http://www.thelowercasew.com/reclaiming-disk-space-with-storage-vmotion-and-thin-provisioning" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.thelowercasew.com/reclaiming-disk-space-with-storage-vmotion-and-thin-provisioning']);">Reclaiming disk Space with Storage vMotion and Thin Provisioning</a>. When storage vMotioning the VM, ensure the source and destination datastores have a different block size. This link talks about why: <a href="http://www.yellow-bricks.com/2011/02/18/blocksize-impact/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.yellow-bricks.com/2011/02/18/blocksize-impact/']);">Blocksize Impact</a>.
 
 **Solution 2:**  
 Use VMware Converter and do a V2V of the VM and choose Thin for the destination disk type.
@@ -36,19 +36,19 @@ Use VMware Converter and do a V2V of the VM and choose Thin for the destination 
 
 **Solution 1:**
 
-When this happens we need to reclaim the deleted space using sdelete, which will just zero out the deleted space. The page &#8216;<a href="http://www.thelowercasew.com/reclaiming-disk-space-with-storage-vmotion-and-thin-provisioning" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.thelowercasew.com/reclaiming-disk-space-with-storage-vmotion-and-thin-provisioning']);">Reclaiming disk Space with Storage vMotion and Thin Provisioning</a>&#8216; talks about how to do that. So first zero out the deleted space with sdelete and then use storage vMotion to convert the disk to thin.
+When this happens we need to reclaim the deleted space using sdelete, which will just zero out the deleted space. The page '<a href="http://www.thelowercasew.com/reclaiming-disk-space-with-storage-vmotion-and-thin-provisioning" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.thelowercasew.com/reclaiming-disk-space-with-storage-vmotion-and-thin-provisioning']);">Reclaiming disk Space with Storage vMotion and Thin Provisioning</a>' talks about how to do that. So first zero out the deleted space with sdelete and then use storage vMotion to convert the disk to thin.
 
 **Solution 2:**  
-You can also use the shrink disk from vmware tools to reclaim the delete space. More information can be seen here &#8216;<a href="http://www.yellow-bricks.com/2009/07/31/storage-vmotion-and-moving-to-a-thin-provisioned-disk/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.yellow-bricks.com/2009/07/31/storage-vmotion-and-moving-to-a-thin-provisioned-disk/']);">Storage VMotion and moving to a Thin Provisioned disk</a>&#8216;.
+You can also use the shrink disk from vmware tools to reclaim the delete space. More information can be seen here '<a href="http://www.yellow-bricks.com/2009/07/31/storage-vmotion-and-moving-to-a-thin-provisioned-disk/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.yellow-bricks.com/2009/07/31/storage-vmotion-and-moving-to-a-thin-provisioned-disk/']);">Storage VMotion and moving to a Thin Provisioned disk</a>'.
 
 **Solution 3:**  
-Use VMware Converter and do a P2V of the VM. <a href="http://www.vi-tips.com/2011/11/p2v-with-vmware-converter-standalone-5.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.vi-tips.com/2011/11/p2v-with-vmware-converter-standalone-5.html']);">The post &#8216;P2V with VMware Converter Standalone 5 and sync feature</a>&#8216; has a good video on how to do that. Make sure you choose thin for the disk type.
+Use VMware Converter and do a P2V of the VM. <a href="http://www.vi-tips.com/2011/11/p2v-with-vmware-converter-standalone-5.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.vi-tips.com/2011/11/p2v-with-vmware-converter-standalone-5.html']);">The post 'P2V with VMware Converter Standalone 5 and sync feature</a>' has a good video on how to do that. Make sure you choose thin for the disk type.
 
 ### LINUX
 
 **Solution 1:**
 
-It&#8217;s almost the same as the &#8220;Windows Scenario&#8221; but instead of using sdelete you can use zerofree. So install zerofree:
+It's almost the same as the "Windows Scenario" but instead of using **sdelete** you can use **zerofree**. So install **zerofree**:
 
 ##### Fedora/CentOs/RedHat
 
@@ -117,17 +117,17 @@ Then you need to mount the partition as read-only and run zerofree on it. If you
 
 Then Storage vMotion the VM to another datastore with another block size converting the disk to thin.
 
-*NOTE: Instead of using &#8216;rm&#8217; to delete files, you can use &#8216;shred&#8217; and then you wouldn&#8217;t need to zero out deleted space.
+**NOTE:** Instead of using **rm** to delete files, you can use **shred** and then you wouldn't need to zero out deleted space.
 
 #### **Solution 2:**
 
-****Use VMware Converter and do a P2V of the VM. <a href="http://www.vi-tips.com/2011/11/p2v-with-vmware-converter-standalone-5.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.vi-tips.com/2011/11/p2v-with-vmware-converter-standalone-5.html']);">The post &#8216;P2V with VMware Converter Standalone 5 and sync feature</a>&#8216; has a good video on how to do that. Make sure you choose thin for the disk type.
+Use VMware Converter and do a P2V of the VM. The post <a href="http://www.vi-tips.com/2011/11/p2v-with-vmware-converter-standalone-5.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.vi-tips.com/2011/11/p2v-with-vmware-converter-standalone-5.html']);">P2V with VMware Converter Standalone 5 and sync feature</a> has a good video on how to do that. Make sure you choose thin for the disk type.
 
 ## Scenario 3: Reclaim previously used space from thin disks
 
 **Solution 1:**
 
-****If you using windows, use sDelete to reclaim the space and then SvMotion to keep the disk format. If using Linux, use zerofree to reclaim the space and then SvMotion to another datastore with another block size keeping the disk format
+If you using windows, use sDelete to reclaim the space and then SvMotion to keep the disk format. If using Linux, use zerofree to reclaim the space and then SvMotion to another datastore with another block size keeping the disk format
 
 **Solution 2:**  
 Use VMware Converter and P2V the VM. Ensure you use the thin disk.
@@ -145,7 +145,7 @@ Use VMware Converter and P2V the VM. Ensure you use the thin disk.
       <a title="Advanced Snapshot Troubleshooting: Missing VMDK Descriptors" href="http://virtuallyhyper.com/2012/04/advanced-snapshot-troubleshooting-missing-vmdk-descriptors/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/04/advanced-snapshot-troubleshooting-missing-vmdk-descriptors/']);" rel="bookmark">Advanced Snapshot Troubleshooting: Missing VMDK Descriptors</a>
     </li>
     <li class="SPOSTARBUST-Related-Post">
-      <a title="&#8220;Thin on Thin&#8221; With VMware Thin Provisioned Disks and EMC Symmetrix Virtual Provisioning" href="http://virtuallyhyper.com/2012/04/thin-on-thin-with-vmware-thin-provisioned-disks-and-emc-symmetrix-virtual-provisioning/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/04/thin-on-thin-with-vmware-thin-provisioned-disks-and-emc-symmetrix-virtual-provisioning/']);" rel="bookmark">&#8220;Thin on Thin&#8221; With VMware Thin Provisioned Disks and EMC Symmetrix Virtual Provisioning</a>
+      <a title=""Thin on Thin" With VMware Thin Provisioned Disks and EMC Symmetrix Virtual Provisioning" href="http://virtuallyhyper.com/2012/04/thin-on-thin-with-vmware-thin-provisioned-disks-and-emc-symmetrix-virtual-provisioning/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/04/thin-on-thin-with-vmware-thin-provisioned-disks-and-emc-symmetrix-virtual-provisioning/']);" rel="bookmark">"Thin on Thin" With VMware Thin Provisioned Disks and EMC Symmetrix Virtual Provisioning</a>
     </li>
     <li class="SPOSTARBUST-Related-Post">
       <a title="Accidently Changed the Disk Size when the VM was Running on Snapshots" href="http://virtuallyhyper.com/2012/04/accidently-changed-the-disk-size-when-the-vm-was-running-on-snapshots/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/04/accidently-changed-the-disk-size-when-the-vm-was-running-on-snapshots/']);" rel="bookmark">Accidently Changed the Disk Size when the VM was Running on Snapshots</a>
@@ -155,4 +155,3 @@ Use VMware Converter and P2V the VM. Ensure you use the thin disk.
     </li>
   </ul>
 </div>
-

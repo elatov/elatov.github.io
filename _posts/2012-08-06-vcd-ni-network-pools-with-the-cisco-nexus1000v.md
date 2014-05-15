@@ -22,7 +22,7 @@ tags:
   - vCloud Director Network Isolation Networks
   - vShield Manager
 ---
-I was recently messing around with my vCloud Lab and I decided to see how the Nexus 1000v integrates with vCloud Director. After figuring out how it works, I decided to post my findings. Most of the instructions can be seen in the article &#8220;<a href="http://www.cisco.com/en/US/docs/switches/datacenter/nexus1000/sw/4_2_1_s_v_1_5_1/nsm/configuration/guide/n1000v_nsm_2configuring_nsm.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.cisco.com/en/US/docs/switches/datacenter/nexus1000/sw/4_2_1_s_v_1_5_1/nsm/configuration/guide/n1000v_nsm_2configuring_nsm.html']);">Configuring Network Segmentation Manager</a>&#8220;. First thing to note is that this works on vCloud Director 1.5 and N1K version 4.2(1)SV1(5.1). Now for the fun stuff.
+I was recently messing around with my vCloud Lab and I decided to see how the Nexus 1000v integrates with vCloud Director. After figuring out how it works, I decided to post my findings. Most of the instructions can be seen in the article "<a href="http://www.cisco.com/en/US/docs/switches/datacenter/nexus1000/sw/4_2_1_s_v_1_5_1/nsm/configuration/guide/n1000v_nsm_2configuring_nsm.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.cisco.com/en/US/docs/switches/datacenter/nexus1000/sw/4_2_1_s_v_1_5_1/nsm/configuration/guide/n1000v_nsm_2configuring_nsm.html']);">Configuring Network Segmentation Manager</a>". First thing to note is that this works on vCloud Director 1.5 and N1K version 4.2(1)SV1(5.1). Now for the fun stuff.
 
 First enable the segmentation features on the N1K:
 
@@ -69,7 +69,7 @@ Next create a Port Profile which will be used for your type of Network Segmentat
 
 ***Note** make sure you have a uplink (type ethernet) port-profile that allows the above VLAN
 
-Next we create a Network Segmentation Policy, this actually depends on your Tenant ID of your Organization Instance from vCloud director. To obtain the Tenant ID follow the instructions laid out in VMware KB <a href="http://kb.vmware.com/kb/2012943" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/2012943']);">2012943</a>. My Tenant ID is &#8220;e461e9cc-1205-40f4-9f36-ad0e841d9c73&#8243;, so here is how the creating of the policy looked like:
+Next we create a Network Segmentation Policy, this actually depends on your Tenant ID of your Organization Instance from vCloud director. To obtain the Tenant ID follow the instructions laid out in VMware KB <a href="http://kb.vmware.com/kb/2012943" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/2012943']);">2012943</a>. My Tenant ID is "e461e9cc-1205-40f4-9f36-ad0e841d9c73", so here is how the creating of the policy looked like:
 
 	  
 	switch# conf t  
@@ -131,20 +131,20 @@ After connecting to the Nexus, here is what I saw on the VSM (Virtual Supervisor
 	connection status: connected  
 	
 
-Now that this is all setup, we can setup a vCloud Organization to use it. First we need to add a new Network Pool of type &#8220;Network Isolation-Backed&#8221;, to do so follow these instructions:
+Now that this is all setup, we can setup a vCloud Organization to use it. First we need to add a new Network Pool of type "Network Isolation-Backed", to do so follow these instructions:
 
 1.  Login to your vCloud Director as administrator
 2.  Click on System
-3.  Click on &#8220;Manage and Monitor&#8221;
-4.  Expand &#8220;Cloud Resources&#8221;
-5.  Click on &#8220;Network Pools&#8221;
-6.  Right Click on the Empty Area, and select &#8220;Add Network Pool&#8221;
+3.  Click on "Manage and Monitor"
+4.  Expand "Cloud Resources"
+5.  Click on "Network Pools"
+6.  Right Click on the Empty Area, and select "Add Network Pool"
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/vcloud_add_net_pool_1.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/vcloud_add_net_pool_1.png']);"><img class="alignnone size-full wp-image-2033" title="vcloud_add_net_pool_1" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/vcloud_add_net_pool_1.png" alt="vcloud add net pool 1 VCD NI Network Pools with the Cisco Nexus1000v Distributed Switch" width="1067" height="517" /></a>
 
 Follow the wizard to add the pool:
 
-1.  Select &#8220;Network Isolation-Backed&#8221; and click Next
+1.  Select "Network Isolation-Backed" and click Next
 2.  Fill out, # of VCD Isolated networks
 3.  Put in the VLAN that is used for VCD-NI (this vlan has to be setup on your upstream devices)
 4.  Select your vCenter
@@ -152,28 +152,28 @@ Follow the wizard to add the pool:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/conf_ib_pool.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/conf_ib_pool.png']);"><img class="alignnone size-full wp-image-2034" title="conf_ib_pool" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/conf_ib_pool.png" alt="conf ib pool VCD NI Network Pools with the Cisco Nexus1000v Distributed Switch" width="964" height="652" /></a>
 
-Click Next, and Name your Pool (I called mine &#8220;N1K\_VCD-NI\_Pool&#8221;). Then finally click Finish.
+Click Next, and Name your Pool (I called mine "N1K\_VCD-NI\_Pool"). Then finally click Finish.
 
-You are now finished with creating your pool. Now let&#8217;s make your Organization use this pool by default. To do that follow these instructions:
+You are now finished with creating your pool. Now let's make your Organization use this pool by default. To do that follow these instructions:
 
 1.  Login to your vCloud Director as administrator
 2.  Click on System
-3.  Click on &#8220;Manage and Monitor&#8221;
-4.  Click on &#8220;Organization&#8221;
-5.  Right Click on your Organization and Select &#8220;Open&#8221;
+3.  Click on "Manage and Monitor"
+4.  Click on "Organization"
+5.  Right Click on your Organization and Select "Open"
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/open_org.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/open_org.png']);"><img class="alignnone size-full wp-image-2035" title="open_org" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/open_org.png" alt="open org VCD NI Network Pools with the Cisco Nexus1000v Distributed Switch" width="1069" height="410" /></a>
 
 Or you can login to the Organization Instance with your Organization Administrator credentials (So go to instead of https://10.131.6.1/cloud ). Either way, after you are on the Organization tab instead of the System tab, do the following:
 
-1.  Select &#8220;Administration&#8221;
-2.  Expand &#8220;Cloud Resources&#8221;
-3.  Click on &#8220;Virtual Datacenters&#8221;
-4.  Right Click on your Virtual Datacenter and select &#8220;Properties&#8221;<a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/prop_vdc.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/prop_vdc.png']);"><img class="alignnone size-full wp-image-2036" title="prop_vdc" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/prop_vdc.png" alt="prop vdc VCD NI Network Pools with the Cisco Nexus1000v Distributed Switch" width="1038" height="371" /></a>
+1.  Select "Administration"
+2.  Expand "Cloud Resources"
+3.  Click on "Virtual Datacenters"
+4.  Right Click on your Virtual Datacenter and select "Properties"<a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/prop_vdc.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/prop_vdc.png']);"><img class="alignnone size-full wp-image-2036" title="prop_vdc" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/prop_vdc.png" alt="prop vdc VCD NI Network Pools with the Cisco Nexus1000v Distributed Switch" width="1038" height="371" /></a>
 5.  Click on the Network Pool Tab
 6.  Select the VCD-NI Pool that you just created<a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/change_net_pool_of_vdc.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/change_net_pool_of_vdc.png']);"><img class="alignnone size-full wp-image-2037" title="change_net_pool_of_vdc" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/change_net_pool_of_vdc.png" alt="change net pool of vdc VCD NI Network Pools with the Cisco Nexus1000v Distributed Switch" width="752" height="653" /></a>
 
-Now if we create a new vApp with in this Organization and create a new vApp Network for this vApp it will use this pool. I created a new vApp called &#8220;vApp\_admin\_1&#8243; and I created a new vApp network for this vApp, I called the vApp Network &#8220;test&#8221;. Here is how the Network looked like for this vApp:
+Now if we create a new vApp with in this Organization and create a new vApp Network for this vApp it will use this pool. I created a new vApp called "vApp\_admin\_1" and I created a new vApp network for this vApp, I called the vApp Network "test". Here is how the Network looked like for this vApp:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/new_vapp_with_vapp_network.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/new_vapp_with_vapp_network.png']);"><img class="alignnone size-full wp-image-2038" title="new_vapp_with_vapp_network" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/new_vapp_with_vapp_network.png" alt="new vapp with vapp network VCD NI Network Pools with the Cisco Nexus1000v Distributed Switch" width="1062" height="468" /></a>
 
@@ -190,7 +190,7 @@ Upon powering on this vApp, I saw the the new DvPortgroup created and the VM add
 	dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f  
 	
 
-We can see that from our &#8220;vcd-ni-policy&#8221; network segment a new port-group has been created with the vApp Network Name in it (test). Checking out the multi-cast groups, I saw the following:
+We can see that from our "vcd-ni-policy" network segment a new port-group has been created with the vApp Network Name in it (test). Checking out the multi-cast groups, I saw the following:
 
 	  
 	switch# show bridge-domain
@@ -203,7 +203,7 @@ We can see that from our &#8220;vcd-ni-policy&#8221; network segment a new port-
 	Veth3  
 	
 
-We can see that it starts with Segment ID 5000 and the group IP is &#8220;224.0.4.1&#8243;. This makes sense since this these are the settings we applied when adding the N1K as a switch provider to the vShield Manager. We can see that &#8220;veth3&#8243; is in that bridge domain. Checking out that virtual interface we can see that it corresponds to our VM from the vApp:
+We can see that it starts with Segment ID 5000 and the group IP is "224.0.4.1". This makes sense since this these are the settings we applied when adding the N1K as a switch provider to the vShield Manager. We can see that "veth3" is in that bridge domain. Checking out that virtual interface we can see that it corresponds to our VM from the vApp:
 
 	  
 	switch# show run int vethernet 3
@@ -253,16 +253,16 @@ What you could also do is create an Organization Network and setup it up to use 
 1.  Login to your vcloud director instance (not your organization instance) as the admin 
     1.  So go to instead of 
 2.  Click on System
-3.  Click on &#8220;Manage and Monitor&#8221;
-4.  Click on &#8220;Organizations&#8221;
-5.  Right Click on your Organization and Select &#8220;Open&#8221;
+3.  Click on "Manage and Monitor"
+4.  Click on "Organizations"
+5.  Right Click on your Organization and Select "Open"
 
 Once you have opened your Organization, then:
 
 1.  Select Administration
 2.  Expand Cloud Resources
-3.  Click on &#8220;Networks&#8221;
-4.  Right Click on the Empty area and select &#8220;Add Network&#8221;
+3.  Click on "Networks"
+4.  Right Click on the Empty area and select "Add Network"
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/add_org_network.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/add_org_network.png']);"><img class="alignnone size-full wp-image-2040" title="add_org_network" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/add_org_network.png" alt="add org network VCD NI Network Pools with the Cisco Nexus1000v Distributed Switch" width="1062" height="465" /></a>
 
@@ -271,7 +271,7 @@ Then Follow the wizard:
 1.  Select what type of Network you would like this to be (internal, routed, or direct)
 2.  Select the N1K pool that we created to be used by this Org network<a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/select_pool_for_org_network.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/select_pool_for_org_network.png']);"><img class="alignnone size-full wp-image-2041" title="select_pool_for_org_network" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/select_pool_for_org_network.png" alt="select pool for org network VCD NI Network Pools with the Cisco Nexus1000v Distributed Switch" width="934" height="687" /></a>
 3.  Select the IP range for this network
-4.  Name this Org network, I called mine &#8220;org\_net\_using\_n1k\_vcd-ni_pool&#8221;
+4.  Name this Org network, I called mine "org\_net\_using\_n1k\_vcd-ni_pool"
 
 I then deployed a new vApp, added a new VM to the vApp and put the nic of this VM on my newly created Org network. Here is how the network Diagram looked like for this vApp:
 
@@ -292,7 +292,7 @@ Now checking out the settings on the N1K, I saw the following:
 	dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f  
 	
 
-Now we have two dvPortGroups: one for the test vApp Network and second for the &#8220;org\_net\_using\_n1k\_vcd-ni_pool&#8221; Org Network. Then for the bridge domains:
+Now we have two dvPortGroups: one for the test vApp Network and second for the "org\_net\_using\_n1k\_vcd-ni_pool" Org Network. Then for the bridge domains:
 
 	
 	

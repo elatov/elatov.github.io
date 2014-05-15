@@ -13,7 +13,7 @@ tags:
   - RHCE
   - RHCSA
 ---
-The easiest way to do a network install with any Linux Distribution is to use **Kickstart**. From the &#8220;<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Installation Guide</a>&#8220;:
+The easiest way to do a network install with any Linux Distribution is to use **Kickstart**. From the "<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Installation Guide</a>":
 
 ### RHEL Kickstart
 
@@ -75,7 +75,7 @@ Here is how mine looked like:
 
 ### KickStart Options
 
-Now let&#8217;s see what all the options means, from the above guide:
+Now let's see what all the options means, from the above guide:
 
 > **32.4. Kickstart Options**
 > 
@@ -85,72 +85,72 @@ Now let&#8217;s see what all the options means, from the above guide:
 > 
 > Sets up the authentication options for the system. It is similar to the **authconfig** command, which can be run after the install. By default, passwords are normally encrypted and are not shadowed.
 > 
-> *   **&#8211;enablenis** — Turns on NIS support. By default, -**-enablenis** uses whatever domain it finds on the network. A domain should almost always be set by hand with the **&#8211;nisdomain= option**.
-> *   **&#8211;nisdomain=** — NIS domain name to use for NIS services.
+> *   **-enablenis** — Turns on NIS support. By default, -**-enablenis** uses whatever domain it finds on the network. A domain should almost always be set by hand with the **-nisdomain= option**.
+> *   **-nisdomain=** — NIS domain name to use for NIS services.
 > *   -**-nisserver=** — Server to use for NIS services (broadcasts by default).
-> *   **&#8211;useshadow** or **&#8211;enableshadow** — Use shadow passwords.
-> *   **&#8211;enableldap** — Turns on LDAP support in **/etc/nsswitch.conf**, allowing your system to retrieve information about users (for example, their UIDs, home directories, and shells) from an **LDAP** directory. To use this option, you must install the **nss-pam-ldapd** package. You must also specify a server and a base DN (distinguished name) with -**-ldapserver=** and **&#8211;ldapbasedn=**.
-> *   **&#8211;enableldapauth** — Use LDAP as an authentication method. This enables the **pam_ldap** module for authentication and changing passwords, using an **LDAP** directory. To use this option, you must have the **nss-pam-ldapd** package installed. You must also specify a server and a base DN with &#8211;**ldapserver=** and -**-ldapbasedn=**. If your environment does not use **TLS** (Transport Layer Security), use the **&#8211;disableldaptls** switch to ensure that the resulting configuration file works.
-> *   **&#8211;ldapserver=** — If you specified either **&#8211;enableldap** or **&#8211;enableldapauth**, use this option to specify the name of the **LDAP** server to use. This option is set in the **/etc/ldap.conf** file.
-> *   **&#8211;ldapbasedn=** — If you specified either **&#8211;enableldap** or **&#8211;enableldapauth**, use this option to specify the DN in your **LDAP** directory tree under which user information is stored. This option is set in the **/etc/ldap.conf** file.
-> *   **&#8211;enableldaptls** — Use **TLS** (Transport Layer Security) lookups. This option allows **LDAP** to send encrypted usernames and passwords to an **LDAP** server before authentication.
-> *   **&#8211;disableldaptls** — Do not use *TLS* (Transport Layer Security) lookups in an environment that uses *LDAP* for authentication.
-> *   **&#8211;enablekrb5** — Use *Kerberos* 5 for authenticating users. *Kerberos* itself does not know about home directories, *UIDs*, or shells. If you enable *Kerberos*, you must make users&#8217; accounts known to this workstation by enabling *LDAP*, *NIS*, or *Hesiod* or by using the **/usr/sbin/useradd** command. If you use this option, you must have the **pam_krb5** package installed.
-> *   **&#8211;krb5realm=** — The *Kerberos* 5 realm to which your workstation belongs.
-> *   **&#8211;krb5kdc=** — The *KDC* (or KDCs) that serve requests for the realm. If you have multiple *KDCs* in your realm, separate their names with commas (,).
-> *   **&#8211;krb5adminserver=** — The *KDC* in your realm that is also running **kadmind**. This server handles password changing and other administrative requests. This server must be run on the master *KDC* if you have more than one *KDC*.
-> *   **&#8211;enablehesiod** — Enable *Hesiod* support for looking up user home directories, *UIDs*, and shells. More information on setting up and using Hesiod on your network is in **/usr/share/doc/glibc-2.x.x/README.hesiod**, which is included in the **glibc** package. *Hesiod* is an extension of DNS that uses *DNS* records to store information about users, groups, and various other items.
-> *   **&#8211;hesiodlhs** and **&#8211;hesiodrhs** — The *Hesiod LHS* (left-hand side) and *RHS* (right-hand side) values, set in **/etc/hesiod.conf**. The *Hesiod* library uses these values to search *DNS* for a name, similar to the way that *LDAP* uses a base DN.  
+> *   **-useshadow** or **-enableshadow** — Use shadow passwords.
+> *   **-enableldap** — Turns on LDAP support in **/etc/nsswitch.conf**, allowing your system to retrieve information about users (for example, their UIDs, home directories, and shells) from an **LDAP** directory. To use this option, you must install the **nss-pam-ldapd** package. You must also specify a server and a base DN (distinguished name) with -**-ldapserver=** and **-ldapbasedn=**.
+> *   **-enableldapauth** — Use LDAP as an authentication method. This enables the **pam_ldap** module for authentication and changing passwords, using an **LDAP** directory. To use this option, you must have the **nss-pam-ldapd** package installed. You must also specify a server and a base DN with -**ldapserver=** and -**-ldapbasedn=**. If your environment does not use **TLS** (Transport Layer Security), use the **-disableldaptls** switch to ensure that the resulting configuration file works.
+> *   **-ldapserver=** — If you specified either **-enableldap** or **-enableldapauth**, use this option to specify the name of the **LDAP** server to use. This option is set in the **/etc/ldap.conf** file.
+> *   **-ldapbasedn=** — If you specified either **-enableldap** or **-enableldapauth**, use this option to specify the DN in your **LDAP** directory tree under which user information is stored. This option is set in the **/etc/ldap.conf** file.
+> *   **-enableldaptls** — Use **TLS** (Transport Layer Security) lookups. This option allows **LDAP** to send encrypted usernames and passwords to an **LDAP** server before authentication.
+> *   **-disableldaptls** — Do not use *TLS* (Transport Layer Security) lookups in an environment that uses *LDAP* for authentication.
+> *   **-enablekrb5** — Use *Kerberos* 5 for authenticating users. *Kerberos* itself does not know about home directories, *UIDs*, or shells. If you enable *Kerberos*, you must make users' accounts known to this workstation by enabling *LDAP*, *NIS*, or *Hesiod* or by using the **/usr/sbin/useradd** command. If you use this option, you must have the **pam_krb5** package installed.
+> *   **-krb5realm=** — The *Kerberos* 5 realm to which your workstation belongs.
+> *   **-krb5kdc=** — The *KDC* (or KDCs) that serve requests for the realm. If you have multiple *KDCs* in your realm, separate their names with commas (,).
+> *   **-krb5adminserver=** — The *KDC* in your realm that is also running **kadmind**. This server handles password changing and other administrative requests. This server must be run on the master *KDC* if you have more than one *KDC*.
+> *   **-enablehesiod** — Enable *Hesiod* support for looking up user home directories, *UIDs*, and shells. More information on setting up and using Hesiod on your network is in **/usr/share/doc/glibc-2.x.x/README.hesiod**, which is included in the **glibc** package. *Hesiod* is an extension of DNS that uses *DNS* records to store information about users, groups, and various other items.
+> *   **-hesiodlhs** and **-hesiodrhs** — The *Hesiod LHS* (left-hand side) and *RHS* (right-hand side) values, set in **/etc/hesiod.conf**. The *Hesiod* library uses these values to search *DNS* for a name, similar to the way that *LDAP* uses a base DN.  
 >     To look up user information for the username jim, the Hesiod library looks up **jim.passwd**, which should resolve to a TXT record that contains a string identical to an entry for that user in the passwd file: **jim:*:501:501:Jungle Jim:/home/jim:/bin/bash**. To look up groups, the Hesiod library looks up **jim.group** instead.  
->     To look up users and groups by number, make **501.uid** a **CNAME** for **jim.passwd**, and **501.gid** a **CNAME** for **jim.group**. Note that the library does not place a period (.) in front of the LHS and RHS values when performing a search. Therefore, if the &#42;LHS&#42; and &#42;RHS&#42; values need to have a period placed in front of them, you must include the period in the values you set for **&#8211;hesiodlhs** and **&#8211;hesiodrhs**.
-> *   **&#8211;enablesmbauth** — Enables authentication of users against an *SMB* server (typically a Samba or Windows server). *SMB* authentication support does not know about home directories, *UIDs*, or shells. If you enable *SMB*, you must make users&#8217; accounts known to the workstation by enabling *LDAP*, *NIS*, or *Hesiod* or by using the **/usr/sbin/useradd** command.
-> *   **&#8211;smbservers=** — The name of the servers to use for *SMB* authentication. To specify more than one server, separate the names with commas (,).
-> *   **&#8211;smbworkgroup=** — The name of the workgroup for the *SMB* servers.
-> *   **&#8211;enablecache** — Enables the **nscd** service. The **nscd** service caches information about users, groups, and various other types of information. Caching is especially helpful if you choose to distribute information about users and groups over your network using *NIS*, *LDAP*, or *Hesiod*.
-> *   **&#8211;passalgo** — To set up the SHA-256 hashing algorithm, run the command **authconfig &#8211;passalgo=sha256 &#8211;kickstart**.To set up the SHA-512 hashing algorithm, run **authconfig &#8211;passalgo=sha512 &#8211;kickstart**.Remove the **&#8211;enablemd5** option if it is present.
+>     To look up users and groups by number, make **501.uid** a **CNAME** for **jim.passwd**, and **501.gid** a **CNAME** for **jim.group**. Note that the library does not place a period (.) in front of the LHS and RHS values when performing a search. Therefore, if the &#42;LHS&#42; and &#42;RHS&#42; values need to have a period placed in front of them, you must include the period in the values you set for **-hesiodlhs** and **-hesiodrhs**.
+> *   **-enablesmbauth** — Enables authentication of users against an *SMB* server (typically a Samba or Windows server). *SMB* authentication support does not know about home directories, *UIDs*, or shells. If you enable *SMB*, you must make users' accounts known to the workstation by enabling *LDAP*, *NIS*, or *Hesiod* or by using the **/usr/sbin/useradd** command.
+> *   **-smbservers=** — The name of the servers to use for *SMB* authentication. To specify more than one server, separate the names with commas (,).
+> *   **-smbworkgroup=** — The name of the workgroup for the *SMB* servers.
+> *   **-enablecache** — Enables the **nscd** service. The **nscd** service caches information about users, groups, and various other types of information. Caching is especially helpful if you choose to distribute information about users and groups over your network using *NIS*, *LDAP*, or *Hesiod*.
+> *   **-passalgo** — To set up the SHA-256 hashing algorithm, run the command **authconfig -passalgo=sha256 -kickstart**.To set up the SHA-512 hashing algorithm, run **authconfig -passalgo=sha512 -kickstart**.Remove the **-enablemd5** option if it is present.
 > 
 > **autopart (optional)**
 > 
 > Automatically create partitions — 1 GB or more root (/) partition, a swap partition, and an appropriate boot partition for the architecture. One or more of the default partition sizes can be redefined with the part directive.
 > 
-> *   **&#8211;encrypted** — Should all devices with support be encrypted by default? This is equivalent to checking the Encrypt checkbox on the initial partitioning screen.
-> *   **&#8211;passphrase=** — Provide a default system-wide passphrase for all encrypted devices.
-> *   **&#8211;escrowcert=URL&#95;of&#95;X.509_certificate** — Store data encryption keys of all encrypted volumes as files in **/root**, encrypted using the X.509 certificate from the URL specified with **URL&#95;of&#95;X.509_certificate**. The keys are stored as a separate file for each encrypted volume. This option is only meaningful if **&#8211;encrypted** is specified.
-> *   **&#8211;backuppassphrase=** — Add a randomly-generated passphrase to each encrypted volume. Store these passphrases in separate files in **/root**, encrypted using the X.509 certificate specified with **&#8211;escrowcert**. This option is only meaningful if**&#8211;escrowcert**is specified.
+> *   **-encrypted** — Should all devices with support be encrypted by default? This is equivalent to checking the Encrypt checkbox on the initial partitioning screen.
+> *   **-passphrase=** — Provide a default system-wide passphrase for all encrypted devices.
+> *   **-escrowcert=URL&#95;of&#95;X.509_certificate** — Store data encryption keys of all encrypted volumes as files in **/root**, encrypted using the X.509 certificate from the URL specified with **URL&#95;of&#95;X.509_certificate**. The keys are stored as a separate file for each encrypted volume. This option is only meaningful if **-encrypted** is specified.
+> *   **-backuppassphrase=** — Add a randomly-generated passphrase to each encrypted volume. Store these passphrases in separate files in **/root**, encrypted using the X.509 certificate specified with **-escrowcert**. This option is only meaningful if**-escrowcert**is specified.
 > 
 > **autostep (optional)**
 > 
 > Similar to interactive except it goes to the next screen for you. It is used mostly for debugging.
 > 
-> *   **&#8211;autoscreenshot** — Take a screenshot at every step during installation and copy the images over to **/root/anaconda-screenshots** after installation is complete. This is most useful for documentation. 
+> *   **-autoscreenshot** — Take a screenshot at every step during installation and copy the images over to **/root/anaconda-screenshots** after installation is complete. This is most useful for documentation. 
 > 
 > **bootloader (required)**
 > 
 > Specifies how the boot loader should be installed. This option is required for both installations and upgrades.
 > 
-> *   **&#8211;append=** — Specifies kernel parameters. To specify multiple parameters, separate them with spaces. For example:
+> *   **-append=** — Specifies kernel parameters. To specify multiple parameters, separate them with spaces. For example:
 >     
 >          bootloader --location=mbr --append="hdd=ide-scsi ide=nodma"
 >         
 > 
-> *   **&#8211;driveorder** — Specify which drive is first in the BIOS boot order. For example:
+> *   **-driveorder** — Specify which drive is first in the BIOS boot order. For example:
 >     
 >          bootloader --driveorder=sda,hda
 >         
 > 
-> *   **&#8211;location=** — Specifies where the boot record is written. Valid values are the following:
+> *   **-location=** — Specifies where the boot record is written. Valid values are the following:
 >     
 >     *   **mbr** (the default), **partition** (installs the boot loader on the first sector of the partition containing the kernel), or **none** (do not install the boot loader). 
->     *   **&#8211;password=** — If using GRUB, sets the GRUB boot loader password to the one specified with this option. This should be used to restrict access to the GRUB shell, where arbitrary kernel options can be passed. 
->     *   **&#8211;md5pass=** — If using GRUB, similar to **&#8211;password=** except the password should already be encrypted. 
->     *   **&#8211;upgrade** — Upgrade the existing boot loader configuration, preserving the old entries. This option is only available for upgrades.
+>     *   **-password=** — If using GRUB, sets the GRUB boot loader password to the one specified with this option. This should be used to restrict access to the GRUB shell, where arbitrary kernel options can be passed. 
+>     *   **-md5pass=** — If using GRUB, similar to **-password=** except the password should already be encrypted. 
+>     *   **-upgrade** — Upgrade the existing boot loader configuration, preserving the old entries. This option is only available for upgrades.
 > 
 > **clearpart (optional)**
 > 
 > Removes partitions from the system, prior to creation of new partitions. By default, no partitions are removed.
 > 
-> *   **&#8211;all** — Erases all partitions from the system. 
-> *   **&#8211;drives=** — Specifies which drives to clear partitions from. For example, the following clears all the partitions on the first two drives on the primary *IDE* controller:
+> *   **-all** — Erases all partitions from the system. 
+> *   **-drives=** — Specifies which drives to clear partitions from. For example, the following clears all the partitions on the first two drives on the primary *IDE* controller:
 >     
 >          clearpart --drives=hda,hdb --all 
 >         
@@ -160,11 +160,11 @@ Now let&#8217;s see what all the options means, from the above guide:
 >          clearpart --drives=disk/by-id/dm-uuid-mpath-2416CD96995134CA5D787F00A5AA11017
 >         
 > 
-> *   **&#8211;initlabel** — Initializes the disk label to the default for your architecture (for example **msdos** for x86). It is useful so that the installation program does not ask if it should initialize the disk label if installing to a brand new hard drive.
+> *   **-initlabel** — Initializes the disk label to the default for your architecture (for example **msdos** for x86). It is useful so that the installation program does not ask if it should initialize the disk label if installing to a brand new hard drive.
 > 
-> *   **&#8211;linux** — Erases all Linux partitions.
+> *   **-linux** — Erases all Linux partitions.
 > 
-> *   **&#8211;none** (default) — Do not remove any partitions.
+> *   **-none** (default) — Do not remove any partitions.
 > 
 > **cmdline (optional)**
 > 
@@ -178,12 +178,12 @@ Now let&#8217;s see what all the options means, from the above guide:
 >     
 > 
 > *   **moduleName** — Replace with the name of the kernel module which should be installed. 
-> *   **&#8211;opts=** — Options to pass to the kernel module. For example:  
+> *   **-opts=** — Options to pass to the kernel module. For example:  
 >     `--opts="aic152x=0x340 io=11"` 
 > 
 > **driverdisk (optional)**
 > 
-> Driver diskettes can be used during **kickstart** installations. You must copy the driver diskettes&#8217;s contents to the root directory of a partition on the system&#8217;s hard drive. Then you must use the **driverdisk** command to tell the installation program where to look for the driver disk.
+> Driver diskettes can be used during **kickstart** installations. You must copy the driver diskettes's contents to the root directory of a partition on the system's hard drive. Then you must use the **driverdisk** command to tell the installation program where to look for the driver disk.
 > 
 >     driverdisk partition --source=url --biospart=biospart [--type=fstype] 
 >     
@@ -198,7 +198,7 @@ Now let&#8217;s see what all the options means, from the above guide:
 > *   **partition** — Partition containing the driver disk. 
 > *   **url** — URL for the driver disk. *NFS* locations can be given in the form **nfs:host:/path/to/img**. 
 > *   **biospart** — BIOS partition containing the driver disk (for example, **82p2**). 
-> *   **&#8211;type=** — File system type (for example, **vfat** or **ext2**).
+> *   **-type=** — File system type (for example, **vfat** or **ext2**).
 > 
 > **firewall (optional)**
 > 
@@ -207,27 +207,27 @@ Now let&#8217;s see what all the options means, from the above guide:
 >     firewall --enabled|--disabled [--trust=] device incoming [--port=]  
 >     
 > 
-> *   **&#8211;enabled** or **&#8211;enable** — Reject incoming connections that are not in response to outbound requests, such as DNS replies or DHCP requests. If access to services running on this machine is needed, you can choose to allow specific services through the firewall. 
-> *   **&#8211;disabled** or **&#8211;disable** — Do not configure any iptables rules. 
-> *   **&#8211;trust=** — Listing a device here, such as **eth0**, allows all traffic coming from that device to go through the firewall. To list more than one device, use **&#8211;trust eth0 &#8211;trust eth1**. Do NOT use a comma-separated format such as **&#8211;trust eth0, eth1**. 
+> *   **-enabled** or **-enable** — Reject incoming connections that are not in response to outbound requests, such as DNS replies or DHCP requests. If access to services running on this machine is needed, you can choose to allow specific services through the firewall. 
+> *   **-disabled** or **-disable** — Do not configure any iptables rules. 
+> *   **-trust=** — Listing a device here, such as **eth0**, allows all traffic coming from that device to go through the firewall. To list more than one device, use **-trust eth0 -trust eth1**. Do NOT use a comma-separated format such as **-trust eth0, eth1**. 
 > *   **incoming** — Replace with one or more of the following to allow the specified services through the firewall.
 >     
->     *   **&#8211;ssh** 
->     *   **&#8211;telnet** 
->     *   **&#8211;smtp** 
->     *   **&#8211;http** 
->     *   **&#8211;https** 
->     *   **&#8211;ftp** 
+>     *   **-ssh** 
+>     *   **-telnet** 
+>     *   **-smtp** 
+>     *   **-http** 
+>     *   **-https** 
+>     *   **-ftp** 
 > 
-> *   **&#8211;port=** — You can specify that ports be allowed through the firewall using the port:protocol format. For example, to allow *IMAP* access through your firewall, specify **imap:tcp**. Numeric ports can also be specified explicitly; for example, to allow *UDP* packets on port 1234 through, specify **1234:udp**. To specify multiple ports, separate them by commas.
+> *   **-port=** — You can specify that ports be allowed through the firewall using the port:protocol format. For example, to allow *IMAP* access through your firewall, specify **imap:tcp**. Numeric ports can also be specified explicitly; for example, to allow *UDP* packets on port 1234 through, specify **1234:udp**. To specify multiple ports, separate them by commas.
 > 
 > **firstboot (optional)**
 > 
 > Determine whether the firstboot starts the first time the system is booted. If enabled, the firstboot package must be installed. If not specified, this option is disabled by default.
 > 
-> *   **&#8211;enable** or **&#8211;enabled** — The Setup Agent is started the first time the system boots. 
-> *   **&#8211;disable** or **&#8211;disabled** — The Setup Agent is not started the first time the system boots. 
-> *   **&#8211;reconfig** — Enable the Setup Agent to start at boot time in reconfiguration mode. This mode enables the language, mouse, keyboard, root password, security level, and time zone configuration options in addition to the default ones. 
+> *   **-enable** or **-enabled** — The Setup Agent is started the first time the system boots. 
+> *   **-disable** or **-disabled** — The Setup Agent is not started the first time the system boots. 
+> *   **-reconfig** — Enable the Setup Agent to start at boot time in reconfiguration mode. This mode enables the language, mouse, keyboard, root password, security level, and time zone configuration options in addition to the default ones. 
 > 
 > **graphical (optional)**
 > 
@@ -248,7 +248,7 @@ Now let&#8217;s see what all the options means, from the above guide:
 >     ignoredisk --drives=drive1,drive2,... 
 >     
 > 
-> where **driveN** is one of **sda**, **sdb**,&#8230;, **hda**,&#8230; etc. To ignore a multipath device that does not use logical volume management (**LVM**), use the format **disk/by-id/dm-uuid-mpath-WWID**, where **WWID** is the world-wide identifier for the device. For example, to ignore a disk with **WWID** 2416CD96995134CA5D787F00A5AA11017, use:
+> where **driveN** is one of **sda**, **sdb**,..., **hda**,... etc. To ignore a multipath device that does not use logical volume management (**LVM**), use the format **disk/by-id/dm-uuid-mpath-WWID**, where **WWID** is the world-wide identifier for the device. For example, to ignore a disk with **WWID** 2416CD96995134CA5D787F00A5AA11017, use:
 > 
 >     ignoredisk --drives=disk/by-id/dm-uuid-mpath-2416CD96995134CA5D787F00A5AA11017
 >     
@@ -258,7 +258,7 @@ Now let&#8217;s see what all the options means, from the above guide:
 >     igoredisk --drives=disk/by-id/scsi-58095BEC5510947BE8C0360F604351918 
 >     
 > 
-> *   **&#8211;only-use** — specifies a list of disks for the installer to use. All other disks are ignored. For example, to use disk **sda** during installation and ignore all other disks:  
+> *   **-only-use** — specifies a list of disks for the installer to use. All other disks are ignored. For example, to use disk **sda** during installation and ignore all other disks:  
 >     `ignoredisk --only-use=sda`  
 >     To include a *multipath* device that does not use *LVM*:  
 >     `ignoredisk --only-use=disk/by-id/dm-uuid-mpath-2416CD96995134CA5D787F00A5AA11017`  
@@ -272,9 +272,9 @@ Now let&#8217;s see what all the options means, from the above guide:
 > *   **cdrom** — Install from the first optical drive on the system. 
 > *   **harddrive** — Install from a Red Hat installation tree on a local drive, which must be either **vfat** or **ext2**.
 >     
->     *   **&#8211;biospart=** BIOS partition to install from (such as 82). 
->     *   **&#8211;partition=** Partition to install from (such as **sdb2**). 
->     *   **&#8211;dir=** Directory containing the **variant** directory of the installation tree. 
+>     *   **-biospart=** BIOS partition to install from (such as 82). 
+>     *   **-partition=** Partition to install from (such as **sdb2**). 
+>     *   **-dir=** Directory containing the **variant** directory of the installation tree. 
 >     
 >     For example:
 >     
@@ -283,9 +283,9 @@ Now let&#8217;s see what all the options means, from the above guide:
 > 
 > *   **nfs** — Install from the *NFS* server specified.
 >     
->     *   **&#8211;server=** Server from which to install (hostname or IP). 
->     *   **&#8211;dir=** Directory containing the **variant** directory of the installation tree. 
->     *   **&#8211;opts=** Mount options to use for mounting the NFS export. (optional) 
+>     *   **-server=** Server from which to install (hostname or IP). 
+>     *   **-dir=** Directory containing the **variant** directory of the installation tree. 
+>     *   **-opts=** Mount options to use for mounting the NFS export. (optional) 
 >     
 >     For example:
 >     
@@ -315,11 +315,11 @@ Now let&#8217;s see what all the options means, from the above guide:
 > We recommend that wherever possible you configure iSCSI storage in the system BIOS or firmware (iBFT for Intel systems) rather than use the iscsi parameter. **Anaconda** automatically detects and uses disks configured in BIOS or firmware and no special configuration is necessary in the *kickstart* file.  
 > If you must use the **iscsi** parameter, ensure that networking is activated at the beginning of the installation, and that the **iscsi** parameter appears in the kickstart file before you refer to **iSCSI** disks with parameters such as **clearpart** or **ignoredisk**.
 > 
-> *   **&#8211;port=** (mandatory) — the port number (typically, **&#8211;port=3260**) 
-> *   **&#8211;user=** — the username required to authenticate with the target 
-> *   **&#8211;password=** — the password that corresponds with the username specified for the target 
-> *   **&#8211;reverse-user=** — the username required to authenticate with the initiator from a target that uses reverse **CHAP** authentication
-> *   **&#8211;reverse-password=** — the password that corresponds with the username specified for the initiator** 
+> *   **-port=** (mandatory) — the port number (typically, **-port=3260**) 
+> *   **-user=** — the username required to authenticate with the target 
+> *   **-password=** — the password that corresponds with the username specified for the target 
+> *   **-reverse-user=** — the username required to authenticate with the initiator from a target that uses reverse **CHAP** authentication
+> *   **-reverse-password=** — the password that corresponds with the username specified for the initiator** 
 > 
 > **iscsiname (optional)**
 > 
@@ -344,9 +344,9 @@ Now let&#8217;s see what all the options means, from the above guide:
 > 
 > This command controls the error logging of anaconda during installation. It has no effect on the installed system.
 > 
-> *   **&#8211;host=** — Send logging information to the given remote host, which must be running a **syslogd** process configured to accept remote logging. 
-> *   **&#8211;port=** — If the remote **syslogd** process uses a port other than the default, it may be specified with this option. 
-> *   **&#8211;level=** — One of **debug**, **info**, **warning**, **error**, or **critical**. Specify the minimum level of messages that appear on tty3. All messages will still be sent to the log file regardless of this level, however.
+> *   **-host=** — Send logging information to the given remote host, which must be running a **syslogd** process configured to accept remote logging. 
+> *   **-port=** — If the remote **syslogd** process uses a port other than the default, it may be specified with this option. 
+> *   **-level=** — One of **debug**, **info**, **warning**, **error**, or **critical**. Specify the minimum level of messages that appear on tty3. All messages will still be sent to the log file regardless of this level, however.
 > 
 > **logvol (optional)**
 > 
@@ -357,18 +357,18 @@ Now let&#8217;s see what all the options means, from the above guide:
 > 
 > The options are as follows:
 > 
-> *   **&#8211;noformat** — Use an existing logical volume and do not format it. 
-> *   **&#8211;useexisting** — Use an existing logical volume and reformat it. 
-> *   **&#8211;fstype=** — Sets the file system type for the logical volume. Valid values are **xfs**, **ext2**, **ext3**, **ext4**, **swap**, **vfat**, and **hfs**. 
-> *   **&#8211;fsoptions=** — Specifies a free form string of options to be used when mounting the filesystem. This string will be copied into the **/etc/fstab** file of the installed system and should be enclosed in quotes. 
-> *   **&#8211;grow=** — Tells the logical volume to grow to fill available space (if any), or up to the maximum size setting. 
-> *   **&#8211;maxsize=** — The maximum size in megabytes when the logical volume is set to grow. Specify an integer value here such as 500 (do not include the unit). 
-> *   **&#8211;recommended=** — Determine the size of the logical volume automatically. 
-> *   **&#8211;percent=** — Specify the amount by which to grow the logical volume, as a percentage of the free space in the volume group after any statically-sized logical volumes are taken into account. This option must be used in conjunction with the **&#8211;size** and **&#8211;grow** options for logvol. 
-> *   **&#8211;encrypted** — Specifies that this logical volume should be encrypted, using the passphrase provided in the **&#8211;passphrase** option. If you do not specify a passphrase, anaconda uses the default, system-wide passphrase set with the autopart **&#8211;passphrase** command, or stops the installation and prompts you to provide a passphrase if no default is set.
-> *   **&#8211;passphrase=** — Specifies the passphrase to use when encrypting this logical volume. You must use this option together with the **&#8211;encrypted** option; by itself it has no effect. 
-> *   **&#8211;escrowcert=URL&#95;of&#95;X.509_certificate** — Store data encryption keys of all encrypted volumes as files in /root, encrypted using the X.509 certificate from the URL specified with **URL&#95;of&#95;X.509_certificate**. The keys are stored as a separate file for each encrypted volume. This option is only meaningful if **&#8211;encrypted** is specified. 
-> *   **&#8211;backuppassphrase=** — Add a randomly-generated passphrase to each encrypted volume. Store these passphrases in separate files in /root, encrypted using the X.509 certificate specified with **&#8211;escrowcert**. This option is only meaningful if **&#8211;escrowcert** is specified. 
+> *   **-noformat** — Use an existing logical volume and do not format it. 
+> *   **-useexisting** — Use an existing logical volume and reformat it. 
+> *   **-fstype=** — Sets the file system type for the logical volume. Valid values are **xfs**, **ext2**, **ext3**, **ext4**, **swap**, **vfat**, and **hfs**. 
+> *   **-fsoptions=** — Specifies a free form string of options to be used when mounting the filesystem. This string will be copied into the **/etc/fstab** file of the installed system and should be enclosed in quotes. 
+> *   **-grow=** — Tells the logical volume to grow to fill available space (if any), or up to the maximum size setting. 
+> *   **-maxsize=** — The maximum size in megabytes when the logical volume is set to grow. Specify an integer value here such as 500 (do not include the unit). 
+> *   **-recommended=** — Determine the size of the logical volume automatically. 
+> *   **-percent=** — Specify the amount by which to grow the logical volume, as a percentage of the free space in the volume group after any statically-sized logical volumes are taken into account. This option must be used in conjunction with the **-size** and **-grow** options for logvol. 
+> *   **-encrypted** — Specifies that this logical volume should be encrypted, using the passphrase provided in the **-passphrase** option. If you do not specify a passphrase, anaconda uses the default, system-wide passphrase set with the autopart **-passphrase** command, or stops the installation and prompts you to provide a passphrase if no default is set.
+> *   **-passphrase=** — Specifies the passphrase to use when encrypting this logical volume. You must use this option together with the **-encrypted** option; by itself it has no effect. 
+> *   **-escrowcert=URL&#95;of&#95;X.509_certificate** — Store data encryption keys of all encrypted volumes as files in /root, encrypted using the X.509 certificate from the URL specified with **URL&#95;of&#95;X.509_certificate**. The keys are stored as a separate file for each encrypted volume. This option is only meaningful if **-encrypted** is specified. 
+> *   **-backuppassphrase=** — Add a randomly-generated passphrase to each encrypted volume. Store these passphrases in separate files in /root, encrypted using the X.509 certificate specified with **-escrowcert**. This option is only meaningful if **-escrowcert** is specified. 
 > 
 > Create the partition first, create the logical volume group, and then create the logical volume. For example:
 > 
@@ -395,17 +395,17 @@ Now let&#8217;s see what all the options means, from the above guide:
 >     monitor --monitor=monitorname|--hsync|vsync=frequency [--noprobe]
 >     
 > 
-> *   **&#8211;hsync=** — Specifies the horizontal sync frequency of the monitor. 
-> *   **&#8211;monitor=** — Use specified monitor; monitor name should be from the list of monitors in **/usr/share/hwdata/MonitorsDB** from the **hwdata** package. The list of monitors can also be found on the X Configuration screen of the **Kickstart Configurator**. This is ignored if **&#8211;hsync** or **&#8211;vsync** is provided. If no monitor information is provided, the installation program tries to probe for it automatically. 
-> *   **&#8211;noprobe=** — Do not try to probe the monitor. 
-> *   **&#8211;vsync=** — Specifies the vertical sync frequency of the monitor.
+> *   **-hsync=** — Specifies the horizontal sync frequency of the monitor. 
+> *   **-monitor=** — Use specified monitor; monitor name should be from the list of monitors in **/usr/share/hwdata/MonitorsDB** from the **hwdata** package. The list of monitors can also be found on the X Configuration screen of the **Kickstart Configurator**. This is ignored if **-hsync** or **-vsync** is provided. If no monitor information is provided, the installation program tries to probe for it automatically. 
+> *   **-noprobe=** — Do not try to probe the monitor. 
+> *   **-vsync=** — Specifies the vertical sync frequency of the monitor.
 > 
 > **network (optional)**
 > 
-> Configures network information for the target system and activates network devices in the installer environment. The device specified in the first **network** command is activated automatically if network access is required during installation, for example, during a network installation or installation over VNC. From Red Hat Enterprise Linux 6.1 onwards, you can also explicitly require device to activate in the installer environment with the **&#8211;activate** option.
+> Configures network information for the target system and activates network devices in the installer environment. The device specified in the first **network** command is activated automatically if network access is required during installation, for example, during a network installation or installation over VNC. From Red Hat Enterprise Linux 6.1 onwards, you can also explicitly require device to activate in the installer environment with the **-activate** option.
 > 
-> *   **&#8211;activate** — activate this device in the installer environment. If you use the **&#8211;activate** option on a device that has already been activated (for example, an interface you configured with boot options so that the system could retrieve the kickstart file) the device is reactivated to use the details specified in the *kickstart* file. Use the **&#8211;nodefroute** option to prevent the device from using the default route. The **activate** option is new in Red Hat Enterprise Linux 6.1. 
-> *   **&#8211;bootproto=** — One of **dhcp**, **bootp**, **ibft**, or **static**. The **ibft** option is new in Red Hat Enterprise Linux 6.1. The **bootproto** option defaults to **dhcp**. **bootp** and **dhcp** are treated the same. The *DHCP* method uses a *DHCP* server system to obtain its networking configuration. As you might guess, the *BOOTP* method is similar, requiring a *BOOTP* server to supply the networking configuration. To direct a system to use *DHCP*:
+> *   **-activate** — activate this device in the installer environment. If you use the **-activate** option on a device that has already been activated (for example, an interface you configured with boot options so that the system could retrieve the kickstart file) the device is reactivated to use the details specified in the *kickstart* file. Use the **-nodefroute** option to prevent the device from using the default route. The **activate** option is new in Red Hat Enterprise Linux 6.1. 
+> *   **-bootproto=** — One of **dhcp**, **bootp**, **ibft**, or **static**. The **ibft** option is new in Red Hat Enterprise Linux 6.1. The **bootproto** option defaults to **dhcp**. **bootp** and **dhcp** are treated the same. The *DHCP* method uses a *DHCP* server system to obtain its networking configuration. As you might guess, the *BOOTP* method is similar, requiring a *BOOTP* server to supply the networking configuration. To direct a system to use *DHCP*:
 >     
 >         network --bootproto=dhcp
 >         
@@ -430,13 +430,13 @@ Now let&#8217;s see what all the options means, from the above guide:
 >         network --bootproto=static --ip=10.0.2.15 --netmask=255.255.255.0 --gateway=10.0.2.254 --nameserver 192.168.2.1,192.168.3.1
 >         
 > 
-> *   **&#8211;device=** — specifies the device to be configured (and eventually activated) with the network command. For the first network command, **&#8211;device=** defaults (in order of preference) to one of:
+> *   **-device=** — specifies the device to be configured (and eventually activated) with the network command. For the first network command, **-device=** defaults (in order of preference) to one of:
 >     
 >     1.  the device specified by the **ksdevice** boot option 
 >     2.  the device activated automatically to fetch the kickstart file 
 >     3.  the device selected in the **Networking Devices** dialog 
 >     
->     The behavior of any subsequent network command is unspecified if its &#8211;device option is missing. Take care to specify a &#8211;device option for any network command beyond the first. You can specify a device in one of five ways:
+>     The behavior of any subsequent network command is unspecified if its -device option is missing. Take care to specify a -device option for any network command beyond the first. You can specify a device in one of five ways:
 >     
 >     *   the device name of the interface, for example, **eth0** 
 >     *   the MAC address of the interface, for example, **00:12:34:56:78:9a** 
@@ -447,20 +447,20 @@ Now let&#8217;s see what all the options means, from the above guide:
 > 
 > <!--t-->
 > 
-> *   **&#8211;ip=** — IP address of the device.
-> *   **&#8211;ipv6=** — IPv6 address of the device, or auto to use automatic neighbor discovery, or dhcp to use DHCPv6.
-> *   **&#8211;gateway=** — Default gateway as a single IPv4 or IPv6 address.
-> *   **&#8211;nameserver=** — Primary nameserver, as an IP address. Multiple nameservers must each be separated by a comma. 
-> *   **&#8211;nodefroute** — Prevents the interface being set as the default route. Use this option when you activate additional devices with the **&#8211;activate=** option, for example, a NIC on a separate subnet for an iSCSI target. The nodefroute option is new in Red Hat Enterprise Linux 6.1. 
-> *   **&#8211;nodns** — Do not configure any DNS server. 
-> *   **&#8211;netmask=** — Network mask of the device. 
-> *   **&#8211;hostname=** — Hostname for the installed system. 
-> *   **&#8211;ethtool=** — Specifies additional low-level settings for the network device which will be passed to the **ethtool** program. 
-> *   **&#8211;onboot=** — Whether or not to enable the device at boot time. 
-> *   **&#8211;dhcpclass=** — The DHCP class. 
-> *   **&#8211;mtu=** — The MTU of the device. 
-> *   **&#8211;noipv4** — Disable IPv4 on this device. 
-> *   **&#8211;noipv6** — Disable IPv6 on this device.
+> *   **-ip=** — IP address of the device.
+> *   **-ipv6=** — IPv6 address of the device, or auto to use automatic neighbor discovery, or dhcp to use DHCPv6.
+> *   **-gateway=** — Default gateway as a single IPv4 or IPv6 address.
+> *   **-nameserver=** — Primary nameserver, as an IP address. Multiple nameservers must each be separated by a comma. 
+> *   **-nodefroute** — Prevents the interface being set as the default route. Use this option when you activate additional devices with the **-activate=** option, for example, a NIC on a separate subnet for an iSCSI target. The nodefroute option is new in Red Hat Enterprise Linux 6.1. 
+> *   **-nodns** — Do not configure any DNS server. 
+> *   **-netmask=** — Network mask of the device. 
+> *   **-hostname=** — Hostname for the installed system. 
+> *   **-ethtool=** — Specifies additional low-level settings for the network device which will be passed to the **ethtool** program. 
+> *   **-onboot=** — Whether or not to enable the device at boot time. 
+> *   **-dhcpclass=** — The DHCP class. 
+> *   **-mtu=** — The MTU of the device. 
+> *   **-noipv4** — Disable IPv4 on this device. 
+> *   **-noipv6** — Disable IPv6 on this device.
 > 
 > **part or partition (required for installs, ignored for upgrades)**
 > 
@@ -474,33 +474,33 @@ Now let&#8217;s see what all the options means, from the above guide:
 >     
 >     *   **/path**  
 >         For example, **/**, **/usr**, **/home**
->     *   **swap** &#8211; The partition is used as swap space. To determine the size of the swap partition automatically, use the **&#8211;recommended** option:
+>     *   **swap** - The partition is used as swap space. To determine the size of the swap partition automatically, use the **-recommended** option:
 >         
 >         `swap --recommended`
 >         
->         The size assigned will be equivalent to the swap space assigned by **&#8211;recommended** plus the amount of RAM on your system <!--t-->
+>         The size assigned will be equivalent to the swap space assigned by **-recommended** plus the amount of RAM on your system <!--t-->
 >     
->     *   **raid.id** &#8211; The partition is used for software RAID
+>     *   **raid.id** - The partition is used for software RAID
 >     
->     *   **pv.id** &#8211; The partition is used for LVM.
+>     *   **pv.id** - The partition is used for LVM.
 > 
-> *   **&#8211;size=** &#8211; The minimum partition size in megabytes. Specify an integer value here such as 500 (do not include the unit).
+> *   **-size=** - The minimum partition size in megabytes. Specify an integer value here such as 500 (do not include the unit).
 > 
-> *   **&#8211;grow** &#8211; Tells the partition to grow to fill available space (if any), or up to the maximum size setting.
+> *   **-grow** - Tells the partition to grow to fill available space (if any), or up to the maximum size setting.
 > 
-> *   **&#8211;maxsize=** &#8211; The maximum partition size in megabytes when the partition is set to grow. Specify an integer value here such as 500 (do not include the unit).
+> *   **-maxsize=** - The maximum partition size in megabytes when the partition is set to grow. Specify an integer value here such as 500 (do not include the unit).
 > 
-> *   **&#8211;noformat** — Specifies that the partition should not be formatted, for use with the **&#8211;onpart** command.
+> *   **-noformat** — Specifies that the partition should not be formatted, for use with the **-onpart** command.
 > 
-> *   **&#8211;onpart= or &#8211;usepart=** — Specifies the device on which to place the partition. For example:
+> *   **-onpart= or -usepart=** — Specifies the device on which to place the partition. For example:
 >     
 >         partition /home --onpart=hda1
 >         
 >     
 >     puts **/home** on **/dev/hda1**.  
->     The device must already exist on the system; the **&#8211;onpart** option will not create it.
+>     The device must already exist on the system; the **-onpart** option will not create it.
 > 
-> *   **&#8211;ondisk= or &#8211;ondrive=** — Forces the partition to be created on a particular disk. For example, **&#8211;ondisk=sdb** puts the partition on the second SCSI disk on the system.  
+> *   **-ondisk= or -ondrive=** — Forces the partition to be created on a particular disk. For example, **-ondisk=sdb** puts the partition on the second SCSI disk on the system.  
 >     To specify a multipath device that does not use logical volume management (LVM), use the format **disk/by-id/dm-uuid-mpath-WWID**, where **WWID** is the *world-wide identifier* for the device. For example, to specify a disk with WWID **2416CD96995134CA5D787F00A5AA11017**, use:
 >     
 >          part / --fstype=ext3 --grow --asprimary --size=100 --ondisk=disk/by-id/dm-uuid-mpath-2416CD96995134CA5D787F00A5AA11017
@@ -511,31 +511,31 @@ Now let&#8217;s see what all the options means, from the above guide:
 >         part / --fstype=ext3 --grow --asprimary --size=100 --ondisk=disk/by-id/scsi-58095BEC5510947BE8C0360F604351918
 >         
 > 
-> *   **&#8211;asprimary** — Forces automatic allocation of the partition as a primary partition, or the partitioning fails.
+> *   **-asprimary** — Forces automatic allocation of the partition as a primary partition, or the partitioning fails.
 > 
-> *   **&#8211;type= (replaced by fstype)** — This option is no longer available. Use **fstype**.
+> *   **-type= (replaced by fstype)** — This option is no longer available. Use **fstype**.
 > 
-> *   **&#8211;fsoptions** — Specifies a free form string of options to be used when mounting the filesystem. This string will be copied into the **/etc/fstab** file of the installed system and should be enclosed in quotes.
+> *   **-fsoptions** — Specifies a free form string of options to be used when mounting the filesystem. This string will be copied into the **/etc/fstab** file of the installed system and should be enclosed in quotes.
 > 
-> *   **&#8211;fsprofile** — Specifies a usage type to be passed to the program that makes a filesystem on this partition. A usage type defines a variety of tuning parameters to be used when making a filesystem. For this option to work, the filesystem must support the concept of usage types and there must be a configuration file that lists valid types. For ext2, ext3, and ext4, this configuration file is **/etc/mke2fs.conf**.
+> *   **-fsprofile** — Specifies a usage type to be passed to the program that makes a filesystem on this partition. A usage type defines a variety of tuning parameters to be used when making a filesystem. For this option to work, the filesystem must support the concept of usage types and there must be a configuration file that lists valid types. For ext2, ext3, and ext4, this configuration file is **/etc/mke2fs.conf**.
 > 
-> *   **&#8211;fstype=** — Sets the file system type for the partition. Valid values are **xfs**, **ext2**, **ext3**, **ext4**, **swap**, **vfat**, **hfs**, and **efi**.
+> *   **-fstype=** — Sets the file system type for the partition. Valid values are **xfs**, **ext2**, **ext3**, **ext4**, **swap**, **vfat**, **hfs**, and **efi**.
 > 
-> *   **&#8211;recommended** — Determine the size of the partition automatically.
+> *   **-recommended** — Determine the size of the partition automatically.
 > 
-> *   **&#8211;onbiosdisk** — Forces the partition to be created on a particular disk as discovered by the BIOS.
+> *   **-onbiosdisk** — Forces the partition to be created on a particular disk as discovered by the BIOS.
 > 
-> *   **&#8211;encrypted** — Specifies that this partition should be encrypted, using the passphrase provided in the **&#8211;passphrase** option. If you do not specify a passphrase, **anaconda** uses the default, system-wide passphrase set with the **autopart** **&#8211;passphrase** command, or stops the installation and prompts you to provide a passphrase if no default is set.
+> *   **-encrypted** — Specifies that this partition should be encrypted, using the passphrase provided in the **-passphrase** option. If you do not specify a passphrase, **anaconda** uses the default, system-wide passphrase set with the **autopart** **-passphrase** command, or stops the installation and prompts you to provide a passphrase if no default is set.
 > 
-> *   **&#8211;cipher**= — Specifies which type of encryption will be used if the **anaconda** default aes-xts-plain64 is not satisfactory. You must use this option together with the &#8211;encrypted option; by itself it has no effect. Available types of encryption are listed in the Red Hat Enterprise Linux Security Guide, but Red Hat strongly recommends using either aes-xts-plain64 or aes-cbc-essiv:sha256.
+> *   **-cipher**= — Specifies which type of encryption will be used if the **anaconda** default aes-xts-plain64 is not satisfactory. You must use this option together with the -encrypted option; by itself it has no effect. Available types of encryption are listed in the Red Hat Enterprise Linux Security Guide, but Red Hat strongly recommends using either aes-xts-plain64 or aes-cbc-essiv:sha256.
 > 
-> *   **&#8211;passphrase**= — Specifies the passphrase to use when encrypting this partition. You must use this option together with the &#8211;encrypted option; by itself it has no effect.
+> *   **-passphrase**= — Specifies the passphrase to use when encrypting this partition. You must use this option together with the -encrypted option; by itself it has no effect.
 > 
-> *   **&#8211;escrowcert=URL&#95;of&#95;X.509_certificate** — Store data encryption keys of all encrypted partitions as files in /root, encrypted using the X.509 certificate from the URL specified with **URL&#95;of&#95;X.509_certificate**. The keys are stored as a separate file for each encrypted partition. This option is only meaningful if &#8211;encrypted is specified.
+> *   **-escrowcert=URL&#95;of&#95;X.509_certificate** — Store data encryption keys of all encrypted partitions as files in /root, encrypted using the X.509 certificate from the URL specified with **URL&#95;of&#95;X.509_certificate**. The keys are stored as a separate file for each encrypted partition. This option is only meaningful if -encrypted is specified.
 > 
-> *   **&#8211;backuppassphrase=** — Add a randomly-generated passphrase to each encrypted partition. Store these passphrases in separate files in /root, encrypted using the X.509 certificate specified with **&#8211;escrowcert**. This option is only meaningful if **&#8211;escrowcert** is specified.
+> *   **-backuppassphrase=** — Add a randomly-generated passphrase to each encrypted partition. Store these passphrases in separate files in /root, encrypted using the X.509 certificate specified with **-escrowcert**. This option is only meaningful if **-escrowcert** is specified.
 > 
-> *   **&#8211;label** — assign a label to an individual partition.
+> *   **-label** — assign a label to an individual partition.
 > 
 > **raid (optional)**
 > 
@@ -573,7 +573,7 @@ Now let&#8217;s see what all the options means, from the above guide:
 > 
 > **rootpw (required)**
 > 
-> Sets the system&#8217;s root password to the *password* argument.
+> Sets the system's root password to the *password* argument.
 > 
 >     rootpw [--iscrypted] password
 >     
@@ -589,8 +589,8 @@ Now let&#8217;s see what all the options means, from the above guide:
 > 
 > Modifies the default set of services that will run under the default runlevel. The list of disabled services is processed before the list of enabled services. Therefore, if a service appears on both lists, it is enabled.
 > 
-> *   **&#8211;disabled** — Disable the services given in the comma separated list.
-> *   **&#8211;enabled** — Enable the services given in the comma separated list.
+> *   **-disabled** — Disable the services given in the comma separated list.
+> *   **-enabled** — Enable the services given in the comma separated list.
 > 
 > **skipx (optional)**
 > 
@@ -643,31 +643,31 @@ Now let&#8217;s see what all the options means, from the above guide:
 > 
 > The options are as follows:
 > 
-> *   **&#8211;noformat** — Use an existing volume group and do not format it.
-> *   **&#8211;useexisting** — Use an existing volume group and reformat it.
-> *   **&#8211;pesize=** — Set the size of the physical extents.
+> *   **-noformat** — Use an existing volume group and do not format it.
+> *   **-useexisting** — Use an existing volume group and reformat it.
+> *   **-pesize=** — Set the size of the physical extents.
 > 
 > **winbind (optional)**
 > 
 > Configures the system to connect to a Windows Active Directory or a Windows domain controller. User information from the specified directory or domain controller can then be accessed and server authentication options can be configured.
 > 
-> *   **&#8211;enablewinbind** — Enable winbind for user account configuration.
-> *   **&#8211;disablewinbind** — Disable winbind for user account configuration.
-> *   **&#8211;enablewinbindauth** — Enable windbindauth for authentication.
-> *   **&#8211;disablewinbindauth** — Disable windbindauth for authentication.
-> *   **&#8211;enablewinbindoffline** — Configures winbind to allow offline login.
-> *   **&#8211;disablewinbindoffline** — Configures winbind to prevent offline login.
-> *   **&#8211;enablewinbindusedefaultdomain** — Configures winbind to assume that users with no domain in their usernames are domain users.
-> *   **&#8211;disablewinbindusedefaultdomain** — Configures winbind to assume that users with no domain in their usernames are not domain users.
+> *   **-enablewinbind** — Enable winbind for user account configuration.
+> *   **-disablewinbind** — Disable winbind for user account configuration.
+> *   **-enablewinbindauth** — Enable windbindauth for authentication.
+> *   **-disablewinbindauth** — Disable windbindauth for authentication.
+> *   **-enablewinbindoffline** — Configures winbind to allow offline login.
+> *   **-disablewinbindoffline** — Configures winbind to prevent offline login.
+> *   **-enablewinbindusedefaultdomain** — Configures winbind to assume that users with no domain in their usernames are domain users.
+> *   **-disablewinbindusedefaultdomain** — Configures winbind to assume that users with no domain in their usernames are not domain users.
 > 
 > **xconfig (optional)**
 > 
 > Configures the X Window System. If you install the X Window System with a kickstart file that does not include the xconfig command, you must provide the X configuration manually during installation. Do not use this command in a kickstart file that does not install the X Window System.
 > 
-> *   **&#8211;driver** — Specify the X driver to use for the video hardware.
-> *   **&#8211;videoram=** — Specifies the amount of video RAM the video card has.
-> *   **&#8211;defaultdesktop=** — Specify either GNOME or KDE to set the default desktop (assumes that GNOME Desktop Environment and/or KDE Desktop Environment has been installed through **%packages**).
-> *   **&#8211;startxonboot** — Use a graphical login on the installed system.
+> *   **-driver** — Specify the X driver to use for the video hardware.
+> *   **-videoram=** — Specifies the amount of video RAM the video card has.
+> *   **-defaultdesktop=** — Specify either GNOME or KDE to set the default desktop (assumes that GNOME Desktop Environment and/or KDE Desktop Environment has been installed through **%packages**).
+> *   **-startxonboot** — Use a graphical login on the installed system.
 > 
 > **zerombr (optional)**
 > 
@@ -858,7 +858,7 @@ Now for the final steps from the client side:
 > 
 > The installation program mounts the file system on ***device*** (which must be **vfat** or **ext2**), and looks for the kickstart configuration file as ***file*** in that file system (for example, `ks=hd:sda3:/mydir/ks.cfg`). <root> </root>
 
-So let&#8217;s try this out. Since we will setup other servers down the line, I decided to use an FTP server to serve/host the Installation Tree files. In this setup I will setup the RHEL6 Machine to remotely install RHEL5 on another VM.
+So let's try this out. Since we will setup other servers down the line, I decided to use an FTP server to serve/host the Installation Tree files. In this setup I will setup the RHEL6 Machine to remotely install RHEL5 on another VM.
 
 ### 1. Install and Setup FTP Server on RHEL 6
 
@@ -887,7 +887,7 @@ Then edit the **/etc/vsftpd/vsftpd.conf** file and make it have the following mo
     tcp_wrappers=YES
     
 
-Then setup the &#8216;anonymous&#8217; user to login:
+Then setup the 'anonymous' user to login:
 
     [root@rhel1 ~]# echo 'anonymous' >> /etc/vsftpd/user_list
     
@@ -971,7 +971,7 @@ and edited to have the following contents:
     openssh-server
     
 
-Now let&#8217;s go ahead and add the file to our FTP server:
+Now let's go ahead and add the file to our FTP server:
 
     [root@rhel1 ~]# mkdir /var/www/pub/ks
     [root@rhel1 ~]# cp ks.cfg /var/www/pub/ks/.
@@ -979,7 +979,7 @@ Now let&#8217;s go ahead and add the file to our FTP server:
 
 ### 4. Start the FTP Server and Ensure it works
 
-Let&#8217;s enable service and start it:
+Let's enable service and start it:
 
     [root@rhel1 ~]# chkconfig vsftpd on
     [root@rhel1 ~]# service vsftpd start
@@ -1000,7 +1000,7 @@ Since we are going to be using Passive mode we need to keep track of the connect
     IPTABLES_MODULES="ip_conntrack_ftp"
     
 
-Then let&#8217;s restart the **iptables** service:
+Then let's restart the **iptables** service:
 
     [root@rhel1 ~]# service iptables restart
     iptables: Flushing firewall rules: 
@@ -1032,32 +1032,32 @@ That looks good.
 
 ### 5. Install and Configure a TFTP Server
 
-FTP will allow us to download the packages during the install but during the boot up process we need something faster and we will use TFTP to boot from and to start the install. First let&#8217;s install the server:
+FTP will allow us to download the packages during the install but during the boot up process we need something faster and we will use TFTP to boot from and to start the install. First let's install the server:
 
     [root@rhel1 ~]# yum install -y tftp-server
     
 
-Now let&#8217;s setup the TFTP tree structure:
+Now let's setup the TFTP tree structure:
 
     [root@rhel1 ~]# mkdir /tftpboot
     [root@rhel1 ~]# mkdir /tftpboot/images
     [root@rhel1 ~]# mkdir /tftpboot/pxelinux.cfg
     
 
-Now let&#8217;s copy over the Kernel files from the Installation Tree:
+Now let's copy over the Kernel files from the Installation Tree:
 
     [root@rhel1 ~]# cp /var/www/pub/images/pxeboot/vmlinuz /tftpboot/images/.
     [root@rhel1 ~]# cp /var/www/pub/images/pxeboot/initrd.img /tftpboot/images/.
     
 
-Now let&#8217;s install the **syslinux** package and copy the menu files over to the TFTP directory:
+Now let's install the **syslinux** package and copy the menu files over to the TFTP directory:
 
     [root@rhel1 ~]# yum install syslinux
     [root@rhel1 ~]# cp /usr/share/syslinux/menu.c32 /tftpboot/.
     [root@rhel1 ~]# cp /usr/share/syslinux/pxelinux.0 /tftpboot/.
     
 
-Also, let&#8217;s configure the Boot menu. Create the **/tftpboot/pxelinux.cfg/default** file and add the following to it:
+Also, let's configure the Boot menu. Create the **/tftpboot/pxelinux.cfg/default** file and add the following to it:
 
     default menu.c32
     prompt 0
@@ -1069,7 +1069,7 @@ Also, let&#8217;s configure the Boot menu. Create the **/tftpboot/pxelinux.cfg/d
       append initrd=images/initrd.img linux ks=ftp://192.168.1.110/pub/ks/ks.cfg
     
 
-Let&#8217;s set up out TFTP server to serve up the **/tfptboot** directory. Edit the **/etc/xinetd.d/tftp** file and make the following modifications:
+Let's set up out TFTP server to serve up the **/tfptboot** directory. Edit the **/etc/xinetd.d/tftp** file and make the following modifications:
 
     [root@rhel1 ~]# grep -vE '^#|^$' /etc/xinetd.d/tftp
     service tftp
@@ -1089,14 +1089,14 @@ Let&#8217;s set up out TFTP server to serve up the **/tfptboot** directory. Edit
 
 ### 6. Start and Test out the TFTP Server
 
-First let&#8217;s enabled the **xinetd** service and start it up:
+First let's enabled the **xinetd** service and start it up:
 
     [root@rhel1 ~]# chkconfig xinetd on
     [root@rhel1 ~]# service xinetd start
     Starting xinetd:  xinetd
     
 
-Also let&#8217;s make sure it&#8217;s enabled:
+Also let's make sure it's enabled:
 
     [root@rhel1 ~]# chkconfig --list | grep 'xinetd based services' -A 13
     xinetd based services:
@@ -1115,7 +1115,7 @@ Also let&#8217;s make sure it&#8217;s enabled:
         time-stream:    off
     
 
-Now let&#8217;s open up the firewall and restart the firewall as well:
+Now let's open up the firewall and restart the firewall as well:
 
     [root@rhel1 ~]# iptables -I INPUT 5 -p udp -m udp --dport 69 -j ACCEPT
     [root@rhel1 ~]# service iptables save
@@ -1147,7 +1147,7 @@ That looks good. </username>
 
 ### 7. Install and Configure a DHCP Server
 
-First let&#8217;s install the DHCP Server:
+First let's install the DHCP Server:
 
     [root@rhel1 ~]# yum -y install dhcp
     
@@ -1178,20 +1178,20 @@ and edit the **/etc/dhcp/dhcpd.conf** file to look like this:
 
 ### 8. Start the DHCP Service and Obtain an IP Lease from it
 
-First let&#8217;s start it up:
+First let's start it up:
 
     [root@rhel1 ~]# chkconfig dhcpd on
     [root@rhel1 ~]# service dhcpd start
     Starting dhcpd:  dhcpd
     
 
-Lastly make sure it&#8217;s running:
+Lastly make sure it's running:
 
     [root@rhel1 log]# service dhcpd status
     dhcpd (pid  2964) is running...
     
 
-Now let&#8217;s open up the firewall:
+Now let's open up the firewall:
 
     [root@rhel1 ~]# iptables -I INPUT 5 -p udp -m udp --dport 67 -j ACCEPT
     [root@rhel1 ~]# service iptables save
@@ -1204,7 +1204,7 @@ Now let&#8217;s open up the firewall:
     iptables: Loading additional modules: ip_conntrack_ftp 
     
 
-Now from a client let&#8217;s try to obtain an IP address from our DHCP address:
+Now from a client let's try to obtain an IP address from our DHCP address:
 
     [root@rhel2 ~]# dhclient
     Internet Systems Consortium DHCP Client V3.0.5-RedHat

@@ -1,5 +1,5 @@
 ---
-title: 'RHCSA and RHCE Chapter 19 &#8211; Network Services'
+title: 'RHCSA and RHCE Chapter 19 - Network Services'
 author: Karim Elatov
 layout: post
 permalink: /2014/05/rhcsa-rhce-chapter-19-network-services/
@@ -42,7 +42,7 @@ From the same guide:
 
 From the above guide:
 
-> The **/etc/xinetd.conf** file contains general configuration settings which affect every service under xinetd&#8217;s control. It is read when the **xinetd** service is first started, so for configuration changes to take effect, you need to restart the **xinetd** service. The following is a sample **/etc/xinetd.conf** file:
+> The **/etc/xinetd.conf** file contains general configuration settings which affect every service under xinetd's control. It is read when the **xinetd** service is first started, so for configuration changes to take effect, you need to restart the **xinetd** service. The following is a sample **/etc/xinetd.conf** file:
 > 
 >     defaults
 >     {
@@ -57,12 +57,12 @@ From the above guide:
 > 
 > These lines control the following aspects of **xinetd**:
 > 
-> *   **instances** &#8211; Specifies the maximum number of simultaneous requests that **xinetd** can process.
-> *   **log_type** &#8211; Configures **xinetd** to use the **authpriv** log facility, which writes log entries to the **/var/log/secure** file. Adding a directive such as **FILE /var/log/xinetdlog** would create a custom log file called **xinetdlog** in the **/var/log/** directory.
-> *   **log\_on\_success** &#8211; Configures **xinetd** to log successful connection attempts. By default, the remote host&#8217;s IP address and the process ID of the server processing the request are recorded.
-> *   **log\_on\_failure** &#8211; Configures **xinetd** to log failed connection attempts or if the connection was denied.
-> *   **cps** &#8211; Configures **xinetd** to allow no more than 25 connections per second to any given service. If this limit is exceeded, the service is retired for 30 seconds.
-> *   **includedir /etc/xinetd.d/** &#8211; Includes options declared in the service-specific configuration files located in the **/etc/xinetd.d/** directory. 
+> *   **instances** - Specifies the maximum number of simultaneous requests that **xinetd** can process.
+> *   **log_type** - Configures **xinetd** to use the **authpriv** log facility, which writes log entries to the **/var/log/secure** file. Adding a directive such as **FILE /var/log/xinetdlog** would create a custom log file called **xinetdlog** in the **/var/log/** directory.
+> *   **log\_on\_success** - Configures **xinetd** to log successful connection attempts. By default, the remote host's IP address and the process ID of the server processing the request are recorded.
+> *   **log\_on\_failure** - Configures **xinetd** to log failed connection attempts or if the connection was denied.
+> *   **cps** - Configures **xinetd** to allow no more than 25 connections per second to any given service. If this limit is exceeded, the service is retired for 30 seconds.
+> *   **includedir /etc/xinetd.d/** - Includes options declared in the service-specific configuration files located in the **/etc/xinetd.d/** directory. 
 
 #### The /etc/xinetd.d/ Directory
 
@@ -88,14 +88,14 @@ From the Security Guide:
 > 
 > These lines control various aspects of the **telnet** service:
 > 
-> *   **service** &#8211; Specifies the service name, usually one of those listed in the **/etc/services** file.
-> *   **flags** &#8211; Sets any of a number of attributes for the connection. REUSE instructs **xinetd** to reuse the socket for a Telnet connection.
-> *   **socket_type** &#8211; Sets the network socket type to stream.
-> *   **wait** &#8211; Specifies whether the service is single-threaded (**yes**) or multi-threaded (**no**).
-> *   **user** &#8211; Specifies which user ID the process runs under.
-> *   **server** &#8211; Specifies which binary executable to launch.
-> *   **log\_on\_failure** &#8211; Specifies logging parameters for **log\_on\_failure** in addition to those already defined in **xinetd.conf**.
-> *   **disable** &#8211; Specifies whether the service is disabled (**yes**) or enabled (**no**).
+> *   **service** - Specifies the service name, usually one of those listed in the **/etc/services** file.
+> *   **flags** - Sets any of a number of attributes for the connection. REUSE instructs **xinetd** to reuse the socket for a Telnet connection.
+> *   **socket_type** - Sets the network socket type to stream.
+> *   **wait** - Specifies whether the service is single-threaded (**yes**) or multi-threaded (**no**).
+> *   **user** - Specifies which user ID the process runs under.
+> *   **server** - Specifies which binary executable to launch.
+> *   **log\_on\_failure** - Specifies logging parameters for **log\_on\_failure** in addition to those already defined in **xinetd.conf**.
+> *   **disable** - Specifies whether the service is disabled (**yes**) or enabled (**no**).
 
 #### Xinetd Logging Options
 
@@ -105,12 +105,12 @@ From the same guide:
 > 
 > The following is a list of some of the more commonly used logging options:
 > 
-> *   **ATTEMPT** &#8211; Logs the fact that a failed attempt was made (**log\_on\_failure**).
-> *   **DURATION** &#8211; Logs the length of time the service is used by a remote system (**log\_on\_success**).
-> *   **EXIT** &#8211; Logs the exit status or termination signal of the service (**log\_on\_success**).
-> *   **HOST** &#8211; Logs the remote host&#8217;s IP address (**log\_on\_failure** and **log\_on\_success**).
-> *   **PID** &#8211; Logs the process ID of the server receiving the request (**log\_on\_success**).
-> *   **USERID** &#8211; Logs the remote user using the method defined in RFC 1413 for all multi-threaded stream services (**log\_on\_failure** and **log\_on\_success**).
+> *   **ATTEMPT** - Logs the fact that a failed attempt was made (**log\_on\_failure**).
+> *   **DURATION** - Logs the length of time the service is used by a remote system (**log\_on\_success**).
+> *   **EXIT** - Logs the exit status or termination signal of the service (**log\_on\_success**).
+> *   **HOST** - Logs the remote host's IP address (**log\_on\_failure** and **log\_on\_success**).
+> *   **PID** - Logs the process ID of the server receiving the request (**log\_on\_success**).
+> *   **USERID** - Logs the remote user using the method defined in RFC 1413 for all multi-threaded stream services (**log\_on\_failure** and **log\_on\_success**).
 
 #### Xinetd Access Control Options
 
@@ -118,13 +118,13 @@ From the above guide:
 
 > Users of **xinetd** services can choose to use the TCP Wrappers hosts access rules, provide access control via the xinetd configuration files, or a mixture of both.
 > 
-> The **xinetd** hosts access control differs from the method used by TCP Wrappers. While TCP Wrappers places all of the access configuration within two files, **/etc/hosts.allow** and **/etc/hosts.deny**, xinetd&#8217;s access control is found in each service&#8217;s configuration file in the **/etc/xinetd.d/** directory.
+> The **xinetd** hosts access control differs from the method used by TCP Wrappers. While TCP Wrappers places all of the access configuration within two files, **/etc/hosts.allow** and **/etc/hosts.deny**, xinetd's access control is found in each service's configuration file in the **/etc/xinetd.d/** directory.
 > 
 > The following hosts access options are supported by **xinetd**:
 > 
-> *   **only_from** &#8211; Allows only the specified hosts to use the service.
-> *   **no_access** &#8211; Blocks listed hosts from using the service.
-> *   **access_times** &#8211; Specifies the time range when a particular service may be used. The time range must be stated in 24-hour format notation, **HH:MM-HH:MM**.
+> *   **only_from** - Allows only the specified hosts to use the service.
+> *   **no_access** - Blocks listed hosts from using the service.
+> *   **access_times** - Specifies the time range when a particular service may be used. The time range must be stated in 24-hour format notation, **HH:MM-HH:MM**.
 > 
 > The **only_from** and **no_access** options can use a list of IP addresses or host names, or can specify an entire network. Like TCP Wrappers, combining **xinetd** access control with the enhanced logging configuration can increase security by blocking requests from banned hosts while verbosely recording each connection attempt.
 > 
@@ -204,13 +204,13 @@ From the above guide:
 
 > The **xinetd** daemon can add a basic level of protection from Denial of Service (DoS) attacks. The following is a list of directives which can aid in limiting the effectiveness of such attacks:
 > 
-> *   **per_source** &#8211; Defines the maximum number of instances for a service per source IP address. It accepts only integers as an argument and can be used in both **xinetd.conf** and in the service-specific configuration files in the **xinetd.d/** directory.
+> *   **per_source** - Defines the maximum number of instances for a service per source IP address. It accepts only integers as an argument and can be used in both **xinetd.conf** and in the service-specific configuration files in the **xinetd.d/** directory.
 > *   **cps** — Defines the maximum number of connections per second. This directive takes two integer arguments separated by white space. The first argument is the maximum number of connections allowed to the service per second. The second argument is the number of seconds that **xinetd** must wait before re-enabling the service. It accepts only integers as arguments and can be used in either the **xinetd.conf** file or the service-specific configuration files in the **xinetd.d/** directory.
 > *   **max_load** — Defines the CPU usage or load average threshold for a service. It accepts a floating point number argument. The load average is a rough measure of how many processes are active at a given time. See the **uptime**, **who**, and **procinfo** commands for more information about load average.
 
 ### Telnet Example with Xinetd
 
-In <a href="http://virtuallyhyper.com/2013/03/rhcsa-and-rhce-chapter-8-network-installs/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/03/rhcsa-and-rhce-chapter-8-network-installs/']);">Chapter 8</a>, I covered the **tftp** install with **xinetd**, now let&#8217;s try **telnet** (this is just for demonstration purposes, use **ssh** over **telnet**). First install **xinetd**:
+In <a href="http://virtuallyhyper.com/2013/03/rhcsa-and-rhce-chapter-8-network-installs/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/03/rhcsa-and-rhce-chapter-8-network-installs/']);">Chapter 8</a>, I covered the **tftp** install with **xinetd**, now let's try **telnet** (this is just for demonstration purposes, use **ssh** over **telnet**). First install **xinetd**:
 
     [root@rhel1 ~]# yum install xinetd
     
@@ -264,7 +264,7 @@ But the services it controls are all disabled:
         time-stream:    off
     
 
-So let&#8217;s install the **telnet-server**:
+So let's install the **telnet-server**:
 
     [root@rhel1 ~]# yum install telnet-server
     
@@ -287,7 +287,7 @@ Here is the default configuration for the telnet service:
     }
     
 
-Let&#8217;s enable the service, add more logging, and only allow connections from our local network. Here is the configuration I had after I was done:
+Let's enable the service, add more logging, and only allow connections from our local network. Here is the configuration I had after I was done:
 
     [root@rhel1 ~]# cat /etc/xinetd.d/telnet
     # default: on
@@ -307,7 +307,7 @@ Let&#8217;s enable the service, add more logging, and only allow connections fro
     }
     
 
-Now let&#8217;s start the xinetd service:
+Now let's start the xinetd service:
 
     [root@rhel1 ~]# service xinetd start
     Starting xinetd:  xinetd
@@ -317,7 +317,7 @@ Now let&#8217;s start the xinetd service:
     root      7329     1  0 17:35 ?        00:00:00 xinetd -stayalive -pidfile /var/run/xinetd.pid
     
 
-Let&#8217;s also open up TCP 23 on the firewall:
+Let's also open up TCP 23 on the firewall:
 
     [root@rhel1 ~]# iptables -I INPUT 18 -m state --state NEW -m tcp -p tcp --dport 23 -j ACCEPT
     [root@rhel1 ~]# service iptables save
@@ -463,8 +463,8 @@ From the above guide:
 > 
 > There are two types of statements in the configuration file:
 > 
-> *   **Parameters** &#8211; State how to perform a task, whether to perform a task, or what network configuration options to send to the client.
-> *   **Declarations** &#8211; Describe the topology of the network, describe the clients, provide addresses for the clients, or apply a group of parameters to a group of declarations.
+> *   **Parameters** - State how to perform a task, whether to perform a task, or what network configuration options to send to the client.
+> *   **Declarations** - Describe the topology of the network, describe the clients, provide addresses for the clients, or apply a group of parameters to a group of declarations.
 > 
 > The parameters that start with the keyword **option** are referred to as **options**. These options control DHCP options; whereas, parameters configure values that are not optional or control how the DHCP server behaves.
 > 
@@ -515,7 +515,7 @@ From the above guide:
 >     }
 >     
 > 
-> All subnets that share the same physical network should be declared within a **shared-network** declaration as shown in the below example. Parameters within the **shared-network**, but outside the enclosed **subnet** declarations, are considered to be global parameters. The name of the **shared-network** must be a descriptive title for the network, such as using the title &#8216;**test-lab**&#8216; to describe all the subnets in a test lab environment.
+> All subnets that share the same physical network should be declared within a **shared-network** declaration as shown in the below example. Parameters within the **shared-network**, but outside the enclosed **subnet** declarations, are considered to be global parameters. The name of the **shared-network** must be a descriptive title for the network, such as using the title '**test-lab**' to describe all the subnets in a test lab environment.
 > 
 >     shared-network name {
 >         option domain-search              "test.redhat.com";
@@ -559,7 +559,7 @@ From the above guide:
 >     cp /usr/share/doc/dhcp-<version_number>/dhcpd.conf.sample /etc/dhcp/dhcpd.conf
 >     
 > 
-> &#8230; where **version_number** is the DHCP version number.
+> ... where **version_number** is the DHCP version number.
 
 ### DHCP Lease Database
 
@@ -595,12 +595,12 @@ From the Deployment Guide:
 > 
 > Other command line options that can be specified in **/etc/sysconfig/dhcpd** include:
 > 
-> *   **-p portnum** &#8211; Specifies the UDP port number on which dhcpd should listen. The default is port **67**. The DHCP server transmits responses to the DHCP clients at a port number one greater than the UDP port specified. For example, if the default port **67** is used, the server listens on port **67** for requests and responds to the client on port **68**. If a port is specified here and the DHCP relay agent is used, the same port on which the DHCP relay agent should listen must be specified. 
-> *   **-f** &#8211; Runs the daemon as a foreground process. This is mostly used for debugging.
-> *   **-d** &#8211; Logs the DHCP server daemon to the standard error descriptor. This is mostly used for debugging. If this is not specified, the log is written to **/var/log/messages**. 
-> *   **-cf filename** &#8211; Specifies the location of the configuration file. The default location is **/etc/dhcp/dhcpd.conf**.
-> *   **-lf filename** &#8211; Specifies the location of the lease database file. If a lease database file already exists, it is very important that the same file be used every time the DHCP server is started. It is strongly recommended that this option only be used for debugging purposes on non-production machines. The default location is **/var/lib/dhcpd/dhcpd.leases**.
-> *   **-q** &#8211; Do not print the entire copyright message when starting the daemon.
+> *   **-p portnum** - Specifies the UDP port number on which dhcpd should listen. The default is port **67**. The DHCP server transmits responses to the DHCP clients at a port number one greater than the UDP port specified. For example, if the default port **67** is used, the server listens on port **67** for requests and responds to the client on port **68**. If a port is specified here and the DHCP relay agent is used, the same port on which the DHCP relay agent should listen must be specified. 
+> *   **-f** - Runs the daemon as a foreground process. This is mostly used for debugging.
+> *   **-d** - Logs the DHCP server daemon to the standard error descriptor. This is mostly used for debugging. If this is not specified, the log is written to **/var/log/messages**. 
+> *   **-cf filename** - Specifies the location of the configuration file. The default location is **/etc/dhcp/dhcpd.conf**.
+> *   **-lf filename** - Specifies the location of the lease database file. If a lease database file already exists, it is very important that the same file be used every time the DHCP server is started. It is strongly recommended that this option only be used for debugging purposes on non-production machines. The default location is **/var/lib/dhcpd/dhcpd.leases**.
+> *   **-q** - Do not print the entire copyright message when starting the daemon.
 
 ### DHCP Relay Agent
 
@@ -627,7 +627,7 @@ From the above guide:
 >     DHCPDARGS="eth0 eth1";
 >     
 > 
-> If a system has three network interfaces cards &#8211; **eth0**, **eth1**, and **eth2** &#8211; and it is only desired that the DHCP daemon listens on the **eth0** card, then only specify **eth0** in **/etc/sysconfig/dhcpd**:
+> If a system has three network interfaces cards - **eth0**, **eth1**, and **eth2** - and it is only desired that the DHCP daemon listens on the **eth0** card, then only specify **eth0** in **/etc/sysconfig/dhcpd**:
 > 
 >     DHCPDARGS="eth0";
 >     
@@ -779,7 +779,7 @@ As promised the config is blank:
     #
     
 
-Let&#8217;s copy the sample:
+Let's copy the sample:
 
     [root@rhel1 ~]# cp /usr/share/doc/dhcp*/dhcpd.conf.sample /etc/dhcp/dhcpd.conf 
     cp: overwrite `/etc/dhcp/dhcpd.conf'? y
@@ -843,7 +843,7 @@ Here is the sample configuration:
     }
     
 
-Let&#8217;s clean up the file and create a very basic configuration:
+Let's clean up the file and create a very basic configuration:
 
     [root@rhel1 dhcp-4.1.1]# cat /etc/dhcp/dhcpd.conf 
     # dhcpd.conf
@@ -864,19 +864,19 @@ Let&#8217;s clean up the file and create a very basic configuration:
     log-facility local7;
     
 
-Now let&#8217;s limit the DHCP server to only listen on our **eth1** interface. This is done by modifying the following line in the **/etc/sysconfig/dhcpd** file:
+Now let's limit the DHCP server to only listen on our **eth1** interface. This is done by modifying the following line in the **/etc/sysconfig/dhcpd** file:
 
     [root@rhel1 ~]# grep DHCP /etc/sysconfig/dhcpd
     DHCPDARGS="eth1"
     
 
-Now let&#8217;s open up the firewall to allow UDP port 67:
+Now let's open up the firewall to allow UDP port 67:
 
     iptables -I INPUT 14 -m udp -p udp --dport 67 -j ACCEPT
     service iptables save
     
 
-Lastly let&#8217;s make sure the configuration is okay and then start the service:
+Lastly let's make sure the configuration is okay and then start the service:
 
     [root@rhel1 ~]# service dhcpd configtest
     Syntax: OK
@@ -988,10 +988,10 @@ If you want to configure your client to use DHCP permanently, we have to do the 
 > 
 > Other options for the network script include:
 > 
-> *   **DHCP_HOSTNAME** &#8211; Only use this option if the DHCP server requires the client to specify a hostname before receiving an IP address.
+> *   **DHCP_HOSTNAME** - Only use this option if the DHCP server requires the client to specify a hostname before receiving an IP address.
 > *   **PEERDNS=answer**, where **answer** is one of the following: 
->     *   **yes** &#8211; Modify **/etc/resolv.conf** with information from the server. If using DHCP, then yes is the default.
->     *   **no** &#8211; Do not modify **/etc/resolv.conf**.
+>     *   **yes** - Modify **/etc/resolv.conf** with information from the server. If using DHCP, then yes is the default.
+>     *   **no** - Do not modify **/etc/resolv.conf**.
 
 ## NTP
 
@@ -1021,14 +1021,14 @@ From the same guide:
 >     
 >     These signals can be received by dedicated devices and are usually connected by RS-232 to a system used as an organizational or site-wide time server.
 > 
-> *   **Stratum 1** &#8211; Computer with radio clock, GPS clock, or atomic clock attached
+> *   **Stratum 1** - Computer with radio clock, GPS clock, or atomic clock attached
 > 
-> *   **Stratum 2** &#8211; Reads from stratum 1; Serves to lower strata
+> *   **Stratum 2** - Reads from stratum 1; Serves to lower strata
 > 
-> *   **Stratum 3** &#8211; Reads from stratum 2; Serves to lower strata
+> *   **Stratum 3** - Reads from stratum 2; Serves to lower strata
 > 
-> *   **Stratum n+1** &#8211; Reads from stratum n; Serves to lower strata
-> *   **Stratum 15** &#8211; Reads from stratum 14; This is the lowest stratum.
+> *   **Stratum n+1** - Reads from stratum n; Serves to lower strata
+> *   **Stratum 15** - Reads from stratum 14; This is the lowest stratum.
 > 
 > This process continues down to Stratum 15 which is the lowest valid stratum. The label Stratum 16 is used to indicated an unsynchronized state.
 
@@ -1044,7 +1044,7 @@ From the above guide:
 > 
 > The **NTP** protocol provides additional information to improve accuracy. Four timestamps are used to allow the calculation of round-trip time and server response time. In order for a system in its role as **NTP** client to synchronize with a reference time server, a packet is sent with an “originate timestamp”. When the packet arrives, the time server adds a “receive timestamp”. After processing the request for time and date information and just before returning the packet, it adds a “transmit timestamp”. When the returning packet arrives at the **NTP** client, a “receive timestamp” is generated. The client can now calculate the total round trip time and by subtracting the processing time derive the actual traveling time. By assuming the outgoing and return trips take equal time, the single-trip delay in receiving the NTP data is calculated. The full **NTP** algorithm is much more complex then presented here.
 > 
-> Each packet containing time information received is not immediately acted upon, but is subject to validation checks and then used together with several other samples to arrive at a reasonably good estimate of the time. This is then compared to the system clock to determine the time offset, that is to say, the difference between the system clock&#8217;s time and what **ntpd** has determined the time should be. The system clock is adjusted slowly, at most at a rate of 0.5ms per second, to reduce this offset by changing the frequency of the counter being used. It will take at least 2000 seconds to adjust the clock by 1 second using this method. This slow change is referred to as slewing and cannot go backwards. If the time offset of the clock is more than 128ms (the default setting), **ntpd** can “**step**” the clock forwards or backwards. If the time offset at system start is greater than 1000 seconds then the user, or an installation script, should make a manual adjustment. With the **-g** option to the **ntpd** command (used by default), any offset at system start will be corrected, but during normal operation only offsets of up to 1000 seconds will be corrected.
+> Each packet containing time information received is not immediately acted upon, but is subject to validation checks and then used together with several other samples to arrive at a reasonably good estimate of the time. This is then compared to the system clock to determine the time offset, that is to say, the difference between the system clock's time and what **ntpd** has determined the time should be. The system clock is adjusted slowly, at most at a rate of 0.5ms per second, to reduce this offset by changing the frequency of the counter being used. It will take at least 2000 seconds to adjust the clock by 1 second using this method. This slow change is referred to as slewing and cannot go backwards. If the time offset of the clock is more than 128ms (the default setting), **ntpd** can “**step**” the clock forwards or backwards. If the time offset at system start is greater than 1000 seconds then the user, or an installation script, should make a manual adjustment. With the **-g** option to the **ntpd** command (used by default), any offset at system start will be corrected, but during normal operation only offsets of up to 1000 seconds will be corrected.
 > 
 > Some software may fail or produce an error if the time is changed backwards. For systems that are sensitive to step changes in the time, the threshold can be changed to 600s instead of 128ms using the **-x** option (unrelated to the **-g** option). Using the **-x** option to increase the stepping limit from 0.128s to 600s has a drawback because a different method of controlling the clock has to be used. It disables the kernel clock discipline and may have a negative impact on the clock accuracy. The **-x** option can be added to the **/etc/sysconfig/ntpd** configuration file.
 
@@ -1071,22 +1071,22 @@ From the above guide:
 > 
 > Here follows a brief explanation of the contents of the default configuration file:
 > 
-> *   **The driftfile entry** &#8211; A path to the drift file is specified, the default entry on Red Hat Enterprise Linux is:
+> *   **The driftfile entry** - A path to the drift file is specified, the default entry on Red Hat Enterprise Linux is:
 >     
 >         driftfile /var/lib/ntp/drift
 >         
 >     
 >     If you change this be certain that the directory is writable by **ntpd**. The file contains one value used to adjust the system clock frequency after every system or service start.
 > 
-> *   **The access control entries** &#8211; The following lines setup the default access control restrictions:
+> *   **The access control entries** - The following lines setup the default access control restrictions:
 >     
 >         restrict default kod nomodify notrap nopeer noquery
 >         restrict -6 default kod nomodify notrap nopeer noquery
 >         
 >     
->     The **kod** option means a “Kiss-o&#8217;-death” packet is to be sent to reduce unwanted queries. The **nomodify** options prevents any changes to the configuration. The **notrap** option prevents **ntpdc** control message protocol traps. The **nopeer** option prevents a peer association being formed. The **noquery** option prevents **ntpq** and **ntpdc** queries, but not time queries, from being answered. The **-6** option is required before an IPv6 address.
+>     The **kod** option means a “Kiss-o'-death” packet is to be sent to reduce unwanted queries. The **nomodify** options prevents any changes to the configuration. The **notrap** option prevents **ntpdc** control message protocol traps. The **nopeer** option prevents a peer association being formed. The **noquery** option prevents **ntpq** and **ntpdc** queries, but not time queries, from being answered. The **-6** option is required before an IPv6 address.
 >     
->     Addresses within the range **127&#46;0.0.0/8** range are sometimes required by various processes or applications. As the &#8220;restrict default&#8221; line above prevents access to everything not explicitly allowed, access to the standard loopback address for IPv4 and IPv6 is permitted by means of the following lines:
+>     Addresses within the range **127&#46;0.0.0/8** range are sometimes required by various processes or applications. As the "restrict default" line above prevents access to everything not explicitly allowed, access to the standard loopback address for IPv4 and IPv6 is permitted by means of the following lines:
 >     
 >         # the administrative functions.
 >         restrict 127.0.0.1 
@@ -1095,7 +1095,7 @@ From the above guide:
 >     
 >     Addresses can be added underneath if specifically required by another application. The **-6** option is required before an IPv6 address.
 >     
->     Hosts on the local network are not permitted because of the &#8220;restrict default&#8221; line above. To change this, for example to allow hosts from the **192&#46;0.2.0/24** network to query the time and statistics but nothing more, a line in the following format is required:
+>     Hosts on the local network are not permitted because of the "restrict default" line above. To change this, for example to allow hosts from the **192&#46;0.2.0/24** network to query the time and statistics but nothing more, a line in the following format is required:
 >     
 >         restrict 192.0.2.0 mask 255.255.255.0 nomodify notrap nopeer
 >         
@@ -1109,7 +1109,7 @@ From the above guide:
 >     
 >     The restrict commands are explained in the **ntp_acc**(5) man page.
 > 
-> *   **The public servers entry** &#8211; By default, as of Red Hat Enterprise 6.5, the **ntp.conf** file contains four public server entries:
+> *   **The public servers entry** - By default, as of Red Hat Enterprise 6.5, the **ntp.conf** file contains four public server entries:
 >     
 >         server 0.rhel.pool.ntp.org iburst
 >         server 1.rhel.pool.ntp.org iburst
@@ -1159,15 +1159,15 @@ From the same guide:
 > 
 > The command lists connected time servers and displays information indicating when they were last polled and the stability of the replies. The column headings are as follows:
 > 
-> *   **remote and refid** &#8211; remote NTP server, and its NTP server
-> *   **st** &#8211; stratum of server
-> *   **t** &#8211; type of server (local, unicast, multicast, or broadcast)
-> *   **poll** &#8211; how frequently to query server (in seconds)
-> *   **when** &#8211; how long since last poll (in seconds)
-> *   **reach** &#8211; octal bitmask of success or failure of last 8 queries (left-shifted); 377 = 11111111 = all recent queries were successful; 257 = 10101111 = 4 most recent were successful, 5 and 7 failed
-> *   **delay** &#8211; network round trip time (in milliseconds)
-> *   **offset** &#8211; difference between local clock and remote clock (in milliseconds)
-> *   **jitter** &#8211; difference of successive time values from server (high jitter could be due to an unstable clock or, more likely, poor network performance)
+> *   **remote and refid** - remote NTP server, and its NTP server
+> *   **st** - stratum of server
+> *   **t** - type of server (local, unicast, multicast, or broadcast)
+> *   **poll** - how frequently to query server (in seconds)
+> *   **when** - how long since last poll (in seconds)
+> *   **reach** - octal bitmask of success or failure of last 8 queries (left-shifted); 377 = 11111111 = all recent queries were successful; 257 = 10101111 = 4 most recent were successful, 5 and 7 failed
+> *   **delay** - network round trip time (in milliseconds)
+> *   **offset** - difference between local clock and remote clock (in milliseconds)
+> *   **jitter** - difference of successive time values from server (high jitter could be due to an unstable clock or, more likely, poor network performance)
 > 
 > To obtain a brief status report from **ntpd**, issue the following command:
 > 
@@ -1230,7 +1230,7 @@ From the above guide:
 > where option is one or more of:
 > 
 > *   **ignore** — All packets will be ignored, including **ntpq** and **ntpdc** queries.
-> *   **kod** — a “Kiss-o&#8217;-death” packet is to be sent to reduce unwanted queries.
+> *   **kod** — a “Kiss-o'-death” packet is to be sent to reduce unwanted queries.
 > *   **limited** — do not respond to time service requests if the packet violates the rate limit specified by the discard command. **ntpq** and **ntpdc** queries are not affected.
 > *   **lowpriotrap** — traps set by matching hosts to be low priority.
 > *   **nomodify** — prevents any changes to the configuration.
@@ -1355,7 +1355,7 @@ From the Deployment Guide:
 
 ### NTPD Example
 
-So let&#8217;s try this out. First let&#8217;s install **ntpd**:
+So let's try this out. First let's install **ntpd**:
 
     [root@rhel1 ~]# yum install ntp
     
@@ -1382,7 +1382,7 @@ Here is how the default configuration looks like for ntpd:
     keys /etc/ntp/keys
     
 
-That looks pretty good, so let&#8217;s start it:
+That looks pretty good, so let's start it:
 
     [root@rhel1 ~]# service ntpd start
     Starting ntpd:  ntpd
@@ -1424,7 +1424,7 @@ Converting the **reach** to binary:
     111
     
 
-it looks like the last 3 attempts were successful. Lastly make sure it&#8217;s synchronized:
+it looks like the last 3 attempts were successful. Lastly make sure it's synchronized:
 
     [root@rhel1 ~]# ntpstat 
     synchronised to NTP server (216.66.0.142) at stratum 3 
@@ -1432,7 +1432,7 @@ it looks like the last 3 attempts were successful. Lastly make sure it&#8217;s s
        polling server every 64 s
     
 
-Now let&#8217;s use this server as an NTP server for the RH5 machine. On the RH5 machine let&#8217;s install **ntp**:
+Now let's use this server as an NTP server for the RH5 machine. On the RH5 machine let's install **ntp**:
 
     [root@rhel2 ~]# yum install ntp
     
@@ -1453,7 +1453,7 @@ Here is the default configuration file for **ntpd**:
     keys /etc/ntp/keys
     
 
-So let&#8217;s only have one server (our own local one):
+So let's only have one server (our own local one):
 
     [root@rhel2 ~]# grep -vE '^$|^#' /etc/ntp.conf 
     restrict default kod nomodify notrap nopeer noquery
@@ -1465,7 +1465,7 @@ So let&#8217;s only have one server (our own local one):
     keys /etc/ntp/keys
     
 
-Now on the server side, let&#8217;s allow queries from local network. This is done by adding a **restrict** line **/etc/ntp.conf**:
+Now on the server side, let's allow queries from local network. This is done by adding a **restrict** line **/etc/ntp.conf**:
 
     [root@rhel1 ~]# grep -vE '^$|^#' /etc/ntp.conf 
     driftfile /var/lib/ntp/drift
@@ -1481,14 +1481,14 @@ Now on the server side, let&#8217;s allow queries from local network. This is do
     keys /etc/ntp/keys
     
 
-Now let&#8217;s restart the service
+Now let's restart the service
 
     [root@rhel1 ~]# service ntpd restart
     Shutting down ntpd: ntpd 
     Starting ntpd:  ntpd
     
 
-And now let&#8217;s open up the firewall to allow ntp:
+And now let's open up the firewall to allow ntp:
 
     [root@rhel1 ~]# iptables -I INPUT 18 -m state --state NEW -m tcp -p tcp --dport 123 -j ACCEPT
     [root@rhel1 ~]# iptables -I INPUT 18 -m udp -p udp --dport 123 -j ACCEPT
@@ -1496,7 +1496,7 @@ And now let&#8217;s open up the firewall to allow ntp:
     iptables: Saving firewall rules to /etc/sysconfig/iptables:
     
 
-Now on our client let&#8217;s do a manual sync first and then start the **ntpd** service:
+Now on our client let's do a manual sync first and then start the **ntpd** service:
 
     [root@rhel2 ~]# ntpdate rhel1
     20 Apr 12:49:38 ntpdate[17407]: adjust time server 192.168.2.2 offset 0.000001 sec

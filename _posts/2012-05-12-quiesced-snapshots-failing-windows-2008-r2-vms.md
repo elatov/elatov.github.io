@@ -29,7 +29,7 @@ I ran into a very interesting issue. Whenever we took a quiesced snapshot of Win
 
 There is actually an ongoing VMware community thread <a href="http://communities.vmware.com/thread/309844" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/thread/309844']);">309844</a>, that keeps talking about the issue. There is no clear solution to this as of yet, but here is what I did to get around the issue:
 
-1.  <span style="line-height: 22px;">Disable and remove the Floppy device from the VM (it&#8217;s not used any ways)</span>
+1.  <span style="line-height: 22px;">Disable and remove the Floppy device from the VM (it's not used any ways)</span>
 2.  <span style="line-height: 22px;">Downgrade vmware-tools versions from 8.3.7 (ESX 4.1U2) to 8.3.2 (ESX 4.1GA)</span>
 
 To find out your version of vmware-tools follow the instructions in VMware KB <a href="http://kb.vmware.com/kb/392" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/392']);">392</a>. If you are running anything other than 8.3.2 then you can download the older tools from here:

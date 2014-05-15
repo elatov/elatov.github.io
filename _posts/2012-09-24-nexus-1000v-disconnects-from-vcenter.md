@@ -29,5 +29,5 @@ Looking over the VSM logs (show tech svs), I saw the following:
 
 So we lost connection for about 3 minutes, but we see that in the mean time there were other log messages. My first hunch was to try to rule out networking, if there were no log messages between the disconnect then I would think it was a resource issue, however that was not the case.
 
-We put the vCenter VM and the N1K VSM on the same host to see what happens. As soon as we did that the disconnects stopped. That right away told me that it&#8217;s an external networking issue. The customer actually didn&#8217;t want to deal with his networking team, so we setup DRS VM-To-VM Affinity rules to ensure that these two VMs always stayed together and all was well.
+We put the vCenter VM and the N1K VSM on the same host to see what happens. As soon as we did that the disconnects stopped. That right away told me that it's an external networking issue. The customer actually didn't want to deal with his networking team, so we setup DRS VM-To-VM Affinity rules to ensure that these two VMs always stayed together and all was well.
 

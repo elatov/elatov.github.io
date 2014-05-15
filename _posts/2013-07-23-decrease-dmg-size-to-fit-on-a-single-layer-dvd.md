@@ -116,30 +116,30 @@ Since the data is compressed the actual file is 5.2GiB:
 
 ### Create a Sparse Image
 
-Let&#8217;s create a sparse image and copy the contents of the DMG to that. To create the sparse image we can run the following:
+Let's create a sparse image and copy the contents of the DMG to that. To create the sparse image we can run the following:
 
     kelatov@kmac:~$hdiutil create -size 7g -type SPARSE -fs HFS+ -volname copy image -layout NONE
     created: /Users/kelatov/image.sparseimage
     
 
-I noticed that the DMG didn&#8217;t have a partition schema so I did the same thing for the Sparse Image.
+I noticed that the DMG didn't have a partition schema so I did the same thing for the Sparse Image.
 
 ### Restore DMG to a Sparse Image
 
-Now we can mount the sparse file. First let&#8217;s unmount the DMG:
+Now we can mount the sparse file. First let's unmount the DMG:
 
     kelatov@kmac:~$hdiutil detach /Volumes/Mac\ OS\ X\ Install\ DVD/
     "disk2" unmounted.
     "disk2" ejected.
     
 
-Now let&#8217;s mount the Sparse Image:
+Now let's mount the Sparse Image:
 
     kelatov@kmac:~$hdiutil attach -nobrowse image.sparseimage
     /dev/disk2                                              /Volumes/copy
     
 
-Now we can use **asr** (Apple Software Restore) to basically do a block level copy of the DMG onto the Sparse Image. First let&#8217;s scan our DMG:
+Now we can use **asr** (Apple Software Restore) to basically do a block level copy of the DMG onto the Sparse Image. First let's scan our DMG:
 
     kelatov@kmac:~$sudo asr -imagescan OS_X-10.6.dmg
     Block checksum: ....10....20....30....40....50....60....70....80....90....100
@@ -176,7 +176,7 @@ Notice the maximum size is 7.0GiB, which is what we created the Sparse File to b
 
 ### Clean Up Un-necessary Files in the New Sparse Image
 
-The Sparse Image is already mounted so let&#8217;s clean it up. The Mac OS X install CD contains a lot of printer Drivers, Language Packages, and X11 tools. For recovery purposes we don&#8217;t need those. To clean up the Sparse Image, I ran the following:
+The Sparse Image is already mounted so let's clean it up. The Mac OS X install CD contains a lot of printer Drivers, Language Packages, and X11 tools. For recovery purposes we don't need those. To clean up the Sparse Image, I ran the following:
 
     kelatov@kmac:~$cd /Volumes/Mac\ OS\ X\ Install\ DVD/System/Installation/Packages/
     kelatov@kmac:/Volumes/Mac OS X Install DVD/System/Installation/Packages$rm -rf Norwegian.pkg Russian.pkg Polish.pkg Portuguese.pkg SimplifiedChinese.pkg Spanish.pkg Swedish.pkg TraditionalChinese.pkg Japanese.pkg Italian.pkg German.pkg French.pkg Finnish.pkg Danish.pkg Dutch.pkg Korean.pkg HP_* Canon_* Lexmark_* X11User.pkg Samsung_Common.pkg BrazilianPortuguese.pkg Brother_* EPSON_*
@@ -203,7 +203,7 @@ Now we can reclaim the unused space in the Sparse image and resize it:
     Reclaimed 1.9 GB out of 2.8 GB possible.
     
 
-Notice we didn&#8217;t get all of the possible space. Looking over the size information of the image, we see the following:
+Notice we didn't get all of the possible space. Looking over the size information of the image, we see the following:
 
     hdiutil imageinfo image.sparseimage | grep "Size Information" -A 6
     Size Information:
@@ -235,7 +235,7 @@ the values are in 512 sized sectors. So our minimum possible size is (13158272 *
         Total Empty Bytes: 2098135040
     
 
-Notice the size has changed, but it didn&#8217;t go as low as 4.3GiB (as shown by Total Non-Empty Bytes). The reason for this is because the sparse image is not defragmented. This is discussed in &#8220;<a href="http://www.eonlinegratis.com/2013/how-to-reclaim-allmost-free-space-from-a-sparsebundle-on-os-x/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.eonlinegratis.com/2013/how-to-reclaim-allmost-free-space-from-a-sparsebundle-on-os-x/']);">How To Reclaim All/most Free Space From A Sparsebundle On OS X</a>&#8221; and &#8220;<a href="http://newartisans.com/2008/03/defragmentation-and-disk-images/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://newartisans.com/2008/03/defragmentation-and-disk-images/']);">Defragmentation and disk images</a>&#8220;.
+Notice the size has changed, but it didn't go as low as 4.3GiB (as shown by Total Non-Empty Bytes). The reason for this is because the sparse image is not defragmented. This is discussed in "<a href="http://www.eonlinegratis.com/2013/how-to-reclaim-allmost-free-space-from-a-sparsebundle-on-os-x/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.eonlinegratis.com/2013/how-to-reclaim-allmost-free-space-from-a-sparsebundle-on-os-x/']);">How To Reclaim All/most Free Space From A Sparsebundle On OS X</a>" and "<a href="http://newartisans.com/2008/03/defragmentation-and-disk-images/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://newartisans.com/2008/03/defragmentation-and-disk-images/']);">Defragmentation and disk images</a>".
 
 From here we have two options. If you have access to iDefrag then you can use that to defragment the Sparse Image to reclaim more space, or we can create a smaller Sparse Image and copy the contents manually.
 
@@ -246,11 +246,11 @@ Luckily, I had iDefrag :). Mount your Sparse image:
     kelatov@kmac:~$hdiutil attach image.sparseimage
     
 
-then start up iDefrag and you will see you drive there. Click &#8220;Go&#8221; and it will start defragmenting:
+then start up iDefrag and you will see you drive there. Click "Go" and it will start defragmenting:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/07/iDefrag_started.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/07/iDefrag_started.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/07/iDefrag_started.png" alt="iDefrag started Decrease DMG Size to Fit on a Single Layer DVD" width="793" height="524" class="alignnone size-full wp-image-9224" title="Decrease DMG Size to Fit on a Single Layer DVD" /></a>
 
-after it&#8217;s done you will the following message:
+after it's done you will the following message:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/07/iDefrag_finished.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/07/iDefrag_finished.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/07/iDefrag_finished.png" alt="iDefrag finished Decrease DMG Size to Fit on a Single Layer DVD" width="400" height="140" class="alignnone size-full wp-image-9225" title="Decrease DMG Size to Fit on a Single Layer DVD" /></a>
 
@@ -300,7 +300,7 @@ that looks much better.
 
 ### Copy Contents of Sparse Image into a Smaller Sparse Image
 
-If you don&#8217;t have access to iDefrag, you can create a smaller sparse image:
+If you don't have access to iDefrag, you can create a smaller sparse image:
 
     kelatov@kmac:~$hdiutil create -size 4.3g -type SPARSE -fs HFS+ -volname Small_Sparse image2 -layout NONE
     created: /Users/kelatov/image2.sparseimage
@@ -341,7 +341,7 @@ I prefer **rsync** over **ditto** (<a href="http://lists.apple.com/archives/maco
     total size is 4458227175  speedup is 1.30
     
 
-From here we can either convert the Sparse Image back to a DMG or an ISO/CDR. Let&#8217;s unmount both:
+From here we can either convert the Sparse Image back to a DMG or an ISO/CDR. Let's unmount both:
 
     kelatov@kmac:~$hdiutil detach /Volumes/Mac\ OS\ X\ Install\ DVD/
     "disk2" unmounted.
@@ -437,7 +437,7 @@ the second way is like this:
     ..............................................................................
     
 
-both can be burned by using the &#8216;hdiutil burn&#8217; command or with any burning software.
+both can be burned by using the 'hdiutil burn' command or with any burning software.
 
 ## Mac OS X 10.8 Recovery Options
 
@@ -445,7 +445,7 @@ Since I was on Mac OS 10.8 there are a couple of other options for recovery medi
 
 ### 1. Resize OS X Mountain Lion installer to fit on a 4.7 GB DVD
 
-The 10.8 Installer is downloadable via App Store and even though it&#8217;s doesn&#8217;t fit on a regular DVD you just have to copy the contents into a smaller image. No deletion of any files is necessary. The instructions on how to accomplish that are here:
+The 10.8 Installer is downloadable via App Store and even though it's doesn't fit on a regular DVD you just have to copy the contents into a smaller image. No deletion of any files is necessary. The instructions on how to accomplish that are here:
 
 *   <a href="https://raymii.org/s/tutorials/OS-X-Mountain_Lion_iso_resize_to_fit_on_a_single_layer_dvd.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://raymii.org/s/tutorials/OS-X-Mountain_Lion_iso_resize_to_fit_on_a_single_layer_dvd.html']);">Resize OS X Mountain Lion installer to fit on a single layer 4.7 GB DVD</a>
 *   <a href="http://alexcline.net/2012/07/28/how-to-install-os-x-mountain-lion-from-a-single-layer-dvd/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://alexcline.net/2012/07/28/how-to-install-os-x-mountain-lion-from-a-single-layer-dvd/']);">How to Install OS X Mountain Lion from a Single-Layer DVD</a>
@@ -479,7 +479,7 @@ open ~/Desktop/
 
 ### 2. Mac OS X 10.8 Has a Built-in Recovery Partition
 
-From &#8220;<a href="http://www.apple.com/osx/recovery/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.apple.com/osx/recovery/']);">OS X Recovery</a>&#8220;:
+From "<a href="http://www.apple.com/osx/recovery/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.apple.com/osx/recovery/']);">OS X Recovery</a>":
 
 > **The new Mac safety net.**  
 > OS X Recovery lets you repair disks or reinstall OS X without the need for a physical install disc. Since OS X Recovery is built into your Mac, it’s always there when you need it. Even if you don’t need it, it’s good to know it’s there. And you don’t have to search through original packaging to find install DVDs to get your Mac back up and running.
@@ -489,14 +489,14 @@ From &#8220;<a href="http://www.apple.com/osx/recovery/" onclick="javascript:_ga
 
 So I can just reboot the Mac and hold Command-R to get into recovery mode.
 
-### 3. Use OS X Lion&#8217;s Recovery Disk Assistant to create a bootable USB recovery Disk
+### 3. Use OS X Lion's Recovery Disk Assistant to create a bootable USB recovery Disk
 
 Starting with OS X Lion, you can create a recovery USB disk to help with recovery. Instructions on how to do that are here:
 
-*   <a href="http://macs.about.com/od/usingyourmac/ss/Using-Os-X-Lions-Recovery-Disk-Assistant_2.htm" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://macs.about.com/od/usingyourmac/ss/Using-Os-X-Lions-Recovery-Disk-Assistant_2.htm']);">Using OS X Lion&#8217;s Recovery Disk Assistant</a>
+*   <a href="http://macs.about.com/od/usingyourmac/ss/Using-Os-X-Lions-Recovery-Disk-Assistant_2.htm" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://macs.about.com/od/usingyourmac/ss/Using-Os-X-Lions-Recovery-Disk-Assistant_2.htm']);">Using OS X Lion's Recovery Disk Assistant</a>
 *   <a href="http://support.apple.com/kb/ht4848" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://support.apple.com/kb/ht4848']);">OS X: About Recovery Disk Assistant</a>
 
-From &#8220;<a href="http://support.apple.com/kb/dl1433" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://support.apple.com/kb/dl1433']);">OS X Recovery Disk Assistant v1.0</a>&#8220;:
+From "<a href="http://support.apple.com/kb/dl1433" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://support.apple.com/kb/dl1433']);">OS X Recovery Disk Assistant v1.0</a>":
 
 > The OS X Recovery Disk Assistant lets you create OS X Recovery on an external drive that has all of the same capabilities as the built-in OS X Recovery: reinstall Lion or Mountain Lion, repair the disk using Disk Utility, restore from a Time Machine backup, or browse the web with Safari.
 

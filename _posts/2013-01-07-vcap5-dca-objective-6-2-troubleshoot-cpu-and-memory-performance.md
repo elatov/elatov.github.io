@@ -14,7 +14,7 @@ tags:
 ---
 ### Identify resxtop/esxtop metrics related to memory and CPU
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-monitoring-performance-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-monitoring-performance-guide.pdf']);">vSphere Monitoring and Performance</a>&#8220;, here are the CPU counters:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-monitoring-performance-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-monitoring-performance-guide.pdf']);">vSphere Monitoring and Performance</a>", here are the CPU counters:
 
 <a href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-2-troubleshoot-cpu-and-memory-performance/esxtop_cpu_counters_p1/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-2-troubleshoot-cpu-and-memory-performance/esxtop_cpu_counters_p1/']);" rel="attachment wp-att-5283"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/esxtop_cpu_counters_p1.png" alt="esxtop cpu counters p1 VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance " width="595" height="886" class="alignnone size-full wp-image-5283" title="VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance " /></a>
 
@@ -59,7 +59,7 @@ Here is a good summary:
 > $MLMTD: Percentage of time a ready to vCPU was no schedules because of a CPU limit setting (Trouble when > 1, to resolve; remove the CPU limit)  
 > $SWPWT: How Long a VM has to wait for swapped pages read from disk. (Trouble when > 5, possible reason; memory overcommitment 
 
-Also this is from a 4.x document but it applies to 5.0 as well. Here is the document: &#8220;<a href="http://communities.vmware.com/servlet/JiveServlet/previewBody/14905-102-2-17952/vsphere41-performance-troubleshooting.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://communities.vmware.com/servlet/JiveServlet/previewBody/14905-102-2-17952/vsphere41-performance-troubleshooting.pdf']);">Performance Troubleshooting for VMware vSphere 4.1</a>&#8220;. From that document:
+Also this is from a 4.x document but it applies to 5.0 as well. Here is the document: "<a href="http://communities.vmware.com/servlet/JiveServlet/previewBody/14905-102-2-17952/vsphere41-performance-troubleshooting.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://communities.vmware.com/servlet/JiveServlet/previewBody/14905-102-2-17952/vsphere41-performance-troubleshooting.pdf']);">Performance Troubleshooting for VMware vSphere 4.1</a>". From that document:
 
 <a href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-2-troubleshoot-cpu-and-memory-performance/check_for_host_cpu_saturation/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-2-troubleshoot-cpu-and-memory-performance/check_for_host_cpu_saturation/']);" rel="attachment wp-att-5292"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/check_for_host_cpu_saturation.png" alt="check for host cpu saturation VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance " width="640" height="536" class="alignnone size-full wp-image-5292" title="VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance " /></a>
 
@@ -82,7 +82,7 @@ Here is a good summary:
 > CACHEUSD: Memory (in MB) compressed by ESXi Host (Trouble when > 1)  
 > SWR/s SWW/s: Rate at which the ESXi host is writing to or reading from swapped memory (Trouble when > 1) 
 
-And from &#8220;<a href="http://communities.vmware.com/servlet/JiveServlet/previewBody/14905-102-2-17952/vsphere41-performance-troubleshooting.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://communities.vmware.com/servlet/JiveServlet/previewBody/14905-102-2-17952/vsphere41-performance-troubleshooting.pdf']);">Performance Troubleshooting for VMware vSphere 4.1</a>&#8220;:
+And from "<a href="http://communities.vmware.com/servlet/JiveServlet/previewBody/14905-102-2-17952/vsphere41-performance-troubleshooting.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://communities.vmware.com/servlet/JiveServlet/previewBody/14905-102-2-17952/vsphere41-performance-troubleshooting.pdf']);">Performance Troubleshooting for VMware vSphere 4.1</a>":
 
 <a href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-2-troubleshoot-cpu-and-memory-performance/check_for_vm_swapping/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-2-troubleshoot-cpu-and-memory-performance/check_for_vm_swapping/']);" rel="attachment wp-att-5297"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/check_for_vm_swapping.png" alt="check for vm swapping VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance " width="621" height="424" class="alignnone size-full wp-image-5297" title="VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance " /></a>
 

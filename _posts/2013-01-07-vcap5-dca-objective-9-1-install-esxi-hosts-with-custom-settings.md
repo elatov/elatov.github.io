@@ -14,7 +14,7 @@ tags:
 ---
 ### Identify custom installation options
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf']);">vSphere Installation and Setup vSphere 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf']);">vSphere Installation and Setup vSphere 5.0</a>":
 
 > **Options for Installing ESXi**  
 > ESXi can be installed in several ways. To ensure the best vSphere deployment, understand the options thoroughly before beginning the installation.
@@ -54,7 +54,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 
 ### Identify ESXi Image Builder requirements
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf']);">vSphere Installation and Setup vSphere 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf']);">vSphere Installation and Setup vSphere 5.0</a>":
 
 > **Install Image Builder PowerCLI and Prerequisite Software**  
 > Before you can run Image Builder cmdlets, you must install vSphere PowerCLI and all prerequisite software. The Image Builder snap-in is included with the PowerCLI installation.  
@@ -68,7 +68,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 
 ### Create/Edit Image Profiles
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf']);">vSphere Installation and Setup vSphere 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf']);">vSphere Installation and Setup vSphere 5.0</a>":
 
 > Create an Image Profile  
 > Cloning a published profile is the easiest way to create a custom image profile. Cloning a profile is especially useful if you want to remove a few VIBs from a profile, or if you want to use hosts from different vendors and want to use the same basic profile, but want to add vendor-specific VIBs. VMware partners or large installations might consider creating a profile from scratch.
@@ -90,7 +90,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 	>         New-EsxImageProfile -CloneProfile My_Profile -Name "Test Profile 42"  
 	>           
 >         This example clones the profile named My-Profile and assigns it the name Test Profile 42. You must specify a unique combination of name and vendor for the cloned profile.</ol> </blockquote> 
->     Let&#8217;s say you wanted to create a custom profile for the 5.0U1 update. First download the offline zip bundle from My VMware:
+>     Let's say you wanted to create a custom profile for the 5.0U1 update. First download the offline zip bundle from My VMware:
 >     
 >     <a href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-9-1-install-esxi-hosts-with-custom-settings/5_0u1_offline_bundle_download/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/vcap5-dca-objective-9-1-install-esxi-hosts-with-custom-settings/5_0u1_offline_bundle_download/']);" rel="attachment wp-att-5624"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/5_0U1_offline_bundle_download.png" alt="5 0U1 offline bundle download VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings " width="878" height="803" class="alignnone size-full wp-image-5624" title="VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings " /></a>
 >     
@@ -288,7 +288,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 	>     ESXi-5.0.0-20120301001s-no-... VMware, Inc. 2/17/2012 11... PartnerSupported  
 	>     
 >     
->     We can also create profiles manually. There is a good example in &#8220;<a href="http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-1.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-1.pdf']);">VMware vSphere 5.0 Evaluation Guide Volume One</a>&#8220;. Here is what I did to create a manual profile with just 4 VIBs:
+>     We can also create profiles manually. There is a good example in "<a href="http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-1.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-1.pdf']);">VMware vSphere 5.0 Evaluation Guide Volume One</a>". Here is what I did to create a manual profile with just 4 VIBs:
 >     
 	>       
 	>     PowerCLI C:\> New-EsxImageProfile -NewProfile My\_Manual\_Profile -vendor VMware -SoftwarePackage esx-base
@@ -463,7 +463,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 	>     >                             Export-EsxImageProfile -ImageProfile "NewAsyncProfile" -ExportToISO -filepath C:\NewAsyncProfile.iso  
 	>     >                             </li> 
 >     >                             *   If necessary, burn the ISO to a new CD. Use the CD or ISO to boot the server and install ESXi. Follow the normal installation procedures.</ol> </blockquote> 
->     >                             From the previous objective we have already imported the 5.0U1 offline bundle. Now let&#8217;s download an offline-bundle for a driver and insert it into a new merged profile that we create. Let say you downloaded a driver and it looked like this:
+>     >                             From the previous objective we have already imported the 5.0U1 offline bundle. Now let's download an offline-bundle for a driver and insert it into a new merged profile that we create. Let say you downloaded a driver and it looked like this:
 >     >                             
 >     >                             <a href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-9-1-install-esxi-hosts-with-custom-settings/igb_offline_bundle/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/vcap5-dca-objective-9-1-install-esxi-hosts-with-custom-settings/igb_offline_bundle/']);" rel="attachment wp-att-5629"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/igb_offline_bundle.png" alt="igb offline bundle VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings " width="108" height="97" class="alignnone size-full wp-image-5629" title="VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings " /></a>
 >     >                             
@@ -471,7 +471,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 >     >                             
 >     >                             <a href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-9-1-install-esxi-hosts-with-custom-settings/igb_driver_extracted/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/vcap5-dca-objective-9-1-install-esxi-hosts-with-custom-settings/igb_driver_extracted/']);" rel="attachment wp-att-5630"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/igb_driver_extracted.png" alt="igb driver extracted VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings " width="590" height="101" class="alignnone size-full wp-image-5630" title="VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings " /></a>
 >     >                             
->     >                             Now let&#8217;s import the offline bundle as a Software Depot:
+>     >                             Now let's import the offline bundle as a Software Depot:
 >     >                             
 	>     >                               
 	>     >                             PowerCLI C:\> Add-EsxSoftwareDepot C:\Users\Administrator\Desktop\isos\igb-3.1.17-455019\igb-3.1.17-offline_bundle-455019.zip
@@ -488,7 +488,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 	>     >                             net-igb 3.1.17-1OEM.500.0.0.406165 Intel 7/1/2011 ...  
 	>     >                             
 >     >                             
->     >                             We can see our VIB is the one with the Vendor as &#8220;Intel&#8221;. We had already cloned our 5.0U1 offline bundle, so let&#8217;s check out what version of net-igb is in there:
+>     >                             We can see our VIB is the one with the Vendor as "Intel". We had already cloned our 5.0U1 offline bundle, so let's check out what version of net-igb is in there:
 >     >                             
 	>     >                               
 	>     >                             PowerCLI C:\> Get-EsxImageProfile
@@ -506,7 +506,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 	>     >                             net-igb 2.1.11.1-3vmw.500.0.0.469512 VMware 8/19/2011...  
 	>     >                             
 >     >                             
->     >                             So it looks like our cloned profile has an older version of the driver. So let&#8217;s remove the old version and add the new async driver:
+>     >                             So it looks like our cloned profile has an older version of the driver. So let's remove the old version and add the new async driver:
 >     >                             
 	>     >                               
 	>     >                             PowerCLI C:\> Remove-EsxSoftwarePackage -ImageProfile My\_Cloned\_Profile -SoftwarePackage net-igb
@@ -546,7 +546,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 >     >                             > 1.  Extract the contents of the async driver zip file.
 >     >                             > 2.  Identify the offline-bundle.zip file(s).
 >     >                             > 3.  Log into the ESXi host using the vSphere Client with administrator privileges, such as root.
->     >                             > 4.  Using the Datastore Browser, upload the offline-bundle.zip file(s) to an ESXi host&#8217;s datastore.
+>     >                             > 4.  Using the Datastore Browser, upload the offline-bundle.zip file(s) to an ESXi host's datastore.
 >     >                             > 5.  Enter the host into maintenance mode.
 >     >                             > 6.  Log in as root to the ESXi console through SSH or iLO/DRAC.
 >     >                             > 7.  Run this command to install drivers using the offline bundle (this requires an absolute path):  
@@ -560,7 +560,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 >     >                             > 8.  Reboot the ESXi host.
 >     >                             > 9.  Exit maintenance mode.
 >     >                             
->     >                             So let&#8217;s say I uploaded the same driver to my datastore:
+>     >                             So let's say I uploaded the same driver to my datastore:
 >     >                             
 	>     >                               
 	>     >                             ~ # ls -l /vmfs/volumes/OI_LUN0/  
@@ -575,7 +575,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 	>     >                             net-igb 2.1.11.1-3vmw.500.1.16.721882 VMware VMwareCertified 2012-07-05  
 	>     >                             
 >     >                             
->     >                             So we have the 2.1.11 version installed and we are going to install the 3.1.17 version. First let&#8217;s create a directory to store our driver files and then extract the contents:
+>     >                             So we have the 2.1.11 version installed and we are going to install the 3.1.17 version. First let's create a directory to store our driver files and then extract the contents:
 >     >                             
 	>     >                               
 	>     >                             ~ # cd /vmfs/volumes/OI_LUN0/  
@@ -596,7 +596,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 	>     >                             igb-3.1.17-offline_bundle-455019.zip  
 	>     >                             
 >     >                             
->     >                             So now we see our offline-bundle. Let&#8217;s go ahead and install that:
+>     >                             So now we see our offline-bundle. Let's go ahead and install that:
 >     >                             
 	>     >                               
 	>     >                             ~ # esxcli software vib install -d /vmfs/volumes/OI\_LUN0/driver/igb-3.1.17-offline\_bundle-455019.zip  
@@ -617,14 +617,14 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 >     >                             
 >     >                             ### Configure advanced boot loader options
 >     >                             
->     >                             From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf']);">vSphere Installation and Setup vSphere 5.0</a>&#8220;:
+>     >                             From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf']);">vSphere Installation and Setup vSphere 5.0</a>":
 >     >                             
 >     >                             > **Enter Boot Options to Start an Installation or Upgrade Script**  
 >     >                             > You can start an installation or upgrade script by typing boot command-line options at the boot command line.
 >     >                             > 
 >     >                             > At boot time you might need to specify options to access the kickstart file. You can enter boot options by pressing **Shift+O** in the boot loader. 
 >     >                             > 
->     >                             > A ks=&#8230; option must be given, to specify the location of the installation script. Otherwise, a scripted installation or upgrade will not start. If ks=&#8230; is omitted, the text installer will proceed.
+>     >                             > A ks=... option must be given, to specify the location of the installation script. Otherwise, a scripted installation or upgrade will not start. If ks=... is omitted, the text installer will proceed.
 >     >                             > 
 >     >                             > **Procedure**
 >     >                             > 
@@ -649,7 +649,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 >     >                             
 >     >                             ### Configure kernel options
 >     >                             
->     >                             From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf']);">vSphere Installation and Setup vSphere 5.0</a>&#8220;:
+>     >                             From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf']);">vSphere Installation and Setup vSphere 5.0</a>":
 >     >                             
 >     >                             > **About the boot.cfg File**  
 >     >                             > The boot loader configuration file boot.cfg specifies the kernel, the kernel options, and the boot modules that the mboot.c32 boot loader uses in an ESXi installation.
@@ -674,5 +674,5 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 >     >                             
 >     >                             ### Given a scenario, determine when to customize a configuration
 >     >                             
->     >                             This was discussed in &#8220;<a href="http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-3-6-determine-datacenter-management-options-for-a-vsphere-5-physical-design/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-3-6-determine-datacenter-management-options-for-a-vsphere-5-physical-design/']);">VCAP5-DCD Objective 3.6</a>&#8221;
+>     >                             This was discussed in "<a href="http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-3-6-determine-datacenter-management-options-for-a-vsphere-5-physical-design/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-3-6-determine-datacenter-management-options-for-a-vsphere-5-physical-design/']);">VCAP5-DCD Objective 3.6</a>"
 >     >                             

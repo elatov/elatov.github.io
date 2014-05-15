@@ -16,15 +16,15 @@ tags:
 ---
 ## Raspberry Pi
 
-I received a free Raspberry Pi from <a href="http://www.simplivity.com/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.simplivity.com/']);">Simplivity</a> for being a <a href="http://blogs.vmware.com/vmtn/2013/05/vexpert-2013-awardees-announced.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vmtn/2013/05/vexpert-2013-awardees-announced.html']);">vExpert</a> (Congrats to Joe and Jarret on achieving the same!) It was very nice of them. It was even the <a href="http://downloads.element14.com/raspberryPi1.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://downloads.element14.com/raspberryPi1.html']);">B model</a> and not the A model&#8230; <a href="http://www.simplivity.com/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.simplivity.com/']);">Simplivity</a> doesn&#8217;t mess around <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile OpenELEC on Raspberry Pi" class="wp-smiley" title="OpenELEC on Raspberry Pi" /> After receiving the Raspberry Pi (RPi), I realized that I needed to order the following accessories to be able to use it:
+I received a free Raspberry Pi from <a href="http://www.simplivity.com/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.simplivity.com/']);">Simplivity</a> for being a <a href="http://blogs.vmware.com/vmtn/2013/05/vexpert-2013-awardees-announced.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vmtn/2013/05/vexpert-2013-awardees-announced.html']);">vExpert</a> (Congrats to Joe and Jarret on achieving the same!) It was very nice of them. It was even the <a href="http://downloads.element14.com/raspberryPi1.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://downloads.element14.com/raspberryPi1.html']);">B model</a> and not the A model... <a href="http://www.simplivity.com/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.simplivity.com/']);">Simplivity</a> doesn't mess around <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile OpenELEC on Raspberry Pi" class="wp-smiley" title="OpenELEC on Raspberry Pi" /> After receiving the Raspberry Pi (RPi), I realized that I needed to order the following accessories to be able to use it:
 
 *   Power Supply
 *   SD flash card
 *   AUX to RCA converter (since I will be using an RCA cable to connect to a TV)
 
-I did some research and I came across <a href="http://elinux.org/RPi_SD_cards#SD_card_performance" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://elinux.org/RPi_SD_cards#SD_card_performance']);">this</a> site for a supported list of Flash Cards for the RPi. Pick one from the list that suits your needs <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile OpenELEC on Raspberry Pi" class="wp-smiley" title="OpenELEC on Raspberry Pi" /> I wasn&#8217;t planning to put movies on the SD Card, it was going to be used for the OS. Here is a list of all the parts (and links) that I ordered for the RPi:
+I did some research and I came across <a href="http://elinux.org/RPi_SD_cards#SD_card_performance" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://elinux.org/RPi_SD_cards#SD_card_performance']);">this</a> site for a supported list of Flash Cards for the RPi. Pick one from the list that suits your needs <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile OpenELEC on Raspberry Pi" class="wp-smiley" title="OpenELEC on Raspberry Pi" /> I wasn't planning to put movies on the SD Card, it was going to be used for the OS. Here is a list of all the parts (and links) that I ordered for the RPi:
 
-*   <a href="http://www.amazon.com/dp/B007NDL56A/?tag=virtuallyhyper.com-20" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.amazon.com/dp/B007NDL56A/?tag=virtuallyhyper.com-20']);" rel="nofollow">SanDisk 32 GB SDHC Class 10</a> (probably went over board with 32GB, but will be useful for something else&#8230; maybe)
+*   <a href="http://www.amazon.com/dp/B007NDL56A/?tag=virtuallyhyper.com-20" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.amazon.com/dp/B007NDL56A/?tag=virtuallyhyper.com-20']);" rel="nofollow">SanDisk 32 GB SDHC Class 10</a> (probably went over board with 32GB, but will be useful for something else... maybe)
 *   <a href="http://www.amazon.com/dp/B005LFXBJG/?tag=virtuallyhyper.com-20" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.amazon.com/dp/B005LFXBJG/?tag=virtuallyhyper.com-20']);" rel="nofollow">Motorola USB Charger</a>
 *   <a href="http://www.amazon.com/dp/B00CEVNWM6/?tag=virtuallyhyper.com-20" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.amazon.com/dp/B00CEVNWM6/?tag=virtuallyhyper.com-20']);" rel="nofollow">3.5mm Stereo to 2 RCA Stereo</a>
 
@@ -47,7 +47,7 @@ From the top link, here is a quick summary for each:
 > *Cons*: Slow
 > 
 > **OpenELEC**  
-> OpenELEC has the same main goal as Raspbmc: provide a simple media center for your Raspberry Pi. The main difference between the two is that OpenELEC doesn&#8217;t bother with a Linux distro underneath it, and the entire installation is about 100 MB (Raspbmc is about twice this). OpenELEC is built for one purpose: to be a standalone and lightweight XBMC box.
+> OpenELEC has the same main goal as Raspbmc: provide a simple media center for your Raspberry Pi. The main difference between the two is that OpenELEC doesn't bother with a Linux distro underneath it, and the entire installation is about 100 MB (Raspbmc is about twice this). OpenELEC is built for one purpose: to be a standalone and lightweight XBMC box.
 > 
 > *Pros*: Very fast  
 > *Cons*: More difficult installation, not a lot of room for tweaking
@@ -124,7 +124,7 @@ As soon as you plug in the power cord, the RPi will start to boot. As promised, 
 
 More information on configuring **Xbian** can be found <a href="http://wiki.xbian.org/Main_Page" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.xbian.org/Main_Page']);">here</a>
 
-I definitely liked the ease of use of **XBian**. I then configured XBMC to play files from my Plex Media Server using UPNP and the playback was pretty smooth. However playing internet streams was a little choppy. When I was using my old XBMC machine, it wasn&#8217;t like that. Since I haven&#8217;t invested too much time with Xbian, I decided to try out OpenELEC.
+I definitely liked the ease of use of **XBian**. I then configured XBMC to play files from my Plex Media Server using UPNP and the playback was pretty smooth. However playing internet streams was a little choppy. When I was using my old XBMC machine, it wasn't like that. Since I haven't invested too much time with Xbian, I decided to try out OpenELEC.
 
 ### OpenElec
 
@@ -159,7 +159,7 @@ If you have all of the above tools already installed, then run the following:
     elatov@fed:~/downloads/OpenELEC-RPi.arm-3.2.3$ sudo ./create_sdcard /dev/mmcblk0
     
 
-That will finish the install. After it&#8217;s done, unplug the SD Card from the laptop and then plug it into the RPi. Plug in the power and it will start to boot. After the boot up process is finished you will see the setup wizard:
+That will finish the install. After it's done, unplug the SD Card from the laptop and then plug it into the RPi. Plug in the power and it will start to boot. After the boot up process is finished you will see the setup wizard:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/11/openelec-wizard.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/11/openelec-wizard.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/11/openelec-wizard.png" alt="openelec wizard OpenELEC on Raspberry Pi" width="547" height="321" class="alignnone size-full wp-image-9759" title="OpenELEC on Raspberry Pi" /></a>
 
@@ -167,11 +167,11 @@ Just follow the wizard and configure it to your fit your needs. Playing media vi
 
 #### Change the Skin to xTV-SAF
 
-From XBMC go to **System** -> **Appearance** -> **Skin** -> **Get More** and install the **xTV-SAF** skin/theme. After it&#8217;s installed, it will look like this:
+From XBMC go to **System** -> **Appearance** -> **Skin** -> **Get More** and install the **xTV-SAF** skin/theme. After it's installed, it will look like this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/11/xtv-saf-skin-enabled.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/11/xtv-saf-skin-enabled.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/11/xtv-saf-skin-enabled.png" alt="xtv saf skin enabled OpenELEC on Raspberry Pi" width="720" height="480" class="alignnone size-full wp-image-9761" title="OpenELEC on Raspberry Pi" /></a>
 
-I use that skin since my TV has a pretty low resolution and it&#8217;a hard to see some of the options.
+I use that skin since my TV has a pretty low resolution and it'a hard to see some of the options.
 
 #### Change the Font for the xTV-SAF Skin
 
@@ -180,14 +180,14 @@ On top of installing another skin, I also ended up increasing the font to ease r
 > user: root  
 > passwd: openelec
 
-One bad thing about OpenELEC is that you can&#8217;t change the root password, since the **rootfs** is mounted read-only as **squashfs**:
+One bad thing about OpenELEC is that you can't change the root password, since the **rootfs** is mounted read-only as **squashfs**:
 
     pi:~ # mount  | grep ' / '
     rootfs on / type rootfs (rw)
     /dev/loop0 on / type squashfs (ro,relatime)
     
 
-And you can&#8217;t remount **squashfs** read/write on the fly. To change the password you have mount the SD card on another machine and make changes there. The process is described <a href="http://wrightrocket.blogspot.com/2012/06/openelec-on-raspberry-pi.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wrightrocket.blogspot.com/2012/06/openelec-on-raspberry-pi.html']);">here</a>. This is only for my home, so I didn&#8217;t care about that.
+And you can't remount **squashfs** read/write on the fly. To change the password you have mount the SD card on another machine and make changes there. The process is described <a href="http://wrightrocket.blogspot.com/2012/06/openelec-on-raspberry-pi.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wrightrocket.blogspot.com/2012/06/openelec-on-raspberry-pi.html']);">here</a>. This is only for my home, so I didn't care about that.
 
 To change the font for the **xTV-SAF** skin, edit the following file:
 
@@ -259,7 +259,7 @@ Restart OpenELEC to apply the above changes.
 
 I read a couple of sites that talked about **dirty regions**. More information on dirty regions can be seen <a href="http://wiki.xbmc.org/index.php?title=Dirty_regions" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.xbmc.org/index.php?title=Dirty_regions']);">here</a>. From that page:
 
-> Enable dirty-region processing. Dirty regions are any parts of the screen that have changed since the last frame. By not re-rendering what hasn&#8217;t changed, big speed gains can be seen. Because all GPUs work differently, only Mode 3, combined with nofliptimeout=0, is guaranteed to be safe for everyone.
+> Enable dirty-region processing. Dirty regions are any parts of the screen that have changed since the last frame. By not re-rendering what hasn't changed, big speed gains can be seen. Because all GPUs work differently, only Mode 3, combined with nofliptimeout=0, is guaranteed to be safe for everyone.
 
 I also saw a couple of other posts that had similar goals:
 
@@ -284,13 +284,13 @@ In the end, I added the following to my **.xbmc/userdata/advancedsettings.xml** 
     </advancedsettings>
     
 
-So far I haven&#8217;t seen any issues, but I might have to play with the setting more to see if something changes.
+So far I haven't seen any issues, but I might have to play with the setting more to see if something changes.
 
 Restart OpenELEC to apply the above changes.
 
 #### Enable Automatic Updates
 
-If you didn&#8217;t select Automatic update during the configuration wizard you can enable it later. Go to **Add-Ons** -> **Programs** -> **OpenELEC Settings** -> **System** and make sure &#8220;**Automatic Update**&#8221; is set to **auto**:
+If you didn't select Automatic update during the configuration wizard you can enable it later. Go to **Add-Ons** -> **Programs** -> **OpenELEC Settings** -> **System** and make sure "**Automatic Update**" is set to **auto**:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/11/openelec-settings.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/11/openelec-settings.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/11/openelec-settings.png" alt="openelec settings OpenELEC on Raspberry Pi" width="720" height="480" class="alignnone size-full wp-image-9784" title="OpenELEC on Raspberry Pi" /></a>
 
@@ -306,7 +306,7 @@ I did this on the **pogoplug** device <a href="http://virtuallyhyper.com/2013/09
     pi:~/opt/tmp # mv opt/* ../opt/.
     
 
-Our **opt** directory is ready, since we can&#8217;t change **rootfs**, we can just mount on top of **/opt** from the home directory. It looks like **/opt** has some files in it:
+Our **opt** directory is ready, since we can't change **rootfs**, we can just mount on top of **/opt** from the home directory. It looks like **/opt** has some files in it:
 
     pi:~ # ls -R /opt
     /opt:
@@ -316,12 +316,12 @@ Our **opt** directory is ready, since we can&#8217;t change **rootfs**, we can j
     lib
     
 
-So before we mount on top of **/opt**, let&#8217;s copy the information into our **opt** directory:
+So before we mount on top of **/opt**, let's copy the information into our **opt** directory:
 
     pi:~ # cp -r /opt/. opt/.
     
 
-Now let&#8217;s mount our directory:
+Now let's mount our directory:
 
     pi:~ # mount /storage/opt /opt
     pi:~ # mount | grep opt
@@ -330,18 +330,18 @@ Now let&#8217;s mount our directory:
     /dev/mmcblk0p2           29.0G    356.9M     27.2G   1% /opt
     
 
-Now let&#8217;s enable the repository to download the packages from:
+Now let's enable the repository to download the packages from:
 
     pi:~ # echo "src cross http://ipkg.nslu2-linux.org/feeds/optware/cs08q1armel/cross/stable" >> /opt/etc/ipkg.conf
     
 
-Also let&#8217;s add **/opt/bin/** to our path:
+Also let's add **/opt/bin/** to our path:
 
     pi:~ # cat .profile 
     PATH=$PATH:/opt/bin
     
 
-Now you can install your regular packages. First let&#8217;s make sure **ipkg** is working:
+Now you can install your regular packages. First let's make sure **ipkg** is working:
 
     pi:~ # ipkg update
     Downloading http://ipkg.nslu2-linux.org/feeds/optware/cs08q1armel/cross/stable/Packages
@@ -386,12 +386,12 @@ If you want to change something, you can check out the configuration for SNMP he
     pi:~ # vi /opt/etc/snmpd.conf 
     
 
-I didn&#8217;t change anything. To start **snmpd**, just run the following:
+I didn't change anything. To start **snmpd**, just run the following:
 
     pi:~ # /opt/etc/init.d/S70net-snmp 
     
 
-Make sure it&#8217;s running by doing the following:
+Make sure it's running by doing the following:
 
     pi:~ # ps -eaf | grep snmp
     22705 root       0:00 /opt/sbin/snmpd -c /opt/etc/snmpd.conf
@@ -430,7 +430,7 @@ If you want **snmpd** to be started automatically, make sure your **.config/auto
 
 #### Backup XBMC
 
-If you want to back up XBMC (which is what OpenELEC basically consists of), then we can use the **XBMC Backup** add-on, it&#8217;s part of the XBMC repository. <a href="http://wiki.xbmc.org/index.php?title=Add-on:XBMC_Backup" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','']);">Here</a> is a link to the add-on. From that link here are the instructions to install the add-on:
+If you want to back up XBMC (which is what OpenELEC basically consists of), then we can use the **XBMC Backup** add-on, it's part of the XBMC repository. <a href="http://wiki.xbmc.org/index.php?title=Add-on:XBMC_Backup" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','']);">Here</a> is a link to the add-on. From that link here are the instructions to install the add-on:
 
 1.  Settings 
 2.  Add-ons
@@ -440,7 +440,7 @@ If you want to back up XBMC (which is what OpenELEC basically consists of), then
 6.  XBMC Backup 
 7.  Install
 
-After it&#8217;s installed go to Add-ons section:
+After it's installed go to Add-ons section:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/11/addons-enabled-addons.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/11/addons-enabled-addons.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/11/addons-enabled-addons.png" alt="addons enabled addons OpenELEC on Raspberry Pi" width="720" height="480" class="alignnone size-full wp-image-9764" title="OpenELEC on Raspberry Pi" /></a>
 
@@ -492,7 +492,7 @@ After you done with you configurations, save and close the file. So I will backu
 
 #### Install the Rsync Add-on
 
-If you won&#8217;t want to mess with **optware** but still want **rsync** on OpenELEC you can use the unofficial repository to install the **rsync** add-on (which basically installs the rsync binary in a weird location). First download the zip for the repository from <a href="http://unofficial.addon.pro/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://unofficial.addon.pro/']);">here</a>:
+If you won't want to mess with **optware** but still want **rsync** on OpenELEC you can use the unofficial repository to install the **rsync** add-on (which basically installs the rsync binary in a weird location). First download the zip for the repository from <a href="http://unofficial.addon.pro/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://unofficial.addon.pro/']);">here</a>:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/11/openelec-unoff-repo.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/11/openelec-unoff-repo.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/11/openelec-unoff-repo.png" alt="openelec unoff repo OpenELEC on Raspberry Pi" width="344" height="281" class="alignnone size-full wp-image-9772" title="OpenELEC on Raspberry Pi" /></a>
 
@@ -509,11 +509,11 @@ Then browse to your home directory and select the zip archive:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/11/select-unof-repo-zip.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/11/select-unof-repo-zip.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/11/select-unof-repo-zip.png" alt="select unof repo zip OpenELEC on Raspberry Pi" width="720" height="480" class="alignnone size-full wp-image-9774" title="OpenELEC on Raspberry Pi" /></a>
 
-After it&#8217;s installed you should see the following:
+After it's installed you should see the following:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/11/unof-repo-enabled.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/11/unof-repo-enabled.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/11/unof-repo-enabled.png" alt="unof repo enabled OpenELEC on Raspberry Pi" width="720" height="480" class="alignnone size-full wp-image-9775" title="OpenELEC on Raspberry Pi" /></a>
 
-That should enable the Unofficial OpenELEC Repository. Next let&#8217;s install **rsync** from that repository. Go to **Add-ons** -> **Get Add-ons**:
+That should enable the Unofficial OpenELEC Repository. Next let's install **rsync** from that repository. Go to **Add-ons** -> **Get Add-ons**:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/11/addon-screen-get-addons.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/11/addon-screen-get-addons.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/11/addon-screen-get-addons.png" alt="addon screen get addons OpenELEC on Raspberry Pi" width="720" height="480" class="alignnone size-full wp-image-9776" title="OpenELEC on Raspberry Pi" /></a>
 
@@ -529,7 +529,7 @@ and then select **rsync**:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/11/select-rsync-plugin-from-unof-repo.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/11/select-rsync-plugin-from-unof-repo.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/11/select-rsync-plugin-from-unof-repo.png" alt="select rsync plugin from unof repo OpenELEC on Raspberry Pi" width="720" height="480" class="alignnone size-full wp-image-9779" title="OpenELEC on Raspberry Pi" /></a>
 
-After it&#8217;s installed you should see the following:
+After it's installed you should see the following:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/11/rsync-plugin-installed.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/11/rsync-plugin-installed.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/11/rsync-plugin-installed.png" alt="rsync plugin installed OpenELEC on Raspberry Pi" width="720" height="480" class="alignnone size-full wp-image-9780" title="OpenELEC on Raspberry Pi" /></a>
 

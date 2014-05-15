@@ -15,7 +15,7 @@ tags:
   - systemctl
   - update-alternatives
 ---
-I recently posted on <a href="http://virtuallyhyper.com/2012/10/installing-mediatomb-on-freebsd-9-and-connecting-to-it-with-xbmc-from-a-fedora-17-os/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/10/installing-mediatomb-on-freebsd-9-and-connecting-to-it-with-xbmc-from-a-fedora-17-os/']);">how to setup MediaTomb on FreeBSD</a>, and I had an extra box laying around which I wanted to dedicate for audio streaming. MediaTomb would take care of Videos but I wanted another dedicated machine to handle my Music streaming. As I was doing some research I found a list of some available audio streaming software from wikipedia: &#8220;<a href="http://en.wikipedia.org/wiki/List_of_streaming_media_systems#Servers" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org/wiki/List_of_streaming_media_systems#Servers']);">List of streaming media systems</a>&#8220;. Here are the ones that stood out:
+I recently posted on <a href="http://virtuallyhyper.com/2012/10/installing-mediatomb-on-freebsd-9-and-connecting-to-it-with-xbmc-from-a-fedora-17-os/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/10/installing-mediatomb-on-freebsd-9-and-connecting-to-it-with-xbmc-from-a-fedora-17-os/']);">how to setup MediaTomb on FreeBSD</a>, and I had an extra box laying around which I wanted to dedicate for audio streaming. MediaTomb would take care of Videos but I wanted another dedicated machine to handle my Music streaming. As I was doing some research I found a list of some available audio streaming software from wikipedia: "<a href="http://en.wikipedia.org/wiki/List_of_streaming_media_systems#Servers" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org/wiki/List_of_streaming_media_systems#Servers']);">List of streaming media systems</a>". Here are the ones that stood out:
 
 *   <a title="Firefly Media Server" href="http://en.wikipedia.org/wiki/Firefly_Media_Server" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org/wiki/Firefly_Media_Server']);">Firefly Media Server</a>
 *   <a title="Squeezebox Server" href="http://en.wikipedia.org/wiki/Squeezebox_Server" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org/wiki/Squeezebox_Server']);">Squeezebox Server</a>
@@ -33,7 +33,7 @@ It seemed that everyone was really liking SubSonic. I actually used SqueezeBox a
 
 ### 1. Install the Necessary Pre-requisites
 
-Most of the instructions are laid out in &#8220;<a href="http://www.subsonic.org/pages/installation.jsp" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.subsonic.org/pages/installation.jsp']);">Installing Subsonic</a>&#8221; page, but I had to make some changes to accommodate to my OS:
+Most of the instructions are laid out in "<a href="http://www.subsonic.org/pages/installation.jsp" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.subsonic.org/pages/installation.jsp']);">Installing Subsonic</a>" page, but I had to make some changes to accommodate to my OS:
 
 	  
 	moxz:~> yum install java-1.7.0-openjdk  
@@ -62,7 +62,7 @@ From the install page, download the rpm and then install it:
 	Starting subsonic (via systemctl):  
 	
 
-The install actually includes it&#8217;s own transcoding application binaries:
+The install actually includes it's own transcoding application binaries:
 
 	  
 	moxz:~> rpm -ql subsonic-4.7-3105.i386  
@@ -75,7 +75,7 @@ The install actually includes it&#8217;s own transcoding application binaries:
 	/var/subsonic/transcode/lame  
 	
 
-The files under the &#8216;/var/subsonic/transcode&#8217; folder are the custom binaries. You can change which binaries it uses if it&#8217;s necessary.
+The files under the '/var/subsonic/transcode' folder are the custom binaries. You can change which binaries it uses if it's necessary.
 
 For some reason with my setup, subsonic would fail to start with the following message:
 
@@ -91,7 +91,7 @@ I had to update my java config to fix that, here is the command I ran:
 
 ### 3. Customize the SubSonic settings
 
-I didn&#8217;t have many things to change, I just changed the user it ran as and bound it to my IP. I edited /etc/sysconfig/subsonic and made the following changes:
+I didn't have many things to change, I just changed the user it ran as and bound it to my IP. I edited /etc/sysconfig/subsonic and made the following changes:
 
 	  
 	SUBSONIC_ARGS="--host=192.168.1.102 --max-memory=150"  
@@ -131,11 +131,11 @@ Fire up a browser of your choice and enter http://IP\_OF\_SUBSONIC:4040, you wil
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/10/subsonic_login_page.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/10/subsonic_login_page.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/10/subsonic_login_page.png" alt="subsonic login page Installing Subsonic on Fedora 17" title="subsonic_login_page" width="261" height="168" class="alignnone size-full wp-image-4238" /></a>
 
-You can login with username &#8216;admin&#8217; and password &#8216;admin&#8217;, but it will ask you to change that upon login.
+You can login with username 'admin' and password 'admin', but it will ask you to change that upon login.
 
 ### 7. Add a folder to the SubSonic where you Media is Stored
 
-Go to &#8220;Settings&#8221; -> &#8220;Media Folder&#8221; and add a folder then click &#8220;Save&#8221;, it will look something like this:
+Go to "Settings" -> "Media Folder" and add a folder then click "Save", it will look something like this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/10/subsonic_media_folders.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/10/subsonic_media_folders.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/10/subsonic_media_folders.png" alt="subsonic media folders Installing Subsonic on Fedora 17" title="subsonic_media_folders" width="683" height="426" class="alignnone size-full wp-image-4237" /></a>
 

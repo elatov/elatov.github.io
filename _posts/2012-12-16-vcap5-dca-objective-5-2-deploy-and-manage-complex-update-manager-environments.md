@@ -14,13 +14,13 @@ tags:
 ---
 ### Identify firewall access rules for Update Manager
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf']);">Installing and Administering VMware vSphere Update Manager</a>&#8220;, here is table of ports used by update manager:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf']);">Installing and Administering VMware vSphere Update Manager</a>", here is table of ports used by update manager:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/vum_net_ports.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/12/vum_net_ports.png']);"><img class="alignnone size-full wp-image-5150" title="vum_net_ports" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/vum_net_ports.png" alt="vum net ports VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="633" height="265" /></a>
 
 ### Install and configure Update Manager Download Service
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-reconfig-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-reconfig-guide.pdf']);">Reconfiguring VMware vSphere Update Manager</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-reconfig-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-reconfig-guide.pdf']);">Reconfiguring VMware vSphere Update Manager</a>":
 
 > **Install UMDS and the Update Manager Utility**  
 > When you install UMDS, the Update Manager Utility is silently installed on your system as an additional component.  
@@ -58,7 +58,7 @@ Here is more information from the same document:
 > 
 > UMDS and the Update Manager Utility are installed on your system
 
-Now we can configure UMDS, from &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf']);">Installing and Administering VMware vSphere Update Manager</a>&#8220;:
+Now we can configure UMDS, from "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf']);">Installing and Administering VMware vSphere Update Manager</a>":
 
 > **Setting Up and Using UMDS**  
 > You can set up UMDS to download upgrades for virtual appliances, or patches and notifications for ESX/ESXi hosts. You can also set up UMDS to download ESX/ESXi 4.x and ESXi 5.0 patch binaries, patch metadata, and notifications from third-party portals.
@@ -102,11 +102,11 @@ And more from the same document:
 	>         vmware-umds -S -d esx-3.5.0 embeddedEsx-3.5.0  
 	>         
 
-Also check out &#8220;<a href="http://www.jasemccarty.com/blog/?p=1859" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.jasemccarty.com/blog/?p=1859']);">VMware Update Manager Download Service on Windows 2008 R2 Core</a>&#8221; for a step-by-step guide with pictures. Another good step-by-step guide is &#8220;<a href="http://kunaludapi.blogspot.com/2012/08/installing-and-configuring-umds-update.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kunaludapi.blogspot.com/2012/08/installing-and-configuring-umds-update.html']);">Installing and Configuring UMDS Update manager download services.</a>&#8220;, and <a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/umds.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://virtuallyhyper.com/wp-content/uploads/2012/12/umds.pdf']);">here</a> is the pdf version of that site.
+Also check out "<a href="http://www.jasemccarty.com/blog/?p=1859" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.jasemccarty.com/blog/?p=1859']);">VMware Update Manager Download Service on Windows 2008 R2 Core</a>" for a step-by-step guide with pictures. Another good step-by-step guide is "<a href="http://kunaludapi.blogspot.com/2012/08/installing-and-configuring-umds-update.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kunaludapi.blogspot.com/2012/08/installing-and-configuring-umds-update.html']);">Installing and Configuring UMDS Update manager download services.</a>", and <a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/umds.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://virtuallyhyper.com/wp-content/uploads/2012/12/umds.pdf']);">here</a> is the pdf version of that site.
 
 ### Configure a shared repository
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf']);">Installing and Administering VMware vSphere Update Manager</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf']);">Installing and Administering VMware vSphere Update Manager</a>":
 
 > **Use a Shared Repository as a Download Source**  
 > You can configure Update Manager to use a shared repository as a source for downloading virtual appliance upgrades, as well as ESX/ESXi patches, extensions, and notifications.
@@ -133,7 +133,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 > 
 > The shared repository is used as a source for downloading upgrades, patches, and notifications.
 
-Taken from &#8220;<a href="http://www.vmware.com/files/pdf/vsphere-evaluators-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/vsphere-evaluators-guide.pdf']);">VMware vSphere 4 Evaluator&#8217;s Guide</a>&#8220;, here is how it looks like from vCenter:
+Taken from "<a href="http://www.vmware.com/files/pdf/vsphere-evaluators-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/vsphere-evaluators-guide.pdf']);">VMware vSphere 4 Evaluator's Guide</a>", here is how it looks like from vCenter:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/shared_repository_vum.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/12/shared_repository_vum.png']);"><img class="alignnone size-full wp-image-5175" title="shared_repository_vum" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/shared_repository_vum.png" alt="shared repository vum VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="514" height="379" /></a>
 
@@ -160,7 +160,7 @@ Here is how it looks like from vCenter:
 
 ### Manually download updates to a repository
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf']);">Installing and Administering VMware vSphere Update Manager</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf']);">Installing and Administering VMware vSphere Update Manager</a>":
 
 > **Import Patches Manually**  
 > Instead of using a shared repository or the Internet as a download source for patches and extensions, you can import patches and extensions manually by using an offline bundle.
@@ -187,7 +187,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 > 
 > You imported the patches into the Update Manager patch repository. You can view the imported patches on the Update Manager Patch Repository tab.
 
-Here is an example of importing the 5.0u1 update into update manager. First go to Home-> &#8216;Solution and Application&#8217; -> &#8216;Update Manager&#8217; -> Select &#8216;Patch Repository&#8217; tab -> click on &#8216;Import Patches&#8217;. You will see the following screen:
+Here is an example of importing the 5.0u1 update into update manager. First go to Home-> 'Solution and Application' -> 'Update Manager' -> Select 'Patch Repository' tab -> click on 'Import Patches'. You will see the following screen:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/vum-import-patch.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/12/vum-import-patch.png']);"><img class="alignnone size-full wp-image-5176" title="vum-import-patch" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/vum-import-patch.png" alt="vum import patch VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="749" height="403" /></a>
 
@@ -201,7 +201,7 @@ When the upload is done you will see a list of patches, including yours:
 
 ### Perform orchestrated vSphere upgrades
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-upgrade-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-upgrade-guide.pdf']);">vSphere Upgrade vSphere 5.0 Update 1</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-upgrade-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-upgrade-guide.pdf']);">vSphere Upgrade vSphere 5.0 Update 1</a>":
 
 > **Perform an Orchestrated Upgrade of Hosts Using vSphere Update Manager**  
 > You can use Update Manager to perform orchestrated upgrades of the ESX/ESXi hosts in your vSphere inventory by using a single upgrade baseline, or by using a baseline group.
@@ -239,7 +239,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 > 10. Remediate Hosts Against Baseline Groups  
 >     You can remediate hosts against attached groups of upgrade, patch, and extension baselines. Baseline groups might contain multiple patch and extension baselines, or an upgrade baseline combined with multiple patch and extension baselines.
 
-and from &#8220;<a href="http://www.vmware.com/files/pdf/techpaper/vSphere-5-Upgrade-Best-Practices-Guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/techpaper/vSphere-5-Upgrade-Best-Practices-Guide.pdf']);">VMware vSphere 5.0 Upgrade Best Practices</a>&#8221; we see the following:
+and from "<a href="http://www.vmware.com/files/pdf/techpaper/vSphere-5-Upgrade-Best-Practices-Guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/techpaper/vSphere-5-Upgrade-Best-Practices-Guide.pdf']);">VMware vSphere 5.0 Upgrade Best Practices</a>" we see the following:
 
 > **Uploading the ESXi Installation ISO**  
 > Start the upgrade by uploading the ESXi 5.0 installation image into Update Manager. From the Update Manager screen, choose the ESXi Images tab and click the link to Import ESXi Image… . Follow the wizard to import the ESXi 5.0 Image.
@@ -259,7 +259,7 @@ and from &#8220;<a href="http://www.vmware.com/files/pdf/techpaper/vSphere-5-Upg
 > <a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/host_update_vum_p4.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/12/host_update_vum_p4.png']);"><img class="alignnone size-full wp-image-5186" title="host_update_vum_p4" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/host_update_vum_p4.png" alt="host update vum p4 VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="487" height="289" /></a>
 > 
 > **Scanning the Cluster/Host**  
-> Scan your hosts to ensure that the host requirements are met and you are ready to upgrade. From the vCenter Hosts and Clusters view, select the host/cluster, select the Update Manager tab and select Scan&#8230; . Wait for the scan to complete.
+> Scan your hosts to ensure that the host requirements are met and you are ready to upgrade. From the vCenter Hosts and Clusters view, select the host/cluster, select the Update Manager tab and select Scan... . Wait for the scan to complete.
 > 
 > If the hosts return a status of Non-Compliant, you are ready to proceed with upgrading the host.
 > 
@@ -279,7 +279,7 @@ and from &#8220;<a href="http://www.vmware.com/files/pdf/techpaper/vSphere-5-Upg
 
 ### Create and modify baseline groups
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf']);">Installing and Administering VMware vSphere Update Manager</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf']);">Installing and Administering VMware vSphere Update Manager</a>":
 
 > **Creating Baselines and Baseline Groups**  
 > Baselines contain a collection of one or more patches, extensions, service packs, bug fixes, or upgrades, andcan be classified as patch, extension, or upgrade baselines. Baseline groups are assembled from existing baselines.
@@ -330,7 +330,7 @@ Screenshots of the above process were seen in the previous objective
 
 ### Troubleshoot Update Manager problem areas and issues
 
-In the &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf']);">Installing and Administering VMware vSphere Update Manager</a>&#8221; guide here is an index of all the available troubleshooting scenarios.
+In the "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf']);">Installing and Administering VMware vSphere Update Manager</a>" guide here is an index of all the available troubleshooting scenarios.
 
 > **Troubleshooting 173**  
 > Connection Loss with Update Manager Server or vCenter Server in a Single vCenter Server System 173  
@@ -354,7 +354,7 @@ In the &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase
 
 ### Generate database reports using MS Excel or MS SQL
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf']);">Installing and Administering VMware vSphere Update Manager</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf']);">Installing and Administering VMware vSphere Update Manager</a>":
 
 > **Generate Common Reports Using Microsoft Office Excel 2003**  
 > Using Microsoft Excel, you can connect to the Update Manager database and query the database views to generate a common report
@@ -369,7 +369,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 > 3.  Click Data > Import External Data > New Database Query.
 > 4.  In the Choose Data Source window, select VMware Update Manager and click OK.  
 >     If necessary, in the database query wizard, select the ODBC DSN name and enter the user name and password for the ODBC database connection.
-> 5.  In the Query Wizard &#8211; Choose Columns window, select the columns of data to include in your query and click Next  
+> 5.  In the Query Wizard - Choose Columns window, select the columns of data to include in your query and click Next  
 >     <a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/options_for_excel_for_vum.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/12/options_for_excel_for_vum.png']);"><img class="alignnone size-full wp-image-5205" title="options_for_excel_for_vum" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/options_for_excel_for_vum.png" alt="options for excel for vum VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="561" height="118" /></a>  
 >     For example, if you want to get the latest scan results for all objects in the inventory and all patches for an inventory object, select the following database views and their corresponding columns from the Available tables and columns pane:</p> 
 >     *   VUMV_UPDATES
@@ -404,7 +404,7 @@ Also from the same document:
 
 ### Upgrade vApps using Update Manager
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf']);">Installing and Administering VMware vSphere Update Manager</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf']);">Installing and Administering VMware vSphere Update Manager</a>":
 
 > **Upgrading Virtual Appliances**  
 > An upgrade remediation of a virtual appliance upgrades the entire software stack in the virtual appliance,including the operating system and applications. To upgrade the virtual appliance to the latest released or latest critical version, you can use one of the Update Manager predefined upgrade baselines or create your own.
@@ -440,15 +440,15 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 >             
 >             <a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/vendor_rules_options_va_update.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/12/vendor_rules_options_va_update.png']);"><img class="alignnone size-full wp-image-5212" title="vendor_rules_options_va_update" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/vendor_rules_options_va_update.png" alt="vendor rules options va update VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="711" height="444" /></a>
 >             
->             After completion, go the &#8220;VMs and Templates&#8221; View and select the Appliance and attach your baseline to it. Here is how it will look:
+>             After completion, go the "VMs and Templates" View and select the Appliance and attach your baseline to it. Here is how it will look:
 >             
 >             <a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/non-compliant_va_for_update.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/12/non-compliant_va_for_update.png']);"><img class="alignnone size-full wp-image-5213" title="non-compliant_va_for_update" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/non-compliant_va_for_update.png" alt="non compliant va for update VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="821" height="579" /></a>
 >             
->             Click &#8220;Scan&#8221; from the same screen and select the type of scan:
+>             Click "Scan" from the same screen and select the type of scan:
 >             
 >             <a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/va_vum_scan.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/12/va_vum_scan.png']);"><img class="alignnone size-full wp-image-5216" title="va_vum_scan" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/va_vum_scan.png" alt="va vum scan VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="496" height="202" /></a>
 >             
->             Then click on &#8220;Remediate&#8221; to actually perform the upgrade:
+>             Then click on "Remediate" to actually perform the upgrade:
 >             
 >             <a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/remediate_va_update.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/12/remediate_va_update.png']);"><img class="alignnone size-full wp-image-5217" title="remediate_va_update" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/remediate_va_update.png" alt="remediate va update VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="856" height="647" /></a>
 >             
@@ -456,7 +456,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 >             
 >             ### Utilize Update Manager PowerCLI to export baselines for testing
 >             
->             From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf']);">Installing and Administering VMware vSphere Update Manager</a>&#8220;:
+>             From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf']);">Installing and Administering VMware vSphere Update Manager</a>":
 >             
 >             > **Testing Patches or Extensions and Exporting Baselines to Another Update Manager Server**  
 >             > Before you apply patches or extensions to ESX/ESXi hosts, you might want to test the patches and extensions by applying them to hosts in a test environment. You can then use Update Manager PowerCLI to export the tested baselines to another Update Manager server instance and apply the patches and extensions to the other hosts.
@@ -578,7 +578,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 >             
 >             ### Utilize the Update Manager Utility to reconfigure vUM settings
 >             
->             From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-reconfig-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-reconfig-guide.pdf']);">Reconfiguring VMware vSphere Update Manager</a>&#8220;:
+>             From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-reconfig-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-reconfig-guide.pdf']);">Reconfiguring VMware vSphere Update Manager</a>":
 >             
 >             > **Start the Update Manager Utility and Log In**  
 >             > To use the Update Manager Utility, you must start the utility and log in

@@ -14,7 +14,7 @@ tags:
   - DNAT
   - MASQUERADE NAT
 ---
-First of all, let me explain why I did this. I used to have a basement and in the basement I had a couple of physical machines. I wanted to use these machines as an internal lab, just for some testing. One machine had a wireless card and no physical cable could go down to the basement. So I decided to connect the machine with the wireless card to the wireless router and then connect it&#8217;s physical ethernet NIC to a switch and have it act a gateway for my internal lab. Here is a good diagram of what the setup looked like:
+First of all, let me explain why I did this. I used to have a basement and in the basement I had a couple of physical machines. I wanted to use these machines as an internal lab, just for some testing. One machine had a wireless card and no physical cable could go down to the basement. So I decided to connect the machine with the wireless card to the wireless router and then connect it's physical ethernet NIC to a switch and have it act a gateway for my internal lab. Here is a good diagram of what the setup looked like:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/wireless_gateway.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/wireless_gateway.png']);"><img class="alignnone size-full wp-image-4022" title="wireless_gateway" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/wireless_gateway.png" alt="wireless gateway Setup Fedora 14 Machine as a Wireless Gateway for an Internal Network" width="556" height="531" /></a>
 
@@ -56,7 +56,7 @@ When I ran **iwconfig**, I saw the following:
               Rx invalid nwid:0  invalid crypt:0  invalid misc:0
     
 
-So my card was ready to connect to a wireless network. Since I wanted my wireless card to have a static DHCP IP, I setup the wireless router to assign a static IP to the MAC Address of my Wireless Card. I was using *dd-wrt* and the setup was pretty simple. If you want to see screenshots, check out &#8220;<a href="http://www.dd-wrt.com/wiki/index.php/Static_DHCP" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.dd-wrt.com/wiki/index.php/Static_DHCP']);">Static DHCP</a>&#8220;. In my setup, I assigned the IP of &#8220;192.168.1.16&#8243; to my Wireless adapter.
+So my card was ready to connect to a wireless network. Since I wanted my wireless card to have a static DHCP IP, I setup the wireless router to assign a static IP to the MAC Address of my Wireless Card. I was using *dd-wrt* and the setup was pretty simple. If you want to see screenshots, check out "<a href="http://www.dd-wrt.com/wiki/index.php/Static_DHCP" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.dd-wrt.com/wiki/index.php/Static_DHCP']);">Static DHCP</a>". In my setup, I assigned the IP of "192.168.1.16" to my Wireless adapter.
 
 Next I wanted to make sure I could actually see the wireless network:
 
@@ -150,7 +150,7 @@ Lastly, make sure only root can read the file:
     moxz:~>chmod 600 /etc/wpa_supplicant/wpa_supplicant.conf
     
 
-### 4. Setup the Wireless Interface to obtain it&#8217;s IP via DCHP
+### 4. Setup the Wireless Interface to obtain it's IP via DCHP
 
 For this we will need to edit the **/etc/sysconfig/network-scripts/ifcfg-eth1** file, here is how my file looks like:
 
@@ -228,19 +228,19 @@ Also the **iwconfig** output should look like this:
               Tx excessive retries:0  Invalid misc:34   Missed beacon:0
     
 
-Now reboot the machine and make sure it comes up with your static DHCP IP address. If it doesn&#8217;t work automatically, the order of **wpa_supplicant** and the **network** service might be off. You can edit your **/etc/rc.local** file to sleep for some time and then run the **dhclient** command from there. Here is a fedora <a href="http://forums.fedoraforum.org/showthread.php?t=235989" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://forums.fedoraforum.org/showthread.php?t=235989']);">thread</a> that talks about the process.
+Now reboot the machine and make sure it comes up with your static DHCP IP address. If it doesn't work automatically, the order of **wpa_supplicant** and the **network** service might be off. You can edit your **/etc/rc.local** file to sleep for some time and then run the **dhclient** command from there. Here is a fedora <a href="http://forums.fedoraforum.org/showthread.php?t=235989" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://forums.fedoraforum.org/showthread.php?t=235989']);">thread</a> that talks about the process.
 
-Next we need our Fedora Machine to act as NAT. When talking about NAT, there are a couple of types. From &#8220;<a href="http://www.iptables.info/en/structure-of-iptables.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.iptables.info/en/structure-of-iptables.html']);">Structure Of Iptables</a>&#8220;:
+Next we need our Fedora Machine to act as NAT. When talking about NAT, there are a couple of types. From "<a href="http://www.iptables.info/en/structure-of-iptables.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.iptables.info/en/structure-of-iptables.html']);">Structure Of Iptables</a>":
 
 > The **DNAT** target is mainly used in cases where you have a public IP and want to redirect accesses to the firewall to some other host (on a DMZ for example). In other words, we change the destination address of the packet and reroute it to the host.
 > 
-> **SNAT** is mainly used for changing the source address of packets. For the most part you&#8217;ll hide your local networks or DMZ, etc. A very good example would be that of a firewall of which we know outside IP address, but need to substitute our local network&#8217;s IP numbers with that of our firewall. With this target the firewall will automatically SNAT and De-SNAT the packets, hence making it possible to make connections from the LAN to the Internet. If your network uses 192.168.0.0/netmask for example, the packets would never get back from the Internet, because IANA has regulated these networks (among others) as private and only for use in isolated LANs.
+> **SNAT** is mainly used for changing the source address of packets. For the most part you'll hide your local networks or DMZ, etc. A very good example would be that of a firewall of which we know outside IP address, but need to substitute our local network's IP numbers with that of our firewall. With this target the firewall will automatically SNAT and De-SNAT the packets, hence making it possible to make connections from the LAN to the Internet. If your network uses 192.168.0.0/netmask for example, the packets would never get back from the Internet, because IANA has regulated these networks (among others) as private and only for use in isolated LANs.
 > 
-> The **MASQUERADE** target is used in exactly the same way as SNAT, but the MASQUERADE target takes a little bit more overhead to compute. The reason for this, is that each time that the MASQUERADE target gets hit by a packet, it automatically checks for the IP address to use, instead of doing as the SNAT target does &#8211; just using the single configured IP address. The MASQUERADE target makes it possible to work properly with Dynamic DHCP IP addresses that your ISP might provide for your PPP, PPPoE or SLIP connections to the Internet.
+> The **MASQUERADE** target is used in exactly the same way as SNAT, but the MASQUERADE target takes a little bit more overhead to compute. The reason for this, is that each time that the MASQUERADE target gets hit by a packet, it automatically checks for the IP address to use, instead of doing as the SNAT target does - just using the single configured IP address. The MASQUERADE target makes it possible to work properly with Dynamic DHCP IP addresses that your ISP might provide for your PPP, PPPoE or SLIP connections to the Internet.
 
-So *SNAT* is a static NAT, where *MASQUERADE* is dynamic NAT. I wasn&#8217;t sure if I will add more machines to my internal network, but I if I would, I wouldn&#8217;t want to tinker with my NAT setup. Also I didn&#8217;t have any public IP addresses, so I decided to set up a MASQUERADE NAT instead of SNAT.
+So *SNAT* is a static NAT, where *MASQUERADE* is dynamic NAT. I wasn't sure if I will add more machines to my internal network, but I if I would, I wouldn't want to tinker with my NAT setup. Also I didn't have any public IP addresses, so I decided to set up a MASQUERADE NAT instead of SNAT.
 
-The process is actually pretty easy. From &#8220;<a href="http://www.revsys.com/writings/quicktips/nat.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.revsys.com/writings/quicktips/nat.html']);">Quick-Tip: Linux NAT in Four Steps using iptables</a>&#8221; here are the commands that I ran:
+The process is actually pretty easy. From "<a href="http://www.revsys.com/writings/quicktips/nat.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.revsys.com/writings/quicktips/nat.html']);">Quick-Tip: Linux NAT in Four Steps using iptables</a>" here are the commands that I ran:
 
     moxz:~> echo 1 > /proc/sys/net/ipv4/ip_forward
     moxz:~> iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
@@ -273,9 +273,9 @@ I also needed to allow DNS queries (UDP 53) to go through my internal interface,
     moxz:~>iptables -I INPUT -i eth0 -p udp -m udp --dport 53 -j ACCEPT
     
 
-I wanted access to some of the machines inside the internal network from the outside, so I ended up using *DNAT* with **iptables** as well. This included a two step process. First enable port forwarding on your wireless router. The process is described in detail in &#8220;<a href="http://www.dd-wrt.com/wiki/index.php/Port_Forwarding" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.dd-wrt.com/wiki/index.php/Port_Forwarding']);">Port Forwarding</a>&#8221; (if you are using *dd-wrt*).
+I wanted access to some of the machines inside the internal network from the outside, so I ended up using *DNAT* with **iptables** as well. This included a two step process. First enable port forwarding on your wireless router. The process is described in detail in "<a href="http://www.dd-wrt.com/wiki/index.php/Port_Forwarding" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.dd-wrt.com/wiki/index.php/Port_Forwarding']);">Port Forwarding</a>" (if you are using *dd-wrt*).
 
-For example, let&#8217;s say that someone connects to port 333 from the outside network to your public IP. You would port-forward port 333 to the Fedora Machine (192.168.1.16) on the same port. When that came to the Fedora Machine you would again port-forward (or DNAT) it to the internal machine on the port of your choice. Here is how the command looked like on the Fedora Machine:
+For example, let's say that someone connects to port 333 from the outside network to your public IP. You would port-forward port 333 to the Fedora Machine (192.168.1.16) on the same port. When that came to the Fedora Machine you would again port-forward (or DNAT) it to the internal machine on the port of your choice. Here is how the command looked like on the Fedora Machine:
 
     moxz:~> iptables -I PREROUTING -i eth1 -p tcp -m tcp --dport 333 -j DNAT --to-destination 10.100.10.6:22 
     

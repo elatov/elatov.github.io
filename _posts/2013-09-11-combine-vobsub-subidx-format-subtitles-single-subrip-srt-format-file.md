@@ -25,21 +25,21 @@ I recently had a situation where I had 2 *Avi* files and 2 *Sub/Idx* files, and 
 
 From <a href="http://www.afterdawn.com/guides/archive/subtitle_formats_explained.cfm" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.afterdawn.com/guides/archive/subtitle_formats_explained.cfm']);">Subtitle Formats Explained</a>:
 
-> Most subtitles consist purely of text characters. Since text is also some of the easiest data to store and compress it makes sense to store subtitles as simple text files or a text stream within a video file. Although it&#8217;s normal for all subtitles to start out this way, that doesn&#8217;t mean that&#8217;s how they&#8217;re stored.
+> Most subtitles consist purely of text characters. Since text is also some of the easiest data to store and compress it makes sense to store subtitles as simple text files or a text stream within a video file. Although it's normal for all subtitles to start out this way, that doesn't mean that's how they're stored.
 > 
-> As a matter of fact subtitles on DVDs aren&#8217;t actually text. They&#8217;re actually encoded as raster graphics. Much like the way characters on older text-based computer interfaces, they&#8217;re actually just a collection of dots on a grid. These images are put over the top of the video frame when displayed.
+> As a matter of fact subtitles on DVDs aren't actually text. They're actually encoded as raster graphics. Much like the way characters on older text-based computer interfaces, they're actually just a collection of dots on a grid. These images are put over the top of the video frame when displayed.
 
 More from the same site:
 
-> VobSub subtitles have become very common because it&#8217;s easy to get them from DVDs. In fact, VobSub basically just re-packages the images from the DVD into a file that has the extension of .SUB and additional information in another file with an extension of .IDX. They&#8217;re generally referred to as either VobSub or IDX + SUB (IDX/SUB) subtitles. Information in the IDX file tells media player software the color of the subtitles, their position on the screen, when they appear and disappear, and a number of other important pieces of information.
+> VobSub subtitles have become very common because it's easy to get them from DVDs. In fact, VobSub basically just re-packages the images from the DVD into a file that has the extension of .SUB and additional information in another file with an extension of .IDX. They're generally referred to as either VobSub or IDX + SUB (IDX/SUB) subtitles. Information in the IDX file tells media player software the color of the subtitles, their position on the screen, when they appear and disappear, and a number of other important pieces of information.
 
-So **VobSub** format consists of images and a descriptor file to correlate the times when each image should be displayed (this is a very oversimplified definition &#8230; there are a lot of other aspect to it as well). Here is similar description from <a href="http://wiki.multimedia.cx/index.php?title=VOBsub" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.multimedia.cx/index.php?title=VOBsub']);">VobSub</a>:
+So **VobSub** format consists of images and a descriptor file to correlate the times when each image should be displayed (this is a very oversimplified definition ... there are a lot of other aspect to it as well). Here is similar description from <a href="http://wiki.multimedia.cx/index.php?title=VOBsub" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.multimedia.cx/index.php?title=VOBsub']);">VobSub</a>:
 
 > VOBsub extracts the DVD subtitles raw PES from a DVD and dumps this to a .sub file. It also creates a .idx Index file with the times and byteoffsets for each and every single subtitle. The format has support for multiple tracks and can also be embedded in MP4 and Matroska files.
 
 For **SRT** or (SubRip text file format), we can check out the <a href="http://en.wikipedia.org/wiki/SubRip" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org/wiki/SubRip']);">wikipedia</a> page:
 
-> The SubRip file format, as reported on the Matroska multimedia container format website, is &#8220;perhaps the most basic of all subtitle formats.&#8221;SubRip (SubRip Text) files are named with the extension .srt, and contain formatted lines of plain text in groups separated by a blank line. Subtitles are numbered sequentially, starting at 1. The timecode format used is hours:minutes:seconds,milliseconds with time units fixed to two zero padded digits and fractions fixed to three zero padded digits (00:00:00,000).
+> The SubRip file format, as reported on the Matroska multimedia container format website, is "perhaps the most basic of all subtitle formats."SubRip (SubRip Text) files are named with the extension .srt, and contain formatted lines of plain text in groups separated by a blank line. Subtitles are numbered sequentially, starting at 1. The timecode format used is hours:minutes:seconds,milliseconds with time units fixed to two zero padded digits and fractions fixed to three zero padded digits (00:00:00,000).
 
 There is a lot more information regarding SubRip available here:
 
@@ -193,11 +193,11 @@ You will also see a **.srtx** file, this is a description file of the converted 
     00:01:13,500 --> 00:01:21,200
     
 
-With the help of **srttool** we will be able to create a single **.srt** file after we have converted the images to text. So first let&#8217;s do that.
+With the help of **srttool** we will be able to create a single **.srt** file after we have converted the images to text. So first let's do that.
 
 ### Convert VobSub Caption Images to Text with **tesseract**
 
-Let&#8217;s install **tesseract**:
+Let's install **tesseract**:
 
     $ yum install tesseract
     
@@ -226,7 +226,7 @@ Since the **srtx** file (generated from **subtitle2pgm**) contains the timestamp
     $ srttool -s -i file1.srtx -o file1.srt
     
 
-You can confirm the file is okay, by checking out it&#8217;s contents:
+You can confirm the file is okay, by checking out it's contents:
 
     $ tail file1.srt
     787
@@ -274,7 +274,7 @@ You can check all the changes that it made by checking the differences between t
     > Is his face among
     
 
-the **sed** file doesn&#8217;t do too much, it just searches for common patterns and replaces them. Here are the contents of that file:
+the **sed** file doesn't do too much, it just searches for common patterns and replaces them. Here are the contents of that file:
 
     $ cat /usr/share/subtitleripper/gocrfilter_en.sed
     # Replace common gocr mistakes in english language
@@ -301,7 +301,7 @@ the **sed** file doesn&#8217;t do too much, it just searches for common patterns
     s/\<lt'd\>/It'd/g
     
 
-You can add your own, if think it&#8217;s missing something. Finally just rename the files so we can stay organized:
+You can add your own, if think it's missing something. Finally just rename the files so we can stay organized:
 
     $ mv file1.srt file1_after_ocr.srt
     $ mv file1_fixed.srt file1.srt
@@ -309,12 +309,12 @@ You can add your own, if think it&#8217;s missing something. Finally just rename
 
 ## Convert VobSub (SUB/IDX) files into SRT subtitles with **ogmrip**
 
-There is a similar tool that does the above in less steps, it&#8217;s called **ogmrip**. First let&#8217;s install it:
+There is a similar tool that does the above in less steps, it's called **ogmrip**. First let's install it:
 
     $ yum install ogmrip
     
 
-We don&#8217;t need the raw stream, we can just convert from **VobSub** to images directly.
+We don't need the raw stream, we can just convert from **VobSub** to images directly.
 
 ### Convert VobSub to Images with **ogmrip**
 
@@ -324,7 +324,7 @@ Here is the command to do that:
     788 files generated
     
 
-the **-s** specifies the subtitle ID (so I am picking the first english subtitles). The first *file1* specifies the basename for the **.sub** and **.idx** files. So you need to have *file1.sub* and *file1.idx* in the directory where you run that command from. After that it&#8217;s done you will have the 788 **pgm** images and an **xml** file (similar to the **.srtx** file from **subtitle2pgm** command) for the description file:
+the **-s** specifies the subtitle ID (so I am picking the first english subtitles). The first *file1* specifies the basename for the **.sub** and **.idx** files. So you need to have *file1.sub* and *file1.idx* in the directory where you run that command from. After that it's done you will have the 788 **pgm** images and an **xml** file (similar to the **.srtx** file from **subtitle2pgm** command) for the description file:
 
     $ ls *.pgm | wc -l
     788
@@ -345,7 +345,7 @@ Here is how an example image looked like:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/09/feh_after_subp2pgm.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/09/feh_after_subp2pgm.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/09/feh_after_subp2pgm.png" alt="feh after subp2pgm Combine VobSub (sub/idx) Format Subtitles into a Single SubRip (srt) Format File" width="265" height="48" class="alignnone size-full wp-image-9452" title="Combine VobSub (sub/idx) Format Subtitles into a Single SubRip (srt) Format File" /></a>
 
-You can see that the images generated from **subtitle2pgm** (from the **subtitleripper** package) didn&#8217;t have a grey outline around the characters, where the images generated from **subp2pgm** do. Actually the **subtitle2p2gm** utility is a little more flexible and allows you to choose the font and background colors. From the **subtitle2pgm** read-me page (**/usr/share/doc/subtitleripper-0.3/README.subtitle2pgm**):
+You can see that the images generated from **subtitle2pgm** (from the **subtitleripper** package) didn't have a grey outline around the characters, where the images generated from **subp2pgm** do. Actually the **subtitle2p2gm** utility is a little more flexible and allows you to choose the font and background colors. From the **subtitle2pgm** read-me page (**/usr/share/doc/subtitleripper-0.3/README.subtitle2pgm**):
 
     -c <c0,c1,c2,c3>           Override the default grey levels in output image.
                                Default is 255,255,0,255.  Valid values are in the range
@@ -361,7 +361,7 @@ We can use another utility called **pgm2txt** (from the **transcode** package), 
     $ pgm2txt file1
     
 
-As the conversion starts, it will show you characters that it doesn&#8217;t recognize:
+As the conversion starts, it will show you characters that it doesn't recognize:
 
     Converting file10767.pgm into text
     Converting file10768.pgm into text
@@ -394,7 +394,7 @@ As the conversion starts, it will show you characters that it doesn&#8217;t reco
     Press RET at the end (ALT+RET to store into RAM only):
     
 
-So anything represented by the hash marks (#) it didn&#8217;t recognize. You can fill in the characters that you recognize (in the above example that is the **i** character). After that&#8217;s done, you can check how the text looks like :
+So anything represented by the hash marks (#) it didn't recognize. You can fill in the characters that you recognize (in the above example that is the **i** character). After that's done, you can check how the text looks like :
 
     $ cat file10788.pgm.txt
     Still, he's got style.
@@ -458,11 +458,11 @@ and I saw the following:
                                              <
     
 
-It looks like **gocr** does better with single words (you can see the bottom one, **tesseract** didn&#8217;t recognize the &#8216;No&#8217;, since it&#8217;s just a single word). While **tesseract** does better with long sentences (ie &#8216;just run&#8217; vs &#8216;j-ust run&#8217;). I saw other similar conversions/mistakes.
+It looks like **gocr** does better with single words (you can see the bottom one, **tesseract** didn't recognize the 'No', since it's just a single word). While **tesseract** does better with long sentences (ie 'just run' vs 'j-ust run'). I saw other similar conversions/mistakes.
 
 ## Convert VobSub (SUB/IDX) Files into SRT subtitles with **vobsub2srt**
 
-There is another tool that was recently released that does all the above in one swoop. It wasn&#8217;t part of the *yum* repository so I compiled it manually.
+There is another tool that was recently released that does all the above in one swoop. It wasn't part of the *yum* repository so I compiled it manually.
 
 ### Install VobSub2SRT
 
@@ -533,7 +533,7 @@ It looks like it skipped two captions.
 
 ## Merge 2 SRT into a Single SRT file
 
-This one isn&#8217;t that bad. After you converted from **vobsub** to **srt**, you should have the following files in the end:
+This one isn't that bad. After you converted from **vobsub** to **srt**, you should have the following files in the end:
 
     $ ls
     file1.avi   file1.srt   file2.avi  file1.srt
@@ -600,7 +600,7 @@ Later on, I got a good version of the **SRT** file and I wanted to compare the t
     Stop there!
     
 
-Notice the times are off by a millisecond, this is great. If it&#8217;s too far off you can use the subtitle delay functionality from the video player (**vlc** and **mplayer** both offer this).
+Notice the times are off by a millisecond, this is great. If it's too far off you can use the subtitle delay functionality from the video player (**vlc** and **mplayer** both offer this).
 
 ## Adjusting the Time in the SRT File
 
@@ -634,7 +634,7 @@ that output is in milliseconds, but you can just move the decimal point by 3. An
 
 ### Use **srttool** to Adjust the Time of the Subtitles Inside an SRT file
 
-Now that we know the duration of the first movie, let&#8217;s adjust the times in the second **SRT** file by adding the duration of the first one. Here is the command for that:
+Now that we know the duration of the first movie, let's adjust the times in the second **SRT** file by adding the duration of the first one. Here is the command for that:
 
     $ srttool -d 3728 -i file2.srt -o file2-adjusted.srt
     
@@ -645,7 +645,7 @@ Now we can just concatenate them both and reset the caption ids:
     $ srttool -r -i files.srt -o files-sorted.srt
     
 
-That&#8217;s it <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Combine VobSub (sub/idx) Format Subtitles into a Single SubRip (srt) Format File" class="wp-smiley" title="Combine VobSub (sub/idx) Format Subtitles into a Single SubRip (srt) Format File" /> As a side note, you could play the media files and include the **vobsub** subtitles like so:
+That's it <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Combine VobSub (sub/idx) Format Subtitles into a Single SubRip (srt) Format File" class="wp-smiley" title="Combine VobSub (sub/idx) Format Subtitles into a Single SubRip (srt) Format File" /> As a side note, you could play the media files and include the **vobsub** subtitles like so:
 
     $ mplayer file1.avi -vobsub file1 -vobsubid 4
     $ vlc file1.avi --sub-file file1.sub

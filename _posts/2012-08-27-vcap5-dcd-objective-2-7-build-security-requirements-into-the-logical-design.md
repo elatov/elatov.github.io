@@ -13,7 +13,7 @@ tags:
 ---
 ### Understand what security services are provided by VMware solutions
 
-vShield is the most popular service. If you need PCI compliance you can check out &#8220;<a href="http://www.vmware.com/cloud-security-compliance/protect-critical-applications" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.vmware.com/cloud-security-compliance/protect-critical-applications']);">VMware Compliance Center</a>&#8221; page. It has links how to accomplish certain level of compliance. There is also a tool called VMware Compliance Checker, here is a screen shot of that application, take from <a href="http://blogs.vmware.com/security/2012/04/vmware-cpc-releases-pci-20-free-compliance-checkers.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/security/2012/04/vmware-cpc-releases-pci-20-free-compliance-checkers.html']);">this</a> VMware blog:  
+vShield is the most popular service. If you need PCI compliance you can check out "<a href="http://www.vmware.com/cloud-security-compliance/protect-critical-applications" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.vmware.com/cloud-security-compliance/protect-critical-applications']);">VMware Compliance Center</a>" page. It has links how to accomplish certain level of compliance. There is also a tool called VMware Compliance Checker, here is a screen shot of that application, take from <a href="http://blogs.vmware.com/security/2012/04/vmware-cpc-releases-pci-20-free-compliance-checkers.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/security/2012/04/vmware-cpc-releases-pci-20-free-compliance-checkers.html']);">this</a> VMware blog:  
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/compliance.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/compliance.png']);"><img class="alignnone size-full wp-image-2811" title="compliance" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/compliance.png" alt="compliance VCAP5 DCD Objective 2.7 – Build Security Requirements into the Logical Design " width="1184" height="849" /></a>
 
 VMware also provides hardening guides for each version of ESX, and here a <a href="https://www.vmware.com/support/support-resources/hardening-guides.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.vmware.com/support/support-resources/hardening-guides.html']);">link</a> to all the different versions.
@@ -39,7 +39,7 @@ There is actually a <a href="http://www.techrepublic.com/blog/security/understan
 > 4.  parental controls
 > 5.  privacy controls
 
-And Regarding Trust Zones, from &#8220;<a href="http://www.vmware.com/files/pdf/network_segmentation.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/network_segmentation.pdf']);">Network Segmentation in Virtualized Environments</a>&#8220;:
+And Regarding Trust Zones, from "<a href="http://www.vmware.com/files/pdf/network_segmentation.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/network_segmentation.pdf']);">Network Segmentation in Virtualized Environments</a>":
 
 > As virtualization becomes the standard infrastructure for server deployments, a growing number of organizations want to consolidate servers that belong to different trust zones. A trust  
 > zone is loosely defined as a network segment within which data flows relatively freely, whereas data flowing in and out of the trust zone is subject to stronger restrictions. Examples of trust  
@@ -78,15 +78,15 @@ From the <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/
 > *   The Tomcat Web service, used internally by ESXi to support access by Web clients, has been modified to run only those functions required for administration and monitoring by a Web client. As a result, ESXi is not vulnerable to the Tomcat security issues reported in broader use.
 > *   Insecure services such as FTP and Telnet are not installed, and the ports for these services are closed by default.
 
-So if you don&#8217;t care if an ESX server gets hacked, then open all the ports. If you do care, take extra care when opening ports on the ESXi firewall. Or if you don&#8217;t care that you have a 30% of getting a Virus on just of 1 the VMs then don&#8217;t do anything. If you do care, implement vShield endpoint to lower that percentage to 10%.
+So if you don't care if an ESX server gets hacked, then open all the ports. If you do care, take extra care when opening ports on the ESXi firewall. Or if you don't care that you have a 30% of getting a Virus on just of 1 the VMs then don't do anything. If you do care, implement vShield endpoint to lower that percentage to 10%.
 
 ### Given security requirements, assess the services that will be impacted and create an access management plan
 
-Let&#8217;s say you have a requirement for certain VMs not to be access from the internet (ie Database Server, all queries should be made locally). So you end up putting your DB server in a NAT either using vShield or a physical firewall. With this configuration it will be more difficult to access this server and other services (ie web server) could be impacted as well. So plan ahead and open up appropriate ports on the firewall that are used for NAT to allow the necessary ports to have local access.
+Let's say you have a requirement for certain VMs not to be access from the internet (ie Database Server, all queries should be made locally). So you end up putting your DB server in a NAT either using vShield or a physical firewall. With this configuration it will be more difficult to access this server and other services (ie web server) could be impacted as well. So plan ahead and open up appropriate ports on the firewall that are used for NAT to allow the necessary ports to have local access.
 
 ### Given a regulatory requirement example, determine the proper security solution that would comply with it
 
-From &#8220;<a href="http://www.vmware.com/files/pdf/cloud/vmware-cloud-solution-security-in-the-cloud-wp-en.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/cloud/vmware-cloud-solution-security-in-the-cloud-wp-en.pdf']);">Infrastructure Security: Getting to the Bottom of Compliance in the Cloud</a>&#8220;, linked in the blue print:
+From "<a href="http://www.vmware.com/files/pdf/cloud/vmware-cloud-solution-security-in-the-cloud-wp-en.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/cloud/vmware-cloud-solution-security-in-the-cloud-wp-en.pdf']);">Infrastructure Security: Getting to the Bottom of Compliance in the Cloud</a>", linked in the blue print:
 
 > **Build secure clouds customized to comply with the most rigorous requirements.**  
 > The secure cloud’s ability to map high-trust zones of systems will enable organizations and cloud providers to customize their clouds to comply specifically with PCI DSS, HIPAA or other highly  
@@ -94,7 +94,7 @@ From &#8220;<a href="http://www.vmware.com/files/pdf/cloud/vmware-cloud-solution
 > 
 > Furthermore, cloud services could be fine-tuned to provide different levels of data security. For instance, two clouds could be proven HIPAA-compliant, with one cloud tuned to provide lower-level security at a lower cost for data such as patients’ insurance information. The other HIPAA-compliant cloud, handling sensitive health information such as patient medical histories, would be tuned for maximum security. By tailoring cloud service levels, security and pricing to the value of information handled within each cloud, organizations provisioning private clouds can buy only what they need, making the cost benefits and business case for moving into the cloud even more compelling.
 
-With vShield you can setup NATs, DMZs, Virus Checkers, and much more. There is even a data security scanner, from the &#8220;<a href="http://www.vmware.com/pdf/vshield_50_admin.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/vshield_50_admin.pdf']);">vShield Administration Guide</a>&#8220;:
+With vShield you can setup NATs, DMZs, Virus Checkers, and much more. There is even a data security scanner, from the "<a href="http://www.vmware.com/pdf/vshield_50_admin.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/vshield_50_admin.pdf']);">vShield Administration Guide</a>":
 
 > **Defining a Data Security Policy**  
 > To detect sensitive data in your environment, you must create a data security policy. To define a policy, you must specify the following:

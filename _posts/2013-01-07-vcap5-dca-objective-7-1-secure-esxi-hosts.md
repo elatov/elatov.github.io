@@ -69,7 +69,7 @@ Here is a list of supported functions that use pam for authentication:
 
 ### Identify virtual switch security characteristics
 
-These were covered in &#8220;<a href="http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/']);">VCAP5-DCA Objective 2.1</a>&#8221; Here is a concise list:
+These were covered in "<a href="http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/']);">VCAP5-DCA Objective 2.1</a>" Here is a concise list:
 
 1.  Promiscuous mode
 2.  MAC address change
@@ -77,7 +77,7 @@ These were covered in &#8220;<a href="http://virtuallyhyper.com/2012/10/vcap5-dc
 
 ### Add/Edit Remove users/groups on an ESXi host
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf']);">vSphere Security ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf']);">vSphere Security ESXi 5.0</a>":
 
 > **Add a Local User**  
 > Adding a user to the users table updates the internal user list that the host maintains.
@@ -99,7 +99,7 @@ Here is how it looks like from the vSphere Client:
 
 <a href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-7-1-secure-esxi-hosts/add_new_user/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/vcap5-dca-objective-7-1-secure-esxi-hosts/add_new_user/']);" rel="attachment wp-att-5472"><img class="alignnone size-full wp-image-5472" alt="add new user VCAP5 DCA Objective 7.1 – Secure ESXi Hosts " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/add_new_user.png" width="373" height="528" title="VCAP5 DCA Objective 7.1 – Secure ESXi Hosts " /></a>
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf']);">vSphere Security ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf']);">vSphere Security ESXi 5.0</a>":
 
 > **Add a Group**  
 > Adding a group to the groups table updates the internal group list maintained by the host.
@@ -121,7 +121,7 @@ Here is how it looks like from the vSphere Client:
 
 ### Customize SSH settings for increased security
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-management-for-service-console-users.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-management-for-service-console-users.pdf']);">Command-Line Management in vSphere 5.0 for Service Console Users</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-management-for-service-console-users.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-management-for-service-console-users.pdf']);">Command-Line Management in vSphere 5.0 for Service Console Users</a>":
 
 > **Remote Access to ESXi Shell Using SSH**  
 > If Secure Shell is enabled for the ESXi Shell, you can run shell commands by using a Secure Shell client such as SSH or PuTTY.
@@ -170,7 +170,7 @@ You can also set a timeout for the shell with the following advanced option:
 
 ### Enable/Disable certificate checking
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf']);">vSphere Security ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf']);">vSphere Security ESXi 5.0</a>":
 
 > **Enable Certificate Checking and Verify Host Thumbprints**  
 > To prevent man-in-the-middle attacks and to fully use the security that certificates provide, certificate checking is enabled by default. You can verify that certificate checking is enabled in the vSphere Client.
@@ -192,7 +192,7 @@ Here is how the setting looks like from vCenter:
 
 ### Generate ESXi host certificates
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf']);">vSphere Security ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf']);">vSphere Security ESXi 5.0</a>":
 
 > **Generate New Certificates for ESXi**  
 > You typically generate new certificates only if you change the host name or accidentally delete the certificate. Under certain circumstances, you might be required to force the host to generate new certificates.
@@ -212,7 +212,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 
 ### Enable ESXi lockdown mode
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf']);">vSphere Security ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf']);">vSphere Security ESXi 5.0</a>":
 
 > **Lockdown Mode Behavior**  
 > Enabling lockdown mode affects which users are authorized to access host services.
@@ -271,7 +271,7 @@ Here is how it looks like from the Console:
 
 ### Replace default certificate with CA-signed certificate
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf']);">vSphere Security ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf']);">vSphere Security ESXi 5.0</a>":
 
 > **Replace a Default Host Certificate with a CA-Signed Certificate**
 > 
@@ -294,7 +294,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 
 ### Configure SSL timeouts
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf']);">vSphere Security ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf']);">vSphere Security ESXi 5.0</a>":
 
 > **Configure SSL Timeouts**  
 > You can configure SSL timeouts for ESXi. Timeout periods can be set for two types of idle connections:
@@ -336,7 +336,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 
 ### Configure vSphere Authentication Proxy
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf']);">vSphere Security ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf']);">vSphere Security ESXi 5.0</a>":
 
 > **Using vSphere Authentication Proxy**  
 > When you use the vSphere Authentication Proxy, you do not need to transmit Active Directory credentials to the host. Users supply the domain name of the Active Directory server and the IP address of the authentication proxy server when they add a host to a domain.
@@ -420,7 +420,7 @@ Lastly use the Proxy to add a host to a domain:
 
 ### Enable strong passwords and configure password policies
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf']);">vSphere Security ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf']);">vSphere Security ESXi 5.0</a>":
 
 > **Host Password Strength and Complexity**  
 > By default, ESXi uses the pam_passwdqc.so plug-in to set the rules that users must observe when creating passwords and to check password strength.
@@ -470,22 +470,22 @@ Here is an example from the same document:
 
 ### Identify methods for hardening virtual machines
 
-From &#8220;<a href="http://communities.vmware.com/docs/DOC-19605" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/docs/DOC-19605']);">vSphere 5.0 Hardening Guide</a>&#8221;
+From "<a href="http://communities.vmware.com/docs/DOC-19605" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/docs/DOC-19605']);">vSphere 5.0 Hardening Guide</a>"
 
 > **RemoteDisplay.maxConnections**  
-> By default, remote console sessions can be connected to by more than one user at a time. When multiple sessions are activated, each terminal window gets a notification about the new session. If an administrator in the VM logs in using a VMware remote console during their session, a nonadministrator in the VM might connect to the console and observe the administrator&#8217;s actions. Also, this could result in an administrator losing console access to a virtual machine. For example if a jump box is being used for an open console session, and the admin loses connection to that box, then the console session remains open. Allowing two console sessions permits debugging via a shared session. For highest security, only one remote console session at a time should be allowed
+> By default, remote console sessions can be connected to by more than one user at a time. When multiple sessions are activated, each terminal window gets a notification about the new session. If an administrator in the VM logs in using a VMware remote console during their session, a nonadministrator in the VM might connect to the console and observe the administrator's actions. Also, this could result in an administrator losing console access to a virtual machine. For example if a jump box is being used for an open console session, and the admin loses connection to that box, then the console session remains open. Allowing two console sessions permits debugging via a shared session. For highest security, only one remote console session at a time should be allowed
 > 
 > **tools.setInfo.sizeLimit**  
-> &#8220;The configuration file containing these name-value pairs is limited to a size of 1MB. This 1MB capacity should be sufficient for most cases, but you can change this value if necessary. You might increase this value if large amounts of custom information are being stored in the configuration file. The default limit is 1MB; this limit is applied even when the sizeLimit parameter is not listed in the .vmx file. Uncontrolled size for the VMX file can lead to denial of service if the datastore is filled.&#8221;
+> "The configuration file containing these name-value pairs is limited to a size of 1MB. This 1MB capacity should be sufficient for most cases, but you can change this value if necessary. You might increase this value if large amounts of custom information are being stored in the configuration file. The default limit is 1MB; this limit is applied even when the sizeLimit parameter is not listed in the .vmx file. Uncontrolled size for the VMX file can lead to denial of service if the datastore is filled."
 > 
 > **isolation.tools.copy.disable**  
 > Copy and paste operations are disabled by default however by explicitly disabling this feature it will enable audit controls to check that this setting is correct.
 > 
 > **isolation.tools.hgfsServerSet.disable**  
-> Certain automated operations such as automated tools upgrades use a component into the hypervisor called &#8220;Host Guest File System&#8221; and an attacker could potentially use this to transfer files inside the guest OS
+> Certain automated operations such as automated tools upgrades use a component into the hypervisor called "Host Guest File System" and an attacker could potentially use this to transfer files inside the guest OS
 > 
 > **isolation.monitor.control.disable**  
-> When Virtual Machines are running on a hypervisor they are &#8220;aware&#8221; that they are running in a virtual environment and this and this information is available to tools inside the guest OS. This can give attackers information about the platform that they are running on that they may not get from a normal physical server. This option completely disables all hooks for a virtual machine and the guest OS will not be aware that it is running in a virtual environment at all.
+> When Virtual Machines are running on a hypervisor they are "aware" that they are running in a virtual environment and this and this information is available to tools inside the guest OS. This can give attackers information about the platform that they are running on that they may not get from a normal physical server. This option completely disables all hooks for a virtual machine and the guest OS will not be aware that it is running in a virtual environment at all.
 > 
 > **isolation.tools.diskShrink.disable**  
 > Shrinking a virtual disk reclaims unused space in it. If there is empty space in the disk, this process reduces the amount of space the virtual disk occupies on the host drive. Normal users and processes—that is, users and processes without root or administrator privileges—within virtual machines have the capability to invoke this procedure. However, if this is done repeatedly, the virtual disk can become unavailable while this shrinking is being performed, effectively causing a denial of service. In most datacenter environments, disk shrinking is not done, so you should disable this feature by setting the parameters listed in Table 9. Repeated disk shrinking can make a virtual disk unavailable. Capability is available to nonadministrative users in the guest.
@@ -511,7 +511,7 @@ Here is how it looks like in vCenter:
 
 ### Analyze logs for security-related messages
 
-Most of those will be in the **/var/log/vmkernel.log** file. For example when I run tcpdump on a vmk inside a vSwitch that doesn&#8217;t have promiscuos mode enabled, I always see this:
+Most of those will be in the **/var/log/vmkernel.log** file. For example when I run tcpdump on a vmk inside a vSwitch that doesn't have promiscuos mode enabled, I always see this:
 
 	  
 	2012-12-23T01:12:51.889Z cpu0:352565)etherswitch: L2Sec_EnforcePortCompliance:226: client vmk0 requested promiscuous mode on port 0x1000003, disallowed by vswitch policy  
@@ -535,7 +535,7 @@ If you want to check out the commands that were executed on the host, you can ch
 
 ### Manage Active Directory integration
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf']);">vSphere Security ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf']);">vSphere Security ESXi 5.0</a>":
 
 > **Add a Host to a Directory Service Domain**  
 > To use a directory service, you must join the host to the directory service domain.  

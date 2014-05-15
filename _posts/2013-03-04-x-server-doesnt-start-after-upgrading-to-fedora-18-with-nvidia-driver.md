@@ -1,5 +1,5 @@
 ---
-title: 'X Server Doesn&#8217;t Start After Upgrading to Fedora 18 with Nvidia Driver'
+title: "X Server Doesn't Start After Upgrading to Fedora 18 with Nvidia Driver"
 author: Karim Elatov
 layout: post
 permalink: /2013/03/x-server-doesnt-start-after-upgrading-to-fedora-18-with-nvidia-driver/
@@ -12,7 +12,7 @@ tags:
   - Fedora 18
   - nVidia
 ---
-I updated my machine to Fedora 18 and I had the Nvidia driver installed (check out <a href="http://virtuallyhyper.com/2012/10/setup-fedora-17-with-nvidia-geforce-6200-to-connect-to-a-tv-and-function-as-an-xbmc-media-center/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/10/setup-fedora-17-with-nvidia-geforce-6200-to-connect-to-a-tv-and-function-as-an-xbmc-media-center/']);">this</a> previous post for the Nvidia setup), but after I rebooted, X wouldn&#8217;t start. Checking out the **/var/log/Xorg.0.log** file, I saw the following:
+I updated my machine to Fedora 18 and I had the Nvidia driver installed (check out <a href="http://virtuallyhyper.com/2012/10/setup-fedora-17-with-nvidia-geforce-6200-to-connect-to-a-tv-and-function-as-an-xbmc-media-center/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/10/setup-fedora-17-with-nvidia-geforce-6200-to-connect-to-a-tv-and-function-as-an-xbmc-media-center/']);">this</a> previous post for the Nvidia setup), but after I rebooted, X wouldn't start. Checking out the **/var/log/Xorg.0.log** file, I saw the following:
 
     [ 44.607] (EE) NVIDIA: Failed to load the NVIDIA kernel module. Please check your
     [ 44.607] (EE) NVIDIA: system's kernel log for additional error messages.
@@ -85,7 +85,7 @@ I tried a **yum update**:
     Nothing to do
     
 
-But it looks like it&#8217;s not in the YUM repositories. I found the package on <a href="http://rpm.pbone.net" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://rpm.pbone.net']);"><strong>http://rpm.pbone.net</strong></a> and downloaded it. I then installed it manually:
+But it looks like it's not in the YUM repositories. I found the package on <a href="http://rpm.pbone.net" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://rpm.pbone.net']);"><strong>http://rpm.pbone.net</strong></a> and downloaded it. I then installed it manually:
 
     moxz:~>sudo rpm -ivh kernel-devel-3.7.8-202.fc18.i686.rpm  
     Preparing... ################################# [100%]
@@ -153,7 +153,7 @@ Then checking out that RPM package:
     kernel 3.7.8-202.fc18.i686 for the i686 family of processors.
     
 
-The &#8220;Build Host&#8221; is the **hostname** of my machine <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile X Server Doesnt Start After Upgrading to Fedora 18 with Nvidia Driver" class="wp-smiley" title="X Server Doesnt Start After Upgrading to Fedora 18 with Nvidia Driver" /> Checking out what files the package installed, we see this:
+The "Build Host" is the **hostname** of my machine <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile X Server Doesnt Start After Upgrading to Fedora 18 with Nvidia Driver" class="wp-smiley" title="X Server Doesnt Start After Upgrading to Fedora 18 with Nvidia Driver" /> Checking out what files the package installed, we see this:
 
     moxz:~>rpm -ql kmod-nvidia-3.7.8-202.fc18.i686-304.64-6.fc18.i686
     /usr/lib/modules/3.7.8-202.fc18.i686/extra/nvidia

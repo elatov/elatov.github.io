@@ -87,7 +87,7 @@ So the first partition had NTFS on it. I then tried to mount the NTFS partition 
 	/dev/da0s1 on /mnt/usb (ntfs, local)  
 	
 
-But when I tried to write files to it, I couldn&#8217;t. I then wanted to find any *man* pages regarding NTFS:
+But when I tried to write files to it, I couldn't. I then wanted to find any *man* pages regarding NTFS:
 
 	  
 	elatov@freebsd:~>man -k ntfs  
@@ -101,7 +101,7 @@ Not much there <img src="http://virtuallyhyper.com/wp-includes/images/smilies/ic
 > 
 > For a full read-write NTFS support consider sysutils/fusefs-ntfs port/package. 
 
-So it looks like I need to install another package to have write permission to an NTFS volume. So let&#8217;s get to it:
+So it looks like I need to install another package to have write permission to an NTFS volume. So let's get to it:
 
 	  
 	elatov@freebsd:~>cd /usr/ports/sysutils/fusefs-ntfs  
@@ -116,7 +116,7 @@ The install finished, and I wanted to mount it with the new package. First I un-
 	elatov@freebsd:~>  
 	
 
-That looks good, next let&#8217;s figure out how to use this package to mount the NTFS partition. First update your *man* database and check out the *man* pages:
+That looks good, next let's figure out how to use this package to mount the NTFS partition. First update your *man* database and check out the *man* pages:
 
 	  
 	elatov@freebsd:~>sudo makewhatis /usr/local/man  
@@ -146,7 +146,7 @@ From the *man* page:
 > **EXAMPLE**  
 > Test if /dev/sda1 can be mounted read-write:
 > 
-> ntfs-3g.probe &#8211;readwrite /dev/sda1
+> ntfs-3g.probe -readwrite /dev/sda1
 > 
 > **EXIT CODES**  
 > The exit codes are as follows:
@@ -154,7 +154,7 @@ From the *man* page:
 > 0 Volume is mountable.  
 > 11 Syntax error, command line parsing failed. 
 
-Let&#8217;s see if we are okay:
+Let's see if we are okay:
 
 	  
 	elatov@freebsd:~>sudo ntfs-3g.probe --readwrite /dev/da0s1  
@@ -162,7 +162,7 @@ Let&#8217;s see if we are okay:
 	  
 	
 
-That means we can mount it read/write. Now let&#8217;s actually mount it. From the *man* page here are some examples:
+That means we can mount it read/write. Now let's actually mount it. From the *man* page here are some examples:
 
 > **EXAMPLES**  
 > Mount /dev/sda1 to /mnt/windows:
@@ -190,7 +190,7 @@ Here is what I did to try to mount my NTFS Partition:
 	fuse: failed to open fuse device: No such file or directory  
 	
 
-I didn&#8217;t remember the &#8220;Install Notice&#8221; for the packages, so I decided to refresh my memory:
+I didn't remember the "Install Notice" for the packages, so I decided to refresh my memory:
 
 	  
 	elatov@freebsd:~>pkg_info -D -x fusefs-ntfs-2012.1.15  
@@ -209,7 +209,7 @@ I didn&#8217;t remember the &#8220;Install Notice&#8221; for the packages, so I 
 	==============================================================================  
 	
 
-Checking out the package and it&#8217;s files I saw this:
+Checking out the package and it's files I saw this:
 
 	  
 	elatov@freebsd:~>pkg_info | grep ntfs  
@@ -223,7 +223,7 @@ From the README, I saw the following:
 
 > To mount at startup you need to have the following line in /etc/rc.conf:
 > 
-> fusefs_enable=&#8221;YES&#8221; 
+> fusefs_enable="YES" 
 
 so I added that to my *rc.conf* and then started the *service*:
 
@@ -278,7 +278,7 @@ Another person had the issue as well, <a href="http://forums.freebsd.org/showthr
 > current process = 2390 (mv)  
 > trap number = 12 
 
-Later I found <a href="http://www.mail-archive.com/freebsd-users-jp@jp.freebsd.org/msg04947.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.mail-archive.com/freebsd-users-jp@jp.freebsd.org/msg04947.html']);">this</a> post. It&#8217;s in Japanese but you can always translate it. In this post there is actually a patch to the *fusefs-kmod* package to fix the issue, since there are issues with *chown* and *chmod* when it tries to copy files to an NTFS volume. So let&#8217;s patch the source and see if it helps out. First download the source if you don&#8217;t have it:
+Later I found <a href="http://www.mail-archive.com/freebsd-users-jp@jp.freebsd.org/msg04947.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.mail-archive.com/freebsd-users-jp@jp.freebsd.org/msg04947.html']);">this</a> post. It's in Japanese but you can always translate it. In this post there is actually a patch to the *fusefs-kmod* package to fix the issue, since there are issues with *chown* and *chmod* when it tries to copy files to an NTFS volume. So let's patch the source and see if it helps out. First download the source if you don't have it:
 
 	  
 	elatov@freebsd:/usr/ports/sysutils/fusefs-kmod>sudo make fetch  
@@ -305,14 +305,14 @@ Then extract the source:
 	drwxr-xr-x 3 root wheel 512 Oct 14 08:02 work  
 	
 
-After you extract the source you will see a &#8216;*work*&#8216; directory. The patch process is described <a href="http://www.freebsd.org/doc/en_US.ISO8859-1/books/porters-handbook/slow-patch.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.freebsd.org/doc/en_US.ISO8859-1/books/porters-handbook/slow-patch.html']);">here</a>. From the FreeBSD page:
+After you extract the source you will see a '*work*' directory. The patch process is described <a href="http://www.freebsd.org/doc/en_US.ISO8859-1/books/porters-handbook/slow-patch.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.freebsd.org/doc/en_US.ISO8859-1/books/porters-handbook/slow-patch.html']);">here</a>. From the FreeBSD page:
 
-> Each patch you wish to apply should be saved into a file named patch-\* where \* indicates the pathname of the file that is patched, such as patch-Imakefile or patch-src-config.h. These files should be stored in PATCHDIR (usually files/, from where they will be automatically applied. All patches must be relative to WRKSRC (generally the directory your port&#8217;s tarball unpacks itself into, that being where the build is done).  
+> Each patch you wish to apply should be saved into a file named patch-\* where \* indicates the pathname of the file that is patched, such as patch-Imakefile or patch-src-config.h. These files should be stored in PATCHDIR (usually files/, from where they will be automatically applied. All patches must be relative to WRKSRC (generally the directory your port's tarball unpacks itself into, that being where the build is done).  
 > ..  
 > ..  
 > Note that if the path of a patched file contains an underscore (\_) character, the patch needs to have two underscores instead in its name. For example, to patch a file named src/freeglut\_joystick.c, the corresponding patch should be named patch-src-freeglut__joystick.c. 
 
-So we were patching the &#8220;fuse_vnops.c&#8221; file. First let&#8217;s find it&#8217;s location in the source:
+So we were patching the "fuse_vnops.c" file. First let's find it's location in the source:
 
 	  
 	elatov@freebsd:/usr/ports/sysutils/fusefs-kmod>find . -name 'fuse_vnops.c'  
@@ -328,7 +328,7 @@ Now checking out the distfile directory, I actually saw a patch for that file:
 	-rw-r--r-- 1 root wheel 2221 Sep 20 17:52 patch-fuse\_module\_\_fuse\_vnops.c  
 	
 
-so I went ahead and edited the &#8216;patch-fuse\_module\_\_fuse\_vnops.c&#8217; file and added the changes described in the above page. <a href="http://virtuallyhyper.com/wp-content/uploads/2012/10/patch-fuse_module__fuse_vnops.c" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/10/patch-fuse_module__fuse_vnops.c']);">Here</a> is my final patch file. I then removed both packages:
+so I went ahead and edited the 'patch-fuse\_module\_\_fuse\_vnops.c' file and added the changes described in the above page. <a href="http://virtuallyhyper.com/wp-content/uploads/2012/10/patch-fuse_module__fuse_vnops.c" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/10/patch-fuse_module__fuse_vnops.c']);">Here</a> is my final patch file. I then removed both packages:
 
 	  
 	elatov@freebsd:> sudo /usr/local/etc/rc.d/fusefs stop  

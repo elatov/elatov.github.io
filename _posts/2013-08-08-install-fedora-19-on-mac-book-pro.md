@@ -17,9 +17,9 @@ I was using my new Mac and there are just something that I missed from my previo
 
 ## BIOS VS EUFI
 
-The Arch Page entitled &#8220;<a href="https://wiki.archlinux.org/index.php/Unified_Extensible_Firmware_Interface" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.archlinux.org/index.php/Unified_Extensible_Firmware_Interface']);">Unified Extensible Firmware Interface</a>&#8221; has a good summary and helped me out during the preparation of the install:
+The Arch Page entitled "<a href="https://wiki.archlinux.org/index.php/Unified_Extensible_Firmware_Interface" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.archlinux.org/index.php/Unified_Extensible_Firmware_Interface']);">Unified Extensible Firmware Interface</a>" has a good summary and helped me out during the preparation of the install:
 
-> Unified Extensible Firmware Interface (or UEFI for short) is a new type of firmware that was initially designed by Intel (known as EFI then) mainly for its Itanium based systems. It introduces new ways of booting an OS that is distinct from the commonly used &#8220;MBR boot code&#8221; method followed for BIOS systems.
+> Unified Extensible Firmware Interface (or UEFI for short) is a new type of firmware that was initially designed by Intel (known as EFI then) mainly for its Itanium based systems. It introduces new ways of booting an OS that is distinct from the commonly used "MBR boot code" method followed for BIOS systems.
 > 
 > **Booting an OS using BIOS**  
 > A BIOS or Basic Input-Output System is the very first program that is executed once the system is switched on. After all the hardware has been initialized and the POST operation has completed, the BIOS executes the first boot code in the first device in the device booting list.
@@ -43,9 +43,9 @@ The Arch Page entitled &#8220;<a href="https://wiki.archlinux.org/index.php/Unif
 > An x86\_64 EFI firmware does not include support for launching 32-bit EFI apps unlike x86\_64 Linux and Windows versions which include such support. Therefore the bootloader must be compiled for that specific architecture.
 > 
 > **Multibooting on UEFI**  
-> Since each OS or vendor can maintain its own files within the EFI SYSTEM PARTITION without affecting the other, multi-booting using UEFI is just a matter of launching a different UEFI application corresponding to the particular OS&#8217;s bootloader. This removes the need for relying on chainloading mechanisms of one bootloader to load another to switch OSes.
+> Since each OS or vendor can maintain its own files within the EFI SYSTEM PARTITION without affecting the other, multi-booting using UEFI is just a matter of launching a different UEFI application corresponding to the particular OS's bootloader. This removes the need for relying on chainloading mechanisms of one bootloader to load another to switch OSes.
 
-To confirm that my Mac was using &#8220;x86_64 EFI firmware&#8221;, I ran the following:
+To confirm that my Mac was using "x86_64 EFI firmware", I ran the following:
 
     kelatov@kmac:~$ioreg -l -p IODeviceTree | grep firmware-abi
     | |   "firmware-abi" = <"EFI64">
@@ -53,7 +53,7 @@ To confirm that my Mac was using &#8220;x86_64 EFI firmware&#8221;, I ran the fo
 
 ## GRUB and EUFI
 
-Since I will be installing Fedora, I will be using GRUB for my boot loader. Here is how GRUB handles EUFI, from <a href="http://docs.fedoraproject.org/en-US/Fedora/19/html/Installation_Guide/s2-grub-whatis-booting-uefi.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://docs.fedoraproject.org/en-US/Fedora/19/html/Installation_Guide/s2-grub-whatis-booting-uefi.html']);">GRUB and the boot process on UEFI-based x86 systems</a>&#8220;:
+Since I will be installing Fedora, I will be using GRUB for my boot loader. Here is how GRUB handles EUFI, from <a href="http://docs.fedoraproject.org/en-US/Fedora/19/html/Installation_Guide/s2-grub-whatis-booting-uefi.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://docs.fedoraproject.org/en-US/Fedora/19/html/Installation_Guide/s2-grub-whatis-booting-uefi.html']);">GRUB and the boot process on UEFI-based x86 systems</a>":
 
 > GRUB loads itself into memory in the following stages:
 > 
@@ -66,15 +66,15 @@ Since I will be installing Fedora, I will be using GRUB for my boot loader. Here
 > 
 > Because each vendor maintains its own directory of applications in the ESP, chain loading is not normally necessary on UEFI-based systems. The EFI boot manager can load any of the operating system bootloaders that are present in the ESP.
 
-The above sounds great, but with Fedora 19, there is a known bug. From &#8220;<a href="https://fedoraproject.org/wiki/Common_F19_bugs#Apple_EFI_Macs:_EFI_install_alongside_existing_EFI_installed_OS_.28including_OS_X.29_results_in_you_have_not_created_a_bootloader_stage1_target_device_error" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','']);">Common F19 bugs</a>&#8220;:
+The above sounds great, but with Fedora 19, there is a known bug. From "<a href="https://fedoraproject.org/wiki/Common_F19_bugs#Apple_EFI_Macs:_EFI_install_alongside_existing_EFI_installed_OS_.28including_OS_X.29_results_in_you_have_not_created_a_bootloader_stage1_target_device_error" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','']);">Common F19 bugs</a>":
 
 > If you try to do a native UEFI install of Fedora 19 alongside a native UEFI install of OS X and re-use the existing EFI system partition, the installer will incorrectly consider the existing EFI system partition as invalid and report that you have not created a bootloader stage1 target device. Unfortunately, the Fedora automatic partitioning algorithm will actually attempt to re-use the EFI system partition, and so you will run into this bug in any Fedora 19 installation attempt where you use the automatic partitioning algorithm and do not choose to delete the existing EFI system partition.
 > 
 > Practically speaking, there are a few different approaches to dealing with this problem. If you do not mind losing your OS X installation, you can simply choose to delete it (including the EFI system partition), and let Fedora occupy the rest of the disk. Fedora should create a new EFI system partition and install successfully.
 > 
-> If you wish to preserve your OS X installation, install Fedora 19 Final, and dual boot, you must use the installer&#8217;s &#8216;custom partitioning&#8217; path. Make sure to leave the existing EFI system partition intact, but do not set a mount point for it. Do not use the Create partitions for me button. Instead, manually create a new EFI system partition, and set it to be mounted at /boot/efi. Manually create other partitions as usual. Complete custom partitioning, and your installation should proceed successfully.
+> If you wish to preserve your OS X installation, install Fedora 19 Final, and dual boot, you must use the installer's 'custom partitioning' path. Make sure to leave the existing EFI system partition intact, but do not set a mount point for it. Do not use the Create partitions for me button. Instead, manually create a new EFI system partition, and set it to be mounted at /boot/efi. Manually create other partitions as usual. Complete custom partitioning, and your installation should proceed successfully.
 > 
-> You could also try installing Fedora 18 or Fedora 19 Beta. These should allow you to use automatic partitioning to install alongside OS X, assuming you do not run into any other bugs they may have contained. You could then upgrade to Fedora 19 Final &#8211; with FedUp from Fedora 18, or yum from Fedora 19 Beta. You will still wind up with two EFI system partitions in this case.
+> You could also try installing Fedora 18 or Fedora 19 Beta. These should allow you to use automatic partitioning to install alongside OS X, assuming you do not run into any other bugs they may have contained. You could then upgrade to Fedora 19 Final - with FedUp from Fedora 18, or yum from Fedora 19 Beta. You will still wind up with two EFI system partitions in this case.
 > 
 > We are investigating the possibility of producing an updates image to make it easier to deal with this bug. We apologize for any inconvenience it causes you.
 
@@ -82,7 +82,7 @@ It looks like there are still some issues with the new UEFI and different OSes.
 
 ## Download Appropriate Install Media
 
-From <a href="http://docs.fedoraproject.org/en-US/Fedora/19/html/Installation_Guide/ch-Boot-x86.html#s1-x86-starting" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://docs.fedoraproject.org/en-US/Fedora/19/html/Installation_Guide/ch-Boot-x86.html#s1-x86-starting']);">Fedora&#8217;s Installation Guide</a>:
+From <a href="http://docs.fedoraproject.org/en-US/Fedora/19/html/Installation_Guide/ch-Boot-x86.html#s1-x86-starting" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://docs.fedoraproject.org/en-US/Fedora/19/html/Installation_Guide/ch-Boot-x86.html#s1-x86-starting']);">Fedora's Installation Guide</a>:
 
 > **Important — UEFI for 32-bit x86 systems**  
 > Fedora 19 does not support UEFI booting for 32-bit x86 systems. Only BIOS booting is supported.
@@ -90,7 +90,7 @@ From <a href="http://docs.fedoraproject.org/en-US/Fedora/19/html/Installation_Gu
 > **Important — UEFI for AMD64 and Intel 64**  
 > Note that the boot configurations of UEFI and BIOS differ significantly from each other. Therefore, the installed system must boot using the same firmware that was used during installation. You cannot install the operating system on a system that uses BIOS and then boot this installation on a system that uses UEFI. Fedora 19 supports version 2.2 of the UEFI specification.
 
-I was going to install to install Fedora 19 64bit from the get-go so this didn&#8217;t really impact me.
+I was going to install to install Fedora 19 64bit from the get-go so this didn't really impact me.
 
 ## Shrinking the OS Disk
 
@@ -113,15 +113,15 @@ That was really easy.
 
 ## Install Fedora 19 on Mac Book Pro
 
-After I burned the DVD ISO, I inserted into the Disk drive and rebooted. Right after I rebooted, I held down the &#8220;Alt/Option&#8221; key and I saw that the following media was bootable:
+After I burned the DVD ISO, I inserted into the Disk drive and rebooted. Right after I rebooted, I held down the "Alt/Option" key and I saw that the following media was bootable:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/07/MAC_BOOT_MEDIA.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/07/MAC_BOOT_MEDIA.jpg']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/07/MAC_BOOT_MEDIA.jpg" alt="MAC BOOT MEDIA Install Fedora 19 on Mac Book Pro" width="3264" height="1840" class="alignnone size-full wp-image-9244" title="Install Fedora 19 on Mac Book Pro" /></a>
 
-I selected the Fedora Media and booted from it. During the install I selected the &#8220;Custom partition&#8221; method and I made the follow partitioning schema:
+I selected the Fedora Media and booted from it. During the install I selected the "Custom partition" method and I made the follow partitioning schema:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/07/Partitions_added_fedora_install.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/07/Partitions_added_fedora_install.jpg']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/07/Partitions_added_fedora_install.jpg" alt="Partitions added fedora install Install Fedora 19 on Mac Book Pro" width="3264" height="1840" class="alignnone size-full wp-image-9246" title="Install Fedora 19 on Mac Book Pro" /></a>
 
-Even after following the instruction in the bug, it still gave the &#8220;you have not created a bootloader stage1 target device&#8221; error. So I decided not to install a boot-loader at all. This is done by clicking on &#8220;Full Disk Summary and bootloader&#8221; and then selecting &#8220;Do not install bootloader&#8221;:
+Even after following the instruction in the bug, it still gave the "you have not created a bootloader stage1 target device" error. So I decided not to install a boot-loader at all. This is done by clicking on "Full Disk Summary and bootloader" and then selecting "Do not install bootloader":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/07/do-not-install-bl-f19.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/07/do-not-install-bl-f19.jpg']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/07/do-not-install-bl-f19.jpg" alt="do not install bl f19 Install Fedora 19 on Mac Book Pro" width="3264" height="1840" class="alignnone size-full wp-image-9254" title="Install Fedora 19 on Mac Book Pro" /></a>
 
@@ -129,7 +129,7 @@ After opting out of the bootloading, the install started.
 
 ## Boot into Rescue Mode and Create the GRUB Configuration manually
 
-After the install finished, I rebooted into the Install DVD again and selected &#8220;Troubleshooting&#8221;:
+After the install finished, I rebooted into the Install DVD again and selected "Troubleshooting":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/07/troubleshoot_fedora_dvd.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/07/troubleshoot_fedora_dvd.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/07/troubleshoot_fedora_dvd.png" alt="troubleshoot fedora dvd Install Fedora 19 on Mac Book Pro" width="640" height="480" class="alignnone size-full wp-image-9247" title="Install Fedora 19 on Mac Book Pro" /></a>
 
@@ -154,7 +154,7 @@ I selected to discover any previous Linux installs and the rescue CD mounted it 
     bash-4.2#
     
 
-I then exited from the recovery shell and let the OS boot. Since I didn&#8217;t install any boot loader it booted into Mac OS X.
+I then exited from the recovery shell and let the OS boot. Since I didn't install any boot loader it booted into Mac OS X.
 
 ### Bless the Other EFI Partition
 
@@ -184,15 +184,15 @@ So to bless our second EFI partition, we can run the following:
     kelatov@kmac:~$sudo bless  --mount /Volumes/NO\ NAME --setBoot --file /Volumes/NO\ NAME/EFI/fedora/grubx64.efi
     
 
-I rebooted one more time and I saw the GRUB menu. After it auto-selected the &#8220;Fedora&#8221; Menu, it showed the following error:
+I rebooted one more time and I saw the GRUB menu. After it auto-selected the "Fedora" Menu, it showed the following error:
 
 > error: failure to read sector 0&#215;0 from hd0
 
-But then kept booting without issues <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Install Fedora 19 on Mac Book Pro" class="wp-smiley" title="Install Fedora 19 on Mac Book Pro" /> Apparently there is workaround described <a href="http://forums.gentoo.org/viewtopic-t-942130-start-0.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://forums.gentoo.org/viewtopic-t-942130-start-0.html']);">here</a>, but I wasn&#8217;t too worried about it.
+But then kept booting without issues <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Install Fedora 19 on Mac Book Pro" class="wp-smiley" title="Install Fedora 19 on Mac Book Pro" /> Apparently there is workaround described <a href="http://forums.gentoo.org/viewtopic-t-942130-start-0.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://forums.gentoo.org/viewtopic-t-942130-start-0.html']);">here</a>, but I wasn't too worried about it.
 
 ### Installing the Wireless Firmware
 
-Initially the wireless card won&#8217;t be recognized. Here is the **lspci** output of the card:
+Initially the wireless card won't be recognized. Here is the **lspci** output of the card:
 
     [elatov@kmac ~]$ lspci | grep 802
     03:00.0 Network controller: Broadcom Corporation BCM4331 802.11a/b/g/n (rev 02)
@@ -248,7 +248,7 @@ To make it permanent, you should be able to add the following into the **/etc/mo
     options hid_apple fnmode=2
     
 
-But it actually didn&#8217;t work out for me. Doing some research it looks like we need to set as a kernel parameter. This is discussed <a href="http://superuser.com/questions/461710/update-kernel-module-option-on-fedora-17" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://superuser.com/questions/461710/update-kernel-module-option-on-fedora-17']);">here</a>. You can usually do this with the **/etc/sysconfig/grub** file on Fedora. For some reason that file didn&#8217;t exist on my install (or rather the link was missing). Usually **/etc/sysconfig/grub** points to **/etc/default/grub**, but the **/etc/default/grub** file was missing. I even re-installed the package that provided that file:
+But it actually didn't work out for me. Doing some research it looks like we need to set as a kernel parameter. This is discussed <a href="http://superuser.com/questions/461710/update-kernel-module-option-on-fedora-17" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://superuser.com/questions/461710/update-kernel-module-option-on-fedora-17']);">here</a>. You can usually do this with the **/etc/sysconfig/grub** file on Fedora. For some reason that file didn't exist on my install (or rather the link was missing). Usually **/etc/sysconfig/grub** points to **/etc/default/grub**, but the **/etc/default/grub** file was missing. I even re-installed the package that provided that file:
 
     [elatov@kmac ~]$ yum provides /etc/default/grub
     Loaded plugins: langpacks, refresh-packagekit, remove-with-leaves
@@ -260,7 +260,7 @@ But it actually didn&#8217;t work out for me. Doing some research it looks like 
     [elatov@kmac ~]$ sudo yum reinstall grub2-tools
     
 
-But it still didn&#8217;t help out, so I created one manually with the following contents:
+But it still didn't help out, so I created one manually with the following contents:
 
     [elatov@kmac ~]$ cat /etc/default/grub 
     GRUB_CMDLINE_LINUX="hid_apple.fnmode=2"
@@ -281,19 +281,19 @@ After that I regenerated the GRUB config:
     done
     
 
-Then after yet another reboot, the **Fn** keys were permanently fixed. Another person wrote a **systemd** service to run the above command upon boot. Check out the instructions at &#8220;<a href="https://www.dalemacartney.com/2013/06/14/changing-the-default-function-key-behaviour-in-fedora/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.dalemacartney.com/2013/06/14/changing-the-default-function-key-behaviour-in-fedora/']);">Changing the default Function key behaviour in Fedora</a>&#8220;.
+Then after yet another reboot, the **Fn** keys were permanently fixed. Another person wrote a **systemd** service to run the above command upon boot. Check out the instructions at "<a href="https://www.dalemacartney.com/2013/06/14/changing-the-default-function-key-behaviour-in-fedora/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.dalemacartney.com/2013/06/14/changing-the-default-function-key-behaviour-in-fedora/']);">Changing the default Function key behaviour in Fedora</a>".
 
 ## Rebooting into Mac OS X
 
-If you want to reboot into Mac OS X, you can reboot the MacBook Pro and hold down &#8216;Alt/Option&#8221; during the boot and you will available bootable media, like so:
+If you want to reboot into Mac OS X, you can reboot the MacBook Pro and hold down 'Alt/Option" during the boot and you will available bootable media, like so:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/07/mac-osx-bootable_media.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/07/mac-osx-bootable_media.jpg']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/07/mac-osx-bootable_media.jpg" alt="mac osx bootable media Install Fedora 19 on Mac Book Pro" width="3264" height="1840" class="alignnone size-full wp-image-9255" title="Install Fedora 19 on Mac Book Pro" /></a>
 
-Select &#8220;Macintosh HD&#8221; and it will boot back into Mac OS X. To set it permanently to boot into Mac OS X. While in Mac OS X, open up System Preferences and select the &#8220;Start Up Disk&#8221;:
+Select "Macintosh HD" and it will boot back into Mac OS X. To set it permanently to boot into Mac OS X. While in Mac OS X, open up System Preferences and select the "Start Up Disk":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/07/Startup_disk.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/07/Startup_disk.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/07/Startup_disk.png" alt="Startup disk Install Fedora 19 on Mac Book Pro" width="782" height="534" class="alignnone size-full wp-image-9256" title="Install Fedora 19 on Mac Book Pro" /></a>
 
-Then select &#8220;Macintosh HD&#8221; and it will reboot into Mac OS X permanently. Or you can run this command to re-enable boot in the Mac OS HD:
+Then select "Macintosh HD" and it will reboot into Mac OS X permanently. Or you can run this command to re-enable boot in the Mac OS HD:
 
     sudo bless --mount "/Volumes/Macintosh HD/" --setboot
     

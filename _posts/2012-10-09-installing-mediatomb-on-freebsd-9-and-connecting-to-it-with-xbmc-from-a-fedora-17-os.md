@@ -13,7 +13,7 @@ tags:
   - mediatomb
   - upnp
 ---
-I recently got some new hardware and wanted to setup a video streaming server in my home. There are a lot of choices out there, for example check out the wiki page &#8220;<a href="http://en.wikipedia.org/wiki/List_of_streaming_media_systems" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org/wiki/List_of_streaming_media_systems']);">List of streaming media systems</a>&#8220;. Most of those servers are for streaming media over the internet, where I was looking something more for my home network. I then came across this broadcom article entitled &#8220;<a href="http://www.broadcom.com/docs/articles/Network_Home.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.broadcom.com/docs/articles/Network_Home.pdf']);">How to Select a Proper Technology for HD Video Streaming in Home Networking Environments</a>&#8220;. From that article:
+I recently got some new hardware and wanted to setup a video streaming server in my home. There are a lot of choices out there, for example check out the wiki page "<a href="http://en.wikipedia.org/wiki/List_of_streaming_media_systems" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org/wiki/List_of_streaming_media_systems']);">List of streaming media systems</a>". Most of those servers are for streaming media over the internet, where I was looking something more for my home network. I then came across this broadcom article entitled "<a href="http://www.broadcom.com/docs/articles/Network_Home.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.broadcom.com/docs/articles/Network_Home.pdf']);">How to Select a Proper Technology for HD Video Streaming in Home Networking Environments</a>". From that article:
 
 > This emerging “connected home” ecosystem comprises a variety of connectivity technologies – including Wi-Fi, Ethernet and MoCA – as well as a host of different file formats and potentially incompatible software applications that can lead to consumer confusion. With potentially so many ways to implement the sharing of digital video throughout the home, there could be nearly as many ways for users to experience incompatibility and frustration. In order to reduce confusion and to enable as seamless a user experience as possible, devices need to inter-operate transparently.
 > 
@@ -23,7 +23,7 @@ The paper also included a pretty good table of all the guidelines from the DLNA,
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/10/dlna_guidelines.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/10/dlna_guidelines.png']);"><img class="alignnone size-full wp-image-4169" title="dlna_guidelines" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/dlna_guidelines.png" alt="dlna guidelines Installing Mediatomb on FreeBSD 9 and Connecting to it with XBMC from a Fedora 17 OS" width="530" height="377" /></a>
 
-DLNA uses UPnP for a lot of it&#8217;s functions, so I decided to setup a UPnP capable server to stream my media. I was then checking out the wiki page &#8220;<a href="http://en.wikipedia.org/wiki/Comparison_of_UPnP_AV_MediaServers" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org/wiki/Comparison_of_UPnP_AV_MediaServers']);">Comparison of UPnP AV media servers</a>&#8221; to see a list of UPnP servers. Of course, I wanted to choose a media server with the most functionality. Here are the ones that stood out:
+DLNA uses UPnP for a lot of it's functions, so I decided to setup a UPnP capable server to stream my media. I was then checking out the wiki page "<a href="http://en.wikipedia.org/wiki/Comparison_of_UPnP_AV_MediaServers" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org/wiki/Comparison_of_UPnP_AV_MediaServers']);">Comparison of UPnP AV media servers</a>" to see a list of UPnP servers. Of course, I wanted to choose a media server with the most functionality. Here are the ones that stood out:
 
 *   <a href="http://mediatomb.cc" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://mediatomb.cc']);">MediaTomb</a>
 *   <a href="http://en.wikipedia.org/wiki/Plex_(software)" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org/wiki/Plex_(software)']);" title="Plex (software)">Plex</a>
@@ -36,7 +36,7 @@ I then wanted to check out what other people were setting up, after doing some g
 *   <a href="http://www.thev.net/PaulLiu/bsd-home-server.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.thev.net/PaulLiu/bsd-home-server.html']);">Setup a Home Server with FreeBSD and ZFS</a> (+1 MediaTomb +1 minidlna) 
 *   <a href="http://superuser.com/questions/288639/recommended-media-server-software-for-freebsd-for-upnp-dlna" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://superuser.com/questions/288639/recommended-media-server-software-for-freebsd-for-upnp-dlna']);">Recommended media server software for FreeBSD for UPnP/DLNA</a> (+1 MediaTomb +1 minidlna) 
 
-I also wanted the package to be included in ports (just for management&#8217;s sake). I checked out ports:
+I also wanted the package to be included in ports (just for management's sake). I checked out ports:
 
     elatov@freebsd:/usr/ports>find . -iname 'ps3*'
     elatov@freebsd:/usr/ports>find . -iname 'plex'
@@ -46,11 +46,11 @@ I also wanted the package to be included in ports (just for management&#8217;s s
     ./net/minidlna
     
 
-I couldn&#8217;t find *ps3mediaserver*. I did find this &#8216;how to&#8217;: <a href="http://stepbystep.wikkii.com/wiki/PS3MediaServerOnFreeNAS" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://stepbystep.wikkii.com/wiki/PS3MediaServerOnFreeNAS']);">PS3MediaServerOnFreeNAS</a>, but it was a lot of work. Then checking out this FreeBSD forum: &#8220;<a href="http://forums.plexapp.com/index.php/topic/28760-plex-on-freebsd/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://forums.plexapp.com/index.php/topic/28760-plex-on-freebsd/']);">Plex on FreeBSD?</a>&#8220;, it doesn&#8217;t looks there is support for that yet. So I was thinking either MediaTomb or miniDLNA and since MediaTomb had better transcoding capabilities, I decided to go with that. Here are the steps I took to install MediaTomb on my FreeBSD machine.
+I couldn't find *ps3mediaserver*. I did find this 'how to': <a href="http://stepbystep.wikkii.com/wiki/PS3MediaServerOnFreeNAS" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://stepbystep.wikkii.com/wiki/PS3MediaServerOnFreeNAS']);">PS3MediaServerOnFreeNAS</a>, but it was a lot of work. Then checking out this FreeBSD forum: "<a href="http://forums.plexapp.com/index.php/topic/28760-plex-on-freebsd/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://forums.plexapp.com/index.php/topic/28760-plex-on-freebsd/']);">Plex on FreeBSD?</a>", it doesn't looks there is support for that yet. So I was thinking either MediaTomb or miniDLNA and since MediaTomb had better transcoding capabilities, I decided to go with that. Here are the steps I took to install MediaTomb on my FreeBSD machine.
 
 ### 1. Install MediaTomb from ports
 
-Let&#8217;s get this started:
+Let's get this started:
 
     elatov@freebsd:~>cd /usr/ports/net/mediatomb/
     elatov@freebsd:/usr/ports/net/mediatomb>sudo make install clean
@@ -112,7 +112,7 @@ And here is how my **ffmpeg** config looked like:
     ===> Use 'make config' to modify these settings
     
 
-The compile was successful so now it&#8217;s time to enable the service.
+The compile was successful so now it's time to enable the service.
 
 ### 2. Enable the MediaTomb Service to Start Automatically
 
@@ -170,7 +170,7 @@ UPnP relies on multicast and IGMP to discover devices and to serve up files. Mul
 
 I wanted to make sure FreeBSD was capable of handling Multicast traffic. Another person was wondering the same thing. From the FreeBSD forum: <a href="http://forums.freebsd.org/showthread.php?t=13270" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://forums.freebsd.org/showthread.php?t=13270']);">UPnP Setup- ifconfig allmulti Crashes Network</a>:
 
-> As you can see, the MULTICAST flag is set, but not the ALLMULTI flag. That&#8217;s because ALLMULTI is the linux equivalent of MULTICAST.
+> As you can see, the MULTICAST flag is set, but not the ALLMULTI flag. That's because ALLMULTI is the linux equivalent of MULTICAST.
 
 So if you have the MULTICAST flag set on the interface you should be all set. I checked out my interface and it indeed had the flag set:
 
@@ -212,14 +212,14 @@ From MediaTomb <a href="http://mediatomb.cc/dokuwiki/faq:faq" onclick="javascrip
 >     iptables -A INPUT -i eth1 -d 239.0.0.0/8 -p igmp -j ACCEPT
 >     
 
-My FreeBSD machine had no external facing ports to the internet, so I actually didn&#8217;t have a firewall running on it. But if I did, I would run **pf** and set the following rules by converting the above **iptables** rules to pf rules:
+My FreeBSD machine had no external facing ports to the internet, so I actually didn't have a firewall running on it. But if I did, I would run **pf** and set the following rules by converting the above **iptables** rules to pf rules:
 
     # allow Multicast traffic
     pass in on em0 inet proto igmp to 224.0.0.0/4 allow-opts
     pass in on em0 inet proto udp  to 224.0.0.0/4
     
 
-Taken from &#8220;<a href="http://un.geeig.net/openbsd-vdsl.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://un.geeig.net/openbsd-vdsl.html']);">Using OpenBSD with VDSL</a>&#8221; and this as well:
+Taken from "<a href="http://un.geeig.net/openbsd-vdsl.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://un.geeig.net/openbsd-vdsl.html']);">Using OpenBSD with VDSL</a>" and this as well:
 
     # allow UPnP traffic
     pass in on em0 from any to 239.0.0.0/8 keep state
@@ -229,7 +229,7 @@ Also from the MediaTomb <a href="http://mediatomb.cc/dokuwiki/faq:faq" onclick="
 
 > make sure that your firewall is not blocking the server, port 1900 has to be open as well as the port on which the server is running (i.e. web UI port), both TCP and UDP
 
-Again here is an example for iptables from &#8220;<a href="http://www.gentoo-wiki.info/HOWTO_Setup_UPnP_with_IPTables" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.gentoo-wiki.info/HOWTO_Setup_UPnP_with_IPTables']);">HOWTO&#95;Setup&#95;UPnP&#95;with&#95;IPTables</a>&#8220;
+Again here is an example for iptables from "<a href="http://www.gentoo-wiki.info/HOWTO_Setup_UPnP_with_IPTables" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.gentoo-wiki.info/HOWTO_Setup_UPnP_with_IPTables']);">HOWTO&#95;Setup&#95;UPnP&#95;with&#95;IPTables</a>"
 
     iptables -t filter -A INPUT -i eth0 -d 239.0.0.0/8 -j ACCEPT
     iptables -t filter -A INPUT -i eth0 -p tcp --dport 49152 -j ACCEPT
@@ -244,7 +244,7 @@ Converting that to **pf**, we would get this:
     pass in on em0 proto { tcp udp } from any to any port 49152
     
 
-Since I didn&#8217;t have a firewall on my FreeBSD machine, I didn&#8217;t have to set that up. Next I needed to open up the necessary ports on my laptop, which was running Fedora 17. I shut down the my firewall:
+Since I didn't have a firewall on my FreeBSD machine, I didn't have to set that up. Next I needed to open up the necessary ports on my laptop, which was running Fedora 17. I shut down the my firewall:
 
     [elatov@klaptop ~]$ sudo service iptables stop
     Redirecting to /bin/systemctl stop  iptables.service
@@ -328,7 +328,7 @@ So the FreeBSD machine was handling the multicast traffic just fine. I also conf
         2 membership reports sent
     
 
-We were definitely processing IGMP packets, and I wasn&#8217;t dropping any packets:
+We were definitely processing IGMP packets, and I wasn't dropping any packets:
 
     elatov@freebsd:~>netstat -ain -f inet
     Name    Mtu Network       Address              Ipkts Ierrs Idrop    Opkts Oerrs  Coll
@@ -339,7 +339,7 @@ We were definitely processing IGMP packets, and I wasn&#8217;t dropping any pack
                               224.0.0.1       
     
 
-From the above **tcpdump** I saw that the server responds on a random UDP port above 30,000. I actually found an Fedora forum that talked about this: &#8220;<a href="http://fedoraforum.org/forum/showthread.php?t=281540" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://fedoraforum.org/forum/showthread.php?t=281540']);">allowing xbmc to discover upnp mediatomb through iptables firewall</a>&#8220;. From that forum:
+From the above **tcpdump** I saw that the server responds on a random UDP port above 30,000. I actually found an Fedora forum that talked about this: "<a href="http://fedoraforum.org/forum/showthread.php?t=281540" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://fedoraforum.org/forum/showthread.php?t=281540']);">allowing xbmc to discover upnp mediatomb through iptables firewall</a>". From that forum:
 
 > I find that xbmc upnp client needs to receive a udp reply after broadcasting ssdp to search for upnp devices. How do I limit the reply udp port or let the firewall allow it without opening all the udp ports?
 > 
@@ -372,15 +372,15 @@ The install is pretty easy:
     [elatov@klaptop ~]$ sudo yum install xbmc
     
 
-After it&#8217;s installed you can just launch it by running **xbmc** from the command prompt/terminal. Once it&#8217;s launched it will look something like this:
+After it's installed you can just launch it by running **xbmc** from the command prompt/terminal. Once it's launched it will look something like this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/10/screenshot000.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/10/screenshot000.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/10/screenshot000.png" alt="screenshot000 Installing Mediatomb on FreeBSD 9 and Connecting to it with XBMC from a Fedora 17 OS" title="screenshot000" width="1280" height="800" class="alignnone size-full wp-image-4180" /></a>
 
-Next, enable the built-in UPnP client from XBMC. Go to System -> Settings -> Network -> Services and Check the box that says &#8220;Allow Control of XBMC via UPnP&#8221;. The GUI looks something like this:
+Next, enable the built-in UPnP client from XBMC. Go to System -> Settings -> Network -> Services and Check the box that says "Allow Control of XBMC via UPnP". The GUI looks something like this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/10/screenshot001.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/10/screenshot001.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/10/screenshot001.png" alt="screenshot001 Installing Mediatomb on FreeBSD 9 and Connecting to it with XBMC from a Fedora 17 OS" title="screenshot001" width="1280" height="800" class="alignnone size-full wp-image-4181" /></a>
 
-The settings are described in &#8220;<a href="http://wiki.xbmc.org/index.php?title=Settings/Network" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.xbmc.org/index.php?title=Settings/Network']);">Settings/Network</a>&#8221; of the XMBC web site. From the site:
+The settings are described in "<a href="http://wiki.xbmc.org/index.php?title=Settings/Network" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.xbmc.org/index.php?title=Settings/Network']);">Settings/Network</a>" of the XMBC web site. From the site:
 
 > **Share video and music libraries through UPnP**  
 > Enables the UPnP server; this will enable you to steam media to any UPnP client.
@@ -392,5 +392,5 @@ Lastly add a UPnP Share by going to Videos -> Files -> Add Videos -> Browse -> U
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/10/screenshot011.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/10/screenshot011.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/10/screenshot011.png" alt="screenshot011 Installing Mediatomb on FreeBSD 9 and Connecting to it with XBMC from a Fedora 17 OS" title="screenshot011" width="1280" height="800" class="alignnone size-full wp-image-4182" /></a>
 
-After you have added your share, you can go back to Videos -> Files and your share will be there. There are actually many other UPnP clients out there, I just heard of XBMC before and decided to try it out and I actually really like it. Here is a <a href="http://www.makeuseof.com/tag/using-your-linux-computer-as-a-media-center-part-1/</full></performnud></rxcsum></up>&#8221;>link</a> that talks about other Media Centers.
+After you have added your share, you can go back to Videos -> Files and your share will be there. There are actually many other UPnP clients out there, I just heard of XBMC before and decided to try it out and I actually really like it. Here is a <a href="http://www.makeuseof.com/tag/using-your-linux-computer-as-a-media-center-part-1/</full></performnud></rxcsum></up>">link</a> that talks about other Media Centers.
 

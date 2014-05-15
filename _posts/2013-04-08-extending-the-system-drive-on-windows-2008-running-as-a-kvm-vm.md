@@ -13,7 +13,7 @@ tags:
   - qemu-img resize
   - WIN2k8
 ---
-While I was writing <a href="http://virtuallyhyper.com/2013/04/deploying-a-test-windows-environment-in-a-kvm-infrastucture" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/04/deploying-a-test-windows-environment-in-a-kvm-infrastucture']);">this</a> post I first allocated 15GB for my Windows install. I quickly realized that after a plethora of updates that is not enough space. Luckily it&#8217;s pretty easy to remedy that with a two step process.
+While I was writing <a href="http://virtuallyhyper.com/2013/04/deploying-a-test-windows-environment-in-a-kvm-infrastucture" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/04/deploying-a-test-windows-environment-in-a-kvm-infrastucture']);">this</a> post I first allocated 15GB for my Windows install. I quickly realized that after a plethora of updates that is not enough space. Luckily it's pretty easy to remedy that with a two step process.
 
 ### 1. Increase the Underlying Hard Disk IMG file Used in KVM
 
@@ -28,7 +28,7 @@ Shutdown the VM and then using **virsh** figure out the full path of the IMG fil
       - kelatov_win7_2       shut off
     
 
-Let&#8217;s see we wanted to resize the Hard Disk of the &#8220;kelatov-win7-2&#8243; VM. So go ahead and find out where the IMG file is for that VM:
+Let's see we wanted to resize the Hard Disk of the "kelatov-win7-2" VM. So go ahead and find out where the IMG file is for that VM:
 
     [virtuser@kvm ~]$ virsh -c qemu:///system domblklist kelatov_win7_2
     Target     Source
@@ -37,19 +37,19 @@ Let&#8217;s see we wanted to resize the Hard Disk of the &#8220;kelatov-win7-2&#
     hdc        -  
     
 
-Now let&#8217;s make sure the size of the file is 15GB like we expect:
+Now let's make sure the size of the file is 15GB like we expect:
 
     [virtuser@kvm ~]$ ls -lh /images/kelatov_win7_2.img
     -rw-------. 1 root root 16G Jun 21  2012 /images/kelatov_win7_2.img
     
 
-That looks correct. Now let&#8217;s go ahead and add 5GB to the IMG file:
+That looks correct. Now let's go ahead and add 5GB to the IMG file:
 
     [virtuser@kvm images]$ sudo qemu-img resize kelatov_win7_2.img +5G
     Image resized.
     
 
-Let&#8217;s make sure the new size shows up:
+Let's make sure the new size shows up:
 
     [virtuser@kvm ~]$ ls -lh /images/kelatov_win7_2.img
     -rw-------. 1 root root 21G Jun 21  2012 /images/kelatov_win7_2.img
@@ -66,19 +66,19 @@ And you will see the following:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/windows_disk_mgmt.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/windows_disk_mgmt.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/windows_disk_mgmt.png" alt="windows disk mgmt Extending the System Drive on Windows 2008 Running Under KVM" width="635" height="447" class="alignnone size-full wp-image-8058" title="Extending the System Drive on Windows 2008 Running Under KVM" /></a>
 
-Then right click on the **C:** partition and then select &#8220;Extend Volume&#8221;:
+Then right click on the **C:** partition and then select "Extend Volume":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/right_click_c-part.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/right_click_c-part.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/right_click_c-part.png" alt="right click c part Extending the System Drive on Windows 2008 Running Under KVM" width="637" height="546" class="alignnone size-full wp-image-8059" title="Extending the System Drive on Windows 2008 Running Under KVM" /></a>
 
-Then the &#8220;Extend Volume Wizard&#8221; will startup:
+Then the "Extend Volume Wizard" will startup:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/extend_volume_wizard.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/extend_volume_wizard.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/extend_volume_wizard.png" alt="extend volume wizard Extending the System Drive on Windows 2008 Running Under KVM" width="497" height="394" class="alignnone size-full wp-image-8060" title="Extending the System Drive on Windows 2008 Running Under KVM" /></a>
 
-Click &#8220;Next&#8221; and it will automatically select the available space on that disk:
+Click "Next" and it will automatically select the available space on that disk:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/select_disks_extend_volume.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/select_disks_extend_volume.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/select_disks_extend_volume.png" alt="select disks extend volume Extending the System Drive on Windows 2008 Running Under KVM" width="495" height="395" class="alignnone size-full wp-image-8061" title="Extending the System Drive on Windows 2008 Running Under KVM" /></a>
 
-In our case we have 5GB available which as I mentioned is automatically selected. At this point just click &#8220;Next&#8221; and then &#8220;Finish&#8221;. After the process is finished, you will see the **C:** partition take up the rest of the drive:
+In our case we have 5GB available which as I mentioned is automatically selected. At this point just click "Next" and then "Finish". After the process is finished, you will see the **C:** partition take up the rest of the drive:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/c_part_extended.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/c_part_extended.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/c_part_extended.png" alt="c part extended Extending the System Drive on Windows 2008 Running Under KVM" width="636" height="542" class="alignnone size-full wp-image-8062" title="Extending the System Drive on Windows 2008 Running Under KVM" /></a>
 

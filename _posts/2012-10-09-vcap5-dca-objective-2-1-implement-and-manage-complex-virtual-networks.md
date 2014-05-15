@@ -106,7 +106,7 @@ From the same document:
 	> Notification targets:  
 	> 
 > 
-> 2 Run vicfg-snmp &#8211;target with the target address, port number, and community.
+> 2 Run vicfg-snmp -target with the target address, port number, and community.
 > 
 	>   
 	> vicfg-snmp -t target.example.com@163/public  
@@ -114,7 +114,7 @@ From the same document:
 > 
 > Each time you specify a target with this command, the settings you specify overwrite all previously specified settings. To specify multiple targets, separate them with a comma.
 > 
-> You can change the port that the SNMP agent sends data to on the target using the &#8211;targets option. That port is UDP 162 by default.
+> You can change the port that the SNMP agent sends data to on the target using the -targets option. That port is UDP 162 by default.
 > 
 > 3 (Optional) Enable the SNMP agent if it is not yet running.
 > 
@@ -138,7 +138,7 @@ And the last section:
 > By default, the embedded SNMP agent listens on UDP port 161 for polling requests from management systems. You can use the vicfg-snmp command to configure an alternative port. To avoid conflicts with other services, use a UDP port that is not defined in /etc/services.
 > 
 > **To configure the SNMP agent for polling**  
-> 1 Run vicfg-snmp &#8211;target with the target address, port number, and community.
+> 1 Run vicfg-snmp -target with the target address, port number, and community.
 > 
 	>   
 	> vicfg-snmp -c public -t target.example.com@163/public  
@@ -146,7 +146,7 @@ And the last section:
 > 
 > Each time you specify a target with this command, the settings you specify overwrite all previously specified settings. To specify multiple targets, separate them with a comma.
 > 
-> You can change the port that the SNMP agent sends data to on the target by using the &#8211;targets option. That port is UDP 162 by default.
+> You can change the port that the SNMP agent sends data to on the target by using the -targets option. That port is UDP 162 by default.
 > 
 > 2 (Optional) Specify a port for listening for polling requests.
 > 
@@ -160,7 +160,7 @@ And the last section:
 	> vicfg-snmp --enable  
 	> 
 > 
-> 4 Run vicfg-snmp &#8211;test to validate the configuration.  
+> 4 Run vicfg-snmp -test to validate the configuration.  
 > The following example shows how the commands are run in sequence.
 > 
 	>   
@@ -170,7 +170,7 @@ And the last section:
 	> walk –v1 –c public esx-host  
 	>  
 
-The above commands have to be run either from VMA or vCLI. If you don&#8217;t want to use any of those tools, you can do it manually. From this blog &#8220;<a href="http://thebashline.wordpress.com/2012/01/14/esxi-add-snmp/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://thebashline.wordpress.com/2012/01/14/esxi-add-snmp/']);">Esxi – Add SNMP</a>&#8220;:
+The above commands have to be run either from VMA or vCLI. If you don't want to use any of those tools, you can do it manually. From this blog "<a href="http://thebashline.wordpress.com/2012/01/14/esxi-add-snmp/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://thebashline.wordpress.com/2012/01/14/esxi-add-snmp/']);">Esxi – Add SNMP</a>":
 
 > Log onto esxi CLI
 > 
@@ -366,7 +366,7 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 	> esxcli network ip interface add --interface-name=vmkX-portgroup-name=PORTGROUP  
 	> 
 > 
-> Configure the interface as an IPv4 interface. You must specify the IP address using &#8211;ip, the netmask, and the name. For the following examples, assume that VMSF‐VMK‐363 is a port group to which you want to add a VMkernel network interface.  
+> Configure the interface as an IPv4 interface. You must specify the IP address using -ip, the netmask, and the name. For the following examples, assume that VMSF‐VMK‐363 is a port group to which you want to add a VMkernel network interface.  
 	>   
 	> esxcli network ip interface ipv4 set --ip=<ip_address> --netmask=255.255.255.0 --interface-name=vmkX  
 	> 
@@ -689,11 +689,11 @@ Here is how it looks like in the GUI:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/netflow_settings.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/netflow_settings.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/09/netflow_settings.png" alt="netflow settings VCAP5 DCA Objective 2.1 – Implement and Manage Complex Virtual Networks " title="netflow_settings" width="692" height="530" class="alignnone size-full wp-image-3972" /></a>
 
-The topic is also discussed in the VMware Blogs &#8220;<a href="http://blogs.vmware.com/vsphere/2011/08/vsphere-5-new-networking-features-netflow.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vsphere/2011/08/vsphere-5-new-networking-features-netflow.html']);">vSphere 5 New Networking Features – NetFlow</a>&#8221;
+The topic is also discussed in the VMware Blogs "<a href="http://blogs.vmware.com/vsphere/2011/08/vsphere-5-new-networking-features-netflow.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vsphere/2011/08/vsphere-5-new-networking-features-netflow.html']);">vSphere 5 New Networking Features – NetFlow</a>"
 
 ### Determine appropriate discovery protocol (CDP, LLDP)
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-networking-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-networking-guide.pdf']);">vSphere Networking ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-networking-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-networking-guide.pdf']);">vSphere Networking ESXi 5.0</a>":
 
 > **Switch Discovery Protocol**  
 > Switch discovery protocols allow vSphere administrators to determine which switch port is connected to a given vSphere standard switch or vSphere distributed switch.

@@ -70,7 +70,7 @@ With Mac OS there are a couple of options for **autofs**. From the Mac OS <a hre
 >     /src            eng4:/export/src
 >     
 > 
-> Since the direct map as a whole isn&#8217;t associated with a single directory, it is specified in the master map with a dummy directory name of **/-**.
+> Since the direct map as a whole isn't associated with a single directory, it is specified in the master map with a dummy directory name of **/-**.
 > 
 > **Indirect Map**  
 > An indirect map is used where a large number of entries are to be associated with a single directory. Each map entry key is the simple name of a directory entry. A good example of this is the auto_home map which determines the entries under the /home directory. For example:
@@ -89,17 +89,17 @@ I will use **/amnt** as the mount point which **autofs** will manage. To set thi
     /amnt           autofs_amnt
     
 
-The above basically says that anything under the **/amnt** directory will be configured under the **/etc/autofs_amnt** file. Next let&#8217;s add a **CIFS** share to be automatically mounted **/amnt/smb**.
+The above basically says that anything under the **/amnt** directory will be configured under the **/etc/autofs_amnt** file. Next let's add a **CIFS** share to be automatically mounted **/amnt/smb**.
 
 ### Auto Mount SMB with Autofs
 
-Let&#8217;s create the **/etc/autofs_amnt** file with appropriate permissions:
+Let's create the **/etc/autofs_amnt** file with appropriate permissions:
 
     kelatov@kmac:~$sudo touch /etc/autofs_amnt
     kelatov@kmac:~$sudo chmod 600 /etc/autofs_amnt
     
 
-Now let&#8217;s edit the file and add the following to it:
+Now let's edit the file and add the following to it:
 
     smb -fstype=smbfs ://elatov:PASSWORD@cifs.server.com/elatov
     
@@ -179,7 +179,7 @@ Follow the on-screen instructions install *Mac Ports*.
 
 #### Install X-Code
 
-*X-Code* is necessary for Mac Ports, so go ahead and install it from <a href="https://developer.apple.com/xcode/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://developer.apple.com/xcode/']);">XCode</a>. It will actually start up the *App Store* to do the download. After it&#8217;s done your *App Store* will look like this:
+*X-Code* is necessary for Mac Ports, so go ahead and install it from <a href="https://developer.apple.com/xcode/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://developer.apple.com/xcode/']);">XCode</a>. It will actually start up the *App Store* to do the download. After it's done your *App Store* will look like this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/07/xcode-install-app-store.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/07/xcode-install-app-store.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/07/xcode-install-app-store.png" alt="xcode install app store Mount Various File Systems with Autofs on Mac OS X Mountain Lion" width="747" height="290" class="alignnone size-full wp-image-9205" title="Mount Various File Systems with Autofs on Mac OS X Mountain Lion" /></a>
 
@@ -189,13 +189,13 @@ Go to your Applications (Command-Shift-a) and launch X-Code (accept the license 
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/07/xcode-preferences.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/07/xcode-preferences.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/07/xcode-preferences.png" alt="xcode preferences Mount Various File Systems with Autofs on Mac OS X Mountain Lion" width="245" height="144" class="alignnone size-full wp-image-9206" title="Mount Various File Systems with Autofs on Mac OS X Mountain Lion" /></a>
 
-Then go to the &#8220;Downloads&#8221; tab and install command line tools. After they are installed you will see the following under preferences:
+Then go to the "Downloads" tab and install command line tools. After they are installed you will see the following under preferences:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/07/xcode-command-line-tools.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/07/xcode-command-line-tools.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/07/xcode-command-line-tools.png" alt="xcode command line tools Mount Various File Systems with Autofs on Mac OS X Mountain Lion" width="734" height="289" class="alignnone size-full wp-image-9207" title="Mount Various File Systems with Autofs on Mac OS X Mountain Lion" /></a>
 
 #### Update Ports
 
-Go to your &#8220;Utilities&#8221; (Command-Shift-u) and launch the terminal. From the terminal run the following:
+Go to your "Utilities" (Command-Shift-u) and launch the terminal. From the terminal run the following:
 
     kelatov@kmac:~$sudo port -v selfupdate
     Password:
@@ -258,14 +258,14 @@ Mac Ports are like any package manager, it allows you to search for packages and
     Found 2 ports.
     
 
-I don&#8217;t care about the GUI version. You can also check if the package has &#8220;variants&#8221;:
+I don't care about the GUI version. You can also check if the package has "variants":
 
     kelatov@kmac:~$port variants sshfs
     sshfs has the variants:
        universal: Build for multiple architectures
     
 
-There aren&#8217;t that many options. A good example is something like this:
+There aren't that many options. A good example is something like this:
 
     kelatov@kmac:~$port variants mysql56
     mysql56 has the variants:
@@ -333,7 +333,7 @@ So we need to create a *mount_sshfs* command. We can just create a *symlink* to 
     kelatov@kmac:~$sudo ln -s /opt/local/bin/sshfs /sbin/mount_sshfs
     
 
-Now let&#8217;s edit the **/etc/autofs_amnt** file and add the following:
+Now let's edit the **/etc/autofs_amnt** file and add the following:
 
     ssh -fstype=sshfs,defer_permissions,allow_other,auto_cache elatov@ssh.server.com:/mnt/data
     

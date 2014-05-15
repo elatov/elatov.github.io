@@ -41,11 +41,11 @@ I was recently presented with the following environment:
   </tr>
 </table>
 
-With this setup all the VMs from the ESX that resided on the NFS Datastores exported from the NetApp Array were experiencing high GAVG. Since this is NFS we don&#8217;t have DAVG or KAVG statistics. Looking at esxtop, this is what we saw:
+With this setup all the VMs from the ESX that resided on the NFS Datastores exported from the NetApp Array were experiencing high GAVG. Since this is NFS we don't have DAVG or KAVG statistics. Looking at esxtop, this is what we saw:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/06/nfs_ds_latency_1.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/06/nfs_ds_latency_1.png']);"><img class="alignnone size-full wp-image-1717" title="nfs_ds_latency_1" src="http://virtuallyhyper.com/wp-content/uploads/2012/06/nfs_ds_latency_1.png" alt="nfs ds latency 1 VMs are Experiencing High Latency to NetApp FAS 6240" width="1268" height="404" /></a>
 
-Notice the GAVG for the to NFS datastore is ~25ms. We would consistently see 20-40ms of latency to array. Looking at the VM&#8217;s latency, we saw similar numbers:
+Notice the GAVG for the to NFS datastore is ~25ms. We would consistently see 20-40ms of latency to array. Looking at the VM's latency, we saw similar numbers:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/06/nfs_vm_latency_1.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/06/nfs_vm_latency_1.png']);"><img class="alignnone size-full wp-image-1716" title="nfs_vm_latency_1" src="http://virtuallyhyper.com/wp-content/uploads/2012/06/nfs_vm_latency_1.png" alt="nfs vm latency 1 VMs are Experiencing High Latency to NetApp FAS 6240" width="980" height="188" /></a>
 
@@ -81,7 +81,7 @@ Layer 3 NFS is not supported with ESX until ESX 5.0U1. From the <a href="https:/
 > 
 > vSphere 5.0 Update 1 supports L3 routed NFS storage access when you ensure that your environment meets the following conditions:
 > 
-> *   Use Cisco&#8217;s Hot Standby Router Protocol (HSRP) in IP Router. If you are using non-Cisco router, be sure to use Virtual Router Redundancy Protocol (VRRP) instead.
+> *   Use Cisco's Hot Standby Router Protocol (HSRP) in IP Router. If you are using non-Cisco router, be sure to use Virtual Router Redundancy Protocol (VRRP) instead.
 > *   Use Quality of Service (QoS) to prioritize NFS L3 traffic on networks with limited bandwidths, or on networks that experience congestion. See your router company documentation for details.
 > *   Follow Routed NFS L3 best practices recommended by storage vendor. Contact your storage vendor for details.
 > *   Disable Network I/O Resource Management (NetIORM)

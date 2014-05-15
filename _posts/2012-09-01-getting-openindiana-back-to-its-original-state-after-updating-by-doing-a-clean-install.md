@@ -1,5 +1,5 @@
 ---
-title: 'Getting OpenIndiana Back to it&#8217;s Original State After Updating by Doing a Clean Install'
+title: "Getting OpenIndiana Back to it's Original State After Updating by Doing a Clean Install"
 author: Karim Elatov
 layout: post
 permalink: /2012/09/getting-openindiana-back-to-its-original-state-after-updating-by-doing-a-clean-install/
@@ -32,12 +32,12 @@ I decided to update from **oi_151a4** to **oi_151a5**. I tried using **pkg**:
     ~# pkg image-update
     
 
-I followed the instruction laid out in &#8220;<a href="http://wiki.openindiana.org/oi/Upgrading+OpenIndiana" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.openindiana.org/oi/Upgrading+OpenIndiana']);">Upgrading OpenIndiana</a>&#8220;, but nothing worked. I re-setup my publisher, I even tried different publisher, but it just wouldn&#8217;t update. The above link is actually a forum and people had similar issues and one person fixed his issue by running the following:
+I followed the instruction laid out in "<a href="http://wiki.openindiana.org/oi/Upgrading+OpenIndiana" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.openindiana.org/oi/Upgrading+OpenIndiana']);">Upgrading OpenIndiana</a>", but nothing worked. I re-setup my publisher, I even tried different publisher, but it just wouldn't update. The above link is actually a forum and people had similar issues and one person fixed his issue by running the following:
 
     ~# pkg rebuild-index
     
 
-But unfortunately it didn&#8217;t help out. So I downloaded the <a href="http://dlc.openindiana.org/isos/151a5/oi-dev-151a5-live-x86.iso" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://dlc.openindiana.org/isos/151a5/oi-dev-151a5-live-x86.iso']);">iso</a>, and just did a clean install. Since I had two drives which I setup before (If you want more information regarding that, check out my <a href="http://virtuallyhyper.com/2012/08/migrating-the-root-zfs-pool-to-a-smaller-drive/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/08/migrating-the-root-zfs-pool-to-a-smaller-drive/']);">previous</a> post), I setup up my system pool on the 8GB drive and my data pool to be on the other drive. So during the clean install I just selected the drive which had my system pool and the install just wiped that drive and setup a new pool on it. But my data pool was still in tact. After the install/update finished, I saw the following:
+But unfortunately it didn't help out. So I downloaded the <a href="http://dlc.openindiana.org/isos/151a5/oi-dev-151a5-live-x86.iso" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://dlc.openindiana.org/isos/151a5/oi-dev-151a5-live-x86.iso']);">iso</a>, and just did a clean install. Since I had two drives which I setup before (If you want more information regarding that, check out my <a href="http://virtuallyhyper.com/2012/08/migrating-the-root-zfs-pool-to-a-smaller-drive/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/08/migrating-the-root-zfs-pool-to-a-smaller-drive/']);">previous</a> post), I setup up my system pool on the 8GB drive and my data pool to be on the other drive. So during the clean install I just selected the drive which had my system pool and the install just wiped that drive and setup a new pool on it. But my data pool was still in tact. After the install/update finished, I saw the following:
 
     root@openindiana:~# zpool status
     pool: rpool
@@ -66,7 +66,7 @@ But unfortunately it didn&#8217;t help out. So I downloaded the <a href="http://
     SunOS openindiana 5.11 oi_151a5 i86pc i386 i86pc Solaris
     
 
-and my network setup was gone as well (This was because during the install I selected &#8220;Don&#8217;t setup Networking&#8221;):
+and my network setup was gone as well (This was because during the install I selected "Don't setup Networking"):
 
     root@openindiana:~# ifconfig -a
     lo0: flags=2001000849<UP,LOOPBACK,RUNNING,MULTICAST,IPv4,VIRTUAL> mtu 8232 index 1
@@ -75,7 +75,7 @@ and my network setup was gone as well (This was because during the install I sel
     inet6 ::1/128
     
 
-My NIC was there it just wasn&#8217;t setup:
+My NIC was there it just wasn't setup:
 
     root@openindiana:~# dladm show-phys
     LINK MEDIA STATE SPEED DUPLEX DEVICE
@@ -153,7 +153,7 @@ The VM was back on the network and I could now *ssh* to it. Now to see if we can
     c4t0d0s0 ONLINE
     
 
-Now let&#8217;s go ahead and import the pool:
+Now let's go ahead and import the pool:
 
     root@openindiana:~# zpool import -f data
     root@openindiana:~# zpool status
@@ -212,7 +212,7 @@ That looked good. Checking the current versions of my two zpools, I saw the foll
     rpool version - default
     
 
-Notice that the new pool doesn&#8217;t have a version. This is expected, from the **oi_151a5** release notes:
+Notice that the new pool doesn't have a version. This is expected, from the **oi_151a5** release notes:
 
 > This release includes the async zfs destroy feature from illumos that comes with a new zpool version.
 > 
@@ -221,9 +221,9 @@ Notice that the new pool doesn&#8217;t have a version. This is expected, from th
 > The ZFS feature flags concept is documented here:  
 > http://blog.delphix.com/csiden/files/2012/01/ZFS\_Feature\_Flags.pdf.
 > 
-> In this context the &#8220;zpool version&#8221; becomes a legacy concept, and the number is set to 5000 on existing pools during a &#8220;zpool upgrade&#8221; run.
+> In this context the "zpool version" becomes a legacy concept, and the number is set to 5000 on existing pools during a "zpool upgrade" run.
 
-So in this version of OpenIndiana zpool versions become a &#8220;legacy concept&#8221;. I went a ahead and updated by data pool:
+So in this version of OpenIndiana zpool versions become a "legacy concept". I went a ahead and updated by data pool:
 
     root@openindiana:~# zpool upgrade data
     This system supports ZFS pool feature flags.
@@ -273,7 +273,7 @@ and the **smtf** service is disabled. I first wanted to install the **iscsi/targ
     opensolaris.org origin online http://pkg.openindiana.org/legacy/
     
 
-I realized that I had the opensolaris publisher. From &#8220;&#8221;<a href="http://wiki.openindiana.org/oi/Upgrading+OpenIndiana" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.openindiana.org/oi/Upgrading+OpenIndiana']);">Upgrading OpenIndiana</a>&#8220;:
+I realized that I had the opensolaris publisher. From ""<a href="http://wiki.openindiana.org/oi/Upgrading+OpenIndiana" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.openindiana.org/oi/Upgrading+OpenIndiana']);">Upgrading OpenIndiana</a>":
 
 > **opensolaris.org publisher**  
 > If you currently have the opensolaris.org publisher set, we would highly recommend unsetting it by running:
@@ -289,7 +289,7 @@ So I went ahead and disabled it:
     openindiana.org origin online http://pkg.openindiana.org/dev/
     
 
-Then I wanted to install the comstar packages. From &#8220;<a href="http://docs.oracle.com/cd/E19963-01/html/821-1459/fncpi.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://docs.oracle.com/cd/E19963-01/html/821-1459/fncpi.html']);">Configuring COMSTAR (Task Map)</a>&#8220;:
+Then I wanted to install the comstar packages. From "<a href="http://docs.oracle.com/cd/E19963-01/html/821-1459/fncpi.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://docs.oracle.com/cd/E19963-01/html/821-1459/fncpi.html']);">Configuring COMSTAR (Task Map)</a>":
 
 > Install the COMSTAR storage server software.
 > 
@@ -323,20 +323,20 @@ and now to confirm I have all the components installed:
     online 11:19:22 svc:/network/iscsi/initiator:default
     
 
-I won&#8217;t be using the initiator service from this machine it&#8217;s just going to be an iSCSI target, so I did the following:
+I won't be using the initiator service from this machine it's just going to be an iSCSI target, so I did the following:
 
     root@openindiana:~# svcadm enable stmf
     root@openindiana:~# svcadm enable iscsi/target
     root@openindiana:~# svcadm disable iscsi/initiator
     
 
-First let&#8217;s create an iSCSI target:
+First let's create an iSCSI target:
 
     root@openindiana:~# itadm create-target
     Target iqn.2010-09.org.openindiana:02:bd79a6ff-33c2-41d3-8f0e-9c8d8b6e9fcb successfully created
     
 
-Let&#8217;s make sure it&#8217;s created:
+Let's make sure it's created:
 
     root@openindiana:~# itadm list-target -v
     TARGET NAME STATE SESSIONS
@@ -348,7 +348,7 @@ Let&#8217;s make sure it&#8217;s created:
     tpg-tags: default
     
 
-Next let&#8217;s create a host group so we can add our esx hosts to it:
+Next let's create a host group so we can add our esx hosts to it:
 
     root@openindiana:~# stmfadm create-hg esx
     
@@ -376,7 +376,7 @@ Then add each IQN as an initiator and add it to our host group:
     root@openindiana:~# stmfadm add-hg-member -g esx iqn.1998-01.com.vmware:localhost-428367f3
     
 
-Let&#8217;s make sure they are added properly:
+Let's make sure they are added properly:
 
     root@openindiana:~# stmfadm list-hg -v
     Host Group: esx
@@ -406,7 +406,7 @@ List your LUNs to make sure they are there:
     600144f0928c010000004fc90a3a0001 139586437120 /dev/zvol/rdsk/data/iscsi_share2
     
 
-That looks good, now let&#8217;s add a &#8220;view&#8221; to allow the hostgroup &#8220;esx&#8221; to access the above LUNS:
+That looks good, now let's add a "view" to allow the hostgroup "esx" to access the above LUNS:
 
     root@openindiana:~# stmfadm add-view -h esx 600144f0928c010000004fc511ec0001
     root@openindiana:~# stmfadm add-view -h esx 600144f0928c010000004fc90a3a0001

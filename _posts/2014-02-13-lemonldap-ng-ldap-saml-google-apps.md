@@ -64,17 +64,17 @@ After that was done, I then installed the packages:
 
 ### Install liblasso
 
-Unfortunately the <a href="http://lasso.entrouvert.org/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://lasso.entrouvert.org/']);">liblasso</a> package was not included in any of the above repositories, so I compiled it from source. First let&#8217;s get the source:
+Unfortunately the <a href="http://lasso.entrouvert.org/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://lasso.entrouvert.org/']);">liblasso</a> package was not included in any of the above repositories, so I compiled it from source. First let's get the source:
 
     wget https://dev.entrouvert.org/lasso/lasso-2.3.6.tar.gz --no-check-certificate
     
 
-Now let&#8217;s install some of the prerequisites. Here were the ones I was missing:
+Now let's install some of the prerequisites. Here were the ones I was missing:
 
     sudo yum install glib2-devel libxml2-devel xmlsec1-devel xmlsec1-openssl-devel libtool-ltdl-devel
     
 
-Now let&#8217;s extract the source and configure the package:
+Now let's extract the source and configure the package:
 
     tar xvzf lasso-2.3.6.tar.gz
     cd lasso-2.3.6
@@ -91,7 +91,7 @@ and then finally run the following to install it:
     sudo make install
     
 
-For some reason the <a href="https://blogs.oracle.com/ali/entry/avoiding_ld_library_path_the" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.oracle.com/ali/entry/avoiding_ld_library_path_the']);">ld-run-path</a> wasn&#8217;t setting appropriately, and upon loading the **Lasso** perl module it would fail with the following message:
+For some reason the <a href="https://blogs.oracle.com/ali/entry/avoiding_ld_library_path_the" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.oracle.com/ali/entry/avoiding_ld_library_path_the']);">ld-run-path</a> wasn't setting appropriately, and upon loading the **Lasso** perl module it would fail with the following message:
 
     elatov@ccl:~$perl -MLasso
     Can't load '/usr/local/lib64/perl5/auto/Lasso/Lasso.so' for module Lasso: 
@@ -140,14 +140,14 @@ I actually ended up using the same server for all the components of the setup.
 
 ### Modify LemonLDAP::NG Configuration Files
 
-Now let&#8217;s fix the hostnames in the configuration files. Here is what I ran to fix all the setting files:
+Now let's fix the hostnames in the configuration files. Here is what I ran to fix all the setting files:
 
     sed -i 's/auth\.example\.com/port.dnsd.me/g' /var/lib/lemonldap-ng/conf/lmConf-1 /etc/lemonldap-ng/* /var/lib/lemonldap-ng/test/index.pl
     sed -i 's/manager\.example\.com/man.dnsd.me/g' /var/lib/lemonldap-ng/conf/lmConf-1 /etc/lemonldap-ng/* /var/lib/lemonldap-ng/test/index.pl
     sed -i 's/reload\.example\.com/reload.dnsd.me/g' /var/lib/lemonldap-ng/conf/lmConf-1 /etc/lemonldap-ng/* /var/lib/lemonldap-ng/test/index.pl
     
 
-Now let&#8217;s make sure the **apache** rules are good:
+Now let's make sure the **apache** rules are good:
 
     elatov@ccl:~$sudo apachectl configtest
     Syntax OK
@@ -159,7 +159,7 @@ Then enable **apache** on boot up and start the service:
     sudo service httpd start
     
 
-Don&#8217;t forget to open up the firewall for port 80, add the following into the **/etc/sysconfig/iptables** file:
+Don't forget to open up the firewall for port 80, add the following into the **/etc/sysconfig/iptables** file:
 
     -A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
     
@@ -193,7 +193,7 @@ If you visit the authentication portal (**port.dnsd.me**) and login with the sam
 
 ## Install and Configure an LDAP Server for LemonLDAP::NG Authentication
 
-I didn&#8217;t want to leave the demo account enabled (**dwho**), so I decided to use LDAP for authentication.
+I didn't want to leave the demo account enabled (**dwho**), so I decided to use LDAP for authentication.
 
 ### Install 389 Directory Server
 
@@ -209,7 +209,7 @@ After the install is finished we can now create users.
 
 ### Use the 389 Admin Console to Create a User
 
-You can&#8217;t access the admin console remotely, so we can use **X-Forwarding** to launch the application from the server it self. To enable SSH X-Forwarding, first make sure you have the following defined in your **/etc/ssh/sshd_config** file:
+You can't access the admin console remotely, so we can use **X-Forwarding** to launch the application from the server it self. To enable SSH X-Forwarding, first make sure you have the following defined in your **/etc/ssh/sshd_config** file:
 
     AddressFamily inet
     X11Forwarding yes
@@ -285,7 +285,7 @@ That looks good, I could actually bind with test user and do a query against him
     cn: K E
     
 
-Notice this time around the password field is not shown, but obviously I had to type the user&#8217;s password to perform the bind operation.
+Notice this time around the password field is not shown, but obviously I had to type the user's password to perform the bind operation.
 
 ### Configure LemonLDAP::NG to Use LDAP For Authentication
 
@@ -309,7 +309,7 @@ Then go to **General Parameters** -> **Authentication Modules** -> **LDAP parame
 
 ### Allow Access to LemonLDAP:NG Manager to Other Users
 
-As you saw I created a user called **elatov** in LDAP. Also as mentioned, by default the **dwho** user is configured to access the manager console. Let&#8217;s change that to be the user **elatov**. To configure this go to **Virtual Hosts** -> **man.dnsd.me** -> **Rules**. And change the **default** rule to be `$uid eq "elatov"`:
+As you saw I created a user called **elatov** in LDAP. Also as mentioned, by default the **dwho** user is configured to access the manager console. Let's change that to be the user **elatov**. To configure this go to **Virtual Hosts** -> **man.dnsd.me** -> **Rules**. And change the **default** rule to be `$uid eq "elatov"`:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/01/lemon-ldap-change-access-to-man.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/01/lemon-ldap-change-access-to-man.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/01/lemon-ldap-change-access-to-man.png" alt="lemon ldap change access to man LemonLDAP NG With LDAP and SAML Google Apps" width="873" height="278" class="alignnone size-full wp-image-10032" title="LemonLDAP NG With LDAP and SAML Google Apps" /></a>
 
@@ -317,11 +317,11 @@ Now you can configure *lemonldap-ng* with the **elatov** user.
 
 ## SAML with LemonLDAP::NG
 
-Now let&#8217;s setup *lemonldap-ng* to be a SAML **IDP** (Identity Provider) connecting to the Google Apps **SP** (Service Provider).
+Now let's setup *lemonldap-ng* to be a SAML **IDP** (Identity Provider) connecting to the Google Apps **SP** (Service Provider).
 
 ### Configure LemonLDAP::NG to be a SAML IDP (Identity Provider)
 
-First let&#8217;s enable **SAML**. From the managamentment console (**man.dnsd.me**), go to **General Settings** -> **Issuer Module** -> **SAML** -> **Activation** -> **On**:
+First let's enable **SAML**. From the managamentment console (**man.dnsd.me**), go to **General Settings** -> **Issuer Module** -> **SAML** -> **Activation** -> **On**:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/01/enable-saml-lemonldap.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/01/enable-saml-lemonldap.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/01/enable-saml-lemonldap.png" alt="enable saml lemonldap LemonLDAP NG With LDAP and SAML Google Apps" width="953" height="216" class="alignnone size-full wp-image-10033" title="LemonLDAP NG With LDAP and SAML Google Apps" /></a>
 
@@ -333,7 +333,7 @@ Then generate a private SSL key which will be used for the signature of the SAML
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/01/private-key-generat-lemon-ldap.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/01/private-key-generat-lemon-ldap.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/01/private-key-generat-lemon-ldap.png" alt="private key generat lemon ldap LemonLDAP NG With LDAP and SAML Google Apps" width="1021" height="348" class="alignnone size-full wp-image-10035" title="LemonLDAP NG With LDAP and SAML Google Apps" /></a>
 
-After it&#8217;s generated, go ahead and **download** it and save it as **lemondap-priv-key.pem** (we will use this later to generate the public certificate to upload to Google Apps).
+After it's generated, go ahead and **download** it and save it as **lemondap-priv-key.pem** (we will use this later to generate the public certificate to upload to Google Apps).
 
 For completion, fill out your *Organization* information under **SAML2 Service** -> **Organization** -> **Display Name / Name / URL**:
 
@@ -343,7 +343,7 @@ For completion, fill out your *Organization* information under **SAML2 Service**
 
 First create a new **Service Provider**, this is done by going to **SAML service provider** -> **New service provider**.
 
-After it&#8217;s created add Google Apps SAML Metadata. **SAML service provider** -> **gapps** -> **Metadata** and add the following into it:
+After it's created add Google Apps SAML Metadata. **SAML service provider** -> **gapps** -> **Metadata** and add the following into it:
 
     <md:EntityDescriptor entityID="google.com" xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata">
       <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -357,17 +357,17 @@ After it&#8217;s created add Google Apps SAML Metadata. **SAML service provider*
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/01/saml-metadata-for-gapps.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/01/saml-metadata-for-gapps.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/01/saml-metadata-for-gapps-1024x272.png" alt="saml metadata for gapps 1024x272 LemonLDAP NG With LDAP and SAML Google Apps" width="620" height="164" class="alignnone size-large wp-image-10037" title="LemonLDAP NG With LDAP and SAML Google Apps" /></a>
 
-Now let&#8217;s configure to use the **Email** Format for the **NameID** attribute. **SAML service provider** -> **gapps** > **Options** -> **Authentication response** -> **Default NameID format** -> **Email**:
+Now let's configure to use the **Email** Format for the **NameID** attribute. **SAML service provider** -> **gapps** > **Options** -> **Authentication response** -> **Default NameID format** -> **Email**:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/01/nameid-format-lemonldap-gapps.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/01/nameid-format-lemonldap-gapps.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/01/nameid-format-lemonldap-gapps-1024x373.png" alt="nameid format lemonldap gapps 1024x373 LemonLDAP NG With LDAP and SAML Google Apps" width="620" height="225" class="alignnone size-large wp-image-10038" title="LemonLDAP NG With LDAP and SAML Google Apps" /></a>
 
-Lastly let&#8217;s disable the advanced features in *lemonldap-ng*. This is done by going to **SAML service provider** -> **gapps** -> **Options** -> **Signature**. Then disable everything except &#8220;**Sign SSO message**&#8220;:
+Lastly let's disable the advanced features in *lemonldap-ng*. This is done by going to **SAML service provider** -> **gapps** -> **Options** -> **Signature**. Then disable everything except "**Sign SSO message**":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/01/sign-sso-assertion.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/01/sign-sso-assertion.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/01/sign-sso-assertion.png" alt="sign sso assertion LemonLDAP NG With LDAP and SAML Google Apps" width="1020" height="493" class="alignnone size-full wp-image-10039" title="LemonLDAP NG With LDAP and SAML Google Apps" /></a>
 
 ### Enable SAML SSO in Google Apps
 
-First let&#8217;s generate the signing certificate. Run the following two commands:
+First let's generate the signing certificate. Run the following two commands:
 
     openssl req -new -key lemondap-priv-key.pem -out lemonldap.csr
     openssl x509 -req -days 3650 -in lemonldap.csr -signkey lemondap-priv-key.pem -out lemonldap.pem
@@ -405,7 +405,7 @@ Go to the authentication portal (**port.dnsd.me**) and login as a user which has
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/01/user-loggedin-lemonldap.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/01/user-loggedin-lemonldap.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/01/user-loggedin-lemonldap-1024x214.png" alt="user loggedin lemonldap 1024x214 LemonLDAP NG With LDAP and SAML Google Apps" width="620" height="129" class="alignnone size-large wp-image-10043" title="LemonLDAP NG With LDAP and SAML Google Apps" /></a>
 
-I logged in with user **elatov** (from above I set his email to be **test@moxz.mine.nu** in LDAP&#8230; I of course had a user in Google Apps with that same email set). Then clicking on the **Google Apps** application logged me into Google Apps:
+I logged in with user **elatov** (from above I set his email to be **test@moxz.mine.nu** in LDAP... I of course had a user in Google Apps with that same email set). Then clicking on the **Google Apps** application logged me into Google Apps:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/01/logged-into-gmail-from-lemonldap.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/01/logged-into-gmail-from-lemonldap.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/01/logged-into-gmail-from-lemonldap-1024x134.png" alt="logged into gmail from lemonldap 1024x134 LemonLDAP NG With LDAP and SAML Google Apps" width="620" height="81" class="alignnone size-large wp-image-10044" title="LemonLDAP NG With LDAP and SAML Google Apps" /></a>
 

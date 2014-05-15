@@ -91,11 +91,11 @@ We were using vmnic4 and vmnic5 for the binding. Checking out those Nics:
 	vmnic5 0000:0b:00.01 e1000e Up 1000Mbps Full 00:26:55:df:c9:99 1500 Intel Corporation NC360T PCI Express Dual Port Gigabit Server Adapter  
 	
 
-We saw that from the &#8216;esxcli swscsi nic list&#8217; output we were using e1000e driver version 1.1.2. Checking out the <a href="http://partnerweb.vmware.com/comp_guide2/detail.php?deviceCategory=io&productid=985&deviceCategory=io&VID=8086&DID=105e&SVID=103c&SSID=7044&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://partnerweb.vmware.com/comp_guide2/detail.php?deviceCategory=io&productid=985&deviceCategory=io&VID=8086&DID=105e&SVID=103c&SSID=7044&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc']);">HCL</a> for the above NIC. We were at the latest version:
+We saw that from the 'esxcli swscsi nic list' output we were using e1000e driver version 1.1.2. Checking out the <a href="http://partnerweb.vmware.com/comp_guide2/detail.php?deviceCategory=io&productid=985&deviceCategory=io&VID=8086&DID=105e&SVID=103c&SSID=7044&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://partnerweb.vmware.com/comp_guide2/detail.php?deviceCategory=io&productid=985&deviceCategory=io&VID=8086&DID=105e&SVID=103c&SSID=7044&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc']);">HCL</a> for the above NIC. We were at the latest version:
 
 > ESX/ESXi 4.1 U2 e1000e version 1.1.2.1-1vmw N/A async
 
-From the above output we could also see that Jumbo Frames were not utilized. Lastly we saw each VMkernel interface is on it&#8217;s own subnet/VLAN. This is recommendation from EMC, from article &#8220;<a href="http://www.emc.com/collateral/hardware/technical-documentation/h8229-vnx-vmware-tb.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.emc.com/collateral/hardware/technical-documentation/h8229-vnx-vmware-tb.pdf']);">Using EMC VNX Storage with VMware vSphere, Version 2.1</a>&#8220;:
+From the above output we could also see that Jumbo Frames were not utilized. Lastly we saw each VMkernel interface is on it's own subnet/VLAN. This is recommendation from EMC, from article "<a href="http://www.emc.com/collateral/hardware/technical-documentation/h8229-vnx-vmware-tb.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.emc.com/collateral/hardware/technical-documentation/h8229-vnx-vmware-tb.pdf']);">Using EMC VNX Storage with VMware vSphere, Version 2.1</a>":
 
 > EMC recommends the following configuration options for VNX systems:
 > 
@@ -241,7 +241,7 @@ Looks like we disconnected from both of the Targets about the same amount of tim
 	Path Selection Policy Path Config: {current: yes; preferred: no}  
 	
 
-Notice &#8220;Path Selection Policy Path Config&#8221; setting. If were using the active optimized path we would see &#8216;{current: yes; preferred: yes}&#8217;, but we didn&#8217;t see that. From the above VMware KB, here are some reasons why we would use a non-optimized path:
+Notice "Path Selection Policy Path Config" setting. If were using the active optimized path we would see '{current: yes; preferred: yes}', but we didn't see that. From the above VMware KB, here are some reasons why we would use a non-optimized path:
 
 > There are two use-cases for using the active non-optimized ALUA paths:
 > 
@@ -258,9 +258,9 @@ The PSP setting is only available for Round Robin and not for Fixed:
 > 
 > Configuring PSP_RR to use ANO paths for such arrays can result in path thrashing and poor I/O performance. 
 
-So in our case, since the active optimized path was unavailable we started using the non-optimized path. During our trouble shooting efforts we trespassed all the LUNs over to SPB and left it over night and the issue didn&#8217;t occur. As soon as we trespassed the LUNs back to SPA the issue came up again. The customer replaced the whole SPA on the VNX but it didn&#8217;t help out.
+So in our case, since the active optimized path was unavailable we started using the non-optimized path. During our trouble shooting efforts we trespassed all the LUNs over to SPB and left it over night and the issue didn't occur. As soon as we trespassed the LUNs back to SPA the issue came up again. The customer replaced the whole SPA on the VNX but it didn't help out.
 
-After the above test we knew that it had to do something with VLAN 22(path to SPA), because when we only used VLAN 24 (path to SPB) we didn&#8217;t see any issues. After much investigation it turned out that one of the stacked switches had QOS enabled and that was causing a bottle neck. The customer ran the following command on the offending switch:  
+After the above test we knew that it had to do something with VLAN 22(path to SPA), because when we only used VLAN 24 (path to SPB) we didn't see any issues. After much investigation it turned out that one of the stacked switches had QOS enabled and that was causing a bottle neck. The customer ran the following command on the offending switch:  
 	  
 	no mls qos  
 	
@@ -271,5 +271,5 @@ So here is a summary of what happened. One of the stacked switches had QOS enabl
 
 > After 128,000 I/O via the non-optimized paths, the system will make the decision to trespass the LUN (implicit trespass) instead of maintaining the non-optimal paths of an extra hop.
 
-Eventually the path would become available and we would switch back to the optimized path and the cycle would start all over again. At times a trespass wouldn&#8217;t occur and we would just jump back and forth between the paths.
+Eventually the path would become available and we would switch back to the optimized path and the cycle would start all over again. At times a trespass wouldn't occur and we would just jump back and forth between the paths.
 

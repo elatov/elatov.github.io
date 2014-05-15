@@ -73,7 +73,7 @@ Also saw the following output:
 	NAS_1 is /vol/data1 from 10.178.250.10 mounted  
 	
 
-Notice the &#8220;mounted&#8221; field is showing up now. Here is how the routing table looked like on the ESXi host, after the addition of the static route:
+Notice the "mounted" field is showing up now. Here is how the routing table looked like on the ESXi host, after the addition of the static route:
 
 	  
 	~ # esxcfg-route -l  
@@ -89,5 +89,5 @@ So here is how the network looked like:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/static_route_example.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/static_route_example.jpg']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/11/static_route_example.jpg" alt="static route example Lost NFS Connectivity from ESX(i) Host when NAS is Another Subnet" title="static_route_example" width="972" height="560" class="alignnone size-full wp-image-4989" /></a>
 
-In the beginning we were connecting through the top switch (mgmt\_switch) and since the new security in place, we couldn&#8217;t go that way. After we added the static route, we were connecting through the bottom switch (NFS\_Switch) and that is the way it&#8217;s supposed to be. I realize the setup is not the best, and the best way to fix this would be to put the NAS server on the same network (10.178.46.x) as the NFS interface (for performance and security reasons) but some times the physical setup is outside of our control.
+In the beginning we were connecting through the top switch (mgmt\_switch) and since the new security in place, we couldn't go that way. After we added the static route, we were connecting through the bottom switch (NFS\_Switch) and that is the way it's supposed to be. I realize the setup is not the best, and the best way to fix this would be to put the NAS server on the same network (10.178.46.x) as the NFS interface (for performance and security reasons) but some times the physical setup is outside of our control.
 

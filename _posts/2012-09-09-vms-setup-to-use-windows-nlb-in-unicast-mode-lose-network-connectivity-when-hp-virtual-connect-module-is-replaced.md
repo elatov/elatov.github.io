@@ -18,11 +18,11 @@ tags:
   - Virtual Connect Module
   - Windows NLB
 ---
-A VirtualConnect Module was being replaced on an HP Enclosure and only the VMs used for Windows NLB lost network connectivity.  If you are not too familiar with the HP VirtualConnect I would suggest reading &#8220;<a href="http://h20000.www2.hp.com/bc/docs/support/SupportManual/c01990371/c01990371.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://h20000.www2.hp.com/bc/docs/support/SupportManual/c01990371/c01990371.pdf']);">HP Virtual Connect Ethernet Cookbook: Single and Multi Enclosure Domain (Stacked) Scenarios</a>&#8220;. An HP Virtual Connect Module is basically an interconnect between the blades in an enclosure and the physical upstream switch. It sits between the middle plan of the enclosure and the rear of the Enclosure. From &#8220;<a href="http://h20000.www2.hp.com/bc/docs/support/SupportManual/c03154250/c03154250.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://h20000.www2.hp.com/bc/docs/support/SupportManual/c03154250/c03154250.pdf']);">HP Virtual Connect traffic flow</a>&#8220;, here is a good picture:
+A VirtualConnect Module was being replaced on an HP Enclosure and only the VMs used for Windows NLB lost network connectivity.  If you are not too familiar with the HP VirtualConnect I would suggest reading "<a href="http://h20000.www2.hp.com/bc/docs/support/SupportManual/c01990371/c01990371.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://h20000.www2.hp.com/bc/docs/support/SupportManual/c01990371/c01990371.pdf']);">HP Virtual Connect Ethernet Cookbook: Single and Multi Enclosure Domain (Stacked) Scenarios</a>". An HP Virtual Connect Module is basically an interconnect between the blades in an enclosure and the physical upstream switch. It sits between the middle plan of the enclosure and the rear of the Enclosure. From "<a href="http://h20000.www2.hp.com/bc/docs/support/SupportManual/c03154250/c03154250.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://h20000.www2.hp.com/bc/docs/support/SupportManual/c03154250/c03154250.pdf']);">HP Virtual Connect traffic flow</a>", here is a good picture:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/flex-fabric.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/flex-fabric.png']);"><img class="alignnone size-full wp-image-3429" title="flex-fabric" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/flex-fabric.png" alt="flex fabric VMs Setup to Use Windows NLB in Unicast Mode Lose Network Connectivity When HP Virtual Connect Module is Replaced" width="604" height="567" /></a>
 
-In the above picture, Flex Fabric Interconnect is our Virtual Connect Interconnect Module. Flex Fabric is an extension of the Virtual Connect Module. From &#8220;<a href="http://h20000.www2.hp.com/bc/docs/support/SupportManual/c00810839/c00810839.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://h20000.www2.hp.com/bc/docs/support/SupportManual/c00810839/c00810839.pdf']);">HP BladeSystem c-Class architecture</a>&#8220;:
+In the above picture, Flex Fabric Interconnect is our Virtual Connect Interconnect Module. Flex Fabric is an extension of the Virtual Connect Module. From "<a href="http://h20000.www2.hp.com/bc/docs/support/SupportManual/c00810839/c00810839.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://h20000.www2.hp.com/bc/docs/support/SupportManual/c00810839/c00810839.pdf']);">HP BladeSystem c-Class architecture</a>":
 
 > **Virtual Connect**  
 > Virtual Connect includes a set of interconnect modules and embedded software that implements server-edge virtualization. It puts an abstraction layer between the servers and the external networks
@@ -39,7 +39,7 @@ In the above picture, Flex Fabric Interconnect is our Virtual Connect Interconne
 > HP Virtual Connect FlexFabric interconnect modules and FlexFabric adapters extend Flex 10  
 > technology to include data and storage traffic within each 10 Gb server connection. This allows you to allocate LAN and SAN fabrics of a single 10 GbE data stream into four separate connections— one connection for each server port can be allocated to storage (FlexHBA) for either FCoE or iSCSI. You can adjust the bandwidth and routing information of each connection. A FlexFabric adapter functions as a standard NIC, a Flex-10 NIC, or a converged network adapter (CNA). To aggregate the LAN and SAN data, the FlexFabric adapter encapsulates Fibre Channel frames as FCoE or uses iSCSI along with the Ethernet LAN data. You can configure FlexFabric adapters to support either FCoE or iSCSI, but not concurrent streams of both. When the data stream enters the Virtual Connect FlexFabric interconnect module, the converged LAN and SAN traffic separate. Data streams leaving the BladeSystem enclosure use traditional Ethernet and storage (FC or SCSI) protocols. As a result, Flex-10 technology with FlexFabric adapters and VC FlexFabric modules provides a significant reduction in cabling, switches, and required ports at the server edge.
 
-Also from &#8220;<a href="http://h20000.www2.hp.com/bc/docs/support/SupportManual/c00814156/c00814156.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://h20000.www2.hp.com/bc/docs/support/SupportManual/c00814156/c00814156.pdf']);">Overview of HP Virtual Connect technologies</a>&#8220;:
+Also from "<a href="http://h20000.www2.hp.com/bc/docs/support/SupportManual/c00814156/c00814156.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://h20000.www2.hp.com/bc/docs/support/SupportManual/c00814156/c00814156.pdf']);">Overview of HP Virtual Connect technologies</a>":
 
 > **FlexNIC capabilities**  
 > Flex-10 and FlexFabric adapters allow you to partition a 10 Gb link into several smaller bandwidth FlexNICs. Virtual machine applications often require increased network connections per server, increasing network complexity while reducing the number of server resources. Virtual Connect addresses this issue by letting you divide a 10 Gb network connection into four independent FlexNIC server connections. A FlexNIC is a physical PCIe function (PF) that appears to the system ROM, OS, or hypervisor as a discrete physical NIC with its own driver instance. It is not a virtual NIC contained in a software layer.
@@ -50,7 +50,7 @@ Here is another picture of the HP Virtual Connect FlexFabric InterConnect Module
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/flex-fabric2.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/flex-fabric2.png']);"><img class="alignnone size-full wp-image-3436" title="flex-fabric2" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/flex-fabric2.png" alt="flex fabric2 VMs Setup to Use Windows NLB in Unicast Mode Lose Network Connectivity When HP Virtual Connect Module is Replaced" width="505" height="408" /></a>
 
-Sometimes the Virtual Connect Module technology is just bundled as one technology, but in reality it consists of a couple of things. From &#8220;<a href="http://h20000.www2.hp.com/bc/docs/support/SupportManual/c01386629/c01386629.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://h20000.www2.hp.com/bc/docs/support/SupportManual/c01386629/c01386629.pdf']);">HP Virtual Connect for the Cisco Network Administrator</a>&#8220;:
+Sometimes the Virtual Connect Module technology is just bundled as one technology, but in reality it consists of a couple of things. From "<a href="http://h20000.www2.hp.com/bc/docs/support/SupportManual/c01386629/c01386629.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://h20000.www2.hp.com/bc/docs/support/SupportManual/c01386629/c01386629.pdf']);">HP Virtual Connect for the Cisco Network Administrator</a>":
 
 > **Virtual Connect Components**  
 > There are three key components that make up the Virtual Connect infrastructure. Two  
@@ -66,11 +66,11 @@ There also many different types of Virtual Connect Modules:
 
 So with the Virtual Connect FlexFabric Module you pass-through both NICs and HBAs. This is actually exactly what we were replacing in our setup.
 
-Let&#8217;s get back on track. Upon replacing the Virtual Connect Module (VCM), VMs that were using Windows NLB, lost network connectivity. We had two Virtual Connect Modules and they were setup in an Active/Active Manner. This picture from &#8220;<a href="http://h20000.www2.hp.com/bc/docs/support/SupportManual/c01990371/c01990371.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://h20000.www2.hp.com/bc/docs/support/SupportManual/c01990371/c01990371.pdf']);">HP Virtual Connect Ethernet Cookbook: Single and Multi Enclosure Domain (Stacked) Scenarios</a>&#8221; depicts our setup pretty well:
+Let's get back on track. Upon replacing the Virtual Connect Module (VCM), VMs that were using Windows NLB, lost network connectivity. We had two Virtual Connect Modules and they were setup in an Active/Active Manner. This picture from "<a href="http://h20000.www2.hp.com/bc/docs/support/SupportManual/c01990371/c01990371.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://h20000.www2.hp.com/bc/docs/support/SupportManual/c01990371/c01990371.pdf']);">HP Virtual Connect Ethernet Cookbook: Single and Multi Enclosure Domain (Stacked) Scenarios</a>" depicts our setup pretty well:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/flex-10-server-profile-a_a.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/flex-10-server-profile-a_a.png']);"><img class="alignnone size-full wp-image-3441" title="flex-10-server-profile-a_a" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/flex-10-server-profile-a_a.png" alt="flex 10 server profile a a VMs Setup to Use Windows NLB in Unicast Mode Lose Network Connectivity When HP Virtual Connect Module is Replaced" width="633" height="453" /></a>
 
-I wasn&#8217;t present when the VMC replacement took place but we grabbed logs right as the incident occurred. From the logs, I saw the following NICs on the HP Blade Server:
+I wasn't present when the VMC replacement took place but we grabbed logs right as the incident occurred. From the logs, I saw the following NICs on the HP Blade Server:
 
 	  
 	commands$ head -11 nicinfo.sh.txt  
@@ -86,7 +86,7 @@ I wasn&#8217;t present when the VMC replacement took place but we grabbed logs r
 	vmnic5 0000:002:00.7 be2net Up 1000 Full 00:17:a4:77:00:d0 1500 Emulex Corporation NC553i 10Gb 2-port FlexFabric Converged Network Adapter  
 	
 
-So we had 6 NICs presented to the Host and they are a Flex-10 CNA (so we can partition one port into many virtual ports, this was described above). Now as the VCM was pulled I saw the following in the &#8216;vmkernel.log&#8217; file:
+So we had 6 NICs presented to the Host and they are a Flex-10 CNA (so we can partition one port into many virtual ports, this was described above). Now as the VCM was pulled I saw the following in the 'vmkernel.log' file:
 
 	  
 	2012-08-30T05:42:07.494Z cpu9:4105)vmnic0 : 02:00.0 Link Down  
@@ -99,7 +99,7 @@ So we had 6 NICs presented to the Host and they are a Flex-10 CNA (so we can par
 	2012-08-30T05:42:17.496Z cpu16:4804)lpfc820 0000:02:00.2: 0:(0):0203 Devloss timeout on WWPN 21:23:00:02:ac:00:13:f0 NPort x012800 Data: x0 x7 x0  
 	
 
-We can see that vmnic0, vmnic2, and vmnic4 all went down. This is expected, since the other vmnics (vmnic1,vmnic3, and vmnic5) are configured to connect the other VCM (which was active) and didn&#8217;t go down.
+We can see that vmnic0, vmnic2, and vmnic4 all went down. This is expected, since the other vmnics (vmnic1,vmnic3, and vmnic5) are configured to connect the other VCM (which was active) and didn't go down.
 
 We were using a DVS, so just looking at the DVS section, I saw the following:
 
@@ -128,7 +128,7 @@ We were using a DVS, so just looking at the DVS section, I saw the following:
 	403 1 VM12 ethernet0  
 	
 
-The VMs that had the issue were &#8220;NLB\_VM1&#8243; and &#8220;NLB\_VM2&#8243;. Checking for the virtual ports (that these VMs correspond to) in vsish, I see that they correspond to the following:
+The VMs that had the issue were "NLB\_VM1" and "NLB\_VM2". Checking for the virtual ports (that these VMs correspond to) in vsish, I see that they correspond to the following:
 
 	  
 	$ for i in \`vsish -c vsi\_traverse\_-s.txt -e ls /net/portsets/DvsPortset-0/ports/\`; do echo $i; vsish -c vsi\_traverse\_-s.txt -e cat /net/portsets/DvsPortset-0/ports/"$i"status|grep clientName;done  
@@ -193,7 +193,7 @@ So right as we replaced the VCM the NICs came up and the VMs regained network co
 > To configure NLB UNICAST mode:  
 > ESX vSwitch properties Notify Switches = NO
 
-From the above port we know the dvports are &#8217;430&#8242; and &#8217;431&#8242;. So let&#8217;s check out the setting of DVport 431:
+From the above port we know the dvports are '430' and '431'. So let's check out the setting of DVport 431:
 
 	  
 	commands$ sed -n '/port 431:/,/port [0-9]*:/p' net-dvs_-l.txt  
@@ -248,7 +248,7 @@ Notice this line:
 	link behavior = reverse filter; best effort on failure; shotgun on failure;  
 	
 
-Whenever &#8216;Notify Switch&#8221; is enabled you see it in that line. For example we know that VM1 was okay and it was using DVport &#8217;16&#8242;. So let&#8217;s check out the setting of that port:
+Whenever 'Notify Switch" is enabled you see it in that line. For example we know that VM1 was okay and it was using DVport '16'. So let's check out the setting of that port:
 
 	  
 	commands$ sed -n '/port 16:/,/port [0-9]*:/p' net-dvs_-l.txt | sed -n '/com.vmware.etherswitch.port.teaming/,/propType/p'  
@@ -261,7 +261,7 @@ Whenever &#8216;Notify Switch&#8221; is enabled you see it in that line. For exa
 	propType = CONFIG  
 	
 
-and as we expected there is a &#8216;notify switch&#8217; option in our &#8216;link behavior&#8217; section. Again here is how our ports looked like:
+and as we expected there is a 'notify switch' option in our 'link behavior' section. Again here is how our ports looked like:
 
 	  
 	commands$ sed -n '/port 430:/,/port [0-9]*:/p' net-dvs_-l.txt | sed -n '/com.vmware.etherswitch.port.teaming/,/propType/p'  
@@ -283,7 +283,7 @@ and as we expected there is a &#8216;notify switch&#8217; option in our &#8216;l
 	propType = CONFIG  
 	
 
-So we know those two ports do not have the &#8220;Notify Switch&#8221; option set, which is good since this is necessary for NLB in unicast to work properly. Now what does the option &#8216;notify switch&#8217; do exactly. Upon any changes to a VM, the VMkernel sends a Gratuitous ARP to the physical switch to make sure it updates it&#8217;s CAM tables. If that option is disabled then the VMkernel doesn&#8217;t send the GARP out and the physical switch doesn&#8217;t know if a VM had moved over to another physical NIC. From VMware KB <a href="http://kb.vmware.com/kb/1556" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1556']);">1556</a>:
+So we know those two ports do not have the "Notify Switch" option set, which is good since this is necessary for NLB in unicast to work properly. Now what does the option 'notify switch' do exactly. Upon any changes to a VM, the VMkernel sends a Gratuitous ARP to the physical switch to make sure it updates it's CAM tables. If that option is disabled then the VMkernel doesn't send the GARP out and the physical switch doesn't know if a VM had moved over to another physical NIC. From VMware KB <a href="http://kb.vmware.com/kb/1556" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1556']);">1556</a>:
 
 > In the ESX host, the VMkernel sends a RARP packet each time certain actions occur—for example, a virtual machine is powered on, experiences teaming failover, performs certain VMotion operations, and so forth. The RARP packet informs the switch of the MAC address of that virtual machine. In a NLB cluster environment, this exposes the MAC address of the cluster NIC as soon as a NLB node is powered on.
 
@@ -293,12 +293,12 @@ So in our case this was expected. Here is a step by step process of what happene
 2.  vmnic2 goes down, vmnic3 becomes the active one
 3.  Non-NLB VMs, that failed over to vmnnic3, send a GARP to the physical switch
 4.  Physical switch updates the MAC addresses and what ports they are on
-5.  VMs that are part of the NLB cluster in Unicast mode, don&#8217;t sent out GARP to the upstream switch
-6.  Physical switch doesn&#8217;t update it&#8217;s CAM tables, we can&#8217;t reach those VMs
+5.  VMs that are part of the NLB cluster in Unicast mode, don't sent out GARP to the upstream switch
+6.  Physical switch doesn't update it's CAM tables, we can't reach those VMs
 7.  New VCM is plugged in
 8.  VMs that were using vmnic2 failback to it
 9.  non-NLB VMs send GARP again, all is good
-10. NLB VMs return to it&#8217;s original port, MAC addresses match the MAC address table of the physical switch, we regain connectivity
+10. NLB VMs return to it's original port, MAC addresses match the MAC address table of the physical switch, we regain connectivity
 
 So lesson learned, VMs that participate in NLB in unicast mode will be down if the there is a failover of physical NICs.
 

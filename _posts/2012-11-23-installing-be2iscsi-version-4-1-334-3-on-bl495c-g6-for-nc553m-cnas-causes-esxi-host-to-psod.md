@@ -57,8 +57,8 @@ we see a *be* and that is pointing to the *be2net* or *be2iscsi* driver causing 
 I actually ran into VMware KB <a href="http://kb.vmware.com/kb/2007397" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/2007397']);">2007397</a>, from that KB:
 
 > **Emulex OneConnect driver not supported on vSphere 5.0 for HP hardware**  
-> &#8230;  
-> &#8230;  
+> ...  
+> ...  
 > HP has recalled firmware version 4.0.348.0, which was compatible with the vSphere 5.0 async be2net driver version 4.0.355-1. For more information, see the HP Advisory http://h20000.www2.hp.com/bizsupport/TechSupport/Document.jsp?objectID=c03005737.
 > 
 > **Resolution**  
@@ -80,5 +80,5 @@ I decided to update my *be2net* driver from 4.0.88 to 4.0.355 (link to driver is
 	bus-info: 0000.0e:00.0  
 	
 
-And I didn&#8217;t see another PSOD. I then re-installed *be2iscsi* version 4.1.334.3 on the same host. I then rebooted one more time and no PSOD occurred. It looks like I needed to update the *be2net* driver first, before applying the latest *be2iscsi* driver.
+And I didn't see another PSOD. I then re-installed *be2iscsi* version 4.1.334.3 on the same host. I then rebooted one more time and no PSOD occurred. It looks like I needed to update the *be2net* driver first, before applying the latest *be2iscsi* driver.
 

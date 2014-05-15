@@ -14,7 +14,7 @@ tags:
 ---
 ### Identify appropriate BIOS and firmware setting requirements for optimal ESXi host performance
 
-From &#8220;<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>&#8220;:
+From "<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>":
 
 > **General BIOS Settings**
 > 
@@ -28,7 +28,7 @@ From &#8220;<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pd
 > *   Cache prefetching mechanisms (sometimes called DPL Prefetch, Hardware Prefetcher, L2 Streaming Prefetch, or Adjacent Cache Line Prefetch) usually help performance, especially when memory access patterns are regular. When running applications that access memory randomly, however, disabling these mechanisms might result in improved performance.
 > *   If the BIOS allows the memory scrubbing rate to be configured, we recommend leaving it at the manufacturer’s default setting.
 
-From &#8220;<a href="http://www.vmware.com/files/pdf/hpm-perf-vsphere5.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/hpm-perf-vsphere5.pdf']);">Host Power Management in VMware vSphere 5</a>&#8220;:
+From "<a href="http://www.vmware.com/files/pdf/hpm-perf-vsphere5.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/hpm-perf-vsphere5.pdf']);">Host Power Management in VMware vSphere 5</a>":
 
 > **Power Management BIOS Settings**  
 > VMware ESXi™ includes a full range of host power management capabilities in the software. These can save power when an ESXi host is not fully utilized. You should configure your BIOS settings to allow ESXi the most flexibility in using the power management features offered by your hardware and then make your power management choices within ESXi. The following are a few important points to keep in mind:
@@ -44,7 +44,7 @@ Check out the VMware <a href="http://vmware.com/go/hcl" onclick="javascript:_gaq
 
 ### Tune ESXi host memory configuration
 
-From &#8220;<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>&#8220;:
+From "<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>":
 
 > **Memory Overcommit Techniques**
 > 
@@ -69,7 +69,7 @@ And more from the same paper:
 > This subsection describes ways to avoid or reduce host-level swapping, and presents techniques to reduce its impact on performance when it is unavoidable.
 > 
 > *    Because ESXi uses page sharing, ballooning, and memory compression to reduce the need for host-level memory swapping, don’t disable these techniques.
-> *    If you choose to overcommit memory with ESXi, be sure you have sufficient swap space on your ESXi system. At the time a virtual machine is first powered on, ESXi creates a swap file for that virtual machine equal in size to the difference between the virtual machine&#8217;s configured memory size and its memory reservation. The available disk space must therefore be at least this large (plus the space required for VMX swap).
+> *    If you choose to overcommit memory with ESXi, be sure you have sufficient swap space on your ESXi system. At the time a virtual machine is first powered on, ESXi creates a swap file for that virtual machine equal in size to the difference between the virtual machine's configured memory size and its memory reservation. The available disk space must therefore be at least this large (plus the space required for VMX swap).
 > *    You can optionally configure a special host cache on an SSD (if one is installed) to be used for the new swap to host cache feature. This swap cache will be shared by all the virtual machines running on the host, and host-level swapping of their most active pages will benefit from the low latency of SSD. This allows a relatively small amount of SSD storage to have a potentially significant performance impact
 > *    Even if an overcommitted host uses swap to host cache, it still needs to create regular swap files. Swap to host cache, however, makes much less important the speed of the storage on which the regular swap files are placed.
 > *   If a host does not use swap to host cache, and memory is overcommitted to the point of thrashing, placing the virtual machine swap files on low latency, high bandwidth storage systems will result in the smallest performance impact from swapping. 
@@ -79,11 +79,11 @@ And more from the same paper:
 >     *    Placing swap files on local storage (whether SSD or hard drive) could potentially reduce vMotion performance. This is because if a virtual machine has memory pages in a local swap file, they must be swapped in to memory before a vMotion operation on that virtual machine can proceed.
 >     *    Regardless of the storage type or location used for the regular swap file, for the best performance, and to avoid the possibility of running out of space, swap files should not be placed on thin-provisioned storage.
 > *   The regular swap file location for a specific virtual machine can be set in the vSphere Client (select Edit virtual machine settings, choose the Options tab, and under Advanced select Swapfile location). If this option is not set, the swap file will be created in the virtual machine’s working directory: either the directory specified by workingDir in the virtual machine’s .vmx file, or, if this variable is not set, in the directory where the .vmx file is located. The latter is the default behavior.
-> *    Host-level memory swapping can be avoided for a specific virtual machine by using the vSphere Client to reserve memory for that virtual machine at least equal in size to the machine’s active working set. Be aware, however, that configuring resource reservations will reduce the number of virtual machines that can be run on a system. This is because ESXi will keep available enough host memory to fulfill all reservations and won&#8217;t power-on a virtual machine if doing so would reduce the available memory to less than the reserved amount
+> *    Host-level memory swapping can be avoided for a specific virtual machine by using the vSphere Client to reserve memory for that virtual machine at least equal in size to the machine’s active working set. Be aware, however, that configuring resource reservations will reduce the number of virtual machines that can be run on a system. This is because ESXi will keep available enough host memory to fulfill all reservations and won't power-on a virtual machine if doing so would reduce the available memory to less than the reserved amount
 
 ### Tune ESXi host networking configuration
 
-From &#8220;<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>&#8220;:
+From "<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>":
 
 > **Hardware Networking Considerations**
 > 
@@ -103,7 +103,7 @@ From &#8220;<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pd
 
 ### Tune ESXi host CPU configuration
 
-From &#8220;<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>&#8220;:
+From "<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>":
 
 > **General CPU Considerations**
 > 
@@ -133,7 +133,7 @@ From &#8220;<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pd
 
 ### Tune ESXi host storage configuration
 
-From &#8220;<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>&#8220;:
+From "<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>":
 
 > **Hardware Storage Considerations**  
 > Back-end storage configuration can greatly affect performance.
@@ -155,20 +155,20 @@ From &#8220;<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pd
 >     *   Hardware-accelerated cloning (sometimes called “full copy” or “copy offload”) frees resources on the host and can speed up workloads that rely on cloning. (Note that Storage vMotion does not make use of this feature on NAS devices.)
 >     *   Space reservation allows ESXi to fully preallocate space for a virtual disk at the time the virtual disk is created. Thus, in addition to the thin provisioning and eager-zeroed thick provisioning options that non-VAAI NAS devices support, VAAI NAS devices also support lazy-zeroed thick provisioning.
 > *   Though the degree of improvement is dependent on the storage hardware, VAAI can reduce storage latency for several types of storage operations, can reduce the ESXi host CPU utilization for storage operations, and can reduce storage network traffic.
-> *   Performance design for a storage network must take into account the physical constraints of the network, not logical allocations. Using VLANs or VPNs does not provide a suitable solution to the problem of link oversubscription in shared configurations. VLANs and other virtual partitioning of a network provide a way of logically configuring a network, but don&#8217;t change the physical capabilities of links and trunks between switches.
+> *   Performance design for a storage network must take into account the physical constraints of the network, not logical allocations. Using VLANs or VPNs does not provide a suitable solution to the problem of link oversubscription in shared configurations. VLANs and other virtual partitioning of a network provide a way of logically configuring a network, but don't change the physical capabilities of links and trunks between switches.
 > *   If you have heavy disk I/O loads, you might need to assign separate storage processors (SPs) to separate systems to handle the amount of traffic bound for storage.
 > *   To optimize storage array performance, spread I/O loads over the available paths to the storage (that is, across multiple host bus adapters (HBAs) and storage processors).
 > *   Make sure that end-to-end Fibre Channel speeds are consistent to help avoid performance problems. For more information, see KB article 1006602.
 > *   Configure maximum queue depth for Fibre Channel HBA cards. For additional information see VMware KB article 1267.
 > *   Applications or systems that write large amounts of data to storage, such as data acquisition or transaction logging systems, should not share Ethernet links to a storage device with other applications or systems. These types of applications perform best with dedicated connections to storage devices.
 > *   For iSCSI and NFS, make sure that your network topology does not contain Ethernet bottlenecks, where multiple links are routed through fewer links, potentially resulting in oversubscription and dropped network packets. Any time a number of links transmitting near capacity are switched to a smaller number of links, such oversubscription is a possibility.Recovering from these dropped network packets results in large performance degradation. In addition to time spent determining that data was dropped, the retransmission uses network bandwidth that could otherwise be used for new transactions.
-> *   For iSCSI and NFS, if the network switch deployed for the data path supports VLAN, it might be beneficial to create a VLAN just for the ESXi host&#8217;s vmknic and the iSCSI/NFS server. This minimizes network interference from other packet sources.
+> *   For iSCSI and NFS, if the network switch deployed for the data path supports VLAN, it might be beneficial to create a VLAN just for the ESXi host's vmknic and the iSCSI/NFS server. This minimizes network interference from other packet sources.
 > *   Be aware that with software-initiated iSCSI and NFS the network protocol processing takes place on the host system, and thus these might require more CPU resources than other storage options.
 > *   Local storage performance might be improved with write-back cache. If your local storage has write-back cache installed, make sure it’s enabled and contains a functional battery module. For more information, see KB article 1006602.
 
 ### Configure and apply advanced ESXi host attributes
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf']);">vSphere Resource Management ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf']);">vSphere Resource Management ESXi 5.0</a>":
 
 > **Set Advanced Host Attributes**
 > 
@@ -185,7 +185,7 @@ Here is how it looks in the vCenter:
 
 ### Configure and apply advanced Virtual Machine attributes
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf']);">vSphere Resource Management ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf']);">vSphere Resource Management ESXi 5.0</a>":
 
 > **Set Advanced Virtual Machine Attributes**
 > 
@@ -201,7 +201,7 @@ Here is how it looks like in vCenter:
 
 ### Configure advanced cluster attributes
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf']);">vSphere Availability ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf']);">vSphere Availability ESXi 5.0</a>":
 
 > **Set Advanced vSphere HA Options**
 > 

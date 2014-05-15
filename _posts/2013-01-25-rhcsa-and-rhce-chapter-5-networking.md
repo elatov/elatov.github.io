@@ -63,7 +63,7 @@ We can see that **eth0** has **IP** 10.131.65.22 with a **subnet mask** of 255.2
 
 ### Network Interface Actions
 
-Now after you have setup the interfaces you take them down. From &#8220;<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Deployment Guide</a>&#8220;:
+Now after you have setup the interfaces you take them down. From "<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Deployment Guide</a>":
 
 > First, bring up the bond you created by running **ifconfig** bond up as root:
 > 
@@ -75,7 +75,7 @@ Now after you have setup the interfaces you take them down. From &#8220;<a href=
 >     # ifconfig bond0 down
 >     
 
-So let&#8217;s try to take our **eth1** interface down and then bring it back up:
+So let's try to take our **eth1** interface down and then bring it back up:
 
     [root@rhel01 ~]# ifconfig eth1 down
     [root@rhel01 ~]# ifconfig
@@ -112,7 +112,7 @@ We can see that it is no longer listed in the **ifconfig** output. If we list ju
     Interrupt:16 Base address:0x2480
     
 
-Notice next to **BROADCAST** we don&#8217;t see the **UP**, which of course means that it&#8217;s down. Now to re-enable the interface:
+Notice next to **BROADCAST** we don't see the **UP**, which of course means that it's down. Now to re-enable the interface:
 
     [root@rhel01 ~]# ifconfig eth1 up
     [root@rhel01 ~]# ifconfig eth1
@@ -140,7 +140,7 @@ That looks good. There are also **ifup** and **ifdown** scripts to perform the s
 > 
 > Two files used to perform a variety of network initialization tasks during the process of bringing up a network interface are **/etc/rc.d/init.d/functions** and **/etc/sysconfig/networkscripts/network-functions**.
 > 
-> &#8230;
+> ...
 > 
 > The easiest way to manipulate all network scripts simultaneously is to use the **/sbin/service** command on the network service (**/etc/rc.d/init.d/network**), as illustrated by the following command:
 > 
@@ -154,7 +154,7 @@ That looks good. There are also **ifup** and **ifdown** scripts to perform the s
 >     /sbin/service network status
 >     
 
-Let&#8217;s check out the status of my networking interfaces:
+Let's check out the status of my networking interfaces:
 
     [root@rhel01 ~]# service network status
     Configured devices:
@@ -165,7 +165,7 @@ Let&#8217;s check out the status of my networking interfaces:
 
 ### Change IP of Network Interface
 
-If you want to temporary change the **IP** of you interface without using any files or scripts you can just use **ifconfig**. For example let&#8217;s change the **IP** of **eth1** to a 172.0.0.2/24 **IP** and then take the interface down and then bring it back up, which will reset the settings. Here is the command to change the **IP** of an interface on the fly:
+If you want to temporary change the **IP** of you interface without using any files or scripts you can just use **ifconfig**. For example let's change the **IP** of **eth1** to a 172.0.0.2/24 **IP** and then take the interface down and then bring it back up, which will reset the settings. Here is the command to change the **IP** of an interface on the fly:
 
     [root@rhel01 ~]# ifconfig eth1
     eth1 Link encap:Ethernet HWaddr 00:50:56:17:1B:A5
@@ -191,7 +191,7 @@ If you want to temporary change the **IP** of you interface without using any fi
     Interrupt:16 Base address:0x2480
     
 
-That looks good, now let&#8217;s reset the interface:
+That looks good, now let's reset the interface:
 
     [root@rhel01 ~]# ifdown eth1
     [root@rhel01 ~]# ifconfig eth1
@@ -216,7 +216,7 @@ That looks good, now let&#8217;s reset the interface:
     Interrupt:16 Base address:0x2480
     
 
-Now it&#8217;s back to normal.
+Now it's back to normal.
 
 ### Network Static Routes
 
@@ -305,7 +305,7 @@ That is most popular way of handling static routes. There is also another method
 > 
 > Subsequent static routes must be numbered sequentially, and must not skip any values. For example, **ADDRESS0**, **ADDRESS1**, **ADDRESS2**, and so on.
 
-So let&#8217;s add a static route to the 172.0.0.0/24 network to be accessed via 192.168.2.1 **IP** (in our case via dev **eth1**, since **eth1** has an **IP** which has access to the 192.168.2.0/24 network). First let&#8217;s do it via **ip route**, and then with the script **/etc/sysconfig/network-scripts/route-eth1** (with the IP Command Arguments Format). Okay let&#8217;s list all the routes on my machine:
+So let's add a static route to the 172.0.0.0/24 network to be accessed via 192.168.2.1 **IP** (in our case via dev **eth1**, since **eth1** has an **IP** which has access to the 192.168.2.0/24 network). First let's do it via **ip route**, and then with the script **/etc/sysconfig/network-scripts/route-eth1** (with the IP Command Arguments Format). Okay let's list all the routes on my machine:
 
     [root@rhel01 ~]# ip route list
     192.168.2.0/24 dev eth1 proto kernel scope link src 192.168.2.100
@@ -380,7 +380,7 @@ We can now see the route added. The same thing will happen if I reboot the machi
 
 ### DNS configuration
 
-Now let&#8217;s check out how basic DNS client works in RHEL. From the deployment guide:
+Now let's check out how basic DNS client works in RHEL. From the deployment guide:
 
 > **8&#46;1. Network Configuration Files**
 > 
@@ -388,10 +388,10 @@ Now let&#8217;s check out how basic DNS client works in RHEL. From the deploymen
 > 
 > The primary network configuration files are as follows:
 > 
-> *   **/etc/hosts** &#8211; The main purpose of this file is to resolve hostnames that cannot be resolved any other way. It can also be used to resolve hostnames on small networks with no DNS server. Regardless of the type of network the computer is on, this file should contain a line specifying the IP address of the loopback device (127.0.0.1) as localhost.localdomain. For more information, refer to the hosts(5) manual page. 
+> *   **/etc/hosts** - The main purpose of this file is to resolve hostnames that cannot be resolved any other way. It can also be used to resolve hostnames on small networks with no DNS server. Regardless of the type of network the computer is on, this file should contain a line specifying the IP address of the loopback device (127.0.0.1) as localhost.localdomain. For more information, refer to the hosts(5) manual page. 
 > *   **/etc/resolv.conf** This file specifies the IP addresses of DNS servers and the search domain. Unless configured to do otherwise, the network initialization scripts populate this file. For more information about this file, refer to the resolv.conf(5) manual page 
 
-Let&#8217;s check out the mentioned man pages. Firs the man page for **hosts**:
+Let's check out the mentioned man pages. Firs the man page for **hosts**:
 
     HOSTS(5)                   Linux Programmer’s Manual                  HOSTS(5)
     
@@ -476,7 +476,7 @@ So let’s define a test hostname to have IP **10.10.10.10**. Here is how my **/
     ::1 localhost localhost.localdomain localhost6 localhost6.localdomain6
     
 
-Now let&#8217;s add our test **hostname**:
+Now let's add our test **hostname**:
 
     [root@rhel01 ~]# echo -e "10.10.10.10\t test.localdomain.com test" >> /etc/hosts
     [root@rhel01 ~]# cat /etc/hosts
@@ -485,7 +485,7 @@ Now let&#8217;s add our test **hostname**:
     10.10.10.10  test.localdomain.com test
     
 
-So let&#8217;s see what happens we when query that **hostname**:
+So let's see what happens we when query that **hostname**:
 
     [root@rhel01 ~]# getent hosts test
     10.10.10.10 test.localdomain.com test
@@ -500,7 +500,7 @@ So let&#8217;s see what happens we when query that **hostname**:
     1 packets transmitted, 0 received, 100% packet loss, time 10000ms
     
 
-Since that **IP** didn&#8217;t exist we failed to reach it, but we resolved to the correct **IP**. Let&#8217;s add another entry for our rhel02 lab machine:
+Since that **IP** didn't exist we failed to reach it, but we resolved to the correct **IP**. Let's add another entry for our rhel02 lab machine:
 
     [root@rhel01 ~]# echo "192.168.2.101 rhel02.localdomain.com rhel02 >> /etc/hosts
     [root@rhel01 ~]# ping -c 2 rhel02
@@ -513,7 +513,7 @@ Since that **IP** didn&#8217;t exist we failed to reach it, but we resolved to t
     rtt min/avg/max/mdev = 0.561/0.769/0.978/0.210 ms
     
 
-That looked good. Now let&#8217;s check out the **resolv.conf** man page:
+That looked good. Now let's check out the **resolv.conf** man page:
 
     RESOLV.CONF(5)                                                  RESOLV.CONF(5)
     
@@ -658,7 +658,7 @@ So here is how my **/etc/resolv.conf** looked like, after a basic install:
     [root@rhel01 ~]#
     
 
-It was empty. So let&#8217;s define a DNS server which we can send queries to and also define our **search** list to be &#8220;localdomain.com&#8221;:
+It was empty. So let's define a DNS server which we can send queries to and also define our **search** list to be "localdomain.com":
 
     [root@rhel01 ~]# echo -e "nameserver\t10.131.23.175\nsearch\tlocaldomain.com" >> /etc/resolv.conf
     [root@rhel01 ~]# cat /etc/resolv.conf
@@ -666,7 +666,7 @@ It was empty. So let&#8217;s define a DNS server which we can send queries to an
     search  localdomain.com
     
 
-Now let&#8217;s use **nslookup** to determine the **IP** of a **hostname**. First let&#8217;s install **nslookup**:
+Now let's use **nslookup** to determine the **IP** of a **hostname**. First let's install **nslookup**:
 
     [root@rhel01 ~]# yum whatprovides "*bin/nslookup"
     Loaded plugins: product-id, subscription-manager
@@ -678,12 +678,12 @@ Now let&#8217;s use **nslookup** to determine the **IP** of a **hostname**. Firs
     Filename : /usr/bin/nslookup 
     
 
-Now let&#8217;s install the package:
+Now let's install the package:
 
     [root@rhel01 ~]# yum install bind-utils
     
 
-Now let&#8217;s see if we can query the **hostname**:
+Now let's see if we can query the **hostname**:
 
     [root@rhel01 ~]# nslookup rhel02
     Server:  10.131.23.175
@@ -700,7 +700,7 @@ Another cool tool is **host**, it gives you a concise response:
     rhel02.localdomain.com has address 98.124.198.1
     
 
-Notice that my DNS server actually has an entry for rhel02 but it&#8217;s pointing to **IP** 98.124.198.1. Now the important response is from **getent**, in our case we get the following;
+Notice that my DNS server actually has an entry for rhel02 but it's pointing to **IP** 98.124.198.1. Now the important response is from **getent**, in our case we get the following;
 
     [root@rhel01 ~]# getent hosts rhel02
     192.168.2.101 rhel02.localdomain.com rhel02
@@ -719,7 +719,7 @@ Notice that I am going to the 192.168.2.101 **IP**, the one defined in **/etc/ho
     hosts: files dns
     
 
-So first we check **files** (**/etc/hosts**) and if we can&#8217;t resolve the **hostname** from there we then query the dns server defined in **/etc/resolv.conf** and use response provided by DNS server. So before any change, I see the following:
+So first we check **files** (**/etc/hosts**) and if we can't resolve the **hostname** from there we then query the dns server defined in **/etc/resolv.conf** and use response provided by DNS server. So before any change, I see the following:
 
     [root@rhel01 ~]# grep ^hosts /etc/nsswitch.conf
     hosts: files dns
@@ -732,7 +732,7 @@ So first we check **files** (**/etc/hosts**) and if we can&#8217;t resolve the *
     rtt min/avg/max/mdev = 1.158/1.158/1.158/0.000 ms
     
 
-So I queried **/etc/hosts** and found an **IP** there and then **ping**&#8216;ed that **IP**. Now after I made a change:
+So I queried **/etc/hosts** and found an **IP** there and then **ping**'ed that **IP**. Now after I made a change:
 
     [root@rhel01 ~]# grep ^hosts /etc/nsswitch.conf
     hosts: dns files
@@ -751,15 +751,15 @@ So now we queried the DNS server and used that **IP** from that response. Lastly
 
 ### Network Port Information
 
-Now let&#8217;s move onto other cool networking utilities that can help troubleshoot networking issues. From &#8220;<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Security_Guide/Red_Hat_Enterprise_Linux-6-Security_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Security_Guide/Red_Hat_Enterprise_Linux-6-Security_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Security Guide</a>&#8220;
+Now let's move onto other cool networking utilities that can help troubleshoot networking issues. From "<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Security_Guide/Red_Hat_Enterprise_Linux-6-Security_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Security_Guide/Red_Hat_Enterprise_Linux-6-Security_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Security Guide</a>"
 
 > **2&#46;2.8. Verifying Which Ports Are Listening**
 > 
-> After configuring network services, it is important to pay attention to which ports are actually listening on the system&#8217;s network interfaces. Any open ports can be evidence of an intrusion.
+> After configuring network services, it is important to pay attention to which ports are actually listening on the system's network interfaces. Any open ports can be evidence of an intrusion.
 > 
 > There are two basic approaches for listing the ports that are listening on the network. The less reliable approach is to query the network stack using commands such as **netstat -an** or **lsof -i**. This method is less reliable since these programs do not connect to the machine from the network, but rather check to see what is running on the system. For this reason, these applications are frequent targets for replacement by attackers. Crackers attempt to cover their tracks if they open unauthorized network ports by replacing **netstat** and **lsof** with their own, modified versions.
 > 
-> A more reliable way to check which ports are listening on the network is to use a port scanner such as **nmap**. Let&#8217;s check out how it looks like on my machine:
+> A more reliable way to check which ports are listening on the network is to use a port scanner such as **nmap**. Let's check out how it looks like on my machine:
 
     [root@rhel01 ~]# netstat -antp
     Active Internet connections (servers and established)
@@ -784,12 +784,12 @@ Looks like I only have **sshd** and an **smtp** server running. Here is a simila
 
 #### Nmap the Port Scanner
 
-Now let&#8217;s try the last one, **nmap**:
+Now let's try the last one, **nmap**:
 
     [root@rhel01 ~]# yum install -y nmap 
     
 
-Nmap is network scanner so let&#8217;s run **nmap** against a remote machine, our rhel02 machine:
+Nmap is network scanner so let's run **nmap** against a remote machine, our rhel02 machine:
 
     [root@rhel01 ~]# nmap -P0 rhel02
     
@@ -823,7 +823,7 @@ It looks like we only see one port open on the remote machine, that is probably 
 
 ### Packet Captures with *tcpdump*
 
-The last tool that I will cover is **tcpdump**. **Tcpdump** allows you to see the traffic sent across an interface. For example let&#8217;s **ping** rhel01 from rhel02 and see what type of traffic we see. I ran this from rhel02:
+The last tool that I will cover is **tcpdump**. **Tcpdump** allows you to see the traffic sent across an interface. For example let's **ping** rhel01 from rhel02 and see what type of traffic we see. I ran this from rhel02:
 
     [root@rhel02 ~]# ping -c 2 192.168.2.100
     PING 192.168.2.100 (192.168.2.100) 56(84) bytes of data.
@@ -846,5 +846,5 @@ and I ran the following on rhel01 at the same time:
     19:09:42.166693 IP 192.168.2.100 > rhel02.localdomain.com: ICMP echo reply, id 48916, seq 1, length 64
     
 
-Notice that I excluded **ssh** traffic. Since I **ssh**&#8216;ed from rhel01 to rhel02, **tcpdump** would show the SSH traffic and I didn&#8217;t want to fill the **tcpdump** output with extra traffic. But from the above output we can see **ICMP** requests and **ICMP** replies. This is what **ping** uses to confirm connectivity between two nodes on a network.
+Notice that I excluded **ssh** traffic. Since I **ssh**'ed from rhel01 to rhel02, **tcpdump** would show the SSH traffic and I didn't want to fill the **tcpdump** output with extra traffic. But from the above output we can see **ICMP** requests and **ICMP** replies. This is what **ping** uses to confirm connectivity between two nodes on a network.
 

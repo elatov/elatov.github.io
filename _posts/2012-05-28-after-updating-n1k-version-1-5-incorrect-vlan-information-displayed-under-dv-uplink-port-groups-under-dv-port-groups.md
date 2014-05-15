@@ -21,7 +21,7 @@ I had recently ran into an interesting issue with the nexus 1000v switch. After 
 And here is how the DV Port Group looked like:  
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/04/dportgroup_11.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/04/dportgroup_11.jpg']);"><img class="alignnone size-full wp-image-1346" title="dportgroup_1" src="http://virtuallyhyper.com/wp-content/uploads/2012/04/dportgroup_11.jpg" alt="dportgroup 11 After Updating N1K to Version 1.5, Incorrect VLAN Information Displayed Under DV Uplink Port Groups but not Under DV Port Groups" width="1273" height="202" /></a>
 
-We grabbed a &#8216;*show tech-support svs*&#8216; from the N1K. More information on what a &#8216;*show tech-support svs*&#8216; is, can be found at the following cisco <a href="http://www.cisco.com/en/US/docs/switches/datacenter/nexus1000/sw/4_0/troubleshooting/configuration/guide/trouble_18b4contact.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.cisco.com/en/US/docs/switches/datacenter/nexus1000/sw/4_0/troubleshooting/configuration/guide/trouble_18b4contact.html']);">web-page</a>. From the logs we saw the following messages that corresponded to the DV Uplink port Group:
+We grabbed a '*show tech-support svs*' from the N1K. More information on what a '*show tech-support svs*' is, can be found at the following cisco <a href="http://www.cisco.com/en/US/docs/switches/datacenter/nexus1000/sw/4_0/troubleshooting/configuration/guide/trouble_18b4contact.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.cisco.com/en/US/docs/switches/datacenter/nexus1000/sw/4_0/troubleshooting/configuration/guide/trouble_18b4contact.html']);">web-page</a>. From the logs we saw the following messages that corresponded to the DV Uplink port Group:
 
 	  
 	Event:E_DEBUG, length:351, at 951023 usecs after Fri Apr 13 14:46:54 2012  
@@ -30,7 +30,7 @@ We grabbed a &#8216;*show tech-support svs*&#8216; from the N1K. More informatio
 	internal string:   
 	
 
-We contacted Cisco and they had identified a known bug on the N1K. If you have cisco account you can check out bug <a href="http://tools.cisco.com/Support/BugToolKit/search/getBugDetails.do?method=fetchBugDetails&bugId=CSCtz24512" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://tools.cisco.com/Support/BugToolKit/search/getBugDetails.do?method=fetchBugDetails&bugId=CSCtz24512']);">CSCtz24512</a>. It&#8217;s just a cosmetic bug and no network traffic is impacted by this issue. It looks like this also made it to the VMware communities (<a href="http://communities.vmware.com/message/2025321" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/message/2025321']);">2025321</a>)
+We contacted Cisco and they had identified a known bug on the N1K. If you have cisco account you can check out bug <a href="http://tools.cisco.com/Support/BugToolKit/search/getBugDetails.do?method=fetchBugDetails&bugId=CSCtz24512" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://tools.cisco.com/Support/BugToolKit/search/getBugDetails.do?method=fetchBugDetails&bugId=CSCtz24512']);">CSCtz24512</a>. It's just a cosmetic bug and no network traffic is impacted by this issue. It looks like this also made it to the VMware communities (<a href="http://communities.vmware.com/message/2025321" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/message/2025321']);">2025321</a>)
 
 <div class="SPOSTARBUST-Related-Posts">
   <H3>
@@ -48,7 +48,7 @@ We contacted Cisco and they had identified a known bug on the N1K. If you have c
       <a title="Common Commands for Nexus 1000v VSM" href="http://virtuallyhyper.com/2012/08/common-commands-for-nexus-1000v-vsm/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/08/common-commands-for-nexus-1000v-vsm/']);" rel="bookmark">Common Commands for Nexus 1000v VSM</a>
     </li>
     <li class="SPOSTARBUST-Related-Post">
-      <a title="Receiving &#8220;No Free Ports&#8221; Available when Connecting a VM to the Nexus 1000v" href="http://virtuallyhyper.com/2012/07/receiving-no-free-ports-available-connecting-vm-nexus-1000v/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/07/receiving-no-free-ports-available-connecting-vm-nexus-1000v/']);" rel="bookmark">Receiving &#8220;No Free Ports&#8221; Available when Connecting a VM to the Nexus 1000v</a>
+      <a title="Receiving "No Free Ports" Available when Connecting a VM to the Nexus 1000v" href="http://virtuallyhyper.com/2012/07/receiving-no-free-ports-available-connecting-vm-nexus-1000v/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/07/receiving-no-free-ports-available-connecting-vm-nexus-1000v/']);" rel="bookmark">Receiving "No Free Ports" Available when Connecting a VM to the Nexus 1000v</a>
     </li>
   </ul>
 </div>

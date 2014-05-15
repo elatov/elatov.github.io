@@ -67,7 +67,7 @@ After MySQL starts, secure the installation by running the following:
     moxz:~>sudo /usr/local/bin/mysql_secure_installation
     
 
-That will ask you to set a password for root and to remove test databases. After it&#8217;s all secure, create the MySQL database that we will use for Samhain:
+That will ask you to set a password for root and to remove test databases. After it's all secure, create the MySQL database that we will use for Samhain:
 
     moxz:/opt/work/samhain-3.1.0.yule/sql_init>mysql -u root -p < samhain.mysql.init 
     Enter password:
@@ -119,7 +119,7 @@ I ran the following to create the samhain user:
     mysql> grant select, insert, update on samhain.log to samhain@'%' IDENTIFIED BY 'samhain';
     
 
-I added the **update** permission since it&#8217;s necessary for the Beltane configuration later on.
+I added the **update** permission since it's necessary for the Beltane configuration later on.
 
 #### Install the Samhain Server (Yule)
 
@@ -141,7 +141,7 @@ There are two files, the signature and the source. I just extracted the source f
     moxz:/opt/work/sam>tar xzf samhain-3.1.0.tar.gz
     
 
-Now let&#8217;s try to compile the source:
+Now let's try to compile the source:
 
     moxz:/opt/work/sam>cd samhain-3.1.0/
     moxz:/opt/work/sam/samhain-3.1.0>./configure --prefix=/usr/local/yule --enable-xml-log --with-database=mysql --enable-network=server
@@ -245,7 +245,7 @@ I then ran into these page:
 *   <a href="http://lists.freebsd.org/pipermail/freebsd-chromium/2011-September/000245.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://lists.freebsd.org/pipermail/freebsd-chromium/2011-September/000245.html']);">latest chromium (14.0.835.163): gcc45 issues</a>
 *   <a href="http://sourceforge.net/p/dooble/discussion/864481/thread/4418e1f2/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://sourceforge.net/p/dooble/discussion/864481/thread/4418e1f2/']);">Error when Compiling on FreeBSD with LibSpoton & unused argumen</a>
 
-Both fixed that issue by removing the &#8216;**-pie**&#8216; argument from LDFLAGS. So I edited the **configure** script and removed the **-pie** option. So I changed the following lines:
+Both fixed that issue by removing the '**-pie**' argument from LDFLAGS. So I edited the **configure** script and removed the **-pie** option. So I changed the following lines:
 
     CFLAGS="$CFLAGS -pie -fPIE"
     PIE_CFLAGS="-fPIE"
@@ -288,7 +288,7 @@ Here is how my configuration looked like:
     [Clients]
     
 
-Notice I didn&#8217;t have any clients yet and I set my **LogSeverity** for everything. I just wanted to get a good feel of the logs, but I would say **warn** should be enough.
+Notice I didn't have any clients yet and I set my **LogSeverity** for everything. I just wanted to get a good feel of the logs, but I would say **warn** should be enough.
 
 Then to start the service run the following
 
@@ -425,7 +425,7 @@ Here is how my configuration file looked like:
     [EOF]
     
 
-Fell free to change what directories you want to monitor. Also notice that I changed my nice level and I limited the IO. I was getting a lot of warnings on the VM that&#8217;s it&#8217;s running out of memory. Setting it with a higher nice level helped out.
+Fell free to change what directories you want to monitor. Also notice that I changed my nice level and I limited the IO. I was getting a lot of warnings on the VM that's it's running out of memory. Setting it with a higher nice level helped out.
 
 #### Add Samhain Client to Samhain Server (Yule)
 
@@ -460,7 +460,7 @@ Now you should have the following added to your **yulerc** file:
     Client=moxz.local.com@D534D98453A3F78B@A72D238707B8D5C376AF39138483562FF28EC4BD38C980CD3738C876A02C2D7F9F1C54684EEE9F28D0E8137458D8067812C38F03F892199D336DEEB18ACFE05F5D050D9C3AF1B7C2D29B3458F12394A7EF4017445961929415B613C1CC7D1532E2A152E6A1DABED758064F02C91578F72D2DE24FF8609AA146E94877FBBCEFA3
     
 
-Since we made a change to yule server configuration let&#8217;s send a SIGHUP to re-read the configuration:
+Since we made a change to yule server configuration let's send a SIGHUP to re-read the configuration:
 
     moxz:~>pkill -HUP yule
     
@@ -480,15 +480,15 @@ Before we can connect to our server, we need to initialize the client. <a href="
 >     sh$ samhain -t init -p info
 >     
 > 
-> (with -p info, messages of severity &#8216;info&#8217; or higher will be printed to your terminal/console).
+> (with -p info, messages of severity 'info' or higher will be printed to your terminal/console).
 > 
-> If the database file already exists, `samhain -t init` will append to it. This is a feature that is intended to help you operating samhain in a slightly more stealthy way: you can append the database e.g. to a JPEG picture (and the picture will still display normally &#8211; JPEG ignores appended &#8216;garbage&#8217;).
+> If the database file already exists, `samhain -t init` will append to it. This is a feature that is intended to help you operating samhain in a slightly more stealthy way: you can append the database e.g. to a JPEG picture (and the picture will still display normally - JPEG ignores appended 'garbage').
 > 
 > **Note:**
 > 
 > It is usually an error to run `samhain -t init` twice, because (a) it will append a second baseline database to the existing one, and (b) only the first baseline database will be used. Use `samhain -t update` for updating the baseline database. Delete or rename the baseline database file if you really want to run `samhain -t init` a second time.
 
-So let&#8217;s create a baseline database:
+So let's create a baseline database:
 
     moxz:~>/usr/local/samhain/sbin/samhain -t init -p info
     ALERT  :  [2014-03-16T10:34:26-0600] msg=<START>, program=<Samhain>, userid=<1000>, path=</usr/local/samhain/etc/samhainrc>, hash=<B609FF621721E9DADBE3949077940BBCC92BCE6080E305EB>
@@ -502,7 +502,7 @@ That might take a while since I modified the Nice Level and Limited the IO. Afte
     moxz:~>cp /usr/local/samhain/var/lib/samhain/samhain_file /usr/local/yule/var/lib/yule/file.moxz.local.com
     
 
-Now let&#8217;s start the client:
+Now let's start the client:
 
     moxz:~>/usr/local/samhain/sbin/samhain -D
     <log sev="INFO" tstamp="2014-03-09T15:48:09-0600" msg="Downloading configuration file" />
@@ -526,7 +526,7 @@ Upon starting the samhain client, I saw the following logs in the yule server:
 
 ### Beltane Prerequisites
 
-Initially I used PHP 5.4 but later realized &#8220;Beltane I&#8221; uses an old *Session* function that is no longer available after PHP 5.3. Here is a <a href="http://stackoverflow.com/questions/16082420/call-to-undefined-function-session-register" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://stackoverflow.com/questions/16082420/call-to-undefined-function-session-register']);">link</a> to a discussion about that. So I ended up installing PHP 5.3. First I install Apache:
+Initially I used PHP 5.4 but later realized "Beltane I" uses an old *Session* function that is no longer available after PHP 5.3. Here is a <a href="http://stackoverflow.com/questions/16082420/call-to-undefined-function-session-register" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://stackoverflow.com/questions/16082420/call-to-undefined-function-session-register']);">link</a> to a discussion about that. So I ended up installing PHP 5.3. First I install Apache:
 
     moxz:~>cd /usr/ports/www/apache22 
     moxz:/usr/ports/www/apache22>sudo make install clean
@@ -722,7 +722,7 @@ I chose the extensions that were described <a href="http://la-samhna.de/beltane/
 > PHP 4.3 or later, compiled either as apache module, or as CGI program. Your PHP4 must have support for:
 > 
 > *   XML parser functions,
-> *   POSIX funtions (note that on SLES 10, these are in a seperate &#8216;php-posix&#8217; rpm), and
+> *   POSIX funtions (note that on SLES 10, these are in a seperate 'php-posix' rpm), and
 > *   either MySQL, PostgreSQL, or Oracle, depending on which database you are using.
 
 On top of that I also enabled sessions since it actually uses that. Also make sure PHP is enabled on the **apache** side:
@@ -819,7 +819,7 @@ There is a pretty good description <a href="http://la-samhna.de/beltane/beltane_
 
 > **Webserver access to beltane**
 > 
-> As you have installed the beltane PHP scripts into some directory DIR (configure option &#8211;with-php-dir=DIR), you should make sure that the webserver has read access to this directory and everything below it
+> As you have installed the beltane PHP scripts into some directory DIR (configure option -with-php-dir=DIR), you should make sure that the webserver has read access to this directory and everything below it
 > 
 >     bash$ chown -R root   DIR 
 >     bash$ chmod -R 555    DIR
@@ -827,7 +827,7 @@ There is a pretty good description <a href="http://la-samhna.de/beltane/beltane_
 > 
 > **Access to the yule data directory for user beltane**
 > 
-> For security, we do not give the webserver access to the data directory, but transfer privileges by making the beltane helper applications SUID/SGID beltane/samhain. Accordingly, user &#8216;beltane&#8217; needs read/write access, and group &#8216;samhain&#8217; (yule) needs read access.
+> For security, we do not give the webserver access to the data directory, but transfer privileges by making the beltane helper applications SUID/SGID beltane/samhain. Accordingly, user 'beltane' needs read/write access, and group 'samhain' (yule) needs read access.
 > 
 >     bash$ chown beltane:samhain   /var/lib/yule 
 >     bash$ chown beltane:samhain   /var/lib/yule/rc.* 
@@ -836,7 +836,7 @@ There is a pretty good description <a href="http://la-samhna.de/beltane/beltane_
 > 
 > **Access to the yule HTML status file**
 > 
-> This file is only re-written by yule, so yule will not change the permissions. It needs to be readable from PHP (i.e. for user &#8216;www&#8217; in our example).
+> This file is only re-written by yule, so yule will not change the permissions. It needs to be readable from PHP (i.e. for user 'www' in our example).
 > 
 >     bash$ chmod 644 /var/log/yule/yule.html
 >     
@@ -883,7 +883,7 @@ You can login with:
 > user: rainer  
 > passwd: wichmann
 
-At first it won&#8217;t show anything, since it can&#8217;t connect to the MySQL database, so click **configure** on the top left corner and update the settings:
+At first it won't show anything, since it can't connect to the MySQL database, so click **configure** on the top left corner and update the settings:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/03/samhain-configure-mysql-db.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/03/samhain-configure-mysql-db.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/03/samhain-configure-mysql-db-1024x751.png" alt="samhain configure mysql db 1024x751 Install Samhain with Beltane on FreeBSD" width="620" height="454" class="alignnone size-large wp-image-10304" title="Install Samhain with Beltane on FreeBSD" /></a>
 
@@ -897,5 +897,5 @@ As a test I created a new file and made sure the event was in Beltane:
 
 Notice you can either **acknowledge** the alarm (this is why beltane needs **update** permission to the MySQL DB) or you can **update** the signature of the file (appropriate permissions for **/usr/local/beltane/bin/beltane_update** are necessary).
 
-The &#8220;Beltane I&#8221; UI is a little slow and the &#8220;Beltane II&#8221; project looks a little better, hopefully I will have a chance to try it out soon.
+The "Beltane I" UI is a little slow and the "Beltane II" project looks a little better, hopefully I will have a chance to try it out soon.
 

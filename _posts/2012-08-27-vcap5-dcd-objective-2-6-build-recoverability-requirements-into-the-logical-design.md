@@ -20,7 +20,7 @@ Here is a list of VMware provides for recoverability:
 *   VMware Data Recovery (VDR) 
     *   Backup Appliance, allows you to restore VMs that you have backed up
 *   vStorage APIs for Data Protection (VADP) 
-    *   Allows other Vendors (ie Symantec,EMC,Veeam&#8230;etc to backup VMs via API calls)
+    *   Allows other Vendors (ie Symantec,EMC,Veeam...etc to backup VMs via API calls)
 
 ### Identify and differentiate infrastructure qualities (Availability, Manageability, Performance, Recoverability, Security)
 
@@ -37,7 +37,7 @@ From the <a href="http://professionalvmware.com/2012/02/apac-brownbag-follow-up
 
 ### Given specific RTO and RPO requirements, build these requirements into the logical design
 
-There is a great VMware article that has SRM Design considerations, and it&#8217;s of course linked in the blue print. Here is this article &#8220;<a href="http://www.vmware.com/files/pdf/practical_guide_bcdr_vmb.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/practical_guide_bcdr_vmb.pdf']);">A Practical Guide to Business Continuity and Disaster Recovery with VMware Infrastructure</a>&#8221; and here are some excerpts from that article:
+There is a great VMware article that has SRM Design considerations, and it's of course linked in the blue print. Here is this article "<a href="http://www.vmware.com/files/pdf/practical_guide_bcdr_vmb.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/practical_guide_bcdr_vmb.pdf']);">A Practical Guide to Business Continuity and Disaster Recovery with VMware Infrastructure</a>" and here are some excerpts from that article:
 
 > The granularity study will be invaluable in understanding the replication strategy that you want implement. The main considerations here are: rate of change and groupings. Groupings are driven by the granularity study which we referred to above. Then a deeper level of analysis is required to establish the rate of change which determines WAN bandwidth requirements etc. This in conjunction with the Recovery Point Objectives can drive decisions around synchronous and asynchronous replication technologies. With these in mind it is then possible to have detailed discussions with the storage teams to line up the capabilities of the storage layer and its granularity to ensure a good mapping between the two.
 > 
@@ -63,7 +63,7 @@ If there is a requirement to have uptime for a certain site to be 95% of the yea
 
 From the PDF again:
 
-> In a real-world scenario, there would be an interaction with the business owners to establish SLAs and these would drive design considerations. The implementation outlined in this VMbook was designed to apply generically to as many cases as possible and was based in part on interviews with senior architects within the VMware customer base to determine a &#8220;level set&#8221; in terms of needs,requirements, and so on. Typical questions asked of these architects include the following:
+> In a real-world scenario, there would be an interaction with the business owners to establish SLAs and these would drive design considerations. The implementation outlined in this VMbook was designed to apply generically to as many cases as possible and was based in part on interviews with senior architects within the VMware customer base to determine a "level set" in terms of needs,requirements, and so on. Typical questions asked of these architects include the following:
 > 
 > 1.  What type of SLAs do you have with the business? 
 >     *   Recovery Point Objectives
@@ -73,23 +73,23 @@ SRM also allows for site failover and test site failovers. Also during site fail
 
 > BCDR plans have traditionally been documented as runbooks – i.e., what to do if disaster strikes. Increasingly, this runbook is being automated to make the process more predictable and less prone to error. The ability to test this plan is also a key consideration.
 
-Also from &#8220;<a href="http://www.vmware.com/files/pdf/products/SRM/VMware-vCenter-Site-Recovery-Manager-with-vSphere-Replication-Datasheet.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/products/SRM/VMware-vCenter-Site-Recovery-Manager-with-vSphere-Replication-Datasheet.pdf']);">VMware vCenter Site Recovery Manager 5with vSphere Replication</a>&#8220;:
+Also from "<a href="http://www.vmware.com/files/pdf/products/SRM/VMware-vCenter-Site-Recovery-Manager-with-vSphere-Replication-Datasheet.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/products/SRM/VMware-vCenter-Site-Recovery-Manager-with-vSphere-Replication-Datasheet.pdf']);">VMware vCenter Site Recovery Manager 5with vSphere Replication</a>":
 
 > **Simplify the setup of recovery and migration plans.**  
 > Traditional recovery plans are complex to set up. They are usually captured in manual runbooks, which are error-prone and quickly fall out of sync with configuration changes. With Site Recovery Manager, setting up a recovery plan is simple and can be done in a matter of minutes, instead of the weeks required to set up traditional runbooks. Through an interface that is tightly integrated with vCenter Server, the user simply selects which virtual machines to protect, maps virtual machines to resources at the recovery site and specifies the virtual machine boot sequence. Site Recovery Manager automatically dramatically simplifies recovery plans by automatically coordinating most of the manual steps of traditional recovery plans.  
-> &#8230;  
-> &#8230;  
+> ...  
+> ...  
 > **Automate site recovery and migration processes to ensure fast and reliable RTOs**.  
 > Site Recovery Manager automates the entire site recovery and migration process. Upon initiation of a disaster failover, business services are automatically recovered with no manual intervention. Because automation eliminates the risk inherent in manual processes, disaster failover can be executed much faster and with highly predictable RTOs. Typical recovery times vary between 30 minutes and a couple of hours, depending on the configuration.  
-> &#8230;  
-> &#8230;  
+> ...  
+> ...  
 > **Setup of recovery plans.** Site Recovery Manager provides an intuitive interface to help users create recovery plans for different failover scenarios. Users can map production resources to recovery resources, specify which virtual machines to protect and their relative boot sequences, and identify low-priority virtual machines to suspend at the failover site. Users can also include custom scripts and automatically reconfigure IP addresses for their virtual machines.
 
 So with runbooks, scripts to setup IPs, and setting up custom RTOs, you can document the appropriate failover procedures and expected time to recovery in case of a disaster.
 
 ### Based on customer requirements, create a data retention policy.
 
-With VMware Data Recovery you can define a retention policy. From &#8220;<a href="http://www.vmware.com/pdf/vdr_12_admin.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/vdr_12_admin.pdf']);">VMware Data Recovery Administration Guide</a>&#8220;:
+With VMware Data Recovery you can define a retention policy. From "<a href="http://www.vmware.com/pdf/vdr_12_admin.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/vdr_12_admin.pdf']);">VMware Data Recovery Administration Guide</a>":
 
 > **Retention Policy**  
 > Data Recovery backups are preserved for a variable period of time. You can choose to keep more or fewer backups for a longer or shorter period of time. Keeping more backups consumes more disk space, but also provides more points in time to which you can restore virtual machines. As backups age, some are automatically deleted to make room for new backups. You can use a predefined retention policy or create a custom policy.

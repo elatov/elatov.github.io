@@ -24,18 +24,18 @@ tags:
   - vdr
   - Virtual Hardware
 ---
-I recently ran into an issue with the VMware VDR appliance. The Integrity Check was failing and a VM (the Email Server VM) was failing to successfully back up. First I wanted to figure out why the Integrity Check was failing. Luckily we had two backup jobs and two Dedupe stores. The Backup Jobs were called &#8220;Email\_Server\_Backup\_Job&#8221; (this backed up to Dedupe\_Store\_1) and &#8220;All\_Other\_VMs\_Backup\_Job&#8221; (this backed up to Dedupe\_Store_2). We disabled both jobs to narrow down the issue. Each Dedup store was a 1TB RDM, which is a supported configuration. From the &#8216;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vmware-data-recovery-administrators-guide-20.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vmware-data-recovery-administrators-guide-20.pdf']);">VMware Data Recovery Administration Guide 2.0</a>&#8216;
+I recently ran into an issue with the VMware VDR appliance. The Integrity Check was failing and a VM (the Email Server VM) was failing to successfully back up. First I wanted to figure out why the Integrity Check was failing. Luckily we had two backup jobs and two Dedupe stores. The Backup Jobs were called "Email\_Server\_Backup\_Job" (this backed up to Dedupe\_Store\_1) and "All\_Other\_VMs\_Backup\_Job" (this backed up to Dedupe\_Store_2). We disabled both jobs to narrow down the issue. Each Dedup store was a 1TB RDM, which is a supported configuration. From the '<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vmware-data-recovery-administrators-guide-20.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vmware-data-recovery-administrators-guide-20.pdf']);">VMware Data Recovery Administration Guide 2.0</a>'
 
 > While Data Recovery does not impose limits on deduplication store size, other factors limit deduplication shares. As a result, deduplication stores are limited to:
 > 
 > *   500 GB on CIFS network shares
 > *   1 TB on VMDKs and RDMs
 > 
-> &#8230;  
-> &#8230;  
+> ...  
+> ...  
 > **Special Data Recovery Compatibility Considerations**  
-> &#8230;  
-> &#8230;
+> ...  
+> ...
 > 
 > *   Up to two deduplication stores per backup appliance.
 
@@ -47,7 +47,7 @@ VMware KB <a href="http://kb.vmware.com/kb/2014249" onclick="javascript:_gaq.pus
 
 > This issue has been resolved in VDR 2.0.1
 
-We updated to the latest version of VDR but unfortunately that didn&#8217;t help out, the issue persisted. I then found this <a href="http://sumoomicrosoft.blogspot.com/2012/07/vmware-data-recovery-error-2241.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://sumoomicrosoft.blogspot.com/2012/07/vmware-data-recovery-error-2241.html']);">article</a> online. Here is what they did to fix the issue:
+We updated to the latest version of VDR but unfortunately that didn't help out, the issue persisted. I then found this <a href="http://sumoomicrosoft.blogspot.com/2012/07/vmware-data-recovery-error-2241.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://sumoomicrosoft.blogspot.com/2012/07/vmware-data-recovery-error-2241.html']);">article</a> online. Here is what they did to fix the issue:
 
 > 1. increase open file limits. edit /etc/security/limits.conf  
 > add these lines to limits.conf:
@@ -73,7 +73,7 @@ We updated to the latest version of VDR but unfortunately that didn&#8217;t help
 > 
 > Hope it helps to save your time
 
-The first part of the solution was already in place in VDR 2.0.1, so we didn&#8217;t have to do that. After adding the lines to the above file (from part 2), the Integrity Check succeeded, however we found some damaged restore points. We followed the instructions in VMware KB <a href="http://kb.vmware.com/kb/1013387" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1013387']);">1013387</a> to clear the damaged restore points and to run another manual Integrity Check.
+The first part of the solution was already in place in VDR 2.0.1, so we didn't have to do that. After adding the lines to the above file (from part 2), the Integrity Check succeeded, however we found some damaged restore points. We followed the instructions in VMware KB <a href="http://kb.vmware.com/kb/1013387" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1013387']);">1013387</a> to clear the damaged restore points and to run another manual Integrity Check.
 
 We then re-enabled the Email\_Server\_Backup_Job and it started to fail right away and it actually kept leaving VMware snapshots behind. I then wanted to concentrate on the VMware snapshots failing. The first thing I noticed that that the VM was actually on Virtual HW # 4:
 
@@ -89,7 +89,7 @@ Since VDR uses Change Block Tracking (CBT) to efficiently make backups, the VM a
 > 
 > **NOTE ** These optimizations apply to virtual machines created with hardware version 7 or later, but they do not apply to virtual machines created with VMware products prior to vSphere 4.0. For example, change block tracking is not used with virtual machines created with Virtual Infrastructure 3.5 or earlier. As a result, Virtual machines created with earlier Hardware versions take longer to back up.
 
-Following the instructions laid out in VMware KB <a href="http://kb.vmware.com/kb/1010675" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1010675']);">1010675</a>, we updated the virtual HW to version 7, but it didn&#8217;t help out. I then looked at the *vmware.log* file as the snapshot deletion process was going and I saw the following:
+Following the instructions laid out in VMware KB <a href="http://kb.vmware.com/kb/1010675" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1010675']);">1010675</a>, we updated the virtual HW to version 7, but it didn't help out. I then looked at the *vmware.log* file as the snapshot deletion process was going and I saw the following:
 
 	  
 	2012-07-06T21:01:10.891Z| vcpu-0| DISKLIB-CBT : Opening cbt node /vmfs/devices/cbt/88f0572-cbt  
@@ -141,7 +141,7 @@ As I was logged into the appliance I saw that the hostname of the appliance was 
 > *   Resolve the IP, FQDN, and shortname of the VDR appliance from the vCenter Server.
 > *   Resolve the IP, FQDN, and shortname of the VDR appliance and the vCenter Server from the vSphere Client computer (if the Client is running elsewhere).
 
-The DNS was all over the place (The VDR appliance didn&#8217;t have an A record, none of the ESXi host had pointer records, and we were using an old DNS server). After fixing all the DNS related issues, I wanted to change the DNS-Name that showed up in the appliance and ran into VMware communities post <a href="http://communities.vmware.com/thread/212466" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/thread/212466']);">212466,</a> it actually describes how the DNS-Name is set within the appliance:
+The DNS was all over the place (The VDR appliance didn't have an A record, none of the ESXi host had pointer records, and we were using an old DNS server). After fixing all the DNS related issues, I wanted to change the DNS-Name that showed up in the appliance and ran into VMware communities post <a href="http://communities.vmware.com/thread/212466" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/thread/212466']);">212466,</a> it actually describes how the DNS-Name is set within the appliance:
 
 > There is a script /opt/vmware/share/vami/vami\_set\_hostname, which gets run during boot. This does a rev dns lookup for the ip address as follows:
 > 
@@ -151,7 +151,7 @@ The DNS was all over the place (The VDR appliance didn&#8217;t have an A record,
 > 
 > Make sure that your DNS server can resolve rev (and fwd) lookup entries for this hostname
 
-Since my DNS was all setup, I just rebooted the appliance and then all the DNS checks passed. If you don&#8217;t have a DNS server and you want to change the DNS-Name of your Appliance, you can follow the instruction laid out in that communities page:
+Since my DNS was all setup, I just rebooted the appliance and then all the DNS checks passed. If you don't have a DNS server and you want to change the DNS-Name of your Appliance, you can follow the instruction laid out in that communities page:
 
 > cd /opt/vmware/share/vami  
 > cp vami\_set\_hostname vami\_set\_hostname.orig
@@ -159,9 +159,9 @@ Since my DNS was all setup, I just rebooted the appliance and then all the DNS c
 > Comment out the following 4 lines in vami\_set\_hostname (from line 54 of the file)
 > 
 > cp $HOSTFILE ${HOSTFILE}.orig  
-> grep -v &#8216;^127.0.0.1\|^::1&#8242; < ${HOSTFILE}.orig > $HOSTFILE  
-> echo &#8220;127.0.0.1 $HN.$DN $HN localhost&#8221; >> $HOSTFILE  
-> echo &#8220;$FQDN&#8221; > $HOSTNAMEFILE
+> grep -v '^127.0.0.1\|^::1' < ${HOSTFILE}.orig > $HOSTFILE  
+> echo "127.0.0.1 $HN.$DN $HN localhost" >> $HOSTFILE  
+> echo "$FQDN" > $HOSTNAMEFILE
 > 
 > This will ensure that this script does not overwrite the files everytime the appliance is rebooted.
 > 
@@ -249,10 +249,10 @@ Searching for that error, I came across Symantec Tech Article <a href="http://ww
 > 2. Type VSSADMIN LIST WRITERS at the command line, then press the key.
 > 
 > Resolution:  
-> 1. If any of the writers&#8217; statuses do not return to stable, rebooting the server often resolves the issue.  
+> 1. If any of the writers' statuses do not return to stable, rebooting the server often resolves the issue.  
 > 2. If the issue persists, apply the VSS-3 update available as Microsoft KB 940349 ( http://support.microsoft.com/default.aspx?kbid=940349 ). Please note that this does NOT update individual writers, it only updates the framework within which the writers operate.
 
-*vssadmin list writers*, didn&#8217;t return any errors. Our VM was Win2K3, so we tried the above patch. After the above patch we didn&#8217;t get any more &#8220;quiesced&#8221; snapshots errors.
+*vssadmin list writers*, didn't return any errors. Our VM was Win2K3, so we tried the above patch. After the above patch we didn't get any more "quiesced" snapshots errors.
 
 All was well for a while, but then one day one of the Integrity check failed again. Here is what we saw in the reports tabs of VDR.
 
@@ -286,5 +286,5 @@ I also noticed that earlier in the day this occured in the logs:
 	Aug 17 08:04:25 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM13)" incomplete  
 	
 
-It looks like we had backups going but they didn&#8217;t finish by 8 AM, which is when our backup windows stops, so the jobs were forcefully stopped. That can cause the Intergrity check to fail since we had data that was half backed up. After we increased our backup window, the Integrity Check stopped failing, since all the VMs had enough time to be backed up.
+It looks like we had backups going but they didn't finish by 8 AM, which is when our backup windows stops, so the jobs were forcefully stopped. That can cause the Intergrity check to fail since we had data that was half backed up. After we increased our backup window, the Integrity Check stopped failing, since all the VMs had enough time to be backed up.
 

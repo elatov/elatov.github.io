@@ -39,14 +39,14 @@ Under the **Update a Host with Image Profiles** section of the Upgrade Guide, I 
 
 > You can update a host with image profiles stored in a software depot that is accessible through a URL or in an offline ZIP depot.
 > 
-> &#8230;
+> ...
 > 
 > Update the existing image profile to include the VIBs or install new VIBs. <a href="http://virtuallyhyper.com/wp-content/uploads/2014/01/esxcli-update-51-guide.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/01/esxcli-update-51-guide.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/01/esxcli-update-51-guide.png" alt="esxcli update 51 guide Updating ESXi 5.0U2 to ESXi 5.1U1" width="560" height="190" class="alignnone size-full wp-image-9971" title="Updating ESXi 5.0U2 to ESXi 5.1U1" /></a>
 
 I did some research and I came across <a href="http://www.virtuallyghetto.com/2012/09/a-pretty-cool-method-of-upgrading-to.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.virtuallyghetto.com/2012/09/a-pretty-cool-method-of-upgrading-to.html']);">A Pretty Cool Method of Upgrading to ESXi 5.1</a>. In that post it describes the process on how to update to 5.1 with **esxcli** and download the upgrade from a VMware hosted VUM depot. In summary here are the steps:
 
 1.  Open firewall to allow outbound HTTP traffic: `esxcli network firewall ruleset set -e true -r httpClient`
-2.  Check available &#8220;profiles&#8221; to be applied: `esxcli software sources profile list -d https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-index.xml`
+2.  Check available "profiles" to be applied: `esxcli software sources profile list -d https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-index.xml`
 3.  Apply one of the profiles, in the below example it uses the 5.1 profile: `esxcli software profile update -d https://hostupdate.vmware.com/software/VUM/PRODUCTION/main/vmw-depot-index.xml -p ESXi-5.1.0-799733-standard`
 
 In the example from the above post, the blogger goes from 5.0u1 to 5.1 using **esxcli** (not sure why the VMware KB states otherwise).
@@ -57,7 +57,7 @@ I checked out the download for 5.1 and I saw the following:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/01/51-offline-bundle.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/01/51-offline-bundle.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/01/51-offline-bundle-1024x113.png" alt="51 offline bundle 1024x113 Updating ESXi 5.0U2 to ESXi 5.1U1" width="620" height="68" class="alignnone size-large wp-image-9978" title="Updating ESXi 5.0U2 to ESXi 5.1U1" /></a>
 
-The bundle was ~300MB, rather than downloading that using the ESXi host, I decided to first download it to my local desktop and then copy it to the host (just in case the update fails, I wouldn&#8217;t want to download that again&#8230; plus I can save it in my ISOs repository for later use as well). Then uploading the file to my datastore:
+The bundle was ~300MB, rather than downloading that using the ESXi host, I decided to first download it to my local desktop and then copy it to the host (just in case the update fails, I wouldn't want to download that again... plus I can save it in my ISOs repository for later use as well). Then uploading the file to my datastore:
 
     $ scp VMware-ESXi-5.1.0-799733-depot.zip esx:/vmfs/volumes/datastore1/.
     VMware-ESXi-5.1.0-799733-depot.zip            100%  298MB  16.5MB/s   00:18  
@@ -74,7 +74,7 @@ Checking out the profiles:
 
 This actually matched the output from the above blog as well (but in the blog it was showing the profiles stored on the hosted VMware VUM depot).
 
-Let&#8217;s put the host into maintenance mode:
+Let's put the host into maintenance mode:
 
     ~ # vim-cmd hostsvc/maintenance_mode_enter 
     'vim.Task:haTask-ha-host-vim.HostSystem.enterMaintenanceMode-213709113'
@@ -95,7 +95,7 @@ I then restarted the host to finish the update.
 
 ### Fixing Post Update Issues
 
-At first the update looked really good, the host rebooted and the regular ESXi management logon window didn&#8217;t show any errors. I tried connecting to the host with a vSphere Client but it would fail. Luckily I had SSH enabled and I was able to check out the logs. After some investigation, I saw that **hostd** would not start up. I would actually see a **backtrace** in the **hostd** logs:
+At first the update looked really good, the host rebooted and the regular ESXi management logon window didn't show any errors. I tried connecting to the host with a vSphere Client but it would fail. Luckily I had SSH enabled and I was able to check out the logs. After some investigation, I saw that **hostd** would not start up. I would actually see a **backtrace** in the **hostd** logs:
 
     ~ # tail /var/log/hostd.log
     2014-01-05T19:33:16.296Z [FFAB6D20 info 'Hbrsvc'] Replication Scheduler started; using the 'hybrid' algorithm with max bandwidth = 20000.
@@ -128,7 +128,7 @@ After the reset, it started the reboot of the host:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/01/settings-reset_g.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/01/settings-reset_g.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/01/settings-reset_g.png" alt="settings reset g Updating ESXi 5.0U2 to ESXi 5.1U1" width="526" height="304" class="alignnone size-full wp-image-9980" title="Updating ESXi 5.0U2 to ESXi 5.1U1" /></a>
 
-After the host rebooted, **hostd** started up fine without issues. I must&#8217;ve made some customization that caused **hostd** to fail. I reconnected to the host and recreated: my vSwitch, iSCSI, and networking settings (it actually didn&#8217;t take that long, but if you had a lot of settings be careful).
+After the host rebooted, **hostd** started up fine without issues. I must've made some customization that caused **hostd** to fail. I reconnected to the host and recreated: my vSwitch, iSCSI, and networking settings (it actually didn't take that long, but if you had a lot of settings be careful).
 
 ### Update from 5.1 to 5.1U1
 
@@ -153,7 +153,7 @@ Then to reboot the host, I ran the following:
     ~ # esxcli system shutdown reboot -r update
     
 
-I already had all the VMs off, so going to *maintenance mode* didn&#8217;t make a difference. After the reboot here was the final version of ESXi:
+I already had all the VMs off, so going to *maintenance mode* didn't make a difference. After the reboot here was the final version of ESXi:
 
     ~ # vmware -lv
     VMware ESXi 5.1.0 build-1065491

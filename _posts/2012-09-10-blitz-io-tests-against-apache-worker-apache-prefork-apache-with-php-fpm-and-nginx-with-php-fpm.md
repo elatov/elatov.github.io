@@ -27,20 +27,20 @@ We were setting up a VPS with 256MB of RAM and we were trying to figure out whic
 *   <a href="http://wpforce.com/wordpress-hosting-apache-or-nginx/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wpforce.com/wordpress-hosting-apache-or-nginx/']);">WordPress Hosting: Apache or Nginx?</a>
 *   <a href="http://www.whisperdale.net/11-nginx-vs-cherokee-vs-apache-vs-lighttpd.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.whisperdale.net/11-nginx-vs-cherokee-vs-apache-vs-lighttpd.html']);">nginx vs cherokee vs apache vs lighttpd</a> 
 
-You can find many others as well. So I decided to run some of my own tests, to see what the hype is about. First off, I will admit I really like Apache. It&#8217;s simple, it works, and it&#8217;s secure. Secondly, if we are going to test with performance we should use MPM (Multi-Processing Modules). From &#8220;<a href="http://httpd.apache.org/docs/2.4/mpm.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://httpd.apache.org/docs/2.4/mpm.html']);">Multi-Processing Modules</a>&#8221; Apache page:
+You can find many others as well. So I decided to run some of my own tests, to see what the hype is about. First off, I will admit I really like Apache. It's simple, it works, and it's secure. Secondly, if we are going to test with performance we should use MPM (Multi-Processing Modules). From "<a href="http://httpd.apache.org/docs/2.4/mpm.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://httpd.apache.org/docs/2.4/mpm.html']);">Multi-Processing Modules</a>" Apache page:
 
 > Apache 2.0 extends this modular design to the most basic functions of a web server. The server ships with a selection of Multi-Processing Modules (MPMs) which are responsible for binding to network ports on the machine, accepting requests, and dispatching children to handle the requests.
 
-There are actually 3 different MPM modules, from &#8220;<a href="http://httpd.apache.org/docs/2.4/misc/perf-tuning.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://httpd.apache.org/docs/2.4/misc/perf-tuning.html']);">Apache Performance Tuning</a>&#8221; page:
+There are actually 3 different MPM modules, from "<a href="http://httpd.apache.org/docs/2.4/misc/perf-tuning.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://httpd.apache.org/docs/2.4/misc/perf-tuning.html']);">Apache Performance Tuning</a>" page:
 
 > **Choosing an MPM**  
 > Apache 2.x supports pluggable concurrency models, called Multi-Processing Modules (MPMs). When building Apache, you must choose an MPM to use. There are platform-specific MPMs for some platforms: mpm&#95;netware, mpmt&#95;os2, and mpm_winnt. For general Unix-type systems, there are several MPMs from which to choose. The choice of MPM can affect the speed and scalability of the httpd:
 > 
 > *   The **worker** MPM uses multiple child processes with many threads each. Each thread handles one connection at a time. Worker generally is a good choice for high-traffic servers because it has a smaller memory footprint than the prefork MPM. 
 > *   The **event** MPM is threaded like the Worker MPM, but is designed to allow more requests to be served simultaneously by passing off some processing work to supporting threads, freeing up the main threads to work on new requests. 
-> *   The **prefork** MPM uses multiple child processes with one thread each. Each process handles one connection at a time. On many systems, prefork is comparable in speed to worker, but it uses more memory. Prefork&#8217;s threadless design has advantages over worker in some situations: it can be used with non-thread-safe third-party modules, and it is easier to debug on platforms with poor thread debugging support.
+> *   The **prefork** MPM uses multiple child processes with one thread each. Each process handles one connection at a time. On many systems, prefork is comparable in speed to worker, but it uses more memory. Prefork's threadless design has advantages over worker in some situations: it can be used with non-thread-safe third-party modules, and it is easier to debug on platforms with poor thread debugging support.
 
-I only tested with the **prefork** and **worker** modules, since the **event** module is still experimental, from &#8220;<a href="http://httpd.apache.org/docs/2.2/mod/event.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://httpd.apache.org/docs/2.2/mod/event.html']);">Apache MPM event</a>&#8221; page:
+I only tested with the **prefork** and **worker** modules, since the **event** module is still experimental, from "<a href="http://httpd.apache.org/docs/2.2/mod/event.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://httpd.apache.org/docs/2.2/mod/event.html']);">Apache MPM event</a>" page:
 
 > Warning This MPM is experimental, so it may or may not work as expected.
 
@@ -54,7 +54,7 @@ I might test with it, when it becomes stable. To check out what MPM module is cu
     mod_so.c 
     
 
-We can see that in this case it&#8217;s **prefork** (you can also use **httpd -l** to find out the same information). There are also a lot of sites that have different recommendations on how to tune the *prefork* module:
+We can see that in this case it's **prefork** (you can also use **httpd -l** to find out the same information). There are also a lot of sites that have different recommendations on how to tune the *prefork* module:
 
 *   <a href="http://www.freebsdwiki.net/index.php/Apache,_Configuring" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.freebsdwiki.net/index.php/Apache,_Configuring']);">Apache, Configuring</a>
 *   <a href="http://articles.slicehost.com/2010/5/19/configuring-the-apache-mpm-on-ubuntu" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://articles.slicehost.com/2010/5/19/configuring-the-apache-mpm-on-ubuntu']);">Configuring the Apache MPM on Ubuntu</a>
@@ -163,7 +163,7 @@ Same thing as before, getting more time-outs than hits. Here are some tests that
 > **Results**  
 > 161 HITS WITH 0 ERRORS & 160 TIMEOUTS
 
-As you can see increasing **StartServers**, **MaxClients**, **MaxRequestsPerChild**, didn&#8217;t really help out. The VPS came to a crawl when I increased the **MaxClients** to 20. My sweet spot was the following:
+As you can see increasing **StartServers**, **MaxClients**, **MaxRequestsPerChild**, didn't really help out. The VPS came to a crawl when I increased the **MaxClients** to 20. My sweet spot was the following:
 
     StartServers        1
     MinSpareServers     1
@@ -173,7 +173,7 @@ As you can see increasing **StartServers**, **MaxClients**, **MaxRequestsPerChil
     MaxRequestsPerChild   1000
     
 
-And we could handle about 200 hits per minute when receiving 10 simultaneous requests. Let&#8217;s move onto Apache with **worker** MPM and **mod_php**. Since we were using FreeBSD it was was pretty easy to compile the new version of *apache*. I did have to recompile PHP as well and the PHP extensions. But overall it took about 15 minutes for the whole process. I tried to apply the same logic for the **worker** module as I did with the **prefork** module, so initially I had the following setup:
+And we could handle about 200 hits per minute when receiving 10 simultaneous requests. Let's move onto Apache with **worker** MPM and **mod_php**. Since we were using FreeBSD it was was pretty easy to compile the new version of *apache*. I did have to recompile PHP as well and the PHP extensions. But overall it took about 15 minutes for the whole process. I tried to apply the same logic for the **worker** module as I did with the **prefork** module, so initially I had the following setup:
 
     StartServers           1
     MinSpareThreads        1
@@ -200,7 +200,7 @@ and I got the following results:
 
 > 1,268 HITS WITH 0 ERRORS & 122 TIMEOUTS
 
-That is when I decided to read up on the worker MPM to see what values I should use. From &#8220;<a href="http://httpd.apache.org/docs/2.2/mod/worker.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://httpd.apache.org/docs/2.2/mod/worker.html']);">Apache MPM worker</a>&#8220;:
+That is when I decided to read up on the worker MPM to see what values I should use. From "<a href="http://httpd.apache.org/docs/2.2/mod/worker.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://httpd.apache.org/docs/2.2/mod/worker.html']);">Apache MPM worker</a>":
 
 > The most important directives used to control this MPM are ThreadsPerChild, which controls the number of threads deployed by each child process and MaxClients, which controls the maximum total number of threads that may be launched.
 > 
@@ -254,7 +254,7 @@ Just for testing, I ran the following test with same configuration and I got the
 
 Throughout my testing, I saw *apache* use 60MB per process, but that was an extreme case. With my optimal configuration, I was using the same amount as the prefork MPM processes about 24MB per *apache* process. So with apache **worker** MPM and **mod_php** we can handle 2,000 hits when receiving 100 simultaneous requests. This is way better than **prefork**. As I was doing my testing, I ran into the following from the <a href="http://www.php.net/manual/en/faq.installation.php#faq.installation.apache2" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','www.php.net/manual/en/faq.installation.php#faq.installation.apache2']);">PHP FAQ</a>:
 
-> PHP is glue. It is the glue used to build cool web applications by sticking dozens of 3rd-party libraries together and making it all appear as one coherent entity through an intuitive and easy to learn language interface. The flexibility and power of PHP relies on the stability and robustness of the underlying platform. It needs a working OS, a working web server and working 3rd-party libraries to glue together. When any of these stop working PHP needs ways to identify the problems and fix them quickly. When you make the underlying framework more complex by not having completely separate execution threads, completely separate memory segments and a strong sandbox for each request to play in, further weaknesses are introduced into PHP&#8217;s system.
+> PHP is glue. It is the glue used to build cool web applications by sticking dozens of 3rd-party libraries together and making it all appear as one coherent entity through an intuitive and easy to learn language interface. The flexibility and power of PHP relies on the stability and robustness of the underlying platform. It needs a working OS, a working web server and working 3rd-party libraries to glue together. When any of these stop working PHP needs ways to identify the problems and fix them quickly. When you make the underlying framework more complex by not having completely separate execution threads, completely separate memory segments and a strong sandbox for each request to play in, further weaknesses are introduced into PHP's system.
 > 
 > If you want to use a threaded MPM, look at a FastCGI configuration where PHP is running in its own memory space.
 
@@ -266,7 +266,7 @@ So I decided to test apache with **fastcgi** and **php-fpm**. Every setup I chec
 *   <a href="http://www.cyberciti.biz/faq/freebsd-apache22-fastcgi-php-configuration/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.cyberciti.biz/faq/freebsd-apache22-fastcgi-php-configuration/']);">FreeBSD Configure Apache 2.2 PHP with FastCGI mod_fcgi Module</a>
 *   <a href="http://personal.x-istence.com/post/2009/08/25/moving-modfastcgi-modfcgid" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://personal.x-istence.com/post/2009/08/25/moving-modfastcgi-modfcgid']);">Moving from mod&#95;fastcgi to mod&#95;fcgid</a> 
 
-They all use a wrapper script to call PHP. I really don&#8217;t like doing that, it&#8217;s a security flaw. Like I mentioned, I like Apache cause it&#8217;s secure. However when you add modules to Apache that make it less secure, then I definitely lose the desire to use Apache. After tinkering around with the setup, I ended up doing this:
+They all use a wrapper script to call PHP. I really don't like doing that, it's a security flaw. Like I mentioned, I like Apache cause it's secure. However when you add modules to Apache that make it less secure, then I definitely lose the desire to use Apache. After tinkering around with the setup, I ended up doing this:
 
     FastCGIExternalServer /usr/local/bin/php-fpm -host 127.0.0.1:9000
     AddHandler php-fastcgi .php
@@ -280,7 +280,7 @@ They all use a wrapper script to call PHP. I really don&#8217;t like doing that,
       Allow from all 
     
 
-I had to allow the **/usr/local/bin** directory to allow CGI Execution from Apache, since that is where the **php-fpm** binary resided. Maybe I was doing it wrong, but I couldn&#8217;t get it working any other way. For some reason, I didn&#8217;t like that. There is a actually an excellent article on securing all of this: &#8220;<a href="http://e.metaclarity.org/268/httpdsuexecchrootfastcgiphp/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://e.metaclarity.org/268/httpdsuexecchrootfastcgiphp/']);">Apache httpd + suEXEC + chroot + FastCGI + PHP</a>&#8220;. But remember, I like simplicity :). Let me re-phrase that: I don&#8217;t mind complex setups, as long as there is a pay off.
+I had to allow the **/usr/local/bin** directory to allow CGI Execution from Apache, since that is where the **php-fpm** binary resided. Maybe I was doing it wrong, but I couldn't get it working any other way. For some reason, I didn't like that. There is a actually an excellent article on securing all of this: "<a href="http://e.metaclarity.org/268/httpdsuexecchrootfastcgiphp/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://e.metaclarity.org/268/httpdsuexecchrootfastcgiphp/']);">Apache httpd + suEXEC + chroot + FastCGI + PHP</a>". But remember, I like simplicity :). Let me re-phrase that: I don't mind complex setups, as long as there is a pay off.
 
 So I set up Apache with **mod_fastcgi** and forwarded that to **php-fpm**. The only thing I changed for **php-fpm** was the following:
 
@@ -304,7 +304,7 @@ I then re-enabled **worker** MPM, so now I had Apache MPM **worker** with **mod_
 > **Results:**  
 > 2,182 HITS WITH 0 ERRORS & 596 TIMEOUTS
 
-I really didn&#8217;t see that much of an increase. Now there are other *fast-cgi* modules. The blog &#8220;<a href="http://alexcabal.com/installing-apache-mod_fastcgi-php-fpm-on-ubuntu-server-maverick/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://alexcabal.com/installing-apache-mod_fastcgi-php-fpm-on-ubuntu-server-maverick/']);">Installing Apache + Mod_FastCGI + PHP-FPM on Ubuntu Server Maverick</a>&#8221; clarifies that different versions, from the blog:
+I really didn't see that much of an increase. Now there are other *fast-cgi* modules. The blog "<a href="http://alexcabal.com/installing-apache-mod_fastcgi-php-fpm-on-ubuntu-server-maverick/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://alexcabal.com/installing-apache-mod_fastcgi-php-fpm-on-ubuntu-server-maverick/']);">Installing Apache + Mod_FastCGI + PHP-FPM on Ubuntu Server Maverick</a>" clarifies that different versions, from the blog:
 
 > **Apache + mod_fastcgi**: FastCGI is a module that allows you to neatly solve mod_php’s big problem, namely that it must spin up and destroy a PHP instance with every request. FastCGI instead keeps an instance of PHP running in the background. When Apache receives a request it forwards it to FastCGI, which feeds it to its already running instance of PHP and sends the result back to Apache. Apache then serves the result.  
 > Without the constant build-and-destroy of new PHP processes, FastCGI is a great memory saver and performance booster. My Apache + mod&#95;php install, which would constantly bloat to 1000′s of MB in memory usage and invoke OOM-Killer without mercy, has been humming along at a steady ~200MB for the past few months without a single problem after switching to mod&#95;fastcgi.
@@ -314,11 +314,11 @@ I really didn&#8217;t see that much of an increase. Now there are other *fast-cg
 > **Apache + mod_fastcgi + PHP-FPM**: PHP-FPM (A.K.A. PHP5-FPM) is a process manager for PHP. Confusingly, it was only recently bundled with PHP, so you might find some tutorials telling you to download the source and others to just use apt-get. I believe that if you’re using PHP >= 5.3, which you would be if you installed it in Maverick with apt-get, that you don’t need to download the source to get it working. I’ll talk more about this later.  
 > From what I understand, PHP-FPM is like FastCGI, but with additional PHP-specific optimizations built in. Since it’s specially built for PHP, it should give you the best performance, and so is the best of these three alternatives
 
-There is actually another person that ran some tests with the different modules. Check out &#8220;<a href="http://mykospark.net/2010/03/benchmark-mod_php-vs-mod_fcgid-for-wordpress/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://mykospark.net/2010/03/benchmark-mod_php-vs-mod_fcgid-for-wordpress/']);">Benchmark: mod&#95;php -vs- mod&#95;fcgid for WordPress</a>&#8220;, his summary:
+There is actually another person that ran some tests with the different modules. Check out "<a href="http://mykospark.net/2010/03/benchmark-mod_php-vs-mod_fcgid-for-wordpress/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://mykospark.net/2010/03/benchmark-mod_php-vs-mod_fcgid-for-wordpress/']);">Benchmark: mod&#95;php -vs- mod&#95;fcgid for WordPress</a>", his summary:
 
-> It seems that if you are running heavyweight code like WordPress, it doesn&#8217;t make much difference which mode you use. If your code is lightweight though, mod_php is capable of cranking out a significant number of requests. I personally prefer worker mode as it will be a little lighter on the resources, and can probably serve static files faster. Also, Apache can take advantage of resource sharing when running in worker mode.
+> It seems that if you are running heavyweight code like WordPress, it doesn't make much difference which mode you use. If your code is lightweight though, mod_php is capable of cranking out a significant number of requests. I personally prefer worker mode as it will be a little lighter on the resources, and can probably serve static files faster. Also, Apache can take advantage of resource sharing when running in worker mode.
 
-From the two tests that I ran, I would have to agree. The module performance between **mod_fastcgi** and **mod_php** is very small, especially when using them with **worker** MPM. Maybe if you had a lot of RAM it might make a difference, but in our case, we don&#8217;t have that luxury.
+From the two tests that I ran, I would have to agree. The module performance between **mod_fastcgi** and **mod_php** is very small, especially when using them with **worker** MPM. Maybe if you had a lot of RAM it might make a difference, but in our case, we don't have that luxury.
 
 Lastly I tested with **nginx** with **php-fpm**. At first I left the defaults:
 
@@ -342,7 +342,7 @@ I tweaked different things, and the only parameter that was worth changing was t
 > **Results:**  
 > 1,667 HITS WITH 0 ERRORS & 491 TIMEOUTS
 
-The results were very close, and I saved 24MB of memory, it was worth it. This saved a bunch of memory, **nginx** is way smaller and liked mentioned in the above pages it&#8217;s *event-driven* and not process driven like *Apache*. In my opinion if are using a VPS with less than a 1GB of RAM then definitely go for **nginx**, if you have more than that, then go with *Apache*. Even though your *Apache* process will take up more RAM, the performance gain with MPM **worker** will be worth it . Now if you still want to increase how many hits your site can handle, you can setup caching:
+The results were very close, and I saved 24MB of memory, it was worth it. This saved a bunch of memory, **nginx** is way smaller and liked mentioned in the above pages it's *event-driven* and not process driven like *Apache*. In my opinion if are using a VPS with less than a 1GB of RAM then definitely go for **nginx**, if you have more than that, then go with *Apache*. Even though your *Apache* process will take up more RAM, the performance gain with MPM **worker** will be worth it . Now if you still want to increase how many hits your site can handle, you can setup caching:
 
 *   <a href="http://www.axelsegebrecht.com/how-to/install-nginx-apc-varnish-wordpress-and-w3-cache-128mb-vps/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.axelsegebrecht.com/how-to/install-nginx-apc-varnish-wordpress-and-w3-cache-128mb-vps/']);" class="broken_link">Install Nginx With APC, Varnish, WordPress And W3 Cache On A 128MB VPS</a>
 *   <a href="http://www.ewanleith.com/blog/900/10-million-hits-a-day-with-wordpress-using-a-15-server" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.ewanleith.com/blog/900/10-million-hits-a-day-with-wordpress-using-a-15-server']);">10 Million hits a day with WordPress using a $15 server</a>

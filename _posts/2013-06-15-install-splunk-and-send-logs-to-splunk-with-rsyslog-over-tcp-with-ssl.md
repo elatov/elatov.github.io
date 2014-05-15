@@ -18,23 +18,23 @@ tags:
 There are a couple of components of Splunk. From <a href="http://docs.splunk.com/Documentation/Splunk/latest/Installation/ComponentsofaSplunkdeployment" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://docs.splunk.com/Documentation/Splunk/latest/Installation/ComponentsofaSplunkdeployment']);">Components of a Splunk deployment</a>:
 
 > **Indexer**  
-> Splunk indexers, or index servers, provide indexing capability for local and remote data and host the primary Splunk datastore, as well as Splunk Web. Refer to &#8220;How indexing works&#8221; in the Managing Indexers and Clusters manual for more information.
+> Splunk indexers, or index servers, provide indexing capability for local and remote data and host the primary Splunk datastore, as well as Splunk Web. Refer to "How indexing works" in the Managing Indexers and Clusters manual for more information.
 > 
 > **Search peer**  
 > A search peer is an indexer that services requests from search heads in a distributed search deployment. Search peers are also sometimes referred to as indexer nodes.
 > 
 > **Search head**  
-> A search head is a Splunk instance configured to distribute searches to indexers, or search peers. Search heads can be either dedicated or not, depending on whether they also perform indexing. Dedicated search heads don&#8217;t have any indexes of their own (other than the usual internal indexes). Instead, they consolidate results that originate from remote search peers.
+> A search head is a Splunk instance configured to distribute searches to indexers, or search peers. Search heads can be either dedicated or not, depending on whether they also perform indexing. Dedicated search heads don't have any indexes of their own (other than the usual internal indexes). Instead, they consolidate results that originate from remote search peers.
 > 
 > **Forwarder**  
-> Forwarders are Splunk instances that forward data to remote indexers for indexing and storage. In most cases, they do not index data themselves. Refer to the &#8220;About forwarding and receiving&#8221; topic in the Distributed Deployment manual.
+> Forwarders are Splunk instances that forward data to remote indexers for indexing and storage. In most cases, they do not index data themselves. Refer to the "About forwarding and receiving" topic in the Distributed Deployment manual.
 > 
 > **Deployment server**  
-> Both indexers and forwarders can also act as deployment servers. A deployment server distributes configuration information to running instances of Splunk via a push mechanism which is enabled through configuration. Refer to &#8220;About deployment server&#8221; in the Distributed Deployment Manual for additional information about the deployment server.
+> Both indexers and forwarders can also act as deployment servers. A deployment server distributes configuration information to running instances of Splunk via a push mechanism which is enabled through configuration. Refer to "About deployment server" in the Distributed Deployment Manual for additional information about the deployment server.
 
 I will just setup our server as an *indexer* which we can search. From the same document:
 
-> The simplest deployment is the one you get by default when you install Splunk: indexing and searching on the same server. Data comes in from the sources you&#8217;ve configured, and you log into Splunk Web or the CLI on this same server to search, monitor, alert, and report on your IT data.
+> The simplest deployment is the one you get by default when you install Splunk: indexing and searching on the same server. Data comes in from the sources you've configured, and you log into Splunk Web or the CLI on this same server to search, monitor, alert, and report on your IT data.
 
 Here is good table of the functions:
 
@@ -65,14 +65,14 @@ Lastly, here is a pretty good picture of all the components:
 
 Here are some differences between the free and enterprise versions of splunk. From <a href="http://docs.splunk.com/Documentation/Splunk/5.0.3/Admin/MoreaboutSplunkFree" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://docs.splunk.com/Documentation/Splunk/5.0.3/Admin/MoreaboutSplunkFree']);">More about Splunk Free</a>:
 
-> Splunk Free is a totally free (as in beer) version of Splunk. It allows you to index up to 500 MB/day and will never expire. This 500 MB limit refers to the amount of new data you can add (we call this indexing) per day, but you can keep adding more and more data every day, storing as much as you want. For example, you could add 500 MB of data per day and eventually have 10 TB of data in Splunk. If you need more than 500 MB/day, you&#8217;ll need to purchase a license.
+> Splunk Free is a totally free (as in beer) version of Splunk. It allows you to index up to 500 MB/day and will never expire. This 500 MB limit refers to the amount of new data you can add (we call this indexing) per day, but you can keep adding more and more data every day, storing as much as you want. For example, you could add 500 MB of data per day and eventually have 10 TB of data in Splunk. If you need more than 500 MB/day, you'll need to purchase a license.
 
 From the same document here are the functions that are not available:
 
 > **What is included**  
-> Splunk Free is a single-user product. All of Splunk&#8217;s features are supported with the exception of:
+> Splunk Free is a single-user product. All of Splunk's features are supported with the exception of:
 > 
-> *   Multiple user accounts and role-based access controls (there&#8217;s no authentication when using Splunk Free) 
+> *   Multiple user accounts and role-based access controls (there's no authentication when using Splunk Free) 
 > *   Distributed search 
 > *   Forwarding in TCP/HTTP formats (you can forward data to other Splunk instances, but not to non-Splunk instances) 
 > *   Deployment management 
@@ -123,7 +123,7 @@ Here is how the install looked like:
     -------------------------------------------------------------------------
     
 
-### Start Splunk and Make Sure it&#8217;s Running
+### Start Splunk and Make Sure it's Running
 
 During the start-up process you have to accept the license agreement:
 
@@ -191,14 +191,14 @@ During the start-up process you have to accept the license agreement:
     The Splunk web interface is at http://splunk.elatov.local:8000
     
 
-Splunk is supposed to be running on port **8000** and **8089**, so let&#8217;s make sure that is case:
+Splunk is supposed to be running on port **8000** and **8089**, so let's make sure that is case:
 
     [root@splunk ~]# netstat -antp | grep -E '8000|8089'
     tcp        0      0 0.0.0.0:8089                0.0.0.0:*                   LISTEN      1356/splunkd        
     tcp        0      0 0.0.0.0:8000                0.0.0.0:*                   LISTEN      1414/python   
     
 
-Let&#8217;s open up the firewall for those ports. Edit **/etc/sysconfig/iptables** and add the following to the file:
+Let's open up the firewall for those ports. Edit **/etc/sysconfig/iptables** and add the following to the file:
 
     -A INPUT -m state --state NEW -m tcp -p tcp --dport 8000 -j ACCEPT
     -A INPUT -m state --state NEW -m tcp -p tcp --dport 8089 -j ACCEPT
@@ -234,19 +234,19 @@ After that is done, you will see the *SplunkWeb* portal:
 
 ### Add Remote Syslog Data Type
 
-From the Home screen, click &#8220;Add Data&#8221;:
+From the Home screen, click "Add Data":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/06/splunk_add_data.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/06/splunk_add_data.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/splunk_add_data.png" alt="splunk add data Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" width="835" height="521" class="alignnone size-full wp-image-8989" title="Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" /></a>
 
-Then Click &#8220;Syslog&#8221;:
+Then Click "Syslog":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/06/add_syslog_data.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/06/add_syslog_data.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/add_syslog_data.png" alt="add syslog data Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" width="862" height="654" class="alignnone size-full wp-image-8990" title="Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" /></a>
 
-Click &#8220;Next&#8221; under the **Consume syslog over TCP section**. And then put the port you want to use and select the source to be &#8220;syslog&#8221;:
+Click "Next" under the **Consume syslog over TCP section**. And then put the port you want to use and select the source to be "syslog":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/06/syslog_tcp_remote.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/06/syslog_tcp_remote.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/syslog_tcp_remote.png" alt="syslog tcp remote Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" width="905" height="717" class="alignnone size-full wp-image-8991" title="Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" /></a>
 
-After you click &#8220;Save&#8221;, you should see the following success page:
+After you click "Save", you should see the following success page:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/06/success-add-syslog_tcp.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/06/success-add-syslog_tcp.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/success-add-syslog_tcp.png" alt="success add syslog tcp Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" width="860" height="366" class="alignnone size-full wp-image-8992" title="Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" /></a>
 
@@ -256,7 +256,7 @@ At this point if you go back to the splunk server, you will see it listening on 
     tcp        0      0 0.0.0.0:514                 0.0.0.0:*                   LISTEN      1356/splunkd   
     
 
-You can also query the splunk server directly to make sure it&#8217;s collecting over TCP:
+You can also query the splunk server directly to make sure it's collecting over TCP:
 
     [root@splunk ~]# /opt/splunk/bin/splunk list tcp
     Splunk username: admin
@@ -265,7 +265,7 @@ You can also query the splunk server directly to make sure it&#8217;s collecting
         514 for data from any host
     
 
-Lastly let&#8217;s open up port **514** on the splunk server. Edit **/etc/sysconfig/iptables** and add the following:
+Lastly let's open up port **514** on the splunk server. Edit **/etc/sysconfig/iptables** and add the following:
 
     -A INPUT -m state --state NEW -m tcp -p tcp --dport 514 -j ACCEPT
     
@@ -305,7 +305,7 @@ Then restart the **rsyslog** service:
     Redirecting to /bin/systemctl restart  rsyslog.service
     
 
-And of course make sure it&#8217;s back up and running:
+And of course make sure it's back up and running:
 
     [elatov@klaptop ~]$ sudo service rsyslog status
     Redirecting to /bin/systemctl status  rsyslog.service
@@ -322,7 +322,7 @@ And of course make sure it&#8217;s back up and running:
 
 ### Confirm the Logs are Getting Indexed
 
-From the home page click on &#8220;Launch search app&#8221;:
+From the home page click on "Launch search app":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/06/launch_search_app.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/06/launch_search_app.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/launch_search_app.png" alt="launch search app Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" width="570" height="211" class="alignnone size-full wp-image-8993" title="Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" /></a>
 
@@ -347,7 +347,7 @@ We have to edit the **inputs.conf** file and add our stanza in:
 > Add a network input using inputs.conf  
 > To add an input, add a stanza for it to inputs.conf in $SPLUNK_HOME/etc/system/local/
 
-So let&#8217;s edit our configuration file:
+So let's edit our configuration file:
 
     [root@splunk ~]# vi /opt/splunk/etc/system/local/inputs.conf
     
@@ -376,7 +376,7 @@ I then copied both files under the defined folder from the settings:
     root-ca-elatov-local.pem
     
 
-To apply the above settings, let&#8217;s restart the splunk instance:
+To apply the above settings, let's restart the splunk instance:
 
     [root@splunk ~]# /opt/splunk/bin/splunk restart
     Stopping splunkweb...
@@ -412,7 +412,7 @@ To apply the above settings, let&#8217;s restart the splunk instance:
     The Splunk web interface is at http://splunk.elatov.local:8000
     
 
-Let&#8217;s make sure all the ports are bound and listening:
+Let's make sure all the ports are bound and listening:
 
     [root@splunk ~]# netstat -antp | grep -E '8000|8089|514|515'
     tcp        0      0 0.0.0.0:8089                0.0.0.0:*                   LISTEN      5688/splunkd        
@@ -421,7 +421,7 @@ Let&#8217;s make sure all the ports are bound and listening:
     tcp        0      0 0.0.0.0:515                 0.0.0.0:*                   LISTEN      5688/splunkd  
     
 
-Let&#8217;s make sure splunk shows both ports as well:
+Let's make sure splunk shows both ports as well:
 
     [root@splunk ~]# /opt/splunk/bin/splunk list tcp
     Splunk is listening for data on ports:
@@ -429,7 +429,7 @@ Let&#8217;s make sure splunk shows both ports as well:
         515 for data from any host
     
 
-Lastly let&#8217;s open up the port for TCP over SSL:
+Lastly let's open up the port for TCP over SSL:
 
     [root@splunk ~]# iptables -L -n | grep 515
     ACCEPT     tcp  --  0.0.0.0/0            0.0.0.0/0           state NEW tcp dpt:515 
@@ -437,7 +437,7 @@ Lastly let&#8217;s open up the port for TCP over SSL:
 
 ### Enable Rsyslog to Send over TCP with SSL
 
-First let&#8217;s copy the root CA Certificate onto the system:
+First let's copy the root CA Certificate onto the system:
 
     [root@klaptop ~]# ls -1 /etc/pki/CA/certs/
     root-ca-elatov-local.pem
@@ -494,7 +494,7 @@ here is the actual install:
     Complete!
     
 
-After it&#8217;s installed, restart the **rsyslog** service one more time:
+After it's installed, restart the **rsyslog** service one more time:
 
     [elatov@klaptop ~]$ sudo service rsyslog restart
     Redirecting to /bin/systemctl restart  rsyslog.service
@@ -511,7 +511,7 @@ and nothing else.
 
 ## Confirm SSL Data is getting Indexed
 
-Login to SplunkWeb (**http://IP:8000**) and click on &#8220;Launch search app&#8221; and you should now see logs coming in on both &#8220;Sources&#8221;:
+Login to SplunkWeb (**http://IP:8000**) and click on "Launch search app" and you should now see logs coming in on both "Sources":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/06/splunk_logs_both_sources.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/06/splunk_logs_both_sources.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/splunk_logs_both_sources.png" alt="splunk logs both sources Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" width="678" height="392" class="alignnone size-full wp-image-8997" title="Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" /></a>
 

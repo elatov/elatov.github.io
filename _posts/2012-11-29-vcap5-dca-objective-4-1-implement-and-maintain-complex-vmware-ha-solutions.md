@@ -21,9 +21,9 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 > 
 > Three types of admission control are available.
 > 
-> **Host** &#8211; Ensures that a host has sufficient resources to satisfy the reservations of all virtual machines running on it.  
-> **Resource Pool** &#8211; Ensures that a resource pool has sufficient resources to satisfy the reservations, shares, and limits of all virtual machines associated with it.  
-> **vSphere HA** &#8211; Ensures that sufficient resources in the cluster are reserved for virtual machine recovery in the event of host failure.
+> **Host** - Ensures that a host has sufficient resources to satisfy the reservations of all virtual machines running on it.  
+> **Resource Pool** - Ensures that a resource pool has sufficient resources to satisfy the reservations, shares, and limits of all virtual machines associated with it.  
+> **vSphere HA** - Ensures that sufficient resources in the cluster are reserved for virtual machine recovery in the event of host failure.
 
 Here are each of the admission control policies described in more detail:
 
@@ -73,7 +73,7 @@ I would say there are 3 types. From <a href="http://pubs.vmware.com/vsphere-50/t
 > **Host Failure Types and Detection**  
 > The master host monitors the liveness of the slave hosts in the cluster. This communication is done through the exchange of network heartbeats every second. When the master host stops receiving these heartbeats from a slave host, it checks for host liveness before declaring the host to have failed. The liveness check that the master host performs is to determine whether the slave host is exchanging heartbeats with one of the datastores. Also, the master host checks whether the host responds to ICMP pings sent to its management IP addresses.
 > 
-> If a master host is unable to communicate directly with the agent on a slave host, the slave host does not respond to ICMP pings, and the agent is not issuing heartbeats it is considered to have failed. The host&#8217;s virtual machines are restarted on alternate hosts. If such a slave host is exchanging heartbeats with a datastore, the master host assumes that it is in a network partition or network isolated and so continues to monitor the host and its virtual machines
+> If a master host is unable to communicate directly with the agent on a slave host, the slave host does not respond to ICMP pings, and the agent is not issuing heartbeats it is considered to have failed. The host's virtual machines are restarted on alternate hosts. If such a slave host is exchanging heartbeats with a datastore, the master host assumes that it is in a network partition or network isolated and so continues to monitor the host and its virtual machines
 
 In the above, two are described: the network heartbeats and datastore heartbeats. The last one only applies when VM Monitoring is enabled. From the same document:
 
@@ -116,15 +116,15 @@ Here is the next policy:
 > 
 > <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_percentage_example.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_percentage_example.png']);"><img class="alignnone size-full wp-image-4964" title="ha_percentage_example" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_percentage_example.png" alt="ha percentage example VCAP5 DCA Objective 4.1 – Implement and Maintain Complex VMware HA Solutions " width="521" height="303" /></a>
 > 
-> The total resource requirements for the powered-on virtual machines is 7GHz and 6GB. The total host resources available for virtual machines is 24GHz and 21GB. Based on this, the Current CPU Failover Capacity is 70% ((24GHz &#8211; 7GHz)/24GHz). Similarly, the Current Memory Failover Capacity is 71% ((21GB-6GB)/21GB).
+> The total resource requirements for the powered-on virtual machines is 7GHz and 6GB. The total host resources available for virtual machines is 24GHz and 21GB. Based on this, the Current CPU Failover Capacity is 70% ((24GHz - 7GHz)/24GHz). Similarly, the Current Memory Failover Capacity is 71% ((21GB-6GB)/21GB).
 > 
-> Because the cluster&#8217;s Configured Failover Capacity is set to 25%, 45% of the cluster&#8217;s total CPU resources and 46% of the cluster&#8217;s memory resources are still available to power on additional virtual machines.
+> Because the cluster's Configured Failover Capacity is set to 25%, 45% of the cluster's total CPU resources and 46% of the cluster's memory resources are still available to power on additional virtual machines.
 
 For the last one, not much to calculate there is a stand by host in case of a host failure.
 
 ### Configure customized isolation response settings
 
-If you go to the &#8220;Host and Cluster&#8221; View -> Right click on the cluster and select &#8220;Edit Settings&#8221; -> Then Under the &#8220;HA&#8221; section select &#8220;Virtual Machine Options&#8221; you will be able to set an isolation response either per cluster or per VM. Here is how it looks like in vCenter:
+If you go to the "Host and Cluster" View -> Right click on the cluster and select "Edit Settings" -> Then Under the "HA" section select "Virtual Machine Options" you will be able to set an isolation response either per cluster or per VM. Here is how it looks like in vCenter:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/custom_isolation_response.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/custom_isolation_response.png']);"><img class="alignnone size-full wp-image-4965" title="custom_isolation_response" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/custom_isolation_response.png" alt="custom isolation response VCAP5 DCA Objective 4.1 – Implement and Maintain Complex VMware HA Solutions " width="708" height="578" /></a>
 
@@ -135,7 +135,7 @@ Also from <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF
 > 
 > <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_advanced_settings_isolation.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_advanced_settings_isolation.png']);"><img class="alignnone size-full wp-image-4966" title="ha_advanced_settings_isolation" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_advanced_settings_isolation.png" alt="ha advanced settings isolation VCAP5 DCA Objective 4.1 – Implement and Maintain Complex VMware HA Solutions " width="583" height="287" /></a>
 
-Each of these can be edited by going to &#8220;Host and Cluster&#8221; View -> Right click on the cluster and select &#8220;Edit Settings&#8221; -> Then select&#8221;HA&#8221; -> Then select &#8220;Advanced Options&#8221;. This will give you a window where you can enter a option/value combo. Here is how it looks like in vCenter:
+Each of these can be edited by going to "Host and Cluster" View -> Right click on the cluster and select "Edit Settings" -> Then select"HA" -> Then select "Advanced Options". This will give you a window where you can enter a option/value combo. Here is how it looks like in vCenter:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/advanced_ha_setting_in_vc.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/advanced_ha_setting_in_vc.png']);"><img class="alignnone size-full wp-image-4967" title="advanced_ha_setting_in_vc" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/advanced_ha_setting_in_vc.png" alt="advanced ha setting in vc VCAP5 DCA Objective 4.1 – Implement and Maintain Complex VMware HA Solutions " width="709" height="577" /></a>
 
@@ -161,7 +161,7 @@ Each of these can be edited by going to &#8220;Host and Cluster&#8221; View -> R
 > **Network Redundancy Using a Secondary Network**  
 > As an alternative to NIC teaming for providing redundancy for heartbeats, you can create a secondary management network connection, which is attached to a separate virtual switch. The primary management network connection is used for network and management purposes. When the secondary management network connection is created, vSphere HA sends heartbeats over both the primary and secondary management network connections. If one path fails, vSphere HA can still send and receive heartbeats over the other path.
 
-From this old white paper &#8220;<a href="http://www.vmware.com/files/pdf/VMwareHA_twp.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/VMwareHA_twp.pdf']);">VMware HA Concepts, Implementation and Best Practices</a>&#8220;, either do this:
+From this old white paper "<a href="http://www.vmware.com/files/pdf/VMwareHA_twp.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/VMwareHA_twp.pdf']);">VMware HA Concepts, Implementation and Best Practices</a>", either do this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/redundancy_with_nic_teaming.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/redundancy_with_nic_teaming.png']);"><img class="alignnone size-full wp-image-4968" title="redundancy_with_nic_teaming" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/redundancy_with_nic_teaming.png" alt="redundancy with nic teaming VCAP5 DCA Objective 4.1 – Implement and Maintain Complex VMware HA Solutions " width="427" height="306" /></a>
 
@@ -169,7 +169,7 @@ or do this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/redundancy_with_two_mgmt_ints.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/redundancy_with_two_mgmt_ints.png']);"><img class="alignnone size-full wp-image-4970" title="redundancy_with_two_mgmt_ints" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/redundancy_with_two_mgmt_ints.png" alt="redundancy with two mgmt ints VCAP5 DCA Objective 4.1 – Implement and Maintain Complex VMware HA Solutions " width="422" height="329" /></a>
 
-Since this is for ESXi 5.0 you won&#8217;t have a vswif interface but a vmkernel interface marked as a management interface.
+Since this is for ESXi 5.0 you won't have a vswif interface but a vmkernel interface marked as a management interface.
 
 Here is a section regarding datastore heart-beating:
 
@@ -180,7 +180,7 @@ Here is a section regarding datastore heart-beating:
 > 
 > You can use the advanced attribute das.heartbeatdsperhost to change the number of heartbeat datastores selected by vCenter Server for each host. The default is two and the maximum valid value is five. vSphere HA creates a directory at the root of each datastore that is used for both datastore heartbeating and for persisting the set of protected virtual machines. The name of the directory is .vSphere-HA. Do not delete or modify the files stored in this directory, because this can have an impact on operations. Because more than one cluster might use a datastore, subdirectories for this directory are created for each cluster. Root owns these directories and files and only root can read and write to them. The disk space used by vSphere HA depends on several factors including which VMFS version is in use and the number of hosts that use the datastore for heartbeating. With vmfs3, the maximum usage is approximately 2GB and the typical usage is approximately 3MB. With vmfs5 the maximum and typical usage is approximately 3MB. vSphere HA use of the datastores adds negligible overhead and has no performance impact on other datastore operations.
 
-So you can select a custom datastore to be used for heartbeating if the default is not to your liking. To do so go to the &#8220;Host and Cluster&#8221; View -> Right click on the cluster and select &#8220;Edit Settings&#8221; -> Then Under the &#8220;HA&#8221; section select &#8220;Datastore Heartbeating&#8221;. Here you can select another datastore to be used for heartbeating. Here is how it looks like in vCenter:
+So you can select a custom datastore to be used for heartbeating if the default is not to your liking. To do so go to the "Host and Cluster" View -> Right click on the cluster and select "Edit Settings" -> Then Under the "HA" section select "Datastore Heartbeating". Here you can select another datastore to be used for heartbeating. Here is how it looks like in vCenter:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/datastore_heartbeating_option.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/datastore_heartbeating_option.png']);"><img class="alignnone size-full wp-image-4971" title="datastore_heartbeating_option" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/datastore_heartbeating_option.png" alt="datastore heartbeating option VCAP5 DCA Objective 4.1 – Implement and Maintain Complex VMware HA Solutions " width="709" height="576" /></a>
 
@@ -189,17 +189,17 @@ You can also change the option *das.heartbeatdsperhost* to change the number of 
 Lastly here are network partitions:
 
 > **Network Partitions**  
-> When a management network failure occurs for a vSphere HA cluster, a subset of the cluster&#8217;s hosts might be unable to communicate over the management network with the other hosts. Multiple partitions can occur in a cluster.
+> When a management network failure occurs for a vSphere HA cluster, a subset of the cluster's hosts might be unable to communicate over the management network with the other hosts. Multiple partitions can occur in a cluster.
 > 
 > A partitioned cluster leads to degraded virtual machine protection and cluster management functionality. Correct the partitioned cluster as soon as possible.
 > 
-> *   Virtual machine protection. vCenter Server allows a virtual machine to be powered on, but it is protected only if it is running in the same partition as the master host that is responsible for it. The master host must be communicating with vCenter Server. A master host is responsible for a virtual machine if it has exclusively locked a system-defined file on the datastore that contains the virtual machine&#8217;s configuration file.
+> *   Virtual machine protection. vCenter Server allows a virtual machine to be powered on, but it is protected only if it is running in the same partition as the master host that is responsible for it. The master host must be communicating with vCenter Server. A master host is responsible for a virtual machine if it has exclusively locked a system-defined file on the datastore that contains the virtual machine's configuration file.
 > *   Cluster management. vCenter Server can communicate with only some of the hosts in the cluster, and it can connect to only one master host. As a result, changes in configuration that affect vSphere HA might not take effect until after the partition is resolved. This failure could result in one of the partitions operating under the old configuration, while another uses the new settings.
 > 
 > If a vSphere HA cluster contains pre-ESXi 5.0 hosts and a partition occurs, vSphere HA might incorrectly power on a virtual machine that was powered off by the user or it might fail to restart a virtual machine that failed.
 > 
-> &#8230;  
-> &#8230;  
+> ...  
+> ...  
 > **Other Networking Considerations**  
 > Configure the management networks so that the vSphere HA agent on a host in the cluster can reach the agents on any of the other hosts using one of the management networks. If you do not set up such a configuration, a network partition condition can occur after a master host is elected.
 
@@ -222,15 +222,15 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 > *   VM monitoring action (a virtual machine alarm)
 > *   Failover failed (a virtual machine alarm)
 
-To check on the HA status of the cluster you can go to &#8220;Host and Clusters&#8221; view -> then Select a cluster -> then to go the &#8220;Summary&#8221; tab -> and under the &#8220;vSphere HA&#8221; Section -> select &#8220;Advanced Runtime Info&#8221;. Here is how it looks like in vCenter:
+To check on the HA status of the cluster you can go to "Host and Clusters" view -> then Select a cluster -> then to go the "Summary" tab -> and under the "vSphere HA" Section -> select "Advanced Runtime Info". Here is how it looks like in vCenter:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_advanced_runtime_info.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_advanced_runtime_info.png']);"><img class="alignnone size-full wp-image-4991" title="ha_advanced_runtime_info" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_advanced_runtime_info.png" alt="ha advanced runtime info VCAP5 DCA Objective 4.1 – Implement and Maintain Complex VMware HA Solutions " width="712" height="347" /></a>
 
-From the same section you can click on &#8220;Cluster Status&#8221;, that will show you what host is the master, how many VMs are protected, and what datastores are used for heart-beating. Here is how it looks like in vCenter:
+From the same section you can click on "Cluster Status", that will show you what host is the master, how many VMs are protected, and what datastores are used for heart-beating. Here is how it looks like in vCenter:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_cluster_status.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_cluster_status.png']);"><img class="alignnone size-full wp-image-4992" title="ha_cluster_status" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_cluster_status.png" alt="ha cluster status VCAP5 DCA Objective 4.1 – Implement and Maintain Complex VMware HA Solutions " width="364" height="408" /></a>
 
-Lastly you can check out the &#8220;Configuration Issues&#8221;:
+Lastly you can check out the "Configuration Issues":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_cluster_configuration_issues.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_cluster_configuration_issues.png']);"><img class="alignnone size-full wp-image-4993" title="ha_cluster_configuration_issues" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_cluster_configuration_issues.png" alt="ha cluster configuration issues VCAP5 DCA Objective 4.1 – Implement and Maintain Complex VMware HA Solutions " width="809" height="403" /></a>
 
@@ -253,7 +253,7 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 > **Using vSphere HA and DRS Together**  
 > Using vSphere HA with Distributed Resource Scheduler (DRS) combines automatic failover with load balancing. This combination can result in a more balanced cluster after vSphere HA has moved virtual machines to different hosts.
 > 
-> When vSphere HA performs failover and restarts virtual machines on different hosts, its first priority is the immediate availability of all virtual machines. After the virtual machines have been restarted, those hosts on which they were powered on might be heavily loaded, while other hosts are comparatively lightly loaded. vSphere HA uses the virtual machine&#8217;s CPU and memory reservation to determine if a host has enough spare capacity to accommodate the virtual machine.
+> When vSphere HA performs failover and restarts virtual machines on different hosts, its first priority is the immediate availability of all virtual machines. After the virtual machines have been restarted, those hosts on which they were powered on might be heavily loaded, while other hosts are comparatively lightly loaded. vSphere HA uses the virtual machine's CPU and memory reservation to determine if a host has enough spare capacity to accommodate the virtual machine.
 > 
 > In a cluster using DRS and vSphere HA with admission control turned on, virtual machines might not be evacuated from hosts entering maintenance mode. This behavior occurs because of the resources reserved for restarting virtual machines in the event of a failure. You must manually migrate the virtual machines off of the hosts using vMotion.
 > 
@@ -287,7 +287,7 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 
 ### Analyze performance metrics to calculate host failure requirements
 
-The biggest thing here is reservations and limits that are set for the VMs. Ensure that all the reservations you have set can be accommodated with the current hosts. Check out the over all usage of CPU and Memory and make sure you are not nearing full utilization. Also size of the cluster matters. From &#8220;<a href="http://www.vmware.com/files/pdf/techpaper/vmw-vsphere-high-availability.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/techpaper/vmw-vsphere-high-availability.pdf']);">vSphere High Availability Deployment Best Practices</a>&#8220;:
+The biggest thing here is reservations and limits that are set for the VMs. Ensure that all the reservations you have set can be accommodated with the current hosts. Check out the over all usage of CPU and Memory and make sure you are not nearing full utilization. Also size of the cluster matters. From "<a href="http://www.vmware.com/files/pdf/techpaper/vmw-vsphere-high-availability.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/techpaper/vmw-vsphere-high-availability.pdf']);">vSphere High Availability Deployment Best Practices</a>":
 
 > The overall size of a cluster is another important factor to consider. Smaller-sized clusters require a larger relative percentage of the available cluster resources to be set aside as reserve capacity to adequately handle failures. For example, for a cluster of three nodes to tolerate a single host failure, about 33 percent of the cluster  
 > resources will be reserved for failover. A 10-node cluster requires that only 10 percent be reserved. 

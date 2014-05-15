@@ -77,7 +77,7 @@ Notice it shows tty1 instead of pts/0 (compared to when you logged in via SSH). 
 > ..  
 > Common ways to switch consoles are: (a) use Alt+Fn or Ctrl+Alt+Fn to switch to console n; AltGr+Fn might bring you to console n+12 ;
 
-So when you are physically in front of a Linux machine, you get a virtual console and you can switch between them by clicking ALT-F#. Depending on which # you select that will be your virtual console # (ie tty1, tty2.,etc&#8230;). Now from the man page of <a href="http://linux.die.net/man/4/pts" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://linux.die.net/man/4/pts']);">pts(4)</a>:
+So when you are physically in front of a Linux machine, you get a virtual console and you can switch between them by clicking ALT-F#. Depending on which # you select that will be your virtual console # (ie tty1, tty2.,etc...). Now from the man page of <a href="http://linux.die.net/man/4/pts" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://linux.die.net/man/4/pts']);">pts(4)</a>:
 
 > The file /dev/ptmx is a character file with major number 5 and minor number 2, usually of mode 0666 and owner.group of root.root. It is used to create a pseudoterminal master and slave pair.  
 > When a process opens /dev/ptmx, it gets a file descriptor for a pseudoterminal master (PTM), and a pseudoterminal slave (PTS) device is created in the /dev/pts directory.  
@@ -94,7 +94,7 @@ So if you login to a Linux machine via SSH you get a pseudoterminal and it get i
 	root     pts/0        10.0.1.1         Sun Apr 22 08:48   still logged in  
 	
 
-We can see that someone had physical access to the ESX host and he clicked &#8220;ALT-F1&#8243; (ended up utilizing the virtual terminal tty1) and logged in, one minute later logged off. He then loggged back in and is still logged in. We also see that one machine with IP 10.0.1.1 logged via ssh (ended up using a pseudoterminal pts/0) and is also still logged in.
+We can see that someone had physical access to the ESX host and he clicked "ALT-F1" (ended up utilizing the virtual terminal tty1) and logged in, one minute later logged off. He then loggged back in and is still logged in. We also see that one machine with IP 10.0.1.1 logged via ssh (ended up using a pseudoterminal pts/0) and is also still logged in.
 
 # Logging in via DCUI
 

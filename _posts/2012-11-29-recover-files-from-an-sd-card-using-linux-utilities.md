@@ -62,7 +62,7 @@ Before I did anything with the card, I wanted to create a disk image of the SD C
 	1021837312 bytes (1.0 GB) copied, 72.4206 s, 14.1 MB/s  
 	
 
-Then after doing some research I decided to try out two utilities. One is called &#8220;<a href="http://www.cgsecurity.org/wiki/PhotoRec" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.cgsecurity.org/wiki/PhotoRec']);">PhotoRec</a>&#8221; (it&#8217;s part of an application called &#8220;<a href="http://www.cgsecurity.org/wiki/TestDisk" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.cgsecurity.org/wiki/TestDisk']);">TestDisk</a>&#8220;), the other is called &#8220;<a href="http://www.sleuthkit.org/sleuthkit/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.sleuthkit.org/sleuthkit/']);">Sleuth Kit</a>&#8220;. The first one was available in the yum repositories:
+Then after doing some research I decided to try out two utilities. One is called "<a href="http://www.cgsecurity.org/wiki/PhotoRec" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.cgsecurity.org/wiki/PhotoRec']);">PhotoRec</a>" (it's part of an application called "<a href="http://www.cgsecurity.org/wiki/TestDisk" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.cgsecurity.org/wiki/TestDisk']);">TestDisk</a>"), the other is called "<a href="http://www.sleuthkit.org/sleuthkit/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.sleuthkit.org/sleuthkit/']);">Sleuth Kit</a>". The first one was available in the yum repositories:
 
 	  
 	$ yum search photorec  
@@ -132,23 +132,23 @@ Here is how it looked like:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/photo_rec_screen_1.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/photo_rec_screen_1.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/11/photo_rec_screen_1.png" alt="photo rec screen 1 Recover Files from an SD Card Using Linux Utilities" title="photo_rec_screen_1" width="735" height="455" class="alignnone size-full wp-image-4861" /></a>
 
-After I selected &#8216;proceed&#8217;, I saw a screen which determined my partition type:
+After I selected 'proceed', I saw a screen which determined my partition type:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_part_window.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_part_window.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_part_window.png" alt="photorec part window Recover Files from an SD Card Using Linux Utilities" title="photorec_part_window" width="735" height="455" class="alignnone size-full wp-image-4868" /></a>
 
-From here you can go to &#8216;File Opt&#8217; and select what files to search for, but since it was just a 1GB SD Card, I decided to recover as much as possible. So I just selected &#8216;search&#8217;:
+From here you can go to 'File Opt' and select what files to search for, but since it was just a 1GB SD Card, I decided to recover as much as possible. So I just selected 'search':
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_screen_3.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_screen_3.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_screen_3.png" alt="photorec screen 3 Recover Files from an SD Card Using Linux Utilities" title="photorec_screen_3" width="735" height="455" class="alignnone size-full wp-image-4869" /></a>
 
-At this screen it&#8217;s asking you to choose the partition type. My SD Card used to be Fat32, so I selected the &#8216;other&#8217; option:
+At this screen it's asking you to choose the partition type. My SD Card used to be Fat32, so I selected the 'other' option:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_free_vs_whole.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_free_vs_whole.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_free_vs_whole.png" alt="photorec free vs whole Recover Files from an SD Card Using Linux Utilities" title="photorec_free_vs_whole" width="735" height="455" class="alignnone size-full wp-image-4870" /></a>
 
-Usually deleted files reside in the free unallocated space, but again since this was a 1GB image, I decided to search all the space. So I selected &#8216;whole&#8217;:
+Usually deleted files reside in the free unallocated space, but again since this was a 1GB image, I decided to search all the space. So I selected 'whole':
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_select_dir.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_select_dir.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_select_dir.png" alt="photorec select dir Recover Files from an SD Card Using Linux Utilities" title="photorec_select_dir" width="735" height="455" class="alignnone size-full wp-image-4872" /></a>
 
-This next screen asked the output directory to save the recovered files to. Before launching photorec, I created a folder called &#8216;recovery&#8217;, so I scrolled down to that folder and then typed &#8216;C&#8217;. After I did that, the recovery process started and here is how it looked like:
+This next screen asked the output directory to save the recovered files to. Before launching photorec, I created a folder called 'recovery', so I scrolled down to that folder and then typed 'C'. After I did that, the recovery process started and here is how it looked like:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_progress.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_progress.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_progress.png" alt="photorec progress Recover Files from an SD Card Using Linux Utilities" title="photorec_progress" width="735" height="455" class="alignnone size-full wp-image-4873" /></a>
 
@@ -156,7 +156,7 @@ After the process finished I saw the following:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_recovery_finished.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_recovery_finished.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_recovery_finished.png" alt="photorec recovery finished Recover Files from an SD Card Using Linux Utilities" title="photorec_recovery_finished" width="735" height="455" class="alignnone size-full wp-image-4874" /></a>
 
-So it recovered 426 file total, I then quit the program and went to check out the contents of &#8216;~/recovery/recup_dir.1&#8242;:
+So it recovered 426 file total, I then quit the program and went to check out the contents of '~/recovery/recup_dir.1':
 
 	  
 	$ ls  
@@ -182,7 +182,7 @@ So it recovered 426 file total, I then quit the program and went to check out th
 	f0136201.jpg f0985577.png f0999049.png f1016905.png f1046953.png  
 	
 
-The recovery process recovered the file by the inode number and just stored everything in the &#8216;recup_dir&#8217; folder. Checking out how many jpeg files it recovered, I saw the following:
+The recovery process recovered the file by the inode number and just stored everything in the 'recup_dir' folder. Checking out how many jpeg files it recovered, I saw the following:
 
 	  
 	$ find recovery/ -name '*.jpg' | wc -l  
@@ -214,7 +214,7 @@ I then extracted the source:
 	sleuthkit-4.0.1/bindings/java/doxygen/main.dox  
 	
 
-I never like running &#8216;sudo make install&#8217;, so I created a folder under */usr/local* and gave myself permission to that folder:
+I never like running 'sudo make install', so I created a folder under */usr/local* and gave myself permission to that folder:
 
 	  
 	$ sudo mkdir /usr/local/sleuthkit  
@@ -237,7 +237,7 @@ I then configured the package to install into my newly created directory:
 	config.status: executing tsk3/tsk_incs.h commands  
 	
 
-The configure process didn&#8217;t fail so then I decided to build/make the application:
+The configure process didn't fail so then I decided to build/make the application:
 
 	  
 	$ make -j 4  
@@ -325,7 +325,7 @@ After checking out the man pages, and some documentation online I realized I can
 	r/r * 2173480: dcim/Camera/1230047324210.jpg  
 	
 
-This lists the inode number, full path of the file and the file name. That was pretty cool. Also notice the star (*) next to some files, that means it&#8217;s a deleted file. If you want, you can also list all the inodes in the image by running *ils*. Here is how it looks like:
+This lists the inode number, full path of the file and the file name. That was pretty cool. Also notice the star (*) next to some files, that means it's a deleted file. If you want, you can also list all the inodes in the image by running *ils*. Here is how it looks like:
 
 	  
 	$ /usr/local/sleuthkit/bin/ils sd.img | less  
@@ -340,7 +340,7 @@ This lists the inode number, full path of the file and the file name. That was p
 	2165258|f|0|0|1226209952|1237442400|0|1226209952|777|0|11310  
 	
 
-To recover a file you can run *icat*. For example let&#8217;s say I wanted to recover &#8216; dcim/Camera/1229791492195.jpg&#8217; from the above output. We know the inode number of that file is &#8217;2173480&#8242;. To recover that file, I would run the following:
+To recover a file you can run *icat*. For example let's say I wanted to recover ' dcim/Camera/1229791492195.jpg' from the above output. We know the inode number of that file is '2173480'. To recover that file, I would run the following:
 
 	  
 	$ /usr/local/sleuthkit/bin/icat -r sd.img 2173480 > 1229791492195.jpg  
@@ -381,9 +381,9 @@ You can also get file system information by running *fsstat* like so:
 	** Non-clustered: 1995753 - 1995775  
 	
 
-Basically there are a lot of cool tools that allow you to check files and file system information at a lower level. There a lot of cool examples on the &#8216;<a href="http://wiki.sleuthkit.org/index.php?title=FS_Analysis" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.sleuthkit.org/index.php?title=FS_Analysis']);">FS Analysis</a>&#8216; page. 
+Basically there are a lot of cool tools that allow you to check files and file system information at a lower level. There a lot of cool examples on the '<a href="http://wiki.sleuthkit.org/index.php?title=FS_Analysis" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.sleuthkit.org/index.php?title=FS_Analysis']);">FS Analysis</a>' page. 
 
-Now I wanted to recover all the files. I ran into a couple of other links: &#8216;<a href="http://forums.gentoo.org/viewtopic-t-365703.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://forums.gentoo.org/viewtopic-t-365703.html']);">Recovering files with &#8220;The Sleuth Kit&#8221;</a>&#8216; and &#8216;<a href="http://matt.matzi.org.uk/2008/07/03/reconstructing-heavily-damaged-hard-drives/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://matt.matzi.org.uk/2008/07/03/reconstructing-heavily-damaged-hard-drives/']);">Reconstructing Heavily Damaged Hard Drives</a>&#8216;. Both had their own scripts, so I borrowed most of the content and wrote my own. Here is how it looked like:
+Now I wanted to recover all the files. I ran into a couple of other links: '<a href="http://forums.gentoo.org/viewtopic-t-365703.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://forums.gentoo.org/viewtopic-t-365703.html']);">Recovering files with "The Sleuth Kit"</a>' and '<a href="http://matt.matzi.org.uk/2008/07/03/reconstructing-heavily-damaged-hard-drives/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://matt.matzi.org.uk/2008/07/03/reconstructing-heavily-damaged-hard-drives/']);">Reconstructing Heavily Damaged Hard Drives</a>'. Both had their own scripts, so I borrowed most of the content and wrote my own. Here is how it looked like:
 
 	  
 	#!/bin/bash  
@@ -463,7 +463,7 @@ Checking out how many jpeg files I got, I saw the following:
 	69  
 	
 
-Very similar results, but the recovered files had the same folder structure as the original file system, and I really liked that. After running that script, I realized that Sleuth Kit comes with a tool to recover all the files; it&#8217;s called *tsk_recover*. From the man page:
+Very similar results, but the recovered files had the same folder structure as the original file system, and I really liked that. After running that script, I realized that Sleuth Kit comes with a tool to recover all the files; it's called *tsk_recover*. From the man page:
 
 	  
 	$ man -M /usr/local/sleuthkit/share/man/ tsk_recover  
@@ -489,9 +489,9 @@ It had recovered less files than my script (380 vs 510), then checking out how m
 	69  
 	
 
-it was the same amount. It turned out that the *tsk_recover* doesn&#8217;t recover zero sized files, cause they are basically empty files, but my script wasn&#8217;t that smart and just recovered everything it sees. Regardless to say, I was pretty happy with the tool as well.
+it was the same amount. It turned out that the *tsk_recover* doesn't recover zero sized files, cause they are basically empty files, but my script wasn't that smart and just recovered everything it sees. Regardless to say, I was pretty happy with the tool as well.
 
-After doing some research I found two more tools: <a href="http://www.itu.dk/people/jobr/magicrescue/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.itu.dk/people/jobr/magicrescue/']);">MagicRescue</a> and <a href="http://foremost.sourceforge.net/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://foremost.sourceforge.net/']);">foremost</a>. MagicRescue is no longer maintained, but I decided to give it a try. MagicRescue uses &#8220;recipes&#8221;, or file signatures as I would call them, to identify a certain file type that you are looking for. The application comes with some pre-installed recipes. For example, here is what I ran to recover all the jpeg files from my image:
+After doing some research I found two more tools: <a href="http://www.itu.dk/people/jobr/magicrescue/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.itu.dk/people/jobr/magicrescue/']);">MagicRescue</a> and <a href="http://foremost.sourceforge.net/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://foremost.sourceforge.net/']);">foremost</a>. MagicRescue is no longer maintained, but I decided to give it a try. MagicRescue uses "recipes", or file signatures as I would call them, to identify a certain file type that you are looking for. The application comes with some pre-installed recipes. For example, here is what I ran to recover all the jpeg files from my image:
 
 	  
 	$ /usr/local/magicrescue/bin/magicrescue -r jpeg-jfif -r jpeg-exif -d ~/output sd.img  
@@ -532,7 +532,7 @@ Checking out the count, I saw the following:
 	113  
 	
 
-Which was more than any other application that I used above, but the man page also recommends running *dupemap* to get rid of duplicates. I didn&#8217;t compile that into my version, so I couldn&#8217;t run it. But checking out the pictures, it actually did find a couple of more pictures than the previous two. 
+Which was more than any other application that I used above, but the man page also recommends running *dupemap* to get rid of duplicates. I didn't compile that into my version, so I couldn't run it. But checking out the pictures, it actually did find a couple of more pictures than the previous two. 
 
 Lastly running foremost. Foremost comes with a configuration file under */usr/local/foremost/etc/foremost.conf* (or where ever you decided to install the application). Inside that file there are patterns of different file types, for example I un-commented the following lines to search only for jpeg files:
 
@@ -581,7 +581,7 @@ Then running the program:
 	Foremost finished at Wed Nov 21 07:57:46 2012  
 	
 
-if you don&#8217;t want to use the configuration file, you can specify what file types to search for, like this:
+if you don't want to use the configuration file, you can specify what file types to search for, like this:
 
 	  
 	$ /usr/local/foremost/bin/foremost -v -t jpg -o test3 sd.img  
@@ -603,7 +603,7 @@ and that will recover all the files.
 
 Foremost recovered the most amount of jpeg files (7903), but most of them were unreadable. I would say it recovered maybe 1 or 2 more actual readable jpeg files than the rest.
 
-In conclusion, there are a lot of recovery tools out there, so pick your poison:) I personally liked Sleuth Kit for recovery in general, it provided a lot of granular tools. For recovering specific type of files, each (photorec, magicrescue, and foremost) program had their own quirks. Foremost recovered the most but it took a while to manually sit and figure out which one is a valid picture. MagicRescue was good, but it didn&#8217;t have that many built in recipes. PhotoRec was the easiest to use but it recovered the least amount of pictures but a lot of mp3 files <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Recover Files from an SD Card Using Linux Utilities" class="wp-smiley" title="Recover Files from an SD Card Using Linux Utilities" /> I ran all of them and I was pleased with each one in different ways. So if you are looking for pictures in a disk image just run them all and then sort out the pictures as necessary. I will end with a quote from the man page of <a href="http://www.itu.dk/people/jobr/magicrescue/manpage.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.itu.dk/people/jobr/magicrescue/manpage.html']);">MagicRescue</a>:
+In conclusion, there are a lot of recovery tools out there, so pick your poison:) I personally liked Sleuth Kit for recovery in general, it provided a lot of granular tools. For recovering specific type of files, each (photorec, magicrescue, and foremost) program had their own quirks. Foremost recovered the most but it took a while to manually sit and figure out which one is a valid picture. MagicRescue was good, but it didn't have that many built in recipes. PhotoRec was the easiest to use but it recovered the least amount of pictures but a lot of mp3 files <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Recover Files from an SD Card Using Linux Utilities" class="wp-smiley" title="Recover Files from an SD Card Using Linux Utilities" /> I ran all of them and I was pleased with each one in different ways. So if you are looking for pictures in a disk image just run them all and then sort out the pictures as necessary. I will end with a quote from the man page of <a href="http://www.itu.dk/people/jobr/magicrescue/manpage.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.itu.dk/people/jobr/magicrescue/manpage.html']);">MagicRescue</a>:
 
 > **When not to use MagicRescue**
 > 
@@ -611,13 +611,13 @@ In conclusion, there are a lot of recovery tools out there, so pick your poison:
 > 
 > If there are intact partitions present somewhere, use gpart to find them.
 > 
-> If file system&#8217;s internal data structures are more or less undamaged, use The Sleuth Kit. At the time of writing, it only supports NTFS, FAT, ext[23] and FFS, though.
+> If file system's internal data structures are more or less undamaged, use The Sleuth Kit. At the time of writing, it only supports NTFS, FAT, ext[23] and FFS, though.
 > 
 > If you are just looking for a handful of text files, your best option is most likely to search through the block device with a hex editor such as hexedit.
 > 
 > If Magic Rescue does not have a recipe for the file type you are trying to recover, try foremost instead. It recognizes more file types, but in most cases it extracts them simply by copying out a fixed number of bytes after it has found the start of the file. This makes post-processing the output files more difficult.
 > 
-> In many cases you will want to use Magic Rescue in addition to the tools mentioned above. They are not mutually exclusive, e.g. combining magicrescue with dls from The Sleuth Kit could give good results. In many cases you&#8217;ll want to use magicrescue to extract its known file types and another utility to extract the rest. 
+> In many cases you will want to use Magic Rescue in addition to the tools mentioned above. They are not mutually exclusive, e.g. combining magicrescue with dls from The Sleuth Kit could give good results. In many cases you'll want to use magicrescue to extract its known file types and another utility to extract the rest. 
 
 So try everything out and sees what works best <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Recover Files from an SD Card Using Linux Utilities" class="wp-smiley" title="Recover Files from an SD Card Using Linux Utilities" /> 
 

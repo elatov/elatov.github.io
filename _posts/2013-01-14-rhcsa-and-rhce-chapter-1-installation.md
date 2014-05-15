@@ -1,5 +1,5 @@
 ---
-title: 'RHCSA and RHCE Chapter 1 &#8211; Installation'
+title: 'RHCSA and RHCE Chapter 1 - Installation'
 author: Karim Elatov
 layout: post
 permalink: /2013/01/rhcsa-and-rhce-chapter-1-installation/
@@ -15,7 +15,7 @@ tags:
   - MBR
   - rhcsa_and_rhce
 ---
-There is a lot of good information in &#8220;<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Installation Guide</a>&#8220;. From that Guide:
+There is a lot of good information in "<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Installation Guide</a>". From that Guide:
 
 > **9&#46;3. Welcome to Red Hat Enterprise Linux**
 > 
@@ -70,7 +70,7 @@ There is a lot of good information in &#8220;<a href="https://access.redhat.com/
 > 
 > **9&#46;8. Time Zone Configuration**
 > 
-> Set your time zone by selecting the city closest to your computer&#8217;s physical location. Click on the map to zoom in to a particular geographical region of the world. Specify a time zone even if you plan to use NTP (Network Time Protocol) to maintain the accuracy of the system clock. From here there are two ways for you to select your time zone:
+> Set your time zone by selecting the city closest to your computer's physical location. Click on the map to zoom in to a particular geographical region of the world. Specify a time zone even if you plan to use NTP (Network Time Protocol) to maintain the accuracy of the system clock. From here there are two ways for you to select your time zone:
 > 
 > *   Using your mouse, click on the interactive map to select a specific city (represented by a yellow dot).A red X appears indicating your selection.
 > *   You can also scroll through the list at the bottom of the screen to select your time zone. Using your mouse, click on a location to highlight your selection
@@ -95,7 +95,7 @@ There is a lot of good information in &#8220;<a href="https://access.redhat.com/
 > 
 > **9&#46;12. Upgrading an Existing System**
 > 
-> The installation system automatically detects any existing installation of Red Hat Enterprise Linux. The upgrade process updates the existing system software with new versions, but does not remove any data from users&#8217; home directories. The existing partition structure on your hard drives does not change. Your system configuration changes only if a package upgrade demands it. Most package upgrades do not change system configuration, but rather install an additional configuration file for you to examine later.
+> The installation system automatically detects any existing installation of Red Hat Enterprise Linux. The upgrade process updates the existing system software with new versions, but does not remove any data from users' home directories. The existing partition structure on your hard drives does not change. Your system configuration changes only if a package upgrade demands it. Most package upgrades do not change system configuration, but rather install an additional configuration file for you to examine later.
 > 
 > Note that the installation medium that you are using might not contain all the software packages that you need to upgrade your computer.
 > 
@@ -119,7 +119,7 @@ There is a lot of good information in &#8220;<a href="https://access.redhat.com/
 > 
 > After you make your selection, click **Next** to continue.
 
-The next section goes into the partitioning schema and it&#8217;s a lot of information:
+The next section goes into the partitioning schema and it's a lot of information:
 
 > **9&#46;13. Disk Partitioning Setup**
 > 
@@ -167,18 +167,18 @@ The next section goes into the partitioning schema and it&#8217;s a lot of infor
 > 
 > Anaconda displays several details for each device listed:
 > 
-> *   **Device** &#8211; the name of the device, logical volume, or partition
-> *   **Size (MB)** &#8211; the size of the device, logical volume, or partition (in MB)
-> *   **Mount Point/RAID/Volume** &#8211; the mount point (location within a file system) on which a partition is to be mounted, or the name of the RAID or logical volume group of which it is a part
-> *   **Type** &#8211; the type of partition. If the partition is a standard partition, this field displays the type of file system on the partition (for example, ext4). Otherwise, it indicates that the partition is a physical volume (LVM), or part of a software RAID
-> *   **Format** &#8211; A check mark in this column indicates that the partition will be formatted during installation 
+> *   **Device** - the name of the device, logical volume, or partition
+> *   **Size (MB)** - the size of the device, logical volume, or partition (in MB)
+> *   **Mount Point/RAID/Volume** - the mount point (location within a file system) on which a partition is to be mounted, or the name of the RAID or logical volume group of which it is a part
+> *   **Type** - the type of partition. If the partition is a standard partition, this field displays the type of file system on the partition (for example, ext4). Otherwise, it indicates that the partition is a physical volume (LVM), or part of a software RAID
+> *   **Format** - A check mark in this column indicates that the partition will be formatted during installation 
 > 
 > Beneath the lower pane are four buttons: Create, Edit, Delete, and Reset. Select a device or partition by clicking on it in either the graphical representation in the upper pane of in the list in the lower pane, then click one of the four buttons to carry out the following actions:
 > 
-> *   **Create** &#8211; create a new partition, logical volume, or software RAID 
-> *   **Edit** &#8211; change an existing partition, logical volume, or software RAID. Note that you can only shrink partitions with the Resize button, not enlarge partitions. 
-> *   **Delete** &#8211; remove a partition, logical volume, or software RAID 
-> *   **Reset** &#8211; undo all changes made in this screen 
+> *   **Create** - create a new partition, logical volume, or software RAID 
+> *   **Edit** - change an existing partition, logical volume, or software RAID. Note that you can only shrink partitions with the Resize button, not enlarge partitions. 
+> *   **Delete** - remove a partition, logical volume, or software RAID 
+> *   **Reset** - undo all changes made in this screen 
 > 
 > **9&#46;15.1. Create Storage**
 > 
@@ -209,11 +209,11 @@ The next section goes into the partitioning schema and it&#8217;s a lot of infor
 > 
 > <a href="http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-1-installation/rhel6_install_add_partition/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-1-installation/rhel6_install_add_partition/']);" rel="attachment wp-att-5700"><img class="alignnone size-full wp-image-5700" alt="rhel6 install add partition RHCSA and RHCE Chapter 1   Installation" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_install_add_partition.png" width="664" height="577" title="RHCSA and RHCE Chapter 1   Installation" /></a>
 > 
-> *   **Mount Point:** Enter the partition&#8217;s mount point. For example, if this partition should be the root partition, enter /; enter /boot for the /boot partition, and so on. You can also use the pull-down menu to choose the correct mount point for your partition. For a swap partition the mount point should not be set — setting the filesystem type to swap is sufficient.
+> *   **Mount Point:** Enter the partition's mount point. For example, if this partition should be the root partition, enter /; enter /boot for the /boot partition, and so on. You can also use the pull-down menu to choose the correct mount point for your partition. For a swap partition the mount point should not be set — setting the filesystem type to swap is sufficient.
 > *   **File System Type**: Using the pull-down menu, select the appropriate file system type for this partition
-> *   **Allowable Drives**: This field contains a list of the hard disks installed on your system. If a hard disk&#8217;s box is highlighted, then a desired partition can be created on that hard disk. If the box is not checked, then the partition will never be created on that hard disk. By using different checkbox settings, you can have anaconda place partitions where you need them, or let anaconda decide where partitions should go
+> *   **Allowable Drives**: This field contains a list of the hard disks installed on your system. If a hard disk's box is highlighted, then a desired partition can be created on that hard disk. If the box is not checked, then the partition will never be created on that hard disk. By using different checkbox settings, you can have anaconda place partitions where you need them, or let anaconda decide where partitions should go
 > *   **Size (MB)**: Enter the size (in megabytes) of the partition. Note, this field starts with 200 MB; unless changed, only a 200 MB partition will be created.
-> *   **Additional Size Options**: Choose whether to keep this partition at a fixed size, to allow it to &#8220;grow&#8221; (fill up the available hard drive space) to a certain point, or to allow it to grow to fill any remaining hard drive space available.
+> *   **Additional Size Options**: Choose whether to keep this partition at a fixed size, to allow it to "grow" (fill up the available hard drive space) to a certain point, or to allow it to grow to fill any remaining hard drive space available.
 > *   If you choose **Fill all space up to (MB)**, you must give size constraints in the field to the right of this option. This allows you to keep a certain amount of space free on your hard drive for future use.
 > *   F**orce to be a primary partition**: Select whether the partition you are creating should be one of the first four partitions on the hard drive. If unselected, the partition is created as a logical partition
 > *   **Encrypt:** Choose whether to encrypt the partition so that the data stored on it cannot be accessed without a passphrase, even if the storage device is connected to another system.
@@ -262,9 +262,9 @@ The next section is about recommendations for partitioning. From the same guide:
 > 
 > The partition mounted on /boot/ contains the operating system kernel (which allows your system to boot Red Hat Enterprise Linux), along with files used during the bootstrap process. For most users, a 250 MB boot partition is sufficient.
 > 
-> **A root partition (3.0 GB &#8211; 5.0 GB)**
+> **A root partition (3.0 GB - 5.0 GB)**
 > 
-> This is where &#8220;/&#8221; (the root directory) is located. In this setup, all files (except those stored in /boot) are on the root partition.
+> This is where "/" (the root directory) is located. In this setup, all files (except those stored in /boot) are on the root partition.
 > 
 > A 3.0 GB partition allows you to install a minimal installation, while a 5.0 GB root partition lets you perform a full installation, choosing all package groups.
 > 
@@ -292,7 +292,7 @@ Now to the GRUB section of the installation. From the same guide:
 > 
 > To boot the system without boot media, you usually need to install a boot loader. A boot loader is the first software program that runs when a computer starts. It is responsible for loading and transferring control to the operating system kernel software. The kernel, in turn, initializes the rest of the operating system.
 > 
-> GRUB (GRand Unified Bootloader), which is installed by default, is a very powerful boot loader. GRUB can load a variety of free operating systems, as well as proprietary operating systems with chain-loading (the mechanism for loading unsupported operating systems, such as Windows, by loading another boot loader). Note that the version of GRUB in Red Hat Enterprise Linux 6 is an old and stable version now known as &#8220;GRUB Legacy&#8221; since upstream development moved to GRUB 2. Red Hat remains committed to maintaining the version of GRUB that we ship with Red Hat Enterprise Linux 6, just as we do with all packages that we ship.
+> GRUB (GRand Unified Bootloader), which is installed by default, is a very powerful boot loader. GRUB can load a variety of free operating systems, as well as proprietary operating systems with chain-loading (the mechanism for loading unsupported operating systems, such as Windows, by loading another boot loader). Note that the version of GRUB in Red Hat Enterprise Linux 6 is an old and stable version now known as "GRUB Legacy" since upstream development moved to GRUB 2. Red Hat remains committed to maintaining the version of GRUB that we ship with Red Hat Enterprise Linux 6, just as we do with all packages that we ship.
 > 
 > <a href="http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-1-installation/rhel6_install_grub_installer/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-1-installation/rhel6_install_grub_installer/']);" rel="attachment wp-att-5704"><img class="alignnone size-full wp-image-5704" alt="rhel6 install grub installer RHCSA and RHCE Chapter 1   Installation" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_install_grub_installer.png" width="667" height="424" title="RHCSA and RHCE Chapter 1   Installation" /></a>
 > 
@@ -300,7 +300,7 @@ Now to the GRUB section of the installation. From the same guide:
 > 
 > Now that you have chosen which boot loader to install, you can also determine where you want the boot loader to be installed. You may install the boot loader in one of two places:
 > 
-> **The master boot record (MBR)** — This is the recommended place to install a boot loader, unless the MBR already starts another operating system loader, such as System Commander. The MBR is a special area on your hard drive that is automatically loaded by your computer&#8217;s BIOS, and is the earliest point at which the boot loader can take control of the boot process. If you install it in the MBR, when your machine boots, GRUB presents a boot prompt. You can then boot Red Hat Enterprise Linux or any other operating system that you have configured the boot loader to boot.
+> **The master boot record (MBR)** — This is the recommended place to install a boot loader, unless the MBR already starts another operating system loader, such as System Commander. The MBR is a special area on your hard drive that is automatically loaded by your computer's BIOS, and is the earliest point at which the boot loader can take control of the boot process. If you install it in the MBR, when your machine boots, GRUB presents a boot prompt. You can then boot Red Hat Enterprise Linux or any other operating system that you have configured the boot loader to boot.
 > 
 > **The first sector of your boot partition** — This is recommended if you are already using another boot loader on your system. In this case, your other boot loader takes control first. You can then configure that boot loader to start GRUB, which then boots Red Hat Enterprise Linux.
 > 
@@ -318,14 +318,14 @@ Now onto the Packaging:
 > 
 > By default, the Red Hat Enterprise Linux installation process loads a selection of software that is suitable for a system deployed as a basic server. Note that this installation does not include a graphical environment. To include a selection of software suitable for other roles, click the radio button that corresponds to one of the following options:
 > 
-> *   **Basic Server** &#8211; This option provides a basic installation of Red Hat Enterprise Linux for use on a server. 
-> *   **Database Server** &#8211; This option provides the MySQL and PostgreSQL databases. 
-> *   **Web server** &#8211; This option provides the Apache web server. 
+> *   **Basic Server** - This option provides a basic installation of Red Hat Enterprise Linux for use on a server. 
+> *   **Database Server** - This option provides the MySQL and PostgreSQL databases. 
+> *   **Web server** - This option provides the Apache web server. 
 > *   **Enterprise Identity Server Base** -This option provides OpenLDAP and the System Security Services Daemon (SSSD) to create an identity and authentication server. 
-> *   **Virtual Host** &#8211; This option provides the KVM and Virtual Machine Manager tools to create a host for virtual machines. 
-> *   **Desktop** &#8211; This option provides the OpenOffice.org productivity suite, graphical tools such as the GIMP,and multimedia applications. 
-> *   **Software Development Workstation** &#8211; This option provides the necessary tools to compile software on your Red Hat Enterprise Linux system. 
-> *   **Minimal** &#8211; This option provides only the packages essential to run Red Hat Enterprise Linux. A minimal installation provides the basis for a single-purpose server or desktop appliance and maximizes performance and security on such an installation. 
+> *   **Virtual Host** - This option provides the KVM and Virtual Machine Manager tools to create a host for virtual machines. 
+> *   **Desktop** - This option provides the OpenOffice.org productivity suite, graphical tools such as the GIMP,and multimedia applications. 
+> *   **Software Development Workstation** - This option provides the necessary tools to compile software on your Red Hat Enterprise Linux system. 
+> *   **Minimal** - This option provides only the packages essential to run Red Hat Enterprise Linux. A minimal installation provides the basis for a single-purpose server or desktop appliance and maximizes performance and security on such an installation. 
 > 
 > To select a component, click on the checkbox beside it. To customize your package set further, select the Customize now option on the screen. Clicking **Next** takes you to the Package Group Selection screen.
 > 
@@ -339,7 +339,7 @@ Now onto the Packaging:
 > 
 > **9&#46;19. Installing Packages**
 > 
-> At this point there is nothing left for you to do until all the packages have been installed. How quickly this happens depends on the number of packages you have selected and your computer&#8217;s speed.
+> At this point there is nothing left for you to do until all the packages have been installed. How quickly this happens depends on the number of packages you have selected and your computer's speed.
 > 
 > Depending on the available resources, you might see the following progress bar while the installer resolves dependencies of the packages you selected for installation:
 > 
@@ -349,7 +349,7 @@ Now onto the Packaging:
 > 
 > Congratulations! Your Red Hat Enterprise Linux installation is now complete! The installation program prompts you to prepare your system for reboot.
 > 
-> Remember to remove any installation media if it is not ejected automatically upon reboot. After your computer&#8217;s normal power-up sequence has completed, Red Hat Enterprise Linux loads and starts. By default, the start process is hidden behind a graphical screen that displays a progress bar. Eventually, a login: prompt or a GUI login screen (if you installed the X Window System and chose to start X automatically) appears.
+> Remember to remove any installation media if it is not ejected automatically upon reboot. After your computer's normal power-up sequence has completed, Red Hat Enterprise Linux loads and starts. By default, the start process is hidden behind a graphical screen that displays a progress bar. Eventually, a login: prompt or a GUI login screen (if you installed the X Window System and chose to start X automatically) appears.
 > 
 > The first time you start your Red Hat Enterprise Linux system in run level 5 (the graphical run level), the FirstBoot tool appears, which guides you through the Red Hat Enterprise Linux configuration. Using this tool, you can set your system time and date, install software, register your machine with Red Hat Network, and more. FirstBoot lets you configure your environment at the beginning, so that you can get started using your Red Hat Enterprise Linux system quickly.
 
@@ -409,7 +409,7 @@ I then logged and started to setup network.
 
 ### RedHat Networking Configuration
 
-From &#8220;<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Deployment Guide</a>&#8220;:
+From "<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Deployment Guide</a>":
 
 > **8&#46;2. Interface Configuration Files**
 > 
@@ -469,7 +469,7 @@ From &#8220;<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Ente
 > 
 > **HOTPLUG=no** option can be used to prevent a channel bonding interface from being activated when a bonding kernel module is loaded.
 > 
-> **HWADDR=MAC-address** where **MAC-address** is the hardware address of the Ethernet device in the form **AA:BB:CC:DD:EE:FF**. This directive must be used in machines containing more than one NIC to ensure that the interfaces are assigned the correct device names regardless of the configured load order for each NIC&#8217;s module. This directive should **not** be used in conjunction with **MACADDR**.
+> **HWADDR=MAC-address** where **MAC-address** is the hardware address of the Ethernet device in the form **AA:BB:CC:DD:EE:FF**. This directive must be used in machines containing more than one NIC to ensure that the interfaces are assigned the correct device names regardless of the configured load order for each NIC's module. This directive should **not** be used in conjunction with **MACADDR**.
 > 
 > **IPADDR=address** where **address** is the IP address.
 > 
@@ -518,7 +518,7 @@ And here is the information on how to set the hostname and default route on the 
 > 
 > Global default gateway configuration is stored in the **/etc/sysconfig/network** file. This file specifies gateway and host information for all network interfaces.
 > 
-> &#8230;
+> ...
 > 
 > **D.1.13. /etc/sysconfig/network**
 > 
@@ -534,7 +534,7 @@ And here is the information on how to set the hostname and default route on the 
 >     HOSTNAME=penguin.example.com
 >     
 > 
-> **GATEWAY=value** The IP address of the network&#8217;s gateway. For example:
+> **GATEWAY=value** The IP address of the network's gateway. For example:
 > 
 >     GATEWAY=192.168.1.0
 >     

@@ -12,11 +12,11 @@ tags:
   - Monitoring
   - Munin
 ---
-This is the second part and continuation of the &#8216;Network Monitoring Software Comparison&#8217; series. Here is the link to the [first][1] part. Let&#8217;s go ahead and check out our software: **Munin**. From their [main][2] page, here is a quick snippet:
+This is the second part and continuation of the 'Network Monitoring Software Comparison' series. Here is the link to the [first][1] part. Let's go ahead and check out our software: **Munin**. From their [main][2] page, here is a quick snippet:
 
 > Munin uses the excellent ​RRDTool (written by Tobi Oetiker) and the framework is written in Perl, while plugins may be written in any language. Munin has a master/node architecture in which the master connects to all the nodes at regular intervals and asks them for data. It then stores the data in RRD files, and (if needed) updates the graphs.
 
-So Munin uses Master/node terminology, but let&#8217;s get to it.
+So Munin uses Master/node terminology, but let's get to it.
 
 ### 1. Install Munin-Master on the Ubuntu machine
 
@@ -34,20 +34,20 @@ Now to configure it. The master config file for Munin is **/etc/munin/munin.conf
       use_node_name yes
     
 
-The Munin master system doesn&#8217;t have a daemon process, it does it&#8217;s work via **cron**:
+The Munin master system doesn't have a daemon process, it does it's work via **cron**:
 
     kerch:~>ls -1 /etc/cron.d/mu* 
     /etc/cron.d/munin 
     /etc/cron.d/munin-node
     
 
-Every 5 minutes it checks the configuration files and then generates or collects the appropriate RRD files, which are then converted to graphs. The install process also sets up an **Apache** configuration file to serve it&#8217;s graphs:
+Every 5 minutes it checks the configuration files and then generates or collects the appropriate RRD files, which are then converted to graphs. The install process also sets up an **Apache** configuration file to serve it's graphs:
 
     kerch:~>ls /etc/apache2/conf.d/mu* 
     /etc/apache2/conf.d/munin
     
 
-I will be monitoring the Master machine as well, luckily the **munin-node** package was auto installed when we installed the **munin** package. The configuration for a munin node is under /**etc/munin/munin-node.conf**. Usually we need to setup the IP of the master in that file, but since it will just monitor the local system, we don&#8217;t need to make any changes. Information on all the settings for that file are <a href="http://munin-monitoring.org/wiki/munin-node.conf" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://munin-monitoring.org/wiki/munin-node.conf']);">here</a>. Now that everything is configured, let&#8217;s make sure **munin-node** is running:
+I will be monitoring the Master machine as well, luckily the **munin-node** package was auto installed when we installed the **munin** package. The configuration for a munin node is under /**etc/munin/munin-node.conf**. Usually we need to setup the IP of the master in that file, but since it will just monitor the local system, we don't need to make any changes. Information on all the settings for that file are <a href="http://munin-monitoring.org/wiki/munin-node.conf" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://munin-monitoring.org/wiki/munin-node.conf']);">here</a>. Now that everything is configured, let's make sure **munin-node** is running:
 
     kerch:~>sudo service munin-node status 
     munin-node start/running, process 3619
@@ -64,7 +64,7 @@ That looks good, as a quick test we can **telnet** to the daemon locally and fet
     load.value 0.31
     
 
-That looks good, then going to ****, I saw the following page: <a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/munin-first-page.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/munin-first-page.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/munin-first-page.png" alt="munin first page Monitor Different Systems with Munin" width="879" height="363" class="alignnone size-full wp-image-6378" title="Monitor Different Systems with Munin" /></a> Then checking out the &#8216;Network Firewall&#8217; stats for the day, I saw the following. <a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/munin-disk-usage.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/munin-disk-usage.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/munin-disk-usage.png" alt="munin disk usage Monitor Different Systems with Munin" width="808" height="464" class="alignnone size-full wp-image-6379" title="Monitor Different Systems with Munin" /></a> It looks like it started collecting data. Clicking on the host itself produces a page with all the graphs and it took a while to load 20+ graphs. I suppose I could disable some of the plugins :). From the <a href="http://munin-monitoring.org/wiki/munin-node.conf" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://munin-monitoring.org/wiki/munin-node.conf']);">munin-node.conf</a> page we see this directive:
+That looks good, then going to ****, I saw the following page: <a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/munin-first-page.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/munin-first-page.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/munin-first-page.png" alt="munin first page Monitor Different Systems with Munin" width="879" height="363" class="alignnone size-full wp-image-6378" title="Monitor Different Systems with Munin" /></a> Then checking out the 'Network Firewall' stats for the day, I saw the following. <a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/munin-disk-usage.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/munin-disk-usage.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/munin-disk-usage.png" alt="munin disk usage Monitor Different Systems with Munin" width="808" height="464" class="alignnone size-full wp-image-6379" title="Monitor Different Systems with Munin" /></a> It looks like it started collecting data. Clicking on the host itself produces a page with all the graphs and it took a while to load 20+ graphs. I suppose I could disable some of the plugins :). From the <a href="http://munin-monitoring.org/wiki/munin-node.conf" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://munin-monitoring.org/wiki/munin-node.conf']);">munin-node.conf</a> page we see this directive:
 
     ignore_file Files to ignore when locating plugins. Directive may be repeated.
     
@@ -118,7 +118,7 @@ Lastly, to double check if the plugin is really disabled:
     # Unknown service
     
 
-After disabling a bunch of the plugins it still took a while to load the page, but that at least it looked more organized. Now let&#8217;s configure a remote node to send data to the master.
+After disabling a bunch of the plugins it still took a while to load the page, but that at least it looked more organized. Now let's configure a remote node to send data to the master.
 
 ### 2. Install Munin-node on FreeBSD
 
@@ -128,7 +128,7 @@ As always, find the package:
     munin-node: /usr/ports/sysutils/munin-node
     
 
-Then let&#8217;s install the software:
+Then let's install the software:
 
     freebsd:~>cd /usr/ports/sysutils/munin-node/ 
     freebsd:/usr/ports/sysutils/munin-node/>sudo make install clean
@@ -139,7 +139,7 @@ After the install is done, enable the service by editing **/etc/rc.conf** and ad
     munin_node_enable="YES"
     
 
-Then let&#8217;s allow out master to connect to this node. Edit **/usr/local/etc/munin/munin-node.conf** and add the following line:
+Then let's allow out master to connect to this node. Edit **/usr/local/etc/munin/munin-node.conf** and add the following line:
 
     allow ^192\.168\.1\.100$
     
@@ -150,7 +150,7 @@ Then start the service:
     Starting munin_node.
     
 
-Check to make sure it&#8217;s working locally:
+Check to make sure it's working locally:
 
     freebsd:~>telnet localhost 4949
     Trying 127.0.0.1...

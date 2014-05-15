@@ -13,10 +13,10 @@ tags:
 ---
 ### Recall standard functional test areas for design and operational verification
 
-From &#8220;<a href="http://communities.vmware.com/docs/DOC-17409" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/docs/DOC-17409']);">Functional versus Non-functional Requirements</a>&#8220;:
+From "<a href="http://communities.vmware.com/docs/DOC-17409" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/docs/DOC-17409']);">Functional versus Non-functional Requirements</a>":
 
 > **Functional Requirements**  
-> The official definition for a functional requirement specifies what the system should do: &#8220;A requirement specifies a function that a system or component must be able to perform.&#8221; Functional requirements specify specific behavior or functions, for example: &#8220;Display the heart rate, blood pressure and temperature of a patient connected to the patient monitor.&#8221;
+> The official definition for a functional requirement specifies what the system should do: "A requirement specifies a function that a system or component must be able to perform." Functional requirements specify specific behavior or functions, for example: "Display the heart rate, blood pressure and temperature of a patient connected to the patient monitor."
 > 
 > Typical functional requirements are:
 > 
@@ -36,14 +36,14 @@ and from the same document:
 
 > **Non-Functional Requirements**  
 > The official definition for a non-functional requirement specifies how the system should behave:  
-> &#8220;A non-functional requirement is a statement of how a system must behave, it is a constraint upon the systems behavior.&#8221;
+> "A non-functional requirement is a statement of how a system must behave, it is a constraint upon the systems behavior."
 > 
 > Non-functional requirements specify all the remaining requirements not covered by the functional  
-> requirements. They specify criteria that judge the operation of a system, rather than specific behaviors, for example: &#8220;Display of the patient&#8217;s vital signs must respond to a change in the patient&#8217;s status within 2 seconds.&#8221;
+> requirements. They specify criteria that judge the operation of a system, rather than specific behaviors, for example: "Display of the patient's vital signs must respond to a change in the patient's status within 2 seconds."
 > 
 > Typical non-functional requirements are:
 > 
-> *   Performance &#8211; Response Time, Throughput, Utilization, Static Volumetric
+> *   Performance - Response Time, Throughput, Utilization, Static Volumetric
 > *   Scalability
 > *   Capacity
 > *   Availability
@@ -63,17 +63,17 @@ and from the same document:
 > Potentially many different stakeholders have an interest in getting the non-functional requirements  
 > right. This is because for many large systems the people buying the system are completely different from those who are going to use it (customers and users).
 
-Depending on a functional test area, let&#8217;s say the functional requirement is for User to be able to create VMs. So you create a role that can create VMs. Then to test it out you operationally verify that you have fulfilled the functional requirement. You do this by asking a user who is given that role to create a VM. If it works then you are all set.
+Depending on a functional test area, let's say the functional requirement is for User to be able to create VMs. So you create a role that can create VMs. Then to test it out you operationally verify that you have fulfilled the functional requirement. You do this by asking a user who is given that role to create a VM. If it works then you are all set.
 
 ### Differentiate between operational testing and design verification
 
-I see this as fulfilling either a functional requirement VS fulfilling a non-functional requirement. From &#8220;Operational Test Requirements&#8221;:
+I see this as fulfilling either a functional requirement VS fulfilling a non-functional requirement. From "Operational Test Requirements":
 
 > **Operational Test Requirement Cases**  
 > **Standalone ESX server only**  
 > Network/Switch Failure
 > 
-> 1.  Conditions &#8211; set the test conditions before you start 
+> 1.  Conditions - set the test conditions before you start 
 >     *   Standalone ESX server running ESX 3.5
 >     *   6 Pnics in the following configuration 
 >         1.  vSwitch 1 
@@ -85,7 +85,7 @@ I see this as fulfilling either a functional requirement VS fulfilling a non-fun
 >             *   VM Network Port Group, Separate VLAN, Port Group, Team Nics 1,4
 >         4.  4. All Nics are redundantly connected to seprate physical switches
 >     *   No vSwtich is externally connected to one physical nic
-> 2.  Triggers &#8211; what are the trigger events (these are the events that would happen in &#8220;normal&#8221; production, and the ones you will pretend / mimic in test &#8211; like a network fail) 
+> 2.  Triggers - what are the trigger events (these are the events that would happen in "normal" production, and the ones you will pretend / mimic in test - like a network fail) 
 >     *   Nic Port failure on Service Console Nic0
 >     *   Nic Port failure on Vmotion Nic3
 >     *   Nic Port failure on IP Storage Port Group Nic2
@@ -100,11 +100,11 @@ I see this as fulfilling either a functional requirement VS fulfilling a non-fun
 >     *   Switch Port Failure on VM Network Port Group Nic4
 >     *   Swtich 0 Failure
 >     *   Switch1 Failure
-> 3.  Alerts &#8211; what events should you see, and where, and by whom? 
+> 3.  Alerts - what events should you see, and where, and by whom? 
 >     *   Not sure yet
-> 4.  Actions &#8211; what actions are required by Support staff? 
+> 4.  Actions - what actions are required by Support staff? 
 >     *   Determine failure cause and resolve issue. (VMware Support Team and Network Infrastructure team.)
-> 5.  Recovery &#8211; what is the recovery procedure 
+> 5.  Recovery - what is the recovery procedure 
 >     *   Replace failed part or fix configuration
 >     *   Document root cause and recovery procedure.
 
@@ -112,7 +112,7 @@ Now for a design verification you could have something comply to PCI compliance 
 
 ### From an existing template, choose the appropriate test areas.
 
-From &#8220;<a href="http://www.vmware.com/files/pdf/partners/09Q1_VM_Test_Plan.doc" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/partners/09Q1_VM_Test_Plan.doc']);">Validation Test Plan</a>&#8220;, here is template that is used for test areas:
+From "<a href="http://www.vmware.com/files/pdf/partners/09Q1_VM_Test_Plan.doc" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/partners/09Q1_VM_Test_Plan.doc']);">Validation Test Plan</a>", here is template that is used for test areas:
 
 > **(Optionally) VMware Infrastructure Testing**
 > 
@@ -132,7 +132,7 @@ From &#8220;<a href="http://www.vmware.com/files/pdf/partners/09Q1_VM_Test_Plan.
 
 ### Identify expected results
 
-This is provided by running some additional testing. Here is an example from &#8220;<a href="http://www.vmware.com/files/pdf/partners/09Q1_VM_Test_Plan.doc" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/partners/09Q1_VM_Test_Plan.doc']);">Validation Test Plan</a>&#8220;:
+This is provided by running some additional testing. Here is an example from "<a href="http://www.vmware.com/files/pdf/partners/09Q1_VM_Test_Plan.doc" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/partners/09Q1_VM_Test_Plan.doc']);">Validation Test Plan</a>":
 
 > **Benchmark Workload**
 > 
@@ -143,7 +143,7 @@ This is provided by running some additional testing. Here is an example from &#8
 
 ### Demonstrate an ability to track results in an organized fashion
 
-Create test cases for your testing and keep track of each in a table. Here is an example from &#8220;<a href="http://www.vmware.com/files/pdf/partners/09Q1_VM_Test_Plan.doc" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/partners/09Q1_VM_Test_Plan.doc']);">Validation Test Plan</a>&#8220;:
+Create test cases for your testing and keep track of each in a table. Here is an example from "<a href="http://www.vmware.com/files/pdf/partners/09Q1_VM_Test_Plan.doc" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/partners/09Q1_VM_Test_Plan.doc']);">Validation Test Plan</a>":
 
 > **Test Cases**
 > 
@@ -155,23 +155,23 @@ Create test cases for your testing and keep track of each in a table. Here is an
 > 
 > <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/test-case-example.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/test-case-example.png']);"><img class="alignnone size-full wp-image-3368" title="test-case-example" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/test-case-example.png" alt="test case example VCAP5 DCD Objective 4.1 – Create an Execute a Validation Plan " width="666" height="160" /></a>
 
-There are also tools to make sure check the health of an environment. Check out Epping&#8217;s Blog &#8220;Health Check tools I use&#8221;, from that post:
+There are also tools to make sure check the health of an environment. Check out Epping's Blog "Health Check tools I use", from that post:
 
 > I personally use the following tools:
 > 
-> *   <a href="http://sourceforge.net/projects/esxhealthscript/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://sourceforge.net/projects/esxhealthscript/']);">Health Check script by A.Mikkelsen</a> &#8211; for a quick overview of the current situation and setup, small files and easy to carry around, runs from the Service Console.
-> *   VMware Health Analyzer Appliance &#8211; A linux appliance that can connect to your VC/ESX and analyze log files. At this point in time it’s only available for VMware Employees or Partners with access to Partner Central.
-> *   <a href="http://communities.vmware.com/docs/DOC-7070" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/docs/DOC-7070']);">Report into MS Word</a> &#8211; Alan Renouf created this great reporting powershell scripts. It dumps info into a word document. (And i’ve heard he’s also working on a Visio export)
-> *   <a href="http://www.ivobeerens.nl/2008/08/28/vmware-powershell-healthcheck-script/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.ivobeerens.nl/2008/08/28/vmware-powershell-healthcheck-script/']);">Health Check Script</a> &#8211; Create an html report with datastore, cpu, memory and snapshot info… and more.
-> *   <a href="http://www.robware.net/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.robware.net/']);">RVTools</a> &#8211; Gives a quick overview of current VM setup like snapshots, memory, cpu etc.
+> *   <a href="http://sourceforge.net/projects/esxhealthscript/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://sourceforge.net/projects/esxhealthscript/']);">Health Check script by A.Mikkelsen</a> - for a quick overview of the current situation and setup, small files and easy to carry around, runs from the Service Console.
+> *   VMware Health Analyzer Appliance - A linux appliance that can connect to your VC/ESX and analyze log files. At this point in time it’s only available for VMware Employees or Partners with access to Partner Central.
+> *   <a href="http://communities.vmware.com/docs/DOC-7070" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/docs/DOC-7070']);">Report into MS Word</a> - Alan Renouf created this great reporting powershell scripts. It dumps info into a word document. (And i’ve heard he’s also working on a Visio export)
+> *   <a href="http://www.ivobeerens.nl/2008/08/28/vmware-powershell-healthcheck-script/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.ivobeerens.nl/2008/08/28/vmware-powershell-healthcheck-script/']);">Health Check Script</a> - Create an html report with datastore, cpu, memory and snapshot info… and more.
+> *   <a href="http://www.robware.net/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.robware.net/']);">RVTools</a> - Gives a quick overview of current VM setup like snapshots, memory, cpu etc.
 
 ### Compare actual and expected results and explain differences
 
-Some times the expected results are obtained from white papers and vendors. Always have an apples to apples comparison. Instead of going off the white paper, get a baseline using physical hosts in the current environment and then run similar tests on the VMs. Make sure the OS versions and underlying hardware is the same. Also make sure the VM is spec&#8217;ed with the same vCPUs and vRAM as the physical machine that the baseline was grabbed from.
+Some times the expected results are obtained from white papers and vendors. Always have an apples to apples comparison. Instead of going off the white paper, get a baseline using physical hosts in the current environment and then run similar tests on the VMs. Make sure the OS versions and underlying hardware is the same. Also make sure the VM is spec'ed with the same vCPUs and vRAM as the physical machine that the baseline was grabbed from.
 
 ### Apply validation plan metrics to demonstrate traceability to business objectives
 
-I think this table from &#8220;<a href="http://www.vmware.com/files/pdf/partners/09Q1_VM_Test_Plan.doc" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/partners/09Q1_VM_Test_Plan.doc']);">Validation Test Plan</a>&#8220;:
+I think this table from "<a href="http://www.vmware.com/files/pdf/partners/09Q1_VM_Test_Plan.doc" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/partners/09Q1_VM_Test_Plan.doc']);">Validation Test Plan</a>":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/app-bench1.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/app-bench1.png']);"><img class="alignnone size-full wp-image-3369" title="app-bench" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/app-bench1.png" alt="app bench1 VCAP5 DCD Objective 4.1 – Create an Execute a Validation Plan " width="667" height="188" /></a>
 

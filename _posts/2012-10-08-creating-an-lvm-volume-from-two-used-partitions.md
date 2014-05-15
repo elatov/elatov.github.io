@@ -15,7 +15,7 @@ tags:
   - lvm
   - Physical Volume
 ---
-I have a machine that I have been using for years, it was before I started getting into Linux. So it started out as a Windows machine, then I installed Linux on it and Dual booted it. I then updated my hard drive in size and used Acronis to transfer all the data. It was actually pretty cool, it allowed me to increase the partitions as I was cloning the data over. Since I was using Windows with Linux, I decided to use FAT32 partitions to share data between them (this was before Linux included ntfs support by default). Regardless to say I made a lot of changes to my partitioning schema and it was all over the place. Here is how my &#8216;df&#8217; output looked like.
+I have a machine that I have been using for years, it was before I started getting into Linux. So it started out as a Windows machine, then I installed Linux on it and Dual booted it. I then updated my hard drive in size and used Acronis to transfer all the data. It was actually pretty cool, it allowed me to increase the partitions as I was cloning the data over. Since I was using Windows with Linux, I decided to use FAT32 partitions to share data between them (this was before Linux included ntfs support by default). Regardless to say I made a lot of changes to my partitioning schema and it was all over the place. Here is how my 'df' output looked like.
 
 	  
 	moxz:~>df -hT | grep sda  
@@ -46,7 +46,7 @@ I decided to create one big partition from both of the FAT partitions (sda4 and 
 	/dev/sda6 199688013 203880914 2096451 82 Linux swap / Solaris  
 	
 
-You will notice that the partitions were out of order in sectors. sda4 started at 328625640 and ended at 586099393, while sda5 started at 51215283 and ended at 199687949. So the partitions weren&#8217;t contiguous in their sectors. This posed a problem cause my original plan of deleting the partitions and adding a big one was out of the picture. 
+You will notice that the partitions were out of order in sectors. sda4 started at 328625640 and ended at 586099393, while sda5 started at 51215283 and ended at 199687949. So the partitions weren't contiguous in their sectors. This posed a problem cause my original plan of deleting the partitions and adding a big one was out of the picture. 
 
 I decided to wipe the partitions and add them as Physical Volumes to make up an LVM Logical Volume. Here are the steps that I followed to complete the transformation:
 
@@ -64,7 +64,7 @@ Make sure you have transferred the data from the partitions
 
 ### 2. Convert the Partition type from vfat to lvm
 
-**WARNING**: this will delete the partitions and without recovery steps, you won&#8217;t be able to mount them back. 
+**WARNING**: this will delete the partitions and without recovery steps, you won't be able to mount them back. 
 
 	  
 	moxz:~>sudo fdisk /dev/sda  
@@ -139,7 +139,7 @@ You can then run partprobe to make sure the kernel is updated regarding the new 
 	/dev/sda: msdos partitions 1 2 <5 6> 3 4  
 	
 
-If you want to be safe you can reboot the machine just to make sure all is well. If you end up going that route, comment out anything regarding those partitions from &#8216;/etc/fstab&#8217; file. Here are the entries that I have in my /etc/fstab file:
+If you want to be safe you can reboot the machine just to make sure all is well. If you end up going that route, comment out anything regarding those partitions from '/etc/fstab' file. Here are the entries that I have in my /etc/fstab file:
 
 	  
 	moxz:~>grep -E 'stuff|other' /etc/fstab  
@@ -179,7 +179,7 @@ This is done with the vgcreate command
 	Volume group "vg_data" successfully created  
 	
 
-Then check to make sure it&#8217;s the settings looks good:
+Then check to make sure it's the settings looks good:
 
 	  
 	moxz:~>sudo vgs  
@@ -191,7 +191,7 @@ We can see that the volume group is a total of the two partitions.
 
 ### 5. Create a Logical Volume Consuming the whole Volume Group
 
-Let&#8217;s create a new logical volume and call it data taking up all the space of the logical group:
+Let's create a new logical volume and call it data taking up all the space of the logical group:
 
 	  
 	moxz:~>sudo lvcreate -n data -l 100%FREE vg_data  
@@ -209,7 +209,7 @@ Check to make sure it looks good.
 
 ### 6. Put a file system on the Logical Volume
 
-I decided to make it ext3, since I won&#8217;t be sharing it with windows any more:
+I decided to make it ext3, since I won't be sharing it with windows any more:
 
 	  
 	moxz:~>sudo mkfs.ext3 /dev/vg_data/data  
@@ -260,7 +260,7 @@ Create the mount point and make sure you can mount it manually.
 	/dev/mapper/vg_data-data ext3 191G 153M 181G 1% /mnt/data  
 	
 
-Reboot the machine and make sure it&#8217;s auto mounted.
+Reboot the machine and make sure it's auto mounted.
 
 <div class="SPOSTARBUST-Related-Posts">
   <H3>

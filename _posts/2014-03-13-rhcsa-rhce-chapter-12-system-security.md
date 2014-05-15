@@ -23,13 +23,13 @@ From the <a href="https://access.redhat.com/site/documentation/en-US/Red_Hat_Ent
 
 > The TCP Wrappers packages (tcp\_wrappers and tcp\_wrappers-libs) are installed by default and provide host-based access control to network services. The most important component within the package is the **/lib/libwrap.so** or **/lib64/libwrap.so** library. In general terms, a TCP-wrapped service is one that has been compiled against the **libwrap.so** library.
 > 
-> When a connection attempt is made to a TCP-wrapped service, the service first references the host&#8217;s access files (**/etc/hosts.allow** and **/etc/hosts.deny**) to determine whether or not the client is allowed to connect. In most cases, it then uses the syslog daemon (**syslogd**) to write the name of the requesting client and the requested service to **/var/log/secure** or **/var/log/messages**.
+> When a connection attempt is made to a TCP-wrapped service, the service first references the host's access files (**/etc/hosts.allow** and **/etc/hosts.deny**) to determine whether or not the client is allowed to connect. In most cases, it then uses the syslog daemon (**syslogd**) to write the name of the requesting client and the requested service to **/var/log/secure** or **/var/log/messages**.
 > 
 > If a client is allowed to connect, TCP Wrappers release control of the connection to the requested service and take no further part in the communication between the client and the server.
 > 
 > In addition to access control and logging, TCP Wrappers can execute commands to interact with the client before denying or releasing control of the connection to the requested network service.
 > 
-> Because TCP Wrappers are a valuable addition to any server administrator&#8217;s arsenal of security tools, most network services within Red Hat Enterprise Linux are linked to the **libwrap.so** library. Such applications include **/usr/sbin/sshd**, **/usr/sbin/sendmail**, and **/usr/sbin/xinetd**.
+> Because TCP Wrappers are a valuable addition to any server administrator's arsenal of security tools, most network services within Red Hat Enterprise Linux are linked to the **libwrap.so** library. Such applications include **/usr/sbin/sshd**, **/usr/sbin/sendmail**, and **/usr/sbin/xinetd**.
 
 ### Check if Service Supports TCP Wrappers
 
@@ -209,7 +209,7 @@ From the guide:
 >           : allow
 >         
 > 
-> *   **twist** — Replaces the requested service with the specified command. This directive is often used to set up traps for intruders (also called &#8220;honey pots&#8221;). It can also be used to send messages to connecting clients. The **twist** directive must occur at the end of the rule line.
+> *   **twist** — Replaces the requested service with the specified command. This directive is often used to set up traps for intruders (also called "honey pots"). It can also be used to send messages to connecting clients. The **twist** directive must occur at the end of the rule line.
 >     
 >     In the following example, clients attempting to access FTP services from the **example.com** domain are sent a message using the echo command:
 >     
@@ -225,19 +225,19 @@ From the Security Guide:
 > 
 > The following is a list of supported expansions:
 > 
-> *   **%a** — Returns the client&#8217;s IP address.
-> *   **%A** — Returns the server&#8217;s IP address.
+> *   **%a** — Returns the client's IP address.
+> *   **%A** — Returns the server's IP address.
 > *   **%c** — Returns a variety of client information, such as the username and hostname, or the username and IP address.
 > *   **%d** — Returns the daemon process name.
-> *   **%h** — Returns the client&#8217;s hostname (or IP address, if the hostname is unavailable).
-> *   **%H** — Returns the server&#8217;s hostname (or IP address, if the hostname is unavailable).
-> *   **%n** — Returns the client&#8217;s hostname. If unavailable, **unknown** is printed. If the client&#8217;s hostname and host address do not match, **paranoid** is printed.
-> *   **%N** — Returns the server&#8217;s hostname. If unavailable, **unknown** is printed. If the server&#8217;s hostname and host address do not match, **paranoid** is printed.
-> *   **%p** — Returns the daemon&#8217;s process ID.
+> *   **%h** — Returns the client's hostname (or IP address, if the hostname is unavailable).
+> *   **%H** — Returns the server's hostname (or IP address, if the hostname is unavailable).
+> *   **%n** — Returns the client's hostname. If unavailable, **unknown** is printed. If the client's hostname and host address do not match, **paranoid** is printed.
+> *   **%N** — Returns the server's hostname. If unavailable, **unknown** is printed. If the server's hostname and host address do not match, **paranoid** is printed.
+> *   **%p** — Returns the daemon's process ID.
 > *   **%s** —Returns various types of server information, such as the daemon process and the host or IP address of the server.
-> *   **%u** — Returns the client&#8217;s username. If unavailable, **unknown** is printed.
+> *   **%u** — Returns the client's username. If unavailable, **unknown** is printed.
 
-So let&#8217;s create two rules, one to log every ssh connection to a file and 1 to block access to ftp daeamon. First let&#8217;s confirm both of those support tcp wrappers:
+So let's create two rules, one to log every ssh connection to a file and 1 to block access to ftp daeamon. First let's confirm both of those support tcp wrappers:
 
     [root@rhel1 ~]# for i in sshd vsftpd; do echo $i;ldd /usr/sbin/$i| grep wrap; done
     sshd
@@ -246,7 +246,7 @@ So let&#8217;s create two rules, one to log every ssh connection to a file and 1
         libwrap.so.0 => /lib/libwrap.so.0 (0x00e62000)
     
 
-That looks good. Now let&#8217;s add two rules into the **/etc/hosts.allow** file with the following content:
+That looks good. Now let's add two rules into the **/etc/hosts.allow** file with the following content:
 
     sshd : 192.168.2.3 : severity alert : deny
     vsftpd : 192.168.2.3 \
@@ -369,7 +369,7 @@ From the Security Guide:
 > 
 > Edge routers (such as firewalls) can receive incoming transmissions from the Internet and route the packets to the intended LAN node. At the same time, firewalls/gateways can also route outgoing requests from a LAN node to the remote Internet service.
 > 
-> This forwarding of network traffic can become dangerous at times, especially with the availability of modern cracking tools that can spoof internal IP addresses and make the remote attacker&#8217;s machine act as a node on your LAN.
+> This forwarding of network traffic can become dangerous at times, especially with the availability of modern cracking tools that can spoof internal IP addresses and make the remote attacker's machine act as a node on your LAN.
 > 
 > To prevent this, **iptables** provides routing and forwarding policies that can be implemented to prevent abnormal usage of network resources.
 > 
@@ -413,16 +413,16 @@ From the same guide:
 
 From the Guide:
 
-> Accepting forwarded packets via the firewall&#8217;s internal IP device allows LAN nodes to communicate with each other; however they still cannot communicate externally to the Internet.
+> Accepting forwarded packets via the firewall's internal IP device allows LAN nodes to communicate with each other; however they still cannot communicate externally to the Internet.
 > 
-> To allow LAN nodes with private IP addresses to communicate with external public networks, configure the firewall for IP *masquerading*, which masks requests from LAN nodes with the IP address of the firewall&#8217;s external device (in this case, **eth0**):
+> To allow LAN nodes with private IP addresses to communicate with external public networks, configure the firewall for IP *masquerading*, which masks requests from LAN nodes with the IP address of the firewall's external device (in this case, **eth0**):
 > 
 >     ~]# iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 >     
 > 
-> This rule uses the **NAT** packet matching table (-t nat) and specifies the built-in **POSTROUTING** chain for **NAT** (-A POSTROUTING) on the firewall&#8217;s external networking device (-o eth0).
+> This rule uses the **NAT** packet matching table (-t nat) and specifies the built-in **POSTROUTING** chain for **NAT** (-A POSTROUTING) on the firewall's external networking device (-o eth0).
 > 
-> **POSTROUTING** allows packets to be altered as they are leaving the firewall&#8217;s external device.
+> **POSTROUTING** allows packets to be altered as they are leaving the firewall's external device.
 > 
 > The **-j MASQUERADE** target is specified to mask the private IP address of a node with the external IP address of the firewall/gateway.
 
@@ -480,7 +480,7 @@ From the Security Guide:
 > *   **-h** — Provides a list of command structures, as well as a quick summary of command parameters and options.
 > *   **-I** [*integer*] — Inserts the rule in the specified chain at a point specified by a user-defined integer argument. If no argument is specified, the rule is inserted at the top of the chain.
 > *   **-L** — Lists all of the rules in the chain specified after the command. To list all rules in all chains in the default filter table, do not specify a chain or table. 
-> *   **-N** — Creates a new chain with a user-specified name. The chain name must be unique, otherwise an error message is displayed. **-P** — Sets the default policy for the specified chain, so that when packets traverse an entire chain without matching a rule, they are sent to the specified target, such as ACCEPT or DROP. **-R** — Replaces a rule in the specified chain. The rule&#8217;s number must be specified after the chain&#8217;s name. The first rule in a chain corresponds to rule number one. **-X** — Deletes a user-specified chain. You cannot delete a built-in chain. **-Z** — Sets the byte and packet counters in all chains for a table to zero.
+> *   **-N** — Creates a new chain with a user-specified name. The chain name must be unique, otherwise an error message is displayed. **-P** — Sets the default policy for the specified chain, so that when packets traverse an entire chain without matching a rule, they are sent to the specified target, such as ACCEPT or DROP. **-R** — Replaces a rule in the specified chain. The rule's number must be specified after the chain's name. The first rule in a chain corresponds to rule number one. **-X** — Deletes a user-specified chain. You cannot delete a built-in chain. **-Z** — Sets the byte and packet counters in all chains for a table to zero.
 
 #### IPTables Parameter Options
 
@@ -519,7 +519,7 @@ From the Security Guide:
 > 
 > *   **-p** *protocol* — Sets the IP protocol affected by the rule. This can be either **icmp**, **tcp**, **udp**, or **all**, or it can be a numeric value, representing one of these or a different protocol. You can also use any protocols listed in the **/etc/protocols** file.
 >     
->     The &#8220;**all**&#8221; protocol means the rule applies to every supported protocol. If no protocol is listed with this rule, it defaults to &#8220;all&#8221;.
+>     The "**all**" protocol means the rule applies to every supported protocol. If no protocol is listed with this rule, it defaults to "all".
 > 
 > *   **-s** — Sets the source for a particular packet using the same syntax as the destination (-d) parameter.
 
@@ -529,27 +529,27 @@ From the Same Guide:
 
 > These match options are available for the TCP protocol (-p tcp):
 > 
-> *   **&#8211;dport** — Sets the destination port for the packet.
+> *   **-dport** — Sets the destination port for the packet.
 >     
 >     To configure this option, use a network service name (such as **www** or **smtp**); a port number; or a range of port numbers.
 >     
 >     To specify a range of port numbers, separate the two numbers with a colon (**:**). For example: `-p tcp --dport 3000:3200`. The largest acceptable valid range is **0:65535**.
 >     
->     Use an exclamation point character (**!**) after the **&#8211;dport** option to match all packets that do not use that network service or port.
+>     Use an exclamation point character (**!**) after the **-dport** option to match all packets that do not use that network service or port.
 >     
 >     To browse the names and aliases of network services and the port numbers they use, view the **/etc/services** file.
 >     
->     The **&#8211;destination-port** match option is synonymous with **&#8211;dport**.
+>     The **-destination-port** match option is synonymous with **-dport**.
 > 
-> *   **&#8211;sport** — Sets the source port of the packet using the same options as **&#8211;dport**. The **&#8211;source-port** match option is synonymous with **&#8211;sport**.
+> *   **-sport** — Sets the source port of the packet using the same options as **-dport**. The **-source-port** match option is synonymous with **-sport**.
 > 
 > *   **-syn** — Applies to all TCP packets designed to initiate communication, commonly called **SYN** packets. Any packets that carry a data payload are not touched.
 >     
->     Use an exclamation point character (**!**) before the **&#8211;syn** option to match all non-SYN packets.
+>     Use an exclamation point character (**!**) before the **-syn** option to match all non-SYN packets.
 > 
-> *   **&#8211;tcp-flags** &#8220;*tested flag list*&#8221; &#8220;*set flag list*&#8221; — Allows TCP packets that have specific bits (flags) set, to match a rule.
+> *   **-tcp-flags** "*tested flag list*" "*set flag list*" — Allows TCP packets that have specific bits (flags) set, to match a rule.
 >     
->     The **&#8211;tcp-flags** match option accepts two parameters. The first parameter is the mask; a comma-separated list of flags to be examined in the packet. The second parameter is a comma-separated list of flags that must be set for the rule to match. The possible flags are:
+>     The **-tcp-flags** match option accepts two parameters. The first parameter is the mask; a comma-separated list of flags to be examined in the packet. The second parameter is a comma-separated list of flags that must be set for the rule to match. The possible flags are:
 >     
 >     *   **ACK**
 >     *   **FIN**
@@ -565,9 +565,9 @@ From the Same Guide:
 >         --tcp-flags ACK,FIN,SYN SYN
 >         
 >     
->     Use the exclamation point character (**!**) after the **&#8211;tcp-flags** to reverse the effect of the match option.
+>     Use the exclamation point character (**!**) after the **-tcp-flags** to reverse the effect of the match option.
 > 
-> *   **&#8211;tcp-option** — Attempts to match with TCP-specific options that can be set within a particular packet. This match option can also be reversed by using the exclamation point character (**!**) after the option.
+> *   **-tcp-option** — Attempts to match with TCP-specific options that can be set within a particular packet. This match option can also be reversed by using the exclamation point character (**!**) after the option.
 
 #### UDP Protocol
 
@@ -575,10 +575,10 @@ From the guide:
 
 > These match options are available for the UDP protocol (**-p udp**):
 > 
-> *   **&#8211;dport** — Specifies the destination port of the UDP packet, using the service name, port number, or range of port numbers. The **&#8211;destination-port** match option is synonymous with **&#8211;dport**.
-> *   **&#8211;sport** — Specifies the source port of the UDP packet, using the service name, port number, or range of port numbers. The **&#8211;source-port** match option is synonymous with **&#8211;sport**.
+> *   **-dport** — Specifies the destination port of the UDP packet, using the service name, port number, or range of port numbers. The **-destination-port** match option is synonymous with **-dport**.
+> *   **-sport** — Specifies the source port of the UDP packet, using the service name, port number, or range of port numbers. The **-source-port** match option is synonymous with **-sport**.
 > 
-> For the **&#8211;dport** and **&#8211;sport** options, to specify a range of port numbers, separate the two numbers with a colon (**:**). For example: `-p tcp --dport 3000:3200`. The largest acceptable valid range is **0:65535**.
+> For the **-dport** and **-sport** options, to specify a range of port numbers, separate the two numbers with a colon (**:**). For example: `-p tcp --dport 3000:3200`. The largest acceptable valid range is **0:65535**.
 
 ### IPTables Control Scripts
 
@@ -587,7 +587,7 @@ From the Security Guide:
 > There are two basic methods for controlling **iptables** in Red Hat Enterprise Linux:
 > 
 > *   Firewall Configuration Tool (**system-config-firewall**) — A graphical interface for creating, activating, and saving basic firewall rules.
-> *   **/sbin/service iptables** &#8220;*option*&#8221; — Used to manipulate various functions of iptables using its initscript. The following options are available:
+> *   **/sbin/service iptables** "*option*" — Used to manipulate various functions of iptables using its initscript. The following options are available:
 > *   **start** — If a firewall is configured (that is, **/etc/sysconfig/iptables** exists), all running iptables are stopped completely and then started using the **/sbin/iptables-restore** command. This option only works if the **ipchains** kernel module is not loaded. To check if this module is loaded, type the following command as root:
 >     
 >         ~]# lsmod | grep ipchains
@@ -609,7 +609,7 @@ From the Security Guide:
 
 ### IPtables Examples
 
-So let&#8217;s try this out. First let&#8217;s list the current rules:
+So let's try this out. First let's list the current rules:
 
     [root@rhel1 ~]# iptables -L -n -v --line-numbers
     Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
@@ -642,14 +642,14 @@ Since I am allowing port 21, I should be able to connect to that port from my rh
     ^]
     
 
-That looks good, now let&#8217;s remove that rule and see if it gets blocked:
+That looks good, now let's remove that rule and see if it gets blocked:
 
     [root@rhel1 ~]# iptables -D INPUT 5
     [root@rhel1 ~]# iptables -L -n -v | grep 21
     [root@rhel1 ~]#
     
 
-Now let&#8217;s test again:
+Now let's test again:
 
     [root@rhel2 ~]# telnet rhel1 21
     Trying 192.168.2.2...
@@ -665,7 +665,7 @@ Looking at a packet capture on the server side, I saw the following:
     20:27:27.123519 IP 192.168.2.3.44803 > 192.168.2.2.21: Flags [S], seq 3480557426, win 5840, options [mss 1460,sackOK,TS val 426634483 ecr 0,nop,wscale 6], length 0
     
 
-We can see the client (192.168.2.3) tried connecting to the server (192.168.2.2) on port 21 but there is no response to the request. That usually means the firewall blocked the traffic. As a quick test let&#8217;s reload the firewall:
+We can see the client (192.168.2.3) tried connecting to the server (192.168.2.2) on port 21 but there is no response to the request. That usually means the firewall blocked the traffic. As a quick test let's reload the firewall:
 
     [root@rhel1 ~]# service iptables restart
     iptables: Flushing firewall rules: 
@@ -677,7 +677,7 @@ We can see the client (192.168.2.3) tried connecting to the server (192.168.2.2)
         0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           tcp dpt:21 
     
 
-Our rule is back now. Now let&#8217;s stop the **vsftpd** service and see what happens:
+Our rule is back now. Now let's stop the **vsftpd** service and see what happens:
 
     [root@rhel1 ~]# service vsftpd stop
     Shutting down vsftpd: vsftpd
@@ -691,7 +691,7 @@ Now for the connection attempt:
     telnet: Unable to connect to remote host: Connection refused
     
 
-Now we get a &#8220;**connection refused**&#8221; instead of a &#8220;**no route to host**&#8220;. And here is a packet capture during the previous attempt:
+Now we get a "**connection refused**" instead of a "**no route to host**". And here is a packet capture during the previous attempt:
 
     [root@rhel1 ~]# tcpdump -i eth1 tcp port 21 -nn
     tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
@@ -700,13 +700,13 @@ Now we get a &#8220;**connection refused**&#8221; instead of a &#8220;**no route
     20:32:08.972931 IP 192.168.2.2.21 > 192.168.2.3.41472: Flags [R.], seq 0, ack 3783938819, win 0, length 0
     
 
-We actually respond to let the client know that nothing is listening on that port. If you check above we are allowing everyone to connect to ports 20 and 21. Let&#8217;s remove those rules and only allow our internal network to connect to those ports. To delete those rules, run the following:
+We actually respond to let the client know that nothing is listening on that port. If you check above we are allowing everyone to connect to ports 20 and 21. Let's remove those rules and only allow our internal network to connect to those ports. To delete those rules, run the following:
 
     [root@rhel1 ~]# iptables -D INPUT 6
     [root@rhel1 ~]# iptables -D INPUT 5
     
 
-Let&#8217;s sure those are gone:
+Let's sure those are gone:
 
     [root@rhel1 ~]# iptables -L -n -v | grep -E '21|20'
     [root@rhel1 ~]# 
@@ -724,7 +724,7 @@ Now to re-add the rules, our last rule (which blocks everything) is number 5 :
     5        0     0 REJECT     all  --  *      *       0.0.0.0/0            0.0.0.0/0           reject-with icmp-host-prohibited 
     
 
-So let&#8217;s input the rule starting at 5 and then to 6:
+So let's input the rule starting at 5 and then to 6:
 
     [root@rhel1 ~]# iptables -I INPUT 5 -s 192.168.2.0/24 -p tcp --dport 21 -j ACCEPT
     [root@rhel1 ~]# iptables -I INPUT 6 -s 192.168.2.0/24 -p tcp --dport 20 -j ACCEPT
@@ -740,7 +740,7 @@ So let&#8217;s input the rule starting at 5 and then to 6:
     7       0     0 REJECT     all  --  *      *       0.0.0.0/0            0.0.0.0/0           reject-with icmp-host-prohibited 
     
 
-Now let&#8217;s save the rules and restart **iptables** to make sure the rules are still in place:
+Now let's save the rules and restart **iptables** to make sure the rules are still in place:
 
     [root@rhel1 ~]# service iptables save
     iptables: Saving firewall rules to /etc/sysconfig/iptables: 
@@ -764,7 +764,7 @@ Now let&#8217;s save the rules and restart **iptables** to make sure the rules a
 
 ### IPTables Masquerade NAT
 
-My RHEL6 box has two interfaces, one on the &#8220;public&#8221; network and one on the private network (public = 10.0.0.0/24, and private = 192.168.2.0/24). Here are the two interfaces on each network:
+My RHEL6 box has two interfaces, one on the "public" network and one on the private network (public = 10.0.0.0/24, and private = 192.168.2.0/24). Here are the two interfaces on each network:
 
     [root@rhel1 ~]# ip -4 a
     1: lo: <LOOPBACK,UP,LOWER_UP> mtu 16436 qdisc noqueue state UNKNOWN 
@@ -784,7 +784,7 @@ My RHEL5 machine only has an interface on the private interface:
         inet 192.168.2.3/24 brd 192.168.2.255 scope global eth1
     
 
-The RHEL5 machine can&#8217;t reach the internet:
+The RHEL5 machine can't reach the internet:
 
     [root@rhel2 ~]# ping -c 2 google.com
     PING google.com (74.125.239.37) 56(84) bytes of data.
@@ -793,13 +793,13 @@ The RHEL5 machine can&#8217;t reach the internet:
     2 packets transmitted, 0 received, 100% packet loss, time 999ms
     
 
-Let&#8217;s use our RHEL6 as an edge router and setup a Masquerade SNAT on it. First let&#8217;s make sure the kernel is allowing the Forwarding of packets:
+Let's use our RHEL6 as an edge router and setup a Masquerade SNAT on it. First let's make sure the kernel is allowing the Forwarding of packets:
 
     [root@rhel1 ~]# cat /proc/sys/net/ipv4/ip_forward 
     0
     
 
-That&#8217;s a negative. To temporarily enable that we can run the following:
+That's a negative. To temporarily enable that we can run the following:
 
     [root@rhel1 ~]# echo 1 > /proc/sys/net/ipv4/ip_forward
     
@@ -816,13 +816,13 @@ and then run the following to apply it:
     net.ipv4.ip_forward = 1
     
 
-Since our FORWARD Chain is currently blocking everything, let&#8217;s allow traffic to flow through our private interface (eth1). This is done with the following two rules:
+Since our FORWARD Chain is currently blocking everything, let's allow traffic to flow through our private interface (eth1). This is done with the following two rules:
 
     [root@rhel1 ~]# iptables -I FORWARD 1 -i eth1 -j ACCEPT
     [root@rhel1 ~]# iptables -I FORWARD 2 -o eth1 -j ACCEPT
     
 
-Let&#8217;s make sure they are in place:
+Let's make sure they are in place:
 
     [root@rhel1 ~]# iptables -L FORWARD -n -v
     Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
@@ -832,12 +832,12 @@ Let&#8217;s make sure they are in place:
         5   695 REJECT     all  --  *      *       0.0.0.0/0            0.0.0.0/0           reject-with icmp-host-prohibited 
     
 
-Lastly let&#8217;s add a rule to the POSTROUTING Chain of the NAT table to enable the Masquerading of IPs:
+Lastly let's add a rule to the POSTROUTING Chain of the NAT table to enable the Masquerading of IPs:
 
     [root@rhel1 ~]# iptables -t nat -A POSTROUTING -o eth0 -s 192.168.2.0/24 -j MASQUERADE
     
 
-Let&#8217;s make sure the rule is in place:
+Let's make sure the rule is in place:
 
     [root@rhel1 ~]# iptables -t nat -L -n -v --line-numbers
     Chain PREROUTING (policy ACCEPT 3 packets, 213 bytes)
@@ -851,7 +851,7 @@ Let&#8217;s make sure the rule is in place:
     num   pkts bytes target     prot opt in     out     source               destination   
     
 
-Now from our internal RHEL5 machine let&#8217;s check if we can reach the internet:
+Now from our internal RHEL5 machine let's check if we can reach the internet:
 
     [root@rhel2 ~]# ping -c 2 google.com
     PING google.com (74.125.239.128) 56(84) bytes of data.
@@ -867,12 +867,12 @@ That looks good.
 
 ### IPTables DNAT Example
 
-For now the internal RHEL5 machine can reach out the internet but nothing can reach it from the internet (unless it&#8217;a an existing/established connection. So let&#8217;s forward any traffic that comes to port 3333 of our RHEL6 (Edge Router) to port 22 of the RHEL5 (internal machine). That way I can ssh directly to our internal test machine. To accomplish this, we will now use the PREROUTING Chain of the NAT table. Here is the command to do this:
+For now the internal RHEL5 machine can reach out the internet but nothing can reach it from the internet (unless it'a an existing/established connection. So let's forward any traffic that comes to port 3333 of our RHEL6 (Edge Router) to port 22 of the RHEL5 (internal machine). That way I can ssh directly to our internal test machine. To accomplish this, we will now use the PREROUTING Chain of the NAT table. Here is the command to do this:
 
     [root@rhel1 ~]# iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 3333 -j DNAT --to 192.168.2.3:22
     
 
-Let&#8217;s make sure the rule is in place:
+Let's make sure the rule is in place:
 
     [root@rhel1 ~]# iptables -t nat -L PREROUTING -n -v --line-numbers
     Chain PREROUTING (policy ACCEPT 47 packets, 2870 bytes)
@@ -894,7 +894,7 @@ Notice I sent the request to *rhel1*, but in the end reached *rhel2*.
 
 From <a href="https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Managing_Smart_Cards/Red_Hat_Enterprise_Linux-6-Managing_Smart_Cards-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Managing_Smart_Cards/Red_Hat_Enterprise_Linux-6-Managing_Smart_Cards-en-US.pdf']);">Managing Single Sign-On and Smart Cards</a> here is what PAM is:
 
-> Programs that grant users access to a system use authentication to verify each other&#8217;s identity (that is, to establish that a user is who they say they are).
+> Programs that grant users access to a system use authentication to verify each other's identity (that is, to establish that a user is who they say they are).
 > 
 > Historically, each program had its own way of authenticating users. In Red Hat Enterprise Linux, many programs are configured to use a centralized authentication mechanism called **Pluggable Authentication Modules (PAM)**.
 > 
@@ -904,7 +904,7 @@ From <a href="https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterpr
 > *   PAM provides significant flexibility and control over authentication for both system administrators and application developers.
 > *   PAM provides a single, fully-documented library which allows developers to write programs without having to create their own authentication schemes.
 > 
-> PAM has an extensive documentation set with much more detail about both using PAM and writing modules to extend or integrate PAM with other applications. Almost all of the major modules and configuration files with PAM have their own manpages. Additionally, the **/usr/share/doc/pam-version#** directory contains a System Administrators&#8217; Guide, a Module Writers&#8217; Manual, and the Application Developers&#8217; Manual, as well as a copy of the PAM standard, DCE-RFC 86.0.
+> PAM has an extensive documentation set with much more detail about both using PAM and writing modules to extend or integrate PAM with other applications. Almost all of the major modules and configuration files with PAM have their own manpages. Additionally, the **/usr/share/doc/pam-version#** directory contains a System Administrators' Guide, a Module Writers' Manual, and the Application Developers' Manual, as well as a copy of the PAM standard, DCE-RFC 86.0.
 > 
 > The libraries for PAM are available at *http://www.kernel.org/pub/linux/libs/pam/*. This is the primary distribution website for the Linux-PAM project, containing information on various PAM modules, frequently asked questions, and additional PAM documentation.
 
@@ -938,16 +938,16 @@ From the Managing Single Sign-On and Smart Cards Guide:
 > *   **auth** — This module interface authenticates use. For example, it requests and verifies the validity of a password. Modules with this interface can also set credentials, such as group memberships or Kerberos tickets.
 > *   **account** — This module interface verifies that access is allowed. For example, it checks if a user account has expired or if a user is allowed to log in at a particular time of day.
 > *   **password** — This module interface is used for changing user passwords.
-> *   **session** — This module interface configures and manages user sessions. Modules with this interface can also perform additional tasks that are needed to allow access, like mounting a user&#8217;s home directory and making the user&#8217;s mailbox available.
+> *   **session** — This module interface configures and manages user sessions. Modules with this interface can also perform additional tasks that are needed to allow access, like mounting a user's home directory and making the user's mailbox available.
 > 
 > In a PAM configuration file, the module interface is the first field defined. For example:
 > 
 >     auth  required    pam_unix.so
 >     
 > 
-> This instructs PAM to use the pam_unix.so module&#8217;s auth interface.
+> This instructs PAM to use the pam_unix.so module's auth interface.
 > 
-> Module interface directives can be stacked, or placed upon one another, so that multiple modules are used together for one purpose. If a module&#8217;s control flag uses the sufficient or requisite value, then the order in which the modules are listed is important to the authentication process.
+> Module interface directives can be stacked, or placed upon one another, so that multiple modules are used together for one purpose. If a module's control flag uses the sufficient or requisite value, then the order in which the modules are listed is important to the authentication process.
 > 
 > Stacking makes it easy for an administrator to require specific conditions to exist before allowing the user to authenticate. For example, the reboot command normally uses several stacked modules, as seen in its PAM configuration file:
 > 
@@ -1016,9 +1016,9 @@ From the same Guide:
 >     
 >     The argument **retry=3** specifies that if the test fails the first time, the user has two more chances to create a strong password.
 > 
-> *   **password required pam\_unix.so shadow nullok use\_authtok** — This line specifies that if the program changes the user&#8217;s **password**, using the password interface of the **pam_unix.so** module.
+> *   **password required pam\_unix.so shadow nullok use\_authtok** — This line specifies that if the program changes the user's **password**, using the password interface of the **pam_unix.so** module.
 >     
->     *   The argument **shadow** instructs the module to create shadow passwords when updating a user&#8217;s password.
+>     *   The argument **shadow** instructs the module to create shadow passwords when updating a user's password.
 >     *   The argument **nullok** instructs the module to allow the user to change their password from a blank password, otherwise a null password is treated as an account lock.
 >     *   The final argument on this line, **use_authtok**, provides a good example of the importance of order when stacking PAM modules. This argument instructs the module not to prompt the user for a new password. Instead, it accepts any password that was recorded by a previous password module. In this way, all new passwords must pass the **pam_cracklib.so** test for secure passwords before being accepted.
 > 
@@ -1030,7 +1030,7 @@ The <a href="https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterpri
 
 > **Forcing Strong Passwords**
 > 
-> To protect the network from intrusion it is a good idea for system administrators to verify that the passwords used within an organization are strong ones. When users are asked to create or change passwords, they can use the command line application **passwd**, which is **Pluggable Authentication Modules (PAM)** aware and therefore checks to see if the password is too short or otherwise easy to crack. This check is performed using the **pam_cracklib.so** PAM module. In Red Hat Enterprise Linux, the **pam_cracklib** PAM module can be used to check a password&#8217;s strength against a set of rules. It can be stacked alongside other PAM modules in the password component of the **/etc/pam.d/passwd** file to configure a custom set of rules for user login. The **pam_cracklib**&#8216;s routine consists of two parts: it checks whether the password provided is found in a dictionary, and, if that&#8217;s not the case, it continues with a number of additional checks. For a complete list of these checks, refer to the **pam_cracklib**(8) manual page.
+> To protect the network from intrusion it is a good idea for system administrators to verify that the passwords used within an organization are strong ones. When users are asked to create or change passwords, they can use the command line application **passwd**, which is **Pluggable Authentication Modules (PAM)** aware and therefore checks to see if the password is too short or otherwise easy to crack. This check is performed using the **pam_cracklib.so** PAM module. In Red Hat Enterprise Linux, the **pam_cracklib** PAM module can be used to check a password's strength against a set of rules. It can be stacked alongside other PAM modules in the password component of the **/etc/pam.d/passwd** file to configure a custom set of rules for user login. The **pam_cracklib**'s routine consists of two parts: it checks whether the password provided is found in a dictionary, and, if that's not the case, it continues with a number of additional checks. For a complete list of these checks, refer to the **pam_cracklib**(8) manual page.
 > 
 > **Configuring password strength-checking with pam_cracklib**
 > 
@@ -1044,7 +1044,7 @@ The <a href="https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterpri
 >     password   required     pam_cracklib.so retry=3 maxsequence=3 maxrepeat=3
 >     
 > 
-> In this example, the password entered cannot contain more than 3 consecutive characters, such as &#8220;abcd&#8221; or &#8220;1234&#8243;. Additionally, the number of identical consecutive characters is limited to 3.
+> In this example, the password entered cannot contain more than 3 consecutive characters, such as "abcd" or "1234". Additionally, the number of identical consecutive characters is limited to 3.
 
 ### Locking Inactive Accounts with PAM
 
@@ -1105,7 +1105,7 @@ From the Security Guide:
 >     authconfig --enablepamaccess --update
 >     
 > 
-> Alternatively, you can enable the **pam_access** module using the Authentication Configuration utility. To start this utility, select **System** -> **Administration** -> **Authentication** from the top menu. From the Advanced Options tab, check the &#8220;**enable local access control option**&#8220;. This will add the **pam_access** module to the systemwide PAM configuration.
+> Alternatively, you can enable the **pam_access** module using the Authentication Configuration utility. To start this utility, select **System** -> **Administration** -> **Authentication** from the top menu. From the Advanced Options tab, check the "**enable local access control option**". This will add the **pam_access** module to the systemwide PAM configuration.
 
 ### Time-based Restriction of Access with PAM
 
@@ -1139,14 +1139,14 @@ From the Security Guide:
 
 ### PAM In Action
 
-So let&#8217;s try this out. I want to lock a user out after 3 failed login attempts. We were playing around with account management before, let&#8217;s see if they are still on the system:
+So let's try this out. I want to lock a user out after 3 failed login attempts. We were playing around with account management before, let's see if they are still on the system:
 
     [root@rhel2 ~]# tail -2 /etc/passwd
     user1:x:500:500::/home/user1:/bin/bash
     user2:x:501:501::/home/user2:/bin/bash
     
 
-So let&#8217;s check out the available PAM modules on the system:
+So let's check out the available PAM modules on the system:
 
     [root@rhel2 ~]# ls /lib/security/
     pam_access.so     pam_keyinit.so    pam_permit.so       pam_tally2.so
@@ -1167,7 +1167,7 @@ So let&#8217;s check out the available PAM modules on the system:
     pam_issue.so      pam_passwdqc.so   pam_succeed_if.so   pam_xauth.so
     
 
-Now let&#8217;s check out which module can lock accounts:
+Now let's check out which module can lock accounts:
 
     [root@rhel2 ~]# grep -i lock /usr/share/doc/pam-0.99.6.2/txts/* | awk '{print $1}' | uniq
     /usr/share/doc/pam-0.99.6.2/txts/README.pam_console:while
@@ -1203,7 +1203,7 @@ After looking through that file, it looks like we need the following:
     auth        required      pam_tally2.so  file=/var/log/tallylog deny=3 unlock_time=1200
     
 
-But where to put it? First let&#8217;s see how our **passwd** pam configuration looks like:
+But where to put it? First let's see how our **passwd** pam configuration looks like:
 
     [root@rhel2 ~]# cat /etc/pam.d/passwd 
     #%PAM-1.0
@@ -1212,7 +1212,7 @@ But where to put it? First let&#8217;s see how our **passwd** pam configuration 
     password   include  system-auth
     
 
-It looks like it uses the **system-auth** configuration, so let&#8217;s check out the **auth** sections of that file:
+It looks like it uses the **system-auth** configuration, so let's check out the **auth** sections of that file:
 
     [root@rhel2 ~]# grep ^auth /etc/pam.d/system-auth
     auth        required      pam_env.so
@@ -1221,7 +1221,7 @@ It looks like it uses the **system-auth** configuration, so let&#8217;s check ou
     auth        required      pam_deny.so
     
 
-That looks like it&#8217;s our file. So let&#8217;s add our line to the top. Then let&#8217;s add the following to the account section:
+That looks like it's our file. So let's add our line to the top. Then let's add the following to the account section:
 
     account     required      pam_tally2.so
     
@@ -1263,7 +1263,7 @@ You will also see the following in the **/var/log/secure** log:
     Mar  2 09:25:09 rhel2 sshd[9389]: pam_tally2(sshd:auth): user user1 (500) tally 4, deny 3
     
 
-If you don&#8217;t want to wait 20 minutes to release the lock you can manually reset the user&#8217;s failed login count:
+If you don't want to wait 20 minutes to release the lock you can manually reset the user's failed login count:
 
     [root@rhel2 ~]# pam_tally2 --user=user1 -r
     Login           Failures Latest failure     From
@@ -1286,12 +1286,12 @@ Then if you try to login, you will see the following message:
 
 ### PAM in Action again
 
-Now let&#8217;s block *user2* from logging in via ssh and allow *user1* to only login from a specific IP. This was actually covered in the security guide but in separate steps. First let&#8217;s enable the **pam_access** module for sshd. This is done by adding the following to the **/etc/pam.d/sshd** file:
+Now let's block *user2* from logging in via ssh and allow *user1* to only login from a specific IP. This was actually covered in the security guide but in separate steps. First let's enable the **pam_access** module for sshd. This is done by adding the following to the **/etc/pam.d/sshd** file:
 
     account     required     pam_access.so
     
 
-Lastly let&#8217;s add the following to the **/etc/security/access.conf** file:
+Lastly let's add the following to the **/etc/security/access.conf** file:
 
     + : user1 : 192.168.2.2
     - : user2 : ALL
@@ -1305,7 +1305,7 @@ Now trying to login as user1, from the approriate IP, I get in:
     [user1@rhel2 ~]$ logout
     
 
-However trying the same thing with user2, I can&#8217;t login:
+However trying the same thing with user2, I can't login:
 
     [root@rhel1 ~]# ssh rhel2 -l user2
     user2@rhel2's password: 
@@ -1319,5 +1319,5 @@ Also on the rhel2 machine, we will see the following in the logs:
     Mar  2 09:35:24 rhel2 sshd[9506]: fatal: Access denied for user user2 by PAM account configuration
     
 
-Lastly don&#8217;t forget that you can change default password age and length using the **/etc/login.defs** file. This was covered in <a href="http://virtuallyhyper.com/2013/03/rhcsa-and-rhce-chapter-7-user-administration/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/03/rhcsa-and-rhce-chapter-7-user-administration/']);">RHCSA and RHCE Chapter 7</a>
+Lastly don't forget that you can change default password age and length using the **/etc/login.defs** file. This was covered in <a href="http://virtuallyhyper.com/2013/03/rhcsa-and-rhce-chapter-7-user-administration/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/03/rhcsa-and-rhce-chapter-7-user-administration/']);">RHCSA and RHCE Chapter 7</a>
 

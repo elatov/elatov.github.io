@@ -18,7 +18,7 @@ tags:
   - vHBA
   - vNIC
 ---
-I was recently using the UCS Manager CLI and I wanted to share my findings. You can SSH to the UCSM (UCS Manager) and then run commands to figure out information about your hardware configuration. Whenever working with Cisco UCS Servers, the first thing we need to figure out is how Service Profiles are used in a UCS Environment. Cisco has an excellent article about this entitled &#8220;<a href="http://www.cisco.com/en/US/prod/collateral/ps10265/ps10281/white_paper_c11-590518.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.cisco.com/en/US/prod/collateral/ps10265/ps10281/white_paper_c11-590518.pdf']);">Understanding Cisco Unified Computing System Service Profiles</a>&#8220;. Also from the &#8220;<a href="http://www.cisco.com/en/US/docs/unified_computing/ucs/sw/cli/config/guide/2.0/b_UCSM_CLI_Configuration_Guide_2_0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.cisco.com/en/US/docs/unified_computing/ucs/sw/cli/config/guide/2.0/b_UCSM_CLI_Configuration_Guide_2_0.pdf']);">Cisco UCS Manager CLI Configuration Guide, Release 2.0</a>&#8220;, I like their definition:
+I was recently using the UCS Manager CLI and I wanted to share my findings. You can SSH to the UCSM (UCS Manager) and then run commands to figure out information about your hardware configuration. Whenever working with Cisco UCS Servers, the first thing we need to figure out is how Service Profiles are used in a UCS Environment. Cisco has an excellent article about this entitled "<a href="http://www.cisco.com/en/US/prod/collateral/ps10265/ps10281/white_paper_c11-590518.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.cisco.com/en/US/prod/collateral/ps10265/ps10281/white_paper_c11-590518.pdf']);">Understanding Cisco Unified Computing System Service Profiles</a>". Also from the "<a href="http://www.cisco.com/en/US/docs/unified_computing/ucs/sw/cli/config/guide/2.0/b_UCSM_CLI_Configuration_Guide_2_0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.cisco.com/en/US/docs/unified_computing/ucs/sw/cli/config/guide/2.0/b_UCSM_CLI_Configuration_Guide_2_0.pdf']);">Cisco UCS Manager CLI Configuration Guide, Release 2.0</a>", I like their definition:
 
 > Service profiles are the central concept of Cisco UCS. Each service profile serves a specific purpose: ensuring that the associated server hardware has the configuration required to support the applications it will host.
 > 
@@ -67,7 +67,7 @@ So first find out what is the name of the server that you are working with. You 
 	p2-b250-3 Instance 1/3 Assigned Associated  
 	
 
-Each Server has a Service Profile Attached to it. I will be working with p2-b200-1 Service Profile, which corresponds to Chassis 1, Server 2. So let&#8217;s check out the HBAs that are available for this server:
+Each Server has a Service Profile Attached to it. I will be working with p2-b200-1 Service Profile, which corresponds to Chassis 1, Server 2. So let's check out the HBAs that are available for this server:
 
 	  
 	p2-ucsm-A# scope chassis 1  
@@ -200,7 +200,7 @@ You can see that vHBA1 (fc0) is from WWPN\_Pod2\_A and vHBA2 (fc1) is from WWPN\
 	WWPN\_Pod2\_B Port Wwn Assignment 3 3  
 	
 
-We are using the bottom two. Just to see the pattern of the pool let&#8217;s check out one of them:
+We are using the bottom two. Just to see the pattern of the pool let's check out one of them:
 
 	  
 	p2-ucsm-A# scope org  
@@ -294,7 +294,7 @@ We can see our connection path is to A and B, both of our fabrics. For each Fabr
 	B 10.102.100.15 10.102.100.1 255.255.255.0 Operable  
 	
 
-Usually you setup &#8220;pinning&#8221; to pin you HBAs and NICs to a certain IO module, for load balancing. From the Config Guide:
+Usually you setup "pinning" to pin you HBAs and NICs to a certain IO module, for load balancing. From the Config Guide:
 
 > Pinning in Cisco UCS is only relevant to uplink ports. You can pin Ethernet or FCoE traffic from a given  
 > server to a specific uplink Ethernet port or uplink FC port.
@@ -420,7 +420,7 @@ To see how the physical ports correspond to the virtual ports on the Fabric Inte
 	8911 Up Active No Protection Unprotected 0/0 0/0 Ether  
 	
 
-So let&#8217;s connect to FI (Fabric Interconnect) A and see if we can confirm the virtual port of fc0 (remember the WWPN of that vHBA is the following 20:00:00:25:B5:02:0A:02). There are two ways to go about it. First we can find the interface our self and make sure it corresponds with 720:
+So let's connect to FI (Fabric Interconnect) A and see if we can confirm the virtual port of fc0 (remember the WWPN of that vHBA is the following 20:00:00:25:B5:02:0A:02). There are two ways to go about it. First we can find the interface our self and make sure it corresponds with 720:
 
 	  
 	p2-ucsm-A# connect nxos a  
@@ -441,7 +441,7 @@ So let&#8217;s connect to FI (Fabric Interconnect) A and see if we can confirm t
 	vfc720 205 0xd40005 20:00:00:25:b5:02:0a:02 20:00:00:25:b5:02:00:02 fc2/1  
 	
 
-That actually looks good, we see that it corresponds to vfc720 and it&#8217;s on vSAN 205. We can go further and make sure the config matches our server and the interface is up:
+That actually looks good, we see that it corresponds to vfc720 and it's on vSAN 205. We can go further and make sure the config matches our server and the interface is up:
 
 	  
 	p2-ucsm-A(nxos)# show run int vfc720
@@ -481,7 +481,7 @@ That actually looks good, we see that it corresponds to vfc720 and it&#8217;s on
 	Interface last changed at Fri Aug 10 19:25:38 2012  
 	
 
-That all looks good and we can see that it&#8217;s actually bound to Vethernet8912, so let&#8217;s check out that interface to make sure it&#8217;s good:
+That all looks good and we can see that it's actually bound to Vethernet8912, so let's check out that interface to make sure it's good:
 
 	  
 	p2-ucsm-A(nxos)# show run int Vethernet8912
@@ -519,7 +519,7 @@ That all looks good and we can see that it&#8217;s actually bound to Vethernet89
 	0 output packet drops  
 	
 
-We can see that the description matches our port &#8220;server 1/2, VHBA fc0&#8243; which is what we were trying to track down.
+We can see that the description matches our port "server 1/2, VHBA fc0" which is what we were trying to track down.
 
 We can do a similar thing for eth0 (vNic1) as well.  
 	  
@@ -698,7 +698,7 @@ If you want to see what WWPNs are used for the boot from SAN you can run the fol
 	Access: Read Only  
 	
 
-Now we can see that we will connect to first &#8220;50:0A:09:83:8D:1F:72:B5&#8243; using fc0 and then to &#8220;50:0A:09:84:8D:1F:72:B5&#8243;. If that doesn&#8217;t work we will use fc1 to either connect to &#8220;50:0A:09:83:8D:1F:72:B5&#8243; or &#8220;50:0A:09:84:8D:1F:72:B5&#8243;. To see the available boot-order policies you can run the following:
+Now we can see that we will connect to first "50:0A:09:83:8D:1F:72:B5" using fc0 and then to "50:0A:09:84:8D:1F:72:B5". If that doesn't work we will use fc1 to either connect to "50:0A:09:83:8D:1F:72:B5" or "50:0A:09:84:8D:1F:72:B5". To see the available boot-order policies you can run the following:
 
 	  
 	p2-ucsm-A# scope org  

@@ -13,7 +13,7 @@ tags:
 ---
 ### Based on key phases of enterprise vSphere 5 implementations, map customer development needs to a standard implementation plan template.
 
-Most organizations have a pre-built template for these designs. Actually Duncan Epping blogged about it in &#8220;<a href="http://www.yellow-bricks.com/2011/02/02/using-the-vsphere-plan-design-kit/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.yellow-bricks.com/2011/02/02/using-the-vsphere-plan-design-kit/']);">Using the vSphere Plan & Design Kit</a>&#8220;. Here is an example from from the blog:
+Most organizations have a pre-built template for these designs. Actually Duncan Epping blogged about it in "<a href="http://www.yellow-bricks.com/2011/02/02/using-the-vsphere-plan-design-kit/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.yellow-bricks.com/2011/02/02/using-the-vsphere-plan-design-kit/']);">Using the vSphere Plan & Design Kit</a>". Here is an example from from the blog:
 
 > Just to give an example of something that I see in 90% of the designs I review:
 > 
@@ -36,7 +36,7 @@ Here is a small example of an implementation plan:
 
 ### Incorporate customer objectives into a phased implementation schedule
 
-From &#8220;<a href="http://download3.vmware.com/elq/pdf/wp_roadmaptovirtualinfrastructure.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://download3.vmware.com/elq/pdf/wp_roadmaptovirtualinfrastructure.pdf']);">The Roadmap to Virtual Infrastructure: Practical Implementation Strategies</a>&#8220;:
+From "<a href="http://download3.vmware.com/elq/pdf/wp_roadmaptovirtualinfrastructure.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://download3.vmware.com/elq/pdf/wp_roadmaptovirtualinfrastructure.pdf']);">The Roadmap to Virtual Infrastructure: Practical Implementation Strategies</a>":
 
 > **Typical Deployment Phasing**  
 > While the goal of virtualization is to improve operations and reduce cost, the best practice in deploying virtualization is to take a phased implementation approach where you focus on the following areas:
@@ -48,7 +48,7 @@ From &#8220;<a href="http://download3.vmware.com/elq/pdf/wp_roadmaptovirtualinfr
 
 ### Match customer skills and abilities to implementation resource requirements
 
-From &#8220;<a href="http://download3.vmware.com/elq/pdf/wp_roadmaptovirtualinfrastructure.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://download3.vmware.com/elq/pdf/wp_roadmaptovirtualinfrastructure.pdf']);">The Roadmap to Virtual Infrastructure: Practical Implementation Strategies</a>&#8220;:
+From "<a href="http://download3.vmware.com/elq/pdf/wp_roadmaptovirtualinfrastructure.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://download3.vmware.com/elq/pdf/wp_roadmaptovirtualinfrastructure.pdf']);">The Roadmap to Virtual Infrastructure: Practical Implementation Strategies</a>":
 
 > **Build a Virtualization Center of Excellence (2 to 4 weeks)**  
 > Build a core virtualization team. The team should be comprised of individuals with the following characteristics:

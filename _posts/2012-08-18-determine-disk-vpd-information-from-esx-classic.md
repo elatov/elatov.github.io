@@ -27,7 +27,7 @@ ESX issues an <a href="http://virtuallyhyper.com/wp-content/uploads/2014/01/spc3
 > 
 > If a SCSI device does not support a particular VPD page, it may respond to such a request with an error. Specifically, it may return SCSI Status 2 (Check Condition), with sense key 5 (Illegal Request) and additional sense code (ASC) and additional sense code qualifier (ASCQ) set to 0&#215;20/0&#215;0 or 0&#215;24/0&#215;0.
 
-Usually Local devices device don&#8217;t have page 83 information, but they do contain page 80 information. From the same KB:
+Usually Local devices device don't have page 83 information, but they do contain page 80 information. From the same KB:
 
 > Local storage devices often do not support VPD page 0&#215;83, and thus cannot be used for Raw Device Mappings (RDMs). The content of page 0&#215;83 is used as a unique identifier for the device.
 > 

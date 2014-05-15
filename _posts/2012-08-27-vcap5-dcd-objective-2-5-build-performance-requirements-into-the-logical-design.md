@@ -47,20 +47,20 @@ From the <a href="http://professionalvmware.com/2012/05/apac-vbrownbag-follow-up
 
 ### Using a conceptual design, create a logical design that meets performance requirements.
 
-Let&#8217;s say we say that we will have production VMs and development VMs. From the Conceptual design we will just have two different containers that represent each type of a VM. For the Logical Design we will have DRS Resource Pools and Tiered Storage. Here is an example take from a VMware article called &#8220;<a href="http://www.vmware.com/files/pdf/techpaper/VMW_10Q3_WP_vCloud_Director_Storage.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/techpaper/VMW_10Q3_WP_vCloud_Director_Storage.pdf']);">Storage Considerations for VMware vCloud Director</a>&#8220;:  
+Let's say we say that we will have production VMs and development VMs. From the Conceptual design we will just have two different containers that represent each type of a VM. For the Logical Design we will have DRS Resource Pools and Tiered Storage. Here is an example take from a VMware article called "<a href="http://www.vmware.com/files/pdf/techpaper/VMW_10Q3_WP_vCloud_Director_Storage.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/techpaper/VMW_10Q3_WP_vCloud_Director_Storage.pdf']);">Storage Considerations for VMware vCloud Director</a>":  
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/RP-tiered_storage.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/RP-tiered_storage.png']);"><img class="alignnone size-full wp-image-2793" title="RP-tiered_storage" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/RP-tiered_storage.png" alt="RP tiered storage VCAP5 DCD Objective 2.5 – Build Performance Requirements into the Logical Design" width="467" height="321" /></a>
 
 ### Identify performance-related functional requirements based on given non-functional requirements and service dependencies
 
-Let&#8217;s say a non-functional requirement is we can only spend $50,000 for our storage needs. This will of course translate to what kind of disks we can afford, SSD Vs. SAS and how many of the disks. Depending on what type and how many disk we buy, we will limited to certain amount of IOPS.
+Let's say a non-functional requirement is we can only spend $50,000 for our storage needs. This will of course translate to what kind of disks we can afford, SSD Vs. SAS and how many of the disks. Depending on what type and how many disk we buy, we will limited to certain amount of IOPS.
 
 ### Define capacity management practices and create a capacity plan
 
-From the linked document in the blue print &#8220;<a href="http://communities.vmware.com/docs/DOC-11484" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/docs/DOC-11484']);">Proven Practice: Implementing ITIL v3 Capacity Management in a VMware environment</a>&#8220;:
+From the linked document in the blue print "<a href="http://communities.vmware.com/docs/DOC-11484" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/docs/DOC-11484']);">Proven Practice: Implementing ITIL v3 Capacity Management in a VMware environment</a>":
 
 > A key goal for Capacity management is to provide value to the business; this can be done to great effect using VMware and consolidation. Using consolidation it is possible to reduce the number of physical servers and to utilize those reduced physical servers at a more optimal rate.  
-> &#8230;  
-> &#8230;  
+> ...  
+> ...  
 > Within Business Capacity Management we are looking to provide metrics to demonstrate our value to the business and whether we are meeting their requirements. The sort of metrics we could look at producing are:
 > 
 > *   % reduction in physical estate

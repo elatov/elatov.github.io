@@ -40,7 +40,7 @@ Make the file executable and run the installer with **sudo**:
 
 ## Compile the VMware Workstation Kernel Modules
 
-Before we do that, let&#8217;s install all the necessary pre-requisites:
+Before we do that, let's install all the necessary pre-requisites:
 
     elatov@kmac:~$sudo yum install kernel-headers gcc kernel-devel
     
@@ -105,13 +105,13 @@ Similar patches can be found <a href="http://mysticalzero.blogspot.com/2013/07/v
 
 ## Entering the License Number
 
-At this point I ran **vmware** from the command line and workstation started up fine. I wanted to enter my license key since the trial only runs for 30 days. I went to Help -> &#8220;Enter License Key..&#8221; and I saw the following:
+At this point I ran **vmware** from the command line and workstation started up fine. I wanted to enter my license key since the trial only runs for 30 days. I went to Help -> "Enter License Key.." and I saw the following:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/08/vmware-ws-enter-license-key.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/08/vmware-ws-enter-license-key.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/08/vmware-ws-enter-license-key.png" alt="vmware ws enter license key Installing VMware Workstation 9.0.2 on Fedora 19" width="819" height="471" class="alignnone size-full wp-image-9285" title="Installing VMware Workstation 9.0.2 on Fedora 19" /></a>
 
-I would click on &#8220;Enter License Key..&#8221; but nothing would happen. I found two sites that ran into the same issue:
+I would click on "Enter License Key.." but nothing would happen. I found two sites that ran into the same issue:
 
-*   <a href="http://askubuntu.com/questions/285373/cant-add-serial-code-activate-vmware-in-ubuntu-13-04" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://askubuntu.com/questions/285373/cant-add-serial-code-activate-vmware-in-ubuntu-13-04']);">Can&#8217;t add serial code/activate VMware in Ubuntu 13.04</a>
+*   <a href="http://askubuntu.com/questions/285373/cant-add-serial-code-activate-vmware-in-ubuntu-13-04" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://askubuntu.com/questions/285373/cant-add-serial-code-activate-vmware-in-ubuntu-13-04']);">Can't add serial code/activate VMware in Ubuntu 13.04</a>
 *   <a href="http://platonic.techfiz.info/2013/05/fix-unable-to-click-on-enter-license-key-for-vmware-workstation/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://platonic.techfiz.info/2013/05/fix-unable-to-click-on-enter-license-key-for-vmware-workstation/']);">Fix: Unable to click on Enter license key for VMWare Workstation</a>
 
 Both listed a fix, you can either run this:
@@ -128,13 +128,13 @@ The latter will launch a GUI, and you can enter the key into it. I used the firs
 
 ## Launch the VMware WorkStation Virtual Network Editor
 
-I tried to run the Virtual Network Editor from the VMware WorkStation but it wouldn&#8217;t do anything. I checked out **dmesg** and I saw the following:
+I tried to run the Virtual Network Editor from the VMware WorkStation but it wouldn't do anything. I checked out **dmesg** and I saw the following:
 
     elatov@kmac:~$dmesg -T | tail -1
     [Wed Aug 14 18:51:11 2013] vmware-gksu[6702]: segfault at 7fd0bfda24ab ip 00007fd0c4615196 sp 00007fff8df1f608 error 4 in libc-2.17.so[7fd0c44e4000+1b5000]
     
 
-It looks like **vmware-gksu** is crashing. **vmware-gksu** is a utility that comes with workstation and it&#8217;s gui to alleviate user&#8217;s privileges (kind of like **sudo**). Also checking out the application logs (under **/tmp**) I saw the following:
+It looks like **vmware-gksu** is crashing. **vmware-gksu** is a utility that comes with workstation and it's gui to alleviate user's privileges (kind of like **sudo**). Also checking out the application logs (under **/tmp**) I saw the following:
 
     elatov@kmac:/tmp/vmware-elatov$tail vmware-apploader-9319.log
     2013-08-14T19:07:48.046-07:00| appLoader| I120: GLib: glib_minor_version: Comparing 36 with 36

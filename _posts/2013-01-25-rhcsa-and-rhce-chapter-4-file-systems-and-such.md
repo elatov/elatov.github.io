@@ -40,7 +40,7 @@ tags:
 ---
 ### File Systems
 
-After we have partitioned our drives to our heart&#8217;s desire, we should actually start using them. The first thing that we need to do is put a file system on our partitions so we can later mount them. From &#8220;<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Storage_Administration_Guide/Red_Hat_Enterprise_Linux-6-Storage_Administration_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Storage_Administration_Guide/Red_Hat_Enterprise_Linux-6-Storage_Administration_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Storage Administration Guide</a>&#8220;, here are some file systems that are supported my RHEL:
+After we have partitioned our drives to our heart's desire, we should actually start using them. The first thing that we need to do is put a file system on our partitions so we can later mount them. From "<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Storage_Administration_Guide/Red_Hat_Enterprise_Linux-6-Storage_Administration_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Storage_Administration_Guide/Red_Hat_Enterprise_Linux-6-Storage_Administration_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Storage Administration Guide</a>", here are some file systems that are supported my RHEL:
 
 > **2&#46;2. Overview of Supported File Systems**
 > 
@@ -68,7 +68,7 @@ Now here is the process to format a partition with **ext3**:
 >     
 >     By default, the installation program uses the mount point of the partition as the label to make sure the label is unique. You can use any label you want.
 
-So let&#8217;s try it out. Let&#8217;s create a single partition on our **sdb** drive and then format that partition with **ext2**:
+So let's try it out. Let's create a single partition on our **sdb** drive and then format that partition with **ext2**:
 
     [root@rhel01 ~]# parted /dev/sdb
     GNU Parted 2.1
@@ -139,7 +139,7 @@ Now to put an **ext2** filesystem on our newly created partition:
 
 #### Converting Ext2 to Ext3
 
-The biggest difference between **ext2** and **ext3** is that **ext3** has journaling. So let&#8217;s convert our file system from **ext2** to **ext3**. From the same guide:
+The biggest difference between **ext2** and **ext3** is that **ext3** has journaling. So let's convert our file system from **ext2** to **ext3**. From the same guide:
 
 > **8&#46;2. Converting to an Ext3 File System**
 > 
@@ -150,7 +150,7 @@ The biggest difference between **ext2** and **ext3** is that **ext3** has journa
 > 
 > where **block_device** contains the **ext2** file system you wish to convert.
 
-So let&#8217;s try that out:
+So let's try that out:
 
     [root@rhel01 ~]# tune2fs -j /dev/sdb1
     tune2fs 1.41.12 (17-May-2010)
@@ -159,7 +159,7 @@ So let&#8217;s try that out:
     180 days, whichever comes first. Use tune2fs -c or -i to override.
     
 
-To check if the filesystem is ext3, you can use **dumpe2fs** to query the file system and if it you see &#8216;**has_journal**&#8216; as a file system feature that means it&#8217;s ext3 or above:
+To check if the filesystem is ext3, you can use **dumpe2fs** to query the file system and if it you see '**has_journal**' as a file system feature that means it's ext3 or above:
 
     [root@rhel01 ~]# dumpe2fs -h /dev/sdb1 | grep has_journal
     dumpe2fs 1.41.12 (17-May-2010)
@@ -249,7 +249,7 @@ Now moving through the guide:
 >     mount [option…] device directory
 >     
 > 
-> The **device** can be identified by a full path to a block device (for example, &#8220;/dev/sda3&#8243;), a universally unique identifier (UUID; for example, &#8220;UUID=34795a28-ca6d-4fd8-a347-73671d0c19cb&#8221;), or a volume label (for example, “LABEL=home”). Note that while a file system is mounted, the original content of the **directory** is not accessible.
+> The **device** can be identified by a full path to a block device (for example, "/dev/sda3"), a universally unique identifier (UUID; for example, "UUID=34795a28-ca6d-4fd8-a347-73671d0c19cb"), or a volume label (for example, “LABEL=home”). Note that while a file system is mounted, the original content of the **directory** is not accessible.
 > 
 > When the **mount** command is run without all required information (that is, without the device name, the target directory, or the file system type), it reads the content of the **/etc/fstab** configuration file to see if the given file system is listed. This file contains a list of device names and the directories in which the selected file systems should be mounted, as well as the file system type and mount options. Because of this, when mounting a file system that is specified in this file, you can use one of the following variants of the command:
 > 
@@ -268,7 +268,7 @@ Now moving through the guide:
 > 
 > <a href="http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-4-file-systems-and-such/fs_for_mount/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-4-file-systems-and-such/fs_for_mount/']);" rel="attachment wp-att-5804"><img class="alignnone size-full wp-image-5804" alt="fs for mount RHCSA and RHCE Chapter 4 File Systems and Such" src="http://virtuallyhyper.com/wp-content/uploads/2013/01/fs_for_mount.png" width="694" height="348" title="RHCSA and RHCE Chapter 4 File Systems and Such" /></a>
 
-So let&#8217;s go ahead and mount my new file system by device:
+So let's go ahead and mount my new file system by device:
 
     [root@rhel01 ~]# mount /dev/sdb1 /mnt
     [root@rhel01 ~]# df -h | grep sdb
@@ -277,7 +277,7 @@ So let&#8217;s go ahead and mount my new file system by device:
 
 #### Unmounting a File System
 
-Now let&#8217;s un-mount the device. From the storage guide:
+Now let's un-mount the device. From the storage guide:
 
 > **7&#46;3. Unmounting a File System**
 > 
@@ -386,7 +386,7 @@ After a file system is mounted you can then put files on it. From the same guide
 > 
 > **6&#46;2.1.1. Gathering File System Information**
 > 
-> The **df** command reports the system&#8217;s disk space usage.
+> The **df** command reports the system's disk space usage.
 > 
 > The **du** command displays the estimated amount of space being used by files in a directory, displaying the disk usage of each subdirectory. The last line in the output of du shows the total disk usage of the directory; to see only the total disk usage of a directory in human-readable format, use **du -hs**.
 
@@ -396,7 +396,7 @@ I already showed **df**, now for **du**:
     20K /mnt 
     
 
-I just mounted the file system, I didn&#8217;t put any files on it.
+I just mounted the file system, I didn't put any files on it.
 
 ### Swap File System
 
@@ -471,7 +471,7 @@ Another popular file system is a swap file system. From the storage guide:
 > 
 > To test if the new swap file was successfully created, use **cat /proc/swaps** or **free** to inspect the swap space.
 
-Let&#8217;s un-mount **sdb1** and then remove it and re-create marking it for swap. Currently we have the following:
+Let's un-mount **sdb1** and then remove it and re-create marking it for swap. Currently we have the following:
 
     [root@rhel01 ~]# parted /dev/sdb print
     Model: VMware Virtual disk (scsi)
@@ -483,7 +483,7 @@ Let&#8217;s un-mount **sdb1** and then remove it and re-create marking it for sw
     1 1049kB 8590MB 8589MB primary ext3
     
 
-Notice the file system field is filled out, this happens after you do a **mkfs** on it. If you look in the previous section that field was blank. So let&#8217;s remove the partition and re-add it as a swap partition:
+Notice the file system field is filled out, this happens after you do a **mkfs** on it. If you look in the previous section that field was blank. So let's remove the partition and re-add it as a swap partition:
 
     [root@rhel01 ~]# parted /dev/sdb
     GNU Parted 2.1
@@ -513,14 +513,14 @@ Notice the file system field is filled out, this happens after you do a **mkfs**
     1 1049kB 8590MB 8589MB primary ext3
     
 
-Notice the field hasn&#8217;t changed. So now let&#8217;s make that partition into a swap partition:
+Notice the field hasn't changed. So now let's make that partition into a swap partition:
 
     [root@rhel01 ~]# mkswap /dev/sdb1
     Setting up swapspace version 1, size = 8387580 KiB
     no label, UUID=68e2ffa6-9aee-40f4-8594-e5b947d221c2
     
 
-Now let&#8217;s activate it:
+Now let's activate it:
 
     [root@rhel01 ~]# swapon -v /dev/sdb1
     swapon on /dev/sdb1
@@ -544,7 +544,7 @@ The top one is the system created one, and the bottom one is the one I just crea
     1 1049kB 8590MB 8589MB primary linux-swap(v1)
     
 
-So **parted** actually checks the file system and if it&#8217;s known type it will fill it in. Now also checking out **free**:
+So **parted** actually checks the file system and if it's known type it will fill it in. Now also checking out **free**:
 
     [root@rhel01 ~]# free -m
     total used free shared buffers cached
@@ -604,7 +604,7 @@ Now onto the removing section:
 >         # rm /swapfile
 >         
 
-So let&#8217;s go ahead and disable my swap partition:
+So let's go ahead and disable my swap partition:
 
     [root@rhel01 ~]# swapoff -v /dev/sdb1
     swapoff on /dev/sdb1
@@ -628,9 +628,9 @@ Through out the guide we see the mention of the **/etc/fstab** file. From the st
 
 > **5&#46;2.3. Add to /etc/fstab**
 > 
-> As root, edit the **/etc/fstab** file to include the new partition using the partition&#8217;s UUID. Use the command **blkid -o list** for a complete list of the partition&#8217;s UUID, or **blkid device** for individual device details.
+> As root, edit the **/etc/fstab** file to include the new partition using the partition's UUID. Use the command **blkid -o list** for a complete list of the partition's UUID, or **blkid device** for individual device details.
 > 
-> The first column should contain **UUID=** followed by the file system&#8217;s UUID. The second column should contain the mount point for the new partition, and the next column should be the file system type (for example, ext3 or swap). If you need more information about the format, read the man page with the command **man fstab**.
+> The first column should contain **UUID=** followed by the file system's UUID. The second column should contain the mount point for the new partition, and the next column should be the file system type (for example, ext3 or swap). If you need more information about the format, read the man page with the command **man fstab**.
 > 
 > If the fourth column is the word **defaults**, the partition is mounted at boot time. To mount the partition without rebooting, as root, type the command:
 > 
@@ -655,7 +655,7 @@ Here is how my file looked like:
     proc /proc proc defaults 0 0
     
 
-Notice that either the device or the uuid of the device are used. So let&#8217;s reformat our **sdb1** partition as **ext3** and add it to our **/etc/fstab** file and then mount it. First let&#8217;s check out what file system on there now:
+Notice that either the device or the uuid of the device are used. So let's reformat our **sdb1** partition as **ext3** and add it to our **/etc/fstab** file and then mount it. First let's check out what file system on there now:
 
     [root@rhel01 ~]# parted /dev/sdb print
     Model: VMware Virtual disk (scsi)
@@ -667,7 +667,7 @@ Notice that either the device or the uuid of the device are used. So let&#8217;s
     1 1049kB 8590MB 8589MB primary linux-swap(v1)
     
 
-Not let&#8217;s format it with **ext3**:
+Not let's format it with **ext3**:
 
     [root@rhel01 ~]# mkfs.ext3 /dev/sdb1
     mke2fs 1.41.12 (17-May-2010)
@@ -706,7 +706,7 @@ Now checking out the output of **parted**:
     1 1049kB 8590MB 8589MB primary ext3
     
 
-That looks good. Now to add an entry to **/etc/fstab**. Let&#8217;s look at the man page of fstab (**man 5 fstab**) to see all the fields defined:
+That looks good. Now to add an entry to **/etc/fstab**. Let's look at the man page of fstab (**man 5 fstab**) to see all the fields defined:
 
        The first field, (fs_spec),  describes  the  block  special  device  or
        remote filesystem to be mounted.
@@ -769,7 +769,7 @@ Our third field will be **ext3**. Then if we keep going:
        specific.  For more details, see mount(8).
     
 
-We won&#8217;t be doing anything special, so our 4th field will be **defaults**. The next field:
+We won't be doing anything special, so our 4th field will be **defaults**. The next field:
 
      The  fifth  field,  (fs_freq),  is  used  for  these filesystems by the
        dump(8) command to determine which filesystems need to be  dumped.   If
@@ -777,7 +777,7 @@ We won&#8217;t be doing anything special, so our 4th field will be **defaults**.
        will assume that the filesystem does not need to be dumped.
     
 
-I don&#8217;t need backups of this file system so I will use **** for the fifth field. And lastly:
+I don't need backups of this file system so I will use **** for the fifth field. And lastly:
 
      The sixth field, (fs_passno), is used by the fsck(8) program to  deter-
        mine the order in which filesystem checks are done at reboot time.  The
@@ -810,7 +810,7 @@ Now checking out the file:
     /dev/sdb1 /mnt ext3 defaults 0 0
     
 
-I could probably format it better, but I will remove it in a little bit anyways. Now that the entry exists, I can mount the file system by just specifying one of the 1st two entries (ie **/dev/sdb1** or **/mnt**). So let&#8217;s try it:
+I could probably format it better, but I will remove it in a little bit anyways. Now that the entry exists, I can mount the file system by just specifying one of the 1st two entries (ie **/dev/sdb1** or **/mnt**). So let's try it:
 
     [root@rhel01 ~]# mount /dev/sdb1
     [root@rhel01 ~]# df -h | grep sdb
@@ -822,7 +822,7 @@ and same thing goes for **umount**:
     [root@rhel01 ~]# umount /mnt 
     
 
-The last thing I saw in &#8220;<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Deployment Guide</a>&#8221; is the following:
+The last thing I saw in "<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Deployment Guide</a>" is the following:
 
 > **E.2.21. /proc/mounts**
 > 
@@ -842,17 +842,17 @@ So as you mount a file system on a machine you can check **/etc/mtab** or **/pro
 
 ### Device Encryption
 
-Now if we wanted to encrypt a file system we can also do that. From &#8220;<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Installation Guide</a>&#8220;:
+Now if we wanted to encrypt a file system we can also do that. From "<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Installation Guide</a>":
 
 > **C.1. What is block device encryption?**
 > 
-> Block device encryption protects the data on a block device by encrypting it. To access the device&#8217;s decrypted contents, a user must provide a passphrase or key as authentication. This provides additional security beyond existing OS security mechanisms in that it protects the device&#8217;s contents even if it has been physically removed from the system.
+> Block device encryption protects the data on a block device by encrypting it. To access the device's decrypted contents, a user must provide a passphrase or key as authentication. This provides additional security beyond existing OS security mechanisms in that it protects the device's contents even if it has been physically removed from the system.
 > 
 > **C.2. Encrypting block devices using dm-crypt/LUKS**
 > 
 > Linux Unified Key Setup (LUKS) is a specification for block device encryption. It establishes an on-disk format for the data, as well as a passphrase/key management policy.
 > 
-> LUKS uses the kernel device mapper subsystem via the **dm-crypt** module. This arrangement provides a low-level mapping that handles encryption and decryption of the device&#8217;s data. User-level operations, such as creating and accessing encrypted devices, are accomplished through the use of the **cryptsetup** utility.
+> LUKS uses the kernel device mapper subsystem via the **dm-crypt** module. This arrangement provides a low-level mapping that handles encryption and decryption of the device's data. User-level operations, such as creating and accessing encrypted devices, are accomplished through the use of the **cryptsetup** utility.
 > 
 > **C.2.1. Overview of LUKS**
 > 
@@ -880,7 +880,7 @@ Now if we wanted to encrypt a file system we can also do that. From &#8220;<a hr
 
 ### LUKS Encrypted Device
 
-Now let&#8217;s see how this is actually done:
+Now let's see how this is actually done:
 
 > **C.4. Creating Encrypted Block Devices on the Installed System After Installation**
 > 
@@ -917,16 +917,16 @@ Now let&#8217;s see how this is actually done:
 >     cryptsetup luksDump device
 >     
 > 
-> **C.4.4. Create a mapping to allow access to the device&#8217;s decrypted contents**
+> **C.4.4. Create a mapping to allow access to the device's decrypted contents**
 > 
-> To access the device&#8217;s decrypted contents, a mapping must be established using the kernel **device-mapper**.
+> To access the device's decrypted contents, a mapping must be established using the kernel **device-mapper**.
 > 
-> It is useful to choose a meaningful name for this mapping. LUKS provides a UUID (Universally Unique Identifier) for each device. This, unlike the device name (eg: **/dev/sda3**), is guaranteed to remain constant as long as the LUKS header remains intact. To find a LUKS device&#8217;s UUID, run the following command:
+> It is useful to choose a meaningful name for this mapping. LUKS provides a UUID (Universally Unique Identifier) for each device. This, unlike the device name (eg: **/dev/sda3**), is guaranteed to remain constant as long as the LUKS header remains intact. To find a LUKS device's UUID, run the following command:
 > 
 >     cryptsetup luksUUID device
 >     
 > 
-> An example of a reliable, informative and unique mapping name would be **luks-uuid**, where **uuid** is replaced with the device&#8217;s LUKS UUID (eg: **luks-50ec957a-5b5a-47ee-85e6-f8085bbc97a8**). This naming convention might seem unwieldy but is it not necessary to type it often.
+> An example of a reliable, informative and unique mapping name would be **luks-uuid**, where **uuid** is replaced with the device's LUKS UUID (eg: **luks-50ec957a-5b5a-47ee-85e6-f8085bbc97a8**). This naming convention might seem unwieldy but is it not necessary to type it often.
 > 
 >     cryptsetup luksOpen device name
 >     
@@ -952,20 +952,20 @@ Now let&#8217;s see how this is actually done:
 > 
 > **C.4.6. Add the mapping information to /etc/crypttab**
 > 
-> In order for the system to set up a mapping for the device, an entry must be present in the **/etc/crypttab** file. If the file doesn&#8217;t exist, create it and change the owner and group to **root** (**root:root**) and change the mode to **0744**. Add a line to the file with the following format:
+> In order for the system to set up a mapping for the device, an entry must be present in the **/etc/crypttab** file. If the file doesn't exist, create it and change the owner and group to **root** (**root:root**) and change the mode to **0744**. Add a line to the file with the following format:
 > 
 >     name device none
 >     
 > 
-> The **device** field should be given in the form &#8220;**UUID=<luks_uuid></luks_uuid>**&#8220;, where **luks_uuid** is the LUKS uuid as given by the command **cryptsetup luksUUID device**. This ensures the correct device will be identified and used even if the device node (eg: **/dev/sda5**) changes.
+> The **device** field should be given in the form "**UUID=<luks_uuid></luks_uuid>**", where **luks_uuid** is the LUKS uuid as given by the command **cryptsetup luksUUID device**. This ensures the correct device will be identified and used even if the device node (eg: **/dev/sda5**) changes.
 > 
 > **C.4.7. Add an entry to /etc/fstab**
 > 
 > Add an entry to **/etc/fstab**. This is only necessary if you want to establish a persistent association between the device and a mountpoint. Use the decrypted device, **/dev/mapper/name** in the\*\* /etc/fstab\*\* file.
 > 
-> In many cases it is desirable to list devices in **/etc/fstab** by UUID or by a filesystem label. The main purpose of this is to provide a constant identifier in the event that the device name (eg: **/dev/sda4**) changes. LUKS device names in the form of **/dev/mapper/luks-luks_uuid** are based only on the device&#8217;s LUKS UUID, and are therefore guaranteed to remain constant. This fact makes them suitable for use in **/etc/fstab**.
+> In many cases it is desirable to list devices in **/etc/fstab** by UUID or by a filesystem label. The main purpose of this is to provide a constant identifier in the event that the device name (eg: **/dev/sda4**) changes. LUKS device names in the form of **/dev/mapper/luks-luks_uuid** are based only on the device's LUKS UUID, and are therefore guaranteed to remain constant. This fact makes them suitable for use in **/etc/fstab**.
 
-So let&#8217;s give it a try with my **/dev/sdb1** partition. First let&#8217;s fill it with random data, using the quick method:
+So let's give it a try with my **/dev/sdb1** partition. First let's fill it with random data, using the quick method:
 
     [root@rhel01 ~]# badblocks -c 10240 -s -w -t random -v /dev/sdb1
     Checking for bad blocks in read-write mode
@@ -975,7 +975,7 @@ So let&#8217;s give it a try with my **/dev/sdb1** partition. First let&#8217;s 
     Pass completed, 0 bad blocks found.
     
 
-Now let&#8217;s format the device as a LUKS Encrypted device:
+Now let's format the device as a LUKS Encrypted device:
 
     [root@rhel01 ~]# cryptsetup luksFormat /dev/sdb1
     
@@ -988,19 +988,19 @@ Now let&#8217;s format the device as a LUKS Encrypted device:
     Verify passphrase:
     
 
-Now let&#8217;s confirm that it was successfully formatted:
+Now let's confirm that it was successfully formatted:
 
     [root@rhel01 ~]# cryptsetup isLuks /dev/sdb1 && echo Success
     Success
     
 
-You would see the following if it didn&#8217;t work for some reason:
+You would see the following if it didn't work for some reason:
 
     [root@rhel01 ~]# cryptsetup isLuks /dev/sdb1 && echo Success
     Device /dev/sdb1 is not a valid LUKS device.
     
 
-Now let&#8217;s see the details of our encrypted device:
+Now let's see the details of our encrypted device:
 
     [root@rhel01 ~]# cryptsetup luksDump /dev/sdb1
     LUKS header information for /dev/sdb1
@@ -1024,13 +1024,13 @@ We can see the algorithms used for the device encryption. We can also see the UU
     4bf8105f-aca1-4d13-8977-1495ca2d2a99
     
 
-Now let&#8217;s go ahead and create a mapping to the de-crypted device and give the mapping a name:
+Now let's go ahead and create a mapping to the de-crypted device and give the mapping a name:
 
     [root@rhel01 ~]# cryptsetup luksOpen /dev/sdb1 my_enc_dev
     Enter passphrase for /dev/sdb1:
     
 
-To confirm that it worked let&#8217;s make sure the mapping exists:
+To confirm that it worked let's make sure the mapping exists:
 
     [root@rhel01 ~]# dmsetup ls
     VolGroup-lv_swap    (253:1)
@@ -1079,7 +1079,7 @@ That looks good. Now to format our mapped device:
     180 days, whichever comes first. Use tune2fs -c or -i to override.
     
 
-Now notice parted doesn&#8217;t know the file system of the partition but it does know it for the de-crypted mapped device:
+Now notice parted doesn't know the file system of the partition but it does know it for the de-crypted mapped device:
 
     [root@rhel01 ~]# parted /dev/sdb print
     Model: VMware Virtual disk (scsi)
@@ -1100,13 +1100,13 @@ Now notice parted doesn&#8217;t know the file system of the partition but it doe
     1 0.00B 8587MB 8587MB ext4
     
 
-This is of course expected since the partition is encrypted by LUKS. If you don&#8217;t want to keep re-creating the mapped device, you can add the following to your **/etc/crypttab** file:
+This is of course expected since the partition is encrypted by LUKS. If you don't want to keep re-creating the mapped device, you can add the following to your **/etc/crypttab** file:
 
     [root@rhel01 ~]# cat /etc/crypttab
     my_enc_dev UUID=4bf8105f-aca1-4d13-8977-1495ca2d2a99 none
     
 
-Now after rebooting the machine the mapping will be re-created automatically and you won&#8217;t have to run **cryptsetup luksOpen** to create a mapping every time you reboot the machine. However since when the mapping is created you need to first de-crypt the device with the password and the boot process will pause and wait for the passphrase to be entered. If you want go further you can entry to the **/etc/fstab** file but if you set it to be auto mounted, the same things applies, you will need to enter the password in order for the device to be de-crypted first. Oh and don&#8217;t forget to set the mode of the **/etc/crypttab** file to be **744**. Here is what I did to ensure that:
+Now after rebooting the machine the mapping will be re-created automatically and you won't have to run **cryptsetup luksOpen** to create a mapping every time you reboot the machine. However since when the mapping is created you need to first de-crypt the device with the password and the boot process will pause and wait for the passphrase to be entered. If you want go further you can entry to the **/etc/fstab** file but if you set it to be auto mounted, the same things applies, you will need to enter the password in order for the device to be de-crypted first. Oh and don't forget to set the mode of the **/etc/crypttab** file to be **744**. Here is what I did to ensure that:
 
     [root@rhel01 ~]# chmod 744 /etc/crypttab
     [root@rhel01 ~]# ls -l /etc/crypttab
@@ -1127,7 +1127,7 @@ If a file system is mounted with special options it can enable special functions
 > 
 > The **quota** RPM must be installed to implement disk quotas.
 
-Before we keep going let&#8217;s go ahead and install the appropriate RPM:
+Before we keep going let's go ahead and install the appropriate RPM:
 
     [root@rhel01 ~]# yum install quota -y
     
@@ -1185,7 +1185,7 @@ Now to the actual configuration. From the storage guide:
 > 
 > After each quota-enabled file system is remounted run the **quotacheck** command.
 > 
-> The **quotacheck** command examines quota-enabled file systems and builds a table of the current disk usage per file system. The table is then used to update the operating system&#8217;s copy of disk usage. In addition, the file system&#8217;s disk quota files are updated.
+> The **quotacheck** command examines quota-enabled file systems and builds a table of the current disk usage per file system. The table is then used to update the operating system's copy of disk usage. In addition, the file system's disk quota files are updated.
 > 
 > To create the quota files (**aquota.user** and **aquota.group**) on the file system, use the **-c** option of the **quotacheck** command.
 > 
@@ -1268,7 +1268,7 @@ Now to the actual configuration. From the storage guide:
 > 
 > If quotas are implemented, they need some maintenance — mostly in the form of watching to see if the quotas are exceeded and making sure the quotas are accurate.
 > 
-> Of course, if users repeatedly exceed their quotas or consistently reach their soft limits, a system administrator has a few choices to make depending on what type of users they are and how much disk space impacts their work. The administrator can either help the user determine how to use less disk space or increase the user&#8217;s disk quota.
+> Of course, if users repeatedly exceed their quotas or consistently reach their soft limits, a system administrator has a few choices to make depending on what type of users they are and how much disk space impacts their work. The administrator can either help the user determine how to use less disk space or increase the user's disk quota.
 > 
 > **18&#46;2.1. Enabling and Disabling**
 > 
@@ -1318,9 +1318,9 @@ Now to the actual configuration. From the storage guide:
 >     # repquota -a
 >     
 > 
-> While the report is easy to read, a few points should be explained. The **&#8211;** displayed after each user is a quick way to determine whether the block or inode limits have been exceeded. If either soft limit is exceeded, a **+** appears in place of the corresponding **-**; the first **-** represents the block limit, and the second represents the inode limit.
+> While the report is easy to read, a few points should be explained. The **-** displayed after each user is a quick way to determine whether the block or inode limits have been exceeded. If either soft limit is exceeded, a **+** appears in place of the corresponding **-**; the first **-** represents the block limit, and the second represents the inode limit.
 
-Let&#8217;s go ahead and setup our sdb1 partition to have user quotas. First let&#8217;s remove the encryption from that partition:
+Let's go ahead and setup our sdb1 partition to have user quotas. First let's remove the encryption from that partition:
 
     [root@rhel01 ~]# dmsetup ls
     VolGroup-lv_swap    (253:1)
@@ -1332,7 +1332,7 @@ Let&#8217;s go ahead and setup our sdb1 partition to have user quotas. First let
     VolGroup-lv_root    (253:0)
     
 
-That looks good. Now let&#8217;s format device as a regular ext3 partition:
+That looks good. Now let's format device as a regular ext3 partition:
 
     [root@rhel01 ~]# mkfs.ext3 /dev/sdb1
     mke2fs 1.41.12 (17-May-2010)
@@ -1359,7 +1359,7 @@ That looks good. Now let&#8217;s format device as a regular ext3 partition:
     180 days, whichever comes first. Use tune2fs -c or -i to override.
     
 
-Let&#8217;s make sure there is not **luks** header left:
+Let's make sure there is not **luks** header left:
 
     [root@rhel01 ~]# cryptsetup isLuks /dev/sdb1
     Device /dev/sdb1 is not a valid LUKS device.
@@ -1371,7 +1371,7 @@ That looks good. Also remove the **/etc/crypttab** file if that was setup. I had
     /dev/sdb1 /mnt ext3 defaults 0 0
     
 
-Now let&#8217;s mount that partition:
+Now let's mount that partition:
 
     [root@rhel01 ~]# mount /mnt
     [root@rhel01 ~]# df -h | grep sdb
@@ -1439,7 +1439,7 @@ We can also use **quotaon** to confirm that quota has been enabled on this files
     /dev/sdb1 [/mnt]: user quotas turned on
     
 
-Now let&#8217;s add a user called user1 and enable quotas to be soft at 20M,hard at 25M, and set the grace period to be 2 days.
+Now let's add a user called user1 and enable quotas to be soft at 20M,hard at 25M, and set the grace period to be 2 days.
 
     [root@rhel01 ~]# adduser user1
     [root@rhel01 ~]# getent passwd user1
@@ -1488,7 +1488,7 @@ We can even see that a warning shows up saying that I have exceeded the soft quo
     /dev/sdb1 20508* 20000 25000 47:59 4 0 0
     
 
-Notice the grace column has already started and it&#8217;s at 47:59 hours. So I went over the soft limit, but what will happen if I go over the hard limit. Let&#8217;s create another file with a size of 5MB and that will go above the hard limit:
+Notice the grace column has already started and it's at 47:59 hours. So I went over the soft limit, but what will happen if I go over the hard limit. Let's create another file with a size of 5MB and that will go above the hard limit:
 
     [user1@rhel01 test]$ dd if=/dev/zero of=dd2 bs=1M count=5
     sdb1: write failed, user block limit reached.
@@ -1557,7 +1557,7 @@ Going down the guide:
 >     LABEL=/work /work ext3 acl 1 2
 >     
 > 
-> If an **ext3** file system is accessed via **Samba** and ACLs have been enabled for it, the ACLs are recognized because Samba has been compiled with the **&#8211;with-acl-support** option. No special flags are required when accessing or mounting a Samba
+> If an **ext3** file system is accessed via **Samba** and ACLs have been enabled for it, the ACLs are recognized because Samba has been compiled with the **-with-acl-support** option. No special flags are required when accessing or mounting a Samba
 > 
 > **19&#46;1.1. NFS**
 > 
@@ -1659,7 +1659,7 @@ Going down the guide:
 >     default:other::r-x
 >     
 
-Let&#8217;s try this out, let&#8217;s mount our **sdb1** partition with the **acl** flag and then create a file with the user root and then add ACLs to allow user1 to edit the same file. To mount the partition with **acl** support I added the following to my **/etc/fstab** entry:
+Let's try this out, let's mount our **sdb1** partition with the **acl** flag and then create a file with the user root and then add ACLs to allow user1 to edit the same file. To mount the partition with **acl** support I added the following to my **/etc/fstab** entry:
 
     [root@rhel01 ~]# tail -1 /etc/fstab
     /dev/sdb1 /mnt ext3 defaults,usrquota,acl 0 0
@@ -1672,7 +1672,7 @@ Now to remount the file system to enable the new ACL functions:
     /dev/sdb1 on /mnt type ext3 (rw,usrquota,acl)
     
 
-That looks good. Now as root let&#8217;s create a file and check out it&#8217;s permissions:
+That looks good. Now as root let's create a file and check out it's permissions:
 
     [root@rhel01 ~]# cd /mnt
     [root@rhel01 mnt]# touch root_file
@@ -1680,7 +1680,7 @@ That looks good. Now as root let&#8217;s create a file and check out it&#8217;s 
     -rw-r--r--. 1 root root 0 Jan 6 18:13 root_file
     
 
-Now checking it&#8217;s ACLs, I see the following:
+Now checking it's ACLs, I see the following:
 
     [root@rhel01 mnt]# getfacl root_file
     # file: root_file
@@ -1691,7 +1691,7 @@ Now checking it&#8217;s ACLs, I see the following:
     other::r--
     
 
-So only root can write to that file, let&#8217;s try writing data to file as root and then as user user1:
+So only root can write to that file, let's try writing data to file as root and then as user user1:
 
     [root@rhel01 mnt]# echo test >> /tmp/root_file
     [root@rhel01 mnt]# cat /mnt/root_file
@@ -1701,7 +1701,7 @@ So only root can write to that file, let&#8217;s try writing data to file as roo
     -bash: /mnt/root_file: Permission denied
     
 
-We can see that user1 cannot edit the file. Now let&#8217;s enable user1 to be able to write to that file with ACLs with root:
+We can see that user1 cannot edit the file. Now let's enable user1 to be able to write to that file with ACLs with root:
 
     [root@rhel01 mnt]# setfacl -m u:user1:rw /mnt/root_file
     [root@rhel01 mnt]# getfacl /mnt/root_file
@@ -1715,7 +1715,7 @@ We can see that user1 cannot edit the file. Now let&#8217;s enable user1 to be a
     other::r--
     
 
-Now let&#8217;s switch user to user1 and try to edit the file:
+Now let's switch user to user1 and try to edit the file:
 
     [user1@rhel01 ~]$ echo test2 >> /mnt/root_file
     [user1@rhel01 ~]$ cat /mnt/root_file

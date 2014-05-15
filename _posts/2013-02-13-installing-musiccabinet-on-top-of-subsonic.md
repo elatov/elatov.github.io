@@ -33,9 +33,9 @@ A while back I <a href="http://virtuallyhyper.com/2012/10/installing-subsonic-on
 > 
 > MusicCabinet is an add-on for Subsonic. It uses the free musical knowledge gathered at Last.fm, to seamlessly: 
 
-It&#8217;s an add-on for *subsonic* and among other features it expands the searching functionality. 
+It's an add-on for *subsonic* and among other features it expands the searching functionality. 
 
-I couldn&#8217;t find any good instructions on how to install the add-on. The only link I found was <a href="http://forum.subsonic.org/forum/viewtopic.php?f=8&#038;t=10220" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://forum.subsonic.org/forum/viewtopic.php?f=8&t=10220']);">this</a> forum. The instructions were for an Ubuntu install and I was running Fedora. So I decided to write up instructions on how to install the plugin in Fedora on top of the *subsonic* RPM. Checking out the RPM, here are the files the original *subsonic* package contained:
+I couldn't find any good instructions on how to install the add-on. The only link I found was <a href="http://forum.subsonic.org/forum/viewtopic.php?f=8&#038;t=10220" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://forum.subsonic.org/forum/viewtopic.php?f=8&t=10220']);">this</a> forum. The instructions were for an Ubuntu install and I was running Fedora. So I decided to write up instructions on how to install the plugin in Fedora on top of the *subsonic* RPM. Checking out the RPM, here are the files the original *subsonic* package contained:
 
 	  
 	$ rpm -ql subsonic-4.7-3105.i386  
@@ -65,7 +65,7 @@ You have also need to java version 7 installed. I already had that installed:
 	OpenJDK Client VM (build 23.2-b09, mixed mode)  
 	
 
-I covered the install of java in the initial post <a href="http://virtuallyhyper.com/2012/10/installing-subsonic-on-fedora-17/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/10/installing-subsonic-on-fedora-17/']);">here</a>, check it out if necessary. Now let&#8217;s get started on the *MusicCabinet* install. 
+I covered the install of java in the initial post <a href="http://virtuallyhyper.com/2012/10/installing-subsonic-on-fedora-17/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/10/installing-subsonic-on-fedora-17/']);">here</a>, check it out if necessary. Now let's get started on the *MusicCabinet* install. 
 
 ### 1. Install and Setup PostgreSQL
 
@@ -87,14 +87,14 @@ Here is how the install looks like with *YUM*:
 	Complete!  
 	
 
-That went well, now let&#8217;s initialize the database:
+That went well, now let's initialize the database:
 
 	  
 	$ sudo postgresql-setup initdb  
 	Initializing database ... OK  
 	
 
-Next let&#8217;s enable the **postgresql** service and start it:
+Next let's enable the **postgresql** service and start it:
 
 	  
 	$ sudo systemctl enable postgresql.service  
@@ -191,13 +191,13 @@ That will be it for the **postgresql** setup.
 
 ### 2. Backup the Subsonic Database and Install Files
 
-The files are stored under **/var/subsonic**, so let&#8217;s tar that up. First let&#8217;s stop the subsonic service:
+The files are stored under **/var/subsonic**, so let's tar that up. First let's stop the subsonic service:
 
 	  
 	$ sudo systemctl stop subsonic.service  
 	
 
-Now let&#8217;s check the status:
+Now let's check the status:
 
 	  
 	$ sudo systemctl status subsonic.service  
@@ -212,7 +212,7 @@ Now let&#8217;s check the status:
 	Jan 30 17:28:15 moxz.dnsd.me subsonic[32425]: Stopping subsonic ...[ OK ]  
 	
 
-That looks good. Now let&#8217;s back up the data:
+That looks good. Now let's back up the data:
 
 	  
 	$ sudo tar cpvjf subsonic_backup.tar.bz2 /var/subsonic/  
@@ -221,7 +221,7 @@ That looks good. Now let&#8217;s back up the data:
 	...  
 	
 
-Since the application files go under **/usr/share/subsonic**, let&#8217;s backup those up as well:
+Since the application files go under **/usr/share/subsonic**, let's backup those up as well:
 
 	  
 	$ sudo tar cpvjf subsonic\_usr\_backup.tar.bz2 /usr/share/subsonic  
@@ -243,7 +243,7 @@ That looks good.
 
 ### 3. Download and Extract MusicCabinet
 
-This is pretty easy, let&#8217;s create a temporary directory and download the install file there:
+This is pretty easy, let's create a temporary directory and download the install file there:
 
 	  
 	$ mkdir files  
@@ -261,7 +261,7 @@ This is pretty easy, let&#8217;s create a temporary directory and download the i
 	2013-01-30 17:40:41 (380 KB/s) - \`subsonic-installer-standalone.zip' saved [29481485/29481485]  
 	
 
-Now let&#8217;s extract the contents:
+Now let's extract the contents:
 
 	  
 	$ unzip subsonic-installer-standalone.zip  
@@ -308,13 +308,13 @@ Here is how the files look after the copy:
 	-rw-r--r-- 1 root root 23130290 Jan 30 17:48 subsonic.war  
 	
 
-The permissions looks good. Now let&#8217;s start the subsonic service:
+The permissions looks good. Now let's start the subsonic service:
 
 	  
 	$ sudo systemctl start subsonic.service  
 	
 
-Now let&#8217;s make sure it stated up fine:
+Now let's make sure it stated up fine:
 
 	  
 	$ sudo systemctl status subsonic.service  
@@ -337,15 +337,15 @@ Visit the *subsonic* web page and the interface will look different:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/01/music-cabinet-subsonic.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/01/music-cabinet-subsonic.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/01/music-cabinet-subsonic.png" alt="music cabinet subsonic Installing MusicCabinet on Top of SubSonic" width="889" height="478" class="alignnone size-full wp-image-6005" title="Installing MusicCabinet on Top of SubSonic" /></a>
 
-Then go to &#8220;Settings&#8221; -> &#8220;MusicCabinet&#8221; and specify the postgres user password:
+Then go to "Settings" -> "MusicCabinet" and specify the postgres user password:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/01/subsonic-music-cabinet-settings.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/01/subsonic-music-cabinet-settings.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/01/subsonic-music-cabinet-settings.png" alt="subsonic music cabinet settings Installing MusicCabinet on Top of SubSonic" width="648" height="243" class="alignnone size-full wp-image-6006" title="Installing MusicCabinet on Top of SubSonic" /></a>
 
-After you type in the *postgres* password it will ask you to &#8220;Upgrade Database&#8221;:
+After you type in the *postgres* password it will ask you to "Upgrade Database":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/01/music_cabin_upgrade_db.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/01/music_cabin_upgrade_db.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/01/music_cabin_upgrade_db.png" alt="music cabin upgrade db Installing MusicCabinet on Top of SubSonic" width="737" height="213" class="alignnone size-full wp-image-6007" title="Installing MusicCabinet on Top of SubSonic" /></a>
 
-After it&#8217;s done updating the database, it will ask you to update your search index:
+After it's done updating the database, it will ask you to update your search index:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/01/music_cabinet_update_index.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/01/music_cabinet_update_index.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/01/music_cabinet_update_index.png" alt="music cabinet update index Installing MusicCabinet on Top of SubSonic" width="674" height="331" class="alignnone size-full wp-image-6008" title="Installing MusicCabinet on Top of SubSonic" /></a>
 
@@ -353,7 +353,7 @@ While the scan is going you can check the progress of the scan:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/01/music-cabinet-scan-progress.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/01/music-cabinet-scan-progress.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/01/music-cabinet-scan-progress.png" alt="music cabinet scan progress Installing MusicCabinet on Top of SubSonic" width="657" height="476" class="alignnone size-full wp-image-6009" title="Installing MusicCabinet on Top of SubSonic" /></a>
 
-While it&#8217;s indexing, you can also enable *lastfm* &#8216;scrobbling&#8217; by going to &#8220;Settings&#8221; -> &#8220;Personal&#8221;, if you scroll down a little bit you will an option to &#8220;Configure lastfm scrobbling&#8221;, like so:
+While it's indexing, you can also enable *lastfm* 'scrobbling' by going to "Settings" -> "Personal", if you scroll down a little bit you will an option to "Configure lastfm scrobbling", like so:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/01/music-cabinet-lastfm-scrobbling.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/01/music-cabinet-lastfm-scrobbling.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/01/music-cabinet-lastfm-scrobbling.png" alt="music cabinet lastfm scrobbling Installing MusicCabinet on Top of SubSonic" width="658" height="411" class="alignnone size-full wp-image-6033" title="Installing MusicCabinet on Top of SubSonic" /></a>
 
@@ -361,7 +361,7 @@ After the indexing is done, the settings page for *MusicCabinet* will look like 
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/01/music-cabinet-index-done.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/01/music-cabinet-index-done.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/01/music-cabinet-index-done.png" alt="music cabinet index done Installing MusicCabinet on Top of SubSonic" width="634" height="493" class="alignnone size-full wp-image-6035" title="Installing MusicCabinet on Top of SubSonic" /></a>
 
-Now if you search for something there will be an option to do an &#8220;Advanced Search&#8221;, here is how it looks like:
+Now if you search for something there will be an option to do an "Advanced Search", here is how it looks like:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/01/advanced_search_music_cabinet.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/01/advanced_search_music_cabinet.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/01/advanced_search_music_cabinet.png" alt="advanced search music cabinet Installing MusicCabinet on Top of SubSonic" width="614" height="309" class="alignnone size-full wp-image-6049" title="Installing MusicCabinet on Top of SubSonic" /></a>
 

@@ -27,12 +27,12 @@ I logged into the host and I tried to run an **esxcli** command and I saw the fo
     Connect to localhost failed: Connection failure
     
 
-It looks like **hostd** wasn&#8217;t happy. I quickly restarted services:
+It looks like **hostd** wasn't happy. I quickly restarted services:
 
     ~ # services.sh restart
     
 
-and that brought back **hostd** and the **MKS** errors went away. I didn&#8217;t have time to find out what was going on, so I grabbed a log bundle:
+and that brought back **hostd** and the **MKS** errors went away. I didn't have time to find out what was going on, so I grabbed a log bundle:
 
     ~ # vm-support
     
@@ -65,7 +65,7 @@ Around that time I saw the following in the **var/log/hostd.log** file:
     2013-08-12T13:48:25.650Z [6FE81B90 info 'ha-eventmgr'] Event 8573 : The file table of the ramdisk 'root' is full.  As a result, the file /var/run/vmware/tickets/vmtck-5206bb19-94d6-12 could not be created by the application 'hostd-worker'.
     
 
-There was actually an event fired for the &#8220;ramdisk&#8221; is full:
+There was actually an event fired for the "ramdisk" is full:
 
     2013-08-12T13:48:25.645Z [6EEC2B90 error 'Cimsvc'] Connect: Failed to get ticket, not connected to cimom
     2013-08-12T13:48:25.646Z [6FE81B90 info 'VmkVprobSource'] VmkVprobSource::Post event: (vim.event.EventEx) {

@@ -24,7 +24,7 @@ Some other people in the VMware communities have seen the same PSOD. Here is a <
 	Failed at vmkdrivers/src\_9/vmklinux\_9/vmware/linux_scsi.c:2221 -- NOT REACHED  
 	
 
-It looks like the local disk driver is having an issue. Checking out the host&#8217;s local controllers, I saw the following:
+It looks like the local disk driver is having an issue. Checking out the host's local controllers, I saw the following:
 
 	  
 	~ # lspci | grep vmhba  
@@ -122,5 +122,5 @@ So these version of the drivers are available:
 > 13.10.02.00.1vmw  
 > 14.00.00.00.1vmw
 
-Even though version &#8220;13.10.02.00.1vmw&#8221; wasn&#8217;t on HCL for this device, we went ahead and installed it on our hardware and the PSODs haven&#8217;t happened for over two weeks now. Here is the <a href="https://my.vmware.com/web/vmware/details?downloadGroup=DT-ESXI50-LSI-mpt2sas-131002001vmw&productId=24" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://my.vmware.com/web/vmware/details?downloadGroup=DT-ESXI50-LSI-mpt2sas-131002001vmw&productId=24']);">link</a> to that driver. Hopefully this helps someone out.
+Even though version "13.10.02.00.1vmw" wasn't on HCL for this device, we went ahead and installed it on our hardware and the PSODs haven't happened for over two weeks now. Here is the <a href="https://my.vmware.com/web/vmware/details?downloadGroup=DT-ESXI50-LSI-mpt2sas-131002001vmw&productId=24" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://my.vmware.com/web/vmware/details?downloadGroup=DT-ESXI50-LSI-mpt2sas-131002001vmw&productId=24']);">link</a> to that driver. Hopefully this helps someone out.
 

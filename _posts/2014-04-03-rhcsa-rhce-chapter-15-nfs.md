@@ -37,18 +37,18 @@ From the same guide:
 
 > Red Hat Enterprise Linux uses a combination of kernel-level support and daemon processes to provide NFS file sharing. All NFS versions rely on Remote Procedure Calls (RPC) between clients and servers. RPC services under Red Hat Enterprise Linux 6 are controlled by the **rpcbind** service. To share or mount NFS file systems, the following services work together depending on which version of NFS is implemented:
 > 
-> *   **nfs** &#8211; `service nfs start` starts the NFS server and the appropriate RPC processes to service requests for shared NFS file systems.
-> *   **nfslock** &#8211; `service nfslock start` activates a mandatory service that starts the appropriate RPC processes allowing NFS clients to lock files on the server.
-> *   **rpcbind** &#8211; **rpcbind** accepts port reservations from local RPC services. These ports are then made available (or advertised) so the corresponding remote RPC services can access them. **rpcbind** responds to requests for RPC services and sets up connections to the requested RPC service. This is not used with NFSv4.
+> *   **nfs** - `service nfs start` starts the NFS server and the appropriate RPC processes to service requests for shared NFS file systems.
+> *   **nfslock** - `service nfslock start` activates a mandatory service that starts the appropriate RPC processes allowing NFS clients to lock files on the server.
+> *   **rpcbind** - **rpcbind** accepts port reservations from local RPC services. These ports are then made available (or advertised) so the corresponding remote RPC services can access them. **rpcbind** responds to requests for RPC services and sets up connections to the requested RPC service. This is not used with NFSv4.
 > 
 > The following RPC processes facilitate NFS services:
 > 
 > *   **rpc.mountd**- This process is used by an NFS server to process **MOUNT** requests from NFSv2 and NFSv3 clients. It checks that the requested NFS share is currently exported by the NFS server, and that the client is allowed to access it. If the mount request is allowed, the **rpc.mountd** server replies with a **Success** status and provides the **File-Handle** for this NFS share back to the NFS client.
-> *   **rpc.nfsd** &#8211; **rpc.nfsd** allows explicit NFS versions and protocols the server advertises to be defined. It works with the Linux kernel to meet the dynamic demands of NFS clients, such as providing server threads each time an NFS client connects. This process corresponds to the **nfs** service.
-> *   **lockd** &#8211; **lockd** is a kernel thread which runs on both clients and servers. It implements the Network Lock Manager (NLM) protocol, which allows NFSv2 and NFSv3 clients to lock files on the server. It is started automatically whenever the NFS server is run and whenever an NFS file system is mounted.
+> *   **rpc.nfsd** - **rpc.nfsd** allows explicit NFS versions and protocols the server advertises to be defined. It works with the Linux kernel to meet the dynamic demands of NFS clients, such as providing server threads each time an NFS client connects. This process corresponds to the **nfs** service.
+> *   **lockd** - **lockd** is a kernel thread which runs on both clients and servers. It implements the Network Lock Manager (NLM) protocol, which allows NFSv2 and NFSv3 clients to lock files on the server. It is started automatically whenever the NFS server is run and whenever an NFS file system is mounted.
 > *   **rpc.statd**- This process implements the Network Status Monitor (NSM) RPC protocol, which notifies NFS clients when an NFS server is restarted without being gracefully brought down. **rpc.statd** is started automatically by the **nfslock** service, and does not require user configuration. This is not used with NFSv4.
 > *   **rpc.rquotad**- This process provides user quota information for remote users. **rpc.rquotad** is started automatically by the nfs service and does not require user configuration.
-> *   **rpc.idmapd** &#8211; **rpc.idmapd** provides NFSv4 client and server upcalls, which map between on-the-wire NFSv4 names (which are strings in the form of **user@domain**) and local UIDs and GIDs. For **idmapd** to function with NFSv4, the **/etc/idmapd.conf** file must be configured. This service is required for use with NFSv4, although not when all hosts share the same DNS domain name.
+> *   **rpc.idmapd** - **rpc.idmapd** provides NFSv4 client and server upcalls, which map between on-the-wire NFSv4 names (which are strings in the form of **user@domain**) and local UIDs and GIDs. For **idmapd** to function with NFSv4, the **/etc/idmapd.conf** file must be configured. This service is required for use with NFSv4, although not when all hosts share the same DNS domain name.
 
 ### Working with NFS Services
 
@@ -123,9 +123,9 @@ From the same guide:
 > 
 > The aforementioned structure uses the following variables:
 > 
-> *   **export** &#8211; The directory being exported
-> *   **host** &#8211; The host or network to which the export is being shared
-> *   **options** &#8211; The options to be used for host
+> *   **export** - The directory being exported
+> *   **host** - The host or network to which the export is being shared
+> *   **options** - The options to be used for host
 > 
 > It is possible to specify multiple hosts, along with specific options for each host. To do so, list them on the same line as a space-delimited list, with each hostname followed by its respective options (in parentheses), as in:
 > 
@@ -141,10 +141,10 @@ From the same guide:
 > 
 > The default settings are:
 > 
-> *   **ro** &#8211; The exported file system is read-only. Remote hosts cannot change the data shared on the file system. To allow hosts to make changes to the file system (that is, read/write), specify the rw option.
-> *   **sync** &#8211; The NFS server will not reply to requests before changes made by previous requests are written to disk. To enable asynchronous writes instead, specify the option async.
-> *   **wdelay** &#8211; The NFS server will delay writing to the disk if it suspects another write request is imminent. This can improve performance as it reduces the number of times the disk must be accesses by separate write commands, thereby reducing write overhead. To disable this, specify the **no_wdelay**. **no_wdelay** is only available if the default **sync** option is also specified.
-> *   **root_squash** &#8211; This prevents root users connected remotely (as opposed to locally) from having root privileges; instead, the NFS server will assign them the user ID nfsnobody. This effectively &#8220;squashes&#8221; the power of the remote root user to the lowest local user, preventing possible unauthorized writes on the remote server. To disable root squashing, specify **no\_root\_squash**.
+> *   **ro** - The exported file system is read-only. Remote hosts cannot change the data shared on the file system. To allow hosts to make changes to the file system (that is, read/write), specify the rw option.
+> *   **sync** - The NFS server will not reply to requests before changes made by previous requests are written to disk. To enable asynchronous writes instead, specify the option async.
+> *   **wdelay** - The NFS server will delay writing to the disk if it suspects another write request is imminent. This can improve performance as it reduces the number of times the disk must be accesses by separate write commands, thereby reducing write overhead. To disable this, specify the **no_wdelay**. **no_wdelay** is only available if the default **sync** option is also specified.
+> *   **root_squash** - This prevents root users connected remotely (as opposed to locally) from having root privileges; instead, the NFS server will assign them the user ID nfsnobody. This effectively "squashes" the power of the remote root user to the lowest local user, preventing possible unauthorized writes on the remote server. To disable root squashing, specify **no\_root\_squash**.
 > 
 > To squash every remote user (including root), use **all_squash**. To specify the user and group IDs that the NFS server should assign to remote users from a particular host, use the **anonuid** and **anongid** options, respectively, as in:
 > 
@@ -168,10 +168,10 @@ Here are the hostname formats from the same guide:
 
 > The host(s) can be in the following forms:
 > 
-> *   **Single machine** &#8211; A fully-qualified domain name (that can be resolved by the server), hostname (that can be resolved by the server), or an IP address.
-> *   **Series of machines specified with wildcards** &#8211; Use the \***** or **?** character to specify a string match. Wildcards are not to be used with IP addresses; however, they may accidentally work if reverse DNS lookups fail. When specifying wildcards in fully qualified domain names, dots (.) are not included in the wildcard. For example, ***.example.com** includes **one.example.com** but does not include **one.two.example.com**.
-> *   **IP networks** &#8211; Use **a.b.c.d/z**, where **a.b.c.d** is the network and **z** is the number of bits in the netmask (for example **192.168.0.0/24**). Another acceptable format is **a.b.c.d/netmask**, where **a.b.c.d** is the network and **netmask** is the netmask (for example, **192.168.100.8/255.255.255.0**).
-> *   **Netgroups** &#8211; Use the format **@group-name**, where **group-name** is the NIS netgroup name.
+> *   **Single machine** - A fully-qualified domain name (that can be resolved by the server), hostname (that can be resolved by the server), or an IP address.
+> *   **Series of machines specified with wildcards** - Use the \***** or **?** character to specify a string match. Wildcards are not to be used with IP addresses; however, they may accidentally work if reverse DNS lookups fail. When specifying wildcards in fully qualified domain names, dots (.) are not included in the wildcard. For example, ***.example.com** includes **one.example.com** but does not include **one.two.example.com**.
+> *   **IP networks** - Use **a.b.c.d/z**, where **a.b.c.d** is the network and **z** is the number of bits in the netmask (for example **192.168.0.0/24**). Another acceptable format is **a.b.c.d/netmask**, where **a.b.c.d** is the network and **netmask** is the netmask (for example, **192.168.100.8/255.255.255.0**).
+> *   **Netgroups** - Use the format **@group-name**, where **group-name** is the NIS netgroup name.
 
 #### exportfs Command
 
@@ -183,12 +183,12 @@ From the same guide:
 > 
 > The following is a list of commonly-used options available for **/usr/sbin/exportfs**:
 > 
-> *   **-r** &#8211; Causes all directories listed in **/etc/exports** to be exported by constructing a new export list in **/etc/lib/nfs/xtab**. This option effectively refreshes the export list with any changes made to **/etc/exports**.
-> *   **-a** &#8211; Causes all directories to be exported or unexported, depending on what other options are passed to **/usr/sbin/exportfs**. If no other options are specified, **/usr/sbin/exportfs** exports all file systems specified in **/etc/exports**.
-> *   **-o file-systems** &#8211; Specifies directories to be exported that are not listed in **/etc/exports**. Replace **file-systems** with additional file systems to be exported. These file systems must be formatted in the same way they are specified in **/etc/exports**. This option is often used to test an exported file system before adding it permanently to the list of file systems to be exported.
-> *   **-i** &#8211; Ignores **/etc/exports**; only options given from the command line are used to define exported file systems.
-> *   **-u** &#8211; Unexports all shared directories. The command `/usr/sbin/exportfs -ua` suspends NFS file sharing while keeping all NFS daemons up. To re-enable NFS sharing, use `exportfs -r`.
-> *   **-v** &#8211; Verbose operation, where the file systems being exported or unexported are displayed in greater detail when the exportfs command is executed. If no options are passed to the exportfs command, it displays a list of currently exported file systems. 
+> *   **-r** - Causes all directories listed in **/etc/exports** to be exported by constructing a new export list in **/etc/lib/nfs/xtab**. This option effectively refreshes the export list with any changes made to **/etc/exports**.
+> *   **-a** - Causes all directories to be exported or unexported, depending on what other options are passed to **/usr/sbin/exportfs**. If no other options are specified, **/usr/sbin/exportfs** exports all file systems specified in **/etc/exports**.
+> *   **-o file-systems** - Specifies directories to be exported that are not listed in **/etc/exports**. Replace **file-systems** with additional file systems to be exported. These file systems must be formatted in the same way they are specified in **/etc/exports**. This option is often used to test an exported file system before adding it permanently to the list of file systems to be exported.
+> *   **-i** - Ignores **/etc/exports**; only options given from the command line are used to define exported file systems.
+> *   **-u** - Unexports all shared directories. The command `/usr/sbin/exportfs -ua` suspends NFS file sharing while keeping all NFS daemons up. To re-enable NFS sharing, use `exportfs -r`.
+> *   **-v** - Verbose operation, where the file systems being exported or unexported are displayed in greater detail when the exportfs command is executed. If no options are passed to the exportfs command, it displays a list of currently exported file systems. 
 > 
 > In Red Hat Enterprise Linux 6, no extra steps are required to configure NFSv4 exports as any filesystems mentioned are automatically available to NFSv2, NFSv3, and NFSv4 clients using the same path. This was not the case in previous versions.
 > 
@@ -202,10 +202,10 @@ From the above guide:
 > 
 > The **/etc/sysconfig/nfs** may not exist by default on all systems. If it does not exist, create it and add the following variables, replacing port with an unused port number (alternatively, if the file exists, un-comment and change the default entries as required):
 > 
-> *   **MOUNTD_PORT=port** &#8211; Controls which TCP and UDP port **mountd** (**rpc.mountd**) uses.
-> *   **STATD_PORT=port** &#8211; Controls which TCP and UDP port status (**rpc.statd**) uses.
-> *   **LOCKD_TCPPORT=port** &#8211; Controls which TCP port nlockmgr (**lockd**) uses.
-> *   **LOCKD_UDPPORT=port** &#8211; Controls which UDP port nlockmgr (**lockd**) uses.
+> *   **MOUNTD_PORT=port** - Controls which TCP and UDP port **mountd** (**rpc.mountd**) uses.
+> *   **STATD_PORT=port** - Controls which TCP and UDP port status (**rpc.statd**) uses.
+> *   **LOCKD_TCPPORT=port** - Controls which TCP port nlockmgr (**lockd**) uses.
+> *   **LOCKD_UDPPORT=port** - Controls which UDP port nlockmgr (**lockd**) uses.
 > 
 > If NFS fails to start, check **/var/log/messages**. Normally, NFS will fail to start if you specify a port number that is already in use. After editing **/etc/sysconfig/nfs**, restart the NFS service using service nfs restart. Run the `rpcinfo -p` command to confirm the changes.
 > 
@@ -213,10 +213,10 @@ From the above guide:
 > 
 > 1.  Allow TCP and UDP port 2049 for NFS.
 > 2.  Allow TCP and UDP port 111 (rpcbind/sunrpc).
-> 3.  Allow the TCP and UDP port specified with MOUNTD_PORT=&#8221;port&#8221;
-> 4.  Allow the TCP and UDP port specified with STATD_PORT=&#8221;port&#8221;
-> 5.  Allow the TCP port specified with LOCKD_TCPPORT=&#8221;port&#8221;
-> 6.  Allow the UDP port specified with LOCKD_UDPPORT=&#8221;port&#8221;
+> 3.  Allow the TCP and UDP port specified with MOUNTD_PORT="port"
+> 4.  Allow the TCP and UDP port specified with STATD_PORT="port"
+> 5.  Allow the TCP port specified with LOCKD_TCPPORT="port"
+> 6.  Allow the UDP port specified with LOCKD_UDPPORT="port"
 
 ### NFS and rpcbind
 
@@ -231,12 +231,12 @@ From the Storage Administration Guide:
 
 ### NFSv4 Server Example Setup
 
-So let&#8217;s go ahead and configure an NFS server on our RH6 machine. First let&#8217;s install the necessary packages:
+So let's go ahead and configure an NFS server on our RH6 machine. First let's install the necessary packages:
 
     [root@rhel1 ~]# yum install nfs-utils
     
 
-Now let&#8217;s check out the services states:
+Now let's check out the services states:
 
     [root@rhel1 ~]# chkconfig --list | grep -E 'nfs|rpc'
     nfs             0:off   1:off   2:off   3:off   4:off   5:off   6:off
@@ -247,13 +247,13 @@ Now let&#8217;s check out the services states:
     rpcsvcgssd      0:off   1:off   2:off   3:off   4:off   5:off   6:off
     
 
-Now let&#8217;s enable **nfs** and since I am using version 4, let&#8217;s disable the **nfslock** service:
+Now let's enable **nfs** and since I am using version 4, let's disable the **nfslock** service:
 
     [root@rhel1 ~]# chkconfig nfs on
     [root@rhel1 ~]# chkconfig nfslock off
     
 
-Now let&#8217;s start the service and make sure it&#8217;s running:
+Now let's start the service and make sure it's running:
 
     [root@rhel1 ~]# service nfs start
     Starting NFS services:  
@@ -266,7 +266,7 @@ Now let&#8217;s start the service and make sure it&#8217;s running:
     nfsd (pid 13813 13812 13811 13810 13809 13808 13807 13806) is running...
     
 
-Also let&#8217;s make sure all the services are correctly registered with RPC:
+Also let's make sure all the services are correctly registered with RPC:
 
     [root@rhel1 ~]# rpcinfo -p |  awk '{ if (a[$5]++ == 0) print $0; }' "$@"
        program vers proto   port  service
@@ -277,7 +277,7 @@ Also let&#8217;s make sure all the services are correctly registered with RPC:
         100005    1   udp  34344  mountd
     
 
-Now let&#8217;s disable everything below version 4. This is done by editing **/etc/sysconfig/nfs** and uncommenting the following:
+Now let's disable everything below version 4. This is done by editing **/etc/sysconfig/nfs** and uncommenting the following:
 
     # Define which protocol versions mountd
     # will advertise. The values are "no" or "yes"
@@ -289,7 +289,7 @@ Now let&#8217;s disable everything below version 4. This is done by editing **/e
     RPCNFSDARGS="-N 2 -N 3"
     
 
-Now let&#8217;s restart the services and make sure the changes are applied:
+Now let's restart the services and make sure the changes are applied:
 
     [root@rhel1 ~]# service nfs restart
     Shutting down NFS mountd: rpc.mountd 
@@ -306,19 +306,19 @@ Now let&#8217;s restart the services and make sure the changes are applied:
 
 Now we can see that **mountd** is no longer registered with RPC and **nfs** is on version **4**.
 
-Now let&#8217;s create a directory which we will share with our RH5 client and allow access to that client.
+Now let's create a directory which we will share with our RH5 client and allow access to that client.
 
     [root@rhel1 ~]# mkdir /nfs
     [root@rhel1 ~]# echo "nfs test" > /nfs/file
     
 
-Now let&#8217;s add that directory to our **/etc/exports** file and allow write capabilities:
+Now let's add that directory to our **/etc/exports** file and allow write capabilities:
 
     [root@rhel1 ~]# cat /etc/exports 
     /nfs 192.168.2.3(rw,sync,sec=sys)
     
 
-Now let&#8217;s apply those settings:
+Now let's apply those settings:
 
     [root@rhel1 ~]# exportfs -rv
     exporting 192.168.2.3:/nfs
@@ -330,14 +330,14 @@ To check all the options assigned to the export we can check out the **/var/lib/
     /nfs    192.168.2.3(rw,sync,wdelay,hide,nocrossmnt,secure,root_squash,no_all_squash,no_subtree_check,secure_locks,acl,anonuid=65534,anongid=65534,sec=sys,rw,root_squash,no_all_squash)
     
 
-Lastly let&#8217;s open up port **2049** since that is all that we need for NFSv4:
+Lastly let's open up port **2049** since that is all that we need for NFSv4:
 
     [root@rhel1 ~]# iptables -I INPUT 14 -m state --state NEW -m tcp -p tcp --dport 2049 -j ACCEPT
     [root@rhel1 ~]# service iptables save
     iptables: Saving firewall rules to /etc/sysconfig/iptables: 
     
 
-Now we have an NFS server allowing 1 client to mount **/nfs** using version 4. So let&#8217;s move to the client section.
+Now we have an NFS server allowing 1 client to mount **/nfs** using version 4. So let's move to the client section.
 
 ### NFS Client configuration
 
@@ -350,10 +350,10 @@ From the Storage Administration Guide:
 > 
 > This command uses the following variables:
 > 
-> *   **options** &#8211; A comma-delimited list of mount options
-> *   **server** &#8211; The hostname, IP address, or fully qualified domain name of the server exporting the file system you wish to mount
-> *   **/remote/export** &#8211; The file system or directory being exported from the **server**, that is, the directory you wish to mount
-> *   **/local/directory** &#8211; The client location where **/remote/export** is mounted
+> *   **options** - A comma-delimited list of mount options
+> *   **server** - The hostname, IP address, or fully qualified domain name of the server exporting the file system you wish to mount
+> *   **/remote/export** - The file system or directory being exported from the **server**, that is, the directory you wish to mount
+> *   **/local/directory** - The client location where **/remote/export** is mounted
 > 
 > The NFS protocol version used in Red Hat Enterprise Linux 6 is identified by the mount options **nfsvers** or **vers**. By default, **mount** will use NFSv4 with `mount -t nfs`. If the server does not support NFSv4, the client will automatically step down to a version supported by the server. If the **nfsvers/vers** option is used to pass a particular version not supported by the server, the mount will fail. The file system type **nfs4** is also available for legacy reasons; this is equivalent to running `mount -t nfs -o nfsvers=4 host:/remote/export /local/directory`.
 > 
@@ -391,24 +391,24 @@ From the above guide:
 > 
 > The following are options commonly used for NFS mounts:
 > 
-> *   **intr** &#8211; Allows NFS requests to be interrupted if the server goes down or cannot be reached.
-> *   **lookupcache=mode** &#8211; Specifies how the kernel should manage its cache of directory entries for a given mount point. Valid arguments for **mode** are **all**, **none**, or **pos/positive**.
-> *   **nfsvers=version** &#8211; Specifies which version of the NFS protocol to use, where **version** is **2**, **3**, or **4**. This is useful for hosts that run multiple NFS servers. If no version is specified, NFS uses the highest version supported by the kernel and mount command.
+> *   **intr** - Allows NFS requests to be interrupted if the server goes down or cannot be reached.
+> *   **lookupcache=mode** - Specifies how the kernel should manage its cache of directory entries for a given mount point. Valid arguments for **mode** are **all**, **none**, or **pos/positive**.
+> *   **nfsvers=version** - Specifies which version of the NFS protocol to use, where **version** is **2**, **3**, or **4**. This is useful for hosts that run multiple NFS servers. If no version is specified, NFS uses the highest version supported by the kernel and mount command.
 >     
 >     The option **vers** is identical to **nfsvers**, and is included in this release for compatibility reasons.
 > 
-> *   **noacl** &#8211; Turns off all ACL processing. This may be needed when interfacing with older versions of Red Hat Enterprise Linux, Red Hat Linux, or Solaris, since the most recent ACL technology is not compatible with older systems.
+> *   **noacl** - Turns off all ACL processing. This may be needed when interfacing with older versions of Red Hat Enterprise Linux, Red Hat Linux, or Solaris, since the most recent ACL technology is not compatible with older systems.
 > 
-> *   **nolock** &#8211; Disables file locking. This setting is occasionally required when connecting to older NFS servers.
+> *   **nolock** - Disables file locking. This setting is occasionally required when connecting to older NFS servers.
 > 
-> *   **noexec** &#8211; Prevents execution of binaries on mounted file systems. This is useful if the system is mounting a non-Linux file system containing incompatible binaries.
+> *   **noexec** - Prevents execution of binaries on mounted file systems. This is useful if the system is mounting a non-Linux file system containing incompatible binaries.
 > 
-> *   nosuid &#8211; Disables **set-user-identifier** or **set-group-identifier** bits. This prevents remote users from gaining higher privileges by running a **setuid** program.
+> *   nosuid - Disables **set-user-identifier** or **set-group-identifier** bits. This prevents remote users from gaining higher privileges by running a **setuid** program.
 > 
-> *   **port=num** &#8211; Specifies the numeric value of the NFS server port. If **num** is **** (the default), then **mount** queries the remote host&#8217;s **rpcbind** service for the port number to use. If the remote host&#8217;s NFS daemon is not registered with its rpcbind service, the standard NFS port number of TCP **2049** is used instead.
+> *   **port=num** - Specifies the numeric value of the NFS server port. If **num** is **** (the default), then **mount** queries the remote host's **rpcbind** service for the port number to use. If the remote host's NFS daemon is not registered with its rpcbind service, the standard NFS port number of TCP **2049** is used instead.
 > 
-> *   **rsize=num and wsize=num** &#8211; These settings speed up NFS communication for reads (**rsize**) and writes (**wsize**) by setting a larger data block size (**num**, in bytes), to be transferred at one time. Be careful when changing these values; some older Linux kernels and network cards do not work well with larger block sizes. For NFSv2 or NFSv3, the default values for both parameters is set to **8192**. For NFSv4, the default values for both parameters is set to **32768**.
-> *   **sec=mode** &#8211; Specifies the type of security to utilize when authenticating an NFS connection. Its default setting is **sec=sys**, which uses local UNIX **UIDs** and **GIDs** by using **AUTH_SYS** to authenticate NFS operations.
+> *   **rsize=num and wsize=num** - These settings speed up NFS communication for reads (**rsize**) and writes (**wsize**) by setting a larger data block size (**num**, in bytes), to be transferred at one time. Be careful when changing these values; some older Linux kernels and network cards do not work well with larger block sizes. For NFSv2 or NFSv3, the default values for both parameters is set to **8192**. For NFSv4, the default values for both parameters is set to **32768**.
+> *   **sec=mode** - Specifies the type of security to utilize when authenticating an NFS connection. Its default setting is **sec=sys**, which uses local UNIX **UIDs** and **GIDs** by using **AUTH_SYS** to authenticate NFS operations.
 >     
 >     **sec=krb5** uses Kerberos V5 instead of local UNIX UIDs and GIDs to authenticate users.
 >     
@@ -416,23 +416,23 @@ From the above guide:
 >     
 >     **sec=krb5p** uses Kerberos V5 for user authentication, integrity checking, and encrypts NFS traffic to prevent traffic sniffing. This is the most secure setting, but it also involves the most performance overhead.
 > 
-> *   **tcp** &#8211; Instructs the NFS mount to use the TCP protocol.
+> *   **tcp** - Instructs the NFS mount to use the TCP protocol.
 > 
-> *   **udp** &#8211; Instructs the NFS mount to use the UDP protocol.
+> *   **udp** - Instructs the NFS mount to use the UDP protocol.
 
 ### NFS Client Example
 
-Now let&#8217;s install the same package on our RH5 machine and try to mount the share from our RH6 server:
+Now let's install the same package on our RH5 machine and try to mount the share from our RH6 server:
 
     [root@rhel2 ~]# yum install nfs-utils
     
 
-Now let&#8217;s create a local directory where I will mount the remote directory:
+Now let's create a local directory where I will mount the remote directory:
 
     [root@rhel2 ~]# mkdir /mnt/nfs
     
 
-Since RH5 uses NFSv3 by default during the mount, let&#8217;s specify the version and mount the remote directory:
+Since RH5 uses NFSv3 by default during the mount, let's specify the version and mount the remote directory:
 
     [root@rhel2 ~]# mount -t nfs4 192.168.2.2:/nfs /mnt/nfs
     [root@rhel2 ~]# 
@@ -473,14 +473,14 @@ Then from the client side, as user1, make sure you can write to the file:
     append
     
 
-If we wanted to, we could add the following to the RH5 machine&#8217;s **/etc/fstab** file to mount the NFS share on boot:
+If we wanted to, we could add the following to the RH5 machine's **/etc/fstab** file to mount the NFS share on boot:
 
     192.168.2.2:/nfs /mnt/nfs nfs4 rw,sync 0 0
     
 
 ### NFSv3 Server Example Setup
 
-Let&#8217;s switch the roles around and setup the RH5 machine to be an NFSv3 Server and have the RH6 machine be the client. We already have the packages installed on the RH5 system, so let&#8217;s start the NFS server:
+Let's switch the roles around and setup the RH5 machine to be an NFSv3 Server and have the RH6 machine be the client. We already have the packages installed on the RH5 system, so let's start the NFS server:
 
     [root@rhel2 ~]# service nfs start
     Starting NFS services:                                     [  OK  ]
@@ -489,7 +489,7 @@ Let&#8217;s switch the roles around and setup the RH5 machine to be an NFSv3 Ser
     Starting NFS mountd:                                       [  OK  ]
     
 
-Now let&#8217;s make sure all the RPC services are bound:
+Now let's make sure all the RPC services are bound:
 
     [root@rhel2 ~]# rpcinfo -p |  awk '{ if (a[$5]++ == 0) print $0; }' "$@"
        program vers proto   port
@@ -501,7 +501,7 @@ Now let&#8217;s make sure all the RPC services are bound:
         100005    1   udp    685  mountd
     
 
-Since we want to open up the firewall, let&#8217;s statically assign ports to the other RPC services. This is done by editing the **/etc/sysconfig/nfs** file and modifying the following lines:
+Since we want to open up the firewall, let's statically assign ports to the other RPC services. This is done by editing the **/etc/sysconfig/nfs** file and modifying the following lines:
 
     [root@rhel2 ~]# grep -vE '^$|^#' /etc/sysconfig/nfs
     LOCKD_TCPPORT=32803
@@ -523,7 +523,7 @@ Notice I also explicitly disabled NFSv4 (with the **RPCNFSDARGS** variable). Aft
         100024    1   udp    662  status
     
 
-Now let&#8217;s open up the firewall for the defined ports:
+Now let's open up the firewall for the defined ports:
 
     [root@rhel2 ~]# iptables -I RH-Firewall-1-INPUT 9 -m state --state NEW -m tcp -p tcp --dport 2049 -j ACCEPT
     [root@rhel2 ~]# iptables -I RH-Firewall-1-INPUT 9 -m state --state NEW -m udp -p udp --dport 2049 -j ACCEPT
@@ -543,7 +543,7 @@ Finally save the rules:
     Saving firewall rules to /etc/sysconfig/iptables:          [  OK  ]
     
 
-Now let&#8217;s setup our export:
+Now let's setup our export:
 
     [root@rhel2 ~]# mkdir /nfs
     [root@rhel2 ~]# cat /etc/exports 
@@ -564,7 +564,7 @@ Here are the options assigned to the export by default:
 
 ### NFSv3 Client
 
-Now from the RH6 machine let&#8217;s see what mounts are available. Since we are running **mountd**, we can use **showmount** to check available mounts on a remote server:
+Now from the RH6 machine let's see what mounts are available. Since we are running **mountd**, we can use **showmount** to check available mounts on a remote server:
 
     [root@rhel1 ~]# showmount -e 192.168.2.3
     Export list for 192.168.2.3:
@@ -617,27 +617,27 @@ From the same guide:
 
 > By default, mounted NFS volumes on the client side are labeled with a default context defined by policy for NFS. In common policies, this default context uses the **nfs_t** type. The following types are used with NFS. Different types allow you to configure flexible access:
 > 
-> *   **var\_lib\_nfs_t** &#8211; This type is used for existing and new files copied to or created in the **/var/lib/nfs/** directory. This type should not need to be changed in normal operation. To restore changes to the default settings, run the **restorecon -R -v /var/lib/nfs** command as the root user.
-> *   **nfsd\_exec\_t** &#8211; The **/usr/sbin/rpc.nfsd** file is labeled with the **nfsd\_exec\_t**, as are other system executables and libraries related to NFS. Users should not label any files with this type. **nfsd\_exec\_t** will transition to **nfsd_t**.
+> *   **var\_lib\_nfs_t** - This type is used for existing and new files copied to or created in the **/var/lib/nfs/** directory. This type should not need to be changed in normal operation. To restore changes to the default settings, run the **restorecon -R -v /var/lib/nfs** command as the root user.
+> *   **nfsd\_exec\_t** - The **/usr/sbin/rpc.nfsd** file is labeled with the **nfsd\_exec\_t**, as are other system executables and libraries related to NFS. Users should not label any files with this type. **nfsd\_exec\_t** will transition to **nfsd_t**.
 > 
 > SELinux is based on the least level of access required for a service to run. Services can be run in a variety of ways; therefore, you need to specify how you run your services. Use the following Booleans to set up SELinux:
 > 
-> *   **allow\_ftpd\_use_nfs** &#8211; When enabled, this Boolean allows the **ftpd** daemon to access NFS volumes.
-> *   **cobbler\_use\_nfs** &#8211; When enabled, this Boolean allows the **cobblerd** daemon to access NFS volumes.
-> *   **git\_system\_use_nfs** &#8211; When enabled, this Boolean allows the **Git** system daemon to read system shared repositories on NFS volumes.
-> *   **httpd\_use\_nfs** &#8211; When enabled, this Boolean allows the **httpd** daemon to access files stored on NFS volumes.
-> *   **qemu\_use\_nfs** &#8211; When enabled, this Boolean allows **Qemu** to use NFS volumes.
-> *   **rsync\_use\_nfs** &#8211; When enabled, this Boolean allows **rsync** servers to share NFS volumes.
-> *   **samba\_share\_nfs** &#8211; When enabled, this Boolean allows the **smbd** daemon to share NFS volumes. When disabled, this Boolean prevents **smbd** from having full access to NFS shares via Samba.
-> *   **sanlock\_use\_nfs** &#8211; When enabled, this Boolean allows the **sanlock** daemon to manage NFS volumes.
-> *   **sge\_use\_nfs** &#8211; When enabled, this Boolean allows the **sge** scheduler to access NFS volumes.
-> *   **use\_nfs\_home_dirs** &#8211; When enabled, this Boolean adds support for NFS home directories.
-> *   **virt\_use\_nfs** &#8211; When enabled, this Boolean allows confident virtual guests to manage files on NFS volumes.
+> *   **allow\_ftpd\_use_nfs** - When enabled, this Boolean allows the **ftpd** daemon to access NFS volumes.
+> *   **cobbler\_use\_nfs** - When enabled, this Boolean allows the **cobblerd** daemon to access NFS volumes.
+> *   **git\_system\_use_nfs** - When enabled, this Boolean allows the **Git** system daemon to read system shared repositories on NFS volumes.
+> *   **httpd\_use\_nfs** - When enabled, this Boolean allows the **httpd** daemon to access files stored on NFS volumes.
+> *   **qemu\_use\_nfs** - When enabled, this Boolean allows **Qemu** to use NFS volumes.
+> *   **rsync\_use\_nfs** - When enabled, this Boolean allows **rsync** servers to share NFS volumes.
+> *   **samba\_share\_nfs** - When enabled, this Boolean allows the **smbd** daemon to share NFS volumes. When disabled, this Boolean prevents **smbd** from having full access to NFS shares via Samba.
+> *   **sanlock\_use\_nfs** - When enabled, this Boolean allows the **sanlock** daemon to manage NFS volumes.
+> *   **sge\_use\_nfs** - When enabled, this Boolean allows the **sge** scheduler to access NFS volumes.
+> *   **use\_nfs\_home_dirs** - When enabled, this Boolean adds support for NFS home directories.
+> *   **virt\_use\_nfs** - When enabled, this Boolean allows confident virtual guests to manage files on NFS volumes.
 > *   **xen\_use\_nfs** When enabled, this Boolean allows **Xen** to manage files on NFS volumes.
-> *   **git\_cgi\_use_nfs** &#8211; When enabled, this Boolean allows the Git Common Gateway Interface (CGI) to access NFS volumes.
-> *   **tftp\_use\_nfs** &#8211; When enabled, this Boolean allows The Trivial File Transfer Protocol (**TFTP**) to read from NFS volumes for public file transfer services.
+> *   **git\_cgi\_use_nfs** - When enabled, this Boolean allows the Git Common Gateway Interface (CGI) to access NFS volumes.
+> *   **tftp\_use\_nfs** - When enabled, this Boolean allows The Trivial File Transfer Protocol (**TFTP**) to read from NFS volumes for public file transfer services.
 
-As mentioned above, by default SELinux allows NFS to share directories. I didn&#8217;t have to make any changes to my RH5 or RH6 systems. To check out the booleans available for NFS just run the **getseboolean** command. Here were the defaults on my system:
+As mentioned above, by default SELinux allows NFS to share directories. I didn't have to make any changes to my RH5 or RH6 systems. To check out the booleans available for NFS just run the **getseboolean** command. Here were the defaults on my system:
 
     [root@rhel1 ~]# getsebool -a | grep -i nfs
     allow_ftpd_use_nfs --> off

@@ -1,5 +1,5 @@
 ---
-title: 'RHCSA and RHCE Chapter 18 &#8211; DNS'
+title: 'RHCSA and RHCE Chapter 18 - DNS'
 author: Karim Elatov
 layout: post
 permalink: /2014/04/rhcsa-rhce-chapter-18-dns/
@@ -42,8 +42,8 @@ From the above guide:
 
 > There are two nameserver configuration types:
 > 
-> *   **authoritative** &#8211; Authoritative nameservers answer to resource records that are part of their zones only. This category includes both primary (master) and secondary (slave) nameservers.
-> *   **recursive** &#8211; Recursive nameservers offer resolution services, but they are not authoritative for any zone. Answers for all resolutions are cached in a memory for a fixed period of time, which is specified by the retrieved resource record.
+> *   **authoritative** - Authoritative nameservers answer to resource records that are part of their zones only. This category includes both primary (master) and secondary (slave) nameservers.
+> *   **recursive** - Recursive nameservers offer resolution services, but they are not authoritative for any zone. Answers for all resolutions are cached in a memory for a fixed period of time, which is specified by the retrieved resource record.
 > 
 > Although a nameserver can be both authoritative and recursive at the same time, it is recommended not to combine the configuration types. To be able to perform their work, authoritative servers should be available to all clients all the time. On the other hand, since the recursive lookup takes far more time than authoritative responses, recursive servers should be available to a restricted number of clients only, otherwise they are prone to distributed denial of service (DDoS) attacks.
 
@@ -59,8 +59,8 @@ From the same guide:
 
 > When the named service is started, it reads the configuration from the following file:
 > 
-> *   **/etc/named.conf** &#8211; The main configuration file.
-> *   **/etc/named/** &#8211; An auxiliary directory for configuration files that are included in the main configuration file.
+> *   **/etc/named.conf** - The main configuration file.
+> *   **/etc/named/** - An auxiliary directory for configuration files that are included in the main configuration file.
 > 
 > The configuration file consists of a collection of statements with nested options surrounded by opening and closing curly brackets. Note that when editing the file, you have to be careful not to make any syntax error, otherwise the named service will not start. A typical **/etc/named.conf** file is organized as follows:
 > 
@@ -99,10 +99,10 @@ From the above guide:
 > 
 > The **acl-name** statement name is the name of the access control list, and the **match-element** option is usually an individual IP address (such as **10&#46;0.1.1**) or a CIDR (Classless Inter-Domain Routing) network notation (for example, **10&#46;0.1.0/24**). For a list of already defined keywords, see the below:
 > 
-> *   **any** &#8211; Matches every IP address.
-> *   **localhost** &#8211; Matches any IP address that is in use by the local system.
-> *   **localnets** &#8211; Matches any IP address on any network to which the local system is connected.
-> *   **none** &#8211; Does not match any IP address.
+> *   **any** - Matches every IP address.
+> *   **localhost** - Matches any IP address that is in use by the local system.
+> *   **localnets** - Matches any IP address on any network to which the local system is connected.
+> *   **none** - Does not match any IP address.
 > 
 > The acl statement can be especially useful in conjunction with other statements such as options. The below example defines two access control lists, **black-hats** and **red-hats**, and adds **black-hats** on the blacklist while granting **red-hats** a normal access.
 > 
@@ -145,34 +145,34 @@ From the above guide:
 > 
 > For a list of frequently used **option** directives, see the below list:
 > 
-> *   **allow-query** &#8211; Specifies which hosts are allowed to query the nameserver for authoritative resource records. It accepts an access control list, a collection of IP addresses, or networks in the CIDR notation. All hosts are allowed by default.
-> *   **allow-query-cache** &#8211; Specifies which hosts are allowed to query the nameserver for non-authoritative data such as recursive queries. Only **localhost** and **localnets** are allowed by default.
-> *   **blackhole** &#8211; Specifies which hosts are not allowed to query the nameserver. This option should be used when particular host or network floods the server with requests. The default option is **none**.
-> *   **directory** &#8211; Specifies a working directory for the **named** service. The default option is **/var/named/**.
-> *   **dnssec-enable** &#8211; Specifies whether to return DNSSEC related resource records. The default option is **yes**.
-> *   **dnssec-validation** &#8211; Specifies whether to prove that resource records are authentic via DNSSEC. The default option is **yes**.
-> *   **forwarders** &#8211; Specifies a list of valid IP addresses for nameservers to which the requests should be forwarded for resolution.
-> *   **forward** &#8211; Specifies the behavior of the forwarders directive. It accepts the following options:
+> *   **allow-query** - Specifies which hosts are allowed to query the nameserver for authoritative resource records. It accepts an access control list, a collection of IP addresses, or networks in the CIDR notation. All hosts are allowed by default.
+> *   **allow-query-cache** - Specifies which hosts are allowed to query the nameserver for non-authoritative data such as recursive queries. Only **localhost** and **localnets** are allowed by default.
+> *   **blackhole** - Specifies which hosts are not allowed to query the nameserver. This option should be used when particular host or network floods the server with requests. The default option is **none**.
+> *   **directory** - Specifies a working directory for the **named** service. The default option is **/var/named/**.
+> *   **dnssec-enable** - Specifies whether to return DNSSEC related resource records. The default option is **yes**.
+> *   **dnssec-validation** - Specifies whether to prove that resource records are authentic via DNSSEC. The default option is **yes**.
+> *   **forwarders** - Specifies a list of valid IP addresses for nameservers to which the requests should be forwarded for resolution.
+> *   **forward** - Specifies the behavior of the forwarders directive. It accepts the following options:
 >     
->     *   **first** &#8211; The server will query the nameservers listed in the forwarders directive before attempting to resolve the name on its own.
->     *   **only** &#8211; When unable to query the nameservers listed in the forwarders directive, the server will not attempt to resolve the name on its own.
+>     *   **first** - The server will query the nameservers listed in the forwarders directive before attempting to resolve the name on its own.
+>     *   **only** - When unable to query the nameservers listed in the forwarders directive, the server will not attempt to resolve the name on its own.
 > 
-> *   **listen-on** &#8211; Specifies the IPv4 network interface on which to listen for queries. On a DNS server that also acts as a gateway, you can use this option to answer queries originating from a single network only. All IPv4 interfaces are used by default.
+> *   **listen-on** - Specifies the IPv4 network interface on which to listen for queries. On a DNS server that also acts as a gateway, you can use this option to answer queries originating from a single network only. All IPv4 interfaces are used by default.
 > 
-> *   **listen-on-v6** &#8211; Specifies the IPv6 network interface on which to listen for queries. On a DNS server that also acts as a gateway, you can use this option to answer queries originating from a single network only. All IPv6 interfaces are used by default.
+> *   **listen-on-v6** - Specifies the IPv6 network interface on which to listen for queries. On a DNS server that also acts as a gateway, you can use this option to answer queries originating from a single network only. All IPv6 interfaces are used by default.
 > 
-> *   **max-cache-size** &#8211; Specifies the maximum amount of memory to be used for server caches. When the limit is reached, the server causes records to expire prematurely so that the limit is not exceeded. In a server with multiple views, the limit applies separately to the cache of each view. The default option is **32M**.
+> *   **max-cache-size** - Specifies the maximum amount of memory to be used for server caches. When the limit is reached, the server causes records to expire prematurely so that the limit is not exceeded. In a server with multiple views, the limit applies separately to the cache of each view. The default option is **32M**.
 > 
-> *   **notify** &#8211; Specifies whether to notify the secondary nameservers when a zone is updated. It accepts the following options:
+> *   **notify** - Specifies whether to notify the secondary nameservers when a zone is updated. It accepts the following options:
 >     
->     *   **yes** &#8211; The server will notify all secondary nameservers.
->     *   **no** &#8211; The server will not notify any secondary nameserver.
->     *   **master-only** &#8211; The server will notify primary server for the zone only.
->     *   **explicit** &#8211; The server will notify only the secondary servers that are specified in the also-notify list within a zone statement.
+>     *   **yes** - The server will notify all secondary nameservers.
+>     *   **no** - The server will not notify any secondary nameserver.
+>     *   **master-only** - The server will notify primary server for the zone only.
+>     *   **explicit** - The server will notify only the secondary servers that are specified in the also-notify list within a zone statement.
 > 
-> *   **pid-file** &#8211; Specifies the location of the process ID file created by the **named** service.
+> *   **pid-file** - Specifies the location of the process ID file created by the **named** service.
 > 
-> *   **recursion** &#8211; Specifies whether to act as a recursive server. The default option is **yes**.
+> *   **recursion** - Specifies whether to act as a recursive server. The default option is **yes**.
 > 
 > *   **statistics-file** Specifies an alternate location for statistics files. The **/var/named/named.stats** file is used by default.
 > 
@@ -208,30 +208,30 @@ From the above guide:
 > 
 > Here is a list of common **options**:
 > 
-> *   **allow-query** &#8211; Specifies which clients are allowed to request information about this zone. This option overrides global allow-query option. All query requests are allowed by default.
-> *   **allow-transfer** &#8211; Specifies which secondary servers are allowed to request a transfer of the zone&#8217;s information. All transfer requests are allowed by default.
-> *   **allow-update** &#8211; Specifies which hosts are allowed to dynamically update information in their zone. The default option is to deny all dynamic update requests.
+> *   **allow-query** - Specifies which clients are allowed to request information about this zone. This option overrides global allow-query option. All query requests are allowed by default.
+> *   **allow-transfer** - Specifies which secondary servers are allowed to request a transfer of the zone's information. All transfer requests are allowed by default.
+> *   **allow-update** - Specifies which hosts are allowed to dynamically update information in their zone. The default option is to deny all dynamic update requests.
 >     
 >     Note that you should be careful when allowing hosts to update information about their zone. Do not set IP addresses in this option unless the server is in the trusted network. Instead, use TSIG (Transaction SIGnatures) key.
 > 
-> *   **file** &#8211; Specifies the name of the file in the **named** working directory that contains the zone&#8217;s configuration data.
+> *   **file** - Specifies the name of the file in the **named** working directory that contains the zone's configuration data.
 > 
 > *   **masters** Specifies from which IP addresses to request authoritative zone information. This option is used only if the zone is defined as type slave.
 > 
 > *   **notify** Specifies whether to notify the secondary nameservers when a zone is updated. It accepts the following options:
 >     
->     *   **yes** &#8211; The server will notify all secondary nameservers.
->     *   **no** &#8211; The server will not notify any secondary nameserver.
->     *   **master-only** &#8211; The server will notify primary server for the zone only.
->     *   **explicit** &#8211; The server will notify only the secondary servers that are specified in the also-notify list within a zone statement.
+>     *   **yes** - The server will notify all secondary nameservers.
+>     *   **no** - The server will not notify any secondary nameserver.
+>     *   **master-only** - The server will notify primary server for the zone only.
+>     *   **explicit** - The server will notify only the secondary servers that are specified in the also-notify list within a zone statement.
 > 
 > *   **type** Specifies the zone type. It accepts the following options:
 >     
->     *   **delegation-only** &#8211; Enforces the delegation status of infrastructure zones such as COM, NET, or ORG. Any answer that is received without an explicit or implicit delegation is treated as NXDOMAIN. This option is only applicable in TLDs (Top-Level Domain) or root zone files used in recursive or caching implementations.
->     *   **forward** &#8211; Forwards all requests for information about this zone to other nameservers.
->     *   **hint** &#8211; A special type of zone used to point to the root nameservers which resolve queries when a zone is not otherwise known. No configuration beyond the default is necessary with a hint zone.
->     *   **master** &#8211; Designates the nameserver as authoritative for this zone. A zone should be set as the master if the zone&#8217;s configuration files reside on the system.
->     *   **slave** &#8211; Designates the nameserver as a slave server for this zone. Master server is specified in masters directive.
+>     *   **delegation-only** - Enforces the delegation status of infrastructure zones such as COM, NET, or ORG. Any answer that is received without an explicit or implicit delegation is treated as NXDOMAIN. This option is only applicable in TLDs (Top-Level Domain) or root zone files used in recursive or caching implementations.
+>     *   **forward** - Forwards all requests for information about this zone to other nameservers.
+>     *   **hint** - A special type of zone used to point to the root nameservers which resolve queries when a zone is not otherwise known. No configuration beyond the default is necessary with a hint zone.
+>     *   **master** - Designates the nameserver as authoritative for this zone. A zone should be set as the master if the zone's configuration files reside on the system.
+>     *   **slave** - Designates the nameserver as a slave server for this zone. Master server is specified in masters directive.
 > 
 > Most changes to the **/etc/named.conf** file of a primary or secondary nameserver involve adding, modifying, or deleting zone statements, and only a small subset of zone statement options is usually needed for a nameserver to work efficiently.
 > 
@@ -244,7 +244,7 @@ From the above guide:
 >     };
 >     
 > 
-> A secondary server&#8217;s zone statement is slightly different. The type is set to **slave**, and the **masters** directive is telling named the IP address of the master server.
+> A secondary server's zone statement is slightly different. The type is set to **slave**, and the **masters** directive is telling named the IP address of the master server.
 > 
 > In the below example, the **named** service is configured to query the primary server at the **192&#46;168.0.1** IP address for information about the **example.com** zone. The received information is then saved to the **/var/named/slaves/example.com.zone** file. Note that you have to put all slave zones to **/var/named/slaves** directory, otherwise the service will fail to transfer the zone.
 > 
@@ -261,27 +261,27 @@ From the Deployment Guide:
 
 > The following types of statements are less commonly used in **/etc/named.conf**:
 > 
-> *   **controls** &#8211; The **controls** statement allows you to configure various security requirements necessary to use the **rndc** command to administer the named service.
-> *   **key** &#8211; The **key** statement allows you to define a particular key by name. Keys are used to authenticate various actions, such as secure updates or the use of the rndc command. Two options are used with key:
+> *   **controls** - The **controls** statement allows you to configure various security requirements necessary to use the **rndc** command to administer the named service.
+> *   **key** - The **key** statement allows you to define a particular key by name. Keys are used to authenticate various actions, such as secure updates or the use of the rndc command. Two options are used with key:
 >     
 >     *   algorithm **algorithm-name** — The type of algorithm to be used (for example, **hmac-md5**).
->     *   secret &#8220;**key-value**&#8221; — The encrypted key.
+>     *   secret "**key-value**" — The encrypted key.
 > 
-> *   **logging** &#8211; The logging statement allows you to use multiple types of logs, so called **channels**. By using the channel option within the statement, you can construct a customized type of log with its own file name (file), size limit (size), versioning (version), and level of importance (severity). Once a customized channel is defined, a category option is used to categorize the channel and begin logging when the named service is restarted.
+> *   **logging** - The logging statement allows you to use multiple types of logs, so called **channels**. By using the channel option within the statement, you can construct a customized type of log with its own file name (file), size limit (size), versioning (version), and level of importance (severity). Once a customized channel is defined, a category option is used to categorize the channel and begin logging when the named service is restarted.
 >     
 >     By default, **named** sends standard messages to the **rsyslog** daemon, which places them in **/var/log/messages**. Several standard channels are built into BIND with various severity levels, such as **default_syslog** (which handles informational logging messages) and **default_debug** (which specifically handles debugging messages). A default category, called **default**, uses the built-in channels to do normal logging without any special configuration.
 > 
-> *   **server** &#8211; The server statement allows you to specify options that affect how the named service should respond to remote nameservers, especially with regard to notifications and zone transfers.
+> *   **server** - The server statement allows you to specify options that affect how the named service should respond to remote nameservers, especially with regard to notifications and zone transfers.
 >     
 >     The **transfer-format** option controls the number of resource records that are sent with each message. It can be either **one-answer** (only one resource record), or **many-answers** (multiple resource records). Note that while the **many-answers** option is more efficient, it is not supported by older versions of BIND.
 > 
-> *   **trusted-keys** &#8211; The trusted-keys statement allows you to specify assorted public keys used for secure DNS (DNSSEC).
+> *   **trusted-keys** - The trusted-keys statement allows you to specify assorted public keys used for secure DNS (DNSSEC).
 > 
-> *   **view** &#8211; The view statement allows you to create special views depending upon which network the host querying the nameserver is on. This allows some hosts to receive one answer regarding a zone while other hosts receive totally different information. Alternatively, certain zones may only be made available to particular trusted hosts while non-trusted hosts can only make queries for other zones.
+> *   **view** - The view statement allows you to create special views depending upon which network the host querying the nameserver is on. This allows some hosts to receive one answer regarding a zone while other hosts receive totally different information. Alternatively, certain zones may only be made available to particular trusted hosts while non-trusted hosts can only make queries for other zones.
 >     
 >     Multiple views can be used as long as their names are unique. The **match-clients** option allows you to specify the IP addresses that apply to a particular view. If the options statement is used within a view, it overrides the already configured global options. Finally, most view statements contain multiple zone statements that apply to the match-clients list.
 >     
->     Note that the order in which the view statements are listed is important, as the first statement that matches a particular client&#8217;s IP address is used.
+>     Note that the order in which the view statements are listed is important, as the first statement that matches a particular client's IP address is used.
 
 #### Common *named* Directives
 
@@ -289,19 +289,19 @@ From the same guide:
 
 > Directives begin with the dollar sign character followed by the name of the directive, and usually appear at the top of the file. The following directives are commonly used in zone files:
 > 
-> *   **$INCLUDE** &#8211; The **$INCLUDE** directive allows you to include another file at the place where it appears, so that other zone settings can be stored in a separate zone file.
+> *   **$INCLUDE** - The **$INCLUDE** directive allows you to include another file at the place where it appears, so that other zone settings can be stored in a separate zone file.
 >     
 >         $INCLUDE /var/named/penguin.example.com
 >         
 > 
-> *   **$ORIGIN** &#8211; The **$ORIGIN** directive allows you to append the domain name to unqualified records, such as those with the hostname only. Note that the use of this directive is not necessary if the zone is specified in **/etc/named.conf**, since the zone name is used by default.
+> *   **$ORIGIN** - The **$ORIGIN** directive allows you to append the domain name to unqualified records, such as those with the hostname only. Note that the use of this directive is not necessary if the zone is specified in **/etc/named.conf**, since the zone name is used by default.
 >     
 >     In the below example, any names used in resource records that do not end in a trailing period are appended with **example.com**.
 >     
 >         $ORIGIN example.com.
 >         
 > 
-> *   **$TTL** &#8211; The **$TTL** directive allows you to set the default Time to Live (TTL) value for the zone, that is, how long is a zone record valid. Each resource record can contain its own TTL value, which overrides this directive.
+> *   **$TTL** - The **$TTL** directive allows you to set the default Time to Live (TTL) value for the zone, that is, how long is a zone record valid. Each resource record can contain its own TTL value, which overrides this directive.
 >     
 >     Increasing this value allows remote nameservers to cache the zone information for a longer period of time, reducing the number of queries for the zone and lengthening the amount of time required to propagate resource record changes.
 >     
@@ -397,26 +397,26 @@ From the above guide:
 > 
 > The directives are as follows:
 > 
-> *   The **@** symbol places the **$ORIGIN** directive (or the zone&#8217;s name if the $ORIGIN directive is not set) as the namespace being defined by this SOA resource record.
+> *   The **@** symbol places the **$ORIGIN** directive (or the zone's name if the $ORIGIN directive is not set) as the namespace being defined by this SOA resource record.
 > *   The **primary-name-server** directive is the hostname of the primary nameserver that is authoritative for this domain.
 > *   The **hostmaster-email** directive is the email of the person to contact about the namespace.
 > *   The **serial-number** directive is a numerical value incremented every time the zone file is altered to indicate it is time for the named service to reload the zone.
 > *   The **time-to-refresh** directive is the numerical value secondary nameservers use to determine how long to wait before asking the primary nameserver if any changes have been made to the zone.
 > *   The **time-to-retry** directive is a numerical value used by secondary nameservers to determine the length of time to wait before issuing a refresh request in the event that the primary nameserver is not answering. If the primary server has not replied to a refresh request before the amount of time specified in the **time-to-expire** directive elapses, the secondary servers stop responding as an authority for requests concerning that namespace.
-> *   In BIND 4 and 8, the **minimum-TTL** directive is the amount of time other nameservers cache the zone&#8217;s information. In BIND 9, it defines how long negative answers are cached for. Caching of negative answers can be set to a maximum of 3 hours (that is, **3H**).
+> *   In BIND 4 and 8, the **minimum-TTL** directive is the amount of time other nameservers cache the zone's information. In BIND 9, it defines how long negative answers are cached for. Caching of negative answers can be set to a maximum of 3 hours (that is, **3H**).
 > 
 > When configuring BIND, all times are specified in seconds. However, it is possible to use abbreviations when specifying units of time other than seconds, such as minutes (**M**), hours (**H**), days (**D**), and weeks (**W**). The below list shows an amount of time in seconds and the equivalent time in another format.
 > 
-> *   60 &#8211; 1M
-> *   1800 &#8211; 30M
-> *   3600 &#8211; 1H
-> *   10800 &#8211; 3H
-> *   21600 &#8211; 6H
-> *   43200 &#8211; 12H
-> *   86400 &#8211; 1D
-> *   259200 &#8211; 3D
-> *   604800 &#8211; 1W
-> *   31536000 &#8211; 365D
+> *   60 - 1M
+> *   1800 - 30M
+> *   3600 - 1H
+> *   10800 - 3H
+> *   21600 - 6H
+> *   43200 - 12H
+> *   86400 - 1D
+> *   259200 - 3D
+> *   604800 - 1W
+> *   31536000 - 365D
 > 
 > Example of an SOA record:
 > 
@@ -531,7 +531,7 @@ From the same guide:
 
 ### *named* primary/master example
 
-So let&#8217;s try this out. Let&#8217;s configure our RH6 machine to be a primary (master) DNS server. First let&#8217;s install the necessary packages:
+So let's try this out. Let's configure our RH6 machine to be a primary (master) DNS server. First let's install the necessary packages:
 
     [root@rhel1 ~]# yum install bind
     
@@ -587,7 +587,7 @@ Here is the default named configuration:
     include "/etc/named.rfc1912.zones";
     
 
-So let&#8217;s go ahead and disable IPv6, allow queries from the local network, and remove the advanced configuration:
+So let's go ahead and disable IPv6, allow queries from the local network, and remove the advanced configuration:
 
     options {
             listen-on port 53 { 127.0.0.1; 192.168.2.2; };
@@ -600,7 +600,7 @@ So let&#8217;s go ahead and disable IPv6, allow queries from the local network, 
     };
     
 
-Now let&#8217;s add a forward and reverse zone for **local.com** to the **/etc/named.conf**:
+Now let's add a forward and reverse zone for **local.com** to the **/etc/named.conf**:
 
     /* local.com forward/standard zone */
     zone "local.com" {
@@ -703,7 +703,7 @@ Notice I prepended the zone file with **dynamic**, this is because starting with
     drwxrwx---. 2 named named 4096 Apr 13 12:16 /var/named/dynamic/
     
 
-If there are no errors and the configuration looks good, then we can proceed. Now let&#8217;s create the zones files. First for the standard zone file. There is a very simple template under the **/usr/share/doc/bind** directory:
+If there are no errors and the configuration looks good, then we can proceed. Now let's create the zones files. First for the standard zone file. There is a very simple template under the **/usr/share/doc/bind** directory:
 
     [root@rhel1 ~]# cat /usr/share/doc/bind-9.7.3/sample/var/named/named.localhost 
     $TTL 1D
@@ -718,7 +718,7 @@ If there are no errors and the configuration looks good, then we can proceed. No
         AAAA    ::1
     
 
-Now let&#8217;s copy the configuration :
+Now let's copy the configuration :
 
     [root@rhel1 ~]# cp /usr/share/doc/bind-9.7.3/sample/var/named/named.localhost /var/named/dynamic/local.com.zone
     
@@ -744,7 +744,7 @@ Then edit the file to update the necessary the settings. Here is how my file loo
     google  IN  A   192.168.2.4
     
 
-Now let&#8217;s create the reverse zone. With this one, we can just copy the standard zone and modify it to include pointer records:
+Now let's create the reverse zone. With this one, we can just copy the standard zone and modify it to include pointer records:
 
     [root@rhel1 ~]# cp /var/named/dynamic/local.com.zone /var/named/dynamic/local.com.revzone
     
@@ -769,7 +769,7 @@ Then edit the file to have the pointer records:
     4   IN  PTR google.local.com.
     
 
-After you are done, you can check the zone file to make sure it&#8217;s correct:
+After you are done, you can check the zone file to make sure it's correct:
 
     [root@rhel1 ~]# named-checkzone local.com /var/named/dynamic/local.com.zone 
     zone local.com/IN: loaded serial 0
@@ -798,7 +798,7 @@ By default the init script checks all the zone files, you can disable this under
     #               checks.
     
 
-But I would recommend leaving that in place. Now let&#8217;s open up the necessary DNS ports on the DNS server:
+But I would recommend leaving that in place. Now let's open up the necessary DNS ports on the DNS server:
 
     [root@rhel1 ~]#iptables -I INPUT 18 -p udp -m udp --dport 53 -j ACCEPT
     [root@rhel1 ~]#iptables -I INPUT 18 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT
@@ -806,14 +806,14 @@ But I would recommend leaving that in place. Now let&#8217;s open up the necessa
     iptables: Saving firewall rules to /etc/sysconfig/iptables: 
     
 
-For DNS queries we just need the **UDP** port, but since we will be setting up primary and secondary DNS server, the **TCP** port is used for transferring zones between the DNS servers. Lastly make sure our client machine is setup to use our DNS server as it&#8217;s nameserver (this is done under the **/etc/resolv.conf** file):
+For DNS queries we just need the **UDP** port, but since we will be setting up primary and secondary DNS server, the **TCP** port is used for transferring zones between the DNS servers. Lastly make sure our client machine is setup to use our DNS server as it's nameserver (this is done under the **/etc/resolv.conf** file):
 
     [root@rhel2 ~]# cat /etc/resolv.conf 
     search local.com
     nameserver 192.168.2.2
     
 
-On the server let&#8217;s start the **named** daemon:
+On the server let's start the **named** daemon:
 
     [root@rhel1 ~]# service named start
     Starting named:  named
@@ -861,7 +861,7 @@ As a quick test, run a DNS query from the client machine:
     ;; MSG SIZE  rcvd: 85
     
 
-When using **dig**, it shows a lot of good information, like who is the authoritative DNS server is (in our case we can see that&#8217;s **rhel1.local.com**) and of course the response to our query (**192&#46;168.2.3**). Here is a similar response for the reverse lookup:
+When using **dig**, it shows a lot of good information, like who is the authoritative DNS server is (in our case we can see that's **rhel1.local.com**) and of course the response to our query (**192&#46;168.2.3**). Here is a similar response for the reverse lookup:
 
     [root@rhel2 ~]# dig -x 192.168.2.4
     
@@ -889,7 +889,7 @@ When using **dig**, it shows a lot of good information, like who is the authorit
     ;; MSG SIZE  rcvd: 108
     
 
-If you don&#8217;t want that much information, the **host** command is really terse:
+If you don't want that much information, the **host** command is really terse:
 
     [root@rhel2 ~]# host rhel2.local.com
     rhel2.local.com has address 192.168.2.3
@@ -1009,12 +1009,12 @@ From the Deployment Guide:
 
 #### *named* secondary/slave example
 
-Now let&#8217;s configure our RH5 machine as a secondary/slave DNS server for the **local.com** domain. First let&#8217;s install the necessary packages:
+Now let's configure our RH5 machine as a secondary/slave DNS server for the **local.com** domain. First let's install the necessary packages:
 
     [root@rhel2 ~]# yum install bind
     
 
-Now let&#8217;s copy the sample configuration:
+Now let's copy the sample configuration:
 
     [root@rhel2 ~]# cp /usr/share/doc/bind-9.3.6/sample/etc/named.conf /etc/named.conf
     
@@ -1040,7 +1040,7 @@ Then edit the configuration and remove any miscellaneous settings. In the end I 
     };
     
 
-Now let&#8217;s add the local zones and the root DNS servers:
+Now let's add the local zones and the root DNS servers:
 
     zone "." IN {
             type hint;
@@ -1060,12 +1060,12 @@ Now let&#8217;s add the local zones and the root DNS servers:
     };
     
 
-Then let&#8217;s copy those zones into the **/var/named** directory:
+Then let's copy those zones into the **/var/named** directory:
 
     [root@rhel2 ~]# cp /usr/share/doc/bind-9.3.6/sample/var/named/{named.root,localhost.zone,named.local} /var/named/. 
     
 
-Lastly let&#8217;s add the zones that we will be the secondary/slave DNS server for:
+Lastly let's add the zones that we will be the secondary/slave DNS server for:
 
     zone "local.com" {
             type slave;
@@ -1080,7 +1080,7 @@ Lastly let&#8217;s add the zones that we will be the secondary/slave DNS server 
     };
     
 
-Let&#8217;s make sure the configuration is okay:
+Let's make sure the configuration is okay:
 
     [root@rhel2 ~]# named-checkconf 
     [root@rhel2 ~]# echo $?
@@ -1095,7 +1095,7 @@ If a status of **1** is returned then something is wrong with the configuration.
     Saving firewall rules to /etc/sysconfig/iptables:          [  OK  ]
     
 
-Let&#8217;s make sure the zones configs are okay and start the service:
+Let's make sure the zones configs are okay and start the service:
 
     [root@rhel2 ~]# service named configtest
     zone localhost/IN: loaded serial 42
@@ -1119,7 +1119,7 @@ Initially you will see that the zone transfer has failed:
     Apr 13 13:09:38 rhel2 named[8080]: transfer of '2.168.192.in-addr.arpa/IN' from 192.168.2.2#53: end of transfer
     
 
-This is expected since, we have setup the master yet. So let&#8217;s configure our master to allow the zone transfers. Edit the **named.conf** file to look like this:
+This is expected since, we have setup the master yet. So let's configure our master to allow the zone transfers. Edit the **named.conf** file to look like this:
 
     /* local.com forward/standard zone */
     zone "local.com" {
@@ -1185,9 +1185,9 @@ From <a href="http://www.zytrax.com/books/dns/ch4/" onclick="javascript:_gaq.pus
 
 > A DNS Caching Server (frequently called a Resolver) obtains information from another server (a Zone Master) in response to a host query and then saves (caches) the data locally. On a second or subsequent request for the same data the Caching Server (Resolver) will respond with its locally stored data (the cache) until the time-to-live (TTL) value of the response expires, at which time the server will refresh the data from the zone master.
 > 
-> If the caching server (resolver) obtains its data directly from a zone master it will respond as &#8216;authoritative&#8217;, if the data is supplied from its cache the response is &#8216;non-authoritative&#8217;.
+> If the caching server (resolver) obtains its data directly from a zone master it will respond as 'authoritative', if the data is supplied from its cache the response is 'non-authoritative'.
 > 
-> The default BIND behaviour is to cache and this is associated with the recursion parameter (the default is &#8216;**recursion yes**&#8216;). There are many configuration examples which show caching behaviour being defined using a type hint statement in a zone declaration. These configurations confuse two distinct but related functions. If a server is going to provide caching services then it must support recursive queries and recursive queries need access to the root servers which is provided via the &#8216;type hint&#8217; statement.
+> The default BIND behaviour is to cache and this is associated with the recursion parameter (the default is '**recursion yes**'). There are many configuration examples which show caching behaviour being defined using a type hint statement in a zone declaration. These configurations confuse two distinct but related functions. If a server is going to provide caching services then it must support recursive queries and recursive queries need access to the root servers which is provided via the 'type hint' statement.
 > 
 > A caching server will typically have a **named.conf** file which includes the following fragment:
 > 
@@ -1217,16 +1217,16 @@ From the same site:
 > 
 > 1.  Where access to the external network is slow or expensive:
 >     
->     1.  Local DNS caching &#8211; results are cached in the forwarding server so that frequently requested domains will provide fast results from the cache.
->     2.  The Remote (forwarded to) DNS server provides recursive query support &#8211; results in a single query across the network (from the forwarding DNS to the forwared to DNS) thus reducing traffic congestion (on busy networks) and increasing performance (on slow networks).
+>     1.  Local DNS caching - results are cached in the forwarding server so that frequently requested domains will provide fast results from the cache.
+>     2.  The Remote (forwarded to) DNS server provides recursive query support - results in a single query across the network (from the forwarding DNS to the forwared to DNS) thus reducing traffic congestion (on busy networks) and increasing performance (on slow networks).
 > 
 > 2.  Forwarding servers also can be used to ease the burden of local administration by providing a single point at which changes to remote name servers may be managed, rather than having to update all hosts. Thus, all hosts in a particular network section or area can be configured to point to a fixed forwarding DNS which can be configured to stream DNS traffic as desired and changed over time with minimal effort.
 > 
 > 3.  Sanitizing traffic. Especially in larger private networks it may be sensible to stream DNS traffic for local domain access by forwarding to the local DNS servers while forwarding external DNS requests to a dirty or hardened caching DNS (or resolver).
 > 
-> BIND allows configuration of forwarding using the forward and forwarders parameters either at a &#8216;global&#8217; level (in an options section) or on a per-zone basis in a zone section of the named.conf file. Both configurations are shown in the examples below:
+> BIND allows configuration of forwarding using the forward and forwarders parameters either at a 'global' level (in an options section) or on a per-zone basis in a zone section of the named.conf file. Both configurations are shown in the examples below:
 > 
-> #### Global Forwarding &#8211; All Requests
+> #### Global Forwarding - All Requests
 > 
 >     // options section fragment of named.conf 
 >     // forwarders can have multiple choices
@@ -1272,7 +1272,7 @@ Then from the client, I am able to do queries to that DNS server for the **local
     Address: 192.168.1.109
     
 
-Notice I don&#8217;t get an *authoritative* answer, and this is expected since our named server is not the *authoritative* DNS server for that domain.
+Notice I don't get an *authoritative* answer, and this is expected since our named server is not the *authoritative* DNS server for that domain.
 
 ### Using the *rndc* Utility
 
@@ -1285,9 +1285,9 @@ From the <a href="https://access.redhat.com/site/documentation/en-US/Red_Hat_Ent
 > 
 > To prevent unauthorized access to the service, **named** must be configured to listen on the selected port (that is, **953** by default), and an identical key must be used by both the service and the rndc utility. Configuration files for rndc:
 > 
-> *   **/etc/named.conf** &#8211; The default configuration file for the named service.
-> *   **/etc/rndc.conf** &#8211; The default configuration file for the rndc utility.
-> *   **/etc/rndc.key** &#8211; The default key location.
+> *   **/etc/named.conf** - The default configuration file for the named service.
+> *   **/etc/rndc.conf** - The default configuration file for the rndc utility.
+> *   **/etc/rndc.key** - The default key location.
 > 
 > The **rndc** configuration is located in **/etc/rndc.conf**. If the file does not exist, the utility will use the key located in **/etc/rndc.key**, which was generated automatically during the installation process using the **rndc-confgen -a** command.
 > 
@@ -1333,13 +1333,13 @@ From the same guide:
 
 #### *rndc* example
 
-So let&#8217;s try this out. If we try to run the command now, we will see the following failure:
+So let's try this out. If we try to run the command now, we will see the following failure:
 
     [root@rhel1 ~]# rndc status
     rndc: neither /etc/rndc.conf nor /etc/rndc.key was found
     
 
-So first let&#8217;s generate an **rndc** key:
+So first let's generate an **rndc** key:
 
     [root@rhel1 ~]# rndc-confgen -a -r /dev/urandom -c /etc/rndc.key
     wrote key file "/etc/rndc.key"
@@ -1379,7 +1379,7 @@ After that modify the **/etc/rndc.conf** file and copy the contents of **/etc/rn
     # End of named.conf
     
 
-Now let&#8217;s add the **rndc** configuration into the **named** configuration. Here is what I added:
+Now let's add the **rndc** configuration into the **named** configuration. Here is what I added:
 
     controls {
           inet 127.0.0.1 port 953
@@ -1388,7 +1388,7 @@ Now let&#8217;s add the **rndc** configuration into the **named** configuration.
     include "/etc/rndc.key";
     
 
-Lastly let&#8217;s make sure named can read the rndc key:
+Lastly let's make sure named can read the rndc key:
 
     [root@rhel1 ~]# chown named:named /etc/rndc.key
     
@@ -1399,7 +1399,7 @@ Then make sure the configuration is okay:
     [root@rhel1 ~]# 
     
 
-If there are no errors, let&#8217;s restart the **named** service:
+If there are no errors, let's restart the **named** service:
 
     [root@rhel1 ~]# service named restart
     Stopping named: 
@@ -1502,7 +1502,7 @@ Here is quick overview of all the available commands for **rndc**:
 
 There are a few things you could do to secure the named install. One is to use ACLs, as was discussed above. Another is to limit the **rndc** utility only from trusted machine or even only locally. Lastly you can run the **named** process in a **chroot** jail. From the deployment guide:
 
-> If you have installed the **bind-chroot** package, the BIND service will run in the **/var/named/chroot** environment. In that case, the initialization script will mount the above configuration files using the **mount &#8211;bind** command, so that you can manage the configuration outside this environment. There is no need to copy anything into the /var/named/chroot directory because it is mounted automatically. This simplifies maintenance since you do not need to take any special care of BIND configuration files if it is run in a chroot environment. You can organize everything as you would with BIND not running in a chroot environment.
+> If you have installed the **bind-chroot** package, the BIND service will run in the **/var/named/chroot** environment. In that case, the initialization script will mount the above configuration files using the **mount -bind** command, so that you can manage the configuration outside this environment. There is no need to copy anything into the /var/named/chroot directory because it is mounted automatically. This simplifies maintenance since you do not need to take any special care of BIND configuration files if it is run in a chroot environment. You can organize everything as you would with BIND not running in a chroot environment.
 > 
 > The following directories are automatically mounted into **/var/named/chroot** if they are empty in the **/var/named/chroot** directory. They must be kept empty if you want them to be mounted into **/var/named/chroot**:
 > 

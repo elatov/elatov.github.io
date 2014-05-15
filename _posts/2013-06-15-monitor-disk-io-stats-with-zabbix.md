@@ -19,7 +19,7 @@ I wanted to get a feel how much IO my machines are doing each day. As I was goin
 *   <a href="http://romain.novalan.fr/wiki/Monitor_a_device_performance_on_Linux_with_Zabbix" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://romain.novalan.fr/wiki/Monitor_a_device_performance_on_Linux_with_Zabbix']);">Monitor a device performance on Linux with Zabbix</a> 
 *   <a href="http://www.muck.net/19/getting-hard-disk-performance-stats-from-zabbix" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.muck.net/19/getting-hard-disk-performance-stats-from-zabbix']);">Getting hard disk performance stats from zabbix</a>
 
-Both use the same technique of querying the **/proc/diskstats** file and plotting that information. So let&#8217;s start setting that up.
+Both use the same technique of querying the **/proc/diskstats** file and plotting that information. So let's start setting that up.
 
 ### Create UserParameters in Zabbix to Query */proc/diskstats*
 
@@ -77,7 +77,7 @@ At this point you can query disk information. To make sure all of them work fine
     161623584
     
 
-All of that looks good. At this point the above links just create a graph for each disk separately and plot the above data. I had different types and number of disks on each machine, so I didn&#8217;t want to create a graph per device.
+All of that looks good. At this point the above links just create a graph for each disk separately and plot the above data. I had different types and number of disks on each machine, so I didn't want to create a graph per device.
 
 ## Zabbix AutoDiscovery
 
@@ -85,7 +85,7 @@ Zabbix has call feature called Discovery, where it can discover devices for you.
 
 *   <a href="https://www.zabbix.com/forum/showthread.php?p=104719#post104719" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.zabbix.com/forum/showthread.php?p=104719#post104719']);">Linux Autodiscovery : services, processes, hard disks</a>
 
-It had examples of how to discover services, process and lastly hard disks (which is what I was looking for). The above forum had a Perl script that output VM Name and it&#8217;s corresponding disks. I edited the file so it just showed disks. I put the script under **/usr/local/bin** and I made sure zabbix could execute the script:
+It had examples of how to discover services, process and lastly hard disks (which is what I was looking for). The above forum had a Perl script that output VM Name and it's corresponding disks. I edited the file so it just showed disks. I put the script under **/usr/local/bin** and I made sure zabbix could execute the script:
 
     kerch:~>ls -l /usr/local/bin/discover_disk.pl 
     -rwxr-x--- 1 elatov zabbix 498 Jun  2 15:57 /usr/local/bin/discover_disk.pl
@@ -134,11 +134,11 @@ It spit out the partitions as well, I left it that way in case I might use them 
 
 ### Create a Regular Expression in Zabbix
 
-I didn&#8217;t want disk statistics per partition but per disk, so let&#8217;s add a rule to just catch the disk without the partitions. Login to zabbix and then go to &#8220;Administration&#8221; -> General -> &#8220;Regular Expression&#8221;:
+I didn't want disk statistics per partition but per disk, so let's add a rule to just catch the disk without the partitions. Login to zabbix and then go to "Administration" -> General -> "Regular Expression":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbiz_reg_expression_g.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbiz_reg_expression_g.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbiz_reg_expression_g.png" alt="zabbiz reg expression g Monitor Disk IO Stats with Zabbix" width="1167" height="419" class="alignnone size-full wp-image-8934" title="Monitor Disk IO Stats with Zabbix" /></a>
 
-Then click &#8220;Create New Regular Expression&#8221; and under &#8220;Expressions&#8221;, click &#8220;New&#8221; and add the following:
+Then click "Create New Regular Expression" and under "Expressions", click "New" and add the following:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbiz_reg_expression_create.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbiz_reg_expression_create.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbiz_reg_expression_create.png" alt="zabbiz reg expression create Monitor Disk IO Stats with Zabbix" width="513" height="133" class="alignnone size-full wp-image-8935" title="Monitor Disk IO Stats with Zabbix" /></a>
 
@@ -156,7 +156,7 @@ Save that and if you go back to the regular expression list you will see yours t
 
 ### Create a New Template in Zabbix
 
-Let&#8217;s create a new template for our items and graphs. Go to &#8220;Configuration&#8221; -> &#8220;Template&#8221; -> &#8220;Create Template&#8221;. Fill out the information and add your hosts to the template:
+Let's create a new template for our items and graphs. Go to "Configuration" -> "Template" -> "Create Template". Fill out the information and add your hosts to the template:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_create_template.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_create_template.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_create_template.png" alt="zabbix create template Monitor Disk IO Stats with Zabbix" width="939" height="383" class="alignnone size-full wp-image-8940" title="Monitor Disk IO Stats with Zabbix" /></a>
 
@@ -193,11 +193,11 @@ The list kept going, but we now know that works.
 
 ### Create a Zabbix Discovery Rule
 
-Go to &#8220;Configuration&#8221; -> &#8220;Templates&#8221;:
+Go to "Configuration" -> "Templates":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_templates.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_templates.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_templates.png" alt="zabbix templates Monitor Disk IO Stats with Zabbix" width="1351" height="235" class="alignnone size-full wp-image-8941" title="Monitor Disk IO Stats with Zabbix" /></a>
 
-Scroll down and you will see the template that you created earlier. Click on &#8220;Discovery&#8221; -> &#8220;Create Discovery Rule&#8221;. Here we will name the rule, query the *UserParameter* we created, and apply a filter (regular expression) to get just the disk. Here is how my configuration looked like:
+Scroll down and you will see the template that you created earlier. Click on "Discovery" -> "Create Discovery Rule". Here we will name the rule, query the *UserParameter* we created, and apply a filter (regular expression) to get just the disk. Here is how my configuration looked like:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_discovery_rule.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_discovery_rule.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_discovery_rule.png" alt="zabbix discovery rule Monitor Disk IO Stats with Zabbix" width="680" height="442" class="alignnone size-full wp-image-8942" title="Monitor Disk IO Stats with Zabbix" /></a>
 
@@ -207,7 +207,7 @@ Save that and if you go back to the discovery rules you will see the following:
 
 ### Add Item Prototypes to Discovery Rule
 
-Go to &#8220;Configuration&#8221; -> &#8220;Templates&#8221; -> Template\_Linux\_Disk -> &#8220;Discovery&#8221; -> &#8220;Item Prototypes&#8221; -> &#8220;Create Item Prototype&#8221;. Fill out the information. Here is my latency item:
+Go to "Configuration" -> "Templates" -> Template\_Linux\_Disk -> "Discovery" -> "Item Prototypes" -> "Create Item Prototype". Fill out the information. Here is my latency item:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/06/zab-item-prototype-later.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/06/zab-item-prototype-later.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/zab-item-prototype-later.png" alt="zab item prototype later Monitor Disk IO Stats with Zabbix" width="558" height="370" class="alignnone size-full wp-image-10411" title="Monitor Disk IO Stats with Zabbix" /></a>
 
@@ -221,7 +221,7 @@ I added both read and write disk rates. I also added disk operations (read and w
 
 ### Create Graph Prototypes to Plot the Above Items
 
-Go to &#8220;Configuration&#8221; -> &#8220;Templates&#8221; -> Template\_Linux\_Disk -> &#8220;Discovery&#8221; -> &#8220;Graph Prototypes&#8221; -> &#8220;Create Graph Prototype&#8221;. Add both read and write like so:
+Go to "Configuration" -> "Templates" -> Template\_Linux\_Disk -> "Discovery" -> "Graph Prototypes" -> "Create Graph Prototype". Add both read and write like so:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_graphprototypes_latency.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_graphprototypes_latency.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_graphprototypes_latency.png" alt="zabbix graphprototypes latency Monitor Disk IO Stats with Zabbix" width="1131" height="561" class="alignnone size-full wp-image-8947" title="Monitor Disk IO Stats with Zabbix" /></a>
 
@@ -231,7 +231,7 @@ Using the same technique I created 3 graph prototypes:
 
 ## Check out the Graphs
 
-Go to &#8220;Monitoring&#8221; -> &#8220;Graphs&#8221;. Then pick a host and make sure only it&#8217;s corresponding disks show. For example here is what I saw for my Fedora Box which had an LVM setup:
+Go to "Monitoring" -> "Graphs". Then pick a host and make sure only it's corresponding disks show. For example here is what I saw for my Fedora Box which had an LVM setup:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_graph_lists_fedora_g.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_graph_lists_fedora_g.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_graph_lists_fedora_g.png" alt="zabbix graph lists fedora g Monitor Disk IO Stats with Zabbix" width="441" height="202" class="alignnone size-full wp-image-8949" title="Monitor Disk IO Stats with Zabbix" /></a>
 

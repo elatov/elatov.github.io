@@ -39,7 +39,7 @@ From <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_note
 
 ### Based on an existing logical design, determine appropriate virtual disk type and placement
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-virtual-machine-admin-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-virtual-machine-admin-guide.pdf']);">vSphere Virtual Machine Administration ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-virtual-machine-admin-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-virtual-machine-admin-guide.pdf']);">vSphere Virtual Machine Administration ESXi 5.0</a>":
 
 > **About Virtual Disk Provisioning Policies**  
 > When you perform certain virtual machine management operations, such as creating a virtual disk, cloning a virtual machine to a template, or migrating a virtual machine, you can specify a provisioning policy for the virtual disk file.
@@ -78,7 +78,7 @@ From <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_note
 > VM Disks:
 > 
 > *   Deploy a system and data disk
-> *   Don&#8217;t place all system disks on one datastore and data disks on another
+> *   Don't place all system disks on one datastore and data disks on another
 > *   Put system and data disk on the same datastore, unless they have widely varying I/O characteristics
 > *   Simplifies SRM and snapshots, unless the vdisk is very large
 > *   Configure one partition per vdisk 
@@ -93,12 +93,12 @@ From <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_note
 > 
 > *   MSCS requires SAS Adapters for shared and quorum disks
 > *   Use PVSCSI adapter for performance gain
-> *   Can&#8217;t boot from PVSCSI adapters
+> *   Can't boot from PVSCSI adapters
 > *   PVSCSI is not suited for local storage
 > *   Snapshot can negate performance of PVSCSI
-> *   Not Supported with FT From &#8220;
+> *   Not Supported with FT From "
 
-<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>&#8220;:
+<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>":
 
 > **Guest Operating System Storage Considerations**
 > 
@@ -111,7 +111,7 @@ From <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_note
 
 ### Size VMs appropriately according to application requirements, incorporating VMware best practices
 
-From &#8220;<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>&#8220;:
+From "<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>":
 
 > *   In most environments ESXi allows significant levels of CPU over commitment (that is, running more vCPUs on a host than the total number of physical processor cores in that host) without impacting virtual machine performance.
 > *   Configuring a virtual machine with more virtual CPUs (vCPUs) than its workload can use might cause slightly increased resource usage, potentially impacting performance on very heavily loaded systems. Common examples of this include a single-threaded workload running in a multiple-vCPU virtual machine or a multi-threaded workload in a virtual machine with more vCPUs than the workload can effectively use.
@@ -165,7 +165,7 @@ This was also discussed in <a href="http://virtuallyhyper.com/2012/09/vcap5-dcd-
 
 ### Based on an existing logical design, determine virtual hardware options
 
-From &#8220;<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>&#8220;:
+From "<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>":
 
 > Allocate to each virtual machine only as much virtual hardware as that virtual machine requires. Provisioning a virtual machine with more resources than it requires can, in some cases, reduce the performance of that virtual machine as well as other virtual machines sharing the same host.
 > 
@@ -173,7 +173,7 @@ From &#8220;<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pd
 > 
 > ESXi 5.0 introduces virtual hardware version 8. By creating virtual machines using this hardware version, or upgrading existing virtual machines to this version, a number of additional capabilities become available. Some of these, such as support for virtual machines with up to 1TB of RAM and up to 32 vCPUs, support for virtual NUMA, and support for 3D graphics, can improve performance for some workloads.
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-virtual-machine-admin-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-virtual-machine-admin-guide.pdf']);">vSphere Virtual Machine Administration ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-virtual-machine-admin-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-virtual-machine-admin-guide.pdf']);">vSphere Virtual Machine Administration ESXi 5.0</a>":
 
 > **Virtual Machine Hardware**  
 > You can add or configure some virtual machine hardware, only if the virtual machine uses the latest available hardware version. The PCI and SIO virtual hardware devices are part of the virtual motherboard, but cannot be configured or removed. 
@@ -241,7 +241,7 @@ This was also discussed in <a href="http://virtuallyhyper.com/2012/09/vcap5-dcd-
 
 ### Decide on the suitability of using FT or 3rd party clustering products based on application requirements.
 
-From &#8220;<a href="http://www.vmware.com/files/pdf/VMware-Fault-Tolerance-FT-DS-EN.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/VMware-Fault-Tolerance-FT-DS-EN.pdf']);">VMware Fault Tolerance Data Sheet</a>&#8220;:
+From "<a href="http://www.vmware.com/files/pdf/VMware-Fault-Tolerance-FT-DS-EN.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/VMware-Fault-Tolerance-FT-DS-EN.pdf']);">VMware Fault Tolerance Data Sheet</a>":
 
 > **How Does VMware Fault Tolerance Work?**
 > 
@@ -252,7 +252,7 @@ From &#8220;<a href="http://www.vmware.com/files/pdf/VMware-Fault-Tolerance-FT-D
 > *   The two virtual machines constantly heartbeat against each other and if either virtual machine instance loses the heartbeat, the other takes over immediately. The heartbeats are very frequent, with millisecond intervals, making the failover instantaneous with no loss of data or state. 
 > *   VMware Fault Tolerance requires a dedicated network connection, separate from the VMware VMotion™ network, between the two physical servers
 
-From &#8220;<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>&#8220;:
+From "<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>":
 
 > **VMware Fault Tolerance**
 > 
@@ -273,11 +273,11 @@ From <a href="http://professionalvmware.com/2012/04/apac-vbrownbag-follow-up-vm-
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/vm-ft.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/vm-ft.png']);"><img class="alignnone size-full wp-image-3306" title="vm-ft" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/vm-ft.png" alt="vm ft VCAP5 DCD Objective 3.5 – Determine Virtual Machine Configuration for a vSphere 5 Physical Design " width="799" height="461" /></a>
 
-From &#8220;<a href="http://www.vmware.com/files/pdf/solutions/VMware-Virtualizing-Business-Critical-Apps-on-VMware_en-wp.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/solutions/VMware-Virtualizing-Business-Critical-Apps-on-VMware_en-wp.pdf']);">Virtualizing Business-Critical Applications on VMware</a>&#8220;
+From "<a href="http://www.vmware.com/files/pdf/solutions/VMware-Virtualizing-Business-Critical-Apps-on-VMware_en-wp.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/solutions/VMware-Virtualizing-Business-Critical-Apps-on-VMware_en-wp.pdf']);">Virtualizing Business-Critical Applications on VMware</a>"
 
 > The siloed example of availability methods shown in Figure 11 requires expensive licenses, dedicated standby infrastructure, and highly skilled staff to configure and manage. The alternative to this expensive approach is a standardized approach using vSphere technology, though some companies choose to implement both appspecific and VMware solutions running in tandem. <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/3rd-party-availability_apps.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/3rd-party-availability_apps.png']);"><img class="alignnone size-full wp-image-3308" title="3rd-party-availability_apps" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/3rd-party-availability_apps.png" alt="3rd party availability apps VCAP5 DCD Objective 3.5 – Determine Virtual Machine Configuration for a vSphere 5 Physical Design " width="601" height="261" /></a>
 
-Also from &#8220;<a href="http://www.vmware.com/files/pdf/VMW_10Q1_WP_vSPHERE_USLET_EN_R6_proof.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/VMW_10Q1_WP_vSPHERE_USLET_EN_R6_proof.pdf']);">Virtualizing Business-Critical Applications on VMware vSphere</a>&#8220;:
+Also from "<a href="http://www.vmware.com/files/pdf/VMW_10Q1_WP_vSPHERE_USLET_EN_R6_proof.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/VMW_10Q1_WP_vSPHERE_USLET_EN_R6_proof.pdf']);">Virtualizing Business-Critical Applications on VMware vSphere</a>":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/percent-of-coverage_for-availability.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/percent-of-coverage_for-availability.png']);"><img class="alignnone size-full wp-image-3309" title="percent-of-coverage_for-availability" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/percent-of-coverage_for-availability.png" alt="percent of coverage for availability VCAP5 DCD Objective 3.5 – Determine Virtual Machine Configuration for a vSphere 5 Physical Design " width="670" height="430" /></a>
 
@@ -292,13 +292,13 @@ and from <a href="http://professionalvmware.com/2012/04/apac-vbrownbag-follow-up
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/3rd_party-clusters.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/3rd_party-clusters.png']);"><img class="alignnone size-full wp-image-3310" title="3rd_party-clusters" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/3rd_party-clusters.png" alt="3rd party clusters VCAP5 DCD Objective 3.5 – Determine Virtual Machine Configuration for a vSphere 5 Physical Design " width="804" height="433" /></a>
 
-So if you have a specific application like SQL, Oracle, or Exchange that cannot be limited to 1 vCPU(FT) or just 2 nodes (MSCS), then use application level clustering/availability described in the above papers. But if you have application that requires 100% uptime and it&#8217;s low resource then VMware FT will be perfect for that.
+So if you have a specific application like SQL, Oracle, or Exchange that cannot be limited to 1 vCPU(FT) or just 2 nodes (MSCS), then use application level clustering/availability described in the above papers. But if you have application that requires 100% uptime and it's low resource then VMware FT will be perfect for that.
 
 ### Determine and implement an anti-virus solution
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/AV-for-VMs.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/AV-for-VMs.png']);"><img class="alignnone size-full wp-image-3311" title="AV-for-VMs" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/AV-for-VMs.png" alt="AV for VMs VCAP5 DCD Objective 3.5 – Determine Virtual Machine Configuration for a vSphere 5 Physical Design " width="826" height="450" /></a>
 
-So if you want a centralized Anti-Virus application, setup vShield End-Point. This does add on some complexity and management over head. If you end up setting up an Anti-Virus instance per VM try to schedule the AV Scans at different times. You can over load the system when all 100 of your VMs are doing an AV Scan at the same time. If you want more information on vShield check out &#8220;<a href="http://www.vmware.com/products/vsphere/features-endpoint" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.vmware.com/products/vsphere/features-endpoint']);">vShield End-Point Overview</a>&#8221; and also check out my <a href="http://virtuallyhyper.com/2012/08/esxi-host-shows-as-disconnected-from-vcenter-due-to-heap-depletion/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/08/esxi-host-shows-as-disconnected-from-vcenter-due-to-heap-depletion/']);">previous</a> post. Lastly check out &#8220;<a href="http://www.vmware.com/files/pdf/VMware-View-AntiVirusPractices-TN-EN.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/VMware-View-AntiVirusPractices-TN-EN.pdf']);">Antivirus Practices for VMware View 5</a>&#8220;. It talks about vShield End Point and some other best practices for VMware View. Here are some excerpts from that paper:
+So if you want a centralized Anti-Virus application, setup vShield End-Point. This does add on some complexity and management over head. If you end up setting up an Anti-Virus instance per VM try to schedule the AV Scans at different times. You can over load the system when all 100 of your VMs are doing an AV Scan at the same time. If you want more information on vShield check out "<a href="http://www.vmware.com/products/vsphere/features-endpoint" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.vmware.com/products/vsphere/features-endpoint']);">vShield End-Point Overview</a>" and also check out my <a href="http://virtuallyhyper.com/2012/08/esxi-host-shows-as-disconnected-from-vcenter-due-to-heap-depletion/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/08/esxi-host-shows-as-disconnected-from-vcenter-due-to-heap-depletion/']);">previous</a> post. Lastly check out "<a href="http://www.vmware.com/files/pdf/VMware-View-AntiVirusPractices-TN-EN.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/VMware-View-AntiVirusPractices-TN-EN.pdf']);">Antivirus Practices for VMware View 5</a>". It talks about vShield End Point and some other best practices for VMware View. Here are some excerpts from that paper:
 
 > **Problems with Standard Antivirus Protection**  
 > The typical top-down virus scanning model involves desktop antivirus scanning and signature file updates, with access to an auto-update server. During these operations, it is not uncommon for system resource usage to spike or become overly committed. Performance in the desktop environment is severely impacted by these “antivirus storms.”

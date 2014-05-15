@@ -1,5 +1,5 @@
 ---
-title: 'VMs on PortGroup with VLAN Tag 1, Don&#8217;t Have Network Connectivity'
+title: "VMs on PortGroup with VLAN Tag 1, Don't Have Network Connectivity"
 author: Karim Elatov
 layout: post
 permalink: /2012/09/vms-on-portgroup-that-is-tagging-vlan-1-dont-have-network-connectivity/
@@ -17,7 +17,7 @@ tags:
   - VLAN 1
   - VST
 ---
-Recently ran into an issue where some of the VMs on an ESX host didn&#8217;t have network connectivity. Checking out the virtual switch settings I saw the following:
+Recently ran into an issue where some of the VMs on an ESX host didn't have network connectivity. Checking out the virtual switch settings I saw the following:
 
 	  
 	~ # esxcfg-vswitch -l  
@@ -29,7 +29,7 @@ Recently ran into an issue where some of the VMs on an ESX host didn&#8217;t hav
 	Management Network 50 1 vmnic0  
 	
 
-From the above we can see that &#8220;VM Network&#8221; is the PortGroup setup for our VMs. One thing to notice is that we are actually Tagging this PortGroup with VLAN 1. We usually call this VST (Virtual Switch Tagging). VMware KB <a href="http://kb.vmware.com/kb/1004074" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1004074']);">1004074</a> actually describes VST in detail. 
+From the above we can see that "VM Network" is the PortGroup setup for our VMs. One thing to notice is that we are actually Tagging this PortGroup with VLAN 1. We usually call this VST (Virtual Switch Tagging). VMware KB <a href="http://kb.vmware.com/kb/1004074" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1004074']);">1004074</a> actually describes VST in detail. 
 
 Next thing I wanted to check was the physical switch configuration. To do that we can use CDP (Cisco Discovery Protocol) to first find out what physical switch port we are connected to:
 

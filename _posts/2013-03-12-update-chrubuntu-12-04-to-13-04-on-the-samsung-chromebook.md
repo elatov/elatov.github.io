@@ -18,7 +18,7 @@ The update process is not as smooth as the install process which I blogged about
 
 ### 1. Update Using the Aptitude Repositories
 
-Let&#8217;s get to it, first let&#8217;s point the Aptitude repositories to point to the &#8220;Raring&#8221; release:
+Let's get to it, first let's point the Aptitude repositories to point to the "Raring" release:
 
     sudo sed -i 's/precise/raring/g' /etc/apt/sources.list
     
@@ -45,7 +45,7 @@ In the process some packages will be removed unintentionally, so re-install them
 
 ### 2. Finishing Touches
 
-Let&#8217;s enable the Chromebook Hacker PPA and install the Chomebook utilities and updates:
+Let's enable the Chromebook Hacker PPA and install the Chomebook utilities and updates:
 
     sudo add-apt-repository ppa:chromebook-arm/ppa
     sudo apt-get update
@@ -54,7 +54,7 @@ Let&#8217;s enable the Chromebook Hacker PPA and install the Chomebook utilities
     sudo apt-get remove flash-kernel
     
 
-Let&#8217;s sign our kernel:
+Let's sign our kernel:
 
     echo "console=tty1 printk.time=1 quiet nosplash rootwait root=/dev/mmcblk1p7 rw rootfstype=ext4" > FILE
     
@@ -64,7 +64,7 @@ Notice my device is the external SD card (mmcblk1), now for the signature:
     sudo vbutilkernel --pack /boot/chronos-kernel-image --keyblock /usr/share/vboot/devkeys/kernel.keyblock --version 1 --signprivate /usr/share/vboot/devkeys/kerneldatakey.vbprivk --config FILE --vmlinuz /boot/vmlinuz-3.4.0.5-chromebook --arch arm
     
 
-Also let&#8217;s copy our signed kernel to the SD Card:
+Also let's copy our signed kernel to the SD Card:
 
     sudo dd if=/boot/chronos-kernel-image of=/dev/mmcblk1p1 bs=4M
     
@@ -73,7 +73,7 @@ Now reboot and you will boot into ChrUbuntu 13.04.
 
 ### 3. Fix the Window Manager
 
-When the Chromebook reboots, it won&#8217;t be able to start it&#8217;s window manager and we have to pick a new one. So press **CTRL+ALT+F1** and log in with the **user**/**user** credentials and first install the new video driver:
+When the Chromebook reboots, it won't be able to start it's window manager and we have to pick a new one. So press **CTRL+ALT+F1** and log in with the **user**/**user** credentials and first install the new video driver:
 
     sudo apt-get install xserver-xorg-video-armsoc
     
@@ -153,7 +153,7 @@ I wanted to use the volume up and volume down keys on the keyboard (they corresp
 
 This allowed me to modify the HeadPhone and Speakers volume with the keyboard shortcuts that I defined.
 
-I also wanted to have the brightness keys work as well (those corresponded to F6 and F7). I tried the package **xbacklight** but it didn&#8217;t work. Later I found that the **/usr/lib/gnome-settings-daemon/gsd-backlight-helper** worked without issues. So I wrote this quick script:
+I also wanted to have the brightness keys work as well (those corresponded to F6 and F7). I tried the package **xbacklight** but it didn't work. Later I found that the **/usr/lib/gnome-settings-daemon/gsd-backlight-helper** worked without issues. So I wrote this quick script:
 
     elatov@crbook:~$ cat /usr/local/bin/chbr
     #!/bin/bash
@@ -174,19 +174,19 @@ and if you pass in **up** or **down** it decreases or increases the brightness b
     key "F7"    /usr/local/bin/chbr up
     
 
-I also noticed that the keyboard button right below the &#8220;**Tab**&#8221; key (the Search Key) was functioning as a &#8220;**Windows**&#8221; Key. That is usually the &#8220;**Caps_Lock**&#8221; key, so I changed the mapping for it to actually be the &#8220;**Caps_Lock**&#8221; key. Initially I used **xev** to find out what is the keycode of the keyboard button and then I added the following to my **~/.Xmodmap** file:
+I also noticed that the keyboard button right below the "**Tab**" key (the Search Key) was functioning as a "**Windows**" Key. That is usually the "**Caps_Lock**" key, so I changed the mapping for it to actually be the "**Caps_Lock**" key. Initially I used **xev** to find out what is the keycode of the keyboard button and then I added the following to my **~/.Xmodmap** file:
 
     elatov@crbook:~$ cat .Xmodmap 
     keycode 133 = Caps_Lock
     
 
-Another thing I noticed was the &#8220;Disable Keyboard While Typing&#8221; Option wasn&#8217;t working. Starting up the **syndaemon** fix the issue for me. Here is what I added to my **~/.icewm/startup** file to start the daemon on startup:
+Another thing I noticed was the "Disable Keyboard While Typing" Option wasn't working. Starting up the **syndaemon** fix the issue for me. Here is what I added to my **~/.icewm/startup** file to start the daemon on startup:
 
     elatov@crbook:~$ grep syn .icewm/startup 
     syndaemon -t -k -i 1 -d
     
 
-Lastly, I didn&#8217;t have the &#8220;Delete&#8221;, &#8220;PageDown&#8221;, or &#8220;Home&#8221; keys. In ChromeOS the following keyboard shortcuts existed that helped me.
+Lastly, I didn't have the "Delete", "PageDown", or "Home" keys. In ChromeOS the following keyboard shortcuts existed that helped me.
 
     Page up                Alt and the up arrow
     Page down              Alt and the down arrow
@@ -228,7 +228,7 @@ We can add the above command to the **~/.icewm/startup** file, if we want it to 
 *   <a href="http://askubuntu.com/questions/249760/remap-shortcut-to-a-single-key-cannot-be-used" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://askubuntu.com/questions/249760/remap-shortcut-to-a-single-key-cannot-be-used']);">xmodtool</a>
 *   <a href="http://code.google.com/p/autokey/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://code.google.com/p/autokey/']);">autokey</a>
 
-And that&#8217;s it. Last note, you can check the status of your battery with the **upower** utility:
+And that's it. Last note, you can check the status of your battery with the **upower** utility:
 
     elatov@crbook:~$ upower -d | grep -E 'time|percent|state'
         state:               charging

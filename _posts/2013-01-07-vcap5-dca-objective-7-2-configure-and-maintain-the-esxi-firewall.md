@@ -14,7 +14,7 @@ tags:
 ---
 ### Identify esxcli firewall configuration commands
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf']);">vSphere Security ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf']);">vSphere Security ESXi 5.0</a>":
 
 > **Firewall Configuration Using the ESXi Shell**  
 > The vSphere Client graphical user interface provides the preferred means of performing many configuration tasks. However, you can use the ESXi Shell to configure ESXi at the command line if necessary.
@@ -23,7 +23,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 
 ### Explain the three firewall security levels
 
-This comes from the old &#8220;<a href="http://www.vmware.com/pdf/vsphere4/r41/vsp_41_esx_server_config.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/vsphere4/r41/vsp_41_esx_server_config.pdf']);">ESX Configuration Guide ESX 4.1</a>&#8220;:
+This comes from the old "<a href="http://www.vmware.com/pdf/vsphere4/r41/vsp_41_esx_server_config.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/vsphere4/r41/vsp_41_esx_server_config.pdf']);">ESX Configuration Guide ESX 4.1</a>":
 
 <a href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-7-2-configure-and-maintain-the-esxi-firewall/firewall_security_levels/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/vcap5-dca-objective-7-2-configure-and-maintain-the-esxi-firewall/firewall_security_levels/']);" rel="attachment wp-att-5521"><img class="alignnone size-full wp-image-5521" alt="firewall security levels VCAP5 DCA Objective 7.2 – Configure and Maintain the ESXi Firewall " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/firewall_security_levels.png" width="600" height="166" title="VCAP5 DCA Objective 7.2 – Configure and Maintain the ESXi Firewall " /></a>
 
@@ -36,13 +36,13 @@ You can check the default action like so:
 	Loaded: true  
 	
 
-So if the default Action is &#8220;DROP&#8221; then we are at high. If the the default action is &#8220;PASS&#8221; then we are at low. If we have an nfs mount point, this opens up all outgoing ports, then we are at medium. From the security guide:
+So if the default Action is "DROP" then we are at high. If the the default action is "PASS" then we are at low. If we have an nfs mount point, this opens up all outgoing ports, then we are at medium. From the security guide:
 
 > **NOTE** The behavior of the NFS Client rule set (nfsClient) is different from other rule sets. When the NFS Client rule set is enabled, all outbound TCP ports are open for the destination hosts in the list of allowed IP addresses
 
 ### Enable/Disable pre-configured services
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf']);">vSphere Command-Line Interface Concepts and Examples ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf']);">vSphere Command-Line Interface Concepts and Examples ESXi 5.0</a>":
 
 > **Using esxcli network firewall for ESXi Firewall Management**  
 > To minimize the risk of an attack through the management interface, ESXi includes a firewall between the management interface and the network. To ensure the integrity of the host, only a small number of firewall ports are open by default. The vSphere Security documentation explains how to set up firewalls for your environment and which ports you might have to temporarily enable for certain traffic.
@@ -128,7 +128,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 >     
 >     ### Configure service behavior automation
 >     
->     From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-security-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-security-guide.pdf']);">vSphere Security ESXi 5.0</a>&#8220;:
+>     From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-security-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-security-guide.pdf']);">vSphere Security ESXi 5.0</a>":
 >     
 >     > **Automating Service Behavior Based on Firewall Settings**  
 >     > ESXi can automate whether services start based on the status of firewall ports.
@@ -251,10 +251,10 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 >     
 >     ### Create a custom service
 >     
->     From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-security-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-security-guide.pdf']);">vSphere Security ESXi 5.0</a>&#8220;:
+>     From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-security-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-security-guide.pdf']);">vSphere Security ESXi 5.0</a>":
 >     
 >     > **Rule Set Configuration Files**  
->     > A rule set configuration file contains firewall rules and describes each rule&#8217;s relationship with ports and protocols. The rule set configuration file can contain rule sets for multiple services.
+>     > A rule set configuration file contains firewall rules and describes each rule's relationship with ports and protocols. The rule set configuration file can contain rule sets for multiple services.
 >     > 
 >     > Rule set configuration files are located in the /etc/vmware/firewall/ directory. To add a service to the host security profile, VMware partners can create a VIB that contains the port rules for the service in a configuration file. VIB authoring tools are available to VMware partners only.
 >     > 
@@ -333,7 +333,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 >     
 >     ### Set firewall security level
 >     
->     Set the firewall to &#8220;PASS&#8221; all traffic, setting the security level to low:
+>     Set the firewall to "PASS" all traffic, setting the security level to low:
 >     
 	>       
 	>     ~ # esxcli network firewall get  

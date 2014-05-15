@@ -17,11 +17,11 @@ I decided to learn how <a href="http://www.fwbuilder.org/" onclick="javascript:_
 
 ### Enable SSH On DD-WRT
 
-The first thing that we need to do is enable SSH on the DD-WRT router. To do so, point your browser to the internal IP of your router. In my case it&#8217;s **192.168.1.1**. After logging in, I saw the following:
+The first thing that we need to do is enable SSH on the DD-WRT router. To do so, point your browser to the internal IP of your router. In my case it's **192.168.1.1**. After logging in, I saw the following:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/dd-wrt-login.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/dd-wrt-login.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/dd-wrt-login.png" alt="dd wrt login Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" width="827" height="383" class="alignnone size-full wp-image-8238" title="Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" /></a>
 
-Then go to &#8220;Services&#8221; Tab, scroll down, and you will see &#8220;Secure Shell&#8221;:
+Then go to "Services" Tab, scroll down, and you will see "Secure Shell":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/ddwrt-services-sshd.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/ddwrt-services-sshd.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/ddwrt-services-sshd.png" alt="ddwrt services sshd Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" width="597" height="215" class="alignnone size-full wp-image-8239" title="Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" /></a>
 
@@ -29,7 +29,7 @@ Go ahead and enable it:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/ddwrt-sshd-enabled.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/ddwrt-sshd-enabled.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/ddwrt-sshd-enabled.png" alt="ddwrt sshd enabled Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" width="599" height="222" class="alignnone size-full wp-image-8240" title="Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" /></a>
 
-After it&#8217;s enabled you will be able to login:
+After it's enabled you will be able to login:
 
     elatov@crbook:~$ ssh 192.168.1.1 -l root
     DD-WRT v24-sp2 std (c) 2010 NewMedia-NET GmbH
@@ -183,17 +183,17 @@ When we SSH over to a DD-WRT router we are actually not seeing the full picture.
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/dd-wrt-internals.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/dd-wrt-internals.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/dd-wrt-internals.png" alt="dd wrt internals Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" width="499" height="628" class="alignnone size-full wp-image-8241" title="Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" /></a>
 
-You will notice the vlans don&#8217;t match but those are just representations. From the above article:
+You will notice the vlans don't match but those are just representations. From the above article:
 
-> Within the switch entity there are defined two VLANs &#8211; vlan0 and vlan1, [**vlan1** and **vlan2**]. Vlan0, [**Vlan1**] is the one on which all of the numbered (1-4) RJ45 sockets on the back belong to. Vlan1, [**Vlan2**] is the one on which the WAN socket resides.
+> Within the switch entity there are defined two VLANs - vlan0 and vlan1, [**vlan1** and **vlan2**]. Vlan0, [**Vlan1**] is the one on which all of the numbered (1-4) RJ45 sockets on the back belong to. Vlan1, [**Vlan2**] is the one on which the WAN socket resides.
 
 And here is more information regarding the wireless device:
 
-> The wireless device is on a separate interface called eth1. This interface, which is not part of the switch, is available to routing logic just as eth0 and the vlans are. However, DD-WRT by default does not use routing logic per se to move traffic between vlan0, [**vlan1**] and eth1; rather, it employs a bridge device &#8211; who&#8217;s interface is called br0 &#8211; that logically combines vlan0, [**vlan1**] and eth1 into a single interface.
+> The wireless device is on a separate interface called eth1. This interface, which is not part of the switch, is available to routing logic just as eth0 and the vlans are. However, DD-WRT by default does not use routing logic per se to move traffic between vlan0, [**vlan1**] and eth1; rather, it employs a bridge device - who's interface is called br0 - that logically combines vlan0, [**vlan1**] and eth1 into a single interface.
 
 There is actually a good community <a href="http://www.dd-wrt.com/phpBB2/viewtopic.php?p=431294#431294" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.dd-wrt.com/phpBB2/viewtopic.php?p=431294#431294']);">post</a> on simplifying the above article, here are the important excerpts:
 
-> *   The switch&#8217;s ports are divided into port 0-3 (physical LAN ports are numbered differently) for the local LAN and Port 4 for the WAN
+> *   The switch's ports are divided into port 0-3 (physical LAN ports are numbered differently) for the local LAN and Port 4 for the WAN
 > *   To separate the WAN traffic from the LAN traffic, the switch is divided into virtual LANs called VLANs. VLAN0 is LAN traffic (ports 0-3) and VLAN1 is WAN traffic (port 4).
 > *   The connection between the switch (port 5) and the router (eth0) is called a trunk. A trunk is a connection that allows multiple VLAN traffic to pass through. In order for the trunk to identify which VLAN the data belongs to, the data frame is tagged with the VLAN number.
 > *   Traffic between the two VLANs is controlled by the router using iptables and ip route commands
@@ -203,9 +203,9 @@ The person from the above community post actually created another diagram to eas
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/dd-wrt-internal-simple.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/dd-wrt-internal-simple.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/dd-wrt-internal-simple.png" alt="dd wrt internal simple Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" width="809" height="608" class="alignnone size-full wp-image-8242" title="Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" /></a>
 
-Don&#8217;t get hung up on the **eth0.x** VLAN representations, from the same article:
+Don't get hung up on the **eth0.x** VLAN representations, from the same article:
 
-> NOTE: I&#8217;ve labelled the tagged VLANs as eth0.0 and eth0.1 on the following diagram which is a standard way of representing VLANs as subinterfaces on eth0 in routing BUT this is not the way that dd-wrt documentation represents them. The eth0.0 represents VLAN 0 and the eth0.1 represents VLAN 1
+> NOTE: I've labelled the tagged VLANs as eth0.0 and eth0.1 on the following diagram which is a standard way of representing VLANs as subinterfaces on eth0 in routing BUT this is not the way that dd-wrt documentation represents them. The eth0.0 represents VLAN 0 and the eth0.1 represents VLAN 1
 
 Looking at it from a firewall aspect: **vlan2** represents the external/public interface and **br0** (combination of eth1/wireless and vlan1/LAN interfaces) is our internal/private interface. For good measure checking out the routing table, we see the following:
 
@@ -225,13 +225,13 @@ Nothing crazy, **vlan2** is used for the public IP space and **br0** is used for
 There are two ways to use FWBuilder with DD-WRT. One is to setup the **iptables** to run from **nvram** and the other is to store the **iptables** configs in **JFFS** and run them from there. The latter seemed more pleasant, from the FWBuilder <a href="http://www.fwbuilder.org/4.0/docs/users_guide5/dd-wrt.shtml" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.fwbuilder.org/4.0/docs/users_guide5/dd-wrt.shtml']);">user-guide</a>:
 
 > **12.3.1. DD-WRT (nvram)**  
-> In this mode generated script is shorter and does not support command-line arguments &#8220;start&#8221;, &#8220;stop&#8221;, &#8220;status&#8221;. The script does not try to load iptables modules on the firewall but configures inetrface addresses, vlans, bridge ports and bonding interfaces. When you set host OS of the firewall object to &#8220;DD-WRT (nvram)&#8221;, built-in policy installer saves the script in nvram variable &#8220;fwb&#8221; and configures nvram variable &#8220;rc_firewall&#8221; to run this script.
+> In this mode generated script is shorter and does not support command-line arguments "start", "stop", "status". The script does not try to load iptables modules on the firewall but configures inetrface addresses, vlans, bridge ports and bonding interfaces. When you set host OS of the firewall object to "DD-WRT (nvram)", built-in policy installer saves the script in nvram variable "fwb" and configures nvram variable "rc_firewall" to run this script.
 
 And here is the description for **JFFS**:
 
-> When the firewall is configured with host OS &#8220;DD-WRT (jffs)&#8221;, built-in policy installer copies generated script to the file &#8220;/jffs/firewall/firewall.fs&#8221; on the firewall and configures nvram variable &#8220;rc_firewall&#8221; to call this script.
+> When the firewall is configured with host OS "DD-WRT (jffs)", built-in policy installer copies generated script to the file "/jffs/firewall/firewall.fs" on the firewall and configures nvram variable "rc_firewall" to call this script.
 
-So let&#8217;s go ahead and enable **JFFS**. Most of the instructions are laid out <a href="http://www.dd-wrt.com/wiki/index.php/Journalling_Flash_File_System" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.dd-wrt.com/wiki/index.php/Journalling_Flash_File_System']);">here</a>. Once logged into DD-WRT, go to the &#8220;Administration&#8221; tab, scroll down and enable the &#8220;JFFS2 Support&#8221; and &#8220;Clean JFFS2&#8243; options. Then click &#8220;Apply Settings&#8221; and not &#8220;Save&#8221;. After it&#8217;s enabled, SSH over to the router and make sure it&#8217;s mounted:
+So let's go ahead and enable **JFFS**. Most of the instructions are laid out <a href="http://www.dd-wrt.com/wiki/index.php/Journalling_Flash_File_System" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.dd-wrt.com/wiki/index.php/Journalling_Flash_File_System']);">here</a>. Once logged into DD-WRT, go to the "Administration" tab, scroll down and enable the "JFFS2 Support" and "Clean JFFS2" options. Then click "Apply Settings" and not "Save". After it's enabled, SSH over to the router and make sure it's mounted:
 
     root@DD-WRT:~# df -h
     Filesystem                Size      Used Available Use% Mounted on
@@ -239,7 +239,7 @@ So let&#8217;s go ahead and enable **JFFS**. Most of the instructions are laid o
     /dev/mtdblock/4           2.9M    260.0K      2.6M   9% /jffs
     
 
-That looks good. Now go back and disable &#8220;Clean JFFS2&#8243; and click &#8220;Save&#8221;:
+That looks good. Now go back and disable "Clean JFFS2" and click "Save":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/jffs2-clean-disabled.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/jffs2-clean-disabled.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/jffs2-clean-disabled.png" alt="jffs2 clean disabled Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" width="599" height="131" class="alignnone size-full wp-image-8243" title="Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" /></a>
 
@@ -314,7 +314,7 @@ FWBuilder is available on most Linux distros, install as necessary:
     yum install fwbuilder
     
 
-After it&#8217;s installed you can launch it by running:
+After it's installed you can launch it by running:
 
     fwbuilder
     
@@ -323,15 +323,15 @@ at which point you will see the following window:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/fwbuilder_started.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/fwbuilder_started.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/fwbuilder_started.png" alt="fwbuilder started Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" width="1000" height="600" class="alignnone size-full wp-image-8250" title="Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" /></a>
 
-Then click on &#8220;Create Firewall&#8221; and fill out the specs of our firewall. Here is how mine looked like:
+Then click on "Create Firewall" and fill out the specs of our firewall. Here is how mine looked like:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/fwbldr_new_fw_dd-wrt.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/fwbldr_new_fw_dd-wrt.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/fwbldr_new_fw_dd-wrt.png" alt="fwbldr new fw dd wrt Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" width="650" height="590" class="alignnone size-full wp-image-8251" title="Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" /></a>
 
-From the Templates I chose the &#8220;DDWRT Template&#8221;:
+From the Templates I chose the "DDWRT Template":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/ddwrt-template-chose.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/ddwrt-template-chose.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/ddwrt-template-chose.png" alt="ddwrt template chose Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" width="650" height="590" class="alignnone size-full wp-image-8252" title="Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" /></a>
 
-On the &#8220;Objects&#8221; screen, I renamed **vlan1** to **vlan2**, but the left the rest as is:
+On the "Objects" screen, I renamed **vlan1** to **vlan2**, but the left the rest as is:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/fw_bldr_create_objects.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/fw_bldr_create_objects.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/fw_bldr_create_objects.png" alt="fw bldr create objects Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" width="650" height="590" class="alignnone size-full wp-image-8253" title="Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" /></a>
 
@@ -339,7 +339,7 @@ At this point you will see the following firewall policy: <a href="http://virtua
 
 ### FWBuilder Firewall Rule Break-Down
 
-We can break down each rule, just to make sure we know what is going on. If we &#8220;Save&#8221; the project and then &#8220;Compile&#8221; the rule, we can then inspect the actual generated file:
+We can break down each rule, just to make sure we know what is going on. If we "Save" the project and then "Compile" the rule, we can then inspect the actual generated file:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/inspect_fw_script.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/inspect_fw_script.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/inspect_fw_script.png" alt="inspect fw script Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" width="780" height="512" class="alignnone size-full wp-image-8255" title="Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" /></a>
 
@@ -400,7 +400,7 @@ This allows all new traffic from the firewall to the internal network. Here is *
     $IPTABLES -A RULE_6  -j DROP
     
 
-This is kind of a &#8220;catch all other&#8221; rule, so if anything is not matched from above, then block that traffic that is destined to the firewall&#8217;s private interface. Here is **Rule 7**:
+This is kind of a "catch all other" rule, so if anything is not matched from above, then block that traffic that is destined to the firewall's private interface. Here is **Rule 7**:
 
     $IPTABLES -A OUTPUT -p icmp  -m icmp  -d 192.168.1.0/24   --icmp-type 3  -m state --state NEW  -j ACCEPT
     $IPTABLES -A INPUT -p icmp  -m icmp  -d 192.168.1.0/24   --icmp-type 3  -m state --state NEW  -j ACCEPT
@@ -428,11 +428,11 @@ Deny the rest <img src="http://virtuallyhyper.com/wp-includes/images/smilies/ico
 
 ### Allow DNS Queries to the Firewall
 
-I noticed that we don&#8217;t allow DNS to our DD-WRT firewall and **dnsmasq** is running on the DD-WRT Router . So let&#8217;s add that, change the library from &#8220;user&#8221; to &#8220;standard&#8221; and go to &#8220;Service&#8221; > &#8220;UDP&#8221; and you will see a service called &#8220;domain&#8221;:
+I noticed that we don't allow DNS to our DD-WRT firewall and **dnsmasq** is running on the DD-WRT Router . So let's add that, change the library from "user" to "standard" and go to "Service" > "UDP" and you will see a service called "domain":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/domain_service_std_library.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/domain_service_std_library.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/domain_service_std_library.png" alt="domain service std library Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" width="1366" height="714" class="alignnone size-full wp-image-8256" title="Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" /></a>
 
-Now let&#8217;s go ahead and drag-and-drop that into our 3rd Rule:
+Now let's go ahead and drag-and-drop that into our 3rd Rule:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/drag_drop_dns_to_policy.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/drag_drop_dns_to_policy.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/drag_drop_dns_to_policy.png" alt="drag drop dns to policy Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" width="1366" height="714" class="alignnone size-full wp-image-8257" title="Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" /></a>
 
@@ -448,15 +448,15 @@ Now go ahead and compile the firewall:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/Compile_rules_fwbldr.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/Compile_rules_fwbldr.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/Compile_rules_fwbldr.png" alt="Compile rules fwbldr Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" width="1366" height="714" class="alignnone size-full wp-image-8260" title="Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" /></a>
 
-Once you hit the &#8220;Compile&#8221; button you will be presented with available firewalls to compile:
+Once you hit the "Compile" button you will be presented with available firewalls to compile:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/Select_fw_to_compile.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/Select_fw_to_compile.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/Select_fw_to_compile.png" alt="Select fw to compile Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" width="1135" height="406" class="alignnone size-full wp-image-8261" title="Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" /></a>
 
-Select the only one you have and click &#8220;Next&#8221;, if the compile is successful you will see the following:
+Select the only one you have and click "Next", if the compile is successful you will see the following:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/Compile_succesful.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/Compile_succesful.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/Compile_succesful.png" alt="Compile succesful Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" width="1135" height="406" class="alignnone size-full wp-image-8263" title="Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" /></a>
 
-You can click &#8220;Inspect Generated Files&#8221; and make sure the new **Rule 3** looks something like this:
+You can click "Inspect Generated Files" and make sure the new **Rule 3** looks something like this:
 
     # Rule 3 (global)
     # 
@@ -475,29 +475,29 @@ Notice both **UDP** and **TCP** **53** are now in there.
 
 ### FWBuilder Backup Plan
 
-It&#8217;s always a good idea to always allow a specific IP to connect to our firewall (in case we break something and lock ourselves out). To set this up, double click on the Firewall and you will see the following:
+It's always a good idea to always allow a specific IP to connect to our firewall (in case we break something and lock ourselves out). To set this up, double click on the Firewall and you will see the following:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/fw-bldr_fw_selected.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/fw-bldr_fw_selected.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/fw-bldr_fw_selected.png" alt="fw bldr fw selected Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" width="1366" height="714" class="alignnone size-full wp-image-8264" title="Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" /></a>
 
-Then click on &#8220;Firewall Settings&#8221; and you will see the following:
+Then click on "Firewall Settings" and you will see the following:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/fw_settings.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/fw_settings.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/fw_settings.png" alt="fw settings Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" width="1054" height="628" class="alignnone size-full wp-image-8265" title="Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" /></a>
 
-Check the box that says &#8220;Always permit ssh access from the management workstation with this address&#8221; and enter the desired IP:
+Check the box that says "Always permit ssh access from the management workstation with this address" and enter the desired IP:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/fw_settings_ssh_back_door.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/fw_settings_ssh_back_door.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/fw_settings_ssh_back_door.png" alt="fw settings ssh back door Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" width="1054" height="628" class="alignnone size-full wp-image-8266" title="Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" /></a>
 
 ### Deploy the New Firewall to the DD_WRT Router
 
-Under the &#8220;Firewall Settings&#8221;, make sure &#8220;Compiler&#8221; Tab looks like this:
+Under the "Firewall Settings", make sure "Compiler" Tab looks like this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/Compiler_tab_fw_sts.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/Compiler_tab_fw_sts.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/Compiler_tab_fw_sts.png" alt="Compiler tab fw sts Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" width="1054" height="628" class="alignnone size-full wp-image-8267" title="Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" /></a>
 
-and the &#8220;Installer&#8221; Tab looks like this:
+and the "Installer" Tab looks like this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/Installer_Tab_firewall_sts.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/Installer_Tab_firewall_sts.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/Installer_Tab_firewall_sts.png" alt="Installer Tab firewall sts Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" width="1054" height="628" class="alignnone size-full wp-image-8268" title="Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" /></a>
 
-If you chose the &#8220;DD-WRT (JFFS)&#8221; for the OS those should be the default. You can also check out the installer scripts for DD-WRT from the FWBuilder package:
+If you chose the "DD-WRT (JFFS)" for the OS those should be the default. You can also check out the installer scripts for DD-WRT from the FWBuilder package:
 
     elatov@crbook:/usr/share/fwbuilder-5.1.0.3599/configlets/dd-wrt-jffs$ pwd
     /usr/share/fwbuilder-5.1.0.3599/configlets/dd-wrt-jffs
@@ -513,15 +513,15 @@ If you chose the &#8220;DD-WRT (JFFS)&#8221; for the OS those should be the defa
     {{endif}}
     
 
-Looks like we are going to set the appropriate settings on the DD-WRT Router. Then go ahead and click on the &#8220;Install&#8221; button:
+Looks like we are going to set the appropriate settings on the DD-WRT Router. Then go ahead and click on the "Install" button:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/fw_builder_install_button.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/fw_builder_install_button.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/fw_builder_install_button.png" alt="fw builder install button Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" width="1366" height="714" class="alignnone size-full wp-image-8269" title="Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" /></a>
 
-It will launch the wizard and you can select which firewall to install (we only have one). Then it will &#8220;Compile&#8221; the rules and then it will ask for the SSH credentials:
+It will launch the wizard and you can select which firewall to install (we only have one). Then it will "Compile" the rules and then it will ask for the SSH credentials:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/Install_Options_for_dd-wrt.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/Install_Options_for_dd-wrt.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/Install_Options_for_dd-wrt.png" alt="Install Options for dd wrt Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" width="608" height="455" class="alignnone size-full wp-image-8270" title="Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" /></a>
 
-After I hit &#8220;Install&#8221;, I saw the following:
+After I hit "Install", I saw the following:
 
     Installation plan:
     Copy file: /home/elatov/firewall.fw --> /jffs/firewall/firewall.fw
@@ -571,7 +571,7 @@ I then logged into the DD-WRT Router via SSH (Luckily I was still able to), and 
         0     0 RULE_9     0    --  *      *       0.0.0.0/0            0.0.0.0/0           state NEW 
     
 
-The new rules were definitely in place and my network didn&#8217;t come to a screaming halt. I didn&#8217;t configure any NAT&#8217;ing so my NAT table was very small:
+The new rules were definitely in place and my network didn't come to a screaming halt. I didn't configure any NAT'ing so my NAT table was very small:
 
     root@DD-WRT:~# iptables -L -n -v -t nat
     Chain PREROUTING (policy ACCEPT 18914 packets, 1784K bytes)
@@ -596,7 +596,7 @@ I also noticed that the install script removed the **169.254.255** address:
         inet 192.168.1.1/24 brd 192.168.1.255 scope global br0
     
 
-That shouldn&#8217;t break anything&#8230; I hope. Also checking to make sure the script is setup:
+That shouldn't break anything... I hope. Also checking to make sure the script is setup:
 
     root@DD-WRT:~# nvram get rc_firewall
     /jffs/firewall/firewall.fw
@@ -606,13 +606,13 @@ That all looks good, I then rebooted the router one more time to make sure the r
 
 ### Allow DHCP from the Internal Network
 
-After I rebooted I realized I wasn&#8217;t able to get a DHCP address from the wireless network. So I noticed that the DHCP server actually runs on the public interface:
+After I rebooted I realized I wasn't able to get a DHCP address from the wireless network. So I noticed that the DHCP server actually runs on the public interface:
 
     root@DD-WRT:~# ps | grep dh
      1974 root       984 S    udhcpc -i vlan2 -p /var/run/udhcpc.pid -s /tmp/udhcpc
     
 
-I tried to change that but I couldn&#8217;t (without running multiple DHCP Servers). So **Rule 2** was blocking the private network from broadcasting to the public interface. To get around this I modified **Rule 2** to look like this:
+I tried to change that but I couldn't (without running multiple DHCP Servers). So **Rule 2** was blocking the private network from broadcasting to the public interface. To get around this I modified **Rule 2** to look like this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/rule2-changed.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/rule2-changed.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/rule2-changed.png" alt="rule2 changed Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" width="1366" height="714" class="alignnone size-full wp-image-8272" title="Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" /></a>
 
@@ -622,7 +622,7 @@ After I compiled the firewall I saw the following rule generated:
     $IPTABLES -A OUTPUT -o br0  -p udp -m udp  -m multiport  -d 255.255.255.255   --dports 68,67  -m state --state NEW  -j ACCEPT
     
 
-I still saw some &#8220;Denies&#8221; to the public interface:
+I still saw some "Denies" to the public interface:
 
     root@DD-WRT:~# dmesg
     RULE 6 -- DENY IN=vlan2 OUT= MAC=ff:ff:ff:ff:ff:ff:00:01:5c:22:b2:01:08:00:45:00:01:4c SRC=73.252.30.1 DST=255.255.255.255 LEN=332 TOS=0x00 PREC=0x00 TTL=64 ID=1950 PROTO=UDP SPT=67 DPT=68 LEN=312 
@@ -637,7 +637,7 @@ By default we have the following rule for our NAT:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/Nat_Rules_def.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/Nat_Rules_def.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/Nat_Rules_def.png" alt="Nat Rules def Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" width="1366" height="714" class="alignnone size-full wp-image-8273" title="Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" /></a>
 
-Creating DNAT rules is outlines in <a href="http://www.fwbuilder.org/4.0/docs/users_guide5/destination-address-translation.shtml" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.fwbuilder.org/4.0/docs/users_guide5/destination-address-translation.shtml']);">this</a> FWBuilder guide. So let&#8217;s forward port 80 to our web server which has the Internal IP of **192.168.1.100**. Here is NAT rule that I created for that:
+Creating DNAT rules is outlines in <a href="http://www.fwbuilder.org/4.0/docs/users_guide5/destination-address-translation.shtml" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.fwbuilder.org/4.0/docs/users_guide5/destination-address-translation.shtml']);">this</a> FWBuilder guide. So let's forward port 80 to our web server which has the Internal IP of **192.168.1.100**. Here is NAT rule that I created for that:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/dnat_port_80.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/04/dnat_port_80.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/dnat_port_80.png" alt="dnat port 80 Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" width="1198" height="597" class="alignnone size-full wp-image-8274" title="Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" /></a>
 
@@ -664,9 +664,9 @@ That will generate the following rules:
         6   360 SNAT       tcp  --  *      br0     0.0.0.0/0            192.168.1.100       tcp dpt:80 to:192.168.1.1 
     
 
-This is covered in the FWBuilder chapter entitled &#8220;<a href="http://www.fwbuilder.org/4.0/docs/users_guide5/dnat_to_same_network.shtml" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.fwbuilder.org/4.0/docs/users_guide5/dnat_to_same_network.shtml']);">Destination NAT Onto the Same Network</a>&#8220;. This concept is referred to as **NAT Hair-pinning**. From the <a href="http://tools.ietf.org/html/rfc4787" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://tools.ietf.org/html/rfc4787']);">RFC</a>, here is what we see:
+This is covered in the FWBuilder chapter entitled "<a href="http://www.fwbuilder.org/4.0/docs/users_guide5/dnat_to_same_network.shtml" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.fwbuilder.org/4.0/docs/users_guide5/dnat_to_same_network.shtml']);">Destination NAT Onto the Same Network</a>". This concept is referred to as **NAT Hair-pinning**. From the <a href="http://tools.ietf.org/html/rfc4787" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://tools.ietf.org/html/rfc4787']);">RFC</a>, here is what we see:
 
-> Hairpinning allows two endpoints on the internal side of the NAT to communicate even if they only use each other&#8217;s external IP addresses and ports.
+> Hairpinning allows two endpoints on the internal side of the NAT to communicate even if they only use each other's external IP addresses and ports.
 
 Now I have completely replaced the default **iptables** firewall on the DD-WRT Router with the firewall I built with FWBuilder. Now if I need to make any changes I can just fire up FWBuilder and drag-and-drop objects to create my new rules and feel like I am a enterprise network administrator <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" class="wp-smiley" title="Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router" /> 
 

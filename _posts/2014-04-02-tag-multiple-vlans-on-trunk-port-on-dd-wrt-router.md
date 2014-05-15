@@ -15,22 +15,22 @@ tags:
   - DD-WRT
   - Trunk Port
 ---
-I was running an ESXi host in my home network and I wanted to dedicate on NIC of the ESXi for VM traffic. Since I was planning on having different networks, I decide to plug this NIC into a trunk port of the dd-wrt router. This way, I can just assign the VM to an appropriate virtual network and it will have access to it&#8217;s corresponding network.
+I was running an ESXi host in my home network and I wanted to dedicate on NIC of the ESXi for VM traffic. Since I was planning on having different networks, I decide to plug this NIC into a trunk port of the dd-wrt router. This way, I can just assign the VM to an appropriate virtual network and it will have access to it's corresponding network.
 
 ### Add another VLAN to dd-wrt
 
-So I decided to allow vlans 1 and 3 to go through port 4 of the dd-wrt router. First let&#8217;s add vlan 3 to the dd-wrt configuration and assign a 10.0.0.0/24 network range to this vlan. This is done in the management UI. Point your browser to the dd-wrt router, after you login you should see the following:
+So I decided to allow vlans 1 and 3 to go through port 4 of the dd-wrt router. First let's add vlan 3 to the dd-wrt configuration and assign a 10.0.0.0/24 network range to this vlan. This is done in the management UI. Point your browser to the dd-wrt router, after you login you should see the following:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/03/dd-wrt-admin-ui.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/03/dd-wrt-admin-ui.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/03/dd-wrt-admin-ui.png" alt="dd wrt admin ui Tag Multiple VLANs on Trunk Port on DD WRT Router" width="628" height="441" class="alignnone size-full wp-image-10322" title="Tag Multiple VLANs on Trunk Port on DD WRT Router" /></a>
 
-Now let&#8217;s add vlan3 to port 4:
+Now let's add vlan3 to port 4:
 
 1.  Go to **Setup** -> **VLANs**.
 2.  Uncheck port 4. 
 3.  Place port 4 into VLAN3.
 4.  Click **Save**, then **Apply Settings**.
 
-Next let&#8217;s configure vlan 3&#8242;s network:
+Next let's configure vlan 3's network:
 
 1.  Go to **Setup** -> **Networking** -> **Port Setup**
 2.  Set Vlan3 to **unbridged**
@@ -40,7 +40,7 @@ Next let&#8217;s configure vlan 3&#8242;s network:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/03/dd-wrt-port-setup.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/03/dd-wrt-port-setup.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/03/dd-wrt-port-setup.png" alt="dd wrt port setup Tag Multiple VLANs on Trunk Port on DD WRT Router" width="458" height="372" class="alignnone size-full wp-image-10323" title="Tag Multiple VLANs on Trunk Port on DD WRT Router" /></a>
 
-Let&#8217;s also enable DHCP for VLAN3:
+Let's also enable DHCP for VLAN3:
 
 1.  Go to **Setup** -> **Networking** -> **DHCPD**
 2.  Set DHCP 0 to vlan3 with a Leasetime of 3600.
@@ -48,7 +48,7 @@ Let&#8217;s also enable DHCP for VLAN3:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/03/dd-wrt-dhcp.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/03/dd-wrt-dhcp.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/03/dd-wrt-dhcp.png" alt="dd wrt dhcp Tag Multiple VLANs on Trunk Port on DD WRT Router" width="592" height="143" class="alignnone size-full wp-image-10326" title="Tag Multiple VLANs on Trunk Port on DD WRT Router" /></a>
 
-Now let&#8217;s bring up the vlan3 interface on boot. To do this:
+Now let's bring up the vlan3 interface on boot. To do this:
 
 1.  Go to **Administration** -> **Commands** 
 2.  Enter the following in the **commands** text field
@@ -60,7 +60,7 @@ ifconfig vlan3 up
 
 3.  Click **Save Startup**
 
-After it&#8217;s done you should see the following under the **Start up** section:
+After it's done you should see the following under the **Start up** section:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/03/dd-wrt-startup-commands.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/03/dd-wrt-startup-commands.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/03/dd-wrt-startup-commands.png" alt="dd wrt startup commands Tag Multiple VLANs on Trunk Port on DD WRT Router" width="587" height="357" class="alignnone size-full wp-image-10327" title="Tag Multiple VLANs on Trunk Port on DD WRT Router" /></a>
 
@@ -113,7 +113,7 @@ Here are the other numbers mean:
 > 19 = Full-Duplex is unchecked or greyed because Auto-Negotiate is checked  
 > 20 = Enabled is unchecked.
 
-So from the above we can see port 4 allows *vlan3*, which is perfect. Now let&#8217;s set up *vlan1* and *vlan3* to come in tagged on port 4 and then enable both VLANS on that port. This can be accomplished with the following:
+So from the above we can see port 4 allows *vlan3*, which is perfect. Now let's set up *vlan1* and *vlan3* to come in tagged on port 4 and then enable both VLANS on that port. This can be accomplished with the following:
 
     nvram set vlan1ports="4t 3 2 1 8*"
     nvram set vlan3ports="4t 8"

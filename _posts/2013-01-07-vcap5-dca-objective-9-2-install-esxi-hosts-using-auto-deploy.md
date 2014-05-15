@@ -14,7 +14,7 @@ tags:
 ---
 ### Identify Auto Deploy requirements
 
-From &#8220;<a href="http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-4-Auto-Deploy.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-4-Auto-Deploy.pdf']);">VMware vSphere 5.0 Evaluation Guide Volume Four – Auto Deploy</a>&#8220;:
+From "<a href="http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-4-Auto-Deploy.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-4-Auto-Deploy.pdf']);">VMware vSphere 5.0 Evaluation Guide Volume Four – Auto Deploy</a>":
 
 > **Auto Deploy Requirements**  
 > The following components are required for Auto Deploy:
@@ -26,7 +26,7 @@ From &#8220;<a href="http://www.vmware.com/files/pdf/products/vsphere/VMware-vSp
 
 ### Install the Auto Deploy Server
 
-From &#8220;<a href="http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-4-Auto-Deploy.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-4-Auto-Deploy.pdf']);">VMware vSphere 5.0 Evaluation Guide Volume Four – Auto Deploy</a>&#8220;:
+From "<a href="http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-4-Auto-Deploy.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-4-Auto-Deploy.pdf']);">VMware vSphere 5.0 Evaluation Guide Volume Four – Auto Deploy</a>":
 
 > The Auto Deploy Windows Installer is included with the vCenter installation media. From the main installation menu, choose the option to install the Auto Deploy server.
 > 
@@ -57,7 +57,7 @@ Also here are the other prerequisites:
 
 ### Utilize Auto Deploy cmdlets to deploy ESXi hosts
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf']);">vSphere Installation and Setup vSphere 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf']);">vSphere Installation and Setup vSphere 5.0</a>":
 
 > Auto Deploy PowerCLI Cmdlet Overview  
 > You specify the rules that assign image profiles and host profiles to hosts using a set of PowerCLI cmdlets that are included in VMware PowerCLI.
@@ -115,7 +115,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 >         
 >         ### Provision/Re-provision ESXi hosts using Auto Deploy
 >         
->         From &#8220;<a href="http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-4-Auto-Deploy.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-4-Auto-Deploy.pdf']);">VMware vSphere 5.0 Evaluation Guide Volume Four – Auto Deploy</a>&#8220;:
+>         From "<a href="http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-4-Auto-Deploy.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-4-Auto-Deploy.pdf']);">VMware vSphere 5.0 Evaluation Guide Volume Four – Auto Deploy</a>":
 >         
 >         > Create Auto Deploy Rules  
 >         > From the vSphere PowerCLI shell you will create the rules to identify the image profile and host profile to use and where in vCenter to place the auto deployed host. The rules use pattern matching to compare the attributes of the host being deployed against the predefined rules. There are a number of attributes that can be used. The following figure shows the list of available attributes that can be used for pattern matching in Auto Deploy.
@@ -222,7 +222,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 >         
 >         ### Configure an Auto Deploy reference host
 >         
->         From <a href="http://virtuallyhyper.com/2012/11/vcap5-dca-objective-5-1-implement-and-maintain-host-profiles/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/11/vcap5-dca-objective-5-1-implement-and-maintain-host-profiles/']);">VCAP5-DCA Objective 5.1</a> create a Host Profile and then we can apply it to Auto Deployed Hosts. From &#8220;<a href="http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-4-Auto-Deploy.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-4-Auto-Deploy.pdf']);">VMware vSphere 5.0 Evaluation Guide Volume Four – Auto Deploy</a>&#8220;:
+>         From <a href="http://virtuallyhyper.com/2012/11/vcap5-dca-objective-5-1-implement-and-maintain-host-profiles/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/11/vcap5-dca-objective-5-1-implement-and-maintain-host-profiles/']);">VCAP5-DCA Objective 5.1</a> create a Host Profile and then we can apply it to Auto Deployed Hosts. From "<a href="http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-4-Auto-Deploy.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-4-Auto-Deploy.pdf']);">VMware vSphere 5.0 Evaluation Guide Volume Four – Auto Deploy</a>":
 >         
 >         > **Create a Host Profile Rule**  
 >         > By default, when a new host is provisioned using Auto Deploy, the host will be put into maintenance mode. This requires that the administrator connect to the vCenter to finish the host’s configuration. Auto Deploy can optionally perform the host configuration by applying a predefined host profile. Follow these steps to create a rule to apply a host profile to a newly deployed host.

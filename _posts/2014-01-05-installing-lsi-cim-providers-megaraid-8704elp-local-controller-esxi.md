@@ -16,7 +16,7 @@ tags:
   - veeam
   - VMware
 ---
-I wanted to check the status of the local LSI controller in the vSphere Client. Going to the **Health Status** Tab and checking the **Sensor** information, I didn&#8217;t see any Storage Sensors:
+I wanted to check the status of the local LSI controller in the vSphere Client. Going to the **Health Status** Tab and checking the **Sensor** information, I didn't see any Storage Sensors:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/01/cim-sensors-esxi.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/01/cim-sensors-esxi.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/01/cim-sensors-esxi.png" alt="cim sensors esxi Installing LSI CIM Providers for MegaRaid 8704ELP Local Controller on ESXi 5.0" width="573" height="238" class="alignnone size-full wp-image-9942" title="Installing LSI CIM Providers for MegaRaid 8704ELP Local Controller on ESXi 5.0" /></a>
 
@@ -69,7 +69,7 @@ It only had the MegaCLI tool for VMware. I ran into a couple of site and they ac
 *   <a href="http://vmsysadmin.wordpress.com/2011/12/09/using-perc-5i-with-esxi-5-2/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://vmsysadmin.wordpress.com/2011/12/09/using-perc-5i-with-esxi-5-2/']);">Using Perc 5i with ESXi 5</a>
 *   <a href="https://communities.vmware.com/thread/421847" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/thread/421847']);">Monitoring LSI (Russian)</a>
 
-So I downloaded <a href="http://www.lsi.com/downloads/Public/RAID%20Controllers/RAID%20Controllers%20Common%20Files/00_32_V0_02_SMIS_VMware_Installer.zip" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.lsi.com/downloads/Public/RAID%20Controllers/RAID%20Controllers%20Common%20Files/00_32_V0_02_SMIS_VMware_Installer.zip']);">VMWare SMIS Provider VIB &#8211; 5.4</a> and then installed the file.
+So I downloaded <a href="http://www.lsi.com/downloads/Public/RAID%20Controllers/RAID%20Controllers%20Common%20Files/00_32_V0_02_SMIS_VMware_Installer.zip" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.lsi.com/downloads/Public/RAID%20Controllers/RAID%20Controllers%20Common%20Files/00_32_V0_02_SMIS_VMware_Installer.zip']);">VMWare SMIS Provider VIB - 5.4</a> and then installed the file.
 
 ### Installing VIB on ESXi 5.x
 
@@ -127,7 +127,7 @@ Then to remove, just run the following:
     ~ # esxcli software vib remove -n lsiprovider
     
 
-After it&#8217;s removed, I rebooted and installed v24 providers:
+After it's removed, I rebooted and installed v24 providers:
 
     ~ # esxcli software vib install -v /tmp/vmware-esx-provider-LSIProvider.vib 
     Installation Result
@@ -143,7 +143,7 @@ Another reboot and I saw the following under the **Health Status** tab:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/01/cim-health-status-lsi-24.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/01/cim-health-status-lsi-24.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/01/cim-health-status-lsi-24.png" alt="cim health status lsi 24 Installing LSI CIM Providers for MegaRaid 8704ELP Local Controller on ESXi 5.0" width="885" height="240" class="alignnone size-full wp-image-9946" title="Installing LSI CIM Providers for MegaRaid 8704ELP Local Controller on ESXi 5.0" /></a>
 
-Since the controller didn&#8217;t have a battery (and the status was **unknown**), CIM was throwing an alert. I then ran across <a href="http://www.thomas-krenn.com/en/wiki/Monitoring_LSI_RAID_Controllers_in_VMware" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.thomas-krenn.com/en/wiki/Monitoring_LSI_RAID_Controllers_in_VMware']);">Monitoring LSI RAID Controllers in VMware</a>, and it mentioned that it was known issue and should be fixed in later CIM Providers. So then I installed <a href="http://www.lsi.com/downloads/Public/RAID%20Controllers/RAID%20Controllers%20Common%20Files/00.03.V0.03_SMIS_VMware_Installer.zip" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.lsi.com/downloads/Public/RAID%20Controllers/RAID%20Controllers%20Common%20Files/00.03.V0.03_SMIS_VMware_Installer.zip']);">v30</a> of the LSI CIM Providers (after I removed v24):
+Since the controller didn't have a battery (and the status was **unknown**), CIM was throwing an alert. I then ran across <a href="http://www.thomas-krenn.com/en/wiki/Monitoring_LSI_RAID_Controllers_in_VMware" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.thomas-krenn.com/en/wiki/Monitoring_LSI_RAID_Controllers_in_VMware']);">Monitoring LSI RAID Controllers in VMware</a>, and it mentioned that it was known issue and should be fixed in later CIM Providers. So then I installed <a href="http://www.lsi.com/downloads/Public/RAID%20Controllers/RAID%20Controllers%20Common%20Files/00.03.V0.03_SMIS_VMware_Installer.zip" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.lsi.com/downloads/Public/RAID%20Controllers/RAID%20Controllers%20Common%20Files/00.03.V0.03_SMIS_VMware_Installer.zip']);">v30</a> of the LSI CIM Providers (after I removed v24):
 
     ~ # esxcli software vib install -v /tmp/vmware-esx-provider-lsiprovider.vib  --no-sig-check
     Installation Result
@@ -191,7 +191,7 @@ We can grab the VIB again and copy it to our ESXi machine:
     $ scp VmwareMN/vmware-esx-MegaCli-8.07.07.vib esx:/tmp
     
 
-Then **ssh**&#8216;ed into the ESXi host again and ran the following to install it:
+Then **ssh**'ed into the ESXi host again and ran the following to install it:
 
     # esxcli software vib install -v /tmp/vmware-esx-MegaCli-8.07.07.vib --no-sig-check
     Installation Result
@@ -262,9 +262,9 @@ So then running the following helped out:
 
 ### Monitoring LSI Raid Status
 
-LSI provides the <a href="http://kb.vmware.com/kb/2004166" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/2004166']);">Megaraid Storage Monitor</a> and the install process for that is described in <a href="http://www.omniweb.com/wordpress/?p=636" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.omniweb.com/wordpress/?p=636']);">Configuring alerts with MegaRAID Storage Manager for LSI 9260-4i controller onESXi 5.0</a>. There were a lot of steps in the process and for some reason, I didn&#8217;t feel like it was worth the trouble (there was also a fix related to multicast vs unicast and it&#8217;s described in <a href="https://communities.vmware.com/message/2105886#2105886" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/message/2105886#2105886']);">VMware Communities Discussion 2105886</a>). I only had one host, so I didn&#8217;t have vCenter installed. I wanted to configure alarms like you can in vCenter, but without vCenter. This way I could not only monitor the LSI RAID status but other ESXi related functions as well.
+LSI provides the <a href="http://kb.vmware.com/kb/2004166" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/2004166']);">Megaraid Storage Monitor</a> and the install process for that is described in <a href="http://www.omniweb.com/wordpress/?p=636" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.omniweb.com/wordpress/?p=636']);">Configuring alerts with MegaRAID Storage Manager for LSI 9260-4i controller onESXi 5.0</a>. There were a lot of steps in the process and for some reason, I didn't feel like it was worth the trouble (there was also a fix related to multicast vs unicast and it's described in <a href="https://communities.vmware.com/message/2105886#2105886" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/message/2105886#2105886']);">VMware Communities Discussion 2105886</a>). I only had one host, so I didn't have vCenter installed. I wanted to configure alarms like you can in vCenter, but without vCenter. This way I could not only monitor the LSI RAID status but other ESXi related functions as well.
 
-I came across <a href="http://www.veeam.com/virtual-server-management-one-free.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.veeam.com/virtual-server-management-one-free.html']);">Veeam One</a> Free Edition. It&#8217;s like a little mini-vCenter without all the bells and whistles. It definitely fit my needs: it provided performance graphs and it had a lot of pre-configured alarms which could be sent via an SMTP server. Check out <a href="http://rickrbyrne.wordpress.com/2012/09/22/veeam-one-free-edition-and-more/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://rickrbyrne.wordpress.com/2012/09/22/veeam-one-free-edition-and-more/']);">Veeam One Free Edition and More</a> for a step-by-step install guide. Another cool thing about *Veeam One* is that it can integrate with <a href="http://www.veeam.com/virtual-machine-backup-solution-free.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.veeam.com/virtual-machine-backup-solution-free.html']);">Veeam Backup</a> (there is a free version as well).
+I came across <a href="http://www.veeam.com/virtual-server-management-one-free.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.veeam.com/virtual-server-management-one-free.html']);">Veeam One</a> Free Edition. It's like a little mini-vCenter without all the bells and whistles. It definitely fit my needs: it provided performance graphs and it had a lot of pre-configured alarms which could be sent via an SMTP server. Check out <a href="http://rickrbyrne.wordpress.com/2012/09/22/veeam-one-free-edition-and-more/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://rickrbyrne.wordpress.com/2012/09/22/veeam-one-free-edition-and-more/']);">Veeam One Free Edition and More</a> for a step-by-step install guide. Another cool thing about *Veeam One* is that it can integrate with <a href="http://www.veeam.com/virtual-machine-backup-solution-free.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.veeam.com/virtual-machine-backup-solution-free.html']);">Veeam Backup</a> (there is a free version as well).
 
 After I had setup *Veeam*, I saw the same Hardware Sensors as I did in the vSphere Client:
 

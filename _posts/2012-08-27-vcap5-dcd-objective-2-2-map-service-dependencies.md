@@ -22,7 +22,7 @@ From that PDF:
 > Effective application discovery and dependency mapping requires three primary methods:
 > 
 > *   **Active discovery** - This method uses common network protocols to remotely query servers in the managed network and obtain supplementary CI data about network hosts. However, using just active discovery can place an unnecessary burden on the network. In addition, large segments of CI data don’t change all that often, making repeated realtime active discovery unnecessary for many. Furthermore, although active discovery uncovers detailed CI data about hosts and services, it doesn’t easily or directly provide information about how they relate to others. But active discovery doesn’t require agents, and delivers a wealth of solid CI data.
-> *   **Passive discovery** &#8211; This method provides more of that relationship data. By connecting to core span or mirror ports on network switches and sampling network traffic, passive discovery can identify network hosts and servers, their communications and connections, and what services and protocols are being exchanged at what time. Although another rich source of data, you need some additional capabilities to assemble this raw data into actionable information.
+> *   **Passive discovery** - This method provides more of that relationship data. By connecting to core span or mirror ports on network switches and sampling network traffic, passive discovery can identify network hosts and servers, their communications and connections, and what services and protocols are being exchanged at what time. Although another rich source of data, you need some additional capabilities to assemble this raw data into actionable information.
 > *   **Discovery analytics** - This third element complements the first two with the ability to perform deep-packet analysis of observed traffic, and to help establish the relationships between passively and actively discovered entities. Analytics with rich data provides little benefit; the same holds true for active and passive discovery.
 > 
 > Together, active discovery, passive discovery, and discovery analytics deliver a hybrid approach to application discovery and dependency mapping—provides the most complete approach
@@ -41,7 +41,7 @@ From <a href="http://www.virten.net/2012/06/vdcd510-objective-2-2-map-service-de
 
 ### Identify interfaces to existing business processes and define new business processes
 
-This depends on what you find. Let&#8217;s say for example you found an application that was abusing the production DB server so you virtualize this application and make it have a dedicated DB service. This way you don&#8217;t impact anything else. Now if you make that change you need to notify everyone and make sure everyone knows that if the application goes down, there is no need to restart the production DB server but just the VM it self.
+This depends on what you find. Let's say for example you found an application that was abusing the production DB server so you virtualize this application and make it have a dedicated DB service. This way you don't impact anything else. Now if you make that change you need to notify everyone and make sure everyone knows that if the application goes down, there is no need to restart the production DB server but just the VM it self.
 
 ### Given a scenario, identify logical components that have dependencies on certain services
 

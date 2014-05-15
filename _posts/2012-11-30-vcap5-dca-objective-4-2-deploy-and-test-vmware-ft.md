@@ -14,25 +14,25 @@ tags:
 ---
 ### Identify VMware FT hardware requirements
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf']);">vSphere Availability ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf']);">vSphere Availability ESXi 5.0</a>":
 
 > **Host Requirements for Fault Tolerance**  
 > You must meet the following host requirements before you use Fault Tolerance.
 > 
-> *   Hosts must have processors from the FT-compatible processor group. It is also highly recommended that the hosts&#8217; processors are compatible with one another. See the VMware knowledge base article at http://kb.vmware.com/kb/1008027 for information on supported processors.
+> *   Hosts must have processors from the FT-compatible processor group. It is also highly recommended that the hosts' processors are compatible with one another. See the VMware knowledge base article at http://kb.vmware.com/kb/1008027 for information on supported processors.
 > *   Hosts must be licensed for Fault Tolerance.
 > *   Hosts must be certified for Fault Tolerance. See http://www.vmware.com/resources/compatibility/search.php and select Search by Fault Tolerant Compatible Sets to determine if your hosts are certified.
 > *   The configuration for each host must have Hardware Virtualization (HV) enabled in the BIOS.
 
 ### Identify VMware FT compatibility requirements
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf']);">vSphere Availability ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf']);">vSphere Availability ESXi 5.0</a>":
 
 > **Cluster Requirements for Fault Tolerance**  
 > You must meet the following cluster requirements before you use Fault Tolerance.
 > 
 > *   Host certificate checking enabled.
-> *   At least two FT-certified hosts running the same Fault Tolerance version or host build number. The Fault Tolerance version number appears on a host&#8217;s Summary tab in the vSphere Client.
+> *   At least two FT-certified hosts running the same Fault Tolerance version or host build number. The Fault Tolerance version number appears on a host's Summary tab in the vSphere Client.
 > *   ESXi hosts have access to the same virtual machine datastores and networks.
 > *   Fault Tolerance logging and VMotion networking configured.
 > *   vSphere HA cluster created and enabled. vSphere HA must be enabled before you can power on fault tolerant virtual machines or add a host to a cluster that already supports fault tolerant virtual machines.
@@ -79,12 +79,12 @@ Here are the ones for VMs:
 
 *   1 vCPU
 *   No RDMs
-*   Remember not to take snapshots of the VM or don&#8217;t include this VM in the backup inventory
+*   Remember not to take snapshots of the VM or don't include this VM in the backup inventory
 *   Use a Supported OS
 
 ### Use VMware best practices to prepare a vSphere environment for FT
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf']);">vSphere Availability ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf']);">vSphere Availability ESXi 5.0</a>":
 
 > **Best Practices for Fault Tolerance**  
 > To ensure optimal Fault Tolerance results, VMware recommends that you follow certain best practices
@@ -93,7 +93,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 > Consider the following best practices when configuring your hosts.
 > 
 > *    Hosts running the Primary and Secondary VMs should operate at approximately the same processor frequencies, otherwise the Secondary VM might be restarted more frequently. Platform power management features that do not adjust based on workload (for example, power capping and enforced low frequency modes to save power) can cause processor frequencies to vary greatly. If Secondary VMs are being restarted on a regular basis, disable all power management modes on the hosts running fault tolerant virtual machines or ensure that all hosts are running in the same power management modes.
-> *   Apply the same instruction set extension configuration (enabled or disabled) to all hosts. The process for enabling or disabling instruction sets varies among BIOSes. See the documentation for your hosts&#8217; BIOSes about how to configure instruction sets
+> *   Apply the same instruction set extension configuration (enabled or disabled) to all hosts. The process for enabling or disabling instruction sets varies among BIOSes. See the documentation for your hosts' BIOSes about how to configure instruction sets
 > 
 > **Homogeneous Clusters**  
 > vSphere Fault Tolerance can function in clusters with nonuniform hosts, but it works best in clusters with compatible nodes. When constructing your cluster, all hosts should have the following configuration:
@@ -148,7 +148,7 @@ And the list keeps going:
 
 ### Configure FT logging
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf']);">vSphere Availability ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf']);">vSphere Availability ESXi 5.0</a>":
 
 > **Configure Networking for Host Machines**  
 > On each host that you want to add to a vSphere HA cluster, you must configure two different networking switches so that the host can also support vSphere Fault Tolerance.
@@ -180,7 +180,7 @@ Here is how it looks like from vCenter:
 
 ### Prepare the infrastructure for FT compliance
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf']);">vSphere Availability ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf']);">vSphere Availability ESXi 5.0</a>":
 
 > **Create vSphere HA Cluster and Check Compliance**  
 > vSphere Fault Tolerance is used in the context of a vSphere HA cluster. After you have configured networking on each host, create the vSphere HA cluster and add the hosts to it. You can check to see if the cluster is configured correctly and complies with the requirements for the successful enablement of Fault Tolerance.
@@ -200,7 +200,7 @@ Here is how it looks like in vCenter:
 
 Also from the same document:
 
-> NOTE When a host is unable to support Fault Tolerance you can view the reasons for this on the host&#8217;s Summary tab in the vSphere Client. Click the blue caption icon next to theHost Configured for FT field to see a list of Fault Tolerance requirements that the host does not meet.
+> NOTE When a host is unable to support Fault Tolerance you can view the reasons for this on the host's Summary tab in the vSphere Client. Click the blue caption icon next to theHost Configured for FT field to see a list of Fault Tolerance requirements that the host does not meet.
 
 Here is how it looks like in vCenter:
 
@@ -208,7 +208,7 @@ Here is how it looks like in vCenter:
 
 ### Test FT failover, secondary restart, and application fault tolerance in a FT Virtual Machine
 
-I actually don&#8217;t have CPU capable of supporting FT, but there is a great step by step guide <a href="http://en.community.dell.com/techcenter/virtualization/w/wiki/vmware-vsphere-ft-step-by-step-example.aspx" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.community.dell.com/techcenter/virtualization/w/wiki/vmware-vsphere-ft-step-by-step-example.aspx']);">here</a>. From the community page:
+I actually don't have CPU capable of supporting FT, but there is a great step by step guide <a href="http://en.community.dell.com/techcenter/virtualization/w/wiki/vmware-vsphere-ft-step-by-step-example.aspx" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.community.dell.com/techcenter/virtualization/w/wiki/vmware-vsphere-ft-step-by-step-example.aspx']);">here</a>. From the community page:
 
 > **VMware vSphere FT Step by Step Example**
 > 

@@ -43,7 +43,7 @@ From the same document:
 > 
 > A private VLAN is identified by its primary VLAN ID. A primary VLAN ID can have multiple secondary VLAN IDs associated with it. Primary VLANs are **Promiscuous**, so that ports on a private VLAN can communicate with ports configured as the primary VLAN. Ports on a secondary VLAN can be either **Isolated**, communicating only with promiscuous ports, or **Community**, communicating with both promiscuous ports and other ports on the same secondary VLAN.
 > 
-> To use private VLANs between a host and the rest of the physical network, the physical switch connected to the host needs to be private VLAN-capable and configured with the VLAN IDs being used by ESXi for the private VLAN functionality. For physical switches using dynamic MAC+VLAN ID based learning, all corresponding private VLAN IDs must be first entered into the switch&#8217;s VLAN database.
+> To use private VLANs between a host and the rest of the physical network, the physical switch connected to the host needs to be private VLAN-capable and configured with the VLAN IDs being used by ESXi for the private VLAN functionality. For physical switches using dynamic MAC+VLAN ID based learning, all corresponding private VLAN IDs must be first entered into the switch's VLAN database.
 > 
 > To configure distributed ports to use Private VLAN functionality, you must create the necessary Private VLANs on the vSphere distributed switch to which the distributed ports are connected. 
 
@@ -51,11 +51,11 @@ From the same document:
 
 If you want to allow multiple VLANs through a single physical switch port then setup a VLAN Trunk on the physical switch and do VST from the Standard Virtual Switch or Distributed Virtual Switch. If you plan to do VGT then set the VLAN to 4095 on the SVS or set a port group type to VLAN Trunk for the DVS. 
 
-To configure VST on the SVS (Standard Virtual Switch), click properties on the vSwitch, then select a port-group and then click edit. Then Under the &#8220;General&#8221; tab assign a VLAN under &#8220;VLAN ID&#8221;. The window looks like this:
+To configure VST on the SVS (Standard Virtual Switch), click properties on the vSwitch, then select a port-group and then click edit. Then Under the "General" tab assign a VLAN under "VLAN ID". The window looks like this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/vst_svs.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/vst_svs.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/09/vst_svs.png" alt="vst svs VCAP5 DCA Objective 2.2 – Configure and Maintain VLANs, PVLANs and VLAN Settings " title="vst_svs" width="523" height="646" class="alignnone size-full wp-image-4002" /></a>
 
-To do the same thing on the DVS (Distributed Virtual Switch). Go To &#8220;Networking&#8221; View -> Right Click on your DVPortGroup and Select &#8220;Edit Settings -> Click on VLAN -> Change the &#8220;VLAN type&#8221; to VLAN and assign a VLAN ID. It will look like this:
+To do the same thing on the DVS (Distributed Virtual Switch). Go To "Networking" View -> Right Click on your DVPortGroup and Select "Edit Settings -> Click on VLAN -> Change the "VLAN type" to VLAN and assign a VLAN ID. It will look like this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/vst_dvs.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/vst_dvs.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/09/vst_dvs.png" alt="vst dvs VCAP5 DCA Objective 2.2 – Configure and Maintain VLANs, PVLANs and VLAN Settings " title="vst_dvs" width="684" height="504" class="alignnone size-full wp-image-4003" /></a>
 
@@ -65,7 +65,7 @@ To configure VGT on the SVS under the same properties window where you set the V
 
 After this is done you will need to setup the GOS (Guest Operating System) to tag the vlan.
 
-To do VGT with DVS. Go To &#8220;Networking&#8221; View -> Right Click on your DVPortGroup and Select &#8220;Edit Settings -> Click on VLAN -> Change the &#8220;VLAN type&#8221; to &#8220;VLAN Trunking&#8221; and under the &#8220;VLAN trunk range&#8221; enter vlans that will be tagged within the GOS. It will look like this:
+To do VGT with DVS. Go To "Networking" View -> Right Click on your DVPortGroup and Select "Edit Settings -> Click on VLAN -> Change the "VLAN type" to "VLAN Trunking" and under the "VLAN trunk range" enter vlans that will be tagged within the GOS. It will look like this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/vgt_dvs.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/vgt_dvs.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/09/vgt_dvs.png" alt="vgt dvs VCAP5 DCA Objective 2.2 – Configure and Maintain VLANs, PVLANs and VLAN Settings " title="vgt_dvs" width="684" height="505" class="alignnone size-full wp-image-4005" /></a>
 
@@ -75,9 +75,9 @@ From VMware KB <a href="http://kb.vmware.com/kb/1010691" onclick="javascript:_ga
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/pvlans_vmware.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/pvlans_vmware.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/09/pvlans_vmware.png" alt="pvlans vmware VCAP5 DCA Objective 2.2 – Configure and Maintain VLANs, PVLANs and VLAN Settings " title="pvlans_vmware" width="773" height="438" class="alignnone size-full wp-image-4006" /></a>
 
-Basically if you want to add an extra layer of security for your environment and you have a use case for the PVLANs types (isolated, community, and promiscuous) then setup VLANs. As a side note physical switch configuration is required. More information on the physical switch setup can be seen in &#8220;<a href="http://www.ciscopress.com/articles/article.asp?p=29803&#038;seqNum=6" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.ciscopress.com/articles/article.asp?p=29803&seqNum=6']);">VLANs and Trunking</a>&#8221;
+Basically if you want to add an extra layer of security for your environment and you have a use case for the PVLANs types (isolated, community, and promiscuous) then setup VLANs. As a side note physical switch configuration is required. More information on the physical switch setup can be seen in "<a href="http://www.ciscopress.com/articles/article.asp?p=29803&#038;seqNum=6" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.ciscopress.com/articles/article.asp?p=29803&seqNum=6']);">VLANs and Trunking</a>"
 
-To configure it on the DVS, from &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-networking-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-networking-guide.pdf']);">vSphere Networking ESXi 5.0</a>&#8220;:
+To configure it on the DVS, from "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-networking-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-networking-guide.pdf']);">vSphere Networking ESXi 5.0</a>":
 
 > **Create a Private VLAN**  
 > You can create a private VLAN for use on a vSphere distributed switch and its associated distributed ports.  
@@ -97,7 +97,7 @@ Here is how the screen looks like:
 
 **NOTE** Make sure your primary VLAN is not used for anything else, or the above setup will fail (ie, if you had a portgroup set to use VLAN 100 as regular vlan, the private VLAN setup will fail).
 
-After that is done, for your DVPortGroup set the &#8220;VLAN type&#8221; to Private VLAN and select the appropriate PVLAN. The screen will look like this:
+After that is done, for your DVPortGroup set the "VLAN type" to Private VLAN and select the appropriate PVLAN. The screen will look like this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/pvlans_dvpg.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/pvlans_dvpg.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/09/pvlans_dvpg.png" alt="pvlans dvpg VCAP5 DCA Objective 2.2 – Configure and Maintain VLANs, PVLANs and VLAN Settings " title="pvlans_dvpg" width="683" height="503" class="alignnone size-full wp-image-4008" /></a>
 
@@ -109,7 +109,7 @@ Check VLAN assignments on SVS:
 	esxcli network vswitch standard portgroup list  
 	
 
-Check VLAN assignments on DVS. &#8220;Networking&#8221; View -> Select DVS -> Select the &#8220;Networks&#8221; Tab. It will look something like this:
+Check VLAN assignments on DVS. "Networking" View -> Select DVS -> Select the "Networks" Tab. It will look something like this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/dvs_vlans_view.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/dvs_vlans_view.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/09/dvs_vlans_view.png" alt="dvs vlans view VCAP5 DCA Objective 2.2 – Configure and Maintain VLANs, PVLANs and VLAN Settings " title="dvs_vlans_view" width="1033" height="187" class="alignnone size-full wp-image-4010" /></a>
 

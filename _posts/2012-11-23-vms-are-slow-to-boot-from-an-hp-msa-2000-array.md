@@ -29,7 +29,7 @@ At the same time we saw a lot of aborts to the array:
 	Nov 14 01:15:51 esx vmkernel: 0:02:09:16.149 cpu0:1066)<6>qla24xx\_abort\_command(0): handle to abort=132  
 	
 
-The IO was aborting cause the latency was so high, as we see from the esxtop output above, it&#8217;s at 5000ms. While I was looking at esxtop I saw values up to 10000ms. We decided to check out the array manager. We logged into the MSA web based management and as soon as we logged in, we saw the following pop up:
+The IO was aborting cause the latency was so high, as we see from the esxtop output above, it's at 5000ms. While I was looking at esxtop I saw values up to 10000ms. We decided to check out the array manager. We logged into the MSA web based management and as soon as we logged in, we saw the following pop up:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/msa_degraded_message_c1.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/msa_degraded_message_c1.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/11/msa_degraded_message_c1.png" alt="msa degraded message c1 VMs are Slow to Boot from an HP MSA 2000 Array" title="msa_degraded_message_c1" width="692" height="468" class="alignnone size-full wp-image-4787" /></a>
 
@@ -37,7 +37,7 @@ Here are the messages:
 
 > Drive Channel 0 link degraded (Excessive LIPs) 
 
-As soon as we saw that message, the customer mentioned that they had a failed hard drive but they have since &#8216;offlined&#8217; the drive and the spare took over. We checked out the event view, and we saw the following:
+As soon as we saw that message, the customer mentioned that they had a failed hard drive but they have since 'offlined' the drive and the spare took over. We checked out the event view, and we saw the following:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/errors_in_event_on_msa_c.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/errors_in_event_on_msa_c.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/11/errors_in_event_on_msa_c.png" alt="errors in event on msa c VMs are Slow to Boot from an HP MSA 2000 Array" title="errors_in_event_on_msa_c" width="783" height="652" class="alignnone size-full wp-image-4788" /></a>
 

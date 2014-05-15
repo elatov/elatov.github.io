@@ -16,14 +16,14 @@ tags:
   - tshark
   - wireshark
 ---
-What is seen in a packet capture when an ESX iSCSI initiator success fully logs into the iSCSI target? Since iSCSI uses TCP, the first thing that we are going to see is a *3-way TCP hand shake* (More information on 3-way TCP handshake can be found <a href="http://www.inetdaemon.com/tutorials/internet/tcp/3-way_handshake.shtml" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.inetdaemon.com/tutorials/internet/tcp/3-way_handshake.shtml']);">here</a>). Now let&#8217;s follow the packets:
+What is seen in a packet capture when an ESX iSCSI initiator success fully logs into the iSCSI target? Since iSCSI uses TCP, the first thing that we are going to see is a *3-way TCP hand shake* (More information on 3-way TCP handshake can be found <a href="http://www.inetdaemon.com/tutorials/internet/tcp/3-way_handshake.shtml" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.inetdaemon.com/tutorials/internet/tcp/3-way_handshake.shtml']);">here</a>). Now let's follow the packets:
 
 	  
 	$ tshark -r iscsi_login.pcap frame.number==4  
 	4 2012-04-26 16:12:58.174806 10.131.13.11 -> 10.131.13.10 TCP 57956 3260 57956 > iscsi-target [SYN] Seq=0 Win=65535 [TCP CHECKSUM INCORRECT] Len=0 MSS=1460 WS=16 SACK_PERM=1 TSval=54350554 TSecr=0 11.726356 74  
 	
 
-So that is the SYN (if you haven&#8217;t guessed it yet, the iSCSI iniator IP is 10.131.13.11 and the iSCSI target IP is 10.131.13.10). Next we see the SYN/ACK
+So that is the SYN (if you haven't guessed it yet, the iSCSI iniator IP is 10.131.13.11 and the iSCSI target IP is 10.131.13.10). Next we see the SYN/ACK
 
 	  
 	$ tshark -r iscsi_login.pcap frame.number==5  
@@ -41,7 +41,7 @@ Now that we have the TCP connection established, the iSCSI protocol should start
 
 > **10.12. Login Request**
 > 
-> After establishing a TCP connection between an initiator and a target, the initiator MUST start a Login Phase to gain further access to the target&#8217;s resources.
+> After establishing a TCP connection between an initiator and a target, the initiator MUST start a Login Phase to gain further access to the target's resources.
 
 Looking at the next packet and just looking at the iSCSI information of the packet we see the following
 
@@ -102,7 +102,7 @@ So we sent a *Login Request*, from the RFC:
 > Login Requests and Responses are used exclusively during the Login Phase of each connection to set up the session and connection parameters. (The Login Phase consists of a sequence of login  
 > requests and responses carrying the same Initiator Task Tag.) A connection is identified by an arbitrarily selected connection-ID (CID) that is unique within a session. Similar to the Text Requests and Responses, Login Requests/Responses carry key=value text information with a simple syntax in the data segment.
 > 
-> The Login Phase proceeds through several stages (security negotiation, operational parameter negotiation) that are selected with two binary coded fields in the header &#8212; the &#8220;current stage&#8221; (CSG) and the &#8220;next stage&#8221; (NSG) with the appearance of the latter being signaled by the &#8220;transit&#8221; flag (T).
+> The Login Phase proceeds through several stages (security negotiation, operational parameter negotiation) that are selected with two binary coded fields in the header - the "current stage" (CSG) and the "next stage" (NSG) with the appearance of the latter being signaled by the "transit" flag (T).
 > 
 > The first Login Phase of a session plays a special role, called the leading login, which determines some header fields (e.g., the version number, the maximum number of connections, and the session  
 > identification).
@@ -263,11 +263,11 @@ We can see that all the key/value pairs were negotiated successfully and this wa
 	ExpStatSN: 0x00000001  
 	
 
-The *Text Command* is *0&#215;04* and from the above snippet of the RFC we can see that it&#8217;s a *Text Request*:
+The *Text Command* is *0&#215;04* and from the above snippet of the RFC we can see that it's a *Text Request*:
 
 > **3.5.3.1. Text Request and Text Response**
 > 
-> Text requests and responses are designed as a parameter negotiation vehicle and as a vehicle for future extension. In the data segment, Text Requests/Responses carry text information using a simple &#8220;key=value&#8221; syntax.
+> Text requests and responses are designed as a parameter negotiation vehicle and as a vehicle for future extension. In the data segment, Text Requests/Responses carry text information using a simple "key=value" syntax.
 > 
 > Text Request/Responses may form extended sequences using the same Initiator Task Tag. The initiator uses the F (Final) flag bit in the text request header to indicate its readiness to terminate a sequence. The target uses the F (Final) flag bit in the text response header to indicate its consent to sequence termination.
 > 
@@ -297,17 +297,17 @@ For our *Text Request* we have sent a *SendTargets=All*:
 > 
 > iSCSI defines two types of sessions:
 > 
-> a) Normal operational session &#8211; an unrestricted session.  
-> b) Discovery-session &#8211; a session only opened for target discovery. The target MUST ONLY accept text requests with the SendTargets key and a logout request with the reason &#8220;close the session&#8221;. All other requests MUST be rejected.  
-> &#8230;  
-> &#8230;  
+> a) Normal operational session - an unrestricted session.  
+> b) Discovery-session - a session only opened for target discovery. The target MUST ONLY accept text requests with the SendTargets key and a logout request with the reason "close the session". All other requests MUST be rejected.  
+> ...  
+> ...  
 > **Appendix D. SendTargets Operation**
 > 
 > To reduce the amount of configuration required on an initiator, iSCSI provides the SendTargets text request. The initiator uses the SendTargets request to get a list of targets to which it may have access, as well as the list of addresses (IP address and TCP port) on which these targets may be accessed.
 > 
-> To make use of SendTargets, an initiator must first establish one of two types of sessions. If the initiator establishes the session using the key &#8220;SessionType=Discovery&#8221;, the session is a discovery session, and a target name does not need to be specified. Otherwise, the session is a normal, operational session. The end Targets command MUST only be sent during the Full Feature Phase of a normal or discovery session.  
-> &#8230;  
-> &#8230;  
+> To make use of SendTargets, an initiator must first establish one of two types of sessions. If the initiator establishes the session using the key "SessionType=Discovery", the session is a discovery session, and a target name does not need to be specified. Otherwise, the session is a normal, operational session. The end Targets command MUST only be sent during the Full Feature Phase of a normal or discovery session.  
+> ...  
+> ...  
 > A SendTargets command consists of a single Text request PDU. This PDU contains exactly one text key and value. The text key MUST be SendTargets. The expected response depends upon the value, as well as whether the session is a discovery or operational session.
 > 
 > The value must be one of:
@@ -316,7 +316,7 @@ For our *Text Request* we have sent a *SendTargets=All*:
 > 
 > The initiator is requesting that information on all relevant targets known to the implementation be returned. This value MUST be supported on a discovery session, and MUST NOT be supported on an operational session.
 
-Since I am using a discovery session (In ESX &#8220;Dynamic Discovery&#8221;), this makes perfect sense. Next we get a *Text Response*
+Since I am using a discovery session (In ESX "Dynamic Discovery"), this makes perfect sense. Next we get a *Text Response*
 
 	  
 	$ tshark -r iscsi_login.pcap -V -O iscsi frame.number==15  
@@ -346,8 +346,8 @@ Since I am using a discovery session (In ESX &#8220;Dynamic Discovery&#8221;), t
 We can see that in the response we received the *TargetName* and *TargetAddress* of what our iSCSI initiator has access to, and this is also expected; per the RFC:
 
 > The response to this command (SendTargets=All) is a text response that contains a list of zero or more targets and, optionally, their addresses. Each target is returned as a target record. A target record begins with the TargetName text key, followed by a list of TargetAddress text keys, and bounded by the end of the text response or the next TargetName key, which begins a new record. No text keys other than TargetName and TargetAddress are permitted within a SendTargets response.  
-> &#8230;  
-> &#8230;  
+> ...  
+> ...  
 > Examples:
 > 
 > This example is the SendTargets response from a single target that has no other interface ports.
@@ -387,7 +387,7 @@ From the RFC:
 
 > **10.14. Logout Request**
 > 
-> The Logout Request is used to perform a controlled closing of a connection. An initiator MAY use a Logout Request to remove a connection from a session or to close an entire session. After sending the Logout Request PDU, an initiator MUST NOT send any new iSCSI requests on the closing connection. If the Logout Request is intended to close the session, new iSCSI requests MUST NOT be sent on any of the connections participating in the session. When receiving a Logout Request with the reason code of &#8220;close the connection&#8221; or &#8220;close the session&#8221;, the target MUST terminate all pending commands, whether acknowledged via ExpCmdSN or not, on that connection or session respectively. When receiving a Logout Request with the reason code &#8220;remove connection for recovery&#8221;, the target MUST discard all requests not yet acknowledged via ExpCmdSN that were issued on the specified connection, and suspend all data/status/R2T transfers on behalf of pending commands on the specified connection.
+> The Logout Request is used to perform a controlled closing of a connection. An initiator MAY use a Logout Request to remove a connection from a session or to close an entire session. After sending the Logout Request PDU, an initiator MUST NOT send any new iSCSI requests on the closing connection. If the Logout Request is intended to close the session, new iSCSI requests MUST NOT be sent on any of the connections participating in the session. When receiving a Logout Request with the reason code of "close the connection" or "close the session", the target MUST terminate all pending commands, whether acknowledged via ExpCmdSN or not, on that connection or session respectively. When receiving a Logout Request with the reason code "remove connection for recovery", the target MUST discard all requests not yet acknowledged via ExpCmdSN that were issued on the specified connection, and suspend all data/status/R2T transfers on behalf of pending commands on the specified connection.
 
 Why did we get a *Logout Request*? since this was the first login this makes sense:
 
@@ -435,10 +435,10 @@ Since we are actually not done, we keep the connection alive by using the *NOP-o
 
 > **3.5.3.6. NOP-Out Request and NOP-In Response**
 > 
-> This request/response pair may be used by an initiator and target as a &#8220;ping&#8221; mechanism to verify that a connection/session is still active and all of its components are operational. Such a ping may be  
+> This request/response pair may be used by an initiator and target as a "ping" mechanism to verify that a connection/session is still active and all of its components are operational. Such a ping may be  
 > triggered by the initiator or target. The triggering party indicates that it wants a reply by setting a value different from the default 0xffffffff in the corresponding Initiator/Target Transfer Tag.
 > 
-> NOP-In/NOP-Out may also be used &#8220;unidirectional&#8221; to convey to the initiator/target command, status or data counter values when there is no other &#8220;carrier&#8221; and there is a need to update the initiator/  
+> NOP-In/NOP-Out may also be used "unidirectional" to convey to the initiator/target command, status or data counter values when there is no other "carrier" and there is a need to update the initiator/  
 > target.
 
 Again from the packet capture:

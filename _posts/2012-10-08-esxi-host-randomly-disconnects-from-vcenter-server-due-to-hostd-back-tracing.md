@@ -45,10 +45,10 @@ Around that time, I see the following in /var/log/messages on the ESXi Host:
 
 It looks like hostd core dumped. I then ran across VMware KB <a href="http://kb.vmware.com/kb/2017008" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/2017008']);">2017008</a> which matched my issue and symptoms. For example here are some of the symptoms:
 
-> *   The hostd.log is terminated without mentioning rotating&#8230;
+> *   The hostd.log is terminated without mentioning rotating...
 > *   You may see hostd core(s) generated under /var/core/core-vix-async-pipe-pid-EPOCH.gz
 
-Checking out my hostd logs, I saw that it indeed terminated without the &#8216;rotating&#8230;&#8217; line:
+Checking out my hostd logs, I saw that it indeed terminated without the 'rotating...' line:
 
 	  
 	/var/log/vmware/ # tail -2 hostd-386.log  
@@ -70,5 +70,5 @@ The issue is fixed in 4.1U3. Checking out my version:
 	VMware ESXi 4.1.0 build-702113  
 	
 
-From &#8220;<a href="http://www.virten.net/vmware/esxi-release-build-number-history/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.virten.net/vmware/esxi-release-build-number-history/']);">ESXi Release and Build Number History</a>&#8220;, we can see that build # 702113 is 4.1P7 and 4.1U3 is build # 800380, so I was definitely behind on updates. After updating to 4.1U3 the random disconnects stopped.
+From "<a href="http://www.virten.net/vmware/esxi-release-build-number-history/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.virten.net/vmware/esxi-release-build-number-history/']);">ESXi Release and Build Number History</a>", we can see that build # 702113 is 4.1P7 and 4.1U3 is build # 800380, so I was definitely behind on updates. After updating to 4.1U3 the random disconnects stopped.
 

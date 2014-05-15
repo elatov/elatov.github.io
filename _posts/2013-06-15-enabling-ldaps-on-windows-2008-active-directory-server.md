@@ -13,11 +13,11 @@ tags:
   - MozLDAP
   - OpenLDAP
 ---
-I installed Active Directory by selecting the &#8220;Active Directory Domain Services&#8221; Role from the Server Manager Dialogue. Step by step instructions can be seen in <a href="http://virtuallyhyper.com/2013/04/deploying-a-test-windows-environment-in-a-kvm-infrastucture/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/04/deploying-a-test-windows-environment-in-a-kvm-infrastucture/']);">Deploying a Test Windows Environment in a KVM Infrastucture</a>.
+I installed Active Directory by selecting the "Active Directory Domain Services" Role from the Server Manager Dialogue. Step by step instructions can be seen in <a href="http://virtuallyhyper.com/2013/04/deploying-a-test-windows-environment-in-a-kvm-infrastucture/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/04/deploying-a-test-windows-environment-in-a-kvm-infrastucture/']);">Deploying a Test Windows Environment in a KVM Infrastucture</a>.
 
 ## Running an *ldapsearch* against a Windows AD Server
 
-After you installed AD you can confirm that it&#8217;s listening on port **389**:
+After you installed AD you can confirm that it's listening on port **389**:
 
     C:\Users\Administrator>netstat -abn | findstr :389
       TCP    0.0.0.0:389            0.0.0.0:0              LISTENING
@@ -27,11 +27,11 @@ After you installed AD you can confirm that it&#8217;s listening on port **389**
       TCP    192.168.250.47:49175   192.168.250.47:389     ESTABLISHED
     
 
-We can see it&#8217;s listening on port **389** and there are some local connections to that port for the AD server. Now let&#8217;s go ahead and add a test LDAP user for our queries.
+We can see it's listening on port **389** and there are some local connections to that port for the AD server. Now let's go ahead and add a test LDAP user for our queries.
 
-### Add New User to AD via the &#8220;Active Directory Users and Computers&#8221; Console
+### Add New User to AD via the "Active Directory Users and Computers" Console
 
-To start the &#8220;Active Directory Users and Computers&#8221; Console, execute the following command from the run dialogue:
+To start the "Active Directory Users and Computers" Console, execute the following command from the run dialogue:
 
     dsa.msc
     
@@ -40,7 +40,7 @@ At which point you will see the following window:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/dsa_started.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/dsa_started.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/dsa_started.png" alt="dsa started Enabling LDAPS on Windows 2008 Active Directory Server" width="764" height="530" class="alignnone size-full wp-image-8744" title="Enabling LDAPS on Windows 2008 Active Directory Server" /></a>
 
-Then right click in the white space and go to &#8220;New&#8221; -> &#8220;User&#8221;:
+Then right click in the white space and go to "New" -> "User":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/new_user_dsa_g.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/new_user_dsa_g.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/new_user_dsa_g.png" alt="new user dsa g Enabling LDAPS on Windows 2008 Active Directory Server" width="764" height="535" class="alignnone size-full wp-image-8745" title="Enabling LDAPS on Windows 2008 Active Directory Server" /></a>
 
@@ -48,11 +48,11 @@ Then fill out the User information:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/new_user_filled_out.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/new_user_filled_out.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/new_user_filled_out.png" alt="new user filled out Enabling LDAPS on Windows 2008 Active Directory Server" width="433" height="362" class="alignnone size-full wp-image-8746" title="Enabling LDAPS on Windows 2008 Active Directory Server" /></a>
 
-Lastly set the user&#8217;s password:
+Lastly set the user's password:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/set_password.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/set_password.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/set_password.png" alt="set password Enabling LDAPS on Windows 2008 Active Directory Server" width="433" height="364" class="alignnone size-full wp-image-8747" title="Enabling LDAPS on Windows 2008 Active Directory Server" /></a>
 
-After it&#8217;s all said and done you will see the following in the &#8220;Active Directory Users and Computers&#8221; Console:
+After it's all said and done you will see the following in the "Active Directory Users and Computers" Console:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/user_added_dsa.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/user_added_dsa.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/user_added_dsa.png" alt="user added dsa Enabling LDAPS on Windows 2008 Active Directory Server" width="762" height="530" class="alignnone size-full wp-image-8748" title="Enabling LDAPS on Windows 2008 Active Directory Server" /></a>
 
@@ -69,11 +69,11 @@ and you will see the following:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/ldp_exe_started.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/ldp_exe_started.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/ldp_exe_started.png" alt="ldp exe started Enabling LDAPS on Windows 2008 Active Directory Server" width="765" height="424" class="alignnone size-full wp-image-8749" title="Enabling LDAPS on Windows 2008 Active Directory Server" /></a>
 
-Now let&#8217;s *bind* to the AD server, since we are local to the AD server we can just bind with the same user that we are currently logged in:
+Now let's *bind* to the AD server, since we are local to the AD server we can just bind with the same user that we are currently logged in:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/ldp_exe_bind_button_g.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/ldp_exe_bind_button_g.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/ldp_exe_bind_button_g.png" alt="ldp exe bind button g Enabling LDAPS on Windows 2008 Active Directory Server" width="765" height="425" class="alignnone size-full wp-image-8750" title="Enabling LDAPS on Windows 2008 Active Directory Server" /></a>
 
-and let&#8217;s leave the defaults:
+and let's leave the defaults:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/bind_dialogue.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/bind_dialogue.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/bind_dialogue.png" alt="bind dialogue Enabling LDAPS on Windows 2008 Active Directory Server" width="278" height="249" class="alignnone size-full wp-image-8751" title="Enabling LDAPS on Windows 2008 Active Directory Server" /></a>
 
@@ -81,7 +81,7 @@ After clicking OK, you will see the connection go through and the *bind* to the 
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/ldp_exe_bound.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/ldp_exe_bound.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/ldp_exe_bound.png" alt="ldp exe bound Enabling LDAPS on Windows 2008 Active Directory Server" width="766" height="571" class="alignnone size-full wp-image-8752" title="Enabling LDAPS on Windows 2008 Active Directory Server" /></a>
 
-Now let&#8217;s start browsing the AD server, first let&#8217;s select the &#8220;Tree&#8221; view:
+Now let's start browsing the AD server, first let's select the "Tree" view:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/ldp_exe_tree_button_g.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/ldp_exe_tree_button_g.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/ldp_exe_tree_button_g.png" alt="ldp exe tree button g Enabling LDAPS on Windows 2008 Active Directory Server" width="768" height="571" class="alignnone size-full wp-image-8753" title="Enabling LDAPS on Windows 2008 Active Directory Server" /></a>
 
@@ -93,7 +93,7 @@ I just want to see all the available branches/children that are part of the AD s
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/children_AD_server.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/children_AD_server.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/children_AD_server.png" alt="children AD server Enabling LDAPS on Windows 2008 Active Directory Server" width="767" height="574" class="alignnone size-full wp-image-8754" title="Enabling LDAPS on Windows 2008 Active Directory Server" /></a>
 
-Expanding the **User** branch and locating our test user &#8220;elatov&#8221;, we see the following:
+Expanding the **User** branch and locating our test user "elatov", we see the following:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/elatov_user_info_ldp_exe.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/elatov_user_info_ldp_exe.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/elatov_user_info_ldp_exe.png" alt="elatov user info ldp exe Enabling LDAPS on Windows 2008 Active Directory Server" width="792" height="637" class="alignnone size-full wp-image-8755" title="Enabling LDAPS on Windows 2008 Active Directory Server" /></a>
 
@@ -102,7 +102,7 @@ We can see that the DN (Distinguished Name) of the test user is:
     CN=Karim Elatov,CN=Users,DC=elatov,DC=local
     
 
-From now one since we know all the users are under &#8220;CN=Users,DC=elatov,DC=local&#8221; we will use that as our BaseDN, this way we don&#8217;t have to query the whole AD structure.
+From now one since we know all the users are under "CN=Users,DC=elatov,DC=local" we will use that as our BaseDN, this way we don't have to query the whole AD structure.
 
 ### Use *dsquery* to find DNs of Users
 
@@ -169,11 +169,11 @@ Usually the location of the binary will let you know which one you have. For exa
     /usr/lib/mozldap/ldapsearch
     
 
-RedHat mostly uses the Mozilla version. From &#8220;<a href="http://www.centos.org/docs/5/html/CDS/ag/8.0/Common_Usage-ldap-tools.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.centos.org/docs/5/html/CDS/ag/8.0/Common_Usage-ldap-tools.html']);">LDAP Tool Locations</a>&#8220;:
+RedHat mostly uses the Mozilla version. From "<a href="http://www.centos.org/docs/5/html/CDS/ag/8.0/Common_Usage-ldap-tools.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.centos.org/docs/5/html/CDS/ag/8.0/Common_Usage-ldap-tools.html']);">LDAP Tool Locations</a>":
 
 > For all Red Hat Directory Server guides and documentation, the LDAP tools used in the examples, such as **ldapsearch** and **ldapmodify**, are the Mozilla LDAP tools. For most Linux systems, OpenLDAP tools are already installed in the **/usr/bin/** directory.
 
-The two different versions have different arguments so make sure you know which one you are using. Let&#8217;s perform an LDAP query with **openldap** tools first:
+The two different versions have different arguments so make sure you know which one you are using. Let's perform an LDAP query with **openldap** tools first:
 
     # ldapsearch -h 192.168.250.47 -b "CN=Users,DC=elatov,DC=local" -s sub -D "administrator@elatov.local" -W "sAMAccountName=elatov"
     Enter LDAP Password: 
@@ -229,7 +229,7 @@ The two different versions have different arguments so make sure you know which 
     # numEntries: 1
     
 
-We can see that I used &#8220;CN=Users,DC=elatov,DC=local&#8221; as my **baseDN** and I used the account &#8220;administrator@elatov.local&#8221; to **bind** to the AD server. I could also use the *elatov* account to bind with, for example:
+We can see that I used "CN=Users,DC=elatov,DC=local" as my **baseDN** and I used the account "administrator@elatov.local" to **bind** to the AD server. I could also use the *elatov* account to bind with, for example:
 
     # ldapsearch -h 192.168.250.48 -b "CN=Users,DC=elatov,DC=local" -s sub -D "elatov@elatov.local" -W "sAMAccountName=elatov" name
     Enter LDAP Password: 
@@ -270,13 +270,13 @@ For now only the password arguments are different.
 
 ## Enabling LDAPS on the AD Server
 
-After installing the &#8220;Active Directory Domain Services&#8221; role, it actually starts the AD Server on the Secure port (**636**):
+After installing the "Active Directory Domain Services" role, it actually starts the AD Server on the Secure port (**636**):
 
     C:\Users\Administrator>netstat -abnt | findstr :636
     TCP    0.0.0.0:636            0.0.0.0:0              LISTENING
     
 
-But since we have not uploaded an appropriate certificate it won&#8217;t work properly.
+But since we have not uploaded an appropriate certificate it won't work properly.
 
 ### LDAPS Prerequisites
 
@@ -288,7 +288,7 @@ The list is available at <a href="http://technet.microsoft.com/en-us/library/ee4
 
 3.  The host machine account must have access to the private key.
 
-I had recently created my own certificate with my own CA. Check out &#8220;<a href="http://virtuallyhyper.com/2013/04/setup-your-own-certificate-authority-ca-on-linux-and-use-it-in-a-windows-environment/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/04/setup-your-own-certificate-authority-ca-on-linux-and-use-it-in-a-windows-environment/']);">Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment</a>&#8221; for more information. I wanted to make sure the certificate I had created had the appropriate OID enabled. From the <a href="http://gnomint.sourcearchive.com/documentation/0.9.1/certificate__properties_8c-source.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://gnomint.sourcearchive.com/documentation/0.9.1/certificate__properties_8c-source.html']);">certificate_properties.c</a> source file here are the different OIDs defined:
+I had recently created my own certificate with my own CA. Check out "<a href="http://virtuallyhyper.com/2013/04/setup-your-own-certificate-authority-ca-on-linux-and-use-it-in-a-windows-environment/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/04/setup-your-own-certificate-authority-ca-on-linux-and-use-it-in-a-windows-environment/']);">Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment</a>" for more information. I wanted to make sure the certificate I had created had the appropriate OID enabled. From the <a href="http://gnomint.sourcearchive.com/documentation/0.9.1/certificate__properties_8c-source.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://gnomint.sourcearchive.com/documentation/0.9.1/certificate__properties_8c-source.html']);">certificate_properties.c</a> source file here are the different OIDs defined:
 
     {"1.3.6.1.5.5.7.3.1", "TLS WWW Server"},
     {"1.3.6.1.5.5.7.3.2", "TLS WWW Client"},
@@ -314,15 +314,15 @@ I had recently created my own certificate with my own CA. Check out &#8220;<a hr
     {"2.5.29.54", "Inhibit Any-Policy"},
     
 
-So let&#8217;s fire up **gnomint** and check to see if I was lucky enough to allow this certificate to be used for a &#8220;TLS WWW Server&#8221;. To check out if the certificate can be used for that functionality, right click on the certificate and select **Properties**:
+So let's fire up **gnomint** and check to see if I was lucky enough to allow this certificate to be used for a "TLS WWW Server". To check out if the certificate can be used for that functionality, right click on the certificate and select **Properties**:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/gnomint_props_cert.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/gnomint_props_cert.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/gnomint_props_cert.png" alt="gnomint props cert Enabling LDAPS on Windows 2008 Active Directory Server" width="606" height="426" class="alignnone size-full wp-image-8756" title="Enabling LDAPS on Windows 2008 Active Directory Server" /></a>
 
-Then click on the &#8220;Details&#8221; tab, expand the &#8220;Extensions&#8221;, and lastly expand the &#8220;Extended Key Usage&#8221; section:
+Then click on the "Details" tab, expand the "Extensions", and lastly expand the "Extended Key Usage" section:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/cert-props-gnomint.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/cert-props-gnomint.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/cert-props-gnomint.png" alt="cert props gnomint Enabling LDAPS on Windows 2008 Active Directory Server" width="766" height="770" class="alignnone size-full wp-image-8787" title="Enabling LDAPS on Windows 2008 Active Directory Server" /></a>
 
-Yay! I was lucky enough to leave that option enabled. I was using a wild certificate so the subject name would match as well. Now let&#8217;s follow the instructions from the above Microsoft page to import the certificate.
+Yay! I was lucky enough to leave that option enabled. I was using a wild certificate so the subject name would match as well. Now let's follow the instructions from the above Microsoft page to import the certificate.
 
 ### Import a Certificate into the AD DS Personal Store
 
@@ -341,7 +341,7 @@ and you will this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/cert-snap-int.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/cert-snap-int.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/cert-snap-int.png" alt="cert snap int Enabling LDAPS on Windows 2008 Active Directory Server" width="670" height="463" class="alignnone size-full wp-image-8759" title="Enabling LDAPS on Windows 2008 Active Directory Server" /></a>
 
-#### 3. In **Add or Remove Snap-ins**, click **Service account** to view the certificates that are stored in the service&#8217;s personal store, and then click **Next**:
+#### 3. In **Add or Remove Snap-ins**, click **Service account** to view the certificates that are stored in the service's personal store, and then click **Next**:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/serv_acct_cert_snapin.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/serv_acct_cert_snapin.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/serv_acct_cert_snapin.png" alt="serv acct cert snapin Enabling LDAPS on Windows 2008 Active Directory Server" width="514" height="373" class="alignnone size-full wp-image-8760" title="Enabling LDAPS on Windows 2008 Active Directory Server" /></a>
 
@@ -353,7 +353,7 @@ and you will this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/ad-ds-cert-snapin.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/ad-ds-cert-snapin.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/ad-ds-cert-snapin.png" alt="ad ds cert snapin Enabling LDAPS on Windows 2008 Active Directory Server" width="518" height="373" class="alignnone size-full wp-image-8762" title="Enabling LDAPS on Windows 2008 Active Directory Server" /></a>
 
-#### 6. In the console tree, expand **Certificates &#8211; Service (Active Directory Domain Services)**, expand **Personal**, and then expand **Certificates**:
+#### 6. In the console tree, expand **Certificates - Service (Active Directory Domain Services)**, expand **Personal**, and then expand **Certificates**:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/ntds-cert-snapin.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/ntds-cert-snapin.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/ntds-cert-snapin.png" alt="ntds cert snapin Enabling LDAPS on Windows 2008 Active Directory Server" width="762" height="530" class="alignnone size-full wp-image-8763" title="Enabling LDAPS on Windows 2008 Active Directory Server" /></a>
 
@@ -369,18 +369,18 @@ After the certificate is imported you will see the following in the Snap-In:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/ldaps_cert_imported.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/ldaps_cert_imported.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/ldaps_cert_imported.png" alt="ldaps cert imported Enabling LDAPS on Windows 2008 Active Directory Server" width="761" height="530" class="alignnone size-full wp-image-8767" title="Enabling LDAPS on Windows 2008 Active Directory Server" /></a>
 
-Since this a self-signed certificate make sure you follow the instructions laid out in &#8220;<a href="http://virtuallyhyper.com/2013/04/setup-your-own-certificate-authority-ca-on-linux-and-use-it-in-a-windows-environment/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/04/setup-your-own-certificate-authority-ca-on-linux-and-use-it-in-a-windows-environment/']);">Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment</a>&#8221; to import your own CA Certificate under the regular Certificate store. Just launch:
+Since this a self-signed certificate make sure you follow the instructions laid out in "<a href="http://virtuallyhyper.com/2013/04/setup-your-own-certificate-authority-ca-on-linux-and-use-it-in-a-windows-environment/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/04/setup-your-own-certificate-authority-ca-on-linux-and-use-it-in-a-windows-environment/']);">Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment</a>" to import your own CA Certificate under the regular Certificate store. Just launch:
 
     certmgr.msc
     
 
-and make sure your CA is in the &#8220;Trusted Root Certificate Authorities&#8221; folder:
+and make sure your CA is in the "Trusted Root Certificate Authorities" folder:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/trusted_root_ca_certs_self_signed.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/trusted_root_ca_certs_self_signed.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/trusted_root_ca_certs_self_signed.png" alt="trusted root ca certs self signed Enabling LDAPS on Windows 2008 Active Directory Server" width="870" height="452" class="alignnone size-full wp-image-8768" title="Enabling LDAPS on Windows 2008 Active Directory Server" /></a>
 
 ### Test LDAPS Connection with **ldp.exe**
 
-Start **ldp.exe**, go to &#8220;Connection&#8221; -> &#8220;Connect&#8221;, and fill out the necessary information and make sure SSL is chosen:
+Start **ldp.exe**, go to "Connection" -> "Connect", and fill out the necessary information and make sure SSL is chosen:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/ldp_exe_ssl.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/ldp_exe_ssl.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/ldp_exe_ssl.png" alt="ldp exe ssl Enabling LDAPS on Windows 2008 Active Directory Server" width="746" height="443" class="alignnone size-full wp-image-8769" title="Enabling LDAPS on Windows 2008 Active Directory Server" /></a>
 
@@ -439,7 +439,7 @@ Since we are using a self-signed certificate, this is expected. From the man pag
                          nated. This is the default setting.
     
 
-I had the certificate, but didn&#8217;t want to bother with the TLS Verification, so I just ignored it:
+I had the certificate, but didn't want to bother with the TLS Verification, so I just ignored it:
 
     # LDAPTLS_REQCERT=never ldapsearch -x -H ldaps://192.168.250.47:636 -b "CN=Users,DC=elatov,DC=local" -D "administrator@elatov.local" -W -s sub "sAMAccountName=elatov" name -LLL
     Enter LDAP Password: 
@@ -447,7 +447,7 @@ I had the certificate, but didn&#8217;t want to bother with the TLS Verification
     name: Karim Elatov
     
 
-The main difference are between SSL and non-SSL openldap&#8217;s **ldapsearch** were:
+The main difference are between SSL and non-SSL openldap's **ldapsearch** were:
 
 *   **-H** to specify the URI of the AD server
 *   **-x** to use simple authentication instead of SASL
@@ -462,7 +462,7 @@ Initially the query had the following error:
     SSL initialization failed: error -8174 (security library: bad database.)
     
 
-with MozLDAP it actually uses NSS to verify the SSL certificates and unfortunately you can&#8217;t ignore the verification (or I didn&#8217;t find a way). So let&#8217;s go ahead and generate a brand new NSSDB:
+with MozLDAP it actually uses NSS to verify the SSL certificates and unfortunately you can't ignore the verification (or I didn't find a way). So let's go ahead and generate a brand new NSSDB:
 
     # mkdir -p .pki/nssdb
     # certutil -N -d .pki/nssdb
@@ -474,12 +474,12 @@ with MozLDAP it actually uses NSS to verify the SSL certificates and unfortunate
     Re-enter password: 
     
 
-Now let&#8217;s put in our CA into the NSSDB:
+Now let's put in our CA into the NSSDB:
 
     # certutil -d .pki/nssdb -A -n 'elatov-local-root-ca' -i root-ca-elatov-local.pem -t TCP,TCP,TCP
     
 
-Now let&#8217;s make sure it&#8217;s there:
+Now let's make sure it's there:
 
     # certutil -d .pki/nssdb -L 
     Certificate Nickname                                         Trust Attributes
@@ -487,7 +487,7 @@ Now let&#8217;s make sure it&#8217;s there:
     elatov-local-root-ca                                         CT,C,C
     
 
-Now let&#8217;s do the actual LDAP query with MozLDAP over LDAPS:
+Now let's do the actual LDAP query with MozLDAP over LDAPS:
 
     # /usr/lib/mozldap/ldapsearch -h 192.168.250.47 -p 636 -Z -P .pki/nssdb/ -b "CN=Users,DC=elatov,DC=local" -s sub -D "administrator@elatov.local" -w - "sAMAccountName=elatov" name
     Enter bind password: 

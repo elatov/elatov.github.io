@@ -57,7 +57,7 @@ And the install will keep going. It actually took about 4 hours for the upgrade 
 
 ### Finish the Ubuntu Upgrade with *apt-fast*
 
-After all the updates have been applied it will ask to reboot. After the restart we can use **apt-fast** to update the rest of the packages (more information regarding **apt-fast** can be found <a href="http://www.webupd8.org/2012/10/speed-up-apt-get-downloads-with-apt.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.webupd8.org/2012/10/speed-up-apt-get-downloads-with-apt.html']);">here</a>). First let&#8217;s install **apt-fast**:
+After all the updates have been applied it will ask to reboot. After the restart we can use **apt-fast** to update the rest of the packages (more information regarding **apt-fast** can be found <a href="http://www.webupd8.org/2012/10/speed-up-apt-get-downloads-with-apt.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.webupd8.org/2012/10/speed-up-apt-get-downloads-with-apt.html']);">here</a>). First let's install **apt-fast**:
 
     $ git clone https://github.com/ilikenwf/apt-fast.git
     $ cd apt-fast
@@ -65,7 +65,7 @@ After all the updates have been applied it will ask to reboot. After the restart
     $ sudo cp apt-fast.conf /etc/.
     
 
-Now let&#8217;s disable the download dialog:
+Now let's disable the download dialog:
 
     $ sudo vi /etc/apt-fast.conf
     
@@ -75,7 +75,7 @@ and then modify the following line:
     DOWNLOADBEFORE=true
     
 
-**apt-fast** can use different &#8220;download applications&#8221;, I just picked one and installed it:
+**apt-fast** can use different "download applications", I just picked one and installed it:
 
     $ sudo apt-get install aria2
     
@@ -88,7 +88,7 @@ Now you can basically replace **apt-get** with **apt-fast**. Here is what I did 
 
 ## PulseAudio Issues
 
-After I finished the update, I realized that my sound wasn&#8217;t working. I started **alsamixer** to check the configuration and all the channels that I enabled during the 13.04 <a href="http://virtuallyhyper.com/2013/03/update-chrubuntu-12-04-to-13-04-on-the-samsung-chromebook/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/03/update-chrubuntu-12-04-to-13-04-on-the-samsung-chromebook/']);">install</a> were still enabled. It was actually a little weird, I would run the following:
+After I finished the update, I realized that my sound wasn't working. I started **alsamixer** to check the configuration and all the channels that I enabled during the 13.04 <a href="http://virtuallyhyper.com/2013/03/update-chrubuntu-12-04-to-13-04-on-the-samsung-chromebook/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/03/update-chrubuntu-12-04-to-13-04-on-the-samsung-chromebook/']);">install</a> were still enabled. It was actually a little weird, I would run the following:
 
     $ aplay /usr/share/sounds/alsa/Front_Center.wav
     
@@ -130,11 +130,11 @@ At the same time I would run the following to check the status of pulseaudio:
             device.icon_name = "audio-card"
     
 
-We can see that it said it&#8217;s **running**. I also installed **pavumeter** and launched it as I was running the **aplay** command, I saw activity:
+We can see that it said it's **running**. I also installed **pavumeter** and launched it as I was running the **aplay** command, I saw activity:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/10/pulsemeter_output.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/10/pulsemeter_output.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/10/pulsemeter_output.png" alt="pulsemeter output Update ChrUbuntu 13.04 to 13.10 on the Samsung Chromebook" width="409" height="131" class="alignnone size-full wp-image-9708" title="Update ChrUbuntu 13.04 to 13.10 on the Samsung Chromebook" /></a>
 
-So **pulseaudio** is receiving the audio, but for some reason it&#8217;s not passing it to **alsa**. I then killed the current **pulseaudio** process and started it in verbose mode:
+So **pulseaudio** is receiving the audio, but for some reason it's not passing it to **alsa**. I then killed the current **pulseaudio** process and started it in verbose mode:
 
     $ pulseaudio kill
     $ pulseaudio --start -vvvv
@@ -185,7 +185,7 @@ I ran the **aplay** command one more time and here is what I saw in the **/var/l
     Oct 20 18:24:44 crbook pulseaudio[5618]: [pulseaudio] protocol-native.c: Final latency 625.00 ms = 250.00 ms + 2*125.00 ms + 125.00 ms
     
 
-You can see that the application (aplay) wants to use **alsa**, but **pulseaudio** is not using it for some reason (it&#8217;s using *Sink autonull*). At first I thought it was a permission issue, so I tried using **pulseaudio** in system mode (it basically starts as a designated user and any one can connect to it). This is done by editing the **/etc/init/pulseaudio.conf** file and uncommenting the *start* line:
+You can see that the application (aplay) wants to use **alsa**, but **pulseaudio** is not using it for some reason (it's using *Sink autonull*). At first I thought it was a permission issue, so I tried using **pulseaudio** in system mode (it basically starts as a designated user and any one can connect to it). This is done by editing the **/etc/init/pulseaudio.conf** file and uncommenting the *start* line:
 
     # System mode is not the recommended way to run PulseAudio as it has some
     # limitations (such as no shared memory access) and could potentially allow
@@ -216,7 +216,7 @@ In the same file there is a note about loading modules:
     env DISALLOW_MODULE_LOADING=1
     
 
-I even tried enabling that, but it still didn&#8217;t help. I also added by self to all the necessary groups:
+I even tried enabling that, but it still didn't help. I also added by self to all the necessary groups:
 
     $groups
     elatov adm sudo audio fuse netdev pulse pulse-access rtkit
@@ -285,7 +285,7 @@ and installed the previous working version:
     $ sudo dpkg -i chromium-browser_25.0.1364.160-0ubuntu3_armhf.deb chromium-codecs-ffmpeg-extra_25.0.1364.160-0ubuntu3_armhf.deb
     
 
-I then **held** the packages at that version, so they wouldn&#8217;t get automatically updated:
+I then **held** the packages at that version, so they wouldn't get automatically updated:
 
     $ sudo apt-mark hold chromium-browser
     $ sudo apt-mark hold chromium-codecs-ffmpeg-extra
@@ -307,7 +307,7 @@ You can also check what versions of a package are available with the following c
 
 If I see a new version of the browser I will try again. Or whenever a newer version of the pepper flash comes out, I will try that as well.
 
-Lastly, the sound for flash stopped working as well. With the above fix, all the local media players were fine but flash didn&#8217;t work with pulseaudio. I found a couple links that stated that flash doesn&#8217;t support pulseaudio yet (<a href="https://wiki.archlinux.org/index.php/PulseAudio#Flash_content" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.archlinux.org/index.php/PulseAudio#Flash_content']);">link1</a>). So I decided to get rid pulseaudio for now:
+Lastly, the sound for flash stopped working as well. With the above fix, all the local media players were fine but flash didn't work with pulseaudio. I found a couple links that stated that flash doesn't support pulseaudio yet (<a href="https://wiki.archlinux.org/index.php/PulseAudio#Flash_content" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.archlinux.org/index.php/PulseAudio#Flash_content']);">link1</a>). So I decided to get rid pulseaudio for now:
 
     $ sudo apt-get remove pulse-audio --purge
     $ sudo apt-get autoremove --purge
@@ -329,7 +329,7 @@ After the update I noticed a network lag everyone once in a while and I saw the 
 
 We can see that our network driver is doing something every two minutes. I found a couple of forums that talked about the issue:
 
-*   <a href="https://bugzilla.redhat.com/show_bug.cgi?id=490493" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://bugzilla.redhat.com/show_bug.cgi?id=490493']);">NetworkManager disconnects/reconnects every 2 minutes and sometimes gets &#8220;mad&#8221;</a>
+*   <a href="https://bugzilla.redhat.com/show_bug.cgi?id=490493" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://bugzilla.redhat.com/show_bug.cgi?id=490493']);">NetworkManager disconnects/reconnects every 2 minutes and sometimes gets "mad"</a>
 *   <a href="http://nilvec.com/disable-scanning-in-networkmanager-when-connected.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://nilvec.com/disable-scanning-in-networkmanager-when-connected.html']);">Disable scanning in NetworkManager when connected</a>
 *   <a href="https://bugs.launchpad.net/ubuntu/+source/network-manager/+bug/373680" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://bugs.launchpad.net/ubuntu/+source/network-manager/+bug/373680']);">network-manager fails periodically , on backgound networks scan?</a>
 
@@ -343,7 +343,7 @@ I decided to take the latter approach. So start the network-manager connection e
     $ nm-connection-editor
     
 
-Then click on your acess point and select **Edit**. Then go the **General** tab and uncheck &#8220;Automatically connect to this network when it is available&#8221;:
+Then click on your acess point and select **Edit**. Then go the **General** tab and uncheck "Automatically connect to this network when it is available":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/10/gen-tab-con-editor.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/10/gen-tab-con-editor.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/10/gen-tab-con-editor.png" alt="gen tab con editor Update ChrUbuntu 13.04 to 13.10 on the Samsung Chromebook" width="412" height="109" class="alignnone size-full wp-image-9709" title="Update ChrUbuntu 13.04 to 13.10 on the Samsung Chromebook" /></a>
 
@@ -351,7 +351,7 @@ and under the **Wi-Fi** tab choose the *BSSID* from the dropdown:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/10/wi-fi-tab-con-edit_g.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/10/wi-fi-tab-con-edit_g.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/10/wi-fi-tab-con-edit_g.png" alt="wi fi tab con edit g Update ChrUbuntu 13.04 to 13.10 on the Samsung Chromebook" width="432" height="471" class="alignnone size-full wp-image-9710" title="Update ChrUbuntu 13.04 to 13.10 on the Samsung Chromebook" /></a>
 
-Now that it won&#8217;t connect automatically, you can either run the following at boot (**/etc/rc.local**) or at login (**~/.icewm/startup**):
+Now that it won't connect automatically, you can either run the following at boot (**/etc/rc.local**) or at login (**~/.icewm/startup**):
 
     $ /usr/bin/nmcli c up id ACCCES_POINT
     
@@ -360,7 +360,7 @@ After I set that up, the network lags stop and it was still automatically connec
 
 ## Lightdm Greeter Requires two logins
 
-For some reason, after the update, the greeter kept asking me for my password twice, and only after that it would log me in. I found a bug on that, here is the <a href="https://bugs.launchpad.net/unity-greeter/+bug/1202539" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://bugs.launchpad.net/unity-greeter/+bug/1202539']);">link</a> to that, but it hasn&#8217;t been fixed yet. To get around that, I installed the *gtk greeter* and it fixed my issue:
+For some reason, after the update, the greeter kept asking me for my password twice, and only after that it would log me in. I found a bug on that, here is the <a href="https://bugs.launchpad.net/unity-greeter/+bug/1202539" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://bugs.launchpad.net/unity-greeter/+bug/1202539']);">link</a> to that, but it hasn't been fixed yet. To get around that, I installed the *gtk greeter* and it fixed my issue:
 
     $ sudo apt-get install lightdm-gtk-greeter
     
@@ -370,11 +370,11 @@ Now to enable the new greeter, we edit the **/etc/lightdm/lightdm.conf** file an
     greeter-session=lightdm-gtk-greeter
     
 
-I then rebooted and saw the new greeter and it didn&#8217;t ask for my password twice.
+I then rebooted and saw the new greeter and it didn't ask for my password twice.
 
 ## X11 Crashes when Opening another TTY
 
-Sometimes I would want to troubleshoot an issue and I would click &#8220;Cntr-Alt-F2&#8243;. Rather than giving me another TTY, it would kill my **Xorg** Server and would not show me the TTY. It would just always throw back to the **lightdm** greeter. Checking out the **/var/log/Xorg.0.log.old** file, I just saw the following:
+Sometimes I would want to troubleshoot an issue and I would click "Cntr-Alt-F2". Rather than giving me another TTY, it would kill my **Xorg** Server and would not show me the TTY. It would just always throw back to the **lightdm** greeter. Checking out the **/var/log/Xorg.0.log.old** file, I just saw the following:
 
     [    18.510] (EE) 
     [    18.511] (EE) Backtrace:
@@ -390,7 +390,7 @@ Sometimes I would want to troubleshoot an issue and I would click &#8220;Cntr-Al
      for help. 
     
 
-Wasn&#8217;t very useful. Usually Xorg crashes due to Video Driver issues, so I decided disable the **armsoc** driver. I did this by editing the **/usr/share/X11/xorg.conf.d/10-monitor.conf** file and modify the following lines:
+Wasn't very useful. Usually Xorg crashes due to Video Driver issues, so I decided disable the **armsoc** driver. I did this by editing the **/usr/share/X11/xorg.conf.d/10-monitor.conf** file and modify the following lines:
 
     Section "Device"
             Identifier      "Mali FBDEV"
@@ -398,7 +398,7 @@ Wasn&#8217;t very useful. Usually Xorg crashes due to Video Driver issues, so I 
             Driver          "fbdev"
     
 
-After another restart I was able to open other TTYs without issues. I will admit I wasn&#8217;t doing anything crazy with display, plus with **glxgears** I didn&#8217;t see that much of performance decrease. Here is with the **armsoc** driver:
+After another restart I was able to open other TTYs without issues. I will admit I wasn't doing anything crazy with display, plus with **glxgears** I didn't see that much of performance decrease. Here is with the **armsoc** driver:
 
     $ glxgears 
     libGL error: failed to load driver: armsoc
@@ -416,7 +416,7 @@ and here is without:
     597 frames in 5.0 seconds = 119.206 FPS
     
 
-Anyways, I didn&#8217;t feel that much of a difference.
+Anyways, I didn't feel that much of a difference.
 
 ## *Moc* SegFaults
 
@@ -431,7 +431,7 @@ So I compiled a new version without ffmpeg support and it started up without iss
     $ wget http://ftp.daper.net/pub/soft/moc/stable/moc-2.4.4.tar.bz2
     
 
-Now let&#8217;s grab the prerequites:
+Now let's grab the prerequites:
 
     $ sudo apt-fast install libncurses5-dev libid3tag0-dev
     

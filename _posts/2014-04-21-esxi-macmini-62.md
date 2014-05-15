@@ -107,7 +107,7 @@ I plugged in my USB drive on my fedora box and I saw the following in the logs:
     [344964.684574] sd 7:0:0:0: [sdb] Attached SCSI removable disk
     
 
-We can see that our drive is **/dev/sdb**. Now let&#8217;s go ahead and create a FA32 partition on the USB disk:
+We can see that our drive is **/dev/sdb**. Now let's go ahead and create a FA32 partition on the USB disk:
 
     elatov@fed:~$sudo fdisk /dev/sdb
     
@@ -159,18 +159,18 @@ We can see that our drive is **/dev/sdb**. Now let&#8217;s go ahead and create a
     Syncing disks.
     
 
-Now let&#8217;s actually format our partition as a FAT32 filesystem:
+Now let's actually format our partition as a FAT32 filesystem:
 
     elatov@fed:~$sudo mkfs.vfat -F 32 -n USB /dev/sdb1
     mkfs.fat 3.0.26 (2014-03-07)
     
 
-Now let&#8217;s put a bootloader on there:
+Now let's put a bootloader on there:
 
     elatov@fed:~$sudo syslinux /dev/sdb1
     
 
-Lastly let&#8217;s but an MBR on there as well:
+Lastly let's but an MBR on there as well:
 
     elatov@fed:~$sudo dd if=/usr/share/syslinux/mbr.bin of=/dev/sdb bs=4k
     0+1 records in
@@ -178,7 +178,7 @@ Lastly let&#8217;s but an MBR on there as well:
     440 bytes (440 B) copied, 0.0141524 s, 31.1 kB/s
     
 
-Now let&#8217;s mount the USB disk:
+Now let's mount the USB disk:
 
     elatov@fed:~$sudo mount /dev/sdc1 /mnt/usb
     elatov@fed:~$df -hT -t vfat
@@ -186,13 +186,13 @@ Now let&#8217;s mount the USB disk:
     /dev/sdb1      vfat  7.5G   36K  7.5G   1% /mnt/usb
     
 
-Next let&#8217;s mount the ISO:
+Next let's mount the ISO:
 
     elatov@fed:~$sudo mount -o loop downloads/ESXi-5.5u1-MacMini-6-2.iso /mnt/iso
     mount: /dev/loop0 is write-protected, mounting read-only
     
 
-And now let&#8217;s copy the install files to the USB disk:
+And now let's copy the install files to the USB disk:
 
     elatov@fed:~$sudo rsync -avzP /mnt/iso/. /mnt/usb/.
     ..
@@ -206,7 +206,7 @@ And the last thing is to copy the **syslinux.cfg** file:
     elatov@fed:~$sudo mv /mnt/usb/isolinux.cfg /mnt/usb/syslinux.cfg
     
 
-Now the USB Disk is ready, so let&#8217;s go ahead and un-mount the USB and the ISO:
+Now the USB Disk is ready, so let's go ahead and un-mount the USB and the ISO:
 
     elatov@fed:~$sudo umount /mnt/iso
     elatov@fed:~$sudo umount /mnt/usb
@@ -217,7 +217,7 @@ Now eject the USB disk and plug into the Mac Mini
 
 ### Creating Bootable USB disk with Unebootin
 
-Other people have used the Unebootin utility with success as well. If you don&#8217;t want to copy the files manually and install the boot loader manually you can use Unebootin. After you have created the FAT32 partition and mounted it on the system, then go ahead and install the necessary package:
+Other people have used the Unebootin utility with success as well. If you don't want to copy the files manually and install the boot loader manually you can use Unebootin. After you have created the FAT32 partition and mounted it on the system, then go ahead and install the necessary package:
 
     elatov@fed:~$sudo yum install unetbootin
     
@@ -231,11 +231,11 @@ After you type that you will see a UI pop up, click install and you should see t
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/04/installing-unetbootin.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/04/installing-unetbootin.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/installing-unetbootin.png" alt="installing unetbootin ESXi on MacMini 6,2" width="520" height="369" class="alignnone size-full wp-image-10454" title="ESXi on MacMini 6,2" /></a>
 
-You can see it takes care of most of the setup. After it&#8217;s finished you will see the following:
+You can see it takes care of most of the setup. After it's finished you will see the following:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/04/unetbootin-finished.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/04/unetbootin-finished.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/unetbootin-finished.png" alt="unetbootin finished ESXi on MacMini 6,2" width="517" height="370" class="alignnone size-full wp-image-10455" title="ESXi on MacMini 6,2" /></a>
 
-You don&#8217;t have reboot, just click **exit** and eject the USB disk.
+You don't have reboot, just click **exit** and eject the USB disk.
 
 ### Installing ESXi on the MacMini
 
@@ -243,7 +243,7 @@ After you have plugged in the USB drive into the Mac Mini, power it on and as so
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/04/mac-mini-boot-screen.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/04/mac-mini-boot-screen.jpg']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/mac-mini-boot-screen-1024x577.jpg" alt="mac mini boot screen 1024x577 ESXi on MacMini 6,2" width="620" height="349" class="alignnone size-large wp-image-10453" title="ESXi on MacMini 6,2" /></a>
 
-Select the &#8220;**EFI Boot**&#8221; option and the installer will start:
+Select the "**EFI Boot**" option and the installer will start:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/04/esxi-installer-started.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/04/esxi-installer-started.jpg']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/esxi-installer-started-1024x305.jpg" alt="esxi installer started 1024x305 ESXi on MacMini 6,2" width="620" height="184" class="alignnone size-large wp-image-10459" title="ESXi on MacMini 6,2" /></a>
 
@@ -267,7 +267,7 @@ Now your ESXi host is ready.
 
 ### Confirm ESXi Settings on Mac Mini
 
-First let&#8217;s make sure Interrupt Remapping is disabled, since so many people ran into any issue with that:
+First let's make sure Interrupt Remapping is disabled, since so many people ran into any issue with that:
 
     ~ # esxcli system settings kernel list -o iovDisableIR
     Name          Type  Description                              Configured  Runtime  Default
@@ -275,7 +275,7 @@ First let&#8217;s make sure Interrupt Remapping is disabled, since so many peopl
     iovDisableIR  Bool  Disable Interrrupt Routing in the IOMMU  true        TRUE     FALSE
     
 
-That looks good, now let&#8217;s sure Hyper-Threading is enabled, we should see 8 CPUs:
+That looks good, now let's sure Hyper-Threading is enabled, we should see 8 CPUs:
 
     ~ # esxcli hardware cpu list | grep ^CPU
     CPU:0
@@ -288,7 +288,7 @@ That looks good, now let&#8217;s sure Hyper-Threading is enabled, we should see 
     CPU:7
     
 
-While we are here let&#8217;s confirm we have the full 16GB of RAM:
+While we are here let's confirm we have the full 16GB of RAM:
 
     ~ # esxcli hardware memory get
        Physical Memory: 17081536512 Bytes
@@ -296,7 +296,7 @@ While we are here let&#8217;s confirm we have the full 16GB of RAM:
        NUMA Node Count: 1
     
 
-And let&#8217;s make sure we are running on the Mac Mini:
+And let's make sure we are running on the Mac Mini:
 
     ~ # esxcli hardware platform get
     Platform Information
@@ -362,7 +362,7 @@ Lastly SSH over to the host and install the VIB. Initially I got the following e
      Please refer to the log file for more details.
     
 
-Let&#8217;s fix the Acceptance level:
+Let's fix the Acceptance level:
 
     ~ # esxcli software acceptance set --level=CommunitySupported
     Host acceptance level changed to 'CommunitySupported'.
@@ -391,7 +391,7 @@ Then after a restart, you should see two network adapters:
 
 ### Configure iSCSI Initiator
 
-I was running an iSCSI target on my OmniOS (I covered the setup <a href="http://virtuallyhyper.com/2014/01/zfs-iscsi-benchmarks-tests/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2014/01/zfs-iscsi-benchmarks-tests/']);">here</a>). So let&#8217;s enable this guy to connect to it. Most of the instructions are laid out in: <a href="http://pubs.vmware.com/vsphere-50/index.jsp?topic=/com.vmware.vcli.examples.doc_50/cli_manage_iscsi_storage.7.5.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://pubs.vmware.com/vsphere-50/index.jsp?topic=/com.vmware.vcli.examples.doc_50/cli_manage_iscsi_storage.7.5.html']);">iSCSI Storage Setup with ESXCLI</a>. Let&#8217;s enable the initiator and confirm it&#8217;s on:
+I was running an iSCSI target on my OmniOS (I covered the setup <a href="http://virtuallyhyper.com/2014/01/zfs-iscsi-benchmarks-tests/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2014/01/zfs-iscsi-benchmarks-tests/']);">here</a>). So let's enable this guy to connect to it. Most of the instructions are laid out in: <a href="http://pubs.vmware.com/vsphere-50/index.jsp?topic=/com.vmware.vcli.examples.doc_50/cli_manage_iscsi_storage.7.5.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://pubs.vmware.com/vsphere-50/index.jsp?topic=/com.vmware.vcli.examples.doc_50/cli_manage_iscsi_storage.7.5.html']);">iSCSI Storage Setup with ESXCLI</a>. Let's enable the initiator and confirm it's on:
 
     ~ # esxcli iscsi software set -e true
     Software iSCSI Enabled
@@ -399,7 +399,7 @@ I was running an iSCSI target on my OmniOS (I covered the setup <a href="http://
     true
     
 
-Now let&#8217;s figure out which vmhba was assigned for the iSCSI initiator:
+Now let's figure out which vmhba was assigned for the iSCSI initiator:
 
     ~ # esxcli iscsi adapter list
     Adapter  Driver     State   UID            Description
@@ -407,7 +407,7 @@ Now let&#8217;s figure out which vmhba was assigned for the iSCSI initiator:
     vmhba37  iscsi_vmk  online  iscsi.vmhba37  iSCSI Software Adapter
     
 
-It looks like it&#8217;s **vmhba37**. Now let&#8217;s bind our **vmk1** to it (I created one for the storage connection)
+It looks like it's **vmhba37**. Now let's bind our **vmk1** to it (I created one for the storage connection)
 
     ~ # esxcli iscsi networkportal add -n vmk1 -A vmhba37
     ~ # esxcli iscsi networkportal list 
@@ -416,7 +416,7 @@ It looks like it&#8217;s **vmhba37**. Now let&#8217;s bind our **vmk1** to it (I
        Vmknic: vmk1
     
 
-Now let&#8217;s add our iSCSI target:
+Now let's add our iSCSI target:
 
     ~ # esxcli iscsi adapter discovery sendtarget add -A vmhba37 -a 192.168.1.101:3260
     
@@ -432,7 +432,7 @@ If necessary grab the IQN of the iSCSI initiator:
        Description: iSCSI Software Adapter
     
 
-Now let&#8217;s check out our ZFS server and make sure we are allowed to connect. After you SSH to the machine, check out your LUNs:
+Now let's check out our ZFS server and make sure we are allowed to connect. After you SSH to the machine, check out your LUNs:
 
     root@zfs:~#sbdadm list-lu
     Found 2 LU(s)
@@ -443,7 +443,7 @@ Now let&#8217;s check out our ZFS server and make sure we are allowed to connect
     600144f0876a9c47000052  214748364800         /dev/zvol/rdsk/other/backups
     
 
-Now let&#8217;s check out the view for the desired LUN:
+Now let's check out the view for the desired LUN:
 
     root@zfs:~#stmfadm list-view -l 600144f0876a9c47000052
     View Entry: 0
@@ -452,7 +452,7 @@ Now let&#8217;s check out the view for the desired LUN:
         LUN          : 7
     
 
-We can see that All Host groups are allowed to connect to that LUN. If had an explicit host group defined, we would&#8217;ve had to add our IQN to it (but we didn&#8217;t have to do that). Now that we confirmed that we can connect to the iSCSI target, let&#8217;s discover the LUNs and rescan our datastores:
+We can see that All Host groups are allowed to connect to that LUN. If had an explicit host group defined, we would've had to add our IQN to it (but we didn't have to do that). Now that we confirmed that we can connect to the iSCSI target, let's discover the LUNs and rescan our datastores:
 
     ~ # esxcli iscsi adapter discovery rediscover -A vmhba37
     Rediscovery started
@@ -514,11 +514,11 @@ This volume already had VMFS on it, show we should see it mounted:
     /vmfs/volumes/520-731-c1cc-0100  M2   520-731-c1cc-0100     true  VMFS-5  321854111744  106085482496
     
 
-Now let&#8217;s migrate some VMs to the Mac Mini.
+Now let's migrate some VMs to the Mac Mini.
 
 ### Options to copy a VM without vCenter
 
-I didn&#8217;t have a vCenter running so I had to do some manual steps. There are a couple of ways of doing this:
+I didn't have a vCenter running so I had to do some manual steps. There are a couple of ways of doing this:
 
 *   You can use VMware Converter, <a href="http://www.youtube.com/watch?v=Jf4_4sTNBg8" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.youtube.com/watch?v=Jf4_4sTNBg8']);">here</a> is a pretty cool video on the process
 *   You can use **vmkfstools** and cp, like Jarret described <a href="http://virtuallyhyper.com/2012/04/cloning-a-vm-from-the-command-line/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/04/cloning-a-vm-from-the-command-line/']);">here</a>:
@@ -645,7 +645,7 @@ or these:
           </httpnfcsvc>
     
 
-I only had 3 VMs to migrate, so I didn&#8217;t spend too much time with figuring out how to disable SSL with NFC for hostd.
+I only had 3 VMs to migrate, so I didn't spend too much time with figuring out how to disable SSL with NFC for hostd.
 
 Even though it was slow, it was very easy and it worked without any issues. Next I decided to use PowerCLI to transfer another VM.
 
@@ -657,7 +657,7 @@ There are a lot of cool cmdlets (like <a href="https://www.vmware.com/support/de
 *   <a href="http://ict-freak.nl/2011/04/01/storage-vmotion-only-one-hard-disk-to-another-datastore-in-vsphere/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://ict-freak.nl/2011/04/01/storage-vmotion-only-one-hard-disk-to-another-datastore-in-vsphere/']);">Storage vMotion only one hard disk to another datastore in vSphere</a>
 *   <a href="http://geekswithblogs.net/Wchrabaszcz/archive/2013/10/05/powershell--the-first-kiss-with-vmware-powercli.aspx" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://geekswithblogs.net/Wchrabaszcz/archive/2013/10/05/powershell--the-first-kiss-with-vmware-powercli.aspx']);">PowerShell – The first kiss with VMware PowerCLI</a>
 
-Unfortunately all of those required vCenter to work. So I decided to copy the hard disk. So let&#8217;s get started. Here is the version of PowerCLI that I downloaded:
+Unfortunately all of those required vCenter to work. So I decided to copy the hard disk. So let's get started. Here is the version of PowerCLI that I downloaded:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/04/powercli.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/04/powercli.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/powercli.png" alt="powercli ESXi on MacMini 6,2" width="456" height="404" class="alignnone size-full wp-image-10465" title="ESXi on MacMini 6,2" /></a>
 
@@ -680,7 +680,7 @@ Then after relaunching PowerCli and you will see the following:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/04/powercli-started.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/04/powercli-started.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/powercli-started.png" alt="powercli started ESXi on MacMini 6,2" width="603" height="149" class="alignnone size-full wp-image-10467" title="ESXi on MacMini 6,2" /></a>
 
-Now let&#8217;s connect to our original ESXi host:
+Now let's connect to our original ESXi host:
 
     PowerCLI C:\> Connect-VIServer esx -User root
     Name                           Port  User
@@ -688,7 +688,7 @@ Now let&#8217;s connect to our original ESXi host:
     esx                            443   root
     
 
-Now let&#8217;s list our VMs:
+Now let's list our VMs:
 
     PowerCLI C:\> get-vm
     
@@ -699,7 +699,7 @@ Now let&#8217;s list our VMs:
     Kerch                PoweredOn  1        1.000
     
 
-And now let&#8217;s get the Datastores
+And now let's get the Datastores
 
     PowerCLI C:\> Get-Datastore
     
@@ -723,7 +723,7 @@ Now to get a sense of VMDK usage
     16.000          Persistent                               [VMs] Kerch/Kerch.vmdk
     
 
-I am planning on moving the **M2** machine to the **M2** datastore. So the VM we are moving (M2) has two hard-disks, one is already on **M2** and the first one is on the **VMs** datastore and it&#8217;s only 20GB (we have 90GB free on the M2 datastore, so we are okay to do the move. So let&#8217;s move the **M2** VM to the **M2** datastore. First shutdown the VM (if it has *vmware-tools* installed, else shut it down through the OS):
+I am planning on moving the **M2** machine to the **M2** datastore. So the VM we are moving (M2) has two hard-disks, one is already on **M2** and the first one is on the **VMs** datastore and it's only 20GB (we have 90GB free on the M2 datastore, so we are okay to do the move. So let's move the **M2** VM to the **M2** datastore. First shutdown the VM (if it has *vmware-tools* installed, else shut it down through the OS):
 
     PowerCLI C:\> Get-VM M2 | Shutdown-VMGuest
     
@@ -759,13 +759,13 @@ Next we are going to copy the VMX file. To copy a file, we need to know the **da
     ha-datacenter
     
 
-Now let&#8217;s go ahead and copy the VMX file:
+Now let's go ahead and copy the VMX file:
 
     PowerCLI C:\> Copy-DatastoreItem -Item vmstore:\ha-datacenter\VMs\M2\M2.vmx -Des
     tination vmstore:\ha-datacenter\M2\M2\M2.vmx
     
 
-Now go ahead and remove the VM from the original host&#8217;s inventory
+Now go ahead and remove the VM from the original host's inventory
 
     PowerCLI C:\> Remove-VM M2
     
@@ -775,7 +775,7 @@ Now go ahead and remove the VM from the original host&#8217;s inventory
     (default is "Y"):y
     
 
-Next let&#8217;s disconnect from this host and connect to the mac mini:
+Next let's disconnect from this host and connect to the mac mini:
 
     PowerCLI C:\> Disconnect-VIServer
     
@@ -795,7 +795,7 @@ Now for the re-connect to the new host:
     macm                           443   root
     
 
-Let&#8217;s copy the harddisk to the local datastore of the new host:
+Let's copy the harddisk to the local datastore of the new host:
 
     PowerCLI C:\> Copy-HardDisk -HardDisk (Get-HardDisk -Datastore "M2" -DatastorePa
     th "[M2] M2/" | where {$_.Name -eq "M2.vmdk"}) -DestinationPath "[datastore1] M2
@@ -814,13 +814,13 @@ Also checked out **esxtop** on the new host and the speeds were similar:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/04/copy-disk-macm-esxtop_g.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/04/copy-disk-macm-esxtop_g.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/copy-disk-macm-esxtop_g-1024x67.png" alt="copy disk macm esxtop g 1024x67 ESXi on MacMini 6,2" width="620" height="40" class="alignnone size-large wp-image-10486" title="ESXi on MacMini 6,2" /></a>
 
-And let&#8217;s go ahead and copy the VMX over:
+And let's go ahead and copy the VMX over:
 
     PowerCLI C:\> Copy-DatastoreItem -Item vmstore:\ha-datacenter\M2\M2\M2.vmx -Dest
     ination vmstore:\ha-datacenter\datastore1\M2\M2.vmx
     
 
-Now let&#8217;s add the VM to nee ESXi&#8217;s host inventory
+Now let's add the VM to nee ESXi's host inventory
 
     PowerCLI C:\> New-VM -VMFilePath "[datastore1] M2/M2.vmx" -VMHost macm
     
@@ -829,7 +829,7 @@ Now let&#8217;s add the VM to nee ESXi&#8217;s host inventory
     M2                   PoweredOff 1        3.000
     
 
-Let&#8217;s make sure the disk locations are correct:
+Let's make sure the disk locations are correct:
 
     PowerCLI C:\> get-vm M2 | Get-HardDisk
     
@@ -857,5 +857,5 @@ Since we copied the files (we need to let ESX know whether we *moved it* or *cop
     PowerCLI C:\> Get-VMQuestion | Set-VMQuestion -Option 'button.uuid.movedTheVM"
     
 
-And that&#8217;s it, the VM is now completely migrated over and it way quicker than the **ovftool** approach. But I still really like the simplicity of the **ovftool**.
+And that's it, the VM is now completely migrated over and it way quicker than the **ovftool** approach. But I still really like the simplicity of the **ovftool**.
 

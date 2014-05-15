@@ -37,7 +37,7 @@ From the above guide, here are some reasons to use SSH over other protocols:
 > 
 > **Impersonation of a particular host**
 > 
-> Attacker&#8217;s system is configured to pose as the intended recipient of a transmission. If this strategy works, the user&#8217;s system remains unaware that it is communicating with the wrong host.
+> Attacker's system is configured to pose as the intended recipient of a transmission. If this strategy works, the user's system remains unaware that it is communicating with the wrong host.
 > 
 > This attack can be performed using a technique known as DNS poisoning, or via so-called IP spoofing. In the first case, the intruder uses a cracked DNS server to point client systems to a maliciously duplicated host. In the second case, the intruder sends falsified network packets that appear to be from a trusted host.
 > 
@@ -63,7 +63,7 @@ Here more information regarding the encryption mechanisms of SSH:
 > *   The message authentication algorithm is determined
 > *   The hash algorithm is determined
 > 
-> During the key exchange, the server identifies itself to the client with a unique host key. If the client has never communicated with this particular server before, the server&#8217;s host key is unknown to the client and it does not connect. OpenSSH gets around this problem by accepting the server&#8217;s host key. This is done after the user is notified and has both accepted and verified the new host key. In subsequent connections, the server&#8217;s host key is checked against the saved version on the client, providing confidence that the client is indeed communicating with the intended server. If, in the future, the host key no longer matches, the user must remove the client&#8217;s saved version before a connection can occur.
+> During the key exchange, the server identifies itself to the client with a unique host key. If the client has never communicated with this particular server before, the server's host key is unknown to the client and it does not connect. OpenSSH gets around this problem by accepting the server's host key. This is done after the user is notified and has both accepted and verified the new host key. In subsequent connections, the server's host key is checked against the saved version on the client, providing confidence that the client is indeed communicating with the intended server. If, in the future, the host key no longer matches, the user must remove the client's saved version before a connection can occur.
 
 ### OpenSSH Configuration Files
 
@@ -71,7 +71,7 @@ From the same guide:
 
 > There are two different sets of configuration files: those for client programs (that is, **ssh**, **scp**, and **sftp**), and those for the server (the **sshd** daemon).
 > 
-> System-wide SSH configuration information is stored in the **/etc/ssh/** directory. User-specific SSH configuration information is stored in **~/.ssh/** within the user&#8217;s home directory.
+> System-wide SSH configuration information is stored in the **/etc/ssh/** directory. User-specific SSH configuration information is stored in **~/.ssh/** within the user's home directory.
 > 
 > <a href="http://virtuallyhyper.com/wp-content/uploads/2014/03/etc_ssh-contents.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/03/etc_ssh-contents.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/03/etc_ssh-contents.png" alt="etc ssh contents RHCSA and RHCE Chapter 13 – Remote Access" width="718" height="646" class="alignnone size-full wp-image-10211" title="RHCSA and RHCE Chapter 13 – Remote Access" /></a>
 
@@ -118,7 +118,7 @@ From the guide:
 
 From the Deployment Guide:
 
-> For SSH to be truly effective, using insecure connection protocols should be prohibited. Otherwise, a user&#8217;s password may be protected using SSH for one session, only to be captured later while logging in using Telnet. Some services to disable include **telnet**, **rsh**, **rlogin**, and **vsftpd**.
+> For SSH to be truly effective, using insecure connection protocols should be prohibited. Otherwise, a user's password may be protected using SSH for one session, only to be captured later while logging in using Telnet. Some services to disable include **telnet**, **rsh**, **rlogin**, and **vsftpd**.
 > 
 > To disable these services, type the following commands at a shell prompt:
 > 
@@ -204,7 +204,7 @@ For other algorithms just specify the algorithm after the **-t** parameter but t
     
     *   Copy the content of **~/.ssh/identity.pub** into the **~/.ssh/authorized_keys** on the machine
 
-Let&#8217;s try this out. First let&#8217;s SSH from our rhel5 machine to the rhel6 machine:
+Let's try this out. First let's SSH from our rhel5 machine to the rhel6 machine:
 
     [user1@rhel2 ~]$ ssh rhel1
     The authenticity of host 'rhel1 (192.168.2.2)' can't be established.
@@ -223,7 +223,7 @@ Notice this was the first time we are connecting to the host, so we have to acce
     -rw-r--r-- 1 user1 user1 399 Mar  8 09:00 known_hosts
     
 
-That file should contain the public key of the rhel6 machine since we connected to it. So let&#8217;s check out that file:
+That file should contain the public key of the rhel6 machine since we connected to it. So let's check out that file:
 
     [user1@rhel2 ~]$ cat .ssh/known_hosts 
     rhel1,192.168.2.2 ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAnQpDaJo0Nb5Ka1enKdoYyYxSWo8f9ju+gNrScIYxAOqxk6sCGitYo2OwquTevtRixO/y/PBQFC6MX/dz6dMkhNBEl8z/HIk7HAVAqN67G3161hhXy4P/HUkCTpvy93mUb14dDsIPNogqxCg3iikgX1CFyTIC/L4zYxogZVD/D1DnJyM6ls4dFpErS4jy06WKwT6YoeuTUH94QG5Mp0IU/14f5nl3JcDpZ8EzhyA4IovVb5qo4KzNvvY2pVRiJCMJoBNuqpr04HghUvqgiXClHZon4yWLJE9PPRK1RgKKpDzqvW/L7l7Vn06EW2uY658P88vjDSR+49DdommALmnBPw==
@@ -235,7 +235,7 @@ That random string is the public part of RSA pair of the rhel6 host. We can conf
     ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAnQpDaJo0Nb5Ka1enKdoYyYxSWo8f9ju+gNrScIYxAOqxk6sCGitYo2OwquTevtRixO/y/PBQFC6MX/dz6dMkhNBEl8z/HIk7HAVAqN67G3161hhXy4P/HUkCTpvy93mUb14dDsIPNogqxCg3iikgX1CFyTIC/L4zYxogZVD/D1DnJyM6ls4dFpErS4jy06WKwT6YoeuTUH94QG5Mp0IU/14f5nl3JcDpZ8EzhyA4IovVb5qo4KzNvvY2pVRiJCMJoBNuqpr04HghUvqgiXClHZon4yWLJE9PPRK1RgKKpDzqvW/L7l7Vn06EW2uY658P88vjDSR+49DdommALmnBPw==
     
 
-They do match. Now if I make a subsequent connection to the same host, it won&#8217;t prompt me for the authenticity of the host (since I accepted it on the first connection):
+They do match. Now if I make a subsequent connection to the same host, it won't prompt me for the authenticity of the host (since I accepted it on the first connection):
 
     [user1@rhel2 ~]$ ssh rhel1
     user1@rhel1's password: 
@@ -243,7 +243,7 @@ They do match. Now if I make a subsequent connection to the same host, it won&#8
     [user1@rhel1 ~]$ 
     
 
-You will also notice that I had to type in the password for user1 each time. So let&#8217;s generate an RSA key pair for the user and use that for our authentication. First let&#8217;s create the key pair:
+You will also notice that I had to type in the password for user1 each time. So let's generate an RSA key pair for the user and use that for our authentication. First let's create the key pair:
 
     [user1@rhel2 ~]$ ssh-keygen -t rsa
     Generating public/private rsa key pair.
@@ -256,7 +256,7 @@ You will also notice that I had to type in the password for user1 each time. So 
     88:60:ee:9e:72:66:aa:a5:f3:b7:cc:25:20:82:88:d4 user1@local.com
     
 
-I accepted the defaults on the prompts and I actually didn&#8217;t create a password for this key since this is just for this lab. After the above process is done, we will see the following files:
+I accepted the defaults on the prompts and I actually didn't create a password for this key since this is just for this lab. After the above process is done, we will see the following files:
 
     [user1@rhel2 ~]$ ls -l .ssh/
     total 12
@@ -265,7 +265,7 @@ I accepted the defaults on the prompts and I actually didn&#8217;t create a pass
     -rw-r--r-- 1 user1 user1  399 Mar  8 09:00 known_hosts
     
 
-The **.pub** file is the public part and the **id_rsa** file is the private key. Now let&#8217;s copy the public key to our host:
+The **.pub** file is the public part and the **id_rsa** file is the private key. Now let's copy the public key to our host:
 
     [user1@rhel2 ~]$ ssh-copy-id -i .ssh/id_rsa.pub rhel1
     15
@@ -284,7 +284,7 @@ Now if I try to ssh to the host:
     [user1@rhel1 ~]$ 
     
 
-Notice I wasn&#8217;t prompted for the password since it used the RSA key for authentication. Also on the rhel6 machine, we should now have the following file:
+Notice I wasn't prompted for the password since it used the RSA key for authentication. Also on the rhel6 machine, we should now have the following file:
 
     [user1@rhel1 ~]$ ls -l .ssh
     total 4
@@ -392,7 +392,7 @@ There are a lot of examples of this. We are going to cover VNC next, at the end 
 
 ## VNC
 
-There is a good Red Hat Magazine Article that covers the process: <a href="http://www.redhat.com/magazine/006apr05/features/vnc/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.redhat.com/magazine/006apr05/features/vnc/']);">Taking your desktop virtual with VNC</a>. The article is for an older version of RHEL but the process is very similar. First let&#8217;s install the vnc server:
+There is a good Red Hat Magazine Article that covers the process: <a href="http://www.redhat.com/magazine/006apr05/features/vnc/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.redhat.com/magazine/006apr05/features/vnc/']);">Taking your desktop virtual with VNC</a>. The article is for an older version of RHEL but the process is very similar. First let's install the vnc server:
 
     [root@rhel1 ~]# yum install tigervnc-server.i686
     ...
@@ -409,7 +409,7 @@ There is a good Red Hat Magazine Article that covers the process: <a href="http:
     Complete!
     
 
-Notice that installs the **xauth** package as well, along with some fonts. Now let&#8217;s configure the vnc server for user1 to be on the second port. This is done by editing the **/etc/sysconfig/vncservers** file and adding the following lines:
+Notice that installs the **xauth** package as well, along with some fonts. Now let's configure the vnc server for user1 to be on the second port. This is done by editing the **/etc/sysconfig/vncservers** file and adding the following lines:
 
     [root@rhel1 ~]# tail -2 /etc/sysconfig/vncservers 
     VNCSERVERS="2:user1"
@@ -434,13 +434,13 @@ Now we can start the service:
     Log file is /home/user1/.vnc/rhel1.local.com:2.log
     
 
-If you try to start the service prior to running **vncpassword**, it won&#8217;t start (since the **~/.vnc** won&#8217;t exist). At this point you should see the vnc service listening on port 5902:
+If you try to start the service prior to running **vncpassword**, it won't start (since the **~/.vnc** won't exist). At this point you should see the vnc service listening on port 5902:
 
     [root@rhel1 ~]# netstat -antp | grep 5902
     tcp        0      0 0.0.0.0:5902                0.0.0.0:*                   LISTEN      26525/Xvnc
     
 
-Let&#8217;s open up port 5902 to be accessible from our network:
+Let's open up port 5902 to be accessible from our network:
 
     [root@rhel1 ~]# iptables -I INPUT 11 -m state --state NEW -m tcp -p tcp --dport 5902 -j ACCEPT
     
@@ -498,7 +498,7 @@ Now if I try to connect directly to the VNC server, I get the following:
 
 #### VNC with SSH Forwarding
 
-So let&#8217;s create an SSH Tunnel to our VNC server and map the remote port 5902 to 5902 on our local machine:
+So let's create an SSH Tunnel to our VNC server and map the remote port 5902 to 5902 on our local machine:
 
     elatov@fed:~$ssh -Nf -L 5902:localhost:5902 user1@rhel1
     user1@rhel1's password:
@@ -538,7 +538,7 @@ Notice it first asks for the **user1** password to establish the SSH tunnel and 
 
 #### Manually Start VNC Server
 
-If the vnc server package is installed but you don&#8217;t have sudo to start the vncserver service, then you can start the VNC server manually like this:
+If the vnc server package is installed but you don't have sudo to start the vncserver service, then you can start the VNC server manually like this:
 
     [user1@rhel1 ~]$ vncserver :1
     
@@ -565,7 +565,7 @@ No firewall rules are necessary to be open since we are using SSH Port-Forwardin
     Killing Xvnc process ID 2634
     
 
-Lastly to confirm it&#8217;s not running:
+Lastly to confirm it's not running:
 
     [user1@rhel1 ~]$ ps -eaf | grep vnc
     user1     2704  2610  0 12:10 pts/0    00:00:00 grep vnc

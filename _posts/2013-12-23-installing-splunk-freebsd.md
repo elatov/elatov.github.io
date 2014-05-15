@@ -12,7 +12,7 @@ tags:
   - mod_proxy
   - Splunk
 ---
-I had an old box laying around that wasn&#8217;t really doing anything. It only had 1GB of RAM, but that is good enough for a splunk install.
+I had an old box laying around that wasn't really doing anything. It only had 1GB of RAM, but that is good enough for a splunk install.
 
 ### Splunk
 
@@ -139,7 +139,7 @@ And I saw the following:
     The Splunk web interface is at http://moxz:8000
     
 
-It did give me a warning about my **ulimit** settings but that&#8217;s okay since I only had 1GB of RAM. To make sure it&#8217;s running I ran the following:
+It did give me a warning about my **ulimit** settings but that's okay since I only had 1GB of RAM. To make sure it's running I ran the following:
 
     $ sudo ./splunk status
     splunkd is running (PID: 1151).
@@ -151,7 +151,7 @@ That looked good. I went to the Splunk Web Portal and I saw the same thing as in
 
 #### Setup Splunk to Receive Syslog Logs over UDP 514
 
-This was going to be internal, so I just wanted to setup the easiest data source. Using **UDP 514** for a Syslog Server is pretty standard. By default the **syslogd** service running on FreeBSD listens on **UDP 514**. First let&#8217;s disable that, this is done by editing **/etc/rc.conf** file and adding the following to it:
+This was going to be internal, so I just wanted to setup the easiest data source. Using **UDP 514** for a Syslog Server is pretty standard. By default the **syslogd** service running on FreeBSD listens on **UDP 514**. First let's disable that, this is done by editing **/etc/rc.conf** file and adding the following to it:
 
     syslogd_enable="YES"
     syslogd_flags="-ss"
@@ -170,7 +170,7 @@ Then click on **UDP** and fill out all the settings:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/11/514-data-input.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/11/514-data-input.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/11/514-data-input.png" alt="514 data input Installing Splunk on FreeBSD" width="567" height="777" class="alignnone size-full wp-image-9798" title="Installing Splunk on FreeBSD" /></a>
 
-Then click **Save** and you should be all set. You can confirm it&#8217;s listening on that port by running the following on the Splunk server:
+Then click **Save** and you should be all set. You can confirm it's listening on that port by running the following on the Splunk server:
 
     $ sudo /opt/splunk/bin/splunk list udp
     Password:
@@ -245,7 +245,7 @@ And the second parameter:
 > 
 > To specify the age at which data should freeze, edit the frozenTimePeriodInSecs attribute in indexes.conf. This attribute specifies the number of seconds to elapse before data gets frozen. The default value is 188697600 seconds, or approximately 6 years.
 
-I decided to set the size to 100GB and the time to be 90 days (7776000 seconds). So if data is more than 90 days, it&#8217;s removed. If the the index size gets bigger than 100 GB, it will be removed as well. To apply those settings edit the /**opt/splunk/etc/system/default/indexes.conf** file and modify the following parameters:
+I decided to set the size to 100GB and the time to be 90 days (7776000 seconds). So if data is more than 90 days, it's removed. If the the index size gets bigger than 100 GB, it will be removed as well. To apply those settings edit the /**opt/splunk/etc/system/default/indexes.conf** file and modify the following parameters:
 
     frozenTimePeriodInSecs = 7776000
     maxTotalDataSizeMB = 100000
@@ -256,7 +256,7 @@ To apply those settings, restart the splunk server:
     $ sudo service splunk restart
     
 
-I don&#8217;t want to waste space on old data. I checked my Quota usage under &#8220;**Settings**&#8221; -> &#8220;**Licensing**&#8221; -> &#8220;**Usage Report**&#8221; and I wasn&#8217;t even close to reaching the quota:
+I don't want to waste space on old data. I checked my Quota usage under "**Settings**" -> "**Licensing**" -> "**Usage Report**" and I wasn't even close to reaching the quota:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/11/license-usage-splunk_g.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/11/license-usage-splunk_g.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/11/license-usage-splunk_g.png" alt="license usage splunk g Installing Splunk on FreeBSD" width="1204" height="845" class="alignnone size-full wp-image-9809" title="Installing Splunk on FreeBSD" /></a>
 
@@ -274,11 +274,11 @@ Then click on **Change License Group**. Select the Free License and apply. It wi
 
 #### Disable the Welcome Page for Splunk Free Version
 
-As soon as you switch over to the Free License, you will notice that the authentication page is no longer present and splunk will check for an update and if it doesn&#8217;t find one it will ask you to continue:
+As soon as you switch over to the Free License, you will notice that the authentication page is no longer present and splunk will check for an update and if it doesn't find one it will ask you to continue:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/11/splunk-free-version-welcome-screen.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/11/splunk-free-version-welcome-screen.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/11/splunk-free-version-welcome-screen.png" alt="splunk free version welcome screen Installing Splunk on FreeBSD" width="547" height="211" class="alignnone size-full wp-image-9804" title="Installing Splunk on FreeBSD" /></a>
 
-Upon clicking **Continue**, it will just log you without any sort of authentication. First let&#8217;s go ahead and disable that page. I ran across <a href="http://answers.splunk.com/answers/4981/disabling-welcome-screen" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://answers.splunk.com/answers/4981/disabling-welcome-screen']);">this</a> splunk community page, which helped. To get rid of the welcome/update page, edit (or create if it doesn&#8217;t exist) the **/opt/splunk/etc/system/local/web.conf** file and add the following to it:
+Upon clicking **Continue**, it will just log you without any sort of authentication. First let's go ahead and disable that page. I ran across <a href="http://answers.splunk.com/answers/4981/disabling-welcome-screen" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://answers.splunk.com/answers/4981/disabling-welcome-screen']);">this</a> splunk community page, which helped. To get rid of the welcome/update page, edit (or create if it doesn't exist) the **/opt/splunk/etc/system/local/web.conf** file and add the following to it:
 
     [settings]
      updateCheckerBaseURL = 0
@@ -293,7 +293,7 @@ After that when you visit the Splunk Web Portal it will just log you in without 
 
 #### Configure a Reverse Proxy for Splunk Free Version
 
-Now that there is no authentication and I wanted to check the splunk web portal externally, I decided to setup a reverse proxy for splunk. The process is described in the &#8220;<a href="http://wiki.splunk.com/Community:SplunkBehindAProxy" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','']);">Placing Splunk behind a Web proxy</a>&#8221; page from the splunk community. I already had an *apache* server running on my Debian box, so I decided to utilize that server as a reverse proxy. First let&#8217;s install the **mod-proxy** module for **apache**:
+Now that there is no authentication and I wanted to check the splunk web portal externally, I decided to setup a reverse proxy for splunk. The process is described in the "<a href="http://wiki.splunk.com/Community:SplunkBehindAProxy" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','']);">Placing Splunk behind a Web proxy</a>" page from the splunk community. I already had an *apache* server running on my Debian box, so I decided to utilize that server as a reverse proxy. First let's install the **mod-proxy** module for **apache**:
 
     $ sudo apt-get install libapache2-mod-proxy-html
     
@@ -345,21 +345,21 @@ Now if you visit **http://YOUR_WEBSERVER/splunk**, it should take to the Splunk 
 
 #### Password Protect the Splunk Web Portal Location in Apache
 
-Now that the reverse proxy is setup and working, let&#8217;s password protect the **/splunk** location. This can be accomplished with a regular **htpassword** file (you can even use **htdigest** if you want). First let&#8217;s create a directory where we will store the password file:
+Now that the reverse proxy is setup and working, let's password protect the **/splunk** location. This can be accomplished with a regular **htpassword** file (you can even use **htdigest** if you want). First let's create a directory where we will store the password file:
 
     $ sudo mkdir /etc/apache2/pass
     $ sudo chgrp www-data /etc/apache2/pass
     $ sudo chmod o-rx /etc/apache2/pass
     
 
-Then let&#8217;s create the **htpasswd** file:
+Then let's create the **htpasswd** file:
 
     $ sudo htpasswd -c /etc/apache2/pass/htpasswd admin
     
 
 (I made the username be the same as the **admin** used, when I had the Enterprise trial)
 
-Lastly let&#8217;s make sure only the **www-data** group can read that file:
+Lastly let's make sure only the **www-data** group can read that file:
 
     $ sudo chmod 640 /etc/apache2/pass/htpasswd
     $ sudo chgrp www-data /etc/apache2/pass/htpasswd
@@ -381,7 +381,7 @@ Now if you visit to your splunk instance which is behind the reverse proxy, you 
 
 #### Configure FreeBSD Firewall to Only Allow Local Network Access to Splunk Web
 
-So let&#8217;s configure the firewall to only allow **TCP 8000** from the local network. This is done by editing the **/etc/pf.conf** file and adding the following:
+So let's configure the firewall to only allow **TCP 8000** from the local network. This is done by editing the **/etc/pf.conf** file and adding the following:
 
     # accept splunk-web sessions
     pass in on $my_int proto tcp from 192.168.1.0/24 to any port 8000 keep state

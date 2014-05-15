@@ -36,7 +36,7 @@ The *data* pool had a ComStar ZVol presented to an ESXi host and another ZFS Vol
     data/vm     503G   665G   200G  -
     
 
-While the *other* zpool wasn&#8217;t used for anything but was the same size. I decided to use the *other* zpool for backups.
+While the *other* zpool wasn't used for anything but was the same size. I decided to use the *other* zpool for backups.
 
 ### ESXi VM Configuration
 
@@ -119,7 +119,7 @@ The **-R** option from the **zfs send** together with the **-F** option from **z
     echo "ZFS Backup Successful on $DATE"
     
 
-The script will perform incremental backups. It&#8217;s under the assumption that you already sent the first backup and that there is only one snapshot on the Source ZFS Volume (which will be deleted after the copy is done). Adding that to **crontab** will automate the back up process for the LUN presented to the ESXi host.
+The script will perform incremental backups. It's under the assumption that you already sent the first backup and that there is only one snapshot on the Source ZFS Volume (which will be deleted after the copy is done). Adding that to **crontab** will automate the back up process for the LUN presented to the ESXi host.
 
 ### ZFS refreservation Property
 
@@ -138,13 +138,13 @@ This is because the **refreservation** flag is set on the volume (and this is pr
     data/vm  refreservation  302G       local
     
 
-There is a great description at <a href="http://nex7.blogspot.com/2013/03/reservation-ref-reservation-explanation.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://nex7.blogspot.com/2013/03/reservation-ref-reservation-explanation.html']);">Reservation & Ref Reservation &#8211; An Explanation (Attempt)</a> which helped me understand why all that space was utilized. <a href="http://docs.oracle.com/cd/E19253-01/819-5461/gazvb/index.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://docs.oracle.com/cd/E19253-01/819-5461/gazvb/index.html']);">From Setting ZFS Quotas and Reservations</a>:
+There is a great description at <a href="http://nex7.blogspot.com/2013/03/reservation-ref-reservation-explanation.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://nex7.blogspot.com/2013/03/reservation-ref-reservation-explanation.html']);">Reservation & Ref Reservation - An Explanation (Attempt)</a> which helped me understand why all that space was utilized. <a href="http://docs.oracle.com/cd/E19253-01/819-5461/gazvb/index.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://docs.oracle.com/cd/E19253-01/819-5461/gazvb/index.html']);">From Setting ZFS Quotas and Reservations</a>:
 
 > If *refreservation* is set, a snapshot is only allowed if sufficient unreserved pool space exists outside of this reservation to accommodate the current number of referenced bytes in the dataset.
 
-Basically it absolutely ensures you don&#8217;t over provision space and it requires a total of **Reserved** + **Used Space** when a snapshot is taken. So in my scenario it made sense, I had a 300GB LUN which I was presenting over iSCSI and I was using 200GB of that LUN (**Referenced Bytes** or **Used Datasets**). In total that ends up to 500GB.
+Basically it absolutely ensures you don't over provision space and it requires a total of **Reserved** + **Used Space** when a snapshot is taken. So in my scenario it made sense, I had a 300GB LUN which I was presenting over iSCSI and I was using 200GB of that LUN (**Referenced Bytes** or **Used Datasets**). In total that ends up to 500GB.
 
-On the Source Zpool I didn&#8217;t mind, but on the backup Zpool, I only wanted to reserve the used space. So I went ahead and unset that property on the Destination ZFS volume:
+On the Source Zpool I didn't mind, but on the backup Zpool, I only wanted to reserve the used space. So I went ahead and unset that property on the Destination ZFS volume:
 
     root@zfs:~# zfs set refreservation=none other/vm
     
@@ -176,12 +176,12 @@ If you want you can use <a href="http://www.napp-it.org/index_en.html" onclick="
         sbdadm create-lu /dev/zvol/rdsk/other/backups
         
 
-3.  Create Target group, if it doesn&#8217;t exist (I already had one from the napp-it config)
+3.  Create Target group, if it doesn't exist (I already had one from the napp-it config)
     
         stmfadm create-tg tg1
         
 
-4.  Add Member (Target System) to Target group (I didn&#8217;t have to do this either, since I was using an existing Target Group). To get a list of targets on the system run the following: `stmfadm list-target`
+4.  Add Member (Target System) to Target group (I didn't have to do this either, since I was using an existing Target Group). To get a list of targets on the system run the following: `stmfadm list-target`
     
         stmfadm add-tg-member -g tg1 iqn.2010-09.org.na
         
@@ -191,7 +191,7 @@ If you want you can use <a href="http://www.napp-it.org/index_en.html" onclick="
         stmfadm add-view -t tg1 600144F0876A
         
 
-6.  If you don&#8217;t care about Target Groups, you can just add a view and allow everyone to access the LUN
+6.  If you don't care about Target Groups, you can just add a view and allow everyone to access the LUN
     
         stmfadm add-view 600144F0876A
         

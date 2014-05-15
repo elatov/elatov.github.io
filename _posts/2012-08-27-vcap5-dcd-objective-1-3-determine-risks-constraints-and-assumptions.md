@@ -27,20 +27,20 @@ From this <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd
 
 > **Architectural Vision: A high level vision for the project** includes the following aspects:
 > 
-> 1.  Scope &#8211; Identify Scope in detail 
+> 1.  Scope - Identify Scope in detail 
 >     *   Defined scope prevents unintended expansion (ie this project includes the US productions servers only. No dev/test and no Canada servers)
 >     *   prevents the need to renegotiate cost of project or work for fee
-> 2.  Goals &#8211; set specific goals for a project 
+> 2.  Goals - set specific goals for a project 
 >     *   Goals need to be specific, measurable, and actionable
 >     *   without goals it is difficult to determine success and value of a project
 >     *   i.e the organization wants to achieve a 50% reduction in production server equipment by the end of the year
-> 3.  Requirements &#8211; Identify key business and technical requirements for the project 
+> 3.  Requirements - Identify key business and technical requirements for the project 
 >     *   ie, SOX compliance, physical separation from production and dev/test, up-time requirements, etc
 > 4.  Assumptions- Design components that are assumed valid without proof 
 >     *   i.e. the organization has sufficient bandwidth between sites for replication
-> 5.  Constrains &#8211; constraints limit the design choices, could be a policy, process, or technical constraint 
+> 5.  Constrains - constraints limit the design choices, could be a policy, process, or technical constraint 
 >     *   i.e. due to existing relationships all hardware is dell
-> 6.  Risks &#8211; Identify risks that might prevent achieving project goals 
+> 6.  Risks - Identify risks that might prevent achieving project goals 
 >     *   i.e. lack of core redundancy introduces risk of %99.99 up-time
 >     *   discussing risks eliminated surprise 
 

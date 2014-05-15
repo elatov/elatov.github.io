@@ -22,19 +22,19 @@ There are a couple of steps to this process. First you need to determine if you 
 
 ### Determine if you have a ghosted DVS
 
-1. Under &#8220;Host and Clusters&#8221; if you select a host and then go to summary you will see a message similar to this:
+1. Under "Host and Clusters" if you select a host and then go to summary you will see a message similar to this:
 
 > The distributed Virtual Switch corresponding to the proxy switches d5 6e 22 50 dd f2 94 7b-a6 1f b2 c2 e6 aa 0f bf on the host does not exist in vCenter or does not contain the host.
 
-This is discussed in VMware KB <a href="http://kb.vmware.com/kb/1017558" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1017558']);">1017558</a> and in &#8220;<a href="http://www.ntpro.nl/blog/archives/1283-vSphere-DvSwitch-caveats-and-best-practices!.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.ntpro.nl/blog/archives/1283-vSphere-DvSwitch-caveats-and-best-practices!.html']);">vSphere DvSwitch caveats and best practices!</a>&#8221;
+This is discussed in VMware KB <a href="http://kb.vmware.com/kb/1017558" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1017558']);">1017558</a> and in "<a href="http://www.ntpro.nl/blog/archives/1283-vSphere-DvSwitch-caveats-and-best-practices!.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.ntpro.nl/blog/archives/1283-vSphere-DvSwitch-caveats-and-best-practices!.html']);">vSphere DvSwitch caveats and best practices!</a>"
 
-2. Under &#8220;Host and Clusters&#8221; if you select a Host and then go to Configuration -> Networking -> vNetwork Distributed Switch
+2. Under "Host and Clusters" if you select a Host and then go to Configuration -> Networking -> vNetwork Distributed Switch
 
 You will see something like this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/dvs_no_uplinks.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/dvs_no_uplinks.png']);"><img class="alignnone size-full wp-image-3817" title="dvs_no_uplinks" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/dvs_no_uplinks.png" alt="dvs no uplinks Fixing a Ghosted/Inconsistent Distributed Virtual Switch by Migrating to a Standard Virtual Switch" width="661" height="307" /></a>
 
-But when you login directly to the host via ssh and run &#8216;esxcfg-vswitch -l&#8217; you will see uplinks attached to the DVS. It will look something like this:
+But when you login directly to the host via ssh and run 'esxcfg-vswitch -l' you will see uplinks attached to the DVS. It will look something like this:
 
 	  
 	~ # esxcfg-vswitch -l  
@@ -52,29 +52,29 @@ But when you login directly to the host via ssh and run &#8216;esxcfg-vswitch -l
 	201 1 test.eth0  
 	
 
-3. If you Edit Setting of your VMs and select the Network Card, under Network Label it shows &#8220;Invalid Backing&#8221;
+3. If you Edit Setting of your VMs and select the Network Card, under Network Label it shows "Invalid Backing"
 
 Taken from <a href="http://communities.vmware.com/thread/323439" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/thread/323439']);">this</a> VMware Communities page. Here is how it looks like:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/VM_Missing_BackingDevice.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/VM_Missing_BackingDevice.png']);"><img class="alignnone size-full wp-image-3818" title="VM_Missing_BackingDevice" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/VM_Missing_BackingDevice.png" alt="VM Missing BackingDevice Fixing a Ghosted/Inconsistent Distributed Virtual Switch by Migrating to a Standard Virtual Switch" width="690" height="437" /></a>
 
-4. Don&#8217;t confuse this as an &#8216;out-of-sync&#8217; scenario
+4. Don't confuse this as an 'out-of-sync' scenario
 
-The blog post &#8220;<a href="http://sostech.wordpress.com/2011/06/06/vds-out-of-sync/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://sostech.wordpress.com/2011/06/06/vds-out-of-sync/']);">vDS out of sync</a>&#8221; talks about how it looks like. Basically you might see something like this:
+The blog post "<a href="http://sostech.wordpress.com/2011/06/06/vds-out-of-sync/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://sostech.wordpress.com/2011/06/06/vds-out-of-sync/']);">vDS out of sync</a>" talks about how it looks like. Basically you might see something like this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/out-of-sync-dvs.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/out-of-sync-dvs.jpg']);"><img class="alignnone size-full wp-image-3819" title="out-of-sync-dvs" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/out-of-sync-dvs.jpg" alt="out of sync dvs Fixing a Ghosted/Inconsistent Distributed Virtual Switch by Migrating to a Standard Virtual Switch" width="640" height="131" /></a>
 
-If the host is up, it should synchronize in 5 minutes, or you can manually synchronize, by right clicking on the host and selecting &#8220;Rectify vNetwork Distributed Switch Host&#8221;, it looks something like this:
+If the host is up, it should synchronize in 5 minutes, or you can manually synchronize, by right clicking on the host and selecting "Rectify vNetwork Distributed Switch Host", it looks something like this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/rectify_out_of_sync_dvs.jpg" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/rectify_out_of_sync_dvs.jpg']);"><img class="alignnone size-full wp-image-3820" title="rectify_out_of_sync_dvs" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/rectify_out_of_sync_dvs.jpg" alt="rectify out of sync dvs Fixing a Ghosted/Inconsistent Distributed Virtual Switch by Migrating to a Standard Virtual Switch" width="394" height="491" /></a>
 
-Also one more note, don&#8217;t confuse the dvs synchronization with the locked ports time out. The default for that is 24 hours and that can be changed. To change the default time out for locked ports follow the instructions laid out in VMware KB <a href="http://kb.vmware.com/kb/1010913" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1010913']);">1010913</a>
+Also one more note, don't confuse the dvs synchronization with the locked ports time out. The default for that is 24 hours and that can be changed. To change the default time out for locked ports follow the instructions laid out in VMware KB <a href="http://kb.vmware.com/kb/1010913" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1010913']);">1010913</a>
 
-Now, once you have identified an &#8220;Inconsistent&#8221; DVS, let&#8217;s start fixing it.
+Now, once you have identified an "Inconsistent" DVS, let's start fixing it.
 
 ### Create a Standard Virtual Switch and Migrate an uplink to it
 
-Most of these steps are laid out in &#8220;<a href="http://www.vmware.com/files/pdf/vsphere-vnetwork-ds-migration-configuration-wp.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/vsphere-vnetwork-ds-migration-configuration-wp.pdf']);">VMware vNetwork Distributed Switch: Migration and Configuration</a>&#8221;
+Most of these steps are laid out in "<a href="http://www.vmware.com/files/pdf/vsphere-vnetwork-ds-migration-configuration-wp.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/vsphere-vnetwork-ds-migration-configuration-wp.pdf']);">VMware vNetwork Distributed Switch: Migration and Configuration</a>"
 
 1. Create a new Stardard Virtual Switch
 
@@ -120,7 +120,7 @@ Most of these steps are laid out in &#8220;<a href="http://www.vmware.com/files/
 ### Create the necessary Port Groups
 
 1. Create the appropriate Port Groups on the Standard Virtual Switch  
-Let say you had four types of networks: Mgmt (vlan 100), vMotion (vlan 101), NFS (vlan 102), and VM (103). So let&#8217;s create 4 different Port Groups with the appropriate VLAN Tags.
+Let say you had four types of networks: Mgmt (vlan 100), vMotion (vlan 101), NFS (vlan 102), and VM (103). So let's create 4 different Port Groups with the appropriate VLAN Tags.
 
 	  
 	~ # esxcfg-vswitch -A Mgmt vSwitch3  
@@ -244,15 +244,15 @@ You can see that they are gone from the DvSwitch.
 	vmk3 NFS 1.1.3.2 255.255.255.0 1.1.3.255 00:50:56:73:5a:3b 1500 true  
 	
 
-Notice that under the &#8220;Port Group/DVPort&#8221; column it has the name of the port group from the standard virtual switch instead of the dvPort ID. That is when you know you are on the Standard Virtual Switch instead of the DvSwitch.
+Notice that under the "Port Group/DVPort" column it has the name of the port group from the standard virtual switch instead of the dvPort ID. That is when you know you are on the Standard Virtual Switch instead of the DvSwitch.
 
 ### Migrate the VMs off the DvSwitch
 
-If vCenter is up and operational go to &#8220;Inventory&#8221; -> &#8220;Networking&#8221; -> Select your DvSwitch -> Click on the &#8220;Virtual Machine&#8221; Tab. This will list all of your VMs. Also on the Left side of the panel it will list all of your Port Groups (standard and distributed). From this screen you can select multiple VMs, then Drag and Drop them on the Port Group that we called &#8220;VM&#8221;. If you had multiple VM Port groups then you will have to Drag and Drop them to their corresponding newly created standard virtual switch port groups.
+If vCenter is up and operational go to "Inventory" -> "Networking" -> Select your DvSwitch -> Click on the "Virtual Machine" Tab. This will list all of your VMs. Also on the Left side of the panel it will list all of your Port Groups (standard and distributed). From this screen you can select multiple VMs, then Drag and Drop them on the Port Group that we called "VM". If you had multiple VM Port groups then you will have to Drag and Drop them to their corresponding newly created standard virtual switch port groups.
 
-If vCenter is not up, then login directly to the host with the vShpere Client and &#8220;Edit Settings&#8221; of the VM and change the &#8220;Network Label&#8221; to the Port Group that you created on the Standard Virtual Switch
+If vCenter is not up, then login directly to the host with the vShpere Client and "Edit Settings" of the VM and change the "Network Label" to the Port Group that you created on the Standard Virtual Switch
 
-After you are done migrating all the VMs off the &#8216;esxcfg-vswitch -l&#8217; output should look like this:
+After you are done migrating all the VMs off the 'esxcfg-vswitch -l' output should look like this:
 
 	  
 	DVS Name Num Ports Used Ports Configured Ports MTU Uplinks  
@@ -315,23 +315,23 @@ Now that we have migrated everything to the standard switch we need to make sure
 	201 0  
 	
 
-Notice that your &#8220;Used Ports&#8221; should be &#8217;0&#8242;.
+Notice that your "Used Ports" should be '0'.
 
 ### Remove the DvSwitch from the host
 
-When you are in vCenter and you go to &#8220;Host and Clusters&#8221; -> Select ESXi Host -> Configuration -> Networking -> &#8220;vNetwork Distributed Switch&#8221; it looks like this:
+When you are in vCenter and you go to "Host and Clusters" -> Select ESXi Host -> Configuration -> Networking -> "vNetwork Distributed Switch" it looks like this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/vcenter_dvs_view.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/vcenter_dvs_view.png']);"><img class="alignnone size-full wp-image-3821" title="vcenter_dvs_view" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/vcenter_dvs_view.png" alt="vcenter dvs view Fixing a Ghosted/Inconsistent Distributed Virtual Switch by Migrating to a Standard Virtual Switch" width="694" height="93" /></a>
 
-But when you go directly to the host and you go to &#8220;Inventory&#8221; -> Select ESXi Host -> Configuration -> Networking -> &#8220;vNetwork Distributed Switch&#8221;, you will see this:
+But when you go directly to the host and you go to "Inventory" -> Select ESXi Host -> Configuration -> Networking -> "vNetwork Distributed Switch", you will see this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/host_view_dvs.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/host_view_dvs.png']);"><img class="alignnone size-full wp-image-3822" title="host_view_dvs" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/host_view_dvs.png" alt="host view dvs Fixing a Ghosted/Inconsistent Distributed Virtual Switch by Migrating to a Standard Virtual Switch" width="664" height="105" /></a>
 
-Notice that there is a &#8220;Remove&#8221; button available. Go ahead and click &#8220;Remove&#8221;, that will remove the Ghosted DVS from the host. If it gives you an error saying that it&#8217;s in use ( and your esxcfg-vswitch -l output showed 0 &#8220;Used Ports&#8221;) then you might have a locked/shadow port. As I mentioned above you can:
+Notice that there is a "Remove" button available. Go ahead and click "Remove", that will remove the Ghosted DVS from the host. If it gives you an error saying that it's in use ( and your esxcfg-vswitch -l output showed 0 "Used Ports") then you might have a locked/shadow port. As I mentioned above you can:
 
 *   wait 24 hours for that to clear
-*   edit vpxd.cfg and change the default time out and restart vCenter (if it&#8217;s up)
+*   edit vpxd.cfg and change the default time out and restart vCenter (if it's up)
 *   reboot the host
 
-Usually the last one fixes the shadow ports issue. Now you are completely off the Ghosted DVS. If you want to re-create the DVS or re-add the host back to the DVS and migrate everything back then you can follow the instructions laid out in &#8220;<a href="http://www.vmware.com/files/pdf/vsphere-vnetwork-ds-migration-configuration-wp.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/vsphere-vnetwork-ds-migration-configuration-wp.pdf']);">VMware vNetwork Distributed Switch: Migration and Configuration</a>&#8220;
+Usually the last one fixes the shadow ports issue. Now you are completely off the Ghosted DVS. If you want to re-create the DVS or re-add the host back to the DVS and migrate everything back then you can follow the instructions laid out in "<a href="http://www.vmware.com/files/pdf/vsphere-vnetwork-ds-migration-configuration-wp.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/vsphere-vnetwork-ds-migration-configuration-wp.pdf']);">VMware vNetwork Distributed Switch: Migration and Configuration</a>"
 

@@ -25,7 +25,7 @@ tags:
 ---
 ### Red Hat Boot Process
 
-The process is described in &#8220;<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Installation Guide</a>&#8220;:
+The process is described in "<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Installation Guide</a>":
 
 > **F.2. A Detailed Look at the Boot Process**
 > 
@@ -37,7 +37,7 @@ The process is described in &#8220;<a href="https://access.redhat.com/knowledge/
 > 
 > The Basic Input/Output System (BIOS) is a firmware interface that controls not only the first step of the boot process, but also provides the lowest level interface to peripheral devices. On x86 systems equipped with BIOS, the program is written into read-only, permanent memory and is always available for use. When the system boots, the processor looks at the end of system memory for the BIOS program, and runs it.
 > 
-> Once loaded, the BIOS tests the system, looks for and checks peripherals, and then locates a valid device with which to boot the system. Usually, it checks any optical drives or USB storage devices present for bootable media, then, failing that, looks to the system&#8217;s hard drives. In most cases, the order of the drives searched while booting is controlled with a setting in the BIOS, and it looks on the master IDE on the primary IDE bus or for a SATA device with a boot flag set. The BIOS then loads into memory whatever program is residing in the first sector of this device, called the Master Boot Record (MBR). The MBR is only 512 bytes in size and contains machine code instructions for booting the machine, called a boot loader, along with the partition table. Once the BIOS finds and loads the boot loader program into memory, it yields control of the boot process to it.
+> Once loaded, the BIOS tests the system, looks for and checks peripherals, and then locates a valid device with which to boot the system. Usually, it checks any optical drives or USB storage devices present for bootable media, then, failing that, looks to the system's hard drives. In most cases, the order of the drives searched while booting is controlled with a setting in the BIOS, and it looks on the master IDE on the primary IDE bus or for a SATA device with a boot flag set. The BIOS then loads into memory whatever program is residing in the first sector of this device, called the Master Boot Record (MBR). The MBR is only 512 bytes in size and contains machine code instructions for booting the machine, called a boot loader, along with the partition table. Once the BIOS finds and loads the boot loader program into memory, it yields control of the boot process to it.
 > 
 > This first-stage boot loader is a small machine code binary on the MBR. Its sole job is to locate the second stage boot loader (GRUB) and load the first part of it into memory.
 > 
@@ -60,7 +60,7 @@ From the same guide:
 > 
 > Once the second stage boot loader is in memory, it presents the user with a graphical screen showing the different operating systems or kernels it has been configured to boot (when you update the kernel, the boot loader configuration file is updated automatically). On this screen a user can use the arrow keys to choose which operating system or kernel they wish to boot and press Enter. If no key is pressed, the boot loader loads the default selection after a configurable period of time has passed.
 > 
-> Once the second stage boot loader has determined which kernel to boot, it locates the corresponding kernel binary in the **/boot/** directory. The kernel binary is named using the following format — **/boot/vmlinuz-kernel-version** file (where **kernel-version** corresponds to the kernel version specified in the boot loader&#8217;s settings).
+> Once the second stage boot loader has determined which kernel to boot, it locates the corresponding kernel binary in the **/boot/** directory. The kernel binary is named using the following format — **/boot/vmlinuz-kernel-version** file (where **kernel-version** corresponds to the kernel version specified in the boot loader's settings).
 > 
 > The boot loader then places one or more appropriate **initramfs** images into memory. The **initramfs** is used by the kernel to load drivers and modules necessary to boot the system. This is particularly important if SCSI hard drives are present or if the systems use the ext3 or ext4 file system.
 > 
@@ -70,7 +70,7 @@ At this point the kernel takes over:
 
 > **F.2.3. The Kernel**
 > 
-> When the kernel is loaded, it immediately initializes and configures the computer&#8217;s memory and configures the various hardware attached to the system, including all processors, I/O subsystems, and storage devices. It then looks for the compressed **initramfs** image(s) in a predetermined location in memory, decompresses it directly to **/sysroot/**, and loads all necessary drivers. Next, it initializes virtual devices related to the file system, such as LVM or software RAID, before completing the **initramfs** processes and freeing up all the memory the disk image once occupied.
+> When the kernel is loaded, it immediately initializes and configures the computer's memory and configures the various hardware attached to the system, including all processors, I/O subsystems, and storage devices. It then looks for the compressed **initramfs** image(s) in a predetermined location in memory, decompresses it directly to **/sysroot/**, and loads all necessary drivers. Next, it initializes virtual devices related to the file system, such as LVM or software RAID, before completing the **initramfs** processes and freeing up all the memory the disk image once occupied.
 > 
 > The kernel then creates a root device, mounts the root partition read-only, and frees any unused memory.
 > 
@@ -134,7 +134,7 @@ More information from the above guide:
 > 
 > Each of the symbolic links are numbered to dictate start order. The order in which the services are started or stopped can be altered by changing this number. The lower the number, the earlier it is started. Symbolic links with the same number are started alphabetically.
 > 
-> After the **init** command has progressed through the appropriate rc directory for the runlevel, **Upstart** forks an **/sbin/mingetty** process for each virtual console (login prompt) allocated to the runlevel by the job definition in the **/etc/event.d** directory. Runlevels 2 through 5 have all six virtual consoles, while runlevel 1 (single user mode) has one, and runlevels 0 and 6 have none. The **/sbin/mingetty** process opens communication pathways to tty devices, sets their modes, prints the login prompt, accepts the user&#8217;s username and password, and initiates the login process.
+> After the **init** command has progressed through the appropriate rc directory for the runlevel, **Upstart** forks an **/sbin/mingetty** process for each virtual console (login prompt) allocated to the runlevel by the job definition in the **/etc/event.d** directory. Runlevels 2 through 5 have all six virtual consoles, while runlevel 1 (single user mode) has one, and runlevels 0 and 6 have none. The **/sbin/mingetty** process opens communication pathways to tty devices, sets their modes, prints the login prompt, accepts the user's username and password, and initiates the login process.
 > 
 > In runlevel 5, **Upstart** runs a script called **/etc/X11/prefdm**. The **prefdm** script executes the preferred X display manager — **gdm**, **kdm**, or **xdm**, depending on the contents of the **/etc/sysconfig/desktop** file. Once finished, the system operates on runlevel 5 and displays a login screen.
 > 
@@ -284,7 +284,7 @@ Here is more information regarding GRUB:
 
 > **E.7. GRUB Menu Configuration File**
 > 
-> The configuration file (**/boot/grub/grub.conf**), which is used to create the list of operating systems to boot in GRUB&#8217;s menu interface, essentially allows the user to select a pre-set group of commands to execute.
+> The configuration file (**/boot/grub/grub.conf**), which is used to create the list of operating systems to boot in GRUB's menu interface, essentially allows the user to select a pre-set group of commands to execute.
 > 
 > **E.7.1. Configuration File Structure**
 > 
@@ -346,7 +346,7 @@ Here is more information regarding GRUB:
 > *   **splashimage=path-to-image** — Specifies the location of the splash screen image to be used when GRUB boots.
 > *   **title group-title** — Specifies a title to be used with a particular group of commands used to load a kernel or operating system. 
 
-There is a pretty good article from the Red Hat Magazine: &#8220;<a href="http://magazine.redhat.com/2007/03/21/using-grub-to-overcome-boot-problems/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://magazine.redhat.com/2007/03/21/using-grub-to-overcome-boot-problems/']);">Using GRUB to overcome boot problems</a>&#8221; and in the comments there is an example of how to re-install grub if ever needed. Boot from a cd and type in &#8216;**linux rescue**&#8216; after the cd boots, you will have a shell from which you can re-install grub to fix any MBR issues that you may have. Here is how that looks like:
+There is a pretty good article from the Red Hat Magazine: "<a href="http://magazine.redhat.com/2007/03/21/using-grub-to-overcome-boot-problems/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://magazine.redhat.com/2007/03/21/using-grub-to-overcome-boot-problems/']);">Using GRUB to overcome boot problems</a>" and in the comments there is an example of how to re-install grub if ever needed. Boot from a cd and type in '**linux rescue**' after the cd boots, you will have a shell from which you can re-install grub to fix any MBR issues that you may have. Here is how that looks like:
 
     # grub
     Probing devices to guess BIOS drives. This may take a long time.
@@ -375,7 +375,7 @@ There is a pretty good article from the Red Hat Magazine: &#8220;<a href="http:/
     Done.
     
 
-The first command sets up what device to be used as root. The second command confirms that our device contains the grub.conf file which usually means it will contain the other stage files as well. And lastly the &#8216;**setup**&#8216; command actually installs grub onto that device. Here is a similar process from the guide:
+The first command sets up what device to be used as root. The second command confirms that our device contains the grub.conf file which usually means it will contain the other stage files as well. And lastly the '**setup**' command actually installs grub onto that device. Here is a similar process from the guide:
 
 > **36&#46;1.2.1. Reinstalling the Boot Loader**
 > 
@@ -412,7 +412,7 @@ And here is emergency mode:
 
 ### Grub Example
 
-Let&#8217;s add an entry to our **grub.conf** menu to have a new entry for recovery mode, but leave the regular mode as the default boot mode. Here is what I had from the default install for my **grub.conf** file:
+Let's add an entry to our **grub.conf** menu to have a new entry for recovery mode, but leave the regular mode as the default boot mode. Here is what I had from the default install for my **grub.conf** file:
 
     [root@rhel1 ~]# cat /boot/grub/grub.conf
     # grub.conf generated by anaconda
@@ -450,7 +450,7 @@ Selecting that entry from GRUB yielded in the OS booting into *single* user mode
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/01/boot_single_user_mode.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/01/boot_single_user_mode.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/01/boot_single_user_mode.png" alt="boot single user mode RHCSA and RHCE Chapter 2 System Initialization" width="715" height="307" class="alignnone size-full wp-image-6197" title="RHCSA and RHCE Chapter 2 System Initialization" /></a>
 
-Another thing that was mentioned thought the guide is **Upstart**. RHEL 6 doesn&#8217;t have that many service converted to that, but to list the services that are using Upstart to start up you can do the following:
+Another thing that was mentioned thought the guide is **Upstart**. RHEL 6 doesn't have that many service converted to that, but to list the services that are using Upstart to start up you can do the following:
 
     [root@rhel01 ~]# initctl list
     rc stop/waiting

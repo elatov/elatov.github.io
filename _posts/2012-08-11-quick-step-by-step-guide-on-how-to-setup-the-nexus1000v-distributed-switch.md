@@ -28,11 +28,11 @@ After you have downloaded the software to your desktop and extracted it, the con
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/contents_of_n1k.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/contents_of_n1k.png']);"><img class="alignnone size-full wp-image-2076" title="contents_of_n1k" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/contents_of_n1k.png" alt="contents of n1k Quick Step by Step Guide on how to Setup the Nexus1000v Distributed Switch" width="659" height="311" /></a>
 
-Inside the &#8220;VSM&#8221; (Virtual Supervisor Module) folder will be the &#8220;Install&#8221; folder and inside of the &#8220;Install&#8221; folder will be the &#8220;ova&#8221; which you can deploy in your vCenter. So login to your vCenter and go to &#8220;File&#8221; -> &#8220;Deploy OVF Template&#8221;, then browse to your downloaded N1K software. It will look something like this:
+Inside the "VSM" (Virtual Supervisor Module) folder will be the "Install" folder and inside of the "Install" folder will be the "ova" which you can deploy in your vCenter. So login to your vCenter and go to "File" -> "Deploy OVF Template", then browse to your downloaded N1K software. It will look something like this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/deploy_n1k_ova.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/deploy_n1k_ova.png']);"><img class="alignnone size-full wp-image-2077" title="deploy_n1k_ova" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/deploy_n1k_ova.png" alt="deploy n1k ova Quick Step by Step Guide on how to Setup the Nexus1000v Distributed Switch" width="713" height="676" /></a>
 
-Click &#8220;Next&#8221;, then &#8220;Next&#8221; again, then &#8220;Accept&#8221; and one more &#8220;Next&#8221;. Name the VSM as desired, I just left the default (Nexus1000V-4.2.1.SV1.5.1). Under the configuration, select &#8220;Nexus 1000V Installer&#8221; (it should be the default). Keep going through the wizard, until you get to the Customization Page, then fill out the required information:
+Click "Next", then "Next" again, then "Accept" and one more "Next". Name the VSM as desired, I just left the default (Nexus1000V-4.2.1.SV1.5.1). Under the configuration, select "Nexus 1000V Installer" (it should be the default). Keep going through the wizard, until you get to the Customization Page, then fill out the required information:
 
 1.  VSM Domain ID (pick anything between 1-4095) this only matters if you plan on having multiple VSMs
 2.  Password (make it secure)
@@ -44,11 +44,11 @@ Here is my configuration looked like:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/custom_settings_N1K.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/custom_settings_N1K.png']);"><img class="alignnone size-full wp-image-2079" title="custom_settings_N1K" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/custom_settings_N1K.png" alt="custom settings N1K Quick Step by Step Guide on how to Setup the Nexus1000v Distributed Switch" width="719" height="780" /></a>
 
-Then click &#8220;Next&#8221; and then &#8220;Finish&#8221;. After you are done you should see the N1K deployed as a VM in your inventory. Power the N1K VM on and then you should be able to SSH to it. Here is how my putty session looked like after I logged in:
+Then click "Next" and then "Finish". After you are done you should see the N1K deployed as a VM in your inventory. Power the N1K VM on and then you should be able to SSH to it. Here is how my putty session looked like after I logged in:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/putty-to_n1k.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/putty-to_n1k.png']);"><img class="alignnone size-full wp-image-2080" title="putty-to_n1k" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/putty-to_n1k.png" alt="putty to n1k Quick Step by Step Guide on how to Setup the Nexus1000v Distributed Switch" width="663" height="408" /></a>
 
-With the default configuration, here is how the &#8216;show run&#8217; looks like:
+With the default configuration, here is how the 'show run' looks like:
 
 	  
 	switch# show run
@@ -109,7 +109,7 @@ With the default configuration, here is how the &#8216;show run&#8217; looks lik
 	log-level  
 	
 
-We can see that VLAN 1 is defined and the IP that we configured during deployment for management is there as well. This is a very basic setup, so I will use VLAN 1 for my control and packet VLANs. If this was a production setup, I would suggest to get dedicated VLANs for both of those. So let&#8217;s go ahead and setup the control and packet VLANs:
+We can see that VLAN 1 is defined and the IP that we configured during deployment for management is there as well. This is a very basic setup, so I will use VLAN 1 for my control and packet VLANs. If this was a production setup, I would suggest to get dedicated VLANs for both of those. So let's go ahead and setup the control and packet VLANs:
 
 	  
 	switch# conf t  
@@ -120,15 +120,15 @@ We can see that VLAN 1 is defined and the IP that we configured during deploymen
 	switch(config-svs-domain)# end  
 	
 
-Now let&#8217;s download the Nexus 1000v extension and register it with your vCenter. This will allow the communication between the VSM and the vCenter. Point your browser to the IP of the VSM and save the Extension to your desktop:
+Now let's download the Nexus 1000v extension and register it with your vCenter. This will allow the communication between the VSM and the vCenter. Point your browser to the IP of the VSM and save the Extension to your desktop:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/download-n1k-ext_1.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/download-n1k-ext_1.png']);"><img class="alignnone size-full wp-image-2084" title="download-n1k-ext_1" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/download-n1k-ext_1.png" alt="download n1k ext 1 Quick Step by Step Guide on how to Setup the Nexus1000v Distributed Switch" width="1068" height="819" /></a>
 
-After you have downloaded the extension, install it as a plug-in in your vCenter. In vCenter go to &#8220;Plugins&#8221; -> &#8220;Manage Plugins&#8221;. Right click on the empty area and select &#8220;New Plug-In&#8221;. Then browse to your extension, you will then see a screen similar to this:
+After you have downloaded the extension, install it as a plug-in in your vCenter. In vCenter go to "Plugins" -> "Manage Plugins". Right click on the empty area and select "New Plug-In". Then browse to your extension, you will then see a screen similar to this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/register_n1k_ext.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/register_n1k_ext.png']);"><img class="alignnone size-full wp-image-2085" title="register_n1k_ext" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/register_n1k_ext.png" alt="register n1k ext Quick Step by Step Guide on how to Setup the Nexus1000v Distributed Switch" width="734" height="642" /></a>
 
-Then click &#8220;Register Plug-in&#8221;, your plug-in manager should look like this after the registration completes:
+Then click "Register Plug-in", your plug-in manager should look like this after the registration completes:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/plug-in-manager-after-n1k-ext-regis.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/plug-in-manager-after-n1k-ext-regis.png']);"><img class="alignnone size-full wp-image-2086" title="plug-in-manager-after-n1k-ext-regis" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/plug-in-manager-after-n1k-ext-regis.png" alt="plug in manager after n1k ext regis Quick Step by Step Guide on how to Setup the Nexus1000v Distributed Switch" width="938" height="427" /></a>
 
@@ -166,13 +166,13 @@ Next we can confirm the connection:
 	vc-uuid: 40C987D3-60EC-47A3-8E53-1708035AE618  
 	
 
-In vCenter you will see the Distributed Switch created under &#8220;Home&#8221; -> &#8220;Inventory&#8221; -> &#8220;Networking&#8221;. Here is how it will looks like:
+In vCenter you will see the Distributed Switch created under "Home" -> "Inventory" -> "Networking". Here is how it will looks like:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/n1k_under_vc.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/n1k_under_vc.png']);"><img class="alignnone size-full wp-image-2082" title="n1k_under_vc" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/n1k_under_vc.png" alt="n1k under vc Quick Step by Step Guide on how to Setup the Nexus1000v Distributed Switch" width="934" height="425" /></a>
 
-You can see the Distributed Switch called &#8220;switch&#8221; and under summary it has Cisco for the Manufacturer.
+You can see the Distributed Switch called "switch" and under summary it has Cisco for the Manufacturer.
 
-Next we create a port-profile of type &#8216;ethernet&#8217;, this will allow us to link physical uplinks to the N1K. Make sure this is mode &#8220;trunk&#8221;, since we are going to allow multiple VLANs to go through it.
+Next we create a port-profile of type 'ethernet', this will allow us to link physical uplinks to the N1K. Make sure this is mode "trunk", since we are going to allow multiple VLANs to go through it.
 
 	  
 	switch(config)# conf t  
@@ -202,7 +202,7 @@ Confirm the port-profile exists:
 	state enabled  
 	
 
-Notice that we have system VLAN set as 1, usually this would be your control and packet VLANs. But like I mentioned, this is just for lab purposes. Next let&#8217;s create a port-profile of type &#8216;vethernet&#8217;, this port-profile will allow us to put VMs on it. This will be mode access, since this is where we are going to tag our traffic:
+Notice that we have system VLAN set as 1, usually this would be your control and packet VLANs. But like I mentioned, this is just for lab purposes. Next let's create a port-profile of type 'vethernet', this port-profile will allow us to put VMs on it. This will be mode access, since this is where we are going to tag our traffic:
 
 	  
 	switch# conf t  
@@ -219,7 +219,7 @@ Notice that we have system VLAN set as 1, usually this would be your control and
 	switch(config-port-prof)# end  
 	
 
-Notice the warning during the creation of the port-profile. Since we were allowing VLAN 1 (our control VLAN) we were suggested to set the system VLAN as well. This make perfect sense and I followed the recommendation. As a side note, by setting a system VLAN on a port-profile means that this VLAN will be allowed to pass through this port-profile even when the VSM is not up. Now to confirm the port-profile creation and it&#8217;s settings:
+Notice the warning during the creation of the port-profile. Since we were allowing VLAN 1 (our control VLAN) we were suggested to set the system VLAN as well. This make perfect sense and I followed the recommendation. As a side note, by setting a system VLAN on a port-profile means that this VLAN will be allowed to pass through this port-profile even when the VSM is not up. Now to confirm the port-profile creation and it's settings:
 
 	  
 	switch# show run port-profile control-packet
@@ -237,7 +237,7 @@ Notice the warning during the creation of the port-profile. Since we were allowi
 	state enabled  
 	
 
-We should done with the basic setup, so let&#8217;s commit our configuration
+We should done with the basic setup, so let's commit our configuration
 
 	  
 	switch# copy run start  
@@ -275,7 +275,7 @@ Then proceed with the install:
 	VIBs Skipped:  
 	
 
-Check to make sure it&#8217;s installed:
+Check to make sure it's installed:
 
 	  
 	~ # esxcli software vib list | egrep 'cisco|vem'  
@@ -294,11 +294,11 @@ Next make sure the VEM module is running properly:
 	vSwitch1 128 5 128 1500 vmnic1  
 	
 
-That all looks good. Now go ahead and add the host to your N1K. From vCenter go to &#8220;Home&#8221; -> &#8220;Inventory&#8221; -> &#8220;Networking&#8221;. Right click on the DVS and select &#8220;Add Host&#8221;. Check the host you want to add and provide an uplink to the sys-uplink:
+That all looks good. Now go ahead and add the host to your N1K. From vCenter go to "Home" -> "Inventory" -> "Networking". Right click on the DVS and select "Add Host". Check the host you want to add and provide an uplink to the sys-uplink:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/add-host-to-n1k.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/add-host-to-n1k.png']);"><img class="alignnone size-full wp-image-2089" title="add-host-to-n1k" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/add-host-to-n1k.png" alt="add host to n1k Quick Step by Step Guide on how to Setup the Nexus1000v Distributed Switch" width="820" height="622" /></a>
 
-Click &#8220;Next&#8221;, we don&#8217;t need to migrate any vmkernel interfaces to the N1K. Click &#8220;Next&#8221; again, we don&#8217;t need to migrate any of the VMs either. Then click &#8220;Finish&#8221;. Make sure the task succeeds. Then from vCenter go to &#8220;Home&#8221; -> &#8220;Inventory&#8221; -> &#8220;Networking&#8221;. Select the N1K switch, and then select the &#8220;Hosts&#8221; tab, you should see your hosts connected to the N1K there:
+Click "Next", we don't need to migrate any vmkernel interfaces to the N1K. Click "Next" again, we don't need to migrate any of the VMs either. Then click "Finish". Make sure the task succeeds. Then from vCenter go to "Home" -> "Inventory" -> "Networking". Select the N1K switch, and then select the "Hosts" tab, you should see your hosts connected to the N1K there:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/check-host-on-n1k.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/check-host-on-n1k.png']);"><img class="alignnone size-full wp-image-2091" title="check-host-on-n1k" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/check-host-on-n1k.png" alt="check host on n1k Quick Step by Step Guide on how to Setup the Nexus1000v Distributed Switch" width="929" height="725" /></a>
 
@@ -362,7 +362,7 @@ In the logs of the VSM, you will also see the following:
 	2012 Aug 6 21:49:28 switch %VEM\_MGR-2-MOD\_ONLINE: Module 3 is online  
 	
 
-And lastly ensure the virtual port for the Control Interface of the VSM is present on the VSM itself. From the above &#8216;vemcmd show port&#8217; we can see that Veth2 is the interface that is used for that. So check out that interface:
+And lastly ensure the virtual port for the Control Interface of the VSM is present on the VSM itself. From the above 'vemcmd show port' we can see that Veth2 is the interface that is used for that. So check out that interface:
 
 	  
 	switch# show run int veth2
@@ -380,7 +380,7 @@ And lastly ensure the virtual port for the Control Interface of the VSM is prese
 	vmware vm mac 0050.56B3.252B  
 	
 
-That looks good: it has the correct MAC, it&#8217;s on the &#8220;control-packet&#8221; Port-profile and it&#8217;s the first interface of the N1K VM. Lastly make sure it&#8217;s up:
+That looks good: it has the correct MAC, it's on the "control-packet" Port-profile and it's the first interface of the N1K VM. Lastly make sure it's up:
 
 	  
 	switch# show int veth2  
@@ -447,5 +447,5 @@ Then on your host you will see the following:
 	50 Veth2 A 1 FWD 1  
 	
 
-Notice the Mode of the physical port is &#8216;A&#8217;, which in production will never work out, but in the lab it will be fine.
+Notice the Mode of the physical port is 'A', which in production will never work out, but in the lab it will be fine.
 

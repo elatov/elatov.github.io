@@ -29,7 +29,7 @@ The install process is described <a href="http://archlinuxarm.org/platforms/armv
 2.  Type **shell** to get into a bash shell.
 3.  Type **sudo su** to become root.
 
-Now let&#8217;s proceed with the install:
+Now let's proceed with the install:
 
 1.  Since ChromeOS will automatically mount any partitions it finds, unmount everything now:
     
@@ -133,7 +133,7 @@ Now let&#8217;s proceed with the install:
         saveenv
         
 
-17. Type **reset** and press enter (it&#8217;ll reboot), pressing **Ctrl-U** at the splash screen again, and let U-Boot count down and load Arch Linux ARM.
+17. Type **reset** and press enter (it'll reboot), pressing **Ctrl-U** at the splash screen again, and let U-Boot count down and load Arch Linux ARM.
 
 ### Upgrade Arch Linux
 
@@ -168,16 +168,16 @@ After the update is done, reboot your system. Prior to the reboot, you can add y
 
 ## Install Window Manager and Display Manager
 
-I use **icewm** and **lighdm** for my display environment. Let&#8217;s install the necessary packages.
+I use **icewm** and **lighdm** for my display environment. Let's install the necessary packages.
 
 ### Install Xorg
 
-First let&#8217;s install **Xorg** and the necessary video/synaptics drivers.
+First let's install **Xorg** and the necessary video/synaptics drivers.
 
     sudo pacman -S xorg-server xorg-xinit xorg-server-utils mesa xf86-video-fbdev xf86-input-synaptics unzip
     
 
-Now let&#8217;s apply the appropriate video driver and trackpad settings for the chromebook:
+Now let's apply the appropriate video driver and trackpad settings for the chromebook:
 
     mkdir ~/backup
     mv /etc/X11/xorg.conf.d/* ~/backup/
@@ -190,7 +190,7 @@ Now let&#8217;s apply the appropriate video driver and trackpad settings for the
 
 ### Install Window Manager
 
-At this point we can manually start **X**, but we don&#8217;t have a window manager yet. So let&#8217;s install that:
+At this point we can manually start **X**, but we don't have a window manager yet. So let's install that:
 
     sudo pacman -S icewm
     
@@ -209,12 +209,12 @@ will start icewm.
 
 ### Install Display Manager
 
-I wanted to use **lightdm** as my display manager, so let&#8217;s go ahead and install that:
+I wanted to use **lightdm** as my display manager, so let's go ahead and install that:
 
     sudo pacman -S lightdm lightdm-gtk3-greeter
     
 
-Now let&#8217;s enable the service on startup:
+Now let's enable the service on startup:
 
     sudo systemctl enable lightdm
     
@@ -224,11 +224,11 @@ If you reboot you will notice that all the icons are missing for *lightdm*. To i
     sudo pacman -S gnome-icon-theme
     
 
-At this point, I was able to start an **icewm** session from **lightdm** with out issues. I also removed my **~/.xinitrc** file so it wouldn&#8217;t launch **icewm** a second time after **lightdm** did.
+At this point, I was able to start an **icewm** session from **lightdm** with out issues. I also removed my **~/.xinitrc** file so it wouldn't launch **icewm** a second time after **lightdm** did.
 
 ### SSH-Agent with IceWM
 
-I noticed that **ssh-agent** was not starting on login. From <a href="https://wiki.archlinux.org/index.php/SSH_Keys#ssh-agent" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.archlinux.org/index.php/SSH_Keys#ssh-agent']);">this</a> Arch Linux wiki page, it&#8217;s recommended to start that from your **bashrc** file, but that would launch multiple **ssh-agents**. So I decided to launch that when **X** starts. I complished that by creating **/etc/X11/xinit/xinitrc.d/40-ssh-agent** and adding the following contents to it:
+I noticed that **ssh-agent** was not starting on login. From <a href="https://wiki.archlinux.org/index.php/SSH_Keys#ssh-agent" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.archlinux.org/index.php/SSH_Keys#ssh-agent']);">this</a> Arch Linux wiki page, it's recommended to start that from your **bashrc** file, but that would launch multiple **ssh-agents**. So I decided to launch that when **X** starts. I complished that by creating **/etc/X11/xinit/xinitrc.d/40-ssh-agent** and adding the following contents to it:
 
     elatov@crbook:~$cat /etc/X11/xinit/xinitrc.d/40-ssh-agent 
     #!/bin/bash
@@ -240,12 +240,12 @@ I was then able to run **ssh-add** without any issues.
 
 ### Desktop Notifications
 
-By default no notification mechanism is enabled, so you might miss out on some OS notification when using IceWM. There are a couple of options available described <a href="https://wiki.archlinux.org/index.php/Desktop_Notifications#Notification_servers" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.archlinux.org/index.php/Desktop_Notifications#Notification_servers']);">here</a>. I usually use **xfce4-notifyd**, but I decided to try out something else: **notification-daemon**. First let&#8217;s install the package:
+By default no notification mechanism is enabled, so you might miss out on some OS notification when using IceWM. There are a couple of options available described <a href="https://wiki.archlinux.org/index.php/Desktop_Notifications#Notification_servers" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.archlinux.org/index.php/Desktop_Notifications#Notification_servers']);">here</a>. I usually use **xfce4-notifyd**, but I decided to try out something else: **notification-daemon**. First let's install the package:
 
     sudo pacman -S notification-daemon
     
 
-The package doesn&#8217;t actually create the appropriate **dbus** configuration files, this is done by creating the **/usr/share/dbus-1/services/org.gnome.Notifications.service** file with the following contents:
+The package doesn't actually create the appropriate **dbus** configuration files, this is done by creating the **/usr/share/dbus-1/services/org.gnome.Notifications.service** file with the following contents:
 
     [D-BUS Service]
     Name=org.freedesktop.Notifications
@@ -259,12 +259,12 @@ Now any time there is a notification that comes through **dbus**, you will see i
 
 ## Brightness
 
-**Systemd** comes with <a href="https://wiki.archlinux.org/index.php/systemd#Temporary_files" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.archlinux.org/index.php/systemd#Temporary_files']);">tmpfiles.d</a> which can set permissions and contents of any file on the system on boot. With that functionality, let&#8217;s set a custom brightness level on boot. This is acomplished by creating the **/etc/tmpfiles.d/brightness.conf** file with the following contents:
+**Systemd** comes with <a href="https://wiki.archlinux.org/index.php/systemd#Temporary_files" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.archlinux.org/index.php/systemd#Temporary_files']);">tmpfiles.d</a> which can set permissions and contents of any file on the system on boot. With that functionality, let's set a custom brightness level on boot. This is acomplished by creating the **/etc/tmpfiles.d/brightness.conf** file with the following contents:
 
     f /sys/class/backlight/pwm-backlight.0/brightness 0666 - - - 800
     
 
-Now upon boot that file will have the permission of **666** (*rw* for all users) and contain the value of **800** (possible values are **** &#8211; **2800**).
+Now upon boot that file will have the permission of **666** (*rw* for all users) and contain the value of **800** (possible values are **** - **2800**).
 
 ### Keyboard Shortcuts for Brightness keys
 
@@ -297,21 +297,21 @@ and the content of my **/usr/local/bin/chbr** is the following:
 
 ## Sound Configurations
 
-First let&#8217;s install **alsa** and make sure we can hear sound from the speakers:
+First let's install **alsa** and make sure we can hear sound from the speakers:
 
     sudo pacman -S alsa-utils
     
 
 Then start **alsamixer** and un-mute the following mixers:
 
-> &#8216;Left Speaker Mixer Left DAC1 Switch&#8217;  
-> &#8216;Left Speaker Mixer Right DAC1 Switch&#8217;  
-> &#8216;Right Speaker Mixer Left DAC1 Switch&#8217;  
-> &#8216;Right Speaker Mixer Right DAC1 Switch&#8217;  
-> &#8216;Right Headphone Mixer Left DAC1 Switch&#8217;  
-> &#8216;Right Headphone Mixer Right DAC1 Switch&#8217;  
-> &#8216;Left Headphone Mixer Left DAC1 Switch&#8217;  
-> &#8216;Left Headphone Mixer Right DAC1 Switch&#8217;
+> 'Left Speaker Mixer Left DAC1 Switch'  
+> 'Left Speaker Mixer Right DAC1 Switch'  
+> 'Right Speaker Mixer Left DAC1 Switch'  
+> 'Right Speaker Mixer Right DAC1 Switch'  
+> 'Right Headphone Mixer Left DAC1 Switch'  
+> 'Right Headphone Mixer Right DAC1 Switch'  
+> 'Left Headphone Mixer Left DAC1 Switch'  
+> 'Left Headphone Mixer Right DAC1 Switch'
 
 To un-mute the mixer just type **m** when you are on the mixer. As a quick test run the following and make sure you hear sound:
 
@@ -325,7 +325,7 @@ I remember I had some trouble in Ubuntu with this, so I wanted to give it anothe
     sudo pacman -S pulseaudio pulseaudio-alsa
     
 
-Now let&#8217;s ensure the appropriate alsa sink is loaded. This is done by editing the **/etc/pulse/default.pa** file and un-commenting/modify the following line:
+Now let's ensure the appropriate alsa sink is loaded. This is done by editing the **/etc/pulse/default.pa** file and un-commenting/modify the following line:
 
     load-module module-alsa-sink device=sysdefault
     
@@ -339,7 +339,7 @@ Your sound should still works as expected.
 
 ### Configure Libao to Use PulseAudio
 
-I tried running **pianobar**, but it would fail. The issue is described <a href="https://bbs.archlinux.org/viewtopic.php?id=158070" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://bbs.archlinux.org/viewtopic.php?id=158070']);">here</a>. It&#8217;s fixed by changing the **/etc/libao.conf** file to look like this:
+I tried running **pianobar**, but it would fail. The issue is described <a href="https://bbs.archlinux.org/viewtopic.php?id=158070" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://bbs.archlinux.org/viewtopic.php?id=158070']);">here</a>. It's fixed by changing the **/etc/libao.conf** file to look like this:
 
     elatov@crbook:~$cat /etc/libao.conf 
     default_driver=pulse
@@ -391,7 +391,7 @@ Those are our keys. Now capture the key combination, this is done by running the
     xbindkeys -mk
     
 
-and then clicking &#8220;Alt + down&#8221; and it will show you what those keys correspond to. After we have all the combinations, we can create the **xbindkeys** configuration. First create the initial configuration:
+and then clicking "Alt + down" and it will show you what those keys correspond to. After we have all the combinations, we can create the **xbindkeys** configuration. First create the initial configuration:
 
     xbindkeys -d > ~/.xbindkeysrc
     
@@ -515,7 +515,7 @@ Then set the timezone:
 
 ### Install from AUR (Arch User Repository)
 
-There are a lot of packages that are available from the user repository. The **pacman** utility doesn&#8217;t query that repository. To use that repository install **yaourt**:
+There are a lot of packages that are available from the user repository. The **pacman** utility doesn't query that repository. To use that repository install **yaourt**:
 
     sudo pacman -S base-devel yaourt
     

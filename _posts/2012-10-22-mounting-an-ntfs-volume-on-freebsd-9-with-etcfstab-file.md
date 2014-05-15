@@ -36,14 +36,14 @@ I was actually using a USB disk, so my device is */dev/da0*. Then figure out whi
 	2048 15631360 1 ntfs (7.5G)  
 	
 
-In the above output we can see it&#8217;s the first one. So I will be mounting */dev/da0s1*. Here is the entry I had to put into my */etc/fstab* file to get the mount point to work:
+In the above output we can see it's the first one. So I will be mounting */dev/da0s1*. Here is the entry I had to put into my */etc/fstab* file to get the mount point to work:
 
 	  
 	elatov@freebsd:~>grep da0 /etc/fstab  
 	/dev/da0s1 /mnt/usb ntfs rw,mountprog=/usr/local/bin/ntfs-3g,uid=500,gid=500,late 0 0  
 	
 
-With above setup, I could type &#8216;mount /dev/da0s1&#8242; or &#8216;mount /mnt/usb&#8217; and my disk would mount with the appropriate permissions. Here is how it looks like when it&#8217;s mounted:
+With above setup, I could type 'mount /dev/da0s1' or 'mount /mnt/usb' and my disk would mount with the appropriate permissions. Here is how it looks like when it's mounted:
 
 	  
 	elatov@freebsd:~>sudo mount /mnt/usb  
@@ -51,7 +51,7 @@ With above setup, I could type &#8216;mount /dev/da0s1&#8242; or &#8216;mount /m
 	/dev/fuse0 7.5G 3.3G 4.1G 44% /mnt/usb  
 	
 
-Next I actually wanted to label the disk so the entry in the */etc/fstab* file didn&#8217;t depend on the device identifier/node. I got most of the information regarding labeling from &#8220;<a href="http://www.freebsd.org/doc/handbook/geom-glabel.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.freebsd.org/doc/handbook/geom-glabel.html']);">Labeling Disk Devices</a>&#8220;. So first un-mount the disk:
+Next I actually wanted to label the disk so the entry in the */etc/fstab* file didn't depend on the device identifier/node. I got most of the information regarding labeling from "<a href="http://www.freebsd.org/doc/handbook/geom-glabel.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.freebsd.org/doc/handbook/geom-glabel.html']);">Labeling Disk Devices</a>". So first un-mount the disk:
 
 	  
 	elatov@freebsd:~>sudo umount /mnt/usb  
@@ -61,23 +61,23 @@ Next I actually wanted to label the disk so the entry in the */etc/fstab* file d
 From the above page:
 
 > During system initialization, the FreeBSD kernel will create device nodes as devices are found. This method of probing for devices raises some issues, for instance what if a new disk device is added via USB? It is very likely that a flash device may be handed the device name of da0 and the original da0 shifted to da1. This will cause issues mounting file systems if they are listed in /etc/fstab, effectively, this may also prevent the system from booting.  
-> &#8230;  
-> &#8230;
+> ...  
+> ...
 > 
 > A better solution is available. By using the glabel utility, an administrator or user may label their disk devices and use these labels in /etc/fstab. Because glabel stores the label in the last sector of a given provider, the label will remain persistent across reboots. By using this label as a device, the file system may always be mounted regardless of what device node it is accessed through.  
-> &#8230;  
-> &#8230;
+> ...  
+> ...
 > 
 > There are two types of labels, a generic label and a file system label. Labels can be permanent or temporary. Permanent labels can be created with the tunefs(8) or newfs(8) commands. They will then be created in a sub-directory of /dev, which will be named according to their file system type. For example, UFS2 file system labels will be created in the /dev/ufs directory. Permanent labels can also be created with the *glabel label* command. These are not file system specific, and will be created in the /dev/label directory. 
 
-So there are a couple of ways to label a disk: *newfs*, *tunefs*, and *glabel*. Unfortunately the first two tools are file system specific and will work with ufs. The glabel tool doesn&#8217;t depend on the file system. From the *man* page of *glabel*:
+So there are a couple of ways to label a disk: *newfs*, *tunefs*, and *glabel*. Unfortunately the first two tools are file system specific and will work with ufs. The glabel tool doesn't depend on the file system. From the *man* page of *glabel*:
 
 > DESCRIPTION  
 > The glabel utility is used for GEOM provider labelization. A label can  
-> be set up on a GEOM provider in two ways: &#8220;manual&#8221; or &#8220;automatic&#8221;.  
-> When using the &#8220;manual&#8221; method, no metadata are stored on the devices,  
+> be set up on a GEOM provider in two ways: "manual" or "automatic".  
+> When using the "manual" method, no metadata are stored on the devices,  
 > so a label has to be configured by hand every time it is needed. The  
-> &#8220;automatic&#8221; method uses on-disk metadata to store the label and detect  
+> "automatic" method uses on-disk metadata to store the label and detect  
 > it automatically in the future.
 > 
 > This class also provides volume label detection for file systems. Those  
@@ -102,7 +102,7 @@ So there are a couple of ways to label a disk: *newfs*, *tunefs*, and *glabel*. 
 > 
 > Generic labels are created in the directory /dev/label/. 
 
-So first let&#8217;s check if our disk already has a label:
+So first let's check if our disk already has a label:
 
 	  
 	elatov@freebsd:~>sudo glabel dump /dev/da0s1  
@@ -110,7 +110,7 @@ So first let&#8217;s check if our disk already has a label:
 	glabel: Not fully done.  
 	
 
-That looks good (since I didn&#8217;t have a label on the device), next label the disk:
+That looks good (since I didn't have a label on the device), next label the disk:
 
 	  
 	elatov@freebsd:~>sudo glabel label usb /dev/da0s1  
@@ -158,7 +158,7 @@ Finally, mounting worked without any issues:
 	/dev/fuse0 7.5G 3.3G 4.1G 44% /mnt/usb  
 	
 
-and now I don&#8217;t have to worry about the order that I plug in the device. You can also use the *ntfslabel* tool to label at the file system level:
+and now I don't have to worry about the order that I plug in the device. You can also use the *ntfslabel* tool to label at the file system level:
 
 	  
 	elatov@freebsd:~>sudo ntfslabel /dev/da0s1 usb_ntfs  

@@ -45,13 +45,13 @@ tags:
 ---
 ### RHEL DVD as a Software Repository
 
-Before we keep going with disk and partitioning, I want to setup the RHEL Install DVD as a Software Repository (I will cover this in more detail in <a href="http://virtuallyhyper.com/2013/03/rhcsa-and-rhce-chapter-6-package-management/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/03/rhcsa-and-rhce-chapter-6-package-management/']);">chapter 6</a>) since I will need to install **parted** and I currently don&#8217;t have that installed:
+Before we keep going with disk and partitioning, I want to setup the RHEL Install DVD as a Software Repository (I will cover this in more detail in <a href="http://virtuallyhyper.com/2013/03/rhcsa-and-rhce-chapter-6-package-management/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/03/rhcsa-and-rhce-chapter-6-package-management/']);">chapter 6</a>) since I will need to install **parted** and I currently don't have that installed:
 
     [root@rhel01 ~]# which parted
     /usr/bin/which: no parted in (/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin)
     
 
-From &#8220;<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Installation Guide</a>&#8220;:
+From "<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Installation Guide</a>":
 
 > **35&#46;3.1.2. Using a Red Hat Enterprise Linux Installation DVD as a Software Repository**
 > 
@@ -132,13 +132,13 @@ And then mounting the disk, I did the following:
     mount: block device /dev/sr0 is write-protected, mounting read-only
     
 
-Now checking if it&#8217;s mounted, I saw the following:
+Now checking if it's mounted, I saw the following:
 
     [root@rhel01 ~]# df -h | grep cd
     /dev/sr0 3.5G 3.5G 0 100% /mnt/cd
     
 
-I didn&#8217;t want to keep mounting the iso so I just copied the contents of the cd to **/root/repo**. I would usually use **rsync** to copy to the data, but I didn&#8217;t have that installed yet, so I used **cp**:
+I didn't want to keep mounting the iso so I just copied the contents of the cd to **/root/repo**. I would usually use **rsync** to copy to the data, but I didn't have that installed yet, so I used **cp**:
 
     [root@rhel01 ~]# mkdir repo
     [root@rhel01 ~]# cp -Rv /mnt/cd/* /root/repo/.
@@ -207,7 +207,7 @@ Now to see if **parted** is part of the **dvd** repository:
     parted.i686 : The GNU disk partition manipulation program
     
 
-That looks good. If you want to know which repo provides a certain package you can run &#8216;**yum list**&#8216; like so:
+That looks good. If you want to know which repo provides a certain package you can run '**yum list**' like so:
 
     [root@rhel01 ~]# yum list | grep parted
     Unable to read consumer identity
@@ -222,7 +222,7 @@ Now to install the package:
 
 ### Hard Disks
 
-Now to partitions, from &#8220;<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Installation Guide</a>&#8220;:
+Now to partitions, from "<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Installation Guide</a>":
 
 > **A.1. Hard Disk Basic Concepts**
 > 
@@ -236,13 +236,13 @@ Now to partitions, from &#8220;<a href="https://access.redhat.com/knowledge/docs
 > 
 > **A.1.1. It is Not What You Write, it is How You Write It**
 > 
-> Experienced computer users probably got this one on the first try. We need to format the drive. Formatting (usually known as &#8220;making a file system&#8221;) writes information to the drive, creating order out of the empty space in an unformatted drive.
+> Experienced computer users probably got this one on the first try. We need to format the drive. Formatting (usually known as "making a file system") writes information to the drive, creating order out of the empty space in an unformatted drive.
 > 
 > <a href="http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-3-disks-and-partitioning/disk_drive_with_data/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-3-disks-and-partitioning/disk_drive_with_data/']);" rel="attachment wp-att-5772"><img class="alignnone size-full wp-image-5772" alt="disk drive with data RHCSA and RHCE Chapter 3 Disks and Partitioning" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/disk_drive_with_data.png" width="299" height="126" title="RHCSA and RHCE Chapter 3 Disks and Partitioning" /></a>
 > 
 > As Figure A.2, “Disk Drive with a File System”, implies, the order imposed by a file system involves some trade-offs:
 > 
-> 1.  A small percentage of the drive&#8217;s available space is used to store file system-related data and can be considered as overhead.
+> 1.  A small percentage of the drive's available space is used to store file system-related data and can be considered as overhead.
 > 2.  A file system splits the remaining space into small, consistently-sized segments. For Linux, these segments are known as blocks. 
 > 
 > Given that file systems make things like directories and files possible, these trade-offs are usually seen as a small price to pay.
@@ -270,10 +270,10 @@ Now to partitions, from &#8220;<a href="https://access.redhat.com/knowledge/docs
 > As Figure A.5, “Disk Drive with Partition Table” shows, the partition table is divided into four sections or four primary partitions. A primary partition is a partition on a hard drive that can contain only one logical drive (or section). Each section can hold the information necessary to define a single partition, meaning that the partition table can define no more than four partitions. Each partition table entry contains several important characteristics of the partition:
 > 
 > 1.  The points on the disk where the partition starts and ends
-> 2.  Whether the partition is &#8220;active&#8221;
-> 3.  The partition&#8217;s type Let us take a closer look at each of these characteristics. The starting and ending points actually define the partition&#8217;s size and location on the disk. The &#8220;active&#8221; flag is used by some operating systems&#8217; boot loaders. In other words, the operating system in the partition that is marked &#8220;active&#8221; is booted. 
+> 2.  Whether the partition is "active"
+> 3.  The partition's type Let us take a closer look at each of these characteristics. The starting and ending points actually define the partition's size and location on the disk. The "active" flag is used by some operating systems' boot loaders. In other words, the operating system in the partition that is marked "active" is booted. 
 > 
-> The partition&#8217;s type can be a bit confusing. The type is a number that identifies the partition&#8217;s anticipated usage. If that statement sounds a bit vague, that is because the meaning of the partition type is a bit vague. Some operating systems use the partition type to denote a specific file system type, to flag the partition as being associated with a particular operating system, to indicate that the partition contains a bootable operating system, or some combination of the three.
+> The partition's type can be a bit confusing. The type is a number that identifies the partition's anticipated usage. If that statement sounds a bit vague, that is because the meaning of the partition type is a bit vague. Some operating systems use the partition type to denote a specific file system type, to flag the partition as being associated with a particular operating system, to indicate that the partition contains a bootable operating system, or some combination of the three.
 > 
 > By this point, you might be wondering how all this additional complexity is normally used. Refer to Figure A.6, “Disk Drive With Single Partition”, for an example.
 > 
@@ -287,9 +287,9 @@ Now to partitions, from &#8220;<a href="https://access.redhat.com/knowledge/docs
 > 
 > **A.1.3. Partitions within Partitions — An Overview of Extended Partitions** Of course, over time it became obvious that four partitions would not be enough. As disk drives continued to grow, it became more and more likely that a person could configure four reasonably-sized partitions and still have disk space left over. There needed to be some way of creating more partitions.
 > 
-> Enter the extended partition. As you may have noticed in Table A.1, “Partition Types”, there is an &#8220;Extended&#8221; partition type. It is this partition type that is at the heart of extended partitions.
+> Enter the extended partition. As you may have noticed in Table A.1, “Partition Types”, there is an "Extended" partition type. It is this partition type that is at the heart of extended partitions.
 > 
-> When a partition is created and its type is set to &#8220;Extended,&#8221; an extended partition table is created. In essence, the extended partition is like a disk drive in its own right — it has a partition table that points to one or more partitions (now called logical partitions, as opposed to the four primary partitions) contained entirely within the extended partition itself. Figure A.7, “Disk Drive With Extended Partition”, shows a disk drive with one primary partition and one extended partition containing two logical partitions (along with some unpartitioned free space).
+> When a partition is created and its type is set to "Extended," an extended partition table is created. In essence, the extended partition is like a disk drive in its own right — it has a partition table that points to one or more partitions (now called logical partitions, as opposed to the four primary partitions) contained entirely within the extended partition itself. Figure A.7, “Disk Drive With Extended Partition”, shows a disk drive with one primary partition and one extended partition containing two logical partitions (along with some unpartitioned free space).
 > 
 > <a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/extended_parts.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/12/extended_parts.png']);" rel="attachment wp-att-5778"><img class="alignnone size-full wp-image-5778" alt="extended parts RHCSA and RHCE Chapter 3 Disks and Partitioning" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/extended_parts.png" width="312" height="121" title="RHCSA and RHCE Chapter 3 Disks and Partitioning" /></a>
 > 
@@ -297,7 +297,7 @@ Now to partitions, from &#8220;<a href="https://access.redhat.com/knowledge/docs
 
 ### Partitioning with Fdisk
 
-Now to partitioning with **fdisk**. From this old &#8220;<a href="http://www.tldp.org/HOWTO/Partition/fdisk_partitioning.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.tldp.org/HOWTO/Partition/fdisk_partitioning.html']);">Partitioning with fdisk</a>&#8221; guide:
+Now to partitioning with **fdisk**. From this old "<a href="http://www.tldp.org/HOWTO/Partition/fdisk_partitioning.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.tldp.org/HOWTO/Partition/fdisk_partitioning.html']);">Partitioning with fdisk</a>" guide:
 
 > **5&#46; Partitioning with fdisk** This section shows you how to actually partition your hard drive with the fdisk utility. Linux allows only 4 primary partitions. You can have a much larger number of logical partitions by sub-dividing one of the primary partitions. Only one of the primary partitions can be sub-divided.
 > 
@@ -336,7 +336,7 @@ Here is how my partition table looked like on 1st SCSI disk:
 
 And back to guide:
 
-> The first line shows the geometry of your hard drive. It may not be physically accurate, but you can accept it as though it were. The hard drive in this example is made of 32 double-sided platters with one head on each side (probably not true). Each platter has 2610 concentric tracks. A 3-dimensional track (the same track on all disks) is called a cylinder. Each track is divided into 63 sectors. Each sector contains 512 bytes of data. Therefore the block size in the partition table is 64 heads \* 63 sectors \* 512 bytes er&#8230;divided by 1024. The start and end values are cylinders.
+> The first line shows the geometry of your hard drive. It may not be physically accurate, but you can accept it as though it were. The hard drive in this example is made of 32 double-sided platters with one head on each side (probably not true). Each platter has 2610 concentric tracks. A 3-dimensional track (the same track on all disks) is called a cylinder. Each track is divided into 63 sectors. Each sector contains 512 bytes of data. Therefore the block size in the partition table is 64 heads \* 63 sectors \* 512 bytes er...divided by 1024. The start and end values are cylinders.
 
 Then the guide has an example of how to create 4 primary partitions with **fdisk**.
 
@@ -356,7 +356,7 @@ So here is my second SCSI disk:
     Device Boot Start End Blocks Id System
     
 
-There are currently no partitions on it and it&#8217;s size is 8GB. So let&#8217;s create 3 partitions of size 2GB and mark them as ext3 and 1 partition of size 2GB and mark it as a swap partition. The creation of the first one looks like this:
+There are currently no partitions on it and it's size is 8GB. So let's create 3 partitions of size 2GB and mark them as ext3 and 1 partition of size 2GB and mark it as a swap partition. The creation of the first one looks like this:
 
     [root@rhel01 ~]# fdisk /dev/sdb
     
@@ -483,7 +483,7 @@ Notice for the last one I just selected the default so it takes all the availabl
     /dev/sdb4 787 1044 2072385 83 Linux
     
 
-The &#8216;**Id**&#8216; for all the partitions is &#8216;**83**&#8216;. To see the list of all the **Ids** we can do this:
+The '**Id**' for all the partitions is '**83**'. To see the list of all the **Ids** we can do this:
 
     Command (m for help): t
     Partition number (1-4): 4
@@ -518,7 +518,7 @@ The &#8216;**Id**&#8216; for all the partitions is &#8216;**83**&#8216;. To see 
     1e  Hidden W95 FAT1
     
 
-So we can see that &#8216;**83**&#8216; is Linux which is usually **EXT3**. Now for **swap** the id is **82**. So let&#8217;s change that for the 4th partition:
+So we can see that '**83**' is Linux which is usually **EXT3**. Now for **swap** the id is **82**. So let's change that for the 4th partition:
 
     Hex code (type L to list codes): 82
     Changed system type of partition 4 to 82 (Linux swap / Solaris)
@@ -566,7 +566,7 @@ Now checking the partition table we see this:
     /dev/sdb4 787 1044 2072385 82 Linux swap / Solaris
     
 
-If the table didn&#8217;t show up properly, we could run **partprobe** to re-check the partition table of disk:
+If the table didn't show up properly, we could run **partprobe** to re-check the partition table of disk:
 
     [root@rhel01 ~]# partprobe --help
     Usage: partprobe [OPTION] [DEVICE]...
@@ -619,7 +619,7 @@ We had 4 partitions so that looks good. To delete a partition with **fdisk**, we
     Syncing disks.
     
 
-So I deleted the 3rd partition. So let&#8217;s see how **fdisk** looks like now:
+So I deleted the 3rd partition. So let's see how **fdisk** looks like now:
 
     [root@rhel01 ~]# fdisk -l /dev/sdb
     
@@ -638,11 +638,11 @@ So I deleted the 3rd partition. So let&#8217;s see how **fdisk** looks like now:
 
 Notice there is a gap between **End** of the 2nd partition and the **Start** of the 4th partition.
 
-Now let&#8217;s do similar functions with **parted**.
+Now let's do similar functions with **parted**.
 
 ### Partitioning with *parted*
 
-From &#8220;<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Storage_Administration_Guide/Red_Hat_Enterprise_Linux-6-Storage_Administration_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Storage_Administration_Guide/Red_Hat_Enterprise_Linux-6-Storage_Administration_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Storage Administration Guide</a>&#8220;
+From "<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Storage_Administration_Guide/Red_Hat_Enterprise_Linux-6-Storage_Administration_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Storage_Administration_Guide/Red_Hat_Enterprise_Linux-6-Storage_Administration_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Storage Administration Guide</a>"
 
 > **Chapter 5. Partitions**
 > 
@@ -705,7 +705,7 @@ From &#8220;<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Ente
 > 
 > If a **Filesystem** of a device shows no value, this means that its file system type is unknown. The **Flags** column lists the flags set for the partition. Available flags are **boot**, **root**, **swap**, **hidden**, **raid**, **lvm**, or **lba**.
 
-Now let&#8217;s actually create some partitions:
+Now let's actually create some partitions:
 
 > **5&#46;2. Creating a Partition**
 > 
@@ -730,7 +730,7 @@ Now let&#8217;s actually create some partitions:
 
 ### Partitioning with *parted* Example
 
-So let&#8217;s use **parted** to remove the rest of partitions on **/dev/sdb** and then create 3 partitions of equal size, 2 of which are **ext** and 1 is **swap**. First to list the partitions:
+So let's use **parted** to remove the rest of partitions on **/dev/sdb** and then create 3 partitions of equal size, 2 of which are **ext** and 1 is **swap**. First to list the partitions:
 
     [root@rhel01 ~]# parted /dev/sdb print
     Model: VMware Virtual disk (scsi)
@@ -773,7 +773,7 @@ Now to remove the partitions:
     Number Start End Size Type File system Flags
     
 
-Now let&#8217;s create the first one, taking 33% of the space:
+Now let's create the first one, taking 33% of the space:
 
     (parted) help mkpart                                                      
       mkpart PART-TYPE [FS-TYPE] START END     make a partition
@@ -858,7 +858,7 @@ Now to check the partition table:
 
 ### Logical Volume Manager (LVM)
 
-Now onto LVMs, from &#8220;<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Logical_Volume_Manager_Administration/Red_Hat_Enterprise_Linux-6-Logical_Volume_Manager_Administration-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Logical_Volume_Manager_Administration/Red_Hat_Enterprise_Linux-6-Logical_Volume_Manager_Administration-en-US.pdf']);">Red Hat Enterprise Linux 6 Logical Volume Manager Administration</a>&#8220;:
+Now onto LVMs, from "<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Logical_Volume_Manager_Administration/Red_Hat_Enterprise_Linux-6-Logical_Volume_Manager_Administration-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Logical_Volume_Manager_Administration/Red_Hat_Enterprise_Linux-6-Logical_Volume_Manager_Administration-en-US.pdf']);">Red Hat Enterprise Linux 6 Logical Volume Manager Administration</a>":
 
 > The underlying physical storage unit of an LVM logical volume is a block device such as a partition or whole disk. This device is initialized as an LVM physical volume (PV).
 > 
@@ -978,7 +978,7 @@ Now onto Volume Groups:
 > 
 > **4&#46;3.3. Adding Physical Volumes to a Volume Group**
 > 
-> To add additional physical volumes to an existing volume group, use the **vgextend** command. The **vgextend** command increases a volume group&#8217;s capacity by adding one or more free physical volumes.
+> To add additional physical volumes to an existing volume group, use the **vgextend** command. The **vgextend** command increases a volume group's capacity by adding one or more free physical volumes.
 > 
 > The following command adds the physical volume /dev/sdf1 to the volume group vg1.
 > 
@@ -997,7 +997,7 @@ Now onto Volume Groups:
 > 
 > **4&#46;3.6. Removing Physical Volumes from a Volume Group**
 > 
-> To remove unused physical volumes from a volume group, use the **vgreduce** command. The **vgreduce** command shrinks a volume group&#8217;s capacity by removing one or more empty physical volumes. This frees those physical volumes to be used in different volume groups or to be removed from the system.
+> To remove unused physical volumes from a volume group, use the **vgreduce** command. The **vgreduce** command shrinks a volume group's capacity by removing one or more empty physical volumes. This frees those physical volumes to be used in different volume groups or to be removed from the system.
 > 
 > The following command removes the physical volume **/dev/hda1** from the volume group **my\_volume\_group**.
 > 
@@ -1040,7 +1040,7 @@ Lastly onto the Logical Volumes:
 >     # lvcreate -l 100%FREE -n yourlv testvg
 >     
 > 
-> You can use **-l** argument of the **lvcreate** command to create a logical volume that uses the entire volume group. Another way to create a logical volume that uses the entire volume group is to use the **vgdisplay** command to find the &#8220;Total PE&#8221; size and to use those results as input to the **lvcreate** command.
+> You can use **-l** argument of the **lvcreate** command to create a logical volume that uses the entire volume group. Another way to create a logical volume that uses the entire volume group is to use the **vgdisplay** command to find the "Total PE" size and to use those results as input to the **lvcreate** command.
 > 
 > The following commands create a logical volume called **mylv** that fills the volume group named **testvg**.
 > 
@@ -1119,7 +1119,7 @@ Lastly onto the Logical Volumes:
 
 ### LVM Example
 
-I don&#8217;t want to add my other disks, do let&#8217;s partition my one drive (**sdb**) into 3 different partitions and first add the first 2 as Physical Volumes. Then let&#8217;s create a Volume Group and add both of the Physical Volumes to it. Then let&#8217;s create a Logical Volume from our Logical Group. Lastly let&#8217;s extend the Volume Group with the 3rd partition and then extend the Logical Volume as well. Here is how my partitioning looked like for **sdb**:
+I don't want to add my other disks, do let's partition my one drive (**sdb**) into 3 different partitions and first add the first 2 as Physical Volumes. Then let's create a Volume Group and add both of the Physical Volumes to it. Then let's create a Logical Volume from our Logical Group. Lastly let's extend the Volume Group with the 3rd partition and then extend the Logical Volume as well. Here is how my partitioning looked like for **sdb**:
 
     [root@rhel01 ~]# parted /dev/sdb print
     Model: VMware Virtual disk (scsi)
@@ -1133,7 +1133,7 @@ I don&#8217;t want to add my other disks, do let&#8217;s partition my one drive 
     3 5756MB 8590MB 2834MB primary
     
 
-Now let&#8217;s add the first two into the LVM (Logical Volume Manager):
+Now let's add the first two into the LVM (Logical Volume Manager):
 
     [root@rhel01 ~]# pvcreate /dev/sdb1 /dev/sdb2
     Writing physical volume data to disk "/dev/sdb1"
@@ -1147,7 +1147,7 @@ Now let&#8217;s add the first two into the LVM (Logical Volume Manager):
     /dev/sdb2 lvm2 a-- 2.56g 2.56g
     
 
-The top partition (/dev/sda2) was setup by the system install, so let&#8217;s not mess with that. Now let&#8217;s add both into a Volume Group and call the volume group **kvg**:
+The top partition (/dev/sda2) was setup by the system install, so let's not mess with that. Now let's add both into a Volume Group and call the volume group **kvg**:
 
 >     [root@rhel01 ~]# vgcreate kvg /dev/sdb1 /dev/sdb2
 >     Volume group "kvg" successfully created
@@ -1157,7 +1157,7 @@ The top partition (/dev/sda2) was setup by the system install, so let&#8217;s no
 >     kvg 2 0 0 wz--n- 5.20g 5.20g
 >     
 
-Now let&#8217;s create a Logical Volume called **kvol** and make it 60% of the total size:
+Now let's create a Logical Volume called **kvol** and make it 60% of the total size:
 
     [root@rhel01 ~]# lvcreate -l 60%VG -n kvol kvg
     Logical volume "kvol" created
@@ -1168,14 +1168,14 @@ Now let&#8217;s create a Logical Volume called **kvol** and make it 60% of the t
     kvol kvg -wi-a--- 3.12g
     
 
-Now let&#8217;s add the third partition into the LVM:
+Now let's add the third partition into the LVM:
 
     [root@rhel01 ~]# pvcreate /dev/sdb3
     Writing physical volume data to disk "/dev/sdb3"
     Physical volume "/dev/sdb3" successfully created
     
 
-Now let&#8217;s extend Volume Group **kvg** with the 3rd partition:
+Now let's extend Volume Group **kvg** with the 3rd partition:
 
     [root@rhel01 ~]# vgextend kvg /dev/sdb3
     Volume group "kvg" successfully extended
@@ -1185,7 +1185,7 @@ Now let&#8217;s extend Volume Group **kvg** with the 3rd partition:
     kvg 3 1 0 wz--n- 7.83g 4.71g
     
 
-Now let&#8217;s extend our Logical Volume to use all the available space:
+Now let's extend our Logical Volume to use all the available space:
 
     [root@rhel01 ~]# lvextend -l +100%FREE /dev/kvg/kvol
     Extending logical volume kvol to 7.83 GiB
@@ -1209,11 +1209,11 @@ Checking out the device, I see the following:
     Disk identifier: 0x00000000
     
 
-So it looks like it&#8217;s taking up all the space. Of course this was a round about way of doing it. First partition the drive then create a volume group that spans all the partitions, but it made a good working example to show how LVM works.
+So it looks like it's taking up all the space. Of course this was a round about way of doing it. First partition the drive then create a volume group that spans all the partitions, but it made a good working example to show how LVM works.
 
 ### RAID
 
-Now let&#8217;s move to **mdadm**. From &#8220;<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Storage_Administration_Guide/Red_Hat_Enterprise_Linux-6-Storage_Administration_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Storage_Administration_Guide/Red_Hat_Enterprise_Linux-6-Storage_Administration_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Storage Administration Guide</a>&#8220;:
+Now let's move to **mdadm**. From "<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Storage_Administration_Guide/Red_Hat_Enterprise_Linux-6-Storage_Administration_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Storage_Administration_Guide/Red_Hat_Enterprise_Linux-6-Storage_Administration_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Storage Administration Guide</a>":
 
 > **Chapter 16. Redundant Array of Independent Disks (RAID)**
 > 
@@ -1245,7 +1245,7 @@ Now let&#8217;s move to **mdadm**. From &#8220;<a href="https://access.redhat.co
 > 
 > **Software RAID**
 > 
-> Software RAID implements the various RAID levels in the kernel disk (block device) code. It offers the cheapest possible solution, as expensive disk controller cards or hot-swap chassis are not required. Software RAID also works with cheaper IDE disks as well as SCSI disks. With today&#8217;s faster CPUs, Software RAID also generally outperforms Hardware RAID.
+> Software RAID implements the various RAID levels in the kernel disk (block device) code. It offers the cheapest possible solution, as expensive disk controller cards or hot-swap chassis are not required. Software RAID also works with cheaper IDE disks as well as SCSI disks. With today's faster CPUs, Software RAID also generally outperforms Hardware RAID.
 > 
 > The Linux kernel contains a multi-disk (MD) driver that allows the RAID solution to be completely hardware independent. The performance of a software-based array depends on the server CPU performance and load. Here are some of the key features of the Linux software RAID stack:
 > 
@@ -1267,19 +1267,19 @@ Now let&#8217;s move to **mdadm**. From &#8220;<a href="https://access.redhat.co
 > 
 > **Level 0**
 > 
-> RAID level 0, often called &#8220;striping,&#8221; is a performance-oriented striped data mapping technique. This means the data being written to the array is broken down into strips and written across the member disks of the array, allowing high I/O performance at low inherent cost but provides no redundancy.
+> RAID level 0, often called "striping," is a performance-oriented striped data mapping technique. This means the data being written to the array is broken down into strips and written across the member disks of the array, allowing high I/O performance at low inherent cost but provides no redundancy.
 > 
 > Many RAID level 0 implementations will only stripe the data across the member devices up to the size of the smallest device in the array. This means that if you have multiple devices with slightly different sizes, each device will get treated as though it is the same size as the smallest drive. Therefore, the common storage capacity of a level 0 array is equal to the capacity of the smallest member disk in a Hardware RAID or the capacity of smallest member partition in a Software RAID multiplied by the number of disks or partitions in the array.
 > 
 > **Level 1**
 > 
-> RAID level 1, or &#8220;mirroring,&#8221; has been used longer than any other form of RAID. Level 1 provides redundancy by writing identical data to each member disk of the array, leaving a &#8220;mirrored&#8221; copy on each disk. Mirroring remains popular due to its simplicity and high level of data availability. Level 1 operates with two or more disks, and provides very good data reliability and improves performance for read-intensive applications but at a relatively high cost.
+> RAID level 1, or "mirroring," has been used longer than any other form of RAID. Level 1 provides redundancy by writing identical data to each member disk of the array, leaving a "mirrored" copy on each disk. Mirroring remains popular due to its simplicity and high level of data availability. Level 1 operates with two or more disks, and provides very good data reliability and improves performance for read-intensive applications but at a relatively high cost.
 > 
 > The storage capacity of the level 1 array is equal to the capacity of the smallest mirrored hard disk in a Hardware RAID or the smallest mirrored partition in a Software RAID. Level 1 redundancy is the highest possible among all RAID types, with the array being able to operate with only a single disk present.
 > 
 > **Level 5**
 > 
-> This is the most common type of RAID. By distributing parity across all of an array&#8217;s member disk drives, RAID level 5 eliminates the write bottleneck inherent in level 4. The only performance bottleneck is the parity calculation process itself. With modern CPUs and Software RAID, that is usually not a bottleneck at all since modern CPUs can generate parity very fast. However, if you have a sufficiently large number of member devices in a software RAID5 array such that the combined aggregate data transfer speed across all devices is high enough, then this bottleneck can start to come into play.
+> This is the most common type of RAID. By distributing parity across all of an array's member disk drives, RAID level 5 eliminates the write bottleneck inherent in level 4. The only performance bottleneck is the parity calculation process itself. With modern CPUs and Software RAID, that is usually not a bottleneck at all since modern CPUs can generate parity very fast. However, if you have a sufficiently large number of member devices in a software RAID5 array such that the combined aggregate data transfer speed across all devices is high enough, then this bottleneck can start to come into play.
 > 
 > As with level 4, level 5 has asymmetrical performance, with reads substantially outperforming writes. The storage capacity of RAID level 5 is calculated the same way as with level 4.
 > 
@@ -1309,7 +1309,7 @@ Now let&#8217;s move to **mdadm**. From &#8220;<a href="https://access.redhat.co
 
 ### RAID Device with *mdadm*
 
-From an older guide &#8220;<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/5/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-5-Installation_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/5/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-5-Installation_Guide-en-US.pdf']);">Red Hat Enterprise Linux 5 Installation Guide</a>&#8220;, here is an example of creating a raid configuration with **dmadm**:
+From an older guide "<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/5/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-5-Installation_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/5/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-5-Installation_Guide-en-US.pdf']);">Red Hat Enterprise Linux 5 Installation Guide</a>", here is an example of creating a raid configuration with **dmadm**:
 
 > **22&#46;3.1. Creating a RAID Device With mdadm**
 > 
@@ -1341,7 +1341,7 @@ From an older guide &#8220;<a href="https://access.redhat.com/knowledge/docs/en-
 >     mdadm: array /dev/md0 started.
 >     
 > 
-> Once created, the RAID device can be queried at any time to provide status information. The following example shows the output from the command **mdadm &#8211;detail /dev/md0**:
+> Once created, the RAID device can be queried at any time to provide status information. The following example shows the output from the command **mdadm -detail /dev/md0**:
 > 
 >     /dev/md0:
 >     Version : 00.90.00
@@ -1370,7 +1370,7 @@ From an older guide &#8220;<a href="https://access.redhat.com/knowledge/docs/en-
 
 ### RAID with *mdadm* Example
 
-So let&#8217;s create a raid 5 configuration with my 3 previously created partitions and then pretend to replace one since it failed. First let&#8217;s go ahead and remove my partitions from the LVM setup. Here is the Logical Volume that I created:
+So let's create a raid 5 configuration with my 3 previously created partitions and then pretend to replace one since it failed. First let's go ahead and remove my partitions from the LVM setup. Here is the Logical Volume that I created:
 
     [root@rhel01 ~]# lvs
     LV VG Attr LSize Pool Origin Data% Move Log Copy% Convert
@@ -1379,7 +1379,7 @@ So let&#8217;s create a raid 5 configuration with my 3 previously created partit
     kvol kvg -wi-a--- 7.83g
     
 
-Let&#8217;s remove the Logical Volume:
+Let's remove the Logical Volume:
 
     [root@rhel01 ~]# lvremove /dev/kvg/kvol
     Do you really want to remove active logical volume kvol? [y/n]: y
@@ -1394,7 +1394,7 @@ Now here is the Volume Group that I had:
     kvg 3 0 0 wz--n- 7.83g 7.83g
     
 
-First let&#8217;s remove all the Physical Volumes from this Volume Group and then remove the Volume Group. Here are the three partitions inside the Volume Group:
+First let's remove all the Physical Volumes from this Volume Group and then remove the Volume Group. Here are the three partitions inside the Volume Group:
 
     [root@rhel01 ~]# pvs
     PV VG Fmt Attr PSize PFree
@@ -1426,12 +1426,12 @@ Now to finally remove the partitions (Physical Volumes) from LVM:
     Labels on physical volume "/dev/sdb3" successfully wiped
     
 
-Now let&#8217;s install the **mdadm** utility:
+Now let's install the **mdadm** utility:
 
     [root@rhel01 ~]# yum install mdadm
     
 
-Now let&#8217;s create the raid configuration:
+Now let's create the raid configuration:
 
     [root@rhel01 ~]# mdadm --help-options
     Any parameter that does not start with '-' is treated as a device name
@@ -1505,7 +1505,7 @@ and more information:
     --delay= -d : bitmap update delay in seconds.
     
 
-So let&#8217;s get to it:
+So let's get to it:
 
     [root@rhel01 ~]# mdadm -Cv /dev/md0 -l 5 -n 3 /dev/sdb1 /dev/sdb2 /dev/sdb3
     mdadm: layout defaults to left-symmetric
@@ -1531,7 +1531,7 @@ Now checking the status of our raid, we see the following:
     unused devices: <none>
     
 
-We can see that the devices are getting initialized, after it&#8217;s done the output will look similar to this:
+We can see that the devices are getting initialized, after it's done the output will look similar to this:
 
     [root@rhel01 ~]# cat /proc/mdstat
     Personalities : [raid6] [raid5] [raid4]
@@ -1575,7 +1575,7 @@ You can always check the information regarding the raid device with **mdadm**, l
     3 8 19 2 active sync /dev/sdb3
     
 
-Now let&#8217;s say that device **/dev/sdb3** needed to be replaced cause it&#8217;s gone bad. So first let&#8217;s set the disk as faulty:
+Now let's say that device **/dev/sdb3** needed to be replaced cause it's gone bad. So first let's set the disk as faulty:
 
     [root@rhel01 ~]# mdadm /dev/md0 -f /dev/sdb3
     mdadm: set /dev/sdb3 faulty in /dev/md0
@@ -1617,7 +1617,7 @@ Now checking the status of our raid, we see the following:
     3 8 19 - faulty spare /dev/sdb3
     
 
-We can see the device is set as faulty. Now let&#8217;s remove the disk completely from the raid:
+We can see the device is set as faulty. Now let's remove the disk completely from the raid:
 
     [root@rhel01 ~]# mdadm /dev/md0 -r /dev/sdb3
     mdadm: hot removed /dev/sdb3 from /dev/md0
@@ -1699,7 +1699,7 @@ And now checking the status:
     3 8 19 2 spare rebuilding /dev/sdb3
     
 
-We can see that the disk is added to configuration and then rebuild process has started. When it&#8217;s done our **/proc/mdstat** will look like this:
+We can see that the disk is added to configuration and then rebuild process has started. When it's done our **/proc/mdstat** will look like this:
 
     [root@rhel01 ~]# cat /proc/mdstat
     Personalities : [raid6] [raid5] [raid4]
@@ -1709,7 +1709,7 @@ We can see that the disk is added to configuration and then rebuild process has 
     unused devices: <none>
     
 
-Since we are coming to the end of partitions let&#8217;s remove all the raid configurations and partitions to have a clean drive. To remove the raid configuration, let&#8217;s set all the drives as faulty:
+Since we are coming to the end of partitions let's remove all the raid configurations and partitions to have a clean drive. To remove the raid configuration, let's set all the drives as faulty:
 
     [root@rhel01 ~]# mdadm /dev/md0 -f /dev/sdb1 /dev/sdb2 /dev/sdb3
     mdadm: set /dev/sdb1 faulty in /dev/md0
@@ -1717,7 +1717,7 @@ Since we are coming to the end of partitions let&#8217;s remove all the raid con
     mdadm: set /dev/sdb3 faulty in /dev/md0
     
 
-Then let&#8217;s remove all the drives:
+Then let's remove all the drives:
 
     [root@rhel01 ~]# mdadm /dev/md0 -r /dev/sdb1 /dev/sdb2 /dev/sdb3
     mdadm: hot removed /dev/sdb1 from /dev/md0
@@ -1725,7 +1725,7 @@ Then let&#8217;s remove all the drives:
     mdadm: hot removed /dev/sdb3 from /dev/md0
     
 
-Finally let&#8217;s stop the **md0** raid:
+Finally let's stop the **md0** raid:
 
     [root@rhel01 ~]# mdadm -S /dev/md0
     mdadm: stopped /dev/md0
@@ -1738,7 +1738,7 @@ Now checking the status:
     unused devices: <none>
     
 
-Nothing is utilized. Now using **parted** let&#8217;s remove all the partitions:
+Nothing is utilized. Now using **parted** let's remove all the partitions:
 
     [root@rhel01 ~]# parted /dev/sdb
     GNU Parted 2.1

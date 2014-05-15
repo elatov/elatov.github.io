@@ -14,7 +14,7 @@ tags:
 ---
 ### Identify hot keys and fields used with resxtop/esxtop
 
-If you launch Esxtop and type &#8216;**h**&#8216; it will show you the following:
+If you launch Esxtop and type '**h**' it will show you the following:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/esxtop_shortcuts.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/esxtop_shortcuts.png']);"><img class="alignnone size-full wp-image-4939" title="esxtop_shortcuts" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/esxtop_shortcuts.png" alt="esxtop shortcuts VCAP5 DCA Objective 3.4 – Utilize Advanced vSphere Performance Monitoring Tools " width="735" height="455" /></a>
 
@@ -29,13 +29,13 @@ The most important ones are:
 > v = disk VM  
 > p = power states
 
-For the fields, I would check out <a href="http://communities.vmware.com/docs/DOC-9279" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/docs/DOC-9279']);">this</a> VMware communities page and the &#8216;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf']);">vSphere Monitoring and Performance vSphere 5.0</a>&#8216; documentation. It covers all the fields in great detail. You can also go to each panel from above (cpu, memory&#8230; etc) and then type in &#8216;**f**&#8216; and it will show you the available fields. Here is how the LUN fields look like:
+For the fields, I would check out <a href="http://communities.vmware.com/docs/DOC-9279" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/docs/DOC-9279']);">this</a> VMware communities page and the '<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf']);">vSphere Monitoring and Performance vSphere 5.0</a>' documentation. It covers all the fields in great detail. You can also go to each panel from above (cpu, memory... etc) and then type in '**f**' and it will show you the available fields. Here is how the LUN fields look like:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/esxtop_lun_fields.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/esxtop_lun_fields.png']);"><img class="alignnone size-full wp-image-4940" title="esxtop_lun_fields" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/esxtop_lun_fields.png" alt="esxtop lun fields VCAP5 DCA Objective 3.4 – Utilize Advanced vSphere Performance Monitoring Tools " width="735" height="455" /></a>
 
 ### Identify fields used with vscsiStats
 
-From &#8220;<a href="http://communities.vmware.com/docs/DOC-10104" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/docs/DOC-10104']);">Storage Workload Characterization and Consolidation in Virtualized Environments</a>&#8220;:
+From "<a href="http://communities.vmware.com/docs/DOC-10104" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/docs/DOC-10104']);">Storage Workload Characterization and Consolidation in Virtualized Environments</a>":
 
 > **Seek distance**: a measure of the spatial locality in the workload measured as the minimum distance in terms of sectors or LBN (logical block number) from among the last k number of IOs (k=1 in the data presented here). In the histograms, small distances signify high locality.  
 > **IO data length**: in different bins of size 512 Bytes, 1KB,2KB and so on.  
@@ -46,11 +46,11 @@ From &#8220;<a href="http://communities.vmware.com/docs/DOC-10104" onclick="java
 
 ### Configure esxtop/resxtop custom profiles
 
-From &#8216;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf']);">vSphere Monitoring and Performance vSphere 5.0</a>&#8216;:
+From '<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf']);">vSphere Monitoring and Performance vSphere 5.0</a>':
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/esxtop_save_profile.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/esxtop_save_profile.png']);"><img class="alignnone size-full wp-image-4941" title="esxtop_save_profile" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/esxtop_save_profile.png" alt="esxtop save profile VCAP5 DCA Objective 3.4 – Utilize Advanced vSphere Performance Monitoring Tools " width="591" height="42" /></a>
 
-So launch *esxtop* and configure the fields that you would like to see and then save the configuration by typing &#8220;**W**&#8220;, here is how it looks like:
+So launch *esxtop* and configure the fields that you would like to see and then save the configuration by typing "**W**", here is how it looks like:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/esxtop_W.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/esxtop_W.png']);"><img class="alignnone size-full wp-image-4942" title="esxtop_W" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/esxtop_W.png" alt="esxtop W VCAP5 DCA Objective 3.4 – Utilize Advanced vSphere Performance Monitoring Tools " width="692" height="89" /></a>
 
@@ -58,7 +58,7 @@ Select the default file name and now the next time you launch *esxtop* it will s
 
 ### Determine use cases for and apply esxtop/resxtop Interactive, Batch and Replay modes
 
-From &#8216;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf']);">vSphere Monitoring and Performance vSphere 5.0</a>&#8216;:
+From '<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf']);">vSphere Monitoring and Performance vSphere 5.0</a>':
 
 > **Using esxtop or resxtop in Interactive Mode**   
 > By default, resxtop and esxtop run in interactive mode. Interactive mode displays statistics in different panels.
@@ -103,7 +103,7 @@ And the last method of running esxtop:
 > 
 > Snapshots collected by vm-supported can be replayed by esxtop. However, vm-support output generated by ESXi can be replayed only by esxtop running on the same version of ESXi.
 
-If you are experiencing an issue right now then launch *esxtop* and use interactive mode to figure out what the issue is. If you are unsure what the issue is and you want to look at *esxtop* data as the issue is happening after the issue occurred, use esxtop in replay mode. If the issue happens randomly but you don&#8217;t know when, then run esxtop in batch mode and then plot the data to see where the issue lies.
+If you are experiencing an issue right now then launch *esxtop* and use interactive mode to figure out what the issue is. If you are unsure what the issue is and you want to look at *esxtop* data as the issue is happening after the issue occurred, use esxtop in replay mode. If the issue happens randomly but you don't know when, then run esxtop in batch mode and then plot the data to see where the issue lies.
 
 ### Use vscsiStats to gather storage performance data
 
@@ -136,7 +136,7 @@ During or after collection you can use the **-p** switch to show the collected i
     ~# vscsistats -p interarrival
     
 
-Results can be produced in a more compact comma-delimited list by adding the optional &#8220;**-c**&#8221; to the above:
+Results can be produced in a more compact comma-delimited list by adding the optional "**-c**" to the above:
 
     ~# /usr/lib/vmware/bin/vscsiStats -p HISTO_TYPE -c 
     
@@ -153,7 +153,7 @@ To reset all counters to zero, run:
 
 ### Use esxtop/resxtop to collect performance data
 
-From &#8216;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf']);">vSphere Monitoring and Performance vSphere 5.0</a>&#8216;:
+From '<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf']);">vSphere Monitoring and Performance vSphere 5.0</a>':
 
 > **Use esxtop or resxtop in Batch Mode**  
 > After you have prepared for batch mode, you can use esxtop or resxtop in this mode.
@@ -182,7 +182,7 @@ Or we can use replay mode:
 > 
 > 2.  Unzip and untar the resulting tar file so that esxtop can use it in replay mode.
 > 
-> &#8230; &#8230;
+> ... ...
 > 
 > **Use esxtop in Replay Mode**  
 > Procedure

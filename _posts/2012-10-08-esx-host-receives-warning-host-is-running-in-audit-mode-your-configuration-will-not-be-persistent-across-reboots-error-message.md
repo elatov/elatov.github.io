@@ -1,5 +1,5 @@
 ---
-title: 'ESXi Host Receives &#8220;Warning: Host is running in audit mode. Your configuration will not be persistent across reboots&#8221; Error Message'
+title: 'ESXi Host Receives "Warning: Host is running in audit mode. Your configuration will not be persistent across reboots" Error Message'
 author: Karim Elatov
 layout: post
 permalink: /2012/10/esx-host-receives-warning-host-is-running-in-audit-mode-your-configuration-will-not-be-persistent-across-reboots-error-message/
@@ -19,7 +19,7 @@ Recently saw the message outlined in the title from an ESXi host. Logged into th
 	Sep 26 18:22:28 vmkernel: TSC: 1899066536 cpu0:0)BootConfig: 110: auditMode = TRUE  
 	
 
-It looks like AuditMode was set to true. Checking out the &#8216;boot.cfg&#8217; file, I saw the following:
+It looks like AuditMode was set to true. Checking out the 'boot.cfg' file, I saw the following:
 
 	  
 	~ # cat /bootbank/boot.cfg  
@@ -45,7 +45,7 @@ After some research found VMware Communities <a href="http://communities.vmware.
 > 3.  vi /bootbank/boot.cfg 
 >     1.  press i (for insert)
 >     2.  remove the line that has auditMode=TRUE
->     3.  press &#8216;esc&#8217; then :w :q (to write changes and quit vi)
+>     3.  press 'esc' then :w :q (to write changes and quit vi)
 > 4.  reboot server to take it out of audit mode
 
 Remove that line per the instructions above and the server rebooted without going into Audit Mode again.

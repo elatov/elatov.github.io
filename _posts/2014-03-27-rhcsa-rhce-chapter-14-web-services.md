@@ -326,18 +326,18 @@ Check the Deployment Guide for a full list, I will cover a couple of the ones th
 
 ### Installing and Testing Apache
 
-So let&#8217;s go ahead and test this out. First let&#8217;s install apache:
+So let's go ahead and test this out. First let's install apache:
 
     [root@rhel1 ~]# yum install httpd
     
 
-Now let&#8217;s start the apache service:
+Now let's start the apache service:
 
     [root@rhel1 ~]# service httpd start
     Starting httpd:  httpd
     
 
-Lastly let&#8217;s make sure it&#8217;s listening on port 80:
+Lastly let's make sure it's listening on port 80:
 
     [root@rhel1 ~]# lsof -i tcp:80
     COMMAND  PID   USER   FD   TYPE  DEVICE SIZE/OFF NODE NAME
@@ -352,7 +352,7 @@ Lastly let&#8217;s make sure it&#8217;s listening on port 80:
     httpd   7401 apache    4u  IPv6 1010244      0t0  TCP *:http (LISTEN)
     
 
-Now let&#8217;s check out the default configuration:
+Now let's check out the default configuration:
 
     [root@rhel1 ~]# grep -vE '^$|#' /etc/httpd/conf/httpd.conf  | grep -vE 'LoadModule|BrowserMatch|AddType|AddLanguage|AddIcon'
     ServerTokens OS
@@ -400,24 +400,24 @@ Now let&#8217;s check out the default configuration:
     </Directory>
     
 
-We can see that our **DocumentRoot** is under **/var/www/html**. So let&#8217;s create a simple **html** file under that directory:
+We can see that our **DocumentRoot** is under **/var/www/html**. So let's create a simple **html** file under that directory:
 
     [root@rhel1 ~]# cat /var/www/html/index.html
     THIS IS RHEL1 RUNNING RH6!
     
 
-Now let&#8217;s open up port 80 on the firewall:
+Now let's open up port 80 on the firewall:
 
     [root@rhel1 ~]# iptables -I INPUT 12 -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
     
 
-and let&#8217;s save the iptables configuration:
+and let's save the iptables configuration:
 
     [root@rhel1 ~]# service iptables save
     iptables: Saving firewall rules to /etc/sysconfig/iptables: 
     
 
-Now on the RH5 machine let&#8217;s run **elinks** and check if we can reach our server:
+Now on the RH5 machine let's run **elinks** and check if we can reach our server:
 
     [root@rhel2 ~]# elinks http://rhel1
     
@@ -430,7 +430,7 @@ If you server is available using a client running a chrome web browser, visiting
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/03/rhel1-apache-chrome.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/03/rhel1-apache-chrome.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/03/rhel1-apache-chrome.png" alt="rhel1 apache chrome RHCSA and RHCE Chapter 14 – Web Services" width="351" height="193" class="alignnone size-full wp-image-10242" title="RHCSA and RHCE Chapter 14 – Web Services" /></a>
 
-Now let&#8217;s create a sub-directory under the *DirectoryRoot* (**/var/www/html**) and create another html file there:
+Now let's create a sub-directory under the *DirectoryRoot* (**/var/www/html**) and create another html file there:
 
     [root@rhel1 ~]# mkdir /var/www/html/dir
     [root@rhel1 ~]# cat /var/www/html/dir/index.html
@@ -451,11 +451,11 @@ We can also check the access log and confirm that a client connected to our site
     [root@rhel1 ~]# tail -1 /var/log/httpd/access_log 192.168.2.3 - - [15/Mar/2014:12:19:21 -0600] "GET /dir/ HTTP/1.1" 200 38 "http://rhel1/dir" "ELinks/0.11.1 (textmode; Linux; 80x24-2)"
     
 
-That&#8217;s us connecting to **apache** with the **elinks** client and we can see that our IP is **192.168.2.3**
+That's us connecting to **apache** with the **elinks** client and we can see that our IP is **192.168.2.3**
 
 ### Securing Apache Sites
 
-Let&#8217;s deny access to the subdirectory that we created above (**dir**) from the rhel5 client with IP of **192.168.2.3**. There are two ways of doing this. The first is with the **Directory** Directive and the second is with **.htaccess** file. Let&#8217;s do the first one. In the above configuration we see that any configuration file under **/etc/httpd/conf.d** is included, so let&#8217;s create a configuration for our subdirectory. Here is what I ended up creating:
+Let's deny access to the subdirectory that we created above (**dir**) from the rhel5 client with IP of **192.168.2.3**. There are two ways of doing this. The first is with the **Directory** Directive and the second is with **.htaccess** file. Let's do the first one. In the above configuration we see that any configuration file under **/etc/httpd/conf.d** is included, so let's create a configuration for our subdirectory. Here is what I ended up creating:
 
     [root@rhel1 ~]# cat /etc/httpd/conf.d/dir-secure.conf 
     <Directory "/var/www/html/dir">
@@ -495,7 +495,7 @@ To use the second option (**.htaccess**), we first have to configure what **opti
     </Directory>
     
 
-We can see that **AllowOverride** is set to **None**, let&#8217;s allow **Limit** to be set in the **.htaccess** file, here is the configuration for that:
+We can see that **AllowOverride** is set to **None**, let's allow **Limit** to be set in the **.htaccess** file, here is the configuration for that:
 
     <Directory "/var/www/html">
        Options Indexes FollowSymLinks
@@ -530,7 +530,7 @@ We can go one step further and create a password file which contains a list of u
 > Apache needs to be configured in such a way that requires authorization via **.htpassword** when requests are made from outside the local area network, while not requiring authorization from requests made from within the local area network.
 > 
 > **Resolution**  
-> Please note that all commands will need to be run as the root user. First, an &#8220;**.htpasswd**&#8221; file will need to be created. This file will house the authorized user and password information for Apache.
+> Please note that all commands will need to be run as the root user. First, an "**.htpasswd**" file will need to be created. This file will house the authorized user and password information for Apache.
 > 
 >     # htpasswd -c .htpasswd user
 >     
@@ -564,7 +564,7 @@ We can go one step further and create a password file which contains a list of u
 
 ### Apache Authorization Example
 
-So let&#8217;s protect our sub-directory. First let&#8217;s create a **.htpasswd** file under our sub-directory:
+So let's protect our sub-directory. First let's create a **.htpasswd** file under our sub-directory:
 
     [root@rhel1 ~]# htpasswd -c /var/www/html/dir/.htpasswd user1
     New password: 
@@ -572,7 +572,7 @@ So let&#8217;s protect our sub-directory. First let&#8217;s create a **.htpasswd
     Adding password for user user1
     
 
-Now let&#8217;s modify our custom configuration for that sub-directory, here is how mine looked like after I was done:
+Now let's modify our custom configuration for that sub-directory, here is how mine looked like after I was done:
 
     [root@rhel1 ~]# cat /etc/httpd/conf.d/dir-secure.conf 
     <Directory "/var/www/html/dir">
@@ -599,7 +599,7 @@ To do the same thing with the **.htaccess** we will need to add **authconfig** t
 
 From the Deployment Guide:
 
-> The Apache HTTP Server&#8217;s built in virtual hosting allows the server to provide different information based on which IP address, hostname, or port is being requested.
+> The Apache HTTP Server's built in virtual hosting allows the server to provide different information based on which IP address, hostname, or port is being requested.
 > 
 > To create a name-based virtual host, find the virtual host container provided in **/etc/httpd/conf/httpd.conf** as an example, remove the hash sign (that is, #) from the beginning of each line, and customize the options according to your requirements as shown below.
 > 
@@ -625,7 +625,7 @@ From the Deployment Guide:
 
 #### Apache VirtualHost Example
 
-Let&#8217;s create a new virtualhost configuration. First let&#8217;s create a new DNS entry for **rhel1-vh** in our **/etc/hosts** on both the client and the server:
+Let's create a new virtualhost configuration. First let's create a new DNS entry for **rhel1-vh** in our **/etc/hosts** on both the client and the server:
 
 Here is the server:
 
@@ -649,7 +649,7 @@ and here is the client:
     rtt min/avg/max/mdev = 0.138/0.138/0.138/0.000 ms
     
 
-So now **rhel1-vh** is pointing to our rhel6 machine. Now let&#8217;s add a directory where we will host the virtualhost:
+So now **rhel1-vh** is pointing to our rhel6 machine. Now let's add a directory where we will host the virtualhost:
 
     [root@rhel1 ~]# mkdir /var/www/html/vh
     
@@ -660,7 +660,7 @@ and then add our test html file:
     THIS IS RHEL1-VH RUNNING RH6! Under VH
     
 
-Now let&#8217;s create a virtualhost configuration to point to that directory:
+Now let's create a virtualhost configuration to point to that directory:
 
     [root@rhel1 ~]# cat /etc/httpd/conf.d/rhel1-vh.conf
     NameVirtualHost rhel1-vh.local.com:80
@@ -674,7 +674,7 @@ Now let&#8217;s create a virtualhost configuration to point to that directory:
     </VirtualHost>
     
 
-Now let&#8217;s make sure our configuration is okay:
+Now let's make sure our configuration is okay:
 
     [root@rhel1 ~]# service httpd configtest
     Syntax OK
@@ -755,12 +755,12 @@ From the Deployment Guide:
 
 #### Setup an SSL Apache page
 
-First let&#8217;s install the SSL Apache module:
+First let's install the SSL Apache module:
 
     [root@rhel1 ~]# yum install mod_ssl
     
 
-Now let&#8217;s check out the configuration that was installed with that package:
+Now let's check out the configuration that was installed with that package:
 
     [root@rhel1 ~]# grep -vE '^#|^$' /etc/httpd/conf.d/ssl.conf 
     LoadModule ssl_module modules/mod_ssl.so
@@ -798,12 +798,12 @@ Looks like it creates yet another **virtualhost** to run on port **443** and it 
     SSLCertificateKeyFile /etc/pki/tls/private/localhost.key
     
 
-So let&#8217;s go ahead and generate a new SSL pair. First let&#8217;s install the **crypto-utils** package:
+So let's go ahead and generate a new SSL pair. First let's install the **crypto-utils** package:
 
     [root@rhel1 ~]# yum install crypto-utils
     
 
-Now let&#8217;s run it:
+Now let's run it:
 
     [root@rhel1 ~]# genkey rhel1.local.com
     
@@ -845,7 +845,7 @@ I just wanted to create a self signed SSL certificate, so I selected **NO** and 
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/03/genkey-p6.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/03/genkey-p6.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/03/genkey-p6.png" alt="genkey p6 RHCSA and RHCE Chapter 14 – Web Services" width="767" height="432" class="alignnone size-full wp-image-10265" title="RHCSA and RHCE Chapter 14 – Web Services" /></a>
 
-I opted out of that, since I didn&#8217;t want to enter a passphase every single time I restarted apache. Then I entered the information regarding the server:
+I opted out of that, since I didn't want to enter a passphase every single time I restarted apache. Then I entered the information regarding the server:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/03/genkey-p7.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/03/genkey-p7.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/03/genkey-p7.png" alt="genkey p7 RHCSA and RHCE Chapter 14 – Web Services" width="788" height="259" class="alignnone size-full wp-image-10266" title="RHCSA and RHCE Chapter 14 – Web Services" /></a>
 
@@ -876,14 +876,14 @@ After that the wizard stopped and I saw the following output:
     /etc/pki/tls/private/rhel1.local.com.key
     
 
-Now that I have an SSL certificate for my server let&#8217;s update the configuration to point to the newly created files. Here were the two lines that modified in the **/etc/httpd/conf.d/ssl.conf** file:
+Now that I have an SSL certificate for my server let's update the configuration to point to the newly created files. Here were the two lines that modified in the **/etc/httpd/conf.d/ssl.conf** file:
 
     [root@rhel1 ~]# grep ^SSLCertificate /etc/httpd/conf.d/ssl.conf
     SSLCertificateFile /etc/pki/tls/certs/rhel1.local.com.crt
     SSLCertificateKeyFile /etc/pki/tls/private/rhel1.local.com.key
     
 
-Now let&#8217;s check the configuration and list all the VirtualHosts:
+Now let's check the configuration and list all the VirtualHosts:
 
     [root@rhel1 ~]# httpd -S
     VirtualHost configuration:
@@ -907,14 +907,14 @@ To just check the virtualhost configuration, you can run the following:
     Syntax OK
     
 
-Finally let&#8217;s restart the service:
+Finally let's restart the service:
 
     [root@rhel1 ~]# service httpd restart
     Stopping httpd: httpd 
     Starting httpd:  httpd
     
 
-and also let&#8217;s open port 443 in the firewall:
+and also let's open port 443 in the firewall:
 
     [root@rhel1 ~]# iptables -I INPUT 13 -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
     [root@rhel1 ~]# service iptables save
@@ -930,7 +930,7 @@ I saw the following:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/03/rhel1-elinks-https.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/03/rhel1-elinks-https.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/03/rhel1-elinks-https.png" alt="rhel1 elinks https RHCSA and RHCE Chapter 14 – Web Services" width="766" height="453" class="alignnone size-full wp-image-10267" title="RHCSA and RHCE Chapter 14 – Web Services" /></a>
 
-If you connect from an actual browser, you will notice that the connection is not trusted (broken lock), that&#8217;s because we are using a self signed certificate:
+If you connect from an actual browser, you will notice that the connection is not trusted (broken lock), that's because we are using a self signed certificate:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/03/rhel1-https-chrome.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/03/rhel1-https-chrome.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/03/rhel1-https-chrome.png" alt="rhel1 https chrome RHCSA and RHCE Chapter 14 – Web Services" width="298" height="134" class="alignnone size-full wp-image-10268" title="RHCSA and RHCE Chapter 14 – Web Services" /></a>
 
@@ -995,7 +995,7 @@ You can also check the certificate information, by using **openssl**:
     ---
     
 
-We can see that it&#8217;s a self signed certificate.
+We can see that it's a self signed certificate.
 
 ## Squid Web Proxy
 
@@ -1144,12 +1144,12 @@ I also ran into a great RedHat Magazine article entitled <a href="http://magazin
 
 ### Squid Example
 
-So let&#8217;s try this out. First let&#8217;s block port 80 traffic to our RHEL6 machine, in our example we will reach the above sites that we created via the squid proxy. To remove the rule, run the following:
+So let's try this out. First let's block port 80 traffic to our RHEL6 machine, in our example we will reach the above sites that we created via the squid proxy. To remove the rule, run the following:
 
     [root@rhel1 ~]# iptables -D INPUT 12
     
 
-Now from our rhel5 machine, let&#8217;s try to connect to our site with **elinks**:
+Now from our rhel5 machine, let's try to connect to our site with **elinks**:
 
     [root@rhel2 ~]# elinks http://rhel1-vh
     
@@ -1158,7 +1158,7 @@ and I got the following error:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/03/rhel1-elinks-blocked2.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/03/rhel1-elinks-blocked2.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/03/rhel1-elinks-blocked2.png" alt="rhel1 elinks blocked2 RHCSA and RHCE Chapter 14 – Web Services" width="557" height="243" class="alignnone size-full wp-image-10290" title="RHCSA and RHCE Chapter 14 – Web Services" /></a>
 
-Now on the RH6 machine let&#8217;s install **squid**:
+Now on the RH6 machine let's install **squid**:
 
     [root@rhel1 ~]# yum install squid
     
@@ -1217,7 +1217,7 @@ and the port is setup to be 3128:
     http_port 3128
     
 
-Let&#8217;s start it up and see if it starts up:
+Let's start it up and see if it starts up:
 
     [root@rhel1 ~]# service squid start
     Starting squid: .[  OK  ]
@@ -1225,14 +1225,14 @@ Let&#8217;s start it up and see if it starts up:
     squid (pid  8960) is running...
     
 
-Now let&#8217;s open up port **3128** on the firewall:
+Now let's open up port **3128** on the firewall:
 
     [root@rhel1 ~]# iptables -I INPUT 13 -m state --state NEW -m tcp -p tcp --dport 3128 -j ACCEPT
     [root@rhel1 ~]# service iptables save
     iptables: Saving firewall rules to /etc/sysconfig/iptables: 
     
 
-Now let&#8217;s configure the rhel5 machine to go through the proxy:
+Now let's configure the rhel5 machine to go through the proxy:
 
     [root@rhel2 ~]# http_proxy=rhel1:3128 elinks http://rhel1-vh
     

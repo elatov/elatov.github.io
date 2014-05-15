@@ -49,29 +49,29 @@ I was getting the following messages on the my Fedora machine:
     [10650.000047] [Hardware Error]: Machine check events logged
     
 
-I decided to dust out the machine and to add some new thermal paste to alleviate the over heating. In the process of dusting out the machine, I noticed that the fan on my video card doesn&#8217;t work. Also, after I applied a brand new layer of thermal paste, my retention clip for the heat sink broke. My &#8220;alleviation&#8221; plan was not very successful, to say the least.
+I decided to dust out the machine and to add some new thermal paste to alleviate the over heating. In the process of dusting out the machine, I noticed that the fan on my video card doesn't work. Also, after I applied a brand new layer of thermal paste, my retention clip for the heat sink broke. My "alleviation" plan was not very successful, to say the least.
 
-I decided to order a brand new video card and a new heat sink ( I couldn&#8217;t find the retention clip by it self, every where I looked it always came with the heat sink). While I was in the ordering mood I decided to get an s-video to composite cable as well. This way I could connect this old PC to my TV so it can connect as a client to my media server. Here the parts I ordered:
+I decided to order a brand new video card and a new heat sink ( I couldn't find the retention clip by it self, every where I looked it always came with the heat sink). While I was in the ordering mood I decided to get an s-video to composite cable as well. This way I could connect this old PC to my TV so it can connect as a client to my media server. Here the parts I ordered:
 
 *   <a href="http://www.newegg.com/Product/Product.aspx?Item=N82E16814130452&name=Desktop-Graphics-Cards" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.newegg.com/Product/Product.aspx?Item=N82E16814130452&name=Desktop-Graphics-Cards']);">Nvidia GeForce 6200 AGP Video Card</a>
-*   <a href="http://www.amazon.com/dp/B004MUDR36/?tag=virtuallyhyper.com-20" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.amazon.com/dp/B004MUDR36/?tag=virtuallyhyper.com-20']);" rel="nofollow">Intel Aluminum Heat Sink & 2.5&#8243; Fan w/Retention Clip</a>
+*   <a href="http://www.amazon.com/dp/B004MUDR36/?tag=virtuallyhyper.com-20" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.amazon.com/dp/B004MUDR36/?tag=virtuallyhyper.com-20']);" rel="nofollow">Intel Aluminum Heat Sink & 2.5" Fan w/Retention Clip</a>
 *   <a href="http://www.newegg.com/Product/Product.aspx?Item=9SIA0PG08P9430" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.newegg.com/Product/Product.aspx?Item=9SIA0PG08P9430']);">S-Video with 3.5mm Audio to 3 RCA Composite Cable</a>
 
 After all the parts came in: I added the video card, applied a new layer of thermal paste, clipped in my new heat sink, and connected the video card using s-video port to the TV with the composite cable.
 
-The machine was just used for sharing files and didn&#8217;t even have Xorg installed on it. So I decided to install Xorg on the machine. I also knew that I would need a display manager so I went with GDM. I then installed both:
+The machine was just used for sharing files and didn't even have Xorg installed on it. So I decided to install Xorg on the machine. I also knew that I would need a display manager so I went with GDM. I then installed both:
 
     moxz:~> sudo yum install gdm xorg-x11-server-Xorg
     
 
-Next I needed to set the computer to use GDM as my display manager. From the Fedora Documentation &#8220;<a href="http://docs.fedoraproject.org/en-US/Fedora/12/html/Deployment_Guide/s2-x-runlevels-5.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://docs.fedoraproject.org/en-US/Fedora/12/html/Deployment_Guide/s2-x-runlevels-5.html']);">Runlevel 5</a>&#8220;:
+Next I needed to set the computer to use GDM as my display manager. From the Fedora Documentation "<a href="http://docs.fedoraproject.org/en-US/Fedora/12/html/Deployment_Guide/s2-x-runlevels-5.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://docs.fedoraproject.org/en-US/Fedora/12/html/Deployment_Guide/s2-x-runlevels-5.html']);">Runlevel 5</a>":
 
 > **20.5.2. Runlevel 5**
 > 
 > When the system boots into runlevel 5, a special X client application called a display manager is launched. A user must authenticate using the display manager before any desktop environment or window managers are launched. Depending on the desktop environments installed on the system, three different display managers are available to handle user authentication.
 > 
 > *   GNOME — The default display manager for Fedora, GNOME allows the user to configure language settings, shutdown, restart or log in to the system.
-> *   KDE — KDE&#8217;s display manager which allows the user to shutdown, restart or log in to the system.
+> *   KDE — KDE's display manager which allows the user to shutdown, restart or log in to the system.
 > *   xdm — A very basic display manager which only lets the user log in to the system. When booting into runlevel 5, the prefdm script determines the preferred display manager by referencing the /etc/sysconfig/desktop file
 
 I looked over the */usr/share/doc/initscripts-9.37.1/sysconfig.txt* file , and I saw the following:
@@ -121,7 +121,7 @@ I ran the following to setup my Fedora machine to boot into runlevel 5:
     moxz:~>sudo ln -sf /lib/systemd/system/graphical.target /etc/systemd/system/default.target
     
 
-I rebooted my machine, but when X started the display manager just kept scrolling up and down like the refresh rate was off or something. I then ran across this article &#8220;<a href="http://en.wikibooks.org/wiki/NVidia/TV-OUT" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikibooks.org/wiki/NVidia/TV-OUT']);">nVidia/TV-OUT</a>&#8221; and it had a really good step by step process on how to generate a proper *xorg.conf* file for a tv-out setup. After following the instructions, I had created the following *xorg.conf* file:
+I rebooted my machine, but when X started the display manager just kept scrolling up and down like the refresh rate was off or something. I then ran across this article "<a href="http://en.wikibooks.org/wiki/NVidia/TV-OUT" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikibooks.org/wiki/NVidia/TV-OUT']);">nVidia/TV-OUT</a>" and it had a really good step by step process on how to generate a proper *xorg.conf* file for a tv-out setup. After following the instructions, I had created the following *xorg.conf* file:
 
     moxz:~>cat /etc/X11/xorg.conf 
     Section "Device" 
@@ -156,7 +156,7 @@ I rebooted my machine, but when X started the display manager just kept scrollin
     EndSection
     
 
-Even after that xorg.conf file was in place it still didn&#8217;t help. I then decided to install the nVidia driver. Here a <a href="http://www.nvidia.com/object/linux_display_ia32_1.0-7664.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.nvidia.com/object/linux_display_ia32_1.0-7664.html']);">link</a> to the driver. As I tried to install the driver:
+Even after that xorg.conf file was in place it still didn't help. I then decided to install the nVidia driver. Here a <a href="http://www.nvidia.com/object/linux_display_ia32_1.0-7664.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.nvidia.com/object/linux_display_ia32_1.0-7664.html']);">link</a> to the driver. As I tried to install the driver:
 
     moxz:~>chmod +x NVIDIA-Linux-x86-1.0-7664-pkg1.run 
     moxz:~>sudo init 3 
@@ -177,7 +177,7 @@ As I ran into that issue I started to think; what would happen if I installed a 
 2.  Install the necessary nVidia libraries
 3.  Install the kernel nNidia module
 
-I did some more digging around and I discovered that for step #3 there are two options. From &#8220;<a href="http://www.unixmen.com/how-to-install-nvidia-drivers-in-fedora-13-and-14/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.unixmen.com/how-to-install-nvidia-drivers-in-fedora-13-and-14/']);">How To Install Nvidia Drivers In Fedora 17 Beefy Miracle</a>&#8220;:
+I did some more digging around and I discovered that for step #3 there are two options. From "<a href="http://www.unixmen.com/how-to-install-nvidia-drivers-in-fedora-13-and-14/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.unixmen.com/how-to-install-nvidia-drivers-in-fedora-13-and-14/']);">How To Install Nvidia Drivers In Fedora 17 Beefy Miracle</a>":
 
 > Now install Nvidia drivers:
 > 
@@ -197,9 +197,9 @@ The *akmod* option sounded perfect for my setup. I also checked out the RPM Fusi
 > 
 > **Quick Overview**
 > 
-> RPM Fusion/Livna distributes kernel-modules as kmod packages that contain modules precompiled for the latest kernels released by Fedora. That works fine for most people, but it doesn&#8217;t work on systems with use different kernel &#8212; like a self-compiled kernel, an older Fedora kernel or the quickly changing kernels from updates-testing/rawhide. The kmods-srpms can easily be rebuilt for those kernels using rpmbuild with a kmod-specific parameter that defines what kernel to build the kmod for. But that requires some knowledge of how to build rpms; this is what the script akmods tries to make easier for the end user, as it does all the steps required to build a kmod.rpm for the running kernel from a kmod-srpm.
+> RPM Fusion/Livna distributes kernel-modules as kmod packages that contain modules precompiled for the latest kernels released by Fedora. That works fine for most people, but it doesn't work on systems with use different kernel - like a self-compiled kernel, an older Fedora kernel or the quickly changing kernels from updates-testing/rawhide. The kmods-srpms can easily be rebuilt for those kernels using rpmbuild with a kmod-specific parameter that defines what kernel to build the kmod for. But that requires some knowledge of how to build rpms; this is what the script akmods tries to make easier for the end user, as it does all the steps required to build a kmod.rpm for the running kernel from a kmod-srpm.
 > 
-> But the user still needs to do something manually when he needs a kmod for a newly installed kernel. This is what the akmodsd daemon is trying to fix: it&#8217;s a script normally started from init on bootup that checks if all kmods are present. If a kmod is not found then akmods tries to rebuild kmod.srpms found in a certain place in the filesystem; if that works it will install the rebuilt kmod into the running kernel automatically.
+> But the user still needs to do something manually when he needs a kmod for a newly installed kernel. This is what the akmodsd daemon is trying to fix: it's a script normally started from init on bootup that checks if all kmods are present. If a kmod is not found then akmods tries to rebuild kmod.srpms found in a certain place in the filesystem; if that works it will install the rebuilt kmod into the running kernel automatically.
 > 
 > This is similar to dkms, but has one important benefit: one only needs to maintain a single kmod spec file which can be used both in the repos buildsystem and on the clients systems if needed.
 
@@ -212,11 +212,11 @@ So here is what I did to install the nVidia driver:
     moxz:~>yum install xorg-x11-drv-nvidia-libs moxz:~>yum install akmod-nvidia
     
 
-After I had installed the nVidia driver, I looked over the nVidia page entitled &#8220;<a href="http://http.download.nvidia.com/XFree86/Linux-x86/1.0-8762/README/chapter-03.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://http.download.nvidia.com/XFree86/Linux-x86/1.0-8762/README/chapter-03.html']);">Configuring X for the NVIDIA Driver</a>&#8221; and from that page:
+After I had installed the nVidia driver, I looked over the nVidia page entitled "<a href="http://http.download.nvidia.com/XFree86/Linux-x86/1.0-8762/README/chapter-03.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://http.download.nvidia.com/XFree86/Linux-x86/1.0-8762/README/chapter-03.html']);">Configuring X for the NVIDIA Driver</a>" and from that page:
 
 > **Using nvidia-xconfig to configure the X server**
 > 
-> nvidia-xconfig will find the X configuration file and modify it to use the NVIDIA X driver. In most cases, you can simply answer &#8220;Yes&#8221; when the installer asks if it should run it. If you need to reconfigure your X server later, you can run nvidia-xconfig again from a terminal. nvidia-xconfig will make a backup copy of your configuration file before modifying it.
+> nvidia-xconfig will find the X configuration file and modify it to use the NVIDIA X driver. In most cases, you can simply answer "Yes" when the installer asks if it should run it. If you need to reconfigure your X server later, you can run nvidia-xconfig again from a terminal. nvidia-xconfig will make a backup copy of your configuration file before modifying it.
 
 I decided to start from scratch just to see what happens, so here is what I did:
 
@@ -287,7 +287,7 @@ The last command created the following *xorg.conf* file:
     EndSection
     
 
-I then rebooted and the boot up process looked better but GDM didn&#8217;t even start. I then ran across this article &#8220;<a href="http://www.if-not-true-then-false.com/2012/fedora-17-nvidia-guide/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.if-not-true-then-false.com/2012/fedora-17-nvidia-guide/']);">Fedora 17 nVidia Drivers Install Guide (disable nouveau driver)</a>&#8220;. From that article:
+I then rebooted and the boot up process looked better but GDM didn't even start. I then ran across this article "<a href="http://www.if-not-true-then-false.com/2012/fedora-17-nvidia-guide/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.if-not-true-then-false.com/2012/fedora-17-nvidia-guide/']);">Fedora 17 nVidia Drivers Install Guide (disable nouveau driver)</a>". From that article:
 
 > 1.  Remove/disable nouveau drivers from kernel initramfs `## Backup old initramfs nouveau image`  
 >     `mv /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r)-nouveau.img`  
@@ -357,7 +357,7 @@ After I ran that I also noticed that the *nouveau* module was actually blacklist
     blacklist nouveau
     
 
-One more reboot and my GDM finally started up without refresh issues.I then tried to login, but my keyboard wasn&#8217;t working. I checked out */var/log/Xorg.0.log* file and I saw the following:
+One more reboot and my GDM finally started up without refresh issues.I then tried to login, but my keyboard wasn't working. I checked out */var/log/Xorg.0.log* file and I saw the following:
 
     [ 44868.805] (EE) Failed to load module "evdev" (module does not exist, 0) 
     [ 44868.805] (EE) No input driver matching `evdev' 
@@ -377,7 +377,7 @@ I then installed the **evdev** module:
     moxz:~> sudo yum install -y xorg-x11-drv-evdev.i686
     
 
-After that, I restarted and the keyboard started to work with Xorg just fine. I also wanted to ensure that the *nouveau* wasn&#8217;t loaded:
+After that, I restarted and the keyboard started to work with Xorg just fine. I also wanted to ensure that the *nouveau* wasn't loaded:
 
     moxz:~>lsmod | grep nouveau 
     moxz:~>lsmod | grep nvidia 
@@ -421,7 +421,7 @@ I then generated a new grub menu:
     Found Microsoft Windows XP Professional on /dev/sda1 done
     
 
-After I rebooted the font actually looked readable but it was really small. I tried to increase the font but for some reason I couldn&#8217;t make it anything above size 16. I ssh&#8217;ed to the machine and I checked out the available fonts:
+After I rebooted the font actually looked readable but it was really small. I tried to increase the font but for some reason I couldn't make it anything above size 16. I ssh'ed to the machine and I checked out the available fonts:
 
     moxz:~>ls /lib/kbd/consolefonts/ | grep latar 
     latarcyrheb-sun16.psfu.gz 
@@ -435,7 +435,7 @@ I tried setting a smaller font, and I saw the change on the screen:
     Loading Unicode mapping table...
     
 
-but as soon as I would try anything higher it didn&#8217;t work:
+but as soon as I would try anything higher it didn't work:
 
     moxz:~> sudo setfont -v latarcyrheb-sun32 -C /dev/tty3 
     Loading 512-char 16x32 font from file /lib/kbd/consolefonts/latarcyrheb-sun32.psfu.gz 
@@ -480,14 +480,14 @@ I already had the top one, so I went ahead and installed the *terminus* fonts. A
     ter-*f  framebuffer-bold
     
 
-So I tried loading the &#8216;&#42;ter-v&#42;*&#8217; one (since it included most of the fonts and encodings), like so:
+So I tried loading the '&#42;ter-v&#42;*' one (since it included most of the fonts and encodings), like so:
 
     moxz:~>sudo setfont -v ter-v32n -C /dev/tty3 
     Loading 512-char 16x32 font from file /lib/kbd/consolefonts/ter-v32n.psf.gz putfont: 
     KDFONTOP: Invalid argument
     
 
-But it still gave me the same error. I then ran across <a href="http://ubuntuforums.org/showthread.php?t=1667602" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://ubuntuforums.org/showthread.php?t=1667602']);">this</a> Ubuntu forum. They fixed the issue by changing the console resolution via the *vga=792* option in their grub configuration. I wanted to find out what setting I should use . After some googling around I ran into this article &#8220;<a href="http://forum.linuxcareer.com/threads/1661-Change-tty-font-size-with-Grub-2-boot-console-resolution" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://forum.linuxcareer.com/threads/1661-Change-tty-font-size-with-Grub-2-boot-console-resolution']);">Change tty font size with Grub 2 boot console resolution</a>&#8220;. From the article:
+But it still gave me the same error. I then ran across <a href="http://ubuntuforums.org/showthread.php?t=1667602" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://ubuntuforums.org/showthread.php?t=1667602']);">this</a> Ubuntu forum. They fixed the issue by changing the console resolution via the *vga=792* option in their grub configuration. I wanted to find out what setting I should use . After some googling around I ran into this article "<a href="http://forum.linuxcareer.com/threads/1661-Change-tty-font-size-with-Grub-2-boot-console-resolution" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://forum.linuxcareer.com/threads/1661-Change-tty-font-size-with-Grub-2-boot-console-resolution']);">Change tty font size with Grub 2 boot console resolution</a>". From the article:
 
 > Increasing/decreasing font size on tty consoles is linked to a console resolution. Therefore, to increase your font size you need to decrease a console screen resolution by changing grub2 default settings. Please note that your Ubuntu Linux is using grub2 so looking inside /boot/grub/menu.lst would not do any help. Instead we concentrate on /etc/default/grub file.
 
@@ -509,7 +509,7 @@ and then I regenerated my *grub.cfg* file:
     Found Microsoft Windows XP Professional on /dev/sda1 done
     
 
-I then rebooted and I was able to change my font to anything I wanted. I hit CTRL-ALT-F3 on the machine, and then I ssh&#8217;ed to the machine and ran the following:
+I then rebooted and I was able to change my font to anything I wanted. I hit CTRL-ALT-F3 on the machine, and then I ssh'ed to the machine and ran the following:
 
     moxz:~>sudo setfont -v latarcyrheb-sun32 -C /dev/tty3 
     Loading 512-char 16x32 font from file /lib/kbd/consolefonts/latarcyrheb-sun32.psfu.gz 
@@ -534,18 +534,18 @@ Searching for that error on goodle, I saw <a href="http://askubuntu.com/question
 > 
 > The default is platform-specific. On platforms with a native text mode (such as PC BIOS platforms), the default is ‘text’. Otherwise the default may be ‘auto’ or a specific video mode.
 > 
-> This variable is often set by &#8220;GRUB\_GFXPAYLOAD\_LINUX&#8221;
+> This variable is often set by "GRUB\_GFXPAYLOAD\_LINUX"
 
 I then ran across <a href="https://help.ubuntu.com/community/ChangeTTYResolution" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://help.ubuntu.com/community/ChangeTTYResolution']);">ChangeTTYResolution</a>. From that article:
 
 > 1.  Karmic Koala has switched to GRUB 2, and now the settings can be found in the file /etc/default/grub
-> 2.  Resolutions available to GRUB 2 can be displayed by typing vbeinfo in the GRUB 2 command line. The command line is accessed by typing &#8220;c&#8221; when the main GRUB 2 menu screen is displayed. (Hold the left shift key pressed before ubuntu loads to access it)
+> 2.  Resolutions available to GRUB 2 can be displayed by typing vbeinfo in the GRUB 2 command line. The command line is accessed by typing "c" when the main GRUB 2 menu screen is displayed. (Hold the left shift key pressed before ubuntu loads to access it)
 > 3.  Open /etc/default/grub with your text editor with root privilege. Add the following new line using your preferred resolution-depth from the list that vbeinfo gave you. It should be like this if you have a 1280&#215;800 screen:
 >     
 >         GRUB_GFXPAYLOAD_LINUX=1280x800
 >         
 > 
-> 4.  Save the file and exit. (If you can&#8217;t save the file you haven&#8217;t opened it as root, go back and execute gksudo gedit /etc/default/grub providing your password.)
+> 4.  Save the file and exit. (If you can't save the file you haven't opened it as root, go back and execute gksudo gedit /etc/default/grub providing your password.)
 > 
 > 5.  Execute the command
 >     
@@ -554,7 +554,7 @@ I then ran across <a href="https://help.ubuntu.com/community/ChangeTTYResolution
 > 
 > 6.  Restart your computer.
 
-I rebooted the machine and then in grub menu typed &#8216;c&#8217;. That went into the grub shell. From there I ran the following:
+I rebooted the machine and then in grub menu typed 'c'. That went into the grub shell. From there I ran the following:
 
     set pager=1 
     vbeinfo
@@ -580,7 +580,7 @@ After I rebooted the font looked awesome. To change the font permanently you can
     SYSFONT="ter-v32n"
     
 
-and the font change will stay across reboots. After you make the above change, you can make sure it&#8217;s working by running:
+and the font change will stay across reboots. After you make the above change, you can make sure it's working by running:
 
     moxz:~>sudo setsysfont
     
@@ -593,9 +593,9 @@ So *setsysfont* will read the defined font from */etc/sysconfig/i18n* and apply 
 
 The last thing I wanted to do is setup XBMC to login automatically. After I installed GDM, I noticed that one of the drop down options for a window manager was XBMC. So all I had to do was run *gdmsetup* and set my user to auto login to that session. I was surprised to learn that *gdmsetup* was deprecated and the replacement utility is currently under development. For more information check out <a href="https://bugzilla.redhat.com/show_bug.cgi?id=439881" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://bugzilla.redhat.com/show_bug.cgi?id=439881']);">this</a> RHEL bug. From the bugzilla page:
 
-> http://fedoraproject.org/wiki/Features/NewGdm has the enlightening text for &#8220;Release notes&#8221;: Explain that gdmsetup got replaced by a yet-to-be-written new configuration tool
+> http://fedoraproject.org/wiki/Features/NewGdm has the enlightening text for "Release notes": Explain that gdmsetup got replaced by a yet-to-be-written new configuration tool
 
-After looking over &#8220;<a href="https://wiki.archlinux.org/index.php/GDM#GDM_Will_Not_Load_After_Attempting_to_Set-Up_Automatic_Login" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.archlinux.org/index.php/GDM#GDM_Will_Not_Load_After_Attempting_to_Set-Up_Automatic_Login']);">Custom GDM Configuration For Auto And Timed Login</a>&#8221; and <a href="https://help.gnome.org/admin/gdm/stable/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://help.gnome.org/admin/gdm/stable/']);">Gnome Display Manager Reference Manual</a>, I ended up adding the following:
+After looking over "<a href="https://wiki.archlinux.org/index.php/GDM#GDM_Will_Not_Load_After_Attempting_to_Set-Up_Automatic_Login" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.archlinux.org/index.php/GDM#GDM_Will_Not_Load_After_Attempting_to_Set-Up_Automatic_Login']);">Custom GDM Configuration For Auto And Timed Login</a>" and <a href="https://help.gnome.org/admin/gdm/stable/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://help.gnome.org/admin/gdm/stable/']);">Gnome Display Manager Reference Manual</a>, I ended up adding the following:
 
     [daemon] 
     AutomaticLoginEnable=true 
@@ -613,7 +613,7 @@ to the */etc/gdm/custom.conf* file. You can get a list of available desktop sess
     XBMC.desktop
     
 
-So I only had icewm and XBMC installed. After I added the above and rebooted, the XMBC &#8220;window manager&#8221; started up automatically.
+So I only had icewm and XBMC installed. After I added the above and rebooted, the XMBC "window manager" started up automatically.
 
 If for whatever reason, you need to have a second non-XBMC X-session, you can hit CTRL-ALT-F3, login as a regular user, and define a window manager you want to use by default. This is done by creating a *.xinitrc* file and specifying the window manager of your choice. Here is how mine looked like:
 
@@ -630,7 +630,7 @@ That will start a second X server with icewm as a window manager. When you are d
 
 After everything was setup I went ahead and installed an app on my android phone to remotely control the XBMC Media Center. Here is a <a href="http://code.google.com/p/android-xbmcremote" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://code.google.com/p/android-xbmcremote']);">link</a> to the app.
 
-After I installed &#8220;XBMC Remote&#8221; on my phone, I enabled the &#8220;XBMC Media Center&#8221; to be controlled remotely. To do that, you have to go to &#8220;System&#8221; -> &#8220;Settings&#8221; -> &#8220;Network&#8221; -> &#8220;Services&#8221; -> and check &#8220;Allow Control of XBMC via HTTP&#8221;. Also set a password for authentication purposes. Here is a screenshot of how the config looks like:
+After I installed "XBMC Remote" on my phone, I enabled the "XBMC Media Center" to be controlled remotely. To do that, you have to go to "System" -> "Settings" -> "Network" -> "Services" -> and check "Allow Control of XBMC via HTTP". Also set a password for authentication purposes. Here is a screenshot of how the config looks like:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/10/xbmc_remote_control.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/10/xbmc_remote_control.png']);"><img class="alignnone size-full wp-image-4348" title="xbmc_remote_control" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/xbmc_remote_control.png" alt="xbmc remote control Setup Fedora 17 with nVidia GeForce 6200 Video Card to Connect to a TV and Function as an XBMC Media Center" width="1280" height="800" /></a>
 

@@ -189,7 +189,7 @@ The is a lot of good information in VMware KB <a href="http://kb.vmware.com/kb/1
 	>     Forcing shutdown of VMware VirtualCenter now  
 	>     
 
-After that it has a lot of different steps to figure out why the service didn&#8217;t start. Also try to stop and start the vCenter Service manually and check out the event viewer for any errors:
+After that it has a lot of different steps to figure out why the service didn't start. Also try to stop and start the vCenter Service manually and check out the event viewer for any errors:
 
 	  
 	C:\Users\Administrator>net stop "VMware VirtualCenter Server"  
@@ -242,7 +242,7 @@ And from KB 1003928:
 >     *   Once the test is successful, click **OK** to exit the ODBC Data Source Administrator window.</ol> </blockquote> 
 >     ### Troubleshoot the ESXi firewall
 >     
->     From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf']);">vSphere Command-Line Interface Concepts and Examples</a>&#8220;:
+>     From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf']);">vSphere Command-Line Interface Concepts and Examples</a>":
 >     
 >     > **To limit shell access**
 >     > 
@@ -436,5 +436,5 @@ And from KB 1003928:
 >     >             
 >     >             ### Utilize Direct Console User Interface (DCUI) and ESXi Shell to troubleshoot, configure, and monitor an environment
 >     >             
->     >             This was covered in &#8220;<a href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-3-troubleshoot-network-performance-and-connectivity/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-3-troubleshoot-network-performance-and-connectivity/']);">VCAP5-DCA Objective 6.3</a>&#8221;
+>     >             This was covered in "<a href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-3-troubleshoot-network-performance-and-connectivity/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-3-troubleshoot-network-performance-and-connectivity/']);">VCAP5-DCA Objective 6.3</a>"
 >     >             

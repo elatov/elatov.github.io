@@ -24,11 +24,11 @@ I had some additional steps to the above guides and they kept piling up, so I de
 2.  Hold the **ESC** and **REFRESH** keys as you press the Power button to get into recovery mode.
 3.  Press **CTRL+D** to go into developer mode.
 
-This <a href="http://www.amirkurtovic.com/blog/installing-chrubuntu-on-the-samsung-arm-chromebook-a-step-by-step-photo-guide/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.amirkurtovic.com/blog/installing-chrubuntu-on-the-samsung-arm-chromebook-a-step-by-step-photo-guide/']);">site</a> has good pictures for the process. I didn&#8217;t want to mess up the ChromeOS install, so I got an SD card just in case. Therefore all the below processes apply to an install of ChrUbuntu onto an SD Card.
+This <a href="http://www.amirkurtovic.com/blog/installing-chrubuntu-on-the-samsung-arm-chromebook-a-step-by-step-photo-guide/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.amirkurtovic.com/blog/installing-chrubuntu-on-the-samsung-arm-chromebook-a-step-by-step-photo-guide/']);">site</a> has good pictures for the process. I didn't want to mess up the ChromeOS install, so I got an SD card just in case. Therefore all the below processes apply to an install of ChrUbuntu onto an SD Card.
 
 ### 2. Install Chrubuntu 12.04 on External SD-Card
 
-Once the Chromebook is in Developer Mode, it will reboot and show you a screen about OS Verification. To start booting into Developer Mode, just press **CTRL+D**. Once booted up, don&#8217;t even login, just connect to the Wireless Network. Next open up a local TTY by pressing **CTRL+ALT** and the **FORWARD** key. Then for the username type &#8216;**chronos**&#8216; and it will log you into a shell without a password. Now let&#8217;s set the BIOS to be in Developer Mode with this command:
+Once the Chromebook is in Developer Mode, it will reboot and show you a screen about OS Verification. To start booting into Developer Mode, just press **CTRL+D**. Once booted up, don't even login, just connect to the Wireless Network. Next open up a local TTY by pressing **CTRL+ALT** and the **FORWARD** key. Then for the username type '**chronos**' and it will log you into a shell without a password. Now let's set the BIOS to be in Developer Mode with this command:
 
     chromeos-firmwareupdate –mode=todev
     
@@ -61,7 +61,7 @@ or follow the instructions laid out in <a href="https://github.com/jbdatko/chrub
 
 ### 4. Fix the Sound
 
-You will also notice that the sound doesn&#8217;t work. To fix it, we can follow the instructions laid out in <a href="http://archive.rebeccablacktech.com/g/thread/30436935" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://archive.rebeccablacktech.com/g/thread/30436935']);">this</a> site. Basically fire up &#8216;**alsamixer**&#8216; and unmute (by pressing &#8216;m&#8217;) the following fields:
+You will also notice that the sound doesn't work. To fix it, we can follow the instructions laid out in <a href="http://archive.rebeccablacktech.com/g/thread/30436935" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://archive.rebeccablacktech.com/g/thread/30436935']);">this</a> site. Basically fire up '**alsamixer**' and unmute (by pressing 'm') the following fields:
 
     Left Speaker Mixer Left DAC1
     Left Speaker Mixer Right DAC1
@@ -78,7 +78,7 @@ The above link provides good screenshots of the process if you are not comfortab
 
 ### 5. Install Chromium
 
-To install Chromium on ChrUbuntu, we first have to enable the &#8220;universe&#8221; repositories. Edit the **/etc/apt/source.list** file and comment out the following lines:
+To install Chromium on ChrUbuntu, we first have to enable the "universe" repositories. Edit the **/etc/apt/source.list** file and comment out the following lines:
 
     deb http://ports.ubuntu.com/ubuntu-ports/ precise universe
     deb-src http://ports.ubuntu.com/ubuntu-ports/ precise universe
@@ -96,7 +96,7 @@ then update the repos and install the package:
 
 This is the hardest of the steps. First, reboot into regular ChromeOS and copy the flash plugin to your home directory of the ChrUbuntu install (ChromeOS will automatically mount the SD Card that has ChrUbuntu installed).
 
-After you login into ChromeOS, press **CTRL+ALT+T** and that will start up &#8220;crosh&#8221;:
+After you login into ChromeOS, press **CTRL+ALT+T** and that will start up "crosh":
 
     Welcome to crosh, type 'help' for a list of commands.
     crosh> shell
@@ -123,7 +123,7 @@ Also check out the version of the plugin like so:
     MIME_TYPES="application/x-shockwave-flash"
     
 
-Then reboot into Ubuntu and it will automatically login with the username of &#8220;**user**&#8221; and password &#8220;**user**&#8220;. Once logged in, copy the new file to Chromium&#8217;s plugin directory:
+Then reboot into Ubuntu and it will automatically login with the username of "**user**" and password "**user**". Once logged in, copy the new file to Chromium's plugin directory:
 
     sudo cp libpepflashplayer.so /usr/lib/chromium-browser/plugins/.
     
@@ -133,7 +133,7 @@ Then edit the **/etc/chromium-browser/default** file and add the following:
     CHROMIUM_FLAGS="--ppapi-flash-path=/usr/lib/chromium-browser/plugins/libpepflashplayer.so --ppapi-flash-version=11.6.602.171 --ppapi-flash-args=enable_hw_video_decode=0,enable_stagevideo_auto=0,enable_trace_to_console=0"
     
 
-The version in the command matches of what we found in the info file above. That should be it, now you can use ChrUbuntu with almost all the functionality that you need. I am planning to update to ChrUbuntu 13.04, so stay tuned&#8230;
+The version in the command matches of what we found in the info file above. That should be it, now you can use ChrUbuntu with almost all the functionality that you need. I am planning to update to ChrUbuntu 13.04, so stay tuned...
 
 <div class="SPOSTARBUST-Related-Posts">
   <H3>

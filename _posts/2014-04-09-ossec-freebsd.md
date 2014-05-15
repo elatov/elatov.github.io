@@ -29,7 +29,7 @@ From their <a href="http://www.ossec.net/?page_id=169" onclick="javascript:_gaq.
 
 #### Install OSSEC Server on FreeBSD
 
-Let&#8217;s go ahead with the centralized server approach. I checked out ports and I did find a port for OSSEC:
+Let's go ahead with the centralized server approach. I checked out ports and I did find a port for OSSEC:
 
     moxz:~>cd /usr/ports
     moxz:/usr/ports>make search name=ossec
@@ -93,13 +93,13 @@ After the install was finished, I saw the following:
     
     
 
-Let&#8217;s go ahead and enable the service:
+Let's go ahead and enable the service:
 
     moxz:~>tail -1 /etc/rc.conf
     ossechids_enable="YES"
     
 
-Now let&#8217;s configure the server the configuration. I modified the file to contain the following:
+Now let's configure the server the configuration. I modified the file to contain the following:
 
       <global>
         <email_notification>yes</email_notification>
@@ -114,7 +114,7 @@ Now let&#8217;s configure the server the configuration. I modified the file to c
       </rootcheck>
     
 
-I also cleaned up the **localfile** section and removed any log files that didn&#8217;t exist on the system. I ended up just having the following:
+I also cleaned up the **localfile** section and removed any log files that didn't exist on the system. I ended up just having the following:
 
     <localfile>
         <log_format>syslog</log_format>
@@ -146,7 +146,7 @@ Then I just started the service:
     Completed.
     
 
-Lastly let&#8217;s open up UDP 1514 on the host. This is the port the OSSEC server is listening on. I was running **pf** on the FreeBSD 10 machine. So I added the following to my **/etc/pf.conf** file:
+Lastly let's open up UDP 1514 on the host. This is the port the OSSEC server is listening on. I was running **pf** on the FreeBSD 10 machine. So I added the following to my **/etc/pf.conf** file:
 
     # accept osssec agent sessions
     pass in on $my_int proto udp from $priv_net to any port 1514 keep state
@@ -204,14 +204,14 @@ Then running the following installed the client:
     elatov@fed:~$ sudo yum install ossec-hids-client
     
 
-If you don&#8217;t want to install the repository, you can manually install the RPMs:
+If you don't want to install the repository, you can manually install the RPMs:
 
     elatov@fed:~$ wget http://www3.atomicorp.com/channels/atomic/fedora/19/x86_64/RPMS/ossec-hids-2.7.1-36.fc19.art.x86_64.rpm
     elatov@fed:~$ wget http://www3.atomicorp.com/channels/atomic/fedora/19/x86_64/RPMS/ossec-hids-client-2.7.1-36.fc19.art.x86_64.rpm
     elatov@fed:~$ sudo yum localinstall ossec-hids-2.7.1-36.fc19.art.x86_64.rpm ossec-hids-client-2.7.1-36.fc19.art.x86_64.rpm
     
 
-Now let&#8217;s configure the agent. I modified the **/var/ossec/etc/ossec.conf** file to have the following:
+Now let's configure the agent. I modified the **/var/ossec/etc/ossec.conf** file to have the following:
 
     <client>
         <server-ip>10.0.0.3</server-ip>
@@ -236,7 +236,7 @@ And I also cleaned up which log files to monitor:
       </localfile>
     
 
-Now let&#8217;s add the agent to the server and get his key:
+Now let's add the agent to the server and get his key:
 
     moxz:~> sudo /usr/local/ossec-hids/bin/manage_agents 
     
@@ -301,7 +301,7 @@ Now let&#8217;s add the agent to the server and get his key:
     manage_agents: Exiting ..
     
 
-To apply the above settings let&#8217;s restart the OSSEC Server:
+To apply the above settings let's restart the OSSEC Server:
 
     moxz:~> sudo service ossec-hids restart
     Killing ossec-monitord ..
@@ -323,7 +323,7 @@ To apply the above settings let&#8217;s restart the OSSEC Server:
     Completed.
     
 
-Now on the client side, let&#8217;s add the key:
+Now on the client side, let's add the key:
 
     elatov@fed:~$ sudo /var/ossec/bin/manage_client 
     
@@ -462,7 +462,7 @@ Change the permissions over to the **splunk** user:
     moxz:~> sudo chown -R splunk:splunk /opt/splunk/etc/apps/ossec
     
 
-Let&#8217;s update the **inputs** section to point to the correct log files:
+Let's update the **inputs** section to point to the correct log files:
 
     moxz:~> sudo vi /opt/splunk/etc/apps/ossec/default/inputs.conf
     
@@ -482,7 +482,7 @@ and modify the following:
     sourcetype = ossec_ar
     
 
-Also let&#8217;s point the app to the correct location of the rules for ossec. Modify the **/opt/splunk/etc/apps/ossec/bin/parse\_ossec\_groups.py** file to contain the following:
+Also let's point the app to the correct location of the rules for ossec. Modify the **/opt/splunk/etc/apps/ossec/bin/parse\_ossec\_groups.py** file to contain the following:
 
     DEFAULT_RULES_DIR = "/usr/local/ossec-hids/rules/"
     
@@ -538,7 +538,7 @@ After looking into the issue, I realized I was missing the **/dev/ptmx** file. I
     moxz:~>sudo kldload pty
     
 
-After that, I got another error: &#8220;**[Errno 6] Device not configured**&#8220;. The issue ended up being with the version of python that splunk provides (**/opt/splunk/bin/python**) and the **pexect** python module. To get around the issue, I created a wrapper script which used the system python. Here is the script:
+After that, I got another error: "**[Errno 6] Device not configured**". The issue ended up being with the version of python that splunk provides (**/opt/splunk/bin/python**) and the **pexect** python module. To get around the issue, I created a wrapper script which used the system python. Here is the script:
 
     moxz:~>cat /opt/splunk/etc/apps/ossec/bin/cmd.sh
     #!/bin/sh

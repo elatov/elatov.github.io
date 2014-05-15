@@ -54,7 +54,7 @@ And more information from the same guide:
 > 
 > As the Pluggable Storage Architecture illustration shows, multiple third-party MPPs can run in parallel with the VMware NMP. When installed, the third-party MPPs replace the behavior of the NMP and take complete control of the path failover and the load-balancing operations for specified storage devices.
 
-There is also an excellent blog written by Cormac Hogan on how IO is handled by PSP, check it out in &#8220;<a href="http://blogs.vmware.com/vsphere/2012/07/path-failure-and-related-satppsp-behaviour.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vsphere/2012/07/path-failure-and-related-satppsp-behaviour.html']);">Path failure and related SATP/PSP behaviour</a>&#8221;
+There is also an excellent blog written by Cormac Hogan on how IO is handled by PSP, check it out in "<a href="http://blogs.vmware.com/vsphere/2012/07/path-failure-and-related-satppsp-behaviour.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vsphere/2012/07/path-failure-and-related-satppsp-behaviour.html']);">Path failure and related SATP/PSP behaviour</a>"
 
 ### Install and Configure PSA plug-ins
 
@@ -97,7 +97,7 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 	> \# esxcli storage nmp satp rule add -V NewVend -M NewMod -s VMW\_SATP\_INV  
 	> 
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf']);">vSphere Command-Line Interface Concepts and Examples ESXi 5.0</a>&#8221;
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf']);">vSphere Command-Line Interface Concepts and Examples ESXi 5.0</a>"
 
 Add a new SATP
 
@@ -198,7 +198,7 @@ From the <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/
 > 
 > **VMW\_PSP\_FIXED** The host uses the designated preferred path, if it has been configured. Otherwise, it selects the first working path discovered at system boot time. If you want the host to use a particular preferred path, specify it manually. Fixed is the default policy for most active-active storage devices.
 > 
-> **NOTE** If the host uses a default preferred path and the path&#8217;s status turns to Dead, a new path is selected as preferred. However, if you explicitly designate the preferred path, it will remain preferred even when it becomes inaccessible.
+> **NOTE** If the host uses a default preferred path and the path's status turns to Dead, a new path is selected as preferred. However, if you explicitly designate the preferred path, it will remain preferred even when it becomes inaccessible.
 > 
 > Displayed in the vSphere Client as the Fixed (VMware) path selection policy.
 > 
@@ -223,7 +223,7 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 	> esxcli storage core path list --device naa.xxx  
 	> 
 > 
-> List detailed information for the paths for the device specified with &#8211;device:
+> List detailed information for the paths for the device specified with -device:
 > 
 	>   
 	> esxcli storage core path list -d naa.xxx  
@@ -269,15 +269,15 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 > 
 > Set the path selection. You can specify when the path should change, and whether unoptimized paths should be included.
 > 
-> Use &#8211;bytes or &#8211;iops to specify when the path should change, as in the following examples:
+> Use -bytes or -iops to specify when the path should change, as in the following examples:
 > 
-> Set the device specified by &#8211;device to switch to the next path each time 12345 bytes have been sent along the current path.
+> Set the device specified by -device to switch to the next path each time 12345 bytes have been sent along the current path.
 > 
 	>   
 	> esxcli storage nmp psp roundrobin deviceconfig set --type "bytes" -B 12345 --device naa.xxx  
 	> 
 > 
-> Set the device specified by &#8211;device to switch after 4200 I/O operations have been performed on a path.
+> Set the device specified by -device to switch after 4200 I/O operations have been performed on a path.
 > 
 	>   
 	> esxcli storage nmp psp roundrobin deviceconfig set --type=iops --iops 4200 --device naa.xxx  

@@ -13,7 +13,7 @@ tags:
 ---
 ### Differentiate and describe client access options
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-host-management-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-host-management-guide.pdf']);">vCenter Server and Host Management ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-host-management-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-host-management-guide.pdf']);">vCenter Server and Host Management ESXi 5.0</a>":
 
 > **vSphere Client Interfaces**
 > 
@@ -38,7 +38,7 @@ If the skill set is available from the company and one of the above tools can us
 > *   Always configure it
 > *   A switch failure could trigger a datacenter-wide isolation response
 > *   2 choices: 
->     *   2 separate networks, separate subnets&#8230; etc
+>     *   2 separate networks, separate subnets... etc
 >     *   Single Mgmt network with NIC teaming to multiple switches
 > *   HA will use all mgmt interfaces to send heartbeats
 > *   In ESXi all vmkernel interfaces expect those marked for vMotion will send out heartbeats
@@ -61,14 +61,14 @@ If the skill set is available from the company and one of the above tools can us
 
 ### Analyze cluster performance requirements for DRS and vMotion
 
-From &#8220;<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>&#8220;:
+From "<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>":
 
 > **VMware vMotion**
 > 
 > *   ESXi 5.0 introduces virtual hardware version 8. Because virtual machines running on hardware version 8 can’t run on prior versions of ESX/ESXi, such virtual machines can be moved using VMware vMotion only to other ESXi 5.0 hosts. ESXi 5.0 is also compatible with virtual machines running on virtual hardware version 7 and earlier, however, and these machines can be moved using VMware vMotion to ESX/ESXi 4.x hosts.
 > *   vMotion performance will increase as additional network bandwidth is made available to the vMotion network. Consider provisioning 10Gb vMotion network interfaces for maximum vMotion performance.
 > *   Multiple vMotion vmknics, a new feature in ESXi 5.0, can provide a further increase in network bandwidth available to vMotion.
-> *   All vMotion vmknics on a host should share a single vSwitch. Each vmknic&#8217;s portgroup should be configured to leverage a different physical NIC as its active vmnic. In addition, all vMotion vmknics should be on the same vMotion network.
+> *   All vMotion vmknics on a host should share a single vSwitch. Each vmknic's portgroup should be configured to leverage a different physical NIC as its active vmnic. In addition, all vMotion vmknics should be on the same vMotion network.
 > *   While a vMotion operation is in progress, ESXi opportunistically reserves CPU resources on both the source and destination hosts in order to ensure the ability to fully utilize the network bandwidth. ESXi will attempt to use the full available network bandwidth regardless of the number of vMotion operations being performed. The amount of CPU reservation thus depends on the number of vMotion NICs and their speeds; 10% of a processor core for each 1Gb network interface, 100% of a processor core for each 10Gb network interface, and a minimum total reservation of 30% of a processor core. Therefore leaving some unreserved CPU capacity in a cluster can help ensure that vMotion tasks get the resources required in order to fully utilize available network bandwidth.
 > *    vMotion performance could be reduced if host-level swap files are placed on local storage 
 
@@ -80,10 +80,10 @@ From the same document:
 > **Cluster Configuration Settings**
 > 
 > *   When deciding which hosts to group into DRS clusters, try to choose hosts that are as homogeneous as possible in terms of CPU and memory. This improves performance predictability and stability.When heterogeneous systems have compatible CPUs, but have different CPU frequencies and/or amounts of memory, DRS generally prefers to locate virtual machines on the systems with more memory and higher CPU frequencies (all other things being equal), since those systems have more capacity to accommodate peak loads.
-> *   VMware vMotion is not supported across hosts with incompatible CPU&#8217;s. Hence with ‘incompatible CPU’ heterogeneous systems, the opportunities DRS has to improve the load balance across the cluster are limited.
+> *   VMware vMotion is not supported across hosts with incompatible CPU's. Hence with ‘incompatible CPU’ heterogeneous systems, the opportunities DRS has to improve the load balance across the cluster are limited.
 > *   To ensure CPU compatibility, make sure systems are configured with the same CPU vendor, with similar CPU families, and with matching SSE instruction-set capability. For more information on this topic see VMware KB articles 1991, 1992, and 1993.
 > *   You can also use Enhanced vMotion Compatibility (EVC) to facilitate vMotion between different CPU generations. For more information on this topic see VMware vMotion and CPU Compatibility and VMware KB article 1003212.
-> *   The more vMotion compatible ESXi hosts DRS has available, the more choices it has to better balance the DRS cluster. Besides CPU incompatibility, there are other misconfigurations that can block vMotion between two or more hosts. For example, if the hosts&#8217; vMotion network adapters are not connected by a Gigabit (or faster) Ethernet link then the vMotion might not occur between the hosts. Other configuration settings to check for are virtual hardware version compatibility, misconfiguration of the vMotion gateway, incompatible security policies between the source and destination host vMotion network adapter, and virtual machine network availability on the destination host. Refer to vSphere vCenter Server and Host Management for further details.
+> *   The more vMotion compatible ESXi hosts DRS has available, the more choices it has to better balance the DRS cluster. Besides CPU incompatibility, there are other misconfigurations that can block vMotion between two or more hosts. For example, if the hosts' vMotion network adapters are not connected by a Gigabit (or faster) Ethernet link then the vMotion might not occur between the hosts. Other configuration settings to check for are virtual hardware version compatibility, misconfiguration of the vMotion gateway, incompatible security policies between the source and destination host vMotion network adapter, and virtual machine network availability on the destination host. Refer to vSphere vCenter Server and Host Management for further details.
 > *   Virtual machines with smaller memory sizes and/or fewer vCPUs provide more opportunities for DRS to migrate them in order to improve balance across the cluster. Virtual machines with larger memory sizes and/or more vCPUs add more constraints in migrating the virtual machines. This is one more reason to configure virtual machines with only as many vCPUs and only as much virtual memory as they need.
 > *   Have virtual machines in DRS automatic mode when possible, as they are considered for cluster load balancing migrations across the ESXi hosts before the virtual machines that are not in automatic mode. Powered-on virtual machines consume memory resources—and typically consume some CPU resources—even when idle. Thus even idle virtual machines, though their utilization is usually small, can affect DRS decisions. For this and other reasons, a marginal performance increase might be obtained by shutting down or suspending virtual machines that are not being used.
 > *   Resource pools help improve manageability and troubleshooting of performance problems. We recommend, however, that resource pools and virtual machines not be made siblings in a hierarchy. Instead, each level should contain only resource pools or only virtual machines. This is because by default resource pools are assigned share values that might not compare appropriately with those assigned to virtual machines, potentially resulting in unexpected performance.
@@ -100,7 +100,7 @@ From the same document:
 
 ### Analyze cluster storage performance requirements for SDRS and Storage vMotion
 
-Check out <a href="http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-3-3-create-a-vsphere-5-physical-storage-design-from-an-existing-logical-design/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-3-3-create-a-vsphere-5-physical-storage-design-from-an-existing-logical-design/']);">Objective 3.3</a>, both are discussed there. I didn&#8217;t talk much about Storage vMotion, so from &#8220;<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>&#8220;:
+Check out <a href="http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-3-3-create-a-vsphere-5-physical-storage-design-from-an-existing-logical-design/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-3-3-create-a-vsphere-5-physical-storage-design-from-an-existing-logical-design/']);">Objective 3.3</a>, both are discussed there. I didn't talk much about Storage vMotion, so from "<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>":
 
 > **VMware Storage vMotion**
 > 
@@ -112,7 +112,7 @@ Check out <a href="http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-3-3-cre
 
 ### Determine the appropriate vCenter Server design and sizing requirements: vCenter Server Linked Mode, vCenter Server Virtual Appliance, vCenter Server heartbeat
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-host-management-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-host-management-guide.pdf']);">vCenter Server and Host Management ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-host-management-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-host-management-guide.pdf']);">vCenter Server and Host Management ESXi 5.0</a>":
 
 > **Using vCenter Server in Linked Mode**  
 > You can join multiple vCenter Server systems using vCenter Linked Mode to allow them to share information. When a server is connected to other vCenter Server systems using Linked Mode, you can connect to that vCenter Server system and view and manage the inventories of the linked vCenter Server systems.Linked Mode uses Microsoft Active Directory Application Mode (ADAM) to store and synchronize data across multiple vCenter Server systems. ADAM is installed as part of vCenter Server installation. Each ADAM instance stores data from the vCenter Server systems in the group, including information about roles andlicenses. This information is replicated across all of the ADAM instances in the connected group to keep them in sync.
@@ -123,7 +123,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 > *   Search the inventories of the vCenter Server systems in the group.
 > *   View the inventories of the vCenter Server systems in the group in a single inventory view. So if you have multiple vCenter instances to manage different sites, for site recovery or just different locations, then vCenter Linked mode will help out with managing of all the different sites under one location 
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-installation-setup-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-installation-setup-guide.pdf']);">vSphere Installation and Setup vSphere 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-installation-setup-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-installation-setup-guide.pdf']);">vSphere Installation and Setup vSphere 5.0</a>":
 
 > **Download and Deploy the VMware vCenter Server Appliance**  
 > As an alternative to installing vCenter Server on a Windows machine, you can download the VMware vCenter Server Appliance. The vCenter Server Appliance is a preconfigured Linux-based virtual machine optimized for running vCenter Server and associated services.
@@ -138,7 +138,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 > 
 > **IMPORTANT** The embedded database is not configured to manage an inventory that contains more than 5 hosts and 50 virtual machines. If you use the embedded database with the vCenter Server Appliance, exceeding these limits can cause numerous problems, including causing vCenter Server to stop responding
 
-Duncan Epping has a good blog about the topic &#8220;<a href="http://www.yellow-bricks.com/2011/08/10/vcenter-appliance/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.yellow-bricks.com/2011/08/10/vcenter-appliance/']);">vCenter Appliance</a>&#8220;, from the blog:
+Duncan Epping has a good blog about the topic "<a href="http://www.yellow-bricks.com/2011/08/10/vcenter-appliance/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.yellow-bricks.com/2011/08/10/vcenter-appliance/']);">vCenter Appliance</a>", from the blog:
 
 > I was playing around in my lab and figured I would give the vCenter Appliance (VCVA) a try. I realize that today there are limitations when it comes to the vCenter Appliance and I wanted to list those to get them out in the open:
 > 
@@ -151,7 +151,7 @@ Duncan Epping has a good blog about the topic &#8220;<a href="http://www.yellow-
 > 
 > Now that you’ve seen the limitations why would you even bother testing it? You will still need Windows if you are running VUM and you can only use Oracle for large environments… Those are probably the two biggest constraints for 80% of you reading this and I agree they are huge constraints. But I am not saying that you should go ahead and deploy this in production straight away, I do feel that the VCVA deserves to be tested as it is the way forward in my opinion! Why? Most importantly, it is very simple to implement
 
-From &#8220;<a href="http://www.vmware.com/files/pdf/techpaper/Whats-New-VMware-vSphere-50-Availability-Technical-Whitepaper.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/techpaper/Whats-New-VMware-vSphere-50-Availability-Technical-Whitepaper.pdf']);">What’s New in VMware vSphere 5.0 &#8211; Availability</a>&#8220;:
+From "<a href="http://www.vmware.com/files/pdf/techpaper/Whats-New-VMware-vSphere-50-Availability-Technical-Whitepaper.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/techpaper/Whats-New-VMware-vSphere-50-Availability-Technical-Whitepaper.pdf']);">What’s New in VMware vSphere 5.0 - Availability</a>":
 
 > **Management Availability**  
 > Being the primary management point of a VMware environment, the availability of VMware vCenter™ Server is a critical consideration when constructing a highly available environment. Providing this availability for VMware vCenter Server is the primary function of VMware vCenter Server Heartbeat.  
@@ -164,21 +164,21 @@ From the same document:
 > **Application Support**  
 > In addition to providing availability for VMware vCenter Server 5.0, VMware vCenter Server Heartbeat now also provides availability of VMware View Composer and Microsoft SQL Server 2008 R2. This support increases the platform support to match common customer deployment preferences.
 
-It&#8217;s basically a clustering software that allows vCenter to be fault tolerant. It does require two vCenter Installs and it will synchronize between the two instances. Not only does it allow you to synchronize the vCenter Service but since vCenter can use a MSQL, you can also synchronize that as well. If you have the resources and you need 100% availability of the vCenter then vCenter Heartbeat will be your best bet.
+It's basically a clustering software that allows vCenter to be fault tolerant. It does require two vCenter Installs and it will synchronize between the two instances. Not only does it allow you to synchronize the vCenter Service but since vCenter can use a MSQL, you can also synchronize that as well. If you have the resources and you need 100% availability of the vCenter then vCenter Heartbeat will be your best bet.
 
 From <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.pdf']);">this</a> PDF:
 
 > **vCenter Protection**
 > 
 > *   Manual - initially cheap, long term expensive, complex, high overhead, and failure downtime
-> *   Cluster with Heart Beat &#8211; initially expensive, but automatic and fast
-> *   Backup/Restore &#8211; Too long of RTO
-> *   VMware HA &#8211; Always use
-> *   High Availability of Database Server &#8211; Use vendor tools (MSCS) if possible, otherwise use VMware HA
+> *   Cluster with Heart Beat - initially expensive, but automatic and fast
+> *   Backup/Restore - Too long of RTO
+> *   VMware HA - Always use
+> *   High Availability of Database Server - Use vendor tools (MSCS) if possible, otherwise use VMware HA
 
 ### Determine appropriate access control settings, create roles and assign users to roles
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-security-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-security-guide.pdf']);">vSphere Security ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-security-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-security-guide.pdf']);">vSphere Security ESXi 5.0</a>":
 
 > **Managing vSphere Users**  
 > A user is an individual authorized to log in to either ESXi or vCenter Server. ESXi users fall into two categories: those who can access the host through vCenter Server and those who can access by directly logging in to the host from the vSphere Client, a third-party client, or a command shell.
@@ -252,7 +252,7 @@ I think the next part from the same document is the best part:
 > *   Where possible, grant permissions to groups rather than individual users.
 > *   Grant permissions only where needed. Using the minimum number of permissions makes it easier to understand and manage your permissions structure.
 > *   If you assign a restrictive role to a group, check that the group does not contain the Administrator user or other users with administrative privileges.
-> *   Otherwise, you could unintentionally restrict administrators&#8217; privileges in parts of the inventory hierarchy where you have assigned that group the restrictive role.
+> *   Otherwise, you could unintentionally restrict administrators' privileges in parts of the inventory hierarchy where you have assigned that group the restrictive role.
 > *   Use folders to group objects to correspond to the differing permissions you want to grant for them.
 > *   Use caution when granting a permission at the root vCenter Server level. Users with permissions at the root level have access to global data on vCenter Server, such as roles, custom attributes, vCenter Server settings, and licenses. Changes to licenses and roles propagate to all vCenter Server systems in a Linked Mode group, even if the user does not have permissions on all of the vCenter Server systems in the group.
 > *   In most cases, enable propagation on permissions. This ensures that when new objects are inserted in to the inventory hierarchy, they inherit permissions and are accessible to users.
@@ -301,15 +301,15 @@ This was also discussed in <a href="http://virtuallyhyper.com/2012/08/vcap5-dcd-
 
 ### Based on the logical design, identify and implement asset and configuration management technologies.
 
-There are a couple of application that can do asset management. The first one is VWare GO. From &#8220;
+There are a couple of application that can do asset management. The first one is VWare GO. From "
 
-<a href="http://blogs.vmware.com/smb/2012/08/goprosmb.html#more-558" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/smb/2012/08/goprosmb.html#more-558']);">VMworld 2012: Introducing the New VMware Go Pro for SMBs!</a>&#8220;:
+<a href="http://blogs.vmware.com/smb/2012/08/goprosmb.html#more-558" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/smb/2012/08/goprosmb.html#more-558']);">VMworld 2012: Introducing the New VMware Go Pro for SMBs!</a>":
 
 > <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/vmware-go.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/vmware-go.png']);"><img class="alignnone size-full wp-image-3337" title="vmware-go" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/vmware-go.png" alt="vmware go VCAP5 DCD Objective 3.6 – Determine Datacenter Management Options for a vSphere 5 Physical Design " width="705" height="474" /></a>   
 > **Comprehensive Infrastructure Protection**  
 > VMware Go Pro offers automated patch management across physical and virtual machines for both Microsoft and third-party applications to ensure that organizations are up-to-date with all of the latest software upgrades, thus mitigating the organization’s vulnerability to the latest IT threats. An integrated Help Desk with built-in analytics also helps improve IT productivity and service, automatically prioritizing issues by level of severity. Go Pro also offers a rich asset management capability, which provides control over all software and hardware assets.
 
-There is also VMware Service Manager. From &#8220;<a href="http://www.vmware.com/files/pdf/products/service-manager/vmware-service-manager-cloud-provisioning-data-sheet.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/products/service-manager/vmware-service-manager-cloud-provisioning-data-sheet.pdf']);">VMware Service Manager Cloud Provisioning Data Sheet</a>&#8220;:
+There is also VMware Service Manager. From "<a href="http://www.vmware.com/files/pdf/products/service-manager/vmware-service-manager-cloud-provisioning-data-sheet.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/products/service-manager/vmware-service-manager-cloud-provisioning-data-sheet.pdf']);">VMware Service Manager Cloud Provisioning Data Sheet</a>":
 
 > How Does VMware Service Manager Work with vCloud Director?  
 > The VMware Service Manager connector to vCloud Director provides additional functionality to vCloud Director:
@@ -339,17 +339,17 @@ And for the <a href="http://www.vmware.com/products/datacenter-virtualization/se
 > 
 > *   Service Modeling across the entire service lifecycle
 > *   Workflow automation from approvals provisioning, through de-provisioning
-> *   Automatically sends email notifications and approval requests Lastly here is a snapshot of the application from &#8220;
+> *   Automatically sends email notifications and approval requests Lastly here is a snapshot of the application from "
 
-<a href="http://www.slideshare.net/khanyasmin/vmware-service-manager-9-asset-management" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.slideshare.net/khanyasmin/vmware-service-manager-9-asset-management']);">VMware Service Manager 9 &#8211; Asset Management</a>&#8220;:
+<a href="http://www.slideshare.net/khanyasmin/vmware-service-manager-9-asset-management" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.slideshare.net/khanyasmin/vmware-service-manager-9-asset-management']);">VMware Service Manager 9 - Asset Management</a>":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/vm-serv-mana-sub-request.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/vm-serv-mana-sub-request.png']);"><img class="alignnone size-full wp-image-3338" title="vm-serv-mana-sub-request" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/vm-serv-mana-sub-request.png" alt="vm serv mana sub request VCAP5 DCD Objective 3.6 – Determine Datacenter Management Options for a vSphere 5 Physical Design " width="1035" height="495" /></a>
 
-Lastly you can use the &#8216;Asset Tag&#8217; option for a VM to keep track of VMs manually. You can also use PowerCLI to look for VMs with certain tag as well. VMware Blog &#8220;<a href="http://blogs.vmware.com/vsphere/2012/03/acessing-virtual-machine-advanced-settings.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vsphere/2012/03/acessing-virtual-machine-advanced-settings.html']);">Accessing Virtual Machine Advanced Settings</a>&#8221; talks about the process. Of course use VMware Configuration Manager to keep track of configuration changes. This was discussed in <a href="http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-2-4-build-manageability-requirements-into-the-logical-design/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-2-4-build-manageability-requirements-into-the-logical-design/']);">Objective 2.4</a>
+Lastly you can use the 'Asset Tag' option for a VM to keep track of VMs manually. You can also use PowerCLI to look for VMs with certain tag as well. VMware Blog "<a href="http://blogs.vmware.com/vsphere/2012/03/acessing-virtual-machine-advanced-settings.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vsphere/2012/03/acessing-virtual-machine-advanced-settings.html']);">Accessing Virtual Machine Advanced Settings</a>" talks about the process. Of course use VMware Configuration Manager to keep track of configuration changes. This was discussed in <a href="http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-2-4-build-manageability-requirements-into-the-logical-design/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-2-4-build-manageability-requirements-into-the-logical-design/']);">Objective 2.4</a>
 
 ### Based on the logical design, identify and implement release management technologies, such as Update Manager.
 
-From &#8220;<a href="http://www.vmware.com/files/pdf/vum-perf-vsphere5.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/vum-perf-vsphere5.pdf']);">VMware vCenter Update Manager 5.0 Performance and Best Practices</a>&#8220;:
+From "<a href="http://www.vmware.com/files/pdf/vum-perf-vsphere5.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/vum-perf-vsphere5.pdf']);">VMware vCenter Update Manager 5.0 Performance and Best Practices</a>":
 
 > VMware vCenter™ Update Manager (also known as VUM) provides a patch management framework for VMware vSphere®. IT administrators can use it to patch and upgrade:
 > 
@@ -357,18 +357,18 @@ From &#8220;<a href="http://www.vmware.com/files/pdf/vum-perf-vsphere5.pdf" oncl
 > *   VMware Tools and virtual hardware for virtual machines
 > *   Virtual appliances. 
 > 
-> &#8230;  
-> &#8230;
+> ...  
+> ...
 > 
 > **Update Manager Server Host Deployment**  
 > There are three Update Manager server host deployment models where:
 > 
-> *   Model 1 &#8211; vCenter Server and the Update Manager server share both a host and a database instance.
-> *   Model 2 &#8211;  Recommended for data centers with more than 300 virtual machines or 30 ESX/ESXi hosts. In this model, the vCenter server and the Update Manager server still share a host, but use separate database instances.
-> *   Model 3 &#8211; Recommended for data centers with more than 1,000 virtual machines or 100 ESX/ESXi hosts. In this model, the vCenter server and the Update Manager server run on different hosts, each with its own database instance. 
+> *   Model 1 - vCenter Server and the Update Manager server share both a host and a database instance.
+> *   Model 2 -  Recommended for data centers with more than 300 virtual machines or 30 ESX/ESXi hosts. In this model, the vCenter server and the Update Manager server still share a host, but use separate database instances.
+> *   Model 3 - Recommended for data centers with more than 1,000 virtual machines or 100 ESX/ESXi hosts. In this model, the vCenter server and the Update Manager server run on different hosts, each with its own database instance. 
 > 
-> &#8230;  
-> &#8230;
+> ...  
+> ...
 > 
 > **Performance Tips**
 > 
@@ -377,9 +377,9 @@ From &#8220;<a href="http://www.vmware.com/files/pdf/vum-perf-vsphere5.pdf" oncl
 > *   Make sure the Update Manager server host has at least 2GB of RAM to cache frequently used patch files in memory.
 > *   Allocate separate physical disks for the Update Manager patch store and the Update Manager database. 
 
-Use VUM depending on the size of your environment. Also to determine the size of the database necessary for VUM check out &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-sizing-estimator.xls" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-sizing-estimator.xls']);">VMware vSphere Update Manager Database Sizing Estimator</a>&#8220;. VUM is it&#8217;s own product and it will definitely add more management over head. However if you have over 30 hosts then it will definitely be worth setting it up and using for patching your vSphere environment.
+Use VUM depending on the size of your environment. Also to determine the size of the database necessary for VUM check out "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-sizing-estimator.xls" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-sizing-estimator.xls']);">VMware vSphere Update Manager Database Sizing Estimator</a>". VUM is it's own product and it will definitely add more management over head. However if you have over 30 hosts then it will definitely be worth setting it up and using for patching your vSphere environment.
 
-On top of that there is a Update Manager Download Service, from &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf']);">Installing and Administering VMware vSphere Update Manager 5.0</a>&#8220;:
+On top of that there is a Update Manager Download Service, from "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf']);">Installing and Administering VMware vSphere Update Manager 5.0</a>":
 
 > **Installing, Setting Up, and Using Update Manager Download Service**  
 > VMware vSphere Update Manager Download Service (UMDS) is an optional module of Update Manager. UMDS downloads upgrades for virtual appliances, patch metadata, patch binaries, and notifications that would not otherwise be available to the Update Manager server.
@@ -390,20 +390,20 @@ On top of that there is a Update Manager Download Service, from &#8220;<a href="
 > 
 > UMDS 5.0 supports patch recalls and notifications. A patch is recalled if the released patch has problems or potential issues. After you download patch data and notifications with UMDS, and export the downloads so that they become available to the Update Manager server, Update Manager deletes the recalled patches and displays the notifications on the Update Manager Notifications tab.
 
-This helps out if you have a secure environment and your VUM service and(or) hosts don&#8217;t have access to internet. You can then setup UMDS on another network and then export the repository to a file or over the network. You can then configure the VUM service to use that repository, from &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf']);">Installing and Administering VMware vSphere Update Manager 5.0</a>&#8220;:
+This helps out if you have a secure environment and your VUM service and(or) hosts don't have access to internet. You can then setup UMDS on another network and then export the repository to a file or over the network. You can then configure the VUM service to use that repository, from "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf']);">Installing and Administering VMware vSphere Update Manager 5.0</a>":
 
 > **Configuring the Update Manager Download Sources**  
 > You can configure the Update Manager server to download patches and extensions for ESX/ESXi hosts or upgrades for virtual appliances either from the Internet or from a shared repository of UMDS data. You can also import patches and extensions for ESX/ESXi hosts manually from a ZIP file.
 > 
 > If your deployment system is connected to the Internet, you can use the default settings and links for downloading upgrades, patches, and extensions to the Update Manager repository. You can also add URL addresses to download virtual appliance upgrades or third-party patches and extensions. Third-party patches and extensions are applicable only to hosts that are running ESX/ESXi 4.0 and later.
 
-You can also use PowerCLI to automate testing and download of patches. Check out the VMware Blog &#8220;<a href="http://blogs.vmware.com/vipowershell/2010/03/now-available-powercli-cmdlets-for-vcenter-update-manager.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vipowershell/2010/03/now-available-powercli-cmdlets-for-vcenter-update-manager.html']);">Now Available: PowerCLI cmdlets for vCenter Update Manager!</a>&#8220;.
+You can also use PowerCLI to automate testing and download of patches. Check out the VMware Blog "<a href="http://blogs.vmware.com/vipowershell/2010/03/now-available-powercli-cmdlets-for-vcenter-update-manager.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vipowershell/2010/03/now-available-powercli-cmdlets-for-vcenter-update-manager.html']);">Now Available: PowerCLI cmdlets for vCenter Update Manager!</a>".
 
-If you don&#8217;t want to use VUM because you don&#8217;t have a big environment there are alternatives. First you can create your own custom image with Image Builder. For more information check out the VMware blog &#8220;<a href="http://blogs.vmware.com/vsphere/2012/04/using-the-vsphere-esxi-image-builder-cli.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vsphere/2012/04/using-the-vsphere-esxi-image-builder-cli.html']);">Using the vSphere ESXi Image Builder CLI</a>&#8220;. There is also a pretty example in &#8220;<a href="http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-1.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-1.pdf']);">VMware vSphere 5.0 Evaluation Guide Volume One</a>&#8220;. From that document, here is a good image that depicts Image Builder:
+If you don't want to use VUM because you don't have a big environment there are alternatives. First you can create your own custom image with Image Builder. For more information check out the VMware blog "<a href="http://blogs.vmware.com/vsphere/2012/04/using-the-vsphere-esxi-image-builder-cli.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vsphere/2012/04/using-the-vsphere-esxi-image-builder-cli.html']);">Using the vSphere ESXi Image Builder CLI</a>". There is also a pretty example in "<a href="http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-1.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-1.pdf']);">VMware vSphere 5.0 Evaluation Guide Volume One</a>". From that document, here is a good image that depicts Image Builder:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/image_builder.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/image_builder.png']);"><img class="alignnone size-full wp-image-3341" title="image_builder" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/image_builder.png" alt="image builder VCAP5 DCD Objective 3.6 – Determine Datacenter Management Options for a vSphere 5 Physical Design " width="520" height="304" /></a>.
 
-You can also just use powerCLI, vCLI, vMA, or esxcli to install patches manually. All of the examples are listed in VMware blog &#8220;<a href="http://blogs.vmware.com/vsphere/2012/02/quickest-way-to-patch-an-esxesxi-using-the-command-line.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vsphere/2012/02/quickest-way-to-patch-an-esxesxi-using-the-command-line.html']);">Quickest Way to Patch an ESX/ESXi Using the Command-line</a>&#8220;. From the blog:
+You can also just use powerCLI, vCLI, vMA, or esxcli to install patches manually. All of the examples are listed in VMware blog "<a href="http://blogs.vmware.com/vsphere/2012/02/quickest-way-to-patch-an-esxesxi-using-the-command-line.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vsphere/2012/02/quickest-way-to-patch-an-esxesxi-using-the-command-line.html']);">Quickest Way to Patch an ESX/ESXi Using the Command-line</a>". From the blog:
 
 > Here is an example of using the local esxcli utility for an ESXi 5.0 host. The patch bundle needs to be uploaded to ESXi host using scp or winSCP and then specifying the full path on the command-line:
 > 
@@ -436,7 +436,7 @@ For hosts, you have a couple of options:
 *   You can use Auto Deploy to PXE boot
 *   You can just install from iso 
 
-From &#8220;vSphere Installation and Setup vSphere 5.0&#8243;:
+From "vSphere Installation and Setup vSphere 5.0":
 
 > **PXE Booting the ESXi Installer**  
 > You use the preboot execution environment (PXE) to boot a host and launch the ESXi installer from a network interface.
@@ -447,8 +447,8 @@ From &#8220;vSphere Installation and Setup vSphere 5.0&#8243;:
 > 
 > PXE booting requires some network infrastructure and a machine with a PXE-capable network adapter. Most machines that are capable of running ESXi have network adapters that are able to PXE boot.
 > 
-> &#8230;  
-> &#8230;
+> ...  
+> ...
 > 
 > <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/pxe-boot-esxi.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/pxe-boot-esxi.png']);"><img class="alignnone size-full wp-image-3344" title="pxe-boot-esxi" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/pxe-boot-esxi.png" alt="pxe boot esxi VCAP5 DCD Objective 3.6 – Determine Datacenter Management Options for a vSphere 5 Physical Design " width="427" height="608" /></a>
 
@@ -478,8 +478,8 @@ Now for Auto Deploy, from the same document:
 > 
 > Using the Auto Deploy feature, vCenter Server loads the ESXi image directly into the host memory. Auto Deploy does not store the ESXi state on the host disk. vCenter Server stores and manages ESXi updates and patching through an image profile, and, optionally, the host configuration through a host profile. You can create image profiles with ESXi Image Builder CLI, and host profiles using the vSphere Client
 > 
-> &#8230;  
-> &#8230;
+> ...  
+> ...
 > 
 > **Understanding vSphere Auto Deploy**  
 > vSphere Auto Deploy can provision hundreds of physical hosts with ESXi software. You can specify the image to deploy and the hosts to provision with the image. Optionally, you can specify host profiles to apply to the hosts, and a vCenter Server location (folder or cluster) for each host.
@@ -490,8 +490,8 @@ Now for Auto Deploy, from the same document:
 > **State Information for ESXi Hosts**  
 > Auto Deploy stores the information for the ESXi hosts to be provisioned in different locations. Information about the location of image profiles and host profiles is initially specified in the rules that map machines to image profiles and host profiles. When a host boots for the first time, the vCenter Server system creates a corresponding host object and stores the information in the database.
 > 
-> &#8230;  
-> &#8230;
+> ...  
+> ...
 > 
 > <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/auto-deploy-architecture.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/auto-deploy-architecture.png']);"><img class="alignnone size-full wp-image-3345" title="auto-deploy-architecture" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/auto-deploy-architecture.png" alt="auto deploy architecture VCAP5 DCD Objective 3.6 – Determine Datacenter Management Options for a vSphere 5 Physical Design " width="480" height="326" /></a>
 
@@ -520,11 +520,11 @@ The simple way, from the same document:
 > **Interactive ESXi Installation**  
 > Interactive installations are recommended for small deployments of fewer than five hosts. You boot the installer from a CD or DVD, from a bootable USB device, or by PXE booting the installer from a location on the network. You follow the prompts in the installation wizard to install ESXi to disk.
 
-Depending on the environment, you can choose which way to go. Like mentioned in the above article, if you have about 5 hosts, then just download the ISO and install ESXi on it. Each install takes about 15 minutes, and if you have Remote Access (ie DRAC or ILO) then you don&#8217;t have even have to be in front of the machine. If there had been updates since the ISO install, then definitely use Image Builder to insert the updates into the ISO and use that iSO to install ESXi on all the hosts. Now if you are doing a lot of installs (ie 10-20), then instead of clicking through the installer 20 times, create a kickstart file and use it for the installs. If you want to, create 20 scripts (all you would have to change, is the IP setting) and host them all. Then boot all the hosts and point to the appropriate kickstart script. This will definitely save a bunch of time.
+Depending on the environment, you can choose which way to go. Like mentioned in the above article, if you have about 5 hosts, then just download the ISO and install ESXi on it. Each install takes about 15 minutes, and if you have Remote Access (ie DRAC or ILO) then you don't have even have to be in front of the machine. If there had been updates since the ISO install, then definitely use Image Builder to insert the updates into the ISO and use that iSO to install ESXi on all the hosts. Now if you are doing a lot of installs (ie 10-20), then instead of clicking through the installer 20 times, create a kickstart file and use it for the installs. If you want to, create 20 scripts (all you would have to change, is the IP setting) and host them all. Then boot all the hosts and point to the appropriate kickstart script. This will definitely save a bunch of time.
 
 Kickstart is helpful and it works if you are just doing a bunch of installs in the beginning and then you are done. Now if you plan to add new hosts pretty frequently then PXE boot might be the way. With PXE boot, additional servers are required but you just have to set them up once. So setup the necessary servers (ie DHCP, TFTP, and Web) and then just set your ESXi hosts to boot from the NIC and you are done. Very automated process but does require some admin over head.
 
-Lastly there is the Auto Deploy, if you plan to deploy 100 hosts and if you don&#8217;t want to depend on your local disk, this is the way to go. It also auto adds the host to vCenter and each host contains an answer file to make it unique. So this is almost a 100% automated process to get a host up and running in your environment. It does require knowledge of Image Builder and PowerCLI, so admin over head goes way up (when stuff breaks). It&#8217;s a very good idea but unfortunately this is a single point of failure. If your Auto deploy server is down and you reboot your hosts, none of them will come back (uh oh).
+Lastly there is the Auto Deploy, if you plan to deploy 100 hosts and if you don't want to depend on your local disk, this is the way to go. It also auto adds the host to vCenter and each host contains an answer file to make it unique. So this is almost a 100% automated process to get a host up and running in your environment. It does require knowledge of Image Builder and PowerCLI, so admin over head goes way up (when stuff breaks). It's a very good idea but unfortunately this is a single point of failure. If your Auto deploy server is down and you reboot your hosts, none of them will come back (uh oh).
 
 For VMs, you have a couple of options as well:
 
@@ -533,7 +533,7 @@ For VMs, you have a couple of options as well:
 *   You can just use PXE to boot VMs
 *   You can deploy one VM at a time and have an ISO repository from which you can install the necessary OS 
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-virtual-machine-admin-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-virtual-machine-admin-guide.pdf']);">vSphere Virtual Machine Administration ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-virtual-machine-admin-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-virtual-machine-admin-guide.pdf']);">vSphere Virtual Machine Administration ESXi 5.0</a>":
 
 > **About Provisioning Virtual Machines**  
 > VMware provides several methods to provision vSphere virtual machines. The optimal method for your environment depends on factors such as the size and type of your infrastructure and the goals that you are trying to achieve.
@@ -563,15 +563,15 @@ Also from the same document:
 > **Install a Guest Operating System from Media**  
 > You can install a guest operating system from a CD-ROM or from an ISO image. Installing from an ISO image is typically faster and more convenient than a CD-ROM installation.
 
-Lastly for Citrix PVS check out &#8220;<a href="http://support.citrix.com/servlet/KbServlet/download/26450-102-665163/Design%20Considerations%20for%20vPVS%20v2.1.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://support.citrix.com/servlet/KbServlet/download/26450-102-665163/Design%20Considerations%20for%20vPVS%20v2.1.pdf']);">Design Considerations for Virtualizing Citrix Provisioning Services</a>&#8220;. It basically allows you to provision VMs quickly and store windows Profiles on the provisioning server. This way you don&#8217;t have to depend on local media.
+Lastly for Citrix PVS check out "<a href="http://support.citrix.com/servlet/KbServlet/download/26450-102-665163/Design%20Considerations%20for%20vPVS%20v2.1.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://support.citrix.com/servlet/KbServlet/download/26450-102-665163/Design%20Considerations%20for%20vPVS%20v2.1.pdf']);">Design Considerations for Virtualizing Citrix Provisioning Services</a>". It basically allows you to provision VMs quickly and store windows Profiles on the provisioning server. This way you don't have to depend on local media.
 
-Each option has it&#8217;s ups and downs. If you decide to PXE boot, with Citrix PVS or any other third party software, then make sure you have a dedicated person to manage that. And again this will be your single point of failure. If the PXE boot server is down then VMs won&#8217;t boot. Or if your PVS server is lost, then all of the Windows profiles are lost as well. But this does allow for fast provisioning, so if a new windows patch comes out, then update the base image and push it to you clients. Next time the VM is is rebooted, the system components are updates and the users profiles and their settings are preserved. Now with regular installation you will have to update each VM manually.
+Each option has it's ups and downs. If you decide to PXE boot, with Citrix PVS or any other third party software, then make sure you have a dedicated person to manage that. And again this will be your single point of failure. If the PXE boot server is down then VMs won't boot. Or if your PVS server is lost, then all of the Windows profiles are lost as well. But this does allow for fast provisioning, so if a new windows patch comes out, then update the base image and push it to you clients. Next time the VM is is rebooted, the system components are updates and the users profiles and their settings are preserved. Now with regular installation you will have to update each VM manually.
 
-Templates help out tremendously cause you don&#8217;t want to install each of your VMs from scratch and re-setup your settings. With templates or OVFs, install the OS that you want, customize it as you desire and then convert it to a template. Next time you need a VM with that OS just deploy from template. This will definitely save time. If you are just setting up a one time VM, then make sure you an ISO repository with the desired OSes, then for those one off VMs, just boot from the ISO and do an installation as necessary.
+Templates help out tremendously cause you don't want to install each of your VMs from scratch and re-setup your settings. With templates or OVFs, install the OS that you want, customize it as you desire and then convert it to a template. Next time you need a VM with that OS just deploy from template. This will definitely save time. If you are just setting up a one time VM, then make sure you an ISO repository with the desired OSes, then for those one off VMs, just boot from the ISO and do an installation as necessary.
 
 ### Based on the logical design identify and implement event, incident and problem management technologies.
 
-There is a great white paper on this, &#8220;<a href="http://www.vmware.com/files/pdf/services/VMware-Proactive-Incident-Whitepaper.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/services/VMware-Proactive-Incident-Whitepaper.pdf']);">Proactive Incident and Problem Management</a>&#8220;, from that white paper:
+There is a great white paper on this, "<a href="http://www.vmware.com/files/pdf/services/VMware-Proactive-Incident-Whitepaper.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/services/VMware-Proactive-Incident-Whitepaper.pdf']);">Proactive Incident and Problem Management</a>", from that white paper:
 
 > **Executive Summary**  
 > As the IT infrastructure has grown, the approach to managing incidents and problems has evolved, from help desk to tiered support to integrated management. However, these approaches have all been reactive, essentially devising better and faster ways to fix broken components. The cloud makes a reactive approach untenable for several reasons:
@@ -584,15 +584,15 @@ There is a great white paper on this, &#8220;<a href="http://www.vmware.com/file
 > 
 > Migrating to a proactive system requires a carefully orchestrated plan that includes a pilot program and phased cut over. There are organizational considerations involved in proactivity, including the establishment of a Cloud Infrastructure Operations Center of Excellence and changes to individual job functions. These changes must be carefully planned and effectively communicated across the organization to ensure a successful transition to a proactive system.
 
-The paper talks about being pro-active, defining roles for different layers, and having integrated management. All of these thing are true and there are a lot of third party application that already do this. I talked about these in <a href="http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-2-4-build-manageability-requirements-into-the-logical-design/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-2-4-build-manageability-requirements-into-the-logical-design/']);">Objective 2.4</a>. Also VMware provides this product called VMware Service Manager that allows for incident tracking. I talked it about earlier. There is actually a course on the product. From &#8220;<a href="http://mylearn.vmware.com/descriptions/EDU_DATASHEET_VSMImplementingIPMgmt_V9.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://mylearn.vmware.com/descriptions/EDU_DATASHEET_VSMImplementingIPMgmt_V9.pdf']);">VMware Service Manager: Implementing Incident Problem Management</a>&#8221; class data sheet:
+The paper talks about being pro-active, defining roles for different layers, and having integrated management. All of these thing are true and there are a lot of third party application that already do this. I talked about these in <a href="http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-2-4-build-manageability-requirements-into-the-logical-design/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-2-4-build-manageability-requirements-into-the-logical-design/']);">Objective 2.4</a>. Also VMware provides this product called VMware Service Manager that allows for incident tracking. I talked it about earlier. There is actually a course on the product. From "<a href="http://mylearn.vmware.com/descriptions/EDU_DATASHEET_VSMImplementingIPMgmt_V9.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://mylearn.vmware.com/descriptions/EDU_DATASHEET_VSMImplementingIPMgmt_V9.pdf']);">VMware Service Manager: Implementing Incident Problem Management</a>" class data sheet:
 
 > **Course Overview**  
 > VMware® Service Manager (VSM) is a service management tool for managing and controlling customer calls received through a service desk.
 > 
 > This three-day course is suitable for customers implementing the service desk module of VSM and covers the operational and administrative functions of the service desk.
 > 
-> &#8230;  
-> &#8230;
+> ...  
+> ...
 > 
 > **Objectives:**
 > 
@@ -615,7 +615,7 @@ So if the customer is big enough, ask them to go through the above class so they
 
 ### Based on the logical design, identify and implement logging, monitoring and reporting technologies.
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf']);">vSphere Monitoring and Performance vSphere 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf']);">vSphere Monitoring and Performance vSphere 5.0</a>":
 
 > **Monitoring Events, Alarms, and Automated Actions**  
 > vSphere includes a user-configurable events and alarms subsystem. This subsystem tracks events happening throughout vSphere and stores the data in log files and the vCenter Server database. This subsystem also enables you to specify the conditions under which alarms are triggered. Alarms can change state from mild warnings to more serious alerts as system conditions change, and can trigger automated alarm actions. This functionality is useful when you want to be informed, or take immediate action, when certain events or conditions occur for a specific inventory object, or group of objects.
@@ -638,11 +638,11 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 > **Alarms**  
 > Alarms are notifications that are activated in response to an event, a set of conditions, or the state of an inventory object. An alarm definition consists of the following elements:
 > 
-> *   Name and description &#8211; Provides an identifying label and description.
-> *   Alarm type &#8211; Defines the type of object that will be monitored.
-> *   Triggers &#8211; Defines the event, condition, or state that will trigger the alarm and defines the notification severity.
-> *   Tolerance thresholds (Reporting) &#8211; Provides additional restrictions on condition and state triggers thresholds that must be exceeded before the alarm is triggered.
-> *   Actions &#8211; Defines operations that occur in response to triggered alarms. VMware provides sets of predefined actions that are specific to inventory object types. 
+> *   Name and description - Provides an identifying label and description.
+> *   Alarm type - Defines the type of object that will be monitored.
+> *   Triggers - Defines the event, condition, or state that will trigger the alarm and defines the notification severity.
+> *   Tolerance thresholds (Reporting) - Provides additional restrictions on condition and state triggers thresholds that must be exceeded before the alarm is triggered.
+> *   Actions - Defines operations that occur in response to triggered alarms. VMware provides sets of predefined actions that are specific to inventory object types. 
 > 
 > Alarms have the following severity levels:
 > 
@@ -680,8 +680,8 @@ Setup Alarms for critical events and make sure you set an action to email the VM
 > 
 > To use the vCenter Server SNMP traps, configure the SNMP settings on vCenter Server and configure your management client software to accept the traps from vCenter Server.
 > 
-> &#8230;  
-> &#8230;
+> ...  
+> ...
 > 
 > **Configure SNMP for ESXi**  
 > ESXi includes an SNMP agent embedded in hostd that can both send traps and receive polling requests such as GET requests. This agent is referred to as the embedded SNMP agent.
@@ -696,7 +696,7 @@ Setup Alarms for critical events and make sure you set an action to email the VM
 
 If there is already a tool in place in the environment that does SNMP polling (ie Nagios, SolarWinds, or Cacti) then definitely add vCenter and ESX SNMP traps to go to that software. A lot of networking admins want to know whenever a node is down on the network, and SNMP is definitely the best way to keep on eye on that. If there is no such setup in place then Alarms might be okay, it just depends on how quickly they want to get notified of the issue. Also alarms are not as dependable. If vCenter goes down, how is it going to fire an alarm? So having an external application polling with SNMP is definitely more reliable.
 
-Lastly, definitely setup a syslog server. Now with vSphere 5, there is a product called &#8220;Syslog Collector&#8221; and can be installed along side of vCenter. More information can be seen in VMware Blog &#8220;Setting up the ESXi Syslog Collector&#8221;, from the blog:
+Lastly, definitely setup a syslog server. Now with vSphere 5, there is a product called "Syslog Collector" and can be installed along side of vCenter. More information can be seen in VMware Blog "Setting up the ESXi Syslog Collector", from the blog:
 
 > Syslog collector also addresses the issue of an Auto Deployed host not having a local disk. With no local disk the log files are stored on a ramdisk, which means each time the server boots the logs are lost. Not having persistent logs can complicate troubleshooting. Use the syslog collector to capture the ESXi host’s log on a network server.
 > 

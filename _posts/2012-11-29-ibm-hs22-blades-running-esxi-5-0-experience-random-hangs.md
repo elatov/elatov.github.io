@@ -36,7 +36,7 @@ Every couple of days we would see one of our ESXi host disconnect from vCenter a
 	TSC: 0 cpu0:0)Boot: 167: Parsing boot option module /useropts.gz  
 	
 
-We would see a lot &#8216;Transient file system condition, suggest retry&#8217; messages, which point to a storage issue. The message doesn&#8217;t point out which LUN/Device is experiencing the issue, however the last message before the reboot is the following:
+We would see a lot 'Transient file system condition, suggest retry' messages, which point to a storage issue. The message doesn't point out which LUN/Device is experiencing the issue, however the last message before the reboot is the following:
 
 	  
 	2012-10-25T16:01:54.286Z cpu2:8054)WARNING: ScsiDeviceIO: 1218: Device naa.600508e000000000e51b24d0a7fad20e performance has deteriorated. I/O latency increased from average value of 16512 microseconds to 331746 microseconds.  
@@ -98,5 +98,5 @@ That matched my issue pretty closely. I went ahead and followed the instruction 
 	~ # esxcfg-advcfg -k TRUE iovDisableIR  
 	
 
-Since rebooting the host (to apply the above setting), we haven&#8217;t seen any more disconnects from the blades.
+Since rebooting the host (to apply the above setting), we haven't seen any more disconnects from the blades.
 

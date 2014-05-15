@@ -22,7 +22,7 @@ From the <a href="http://en.wikipedia.org/wiki/RAID" onclick="javascript:_gaq.pu
 
 RAID 1, from the same wikipedia page:
 
-> In **RAID 1** (mirroring without parity or striping), data is written identically to two drives, thereby producing a &#8220;mirrored set&#8221;; the read request is serviced by either of the two drives containing the requested data, whichever one involves least seek time plus rotational latency. Similarly, a write request updates the strips of both drives. The write performance depends on the slower of the two writes (i.e., the one that involves larger seek time and rotational latency); at least two drives are required to constitute such an array. While more constituent drives may be employed, many implementations deal with a maximum of only two; of course, it might be possible to use such a limited level 1 RAID itself as a constituent of a level 1 RAID, effectively masking the limitation.The array continues to operate as long as at least one drive is functioning. With appropriate operating system support, there can be increased read performance, and only a minimal write performance reduction; implementing RAID 1 with a separate controller for each drive in order to perform simultaneous reads (and writes) is sometimes called &#8220;multiplexing&#8221; (or &#8220;duplexing&#8221; when there are only two drives).
+> In **RAID 1** (mirroring without parity or striping), data is written identically to two drives, thereby producing a "mirrored set"; the read request is serviced by either of the two drives containing the requested data, whichever one involves least seek time plus rotational latency. Similarly, a write request updates the strips of both drives. The write performance depends on the slower of the two writes (i.e., the one that involves larger seek time and rotational latency); at least two drives are required to constitute such an array. While more constituent drives may be employed, many implementations deal with a maximum of only two; of course, it might be possible to use such a limited level 1 RAID itself as a constituent of a level 1 RAID, effectively masking the limitation.The array continues to operate as long as at least one drive is functioning. With appropriate operating system support, there can be increased read performance, and only a minimal write performance reduction; implementing RAID 1 with a separate controller for each drive in order to perform simultaneous reads (and writes) is sometimes called "multiplexing" (or "duplexing" when there are only two drives).
 > 
 > <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/raid-1-wiki.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/raid-1-wiki.png']);"><img class="alignnone size-full wp-image-3668" title="raid-1-wiki" alt="raid 1 wiki VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions " src="http://virtuallyhyper.com/wp-content/uploads/2012/09/raid-1-wiki.png" width="1074" height="173" /></a>
 
@@ -40,24 +40,24 @@ And from <a href="http://en.wikipedia.org/wiki/Nested_RAID_levels" onclick="java
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/raid10-wiki.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/raid10-wiki.png']);"><img class="alignnone size-full wp-image-3670" title="raid10-wiki" alt="raid10 wiki VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions " src="http://virtuallyhyper.com/wp-content/uploads/2012/09/raid10-wiki.png" width="244" height="282" /></a>
 
-If you want to know about read and write penalties, I would check out &#8220;<a href="http://vmtoday.com/2010/01/storage-basics-part-iii-raid/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://vmtoday.com/2010/01/storage-basics-part-iii-raid/']);">Storage Basics – Part III: RAID</a>&#8220;. Also check out &#8220;<a href="http://www.techrepublic.com/blog/datacenter/calculate-iops-in-a-storage-array/2182" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.techrepublic.com/blog/datacenter/calculate-iops-in-a-storage-array/2182']);">Calculate IOPS in a storage array</a>&#8220;. From the last link:
+If you want to know about read and write penalties, I would check out "<a href="http://vmtoday.com/2010/01/storage-basics-part-iii-raid/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://vmtoday.com/2010/01/storage-basics-part-iii-raid/']);">Storage Basics – Part III: RAID</a>". Also check out "<a href="http://www.techrepublic.com/blog/datacenter/calculate-iops-in-a-storage-array/2182" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.techrepublic.com/blog/datacenter/calculate-iops-in-a-storage-array/2182']);">Calculate IOPS in a storage array</a>". From the last link:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/raid_io_impact.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/raid_io_impact.png']);"><img class="alignnone size-full wp-image-3671" title="raid_io_impact" alt="raid io impact VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions " src="http://virtuallyhyper.com/wp-content/uploads/2012/09/raid_io_impact.png" width="347" height="149" /></a>
 
 ### Identify supported HBA types
 
-From &#8220;<a href="http://blogs.vmware.com/vsphere/2012/02/storage-protocol-comparison-a-vsphere-perspective.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vsphere/2012/02/storage-protocol-comparison-a-vsphere-perspective.html']);">Storage Protocol Comparison – A vSphere Perspective</a>&#8220;:
+From "<a href="http://blogs.vmware.com/vsphere/2012/02/storage-protocol-comparison-a-vsphere-perspective.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vsphere/2012/02/storage-protocol-comparison-a-vsphere-perspective.html']);">Storage Protocol Comparison – A vSphere Perspective</a>":
 
 > Fiber Channel can run on 1Gb/2Gb/4Gb/8Gb & 16Gb, but 16Gb HBAs must be throttled to run at 8Gb in vSphere 5.0.  
-> &#8230;  
-> &#8230;  
+> ...  
+> ...  
 > For iSCSI
 > 
 > 1.  NIC with iSCSI capabilities using Software iSCSI initiator & accessed using a VMkernel (vmknic) port
 > 2.  Dependant Hardware iSCSI initiator
 > 3.  Independent Hardware iSCSI initiator
 
-If you want to make sure your make and model of the HBA is supported, check the VMware <a href="http://www.vmware.com/go/hcl" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.vmware.com/go/hcl']);">HCL</a>. One last note, with vSphere 5.1 FC HBA 16GB is now fully supported. For more information check out the performance study: &#8220;<a href="http://www.vmware.com/files/pdf/techpaper/VMware-vSphere-16Gb-StorageIO-Perf.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/techpaper/VMware-vSphere-16Gb-StorageIO-Perf.pdf']);">Storage I/O Performance on VMware vSphere 5.1 over 16 Gigabit Fibre Channel</a>&#8221;
+If you want to make sure your make and model of the HBA is supported, check the VMware <a href="http://www.vmware.com/go/hcl" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.vmware.com/go/hcl']);">HCL</a>. One last note, with vSphere 5.1 FC HBA 16GB is now fully supported. For more information check out the performance study: "<a href="http://www.vmware.com/files/pdf/techpaper/VMware-vSphere-16Gb-StorageIO-Perf.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/techpaper/VMware-vSphere-16Gb-StorageIO-Perf.pdf']);">Storage I/O Performance on VMware vSphere 5.1 over 16 Gigabit Fibre Channel</a>"
 
 ### Identify virtual disk format types
 
@@ -69,11 +69,11 @@ Also check out <a href="http://twitter.yfrog.com/h6klabj" onclick="javascript:_g
 
 ### Determine use cases for and configure VMware DirectPath I/O
 
-From &#8220;<a href="http://www.vmware.com/pdf/vsp_4_vmdirectpath_host.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/vsp_4_vmdirectpath_host.pdf']);">Configuration Examples and Troubleshooting for VMDirectPath</a>&#8220;:
+From "<a href="http://www.vmware.com/pdf/vsp_4_vmdirectpath_host.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/vsp_4_vmdirectpath_host.pdf']);">Configuration Examples and Troubleshooting for VMDirectPath</a>":
 
 > VMDirectPath allows guest operating systems to directly access an I/O device, bypassing the virtualization layer. This direct path, or passthrough can improve performance for VMware ESX™ systems that utilize high‐speed I/O devices, such as 10 Gigabit Ethernet.
 
-From &#8220;<a href="http://www.petri.co.il/vmware-esxi4-vmdirectpath.htm" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.petri.co.il/vmware-esxi4-vmdirectpath.htm']);">How to access USB and Other PCI Devices in VMware ESXi4 VMs with VMDirectPath</a>&#8220;, here is a good diagram:
+From "<a href="http://www.petri.co.il/vmware-esxi4-vmdirectpath.htm" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.petri.co.il/vmware-esxi4-vmdirectpath.htm']);">How to access USB and Other PCI Devices in VMware ESXi4 VMs with VMDirectPath</a>", here is a good diagram:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/vm-direct_path_io.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/vm-direct_path_io.png']);"><img class="alignnone size-full wp-image-3679" title="vm-direct_path_io" alt="vm direct path io VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions " src="http://virtuallyhyper.com/wp-content/uploads/2012/09/vm-direct_path_io.png" width="256" height="395" /></a>
 
@@ -81,25 +81,25 @@ The above page has good example of how to set it up. Also check out VMware KB <a
 
 ### Determine requirements for and configure NPIV
 
-To start off here is a good diagram of how it works from &#8220;<a href="http://www.cisco.com/en/US/prod/collateral/ps4159/ps6409/ps5989/ps9898/white_paper_c11-459263.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.cisco.com/en/US/prod/collateral/ps4159/ps6409/ps5989/ps9898/white_paper_c11-459263.html']);">N-Port Virtualization in the Data Center</a>&#8221;
+To start off here is a good diagram of how it works from "<a href="http://www.cisco.com/en/US/prod/collateral/ps4159/ps6409/ps5989/ps9898/white_paper_c11-459263.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.cisco.com/en/US/prod/collateral/ps4159/ps6409/ps5989/ps9898/white_paper_c11-459263.html']);">N-Port Virtualization in the Data Center</a>"
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/npiv_cisco.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/npiv_cisco.png']);"><img class="alignnone size-full wp-image-3681" title="npiv_cisco" alt="npiv cisco VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions " src="http://virtuallyhyper.com/wp-content/uploads/2012/09/npiv_cisco.png" width="423" height="638" /></a>
 
-From the VMware Blog &#8220;<a href="http://blogs.vmware.com/vsphere/2011/11/npiv-n-port-id-virtualization.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vsphere/2011/11/npiv-n-port-id-virtualization.html']);">NPIV: N-Port ID Virtualization</a>&#8221;
+From the VMware Blog "<a href="http://blogs.vmware.com/vsphere/2011/11/npiv-n-port-id-virtualization.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vsphere/2011/11/npiv-n-port-id-virtualization.html']);">NPIV: N-Port ID Virtualization</a>"
 
-> Let&#8217;s start by describing what this feature is. NPIV stands for N-Port ID Virtualization. It is an ANSI T11 standard that describes how a single Fibre Channel Physical HBA port can register with a fabric using several worldwide port names (WWPNs), what might be considered Virtual WWNs. This in turn means that since there a multiple Virtual HBAs per physical HBA, we can allow WWNs to be assigned to each VM
+> Let's start by describing what this feature is. NPIV stands for N-Port ID Virtualization. It is an ANSI T11 standard that describes how a single Fibre Channel Physical HBA port can register with a fabric using several worldwide port names (WWPNs), what might be considered Virtual WWNs. This in turn means that since there a multiple Virtual HBAs per physical HBA, we can allow WWNs to be assigned to each VM
 
-The above blog, has a step by step process on how to set it up as well. Another good article that has a step by step process is &#8220;<a href="http://www.brocade.com/forms/getFile?p=documents/white_papers/white_papers_partners/NPIV_ESX4_0_GA-TB-145-01.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.brocade.com/forms/getFile?p=documents/white_papers/white_papers_partners/NPIV_ESX4_0_GA-TB-145-01.pdf']);">Technical Brief: How to Configure NPIV on VMware vSphere 4.0</a>&#8220;. From &#8220;<a href="http://www.simonlong.co.uk/blog/2009/07/27/npiv-support-in-vmware-esx4/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.simonlong.co.uk/blog/2009/07/27/npiv-support-in-vmware-esx4/']);">NPIV support in VMware ESX4</a>&#8220;:
+The above blog, has a step by step process on how to set it up as well. Another good article that has a step by step process is "<a href="http://www.brocade.com/forms/getFile?p=documents/white_papers/white_papers_partners/NPIV_ESX4_0_GA-TB-145-01.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.brocade.com/forms/getFile?p=documents/white_papers/white_papers_partners/NPIV_ESX4_0_GA-TB-145-01.pdf']);">Technical Brief: How to Configure NPIV on VMware vSphere 4.0</a>". From "<a href="http://www.simonlong.co.uk/blog/2009/07/27/npiv-support-in-vmware-esx4/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.simonlong.co.uk/blog/2009/07/27/npiv-support-in-vmware-esx4/']);">NPIV support in VMware ESX4</a>":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/npiv_slog.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/npiv_slog.png']);"><img class="alignnone size-full wp-image-3683" title="npiv_slog" alt="npiv slog VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions " src="http://virtuallyhyper.com/wp-content/uploads/2012/09/npiv_slog.png" width="312" height="231" /></a>
 
 The above page also has snapshots of how to set it. Most of the links are reffering to vSphere 4.x but that is okay, not much has changed since 3.x days. From the above VMware blog:
 
-> As you might see from the screenshots that I am using, the implementation is not being done on vSphere 5.0 but on a much earlier version of vSphere. However the steps haven&#8217;t changed one bit since we first brought out support for NPIV back in ESX 3.
+> As you might see from the screenshots that I am using, the implementation is not being done on vSphere 5.0 but on a much earlier version of vSphere. However the steps haven't changed one bit since we first brought out support for NPIV back in ESX 3.
 
 ### Determine appropriate RAID level for various Virtual Machine workloads
 
-From the Microsoft Article &#8220;<a href="http://technet.microsoft.com/en-us/library/cc786889(WS.10).aspx" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://technet.microsoft.com/en-us/library/cc786889(WS.10).aspx']);">Planning the Layout and RAID Level of Volumes</a>&#8220;:
+From the Microsoft Article "<a href="http://technet.microsoft.com/en-us/library/cc786889(WS.10).aspx" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://technet.microsoft.com/en-us/library/cc786889(WS.10).aspx']);">Planning the Layout and RAID Level of Volumes</a>":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/data_type_with_characteristics.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/data_type_with_characteristics.png']);"><img class="alignnone size-full wp-image-3685" title="data_type_with_characteristics" alt="data type with characteristics VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions " src="http://virtuallyhyper.com/wp-content/uploads/2012/09/data_type_with_characteristics.png" width="978" height="379" /></a>
 
@@ -147,7 +147,7 @@ And more:
 
 ### Understand and apply VMFS re-signaturing
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf']);">vSphere Storage ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf']);">vSphere Storage ESXi 5.0</a>":
 
 > **Managing Duplicate VMFS Datastores**
 > 
@@ -333,7 +333,7 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 	> esxcli storage core claimrule run  
 	> 
 > 
-> After you assign the MASK_PATH plug-in to a path, the path state becomes irrelevant and is no longer maintained by the host. As a result, commands that display the masked path&#8217;s information might show the path state as dead.
+> After you assign the MASK_PATH plug-in to a path, the path state becomes irrelevant and is no longer maintained by the host. As a result, commands that display the masked path's information might show the path state as dead.
 > 
 > **Example: Masking a LUN**  
 > In this example, you mask the LUN 20 on targets T1 and T2 accessed through storage adapters vmhba2 and vmhba3.
@@ -353,7 +353,7 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 
 ### Analyze I/O workloads to determine storage performance requirements
 
-Determine what kind of workload your application requires. From &#8220;<a href="https://education.emc.com/academicalliance/student/EMC%20Clariion%20Fibre%20Channel%20WP.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://education.emc.com/academicalliance/student/EMC%20Clariion%20Fibre%20Channel%20WP.pdf']);">EMC CLARiiON Fibre Channel Storage Fundamentals</a>&#8220;:
+Determine what kind of workload your application requires. From "<a href="https://education.emc.com/academicalliance/student/EMC%20Clariion%20Fibre%20Channel%20WP.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://education.emc.com/academicalliance/student/EMC%20Clariion%20Fibre%20Channel%20WP.pdf']);">EMC CLARiiON Fibre Channel Storage Fundamentals</a>":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/application_io_workloads.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/application_io_workloads.png']);"><img class="alignnone size-full wp-image-3731" title="application_io_workloads" alt="application io workloads VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions " src="http://virtuallyhyper.com/wp-content/uploads/2012/09/application_io_workloads.png" width="632" height="279" /></a>
 
@@ -479,7 +479,7 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 > 
 > **Procedure**
 > 
-> *   Run the esxcli storage core plugin list &#8211;plugin-class=value command.For value, enter one of the following options: 
+> *   Run the esxcli storage core plugin list -plugin-class=value command.For value, enter one of the following options: 
 >     *   Type VAAI to display plug-ins.
 >     *   The output of this command is similar to the following example:
 > 
@@ -550,7 +550,7 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 > **Understanding Storage Capabilities**  
 > A storage capability outlines the quality of service that a storage system can deliver. It is a guarantee that the storage system can provide a specific set of characteristics for capacity, performance, availability, redundancy, and so on.
 > 
-> If a storage system uses Storage APIs &#8211; Storage Awareness, it informs vCenter Server that it can guarantee a specific set of storage features by presenting them as a storage capability. vCenter Server recognizes the capability and adds it to the list of storage capabilities in the Manage Storage Capabilities dialog box. Such storage capabilities are system-defined. vCenter Server assigns the system-defined storage capability to each datastore that you create from that storage system.
+> If a storage system uses Storage APIs - Storage Awareness, it informs vCenter Server that it can guarantee a specific set of storage features by presenting them as a storage capability. vCenter Server recognizes the capability and adds it to the list of storage capabilities in the Manage Storage Capabilities dialog box. Such storage capabilities are system-defined. vCenter Server assigns the system-defined storage capability to each datastore that you create from that storage system.
 > 
 > **NOTE** Because multiple system capabilities for a datastore are not supported, a datastore that spans several extents assumes the system capability of only one of its extents.
 > 
@@ -577,7 +577,7 @@ Then click on VM Storage Profiles:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/vm_storage_profiles.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/vm_storage_profiles.png']);"><img class="alignnone size-full wp-image-3762" title="vm_storage_profiles" alt="vm storage profiles VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions " src="http://virtuallyhyper.com/wp-content/uploads/2012/09/vm_storage_profiles.png" width="1034" height="207" /></a>
 
-Then Click &#8220;Manage Storage Capabilities&#8221;:
+Then Click "Manage Storage Capabilities":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/manage_storage_capabilities.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/manage_storage_capabilities.png']);"><img class="alignnone size-full wp-image-3770" title="manage_storage_capabilities" alt="manage storage capabilities VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions " src="http://virtuallyhyper.com/wp-content/uploads/2012/09/manage_storage_capabilities.png" width="620" height="527" /></a>
 
@@ -609,7 +609,7 @@ Next section from the guide:
 > 
 > The user-defined storage capability appears in the Storage Capabilities pane of the Summary tab of the datastore or its datastore cluster.
 
-From the Home Screen select the Datastores view, then Right on a Datastore and Select &#8220;Assign User-Defined Storage Capability&#8221;:  
+From the Home Screen select the Datastores view, then Right on a Datastore and Select "Assign User-Defined Storage Capability":  
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/right_click_datastore.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/right_click_datastore.png']);"><img class="alignnone size-full wp-image-3773" title="right_click_datastore" alt="right click datastore VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions " src="http://virtuallyhyper.com/wp-content/uploads/2012/09/right_click_datastore.png" width="435" height="302" /></a>
 
 Then select your capability to be assigned to this datastore:
@@ -650,14 +650,14 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 >     3.  Review the list of hosts from which to unmount the datastore, and click Finish.
 > 4.  Confirm that you want to unmount the datastore.
 > 
-> After you unmount a VMFS datastore, the datastore becomes inactive and is dimmed in the host&#8217;s datastore  
+> After you unmount a VMFS datastore, the datastore becomes inactive and is dimmed in the host's datastore  
 > list. An unmounted NFS datastore no longer appears on the list.
 
 Right click on a datastore:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/right_click_on_datastore_to_umount.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/right_click_on_datastore_to_umount.png']);"><img class="alignnone size-full wp-image-3778" title="right_click_on_datastore_to_umount" alt="right click on datastore to umount VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions " src="http://virtuallyhyper.com/wp-content/uploads/2012/09/right_click_on_datastore_to_umount.png" width="1032" height="462" /></a>
 
-Click on &#8220;Unmount&#8221; and you will see the following screen:
+Click on "Unmount" and you will see the following screen:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/unmount_datastore.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/unmount_datastore.png']);"><img class="alignnone size-full wp-image-3779" title="unmount_datastore" alt="unmount datastore VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions " src="http://virtuallyhyper.com/wp-content/uploads/2012/09/unmount_datastore.png" width="523" height="393" /></a>
 
@@ -686,7 +686,7 @@ From the same guide:
 > **What to do next**  
 > If multiple hosts share the device, detach the device from each host.
 
-Click on an ESX Host -> Configuration Tab -> Storage Adapters -> Select your HBA (vmhba33) -> Select Devices -> Right Click on a path -> Select &#8220;Detach&#8221;. Here is how it looks like:
+Click on an ESX Host -> Configuration Tab -> Storage Adapters -> Select your HBA (vmhba33) -> Select Devices -> Right Click on a path -> Select "Detach". Here is how it looks like:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/detach_path.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/detach_path.png']);"><img class="alignnone size-full wp-image-3780" title="detach_path" alt="detach path VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions " src="http://virtuallyhyper.com/wp-content/uploads/2012/09/detach_path.png" width="816" height="530" /></a>
 
@@ -703,7 +703,7 @@ Also from the same guide:
 > 
 > You can now perform a reconfiguration of the storage device by using the array console.
 
-Also check out KB &#8220;<a href="http://kb.vmware.com/kb/2004605" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/2004605']);">Unpresenting a LUN in ESXi 5.x</a>&#8221; and &#8220;<a href="http://kb.vmware.com/kb/2011506" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/2011506']);">Detaching a datastore or storage device from multiple ESXi 5.0 hosts</a>&#8220;. From the first KB:
+Also check out KB "<a href="http://kb.vmware.com/kb/2004605" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/2004605']);">Unpresenting a LUN in ESXi 5.x</a>" and "<a href="http://kb.vmware.com/kb/2011506" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/2011506']);">Detaching a datastore or storage device from multiple ESXi 5.0 hosts</a>". From the first KB:
 
 > To unpresent a LUN from an ESXi 5.0 host from the command line:
 > 
@@ -764,7 +764,7 @@ Also check out KB &#8220;<a href="http://kb.vmware.com/kb/2004605" onclick="java
 > 
 > Note that the Mounted field is set to false, the Type field is set to VMFS-unknown version, and that no Mount Point exists.
 > 
-> Note: The unmounted state of the VMFS datastore persists across reboots. This is the default behavior. However, it can be changed by appending the &#8211;no-persist flag.
+> Note: The unmounted state of the VMFS datastore persists across reboots. This is the default behavior. However, it can be changed by appending the -no-persist flag.
 > 
 > To detach the device/LUN, run this command:
 > 
@@ -863,7 +863,7 @@ Also check out KB &#8220;<a href="http://kb.vmware.com/kb/2004605" onclick="java
 	> \# esxcli storage core device detached remove -d naa.50060160c46036df50060160c46036df  
 	> 
 > 
-> The reference to the device configuration is permanently removed from the ESXi host&#8217;s configuration.
+> The reference to the device configuration is permanently removed from the ESXi host's configuration.
 
 ### Upgrade VMware storage infrastructure
 
@@ -897,7 +897,7 @@ Also from the same guide:
 > 
 > When upgrading the datastore, use the following command: vmkfstools -T /vmfs/volumes/UUID
 > 
-> **NOTE** All hosts accessing the datastore must support VMFS5 . If any ESX/ESXi host version 4.x or earlier is using the VMFS3 datastore, the upgrade fails and the host&#8217;s mac address is displayed. with the Mac address details of the Host which is actively using the Datastore
+> **NOTE** All hosts accessing the datastore must support VMFS5 . If any ESX/ESXi host version 4.x or earlier is using the VMFS3 datastore, the upgrade fails and the host's mac address is displayed. with the Mac address details of the Host which is actively using the Datastore
 
 <div class="SPOSTARBUST-Related-Posts">
   <H3>

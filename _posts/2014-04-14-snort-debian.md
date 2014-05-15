@@ -17,7 +17,7 @@ tags:
   - snorby
   - snort
 ---
-I decided to install Snort on Debian. By default the debian apt sources do have a snort package but it&#8217;s out of date.
+I decided to install Snort on Debian. By default the debian apt sources do have a snort package but it's out of date.
 
 ### Snort Version on Debian
 
@@ -29,45 +29,45 @@ Here is the is version available for Debian:
     2.9.2.2-3 (/var/lib/apt/lists/ftp.us.debian.org_debian_dists_wheezy_main_binary-amd64_Packages) (/var/lib/apt/lists/ftp.fr.debian.org_debian_dists_wheezy_main_binary-amd64_Packages)
     
 
-So it&#8217;s at 2.9.2.2 but that&#8217;s already end of lifed as per <a href="http://blog.snort.org/2012/08/snort-2922-is-end-of-life.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blog.snort.org/2012/08/snort-2922-is-end-of-life.html']);">this</a> page. So you won&#8217;t be able to use tools like <a href="https://code.google.com/p/pulledpork/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://code.google.com/p/pulledpork/']);">pulledpork</a> to download the rules for that old version. So let&#8217;s build it from source.
+So it's at 2.9.2.2 but that's already end of lifed as per <a href="http://blog.snort.org/2012/08/snort-2922-is-end-of-life.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blog.snort.org/2012/08/snort-2922-is-end-of-life.html']);">this</a> page. So you won't be able to use tools like <a href="https://code.google.com/p/pulledpork/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://code.google.com/p/pulledpork/']);">pulledpork</a> to download the rules for that old version. So let's build it from source.
 
 ### Compile Snort
 
-First let&#8217;s install the prerequisites:
+First let's install the prerequisites:
 
     elatov@kerch:~$sudo apt-get install flex bison libpcap-dev libdnet-dev libdumbnet-dev 
     
 
-Now let&#8217;s get the source:
+Now let's get the source:
 
     elatov@kerch:~$wget http://sourceforge.net/projects/snort/files/snort/daq-2.0.2.tar.gz
     elatov@kerch:~$wget http://sourceforge.net/projects/snort/files/snort/snort-2.9.6.0.tar.gz
     
 
-Let&#8217;s build the DAQ software. Extract the source:
+Let's build the DAQ software. Extract the source:
 
     elatov@kerch:~$tar xvzf daq-2.0.2.tar.gz
     
 
-Now let&#8217;s prepare the source:
+Now let's prepare the source:
 
     elatov@kerch:~$cd daq-2.0.2
     elatov@kerch:~$./configure --prefix=/usr/local/snort
     
 
-Now let&#8217;s compile the software:
+Now let's compile the software:
 
     elatov@kerch:~$make
     
 
-If the compile is successful, let&#8217;s install it:
+If the compile is successful, let's install it:
 
     elatov@kerch:~$sudo mkdir /usr/local/snort
     elatov@kerch:~$sudo chown elatov:elatov /usr/local/snort
     elatov@kerch:~$make install
     
 
-Now let&#8217;s do the same thing for snort
+Now let's do the same thing for snort
 
     elatov@kerch:~$tar xvzf snort-2.9.6.0.tar.gz
     elatov@kerch:~$cd snort-2.9.6.0
@@ -76,7 +76,7 @@ Now let&#8217;s do the same thing for snort
     elatov@kerch:~$make install
     
 
-Now let&#8217;s copy the initial configuration over:
+Now let's copy the initial configuration over:
 
     elatov@kerch:~$mkdir /usr/local/snort/etc
     elatov@kerch:~$rsync -avzP snort-2.9.6.0/etc/*.conf* /usr/local/snort/etc/.
@@ -106,13 +106,13 @@ Here is an easy command to delete the rules from the configuration file:
     elatov@kerch:~$sed -i '/^include $RULE_PATH/d' /usr/local/snort/etc/snort.conf
     
 
-Now let&#8217;d add the snort user and group:
+Now let'd add the snort user and group:
 
     elatov@kerch:~$sudo groupadd snort
     elatov@kerch:~$sudo useradd -g snort snort
     
 
-Let&#8217;s create the rest of the directories that we will be used by **pulledpork**:
+Let's create the rest of the directories that we will be used by **pulledpork**:
 
     elatov@kerch:~$mkdir /usr/local/snort/etc/rules
     elatov@kerch:~$mkdir /usr/local/snort/lib/snort_dynamicrules
@@ -125,17 +125,17 @@ Let&#8217;s create the rest of the directories that we will be used by **pulledp
 
 ### Get Snort Rules with PulledPork
 
-First let&#8217;s install the prerequisites for the **pulledpork** package:
+First let's install the prerequisites for the **pulledpork** package:
 
     elatov@kerch:~$sudo apt-get install libcrypt-ssleay-perl liblwp-protocol-https-perl
     
 
-Now let&#8217;s get the package:
+Now let's get the package:
 
     elatov@kerch:~$svn checkout http://pulledpork.googlecode.com/svn/trunk/ pulledpork-read-only
     
 
-Now let&#8217;s prepare the installation directory:
+Now let's prepare the installation directory:
 
     elatov@kerch:~$sudo mkdir /usr/local/pp
     elatov@kerch:~$sudo chown elatov:elatov /usr/local/pp
@@ -143,7 +143,7 @@ Now let&#8217;s prepare the installation directory:
     elatov@kerch:~$mkdir /usr/local/pp/bin
     
 
-Lastly let&#8217;s copy the necessary files:
+Lastly let's copy the necessary files:
 
     elatov@kerch:~$rsync -avzP pulledpork-read-only/etc/.  /usr/local/pp/etc/.
     elatov@kerch:~$rsync -avzP pulledpork-read-only/pulledpork.pl /usr/local/pp/bin/.
@@ -232,7 +232,7 @@ Now run the following to get the rules:
     Fly Piggy Fly!
     
 
-Now let&#8217;s add the community rules to be parsed by snort:
+Now let's add the community rules to be parsed by snort:
 
     elatov@kerch:~$echo "include \$RULE_PATH/snort.rules" >> /usr/local/snort/etc/snort.conf
     
@@ -266,21 +266,21 @@ and you should see alerts that snorts catches:
     4/01-16:17:24.811261  [**] [129:12:1] Consecutive TCP small segments exceeding threshold [**] [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 216.98.195.98:50932 -> 67.172.135.80:4172
     
 
-Hit **Ctlr-C** to stop the above process, after you confirm it&#8217;s seeing traffic. To automatically grab new rules, we can add the **pulledpork** command to the snort user to be run weekly.
+Hit **Ctlr-C** to stop the above process, after you confirm it's seeing traffic. To automatically grab new rules, we can add the **pulledpork** command to the snort user to be run weekly.
 
 ### Install Barnyard2 for Snort
 
-To help snort process all the packets it recommended to use Barnyard. Barnyard is a processing software which processes a unified2 format file and stores the results in a MySQL database. This way, snort just logs to a file and doesn&#8217;t have to waste cycles writing to a database. Let&#8217;s install the software, first let&#8217;s get the prerequisites:
+To help snort process all the packets it recommended to use Barnyard. Barnyard is a processing software which processes a unified2 format file and stores the results in a MySQL database. This way, snort just logs to a file and doesn't have to waste cycles writing to a database. Let's install the software, first let's get the prerequisites:
 
     elatov@kerch:~$ sudo apt-get install libpcap-dev libmysqld-dev
     
 
-Now let&#8217;s get the source:
+Now let's get the source:
 
     elatov@kerch:~$wget http://www.securixlive.com/download/barnyard2/barnyard2-1.9.tar.gz
     
 
-Now let&#8217;s install the software:
+Now let's install the software:
 
     elatov@kerch:~$tar xvzf barnyard2-1.9.tar.gz
     elatov@kerch:~$cd barnyard2-1.9
@@ -319,19 +319,19 @@ Create other files that will be used upon start up:
 
 ### Install Snorby for Snort
 
-Snorby is nice and organized UI that allows you to check the alerts that were caught by snort. It runs on Ruby on Rails, so let&#8217;s set that up. As always, grab the prerequistes:
+Snorby is nice and organized UI that allows you to check the alerts that were caught by snort. It runs on Ruby on Rails, so let's set that up. As always, grab the prerequistes:
 
     elatov@kerch:~$ apt-get install libyaml-dev git-core default-jre imagemagick libmagickwand-dev wkhtmltopdf build-essential libssl-dev libreadline-gplv2-dev zlib1g-dev
     linux-headers-amd64 libsqlite3-dev libxslt1-dev libxml2-dev libmysqlclient-dev
     libmysql++-dev apache2-prefork-dev libcurl4-openssl-dev ruby ruby-dev
     
 
-Now let&#8217;s install **bundler** and **rails**:
+Now let's install **bundler** and **rails**:
 
     elatov@kerch:~$sudo gem install bundler rails
     
 
-Now let&#8217;s install a specific version of **rake**:
+Now let's install a specific version of **rake**:
 
     elatov@kerch:~$sudo gem install rake --version=0.9.2
     Fetching: rake-0.9.2.gem (100%)
@@ -341,7 +341,7 @@ Now let&#8217;s install a specific version of **rake**:
     Installing RDoc documentation for rake-0.9.2...
     
 
-Now let&#8217;s get the source for snorby:
+Now let's get the source for snorby:
 
     elatov@kerch:~$git clone http://github.com/Snorby/snorby.git
     Cloning into 'snorby'...
@@ -351,7 +351,7 @@ Now let&#8217;s get the source for snorby:
     Resolving deltas: 100% (4764/4764), done.
     
 
-Let&#8217;s configure the MySQL connection settings:
+Let's configure the MySQL connection settings:
 
     elatov@kerch:~$cp snorby/config/database.yml.example snorby/config/database.yml
     
@@ -365,7 +365,7 @@ Now edit the **snorby/config/database.yml** file and modify the following:
       host: localhost
     
 
-Now let&#8217;s configure the production configuration of snorby:
+Now let's configure the production configuration of snorby:
 
     elatov@kerch:~$cp snorby/config/snorby_config.yml.example snorby/config/snorby_config.yml
     
@@ -383,13 +383,13 @@ Then modify the **snorby/config/snorby_config.yml** file to have the following:
       authentication_mode: database
     
 
-Now let&#8217;s install the dependencies necessary for snorby:
+Now let's install the dependencies necessary for snorby:
 
     elatov@kerch:~$ cd snorby
     elatov@kerch:~/snorby$ bundle install
     
 
-Now let&#8217;s create a MySQL database for snorby:
+Now let's create a MySQL database for snorby:
 
     elatov@kerch:~$mysql -u root -p
     Enter password:
@@ -414,7 +414,7 @@ Now let&#8217;s create a MySQL database for snorby:
     mysql> exit
     
 
-Now let&#8217;s setup snorby and let snorby create the necessary MySQL schema:
+Now let's setup snorby and let snorby create the necessary MySQL schema:
 
     elatov@kerch:~/snorby$bundle exec rake snorby:setup
     No time_zone specified in snorby_config.yml; detected time_zone: US/Mountain
@@ -453,7 +453,7 @@ You can login with:
 > snorby@snorby.org  
 > snorby
 
-You won&#8217;t see any alerts in there yet. Lastly let&#8217;s make everything owned by the snort user and group:
+You won't see any alerts in there yet. Lastly let's make everything owned by the snort user and group:
 
     elatov@kerch:~$sudo chown -R snort:snort /usr/local/snort
     elatov@kerch:~$sudo chown -R snort:snort /usr/local/pp
@@ -464,7 +464,7 @@ If you want <a href="https://groups.google.com/forum/#!topic/snorby/eEDy-FrwHB0"
 
 ### Configure Snort Service
 
-The snort source contains an init script but it&#8217;s for RPM based distros (but we can still make it work). First copy the script:
+The snort source contains an init script but it's for RPM based distros (but we can still make it work). First copy the script:
 
     elatov@kerch:~$sudo cp snort-2.9.6.0/rpm/snortd /etc/init.d/.
     
@@ -513,11 +513,11 @@ Here are the parameters that were passed to the snort daemon:
     snort     2652     1  7 18:29 ?        00:00:00 /usr/local/snort/bin/snort -u snort -g snort -c /usr/local/snort/etc/snort.conf -D -i eth0
     
 
-I didn&#8217;t pass the Log Directory to the daemon, since it was in the **/usr/local/snort/etc/snort.conf** file and I was using unified2 format.
+I didn't pass the Log Directory to the daemon, since it was in the **/usr/local/snort/etc/snort.conf** file and I was using unified2 format.
 
 ### Barnyard2 Init Script
 
-The source for that also had init scripts but they were for RPM. So let&#8217;s copy the necessary files:
+The source for that also had init scripts but they were for RPM. So let's copy the necessary files:
 
     elatov@kerch:~$sudo cp barnyard2-1.9/rpm/barnyard2 /etc/init.d/.
     elatov@kerch:~$sudo cp barnyard2-1.9/rpm/barnyard2.config /etc/default/barnyard2
@@ -584,7 +584,7 @@ To apply the above, restart the rsyslog service:
     elatov@kerch:~$ sudo service rsyslog restart
     
 
-After that if I restarted **barnyard2** , I could just check out the following log to make sure it&#8217;s working properly:
+After that if I restarted **barnyard2** , I could just check out the following log to make sure it's working properly:
 
     elatov@kerch:~$tail -4 /var/log/barnyard.log 
     Apr  6 18:40:09 kerch barnyard2: Barnyard2 initialization completed successfully (pid=2843)
@@ -681,7 +681,7 @@ I was getting a bunch of false positive initially, here are some rules I added t
     suppress gen_id 119 ,sig_id 31
     
 
-These all went into the **/usr/local/snort/etc/rules/local.rules** file. I also disabled the DNP3 pre-processer (I was getting the following messages **dnp3: DNP3 Link-Layer Frame was dropped**), since I wasn&#8217;t part of such a network. This is done by commenting out the following under the **/usr/local/snort/etc/snort.conf** file:
+These all went into the **/usr/local/snort/etc/rules/local.rules** file. I also disabled the DNP3 pre-processer (I was getting the following messages **dnp3: DNP3 Link-Layer Frame was dropped**), since I wasn't part of such a network. This is done by commenting out the following under the **/usr/local/snort/etc/snort.conf** file:
 
     #preprocessor dnp3: ports { 20000 } \
     #   memcap 262144 \
@@ -692,13 +692,13 @@ Both of the above required a **service snortd restart**.
 
 ### Forward Traffic to Snort Sensor
 
-The best thing to do, would be to put a switch between your Cable Modem and your Router (if you are at home) and then the snort machine would see all the packets. I didn&#8217;t want to do that, so I setup my dd-wrt router to forward all the packets to a specific IP. This can be accomplished by logging into the dd-wrt router and running the following:
+The best thing to do, would be to put a switch between your Cable Modem and your Router (if you are at home) and then the snort machine would see all the packets. I didn't want to do that, so I setup my dd-wrt router to forward all the packets to a specific IP. This can be accomplished by logging into the dd-wrt router and running the following:
 
     iptables -A PREROUTING -t mangle -j ROUTE --gw 192.168.1.x --tee
     iptables -A POSTROUTING -t mangle -j ROUTE --gw 192.168.1.x --tee
     
 
-This is not recommended for performance reasons. I kept an eye on my DD-WRT router and I didn&#8217;t see any performance issues. If the router starts to bog down, I will try to setup the other recommended configuration. BTW from <a href="http://www.aboutdebian.com/snort.htm" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.aboutdebian.com/snort.htm']);">this</a> site, here is suggested approach:
+This is not recommended for performance reasons. I kept an eye on my DD-WRT router and I didn't see any performance issues. If the router starts to bog down, I will try to setup the other recommended configuration. BTW from <a href="http://www.aboutdebian.com/snort.htm" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.aboutdebian.com/snort.htm']);">this</a> site, here is suggested approach:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/04/snort-suggested-setup.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/04/snort-suggested-setup.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/snort-suggested-setup.png" alt="snort suggested setup Snort On Debian" width="688" height="460" class="alignnone size-full wp-image-10526" title="Snort On Debian" /></a>
 

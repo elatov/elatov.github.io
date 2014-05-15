@@ -13,7 +13,7 @@ tags:
 ---
 ### Describe best practices with respect to CPU family choices
 
-From &#8220;<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>&#8220;:
+From "<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>":
 
 > **Hardware CPU Considerations**
 > 
@@ -35,7 +35,7 @@ From &#8220;<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pd
 > **Hardware-Assisted I/O MMU Virtualization (VT-d and AMD-Vi)**  
 > An even newer processor feature is an I/O memory management unit that remaps I/O DMA transfers and device interrupts. This can allow virtual machines to have direct access to hardware I/O devices, such as network cards, storage controllers (HBAs) and GPUs. In AMD processors this feature is called AMD I/O Virtualization (AMD-Vi or IOMMU) and in Intel processors the feature is called Intel Virtualization Technology for Directed I/O (VT-d).
 
-If you want more information on the different technologies, I would suggest reading &#8220;<a href="http://www.vmware.com/files/pdf/software_hardware_tech_x86_virt.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/software_hardware_tech_x86_virt.pdf']);">Software and Hardware Techniques for x86 Virtualization</a>&#8220;. Both AMD and Intel support similar functions, as long as you pick a CPU family that supports the above features you will be good. Also make sure you stay consistent with your hosts. This will help with vMotion and DRS. You can also check out &#8220;<a href="http://www.vmware.com/a/vmmark/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.vmware.com/a/vmmark/']);">VMware VMmark 2.0</a>&#8221; to see how your server performed in the benchmark.
+If you want more information on the different technologies, I would suggest reading "<a href="http://www.vmware.com/files/pdf/software_hardware_tech_x86_virt.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/software_hardware_tech_x86_virt.pdf']);">Software and Hardware Techniques for x86 Virtualization</a>". Both AMD and Intel support similar functions, as long as you pick a CPU family that supports the above features you will be good. Also make sure you stay consistent with your hosts. This will help with vMotion and DRS. You can also check out "<a href="http://www.vmware.com/a/vmmark/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.vmware.com/a/vmmark/']);">VMware VMmark 2.0</a>" to see how your server performed in the benchmark.
 
 ### Based on the service catalog and given functional requirements, for each service: Determine the most appropriate compute technologies for the design
 
@@ -48,14 +48,14 @@ From <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_note
 > *   Intel-VT
 > *   AMD-VI and RVI (Rapid Virtualization Index) 
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf']);">vSphere Installation and Setup vSphere 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf']);">vSphere Installation and Setup vSphere 5.0</a>":
 
 > Hosts running virtual machines with 64-bit guest operating systems have the following hardware requirements:
 > 
 > *   For AMD Opteron-based systems, the processors must be Opteron Rev E or later.
 > *   For Intel Xeon-based systems, the processors must include support for Intel Virtualization Technology (VT). Many servers that include CPUs with VT support might have VT disabled by default, so you must enable VT manually. If your CPUs support VT ,but you do not see this option in the BIOS, contact your vendor to request a BIOS version that lets you enable VT support. 
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf']);">vSphere Resource Management ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf']);">vSphere Resource Management ESXi 5.0</a>":
 
 > **Using CPU Affinity**  
 > By specifying a CPU affinity setting for each virtual machine, you can restrict the assignment of virtual machines to a subset of the available processors in multiprocessor systems. By using this feature, you can assign each virtual machine to processors in the specified affinity set.
@@ -64,12 +64,12 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 > 
 > The CPU affinity setting for a virtual machine applies to all of the virtual CPUs associated with the virtual machine and to all other threads (also known as worlds) associated with the virtual machine. Such virtual machine threads perform processing required for emulating mouse, keyboard, screen, CD-ROM, and miscellaneous legacy devices.
 > 
-> In some cases, such as display-intensive workloads, significant communication might occur between the virtual CPUs and these other virtual machine threads. Performance might degrade if the virtual machine&#8217;s affinity setting prevents these additional threads from being scheduled concurrently with the virtual machine&#8217;s virtual CPUs. Examples of this include a uniprocessor virtual machine with affinity to a single CPU or a two-way SMP virtual machine with affinity to only two CPUs.
+> In some cases, such as display-intensive workloads, significant communication might occur between the virtual CPUs and these other virtual machine threads. Performance might degrade if the virtual machine's affinity setting prevents these additional threads from being scheduled concurrently with the virtual machine's virtual CPUs. Examples of this include a uniprocessor virtual machine with affinity to a single CPU or a two-way SMP virtual machine with affinity to only two CPUs.
 > 
-> For the best performance, when you use manual affinity settings, VMware recommends that you include at least one additional physical CPU in the affinity setting to allow at least one of the virtual machine&#8217;s threads to be scheduled at the same time as its virtual CPUs. Examples of this include a uniprocessor virtual machine with affinity to at least two CPUs or a two-way SMP virtual machine with affinity to at least three CPUs
+> For the best performance, when you use manual affinity settings, VMware recommends that you include at least one additional physical CPU in the affinity setting to allow at least one of the virtual machine's threads to be scheduled at the same time as its virtual CPUs. Examples of this include a uniprocessor virtual machine with affinity to at least two CPUs or a two-way SMP virtual machine with affinity to at least three CPUs
 > 
-> &#8230;  
-> &#8230;
+> ...  
+> ...
 > 
 > **Potential Issues with CPU Affinity**  
 > Before you use CPU affinity, you might need to consider certain issues. Potential issues with CPU affinity include:
@@ -79,7 +79,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 > *   Because CPU admission control does not consider affinity, a virtual machine with manual affinity settings might not always receive its full reservation. Virtual machines that do not have manual affinity settings are not adversely affected by virtual machines with manual affinity settings.
 > *   When you move a virtual machine from one host to another, affinity might no longer apply because the new host might have a different number of processors.
 > *   The NUMA scheduler might not be able to manage a virtual machine that is already assigned to certain processors using affinity.
-> *   Affinity can affect the host&#8217;s ability to schedule virtual machines on multi-core or hyper-threaded processors to take full advantage of resources shared on such processors. 
+> *   Affinity can affect the host's ability to schedule virtual machines on multi-core or hyper-threaded processors to take full advantage of resources shared on such processors. 
 
 Some power management features from the same document:
 
@@ -104,9 +104,9 @@ From the same document:
 and more
 
 > **Memory Compression**  
-> ESXi provides a memory compression cache to improve virtual machine performance when you use memory overcommitment. Memory compression is enabled by default. When a host&#8217;s memory becomes overcommitted, ESXi compresses virtual pages and stores them in memory.
+> ESXi provides a memory compression cache to improve virtual machine performance when you use memory overcommitment. Memory compression is enabled by default. When a host's memory becomes overcommitted, ESXi compresses virtual pages and stores them in memory.
 > 
-> Because accessing compressed memory is faster than accessing memory that is swapped to disk, memory compression in ESXi allows you to overcommit memory without significantly hindering performance. When a virtual page needs to be swapped, ESXi first attempts to compress the page. Pages that can be compressed to 2 KB or smaller are stored in the virtual machine&#8217;s compression cache, increasing the capacity of the host.
+> Because accessing compressed memory is faster than accessing memory that is swapped to disk, memory compression in ESXi allows you to overcommit memory without significantly hindering performance. When a virtual page needs to be swapped, ESXi first attempts to compress the page. Pages that can be compressed to 2 KB or smaller are stored in the virtual machine's compression cache, increasing the capacity of the host.
 > 
 > You can set the maximum size for the compression cache and disable memory compression using the Advanced Settings dialog box in the vSphere Client.
 
@@ -119,7 +119,7 @@ Some information regarding NUMA from the same document:
 > 
 > Typically, you can use BIOS settings to enable and disable NUMA behavior. For example, in AMD Opteronbased HP Proliant servers, NUMA can be disabled by enabling node interleaving in the BIOS. If NUMA is enabled, the BIOS builds a system resource allocation table (SRAT) which ESXi uses to generate the NUMA information used in optimizations. For scheduling fairness, NUMA optimizations are not enabled for systems with too few cores per NUMA node or too few cores overall. You can modify the numa.rebalancecorestotal and numa.rebalancecoresnode options to change this behavior.
 
-From &#8220;<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>&#8220;:
+From "<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>":
 
 > **General BIOS Settings**
 > 
@@ -172,7 +172,7 @@ From the <a href="http://professionalvmware.com/2012/03/apac-vbrownbag-follow-up
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/blades_racks.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/blades_racks.png']);"><img class="alignnone size-full wp-image-3218" title="blades_racks" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/blades_racks.png" alt="blades racks VCAP5 DCD Objective 3.4 – Determine Appropriate Compute Resources for a vSphere 5 Physical Design " width="819" height="432" /></a>
 
-There is a also a great article from IBM &#8220;<a href="http://www.redbooks.ibm.com/redpapers/pdfs/redp3953.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.redbooks.ibm.com/redpapers/pdfs/redp3953.pdf']);">VMware ESX Server: Scale Up or Scale Out?</a>&#8220;, from that paper:
+There is a also a great article from IBM "<a href="http://www.redbooks.ibm.com/redpapers/pdfs/redp3953.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.redbooks.ibm.com/redpapers/pdfs/redp3953.pdf']);">VMware ESX Server: Scale Up or Scale Out?</a>", from that paper:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/scale_out_example.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/scale_out_example.png']);"><img class="alignnone size-full wp-image-3219" title="scale_out_example" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/scale_out_example.png" alt="scale out example VCAP5 DCD Objective 3.4 – Determine Appropriate Compute Resources for a vSphere 5 Physical Design " width="468" height="397" /></a>
 
@@ -180,7 +180,7 @@ and also this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/scale_up_example.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/scale_up_example.png']);"><img class="alignnone size-full wp-image-3220" title="scale_up_example" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/scale_up_example.png" alt="scale up example VCAP5 DCD Objective 3.4 – Determine Appropriate Compute Resources for a vSphere 5 Physical Design " width="539" height="380" /></a>
 
-Duncap Epping has two posts about these topics &#8220;<a href="http://www.yellow-bricks.com/2010/03/17/scale-up/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.yellow-bricks.com/2010/03/17/scale-up/']);">Scale UP!</a>&#8221; and &#8220;<a href="http://www.yellow-bricks.com/2011/07/21/scale-upout-and-impact-of-vram-part-2/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.yellow-bricks.com/2011/07/21/scale-upout-and-impact-of-vram-part-2/']);">Scale Up/Out and impact of vRAM?!? (part 2)</a>&#8220;. It has good examples of each. From the blog:
+Duncap Epping has two posts about these topics "<a href="http://www.yellow-bricks.com/2010/03/17/scale-up/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.yellow-bricks.com/2010/03/17/scale-up/']);">Scale UP!</a>" and "<a href="http://www.yellow-bricks.com/2011/07/21/scale-upout-and-impact-of-vram-part-2/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.yellow-bricks.com/2011/07/21/scale-upout-and-impact-of-vram-part-2/']);">Scale Up/Out and impact of vRAM?!? (part 2)</a>". It has good examples of each. From the blog:
 
 > Lets assume the following:
 > 
@@ -208,7 +208,7 @@ Check out the blog for more in depth look into the examples.
 
 ### Determine a consolidation ratio based upon capacity analysis data
 
-From &#8220;<a href="http://searchservervirtualization.techtarget.com/tip/Defining-an-ideal-virtual-server-consolidation-ratio" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://searchservervirtualization.techtarget.com/tip/Defining-an-ideal-virtual-server-consolidation-ratio']);">Defining an ideal virtual server consolidation ratio</a>&#8220;:
+From "<a href="http://searchservervirtualization.techtarget.com/tip/Defining-an-ideal-virtual-server-consolidation-ratio" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://searchservervirtualization.techtarget.com/tip/Defining-an-ideal-virtual-server-consolidation-ratio']);">Defining an ideal virtual server consolidation ratio</a>":
 
 > Virtual server consolidation ratios vary widely  
 > With that as the backdrop, what kinds of server consolidation ratios are IT administrators working with these days? The answer is, not surprisingly, it depends.
@@ -227,31 +227,31 @@ From &#8220;<a href="http://searchservervirtualization.techtarget.com/tip/Defini
 > 
 > Outside production, however, there are no such restrictions, with virtual server consolidation ratios often reaching 40:1, said Falzarano. He said he knew of environments at other organizations that drove VM densities much higher—in the neighborhood of 100:1.
 
-And from &#8220;<a href="http://www.ittoday.info/Articles/VMWare_ESX_Performance_Optimization.htm" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.ittoday.info/Articles/VMWare_ESX_Performance_Optimization.htm']);">VMWare ESX Performance Optimization</a>&#8220;:
+And from "<a href="http://www.ittoday.info/Articles/VMWare_ESX_Performance_Optimization.htm" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.ittoday.info/Articles/VMWare_ESX_Performance_Optimization.htm']);">VMWare ESX Performance Optimization</a>":
 
 > You might be one of those users of VMware ESX that is happy with the performance of your virtualization platform or the performance of your individual or collective virtual machines. But what happens tomorrow if something in the environment changes and it negatively affects your performance? What happens if you need to achieve a 12:1 server consolidation ratio on an existing VMware ESX that today only hosts eight virtual machines? At that point, it may become extremely important to fine tune the environment in order to squeeze out every ounce of performance that your environment can offer.
 > 
 > **Host Server Memory Performance**  
 > Much like the processor in a VMware ESX host server, the memory of the host server is also considered a significant bottleneck. And just like the processor scenario, it is important to add as much memory to your VMware ESX host server as possible. Having a sufficient amount of memory for all of your virtual machines is important to achieving good performance. A sufficient amount of memory is roughly equivalent to the amount of memory you would have assigned to each virtual machine if they were physical. As an example, to effectively run a Windows XP Professional virtual machine you might allocate 512MB of memory to it.
 > 
-> It is important to note here that system memory has quickly become one of the most expensive components found in today&#8217;s modern server; so you need to make sure that you properly match up the amount of memory in the system to the virtual machine density that can be achieved with the amount of processing power available. In other words, if you have enough processor resources in your host server to support ten virtual machines, don&#8217;t overpopulate your host server with expensive additional memory beyond what that density is capable of consuming if you cannot achieve a higher consolidation ratio due to processor limitations.
+> It is important to note here that system memory has quickly become one of the most expensive components found in today's modern server; so you need to make sure that you properly match up the amount of memory in the system to the virtual machine density that can be achieved with the amount of processing power available. In other words, if you have enough processor resources in your host server to support ten virtual machines, don't overpopulate your host server with expensive additional memory beyond what that density is capable of consuming if you cannot achieve a higher consolidation ratio due to processor limitations.
 
 During your initial capacity analysis figure out what the actual CPU and RAM usage is. Then purchase the necessary hardware to fill the need of the usage. Also keep in mind if Scale Out or Scale Up is your goal. If you decide to go for redundancy then Scale Out is your plan, in which case your consolidation ratio will be a little smaller since you will have smaller physical servers. If you decide to go with scale up (bigger servers) then your consolidation ratio will be better since the physical servers will have more CPU and RAM. A good thing to keep in mind, from <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.pdf']);">this</a> PDF:
 
 > Cores per CPU:  
 > The number of cores per host must match or exceed the number of vCPUs of the Largest VM
 
-Here is a real life example for the UCS blades, &#8220;<a href="http://blog.colovirt.com/2010/05/24/cisco-vmware-cisco-ucs-b6620-vmware-consolidation-ratio/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blog.colovirt.com/2010/05/24/cisco-vmware-cisco-ucs-b6620-vmware-consolidation-ratio/']);">Cisco, VMware: Cisco UCS B200-M1 VMware Consolidation Ratio</a>&#8220;, from that page:
+Here is a real life example for the UCS blades, "<a href="http://blog.colovirt.com/2010/05/24/cisco-vmware-cisco-ucs-b6620-vmware-consolidation-ratio/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blog.colovirt.com/2010/05/24/cisco-vmware-cisco-ucs-b6620-vmware-consolidation-ratio/']);">Cisco, VMware: Cisco UCS B200-M1 VMware Consolidation Ratio</a>", from that page:
 
 > There are a total of 7 blades in our VMware environment, but only 5 of those are dedicated to our main HA/DRS cluster. That gives us ~240 gigs of RAM for the main cluster. Currently, I am seeing a VM consolidation ratio of about 24 VMs (virtual machines) per B200-M1 blade. The limitation here is definitely the RAM. The CPU itself is less than 25% utilized per blade.
 
-Also if you are using Capacity Planner you can check your consolidation ratio, by running different reports. For more information check out &#8220;<a href="http://www.virtualizationteam.com/virtualization-vmware/capacity-planner/optimize-your-vmware-capacity-planning-report.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.virtualizationteam.com/virtualization-vmware/capacity-planner/optimize-your-vmware-capacity-planning-report.html']);">Optimize Your VMware Capacity Planning Report</a>&#8221; Lastly here is a picture of consolidation from &#8220;<a href="http://www.avarsys.com/pdfs/Intel_Server_Consolidation_Whitepaper.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.avarsys.com/pdfs/Intel_Server_Consolidation_Whitepaper.pdf']);">Twenty-to-One Consolidation on Intel Architecture</a>&#8220;:
+Also if you are using Capacity Planner you can check your consolidation ratio, by running different reports. For more information check out "<a href="http://www.virtualizationteam.com/virtualization-vmware/capacity-planner/optimize-your-vmware-capacity-planning-report.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.virtualizationteam.com/virtualization-vmware/capacity-planner/optimize-your-vmware-capacity-planning-report.html']);">Optimize Your VMware Capacity Planning Report</a>" Lastly here is a picture of consolidation from "<a href="http://www.avarsys.com/pdfs/Intel_Server_Consolidation_Whitepaper.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.avarsys.com/pdfs/Intel_Server_Consolidation_Whitepaper.pdf']);">Twenty-to-One Consolidation on Intel Architecture</a>":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/consolidation.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/consolidation.png']);"><img class="alignnone size-full wp-image-3221" title="consolidation" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/consolidation.png" alt="consolidation VCAP5 DCD Objective 3.4 – Determine Appropriate Compute Resources for a vSphere 5 Physical Design " width="601" height="363" /></a>
 
 ### Calculate the number of nodes in an HA cluster based upon host failure count and resource guarantees.
 
-From &#8220;<a href="http://www.vmware.com/files/pdf/techpaper/vmw-vsphere-high-availability.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/techpaper/vmw-vsphere-high-availability.pdf']);">vSphere High Availability Deployment Best Practices</a>&#8220;:
+From "<a href="http://www.vmware.com/files/pdf/techpaper/vmw-vsphere-high-availability.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/techpaper/vmw-vsphere-high-availability.pdf']);">vSphere High Availability Deployment Best Practices</a>":
 
 > **Host Selection**
 > 
@@ -270,7 +270,7 @@ From &#8220;<a href="http://www.vmware.com/files/pdf/techpaper/vmw-vsphere-high-
 > 
 > In contrast, as cluster size increases, so does the HA management complexity of the cluster. This complexity is associated with general configuration factors as well as ongoing management tasks such as troubleshooting. This increase in management complexity, however, is overshadowed by the benefits a large cluster can provide. Features such as DRS and vSphere Distributed Power Management (VMware DPM) become very compelling with large clusters. In general, it is recommended that customers establish the largest clusters possible to reap the full benefits of these solutions.
 
-There is also an example in &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf']);">vSphere Availability ESXi 5.0</a>&#8220;:
+There is also an example in "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf']);">vSphere Availability ESXi 5.0</a>":
 
 > **Example: Admission Control Using Host Failures Cluster Tolerates Policy**  
 > The way that slot size is calculated and used with this admission control policy is shown in an example. Make the following assumptions about a cluster:
@@ -296,7 +296,7 @@ And another example from the same document:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/ha-percent-example.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/ha-percent-example.png']);"><img class="alignnone size-full wp-image-3227" title="ha-percent-example" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/ha-percent-example.png" alt="ha percent example VCAP5 DCD Objective 3.4 – Determine Appropriate Compute Resources for a vSphere 5 Physical Design " width="518" height="301" /></a>
 
-> The total resource requirements for the powered-on virtual machines is 7GHz and 6GB. The total host resources available for virtual machines is 24GHz and 21GB. Based on this, the Current CPU Failover Capacity is 70% ((24GHz &#8211; 7GHz)/24GHz). Similarly, the Current Memory Failover Capacity is 71% ((21GB-6GB)/21GB).Because the cluster&#8217;s Configured Failover Capacity is set to 25%, 45% of the cluster&#8217;s total CPU resources and 46% of the cluster&#8217;s memory resources are still available to power on additional virtual machines.
+> The total resource requirements for the powered-on virtual machines is 7GHz and 6GB. The total host resources available for virtual machines is 24GHz and 21GB. Based on this, the Current CPU Failover Capacity is 70% ((24GHz - 7GHz)/24GHz). Similarly, the Current Memory Failover Capacity is 71% ((21GB-6GB)/21GB).Because the cluster's Configured Failover Capacity is set to 25%, 45% of the cluster's total CPU resources and 46% of the cluster's memory resources are still available to power on additional virtual machines.
 
 Depending on what your HA policy is (decided from the above examples) calculate the total amount of resources used and total available resource. Then decide what kind of hardware will be capable of running the decided load with the failure scenario in mind. Back in the 4.x days, HA worked in a different manner and how many hosts added to a cluster from an enclosure chosen mattered, now with 5.x HA works in a different manner. If you want to know best practices for vSphere 4.x HA, check out:
 
@@ -306,7 +306,7 @@ Depending on what your HA policy is (decided from the above examples) calculate 
 
 ### Explain the implications of using reservations, limits, and shares on the physical design
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf']);">vSphere Resource Management ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf']);">vSphere Resource Management ESXi 5.0</a>":
 
 > **Resource Allocation Shares**  
 > Shares specify the relative importance of a virtual machine (or resource pool). If a virtual machine has twice as many shares of a resource as another virtual machine, it is entitled to consume twice as much of that resource when these two virtual machines are competing for resources.
@@ -349,8 +349,8 @@ Lastly the Limits:
 > 
 > In most cases, it is not necessary to specify a limit. There are benefits and drawbacks:
 > 
-> *   Benefits &#8211; Assigning a limit is useful if you start with a small number of virtual machines and want to manage user expectations. Performance deteriorates as you add more virtual machines. You can simulate having fewer resources available by specifying a limit.
-> *   Drawbacks &#8211; You might waste idle resources if you specify a limit. The system does not allow virtual machines to use more resources than the limit, even when the system is underutilized and idle resources are available. Specify the limit only if you have good reasons for doing so. 
+> *   Benefits - Assigning a limit is useful if you start with a small number of virtual machines and want to manage user expectations. Performance deteriorates as you add more virtual machines. You can simulate having fewer resources available by specifying a limit.
+> *   Drawbacks - You might waste idle resources if you specify a limit. The system does not allow virtual machines to use more resources than the limit, even when the system is underutilized and idle resources are available. Specify the limit only if you have good reasons for doing so. 
 
 From the same document, here are some recommendations:
 
@@ -365,9 +365,9 @@ Limits are rarely used:
 
 *   <a href="http://www.yellow-bricks.com/2010/07/06/memory-limits/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.yellow-bricks.com/2010/07/06/memory-limits/']);">Memory Limits</a> 
 *   <a href="http://www.yellow-bricks.com/2010/05/18/limiting-your-vcpu/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.yellow-bricks.com/2010/05/18/limiting-your-vcpu/']);">Limiting your vCPU</a> 
-*   <a href="http://www.warmetal.nl/vmwareresources" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.warmetal.nl/vmwareresources']);">VMWare Resources: Reservations &#8211; Limits &#8211; Shares</a> 
+*   <a href="http://www.warmetal.nl/vmwareresources" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.warmetal.nl/vmwareresources']);">VMWare Resources: Reservations - Limits - Shares</a> 
 
-Reservations should be used for critical VMs that you want to ensure that they will have a certain amount of resources even if it&#8217;s not currently using it (a guarantee). Reservations should be set slightly higher than the Avg. Active memory size (for overhead): <a href="http://www.yellow-bricks.com/2010/07/08/reservations-primer/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.yellow-bricks.com/2010/07/08/reservations-primer/']);">Reservations primer</a> <a href="http://www.yellow-bricks.com/2010/03/03/cpumem-reservation-behaviour/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.yellow-bricks.com/2010/03/03/cpumem-reservation-behaviour/']);">CPU/MEM Reservation Behavior</a>
+Reservations should be used for critical VMs that you want to ensure that they will have a certain amount of resources even if it's not currently using it (a guarantee). Reservations should be set slightly higher than the Avg. Active memory size (for overhead): <a href="http://www.yellow-bricks.com/2010/07/08/reservations-primer/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.yellow-bricks.com/2010/07/08/reservations-primer/']);">Reservations primer</a> <a href="http://www.yellow-bricks.com/2010/03/03/cpumem-reservation-behaviour/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.yellow-bricks.com/2010/03/03/cpumem-reservation-behaviour/']);">CPU/MEM Reservation Behavior</a>
 
 ### Specify the resource pool and vApp configuration based upon resource requirements.
 
@@ -386,9 +386,9 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 > 
 > <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/resource_pools.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/resource_pools.png']);"><img class="alignnone size-full wp-image-3247" title="resource_pools" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/resource_pools.png" alt="resource pools VCAP5 DCD Objective 3.4 – Determine Appropriate Compute Resources for a vSphere 5 Physical Design " width="484" height="218" /></a>
 
-So if you have some SLA&#8217;s defined, then define Resource Pools for each SLA. Also as mentioned you can use them to separate departments for organizational purposes.
+So if you have some SLA's defined, then define Resource Pools for each SLA. Also as mentioned you can use them to separate departments for organizational purposes.
 
-As for vApps, from &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-virtual-machine-admin-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-virtual-machine-admin-guide.pdf']);">vSphere Virtual Machine AdministrationESXi 5.0</a>&#8220;:
+As for vApps, from "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-virtual-machine-admin-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-virtual-machine-admin-guide.pdf']);">vSphere Virtual Machine AdministrationESXi 5.0</a>":
 
 > **Managing Multi-Tiered Applications with vSphere vApp**  
 > You can use VMware vSphere as a platform for running applications, in addition to using it as a platform for running virtual machines. The applications can be packaged to run directly on top of VMware vSphere. The format of how the applications are packaged and managed is called vSphere vApp. A vApp is a container, like a resource pool and can contain one or more virtual machines. A vApp also shares some functionality with virtual machines. A vApp can power on and power off, and can also be cloned. In the vSphere Client, a vApp is represented in both the Host and Clusters view and the VM and Template view. Each view has a specific summary page with the current status of the service and relevant summary information, as well as operations on the service.
@@ -397,13 +397,13 @@ The title describes it best. If you have a multi-tiered application (ie DB,Web,a
 
 ### Size compute resources: Memory, CPU, I/O devices, Internal storage
 
-From &#8220;<a href="http://searchservervirtualization.techtarget.com/tip/Sizing-server-hardware-for-virtual-machines" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://searchservervirtualization.techtarget.com/tip/Sizing-server-hardware-for-virtual-machines']);">Sizing server hardware for virtual machines</a>&#8220;:
+From "<a href="http://searchservervirtualization.techtarget.com/tip/Sizing-server-hardware-for-virtual-machines" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://searchservervirtualization.techtarget.com/tip/Sizing-server-hardware-for-virtual-machines']);">Sizing server hardware for virtual machines</a>":
 
 > CPU With the advent of multi-core CPUs, it has become easier and cheaper to increase the number of CPUs in a host server. Nowadays, almost all servers come with two or four cores per physical CPU. A good rule of thumb is that four single CPU VMs can be supported per CPU core. This can vary by as much as 1-2 per core, and up to 8-10 per core based on the average CPU utilization of applications running on VMs.
 > 
 > A common misconception with virtual servers is that a VM can utilize as much CPU megahertz as needed from the combined total available. For example, a four CPU, quad core 2.6 GHz would have a combined total of 20,800 megahertz (8 x 2.6 GHz). A single vCPU VM however, can never use more megahertz then the maximum of one CPU/core. If a VM has 2 vCPUs, it can never use more megahertz than the maximum of each CPU/core. How many cores needed will also depend on whether multiple vCPU VMs are used or not.
 > 
-> You should always have at least one more core than the maximum number of vCPUs that will be assigned to a single VM. For example, don&#8217;t buy a two processor dual-core server with a total of four cores and try to run a four vCPU VM on it. The reason being that the CPU scheduler of the hypervisor needs to find 4 free cores simultaneously each time the VM makes a CPU request. If there are only a total of four available cores, the performance will be very slow. My recommendation would be to use quad core CPUs because more cores provide the CPU scheduler with more flexibility to process requests.
+> You should always have at least one more core than the maximum number of vCPUs that will be assigned to a single VM. For example, don't buy a two processor dual-core server with a total of four cores and try to run a four vCPU VM on it. The reason being that the CPU scheduler of the hypervisor needs to find 4 free cores simultaneously each time the VM makes a CPU request. If there are only a total of four available cores, the performance will be very slow. My recommendation would be to use quad core CPUs because more cores provide the CPU scheduler with more flexibility to process requests.
 
 From <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.pdf']);">this</a> PDF:
 
@@ -437,7 +437,7 @@ From <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_note
 > *   Goal is to efficiently use the CPU capacity without reducing performance
 > *   More Cores = more sharing of memory and data buses 
 
-Onto Memory, from &#8220;<a href="http://searchservervirtualization.techtarget.com/tip/Sizing-server-hardware-for-virtual-machines" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://searchservervirtualization.techtarget.com/tip/Sizing-server-hardware-for-virtual-machines']);">Sizing server hardware for virtual machines</a>&#8220;:
+Onto Memory, from "<a href="http://searchservervirtualization.techtarget.com/tip/Sizing-server-hardware-for-virtual-machines" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://searchservervirtualization.techtarget.com/tip/Sizing-server-hardware-for-virtual-machines']);">Sizing server hardware for virtual machines</a>":
 
 > Memory  
 > When it comes to figuring out how much RAM to put in a host server, I would recommend installing the maximum amount if possible.
@@ -466,12 +466,12 @@ From the same PDF:
 > *   Large memory pages will reduce memory over-commitment 
 >     *   Large Pages are not shared For I/O Devices (HBAs and NICs), 
 
-from &#8220;<a href="http://searchservervirtualization.techtarget.com/tip/Sizing-server-hardware-for-virtual-machines" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://searchservervirtualization.techtarget.com/tip/Sizing-server-hardware-for-virtual-machines']);">Sizing server hardware for virtual machines</a>&#8220;:
+from "<a href="http://searchservervirtualization.techtarget.com/tip/Sizing-server-hardware-for-virtual-machines" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://searchservervirtualization.techtarget.com/tip/Sizing-server-hardware-for-virtual-machines']);">Sizing server hardware for virtual machines</a>":
 
 > Network  
-> The number of network interface cards (NICs) needed in a virtual server will vary based on how much redundancy is desired, whether or not network storage will be used and which features will be selected. Using 802.1Q VLAN tagging provides the flexibility of using multiple VLANs on a single NIC, thus eliminating the need to have a separate NIC for each VLAN on a host server. For smaller servers, you can get away with using two NICs, but it is best to a have a minimum of four NICs on your host server. If you are using network storage, such as iSCSI, it would be wise to have more than four NICs, especially if you are going to use features like VMware&#8217;s vMotion. When creating vSwitches it&#8217;s best to assign multiple NIC&#8217;s to them for redundancy and increased capacity available to VMs.
+> The number of network interface cards (NICs) needed in a virtual server will vary based on how much redundancy is desired, whether or not network storage will be used and which features will be selected. Using 802.1Q VLAN tagging provides the flexibility of using multiple VLANs on a single NIC, thus eliminating the need to have a separate NIC for each VLAN on a host server. For smaller servers, you can get away with using two NICs, but it is best to a have a minimum of four NICs on your host server. If you are using network storage, such as iSCSI, it would be wise to have more than four NICs, especially if you are going to use features like VMware's vMotion. When creating vSwitches it's best to assign multiple NIC's to them for redundancy and increased capacity available to VMs.
 
-From &#8220;<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>&#8220;:
+From "<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>":
 
 > *   Make sure that end-to-end Fibre Channel speeds are consistent to help avoid performance problems.
 > *   Configure maximum queue depth for Fibre Channel HBA cards.
@@ -485,21 +485,21 @@ From &#8220;<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pd
 > *   On some 10 Gigabit Ethernet hardware network adapters, ESXi supports NetQueue, a technology that significantly improves performance of 10 Gigabit Ethernet network adapters in virtualized environments.
 > *   In addition to the PCI and PCI-X bus architectures, we now have the PCI Express (PCIe) architecture. Ideally single-port 10 Gigabit Ethernet network adapters should use PCIe x8 (or higher) or PCI-X 266 and dual-port 10 Gigabit Ethernet network adapters should use PCIe x16 (or higher). There should preferably be no “bridge chip” (e.g., PCI-X to PCIe or PCIe to PCI-X) in the path to the actual Ethernet device (including any embedded bridge chip on the device itself), as these chips can reduce performance. 
 
-For Internal storage, from &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf']);">vSphere Installation and Setup vSphere 5.0</a>&#8220;:
+For Internal storage, from "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf']);">vSphere Installation and Setup vSphere 5.0</a>":
 
 > **Storage Requirements for ESXi 5.0 Installation**  
 > Installing ESXi 5.0 requires a boot device that is a minimum of 1GB in size. When booting from a local disk or SAN/iSCSI LUN, a 5.2GB disk is required to allow for the creation of the VMFS volume and a 4GB scratch partition on the boot device. If a smaller disk or LUN is used, the installer will attempt to allocate a scratch region on a separate local disk. If a local disk cannot be found the scratch partition, /scratch, will be located on the ESXi host ramdisk, linked to /tmp/scratch. You can reconfigure /scratch to use a separate disk or LUN. For best performance and memory optimization, VMware recommends that you do not leave /scratch on the ESXi host ramdisk.
 
-Since there is such a small requirement for the OS, you should install the OS on a USB flash card or an SD flash card. Having a local VMFS data-store doesn&#8217;t allow you to use any advanced features like HA, DRS, vMotion.. etc. Put your VMs on VMFS datastores that are located on a SAN for best practices. If you don&#8217;t have a SAN then you can use the VMware VSA, described in <a href="http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-3-3-create-a-vsphere-5-physical-storage-design-from-an-existing-logical-design/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-3-3-create-a-vsphere-5-physical-storage-design-from-an-existing-logical-design/']);">Objective 3.3</a>. If you plan on having just one host and using the local storage for storing your VMs, then set up the local storage as RAID 1. This way you at least have some redundancy. From &#8220;<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>&#8220;:
+Since there is such a small requirement for the OS, you should install the OS on a USB flash card or an SD flash card. Having a local VMFS data-store doesn't allow you to use any advanced features like HA, DRS, vMotion.. etc. Put your VMs on VMFS datastores that are located on a SAN for best practices. If you don't have a SAN then you can use the VMware VSA, described in <a href="http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-3-3-create-a-vsphere-5-physical-storage-design-from-an-existing-logical-design/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-3-3-create-a-vsphere-5-physical-storage-design-from-an-existing-logical-design/']);">Objective 3.3</a>. If you plan on having just one host and using the local storage for storing your VMs, then set up the local storage as RAID 1. This way you at least have some redundancy. From "<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>":
 
 > Local storage performance might be improved with write-back cache. If your local storage has write-back cache installed, make sure it’s enabled and contains a functional battery module
 > 
-> &#8230;  
-> &#8230;
+> ...  
+> ...
 > 
 > vMotion performance could be reduced if host-level swap files are placed on local storage (whether SSD or hard drive).
 
 ### Given a constraint to use existing hardware, determine suitability of the hardware for the design
 
-Make sure it&#8217;s a similar CPU family. If it&#8217;s an older CPU set, enable EVC to use the host for HA, vMotion&#8230; etc Make sure the PCI slot config is similar, this way you can use Host profiles. Also make sure the CPU size and Memory Size is similar, if it&#8217;s too big of a difference it will throw off the HA calculations. Of course check to make sure the Host is on the HCL. Make sure you can enabled HT, Intel VT, and eXecute Disable. Make sure it can handle 64bit.
+Make sure it's a similar CPU family. If it's an older CPU set, enable EVC to use the host for HA, vMotion... etc Make sure the PCI slot config is similar, this way you can use Host profiles. Also make sure the CPU size and Memory Size is similar, if it's too big of a difference it will throw off the HA calculations. Of course check to make sure the Host is on the HCL. Make sure you can enabled HT, Intel VT, and eXecute Disable. Make sure it can handle 64bit.
 

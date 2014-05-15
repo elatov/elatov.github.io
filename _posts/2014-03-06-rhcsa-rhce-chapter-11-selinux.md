@@ -1,5 +1,5 @@
 ---
-title: 'RHCSA and RHCE Chapter 11 &#8211; SELinux'
+title: 'RHCSA and RHCE Chapter 11 - SELinux'
 author: Karim Elatov
 layout: post
 permalink: /2014/03/rhcsa-rhce-chapter-11-selinux/
@@ -21,9 +21,9 @@ Most of the information is covered in <a href="https://access.redhat.com/site/do
 > 
 > When using SELinux, files, including directories and devices, are referred to as objects. Processes, such as a user running a command or the Mozilla Firefox application, are referred to as subjects. Most operating systems use a Discretionary Access Control (DAC) system that controls how subjects interact with objects, and how subjects interact with each other. On operating systems using DAC, users control the permissions of files (objects) that they own. For example, on Linux operating systems, users could make their home directories world-readable, giving users and processes (subjects) access to potentially sensitive information, with no further protection over this unwanted action.
 > 
-> Relying on DAC mechanisms alone is fundamentally inadequate for strong system security. DAC access decisions are only based on user identity and ownership, ignoring other security-relevant information such as the role of the user, the function and trustworthiness of the program, and the sensitivity and integrity of the data. Each user typically has complete discretion over their files, making it difficult to enforce a system-wide security policy. Furthermore, every program run by a user inherits all of the permissions granted to the user and is free to change access to the user&#8217;s files, so minimal protection is provided against malicious software. Many system services and privileged programs run with coarse-grained privileges that far exceed their requirements, so that a flaw in any one of these programs could be exploited to obtain further system access
+> Relying on DAC mechanisms alone is fundamentally inadequate for strong system security. DAC access decisions are only based on user identity and ownership, ignoring other security-relevant information such as the role of the user, the function and trustworthiness of the program, and the sensitivity and integrity of the data. Each user typically has complete discretion over their files, making it difficult to enforce a system-wide security policy. Furthermore, every program run by a user inherits all of the permissions granted to the user and is free to change access to the user's files, so minimal protection is provided against malicious software. Many system services and privileged programs run with coarse-grained privileges that far exceed their requirements, so that a flaw in any one of these programs could be exploited to obtain further system access
 
-From the same guide here is quick comparison when SELinux is enabled and when it&#8217;s not:
+From the same guide here is quick comparison when SELinux is enabled and when it's not:
 
 > The following is an example of permissions used on Linux operating systems that do not run Security-Enhanced Linux (SELinux). The permissions and output in these examples may differ slightly from your system. Use the **ls -l** command to view file permissions:
 > 
@@ -31,7 +31,7 @@ From the same guide here is quick comparison when SELinux is enabled and when it
 >     -rwxrw-r-- 1 user1 group1 0 2009-08-30 11:03 file1
 >     
 > 
-> In this example, the first three permission bits, **rwx**, control the access the Linux **user1** user (in this case, the owner) has to **file1**. The next three permission bits, **rw-**, control the access the Linux **group1** group has to **file1**. The last three permission bits, **r&#8211;**, control the access everyone else has to **file1**, which includes all users and processes.
+> In this example, the first three permission bits, **rwx**, control the access the Linux **user1** user (in this case, the owner) has to **file1**. The next three permission bits, **rw-**, control the access the Linux **group1** group has to **file1**. The last three permission bits, **r-**, control the access everyone else has to **file1**, which includes all users and processes.
 > 
 > Security-Enhanced Linux (SELinux) adds Mandatory Access Control (MAC) to the Linux kernel, and is enabled by default in Red Hat Enterprise Linux. A general purpose MAC architecture needs the ability to enforce an administratively-set security policy over all processes and files in the system, basing decisions on labels containing a variety of security-relevant information. When properly implemented, it enables a system to adequately defend itself and offers critical support for application security by protecting against the tampering with, and bypassing of, secured applications. MAC provides strong separation of applications that permits the safe execution of untrustworthy applications. Its ability to limit the privileges associated with executing processes limits the scope of potential damage that can result from the exploitation of vulnerabilities in applications and system services. MAC enables information to be protected from legitimate users with limited authorization as well as from authorized users who have unwittingly executed malicious applications
 > 
@@ -75,7 +75,7 @@ From the guide:
 > 
 > SELinux contexts follow the SELinux **user:role:type:level** syntax. The fields are as follows:
 > 
-> **SELinux user** &#8211; The SELinux user identity is an identity known to the policy that is authorized for a specific set of roles, and for a specific MLS/MCS range. Each Linux user is mapped to an SELinux user via SELinux policy. This allows Linux users to inherit the restrictions placed on SELinux users. The mapped SELinux user identity is used in the SELinux context for processes in that session, in order to define what roles and levels they can enter. Run the **semanage login -l** command as the Linux root user to view a list of mappings between SELinux and Linux user accounts (you need to have the policycoreutils-python package installed):
+> **SELinux user** - The SELinux user identity is an identity known to the policy that is authorized for a specific set of roles, and for a specific MLS/MCS range. Each Linux user is mapped to an SELinux user via SELinux policy. This allows Linux users to inherit the restrictions placed on SELinux users. The mapped SELinux user identity is used in the SELinux context for processes in that session, in order to define what roles and levels they can enter. Run the **semanage login -l** command as the Linux root user to view a list of mappings between SELinux and Linux user accounts (you need to have the policycoreutils-python package installed):
 > 
 >     ~]# semanage login -l
 >     
@@ -88,11 +88,11 @@ From the guide:
 > 
 > Output may differ slightly from system to system. The **Login Name** column lists Linux users, and the **SELinux User** column lists which SELinux user the Linux user is mapped to. For processes, the SELinux user limits which roles and levels are accessible. The last column, **MLS/MCS Range**, is the level used by Multi-Level Security (MLS) and Multi-Category Security (MCS).
 > 
-> **role** &#8211; Part of SELinux is the Role-Based Access Control (RBAC) security model. The role is an attribute of RBAC. SELinux users are authorized for roles, and roles are authorized for domains. The role serves as an intermediary between domains and SELinux users. The roles that can be entered determine which domains can be entered; ultimately, this controls which object types can be accessed. This helps reduce vulnerability to privilege escalation attacks.
+> **role** - Part of SELinux is the Role-Based Access Control (RBAC) security model. The role is an attribute of RBAC. SELinux users are authorized for roles, and roles are authorized for domains. The role serves as an intermediary between domains and SELinux users. The roles that can be entered determine which domains can be entered; ultimately, this controls which object types can be accessed. This helps reduce vulnerability to privilege escalation attacks.
 > 
 > **type** The type is an attribute of Type Enforcement. The type defines a domain for processes, and a type for files. SELinux policy rules define how types can access each other, whether it be a domain accessing a type, or a domain accessing another domain. Access is only allowed if a specific SELinux policy rule exists that allows it.
 > 
-> **level** &#8211; The level is an attribute of MLS and MCS. An MLS range is a pair of levels, written as **lowlevel-highlevel** if the levels differ, or lowlevel if the levels are identical (**s0-s0** is the same as **s0**). Each level is a sensitivity-category pair, with categories being optional. If there are categories, the level is written as sensitivity:category-set. If there are no categories, it is written as sensitivity.
+> **level** - The level is an attribute of MLS and MCS. An MLS range is a pair of levels, written as **lowlevel-highlevel** if the levels differ, or lowlevel if the levels are identical (**s0-s0** is the same as **s0**). Each level is a sensitivity-category pair, with categories being optional. If there are categories, the level is written as sensitivity:category-set. If there are no categories, it is written as sensitivity.
 > 
 > If the category set is a contiguous series, it can be abbreviated. For example, **c0.c3** is the same as **c0,c1,c2,c3**. The **/etc/selinux/targeted/setrans.conf** file maps levels (s0:c0) to human-readable form (that is **CompanyConfidential**). Do not edit **setrans.conf** with a text editor: use the **semanage** command to make changes. Refer to the semanage(8) manual page for further information. In Red Hat Enterprise Linux, targeted policy enforces MCS, and in MCS, there is just one sensitivity, **s0**. MCS in Red Hat Enterprise Linux supports 1024 different categories: **c0** through to **c1023**. **s0-s0:c0.c1023** is sensitivity **s0** and authorized for all categories.
 > 
@@ -138,7 +138,7 @@ Here is the rule for that:
 
 And to the last step:
 
-> _4. When a user runs the passwd application, the user&#8217;s shell process transitions to the **passwd_t** domain. With SELinux, since the default action is to deny, and a rule exists that allows (among other things) applications running in the **passwd_t** domain to access files labeled with the **shadow_t** type, the **passwd** application is allowed to access **/etc/shadow**, and update the user&#8217;s password.
+> _4. When a user runs the passwd application, the user's shell process transitions to the **passwd_t** domain. With SELinux, since the default action is to deny, and a rule exists that allows (among other things) applications running in the **passwd_t** domain to access files labeled with the **shadow_t** type, the **passwd** application is allowed to access **/etc/shadow**, and update the user's password.
 
 From the same guide:
 
@@ -163,7 +163,7 @@ We can also check contexts of processes. From the same guide:
 > 
 > 3.  In the first tab/terminal, press Ctrl+C to cancel the passwd application.
 > 
-> In this example, when the **passwd** application (labeled with the **passwd\_exec\_t** type) is executed, the user&#8217;s shell process transitions to the **passwd_t** domain. Remember that the type defines a domain for processes, and a type for files.
+> In this example, when the **passwd** application (labeled with the **passwd\_exec\_t** type) is executed, the user's shell process transitions to the **passwd_t** domain. Remember that the type defines a domain for processes, and a type for files.
 > 
 > Use the **ps -eZ** command to view the SELinux contexts for running processes. The following is a truncated example of the output, and may differ on your system:
 > 
@@ -194,9 +194,9 @@ You can also run the **id** command to find out SELinux User you belong to:
 
 From the SELinux Guide:
 
-> Almost every service that listens on a network, such as **sshd** or **httpd**, is confined in Red Hat Enterprise Linux. Also, most processes that run as the Linux root user and perform tasks for users, such as the **passwd** application, are confined. When a process is confined, it runs in its own domain, such as the **httpd** process running in the **httpd_t** domain. If a confined process is compromised by an attacker, depending on SELinux policy configuration, an attacker&#8217;s access to resources and the possible damage they can do is limited.
+> Almost every service that listens on a network, such as **sshd** or **httpd**, is confined in Red Hat Enterprise Linux. Also, most processes that run as the Linux root user and perform tasks for users, such as the **passwd** application, are confined. When a process is confined, it runs in its own domain, such as the **httpd** process running in the **httpd_t** domain. If a confined process is compromised by an attacker, depending on SELinux policy configuration, an attacker's access to resources and the possible damage they can do is limited.
 
-Let&#8217;s test this out. If you want to enable SELinux logging, install the following packages:
+Let's test this out. If you want to enable SELinux logging, install the following packages:
 
     # yum install policycoreutils-python policycoreutils selinux-policy setroubleshoot-server
     
@@ -224,7 +224,7 @@ Now if I try to connect locally, I see the following:
     226 Transfer done (but failed to open directory).
     
 
-I actually didn&#8217;t get any files back. Here is the listing under **/var/www**:
+I actually didn't get any files back. Here is the listing under **/var/www**:
 
     [root@rhel1 ~]# ls -lZ /var/www
     dr-xr-xr-x. root root unconfined_u:object_r:var_t:s0   pub
@@ -337,7 +337,7 @@ as we expected the source context (**scontext=system\_u:system\_r:ftpd_t:s0-s0:c
         # setsebool -P ftp_home_dir 1
     
 
-It went a little over board and gave anonymous all the access. Let&#8217;s check out all the available booleans for ftp access. Here is a list of the booleans:
+It went a little over board and gave anonymous all the access. Let's check out all the available booleans for ftp access. Here is a list of the booleans:
 
     [root@rhel1 ~]# semanage boolean -l | grep ftp
     ftp_home_dir                   -> off   Allow ftp to read and write files in the user home directories
@@ -354,18 +354,18 @@ It went a little over board and gave anonymous all the access. Let&#8217;s check
     sftpd_anon_write               -> off   Allow anon internal-sftp to upload files, used for public file transfer services. Directories must be labeled public_content_rw_t.
     
 
-Let&#8217;s enable the **anonymous_write** boolean:
+Let's enable the **anonymous_write** boolean:
 
     [root@rhel1 ~]# setsebool -P allow_ftpd_anon_write=1
     
 
-Lastly let&#8217;s add the appropriate type as well (as mentioned for this specific boolean):
+Lastly let's add the appropriate type as well (as mentioned for this specific boolean):
 
     [root@rhel1 ~]# chcon -vt public_content_rw_t /var/www
     changing security context of `/var/www'
     
 
-Now let&#8217;s try the ftp access again:
+Now let's try the ftp access again:
 
     [root@rhel1 ~]# ftp localhost
     Connected to localhost (127.0.0.1).
@@ -383,7 +383,7 @@ Now let&#8217;s try the ftp access again:
     226 Directory send OK.
     
 
-To reset the context to it&#8217;s original state, run the following:
+To reset the context to it's original state, run the following:
 
     [root@rhel1 ~]# restorecon -v /var/www
     restorecon reset /var/www context system_u:object_r:public_content_rw_t:s0->system_u:object_r:httpd_sys_content_t:s0
@@ -530,11 +530,11 @@ From the Guide:
 
 More from the guide:
 
-> SELinux decisions, such as allowing or disallowing access, are cached. This cache is known as the **Access Vector Cache** (AVC). Denial messages are logged when SELinux denies access. These denials are also known as &#8220;AVC denials&#8221;, and are logged to a different location, depending on which daemons are running:
+> SELinux decisions, such as allowing or disallowing access, are cached. This cache is known as the **Access Vector Cache** (AVC). Denial messages are logged when SELinux denies access. These denials are also known as "AVC denials", and are logged to a different location, depending on which daemons are running:
 > 
 > <a href="http://virtuallyhyper.com/wp-content/uploads/2014/02/selinux-log-files1.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/02/selinux-log-files1.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/02/selinux-log-files1.png" alt="selinux log files1 RHCSA and RHCE Chapter 11   SELinux" width="714" height="136" class="alignnone size-full wp-image-10151" title="RHCSA and RHCE Chapter 11   SELinux" /></a>
 > 
-> If DAC rules (standard Linux permissions) allow access, check **/var/log/messages** and **/var/log/audit/audit.log** for &#8220;SELinux is preventing&#8221; and &#8220;denied&#8221; errors respectively. This can be done by running the following commands as the Linux root user:
+> If DAC rules (standard Linux permissions) allow access, check **/var/log/messages** and **/var/log/audit/audit.log** for "SELinux is preventing" and "denied" errors respectively. This can be done by running the following commands as the Linux root user:
 > 
 >     ~]# grep "SELinux is preventing" /var/log/messages
 >     ~]# grep "denied" /var/log/audit/audit.log
@@ -558,9 +558,9 @@ From the SELinux Guide:
 >     SELINUXTYPE=targeted
 >     
 > 
-> **SELINUX=enforcing** &#8211; The SELINUX option sets the mode SELinux runs in. SELinux has three modes: **enforcing**, **permissive**, and **disabled**. When using enforcing mode, SELinux policy is enforced, and SELinux denies access based on SELinux policy rules. Denial messages are logged. When using **permissive** mode, SELinux policy is not enforced. SELinux does not deny access, but denials are logged for actions that would have been denied if running SELinux in **enforcing** mode. When using **disabled** mode, SELinux is **disabled** (the SELinux module is not registered with the Linux kernel), and only DAC rules are used.
+> **SELINUX=enforcing** - The SELINUX option sets the mode SELinux runs in. SELinux has three modes: **enforcing**, **permissive**, and **disabled**. When using enforcing mode, SELinux policy is enforced, and SELinux denies access based on SELinux policy rules. Denial messages are logged. When using **permissive** mode, SELinux policy is not enforced. SELinux does not deny access, but denials are logged for actions that would have been denied if running SELinux in **enforcing** mode. When using **disabled** mode, SELinux is **disabled** (the SELinux module is not registered with the Linux kernel), and only DAC rules are used.
 > 
-> **SELINUXTYPE=targeted** &#8211; The SELINUXTYPE option sets the SELinux policy to use. **Targeted** policy is the default policy. Only change this option if you want to use the MLS policy.
+> **SELINUXTYPE=targeted** - The SELINUXTYPE option sets the SELinux policy to use. **Targeted** policy is the default policy. Only change this option if you want to use the MLS policy.
 
 To check the status we can run the following:
 

@@ -322,7 +322,7 @@ It looks like some snapshots took 237 seconds (237087978us) to unstun, that is a
   </tr>
 </table>
 
-VMware tools didn&#8217;t make a difference, CBT did make a difference but that is expected. Doing I/O inside the VM also made a difference, this was expected as well. The most important data point was the fact that with Local storage it was actually working as expected while on the SAN it was not. Next we decided to run IOmeter tests between the two storage types, and here are the results:
+VMware tools didn't make a difference, CBT did make a difference but that is expected. Doing I/O inside the VM also made a difference, this was expected as well. The most important data point was the fact that with Local storage it was actually working as expected while on the SAN it was not. Next we decided to run IOmeter tests between the two storage types, and here are the results:
 
 <table border="0" frame="VOID" rules="NONE" cellspacing="0">
   <tr align="center" valign="middle">

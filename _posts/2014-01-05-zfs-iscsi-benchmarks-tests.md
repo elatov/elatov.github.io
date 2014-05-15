@@ -15,7 +15,7 @@ tags:
   - OmniOS
   - ZFS
 ---
-Let me just start out by saying that my setup is not perfect, I would actually call it bad. All I have is a 1 1TB SATA disk and 4GB of RAM. There is no redundancy in the setup or a dedicated SSD for ZIL. It&#8217;s just a regular machine that I had laying around and I wanted to see how OpenSolaris with Comstar would turn out.
+Let me just start out by saying that my setup is not perfect, I would actually call it bad. All I have is a 1 1TB SATA disk and 4GB of RAM. There is no redundancy in the setup or a dedicated SSD for ZIL. It's just a regular machine that I had laying around and I wanted to see how OpenSolaris with Comstar would turn out.
 
 ### The Hardware
 
@@ -72,7 +72,7 @@ Nothing crazy or expensive.
 
 ## Local Write Benchmarks
 
-Before we present an iSCSI LUN to our ESXi host let&#8217;s see what speeds we get locally. I actually installed **napp-it** on my **omnios** install (if you need help with that, check out <a href="http://virtuallyhyper.com/2013/04/installing-and-configuring-omnios/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/04/installing-and-configuring-omnios/']);">Jarret&#8217;s post here</a>). In the *napp-it* web-gui there are a bunch of available tests:
+Before we present an iSCSI LUN to our ESXi host let's see what speeds we get locally. I actually installed **napp-it** on my **omnios** install (if you need help with that, check out <a href="http://virtuallyhyper.com/2013/04/installing-and-configuring-omnios/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/04/installing-and-configuring-omnios/']);">Jarret's post here</a>). In the *napp-it* web-gui there are a bunch of available tests:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/12/napp-it-benchmarks_g.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/12/napp-it-benchmarks_g.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/napp-it-benchmarks_g.png" alt="napp it benchmarks g ZFS iSCSI Benchmark Tests on ESX" width="745" height="554" class="alignnone size-full wp-image-9836" title="ZFS iSCSI Benchmark Tests on ESX" /></a>
 
@@ -167,7 +167,7 @@ At home I had a 1GB un-managed switch and I wanted to see if a Linux machine on 
     e1000g0      Ethernet             up         1000   full      e1000g0
     
 
-The setup is getting less perfect as we keep going :). The **iperf** binary comes with the **napp-it** install, so let&#8217;s test it out. On the zfs machine I started the server and then connected from the local Linux machine as the **iperf** client. Here were the results:
+The setup is getting less perfect as we keep going :). The **iperf** binary comes with the **napp-it** install, so let's test it out. On the zfs machine I started the server and then connected from the local Linux machine as the **iperf** client. Here were the results:
 
     root@zfs:~# /var/web-gui/data/tools/iperf/iperf -s -w 2m
     ------------------------------------------------------------
@@ -204,7 +204,7 @@ Similar results, I was pushing close the full 1GB through the switch.
 
 ### ESXi Network iSCSI setup
 
-I had two NICs on the ESXi server, so I dedicated 1 Nic to the VM and Mgmt traffic, and the other NIC to the iSCSI connection. I probably didn&#8217;t have to do this since the iSCSI network was already separate from the other networks, but I went ahead and bound the **vmk** that I used for the iSCSI connection to the physical NIC that was assigned to the vSwitch:
+I had two NICs on the ESXi server, so I dedicated 1 Nic to the VM and Mgmt traffic, and the other NIC to the iSCSI connection. I probably didn't have to do this since the iSCSI network was already separate from the other networks, but I went ahead and bound the **vmk** that I used for the iSCSI connection to the physical NIC that was assigned to the vSwitch:
 
     ~ # esxcli iscsi networkportal list          
     vmhba32
@@ -257,7 +257,7 @@ Here is a little more information about the device:
        Other UIDs: vml.0200000000600144f0876a9c47000052b744210009434f4d535441
     
 
-I went ahead and put VMFS on it and then I did a quick **dd** test from the ESXi test. I know it&#8217;s not a valid test, but I wanted to see even an estimate:
+I went ahead and put VMFS on it and then I did a quick **dd** test from the ESXi test. I know it's not a valid test, but I wanted to see even an estimate:
 
     ~ # time dd if=/dev/zero of=/vmfs/volumes/test/dd.tst bs=1M count=2K
     2048+0 records in
@@ -271,7 +271,7 @@ As the above test was running I ran **esxtop** and here is what I saw:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/12/dd-first-try_g.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/12/dd-first-try_g.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/dd-first-try_g.png" alt="dd first try g ZFS iSCSI Benchmark Tests on ESX" width="1474" height="176" class="alignnone size-full wp-image-9845" title="ZFS iSCSI Benchmark Tests on ESX" /></a>
 
-That didn&#8217;t look good at all. I also checked out **iostat** on the *omnios* machine and I saw the following:
+That didn't look good at all. I also checked out **iostat** on the *omnios* machine and I saw the following:
 
     root@zfs:~# iostat -xM sd1 1
     device    r/s    w/s   Mr/s   Mw/s wait actv  svc_t  %w  %b 
@@ -287,11 +287,11 @@ That didn&#8217;t look good at all. I also checked out **iostat** on the *omnios
     sd1       0.0  281.0    0.0   10.8  0.1  0.1    0.6   5   8 
     
 
-That is really slow, but it&#8217;s not like the *omnios* machine was over loaded or anything.
+That is really slow, but it's not like the *omnios* machine was over loaded or anything.
 
 ### iSCSI ZFS with WriteBack Cache
 
-So then I checked out the LUN and I saw that **write-back cache** was not enabled. Per <a href="http://kb.vmware.com/kb/1006602" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1006602']);">this</a> VMware KB, it&#8217;s recommended to enable that. So inside *napp-it*, I went ahead and enabled that:
+So then I checked out the LUN and I saw that **write-back cache** was not enabled. Per <a href="http://kb.vmware.com/kb/1006602" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1006602']);">this</a> VMware KB, it's recommended to enable that. So inside *napp-it*, I went ahead and enabled that:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/12/enable-write-cache.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/12/enable-write-cache.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/enable-write-cache.png" alt="enable write cache ZFS iSCSI Benchmark Tests on ESX" width="1014" height="237" class="alignnone size-full wp-image-9846" title="ZFS iSCSI Benchmark Tests on ESX" /></a>
 
@@ -346,7 +346,7 @@ At the same time checking out **esxtop** here is what I saw:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/12/linux_vm_dd_g.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/12/linux_vm_dd_g.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/linux_vm_dd_g.png" alt="linux vm dd g ZFS iSCSI Benchmark Tests on ESX" width="1495" height="139" class="alignnone size-full wp-image-9854" title="ZFS iSCSI Benchmark Tests on ESX" /></a>
 
-That wasn&#8217;t so good. As I ran the **dd** test, I also ran an **iostat** within the VM and here is what I saw:
+That wasn't so good. As I ran the **dd** test, I also ran an **iostat** within the VM and here is what I saw:
 
     $iostat -xm sdb 1
     Device:         rrqm/s   wrqm/s     r/s     w/s    rMB/s    wMB/s avgrq-sz avgqu-sz   await r_await w_await  svctm  %util
@@ -424,7 +424,7 @@ From the <a href="https://www.kernel.org/doc/Documentation/block/queue-sysfs.txt
     sum).
     
 
-So let&#8217;s go ahead and change the IO size to **32KB** and see if that helps out at all:
+So let's go ahead and change the IO size to **32KB** and see if that helps out at all:
 
     # echo 32 > /sys/block/sdb/queue/max_sectors_kb
     
@@ -465,7 +465,7 @@ We can see that the **avrtq-sz** changed to **64** (32kb), which is good and we 
     # echo 4 > /sys/block/sdb/queue/nr_requests 
     
 
-lowered the **DAVG** to practically nothing, but the speed wasn&#8217;t that great. Here is the **dd** test:
+lowered the **DAVG** to practically nothing, but the speed wasn't that great. Here is the **dd** test:
 
     ~# dd if=/dev/zero of=/dev/sdb bs=1M count=3K
     3072+0 records in
@@ -553,7 +553,7 @@ The **DAVG** was pretty high for both (**~70ms**). Modifying the **max\_sectors\
     3221225472 bytes (3.2 GB) copied, 47.1101 s, 68.4 MB/s
     
 
-Still better than 128KB ZVol Block size. If you don&#8217;t mind a little latency then leave the default values for **max\_sectors\_kb** and **nr_requests** sysfs variables.
+Still better than 128KB ZVol Block size. If you don't mind a little latency then leave the default values for **max\_sectors\_kb** and **nr_requests** sysfs variables.
 
 ### Linux VM File System performance tweaks
 

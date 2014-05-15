@@ -15,7 +15,7 @@ tags:
   - SCSI Reservations
   - Veritas Enterprise Administrator
 ---
-I recently ran into an issue where a customer was seeing &#8220;SCSI Reservation&#8221; messages on one of their hosts. I asked for a log bundle (KB <a href="http://kb.vmware.com/kb/653" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/653']);">653</a>), and they had sent me one. I was looking over the vmkernel logs (/var/log/vmkernel) and I saw the following:
+I recently ran into an issue where a customer was seeing "SCSI Reservation" messages on one of their hosts. I asked for a log bundle (KB <a href="http://kb.vmware.com/kb/653" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/653']);">653</a>), and they had sent me one. I was looking over the vmkernel logs (/var/log/vmkernel) and I saw the following:
 
 	  
 	vmkernel.9:Mar 10 01:00:45 esx\_host vmkernel: 97:00:40:02.937 cpu15:14570)VMW\_SATP\_SVC: satp\_svc_UpdatePath: Failed to update path "vmhba2:C0:T1:L80" state. Status=SCSI reservation conflict  
@@ -34,9 +34,9 @@ Looking at the frequency of the message and what LUN kept having the issue, I sa
 	5432 "vmhba2:C0:T3:L80"  
 	
 
-It looks like it&#8217;s only happening on Lun 80 and here is the info for that LUN:
+It looks like it's only happening on Lun 80 and here is the info for that LUN:
 
-First here is the &#8216;esxcli nmp device&#8217; output for that lun:
+First here is the 'esxcli nmp device' output for that lun:
 
 	  
 	fc.20000000c9b96378:10000000c9b96378-fc.500507680100c7ad:500507680120c7ad-naa.600507680180863d6800000000000062  
@@ -78,9 +78,9 @@ Lastly, here is the fdisk output for that LUN:
 	/dev/sdcs1 1 4294967295 2147483647+ ee EFI GPT  
 	
 
-From above, we could gather that it&#8217;s a Fibre-Channel Lun of about 30GB, but the interesting thing came from the fdisk output. It had a GPT partition on that LUN, which usually means that this LUN is used as an RDM and is directly presented to the Guest OS.
+From above, we could gather that it's a Fibre-Channel Lun of about 30GB, but the interesting thing came from the fdisk output. It had a GPT partition on that LUN, which usually means that this LUN is used as an RDM and is directly presented to the Guest OS.
 
-I asked the customer what that RDM was used for, and to check if there is any special application within the Guest OS that would use SCSI Reservations. It turned out that it was a change within Veritas Enterprise Administrator, just had to click a button that said &#8220;Remove SCSI reservations&#8221;. After that, the messages stopped showing up in the vmkernel.
+I asked the customer what that RDM was used for, and to check if there is any special application within the Guest OS that would use SCSI Reservations. It turned out that it was a change within Veritas Enterprise Administrator, just had to click a button that said "Remove SCSI reservations". After that, the messages stopped showing up in the vmkernel.
 
 <div class="SPOSTARBUST-Related-Posts">
   <H3>

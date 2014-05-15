@@ -25,7 +25,7 @@ If you are within an organization which has pre-made templates for this, then de
 
 ### Consider multiple product installation dependencies to create a validated configuration
 
-Order of installation definitely matters. You can&#8217;t install vCenter without installing a database server first.
+Order of installation definitely matters. You can't install vCenter without installing a database server first.
 
 ### Recognize opportunities to utilize automated procedures to optimize installation
 

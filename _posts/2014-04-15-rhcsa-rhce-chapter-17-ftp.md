@@ -25,14 +25,14 @@ From the <a href="https://access.redhat.com/site/documentation/en-US/Red_Hat_Ent
 
 From the same guide:
 
-> However, because FTP is so prevalent on the Internet, it is often required to share files to the public. System administrators, therefore, should be aware of the FTP protocol&#8217;s unique characteristics.
+> However, because FTP is so prevalent on the Internet, it is often required to share files to the public. System administrators, therefore, should be aware of the FTP protocol's unique characteristics.
 > 
 > Unlike most protocols used on the Internet, FTP requires multiple network ports to work properly. When an FTP client application initiates a connection to an FTP server, it opens port 21 on the server — known as the **command** port. This port is used to issue all commands to the server. Any data requested from the server is returned to the client via a **data** port. The port number for data connections, and the way in which data connections are initialized, vary depending upon whether the client requests the data in active or passive mode.
 > 
 > The following defines these modes:
 > 
-> *   **active mode** &#8211; Active mode is the original method used by the **FTP** protocol for transferring data to the client application. When an active mode data transfer is initiated by the FTP client, the server opens a connection from port 20 on the server to the IP address and a random, unprivileged port (greater than 1024) specified by the client. This arrangement means that the client machine must be allowed to accept connections over any port above 1024. With the growth of insecure networks, such as the Internet, the use of firewalls to protect client machines is now prevalent. Because these client-side firewalls often deny incoming connections from active mode FTP servers, passive mode was devised.
-> *   **passive mode** &#8211; Passive mode, like active mode, is initiated by the FTP client application. When requesting data from the server, the FTP client indicates it wants to access the data in passive mode and the server provides the IP address and a random, unprivileged port (greater than 1024) on the server. The client then connects to that port on the server to download the requested information. While passive mode resolves issues for client-side firewall interference with data connections, it can complicate administration of the server-side firewall. You can reduce the number of open ports on a server by limiting the range of unprivileged ports on the **FTP** server.
+> *   **active mode** - Active mode is the original method used by the **FTP** protocol for transferring data to the client application. When an active mode data transfer is initiated by the FTP client, the server opens a connection from port 20 on the server to the IP address and a random, unprivileged port (greater than 1024) specified by the client. This arrangement means that the client machine must be allowed to accept connections over any port above 1024. With the growth of insecure networks, such as the Internet, the use of firewalls to protect client machines is now prevalent. Because these client-side firewalls often deny incoming connections from active mode FTP servers, passive mode was devised.
+> *   **passive mode** - Passive mode, like active mode, is initiated by the FTP client application. When requesting data from the server, the FTP client indicates it wants to access the data in passive mode and the server provides the IP address and a random, unprivileged port (greater than 1024) on the server. The client then connects to that port on the server to download the requested information. While passive mode resolves issues for client-side firewall interference with data connections, it can complicate administration of the server-side firewall. You can reduce the number of open ports on a server by limiting the range of unprivileged ports on the **FTP** server.
 
 ### VSFTPD
 
@@ -43,15 +43,15 @@ From the above guide:
 > The security model used by vsftpd has three primary aspects:
 > 
 > *   Strong separation of privileged and non-privileged processes — Separate processes handle different tasks, and each of these processes run with the minimal privileges required for the task.
-> *   Tasks requiring elevated privileges are handled by processes with the minimal privilege necessary &#8211; By leveraging compatibilities found in the **libcap** library, tasks that usually require full root privileges can be executed more safely from a less privileged process.
-> *   Most processes run in a **chroot** jail &#8211; Whenever possible, processes are change-rooted to the directory being shared; this directory is then considered a **chroot** jail. For example, if the directory **/var/ftp/** is the primary shared directory, vsftpd reassigns **/var/ftp/** to the new root directory, known as **/**. This disallows any potential malicious hacker activities for any directories not contained below the new root directory.
+> *   Tasks requiring elevated privileges are handled by processes with the minimal privilege necessary - By leveraging compatibilities found in the **libcap** library, tasks that usually require full root privileges can be executed more safely from a less privileged process.
+> *   Most processes run in a **chroot** jail - Whenever possible, processes are change-rooted to the directory being shared; this directory is then considered a **chroot** jail. For example, if the directory **/var/ftp/** is the primary shared directory, vsftpd reassigns **/var/ftp/** to the new root directory, known as **/**. This disallows any potential malicious hacker activities for any directories not contained below the new root directory.
 > 
 > Use of these security practices has the following effect on how **vsftpd** deals with requests:
 > 
-> *   The parent process runs with the least privileges required &#8211; The parent process dynamically calculates the level of privileges it requires to minimize the level of risk. Child processes handle direct interaction with the **FTP** clients and run with as close to no privileges as possible.
-> *   All operations requiring elevated privileges are handled by a small parent process &#8211; Much like the Apache **HTTP** Server, **vsftpd** launches unprivileged child processes to handle incoming connections. This allows the privileged, parent process to be as small as possible and handle relatively few tasks.
+> *   The parent process runs with the least privileges required - The parent process dynamically calculates the level of privileges it requires to minimize the level of risk. Child processes handle direct interaction with the **FTP** clients and run with as close to no privileges as possible.
+> *   All operations requiring elevated privileges are handled by a small parent process - Much like the Apache **HTTP** Server, **vsftpd** launches unprivileged child processes to handle incoming connections. This allows the privileged, parent process to be as small as possible and handle relatively few tasks.
 > *   All requests from unprivileged child processes are distrusted by the parent process — Communication with child processes are received over a socket, and the validity of any information from child processes is checked before being acted on.
-> *   Most interaction with **FTP** clients is handled by unprivileged child processes in a **chroot** jail &#8211; Because these child processes are unprivileged and only have access to the directory being shared, any crashed processes only allows the attacker access to the shared files.
+> *   Most interaction with **FTP** clients is handled by unprivileged child processes in a **chroot** jail - Because these child processes are unprivileged and only have access to the directory being shared, any crashed processes only allows the attacker access to the shared files.
 
 ### vsftpd files
 
@@ -59,12 +59,12 @@ From the Deployment Guide:
 
 > The **vsftpd** RPM installs the daemon (**/usr/sbin/vsftpd**), its configuration and related files, as well as FTP directories onto the system. The following lists the files and directories related to vsftpd configuration:
 > 
-> *   **/etc/rc.d/init.d/vsftpd** &#8211; The initialization script (initscript) used by the **/sbin/service** command to start, stop, or reload vsftpd.
-> *   **/etc/pam.d/vsftpd** &#8211; The Pluggable Authentication Modules (PAM) configuration file for **vsftpd**. This file specifies the requirements a user must meet to login to the FTP server. 
-> *   **/etc/vsftpd/vsftpd.conf** &#8211; The configuration file for vsftpd. 
-> *   **/etc/vsftpd/ftpusers** &#8211; A list of users not allowed to log into **vsftpd**. By default, this list includes the **root**, **bin**, and **daemon** users, among others.
-> *   **/etc/vsftpd/user_list** &#8211; This file can be configured to either deny or allow access to the users listed, depending on whether the **userlist_deny** directive is set to **YES** (default) or **NO** in **/etc/vsftpd/vsftpd.conf**. If **/etc/vsftpd/user_list** is used to grant access to users, the usernames listed must not appear in **/etc/vsftpd/ftpusers**.
-> *   **/var/ftp/** &#8211; The directory containing files served by **vsftpd**. It also contains the **/var/ftp/pub/** directory for anonymous users. Both directories are world-readable, but writable only by the root user.
+> *   **/etc/rc.d/init.d/vsftpd** - The initialization script (initscript) used by the **/sbin/service** command to start, stop, or reload vsftpd.
+> *   **/etc/pam.d/vsftpd** - The Pluggable Authentication Modules (PAM) configuration file for **vsftpd**. This file specifies the requirements a user must meet to login to the FTP server. 
+> *   **/etc/vsftpd/vsftpd.conf** - The configuration file for vsftpd. 
+> *   **/etc/vsftpd/ftpusers** - A list of users not allowed to log into **vsftpd**. By default, this list includes the **root**, **bin**, and **daemon** users, among others.
+> *   **/etc/vsftpd/user_list** - This file can be configured to either deny or allow access to the users listed, depending on whether the **userlist_deny** directive is set to **YES** (default) or **NO** in **/etc/vsftpd/vsftpd.conf**. If **/etc/vsftpd/user_list** is used to grant access to users, the usernames listed must not appear in **/etc/vsftpd/ftpusers**.
+> *   **/var/ftp/** - The directory containing files served by **vsftpd**. It also contains the **/var/ftp/pub/** directory for anonymous users. Both directories are world-readable, but writable only by the root user.
 
 ### vsftpd service
 
@@ -104,15 +104,15 @@ From the above guide:
 
 > The following is a list of directives which control the overall behavior of the **vsftpd** daemon.
 > 
-> *   **listen** &#8211; When enabled, **vsftpd** runs in stand-alone mode. Red Hat Enterprise Linux sets this value to **YES**. This directive cannot be used in conjunction with the **listen_ipv6** directive.
+> *   **listen** - When enabled, **vsftpd** runs in stand-alone mode. Red Hat Enterprise Linux sets this value to **YES**. This directive cannot be used in conjunction with the **listen_ipv6** directive.
 >     
 >     The default value is **NO**. On Red Hat Enterprise Linux 6, this option is set to **YES** in the configuration file.
 > 
-> *   **listen_ipv6** &#8211; When enabled, **vsftpd** runs in stand-alone mode, but listens only to **IPv6** sockets. This directive cannot be used in conjunction with the **listen** directive.
+> *   **listen_ipv6** - When enabled, **vsftpd** runs in stand-alone mode, but listens only to **IPv6** sockets. This directive cannot be used in conjunction with the **listen** directive.
 >     
 >     The default value is **NO**.
 > 
-> *   **session_support** &#8211; When enabled, vsftpd attempts to maintain login sessions for each user through **Pluggable Authentication Modules** (PAM). If session logging is not necessary, disabling this option allows vsftpd to run with less processes and lower privileges.
+> *   **session_support** - When enabled, vsftpd attempts to maintain login sessions for each user through **Pluggable Authentication Modules** (PAM). If session logging is not necessary, disabling this option allows vsftpd to run with less processes and lower privileges.
 >     
 >     The default value is **YES**.
 
@@ -122,27 +122,27 @@ From the above guide:
 
 > The following is a list of directives which control the login behavior and access control mechanisms.
 > 
-> *   **anonymous_enable** &#8211; When enabled, anonymous users are allowed to log in. The usernames **anonymous** and **ftp** are accepted.
+> *   **anonymous_enable** - When enabled, anonymous users are allowed to log in. The usernames **anonymous** and **ftp** are accepted.
 >     
 >     The default value is **YES**.
 > 
-> *   **banned\_email\_file** &#8211; If the **deny\_email\_enable** directive is set to **YES**, this directive specifies the file containing a list of anonymous email passwords which are not permitted access to the server.
+> *   **banned\_email\_file** - If the **deny\_email\_enable** directive is set to **YES**, this directive specifies the file containing a list of anonymous email passwords which are not permitted access to the server.
 >     
 >     The default value is **/etc/vsftpd/banned_emails**.
 > 
-> *   **banner_file** &#8211; Specifies the file containing text displayed when a connection is established to the server. This option overrides any text specified in the **ftpd_banner** directive.
+> *   **banner_file** - Specifies the file containing text displayed when a connection is established to the server. This option overrides any text specified in the **ftpd_banner** directive.
 >     
 >     There is no default value for this directive.
 > 
-> *   **cmds_allowed** &#8211; Specifies a comma-delimited list of FTP commands allowed by the server. All other commands are rejected.
+> *   **cmds_allowed** - Specifies a comma-delimited list of FTP commands allowed by the server. All other commands are rejected.
 >     
 >     There is no default value for this directive.
 > 
-> *   **deny\_email\_enable** &#8211; When enabled, any anonymous user utilizing email passwords specified in the **/etc/vsftpd/banned_emails** are denied access to the server. The name of the file referenced by this directive can be specified using the **banned\_email\_file** directive.
+> *   **deny\_email\_enable** - When enabled, any anonymous user utilizing email passwords specified in the **/etc/vsftpd/banned_emails** are denied access to the server. The name of the file referenced by this directive can be specified using the **banned\_email\_file** directive.
 >     
 >     The default value is **NO**.
 > 
-> *   **ftpd_banner** &#8211; When enabled, the string specified within this directive is displayed when a connection is established to the server. This option can be overridden by the **banner_file** directive.
+> *   **ftpd_banner** - When enabled, the string specified within this directive is displayed when a connection is established to the server. This option can be overridden by the **banner_file** directive.
 >     
 >     By default **vsftpd** displays its standard banner.
 > 
@@ -150,7 +150,7 @@ From the above guide:
 >     
 >     The default value is **NO**. On Red Hat Enterprise Linux 6, this option is set to **YES** in the configuration file.
 > 
-> *   **pam\_service\_name** &#8211; Specifies the PAM service name for **vsftpd**.
+> *   **pam\_service\_name** - Specifies the PAM service name for **vsftpd**.
 >     
 >     The default value is **ftp**. On Red Hat Enterprise Linux 6, this option is set to **vsftpd** in the configuration file.
 > 
@@ -162,7 +162,7 @@ From the above guide:
 >     
 >     The default value is **YES**.
 > 
-> *   **userlist_enable** &#8211; When enabled, the users listed in the file specified by the **userlist_file** directive are denied access. Because access is denied before the client is asked for a password, users are prevented from submitting unencrypted passwords over the network.
+> *   **userlist_enable** - When enabled, the users listed in the file specified by the **userlist_file** directive are denied access. Because access is denied before the client is asked for a password, users are prevented from submitting unencrypted passwords over the network.
 >     
 >     The default value is **NO**. On Red Hat Enterprise Linux 6, this option is set to **YES** in the configuration file.
 > 
@@ -176,31 +176,31 @@ From the Deployment Guide:
 
 > The following lists directives which control anonymous user access to the server. To use these options, the **anonymous_enable** directive must be set to **YES**.
 > 
-> *   **anon\_mkdir\_write_enable** &#8211; When enabled in conjunction with the **write_enable** directive, anonymous users are allowed to create new directories within a parent directory which has write permissions.
+> *   **anon\_mkdir\_write_enable** - When enabled in conjunction with the **write_enable** directive, anonymous users are allowed to create new directories within a parent directory which has write permissions.
 >     
 >     The default value is **NO**.
 > 
-> *   **anon_root** &#8211; Specifies the directory **vsftpd** changes to after an anonymous user logs in.
+> *   **anon_root** - Specifies the directory **vsftpd** changes to after an anonymous user logs in.
 >     
 >     There is no default value for this directive.
 > 
-> *   **anon\_upload\_enable** &#8211; When enabled in conjunction with the **write_enable** directive, anonymous users are allowed to upload files within a parent directory which has write permissions.
+> *   **anon\_upload\_enable** - When enabled in conjunction with the **write_enable** directive, anonymous users are allowed to upload files within a parent directory which has write permissions.
 >     
 >     The default value is **NO**.
 > 
-> *   **anon\_world\_readable_only** &#8211; When enabled, anonymous users are only allowed to download world-readable files.
+> *   **anon\_world\_readable_only** - When enabled, anonymous users are only allowed to download world-readable files.
 >     
 >     The default value is **YES**.
 > 
-> *   **ftp_username** &#8211; Specifies the local user account (listed in **/etc/passwd**) used for the anonymous FTP user. The home directory specified in **/etc/passwd** for the user is the root directory of the anonymous FTP user.
+> *   **ftp_username** - Specifies the local user account (listed in **/etc/passwd**) used for the anonymous FTP user. The home directory specified in **/etc/passwd** for the user is the root directory of the anonymous FTP user.
 >     
 >     The default value is **ftp**.
 > 
-> *   **no\_anon\_password** &#8211; When enabled, the anonymous user is not asked for a password.
+> *   **no\_anon\_password** - When enabled, the anonymous user is not asked for a password.
 >     
 >     The default value is **NO**.
 > 
-> *   **secure\_email\_list_enable** &#8211; When enabled, only a specified list of email passwords for anonymous logins are accepted. This is a convenient way to offer limited security to public content without the need for virtual users.
+> *   **secure\_email\_list_enable** - When enabled, only a specified list of email passwords for anonymous logins are accepted. This is a convenient way to offer limited security to public content without the need for virtual users.
 >     
 >     Anonymous logins are prevented unless the password provided is listed in **/etc/vsftpd/email_passwords**. The file format is one password per line, with no trailing white spaces.
 >     
@@ -212,37 +212,37 @@ From the same guide:
 
 > The following lists directives which characterize the way local users access the server. To use these options, the **local_enable** directive must be set to **YES**.
 > 
-> *   **chmod_enable** &#8211; When enabled, the FTP command **SITE CHMOD** is allowed for local users. This command allows the users to change the permissions on files.
+> *   **chmod_enable** - When enabled, the FTP command **SITE CHMOD** is allowed for local users. This command allows the users to change the permissions on files.
 >     
 >     The default value is **YES**.
 > 
-> *   **chroot\_list\_enable** &#8211; When enabled, the local users listed in the file specified in the **chroot\_list\_file** directive are placed in a chroot jail upon log in.
+> *   **chroot\_list\_enable** - When enabled, the local users listed in the file specified in the **chroot\_list\_file** directive are placed in a chroot jail upon log in.
 >     
 >     If enabled in conjunction with the **chroot\_local\_user** directive, the local users listed in the file specified in the **chroot\_list\_file** directive are not placed in a chroot jail upon log in.
 >     
 >     The default value is **NO**.
 > 
-> *   **chroot\_list\_file** &#8211; Specifies the file containing a list of local users referenced when the **chroot\_list\_enable** directive is set to **YES**.
+> *   **chroot\_list\_file** - Specifies the file containing a list of local users referenced when the **chroot\_list\_enable** directive is set to **YES**.
 >     
 >     The default value is **/etc/vsftpd/chroot_list**.
 > 
-> *   **chroot\_local\_user** &#8211; When enabled, local users are change-rooted to their home directories after logging in.
+> *   **chroot\_local\_user** - When enabled, local users are change-rooted to their home directories after logging in.
 >     
 >     The default value is **NO**.
 > 
-> *   **guest_enable** &#8211; When enabled, all non-anonymous users are logged in as the user guest, which is the local user specified in the **guest_username** directive.
+> *   **guest_enable** - When enabled, all non-anonymous users are logged in as the user guest, which is the local user specified in the **guest_username** directive.
 >     
 >     The default value is **NO**.
 > 
-> *   **guest_username** &#8211; Specifies the username the guest user is mapped to.
+> *   **guest_username** - Specifies the username the guest user is mapped to.
 >     
 >     The default value is **ftp**.
 > 
-> *   **local_root** &#8211; Specifies the directory **vsftpd** changes to after a local user logs in.
+> *   **local_root** - Specifies the directory **vsftpd** changes to after a local user logs in.
 >     
 >     There is no default value for this directive.
 > 
-> *   **local_umask** &#8211; Specifies the umask value for file creation. Note that the default value is in octal form (a numerical system with a base of eight), which includes a &#8220;0&#8243; prefix. Otherwise the value is treated as a base-10 integer.
+> *   **local_umask** - Specifies the umask value for file creation. Note that the default value is in octal form (a numerical system with a base of eight), which includes a "0" prefix. Otherwise the value is treated as a base-10 integer.
 >     
 >     The default value is **077**. On Red Hat Enterprise Linux 6, this option is set to **022** in the configuration file.
 > 
@@ -250,7 +250,7 @@ From the same guide:
 >     
 >     The default value is **NO**.
 > 
-> *   **user\_config\_dir** &#8211; Specifies the path to a directory containing configuration files bearing the name of local system users that contain specific setting for that user. Any directive in the user&#8217;s configuration file overrides those found in **/etc/vsftpd/vsftpd.conf**.
+> *   **user\_config\_dir** - Specifies the path to a directory containing configuration files bearing the name of local system users that contain specific setting for that user. Any directive in the user's configuration file overrides those found in **/etc/vsftpd/vsftpd.conf**.
 >     
 >     There is no default value for this directive.
 
@@ -260,31 +260,31 @@ From the Deployment Guide:
 
 > The following lists directives which affect directories.
 > 
-> *   **dirlist_enable** &#8211; When enabled, users are allowed to view directory lists.
+> *   **dirlist_enable** - When enabled, users are allowed to view directory lists.
 >     
 >     The default value is **YES**.
 > 
-> *   **dirmessage_enable** &#8211; When enabled, a message is displayed whenever a user enters a directory with a message file. This message resides within the current directory. The name of this file is specified in the **message_file** directive and is **.message** by default.
+> *   **dirmessage_enable** - When enabled, a message is displayed whenever a user enters a directory with a message file. This message resides within the current directory. The name of this file is specified in the **message_file** directive and is **.message** by default.
 >     
 >     The default value is **NO**. On Red Hat Enterprise Linux 6, this option is set to **YES** in the configuration file.
 > 
-> *   **force\_dot\_files** &#8211; When enabled, files beginning with a dot (**.**) are listed in directory listings, with the exception of the **.** and **..** files.
+> *   **force\_dot\_files** - When enabled, files beginning with a dot (**.**) are listed in directory listings, with the exception of the **.** and **..** files.
 >     
 >     The default value is **NO**.
 > 
-> *   **hide_ids** &#8211; When enabled, all directory listings show **ftp** as the user and group for each file.
+> *   **hide_ids** - When enabled, all directory listings show **ftp** as the user and group for each file.
 >     
 >     The default value is NO.
 > 
-> *   **message_file** &#8211; Specifies the name of the message file when using the **dirmessage_enable** directive.
+> *   **message_file** - Specifies the name of the message file when using the **dirmessage_enable** directive.
 >     
 >     The default value is **.message**.
 > 
-> *   **text\_userdb\_names** &#8211; When enabled, text usernames and group names are used in place of UID and GID entries. Enabling this option may slow performance of the server.
+> *   **text\_userdb\_names** - When enabled, text usernames and group names are used in place of UID and GID entries. Enabling this option may slow performance of the server.
 >     
 >     The default value is NO.
 > 
-> *   **use_localtime** &#8211; When enabled, directory listings reveal the local time for the computer instead of GMT.
+> *   **use_localtime** - When enabled, directory listings reveal the local time for the computer instead of GMT.
 >     
 >     The default value is **NO**.
 
@@ -294,19 +294,19 @@ From the same guide:
 
 > The following lists directives which affect directories.
 > 
-> *   **download_enable** &#8211; When enabled, file downloads are permitted.
+> *   **download_enable** - When enabled, file downloads are permitted.
 >     
 >     The default value is **YES**.
 > 
-> *   **chown_uploads** &#8211; When enabled, all files uploaded by anonymous users are owned by the user specified in the **chown_username** directive.
+> *   **chown_uploads** - When enabled, all files uploaded by anonymous users are owned by the user specified in the **chown_username** directive.
 >     
 >     The default value is **NO**.
 > 
-> *   **chown_username** &#8211; Specifies the ownership of anonymously uploaded files if the **chown_uploads** directive is enabled.
+> *   **chown_username** - Specifies the ownership of anonymously uploaded files if the **chown_uploads** directive is enabled.
 >     
 >     The default value is **root**.
 > 
-> *   **write_enable** &#8211; When enabled, FTP commands which can change the file system are allowed, such as **DELE**, **RNFR**, and **STOR**.
+> *   **write_enable** - When enabled, FTP commands which can change the file system are allowed, such as **DELE**, **RNFR**, and **STOR**.
 >     
 >     The default value is **NO**. On Red Hat Enterprise Linux 6, this option is set to **YES** in the configuration file.
 
@@ -314,33 +314,33 @@ From the same guide:
 
 From the above guide:
 
-> The following lists directives which affect vsftpd&#8217;s logging behavior.
+> The following lists directives which affect vsftpd's logging behavior.
 > 
-> *   **dual\_log\_enable** &#8211; When enabled in conjunction with **xferlog_enable**, **vsftpd** writes two files simultaneously: a **wu-ftpd**-compatible log to the file specified in the **xferlog_file** directive (**/var/log/xferlog** by default) and a standard **vsftpd** log file specified in the **vsftpd\_log\_file** directive (**/var/log/vsftpd.log** by default).
+> *   **dual\_log\_enable** - When enabled in conjunction with **xferlog_enable**, **vsftpd** writes two files simultaneously: a **wu-ftpd**-compatible log to the file specified in the **xferlog_file** directive (**/var/log/xferlog** by default) and a standard **vsftpd** log file specified in the **vsftpd\_log\_file** directive (**/var/log/vsftpd.log** by default).
 >     
 >     The default value is **NO**.
 > 
-> *   **log\_ftp\_protocol** &#8211; When enabled in conjunction with **xferlog_enable** and with **xferlog\_std\_format** set to **NO**, all **FTP** commands and responses are logged. This directive is useful for debugging.
+> *   **log\_ftp\_protocol** - When enabled in conjunction with **xferlog_enable** and with **xferlog\_std\_format** set to **NO**, all **FTP** commands and responses are logged. This directive is useful for debugging.
 >     
 >     The default value is **NO**.
 > 
-> *   **syslog_enable** &#8211; When enabled in conjunction with **xferlog_enable**, all logging normally written to the standard **vsftpd** log file specified in the **vsftpd\_log\_file** directive (**/var/log/vsftpd.log** by default) is sent to the system logger instead under the **FTPD** facility.
+> *   **syslog_enable** - When enabled in conjunction with **xferlog_enable**, all logging normally written to the standard **vsftpd** log file specified in the **vsftpd\_log\_file** directive (**/var/log/vsftpd.log** by default) is sent to the system logger instead under the **FTPD** facility.
 >     
 >     The default value is **NO**.
 > 
-> *   **vsftpd\_log\_file** &#8211; Specifies the **vsftpd** log file. For this file to be used, **xferlog_enable** must be enabled and **xferlog\_std\_format** must either be set to **NO** or, if **xferlog\_std\_format** is set to **YES**, **dual\_log\_enable** must be enabled. It is important to note that if **syslog_enable** is set to **YES**, the system log is used instead of the file specified in this directive.
+> *   **vsftpd\_log\_file** - Specifies the **vsftpd** log file. For this file to be used, **xferlog_enable** must be enabled and **xferlog\_std\_format** must either be set to **NO** or, if **xferlog\_std\_format** is set to **YES**, **dual\_log\_enable** must be enabled. It is important to note that if **syslog_enable** is set to **YES**, the system log is used instead of the file specified in this directive.
 >     
 >     The default value is **/var/log/vsftpd.log**.
 > 
-> *   **xferlog_enable** &#8211; When enabled, **vsftpd** logs connections (**vsftpd** format only) and file transfer information to the log file specified in the **vsftpd\_log\_file** directive (**/var/log/vsftpd.log** by default). If **xferlog\_std\_format** is set to **YES**, file transfer information is logged but connections are not, and the log file specified in **xferlog_file** (**/var/log/xferlog** by default) is used instead. It is important to note that both log files and log formats are used if **dual\_log\_enable** is set to **YES**.
+> *   **xferlog_enable** - When enabled, **vsftpd** logs connections (**vsftpd** format only) and file transfer information to the log file specified in the **vsftpd\_log\_file** directive (**/var/log/vsftpd.log** by default). If **xferlog\_std\_format** is set to **YES**, file transfer information is logged but connections are not, and the log file specified in **xferlog_file** (**/var/log/xferlog** by default) is used instead. It is important to note that both log files and log formats are used if **dual\_log\_enable** is set to **YES**.
 >     
 >     The default value is **NO**. On Red Hat Enterprise Linux 6, this option is set to **YES** in the configuration file.
 > 
-> *   **xferlog_file** &#8211; Specifies the **wu-ftpd**-compatible log file. For this file to be used, **xferlog_enable** must be enabled and **xferlog\_std\_format** must be set to **YES**. It is also used if **dual\_log\_enable** is set to **YES**.
+> *   **xferlog_file** - Specifies the **wu-ftpd**-compatible log file. For this file to be used, **xferlog_enable** must be enabled and **xferlog\_std\_format** must be set to **YES**. It is also used if **dual\_log\_enable** is set to **YES**.
 >     
 >     The default value is **/var/log/xferlog**.
 > 
-> *   **xferlog\_std\_format** &#8211; When enabled in conjunction with **xferlog_enable**, only a **wu-ftpd**-compatible file transfer log is written to the file specified in the **xferlog_file** directive (**/var/log/xferlog** by default). It is important to note that this file only logs file transfers and does not log connections to the server.
+> *   **xferlog\_std\_format** - When enabled in conjunction with **xferlog_enable**, only a **wu-ftpd**-compatible file transfer log is written to the file specified in the **xferlog_file** directive (**/var/log/xferlog** by default). It is important to note that this file only logs file transfers and does not log connections to the server.
 >     
 >     The default value is **NO**. On Red Hat Enterprise Linux 6, this option is set to **YES** in the configuration file.
 
@@ -350,83 +350,83 @@ From the Deployment Guide:
 
 > The following lists directives which affect how **vsftpd** interacts with the network.
 > 
-> *   **accept_timeout** &#8211; Specifies the amount of time for a client using passive mode to establish a connection.
+> *   **accept_timeout** - Specifies the amount of time for a client using passive mode to establish a connection.
 >     
 >     The default value is **60**.
 > 
-> *   **anon\_max\_rate** &#8211; Specifies the maximum data transfer rate for anonymous users in bytes per second.
+> *   **anon\_max\_rate** - Specifies the maximum data transfer rate for anonymous users in bytes per second.
 >     
 >     The default value is ****, which does not limit the transfer rate.
 > 
-> *   **connect\_from\_port_20** &#8211; When enabled, **vsftpd** runs with enough privileges to open port 20 on the server during active mode data transfers. Disabling this option allows **vsftpd** to run with less privileges, but may be incompatible with some FTP clients.
+> *   **connect\_from\_port_20** - When enabled, **vsftpd** runs with enough privileges to open port 20 on the server during active mode data transfers. Disabling this option allows **vsftpd** to run with less privileges, but may be incompatible with some FTP clients.
 >     
 >     The default value is **NO**. On Red Hat Enterprise Linux 6, this option is set to **YES** in the configuration file.
 > 
-> *   **connect_timeout** &#8211; Specifies the maximum amount of time a client using *active mode* has to respond to a data connection, in seconds.
+> *   **connect_timeout** - Specifies the maximum amount of time a client using *active mode* has to respond to a data connection, in seconds.
 >     
 >     The default value is **60**.
 > 
-> *   **data\_connection\_timeout** &#8211; Specifies maximum amount of time data transfers are allowed to stall, in seconds. Once triggered, the connection to the remote client is closed.
+> *   **data\_connection\_timeout** - Specifies maximum amount of time data transfers are allowed to stall, in seconds. Once triggered, the connection to the remote client is closed.
 >     
 >     The default value is **300**.
 > 
-> *   **ftp\_data\_port** &#8211; Specifies the port used for active data connections when **connect\_from\_port_20** is set to **YES**.
+> *   **ftp\_data\_port** - Specifies the port used for active data connections when **connect\_from\_port_20** is set to **YES**.
 >     
 >     The default value is **20**.
 > 
-> *   **idle\_session\_timeout** &#8211; Specifies the maximum amount of time between commands from a remote client. Once triggered, the connection to the remote client is closed.
+> *   **idle\_session\_timeout** - Specifies the maximum amount of time between commands from a remote client. Once triggered, the connection to the remote client is closed.
 >     
 >     The default value is **300**.
 > 
-> *   **listen_address** &#8211; Specifies the IP address on which **vsftpd** listens for network connections.
+> *   **listen_address** - Specifies the IP address on which **vsftpd** listens for network connections.
 >     
 >     There is no default value for this directive.
 > 
-> *   **listen_address6** &#8211; Specifies the **IPv6** address on which **vsftpd** listens for network connections when **listen_ipv6** is set to **YES**.
+> *   **listen_address6** - Specifies the **IPv6** address on which **vsftpd** listens for network connections when **listen_ipv6** is set to **YES**.
 >     
 >     There is no default value for this directive.
 > 
-> *   **listen_port** &#8211; Specifies the port on which **vsftpd** listens for network connections.
+> *   **listen_port** - Specifies the port on which **vsftpd** listens for network connections.
 >     
 >     The default value is **21**.
 > 
-> *   **local\_max\_rate** &#8211; Specifies the maximum rate data is transferred for local users logged into the server in bytes per second.
+> *   **local\_max\_rate** - Specifies the maximum rate data is transferred for local users logged into the server in bytes per second.
 >     
 >     The default value is ****, which does not limit the transfer rate.
 > 
-> *   **max_clients** &#8211; Specifies the maximum number of simultaneous clients allowed to connect to the server when it is running in standalone mode. Any additional client connections would result in an error message.
+> *   **max_clients** - Specifies the maximum number of simultaneous clients allowed to connect to the server when it is running in standalone mode. Any additional client connections would result in an error message.
 >     
 >     The default value is ****, which does not limit connections.
 > 
-> *   **max\_per\_ip** &#8211; Specifies the maximum of clients allowed to connected from the same source IP address. The default value is 0, which does not limit connections.
+> *   **max\_per\_ip** - Specifies the maximum of clients allowed to connected from the same source IP address. The default value is 0, which does not limit connections.
 > 
-> *   **pasv_address** &#8211; Specifies the **IP** address for the public facing IP address of the server for servers behind Network Address Translation (NAT) firewalls. This enables **vsftpd** to hand out the correct return address for passive mode connections.
+> *   **pasv_address** - Specifies the **IP** address for the public facing IP address of the server for servers behind Network Address Translation (NAT) firewalls. This enables **vsftpd** to hand out the correct return address for passive mode connections.
 >     
 >     There is no default value for this directive.
 > 
-> *   **pasv_enable** &#8211; When enabled, *passive mode* connects are allowed.
+> *   **pasv_enable** - When enabled, *passive mode* connects are allowed.
 >     
 >     The default value is **YES**.
 > 
-> *   **pasv\_max\_port** &#8211; Specifies the highest possible port sent to the FTP clients for *passive mode* connections. This setting is used to limit the port range so that firewall rules are easier to create.
+> *   **pasv\_max\_port** - Specifies the highest possible port sent to the FTP clients for *passive mode* connections. This setting is used to limit the port range so that firewall rules are easier to create.
 >     
 >     The default value is ****, which does not limit the highest passive port range. The value must not exceed **65535**.
 > 
-> *   **pasv\_min\_port** &#8211; Specifies the lowest possible port sent to the FTP clients for passive mode connections. This setting is used to limit the port range so that firewall rules are easier to create.
+> *   **pasv\_min\_port** - Specifies the lowest possible port sent to the FTP clients for passive mode connections. This setting is used to limit the port range so that firewall rules are easier to create.
 >     
 >     The default value is ****, which does not limit the lowest passive port range. The value must not be lower than **1024**.
 > 
-> *   **pasv_promiscuous** &#8211; When enabled, data connections are not checked to make sure they are originating from the same IP address. This setting is only useful for certain types of tunneling.
+> *   **pasv_promiscuous** - When enabled, data connections are not checked to make sure they are originating from the same IP address. This setting is only useful for certain types of tunneling.
 >     
 >     The default value is **NO**.
 > 
-> *   **port_enable** &#8211; When enabled, active mode connects are allowed.
+> *   **port_enable** - When enabled, active mode connects are allowed.
 >     
 >     The default value is **YES**.
 
 ### vsftpd Server Example
 
-So let&#8217;s go ahead and try this out. Let&#8217;s install vsftpd on our RH6 machine and connect to it with our RH5 machine. To install vsftpd, run the following on the server:
+So let's go ahead and try this out. Let's install vsftpd on our RH6 machine and connect to it with our RH5 machine. To install vsftpd, run the following on the server:
 
     [root@rhel1 ~]# yum install vsftpd
     
@@ -448,13 +448,13 @@ By default the following configurations are in place:
     tcp_wrappers=YES
     
 
-Now let&#8217;s start the service
+Now let's start the service
 
     [root@rhel1 ~]# service vsftpd start
     Starting vsftpd for vsftpd:  vsftpd
     
 
-Now let&#8217;s open the firewall:
+Now let's open the firewall:
 
     [root@rhel1 ~]#iptables -I INPUT 16 -m state --state NEW -m tcp -p tcp --dport 20 -j ACCEPT
     [root@rhel1 ~]#iptables -I INPUT 16 -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT
@@ -488,7 +488,7 @@ On the server side, copy a file to the public directory:
     [root@rhel1 ~]# cp install.log /var/ftp/pub/.
     
 
-Now from the client, let&#8217;s login anonymously, and download that file:
+Now from the client, let's login anonymously, and download that file:
 
     [root@rhel2 ~]# ftp rhel1
     Connected to rhel1.local.com.
@@ -522,7 +522,7 @@ Now from the client, let&#8217;s login anonymously, and download that file:
     9493 bytes received in 8.8e-05 seconds (1.1e+05 Kbytes/s)
     
 
-I didn&#8217;t enter any password for the login. On the server if we can check out the **xferlog** and we should see the download of the **install.log** file:
+I didn't enter any password for the login. On the server if we can check out the **xferlog** and we should see the download of the **install.log** file:
 
     [root@rhel1 ~]# tail -1 /var/log/xferlog 
     Sun Apr  6 14:43:08 2014 1 192.168.2.3 9493 /pub/install.log b _ o a ? ftp 0 * c
@@ -612,7 +612,7 @@ So check out the alert, lets run the suggested command:
     node=rhel1.local.com type=SYSCALL msg=audit(1396817036.502:2803): arch=40000003 syscall=12 success=no exit=-13 a0=105b648 a1=1f4 a2=cd133c a3=16 items=0 ppid=22945 pid=22954 auid=0 uid=0 gid=0 euid=500 suid=500 fsuid=500 egid=500 sgid=500 fsgid=500 tty=(none) ses=381 comm="vsftpd" exe="/usr/sbin/vsftpd" subj=unconfined_u:system_r:ftpd_t:s0-s0:c0.c1023 key=(null)
     
 
-Looks like the fix is included in the alert, so let&#8217;s run the suggested fix:
+Looks like the fix is included in the alert, so let's run the suggested fix:
 
     [root@rhel1 ~]# setsebool -P ftp_home_dir=1
     
@@ -682,8 +682,8 @@ From the same guide:
 > 
 > Use one of the following types to share files through FTP:
 > 
-> *   **public\_content\_t** &#8211; Label files and directories you have created with the public\_content\_t type to share them read-only through **vsftpd**. Other services, such as Apache HTTP Server, Samba, and NFS, also have access to files labeled with this type. Files labeled with the **public\_content\_t** type cannot be written to, even if Linux permissions allow write access. If you require write access, use the **public\_content\_rw_t** type.
-> *   **public\_content\_rw_t** &#8211; Label files and directories you have created with the **public\_content\_rw_t** type to share them with read and write permissions through vsftpd. Other services, such as Apache HTTP Server, Samba, and NFS, also have access to files labeled with this type. Remember that Booleans for each service must be enabled before they can write to files labeled with this type.
+> *   **public\_content\_t** - Label files and directories you have created with the public\_content\_t type to share them read-only through **vsftpd**. Other services, such as Apache HTTP Server, Samba, and NFS, also have access to files labeled with this type. Files labeled with the **public\_content\_t** type cannot be written to, even if Linux permissions allow write access. If you require write access, use the **public\_content\_rw_t** type.
+> *   **public\_content\_rw_t** - Label files and directories you have created with the **public\_content\_rw_t** type to share them with read and write permissions through vsftpd. Other services, such as Apache HTTP Server, Samba, and NFS, also have access to files labeled with this type. Remember that Booleans for each service must be enabled before they can write to files labeled with this type.
 
 #### FTP SELinux Booleans
 
@@ -691,14 +691,14 @@ From the above guide:
 
 > SELinux is based on the least level of access required for a service to run. Services can be run in a variety of ways; therefore, you need to specify how you run your services. > Use the following Booleans to set up SELinux:
 > 
-> *   **allow\_ftpd\_anon_write** &#8211; When disabled, this Boolean prevents **vsftpd** from writing to files and directories labeled with the **public\_content\_rw_t** type. Enable this Boolean to allow users to upload files via FTP. The directory where files are uploaded to must be labeled with the **public\_content\_rw_t** type and Linux permissions set accordingly.
-> *   **allow\_ftpd\_full_access** &#8211; When this Boolean is on, only Linux (DAC) permissions are used to control access, and authenticated users can read and write to files that are not labeled with the **public\_content\_t** or **public\_content\_rw_t** types.
-> *   **allow\_ftpd\_use_cifs** &#8211; Having this Boolean enabled allows **vsftpd** to access files and directories labeled with the **cifs_t** type; therefore, having this Boolean enabled allows you to share file systems mounted via Samba through **vsftpd**.
-> *   **allow\_ftpd\_use_nfs** &#8211; Having this Boolean enabled allows **vsftpd** to access files and directories labeled with the **nfs_t** type; therefore, having this Boolean enabled allows you to share file systems mounted via NFS through **vsftpd**.
-> *   **ftp\_home\_dir** &#8211; Having this Boolean enabled allows authenticated users to read and write to files in their home directories. When this Boolean is off, attempting to download a file from a home directory results in an error such as **550 Failed to open file**. An SELinux denial is logged.
-> *   **ftpd\_connect\_db** &#8211; Allow FTP daemons to initiate a connection to a database.
-> *   **httpd\_enable\_ftp_server** &#8211; Allow httpd to listen on the FTP port and act as a FTP server.
-> *   **tftp\_anon\_write** &#8211; Having this Boolean enabled allows TFTP access to a public directory, such as an area reserved for common files that otherwise has no special access restrictions.
+> *   **allow\_ftpd\_anon_write** - When disabled, this Boolean prevents **vsftpd** from writing to files and directories labeled with the **public\_content\_rw_t** type. Enable this Boolean to allow users to upload files via FTP. The directory where files are uploaded to must be labeled with the **public\_content\_rw_t** type and Linux permissions set accordingly.
+> *   **allow\_ftpd\_full_access** - When this Boolean is on, only Linux (DAC) permissions are used to control access, and authenticated users can read and write to files that are not labeled with the **public\_content\_t** or **public\_content\_rw_t** types.
+> *   **allow\_ftpd\_use_cifs** - Having this Boolean enabled allows **vsftpd** to access files and directories labeled with the **cifs_t** type; therefore, having this Boolean enabled allows you to share file systems mounted via Samba through **vsftpd**.
+> *   **allow\_ftpd\_use_nfs** - Having this Boolean enabled allows **vsftpd** to access files and directories labeled with the **nfs_t** type; therefore, having this Boolean enabled allows you to share file systems mounted via NFS through **vsftpd**.
+> *   **ftp\_home\_dir** - Having this Boolean enabled allows authenticated users to read and write to files in their home directories. When this Boolean is off, attempting to download a file from a home directory results in an error such as **550 Failed to open file**. An SELinux denial is logged.
+> *   **ftpd\_connect\_db** - Allow FTP daemons to initiate a connection to a database.
+> *   **httpd\_enable\_ftp_server** - Allow httpd to listen on the FTP port and act as a FTP server.
+> *   **tftp\_anon\_write** - Having this Boolean enabled allows TFTP access to a public directory, such as an area reserved for common files that otherwise has no special access restrictions.
 
 #### FTP SELinux Configuration Example
 

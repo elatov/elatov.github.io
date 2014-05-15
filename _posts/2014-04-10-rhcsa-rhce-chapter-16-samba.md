@@ -1,5 +1,5 @@
 ---
-title: 'RHCSA and RHCE Chapter 16 &#8211; Samba'
+title: 'RHCSA and RHCE Chapter 16 - Samba'
 author: Karim Elatov
 layout: post
 permalink: /2014/04/rhcsa-rhce-chapter-16-samba/
@@ -19,7 +19,7 @@ tags:
 
 From the <a href="https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf']);">Deployment Guide</a>:
 
-> Samba is an open source implementation of the Server Message Block (SMB) protocol. It allows the networking of Microsoft Windows, Linux, UNIX, and other operating systems together, enabling access to Windows-based file and printer shares. Samba&#8217;s use of SMB allows it to appear as a Windows server to Windows clients.
+> Samba is an open source implementation of the Server Message Block (SMB) protocol. It allows the networking of Microsoft Windows, Linux, UNIX, and other operating systems together, enabling access to Windows-based file and printer shares. Samba's use of SMB allows it to appear as a Windows server to Windows clients.
 
 ### Samba Features
 
@@ -49,9 +49,9 @@ From the above guide:
 
 > Samba is comprised of three daemons (**smbd**, **nmbd**, and **winbindd**). Three services (**smb**, **nmb**, and **winbind**) control how the daemons are started, stopped, and other service-related features. These services act as different init scripts. Each daemon is listed in detail below, as well as which specific service has control over it.
 > 
-> *   **smbd** &#8211; The **smbd** server daemon provides file sharing and printing services to Windows clients. In addition, it is responsible for user authentication, resource locking, and data sharing through the **SMB** protocol. The default ports on which the server listens for SMB traffic are TCP ports **139** and **445**. The **smbd** daemon is controlled by the **smb** service.
-> *   **nmbd** &#8211; The **nmbd** server daemon understands and replies to NetBIOS name service requests such as those produced by SMB/Common Internet File System (**CIFS**) in Windows-based systems. These systems include Windows 95/98/ME, Windows NT, Windows 2000, Windows XP, and LanManager clients. It also participates in the browsing protocols that make up the Windows Network Neighborhood view. The default port that the server listens to for **NMB** traffic is **UDP** port **137**. The **nmbd** daemon is controlled by the **nmb** service.
-> *   **winbindd** &#8211; The **winbind** service resolves user and group information on a server running Windows NT, 2000, 2003 or Windows Server 2008. This makes Windows user / group information understandable by UNIX platforms. This is achieved by using Microsoft RPC calls, Pluggable Authentication Modules (PAM), and the Name Service Switch (NSS). This allows Windows NT domain users to appear and operate as UNIX users on a UNIX machine. Though bundled with the Samba distribution, the **winbind** service is controlled separately from the **smb** service. The **winbindd** daemon is controlled by the **winbind** service and does not require the **smb** service to be started in order to operate. **winbindd** is also used when Samba is an Active Directory member, and may also be used on a Samba domain controller (to implement nested groups and/or interdomain trust). 
+> *   **smbd** - The **smbd** server daemon provides file sharing and printing services to Windows clients. In addition, it is responsible for user authentication, resource locking, and data sharing through the **SMB** protocol. The default ports on which the server listens for SMB traffic are TCP ports **139** and **445**. The **smbd** daemon is controlled by the **smb** service.
+> *   **nmbd** - The **nmbd** server daemon understands and replies to NetBIOS name service requests such as those produced by SMB/Common Internet File System (**CIFS**) in Windows-based systems. These systems include Windows 95/98/ME, Windows NT, Windows 2000, Windows XP, and LanManager clients. It also participates in the browsing protocols that make up the Windows Network Neighborhood view. The default port that the server listens to for **NMB** traffic is **UDP** port **137**. The **nmbd** daemon is controlled by the **nmb** service.
+> *   **winbindd** - The **winbind** service resolves user and group information on a server running Windows NT, 2000, 2003 or Windows Server 2008. This makes Windows user / group information understandable by UNIX platforms. This is achieved by using Microsoft RPC calls, Pluggable Authentication Modules (PAM), and the Name Service Switch (NSS). This allows Windows NT domain users to appear and operate as UNIX users on a UNIX machine. Though bundled with the Samba distribution, the **winbind** service is controlled separately from the **smb** service. The **winbindd** daemon is controlled by the **winbind** service and does not require the **smb** service to be started in order to operate. **winbindd** is also used when Samba is an Active Directory member, and may also be used on a Samba domain controller (to implement nested groups and/or interdomain trust). 
 
 ### Configuring a Samba Server
 
@@ -152,7 +152,7 @@ From the above guide:
 
 From the Deployment Guide:
 
-> A domain member, while similar to a stand-alone server, is logged into a domain controller (either Windows or Samba) and is subject to the domain&#8217;s security rules. An example of a domain member server would be a departmental server running Samba that has a machine account on the Primary Domain Controller (PDC). All of the department&#8217;s clients still authenticate with the PDC, and desktop profiles and all network policy files are included. The difference is that the departmental server has the ability to control printer and network shares.
+> A domain member, while similar to a stand-alone server, is logged into a domain controller (either Windows or Samba) and is subject to the domain's security rules. An example of a domain member server would be a departmental server running Samba that has a machine account on the Primary Domain Controller (PDC). All of the department's clients still authenticate with the PDC, and desktop profiles and all network policy files are included. The difference is that the departmental server has the ability to control printer and network shares.
 > 
 > **Active Directory Domain Member Server**  
 > The following **/etc/samba/smb.conf** file shows a sample configuration needed to implement an Active Directory domain member server. In this example, Samba authenticates users for services being run locally but is also a client of the Active Directory. Ensure that your kerberos **realm** parameter is shown in all caps (for example **realm = EXAMPLE.COM**). Since Windows 2000/2003/2008 requires Kerberos for Active Directory authentication, the **realm** directive is required. If Active Directory and Kerberos are running on different servers, the password server directive may be required to help the distinction.
@@ -317,7 +317,7 @@ From the same guide:
 
 From the Deployment guide:
 
-> User-level security is the default setting for Samba. Even if the **security = user** directive is not listed in the **/etc/samba/smb.conf** file, it is used by Samba. If the server accepts the client&#8217;s username/password, the client can then mount multiple shares without specifying a password for each instance. Samba can also accept session-based username/password requests. The client maintains multiple authentication contexts by using a unique UID for each logon.
+> User-level security is the default setting for Samba. Even if the **security = user** directive is not listed in the **/etc/samba/smb.conf** file, it is used by Samba. If the server accepts the client's username/password, the client can then mount multiple shares without specifying a password for each instance. Samba can also accept session-based username/password requests. The client maintains multiple authentication contexts by using a unique UID for each logon.
 > 
 > In the **/etc/samba/smb.conf** file, the **security = user** directive that sets user-level security is:
 > 
@@ -386,14 +386,14 @@ From the same guide:
 > 
 > The following is a list different back ends you can use with Samba. Other back ends not listed here may also be available.
 > 
-> *   **Plain Text** &#8211; Plain text back ends are nothing more than the **/etc/passwd** type back ends. With a plain text back end, all usernames and passwords are sent unencrypted between the client and the Samba server. This method is very insecure and is not recommended for use by any means. It is possible that different Windows clients connecting to the Samba server with plain text passwords cannot support such an authentication method.
-> *   **smbpasswd** &#8211; A popular back end used in previous Samba packages, the **smbpasswd** back end utilizes a plain ASCII text layout that includes the MS Windows LanMan and NT account, and encrypted password information. The **smbpasswd** back end lacks the storage of the Windows NT/2000/2003 SAM extended controls. The **smbpasswd** back end is not recommended because it does not scale well or hold any Windows information, such as RIDs for NT-based groups. The **tdbsam** back end solves these issues for use in a smaller database (250 users), but is still not an enterprise-class solution.
-> *   **ldapsam_compat** &#8211; The **ldapsam_compat** back end allows continued OpenLDAP support for use with upgraded versions of Samba. This option is normally used when migrating to Samba 3.0.
-> *   **tdbsam** &#8211; The new default **tdbsam** password back end provides an ideal database back end for local servers, servers that do not need built-in database replication, and servers that do not require the scalability or complexity of LDAP. The **tdbsam** back end includes all of the **smbpasswd** database information as well as the previously-excluded SAM information. The inclusion of the extended SAM data allows Samba to implement the same account and system access controls as seen with Windows NT/2000/2003/2008-based systems.
+> *   **Plain Text** - Plain text back ends are nothing more than the **/etc/passwd** type back ends. With a plain text back end, all usernames and passwords are sent unencrypted between the client and the Samba server. This method is very insecure and is not recommended for use by any means. It is possible that different Windows clients connecting to the Samba server with plain text passwords cannot support such an authentication method.
+> *   **smbpasswd** - A popular back end used in previous Samba packages, the **smbpasswd** back end utilizes a plain ASCII text layout that includes the MS Windows LanMan and NT account, and encrypted password information. The **smbpasswd** back end lacks the storage of the Windows NT/2000/2003 SAM extended controls. The **smbpasswd** back end is not recommended because it does not scale well or hold any Windows information, such as RIDs for NT-based groups. The **tdbsam** back end solves these issues for use in a smaller database (250 users), but is still not an enterprise-class solution.
+> *   **ldapsam_compat** - The **ldapsam_compat** back end allows continued OpenLDAP support for use with upgraded versions of Samba. This option is normally used when migrating to Samba 3.0.
+> *   **tdbsam** - The new default **tdbsam** password back end provides an ideal database back end for local servers, servers that do not need built-in database replication, and servers that do not require the scalability or complexity of LDAP. The **tdbsam** back end includes all of the **smbpasswd** database information as well as the previously-excluded SAM information. The inclusion of the extended SAM data allows Samba to implement the same account and system access controls as seen with Windows NT/2000/2003/2008-based systems.
 >     
 >     The **tdbsam** back end is recommended for 250 users at most. Larger organizations should require Active Directory or LDAP integration due to scalability and possible network infrastructure concerns.
 > 
-> *   **ldapsam** &#8211; The **ldapsam** back end provides an optimal distributed account installation method for Samba. LDAP is optimal because of its ability to replicate its database to any number of servers such as the **Red Hat Directory Server** or an **OpenLDAP Server**. LDAP databases are light-weight and scalable, and as such are preferred by large enterprises.
+> *   **ldapsam** - The **ldapsam** back end provides an optimal distributed account installation method for Samba. LDAP is optimal because of its ability to replicate its database to any number of servers such as the **Red Hat Directory Server** or an **OpenLDAP Server**. LDAP databases are light-weight and scalable, and as such are preferred by large enterprises.
 >     
 >     If you are upgrading from a previous version of Samba to 3.0, note that the OpenLDAP schema file (**/usr/share/doc/samba-<version>/LDAP/samba.schema</version>**) and the Red Hat Directory Server schema file (**/usr/share/doc/samba-<version>/LDAP/samba-schema-FDS.ldif</version>**) have changed. These files contain the attribute syntax definitions and objectclass definitions that the **ldapsam** back end needs in order to function properly.
 >     
@@ -401,7 +401,7 @@ From the same guide:
 
 ### Stand-alone Samba Server Example
 
-So let&#8217;s go ahead and setup our RH6 machine to be a stand-alone samba server. First let&#8217;s install the necessary package:
+So let's go ahead and setup our RH6 machine to be a stand-alone samba server. First let's install the necessary package:
 
     [root@rhel1 ~]# yum install samba
     
@@ -857,7 +857,7 @@ The default shares the home directories which is good. I renamed my workgroup an
         browseable = No
     
 
-Now let&#8217;s set a password for my **user1** user:
+Now let's set a password for my **user1** user:
 
     [root@rhel1 ~]# smbpasswd -a user1
     New SMB password:
@@ -943,7 +943,7 @@ From the deployment guide:
 > 
 > By default, the **smb** service does not start automatically at boot time. To configure Samba to start at boot time, use an initscript utility, such as **/sbin/chkconfig**.
 
-So let&#8217;s enable the service to start on boot and start the service:
+So let's enable the service to start on boot and start the service:
 
     [root@rhel1 ~]# chkconfig smb on
     [root@rhel1 ~]# service smb start
@@ -981,7 +981,7 @@ Now the server is ready to accept connections from clients.
 
 From the deployment guide:
 
-> *   **findsmb <subnet\_broadcast\_address></subnet\_broadcast\_address>** &#8211; The **findsmb** program is a Perl script which reports information about SMB-aware systems on a specific subnet. If no subnet is specified the local subnet is used. Items displayed include IP address, NetBIOS name, workgroup or domain name, operating system, and version.
+> *   **findsmb <subnet\_broadcast\_address></subnet\_broadcast\_address>** - The **findsmb** program is a Perl script which reports information about SMB-aware systems on a specific subnet. If no subnet is specified the local subnet is used. Items displayed include IP address, NetBIOS name, workgroup or domain name, operating system, and version.
 >     
 >     The following example shows the output of executing findsmb as any valid user on a system:
 >     
@@ -999,7 +999,7 @@ From the deployment guide:
 >         10.1.56.205   NANCYN       +[MYGROUP] [Unix] [Samba 2.2.7a-security-rollup-fix]
 >         
 > 
-> *   **net <protocol> <function> <misc_options> <target_options></target_options></misc_options></function></protocol>** &#8211; The **net** utility is similar to the **net** utility used for Windows and MS-DOS. The first argument is used to specify the protocol to use when executing a command. The ** <protocol></protocol>** option can be **ads**, **rap**, or **rpc** for specifying the type of server connection. Active Directory uses **ads**, Win9x/NT3 uses **rap**, and Windows NT4/2000/2003/2008 uses **rpc**. If the protocol is omitted, net automatically tries to determine it.
+> *   **net <protocol> <function> <misc_options> <target_options></target_options></misc_options></function></protocol>** - The **net** utility is similar to the **net** utility used for Windows and MS-DOS. The first argument is used to specify the protocol to use when executing a command. The ** <protocol></protocol>** option can be **ads**, **rap**, or **rpc** for specifying the type of server connection. Active Directory uses **ads**, Win9x/NT3 uses **rap**, and Windows NT4/2000/2003/2008 uses **rpc**. If the protocol is omitted, net automatically tries to determine it.
 >     
 >     The following example displays a list the available shares for a host named wakko:
 >     
@@ -1025,7 +1025,7 @@ From the deployment guide:
 >         lisa                  Sales
 >         
 > 
-> *   **nmblookup <options> <netbios_name></netbios_name></options>** &#8211; The **nmblookup** program resolves NetBIOS names into IP addresses. The program broadcasts its query on the local subnet until the target machine replies.
+> *   **nmblookup <options> <netbios_name></netbios_name></options>** - The **nmblookup** program resolves NetBIOS names into IP addresses. The program broadcasts its query on the local subnet until the target machine replies.
 >     
 >     The following example displays the IP address of the NetBIOS name trek:
 >     
@@ -1034,7 +1034,7 @@ From the deployment guide:
 >         10.1.56.45 trek<00>
 >         
 > 
-> *   **pdbedit <options></options>** &#8211; The **pdbedit** program manages accounts located in the SAM database. All back ends are supported including **smbpasswd**, **LDAP**, and the **tdb** database library.
+> *   **pdbedit <options></options>** - The **pdbedit** program manages accounts located in the SAM database. All back ends are supported including **smbpasswd**, **LDAP**, and the **tdb** database library.
 >     
 >     The following are examples of adding, deleting, and listing users:
 >     
@@ -1091,25 +1091,25 @@ From the deployment guide:
 >         andriusb:505: lisa:504: kristin:506:
 >         
 > 
-> *   **rpcclient <server> <options></options></server>** &#8211; The **rpcclient** program issues administrative commands using Microsoft RPCs, which provide access to the Windows administration graphical user interfaces (GUIs) for systems management. This is most often used by advanced users that understand the full complexity of Microsoft RPCs.
+> *   **rpcclient <server> <options></options></server>** - The **rpcclient** program issues administrative commands using Microsoft RPCs, which provide access to the Windows administration graphical user interfaces (GUIs) for systems management. This is most often used by advanced users that understand the full complexity of Microsoft RPCs.
 > 
-> *   **smbcacls <//server/share> <filename> <options></options></filename>** &#8211; The **smbcacls** program modifies Windows ACLs on files and directories shared by a Samba server or a Windows server.
+> *   **smbcacls <//server/share> <filename> <options></options></filename>** - The **smbcacls** program modifies Windows ACLs on files and directories shared by a Samba server or a Windows server.
 > 
-> *   **smbclient <//server/share> <password> <options></options></password>** &#8211; The **smbclient** program is a versatile UNIX client which provides functionality similar to **ftp**.
+> *   **smbclient <//server/share> <password> <options></options></password>** - The **smbclient** program is a versatile UNIX client which provides functionality similar to **ftp**.
 > 
-> *   **smbcontrol -i <options> <destination> <messagetype> <parameters></parameters></messagetype></destination></options>** &#8211; The **smbcontrol** program sends control messages to running **smbd**, **nmbd**, or **winbindd** daemons. Executing **smbcontrol -i** runs commands interactively until a blank line or a &#8216;**q**&#8216; is entered.
+> *   **smbcontrol -i <options> <destination> <messagetype> <parameters></parameters></messagetype></destination></options>** - The **smbcontrol** program sends control messages to running **smbd**, **nmbd**, or **winbindd** daemons. Executing **smbcontrol -i** runs commands interactively until a blank line or a '**q**' is entered.
 > 
-> *   **smbpasswd <options> <username> <password></password></username></options>** &#8211; The **smbpasswd** program manages encrypted passwords. This program can be run by a superuser to change any user&#8217;s password as well as by an ordinary user to change their own Samba password.
+> *   **smbpasswd <options> <username> <password></password></username></options>** - The **smbpasswd** program manages encrypted passwords. This program can be run by a superuser to change any user's password as well as by an ordinary user to change their own Samba password.
 > 
 > *   **smbspool <job> <user> <title>
 >       <br /> <copies> <options> <filename></filename></options></copies><br />
->     </title></user></job>** &#8211; The
+>     </title></user></job>** - The
 >     
 >     **smbspool** program is a CUPS-compatible printing interface to Samba. Although designed for use with CUPS printers, **smbspool** can work with non-CUPS printers as well.
 > 
-> *   **smbstatus <options></options>** &#8211; The **smbstatus** program displays the status of current connections to a Samba server.
-> *   **smbtar <options></options>** &#8211; The **smbtar** program performs backup and restores of Windows-based share files and directories to a local tape archive. Though similar to the **tar** command, the two are not compatible.
-> *   **testparm <options> <filename> <hostname IP_address\></hostname></filename></options>** &#8211; The **testparm** program checks the syntax of the **/etc/samba/smb.conf** file. If your **/etc/samba/smb.conf** file is in the default location (**/etc/samba/smb.conf**) you do not need to specify the location. Specifying the hostname and IP address to the **testparm** program verifies that the **hosts.allow** and **host.deny** files are configured correctly. The **testparm** program also displays a summary of your **/etc/samba/smb.conf** file and the server&#8217;s role (stand-alone, domain, etc.) after testing. This is convenient when debugging as it excludes comments and concisely presents information for experienced administrators to read.
+> *   **smbstatus <options></options>** - The **smbstatus** program displays the status of current connections to a Samba server.
+> *   **smbtar <options></options>** - The **smbtar** program performs backup and restores of Windows-based share files and directories to a local tape archive. Though similar to the **tar** command, the two are not compatible.
+> *   **testparm <options> <filename> <hostname IP_address\></hostname></filename></options>** - The **testparm** program checks the syntax of the **/etc/samba/smb.conf** file. If your **/etc/samba/smb.conf** file is in the default location (**/etc/samba/smb.conf**) you do not need to specify the location. Specifying the hostname and IP address to the **testparm** program verifies that the **hosts.allow** and **host.deny** files are configured correctly. The **testparm** program also displays a summary of your **/etc/samba/smb.conf** file and the server's role (stand-alone, domain, etc.) after testing. This is convenient when debugging as it excludes comments and concisely presents information for experienced administrators to read.
 >     
 >     For example:
 >     
@@ -1154,7 +1154,7 @@ From the deployment guide:
 >           guest only = Yes
 >         
 > 
-> *   **wbinfo <options></options>** &#8211; The **wbinfo** program displays information from the **winbindd** daemon. The **winbindd** daemon must be running for **wbinfo** to work.
+> *   **wbinfo <options></options>** - The **wbinfo** program displays information from the **winbindd** daemon. The **winbindd** daemon must be running for **wbinfo** to work.
 
 ### Connecting to Samba Server
 
@@ -1193,12 +1193,12 @@ From the same guide:
 
 ### Connecting to a Samba Share with a Client
 
-So let&#8217;s try to connect to the Samba share from RH5 to RH6. On the RH5 machine let&#8217;s install the client utilities:
+So let's try to connect to the Samba share from RH5 to RH6. On the RH5 machine let's install the client utilities:
 
     [root@rhel2 ~]# yum install samba-client
     
 
-Now let&#8217;s see if we can see our samba server from the client:
+Now let's see if we can see our samba server from the client:
 
     [root@rhel2 ~]# findsmb
                                     *=DMB
@@ -1360,16 +1360,16 @@ From the above guide:
 
 > SELinux is based on the least level of access required for a service to run. Services can be run in a variety of ways; therefore, you need to specify how you run your services. > Use the following Booleans to set up SELinux:
 > 
-> *   **allow\_smbd\_anon_write** &#8211; Having this Boolean enabled allows **smbd** to write to a public directory, such as an area reserved for common files that otherwise has no special access restrictions.
-> *   **samba\_create\_home_dirs** &#8211; Having this Boolean enabled allows Samba to create new home directories independently. This is often done by mechanisms such as PAM.
-> *   **samba\_domain\_controller** &#8211; When enabled, this Boolean allows Samba to act as a domain controller, as well as giving it permission to execute related commands such as **useradd**, **groupadd** and **passwd**.
-> *   **samba\_enable\_home_dirs** &#8211; Enabling this Boolean allows Samba to share users&#8217; home directories.
-> *   **samba\_export\_all_ro** &#8211; Export any file or directory, allowing read-only permissions. This allows files and directories that are not labeled with the **samba\_share\_t** type to be shared through Samba. When the **samba\_export\_all_ro** Boolean is on, but the **samba\_export\_all_rw** Boolean is off, write access to Samba shares is denied, even if write access is configured in **/etc/samba/smb.conf**, as well as Linux permissions allowing write access.
-> *   **samba\_export\_all_rw** &#8211; Export any file or directory, allowing read and write permissions. This allows files and directories that are not labeled with the **samba\_share\_t** type to be exported through Samba. Permissions in **/etc/samba/smb.conf** and Linux permissions must be configured to allow write access.
-> *   **samba\_run\_unconfined** &#8211; Having this Boolean enabled allows Samba to run unconfined scripts in the **/var/lib/samba/scripts/** directory.
-> *   **samba\_share\_fusefs** &#8211; This Boolean must be enabled for Samba to share fusefs file systems.
-> *   **samba\_share\_nfs** &#8211; Disabling this Boolean prevents **smbd** from having full access to NFS shares via Samba. Enabling this Boolean will allow Samba to share NFS volumes.
-> *   **use\_samba\_home_dirs** &#8211; Enable this Boolean to use a remote server for Samba home directories.
+> *   **allow\_smbd\_anon_write** - Having this Boolean enabled allows **smbd** to write to a public directory, such as an area reserved for common files that otherwise has no special access restrictions.
+> *   **samba\_create\_home_dirs** - Having this Boolean enabled allows Samba to create new home directories independently. This is often done by mechanisms such as PAM.
+> *   **samba\_domain\_controller** - When enabled, this Boolean allows Samba to act as a domain controller, as well as giving it permission to execute related commands such as **useradd**, **groupadd** and **passwd**.
+> *   **samba\_enable\_home_dirs** - Enabling this Boolean allows Samba to share users' home directories.
+> *   **samba\_export\_all_ro** - Export any file or directory, allowing read-only permissions. This allows files and directories that are not labeled with the **samba\_share\_t** type to be shared through Samba. When the **samba\_export\_all_ro** Boolean is on, but the **samba\_export\_all_rw** Boolean is off, write access to Samba shares is denied, even if write access is configured in **/etc/samba/smb.conf**, as well as Linux permissions allowing write access.
+> *   **samba\_export\_all_rw** - Export any file or directory, allowing read and write permissions. This allows files and directories that are not labeled with the **samba\_share\_t** type to be exported through Samba. Permissions in **/etc/samba/smb.conf** and Linux permissions must be configured to allow write access.
+> *   **samba\_run\_unconfined** - Having this Boolean enabled allows Samba to run unconfined scripts in the **/var/lib/samba/scripts/** directory.
+> *   **samba\_share\_fusefs** - This Boolean must be enabled for Samba to share fusefs file systems.
+> *   **samba\_share\_nfs** - Disabling this Boolean prevents **smbd** from having full access to NFS shares via Samba. Enabling this Boolean will allow Samba to share NFS volumes.
+> *   **use\_samba\_home_dirs** - Enable this Boolean to use a remote server for Samba home directories.
 > *   **virt\_use\_samba** Allow virtual machine access to CIFS files.
 
 #### Samba Share Example with SELinux
@@ -1410,7 +1410,7 @@ From the Managing Confined Services Guide:
 >         Added user testuser.
 >         
 >     
->     Running **smbpasswd -a username**, where username is the user name of a Linux account that does not exist on the system, causes a **Cannot locate Unix account for &#8216;username&#8217;! error.**
+>     Running **smbpasswd -a username**, where username is the user name of a Linux account that does not exist on the system, causes a **Cannot locate Unix account for 'username'! error.**
 > 
 > 8.  Run the **service smb start** command as the root user to start the Samba service:
 >     
@@ -1453,13 +1453,13 @@ From the Managing Confined Services Guide:
 >         file1
 >         
 
-So let&#8217;s try this out. Let&#8217;s share a directory other than our home directory. First let&#8217;s add a directory that we will share:
+So let's try this out. Let's share a directory other than our home directory. First let's add a directory that we will share:
 
     [root@rhel1 ~]# mkdir /share
     [root@rhel1 ~]# chown user1 /share
     
 
-Now let&#8217;s add that directory as a share into our **/etc/samba/smb.conf** file:
+Now let's add that directory as a share into our **/etc/samba/smb.conf** file:
 
     [share]
     comment = My share
@@ -1469,7 +1469,7 @@ Now let&#8217;s add that directory as a share into our **/etc/samba/smb.conf** f
     valid users = user1
     
 
-let&#8217;s make sure the configuration is okay:
+let's make sure the configuration is okay:
 
     [root@rhel1 ~]# testparm -s
     Load smb config files from /etc/samba/smb.conf
@@ -1504,13 +1504,13 @@ let&#8217;s make sure the configuration is okay:
             valid users = user1
     
 
-Now let&#8217;s reload the service
+Now let's reload the service
 
     [root@rhel1 ~]# service smb reload
     Reloading smb.conf file: smbd 
     
 
-Now from the client let&#8217;s try to connect to that share:
+Now from the client let's try to connect to that share:
 
     [root@rhel2 ~]# smbclient //RHEL1/share -U user1
     Password: 
@@ -1518,14 +1518,14 @@ Now from the client let&#8217;s try to connect to that share:
     tree connect failed: NT_STATUS_BAD_NETWORK_NAME
     
 
-Looks like we are getting blocked. Now now let&#8217;s set the context for that directory:
+Looks like we are getting blocked. Now now let's set the context for that directory:
 
     [root@rhel1 ~]# semanage fcontext -a -t samba_share_t "/share(/.*)?"
     [root@rhel1 ~]# restorecon -R -v /share
     restorecon reset /share context unconfined_u:object_r:default_t:s0->system_u:object_r:samba_share_t:s0
     
 
-Now let&#8217;s try it again:
+Now let's try it again:
 
     [root@rhel2 ~]# smbclient //RHEL1/share -U user1
     Password: 

@@ -17,7 +17,7 @@ tags:
   - vmkfstools
   - VML_ID
 ---
-I recently had a interesting query: &#8220;Given the naa_id of a LUN which is an RDM, how do you find which VM that LUN is connected to?&#8221; Doing some quick searching in the VMware KB, I found VMware articles <a href="http://kb.vmware.com/kb/1005937" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1005937']);">1005937</a> and <a href="http://kb.vmware.com/kb/2001823 " onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/2001823']);">2001823</a>. KB <a href="http://kb.vmware.com/kb/1005937" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1005937']);">1005937</a> had a powercli script which showed the size of the RDM and the full path of the RDM:
+I recently had a interesting query: "Given the naa_id of a LUN which is an RDM, how do you find which VM that LUN is connected to?" Doing some quick searching in the VMware KB, I found VMware articles <a href="http://kb.vmware.com/kb/1005937" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1005937']);">1005937</a> and <a href="http://kb.vmware.com/kb/2001823 " onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/2001823']);">2001823</a>. KB <a href="http://kb.vmware.com/kb/1005937" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1005937']);">1005937</a> had a powercli script which showed the size of the RDM and the full path of the RDM:
 
 	  
 	Get-Datastore | Get-HardDisk -DiskType "RawPhysical","RawVirtual" | Select "Filename","CapacityKB" | fl  
@@ -38,12 +38,12 @@ Sample output:
 
 > Virtual Mode RDM:
 > 
-> Disk /vmfs/volumes/&#8230;/virtualrdm.vmdk is a Non-passthrough Raw Device Mapping  
+> Disk /vmfs/volumes/.../virtualrdm.vmdk is a Non-passthrough Raw Device Mapping  
 > Maps to: vml.02000000006006048000019030091953303030313253594d4d4554
 > 
 > Physical Mode RDM:
 > 
-> Disk /vmfs/volumes/&#8230;/physicalrdm.vmdk is a Passthrough Raw Device Mapping  
+> Disk /vmfs/volumes/.../physicalrdm.vmdk is a Passthrough Raw Device Mapping  
 > Maps to: vml.02000000006006048000019030091953303030313253594d4d4554
 
 This is perfect however this had to be run on each individual host since there is lock on the vmdk files from the host where the VM resides. Again helpful but a lot work. In the second KB <a href="http://kb.vmware.com/kb/2001823 " onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/2001823']);">2001823</a>, there was another powercli script:

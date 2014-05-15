@@ -1,5 +1,5 @@
 ---
-title: 'Virtual Machine Clone Fails with &#8216;A general system error occurred: Configuration information is inaccessible&#8217; Error Message'
+title: "Virtual Machine Clone Fails with 'A general system error occurred: Configuration information is inaccessible' Error Message"
 author: Karim Elatov
 layout: post
 permalink: /2012/10/virtual-machine-clone-fails-with-a-general-system-error-occurred-configuration-information-is-inaccessible/

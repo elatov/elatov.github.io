@@ -15,7 +15,7 @@ tags:
   - vswif
   - workstation
 ---
-I was recently setting up an ESX and ESXi host on my local VMware Workstation, however whatever I tried I couldn&#8217;t get the ESX host to reply to pings. I setup the ESX and ESXi host to use the NAT network from the VMware Workstation. Here is how the NAT settings looked like from the Virtual Network Editor:
+I was recently setting up an ESX and ESXi host on my local VMware Workstation, however whatever I tried I couldn't get the ESX host to reply to pings. I setup the ESX and ESXi host to use the NAT network from the VMware Workstation. Here is how the NAT settings looked like from the Virtual Network Editor:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/04/Virtual_network_Editor.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/04/Virtual_network_Editor.png']);"><img class="alignnone size-full wp-image-903" title="Virtual_network_Editor" src="http://virtuallyhyper.com/wp-content/uploads/2012/04/Virtual_network_Editor.png" alt="Virtual network Editor Getting an ESX Host Up on the Network, Running on VMware Workstation" width="624" height="623" /></a>
 
@@ -77,7 +77,7 @@ So I just set a static IP of 10.0.1.130 with the default gateway of 10.0.1.1 and
 	0 packets dropped by kernel
 	
 
-So the vswif interface is ARP&#8217;ing out to find out the mac address of it&#8217;s default gateway, and the vmnet1 interface is responding to the the request but the vswif0 interface is not getting it.
+So the vswif interface is ARP'ing out to find out the mac address of it's default gateway, and the vmnet1 interface is responding to the the request but the vswif0 interface is not getting it.
 
 Now my ESXi host worked without any issues. Here is how the network looks like for the ESXi host:
 
@@ -113,7 +113,7 @@ It worked just fine. Now looking at the packet capture as the pings were going, 
 	16:17:23.750079 00:50:56:c0:00:01 > 00:0c:29:2c:54:17, ethertype IPv4 (0x0800), length 98: 10.0.1.1 > 10.0.1.128: ICMP echo reply, id 52787, seq 1, length 64
 	
 
-Looking at the packet captures I noticed that the ESXi host was using the following MAC address: 00:0c:29:2c:54:17 but looking at the ESX host it is using the following mac address: 00:50:56:4c:e5:09. You will notice the ESX host is using it&#8217;s typical virtual MAC address starting with 00:50:56. Where the ESXi host is using the &#8220;physical&#8221; MAC address that was assigned to it. The physical mac address assigned to the ESX host can be seen from the esxcfg-nics output:
+Looking at the packet captures I noticed that the ESXi host was using the following MAC address: 00:0c:29:2c:54:17 but looking at the ESX host it is using the following mac address: 00:50:56:4c:e5:09. You will notice the ESX host is using it's typical virtual MAC address starting with 00:50:56. Where the ESXi host is using the "physical" MAC address that was assigned to it. The physical mac address assigned to the ESX host can be seen from the esxcfg-nics output:
 
 	[root@localhost ~]# esxcfg-nics -l
 	Name   PCI   Driver Link Speed    Duplex MAC Address MTU Description

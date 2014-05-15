@@ -1,5 +1,5 @@
 ---
-title: 'RHCSA and RHCE Chapter 9 &#8211; System Logging, Monitoring, and Automation'
+title: 'RHCSA and RHCE Chapter 9 - System Logging, Monitoring, and Automation'
 author: Karim Elatov
 layout: post
 permalink: /2013/06/rhcsa-and-rhce-chapter-9-system-logging-monitoring-and-automation/
@@ -107,7 +107,7 @@ Here is how the configuration file is broken down for rsyslog:
 > *   The at sign (@) indicates that the syslog messages are forwarded to a host using the UDP protocol. To use the TCP protocol, use two at signs with no space between them (@@).
 > *   The *OPTION* attribute can be replaced with an option such as z*NUMBER*. This option enables zlib compression for syslog messages; the *NUMBER* attribute specifies the level of compression. To define multiple options, simply separate each one of them with a comma (,).
 > *   The *HOST* attribute specifies the host which receives the selected syslog messages.
-> *   The *PORT* attribute specifies the host machine&#8217;s port.
+> *   The *PORT* attribute specifies the host machine's port.
 > 
 > When specifying an IPv6 address as the host, enclose the address in square brackets ([, ]).
 > 
@@ -203,7 +203,7 @@ Here is how the default configuration for rsyslog looks like:
 Here is the Command Line Configuration:
 
 > **20.1.4. rsyslog Command Line Configuration**  
-> Some of **rsyslog**&#8216;s functionality can be configured through the command line options, as **sysklogd**&#8216;s can. Note that as of version 3 of **rsyslog**, this method was deprecated. To enable some of these option, you must specify the compatibility mode **rsyslog** should run in. However, configuring **rsyslog** through the command line options should be avoided.
+> Some of **rsyslog**'s functionality can be configured through the command line options, as **sysklogd**'s can. Note that as of version 3 of **rsyslog**, this method was deprecated. To enable some of these option, you must specify the compatibility mode **rsyslog** should run in. However, configuring **rsyslog** through the command line options should be avoided.
 > 
 > To specify the compatibility mode **rsyslog** should run in, use the **-c** option. When no parameter is specified, **rsyslog** tries to be compatible with sysklogd. This is partially achieved by activating configuration directives that modify your configuration accordingly. Therefore, it is advisable to supply this option with a number that matches the major version of rsyslog that is in use and update your **/etc/rsyslog.conf** configuration file accordingly. If you want to, for example, use sysklogd options (which were deprecated in version 3 of **rsyslog**), you can specify so by executing the following command:
 > 
@@ -341,7 +341,7 @@ We can see package specific settings.
 
 ## Remote Syslog Server
 
-Let&#8217;s setup our RHEL6 machine to be a syslog Server to accept logs on UDP 514 and let&#8217;s configure the RHEL 5 machine to send logs remotely to the RHEL6 machine on UDP 514.
+Let's setup our RHEL6 machine to be a syslog Server to accept logs on UDP 514 and let's configure the RHEL 5 machine to send logs remotely to the RHEL6 machine on UDP 514.
 
 ### Syslog Server
 
@@ -359,7 +359,7 @@ Restart the rsyslogd daemon:
     Starting system logger:  rsyslogd
     
 
-Make sure it&#8217;s listening on UDP 514:
+Make sure it's listening on UDP 514:
 
     [root@rhel1 ~]# netstat -anup --inet | grep 514
     udp        0      0 0.0.0.0:514                 0.0.0.0:*                               1524/rsyslogd       
@@ -413,14 +413,14 @@ There is our test message.
 
 ### Send Remote logs to a specific file
 
-If you don&#8217;t want to seep through **/var/log/message** for remote logs, you can add a rule to put remote logs to another file. On the server add the following to the **/etc/rsyslog.conf** file on top of all the Rules:
+If you don't want to seep through **/var/log/message** for remote logs, you can add a rule to put remote logs to another file. On the server add the following to the **/etc/rsyslog.conf** file on top of all the Rules:
 
     #### RULES ####
     if $fromhost-ip == '192.168.56.103' then /var/log/remote/192-168-56-103.log
     & ~
     
 
-The bottom line ensures that the logs don&#8217;t get logged to the regular **/var/log/messages** file as well. Restart rsyslog:
+The bottom line ensures that the logs don't get logged to the regular **/var/log/messages** file as well. Restart rsyslog:
 
     [root@rhel1 ~]# service rsyslog restart
     Shutting down system logger: rsyslogd 
@@ -443,7 +443,7 @@ From <a href="https://access.redhat.com/site/articles/3009" onclick="javascript:
 
 and from <a href="https://access.redhat.com/site/articles/1849" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://access.redhat.com/site/articles/1849']);">this</a> RHEL forum:
 
-> The **last** command will display all users logged into a system along with their current tty&#8217;s. However, it will only display login information starting from the time **/var/log/wtmp** was created.
+> The **last** command will display all users logged into a system along with their current tty's. However, it will only display login information starting from the time **/var/log/wtmp** was created.
 
 There is also another command called lastlog. Here is how each look like:
 
@@ -478,7 +478,7 @@ We can see a bunch of logins and their corresponding times.
 
 We can see the last login for each user that exists on the system. We can see some system users were never logged in, which is expected. We can also check out currently logged in users, from <a href="https://access.redhat.com/site/articles/1907" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://access.redhat.com/site/articles/1907']);">this</a> RHEL Forum:
 
-> To quickly check who is currently log in on the server and the programs they are currently running, run the &#8216;w&#8217; command. This command would also show how they are logged in, if they logged in remotely and the current time, how long the their login session has lasted. Alternatively, you can use the &#8216;who&#8217; command. Here is how each looks like:
+> To quickly check who is currently log in on the server and the programs they are currently running, run the 'w' command. This command would also show how they are logged in, if they logged in remotely and the current time, how long the their login session has lasted. Alternatively, you can use the 'who' command. Here is how each looks like:
 
     [root@rhel1 ~]# w
      16:47:40 up 34 min,  1 user,  load average: 0.00, 0.00, 0.00
@@ -515,7 +515,7 @@ From <a href="https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterpr
 >     vmstat
 >     
 > 
-> **vmstat** (Virtual Memory Statistics) outputs instantaneous reports about your system&#8217;s processes, memory, paging, block I/O, interrupts and CPU activity.
+> **vmstat** (Virtual Memory Statistics) outputs instantaneous reports about your system's processes, memory, paging, block I/O, interrupts and CPU activity.
 > 
 > Although it is not dynamic like **top**, you can specify a sampling interval, which lets you observe system activity in near-real time.
 > 
@@ -524,7 +524,7 @@ From <a href="https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterpr
 >     sar
 >     
 > 
-> **sar** (System Activity Reporter) collects and reports information about today&#8217;s system activity so far. The default output covers today&#8217;s CPU utilization at ten minute intervals from the beginning of the day:
+> **sar** (System Activity Reporter) collects and reports information about today's system activity so far. The default output covers today's CPU utilization at ten minute intervals from the beginning of the day:
 > 
 >     12:00:01 AM CPU %user %nice %system %iowait %steal %idle
 >     12:10:01 AM all 0.10 0.00 0.15 2.96 0.00 96.79
@@ -668,7 +668,7 @@ And that is a whopping 0.3% <img src="http://virtuallyhyper.com/wp-includes/imag
     root      1436  0.0  0.1   4776  1012 pts/0    R+   17:07   0:00 ps aux
     
 
-If you want to figure out specific information regarding a process then **ps** is your friend. **Top** shows you an overall overview of the system, where **ps** can dig deeper into each process ID. We can even see the full path of the command that was used to start the process, this can be helpful as well. Let&#8217;s see we wanted to find out any processes that have to do with postfix:
+If you want to figure out specific information regarding a process then **ps** is your friend. **Top** shows you an overall overview of the system, where **ps** can dig deeper into each process ID. We can even see the full path of the command that was used to start the process, this can be helpful as well. Let's see we wanted to find out any processes that have to do with postfix:
 
     [root@rhel1 ~]# ps -eaf | grep postfix
     root      1165     1  0 16:13 ?        00:00:00 /usr/libexec/postfix/master
@@ -676,27 +676,27 @@ If you want to figure out specific information regarding a process then **ps** i
     postfix   1173  1165  0 16:13 ?        00:00:00 qmgr -l -t fifo -u
     
 
-We can see a couple of processes that are started with the postfix user and the master process started by the root user. Similar tools exist like pidof and pgrep to find out PID of process names. Those tools are usually used in conjuction with **kill**,**pkill**,**nice**, and **renice**. Information regarding each of those can be seen in &#8220;<a href="http://linux.die.net/Linux-CLI/controlling-processes.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://linux.die.net/Linux-CLI/controlling-processes.html']);">Controlling the system</a>&#8220;. Here are brief descriptions of each:
+We can see a couple of processes that are started with the postfix user and the master process started by the root user. Similar tools exist like pidof and pgrep to find out PID of process names. Those tools are usually used in conjuction with **kill**,**pkill**,**nice**, and **renice**. Information regarding each of those can be seen in "<a href="http://linux.die.net/Linux-CLI/controlling-processes.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://linux.die.net/Linux-CLI/controlling-processes.html']);">Controlling the system</a>". Here are brief descriptions of each:
 
 > **pgrep**  
 > This command is useful for finding the process id of a particular process when you know part of its name.
 > 
 > **kill**  
-> To kill processes on your system, you will need their pid&#8217;s or id&#8217;s . Use ps or pstree to find out the process id&#8217;s (pid&#8217;s), or use jobs to find out id&#8217;s.
+> To kill processes on your system, you will need their pid's or id's . Use ps or pstree to find out the process id's (pid's), or use jobs to find out id's.
 > 
 > **killall**  
-> Kill a process by it&#8217;s name, uses names instead of process id&#8217;s (pid&#8217;s). Use -v to have killall report whether the kill was successful or not and -i for interactive mode (will prompt you before attempting to kill).
+> Kill a process by it's name, uses names instead of process id's (pid's). Use -v to have killall report whether the kill was successful or not and -i for interactive mode (will prompt you before attempting to kill).
 > 
 > **pkill**  
 > pkill is used to kill processes according to an extended regular expression. Use the -u option to kill using a user name(s) and process name (for example to only kill a process of a certain user). pkill can also send specific signals to processes.
 > 
 > **nice**  
-> Sets the priority for a process. nice -20 is the maximum priority (only administrative users can assign negative priorities), nice 20 is the minimum priority. You must be root to give a process a higher priority, but you can always lower the priority of your own processes&#8230;
+> Sets the priority for a process. nice -20 is the maximum priority (only administrative users can assign negative priorities), nice 20 is the minimum priority. You must be root to give a process a higher priority, but you can always lower the priority of your own processes...
 > 
 > **renice**  
 > Changes the priority of an existing command. You may use the options -u to change the priorities of all processes for a particular user name and -g to change priorities for all processes of a particular group. The default is to change via the process id number.
 
-So let&#8217;s renice our **rhsmcertd** process and then kill it. First let&#8217;s take a look at the current process:
+So let's renice our **rhsmcertd** process and then kill it. First let's take a look at the current process:
 
     [root@rhel1 ~]# ps -FcC rhsmcertd
     UID        PID  PPID CLS PRI    SZ   RSS PSR STIME TTY          TIME CMD
@@ -734,7 +734,7 @@ After I restarted it, here was the new PID:
     1807
     
 
-Now that was a very little process managament guide, let&#8217;s get back to system monitoring. I ran a quick **dd** command on one terminal:
+Now that was a very little process managament guide, let's get back to system monitoring. I ran a quick **dd** command on one terminal:
 
     [root@rhel1 ~]# dd if=/dev/zero of=test.dd bs=1M count=100
     
@@ -797,7 +797,7 @@ From <a href="https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterpr
 > 
 > Note that you must have superuser privileges (that is, you must be logged in as root) to run this command.
 
-Let&#8217;s make sure we have it installed:
+Let's make sure we have it installed:
 
     [root@rhel1 ~]# rpm -qa cronie\*
     cronie-1.4.4-7.el6.i686
@@ -832,7 +832,7 @@ That looks good, moving on with the guide:
 > 
 > This command disables the service in all runlevels.
 
-Let&#8217;s make sure the service is started and is setup to be automatically started:
+Let's make sure the service is started and is setup to be automatically started:
 
     [root@rhel1 ~]# service crond status
     crond (pid  1175) is running...
@@ -969,9 +969,9 @@ Looks like logrotate (which we discussed above), the MAN database, the locate da
 > 
 > Users other than root can configure cron tasks with the **crontab** utility. The user-defined crontabs are stored in the **/var/spool/cron/** directory and executed as if run by the users that created them.
 > 
-> To create a crontab as a user, login as that user and type the command **crontab -e** to edit the user&#8217;s crontab with the editor specified in the **VISUAL** or **EDITOR** environment variable. The file uses the same format as **/etc/crontab**. When the changes to the crontab are saved, the crontab is stored according to username and written to the file **/var/spool/cron/username**. To list the contents of your crontab file, use the **crontab -l** command.
+> To create a crontab as a user, login as that user and type the command **crontab -e** to edit the user's crontab with the editor specified in the **VISUAL** or **EDITOR** environment variable. The file uses the same format as **/etc/crontab**. When the changes to the crontab are saved, the crontab is stored according to username and written to the file **/var/spool/cron/username**. To list the contents of your crontab file, use the **crontab -l** command.
 
-Let&#8217;s create a cron job to run a script which appends the date into a file every 5 minutes. First let&#8217;s edit the file:
+Let's create a cron job to run a script which appends the date into a file every 5 minutes. First let's edit the file:
 
     [root@rhel1 ~]# vi /tmp/script.bash
     
@@ -983,25 +983,25 @@ then add the following into the file:
     /bin/date +"%m-%d-%Y_%H.%M.%S" >> /tmp/date
     
 
-Now let&#8217;s make the file executable:
+Now let's make the file executable:
 
     [root@rhel1 ~]# chmod +x /tmp/script.bash 
     
 
-Now let&#8217;s run it to make sure it works as expected:
+Now let's run it to make sure it works as expected:
 
     [root@rhel1 ~]# /tmp/script.bash 
     [root@rhel1 ~]# cat /tmp/date 
     06-16-2013_17.17.05
     
 
-That looks good. Now let&#8217;s check the current cron table for the root user:
+That looks good. Now let's check the current cron table for the root user:
 
     [root@rhel1 ~]# crontab -l
     no crontab for root
     
 
-We can see that it&#8217;s currently empty. Now let&#8217;s edit our cron table:
+We can see that it's currently empty. Now let's edit our cron table:
 
     [root@rhel1 ~]# crontab -e
     
@@ -1076,13 +1076,13 @@ From the deployment guide:
 > 
 > This command enables the service in runlevel 2, 3, 4, and 5
 
-So let&#8217;s see if atd is installed:
+So let's see if atd is installed:
 
     [root@rhel1 ~]# rpm -q at
     package at is not installed
     
 
-It looks like I don&#8217;t have it installed. So let&#8217;s go ahead and install it:
+It looks like I don't have it installed. So let's go ahead and install it:
 
     [root@rhel1 ~]# yum install at
     ..
@@ -1094,7 +1094,7 @@ It looks like I don&#8217;t have it installed. So let&#8217;s go ahead and insta
     [root@rhel1 ~]# 
     
 
-Not let&#8217;s make sure it enabled and running:
+Not let's make sure it enabled and running:
 
     [root@rhel1 ~]# service atd status
     atd is stopped
@@ -1102,7 +1102,7 @@ Not let&#8217;s make sure it enabled and running:
     atd             0:off   1:off   2:off   3:on    4:on    5:on    6:off
     
 
-It&#8217;s enabled but it&#8217;s not running. So let&#8217;s start it:
+It's enabled but it's not running. So let's start it:
 
     [root@rhel1 ~]# service atd start
     Starting atd:  atd
@@ -1110,7 +1110,7 @@ It&#8217;s enabled but it&#8217;s not running. So let&#8217;s start it:
     atd (pid  1532) is running...
     
 
-That looks good. Now let&#8217;s keep down the deployment guide:
+That looks good. Now let's keep down the deployment guide:
 
 > **21.2.3. Configuring an At Job**  
 > To schedule a one-time job for a specific time with the **At** utility, do the following:
@@ -1133,7 +1133,7 @@ That looks good. Now let&#8217;s keep down the deployment guide:
 > 
 > *   Type the command the job should execute and press **Enter**. Optionally, repeat the step to provide multiple commands.
 > *   Enter a shell script at the prompt and press Enter after each line in the script.  
->     The job will use the shell set in the user&#8217;s **SHELL** environment, the user&#8217;s login shell, or **/bin/sh** (whichever is found first).
+>     The job will use the shell set in the user's **SHELL** environment, the user's login shell, or **/bin/sh** (whichever is found first).
 > 
 > 1.  Once finished, press **Ctrl+D** on an empty line to exit the prompt.
 > 
@@ -1141,19 +1141,19 @@ That looks good. Now let&#8217;s keep down the deployment guide:
 > 
 > To view the list of pending jobs, use the **atq** command.
 
-First let&#8217;s remove our cron table:
+First let's remove our cron table:
 
     [root@rhel1 ~]# crontab -r
     [root@rhel1 ~]# crontab -l
     no crontab for root
     
 
-The table is now empty. Also let&#8217;s remove the output file:
+The table is now empty. Also let's remove the output file:
 
     [root@rhel1 ~]# rm /tmp/date
     
 
-Now let&#8217;s run the same command, that we run from cron, 2 minutes from now:
+Now let's run the same command, that we run from cron, 2 minutes from now:
 
     [root@rhel1 ~]# date; at now + 2 minutes
     Sun Jun 16 18:15:52 MDT 2013
@@ -1162,7 +1162,7 @@ Now let&#8217;s run the same command, that we run from cron, 2 minutes from now:
     job 1 at 2013-06-16 18:17
     
 
-We can see that I started at 18:15 and the job will be run at 18:17. Let&#8217;s also check the queue:
+We can see that I started at 18:15 and the job will be run at 18:17. Let's also check the queue:
 
     [root@rhel1 ~]# atq
     1   2013-06-16 18:17 a root
@@ -1174,7 +1174,7 @@ When the time has passed, we can check out the file:
     06-16-2013_18.17.00
     
 
-and the date is correct. The **batch** utility works in the same way except you don&#8217;t specify the time but the process is the same other than that. You can also block access to **at** just like with **cron**, from the deployment guide:
+and the date is correct. The **batch** utility works in the same way except you don't specify the time but the process is the same other than that. You can also block access to **at** just like with **cron**, from the deployment guide:
 
 > **21.2.7. Controlling Access to At and Batch**  
 > You can restrict the access to the at and batch commands using the **/etc/at.allow** and **/etc/at.deny** files. These access control files use the same format defining one username on each line. Mind that no whitespace are permitted in either file.

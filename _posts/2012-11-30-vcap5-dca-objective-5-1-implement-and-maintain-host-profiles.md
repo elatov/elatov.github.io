@@ -14,7 +14,7 @@ tags:
 ---
 ### Use Profile Editor to edit and/or disable policies
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-host-profiles-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-host-profiles-guide.pdf']);">vSphere Host Profiles ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-host-profiles-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-host-profiles-guide.pdf']);">vSphere Host Profiles ESXi 5.0</a>":
 
 > **Access Host Profiles View**  
 > The Host Profiles main view lists all available profiles. Administrators can also use the Host Profiles main view to perform operations on host profiles and configure profiles.
@@ -34,11 +34,11 @@ Here is how it looks like in vCenter:
 To edit a host profile we have to create one first. From the same document:
 
 > **Creating a Host Profile**  
-> You create a new host profile by using the designated reference host&#8217;s configuration.  
+> You create a new host profile by using the designated reference host's configuration.  
 > A host profile can be created from:
 > 
 > *   Host Profile main view
-> *   host&#8217;s context menu
+> *   host's context menu
 > 
 > **Create a Host Profile from Host Profiles View**  
 > You can create a host profile from the Host Profiles main view using the configuration of an existing host.  
@@ -56,7 +56,7 @@ To edit a host profile we have to create one first. From the same document:
 > 
 > The new profile appears in the profile list.
 
-Here is the process as it&#8217;s seen in vCenter:
+Here is the process as it's seen in vCenter:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/create_hp_step1.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/create_hp_step1.png']);"><img class="alignnone size-full wp-image-5057" title="create_hp_step1" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/create_hp_step1.png" alt="create hp step1 VCAP5 DCA Objective 5.1 – Implement and Maintain Host Profiles" width="700" height="513" /></a>
 
@@ -68,7 +68,7 @@ Then name your host profile:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/create_hp_step3.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/create_hp_step3.png']);"><img class="alignnone size-full wp-image-5059" title="create_hp_step3" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/create_hp_step3.png" alt="create hp step3 VCAP5 DCA Objective 5.1 – Implement and Maintain Host Profiles" width="701" height="516" /></a>
 
-After that click &#8220;Finish&#8221; and then you will have a profile under the Host Profile view, like so:
+After that click "Finish" and then you will have a profile under the Host Profile view, like so:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/create_hp.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/create_hp.png']);"><img class="alignnone size-full wp-image-5060" title="create_hp" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/create_hp.png" alt="create hp VCAP5 DCA Objective 5.1 – Implement and Maintain Host Profiles" width="542" height="127" /></a>
 
@@ -91,7 +91,7 @@ Here is how editing of the Host Profile looks like in vCenter:
 
 ### Create sub-profiles
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-host-profiles-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-host-profiles-guide.pdf']);">vSphere Host Profiles ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-host-profiles-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-host-profiles-guide.pdf']);">vSphere Host Profiles ESXi 5.0</a>":
 
 > **Edit a Policy**  
 > A policy describes how a specific configuration setting should be applied. The Profile Editor allows you to edit policies belonging to a specific host profile.
@@ -104,7 +104,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 
 ### Use Host Profiles to deploy vDS
 
-From &#8220;<a href="http://www.vmware.com/files/pdf/techpaper/VMW-Host-Profiles-Tech-Overview.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/techpaper/VMW-Host-Profiles-Tech-Overview.pdf']);">VMware Host Profiles: Technical Overview</a>&#8220;:
+From "<a href="http://www.vmware.com/files/pdf/techpaper/VMW-Host-Profiles-Tech-Overview.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/techpaper/VMW-Host-Profiles-Tech-Overview.pdf']);">VMware Host Profiles: Technical Overview</a>":
 
 > **Use Case 5: Using Host Profiles to Configure Hosts to Use VMware vNetwork Distributed Switch**  
 > Host Profiles can be used to capture the vNetwork Standard Switch (vSS) and vNetwork Distributed Switch configuration of a VMware ESX host, and then apply and propagate that configuration to a number of other VMware ESX or ESXi hosts.
@@ -132,13 +132,13 @@ From &#8220;<a href="http://www.vmware.com/files/pdf/techpaper/VMW-Host-Profiles
 
 ### Use Host Profiles to deploy vStorage policies
 
-Expand the &#8220;Storage Configuration&#8221; under the profile section and change whatever setting necessary. Here are some of the available settings from the vCenter:
+Expand the "Storage Configuration" under the profile section and change whatever setting necessary. Here are some of the available settings from the vCenter:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/hp-storage_conf.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/hp-storage_conf.png']);"><img class="alignnone size-full wp-image-5065" title="hp-storage_conf" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/hp-storage_conf.png" alt="hp storage conf VCAP5 DCA Objective 5.1 – Implement and Maintain Host Profiles" width="328" height="271" /></a>
 
 ### Manage Answer Files
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-host-profiles-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-host-profiles-guide.pdf']);">vSphere Host Profiles ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-host-profiles-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-host-profiles-guide.pdf']);">vSphere Host Profiles ESXi 5.0</a>":
 
 > To apply a host profile to a host, the host must be placed into maintenance mode. During this process, the user is prompted to type answers for policies that are specified during host profile creation.
 > 
@@ -190,7 +190,7 @@ Here is how the options for answer file looks like from vCenter:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/answer_file_options.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/answer_file_options.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/11/answer_file_options.png" alt="answer file options VCAP5 DCA Objective 5.1 – Implement and Maintain Host Profiles" title="answer_file_options" width="1120" height="344" class="alignnone size-full wp-image-5066" /></a>
 
-Also here is how editing the answer file looks like, by selecting &#8220;Update Answer File&#8221;, from vCenter:
+Also here is how editing the answer file looks like, by selecting "Update Answer File", from vCenter:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/update_answer_files.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/update_answer_files.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/11/update_answer_files.png" alt="update answer files VCAP5 DCA Objective 5.1 – Implement and Maintain Host Profiles" title="update_answer_files" width="995" height="734" class="alignnone size-full wp-image-5067" /></a>
 

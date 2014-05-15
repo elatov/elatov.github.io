@@ -14,11 +14,11 @@ tags:
 ---
 ### Identify storage provisioning methods
 
-For protocols we have Fibre Channel, iSCSI, NFS, FCoE. Check out &#8220;<a href="http://blogs.vmware.com/vsphere/2012/02/storage-protocol-comparison-a-vsphere-perspective.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vsphere/2012/02/storage-protocol-comparison-a-vsphere-perspective.html']);">Storage Protocol Comparison – A vSphere Perspective</a>&#8221; to find out what the differences are. Here is a snippet from that page:
+For protocols we have Fibre Channel, iSCSI, NFS, FCoE. Check out "<a href="http://blogs.vmware.com/vsphere/2012/02/storage-protocol-comparison-a-vsphere-perspective.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vsphere/2012/02/storage-protocol-comparison-a-vsphere-perspective.html']);">Storage Protocol Comparison – A vSphere Perspective</a>" to find out what the differences are. Here is a snippet from that page:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/storage_protocols.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/storage_protocols.png']);"><img class="alignnone size-full wp-image-3789" title="storage_protocols" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/storage_protocols.png" alt="storage protocols VCAP5 DCA Objective 1.2 – Manage Storage Capacity in a vSphere Environment " width="716" height="786" /></a>
 
-For vmdks we have, Lazy Zeroed Thick, Eager Zeroed Thick, and Thin. From the &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf']);">vSphere Storage ESXi 5.0</a>&#8220;:
+For vmdks we have, Lazy Zeroed Thick, Eager Zeroed Thick, and Thin. From the "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf']);">vSphere Storage ESXi 5.0</a>":
 
 > **Thick Provision Lazy Zeroed**
 > 
@@ -34,15 +34,15 @@ For vmdks we have, Lazy Zeroed Thick, Eager Zeroed Thick, and Thin. From the &#8
 
 ### Identify available storage monitoring tools, metrics and alarms
 
-To check for different storage aspects you can use storage views. Check out &#8220;<a href="http://www.virtualizationadmin.com/articles-tutorials/vmware-esx-and-vsphere-articles/storage-management/using-vmware-vsphere-storage-views.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.virtualizationadmin.com/articles-tutorials/vmware-esx-and-vsphere-articles/storage-management/using-vmware-vsphere-storage-views.html']);">Using VMware vSphere Storage Views</a>&#8220;. Go to &#8220;Datastore&#8221; View -> Click on a datastore -> Click on the &#8220;Storage View&#8221; Tab. It should look like this:
+To check for different storage aspects you can use storage views. Check out "<a href="http://www.virtualizationadmin.com/articles-tutorials/vmware-esx-and-vsphere-articles/storage-management/using-vmware-vsphere-storage-views.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.virtualizationadmin.com/articles-tutorials/vmware-esx-and-vsphere-articles/storage-management/using-vmware-vsphere-storage-views.html']);">Using VMware vSphere Storage Views</a>". Go to "Datastore" View -> Click on a datastore -> Click on the "Storage View" Tab. It should look like this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/storage_view_vms.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/storage_view_vms.png']);"><img class="alignnone size-full wp-image-3796" title="storage_view_vms" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/storage_view_vms.png" alt="storage view vms VCAP5 DCA Objective 1.2 – Manage Storage Capacity in a vSphere Environment " width="1043" height="776" /></a>
 
-You can also use the Storage Maps to see how you connections look like. Go to the same view as above and then change the view to &#8220;Maps&#8221;. It might look something like this:
+You can also use the Storage Maps to see how you connections look like. Go to the same view as above and then change the view to "Maps". It might look something like this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/datastore_maps.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/datastore_maps.png']);"><img class="alignnone size-full wp-image-3797" title="datastore_maps" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/datastore_maps.png" alt="datastore maps VCAP5 DCA Objective 1.2 – Manage Storage Capacity in a vSphere Environment " width="1039" height="554" /></a>
 
-For Alarms regarding storage go to &#8220;Datastore&#8221; View -> Select a Datastore -> Then Select the &#8220;Alarms&#8221; Tab. You will see predefined alarms for datastores. Something like this:
+For Alarms regarding storage go to "Datastore" View -> Select a Datastore -> Then Select the "Alarms" Tab. You will see predefined alarms for datastores. Something like this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/datastore_alarms.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/datastore_alarms.png']);"><img class="alignnone size-full wp-image-3793" title="datastore_alarms" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/datastore_alarms.png" alt="datastore alarms VCAP5 DCA Objective 1.2 – Manage Storage Capacity in a vSphere Environment " width="992" height="296" /></a>
 
@@ -50,7 +50,7 @@ You can also check out storage metrics by going to the performance tab. It will 
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/performance_tab_datastore.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/performance_tab_datastore.png']);"><img class="alignnone size-full wp-image-3794" title="performance_tab_datastore" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/performance_tab_datastore.png" alt="performance tab datastore VCAP5 DCA Objective 1.2 – Manage Storage Capacity in a vSphere Environment " width="1014" height="406" /></a>
 
-You can also look at the performance from the host view. Go to &#8220;Host and Clusters&#8221; View -> Select a Host -> Select the Performance Tab -> Select &#8220;Advanced&#8221; -> Then Switch to &#8220;Disk&#8221; or &#8220;Datastore&#8221;. It will look something like this:
+You can also look at the performance from the host view. Go to "Host and Clusters" View -> Select a Host -> Select the Performance Tab -> Select "Advanced" -> Then Switch to "Disk" or "Datastore". It will look something like this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/host_disk_performance.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/host_disk_performance.png']);"><img class="alignnone size-full wp-image-3795" title="host_disk_performance" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/host_disk_performance.png" alt="host disk performance VCAP5 DCA Objective 1.2 – Manage Storage Capacity in a vSphere Environment " width="1037" height="613" /></a>
 
@@ -58,7 +58,7 @@ If you want to really check metrics, fire up esxtop and go to the Disk or LUN vi
 
 ### Apply space utilization data to manage storage resources
 
-If you run out of space. You could&#8217;ve discovered this by an alarm, storage view, or maybe just running &#8216;df&#8217; on the system. To alleviate the issue, use storage vMotion (cold or live) to make space on the datastore. If you have the ability you should expand the VMFS datastore. From the <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf']);">vSphere Storage ESXi 5.0</a> guide:
+If you run out of space. You could've discovered this by an alarm, storage view, or maybe just running 'df' on the system. To alleviate the issue, use storage vMotion (cold or live) to make space on the datastore. If you have the ability you should expand the VMFS datastore. From the <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf']);">vSphere Storage ESXi 5.0</a> guide:
 
 > **Increase a VMFS Datastore**  
 > When you need to create virtual machines on a datastore, or when the virtual machines running on a datastore require more space, you can dynamically increase the capacity of a VMFS datastore. Use one of the following methods to increase a VMFS datastore:
@@ -72,11 +72,11 @@ Check out VCAP5-DCD Objectives <a href="http://virtuallyhyper.com/2012/08/vcap5-
 
 ### Understand interactions between virtual storage provisioning and physical storage provisioning
 
-I actually discussed this in &#8220;<a href="http://virtuallyhyper.com/2012/04/thin-on-thin-with-vmware-thin-provisioned-disks-and-emc-symmetrix-virtual-provisioning/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/04/thin-on-thin-with-vmware-thin-provisioned-disks-and-emc-symmetrix-virtual-provisioning/']);">Thin on Thin With VMware Thin Provisioned Disks and EMC Symmetrix Virtual Provisioning</a>&#8220;. Also from  <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf']);">vSphere Storage ESXi 5.0</a>:
+I actually discussed this in "<a href="http://virtuallyhyper.com/2012/04/thin-on-thin-with-vmware-thin-provisioned-disks-and-emc-symmetrix-virtual-provisioning/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/04/thin-on-thin-with-vmware-thin-provisioned-disks-and-emc-symmetrix-virtual-provisioning/']);">Thin on Thin With VMware Thin Provisioned Disks and EMC Symmetrix Virtual Provisioning</a>". Also from  <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf']);">vSphere Storage ESXi 5.0</a>:
 
 > **Array Thin Provisioning and VMFS Datastores**
 > 
-> You can use thin provisioned storage arrays with ESXi. Traditional LUNs that arrays present to the ESXi host, are thick-provisioned. The entire physical space needed to back each LUN is allocated in advance. ESXi also supports thin-provisioned LUNs. When a LUN is thin-provisioned, the storage array reports the LUN&#8217;s logical size, which might be larger than the real physical capacity backing that LUN. A VMFS datastore that you deploy on the thin-provisioned LUN can detect only the logical size of the LUN. For example, if the array reports 2TB of storage while in reality the array provides only 1TB, the datastore considers 2TB to be the LUN&#8217;s size. As the datastore grows, it cannot determine whether the actual amount of physical space is still sufficient for its needs. However, when you use the Storage APIs &#8211; Array Integration, the host can integrate with physical storage and become aware of underlying thin-provisioned LUNs and their space usage. Using thin provision integration, your host can perform these tasks:
+> You can use thin provisioned storage arrays with ESXi. Traditional LUNs that arrays present to the ESXi host, are thick-provisioned. The entire physical space needed to back each LUN is allocated in advance. ESXi also supports thin-provisioned LUNs. When a LUN is thin-provisioned, the storage array reports the LUN's logical size, which might be larger than the real physical capacity backing that LUN. A VMFS datastore that you deploy on the thin-provisioned LUN can detect only the logical size of the LUN. For example, if the array reports 2TB of storage while in reality the array provides only 1TB, the datastore considers 2TB to be the LUN's size. As the datastore grows, it cannot determine whether the actual amount of physical space is still sufficient for its needs. However, when you use the Storage APIs - Array Integration, the host can integrate with physical storage and become aware of underlying thin-provisioned LUNs and their space usage. Using thin provision integration, your host can perform these tasks:
 > 
 > *   Monitor the use of space on thin-provisioned LUNs to avoid running out of physical space. As your datastore grows or if you use Storage vMotion to migrate virtual machines to a thin-provisioned LUN, the host communicates with the LUN and warns you about breaches in physical space and about out-of-space conditions.
 > *   Inform the array about the datastore space that is freed when files are deleted or removed from the datastore by Storage vMotion. The array can then reclaim the freed blocks of space
@@ -87,15 +87,15 @@ Same as <a href="http://virtuallyhyper.com/2012/10/vcap5-dca-objective-1-1-imple
 
 ### Configure Datastore Alarms
 
-Go To &#8220;File&#8221; -> &#8220;New&#8221; -> &#8220;Alarm&#8221; and then you will see something like this:
+Go To "File" -> "New" -> "Alarm" and then you will see something like this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/create_new_alarm.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/create_new_alarm.png']);"><img class="alignnone size-full wp-image-3798" title="create_new_alarm" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/create_new_alarm.png" alt="create new alarm VCAP5 DCA Objective 1.2 – Manage Storage Capacity in a vSphere Environment " width="735" height="466" /></a>
 
-Go to the &#8220;Trigger&#8221; tab -> Right Click on the white space -> Select &#8220;New Trigger&#8221; -> Select a trigger from the drop down menu. It will look something like this:
+Go to the "Trigger" tab -> Right Click on the white space -> Select "New Trigger" -> Select a trigger from the drop down menu. It will look something like this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/select_trigger_for_alarm.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/select_trigger_for_alarm.png']);"><img class="alignnone size-full wp-image-3799" title="select_trigger_for_alarm" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/select_trigger_for_alarm.png" alt="select trigger for alarm VCAP5 DCA Objective 1.2 – Manage Storage Capacity in a vSphere Environment " width="732" height="467" /></a>
 
-Select the Warning and Alert limits. Under the Actions Tab, select whether you want to &#8220;Send a notification email&#8221;, &#8220;Send a notification trap&#8221;, or &#8220;Run a command&#8221;. And you are all set.
+Select the Warning and Alert limits. Under the Actions Tab, select whether you want to "Send a notification email", "Send a notification trap", or "Run a command". And you are all set.
 
 ### Analyze Datastore Alarms and errors to determine space availability
 
@@ -103,12 +103,12 @@ Check under Triggered Alarms (Datastore View -> Select Datastore -> Select Alarm
 
 ### Configure Datastore Clusters
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf']);">vSphere Resource Management ESXi 5.0</a>&#8221;
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf']);">vSphere Resource Management ESXi 5.0</a>"
 
 > **Creating a Datastore Cluster**  
 > A datastore cluster is a collection of datastores with shared resources and a shared management interface. Datastore clusters are to datastores what clusters are to hosts. When you create a datastore cluster, you can use vSphere Storage DRS to manage storage resources.
 > 
-> When you add a datastore to a datastore cluster, the datastore&#8217;s resources become part of the datastore cluster&#8217;s resources. As with clusters of hosts, you use datastore clusters to aggregate storage resources, which enables you to support resource allocation policies at the datastore cluster level.
+> When you add a datastore to a datastore cluster, the datastore's resources become part of the datastore cluster's resources. As with clusters of hosts, you use datastore clusters to aggregate storage resources, which enables you to support resource allocation policies at the datastore cluster level.
 > 
 > The following resource management capabilities are also available per datastore cluster.
 > 
@@ -124,7 +124,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 > 
 > Initial placement recommendations are made in accordance with space constraints and with respect to the goals of space and I/O load balancing. These goals aim to minimize the risk of over-provisioning one datastore, storage I/O bottlenecks, and performance impact on virtual machines.
 > 
-> Storage DRS is invoked at the configured frequency (by default, every eight hours) or when one or more datastores in a datastore cluster exceeds the user-configurable space utilization thresholds. When Storage DRS is invoked, it checks each datastore&#8217;s space utilization and I/O latency values against the threshold. For I/O latency, Storage DRS uses the 90th percentile I/O latency measured over the course of a day to compare against the threshold.
+> Storage DRS is invoked at the configured frequency (by default, every eight hours) or when one or more datastores in a datastore cluster exceeds the user-configurable space utilization thresholds. When Storage DRS is invoked, it checks each datastore's space utilization and I/O latency values against the threshold. For I/O latency, Storage DRS uses the 90th percentile I/O latency measured over the course of a day to compare against the threshold.
 > 
 > **Storage Migration Recommendations**vCenter Server displays migration recommendations on the Storage DRS Recommendations page for datastore clusters that have manual automation mode.
 > 

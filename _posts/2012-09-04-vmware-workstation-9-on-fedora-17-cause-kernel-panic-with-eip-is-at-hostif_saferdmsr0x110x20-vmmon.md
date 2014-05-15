@@ -1,5 +1,5 @@
 ---
-title: 'VMware Workstation 9 on Fedora 17 Causes Kernel Error with Message &#8220;EIP is at HostIF_SafeRDMSR+0&#215;11/0&#215;20 [vmmon]&#8220;'
+title: 'VMware Workstation 9 on Fedora 17 Causes Kernel Error with Message "EIP is at HostIF_SafeRDMSR+0&#215;11/0&#215;20 [vmmon]"'
 author: Karim Elatov
 layout: post
 permalink: /2012/09/vmware-workstation-9-on-fedora-17-cause-kernel-panic-with-eip-is-at-hostif_saferdmsr0x110x20-vmmon/
@@ -13,7 +13,7 @@ tags:
   - fedora 17
   - vmware workstation
 ---
-I recently updated my VMware Workstation from version 8 to version 9. The install went well and the compile of the modules didn&#8217;t fail either. But as soon as I would try to power on a VM, I would get this message:
+I recently updated my VMware Workstation from version 8 to version 9. The install went well and the compile of the modules didn't fail either. But as soon as I would try to power on a VM, I would get this message:
 
 	  
 	Aug 23 10:32:27 klaptop kernel: [ 92.964074] general protection fault: 0000 [#1] SMP  
@@ -100,7 +100,7 @@ While searching on the internet, I ran into VMware Community Thread <a href="htt
 > I have figured out one of reasons.  
 > If you crash Linux kernel (3.5 or later) with a HostIF_SafeRDMSR call, this is caused by exception table format. Linux 3.5 (more specifically, Linux kernel commit 706276543b699d80f546e45f8b12574e7b18d952) have changed the format of exception table.
 > 
-> VMware&#8217;s vmmon.ko (vmware-vmx/lib/modules/source/vmmon-only/linux/hostif.c) generates exception table using the way described in kernel documentation ($KERNEL/Documentation/x86/exception-tables.txt) but this is quite old and completely useless beginning with Linux kernel 3.5.
+> VMware's vmmon.ko (vmware-vmx/lib/modules/source/vmmon-only/linux/hostif.c) generates exception table using the way described in kernel documentation ($KERNEL/Documentation/x86/exception-tables.txt) but this is quite old and completely useless beginning with Linux kernel 3.5.
 > 
 > Fortunately, there is \_ASM\_EXTABLE macro (in $KERNEL/arch/x86/include/asm/asm.h) to generate portable exception table. So I have created a patch to make exception table portable and make vmmon.ko to support Linux 3.5. I hope this will help.
 
@@ -275,5 +275,5 @@ I then went inside the patch directory and applied the patch:
 	Modules sources backup can be found in the '/usr/lib/vmware/modules/source-workstation9.0.0-2012-09-04-18:51:38-backup' directory  
 	
 
-The shell script patched the &#8220;vmmon-only/linux/hostif.c&#8221; file and then recompiled the VMware Workstation kernel modules. After the modules re-compiled, I was successfully able to power on my VMs.
+The shell script patched the "vmmon-only/linux/hostif.c" file and then recompiled the VMware Workstation kernel modules. After the modules re-compiled, I was successfully able to power on my VMs.
 

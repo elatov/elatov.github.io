@@ -1,5 +1,5 @@
 ---
-title: 'Can&#8217;t Set X520 10GbE Intel NIC to Auto Negotiate on ESX(i)'
+title: "Can't Set X520 10GbE Intel NIC to Auto Negotiate on ESX(i)"
 author: Karim Elatov
 layout: post
 permalink: /2012/10/cant-set-x520-10gbe-intel-nic-to-auto-negotiate-on-esxi/
@@ -56,7 +56,7 @@ Lastly, here is the ESXi version of the host:
 	VMware ESXi 4.1.0 Update 2  
 	
 
-We went to VMware <a href="http://www.vmware.com/resources/compatibility/search.php?deviceCategory=io" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.vmware.com/resources/compatibility/search.php?deviceCategory=io']);">HCL</a> and entered the following information under the &#8220;IO Devices&#8221; Section of the HCL:
+We went to VMware <a href="http://www.vmware.com/resources/compatibility/search.php?deviceCategory=io" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.vmware.com/resources/compatibility/search.php?deviceCategory=io']);">HCL</a> and entered the following information under the "IO Devices" Section of the HCL:
 
 > VID 8086  
 > DID 10f8  
@@ -92,7 +92,7 @@ We decided to try out the latest driver. <a href="https://my.vmware.com/web/vmwa
 > 
 > 1.  Extract the contents of the ISO file.
 > 2.  Identify the .zip file(s).
-> 3.  Using Datastore Browser, upload the .zip file(s) to an ESX or ESXi host&#8217;s datastore.
+> 3.  Using Datastore Browser, upload the .zip file(s) to an ESX or ESXi host's datastore.
 > 4.  Log in to the ESX or ESXi host using an account with administrator privileges, such as root.
 > 5.  Enter maintenance mode.
 > 6.  Navigate to /vmfs/volumes// and locate the .zip file.
@@ -139,7 +139,7 @@ Then checking out the contents of the iso, I saw the following:
 	3 directories, 10 files  
 	
 
-I went ahead and uploaded the &#8216;INT-intel-lad-ddk-ixgbe-400.3.9.13-1.249663-offline_bundle-697530.zip&#8217; file to the ESXi host:
+I went ahead and uploaded the 'INT-intel-lad-ddk-ixgbe-400.3.9.13-1.249663-offline_bundle-697530.zip' file to the ESXi host:
 
 	  
 	$ scp /media/iso/offline-bundle/INT-intel-lad-ddk-ixgbe-400.3.9.13-1.249663-offline_bundle-697530.zip root'@'10.0.1.128:/vmfs/volumes/datastore1/.  

@@ -41,7 +41,7 @@ You can also integrate vCenter into LDAP, this will allow easier manageability.
 
 ### Address identified operational readiness deficiencies
 
-If you discovered something during the initial-state analysis then plan to get around the issue. For example let&#8217;s say there is no notifications available for machines going down. Setup vCenter Alarms and snmp traps to allow for monitoring and send email alerts for critical vCenter Alarms.
+If you discovered something during the initial-state analysis then plan to get around the issue. For example let's say there is no notifications available for machines going down. Setup vCenter Alarms and snmp traps to allow for monitoring and send email alerts for critical vCenter Alarms.
 
 ### Define Event, Incident and Problem Management practices
 
@@ -58,7 +58,7 @@ From <a href="http://www.virten.net/2012/06/vdcd510-objective-2-4-build-manageab
 
 ### Define Release Management practices
 
-From this PDF (it&#8217;s linked in the blue print):
+From this PDF (it's linked in the blue print):
 
 *   <a href="http://communities.vmware.com/docs/DOC-17410" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/docs/DOC-17410']);">ITIL v3 Introduction and Overview</a>
 
@@ -108,12 +108,12 @@ From the ITIL document:
 > 
 > The process addresses all service change. A Service Change is the addition, modification or removal of an authorised, planned or supported service or service component and its associated documentation.
 
-This is really important, and it doesn&#8217;t only apply to a VMware Environment. It&#8217;s great for keeping any environment trouble free. Most issues can be tracked down to a new change that took place recently. With all of the changes in one place you can figure what could&#8217;ve caused an issue (the change could be network, storage, or physical machine). There are many tools out there that allow for change control here is an example of one called &#8220;<a href="http://www.manageengine.com/products/service-desk/itil-change-management.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.manageengine.com/products/service-desk/itil-change-management.html']);">ServiceDesk Plus 8.1</a>&#8220;. Find a tool that works best for the environment. Bugzilla could even be used as a change control application. From this <a href="http://communities.vmware.com/docs/DOC-17397" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/docs/DOC-17397']);">article</a>, here are some examples:
+This is really important, and it doesn't only apply to a VMware Environment. It's great for keeping any environment trouble free. Most issues can be tracked down to a new change that took place recently. With all of the changes in one place you can figure what could've caused an issue (the change could be network, storage, or physical machine). There are many tools out there that allow for change control here is an example of one called "<a href="http://www.manageengine.com/products/service-desk/itil-change-management.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.manageengine.com/products/service-desk/itil-change-management.html']);">ServiceDesk Plus 8.1</a>". Find a tool that works best for the environment. Bugzilla could even be used as a change control application. From this <a href="http://communities.vmware.com/docs/DOC-17397" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/docs/DOC-17397']);">article</a>, here are some examples:
 
 > CHANGE MANAGEMENT FOR VIRTUAL ENVIRONMENTS  
 > One of the most frequently asked questions we receive from clients around change control is “Should we do a change request for a VMotion.” This is interesting because of all the new things going on in the environment and all the moving parts, the one that gets the most attention is VMotion.  
-> &#8230;  
-> &#8230;  
+> ...  
+> ...  
 > Below is a list of common changes that you will need to consider (that are new to the environment):
 > 
 > *   VMotion – Movement of a VM between hosts,
@@ -131,7 +131,7 @@ This is really important, and it doesn&#8217;t only apply to a VMware Environmen
 
 ### Based on customer requirements, identify required reporting assets and processes
 
-Determine what needs to be kept track of and monitor that. If you are using a VDI environment, keeping track of any new file placed in a View Client, would be too much and unnecessary. Choose what is important, newly deployed VMs, networking changes, storage pathing changes&#8230; etc. Choose the appropriate level of importance/monitoring for each aspect (these could be defined by constraints, requirements, and even SLAs). There are third party applications like <a href="http://puppetlabs.com/puppet/what-is-puppet/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://puppetlabs.com/puppet/what-is-puppet/']);">puppet</a> that use a client-server methodology to keep track of your environment&#8217;s inventory.
+Determine what needs to be kept track of and monitor that. If you are using a VDI environment, keeping track of any new file placed in a View Client, would be too much and unnecessary. Choose what is important, newly deployed VMs, networking changes, storage pathing changes... etc. Choose the appropriate level of importance/monitoring for each aspect (these could be defined by constraints, requirements, and even SLAs). There are third party applications like <a href="http://puppetlabs.com/puppet/what-is-puppet/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://puppetlabs.com/puppet/what-is-puppet/']);">puppet</a> that use a client-server methodology to keep track of your environment's inventory.
 
 For this objective, I would recommend reading/watching:
 

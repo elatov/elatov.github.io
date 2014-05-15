@@ -14,11 +14,11 @@ tags:
   - libvirt
   - xml
 ---
-I was recently trying to migrate some VM from our KVM server to my laptop to run in my VirtualBox install locally. As I was going through the process I realized it&#8217;s not a very easy process, so I decided to jot down my process. It&#8217;s probably not perfect, but it worked for me.
+I was recently trying to migrate some VM from our KVM server to my laptop to run in my VirtualBox install locally. As I was going through the process I realized it's not a very easy process, so I decided to jot down my process. It's probably not perfect, but it worked for me.
 
 ### Locate Your KVM VM Managed by *libvirt*
 
-We can use **virsh** for this. First let&#8217;s list all the VMs that belong to me:
+We can use **virsh** for this. First let's list all the VMs that belong to me:
 
     [elatov@klaptop ~]$ virsh -c qemu+ssh://virtuser@kvm01/system list --all| grep kelatov
      5     kelatov_win7_client2           running
@@ -33,7 +33,7 @@ We can use **virsh** for this. First let&#8217;s list all the VMs that belong to
      -     kelatov_win7_client1           shut off
     
 
-I have a lot of them, first let&#8217;s move the *kelatov_Win2k8-DC2* VM.
+I have a lot of them, first let's move the *kelatov_Win2k8-DC2* VM.
 
 ### Locate the Disk Image Configured for the VM in *libvirt* KVM
 
@@ -50,7 +50,7 @@ So our Disk Image file is under **/images/kelatov_win2k8r2.img**.
 
 ### Copy Over the Disk Image File to the Local Machine
 
-Now that we know the location of the disk file, let&#8217;s copy it over. First let&#8217;s create a folder and then let&#8217;s **rsync** the file over:
+Now that we know the location of the disk file, let's copy it over. First let's create a folder and then let's **rsync** the file over:
 
     [elatov@klaptop ~]$ mkdir vm1
     [elatov@klaptop ~]$ rsync -avzP virtuser@kvm01:/images/kelatov_win2k8r2.img vm1/.
@@ -111,7 +111,7 @@ Now that we have all the files:
     kelatov_win2k8r2.img
     
 
-Let&#8217;s create an OVF file, so we can import it into VirtualBox. To do this, first we will need to convert our disk image to VMDK format. You can use **qemu-img** to find out the exact format of the disk image file:
+Let's create an OVF file, so we can import it into VirtualBox. To do this, first we will need to convert our disk image to VMDK format. You can use **qemu-img** to find out the exact format of the disk image file:
 
     [elatov@klaptop vm1]$ qemu-img info kelatov_win2k8r2.img
     image: kelatov_win2k8r2.img
@@ -126,7 +126,7 @@ So we are currently in **RAW** format. Here is the command we can use to convert
         (100.00/100%)
     
 
-### Convert Domain XML Format Configuration File to libvirt &#8220;image&#8221; XML Configuration File (virt-image)
+### Convert Domain XML Format Configuration File to libvirt "image" XML Configuration File (virt-image)
 
 For some reason, the **virt-image** and **virt-convert** commands can only convert from the image XML Descriptor file. From the **virt-image** man page:
 
@@ -154,12 +154,12 @@ There have been other people wondering how to convert libvirt domain XML file in
 
 *   <a href="http://www.redhat.com/archives/virt-tools-list/2010-April/msg00023.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.redhat.com/archives/virt-tools-list/2010-April/msg00023.html']);">virt-convert from libvirt to vmware</a> 
 *   <a href="http://www.redhat.com/archives/libvir-list/2012-June/msg01012.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.redhat.com/archives/libvir-list/2012-June/msg01012.html']);">[libvirt] Intend to add OVA installation API</a> 
-*   <a href="https://www.redhat.com/archives/libvirt-users/2011-September/msg00042.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.redhat.com/archives/libvirt-users/2011-September/msg00042.html']);">[libvirt-users] using virsh (or something) to convert from KVM domain XML to vmx&#8230;</a> 
+*   <a href="https://www.redhat.com/archives/libvirt-users/2011-September/msg00042.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.redhat.com/archives/libvirt-users/2011-September/msg00042.html']);">[libvirt-users] using virsh (or something) to convert from KVM domain XML to vmx...</a> 
 *   <a href="http://lists.fedoraproject.org/pipermail/virt/2010-August/002220.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://lists.fedoraproject.org/pipermail/virt/2010-August/002220.html']);">[fedora-virt] exporting a vm image</a>
 
 but none of the above have been resolved yet.
 
-There is a script that goes from **vmx** to *libvirt* domain XML format: <a href="http://bazaar.launchpad.net/~ubuntu-virt/virt-goodies/trunk/files" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://bazaar.launchpad.net/~ubuntu-virt/virt-goodies/trunk/files']);">vmware2libvirt</a>. There is also a way to go from XML to VMX, and the process is described <a href="http://libvirt.org/drvesx.html#xmlexport" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://libvirt.org/drvesx.html#xmlexport']);">here</a>. But that only works if you already had converted a VMX to XML and then converted it back. It never has instructions on how to start from XML and go to VMX. On Fedora, I had to enable another repository to enable **libvirt-client** tools to have *VMware*/**ESX** support built it. Instructions on that can be seen at &#8220;<a href="https://fedoraproject.org/wiki/Virtualization_Preview_Repository" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://fedoraproject.org/wiki/Virtualization_Preview_Repository']);">Virtualization Preview Repository</a>&#8220;. After you install the new **libvirt-client** tools you can then run commands against an ESX host:
+There is a script that goes from **vmx** to *libvirt* domain XML format: <a href="http://bazaar.launchpad.net/~ubuntu-virt/virt-goodies/trunk/files" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://bazaar.launchpad.net/~ubuntu-virt/virt-goodies/trunk/files']);">vmware2libvirt</a>. There is also a way to go from XML to VMX, and the process is described <a href="http://libvirt.org/drvesx.html#xmlexport" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://libvirt.org/drvesx.html#xmlexport']);">here</a>. But that only works if you already had converted a VMX to XML and then converted it back. It never has instructions on how to start from XML and go to VMX. On Fedora, I had to enable another repository to enable **libvirt-client** tools to have *VMware*/**ESX** support built it. Instructions on that can be seen at "<a href="https://fedoraproject.org/wiki/Virtualization_Preview_Repository" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://fedoraproject.org/wiki/Virtualization_Preview_Repository']);">Virtualization Preview Repository</a>". After you install the new **libvirt-client** tools you can then run commands against an ESX host:
 
     [elatov@klaptop ~]$ virsh -c esx://vmware01/?no_verify=1 dumpxml kelatov-2
     Enter username for vmware01 [root]: 
@@ -393,7 +393,7 @@ Here is what I came up with:
     f.close()
     
 
-It basically takes in one argument, the domain XML file to be converted, and produces a new file with &#8220;converted&#8221; appended to the original filename. Here is what I did to run the conversion:
+It basically takes in one argument, the domain XML file to be converted, and produces a new file with "converted" appended to the original filename. Here is what I did to run the conversion:
 
     [elatov@klaptop vm1]$ ./dom2img.py kelatov_Win2k8-DC2.xml
     
@@ -464,11 +464,11 @@ Now checking out the VMX file:
     uuid.action = "create"
     
 
-That doesn&#8217;t look too bad.
+That doesn't look too bad.
 
 ### Create OVF from VMX and VMDK
 
-Let&#8217;s first fix the disk location, right now it&#8217;s still pointing to the **.img** file:
+Let's first fix the disk location, right now it's still pointing to the **.img** file:
 
     [elatov@klaptop vm1]$ grep img kelatov_Win2k8-DC2.vmx
     ide0:0.fileName = "/images/kelatov_win2k8r2.img"
@@ -485,7 +485,7 @@ Since the VMDK is located in the same directory:
     kelatov_win2k8r2.vmdk
     
 
-Let&#8217;s edit the VMX file:
+Let's edit the VMX file:
 
     [elatov@klaptop vm1]$ vi kelatov_Win2k8-DC2.vmx
     
@@ -496,7 +496,7 @@ and fix the location to be relative to the current directory:
     ide0:0.fileName = "kelatov_win2k8r2.vmdk"
     
 
-That looks good, now let&#8217;s create the OVF. More information regarding installing and using **ovftool** is seen at &#8220;<a href="http://virtuallyhyper.com/2013/04/migrating-a-vm-from-vmware-workstation-to-oracle-virtualbox/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/04/migrating-a-vm-from-vmware-workstation-to-oracle-virtualbox/']);">Migrating a VM from VMware Workstation to Oracle VirtualBox</a>&#8220;. Here is the command I ran to create our OVF:
+That looks good, now let's create the OVF. More information regarding installing and using **ovftool** is seen at "<a href="http://virtuallyhyper.com/2013/04/migrating-a-vm-from-vmware-workstation-to-oracle-virtualbox/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/04/migrating-a-vm-from-vmware-workstation-to-oracle-virtualbox/']);">Migrating a VM from VMware Workstation to Oracle VirtualBox</a>". Here is the command I ran to create our OVF:
 
     [elatov@klaptop vm1]$ ovftool kelatov_Win2k8-DC2.vmx kelatov_Win2k8-DC2.ovf
     Opening VMX source: kelatov_Win2k8-DC2.vmx

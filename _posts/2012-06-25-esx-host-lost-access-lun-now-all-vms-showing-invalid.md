@@ -16,7 +16,7 @@ tags:
   - zonesets
   - zoning
 ---
-I had recently received a call saying that all of the VMs are grayed out in his inventory when logged into the vCenter and checking the storage view doesn&#8217;t show any LUNS. When I logged into the system I saw the following:
+I had recently received a call saying that all of the VMs are grayed out in his inventory when logged into the vCenter and checking the storage view doesn't show any LUNS. When I logged into the system I saw the following:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/05/missing_vms.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/05/missing_vms.png']);"><img class="alignnone size-full wp-image-1530" title="missing_vms" src="http://virtuallyhyper.com/wp-content/uploads/2012/05/missing_vms.png" alt="missing vms ESX Host Lost Access to a LUN and Now All the VMs are Showing up as Invalid" width="199" height="143" /></a>
 
@@ -199,7 +199,7 @@ The last line matches the WWN from the above output of the proc node information
 	scsi-qla0-adapter-port=2100001b320b9001:000000:0;  
 	
 
-The customer was utilizing *fcalias*es, *zones*, and *zonesets* for his zoning, pretty standard practice on the MDS Series. More information regarding *fcalias*es, *zones*, and *zonesets* can be found in the article entitled &#8220;<a href="http://blog.scottlowe.org/2009/08/24/new-users-guide-to-configuring-cisco-mds-zones-via-cli/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blog.scottlowe.org/2009/08/24/new-users-guide-to-configuring-cisco-mds-zones-via-cli/']);">New User’s Guide to Configuring Cisco MDS Zones via CLI</a>&#8221; and of course from <a href="http://www.cisco.com/en/US/docs/storage/san_switches/mds9000/sw/rel_1_x/1_0_2/san-os/configuration/guide/ZoneCnfg.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.cisco.com/en/US/docs/storage/san_switches/mds9000/sw/rel_1_x/1_0_2/san-os/configuration/guide/ZoneCnfg.html']);">Cisco&#8217;s Manual</a> of the switch. So we had to modify the *fcalias* (basically an alias for a wwn, but has other functions as well) and remove the original pWWN and add the new one:
+The customer was utilizing *fcalias*es, *zones*, and *zonesets* for his zoning, pretty standard practice on the MDS Series. More information regarding *fcalias*es, *zones*, and *zonesets* can be found in the article entitled "<a href="http://blog.scottlowe.org/2009/08/24/new-users-guide-to-configuring-cisco-mds-zones-via-cli/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blog.scottlowe.org/2009/08/24/new-users-guide-to-configuring-cisco-mds-zones-via-cli/']);">New User’s Guide to Configuring Cisco MDS Zones via CLI</a>" and of course from <a href="http://www.cisco.com/en/US/docs/storage/san_switches/mds9000/sw/rel_1_x/1_0_2/san-os/configuration/guide/ZoneCnfg.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.cisco.com/en/US/docs/storage/san_switches/mds9000/sw/rel_1_x/1_0_2/san-os/configuration/guide/ZoneCnfg.html']);">Cisco's Manual</a> of the switch. So we had to modify the *fcalias* (basically an alias for a wwn, but has other functions as well) and remove the original pWWN and add the new one:
 
 	  
 	san_switch# conf t  
@@ -250,5 +250,5 @@ It was still showing the old pWWN. We had to commit the changes that we had made
 	san_switch#  
 	
 
-After that we ran *show zoneset active* and we didn&#8217;t see any asterisks (*) next to any zones, which means that all the zones loaded up just fine. And also after doing a rescan from the ESX host, all the original LUNs showed up on the host and all the grayed out VMs came be into inventory without any issues.
+After that we ran *show zoneset active* and we didn't see any asterisks (*) next to any zones, which means that all the zones loaded up just fine. And also after doing a rescan from the ESX host, all the original LUNs showed up on the host and all the grayed out VMs came be into inventory without any issues.
 

@@ -28,7 +28,7 @@ I was using CentOS for my setup, here is the version of my CentOS install:
     Codename:   Final
     
 
-Since we have to compile the latest version of HAProxy, let&#8217;s go ahead and install the *Development Tools* group package:
+Since we have to compile the latest version of HAProxy, let's go ahead and install the *Development Tools* group package:
 
     [root@haproxy ~]# yum grouplist -v "development" | grep tools
        Development tools (development)
@@ -57,7 +57,7 @@ First go ahead and download the latest version (the download link can be found <
     2013-05-04 12:47:10 (7.62 KB/s) - “haproxy-1.5-dev18.tar.gz” saved [1132317/1132317]
     
 
-Let&#8217;s extract the source code and go inside the source directory:
+Let's extract the source code and go inside the source directory:
 
     [root@haproxy ~]# tar xzf haproxy-1.5-dev18.tar.gz 
     [root@haproxy ~]# cd haproxy-1.5-dev18
@@ -75,7 +75,7 @@ After the compile is done, make sure the binary is linked to the **openssl** lib
         libssl.so.10 => /usr/lib64/libssl.so.10 (0x00007fb0485e5000)
     
 
-That looks good, now let&#8217;s install the binary:
+That looks good, now let's install the binary:
 
     [root@haproxy haproxy-1.5-dev18]# make PREFIX=/usr/local/haproxy install
     install -d /usr/local/haproxy/sbin
@@ -108,9 +108,9 @@ Some excepts from the above links:
 
 > Instead of distributing our web servers, we did the next best thing: distributing where we terminated our SSL connections. By cutting down all the round trip times except the HTTP request, we can theoretically save 3*96ms = 288ms of latency.
 > 
-> &#8230;.
+> ....
 > 
-> One of the primary reasons for investing in an F5 is for the purpose of SSL Offloading, that is, converting external HTTPS traffic into normal HTTP traffic so that your web servers don&#8217;t need to do the work themselves. HTTPS requests (and more specifically, the SSL handshaking to start the connection) is incredibly expensive, often on the magnitude of at least 10 times slower than normal HTTP requests.
+> One of the primary reasons for investing in an F5 is for the purpose of SSL Offloading, that is, converting external HTTPS traffic into normal HTTP traffic so that your web servers don't need to do the work themselves. HTTPS requests (and more specifically, the SSL handshaking to start the connection) is incredibly expensive, often on the magnitude of at least 10 times slower than normal HTTP requests.
 
 ### Configure HAProxy to Load Balance Site with SSL Termination
 
@@ -185,19 +185,19 @@ Now checking to make sure our **haproxy** configuration is okay:
     Configuration file is valid
     
 
-That is all good, now let&#8217;s go ahead and start up **haproxy**:
+That is all good, now let's go ahead and start up **haproxy**:
 
     [root@haproxy ~]# /usr/local/haproxy/sbin/haproxy -f /etc/haproxy.cfg 
     
 
-Lastly let&#8217;s make sure it&#8217;s listening on the expected port:
+Lastly let's make sure it's listening on the expected port:
 
     [root@haproxy ~]# lsof -i tcp:443
     COMMAND   PID   USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
     haproxy 16332 nobody    4u  IPv4  51979      0t0  TCP *:https (LISTEN)
     
 
-Now let&#8217;s see what happens with **curl**:
+Now let's see what happens with **curl**:
 
     [root@haproxy ~]# curl -k -L -I  https://192.168.250.52
     HTTP/1.1 200 OK
@@ -216,7 +216,7 @@ After visiting the site a couple of times, I saw the following statistic page:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/haproxy_stats.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/haproxy_stats.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/haproxy_stats.png" alt="haproxy stats Configure HAProxy to Load Balance Sites With SSL" width="970" height="382" class="alignnone size-full wp-image-8676" title="Configure HAProxy to Load Balance Sites With SSL" /></a>
 
-We can see that the round robin is working pretty well. I ended up using **Session Cookies** for persistence (we can see the **Set-Cookie** header set). Other load-balancing examples can be seen at &#8220;<a href="http://blog.exceliance.fr/2012/03/29/load-balancing-affinity-persistence-sticky-sessions-what-you-need-to-know/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blog.exceliance.fr/2012/03/29/load-balancing-affinity-persistence-sticky-sessions-what-you-need-to-know/']);">Load balancing, affinity, persistence, sticky sessions: what you need to know</a>&#8220;. This is the same setup that I used for my <a href="http://virtuallyhyper.com/2013/04/load-balancing-iis-sites-with-nlb/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/04/load-balancing-iis-sites-with-nlb/']);">NLB</a> post. So when I visited the **test.html** page, I saw the following:
+We can see that the round robin is working pretty well. I ended up using **Session Cookies** for persistence (we can see the **Set-Cookie** header set). Other load-balancing examples can be seen at "<a href="http://blog.exceliance.fr/2012/03/29/load-balancing-affinity-persistence-sticky-sessions-what-you-need-to-know/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blog.exceliance.fr/2012/03/29/load-balancing-affinity-persistence-sticky-sessions-what-you-need-to-know/']);">Load balancing, affinity, persistence, sticky sessions: what you need to know</a>". This is the same setup that I used for my <a href="http://virtuallyhyper.com/2013/04/load-balancing-iis-sites-with-nlb/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/04/load-balancing-iis-sites-with-nlb/']);">NLB</a> post. So when I visited the **test.html** page, I saw the following:
 
     [root@haproxy ~]# date; curl -k -L https://192.168.250.52
     Sat May  4 14:14:28 MDT 2013
@@ -258,7 +258,7 @@ The setup was pretty slick and really easy to configure.
 
 ### Configure HAProxy to Load Balance Site with SSL PassThrough
 
-Another method of load balancing SSL is to just pass through the traffic. With this approach since everything is encrypted, you won&#8217;t be able to monitor and tweak HTTP headers/traffic. Here are a couple of sample setups:
+Another method of load balancing SSL is to just pass through the traffic. With this approach since everything is encrypted, you won't be able to monitor and tweak HTTP headers/traffic. Here are a couple of sample setups:
 
 *   <a href="http://blog.exceliance.fr/2011/07/12/send-user-to-the-same-backend-for-both-http-and-https/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blog.exceliance.fr/2011/07/12/send-user-to-the-same-backend-for-both-http-and-https/']);">Send user to the same backend for both HTTP and HTTPS</a>
 *   <a href="http://blog.exceliance.fr/2011/07/04/maintain-affinity-based-on-ssl-session-id/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blog.exceliance.fr/2011/07/04/maintain-affinity-based-on-ssl-session-id/']);">Maintain affinity based on SSL session ID</a>
@@ -304,7 +304,7 @@ With the above setup, it uses the Source IP for affinity. So when I tried two co
     This is IIS-1
     
 
-If you want &#8220;real&#8221; load-balancing of HTTPS sessions, you can use this configuration (taken from <a href="http://cbonte.github.io/haproxy-dconv/configuration-1.5.html#4-stick%20store-response" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://cbonte.github.io/haproxy-dconv/configuration-1.5.html#4-stick%20store-response']);">HAProxy Configuration Manual &#8211; Stick store-response</a>):
+If you want "real" load-balancing of HTTPS sessions, you can use this configuration (taken from <a href="http://cbonte.github.io/haproxy-dconv/configuration-1.5.html#4-stick%20store-response" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://cbonte.github.io/haproxy-dconv/configuration-1.5.html#4-stick%20store-response']);">HAProxy Configuration Manual - Stick store-response</a>):
 
     [root@haproxy log]# cat /etc/haproxy.cfg
     global
@@ -361,7 +361,7 @@ In the logs, I just saw the following:
     May  4 17:04:49 localhost haproxy[16749]: Connect from 192.168.250.52:35542 to 192.168.250.52:443 (https_frontend/TCP)
     
 
-Again since this is encrypted, we won&#8217;t see as much information. Here are how the headers looked like in *Google Chrome* with *Developer Tools* under the *Network* tab:
+Again since this is encrypted, we won't see as much information. Here are how the headers looked like in *Google Chrome* with *Developer Tools* under the *Network* tab:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/chrome-with-haproxy-headers.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/chrome-with-haproxy-headers.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/chrome-with-haproxy-headers.png" alt="chrome with haproxy headers Configure HAProxy to Load Balance Sites With SSL" width="993" height="707" class="alignnone size-full wp-image-8695" title="Configure HAProxy to Load Balance Sites With SSL" /></a>
 

@@ -52,14 +52,14 @@ From the <a href="http://www.slideshare.net/ProfessionalVMware/professionalvmwar
 
 ### Analyze customer interview data to explicitly define customer objectives for a conceptual design.
 
-From this <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.pdf']);">blog&#8217;s notes</a>, I decided to write them out just to make it easier to read:
+From this <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.pdf']);">blog's notes</a>, I decided to write them out just to make it easier to read:
 
 > **Conceptual Design: Focus on achieving goals and requirements**
 > 
 > *   Use information from SME/Stakeholder interviews (Scope/Goals/Requirements/assumptions/constraints) and from information gathered in current state analysis
 > *   Determine entities affected by project (LOB,users,applications, processes, physical machine, etc)
 > *   Determine how goals map to each entity
-> *   Design infrastructure that achieves each entity&#8217;s goal and requirements but stay within constraints (i.e. where do you need availability, scalability, performance,security and manageability
+> *   Design infrastructure that achieves each entity's goal and requirements but stay within constraints (i.e. where do you need availability, scalability, performance,security and manageability
 > *   Document with diagrams, tables, and text 
 
 From the same <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.pdf']);">pdf</a>, here is an example of a conceptual diagram:
@@ -102,7 +102,7 @@ From the <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_
 >     *   Does it meet the requirements but stay within the constraints?
 > *   Does NOT include physical details like port assignments, hardware, vendors, IPs, etc
 > *   illustrate how to arrange infrastructure components
-> *   don&#8217;t get lost in the configuration details
+> *   don't get lost in the configuration details
 > *   be aware of capacity analysis, but include things like LUN sizing, CPU, etc
 > *   document in diagrams, tables, and text 
 

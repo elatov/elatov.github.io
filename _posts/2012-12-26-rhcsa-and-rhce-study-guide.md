@@ -11,7 +11,7 @@ categories:
 tags:
   - rhcsa_and_rhce
 ---
-I recently ran into this great study guide for RHCSA and RHCE entitled &#8220;<a href="http://www.pearsonhighered.com/bookseller/product/Handson-Guide-to-the-Red-Hat-Exams-RHCSA-and-RHCE-Cert-Guide-and-Lab-Manual/9780321767950.page" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.pearsonhighered.com/bookseller/product/Handson-Guide-to-the-Red-Hat-Exams-RHCSA-and-RHCE-Cert-Guide-and-Lab-Manual/9780321767950.page']);">Hands-on Guide to the Red Hat Exams: RHCSA and RHCE Cert Guide and Lab Manual</a>&#8221; and as I was going through the guide I wanted to write down my notes for each chapter. You can actually get a sneak peek into the guide <a href="http://ptgmedia.pearsoncmg.com/images/9780321767950/samplepages/0321767950.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://ptgmedia.pearsoncmg.com/images/9780321767950/samplepages/0321767950.pdf']);">here</a>. Here are the Chapters from the Guide:
+I recently ran into this great study guide for RHCSA and RHCE entitled "<a href="http://www.pearsonhighered.com/bookseller/product/Handson-Guide-to-the-Red-Hat-Exams-RHCSA-and-RHCE-Cert-Guide-and-Lab-Manual/9780321767950.page" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.pearsonhighered.com/bookseller/product/Handson-Guide-to-the-Red-Hat-Exams-RHCSA-and-RHCE-Cert-Guide-and-Lab-Manual/9780321767950.page']);">Hands-on Guide to the Red Hat Exams: RHCSA and RHCE Cert Guide and Lab Manual</a>" and as I was going through the guide I wanted to write down my notes for each chapter. You can actually get a sneak peek into the guide <a href="http://ptgmedia.pearsoncmg.com/images/9780321767950/samplepages/0321767950.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://ptgmedia.pearsoncmg.com/images/9780321767950/samplepages/0321767950.pdf']);">here</a>. Here are the Chapters from the Guide:
 
 *   <a href="http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-1-installation/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-1-installation/']);">Chapter 1 Installation</a> 
 *   <a href="http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-2-system-initialization/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-2-system-initialization/']);">Chapter 2 System Initialization</a> 
@@ -57,16 +57,16 @@ All of the above were taken from <a href="http://ptgmedia.pearsoncmg.com/images/
   
   <ul class="entry-meta">
     <li class="SPOSTARBUST-Related-Post">
-      <a title="RHCSA and RHCE Chapter 19 &#8211; Network Services" href="http://virtuallyhyper.com/2014/05/rhcsa-rhce-chapter-19-network-services/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2014/05/rhcsa-rhce-chapter-19-network-services/']);" rel="bookmark">RHCSA and RHCE Chapter 19 &#8211; Network Services</a>
+      <a title="RHCSA and RHCE Chapter 19 - Network Services" href="http://virtuallyhyper.com/2014/05/rhcsa-rhce-chapter-19-network-services/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2014/05/rhcsa-rhce-chapter-19-network-services/']);" rel="bookmark">RHCSA and RHCE Chapter 19 - Network Services</a>
     </li>
     <li class="SPOSTARBUST-Related-Post">
-      <a title="RHCSA and RHCE Chapter 18 &#8211; DNS" href="http://virtuallyhyper.com/2014/04/rhcsa-rhce-chapter-18-dns/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2014/04/rhcsa-rhce-chapter-18-dns/']);" rel="bookmark">RHCSA and RHCE Chapter 18 &#8211; DNS</a>
+      <a title="RHCSA and RHCE Chapter 18 - DNS" href="http://virtuallyhyper.com/2014/04/rhcsa-rhce-chapter-18-dns/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2014/04/rhcsa-rhce-chapter-18-dns/']);" rel="bookmark">RHCSA and RHCE Chapter 18 - DNS</a>
     </li>
     <li class="SPOSTARBUST-Related-Post">
       <a title="RHCSA and RHCE Chapter 17 – FTP" href="http://virtuallyhyper.com/2014/04/rhcsa-rhce-chapter-17-ftp/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2014/04/rhcsa-rhce-chapter-17-ftp/']);" rel="bookmark">RHCSA and RHCE Chapter 17 – FTP</a>
     </li>
     <li class="SPOSTARBUST-Related-Post">
-      <a title="RHCSA and RHCE Chapter 16 &#8211; Samba" href="http://virtuallyhyper.com/2014/04/rhcsa-rhce-chapter-16-samba/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2014/04/rhcsa-rhce-chapter-16-samba/']);" rel="bookmark">RHCSA and RHCE Chapter 16 &#8211; Samba</a>
+      <a title="RHCSA and RHCE Chapter 16 - Samba" href="http://virtuallyhyper.com/2014/04/rhcsa-rhce-chapter-16-samba/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2014/04/rhcsa-rhce-chapter-16-samba/']);" rel="bookmark">RHCSA and RHCE Chapter 16 - Samba</a>
     </li>
     <li class="SPOSTARBUST-Related-Post">
       <a title="RHCSA and RHCE Chapter 13 – Remote Access" href="http://virtuallyhyper.com/2014/03/rhcsa-rhce-chapter-13-remote-access/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2014/03/rhcsa-rhce-chapter-13-remote-access/']);" rel="bookmark">RHCSA and RHCE Chapter 13 – Remote Access</a>

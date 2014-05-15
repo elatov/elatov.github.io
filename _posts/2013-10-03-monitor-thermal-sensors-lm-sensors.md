@@ -207,7 +207,7 @@ then running the **sensors** command one more time, I saw the following:
     cpu0_vid:        +1.525 V
     
 
-That looked better, now I knew exactly what the fields represented (I actually unplugged the Chassis Fan to make sure the labels were correct&#8230; and it looked good). I was mainly concerned with the *Temp* and *Fan* fields (I would just plot those in zabbix).
+That looked better, now I knew exactly what the fields represented (I actually unplugged the Chassis Fan to make sure the labels were correct... and it looked good). I was mainly concerned with the *Temp* and *Fan* fields (I would just plot those in zabbix).
 
 ## lm-sensors on Samsung Chromebook in Ubuntu
 
@@ -240,7 +240,7 @@ and then after running **sensors** I saw the following:
     temp1:        +38.0°C  (crit = +85.0°C)
     
 
-At first I thought the ISA adapters were for the CPUs, but I remembered that it&#8217;s a Dual CPU core. Here is the hardware information regarding the laptop:
+At first I thought the ISA adapters were for the CPUs, but I remembered that it's a Dual CPU core. Here is the hardware information regarding the laptop:
 
     elatov@crbook:~$lshw -class processor -class bus -class system
     crbook.dnsd.me
@@ -269,7 +269,7 @@ At first I thought the ISA adapters were for the CPUs, but I remembered that it&
               capabilities: cpufreq
     
 
-I wanted to check out the **exynos5250** manual to see what the thermal sensors were on the board and I found <a href="http://virtuallyhyper.com/wp-content/uploads/2013/09/Exynos_5_Dual_User_Manaul_Public_REV100-0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://virtuallyhyper.com/wp-content/uploads/2013/09/Exynos_5_Dual_User_Manaul_Public_REV100-0.pdf']);">this</a> manual, but it didn&#8217;t shed much light. It just said this:
+I wanted to check out the **exynos5250** manual to see what the thermal sensors were on the board and I found <a href="http://virtuallyhyper.com/wp-content/uploads/2013/09/Exynos_5_Dual_User_Manaul_Public_REV100-0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://virtuallyhyper.com/wp-content/uploads/2013/09/Exynos_5_Dual_User_Manaul_Public_REV100-0.pdf']);">this</a> manual, but it didn't shed much light. It just said this:
 
 > 24-bit Thermal Sensor
 
@@ -291,7 +291,7 @@ I then ran into this presentation: <a href="http://virtuallyhyper.com/wp-content
 > *   Framework to register thermal zone and cooling devices.
 > *   Performs a routing function of generic cooling devices to generic thermal zones with the help of very simple thermal management logic.
 
-It seems that thermal monitoring is a little different on the SOC systems. I then ran into this interesting presentation: <a href="http://virtuallyhyper.com/wp-content/uploads/2013/09/Thermal_Mgmt_using_Generic_thermal_fw.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://virtuallyhyper.com/wp-content/uploads/2013/09/Thermal_Mgmt_using_Generic_thermal_fw.pdf']);">Thermal management using &#8216;Generic Thermal FW&#8217;</a>. That presentation covered a lot of the mentioned concepts from the previous <a href="http://virtuallyhyper.com/wp-content/uploads/2013/09/A_New_Simplified_Thermal_Framework_For_ARM_Platforms.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://virtuallyhyper.com/wp-content/uploads/2013/09/A_New_Simplified_Thermal_Framework_For_ARM_Platforms.pdf']);">PDF</a> (thermal zones, cooling devices, and other aspects). Here is a high level overview of the concepts:
+It seems that thermal monitoring is a little different on the SOC systems. I then ran into this interesting presentation: <a href="http://virtuallyhyper.com/wp-content/uploads/2013/09/Thermal_Mgmt_using_Generic_thermal_fw.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://virtuallyhyper.com/wp-content/uploads/2013/09/Thermal_Mgmt_using_Generic_thermal_fw.pdf']);">Thermal management using 'Generic Thermal FW'</a>. That presentation covered a lot of the mentioned concepts from the previous <a href="http://virtuallyhyper.com/wp-content/uploads/2013/09/A_New_Simplified_Thermal_Framework_For_ARM_Platforms.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://virtuallyhyper.com/wp-content/uploads/2013/09/A_New_Simplified_Thermal_Framework_For_ARM_Platforms.pdf']);">PDF</a> (thermal zones, cooling devices, and other aspects). Here is a high level overview of the concepts:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/09/kernel_thermal_overview.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/09/kernel_thermal_overview.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/09/kernel_thermal_overview.png" alt="kernel thermal overview Monitor Thermal Sensors With lm sensors" width="929" height="658" class="alignnone size-full wp-image-9589" title="Monitor Thermal Sensors With lm sensors" /></a>
 
@@ -339,7 +339,7 @@ So using multiple sensors on the board, the system can determine what the best c
 
 ### Samsung Exynos Thermal Management Unit (TMU)
 
-From &#8220;<a href="http://www.eedailynews.com/2012/02/samsung-at-isscc-quad-core-exynos-apps.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.eedailynews.com/2012/02/samsung-at-isscc-quad-core-exynos-apps.html']);">Samsung at ISSCC: Quad-core Exynos apps processor relies on skillful analog IC design</a>&#8220;, here is some information regarding the TMU:
+From "<a href="http://www.eedailynews.com/2012/02/samsung-at-isscc-quad-core-exynos-apps.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.eedailynews.com/2012/02/samsung-at-isscc-quad-core-exynos-apps.html']);">Samsung at ISSCC: Quad-core Exynos apps processor relies on skillful analog IC design</a>", here is some information regarding the TMU:
 
 > With the popularity of CPU-intensive applications like 3D graphics gaming, there is a real danger that an application processor can burn-out, or at least reach excessive surface temperature within the confines of a mobile device that could impact reliability and usability. To address the issue, Samsung developed a Thermal Management Unit (TMU), which monitors thermal sensors throughout the Exynos chip to detect hotspots, applying thermal throttling through DVFS mechanisms or tripping a shutdown of the chip if necessary. A side benefit of the thermal management is to effect a further reduction in power dissipation.
 
@@ -357,15 +357,15 @@ The TMU (which is also a sensor) basically replaces the functionality of the Gov
 
 ## Linux Sysfs Thermal Driver
 
-From &#8220;<a href="https://www.kernel.org/doc/Documentation/thermal/sysfs-api.txt" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.kernel.org/doc/Documentation/thermal/sysfs-api.txt']);">Generic Thermal Sysfs driver How To</a>&#8220;:
+From "<a href="https://www.kernel.org/doc/Documentation/thermal/sysfs-api.txt" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.kernel.org/doc/Documentation/thermal/sysfs-api.txt']);">Generic Thermal Sysfs driver How To</a>":
 
-> The generic thermal sysfs provides a set of interfaces for thermal zone devices (sensors) and thermal cooling devices (fan, processor&#8230;) to register with the thermal management solution and to be a part of it.
+> The generic thermal sysfs provides a set of interfaces for thermal zone devices (sensors) and thermal cooling devices (fan, processor...) to register with the thermal management solution and to be a part of it.
 
 Here is the structure of **sysfs** for the thermal system:
 
 > Thermal sysfs attributes will be represented under /sys/class/thermal. Hwmon sysfs I/F extension is also available under /sys/class/hwmon, if hwmon is compiled in or built as a module.
 > 
-> Thermal zone device sys I/F, created once it&#8217;s registered:
+> Thermal zone device sys I/F, created once it's registered:
 > 
 >     /sys/class/thermal/thermal_zone[0-*]:
 >         |---type:         Type of the thermal zone
@@ -378,7 +378,7 @@ Here is the structure of **sysfs** for the thermal system:
 >         |---emul_temp:        Emulated temperature set node
 >     
 > 
-> Thermal cooling device sys I/F, created once it&#8217;s registered:
+> Thermal cooling device sys I/F, created once it's registered:
 > 
 >     /sys/class/thermal/cooling_device[0-*]:
 >         |---type:         Type of the cooling device(processor/fan/...)
@@ -417,7 +417,7 @@ Here is what I had under my **sysfs** tree:
     -rw-r--r-- 1 root root 4096 Sep 25 07:45 uevent
     
 
-Notice that I didn&#8217;t have the **policy** node, this is because I had the TMU and was not using the *Governor* (which is usually part of a *thermal zone*).
+Notice that I didn't have the **policy** node, this is because I had the TMU and was not using the *Governor* (which is usually part of a *thermal zone*).
 
 So I have one thermal Zone and two cooling devices:
 
@@ -457,7 +457,7 @@ Checking out my cooling devices I saw the following:
     thermal-cpufreq-1
     
 
-So my cooling devices are CPU frequency regulators for each of my CPUs (this was a Dual Core). So the higher the temperature of the thermal zone is, the lower the frequency of the CPUs are set (to slow down the CPUs, so they don&#8217;t heat up). Here is a similar note from this <a href="http://virtuallyhyper.com/wp-content/uploads/2013/09/Thermal_Mgmt_using_Generic_thermal_fw.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://virtuallyhyper.com/wp-content/uploads/2013/09/Thermal_Mgmt_using_Generic_thermal_fw.pdf']);">PDF</a>:
+So my cooling devices are CPU frequency regulators for each of my CPUs (this was a Dual Core). So the higher the temperature of the thermal zone is, the lower the frequency of the CPUs are set (to slow down the CPUs, so they don't heat up). Here is a similar note from this <a href="http://virtuallyhyper.com/wp-content/uploads/2013/09/Thermal_Mgmt_using_Generic_thermal_fw.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://virtuallyhyper.com/wp-content/uploads/2013/09/Thermal_Mgmt_using_Generic_thermal_fw.pdf']);">PDF</a>:
 
 > *   CPU cooling device 
 >     *   Controls CPU frequency according to cooling state.
@@ -497,7 +497,7 @@ Those are the temperature limits (85C, 103C, and 108C), at which point the CPU f
 
 #### Samsung TMU
 
-Here was another Kernel Patch that I ran into: &#8220;<a href="http://patches.linaro.org/8567/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://patches.linaro.org/8567/']);">thermal: exynos: Register the tmu sensor with the kernel thermal layer</a>&#8220;. From that patch:
+Here was another Kernel Patch that I ran into: "<a href="http://patches.linaro.org/8567/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://patches.linaro.org/8567/']);">thermal: exynos: Register the tmu sensor with the kernel thermal layer</a>". From that patch:
 
 > This code added creates a link between temperature sensors, linux thermal framework and cooling devices for samsung Exynos platform. This layer monitors the temperature from the sensor and informs the generic thermal layer to take the necessary cooling action.
 
@@ -517,7 +517,7 @@ We can also confirm by checking the *type* of the thermal zone:
 
 #### Samsung Thermal Sensors
 
-It looks like the &#8220;regular&#8221; thermal sensors are getting registered as hwmon sensors. I ran into &#8220;<a href="http://lxr.free-electrons.com/source/Documentation/hwmon/sysfs-interface" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://lxr.free-electrons.com/source/Documentation/hwmon/sysfs-interface']);">Linux/Documentation/hwmon/sysfs-interface</a>&#8220;. From that document:
+It looks like the "regular" thermal sensors are getting registered as hwmon sensors. I ran into "<a href="http://lxr.free-electrons.com/source/Documentation/hwmon/sysfs-interface" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://lxr.free-electrons.com/source/Documentation/hwmon/sysfs-interface']);">Linux/Documentation/hwmon/sysfs-interface</a>". From that document:
 
 > An alternative method that some programs use is to access the sysfs files directly. This document briefly describes the standards that the drivers follow, so that an application program can scan for entries and access this data in a simple and consistent way. That said, such programs will have to implement conversion, labeling and hiding of inputs. For this reason, it is still not recommended to bypass the library.
 > 
@@ -543,7 +543,7 @@ It looks like we have **ncp15wb473** thermistor as thermal sensors on the mother
 
 ### ChromeOS Using Thermal Management on Samsung Chromebook
 
-The last mentioned patch was actually for a script that is available in ChromeOS: it&#8217;s called **thermal.sh**. The complete script can be found <a href="https://github.com/gentoo-arm-ru/overlay/blob/master/bsp-support/chromebook-daisy/files/thermal.sh" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://github.com/gentoo-arm-ru/overlay/blob/master/bsp-support/chromebook-daisy/files/thermal.sh']);">here</a>. From the script:
+The last mentioned patch was actually for a script that is available in ChromeOS: it's called **thermal.sh**. The complete script can be found <a href="https://github.com/gentoo-arm-ru/overlay/blob/master/bsp-support/chromebook-daisy/files/thermal.sh" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://github.com/gentoo-arm-ru/overlay/blob/master/bsp-support/chromebook-daisy/files/thermal.sh']);">here</a>. From the script:
 
 > Quick hack to monitor thermals on snow platform. Since we only have passive cooling, the only thing we can do is limit CPU temp.
 
@@ -713,7 +713,7 @@ I also tried to find the manual for the motherboard, but I was only able to find
 *   <a href="http://virtuallyhyper.com/wp-content/uploads/2013/09/15-inch-macbook-pro-manual.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://virtuallyhyper.com/wp-content/uploads/2013/09/15-inch-macbook-pro-manual.pdf']);">MacBook Pro 15-inch Repair Guide</a>
 *   <a href="http://virtuallyhyper.com/wp-content/uploads/2013/09/mbp15_mid10.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://virtuallyhyper.com/wp-content/uploads/2013/09/mbp15_mid10.pdf']);">Apple Technician Guide MacBook Pro 15</a>
 
-They had instructions on how to replace all the sensors but they didn&#8217;t have a concise list of all the sensors. The best sources were actually the source code for the *iStat* Program (which I used while in MacOS X) and another program called *HwMonitor*. <a href="https://github.com/marioestrada/istat-widgets/blob/master/iStat%20nano/iStatNano.bundle/Contents/s/intel/iStatIntelControlleriStatPro.m" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://github.com/marioestrada/istat-widgets/blob/master/iStat%20nano/iStatNano.bundle/Contents/s/intel/iStatIntelControlleriStatPro.m']);">Here</a> is the source for *iStat* and <a href="https://bitbucket.org/kozlek/hwsensors/src/11a228ae3de47c2b7b0ce6d61698e472c52b7d56/HWMonitor/HWMonitorProfiles.m" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://bitbucket.org/kozlek/hwsensors/src/11a228ae3de47c2b7b0ce6d61698e472c52b7d56/HWMonitor/HWMonitorProfiles.m']);">here</a> is the source for *hwMonitor*. Here are some examples from each program:
+They had instructions on how to replace all the sensors but they didn't have a concise list of all the sensors. The best sources were actually the source code for the *iStat* Program (which I used while in MacOS X) and another program called *HwMonitor*. <a href="https://github.com/marioestrada/istat-widgets/blob/master/iStat%20nano/iStatNano.bundle/Contents/s/intel/iStatIntelControlleriStatPro.m" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://github.com/marioestrada/istat-widgets/blob/master/iStat%20nano/iStatNano.bundle/Contents/s/intel/iStatIntelControlleriStatPro.m']);">Here</a> is the source for *iStat* and <a href="https://bitbucket.org/kozlek/hwsensors/src/11a228ae3de47c2b7b0ce6d61698e472c52b7d56/HWMonitor/HWMonitorProfiles.m" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://bitbucket.org/kozlek/hwsensors/src/11a228ae3de47c2b7b0ce6d61698e472c52b7d56/HWMonitor/HWMonitorProfiles.m']);">here</a> is the source for *hwMonitor*. Here are some examples from each program:
 
     [keyDisplayNames setValue:@"CPU A" forKey:@"TC0H"];
     [keyDisplayNames setValue:@"CPU A" forKey:@"TC0D"];
@@ -867,7 +867,7 @@ and then my **sensors** looked like this:
     CPU_Core3 Temp:    +68.0°C  (high = +86.0°C, crit = +100.0°C)
     
 
-I realized that my **Memory_Module Bank B** wasn&#8217;t showing anything (and the **Airport** sensor was way off), so I disabled both and here was my final **sensors** output:
+I realized that my **Memory_Module Bank B** wasn't showing anything (and the **Airport** sensor was way off), so I disabled both and here was my final **sensors** output:
 
     $sensors
     applesmc-isa-0300
@@ -913,14 +913,14 @@ In my case there are 4 Cores, but the idea is the same. The whole CPU (confusing
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/09/powertop1.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/09/powertop1.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/09/powertop1.png" alt="powertop1 Monitor Thermal Sensors With lm sensors" width="929" height="730" class="alignnone size-full wp-image-9640" title="Monitor Thermal Sensors With lm sensors" /></a>
 
-So my laptop has **1** Process Package, which consists of **4** Cores and (since hyper-threading is enabled) we have 2 &#8220;virtual cores&#8221; per core. I could&#8217;ve just made the label **CPU** and that would make sense as well. What I saw in **powertop**, matched the laptop description:
+So my laptop has **1** Process Package, which consists of **4** Cores and (since hyper-threading is enabled) we have 2 "virtual cores" per core. I could've just made the label **CPU** and that would make sense as well. What I saw in **powertop**, matched the laptop description:
 
-*   <a href="http://www.everymac.com/systems/apple/macbook_pro/specs/macbook-pro-core-i7-2.2-15-late-2011-unibody-thunderbolt-specs.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.everymac.com/systems/apple/macbook_pro/specs/macbook-pro-core-i7-2.2-15-late-2011-unibody-thunderbolt-specs.html']);">Apple MacBook Pro &#8220;Core i7&#8243; 2.2 15&#8243; Late 2011 Specs</a>
-*   <a href="http://support.apple.com/kb/sp644" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://support.apple.com/kb/sp644']);">MacBook Pro (15-inch, Late 2011) &#8211; Technical Specifications</a>
+*   <a href="http://www.everymac.com/systems/apple/macbook_pro/specs/macbook-pro-core-i7-2.2-15-late-2011-unibody-thunderbolt-specs.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.everymac.com/systems/apple/macbook_pro/specs/macbook-pro-core-i7-2.2-15-late-2011-unibody-thunderbolt-specs.html']);">Apple MacBook Pro "Core i7" 2.2 15" Late 2011 Specs</a>
+*   <a href="http://support.apple.com/kb/sp644" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://support.apple.com/kb/sp644']);">MacBook Pro (15-inch, Late 2011) - Technical Specifications</a>
 
 From the top link:
 
-> The MacBook Pro &#8220;Core i7&#8243; 2.2 15-Inch (Late 2011) features a 32 nm &#8220;Sandy Bridge&#8221; 2.2 GHz Intel &#8220;Core i7&#8243; processor (2675QM), with four independent processor &#8220;cores&#8221; on a single silicon chip
+> The MacBook Pro "Core i7" 2.2 15-Inch (Late 2011) features a 32 nm "Sandy Bridge" 2.2 GHz Intel "Core i7" processor (2675QM), with four independent processor "cores" on a single silicon chip
 
 Also regarding hyper-threading, from <a href="http://store.apple.com/sg/learnmore/MD389ZP/A?group=processor_z0nq" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://store.apple.com/sg/learnmore/MD389ZP/A?group=processor_z0nq']);">here</a>:
 
@@ -931,7 +931,7 @@ Also regarding hyper-threading, from <a href="http://store.apple.com/sg/learnmor
 
 ### Platform Environment Control Interface (PECI) and Platform Controller Hub (PCH)
 
-As I was labeling the sensors I came across some interesting acronyms. The first one, PECI, is described in <a href="http://virtuallyhyper.com/wp-content/uploads/2013/09/celeron-mobile-p4000-u3000-datasheet.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://virtuallyhyper.com/wp-content/uploads/2013/09/celeron-mobile-p4000-u3000-datasheet.pdf']);">&#8220;Intel Celeron Mobile Processor P4000 and U3000 Series Datasheet&#8221;</a>. From that PDF:
+As I was labeling the sensors I came across some interesting acronyms. The first one, PECI, is described in <a href="http://virtuallyhyper.com/wp-content/uploads/2013/09/celeron-mobile-p4000-u3000-datasheet.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://virtuallyhyper.com/wp-content/uploads/2013/09/celeron-mobile-p4000-u3000-datasheet.pdf']);">"Intel Celeron Mobile Processor P4000 and U3000 Series Datasheet"</a>. From that PDF:
 
 > Each processor execution core has an on-die Digital Thermal Sensor (DTS) which detects the cores instantaneous temperature. The DTS is the preferred method of monitoring processor die temperature because:
 > 
@@ -945,7 +945,7 @@ As I was labeling the sensors I came across some interesting acronyms. The first
 > 
 > When temperature is retrieved by processor MSR, it is the instantaneous temperature of the given core. When temperature is retrieved via PECI, it is the average temperature of each execution cores DTS over a programmable window (default window of 256 ms.) Intel recommends using the PECI output reading for fan speed or other platform thermal control.
 
-So PECI is another interface that grabs the average temperature across multiple CPUs (or any thermal sensors) and it&#8217;s supposed to be more accurate. There was also a **PECI_SA** sensor, that actually corresponds to the *System Agent*. Looking over <a href="http://virtuallyhyper.com/wp-content/uploads/2013/09/HC23.19.921.SandyBridge_Power_10-Rotem-Intel.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://virtuallyhyper.com/wp-content/uploads/2013/09/HC23.19.921.SandyBridge_Power_10-Rotem-Intel.pdf']);">&#8220;Power management architecture of the 2nd generation Intel Core&#8221;</a>, we see this:
+So PECI is another interface that grabs the average temperature across multiple CPUs (or any thermal sensors) and it's supposed to be more accurate. There was also a **PECI_SA** sensor, that actually corresponds to the *System Agent*. Looking over <a href="http://virtuallyhyper.com/wp-content/uploads/2013/09/HC23.19.921.SandyBridge_Power_10-Rotem-Intel.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://virtuallyhyper.com/wp-content/uploads/2013/09/HC23.19.921.SandyBridge_Power_10-Rotem-Intel.pdf']);">"Power management architecture of the 2nd generation Intel Core"</a>, we see this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/09/intel_peci_sa.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/09/intel_peci_sa.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/09/intel_peci_sa.png" alt="intel peci sa Monitor Thermal Sensors With lm sensors" width="958" height="467" class="alignnone size-full wp-image-9633" title="Monitor Thermal Sensors With lm sensors" /></a>
 
@@ -961,7 +961,7 @@ From the <a href="http://virtuallyhyper.com/wp-content/uploads/2013/09/mbp15_mid
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/09/macbookpro_15_PCH.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/09/macbookpro_15_PCH.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/09/macbookpro_15_PCH.png" alt="macbookpro 15 PCH Monitor Thermal Sensors With lm sensors" width="778" height="732" class="alignnone size-full wp-image-9634" title="Monitor Thermal Sensors With lm sensors" /></a>
 
-So we can see that most of the components go through the PCH. Also from <a href="http://virtuallyhyper.com/wp-content/uploads/2013/09/7-series-chipset-pch-thermal-design-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://virtuallyhyper.com/wp-content/uploads/2013/09/7-series-chipset-pch-thermal-design-guide.pdf']);">&#8220;Intel 7 Series / C216 Chipset Platform Controller Hub (PCH)&#8221;</a> here is a table of all the components that connect to the PCH:
+So we can see that most of the components go through the PCH. Also from <a href="http://virtuallyhyper.com/wp-content/uploads/2013/09/7-series-chipset-pch-thermal-design-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://virtuallyhyper.com/wp-content/uploads/2013/09/7-series-chipset-pch-thermal-design-guide.pdf']);">"Intel 7 Series / C216 Chipset Platform Controller Hub (PCH)"</a> here is a table of all the components that connect to the PCH:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/09/PCH_Components_core_I7.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/09/PCH_Components_core_I7.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/09/PCH_Components_core_I7.png" alt="PCH Components core I7 Monitor Thermal Sensors With lm sensors" width="537" height="637" class="alignnone size-full wp-image-9635" title="Monitor Thermal Sensors With lm sensors" /></a>
 

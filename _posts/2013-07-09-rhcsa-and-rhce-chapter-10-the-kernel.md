@@ -1,5 +1,5 @@
 ---
-title: 'RHCSA and RHCE Chapter 10 &#8211; The Kernel'
+title: 'RHCSA and RHCE Chapter 10 - The Kernel'
 author: Karim Elatov
 layout: post
 permalink: /2013/07/rhcsa-and-rhce-chapter-10-the-kernel/
@@ -36,19 +36,19 @@ From <a href="http://oss.org.cn/ossdocs/linux/kernel/a1/index.html" onclick="jav
 > 
 > The Linux operating system is composed of four major subsystems:
 > 
-> 1.  **User Applications** &#8212; the set of applications in use on a particular Linux system will be different depending on what the computer system is used for, but typical examples include a word-processing application and a web-browser.
-> 2.  **O/S Services** &#8212; these are services that are typically considered part of the operating system (a windowing system, command shell, etc.); also, the programming interface to the kernel (compiler tool and library) is included in this subsystem.
-> 3.  **Linux Kernel** &#8212; the kernel abstracts and mediates access to the hardware resources, including the CPU.
-> 4.  **Hardware Controllers** &#8212; this subsystem is comprised of all the possible physical devices in a Linux installation; for example, the CPU, memory hardware, hard disks, and network hardware are all members of this subsystem
+> 1.  **User Applications** - the set of applications in use on a particular Linux system will be different depending on what the computer system is used for, but typical examples include a word-processing application and a web-browser.
+> 2.  **O/S Services** - these are services that are typically considered part of the operating system (a windowing system, command shell, etc.); also, the programming interface to the kernel (compiler tool and library) is included in this subsystem.
+> 3.  **Linux Kernel** - the kernel abstracts and mediates access to the hardware resources, including the CPU.
+> 4.  **Hardware Controllers** - this subsystem is comprised of all the possible physical devices in a Linux installation; for example, the CPU, memory hardware, hard disks, and network hardware are all members of this subsystem
 > 
 > **2.2 Purpose of the Kernel**
 > 
-> The Linux kernel presents a virtual machine interface to user processes. Processes are written without needing any knowledge of what physical hardware is installed on a computer &#8212; the Linux kernel abstracts all hardware into a consistent virtual interface. In addition, Linux supports multi-tasking in a manner that is transparent to user processes: each process can act as though it is the only process on the computer, with exclusive use of main memory and other hardware resources. The kernel actually runs several processes concurrently, and is responsible for mediating access to hardware resources so that each process has fair access while inter-process security is maintained.
+> The Linux kernel presents a virtual machine interface to user processes. Processes are written without needing any knowledge of what physical hardware is installed on a computer - the Linux kernel abstracts all hardware into a consistent virtual interface. In addition, Linux supports multi-tasking in a manner that is transparent to user processes: each process can act as though it is the only process on the computer, with exclusive use of main memory and other hardware resources. The kernel actually runs several processes concurrently, and is responsible for mediating access to hardware resources so that each process has fair access while inter-process security is maintained.
 > 
 > The Linux kernel is composed of five main subsystems:
 > 
 > 1.  The **Process Scheduler (SCHED)** is responsible for controlling process access to the CPU. The scheduler enforces a policy that ensures that processes will have fair access to the CPU, while ensuring that necessary hardware actions are performed by the kernel on time.
-> 2.  The **Memory Manager (MM)** permits multiple process to securely share the machine&#8217;s main memory system. In addition, the memory manager supports virtual memory that allows Linux to support processes that use more memory than is available in the system. Unused memory is swapped out to persistent storage using the file system then swapped back in when it is needed.
+> 2.  The **Memory Manager (MM)** permits multiple process to securely share the machine's main memory system. In addition, the memory manager supports virtual memory that allows Linux to support processes that use more memory than is available in the system. Unused memory is swapped out to persistent storage using the file system then swapped back in when it is needed.
 > 3.  The **Virtual File System (VFS)** abstracts the details of the variety of hardware devices by presenting a common file interface to all devices. In addition, the VFS supports several file system formats that are compatible with other operating systems.
 > 4.  The **Network Interface (NET)** provides access to several networking standards and a variety of network hardware.
 > 5.  The **Inter-Process Communication (IPC)** subsystem supports several mechanisms for process-to-process communication on a single Linux system.
@@ -167,8 +167,8 @@ From <a href="https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterpr
 > 
 > In the Linux kernel, the **SCHED_FIFO** policy includes a bandwidth cap mechanism. This protects realtime application programmers from realtime tasks that might monopolize the CPU. This mechanism can be adjusted through the following /proc file system parameters:
 > 
-> *   **/proc/sys/kernel/sched&#95;rt&#95;period_us** Defines the time period to be considered one hundred percent of CPU bandwidth, in microseconds (&#8216;us&#8217; being the closest equivalent to &#8216;µs&#8217; in plain text). The default value is 1000000µs, or 1 second.
-> *   **/proc/sys/kernel/sched&#95;rt&#95;runtime_us** Defines the time period to be devoted to running realtime threads, in microseconds (&#8216;us&#8217; being the closest equivalent to &#8216;µs&#8217; in plain text). The default value is 950000µs, or 0.95 seconds.
+> *   **/proc/sys/kernel/sched&#95;rt&#95;period_us** Defines the time period to be considered one hundred percent of CPU bandwidth, in microseconds ('us' being the closest equivalent to 'µs' in plain text). The default value is 1000000µs, or 1 second.
+> *   **/proc/sys/kernel/sched&#95;rt&#95;runtime_us** Defines the time period to be devoted to running realtime threads, in microseconds ('us' being the closest equivalent to 'µs' in plain text). The default value is 950000µs, or 0.95 seconds.
 > 
 > **4.2.2. Normal scheduling policies**  
 > There are three normal scheduling policies: **SCHED_OTHER**, **SCHED_BATCH** and **SCHED_IDLE**. However, the **SCHED_BATCH** and **SCHED_IDLE** policies are intended for very low priority jobs, and as such are of limited interest in a performance tuning guide.
@@ -253,9 +253,9 @@ From the same page:
 > *   **sched&#95;compat&#95;yield** Enables the aggressive yield behavior of the old 0(1) scheduler. Java applications that use synchronization extensively perform better with this value set to 1. Only use it when you see a drop in performance. The default value is 0.  
 >     Expect applications that depend on the sched_yield() syscall behavior to perform better with the value set to 1.
 > *   **sched&#95;migration&#95;cost** Amount of time after the last execution that a task is considered to be “cache hot” in migration decisions. A “hot” task is less likely to be migrated, so increasing this variable reduces task migrations. The default value is 500000 (ns).  
->     If the CPU idle time is higher than expected when there are runnable processes, try reducing this value. If tasks bounce between CPUs or nodes too often, try increasing it. **sched&#95;latency&#95;ns** Targeted preemption latency for CPU bound tasks. Increasing this variable increases a CPU bound task&#8217;s timeslice. A task&#8217;s timeslice is its weighted fair share of the scheduling period:  
->     timeslice = scheduling period * (task&#8217;s weight/total weight of tasks in the run queue)  
->     The task&#8217;s weight depends on the task&#8217;s nice level and the scheduling policy. Minimum task weight for a SCHED_OTHER task is 15, corresponding to nice 19. The maximum task weight is 88761, corresponding to nice -20.  
+>     If the CPU idle time is higher than expected when there are runnable processes, try reducing this value. If tasks bounce between CPUs or nodes too often, try increasing it. **sched&#95;latency&#95;ns** Targeted preemption latency for CPU bound tasks. Increasing this variable increases a CPU bound task's timeslice. A task's timeslice is its weighted fair share of the scheduling period:  
+>     timeslice = scheduling period * (task's weight/total weight of tasks in the run queue)  
+>     The task's weight depends on the task's nice level and the scheduling policy. Minimum task weight for a SCHED_OTHER task is 15, corresponding to nice 19. The maximum task weight is 88761, corresponding to nice -20.  
 >     Timeslices become smaller as the load increases. When the number of runnable tasks exceeds **sched&#95;latency&#95;ns/sched&#95;min&#95;granularity_ns**, the slice becomes **number&#95;of&#95;running&#95;tasks x sched&#95;min&#95;granularity&#95;ns**. Prior to that, the slice is equal to sched&#95;latency&#95;ns.  
 >     This value also specifies the maximum amount of time during which a sleeping task is considered to be running for entitlement calculations. Increasing this variable increases the amount of time a waking task may consume before being preempted, thus increasing scheduler latency for CPU bound tasks. The default value is 20000000 (ns).
 > *   **sched&#95;min&#95;granularity_ns** Minimal preemption granularity for CPU bound tasks. See **sched&#95;latency&#95;ns** for details. The default value is 4000000 (ns).
@@ -281,9 +281,9 @@ From this pretty old RHEL document entitled <a href="http://people.redhat.com/nh
 > **2.3 Zoned Buddy Allocator**  
 > The Zoned Buddy Allocator is responsible for the management of page allocations to the entire system. This code manages lists of physically contiguous pages and maps them into the MMU page tables, so as to provide other kernel subsystems with valid physical address ranges when the kernel requests them (Physical to Virtual Address mapping is handled by a higher layer of the VM and is collapsed into the kernel subsystems block of Figure 1 ). The name Buddy Allocator is derived from the algorithm this subsystem uses to maintain it free page lists. All physical pages in RAM are cataloged by the buddy allocator and grouped into lists. Each list represents clusters of 2n pages, where n is incremented in each list. There is a list of single pages, a list of 2 page clusters, a list of 4 page cluster, and so on. When a request comes in for an amount of memory, that value is rounded up to the nearest power of 2, and a entry is removed from the appropriate list, registered in the page tables of the MMU and a corresponding physical address is returned to the caller, which is then mapped into a virtual address for kernel use. If no entries exist on the requested list, an entry from the next list up is broken into two separate clusters, and 1 is returned to the caller while the other is added to the next list down. When an allocation is returned to the buddy allocator, the reverse process happens. The allocation is returned to the requisite list, and the list is then examined to determine if a larger cluster can be made from the existing entries on the list which was just updated. This algorithm is advantageous in that it automatically returns pages to the highest order free list possible. That is to say, as allocations are returned to the free pool, they automatically form larger clusters, so that when a need arises for a large amount of physically contiguous memory (i.e. for a DMA operation), it is more likely that the request can be satisﬁed. Note that the buddy allocator allocates memory in page multiples only. Other subsystems are responsible for ﬁner grained control over allocation size. For more information regarding the ﬁner details of a buddy allocator, refer to <a href="http://www.tldp.org/LDP/sag/html/kernel-parts.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.tldp.org/LDP/sag/html/kernel-parts.html']);">1</a>. Note that the Buddy allocator also manages memory zones, which deﬁne pools of memory which have diﬀerent purposes. Currently there are three memory pools which the buddy allocator manages accesses for:
 > 
-> *   **DMA** &#8211; This zone consists of the ﬁrst 16 MB of RAM, from which legacy devices allocate to perform direct memory operations
-> *   **NORMAL** &#8211; This zone encompasses memory addresses from 16 MB to 1 GB2 and is used by the kernel for internal data structures, as well as other system and user space allocations.
-> *   **HIGHMEM** &#8211; This zone includes all memory above 1 GB and is used exclusively for system allocations (ﬁle system buﬀers, user space allocations, etc).
+> *   **DMA** - This zone consists of the ﬁrst 16 MB of RAM, from which legacy devices allocate to perform direct memory operations
+> *   **NORMAL** - This zone encompasses memory addresses from 16 MB to 1 GB2 and is used by the kernel for internal data structures, as well as other system and user space allocations.
+> *   **HIGHMEM** - This zone includes all memory above 1 GB and is used exclusively for system allocations (ﬁle system buﬀers, user space allocations, etc).
 > 
 > **2.4 Slab Allocator**  
 > The Slab Allocator provides a more usable front end to the Buddy Allocator for those sections of the kernel which require memory in sizes that are more ﬂexible than the standard 4 KB page. The Slab Allocator allows other kernel components to create caches of memory objects of a given size. The Slab Allocator is responsible for placing as many of the caches objects on a page as possible and monitoring which objects are free and which are allocated. When allocations are requested and no more are available, the Slab Allocator requests more pages from the Buddy Allocator to satisfy the request.This allows kernel components to use memory in a much simpler way. This way components which make use of many small portions of memory are not required to individually implement memory management code so that too many pages are not wasted
@@ -294,10 +294,10 @@ From this pretty old RHEL document entitled <a href="http://people.redhat.com/nh
 > **3 The Life of A Page**  
 > All of the memory managed by the VM is labeled by a state. These states help let the VM know what to do with a given page under various circumstances. Dependent on the current needs of the system, the VM may transfer pages from one state to the next, according to the state machine diagrammed in ﬁgure 3 below: 6 Using these states, the VM can determine what is being done with a page by the system at a given time and what actions it (the VM) may take on the page. The states that have particular meanings are as follows:
 > 
-> *   **FREE** &#8211; All pages available for allocation begin in this state. This indicates to the VM that the page is not being used for any purpose and is available for allocation.
-> *   **ACTIVE** &#8211; Pages which have been allocated from the Buddy Allocator enter this state. It indicates to the VM that the page has been allocated and is actively in use by the kernel or a user process.
-> *   **INACTIVE DIRTY** &#8211; Th state indicates that the page has fallen into disuse by the entity which allocated it, and as such is a candidate for removal from main memory. The **kscand** task periodically sweeps through all the pages in memory Taking note of the amount of time the page has been in memory since it was last accessed. If kscand ﬁnds that a page has been accessed since it last visited the page, it increments the pages age counter, otherwise, it decrements that counter. If **kscand** happens on a page which has its age counter at zero, then the page is moved to the inactive dirty state. Pages in the inactive dirty state are kept in a list of pages to be laundered.
-> *   **INACTIVE CLEAN** &#8211; Pages in this state have been laundered. This means that the contents of the page are in sync with they backing data on disk. As such they may be deallocated by the VM or overwritten for other purposes.
+> *   **FREE** - All pages available for allocation begin in this state. This indicates to the VM that the page is not being used for any purpose and is available for allocation.
+> *   **ACTIVE** - Pages which have been allocated from the Buddy Allocator enter this state. It indicates to the VM that the page has been allocated and is actively in use by the kernel or a user process.
+> *   **INACTIVE DIRTY** - Th state indicates that the page has fallen into disuse by the entity which allocated it, and as such is a candidate for removal from main memory. The **kscand** task periodically sweeps through all the pages in memory Taking note of the amount of time the page has been in memory since it was last accessed. If kscand ﬁnds that a page has been accessed since it last visited the page, it increments the pages age counter, otherwise, it decrements that counter. If **kscand** happens on a page which has its age counter at zero, then the page is moved to the inactive dirty state. Pages in the inactive dirty state are kept in a list of pages to be laundered.
+> *   **INACTIVE CLEAN** - Pages in this state have been laundered. This means that the contents of the page are in sync with they backing data on disk. As such they may be deallocated by the VM or overwritten for other purposes.
 > 
 > <a href="http://virtuallyhyper.com/wp-content/uploads/2013/06/vm_page_states.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/06/vm_page_states.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/vm_page_states.png" alt="vm page states RHCSA and RHCE Chapter 10   The Kernel" width="450" height="487" class="alignnone size-full wp-image-9106" title="RHCSA and RHCE Chapter 10   The Kernel" /></a>
 
@@ -385,7 +385,7 @@ From <a href="https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterpr
 >         0
 >         
 > 
-> 2.  It is also possible to prioritize which processes get killed by adjusting the **oom_killer** score. In **/proc/PID/** there are two tools labelled **oom_adj** and **oom_score**. Valid scores for **oom_adj** are in the range -16 to +15. This value is used to calculate the &#8216;badness&#8217; of the process using an algorithm that also takes into account how long the process has been running, amongst other factors. To see the current **oom_killer** score, view the **oom_score** for the process. **oom_killer** will kill processes with the highest scores first.  
+> 2.  It is also possible to prioritize which processes get killed by adjusting the **oom_killer** score. In **/proc/PID/** there are two tools labelled **oom_adj** and **oom_score**. Valid scores for **oom_adj** are in the range -16 to +15. This value is used to calculate the 'badness' of the process using an algorithm that also takes into account how long the process has been running, amongst other factors. To see the current **oom_killer** score, view the **oom_score** for the process. **oom_killer** will kill processes with the highest scores first.  
 >     This example adjusts the **oom_score** of a process with a PID of 12465 to make it less likely that **oom_killer** will kill it.
 >     
 >         # cat /proc/12465/oom_score 
@@ -470,7 +470,7 @@ Here are some actual tuning parameters:
 > *   **2** The system frees all unused slab cache memory.
 > *   **3** The system frees all page cache and slab cache memory.
 > 
-> This is a non-destructive operation. Since dirty objects cannot be freed, running **sync** before setting this parameter&#8217;s value is recommended.
+> This is a non-destructive operation. Since dirty objects cannot be freed, running **sync** before setting this parameter's value is recommended.
 
 More tuning from the original paper:
 
@@ -508,7 +508,7 @@ Here are some generic trouble shooting steps from this <a href="http://wiki.deim
 > 
 > *   Oracle Database or Application Server
 > *   Java
-> *   With the x86 architecture the first 16MB-896MB of physical memory is known as &#8220;low memory&#8221; (ZONE_NORMAL) which is permanently mapped into kernel space. Many kernel resources must live in the low memory zone. In fact, many kernel operations can only take place in this zone. This means that the low memory area is the most performance critical zone. For example, if you run many resources intensive applications/programs and/or use large physical memory, then &#8220;low memory&#8221; can become low since more kernel structures must be allocated in this area. Under heavy I/O workloads the kernel may become starved for LowMem even though there is an abundance of available HighMem. As the kernel tries to keep as much data in cache as possible this can lead to oom-killers or complete system hangs.
+> *   With the x86 architecture the first 16MB-896MB of physical memory is known as "low memory" (ZONE_NORMAL) which is permanently mapped into kernel space. Many kernel resources must live in the low memory zone. In fact, many kernel operations can only take place in this zone. This means that the low memory area is the most performance critical zone. For example, if you run many resources intensive applications/programs and/or use large physical memory, then "low memory" can become low since more kernel structures must be allocated in this area. Under heavy I/O workloads the kernel may become starved for LowMem even though there is an abundance of available HighMem. As the kernel tries to keep as much data in cache as possible this can lead to oom-killers or complete system hangs.
 > *   In 64-bit systems all the memory is allocated in ZONE_NORMAL. So lowmem starvation will not affect 64-bit systems. Moving to 64-bit would be a permanent fix for lowmem starvation.
 > 
 > **Diagnosing**  
@@ -554,12 +554,12 @@ Here are some generic trouble shooting steps from this <a href="http://wiki.deim
 >         vm.min_free_kbytes=19000
 >         
 > 
-> *   Decrease the amount of time for a page to be considered old enough for flushing to disk via the pdflush daemon (default 2999). Expressed in 100&#8242;ths of a second
+> *   Decrease the amount of time for a page to be considered old enough for flushing to disk via the pdflush daemon (default 2999). Expressed in 100'ths of a second
 >     
 >         vm.dirty_expire_centisecs=2000
 >         
 > 
-> *   Shorten the interval at which the pdflush daemon wakes up to write dirty data to disk (default 499). Expressed in 100&#8242;ths of a second
+> *   Shorten the interval at which the pdflush daemon wakes up to write dirty data to disk (default 499). Expressed in 100'ths of a second
 >     
 >         vm.dirty_writeback_centisecs=400
 >         
@@ -577,9 +577,9 @@ Here are some generic trouble shooting steps from this <a href="http://wiki.deim
 > **Overcommit Memory**
 > 
 > *   Overcommitting memory allows the kernel to potentially allocate more memory than the system actually has. This is perfectly safe, and in fact default behavior, as the Linux VM will handle the management of memory. However, to tune it, consider the following information: **/proc/sys/vm/overcommit_memory** 
->     *   **O** &#8211; Heuristic overcommit handling. Obvious overcommits of address space are refused. Used for a typical system. It ensures a seriously wild allocation fails while allowing overcommit to reduce swap usage. root is allowed to allocate slighly more memory in this mode. This is the default.
->     *   **1** &#8211; Always overcommit. Appropriate for some scientific applications.
->     *   **2** &#8211; Don&#8217;t overcommit. The total address space commit for the system is not permitted to exceed swap plus a configurable percentage (default is 50) of physical RAM. Depending on the percentage you use, in most situations this means a process will not be killed while attempting to use already-allocated memory but will receive errors on memory allocation as appropriate.
+>     *   **O** - Heuristic overcommit handling. Obvious overcommits of address space are refused. Used for a typical system. It ensures a seriously wild allocation fails while allowing overcommit to reduce swap usage. root is allowed to allocate slighly more memory in this mode. This is the default.
+>     *   **1** - Always overcommit. Appropriate for some scientific applications.
+>     *   **2** - Don't overcommit. The total address space commit for the system is not permitted to exceed swap plus a configurable percentage (default is 50) of physical RAM. Depending on the percentage you use, in most situations this means a process will not be killed while attempting to use already-allocated memory but will receive errors on memory allocation as appropriate.
 > 
 > **HugePages**
 > 
@@ -588,7 +588,7 @@ Here are some generic trouble shooting steps from this <a href="http://wiki.deim
 >     *   Pages are locked in memory and are never swapped out which guarantees that shared memory like SGA remains in RAM
 >     *   Contiguous pages are preallocated and cannot be used for anything else but for System V shared memory (e.g. SGA)
 >     *   Less bookkeeping work for the kernel for that part of virtual memory due to larger page sizes
-> *   HugePages are only useful for applications that are aware of them (i.e., don&#8217;t recommend them as a way to solve all memory issues). They are only used for shared memory allocations so be sure not to allocate too many pages. By default the size of one HugePage is 2Mb. For Oracle systems allocate enough HugePages to hold the entire SGA in memory.
+> *   HugePages are only useful for applications that are aware of them (i.e., don't recommend them as a way to solve all memory issues). They are only used for shared memory allocations so be sure not to allocate too many pages. By default the size of one HugePage is 2Mb. For Oracle systems allocate enough HugePages to hold the entire SGA in memory.
 > *   To enable HugePages use a sysctl setting to define how many pages should be allocated. RHEL 4 onwards `vm.nr_hugepages=1024`
 
 We talked about free a little bit. If you are on a 32bit system and you want to find out the LOW and HIGH zone memory usage you can run the following:
@@ -660,7 +660,7 @@ Most of these were covered above. To get a good overall usage of memory and swap
 
 ## Linux VFS
 
-From &#8220;<a href="http://www.ibm.com/developerworks/library/l-virtual-filesystem-switch/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.ibm.com/developerworks/library/l-virtual-filesystem-switch/']);">Anatomy of the Linux virtual file system switch</a>&#8220;:
+From "<a href="http://www.ibm.com/developerworks/library/l-virtual-filesystem-switch/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.ibm.com/developerworks/library/l-virtual-filesystem-switch/']);">Anatomy of the Linux virtual file system switch</a>":
 
 > The flexibility and extensibility of support for Linux file systems is a direct result of an abstracted set of interfaces. At the core of that set of interfaces is the virtual file system switch (VFS).
 > 
@@ -673,19 +673,19 @@ From &#8220;<a href="http://www.ibm.com/developerworks/library/l-virtual-filesys
 > <a href="http://virtuallyhyper.com/wp-content/uploads/2013/06/vfs-abstraction-layer.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/06/vfs-abstraction-layer.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/vfs-abstraction-layer.png" alt="vfs abstraction layer RHCSA and RHCE Chapter 10   The Kernel" width="613" height="348" class="alignnone size-full wp-image-9148" title="RHCSA and RHCE Chapter 10   The Kernel" /></a>
 > 
 > **Layered abstractions**  
-> Now, let&#8217;s add some concrete architecture to the abstract features that the Linux VFS provides. Figure 2 shows a high-level view of the Linux stack from the point of view of the VFS. Above the VFS is the standard kernel system-call interface (SCI). This interface allows calls from user-space to transition to the kernel (in different address spaces). In this domain, a user-space application invoking the POSIX open call passes through the GNU C library (glibc) into the kernel and into system call de-multiplexing. Eventually, the VFS is invoked using the call *sys_open*.
+> Now, let's add some concrete architecture to the abstract features that the Linux VFS provides. Figure 2 shows a high-level view of the Linux stack from the point of view of the VFS. Above the VFS is the standard kernel system-call interface (SCI). This interface allows calls from user-space to transition to the kernel (in different address spaces). In this domain, a user-space application invoking the POSIX open call passes through the GNU C library (glibc) into the kernel and into system call de-multiplexing. Eventually, the VFS is invoked using the call *sys_open*.
 > 
 > <a href="http://virtuallyhyper.com/wp-content/uploads/2013/06/vfs_layered.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/06/vfs_layered.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/vfs_layered.png" alt="vfs layered RHCSA and RHCE Chapter 10   The Kernel" width="415" height="372" class="alignnone size-full wp-image-9150" title="RHCSA and RHCE Chapter 10   The Kernel" /></a>
 > 
 > The VFS provides the abstraction layer, separating the POSIX API from the details of how a particular file system implements that behavior. The key here is that Open, Read, Write, or Close API system calls work the same regardless of whether the underlying file system is ext3 or Btrfs. VFS provides a common file model that the underlying file systems inherit (they must implement behaviors for the various POSIX API functions). A further abstraction, outside of the VFS, hides the underlying physical device (which could be a disk, partition of a disk, networked storage entity, memory, or any other medium able to store information—even transiently).
 > 
-> In addition to abstracting the details of file operations from the underlying file systems, VFS ties the underlying block devices to the available file systems. Let&#8217;s now look at the internals of the VFS to see how this works.
+> In addition to abstracting the details of file operations from the underlying file systems, VFS ties the underlying block devices to the available file systems. Let's now look at the internals of the VFS to see how this works.
 > 
 > **VFS internals**  
-> Before looking at the overall architecture of the VFS subsystem, let&#8217;s have a look at the major objects that are used. This section explores the superblock, the index node (or inode), the directory entry (or dentry), and finally, the file object. Some additional elements, such as caches, are also important here, and I explore these later in the overall architecture.
+> Before looking at the overall architecture of the VFS subsystem, let's have a look at the major objects that are used. This section explores the superblock, the index node (or inode), the directory entry (or dentry), and finally, the file object. Some additional elements, such as caches, are also important here, and I explore these later in the overall architecture.
 > 
 > **Superblock**  
-> The superblock is the container for high-level metadata about a file system. The superblock is a structure that exists on disk (actually, multiple places on disk for redundancy) and also in memory. It provides the basis for dealing with the on-disk file system, as it defines the file system&#8217;s managing parameters (for example, total number of blocks, free blocks, root index node).
+> The superblock is the container for high-level metadata about a file system. The superblock is a structure that exists on disk (actually, multiple places on disk for redundancy) and also in memory. It provides the basis for dealing with the on-disk file system, as it defines the file system's managing parameters (for example, total number of blocks, free blocks, root index node).
 > 
 > On disk, the superblock provides information to the kernel on the structure of the file system on disk. In memory, the superblock provides the necessary information and state to manage the active (mounted) file system. Because Linux supports multiple concurrent file systems mounted at the same time, each super&#95;block structure is maintained in a list (super&#95;blocks, defined in ./linux/fs/super.c, with the structure defined in /linux/include/fs/fs.h).
 > 
@@ -750,7 +750,7 @@ More from the same document:
 > 
 > Note that the inode I refer to here is the VFS layer inode (in-memory inode). Each file system also includes an inode that lives on disk and provides details about the object specific to the particular file system.
 > 
-> VFS inodes are allocated using the slab allocator (from the inode_cache). The inode consists of data and operations that describe the inode, its contents, and the variety of operations that are possible on it. Figure 4 is a simple illustration of a VFS inode consisting of a number of lists, one of which refers to the dentries that refer to this inode. Object-level metadata is included here, consisting of the familiar manipulation times (create time, access time, modify time), as are the owner and permission data (group-id, user-id, and permissions). The inode refers to the file operations that are possible on it, most of which map directly to the system-call interfaces (for example, open, read, write, and flush). There is also a reference to inode-specific operations (create, lookup, link, mkdir, and so on). Finally, there&#8217;s a structure to manage the actual data for the object that is represented by an address space object. An address space object is an object that manages the various pages for the inode within the page cache. The address space object is used to manage the pages for a file and also for mapping file sections into individual process address spaces. The address space object comes with its own set of operations (writepage, readpage, releasepage, and so on).
+> VFS inodes are allocated using the slab allocator (from the inode_cache). The inode consists of data and operations that describe the inode, its contents, and the variety of operations that are possible on it. Figure 4 is a simple illustration of a VFS inode consisting of a number of lists, one of which refers to the dentries that refer to this inode. Object-level metadata is included here, consisting of the familiar manipulation times (create time, access time, modify time), as are the owner and permission data (group-id, user-id, and permissions). The inode refers to the file operations that are possible on it, most of which map directly to the system-call interfaces (for example, open, read, write, and flush). There is also a reference to inode-specific operations (create, lookup, link, mkdir, and so on). Finally, there's a structure to manage the actual data for the object that is represented by an address space object. An address space object is an object that manages the various pages for the inode within the page cache. The address space object is used to manage the pages for a file and also for mapping file sections into individual process address spaces. The address space object comes with its own set of operations (writepage, readpage, releasepage, and so on).
 
 We can use **stat** to figure out the inode information of a file residing on a file system, not the in-memory inode:
 
@@ -764,7 +764,7 @@ We can use **stat** to figure out the inode information of a file residing on a 
     Change: 2013-03-13 08:26:35.312875563 -0600
     
 
-> **Directory entry (dentry)** The hierarchical nature of a file system is managed by another object in VFS called a dentry object. A file system will have one root dentry (referenced in the superblock), this being the only dentry without a parent. All other dentries have parents, and some have children. For example, if a file is opened that&#8217;s made up of /home/user/name, four dentry objects are created: one for the root /, one for the home entry of the root directory, one for the name entry of the user directory, and finally, one dentry for the name entry of the user directory. In this way, dentries map cleanly into the hierarchical file systems in use today.
+> **Directory entry (dentry)** The hierarchical nature of a file system is managed by another object in VFS called a dentry object. A file system will have one root dentry (referenced in the superblock), this being the only dentry without a parent. All other dentries have parents, and some have children. For example, if a file is opened that's made up of /home/user/name, four dentry objects are created: one for the root /, one for the home entry of the root directory, one for the name entry of the user directory, and finally, one dentry for the name entry of the user directory. In this way, dentries map cleanly into the hierarchical file systems in use today.
 
 **stat** also tells us if a file is a directory or a regular file. Here is the output of **stat** when executed against a directory:
 
@@ -779,9 +779,9 @@ We can use **stat** to figure out the inode information of a file residing on a 
     
 
 > **Object relationships**  
-> Now that I&#8217;ve reviewed the various important objects in the VFS layer, let&#8217;s look at how they relate in a single diagram. Because I&#8217;ve explored the object in a bottom-up fashion so far in this article, I now look at the reverse from the user perspective (see Figure 7).
+> Now that I've reviewed the various important objects in the VFS layer, let's look at how they relate in a single diagram. Because I've explored the object in a bottom-up fashion so far in this article, I now look at the reverse from the user perspective (see Figure 7).
 > 
-> At the top is the open file object, which is referenced by a process&#8217;s file descriptor list. The file object refers to a dentry object, which refers to an inode. Both the inode and dentry objects refer to the underlying super_block object. Multiple file objects may refer to the same dentry (as in the case of two users sharing the same file). Note also in Figure 7 that a dentry object refers to another dentry object. In this case, a directory refers to file, which in turn refers to the inode for the particular file.
+> At the top is the open file object, which is referenced by a process's file descriptor list. The file object refers to a dentry object, which refers to an inode. Both the inode and dentry objects refer to the underlying super_block object. Multiple file objects may refer to the same dentry (as in the case of two users sharing the same file). Note also in Figure 7 that a dentry object refers to another dentry object. In this case, a directory refers to file, which in turn refers to the inode for the particular file.
 > 
 > <a href="http://virtuallyhyper.com/wp-content/uploads/2013/06/vfs_relationships.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/06/vfs_relationships.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/vfs_relationships.png" alt="vfs relationships RHCSA and RHCE Chapter 10   The Kernel" width="457" height="335" class="alignnone size-full wp-image-9151" title="RHCSA and RHCE Chapter 10   The Kernel" /></a>
 > 
@@ -816,7 +816,7 @@ Or you can actually run **slabtop** and see real time usage. Here is how my **sl
       5973   5649  94%    0.34K    543   11  2172K inode_cache
     
 
-We can see that our *inode_cache* is taking **2172K**. I didn&#8217;t find that many tuning options for VFS. From <a href="https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Global_File_System_2/s2-vfstuning-gfs2.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Global_File_System_2/s2-vfstuning-gfs2.html']);">RHEL Global File System</a>:
+We can see that our *inode_cache* is taking **2172K**. I didn't find that many tuning options for VFS. From <a href="https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Global_File_System_2/s2-vfstuning-gfs2.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Global_File_System_2/s2-vfstuning-gfs2.html']);">RHEL Global File System</a>:
 
 > **2.5.3. VFS Tuning Options: Research and Experiment**  
 > Like all Linux file systems, GFS2 sits on top of a layer called the virtual file system (VFS). You can tune the VFS layer to improve underlying GFS2 performance by using the sysctl(8) command. For example, the values for **dirty&#95;background&#95;ratio** and **vfs&#95;cache&#95;pressure** may be adjusted depending on your situation. To fetch the current values, use the following commands:
@@ -1009,12 +1009,12 @@ More from the same document:
 
 ## RHEL Network Tuning
 
-There are a lot of parameters to tune the kernel networking. From the &#8220;<a href="https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Performance_Tuning_Guide/Red_Hat_Enterprise_Linux-6-Performance_Tuning_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Performance_Tuning_Guide/Red_Hat_Enterprise_Linux-6-Performance_Tuning_Guide-en-US.pdf']);">Performance Tuning Guide</a>&#8220;:
+There are a lot of parameters to tune the kernel networking. From the "<a href="https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Performance_Tuning_Guide/Red_Hat_Enterprise_Linux-6-Performance_Tuning_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Performance_Tuning_Guide/Red_Hat_Enterprise_Linux-6-Performance_Tuning_Guide-en-US.pdf']);">Performance Tuning Guide</a>":
 
 > **8.2. Optimized Network Settings**  
 > Performance tuning is usually done in a pre-emptive fashion. Often, we adjust known variables before running an application or deploying a system. If the adjustment proves to be ineffective, we try adjusting other variables. The logic behind such thinking is that by default, the system is not operating at an optimal level of performance; as such, we think we need to adjust the system accordingly. In some cases, we do so via calculated guesses.
 > 
-> As mentioned earlier, the network stack is mostly self-optimizing. In addition, effectively tuning the network requires a thorough understanding not just of how the network stack works, but also of the specific system&#8217;s network resource requirements. Incorrect network performance configuration can actually lead to degraded performance.
+> As mentioned earlier, the network stack is mostly self-optimizing. In addition, effectively tuning the network requires a thorough understanding not just of how the network stack works, but also of the specific system's network resource requirements. Incorrect network performance configuration can actually lead to degraded performance.
 > 
 > For example, consider the bufferfloat problem. Increasing buffer queue depths results in TCP connections that have congestion windows larger than the link would otherwise allow (due to deep buffering). However, those connections also have huge RTT values since the frames spend so much time in-queue. This, in turn, actually results in sub-optimal output, as it would become impossible to detect congestion.
 > 
@@ -1028,28 +1028,28 @@ There are a lot of parameters to tune the kernel networking. From the &#8220;<a 
 > *   /proc/net/tcp (TCP socket information)
 > *   /proc/net/unix (Unix domain socket information)
 > 
-> **dropwatch** &#8211; A monitoring utility that monitors packets dropped by the kernel.
+> **dropwatch** - A monitoring utility that monitors packets dropped by the kernel.
 > 
-> **ip** &#8211; A utility for managing and monitoring routes, devices, policy routing, and tunnels.
+> **ip** - A utility for managing and monitoring routes, devices, policy routing, and tunnels.
 > 
-> **ethtool** &#8211; A utility for displaying and changing NIC settings.
+> **ethtool** - A utility for displaying and changing NIC settings.
 > 
-> **/proc/net/snmp** &#8211; A file that displays ASCII data needed for the IP, ICMP, TCP, and UDP management information bases for an snmp agent. It also displays real-time UDP-lite statistics.
+> **/proc/net/snmp** - A file that displays ASCII data needed for the IP, ICMP, TCP, and UDP management information bases for an snmp agent. It also displays real-time UDP-lite statistics.
 > 
-> After collecting relevant data on a network performance problem, you should be able to formulate a theory — and, hopefully, a solution. For example, an increase in UDP input errors in **/proc/net/snmp** indicates that one or more socket receive queues are full when the network stack attempts to queue new frames into an application&#8217;s socket.
+> After collecting relevant data on a network performance problem, you should be able to formulate a theory — and, hopefully, a solution. For example, an increase in UDP input errors in **/proc/net/snmp** indicates that one or more socket receive queues are full when the network stack attempts to queue new frames into an application's socket.
 > 
-> This indicates that packets are bottlenecked at at least one socket queue, which means either the socket queue drains packets too slowly, or packet volume is too large for that socket queue. If it is the latter, then verify the logs of any network-intensive application for lost data &#8212; to resolve this, you would need to optimize or reconfigure the offending application.
+> This indicates that packets are bottlenecked at at least one socket queue, which means either the socket queue drains packets too slowly, or packet volume is too large for that socket queue. If it is the latter, then verify the logs of any network-intensive application for lost data - to resolve this, you would need to optimize or reconfigure the offending application.
 > 
-> **Socket receive buffer size** &#8211; Socket send and receive sizes are dynamically adjusted, so they rarely need to be manually edited. If further analysis, such as the analysis presented in the SystemTap network example, **sk&#95;stream&#95;wait_memory.stp**, suggests that the socket queue&#8217;s drain rate is too slow, then you can increase the depth of the application&#8217;s socket queue. To do so, increase the size of receive buffers used by sockets by configuring either of the following values:
+> **Socket receive buffer size** - Socket send and receive sizes are dynamically adjusted, so they rarely need to be manually edited. If further analysis, such as the analysis presented in the SystemTap network example, **sk&#95;stream&#95;wait_memory.stp**, suggests that the socket queue's drain rate is too slow, then you can increase the depth of the application's socket queue. To do so, increase the size of receive buffers used by sockets by configuring either of the following values:
 > 
-> **rmem_default** &#8211; A kernel parameter that controls the default size of receive buffers used by sockets. To configure this, run the following command:
+> **rmem_default** - A kernel parameter that controls the default size of receive buffers used by sockets. To configure this, run the following command:
 > 
 >     sysctl -w net.core.rmem_default=N
 >     
 > 
 > Replace **N** with the desired buffer size, in bytes. To determine the value for this kernel parameter, view **/proc/sys/net/core/rmem_default**. Bear in mind that the value of **rmem_default** should be no greater than **rmem_max** (**/proc/sys/net/core/rmem_max**); if need be, increase the value of **rmem_max**.
 > 
-> **SO_RCVBUF** A socket option that controls the maximum size of a socket&#8217;s receive buffer, in bytes. For more information on **SO_RCVBUF**, refer to the man page for more details: **man 7 socket**. To configure **SO_RCVBUF**, use the **setsockopt** utility. You can retrieve the current **SO_RCVBUF** value with **getsockopt**.
+> **SO_RCVBUF** A socket option that controls the maximum size of a socket's receive buffer, in bytes. For more information on **SO_RCVBUF**, refer to the man page for more details: **man 7 socket**. To configure **SO_RCVBUF**, use the **setsockopt** utility. You can retrieve the current **SO_RCVBUF** value with **getsockopt**.
 > 
 > **8.3. Overview of Packet Reception**  
 > To better analyze network bottlenecks and performance issues, you need to understand how packet reception works. Packet reception is important in network performance tuning because the receive path is where frames are often lost. Lost frames in the receive path can cause a significant penalty to network performance.
@@ -1079,18 +1079,18 @@ There are a lot of parameters to tune the kernel networking. From the &#8220;<a 
 >     ethtool -S ethX
 >     
 > 
-> Replace ethX with the NIC&#8217;s corresponding device name. This will display how many frames have been dropped within ethX. Often, a drop occurs because the queue runs out of buffer space in which to store frames.
+> Replace ethX with the NIC's corresponding device name. This will display how many frames have been dropped within ethX. Often, a drop occurs because the queue runs out of buffer space in which to store frames.
 > 
 > There are different ways to address this problem, namely:
 > 
-> **Input traffic** &#8211; You can help prevent queue overruns by slowing down input traffic. This can be achieved by filtering, reducing the number of joined multicast groups, lowering broadcast traffic, and the like. **Queue length** &#8211; Alternatively, you can also increase the queue length. This involves increasing the number of buffers in a specified queue to whatever maximum the driver will allow. To do so, edit the rx/tx ring parameters of **ethX** using:
+> **Input traffic** - You can help prevent queue overruns by slowing down input traffic. This can be achieved by filtering, reducing the number of joined multicast groups, lowering broadcast traffic, and the like. **Queue length** - Alternatively, you can also increase the queue length. This involves increasing the number of buffers in a specified queue to whatever maximum the driver will allow. To do so, edit the rx/tx ring parameters of **ethX** using:
 > 
 >     ethtool --set-ring ethX
 >     
 > 
 > Append the appropriate rx or tx values to the aforementioned command.
 > 
-> **Device weight** You can also increase the rate at which a queue is drained. To do this, adjust the NIC&#8217;s device weight accordingly. This attribute refers to the maximum number of frames that the NIC can receive before the softirq context has to yield the CPU and reschedule itself. It is controlled by the **/proc/sys/net/core/dev_weight** variable.
+> **Device weight** You can also increase the rate at which a queue is drained. To do this, adjust the NIC's device weight accordingly. This attribute refers to the maximum number of frames that the NIC can receive before the softirq context has to yield the CPU and reschedule itself. It is controlled by the **/proc/sys/net/core/dev_weight** variable.
 > 
 > Most administrators have a tendency to choose the third option. However, keep in mind that there are consequences for doing so. Increasing the number of frames that can be received from a NIC in one iteration implies extra CPU cycles, during which no applications can be scheduled on that CPU.
 > 
@@ -1099,11 +1099,11 @@ There are a lot of parameters to tune the kernel networking. From the &#8220;<a 
 > 
 > To monitor the status of this queue, use the **netstat** utility; the **Recv-Q** column displays the queue size. Generally speaking, overruns in the socket queue are managed in the same way as NIC hardware buffer overruns.
 > 
-> **Input traffic** The first option is to slow down input traffic by configuring the rate at which the queue fills. To do so, either filter frames or pre-emptively drop them. You can also slow down input traffic by lowering the NIC&#8217;s device weight.
+> **Input traffic** The first option is to slow down input traffic by configuring the rate at which the queue fills. To do so, either filter frames or pre-emptively drop them. You can also slow down input traffic by lowering the NIC's device weight.
 > 
 > **Queue depth** You can also avoid socket queue overruns by increasing the queue depth. To do so, increase the value of either the rmem&#95;default kernel parameter or the SO&#95;RCVBUF socket option.
 > 
-> **Application call frequency** &#8211; Whenever possible, optimize the application to perform calls more frequently. This involves modifying or reconfiguring the network application to perform more frequent POSIX calls (such as **recv**, **read**). In turn, this allows an application to drain the queue faster.
+> **Application call frequency** - Whenever possible, optimize the application to perform calls more frequently. This involves modifying or reconfiguring the network application to perform more frequent POSIX calls (such as **recv**, **read**). In turn, this allows an application to drain the queue faster.
 > 
 > For many administrators, increasing the queue depth is the preferable solution. This is the easiest solution, but it may not always work long-term. As networking technologies get faster, socket queues will continue to fill more quickly. Over time, this means having to re-adjust the queue depth accordingly.
 > 
@@ -1141,27 +1141,27 @@ There are a lot of parameters to tune the kernel networking. From the &#8220;<a 
 > 
 > Other kernel settings that help with the overall server performance when it comes to network traffic are the following:
 > 
-> **TCP&#95;FIN&#95;TIMEOUT** &#8211; This setting determines the time that must elapse before TCP/IP can release a closed connection and reuse its resources. During this TIME&#95;WAIT state, reopening the connection to the client costs less than establishing a new connection. By reducing the value of this entry, TCP/IP can release closed connections faster, making more resources available for new connections. Addjust this in the presense of many connections sitting in the TIME&#95;WAIT state:
+> **TCP&#95;FIN&#95;TIMEOUT** - This setting determines the time that must elapse before TCP/IP can release a closed connection and reuse its resources. During this TIME&#95;WAIT state, reopening the connection to the client costs less than establishing a new connection. By reducing the value of this entry, TCP/IP can release closed connections faster, making more resources available for new connections. Addjust this in the presense of many connections sitting in the TIME&#95;WAIT state:
 > 
 >     echo 30 > /proc/sys/net/ipv4/tcp_fin_timeout
 >     
 > 
-> **TCP&#95;KEEPALIVE&#95;INTERVAL** &#8211; This determines the wait time between isAlive interval probes. To set:
+> **TCP&#95;KEEPALIVE&#95;INTERVAL** - This determines the wait time between isAlive interval probes. To set:
 > 
 >     echo 30 > /proc/sys/net/ipv4/tcp_keepalive_intvl
 >     
 > 
-> **TCP&#95;KEEPALIVE&#95;PROBES** &#8211; This determines the number of probes before timing out. To set:
+> **TCP&#95;KEEPALIVE&#95;PROBES** - This determines the number of probes before timing out. To set:
 > 
 >     echo 5 > /proc/sys/net/ipv4/tcp_keepalive_probes
 >     
 > 
-> **TCP&#95;TW&#95;RECYCLE** &#8211; This enables fast recycling of TIME_WAIT sockets. The default value is 0 (disabled). Should be used with caution with loadbalancers.
+> **TCP&#95;TW&#95;RECYCLE** - This enables fast recycling of TIME_WAIT sockets. The default value is 0 (disabled). Should be used with caution with loadbalancers.
 > 
 >     echo 1 > /proc/sys/net/ipv4/tcp_tw_recycle
 >     
 > 
-> **TCP&#95;TW&#95;REUSE** &#8211; This allows reusing sockets in TIME_WAIT state for new connections when it is safe from protocol viewpoint. Default value is 0 (disabled). It is generally a safer alternative to **tcp&#95;tw&#95;recycle**
+> **TCP&#95;TW&#95;REUSE** - This allows reusing sockets in TIME_WAIT state for new connections when it is safe from protocol viewpoint. Default value is 0 (disabled). It is generally a safer alternative to **tcp&#95;tw&#95;recycle**
 > 
 >     echo 1 > /proc/sys/net/ipv4/tcp_tw_reuse
 >     
@@ -1190,7 +1190,7 @@ There are a lot of parameters to tune the kernel networking. From the &#8220;<a 
 > *   vegas: TCP Vegas
 > *   westwood: optimized for lossy networks
 > 
-> If cubic and/or htcp are not listed when you do &#8216;**sysctl net.ipv4.tcp&#95;available&#95;congestion_control**&#8216;, try the following, as most distributions include them as loadable kernel modules:
+> If cubic and/or htcp are not listed when you do '**sysctl net.ipv4.tcp&#95;available&#95;congestion_control**', try the following, as most distributions include them as loadable kernel modules:
 > 
 >     /sbin/modprobe tcp_htcp
 >     /sbin/modprobe tcp_cubic
@@ -1203,10 +1203,10 @@ There are a lot of parameters to tune the kernel networking. From the &#8220;<a 
 
 ### The proc File System
 
-As you have noticed most of the kernel tuning is done under **/proc** or via **sysctl**. So let&#8217;s cover that, from the <a href="https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf']);">Deployment Guide</a>:
+As you have noticed most of the kernel tuning is done under **/proc** or via **sysctl**. So let's cover that, from the <a href="https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf']);">Deployment Guide</a>:
 
 > **The proc File System**  
-> The Linux kernel has two primary functions: to control access to physical devices on the computer and to schedule when and how processes interact with these devices. The /proc/ directory (also called the proc file system) contains a hierarchy of special files which represent the current state of the kernel, allowing applications and users to peer into the kernel&#8217;s view of the system.
+> The Linux kernel has two primary functions: to control access to physical devices on the computer and to schedule when and how processes interact with these devices. The /proc/ directory (also called the proc file system) contains a hierarchy of special files which represent the current state of the kernel, allowing applications and users to peer into the kernel's view of the system.
 > 
 > The **/proc/** directory contains a wealth of information detailing system hardware and any running processes. In addition, some of the files within **/proc/** can be manipulated by users and applications to communicate configuration changes to the kernel.
 > 
@@ -1214,12 +1214,12 @@ As you have noticed most of the kernel tuning is done under **/proc** or via **s
 > 
 > Virtual files have unique qualities. Most of them are listed as zero bytes in size, but can still contain a large amount of information when viewed. In addition, most of the time and date stamps on virtual files reflect the current time and date, indicative of the fact they are constantly updated.
 > 
-> Virtual files such as **/proc/interrupts**, **/proc/meminfo**, **/proc/mounts**, and **/proc/partitions** provide an up-to-the-moment glimpse of the system&#8217;s hardware. Others, like the **/proc/filesystems** file and the **/proc/sys/** directory provide system configuration information and interfaces.
+> Virtual files such as **/proc/interrupts**, **/proc/meminfo**, **/proc/mounts**, and **/proc/partitions** provide an up-to-the-moment glimpse of the system's hardware. Others, like the **/proc/filesystems** file and the **/proc/sys/** directory provide system configuration information and interfaces.
 > 
 > For organizational purposes, files containing information on a similar topic are grouped into virtual directories and sub-directories. Process directories contain information about each running process on the system.
 > 
 > **E.1.1. Viewing Virtual Files**  
-> Most files within **/proc/** files operate similarly to text files, storing useful system and hardware data in human-readable text format. As such, you can use cat, more, or less to view them. For example, to display information about the system&#8217;s CPU, run **cat /proc/cpuinfo**. This will return output similar to the following:
+> Most files within **/proc/** files operate similarly to text files, storing useful system and hardware data in human-readable text format. As such, you can use cat, more, or less to view them. For example, to display information about the system's CPU, run **cat /proc/cpuinfo**. This will return output similar to the following:
 > 
 >     processor : 0
 >     vendor_id : AuthenticAMD

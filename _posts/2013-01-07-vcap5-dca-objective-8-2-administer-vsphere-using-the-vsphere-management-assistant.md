@@ -14,7 +14,7 @@ tags:
 ---
 ### Identify vMA prerequisites
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf']);">vSphere Management Assistant Guide vSphere 5.1</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf']);">vSphere Management Assistant Guide vSphere 5.1</a>":
 
 > **Hardware Requirements**  
 > To set up vMA, you must have an ESXi host. Because vMA runs a 64‐bit Linux guest operating system, the ESXi host on which it runs must support 64‐bit virtual machines.  
@@ -43,13 +43,13 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/P
 
 ### Identify vMA specific commands
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf']);">vSphere Management Assistant Guide vSphere 5.1</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf']);">vSphere Management Assistant Guide vSphere 5.1</a>":
 
 <a href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/vma_commands/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/vma_commands/']);" rel="attachment wp-att-5580"><img class="alignnone size-full wp-image-5580" alt="vma commands VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/vma_commands.png" width="605" height="246" title="VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " /></a>
 
 ### Determine when vMA is needed
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf']);">vSphere Management Assistant Guide vSphere 5.1</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf']);">vSphere Management Assistant Guide vSphere 5.1</a>":
 
 > vMA Capabilities  
 > vMA provides a flexible and authenticated platform for running scripts and programs.
@@ -71,7 +71,7 @@ I decided to install the 5.1 version of VMa just for fun. First download the zip
 
 <a href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/vma_download/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/vma_download/']);" rel="attachment wp-att-5576"><img class="alignnone size-full wp-image-5576" alt="vma download VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/vma_download.png" width="988" height="614" title="VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " /></a>
 
-Then from &#8220;<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf']);">vSphere Management Assistant Guide vSphere 5.1</a>&#8220;::
+Then from "<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf']);">vSphere Management Assistant Guide vSphere 5.1</a>"::
 
 > **To deploy vMA**
 > 
@@ -100,7 +100,7 @@ After extracting the archive, you will see the following files:
 
 <a href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/zip_extracted_vma/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/zip_extracted_vma/']);" rel="attachment wp-att-5582"><img class="alignnone size-full wp-image-5582" alt="zip extracted vma VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/zip_extracted_vma.png" width="588" height="100" title="VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " /></a>
 
-Now to deploy the &#8216;ovf&#8217;, we can go to &#8220;File -> Deploy OVF Template&#8221;:
+Now to deploy the 'ovf', we can go to "File -> Deploy OVF Template":
 
 <a href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/deploy_ovf_template/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/deploy_ovf_template/']);" rel="attachment wp-att-5583"><img class="alignnone size-full wp-image-5583" alt="deploy ovf template VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/deploy_ovf_template.png" width="237" height="96" title="VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " /></a>
 
@@ -188,7 +188,7 @@ Then checking out the deny file:
 	ALL: ALL  
 	
 
-Looks like we are blocking everything. So I just moved the &#8216;hosts.deny&#8217; file out of the way:
+Looks like we are blocking everything. So I just moved the 'hosts.deny' file out of the way:
 
 	  
 	localhost:~ # mv /etc/hosts.deny /tmp  
@@ -206,7 +206,7 @@ And then I was able to ssh to the machine with putty without issues:
 
 ### Add/Remove target servers
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf']);">vSphere Management Assistant Guide vSphere 5.1</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf']);">vSphere Management Assistant Guide vSphere 5.1</a>":
 
 > **Add Target Servers to vMA**  
 > After you configure vMA, you can add target servers that run the supported vCenter Server or ESXi version.  
@@ -219,13 +219,13 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/P
 	>       
 	>     vifp addserver vc1.mycomp.com --authpolicy adauth --username ADDOMAIN\\user1  
 	>     </p> 
->     Here, &#8211;authpolicy adauth indicates that the target needs to use the Active Directory authentication.If you run this command without the &#8211;username option, vMA prompts for the name of the user that can connect to the vCenter Server system. You can specify this user name as shown in the following example:
+>     Here, -authpolicy adauth indicates that the target needs to use the Active Directory authentication.If you run this command without the -username option, vMA prompts for the name of the user that can connect to the vCenter Server system. You can specify this user name as shown in the following example:
 >     
 	>       
 	>     Enter username for machinename.example.com: ADDOMAIN\user1  
 	>     
 >     
->     If &#8211;authpolicy is not specified in the command, then fpauth is taken as the default authentication  
+>     If -authpolicy is not specified in the command, then fpauth is taken as the default authentication  
 >     policy.</li> 
 >     *   3 Verify that the target server has been added.  
 >         The display shows all target servers and the authentication policy used for each target.  
@@ -295,7 +295,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/P
 	>         nfs 192.168.1.107 /data/nfs_share true true Not Supported  
 	>         
 >         
->         Notice that my prompt changes to the server that I am authenticated against and also notice that I didn&#8217;t have to type in the password because I am using fastpass. To leave that server from fastpass we can do the following:
+>         Notice that my prompt changes to the server that I am authenticated against and also notice that I didn't have to type in the password because I am using fastpass. To leave that server from fastpass we can do the following:
 >         
 	>           
 	>         vi-admin'@'localhost:~[192.168.2.110]> vifptarget -c  
@@ -306,7 +306,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/P
 >         
 >         ### Perform updates to the vMA
 >         
->         From &#8220;<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf']);">vSphere Management Assistant Guide vSphere 5.1</a>&#8220;:
+>         From "<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf']);">vSphere Management Assistant Guide vSphere 5.1</a>":
 >         
 >         > **Update vMA**  
 >         > You can download software updates including security fixes fromVMware and components included in vMA, such as the SUSE Linux Enterprise Server updates and JRE.
@@ -328,11 +328,11 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/P
 >         
 >         <a href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/repository_settings_vma/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/repository_settings_vma/']);" rel="attachment wp-att-5609"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/repository_settings_vma.png" alt="repository settings vma VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " width="830" height="544" class="alignnone size-full wp-image-5609" title="VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " /></a>
 >         
->         The settings looked good, then going back to the status page and Clicking &#8220;Check Updates&#8221; nothing came up since this was the latest version at the time.
+>         The settings looked good, then going back to the status page and Clicking "Check Updates" nothing came up since this was the latest version at the time.
 >         
 >         ### Use vmkfstools to manage VMFS datastores
 >         
->         vmkfstools has the same options as on the host itself. In my example I will use vMA to create a VMFS datastore with vmkfstools. I have presented two LUNs from my OpenIndiana VM to my 5.0 ESXi host. Lun0 is 100GB and LUN1 is 130GB. Lun0 already had VMFS on it and LUN1 is blank. So first let&#8217;s see if we can see the LUNS:
+>         vmkfstools has the same options as on the host itself. In my example I will use vMA to create a VMFS datastore with vmkfstools. I have presented two LUNs from my OpenIndiana VM to my 5.0 ESXi host. Lun0 is 100GB and LUN1 is 130GB. Lun0 already had VMFS on it and LUN1 is blank. So first let's see if we can see the LUNS:
 >         
 	>           
 	>         vi-admin@localhost:~> vifp listservers -l  
@@ -351,7 +351,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/P
 	>         /vmfs/volumes/4fc3c05b-c677ee28-ba3c-0050561712cb datastore1 4fc3c05b-c677ee28-ba3c-0050561712cb true VMFS-5 63350767616 58986594304  
 	>         
 >         
->         So the bottom one is the local drive with VMFS5 and the top on is LUN0 of size 100GB with VMFS3 on it. First we need to create a gpt partition table on the LUN. First let&#8217;s see what information partedUtil can see (this has to be done directly from the host):
+>         So the bottom one is the local drive with VMFS5 and the top on is LUN0 of size 100GB with VMFS3 on it. First we need to create a gpt partition table on the LUN. First let's see what information partedUtil can see (this has to be done directly from the host):
 >         
 	>           
 	>         ~ # partedUtil getptbl /vmfs/devices/disks/naa.600144f0928c010000004fc90a3a0001  
@@ -375,7 +375,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/P
 	>         > \-\---\---\---\---\----- quantity of cylinders  
 	>         >  
 >         
->         So we have no partitions defined and currently it has an &#8216;msdos&#8217; disklabel. Since we are going to create a VMFS-5 volume we will change that to GPT. Also converting the sectors to GB, we get the following:
+>         So we have no partitions defined and currently it has an 'msdos' disklabel. Since we are going to create a VMFS-5 volume we will change that to GPT. Also converting the sectors to GB, we get the following:
 >         
 	>           
 	>         (272629760 * 512 / 1024 /1024 /1024) = 130 GB  
@@ -392,15 +392,15 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/P
 >         
 >         > The **disk label** is only specified in the setptbl form of the command, and sets the disk label identifying the partitioning scheme being used. Common labels are bsd, dvh, gpt, loop, mac, msdos, pc98, and sun. ESXi 5.0 and higher supports both the msdos and gpt label and partitioning schemes, while ESXi/ESX 4.1 and earlier supports the msdos label and partitioning scheme exclusively. 
 >         
->         In our case we will have &#8220;gpt&#8221; for *DiskLabel*. Moving down the KB we have:
+>         In our case we will have "gpt" for *DiskLabel*. Moving down the KB we have:
 >         
 >         > The list of partitions to apply to the disk must be fully specified on the partedUtil command line. To add additional partitions to a disk with an existing partition, specify both the original and new partitions on the command line. If you do not, the existing partition is lost. The list of partitions are specified as quoted strings, each of which encapsulates a 5-tuple composed of the partition number, starting sector, ending sector, type ID, and attributes: 
 >         
->         Since we want to create just one partition, we will use a value of &#8217;1&#8242; for *partNum*. Next we have the following:
+>         Since we want to create just one partition, we will use a value of '1' for *partNum*. Next we have the following:
 >         
 >         > The startSector and endSector specify how much contiguous disk space a partition occupies. The starting sector is enforced to be before the ending sector for the same partition, but no guarantee is made that the partition defined does not overlap another partition. 
 >         
->         Our *startSector* will be &#8217;2048&#8242;, since that is the offset for a VMFS-5 partition:
+>         Our *startSector* will be '2048', since that is the offset for a VMFS-5 partition:
 >         
 >         > Volumes that are upgraded from VMFS-3 to VMFS-5 continue to have the VMFS partition starting at sector 128, rather than at sector 2048. 
 >         
@@ -411,7 +411,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/P
 	>         1 272629759  
 	>         
 >         
->         So our *endSector* will be &#8217;272629759&#8242;. If we keep going:
+>         So our *endSector* will be '272629759'. If we keep going:
 >         
 >         > The partition type identifies the purpose of a partition, and may be represented by either a a decimal identifier (for example, 251) or a UUID (for example, AA31E02A400F11DB9590000C2911D1B8). Partitions created on ESXi 5.0 and higher with the gpt disklabel must be specified using the GUID. 
 >         
@@ -432,17 +432,17 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/P
 	>         Unused Entry 00000000000000000000000000000000  
 	>         
 >         
->         We are going to be using VMFS so our &#8216;*type/guid*&#8216; will be &#8220;AA31E02A400F11DB9590000C2911D1B8&#8243;. And lastly:
+>         We are going to be using VMFS so our '*type/guid*' will be "AA31E02A400F11DB9590000C2911D1B8". And lastly:
 >         
 >         > The partition attribute is a number which identifies properties of the partition. A common attribute is 128 = 0&#215;80, which indicates that the partition is bootable. Otherwise, most partitions have an attribute value of 0. 
 >         
->         Since we are not going to boot from our VMFS volume, our *attribute* will be &#8217;0&#8242;. Now putting everything together, we get the following:
+>         Since we are not going to boot from our VMFS volume, our *attribute* will be '0'. Now putting everything together, we get the following:
 >         
 	>           
 	>         partedUtil setptbl /dev/disks/naa.600144f0928c010000004fc90a3a0001 gpt &quot;1 2048 272629759 AA31E02A400F11DB9590000C2911D1B8 0&quot;  
 	>         
 >         
->         Let&#8217;s see what happens when we run it:
+>         Let's see what happens when we run it:
 >         
 	>           
 	>         ~ # partedUtil setptbl /dev/disks/naa.600144f0928c010000004fc90a3a0001 gpt &quot;1 2048 272629759 AA31E02A400F11DB9590000C2911D1B8 0&quot;  
@@ -551,7 +551,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/P
 	>         
 	>         
 >         
->         So let&#8217;s list the VMs currently registered on our 5.0 host and check the state of each VM:
+>         So let's list the VMs currently registered on our 5.0 host and check the state of each VM:
 >         
 	>           
 	>         vi-admin@localhost:~[192.168.2.110]> vmware-cmd -h 192.168.0.103 -l
@@ -603,7 +603,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/P
 >         
 >         ### Troubleshoot common vMA errors and conditions
 >         
->         From &#8220;<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf']);">vSphere Management Assistant Guide vSphere 5.1</a>&#8220;:
+>         From "<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf']);">vSphere Management Assistant Guide vSphere 5.1</a>":
 >         
 >         > **Troubleshooting vMA**  
 >         > You can find troubleshooting information for all VMware products in VMware Knowledge Base articles and information about vMA known issues in the release notes. Table 2‐3 explains a few commonly encountered issues that are easily resolved.

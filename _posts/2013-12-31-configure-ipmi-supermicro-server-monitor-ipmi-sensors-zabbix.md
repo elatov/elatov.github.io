@@ -88,7 +88,7 @@ After you download the *zip* archive, you can extract it. Here are the contents 
       inflating: IPMI Firmware Update.doc 
     
 
-The instructions on how to update the firmware are in the document from the archive. The gist of it, go to the **maintenance** tab in the IPMI management console and click **Update Firmare**. Then upload the **.ima** file for the update. Also during the update, make sure you un-check the &#8220;**Preserve Configuration**&#8221; setting (this will wipe all the settings to default, but is necessary for the update). Then start the update, here is how the update process looked like for me:
+The instructions on how to update the firmware are in the document from the archive. The gist of it, go to the **maintenance** tab in the IPMI management console and click **Update Firmare**. Then upload the **.ima** file for the update. Also during the update, make sure you un-check the "**Preserve Configuration**" setting (this will wipe all the settings to default, but is necessary for the update). Then start the update, here is how the update process looked like for me:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/12/ipmi-fw-update.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/12/ipmi-fw-update.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/ipmi-fw-update.png" alt="ipmi fw update Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" width="1091" height="248" class="alignnone size-full wp-image-9872" title="Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" /></a>
 
@@ -134,15 +134,15 @@ As I was creating the ISO, I realized the size of the BIOS update is bigger than
     -rw-rw-r-- 1 elatov elatov 4.0M Aug  3  2012 X8DTU2.803
     
 
-It&#8217;s about 4M.
+It's about 4M.
 
 #### Create a DOS Bootable Flash Drive
 
-At this point, I had two choices: create an ISO with a bigger size and share it via Samba or create an ISO and just use my USB stick. I have gone without a samba share all this time, and I didn&#8217;t want to set one up just for a BIOS update (but I was still impressed with the fact that IPMI can connect to a samba share). There is a Russian site which provides custom sized images. <a href="http://bootcd.narod.ru/images.htm" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://bootcd.narod.ru/images.htm']);">Here</a> is a link to that site and here is a list of all their images:
+At this point, I had two choices: create an ISO with a bigger size and share it via Samba or create an ISO and just use my USB stick. I have gone without a samba share all this time, and I didn't want to set one up just for a BIOS update (but I was still impressed with the fact that IPMI can connect to a samba share). There is a Russian site which provides custom sized images. <a href="http://bootcd.narod.ru/images.htm" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://bootcd.narod.ru/images.htm']);">Here</a> is a link to that site and here is a list of all their images:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/12/custom-size-images-rus.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/12/custom-size-images-rus.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/custom-size-images-rus.png" alt="custom size images rus Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" width="993" height="580" class="alignnone size-full wp-image-9876" title="Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" /></a>
 
-All the images for CDs and I wanted to get one specific for a USB drive. It probably doesn&#8217;t make a difference, but I later ran into FreeDOS and they provided an image specifically for a USB Drive. <a href="http://chtaube.eu/computers/freedos/bootable-usb/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://chtaube.eu/computers/freedos/bootable-usb/']);">Here</a> is a link to the site and here is a list of images:
+All the images for CDs and I wanted to get one specific for a USB drive. It probably doesn't make a difference, but I later ran into FreeDOS and they provided an image specifically for a USB Drive. <a href="http://chtaube.eu/computers/freedos/bootable-usb/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://chtaube.eu/computers/freedos/bootable-usb/']);">Here</a> is a link to the site and here is a list of images:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/12/freedos_boot-usb.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/12/freedos_boot-usb.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/freedos_boot-usb.png" alt="freedos boot usb Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" width="1112" height="373" class="alignnone size-full wp-image-9877" title="Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" /></a>
 
@@ -158,13 +158,13 @@ and that was it. I then mounted the drive and copied all the SuperMicro BIOS upd
     $ sudo mount /dev/sdb1 /mnt/usb
     
 
-After it&#8217;s mounted we can see that it&#8217;s a **vfat** filesystem:
+After it's mounted we can see that it's a **vfat** filesystem:
 
     $df -hT | grep usb
     /dev/sdb1           vfat       29M  7.8M   21M  28% /mnt/usb
     
 
-We can also see that it&#8217;s FAT 16:
+We can also see that it's FAT 16:
 
     $ sudo fdisk -l /dev/sdb
     
@@ -196,7 +196,7 @@ Then finally I copied the files onto the USB drive:
     total size is 4350018  speedup is 4.05
     
 
-And that&#8217;s it. I then un-mounted the usb drive, unplugged it from my laptop, and plugged into the SuperMicro Server.
+And that's it. I then un-mounted the usb drive, unplugged it from my laptop, and plugged into the SuperMicro Server.
 
 #### Update BIOS Process
 
@@ -208,7 +208,7 @@ Upon clicking **Remote Console**, I saw the server:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/12/jviewer-started.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/12/jviewer-started.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/jviewer-started.png" alt="jviewer started Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" width="1051" height="401" class="alignnone size-full wp-image-9879" title="Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" /></a>
 
-I then put the host into maintenance mode and rebooted the server. Upon boot, I made sure it&#8217;s booting from the USB. After it booted from the USB, I saw the following:
+I then put the host into maintenance mode and rebooted the server. Upon boot, I made sure it's booting from the USB. After it booted from the USB, I saw the following:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/12/freedos-booted.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/12/freedos-booted.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/freedos-booted.png" alt="freedos booted Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" width="648" height="428" class="alignnone size-full wp-image-9880" title="Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" /></a>
 
@@ -238,7 +238,7 @@ Then under the **Configuration** tab click on **Alerts** and select the level of
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/12/alerts-impi.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/12/alerts-impi.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/alerts-impi.png" alt="alerts impi Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" width="545" height="194" class="alignnone size-full wp-image-9886" title="Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" /></a>
 
-That should be it. If you want to make sure your SMTP configuration is working, under **alerts** you can click on &#8220;**Send Test Alert**&#8221; and make sure you get an email.
+That should be it. If you want to make sure your SMTP configuration is working, under **alerts** you can click on "**Send Test Alert**" and make sure you get an email.
 
 ### Monitor IPMI Sensors with Zabbix
 

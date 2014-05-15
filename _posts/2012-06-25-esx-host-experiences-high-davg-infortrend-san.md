@@ -96,13 +96,13 @@ We then double checked that the rule has been added:
 	VMW\_SATP\_DEFAULT\_AA IFT S16E-G1240 tpgs\_on Infortrend  
 	
 
-After that we unclaimed one LUN to make sure it&#8217;s working:
+After that we unclaimed one LUN to make sure it's working:
 
 	  
 	~ # esxcli corestorage claiming unclaim -t location -A vmbha37 -C O -T 1 -L 6  
 	
 
-To check that the &#8216;unclaim&#8217; worked, we try to see if we can get information regarding that LUN and we fail:
+To check that the 'unclaim' worked, we try to see if we can get information regarding that LUN and we fail:
 
 	  
 	~ # esxcli nmp device list -d naa.600d02310008483bOOOOOOOO7ef9583c  
@@ -116,7 +116,7 @@ That looks good. As a side note, if you had multiple paths for a LUN you can unc
 	~ # esxcli corestorage claiming reclaim -d naa.600d02310008483bOOOOOOOO7ef9583c  
 	
 
-But I had one path so it didn&#8217;t make a difference. We then ran an *esxcfg-rescan* to reclaim the device and then double checked the settings to see the following:
+But I had one path so it didn't make a difference. We then ran an *esxcfg-rescan* to reclaim the device and then double checked the settings to see the following:
 
 	  
 	~ # esxcfg-rescan vmhba37  
@@ -130,7 +130,7 @@ But I had one path so it didn&#8217;t make a difference. We then ran an *esxcfg-
 	Working Paths: vmhba37:CO:T1:L6  
 	
 
-We could&#8217;ve reclaimed all the LUNs by running the following:
+We could've reclaimed all the LUNs by running the following:
 
 	  
 	\# for i in \`ls /vmfs/devices/disks/ | grep naa.600d\` ; do esxcli corestorage claiming reclaim -d $i ;done  

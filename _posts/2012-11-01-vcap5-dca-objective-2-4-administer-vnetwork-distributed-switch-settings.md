@@ -56,24 +56,24 @@ vSS (virtual Standard Switch) is just a regular vswitch and is configured on a p
 	/net/vswitch/child[0000]/uplinks/child[0000]/pnic = "vmnic0"  
 	
 
-The vDS (virtual Distributed Switch) contains multiple proxy switches, which reside on each host that sync together with vCenter to have a single management point. Most of the configurations are in the vCenter Database. But each host contains a /etc/vmware/dvsdata file and .dvsData folder on some of your datastores. From &#8220;<a href="http://blogs.vmware.com/vsphere/2011/06/vds-config-location-and-ha.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vsphere/2011/06/vds-config-location-and-ha.html']);">vDS config location and HA</a>&#8220;:
+The vDS (virtual Distributed Switch) contains multiple proxy switches, which reside on each host that sync together with vCenter to have a single management point. Most of the configurations are in the vCenter Database. But each host contains a /etc/vmware/dvsdata file and .dvsData folder on some of your datastores. From "<a href="http://blogs.vmware.com/vsphere/2011/06/vds-config-location-and-ha.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vsphere/2011/06/vds-config-location-and-ha.html']);">vDS config location and HA</a>":
 
 > *   The .dvsData folder is only created if you have a VM on that datastore that is attached to a vDS. Thus if there is only VM’s that is attached to a vSwitch on a datastore there will not be a .dvsData folder. Also only the datastore that holds the .vmx config file will have the .dvsData folder.
 > *   Inside the .dvsData folder there is a UUID number for each vDS switch.
 > *   Inside the UUID folder is a smaller file that is a number. This number corresponds to the ethernetx.dvs.portId inside the .vmx file of a VM. Below we can see that ethernet0.dvs.portId=10.
 > 
 > <a href="http://virtuallyhyper.com/wp-content/uploads/2012/10/dvsData_example.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/10/dvsData_example.png']);"><img class="alignnone size-full wp-image-4080" title=".dvsData_example" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/dvsData_example.png" alt="dvsData example VCAP5 DCA Objective 2.4 – Administer vNetwork Distributed Switch Settings " width="613" height="187" /></a>  
-> &#8230;  
-> &#8230;
+> ...  
+> ...
 > 
 > *   /etc/vmware/dvsdata.db 
 >     *   Updated by hostd every 5 min
 >     *   Contains data for persistent vdPorts (vmkernel)
-> *   The smaller files (“10&#8243; in our case) 
+> *   The smaller files (“10" in our case) 
 >     *   Updated with vdPort information every 5 min by hostd
 >     *   Contains data for the VM’s vNIC’s that is attached to the vDS
 
-Also check out this great post by Duncan Epping &#8220;<a href="http://www.yellow-bricks.com/2012/02/23/digging-deeper-into-the-vds-construct/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.yellow-bricks.com/2012/02/23/digging-deeper-into-the-vds-construct/']);">Digging deeper into the VDS construct</a>&#8221;
+Also check out this great post by Duncan Epping "<a href="http://www.yellow-bricks.com/2012/02/23/digging-deeper-into-the-vds-construct/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.yellow-bricks.com/2012/02/23/digging-deeper-into-the-vds-construct/']);">Digging deeper into the VDS construct</a>"
 
 ### Understand the use of command line tools to configure appropriate vDS settings on an ESXi host
 
@@ -91,7 +91,7 @@ From VMware KB <a href="http://kb.vmware.com/kb/1022312" onclick="javascript:_ga
 > 
 > **Dynamic binding**
 > 
-> In a port group configured with dynamic binding, a port is assigned to a virtual machine only when the virtual machine is powered on and its NIC is in a connected state. The port is disconnected when the virtual machine is powered off or the virtual machine&#8217;s NIC is disconnected. Virtual machines connected to a port group configured with dynamic binding must be powered on and off through vCenter.
+> In a port group configured with dynamic binding, a port is assigned to a virtual machine only when the virtual machine is powered on and its NIC is in a connected state. The port is disconnected when the virtual machine is powered off or the virtual machine's NIC is disconnected. Virtual machines connected to a port group configured with dynamic binding must be powered on and off through vCenter.
 > 
 > Dynamic binding can be used in environments where you have more virtual machines than available ports, but do not plan to have a greater number of virtual machines active than you have available ports. For example, if you have 300 virtual machines and 100 ports, but never have more than 90 virtual machines active at one time, dynamic binding would be appropriate for your port group.
 > 
@@ -99,7 +99,7 @@ From VMware KB <a href="http://kb.vmware.com/kb/1022312" onclick="javascript:_ga
 > 
 > **Ephemeral binding**
 > 
-> In a port group configured with ephemeral binding, a port is created and assigned to a virtual machine when the virtual machine is powered on and its NIC is in a connected state. The port is deleted when the virtual machine is powered off or the virtual machine&#8217;s NIC is disconnected.
+> In a port group configured with ephemeral binding, a port is created and assigned to a virtual machine when the virtual machine is powered on and its NIC is in a connected state. The port is deleted when the virtual machine is powered off or the virtual machine's NIC is disconnected.
 > 
 > Ephemeral port assignments can be made through ESX/ESXi as well as vCenter, giving you the flexibility to manage virtual machine connections through the host when vCenter is down. Although only ephemeral binding allows you to modify virtual machine network connections when vCenter is down, network traffic is unaffected by vCenter failure regardless of port binding type.
 > 
@@ -122,14 +122,14 @@ From VMware KB <a href="http://kb.vmware.com/kb/1022312" onclick="javascript:_ga
 > </p>
 > 
 > <p style="padding-left: 30px;">
->   Non-persistent (that is, &#8220;ephemeral&#8221;) ports
+>   Non-persistent (that is, "ephemeral") ports
 > </p>
 > 
 > <p style="padding-left: 30px;">
 >   Port-level permissions and controls are lost across power cycles, so no historical context is saved.
 > </p>
 
-To change the settings go to &#8220;Networking&#8221; View -> Right Click on a DVPortGroup -> Edit settings. It will look something like this:
+To change the settings go to "Networking" View -> Right Click on a DVPortGroup -> Edit settings. It will look something like this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/10/dvs_port_binding.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/10/dvs_port_binding.png']);"><img class="alignnone size-full wp-image-4279" title="dvs_port_binding" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/dvs_port_binding.png" alt="dvs port binding VCAP5 DCA Objective 2.4 – Administer vNetwork Distributed Switch Settings " width="685" height="504" /></a>
 
@@ -156,7 +156,7 @@ Here is how the GUI looks like:
 
 ### Given a set of network requirements, identify the appropriate distributed switch technology to use
 
-From &#8220;<a href="http://www.cisco.com/en/US/prod/collateral/switches/ps9441/ps9902/solution_overview_c22-526262.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.cisco.com/en/US/prod/collateral/switches/ps9441/ps9902/solution_overview_c22-526262.pdf']);">Virtual Networking Features of VMware vSphere Distributed Switch and Cisco Nexus 1000V Series Switches</a>&#8220;, here is a good feature list of the DVS:
+From "<a href="http://www.cisco.com/en/US/prod/collateral/switches/ps9441/ps9902/solution_overview_c22-526262.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.cisco.com/en/US/prod/collateral/switches/ps9441/ps9902/solution_overview_c22-526262.pdf']);">Virtual Networking Features of VMware vSphere Distributed Switch and Cisco Nexus 1000V Series Switches</a>", here is a good feature list of the DVS:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/10/p1_dvs_features.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/10/p1_dvs_features.png']);"><img class="alignnone size-full wp-image-4561" title="p1_dvs_features" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/p1_dvs_features.png" alt="p1 dvs features VCAP5 DCA Objective 2.4 – Administer vNetwork Distributed Switch Settings " width="538" height="643" /></a>
 
@@ -168,7 +168,7 @@ Everything depends on the requirements, if you need QOS, then you can set that u
 
 ### Configure and administer vSphere Network I/O Control
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-networking-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-networking-guide.pdf']);">vSphere Networking ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-networking-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-networking-guide.pdf']);">vSphere Networking ESXi 5.0</a>":
 
 > **vSphere Network I/O Control**  
 > Network resource pools determine the bandwidth that different network traffic types are given on a vSphere distributed switch.
@@ -177,7 +177,7 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 > 
 > You can also create custom network resource pools for virtual machine traffic. You can control the bandwidth each network resource pool is given by setting the physical adapter shares and host limit for each network resource pool.
 > 
-> The physical adapter shares assigned to a network resource pool determine the share of the total available bandwidth guaranteed to the traffic associated with that network resource pool. The share of transmit bandwidth available to a network resource pool is determined by the network resource pool&#8217;s shares and what other network resource pools are actively transmitting. For example, if you set your FT traffic and iSCSI traffic resource pools to 100 shares, while each of the other resource pools is set to 50 shares, the FT traffic and iSCSI traffic resource pools each receive 25% of the available bandwidth. The remaining resource pools each receive 12.5% of the available bandwidth. These reservations apply only when the physical adapter is saturated.
+> The physical adapter shares assigned to a network resource pool determine the share of the total available bandwidth guaranteed to the traffic associated with that network resource pool. The share of transmit bandwidth available to a network resource pool is determined by the network resource pool's shares and what other network resource pools are actively transmitting. For example, if you set your FT traffic and iSCSI traffic resource pools to 100 shares, while each of the other resource pools is set to 50 shares, the FT traffic and iSCSI traffic resource pools each receive 25% of the available bandwidth. The remaining resource pools each receive 12.5% of the available bandwidth. These reservations apply only when the physical adapter is saturated.
 > 
 > The host limit of a network resource pool is the upper limit of bandwidth that the network resource pool can use.
 > 
@@ -200,7 +200,7 @@ Here is how it looks in vCenter:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/10/enable_nioc.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/10/enable_nioc.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/10/enable_nioc.png" alt="enable nioc VCAP5 DCA Objective 2.4 – Administer vNetwork Distributed Switch Settings " title="enable_nioc" width="818" height="393" class="alignnone size-full wp-image-4564" /></a>
 
-There is also a very good example in the VMware blog &#8220;<a href="http://blogs.vmware.com/vsphere/2011/08/vsphere-5-new-networking-features-enhanced-nioc.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vsphere/2011/08/vsphere-5-new-networking-features-enhanced-nioc.html']);">vSphere 5 New Networking Features – Enhanced NIOC</a>&#8220;. From the blog:
+There is also a very good example in the VMware blog "<a href="http://blogs.vmware.com/vsphere/2011/08/vsphere-5-new-networking-features-enhanced-nioc.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vsphere/2011/08/vsphere-5-new-networking-features-enhanced-nioc.html']);">vSphere 5 New Networking Features – Enhanced NIOC</a>". From the blog:
 
 > **User-Defined Network Resource Pools**
 > 
@@ -209,8 +209,8 @@ There is also a very good example in the VMware blog &#8220;<a href="http://blog
 > Figure below shows an example of a user-defined resource pool with shares, limits and IEEE 802.1p tag parameters described in a table. In this example, Tenant 1 and Tenant 2 are two user-defined resource pools with virtual machines connected to their respective independent port groups. Tenant 1, with three virtual machines, has five I/O shares. Tenant 2, with one virtual machine, has 15 I/O shares. This indicates that during contention scenarios, Tenant 2 virtual machines will have a higher guaranteed share than Tenant 1 virtual machines.
 > 
 > <a href="http://virtuallyhyper.com/wp-content/uploads/2012/10/user_defined_nioc_example.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/10/user_defined_nioc_example.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/10/user_defined_nioc_example.png" alt="user defined nioc example VCAP5 DCA Objective 2.4 – Administer vNetwork Distributed Switch Settings " title="user_defined_nioc_example" width="562" height="377" class="alignnone size-full wp-image-4565" /></a>  
-> &#8230;  
-> &#8230;
+> ...  
+> ...
 > 
 > **Configuration**
 > 
@@ -218,8 +218,8 @@ There is also a very good example in the VMware blog &#8220;<a href="http://blog
 > 
 > <a href="http://virtuallyhyper.com/wp-content/uploads/2012/10/user_defined_network_resources.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/10/user_defined_network_resources.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/10/user_defined_network_resources.png" alt="user defined network resources VCAP5 DCA Objective 2.4 – Administer vNetwork Distributed Switch Settings " title="user_defined_network_resources" width="558" height="381" class="alignnone size-full wp-image-4566" /></a>
 > 
-> &#8230;  
-> &#8230;
+> ...  
+> ...
 > 
 > **IEEE 802.1p Tagging**
 > 

@@ -15,14 +15,14 @@ tags:
 ---
 ## Confirming UCS Hardware on ESX(i)
 
-First, let&#8217;s SSH over to the host and confirm the version of ESXi:
+First, let's SSH over to the host and confirm the version of ESXi:
 
     ~ # vmware -lv
     VMware ESXi 5.0.0 build-469512
     VMware ESXi 5.0.0 GA 
     
 
-That looks good, next let&#8217;s confirm the hardware that we are running on:
+That looks good, next let's confirm the hardware that we are running on:
 
     ~ # esxcli hardware platform get
     Platform Information
@@ -33,13 +33,13 @@ That looks good, next let&#8217;s confirm the hardware that we are running on:
        IPMI Supported: true
     
 
-Now let&#8217;s login to the UCS Manager via SSH and confirm our blade information as well. I actually wrote a <a href="http://virtuallyhyper.com/2012/08/confirming-ucs-settings-using-command-line/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/08/confirming-ucs-settings-using-command-line/']);">post</a> about this not too while ago. I knew that the name of my blade was &#8216;p1-b200-64&#8242;, so I searched for that.
+Now let's login to the UCS Manager via SSH and confirm our blade information as well. I actually wrote a <a href="http://virtuallyhyper.com/2012/08/confirming-ucs-settings-using-command-line/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/08/confirming-ucs-settings-using-command-line/']);">post</a> about this not too while ago. I knew that the name of my blade was 'p1-b200-64', so I searched for that.
 
     p1-ucsm-A# show service-profile inventory | grep p1-b200-64
     p1-b200-64           Instance          9/1     Assigned   Associated
     
 
-There is my blade, it&#8217;s inside Chassis 9 and it&#8217;s server 1. So going into that server:
+There is my blade, it's inside Chassis 9 and it's server 1. So going into that server:
 
     p1-ucsm-A# scope chassis 9
     p1-ucsm-A /chassis # scope server 1
@@ -65,11 +65,11 @@ and looking over its hardware, I saw the following:
         Acknowledged Adapters: 1
     
 
-So the hardware for my blade is &#8216;N20-B6625-1&#8242; and Serial is &#8220;FCH1432V1HY&#8221;; both matched, which is good.
+So the hardware for my blade is 'N20-B6625-1' and Serial is "FCH1432V1HY"; both matched, which is good.
 
 ## Confirming UCS HBA Connectivity
 
-We are going to be connecting to our NetApp filer over Fibre Channel, so let&#8217;s make sure our WWNs are logged into the Cisco InterConnects. So first checking for the WWN from the ESXi host, we see the following:
+We are going to be connecting to our NetApp filer over Fibre Channel, so let's make sure our WWNs are logged into the Cisco InterConnects. So first checking for the WWN from the ESXi host, we see the following:
 
     ~ # esxcfg-scsidevs -a
     vmhba0  mptsas            link-n/a  sas.50022bdd8c104000                    (0:1:0.0) LSI Logic / Symbios Logic LSI1064E
@@ -77,7 +77,7 @@ We are going to be connecting to our NetApp filer over Fibre Channel, so let&#82
     vmhba2  fnic              link-up   fc.20010025b5000046:20000025b50b0046    (0:17:0.0) Cisco Systems Inc Cisco VIC FCoE HBA
     
 
-So we have &#8220;20010025b5000046:20000025b50a0046&#8243; and &#8220;20010025b5000046:20000025b50b0046&#8243; for both of our HBAs. Now checking the same thing from our UCSM, I saw the following:
+So we have "20010025b5000046:20000025b50a0046" and "20010025b5000046:20000025b50b0046" for both of our HBAs. Now checking the same thing from our UCSM, I saw the following:
 
     p1-ucsm-A /chassis/server # show adapter
     
@@ -99,7 +99,7 @@ This is the Cisco VIC (PALO card), now checking for information regarding the HB
                  2 20:00:00:25:B5:0B:00:46 N20-AC0002 fc1        Operable
     
 
-So &#8220;20:00:00:25:B5:0A:00:46&#8243; and &#8220;20:00:00:25:B5:0B:00:46&#8243; match what we saw in ESXi. Usually in UCS Enclosures, you have two fabric inter-connects and each HBA is connected to a different fabric for redundancy purposes. So let&#8217;s ensure that is case with our blade:
+So "20:00:00:25:B5:0A:00:46" and "20:00:00:25:B5:0B:00:46" match what we saw in ESXi. Usually in UCS Enclosures, you have two fabric inter-connects and each HBA is connected to a different fabric for redundancy purposes. So let's ensure that is case with our blade:
 
     p1-ucsm-A /chassis/server # scope service-profile server 9/1
     p1-ucsm-A /org/service-profile # show vhba
@@ -111,7 +111,7 @@ So &#8220;20:00:00:25:B5:0A:00:46&#8243; and &#8220;20:00:00:25:B5:0B:00:46&#824
         fc1        B         20:00:00:25:B5:0B:00:46
     
 
-That looks good. Now let&#8217;s connect to the interconnects and check whether our WWNs show up there. First let&#8217;s check what interconnects we have:
+That looks good. Now let's connect to the interconnects and check whether our WWNs show up there. First let's check what interconnects we have:
 
     p1-ucsm-A /org/service-profile # show fabric-interconnect
     
@@ -122,7 +122,7 @@ That looks good. Now let&#8217;s connect to the interconnects and check whether 
         B    10.101.100.15   10.101.100.1    255.255.255.0   Operable
     
 
-So let&#8217;s connect to the Fabric A:
+So let's connect to the Fabric A:
 
     p1-ucsm-A /org/service-profile # connect nxos a
     Cisco Nexus Operating System (NX-OS) Software
@@ -142,7 +142,7 @@ So let&#8217;s connect to the Fabric A:
     vfc3509   101  0x080051 20:00:00:25:b5:0a:00:46 20:01:00:25:b5:00:00:46 fc2/1
     
 
-So our WWN is connected to virtual interface &#8220;vfc3509&#8243;. Checking out the setting for that interface, I saw the following:
+So our WWN is connected to virtual interface "vfc3509". Checking out the setting for that interface, I saw the following:
 
     p1-ucsm-A(nxos)# show run int vfc3509
     
@@ -188,7 +188,7 @@ The description matches our blade (server 9/1) and the port is operational. When
 
 ## Confiringm NetAPP Version and Model
 
-Now logging into the array and checking it&#8217;s model and ONTAP version, I saw the following:
+Now logging into the array and checking it's model and ONTAP version, I saw the following:
 
     p1-3240cl1-2> version
     NetApp Release 8.0.3P3 7-Mode: Tue Jul  3 22:29:01 PDT 2012
@@ -226,7 +226,7 @@ So we have a FAS3240 running ONTAP version 8.0.3P3.
 
 ## NetAPP ONTAP Overview
 
-Now before we go down further, we should take a look at the logical view of how NetApp handles it&#8217;s storage. From &#8220;<a href="http://www.buynetappstorage.com/download/netapp_fas6200_technical_report.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.buynetappstorage.com/download/netapp_fas6200_technical_report.pdf']);">The Benefits of Converged Networking with NetApp FAS6280 and Intel Xeon Servers</a>&#8220;,we see the following:
+Now before we go down further, we should take a look at the logical view of how NetApp handles it's storage. From "<a href="http://www.buynetappstorage.com/download/netapp_fas6200_technical_report.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.buynetappstorage.com/download/netapp_fas6200_technical_report.pdf']);">The Benefits of Converged Networking with NetApp FAS6280 and Intel Xeon Servers</a>",we see the following:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/11/ontap_logical_view.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/11/ontap_logical_view.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/11/ontap_logical_view.png" alt="ontap logical view Presenting a LUN over Fibre Channel from a NetApp FAS 3240 Array to an ESXi 5.0 Host Running on a Cisco UCS B200 Blade" title="ontap_logical_view" width="433" height="486" class="alignnone size-full wp-image-5008" /></a>
 
@@ -370,12 +370,12 @@ RAID-DP is an equivilant of a regular RAID 6 but with special NetApp functionali
 
 ### ONTAP Volumes
 
-So now let&#8217;s go ahead and create a volume from the above aggregate. Now there are also different volumes, from the &#8220;Storage Management Guide&#8221;:
+So now let's go ahead and create a volume from the above aggregate. Now there are also different volumes, from the "Storage Management Guide":
 
 > **How FlexVol volumes work**  
 > A FlexVol volume is a volume that is loosely coupled to its containing aggregate. A FlexVol volume can share its containing aggregate with other FlexVol volumes. Thus, a single aggregate can be the shared source of all the storage used by all the FlexVol volumes contained by that aggregate. Because a FlexVol volume is managed separately from the aggregate, you can create small FlexVol volumes (20 MB or larger), and you can increase or decrease the size of FlexVol volumes in increments as small as 4 KB.
 > 
-> When a FlexVol volume is created, it reserves a small amount of extra space (approximately 0.5 percent of its nominal size) from the free space of its containing aggregate. This space is used to store the volume&#8217;s metadata. Therefore, upon creation, a FlexVol volume with a space guarantee of volume uses free space from the aggregate equal to its size × 1.005. A newly-created FlexVol volume with a space guarantee of none or file uses free space equal to .005 × its nominal
+> When a FlexVol volume is created, it reserves a small amount of extra space (approximately 0.5 percent of its nominal size) from the free space of its containing aggregate. This space is used to store the volume's metadata. Therefore, upon creation, a FlexVol volume with a space guarantee of volume uses free space from the aggregate equal to its size × 1.005. A newly-created FlexVol volume with a space guarantee of none or file uses free space equal to .005 × its nominal
 
 And also from the same document:
 
@@ -386,14 +386,14 @@ And also from the same document:
 > 
 > You cannot use SSDs to create a traditional volume.
 
-The FlexVol volume definitely sounds like it&#8217;s the way to go&#8230; it seems more flexible ;). I wanted to create a 500GB Flexible volume, and then carve out a 100GB LUN from that volume. Checking what volumes we currently have:
+The FlexVol volume definitely sounds like it's the way to go... it seems more flexible ;). I wanted to create a 500GB Flexible volume, and then carve out a 100GB LUN from that volume. Checking what volumes we currently have:
 
     p1-3240cl1-2> vol status
              Volume State           Status            Options
                vol0 online          raid_dp, flex     root, create_ucode=on
     
 
-That is just the root volume, since this is inside &#8216;aggr0&#8242;:
+That is just the root volume, since this is inside 'aggr0':
 
     p1-3240cl1-2> vol container vol0
     Volume 'vol0' is contained in aggregate 'aggr0'
@@ -444,7 +444,7 @@ Now to create a 100GB LUN inside my volume:
 
 ## Creating an iGroup on NetAPP
 
-Now we need to create an *igroup* (initiator group) and map the LUN to it. This will contain a list of WWNs allowed to connect to this LUN. First let&#8217;s check the Array HBAs:
+Now we need to create an *igroup* (initiator group) and map the LUN to it. This will contain a list of WWNs allowed to connect to this LUN. First let's check the Array HBAs:
 
     p1-3240cl1-2> fcp show adapter
     Slot:                    2a
@@ -494,7 +494,7 @@ Just the local disk. Now checking out the paths, I saw the following:
        vmhba0:C1:T0:L0 LUN:0 state:active sas Adapter: 50022bdd8c104000  Target: c6d3619bd7810fb
     
 
-Nothing special, just the local disk. Now we know the Host WWNs are the following: 20:00:00:25:B5:0A:00:46 and 20:00:00:25:B5:0B:00:46. So let&#8217;s add those WWNs to an igroup:
+Nothing special, just the local disk. Now we know the Host WWNs are the following: 20:00:00:25:B5:0A:00:46 and 20:00:00:25:B5:0B:00:46. So let's add those WWNs to an igroup:
 
     p1-3240cl1-2> igroup create -f -t vmware esx_hosts 20:00:00:25:b5:0a:00:46 20:00:00:25:b5:0b:00:46
     p1-3240cl1-2> igroup show
@@ -505,14 +505,14 @@ Nothing special, just the local disk. Now we know the Host WWNs are the followin
 
 ## Mapping a LUN to iGroup on NetAPP
 
-Now let&#8217;s map our LUN to this igroup:
+Now let's map our LUN to this igroup:
 
     p1-3240cl1-2> lun map /vol/karim_vol/my_lun esx_hosts
     Sat Nov 24 15:15:29 EST [p1-3240cl1-2: lun.map:info]: LUN /vol/karim_vol/my_lun was mapped to initiator group esx_hosts=0
     p1-3240cl1-2>  24 15:15:29 EST [p1-3240cl1-2: lun.map:info]: LUN /vol/karim_vol/my_lun was mapped to initiator group esx_hosts=0
     
 
-Checking to make sure it&#8217;s mapped:
+Checking to make sure it's mapped:
 
     p1-3240cl1-2> lun show -m
     LUN path                            Mapped to          LUN ID  Protocol
@@ -542,7 +542,7 @@ Then checking out the igroups, I saw the following:
          20:00:00:25:b5:0b:00:46 (logged in on: vtic, 0d)
     
 
-Obviously the SAN switch had proper zoning setup, but I was not part of that setup, since I didn&#8217;t have access to them. Now checking out the setting on the host:
+Obviously the SAN switch had proper zoning setup, but I was not part of that setup, since I didn't have access to them. Now checking out the setting on the host:
 
     ~ # esxcfg-scsidevs -c
     Device UID                            Device Type      Console Device                                            Size      Multipath PluginDisplay Name

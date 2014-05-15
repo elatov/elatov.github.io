@@ -14,7 +14,7 @@ tags:
 ---
 ### Identify vSphere PowerCLI requirements
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp_powercli_50_usg.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp_powercli_50_usg.pdf']);">vSphere PowerCLI User’s Guide PowerCLI 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp_powercli_50_usg.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp_powercli_50_usg.pdf']);">vSphere PowerCLI User’s Guide PowerCLI 5.0</a>":
 
 > **PowerCLI Installation Prerequisites**  
 > To install vSphere PowerCLI, you must have installed the following software
@@ -90,13 +90,13 @@ After the install is finished, you will see the following on your Desktop:
 
 <a href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-1-execute-vmware-cmdlets-and-customize-scripts-using-powercli/powercli_icon/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-1-execute-vmware-cmdlets-and-customize-scripts-using-powercli/powercli_icon/']);" rel="attachment wp-att-5538"><img class="alignnone size-full wp-image-5538" alt="powercli icon VCAP5 DCA Objective 8.1 – Execute VMware Cmdlets and Customize Scripts Using PowerCLI " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/powercli_icon.png" width="121" height="121" title="VCAP5 DCA Objective 8.1 – Execute VMware Cmdlets and Customize Scripts Using PowerCLI " /></a>
 
-Double Clicking on the &#8220;PowerCLi&#8221; Icon will start PowerCLI:
+Double Clicking on the "PowerCLi" Icon will start PowerCLI:
 
 <a href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-1-execute-vmware-cmdlets-and-customize-scripts-using-powercli/powercli_started/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-1-execute-vmware-cmdlets-and-customize-scripts-using-powercli/powercli_started/']);" rel="attachment wp-att-5539"><img class="alignnone size-full wp-image-5539" alt="powercli started VCAP5 DCA Objective 8.1 – Execute VMware Cmdlets and Customize Scripts Using PowerCLI " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/powercli_started.png" width="665" height="326" title="VCAP5 DCA Objective 8.1 – Execute VMware Cmdlets and Customize Scripts Using PowerCLI " /></a>
 
-Notice that I also enabled &#8216;remotesigned&#8217; execution of scripts.
+Notice that I also enabled 'remotesigned' execution of scripts.
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp_powercli_50_usg.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp_powercli_50_usg.pdf']);">vSphere PowerCLI User’s Guide PowerCLI 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp_powercli_50_usg.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp_powercli_50_usg.pdf']);">vSphere PowerCLI User’s Guide PowerCLI 5.0</a>":
 
 > **Setting the Properties to Support Remote Signing**  
 > For security reasons, Windows PowerShell supports an execution policy feature. It determines whether scripts are allowed to run and whether they must be digitally signed. By default, the execution policy is set to Restricted, which is the most secure policy. If you want to run scripts or load configuration files, you can change the execution policy by using the Set-ExecutionPolicy cmdlet.
@@ -115,7 +115,7 @@ After enabling the appropriate Execution policy, the powercli console will look 
 
 ### Install and configure Update Manager PowerShell Library
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-powercli-50-inst-admg.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-powercli-50-inst-admg.pdf']);">VMware vSphere Update Manager PowerCLI Installation and Administration Guide PowerCLI 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-powercli-50-inst-admg.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-powercli-50-inst-admg.pdf']);">VMware vSphere Update Manager PowerCLI Installation and Administration Guide PowerCLI 5.0</a>":
 
 > **Install Update Manager PowerCLI**  
 > You can download the Update Manager PowerCLI installer package from the product landing page at https://www.vmware.com/support/developer/ps-libs/vumps/.
@@ -326,7 +326,7 @@ And more examples from the same guide:
 	>       
 	>     Connect-VIServer -Server 192.168.10.10  
 	>     </p> 
->     When prompted, provide the administrator&#8217;s user name and password to authenticate access on the server.</li> 
+>     When prompted, provide the administrator's user name and password to authenticate access on the server.</li> 
 >     *   Get the inventory root folder and create a new folder called Folder in it:  
 	>           
 	>         $folder = Get-Folder -NoRecursion | New-Folder -Name Folder  
@@ -350,7 +350,7 @@ And more examples from the same guide:
 	>             $host1 = Add-VMHost -Name 10.23.112.345 -Location ( Get-Cluster Cluster1 )  
 	>               
 >             The parentheses interpolate the object returned by the Get-Cluster command into Location parameter.
->         *   Create a resource pool in the cluster&#8217;s root resource pool:  
+>         *   Create a resource pool in the cluster's root resource pool:  
 	>               
 	>             $myClusterRootRP = Get-ResourcePool -Location ( Get-Cluster Cluster1 ) -Name Resources New-ResourcePool -Location $clusterRootRP -Name MyRP01 -CpuExpandableReservation $true  
 	>             -CpuReservationMhz 500 -CpuSharesLevel high -MemExpandableReservation $true -MemReservationMB 500 -MemSharesLevel high  
@@ -367,7 +367,7 @@ And more examples from the same guide:
 >         
 >         ### Use Web Service Access Cmdlets
 >         
->         From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp_powercli_50_usg.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp_powercli_50_usg.pdf']);">vSphere PowerCLI User’s Guide PowerCLI 5.0</a>&#8220;:
+>         From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp_powercli_50_usg.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp_powercli_50_usg.pdf']);">vSphere PowerCLI User’s Guide PowerCLI 5.0</a>":
 >         
 >         > **API Access Cmdlets**  
 >         > The vSphere PowerCLI list of cmdlets includes two API Access cmdlets:
@@ -382,12 +382,12 @@ And more examples from the same guide:
 >         > 
 >         > Using the API Access cmdlets for low-level VMware vSphere management requires some knowledge of both PowerShell scripting and the VMware vSphere API.
 >         
->         Get-View provides a lower level of functionality and is faster to execute the commands. From &#8220;<a href="http://psvmware.wordpress.com/2012/10/30/powershell-list-view-filter-and-viewtypes" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://psvmware.wordpress.com/2012/10/30/powershell-list-view-filter-and-viewtypes']);">Get-view, list viewtypes, filter usage, Get-VIObjectbyVIView, and get-vm in powercli</a>&#8220;:
+>         Get-View provides a lower level of functionality and is faster to execute the commands. From "<a href="http://psvmware.wordpress.com/2012/10/30/powershell-list-view-filter-and-viewtypes" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://psvmware.wordpress.com/2012/10/30/powershell-list-view-filter-and-viewtypes']);">Get-view, list viewtypes, filter usage, Get-VIObjectbyVIView, and get-vm in powercli</a>":
 >         
->         > In few words… While installing powercli you receive a set of cmdlets. You can get info about vms,datastores,clusters etc, etc… You can run verb cmdlets like set/new/invoke/move/restart/start/stop&#8230; etc. Well you can see it yourself executing ‘get-vicommand’ how many of those there are But in case that’s not enough you can access vsphere objects using views. You will discover that they provide even more options than cmdlets. Some things can’t be done using powercli cmdlets, and they need to be executed using views and their methods.
+>         > In few words… While installing powercli you receive a set of cmdlets. You can get info about vms,datastores,clusters etc, etc… You can run verb cmdlets like set/new/invoke/move/restart/start/stop... etc. Well you can see it yourself executing ‘get-vicommand’ how many of those there are But in case that’s not enough you can access vsphere objects using views. You will discover that they provide even more options than cmdlets. Some things can’t be done using powercli cmdlets, and they need to be executed using views and their methods.
 >         > 
->         > &#8230;  
->         > &#8230;
+>         > ...  
+>         > ...
 >         > 
 >         > I think that the most common mistake in my opinion is to get the view from get-vm. Well i was doing it myself too:  
 	>         >   
@@ -699,7 +699,7 @@ And more examples from the same guide:
 >         
 >         ### Given a sample script, modify the script to perform a given action
 >         
->         Let&#8217;s say you had the following script to list all the VMs that have snapshots:
+>         Let's say you had the following script to list all the VMs that have snapshots:
 >         
 	>           
 	>         $vcenter = "servername"
@@ -724,7 +724,7 @@ And more examples from the same guide:
 	>         VM: test Name: ws Size: 0.04  
 	>         
 >         
->         Let&#8217;t say now you wanted to also print out the date of when the snapshot was created and also save the output in a file. So first let&#8217;s find out what available members we have from &#8216;get-snapshot&#8217;:
+>         Let't say now you wanted to also print out the date of when the snapshot was created and also save the output in a file. So first let's find out what available members we have from 'get-snapshot':
 >         
 	>           
 	>         PowerCLI C:\Program Files (x86)\VMware\Infrastructure\vSphere PowerCLI> Get-VM | Get-Snapshot | Get-Member
@@ -756,7 +756,7 @@ And more examples from the same guide:
 	>         VMId Property System.String VMId {get;}  
 	>         
 >         
->         So it looks like there is an option called &#8220;Created&#8221;, that is probably what we need. Also there is an &#8216;Out-File&#8217; cmdlet in powershell. Here is the information on that:
+>         So it looks like there is an option called "Created", that is probably what we need. Also there is an 'Out-File' cmdlet in powershell. Here is the information on that:
 >         
 	>           
 	>         PowerCLI C:\Program Files (x86)\VMware\Infrastructure\vSphere PowerCLI> get-help out-file
@@ -792,7 +792,7 @@ And more examples from the same guide:
 	>         }  
 	>         
 >         
->         Notice I also changed from &#8220;Write-Host&#8221; to &#8220;Write-Output&#8221;. Do a &#8216;get-help&#8217; on that to find out why. Here are the contents of my file after I ran the script:
+>         Notice I also changed from "Write-Host" to "Write-Output". Do a 'get-help' on that to find out why. Here are the contents of my file after I ran the script:
 >         
 	>           
 	>         C:\>type info.txt  

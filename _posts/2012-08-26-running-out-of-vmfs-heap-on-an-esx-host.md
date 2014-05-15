@@ -24,7 +24,7 @@ Recently I ran into an issue where we were running out of VMFS3 Heap. We would s
 	2012-07-20T04:36:55.375Z cpu5:8496)WARNING: Heap: 2900: Heap_Align(vmfs3, 6184/6184 bytes, 8 align) failed. caller: 0x418031efc4e9  
 	
 
-I grabbed the logs from all the hosts in the clusters to get a feeling for how much space we are using. In the logs you can check out the *vmware-vimdump.txt* file and that will have the description of all the VMs. If you want to check all the flat files in a host&#8217;s inventory you can run the following:
+I grabbed the logs from all the hosts in the clusters to get a feeling for how much space we are using. In the logs you can check out the *vmware-vimdump.txt* file and that will have the description of all the VMs. If you want to check all the flat files in a host's inventory you can run the following:
 
 	  
 	$ grep "\-flat.vmdk" vmware-vimdump.txt -A 3  
@@ -51,7 +51,7 @@ The list keeps going. If you want to see the sizes of all the VMDKs you can do t
 	'523,239,424 KB'  
 	
 
-If you want to see the whole list don&#8217;t pipe the command to *head*. So I first wanted to see all the VMDK sizes across all the hosts. In my scenario I had 8 hosts, my extracted logs looked like this:
+If you want to see the whole list don't pipe the command to *head*. So I first wanted to see all the VMDK sizes across all the hosts. In my scenario I had 8 hosts, my extracted logs looked like this:
 
 	  
 	$ for log in \`ls -d esx-*\`; do echo $log; done  
@@ -162,7 +162,7 @@ So we are approximately using 100TB of space across all the eight hosts. The iss
 	|\----Current Value................................256  
 	
 
-Now that KB has a very theoretical calculation. If there were no other resources (ie just open VMDKs) then we could reach that. But if we have VAAI enabled and are using ATS, or if we use SIOC enabled on the Datastores, then these things also contribute to the VMFS heap. As we know VMFS5 uses a Unified 1MB Block size and if we have a VMDK bigger than 256GB, which is the max file size with that block size for VMFS3 (block size of 1MB), then this also uses more VMFS heap. More information on the new features of VMFS5 can be seen in the VMware blog entitled &#8220;<a href="http://blogs.vmware.com/vsphere/2011/07/new-vsphere-50-storage-features-part-1-vmfs-5.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vsphere/2011/07/new-vsphere-50-storage-features-part-1-vmfs-5.html']);">vSphere 5.0 Storage Features Part 1 – VMFS-5</a>&#8221; and more information on VAAI and it&#8217;s features can be found in the VMware blog entitled &#8220;<a href="http://blogs.vmware.com/vsphere/2012/06/low-level-vaai-behaviour.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vsphere/2012/06/low-level-vaai-behaviour.html']);">Low Level VAAI Behaviour</a>&#8220;.  
+Now that KB has a very theoretical calculation. If there were no other resources (ie just open VMDKs) then we could reach that. But if we have VAAI enabled and are using ATS, or if we use SIOC enabled on the Datastores, then these things also contribute to the VMFS heap. As we know VMFS5 uses a Unified 1MB Block size and if we have a VMDK bigger than 256GB, which is the max file size with that block size for VMFS3 (block size of 1MB), then this also uses more VMFS heap. More information on the new features of VMFS5 can be seen in the VMware blog entitled "<a href="http://blogs.vmware.com/vsphere/2011/07/new-vsphere-50-storage-features-part-1-vmfs-5.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vsphere/2011/07/new-vsphere-50-storage-features-part-1-vmfs-5.html']);">vSphere 5.0 Storage Features Part 1 – VMFS-5</a>" and more information on VAAI and it's features can be found in the VMware blog entitled "<a href="http://blogs.vmware.com/vsphere/2012/06/low-level-vaai-behaviour.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vsphere/2012/06/low-level-vaai-behaviour.html']);">Low Level VAAI Behaviour</a>".  
 All of these things make it very hard to calculate VMFS heap usage. If you want to check the current usage, you can do the following:
 
 	  
@@ -191,11 +191,11 @@ All of these things make it very hard to calculate VMFS heap usage. If you want 
 	lowest percent free of max size ever encountered:84  
 	
 
-Keep an eye on the *percent free of max size* option, that is what your is heap currently at, and then also check out *lowest percent free of max size ever encountered*, this will tell you what the lowest value the heap has ever been. If the latter option is getting close to 20% then you might want to think about increasing your *MaxHeapSizeMB* setting per the instructions laid out in VMware KB <a href="http://kb.vmware.com/kb/1004424" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1004424']);">1004424</a>. There is actually an excellent VMware blog entitled &#8220;<a href="http://blogs.vmware.com/vsphere/2012/08/vmfs-heap-considerations.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vsphere/2012/08/vmfs-heap-considerations.html']);">VMFS Heap Considerations</a>&#8220;, and it talks about the default values for different versions of ESX(i) and it makes recommendations for how much space can be handled for each. From the blog:
+Keep an eye on the *percent free of max size* option, that is what your is heap currently at, and then also check out *lowest percent free of max size ever encountered*, this will tell you what the lowest value the heap has ever been. If the latter option is getting close to 20% then you might want to think about increasing your *MaxHeapSizeMB* setting per the instructions laid out in VMware KB <a href="http://kb.vmware.com/kb/1004424" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1004424']);">1004424</a>. There is actually an excellent VMware blog entitled "<a href="http://blogs.vmware.com/vsphere/2012/08/vmfs-heap-considerations.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vsphere/2012/08/vmfs-heap-considerations.html']);">VMFS Heap Considerations</a>", and it talks about the default values for different versions of ESX(i) and it makes recommendations for how much space can be handled for each. From the blog:
 
 > As a rule of thumb, we are conservatively estimating that a single ESXi host should have enough default heap space (80MB) to address around 10TB of open files/VMDKs on a VMFS-5 volume.  
-> &#8230;  
-> &#8230;  
+> ...  
+> ...  
 > If you change the advanced setting VMFS3.MaxHeapSizeMB to the maximum amount of heap (which is 256MB), we again conservatively estimate that about 30TB of open files/VMDKs can be addressed by that single ESXi host. 
 
 That is much more realistic estimation of how much open space can be handled by the different heap sizes. With the above recommendation we consolidated our cluster to 5 hosts, this way we would have about 20TB per host. Also, if ever needed to upgrade our servers then we would do a rolling reboot and one host would be down. In that scenario we would be down to 4 hosts with 25TB for each hosts and that is still acceptable.

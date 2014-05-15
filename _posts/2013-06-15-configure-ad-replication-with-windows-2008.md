@@ -15,18 +15,18 @@ tags:
 ---
 ## Types of AD replication
 
-With Active Directory (AD) there are multiple types of replication. From &#8220;<a href="http://technet.microsoft.com/en-us/library/cc775549%28WS.10%29.aspx" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://technet.microsoft.com/en-us/library/cc775549%28WS.10%29.aspx']);">What Is Active Directory Replication Topology?</a>&#8220;:
+With Active Directory (AD) there are multiple types of replication. From "<a href="http://technet.microsoft.com/en-us/library/cc775549%28WS.10%29.aspx" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://technet.microsoft.com/en-us/library/cc775549%28WS.10%29.aspx']);">What Is Active Directory Replication Topology?</a>":
 
 > As such, replication within sites generally occurs at high speeds between domain controllers that are on the same network segment. Similarly, site link objects can be configured to represent the wide area network (WAN) links that connect LANs. Replication between sites usually occurs over these WAN links, which might be costly in terms of bandwidth. To accommodate the differences in distance and cost of replication within a site and replication between sites, the intrasite replication topology is created to optimize speed, and the intersite replication topology is created to minimize cost.  
-> &#8230;  
-> &#8230;  
+> ...  
+> ...  
 > The Knowledge Consistency Checker (KCC) is a distributed application that runs on every domain controller and is responsible for creating the connections between domain controllers that collectively form the replication topology. The KCC uses Active Directory data to determine where (from what source domain controller to what destination domain controller) to create these connections.
 
 So there are two replication methods: *inter-site* and *intra-site*. From the same site:
 
 > The connections that are used for replication within sites are created automatically with no additional configuration. Intrasite replication takes advantage of LAN network speeds by providing replication as soon as changes occur, without the overhead of data compression, thus maximizing CPU efficiency.  
-> &#8230;  
-> &#8230;  
+> ...  
+> ...  
 > Replication between sites is made possible by user-defined site and site link objects that are created in Active Directory to represent the physical LAN and WAN network infrastructure. When Active Directory sites and site links are configured, the KCC creates an intersite topology so that replication flows between domain controllers across WAN links. Intersite replication occurs according to a site link schedule so that WAN usage can be controlled, and is compressed to reduce network bandwidth requirements.
 
 So intra-site replication is automatically setup, while inter-site requires some manual configuration of site links. I will be deploying another Domain Controller within my Virtual KVM environment, so I will setup intra-site replication. Here is a picture that shows both types of replications:
@@ -35,7 +35,7 @@ So intra-site replication is automatically setup, while inter-site requires some
 
 ## Data Replicated with AD Replication
 
-The article &#8220;<a href="http://technet.microsoft.com/en-us/library/cc772726%28v=ws.10%29.aspx" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://technet.microsoft.com/en-us/library/cc772726%28v=ws.10%29.aspx']);">How the Active Directory Replication Model Works</a>&#8221; talk about what data is replicated:
+The article "<a href="http://technet.microsoft.com/en-us/library/cc772726%28v=ws.10%29.aspx" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://technet.microsoft.com/en-us/library/cc772726%28v=ws.10%29.aspx']);">How the Active Directory Replication Model Works</a>" talk about what data is replicated:
 
 > Different categories of data are stored in replicas of different directory partitions, as follows:
 > 
@@ -52,21 +52,21 @@ The article &#8220;<a href="http://technet.microsoft.com/en-us/library/cc772726%
 
 ## AD Replication Interval
 
-The interval of the replication depends on your setup as well. From &#8220;<a href="http://technet.microsoft.com/en-us/library/cc728010%28v=ws.10%29.aspx" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://technet.microsoft.com/en-us/library/cc728010%28v=ws.10%29.aspx']);">Replication within a site</a>&#8220;:
+The interval of the replication depends on your setup as well. From "<a href="http://technet.microsoft.com/en-us/library/cc728010%28v=ws.10%29.aspx" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://technet.microsoft.com/en-us/library/cc728010%28v=ws.10%29.aspx']);">Replication within a site</a>":
 
 > Directory updates made within a site are likely to have the most direct impact on local clients, so intrasite replication is optimized for speed. Replication within a site occurs automatically on the basis of change notification. Intrasite replication begins when you make a directory update on a domain controller. By default, the source domain controller waits 15 seconds and then sends an update notification to its closest replication partner. If the source domain controller has more than one replication partner, subsequent notifications go out by default at 3 second intervals to each partner. After receiving notification of a change, a partner domain controller sends a directory update request to the source domain controller. The source domain controller responds to the request with a replication operation. The 3 second notification interval prevents the source domain controller from being overwhelmed with simultaneous update requests from its replication partners.
 
-From &#8220;<a href="http://technet.microsoft.com/en-us/library/cc771251.aspx" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://technet.microsoft.com/en-us/library/cc771251.aspx']);">Understanding Replication Between Sites</a>&#8220;:
+From "<a href="http://technet.microsoft.com/en-us/library/cc771251.aspx" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://technet.microsoft.com/en-us/library/cc771251.aspx']);">Understanding Replication Between Sites</a>":
 
 > AD DS preserves bandwidth between sites by minimizing the frequency of replication and by making it possible for you to schedule the availability of site links for replication. By default, intersite replication across each site link occurs every 180 minutes (3 hours). You can adjust this frequency to match your specific needs.
 
-So intra-site replication is automatic, while inter-site is setup on a interval based schedule. Also from &#8220;<a href="http://technet.microsoft.com/en-us/library/cc776877%28v=ws.10%29.aspx" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://technet.microsoft.com/en-us/library/cc776877%28v=ws.10%29.aspx']);">Active Directory Replication Technologies</a>&#8220;:
+So intra-site replication is automatic, while inter-site is setup on a interval based schedule. Also from "<a href="http://technet.microsoft.com/en-us/library/cc776877%28v=ws.10%29.aspx" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://technet.microsoft.com/en-us/library/cc776877%28v=ws.10%29.aspx']);">Active Directory Replication Technologies</a>":
 
 > Replication topology generation is optimized for speed within sites and for cost between sites. Replication between domain controllers in the same site occurs automatically in response to changes and does not require administrative management. Replication within a site is sent uncompressed to reduce processing time. Replication between domain controllers in different sites can be managed to control the scheduling and routing of replication over WAN links. Replication between sites is compressed so that it uses less bandwidth when sent across WAN links, thereby reducing the cost.
 
 ## How is AD Replication Triggered?
 
-From &#8220;<a href="http://technet.microsoft.com/en-us/library/cc772726%28v=ws.10%29.aspx" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://technet.microsoft.com/en-us/library/cc772726%28v=ws.10%29.aspx']);">How the Active Directory Replication Model Works?</a>&#8220;:
+From "<a href="http://technet.microsoft.com/en-us/library/cc772726%28v=ws.10%29.aspx" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://technet.microsoft.com/en-us/library/cc772726%28v=ws.10%29.aspx']);">How the Active Directory Replication Model Works?</a>":
 
 > **Originating Updates: Initiating Changes**  
 > As a Lightweight Directory Access Protocol (LDAP) directory service, Active Directory supports the following four types of update requests:
@@ -84,11 +84,11 @@ Here is a nice diagram of the process:
 
 ## Install 2nd Active Directory Server
 
-So now that we know what replication is, let&#8217;s actually set it up.
+So now that we know what replication is, let's actually set it up.
 
 ### AD Information Before Replication is setup
 
-Before we go any further let&#8217;s take a snapshot of our users from the current AD server:
+Before we go any further let's take a snapshot of our users from the current AD server:
 
     C:\Users\Administrator>dsquery user
     "CN=Administrator,CN=Users,DC=elatov,DC=local"
@@ -97,7 +97,7 @@ Before we go any further let&#8217;s take a snapshot of our users from the curre
     "CN=Karim Elatov,CN=Users,DC=elatov,DC=local"
     
 
-Also let&#8217;s see if replication is setup:
+Also let's see if replication is setup:
 
     C:\Users\Administrator>repadmin /showrepl
     
@@ -109,7 +109,7 @@ Also let&#8217;s see if replication is setup:
     DSA invocationID: a68c69a8-b015-4254-b81c-dc65782bd1fa
     
 
-And of course it&#8217;s not. Also let&#8217;s check out the DNS Zones defined on the AD server:
+And of course it's not. Also let's check out the DNS Zones defined on the AD server:
 
     C:\Users\Administrator>dnscmd  /EnumZones
     
@@ -128,7 +128,7 @@ And of course it&#8217;s not. Also let&#8217;s check out the DNS Zones defined o
     Command completed successfully.
     
 
-And now let&#8217;s check out our DNS Records:
+And now let's check out our DNS Records:
 
     C:\Users\Administrator>dnscmd  /EnumRecords elatov.local @ /type A
     Returned records:
@@ -153,7 +153,7 @@ And I saw the following screen:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/ad_wizard.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/ad_wizard.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/ad_wizard.png" alt="ad wizard Configure AD Replication with Windows 2008" width="497" height="471" class="alignnone size-full wp-image-8816" title="Configure AD Replication with Windows 2008" /></a>
 
-Let&#8217;s choose to &#8220;Add a domain controller to an existing domain&#8221;:
+Let's choose to "Add a domain controller to an existing domain":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/existing_forest.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/existing_forest.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/existing_forest.png" alt="existing forest Configure AD Replication with Windows 2008" width="496" height="471" class="alignnone size-full wp-image-8817" title="Configure AD Replication with Windows 2008" /></a>
 
@@ -165,42 +165,42 @@ If the connection to the primary DC is successful, you will see the following:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/existing_DC.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/existing_DC.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/existing_DC.png" alt="existing DC Configure AD Replication with Windows 2008" width="495" height="468" class="alignnone size-full wp-image-8819" title="Configure AD Replication with Windows 2008" /></a>
 
-We won&#8217;t be doing any inter-site setup, so selecting the default site name is okay here:
+We won't be doing any inter-site setup, so selecting the default site name is okay here:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/default_site_ad_setup.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/default_site_ad_setup.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/default_site_ad_setup.png" alt="default site ad setup Configure AD Replication with Windows 2008" width="496" height="469" class="alignnone size-full wp-image-8820" title="Configure AD Replication with Windows 2008" /></a>
 
-Next let&#8217;s setup a DNS server on the new DC and let&#8217;s NOT make it Read only (RODC):
+Next let's setup a DNS server on the new DC and let's NOT make it Read only (RODC):
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/additional_dc_options.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/additional_dc_options.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/additional_dc_options.png" alt="additional dc options Configure AD Replication with Windows 2008" width="494" height="467" class="alignnone size-full wp-image-8821" title="Configure AD Replication with Windows 2008" /></a>
 
-Next, let&#8217;s go ahead and replicate the AD configuration from the primary DC:
+Next, let's go ahead and replicate the AD configuration from the primary DC:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/replicate_data_ad_wizrd.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/replicate_data_ad_wizrd.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/replicate_data_ad_wizrd.png" alt="replicate data ad wizrd Configure AD Replication with Windows 2008" width="495" height="469" class="alignnone size-full wp-image-8822" title="Configure AD Replication with Windows 2008" /></a>
 
-Click &#8220;Next&#8221; a couple of times and at the end, you will get to the summary page:
+Click "Next" a couple of times and at the end, you will get to the summary page:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/ad_wizard_summary.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/ad_wizard_summary.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/ad_wizard_summary.png" alt="ad wizard summary Configure AD Replication with Windows 2008" width="496" height="469" class="alignnone size-full wp-image-8823" title="Configure AD Replication with Windows 2008" /></a>
 
-After you click &#8220;Next&#8221;, the replication will start:
+After you click "Next", the replication will start:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/replicating_data.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/replicating_data.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/replicating_data.png" alt="replicating data Configure AD Replication with Windows 2008" width="425" height="293" class="alignnone size-full wp-image-8824" title="Configure AD Replication with Windows 2008" /></a>
 
-After it&#8217;s done, you will see the following:
+After it's done, you will see the following:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/ad_wizard_finished.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/ad_wizard_finished.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/ad_wizard_finished.png" alt="ad wizard finished Configure AD Replication with Windows 2008" width="495" height="468" class="alignnone size-full wp-image-8826" title="Configure AD Replication with Windows 2008" /></a>
 
-Click &#8220;Finish&#8221; and restart the machine.
+Click "Finish" and restart the machine.
 
 ## Confirm the Replication Worked
 
-After the machine is rebooted you will see that it&#8217;s part of the domain and it&#8217;s setup as a &#8220;Backup DC&#8221;:
+After the machine is rebooted you will see that it's part of the domain and it's setup as a "Backup DC":
 
     C:\Users\Administrator.ELATOV>systeminfo | findstr "Domain"
     OS Configuration:          Additional/Backup Domain Controller
     Domain:                    elatov.local
     
 
-Now let&#8217;s make sure the same users exist on the this machine as well:
+Now let's make sure the same users exist on the this machine as well:
 
     C:\Users\Administrator.ELATOV>dsquery user
     "CN=Administrator,CN=Users,DC=elatov,DC=local"
@@ -292,7 +292,7 @@ No errors are seen. We can also see all the data that has been replicated:
             Last attempt @ 2013-05-18 16:31:54 was successful.
     
 
-We can see that DNS is included as well. This is expected since we have AD-intergrated DNS. From &#8220;<a href="http://technet.microsoft.com/en-us/library/cc731204%28v=ws.10%29.aspx" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://technet.microsoft.com/en-us/library/cc731204%28v=ws.10%29.aspx']);">Active Directory-Integrated DNS Zones</a>&#8220;:
+We can see that DNS is included as well. This is expected since we have AD-intergrated DNS. From "<a href="http://technet.microsoft.com/en-us/library/cc731204%28v=ws.10%29.aspx" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://technet.microsoft.com/en-us/library/cc731204%28v=ws.10%29.aspx']);">Active Directory-Integrated DNS Zones</a>":
 
 > Domain Name System (DNS) servers running on domain controllers can store their zones in Active Directory Domain Services (AD DS). In this way, it is not necessary to configure a separate DNS replication topology that uses ordinary DNS zone transfers because all zone data is replicated automatically by means of Active Directory replication.
 
@@ -301,7 +301,7 @@ I thought that was pretty convenient. We can also make sure the two server are i
     dssite.msc
     
 
-Expand &#8220;Sites&#8221; -> &#8220;Default Site&#8221; -> &#8220;Servers&#8221; and make sure you see both servers:
+Expand "Sites" -> "Default Site" -> "Servers" and make sure you see both servers:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/dssite_msc.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/dssite_msc.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/dssite_msc.png" alt="dssite msc Configure AD Replication with Windows 2008" width="483" height="225" class="alignnone size-full wp-image-8842" title="Configure AD Replication with Windows 2008" /></a>
 
@@ -319,16 +319,16 @@ To test out replication we can create a snapshot of the data by running the foll
     New cookie written to file config.txt (132 bytes)
     
 
-That will create a &#8220;cookie&#8221; file with the data inside of it, in my case the file is called *config.txt*. Then let&#8217;s go ahead and add a new User to the primary DC, and see if that user gets replicated. From the run dialogue execute:
+That will create a "cookie" file with the data inside of it, in my case the file is called *config.txt*. Then let's go ahead and add a new User to the primary DC, and see if that user gets replicated. From the run dialogue execute:
 
     dsa.msc
     
 
-And select &#8220;New&#8221; -> &#8220;User&#8221;:
+And select "New" -> "User":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/dsa_msc_new_user.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/dsa_msc_new_user.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/dsa_msc_new_user.png" alt="dsa msc new user Configure AD Replication with Windows 2008" width="761" height="531" class="alignnone size-full wp-image-8828" title="Configure AD Replication with Windows 2008" /></a>
 
-Let&#8217;s call our user &#8220;test&#8221;:
+Let's call our user "test":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/05/test_user_dsa_msc.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/05/test_user_dsa_msc.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/test_user_dsa_msc.png" alt="test user dsa msc Configure AD Replication with Windows 2008" width="433" height="363" class="alignnone size-full wp-image-8829" title="Configure AD Replication with Windows 2008" /></a>
 
@@ -380,7 +380,7 @@ We can see that the difference in the cookie file since it was last run is the n
     "CN=test,CN=Users,DC=elatov,DC=local"
     
 
-I added a new user called &#8216;test2&#8242; and made sure it was replicated. I then removed the user, ran the same command, and here is what I saw:
+I added a new user called 'test2' and made sure it was replicated. I then removed the user, ran the same command, and here is what I saw:
 
     C:\Users\Administrator.ELATOV>repadmin /showchanges . dc=elatov,dc=local /cookie:config.txt
     

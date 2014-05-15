@@ -58,7 +58,7 @@ There are only two VMs: UCSPM (the UCS Manager Emulator) and Windows XP Professi
     Windows XP Professional.vmxf
     
 
-Pretty standard stuff, but I realized that when I created that VM I used the 2GB Split Sparse VMDK format. I don&#8217;t even know why I did that. I was probably thinking that if I was backing up to a FAT32 partition then this might help out. But who uses FAT partitions anymore? <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Migrating a VM from VMware Workstation to Oracle VirtualBox" class="wp-smiley" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" /> 
+Pretty standard stuff, but I realized that when I created that VM I used the 2GB Split Sparse VMDK format. I don't even know why I did that. I was probably thinking that if I was backing up to a FAT32 partition then this might help out. But who uses FAT partitions anymore? <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Migrating a VM from VMware Workstation to Oracle VirtualBox" class="wp-smiley" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" /> 
 
 So the first thing I wanted to do, was to convert the 2GB Split Spare VMDKs into a single monolithic VMDK (also reffered to as Monolithic Sparse VMDK). You can check out all the VMDK formats in the <a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vddk51_programming.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vddk51_programming.pdf']);">Virtual Disk Programming Guide Virtual Disk Development Kit (VDDK) 5.1</a>. Here is a table from that pdf:
 
@@ -71,7 +71,7 @@ Looking over a couple of sites, it looks like **vmware-vdiskmanager** is the way
 *   <a href="http://www.eknori.de/2012-11-23/vmware-converting-multiple-vmdk-files-into-one/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.eknori.de/2012-11-23/vmware-converting-multiple-vmdk-files-into-one/']);">VMWARE: Converting Multiple VMDK files into one</a> 
 *   <a href="http://technonstop.com/convert-multiple-vmdks-to-one" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://technonstop.com/convert-multiple-vmdks-to-one']);">Converting Multiple VMDK (Virtual Machine Disk) files into one</a> 
 
-The **vmware-vdiskmanager** is packaged with the &#8220;Virtual Disk Development Kit&#8221; which you can download from <a href="http://www.vmware.com/support/developer/vddk/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.vmware.com/support/developer/vddk/']);">here</a>. Here is screenshot of the available downloads after I logged into the VMware portal:
+The **vmware-vdiskmanager** is packaged with the "Virtual Disk Development Kit" which you can download from <a href="http://www.vmware.com/support/developer/vddk/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.vmware.com/support/developer/vddk/']);">here</a>. Here is screenshot of the available downloads after I logged into the VMware portal:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/03/vddk_download.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/03/vddk_download.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/vddk_download.png" alt="vddk download Migrating a VM from VMware Workstation to Oracle VirtualBox" width="1314" height="380" class="alignnone size-full wp-image-7773" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" /></a>
 
@@ -86,7 +86,7 @@ So I went ahead and extracted the contents:
     [elatov@klaptop downloads]$ tar xvzf VMware-vix-disklib-5.1.0-774844.x86_64.tar.gz
     
 
-Now let&#8217;s go ahead and install the package:
+Now let's go ahead and install the package:
 
     [elatov@klaptop downloads]$ cd vmware-vix-disklib-distrib 
     [elatov@klaptop vmware-vix-disklib-distrib]$ sudo ./vmware-install.pl 
@@ -117,7 +117,7 @@ After the install, I tried to check the consistency of my files and I ran the fo
     No errors were found on the virtual disk, 'Windows XP Professional.vmdk'.
     
 
-I then re-read the &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vddk_prog_guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vddk_prog_guide.pdf']);">Virtual Disk API Programming Guide</a>&#8220;, and saw the following:
+I then re-read the "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vddk_prog_guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vddk_prog_guide.pdf']);">Virtual Disk API Programming Guide</a>", and saw the following:
 
 > **To Install the package on Linux**
 > 
@@ -153,7 +153,7 @@ I then ran **ldconfig** to apply the changes:
        libvixMntapi.so.1 -> libvixMntapi.so.1.1.0
     
 
-and I can see the new libraries are now included. If you don&#8217;t want to mess with the system&#8217;s libraries you can always just set the **LB&#95;LIBRARY&#95;PATH** variable. Another person had issues by changing the **ld.so.conf** files and ended going that route. The issue and steps around it are described in <a href="http://communities.vmware.com/thread/303517" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/thread/303517']);">this</a> VMware&#8217;s Communities page.
+and I can see the new libraries are now included. If you don't want to mess with the system's libraries you can always just set the **LB&#95;LIBRARY&#95;PATH** variable. Another person had issues by changing the **ld.so.conf** files and ended going that route. The issue and steps around it are described in <a href="http://communities.vmware.com/thread/303517" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/thread/303517']);">this</a> VMware's Communities page.
 
 Now re-running my consistency check, I saw the following:
 
@@ -161,7 +161,7 @@ Now re-running my consistency check, I saw the following:
     No errors were found on the virtual disk, 'Windows XP Professional.vmdk'.
     
 
-That looks good. Now let&#8217;s go ahead and convert it. Checking out the `vmware-vdiskmanager --help` output, I saw the following:
+That looks good. Now let's go ahead and convert it. Checking out the `vmware-vdiskmanager --help` output, I saw the following:
 
      -r <source -disk/>     : convert the specified disk; need to specify
                             destination disk-type.  For local destination disks
@@ -218,7 +218,7 @@ and then checking the old files:
 
 The size matched up, which is perfect.
 
-From this point on, I could&#8217;ve probably just added the vmdk to VirtualBox, but I wanted to preserve all the Memory and CPU settings. To save those settings we can package the VMX and VMDK into an OVA template and then import it into VirtualBox.
+From this point on, I could've probably just added the vmdk to VirtualBox, but I wanted to preserve all the Memory and CPU settings. To save those settings we can package the VMX and VMDK into an OVA template and then import it into VirtualBox.
 
 ## Create an OVA Template from a VMware Workstation VM
 
@@ -234,7 +234,7 @@ I edited the VMX file and pointed to the newly converted VMDK. After I was done,
     scsi0:0.fileName = "Windows_XP.vmdk"
     
 
-Now that my VM is ready to be imported into an OVA, let&#8217;s check out the <a href="http://www.vmware.com/support/developer/ovf/ovf301/ovftool-301-userguide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/support/developer/ovf/ovf301/ovftool-301-userguide.pdf']);">OVF Tool User Guide</a>. From the guide, here is the install process:
+Now that my VM is ready to be imported into an OVA, let's check out the <a href="http://www.vmware.com/support/developer/ovf/ovf301/ovftool-301-userguide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/support/developer/ovf/ovf301/ovftool-301-userguide.pdf']);">OVF Tool User Guide</a>. From the guide, here is the install process:
 
 > **To install the VMware OVF Tool**
 > 
@@ -251,7 +251,7 @@ When I was done with the download, I had the following file:
     VMware-ovftool-3.0.1-801290-lin.x86_64.txt
     
 
-Now let&#8217;s install the ovf tool:
+Now let's install the ovf tool:
 
     [elatov@klaptop downloads]$ chmod +x VMware-ovftool-3.0.1-801290-lin.x86_64.txt 
     [elatov@klaptop downloads]$ sudo ./VMware-ovftool-3.0.1-801290-lin.x86_64.txt 
@@ -262,7 +262,7 @@ At this point a GUI installer will come up, like so:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/03/OVF_Installer.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/03/OVF_Installer.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/OVF_Installer.png" alt="OVF Installer Migrating a VM from VMware Workstation to Oracle VirtualBox" width="642" height="509" class="alignnone size-full wp-image-7781" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" /></a>
 
-Just hit &#8220;Install&#8221; and the process with go through pretty quickly. After it&#8217;s finished you will see the following:
+Just hit "Install" and the process with go through pretty quickly. After it's finished you will see the following:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/03/OVF_Installer_Finished.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/03/OVF_Installer_Finished.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/OVF_Installer_Finished.png" alt="OVF Installer Finished Migrating a VM from VMware Workstation to Oracle VirtualBox" width="642" height="509" class="alignnone size-full wp-image-7782" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" /></a>
 
@@ -275,7 +275,7 @@ In the <a href="http://www.vmware.com/support/developer/ovf/ovf301/ovftool-301-u
     Progress: 2%
     
 
-It started to create the template. The extension is actually important, if I specify an &#8220;ovf&#8221; extension then it will create an OVF file along with VMDKs. Where the &#8216;.ova&#8217; extension encompasses both. From the guide:
+It started to create the template. The extension is actually important, if I specify an "ovf" extension then it will create an OVF file along with VMDKs. Where the '.ova' extension encompasses both. From the guide:
 
 > **Converting a VMX to an OVF**
 > 
@@ -317,7 +317,7 @@ Now checking for the OVA file:
     -rw------- 1 elatov elatov 11G Mar 22 13:54 Win_XP.ova
     
 
-To get information about the OVA file you can also use *ovftool* in &#8220;probe mode&#8221;:
+To get information about the OVA file you can also use *ovftool* in "probe mode":
 
     [elatov@klaptop Windows XP Professional]$ ovftool Win_XP.ova
     OVF version:   1.0
@@ -347,7 +347,7 @@ As a last note, an OVA file is just a tar archive, and you can check the content
     -rw-r--r-- someone/64 11445539328 2013-03-22 13:54 Win_XP-disk1.vmdk
     
 
-All of the above looks good, now let&#8217;s import the OVA template into VirtualBox.
+All of the above looks good, now let's import the OVA template into VirtualBox.
 
 ### Import an OVA Template into VirtualBox
 
@@ -364,7 +364,7 @@ We can use the **VBoxManage** to import an OVA Template. From the command line:
                                  for a particular OVF)
     
 
-So let&#8217;s use -n to see all the options:
+So let's use -n to see all the options:
 
     [elatov@klaptop ~]$ VBoxManage import -n .vmware/Windows\ XP\ Professional/Win_XP.ova 0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
     Interpreting /home/elatov/.vmware/Windows\ XP\ Professional/Win_XP.ova...
@@ -405,7 +405,7 @@ Running without the -n (dry run) option looked like this:
     Successfully imported the appliance.
     
 
-Initially I had an issue with the OVA template, another user ran into the issues and it&#8217;s described in <a href="https://forums.virtualbox.org/viewtopic.php?f=8&t=49682" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://forums.virtualbox.org/viewtopic.php?f=8&t=49682']);">this</a> VirtualBox forum. I got around the issue by re-creating another OVA template. If you still have issues just extract the OVA into a folder and then import the OVF instead. That process seems to be more stable, here is the command you would run if you had extracted the OVA template under a folder called **test**:
+Initially I had an issue with the OVA template, another user ran into the issues and it's described in <a href="https://forums.virtualbox.org/viewtopic.php?f=8&t=49682" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://forums.virtualbox.org/viewtopic.php?f=8&t=49682']);">this</a> VirtualBox forum. I got around the issue by re-creating another OVA template. If you still have issues just extract the OVA into a folder and then import the OVF instead. That process seems to be more stable, here is the command you would run if you had extracted the OVA template under a folder called **test**:
 
     [elatov@klaptop ~]$ VBoxManage import test/Win_XP.ovf
     
@@ -431,7 +431,7 @@ After powering on the VM, I saw the following:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/03/WIN_Boot_Error.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/03/WIN_Boot_Error.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/WIN_Boot_Error.png" alt="WIN Boot Error Migrating a VM from VMware Workstation to Oracle VirtualBox" width="722" height="470" class="alignnone size-full wp-image-7817" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" /></a>
 
-## Fixing &#8220;Error loading operating system&#8221; After Migrating XP VM
+## Fixing "Error loading operating system" After Migrating XP VM
 
 The first that I did was change the Disk Controller from SCSI to IDE. Here is how the Storage settings initially after the migration:
 
@@ -441,11 +441,11 @@ Then I changed the Contoller to IDE and also added my XP ISO, so I could boot fr
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/03/storage_settings_to_ide.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/03/storage_settings_to_ide.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/storage_settings_to_ide.png" alt="storage settings to ide Migrating a VM from VMware Workstation to Oracle VirtualBox" width="666" height="501" class="alignnone size-full wp-image-7819" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" /></a>
 
-Reboot the VM and you will see &#8220;Press any key to boot from the CD..&#8221;. I pressed &#8220;Enter&#8221; and it started booting from the CD and then you will see this screen:
+Reboot the VM and you will see "Press any key to boot from the CD..". I pressed "Enter" and it started booting from the CD and then you will see this screen:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/03/xp_welcome_screen.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/03/xp_welcome_screen.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/xp_welcome_screen.png" alt="xp welcome screen Migrating a VM from VMware Workstation to Oracle VirtualBox" width="722" height="466" class="alignnone size-full wp-image-7820" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" /></a>
 
-At this point I typed &#8220;R&#8221; to bring up the &#8220;Recovery Command Prompt&#8221;. At the command prompt, I ran the following:
+At this point I typed "R" to bring up the "Recovery Command Prompt". At the command prompt, I ran the following:
 
     fixmbr c:
     fixboot c:
@@ -459,27 +459,27 @@ That should re-install the MBR on the disk. After I rebooted the error was gone,
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/03/blank-screen-after-fix-boot.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/03/blank-screen-after-fix-boot.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/blank-screen-after-fix-boot.png" alt="blank screen after fix boot Migrating a VM from VMware Workstation to Oracle VirtualBox" width="722" height="470" class="alignnone size-full wp-image-7822" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" /></a>
 
-At this point I booted from the Vista Recovery Disk. The disk used to be available for free from &#8220;<a href="http://neosmart.net/blog/2008/windows-vista-recovery-disc-download/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://neosmart.net/blog/2008/windows-vista-recovery-disc-download/']);">Windows Vista Recovery Disc Download</a>&#8220;, but now you have to pay for it. If you have a Vista Install CD, you can use that as well. Here is how my storage settings looked after I added the new ISO:
+At this point I booted from the Vista Recovery Disk. The disk used to be available for free from "<a href="http://neosmart.net/blog/2008/windows-vista-recovery-disc-download/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://neosmart.net/blog/2008/windows-vista-recovery-disc-download/']);">Windows Vista Recovery Disc Download</a>", but now you have to pay for it. If you have a Vista Install CD, you can use that as well. Here is how my storage settings looked after I added the new ISO:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/03/storage_settings_with_vista_recovery.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/03/storage_settings_with_vista_recovery.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/storage_settings_with_vista_recovery.png" alt="storage settings with vista recovery Migrating a VM from VMware Workstation to Oracle VirtualBox" width="666" height="501" class="alignnone size-full wp-image-7823" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" /></a>
 
-Rebooting the VM and pressing &#8220;Enter&#8221; at the &#8220;Press any key to boot from CD&#8230;.&#8221;, I saw the following screen:
+Rebooting the VM and pressing "Enter" at the "Press any key to boot from CD....", I saw the following screen:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/03/win_vista_install_windows.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/03/win_vista_install_windows.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/win_vista_install_windows.png" alt="win vista install windows Migrating a VM from VMware Workstation to Oracle VirtualBox" width="802" height="670" class="alignnone size-full wp-image-7824" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" /></a>
 
-I then clicked &#8220;Next&#8221; and saw the following screen:
+I then clicked "Next" and saw the following screen:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/03/vista_repair_your_computer.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/03/vista_repair_your_computer.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/vista_repair_your_computer.png" alt="vista repair your computer Migrating a VM from VMware Workstation to Oracle VirtualBox" width="802" height="670" class="alignnone size-full wp-image-7825" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" /></a>
 
-Then I clicked &#8220;Repair your Computer&#8221; and I saw the following:
+Then I clicked "Repair your Computer" and I saw the following:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/03/vista_repair-options.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/03/vista_repair-options.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/vista_repair-options.png" alt="vista repair options Migrating a VM from VMware Workstation to Oracle VirtualBox" width="802" height="670" class="alignnone size-full wp-image-7826" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" /></a>
 
-At that screen I clicked &#8220;Next&#8221; and that yielded this screen:
+At that screen I clicked "Next" and that yielded this screen:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/03/vista_rec-options_command_prompt.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/03/vista_rec-options_command_prompt.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/vista_rec-options_command_prompt.png" alt="vista rec options command prompt Migrating a VM from VMware Workstation to Oracle VirtualBox" width="802" height="670" class="alignnone size-full wp-image-7827" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" /></a>
 
-I then clicked &#8220;Command Prompt&#8221; and in the command prompt I fixed the MBR again (just for good measure) with following commands:
+I then clicked "Command Prompt" and in the command prompt I fixed the MBR again (just for good measure) with following commands:
 
     bootrec /fixmbr
     bootrec /fixboot
@@ -501,7 +501,7 @@ Here is how it looked like in the prompt:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/03/vista_mark_partition_active.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/03/vista_mark_partition_active.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/vista_mark_partition_active.png" alt="vista mark partition active Migrating a VM from VMware Workstation to Oracle VirtualBox" width="802" height="670" class="alignnone size-full wp-image-7829" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" /></a>
 
-Notice the &#8220;*&#8221; (star) next to the partition after making it active. Then I rebooted and I saw a successful Windows boot process:
+Notice the "*" (star) next to the partition after making it active. Then I rebooted and I saw a successful Windows boot process:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/03/xp_successful_boot.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/03/xp_successful_boot.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/xp_successful_boot.png" alt="xp successful boot Migrating a VM from VMware Workstation to Oracle VirtualBox" width="802" height="670" class="alignnone size-full wp-image-7830" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" /></a>
 

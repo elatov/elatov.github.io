@@ -12,14 +12,14 @@ tags:
   - Monitoring
   - Zenoss
 ---
-<p>This is the third part and continuation of the &#8216;Network Monitoring Software Comparison&#8217; series. Here is the link to the <a href="http://virtuallyhyper.com/2013/02/monitor-different-systems-with-collectd" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/02/monitor-different-systems-with-collectd']);">first</a> part and here is the <a href="http://virtuallyhyper.com/2013/03/monitor-different-systems-with-munin" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/03/monitor-different-systems-with-munin']);">second</a> one. Let&#8217;s check out what <strong>Zenoss</strong> is about. From their <a href="http://wiki.zenoss.org/Main_Page" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.zenoss.org/Main_Page']);">wiki</a> page, we see the following:</p>
+<p>This is the third part and continuation of the 'Network Monitoring Software Comparison' series. Here is the link to the <a href="http://virtuallyhyper.com/2013/02/monitor-different-systems-with-collectd" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/02/monitor-different-systems-with-collectd']);">first</a> part and here is the <a href="http://virtuallyhyper.com/2013/03/monitor-different-systems-with-munin" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/03/monitor-different-systems-with-munin']);">second</a> one. Let's check out what <strong>Zenoss</strong> is about. From their <a href="http://wiki.zenoss.org/Main_Page" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.zenoss.org/Main_Page']);">wiki</a> page, we see the following:</p>
 <blockquote>
 <p>What is Zenoss?</p>
 <p>Zenoss Core is award-winning Open Source IT monitoring software that offers visibility over the entire IT stack, from network devices to applications. Features include automatic discovery, inventory via CMDB, availability monitoring, easy-to-read performance graphs, sophisticated alerting, an easy-to-use web portal, and much, much more. It is Free Software, released under the GNU General Public License version 2. Zenoss has a very active community.</p>
 </blockquote>
 <p>Now to start the install. Reading over the <a href="http://community.zenoss.org/community/documentation/official_documentation/installation-guide" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://community.zenoss.org/community/documentation/official_documentation/installation-guide']);">Installation Guide</a>, I saw that there is section on how to compile the software from source. This sparked an interest to install the software on my FreeBSD system.</p>
 <h3>1. Setup a MySQL Database for the Zenoss Install</h3>
-<p>I decided to setup Zenoss on my FreeBSD machine, since my Ubuntu box was already running the other monitoring applications and I knew that the source for Zenoss was available. Zenoss uses MySQL for it&#8217;s database, I actually had a MySQL instance running on the Ubuntu machine, hence I decided to allow remote access for root to MySQL. I would rarely do this, but since this was a test setup, I decided to just go all out <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Monitor Different Systems with Zenoss" class="wp-smiley" title="Monitor Different Systems with Zenoss" /> </p>
+<p>I decided to setup Zenoss on my FreeBSD machine, since my Ubuntu box was already running the other monitoring applications and I knew that the source for Zenoss was available. Zenoss uses MySQL for it's database, I actually had a MySQL instance running on the Ubuntu machine, hence I decided to allow remote access for root to MySQL. I would rarely do this, but since this was a test setup, I decided to just go all out <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Monitor Different Systems with Zenoss" class="wp-smiley" title="Monitor Different Systems with Zenoss" /> </p>
 <p>Before any changes, I was able to login as <strong>root</strong> locally:</p>
 	kerch:~&gt;mysql -u root -p
 	Enter password: 
@@ -38,7 +38,7 @@ tags:
 	Enter password:
 	ERROR 2003 (HY000): Can't connect to MySQL server on '192.168.1.100' (111)
 	
-<p>So let&#8217;s login to the MySQL server and check out the current settings:</p>
+<p>So let's login to the MySQL server and check out the current settings:</p>
 	mysql&gt; use mysql;
 	Reading table information for completion of table and column names
 	You can turn off this feature to get a quicker startup with -A
@@ -55,7 +55,7 @@ tags:
 	+-----------+------------------+
 	5 rows in set (0.02 sec)
 	
-<p>I don&#8217;t use IPv6, so let&#8217;s replace that entry with &#8220;%&#8221; (allowing any host to connect):</p>
+<p>I don't use IPv6, so let's replace that entry with "%" (allowing any host to connect):</p>
 	mysql&gt; update user set host='%' where user='root' and host='::1'; 
 	Query OK, 1 row affected (0.05 sec)
 	Rows matched: 1 Changed: 1 Warnings: 0
@@ -241,7 +241,7 @@ tags:
 </blockquote>
 <p>So you can monitor your machine with SNMP or SSH. There are actually other ways, like APIs. From the <a href="http://wiki.zenoss.org/Prepare_Remote_Device" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://wiki.zenoss.org/Prepare_Remote_Device']);">wiki</a>:</p>
 <blockquote>
-<p>Before we can monitor a device in Zenoss, we need to ensure that is is properly set up to be monitored. Zenoss does not use agents, but it needs to query the device using some protocol. The &#8220;classical&#8221; way to monitor devices with Zenoss is to use the Simple Network Management Protocol, also known as SNMP. SSH is also supported for Linux systems, and WMI is supported for Microsoft Windows-based systems.</p>
+<p>Before we can monitor a device in Zenoss, we need to ensure that is is properly set up to be monitored. Zenoss does not use agents, but it needs to query the device using some protocol. The "classical" way to monitor devices with Zenoss is to use the Simple Network Management Protocol, also known as SNMP. SSH is also supported for Linux systems, and WMI is supported for Microsoft Windows-based systems.</p>
 <p>We also support various APIs, such as the Amazon EC2 and CloudStack API, for monitoring cloud services.</p>
 </blockquote>
 <p>I decided to use SNMP for the FreeBSD and Fedora Machines, and SSH for the Ubuntu machine.</p>
@@ -276,7 +276,7 @@ tags:
 	2013-02-22 21:19:38,630 INFO zen.AddToPack: Loaded 65 objects into the ZODB database
 	2013-02-22 21:19:38,636 INFO zen.HookReportLoader: loading reports from:/usr/local/zenoss/ZenPacks/ZenPacks.zenoss.LinuxMonitor-1.1.5-py2.6.egg/ZenPacks/zenoss/LinuxMonitor/reports
 	
-<p>You could do the same thing from the web page. Basically from the Dashboard go to “Advanced” -> &#8220;ZenPacks&#8221; -> “Gear” -> “Install ZenPack”, here is how it looks like:</p>
+<p>You could do the same thing from the web page. Basically from the Dashboard go to “Advanced” -> "ZenPacks" -> “Gear” -> “Install ZenPack”, here is how it looks like:</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_install_zenpack.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_install_zenpack.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_install_zenpack.png" alt="zenoss install zenpack Monitor Different Systems with Zenoss" width="723" height="308" class="alignnone size-full wp-image-6590" title="Monitor Different Systems with Zenoss" /></a></p>
 <p>After the ZenPack is installed, we need to restart <strong>zenoss</strong>. Here is how that looks:</p>
 	freebsd:~&gt;sudo service zenoss restart
@@ -322,9 +322,9 @@ tags:
 	$ zenpack --list
 	ZenPacks.zenoss.LinuxMonitor (/usr/local/zenoss/ZenPacks/ZenPacks.zenoss.LinuxMonitor-1.1.5-py2.6.egg)
 	
-<p>Then go back to &#8216;Infrastructure&#8217; Tab and expand the Hierarchy on the Left Panel to &#8220;Device Classes&#8221; -> &#8220;Server&#8221; -> &#8220;SSH&#8221; -> &#8220;Linux&#8221;. At this point you will see the following:</p>
+<p>Then go back to 'Infrastructure' Tab and expand the Hierarchy on the Left Panel to "Device Classes" -> "Server" -> "SSH" -> "Linux". At this point you will see the following:</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-ssh-linux-device.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-ssh-linux-device.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-ssh-linux-device.png" alt="zenoss ssh linux device Monitor Different Systems with Zenoss" width="795" height="556" class="alignnone size-full wp-image-6547" title="Monitor Different Systems with Zenoss" /></a></p>
-<p>Now click on the &#8220;Add Device&#8221; button, and select &#8220;Add a Single Device&#8221;:</p>
+<p>Now click on the "Add Device" button, and select "Add a Single Device":</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_add_device_button_g.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_add_device_button_g.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_add_device_button_g.png" alt="zenoss add device button g Monitor Different Systems with Zenoss" width="447" height="131" class="alignnone size-full wp-image-6585" title="Monitor Different Systems with Zenoss" /></a></p>
 <p>Then fill out all the fields, here is how mine looked like:</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_add_device_dialog.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_add_device_dialog.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_add_device_dialog.png" alt="zenoss add device dialog Monitor Different Systems with Zenoss" width="789" height="301" class="alignnone size-full wp-image-6552" title="Monitor Different Systems with Zenoss" /></a></p>
@@ -332,23 +332,23 @@ tags:
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_added_ubuntu.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_added_ubuntu.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_added_ubuntu.png" alt="zenoss added ubuntu Monitor Different Systems with Zenoss" width="936" height="484" class="alignnone size-full wp-image-6553" title="Monitor Different Systems with Zenoss" /></a></p>
 <p>Now we need to add the SSH Login Credentials. Click on the newly added device and you will see this screen:</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_ubuntu_details.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_ubuntu_details.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_ubuntu_details.png" alt="zenoss ubuntu details Monitor Different Systems with Zenoss" width="1236" height="564" class="alignnone size-full wp-image-6554" title="Monitor Different Systems with Zenoss" /></a></p>
-<p>Next let&#8217;s confirm that the device will collect Linux information. Click on &#8220;Modeler Plugins&#8221; and you should see the following:</p>
+<p>Next let's confirm that the device will collect Linux information. Click on "Modeler Plugins" and you should see the following:</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_ubuntu_modeler_plugins.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_ubuntu_modeler_plugins.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_ubuntu_modeler_plugins.png" alt="zenoss ubuntu modeler plugins Monitor Different Systems with Zenoss" width="689" height="378" class="alignnone size-full wp-image-6555" title="Monitor Different Systems with Zenoss" /></a></p>
-<p>Notice the &#8220;Linux&#8221; Commands. Now select &#8220;Configuration Properties&#8221; and you will see this:</p>
+<p>Notice the "Linux" Commands. Now select "Configuration Properties" and you will see this:</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_ubuntu_config_prop.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_ubuntu_config_prop.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_ubuntu_config_prop.png" alt="zenoss ubuntu config prop Monitor Different Systems with Zenoss" width="1224" height="449" class="alignnone size-full wp-image-6556" title="Monitor Different Systems with Zenoss" /></a></p>
-<p>In this screen edit the <strong>zCommandPassword</strong> (SSH Password) and <strong>zCommandUsername</strong> (SSH User) properties accordingly. After you are done, click &#8220;Save&#8221; at the bottom of the screen. Now let&#8217;s &#8220;model&#8221; the device; at the bottom left corner click on the &#8220;Gear&#8221; Icon and select &#8220;Model Device&#8221;:</p>
+<p>In this screen edit the <strong>zCommandPassword</strong> (SSH Password) and <strong>zCommandUsername</strong> (SSH User) properties accordingly. After you are done, click "Save" at the bottom of the screen. Now let's "model" the device; at the bottom left corner click on the "Gear" Icon and select "Model Device":</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-model-device_g.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-model-device_g.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-model-device_g.png" alt="zenoss model device g Monitor Different Systems with Zenoss" width="1302" height="666" class="alignnone size-full wp-image-6586" title="Monitor Different Systems with Zenoss" /></a></p>
 <p>Now you should see all the plugins getting executed:</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenodd_model_device_terminal.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/zenodd_model_device_terminal.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenodd_model_device_terminal.png" alt="zenodd model device terminal Monitor Different Systems with Zenoss" width="768" height="477" class="alignnone size-full wp-image-6557" title="Monitor Different Systems with Zenoss" /></a></p>
-<p>Notice the &#8220;Using SSH Collection method&#8221; line (this is expected since we are using SSH). Now if you go back to the &#8216;Infrastructure&#8217; tab and click on the device, under the device details you should see a new section called &#8220;Components&#8221;. Selecting one of the components will show more information about the device:</p>
+<p>Notice the "Using SSH Collection method" line (this is expected since we are using SSH). Now if you go back to the 'Infrastructure' tab and click on the device, under the device details you should see a new section called "Components". Selecting one of the components will show more information about the device:</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-ubuntu_components_int.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-ubuntu_components_int.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-ubuntu_components_int.png" alt="zenoss ubuntu components int Monitor Different Systems with Zenoss" width="1238" height="472" class="alignnone size-full wp-image-6558" title="Monitor Different Systems with Zenoss" /></a></p>
-<p>You can also go to &#8220;Graphs&#8221; and see CPU, Memory, and Load graphs:</p>
+<p>You can also go to "Graphs" and see CPU, Memory, and Load graphs:</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_ubuntu_graphs.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_ubuntu_graphs.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_ubuntu_graphs.png" alt="zenoss ubuntu graphs Monitor Different Systems with Zenoss" width="1141" height="541" class="alignnone size-full wp-image-6559" title="Monitor Different Systems with Zenoss" /></a></p>
-<p>After everything have been configured, you should be able to see the device on the &#8216;Infrastructure&#8217; tab without any issues:</p>
+<p>After everything have been configured, you should be able to see the device on the 'Infrastructure' tab without any issues:</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-ubuntu-no-issues.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-ubuntu-no-issues.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-ubuntu-no-issues.png" alt="zenoss ubuntu no issues Monitor Different Systems with Zenoss" width="1238" height="375" class="alignnone size-full wp-image-6560" title="Monitor Different Systems with Zenoss" /></a></p>
-<p>Now let&#8217;s move to our FreeBSD machine.</p>
+<p>Now let's move to our FreeBSD machine.</p>
 <h3>4. Monitor FreeBSD with Zenoss via SNMP</h3>
-<p>Install instructions are found in <a href="http://community.zenoss.org/docs/DOC-9132" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://community.zenoss.org/docs/DOC-9132']);">this</a> Zenoss community page. First let&#8217;s install the desired <strong>snmpd</strong> server:</p>
+<p>Install instructions are found in <a href="http://community.zenoss.org/docs/DOC-9132" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://community.zenoss.org/docs/DOC-9132']);">this</a> Zenoss community page. First let's install the desired <strong>snmpd</strong> server:</p>
 	freebsd:~&gt;cd /usr/ports/net-mgmt/bsnmp-ucd
 	freebsd:/usr/ports/net-mgmt/bsnmp-ucd&gt;sudo make install clean
 	freebsd:~&gt;cd /usr/ports/net-mgmt/bsnmptools
@@ -361,10 +361,10 @@ tags:
 	begemotSnmpdModulePath."mibII"  = "/usr/lib/snmp_mibII.so"
 	begemotSnmpdModulePath."ucd" = "/usr/local/lib/snmp_ucd.so"
 	
-<p>Then let&#8217;s enable the service, edit the <strong>/etc/rc.conf</strong> file an add the following:</p>
+<p>Then let's enable the service, edit the <strong>/etc/rc.conf</strong> file an add the following:</p>
 	bsnmpd_enable="YES"
 	
-<p>Then let&#8217;s start up the <strong>bsmpd</strong> service:</p>
+<p>Then let's start up the <strong>bsmpd</strong> service:</p>
 	freebsd:~&gt;sudo service bsnmpd start
 	Starting bsnmpd.
 	freebsd:~&gt;sudo service bsnmpd status
@@ -412,13 +412,13 @@ tags:
 	sysORUpTime[10] = 8
 	freebsd:~&gt;
 	
-<p>Then going to the Zenoss dashboard and then going to the &#8220;Infrastructure&#8221; Tab, we can expand the left pane and go to &#8220;Device Classes&#8221; -> &#8220;Server&#8221; -> &#8220;Remote&#8221;. Lastly we can click on &#8220;Add Device&#8221; -> &#8220;Add Single Device&#8221;, and fill out all the options like so:</p>
+<p>Then going to the Zenoss dashboard and then going to the "Infrastructure" Tab, we can expand the left pane and go to "Device Classes" -> "Server" -> "Remote". Lastly we can click on "Add Device" -> "Add Single Device", and fill out all the options like so:</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-add-device_dialog_fb.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-add-device_dialog_fb.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-add-device_dialog_fb.png" alt="zenoss add device dialog fb Monitor Different Systems with Zenoss" width="791" height="546" class="alignnone size-full wp-image-6561" title="Monitor Different Systems with Zenoss" /></a></p>
 <p>After the device is added we can see new components from the host:</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-freebsd-device-details.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-freebsd-device-details.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-freebsd-device-details.png" alt="zenoss freebsd device details Monitor Different Systems with Zenoss" width="1243" height="477" class="alignnone size-full wp-image-6562" title="Monitor Different Systems with Zenoss" /></a></p>
-<p>Not as many as for Linux Host but still enough. Now let&#8217;s monitor the Fedora Machine.</p>
+<p>Not as many as for Linux Host but still enough. Now let's monitor the Fedora Machine.</p>
 <h3>5. Monitor the Fedora Machine with Zenoss via SNMP</h3>
-<p>For regular Linux machines we can just use the <strong>net-snmp</strong> package, so let&#8217;s go ahead and install that:</p>
+<p>For regular Linux machines we can just use the <strong>net-snmp</strong> package, so let's go ahead and install that:</p>
 	moxz:~&gt;sudo yum install net-snmp
 	...
 	...
@@ -428,7 +428,7 @@ tags:
 	  net-snmp-agent-libs.i686 1:5.7.2-5.fc18                                                                                                
 	Complete!
 	
-<p>Then let&#8217;s set configure the service by editing the <strong>/etc/snmp/snmpd.conf</strong> file and adding/modifying the following lines (Most of these instructions are described in <a href="http://community.zenoss.org/docs/DOC-2502" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://community.zenoss.org/docs/DOC-2502']);">this</a> Zenoss community page):</p>
+<p>Then let's set configure the service by editing the <strong>/etc/snmp/snmpd.conf</strong> file and adding/modifying the following lines (Most of these instructions are described in <a href="http://community.zenoss.org/docs/DOC-2502" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://community.zenoss.org/docs/DOC-2502']);">this</a> Zenoss community page):</p>
 	view    systemview    included   .1
 	rocommunity public
 	
@@ -444,14 +444,14 @@ tags:
 	dontLogTCPWrappersConnects yes
 	rocommunity public
 	
-<p>Now let&#8217;s enable the <strong>snmpd</strong> service:</p>
+<p>Now let's enable the <strong>snmpd</strong> service:</p>
 	moxz:~&gt;sudo systemctl enable snmpd
 	ln -s '/usr/lib/systemd/system/snmpd.service' '/etc/systemd/system/multi-user.target.wants/snmpd.service'
 	
-<p>Then let&#8217; start it:</p>
+<p>Then let' start it:</p>
 	moxz:~&gt;sudo systemctl start snmpd
 	
-<p>Lastly let&#8217;s make sure it started fine:</p>
+<p>Lastly let's make sure it started fine:</p>
 	moxz:~&gt;sudo systemctl status snmpd
 	snmpd.service - Simple Network Management Protocol (SNMP) Daemon.
 	          Loaded: loaded (/usr/lib/systemd/system/snmpd.service; enabled)
@@ -466,7 +466,7 @@ tags:
 <p>Then restart <strong>iptables</strong> to apply the changes:</p>
 	moxz:~&gt;sudo systemctl restart iptables
 	
-<p>Now let&#8217;s do an <strong>snmpwalk</strong> from our Zenoss server:</p>
+<p>Now let's do an <strong>snmpwalk</strong> from our Zenoss server:</p>
 	freebsd:~&gt;snmpwalk -v 2c -c public 192.168.1.102 system
 	SNMPv2-MIB::sysDescr.0 = STRING: Linux moxz.dnsd.me 3.7.8-202.fc18.i686 #1 SMP Fri Feb 15 17:57:07 UTC 2013 i686
 	SNMPv2-MIB::sysObjectID.0 = OID: NET-SNMP-MIB::netSnmpAgentOIDs.10
@@ -506,13 +506,13 @@ tags:
 	SNMPv2-MIB::sysORUpTime.9 = Timeticks: (8) 0:00:00.08
 	SNMPv2-MIB::sysORUpTime.10 = Timeticks: (8) 0:00:00.08
 	
-<p>Now let&#8217;s go back to the Zenoss Dashboard and go to the Infrastructure tab, then expand &#8220;Device Classes&#8221; -> &#8220;Server&#8221; -> &#8220;Linux&#8221;. Lastly click on &#8220;Add Device&#8221; -> &#8220;Add a Single Device&#8221; and fill out the information. Here is how mine looked like:</p>
+<p>Now let's go back to the Zenoss Dashboard and go to the Infrastructure tab, then expand "Device Classes" -> "Server" -> "Linux". Lastly click on "Add Device" -> "Add a Single Device" and fill out the information. Here is how mine looked like:</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-add-device-diag-fed2.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-add-device-diag-fed2.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-add-device-diag-fed2.png" alt="zenoss add device diag fed2 Monitor Different Systems with Zenoss" width="791" height="545" class="alignnone size-full wp-image-6569" title="Monitor Different Systems with Zenoss" /></a></p>
-<p>After the device was added and &#8216;modeled&#8217;, I saw similar information under the components section as I did for the other machines:</p>
+<p>After the device was added and 'modeled', I saw similar information under the components section as I did for the other machines:</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-fedora-device-details.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-fedora-device-details.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-fedora-device-details.png" alt="zenoss fedora device details Monitor Different Systems with Zenoss" width="844" height="491" class="alignnone size-full wp-image-6568" title="Monitor Different Systems with Zenoss" /></a></p>
-<p>Now let&#8217;s monitor our RAID on the FreebSD Machine.</p>
+<p>Now let's monitor our RAID on the FreebSD Machine.</p>
 <h3>5. Add a Raid Check in Zenoss for the FreeBSD machine.</h3>
-<p>Instructions on how to run commands and gather information from the output are in the <a href="http://community.zenoss.org/community/documentation/official_documentation/zenoss-guide" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://community.zenoss.org/community/documentation/official_documentation/zenoss-guide']);">Admin Guide</a> (in the Chapter Entitled &#8220;Monitoring Using ZenCommand&#8221;) and in <a href="http://community.zenoss.org/docs/DOC-3909" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://community.zenoss.org/docs/DOC-3909']);">this</a> community forum. I knew that Zenoss could use Nagios plugins, so I found two scripts online: one written in <a href="http://exchange.nagios.org/directory/Plugins/Hardware/Storage-Systems/RAID-Controllers/Adaptec-RAID-Check-by-Anchor-Systems/details" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://exchange.nagios.org/directory/Plugins/Hardware/Storage-Systems/RAID-Controllers/Adaptec-RAID-Check-by-Anchor-Systems/details']);">Python</a> and the other in <a href="http://exchange.nagios.org/directory/Plugins/Hardware/Storage-Systems/RAID-Controllers/check_aacraid-Adaptec-and-ICP-Controller-Monitoring/details" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://exchange.nagios.org/directory/Plugins/Hardware/Storage-Systems/RAID-Controllers/check_aacraid-Adaptec-and-ICP-Controller-Monitoring/details']);">Perl</a>. I downloaded the Perl script, made some changes to it (path changes and such), copied it to the Zenoss install, and ran a test:</p>
+<p>Instructions on how to run commands and gather information from the output are in the <a href="http://community.zenoss.org/community/documentation/official_documentation/zenoss-guide" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://community.zenoss.org/community/documentation/official_documentation/zenoss-guide']);">Admin Guide</a> (in the Chapter Entitled "Monitoring Using ZenCommand") and in <a href="http://community.zenoss.org/docs/DOC-3909" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://community.zenoss.org/docs/DOC-3909']);">this</a> community forum. I knew that Zenoss could use Nagios plugins, so I found two scripts online: one written in <a href="http://exchange.nagios.org/directory/Plugins/Hardware/Storage-Systems/RAID-Controllers/Adaptec-RAID-Check-by-Anchor-Systems/details" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://exchange.nagios.org/directory/Plugins/Hardware/Storage-Systems/RAID-Controllers/Adaptec-RAID-Check-by-Anchor-Systems/details']);">Python</a> and the other in <a href="http://exchange.nagios.org/directory/Plugins/Hardware/Storage-Systems/RAID-Controllers/check_aacraid-Adaptec-and-ICP-Controller-Monitoring/details" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://exchange.nagios.org/directory/Plugins/Hardware/Storage-Systems/RAID-Controllers/check_aacraid-Adaptec-and-ICP-Controller-Monitoring/details']);">Perl</a>. I downloaded the Perl script, made some changes to it (path changes and such), copied it to the Zenoss install, and ran a test:</p>
 	freebsd:~&gt;sudo cp check_aacraid.pl /usr/local/zenoss/libexec/check_aacraid
 	freebsd:~&gt;sudo su - zenoss
 	$libexec/check_aacraid 
@@ -520,27 +520,27 @@ tags:
 	$ echo $?
 	0
 	
-<p>No errors were reported and the correct status was returned. I didn&#8217;t have a battery in the controller, so initially I remove that check but re-enabling the check and re-running the command I would get this:</p>
+<p>No errors were reported and the correct status was returned. I didn't have a battery in the controller, so initially I remove that check but re-enabling the check and re-running the command I would get this:</p>
 	$ libexec/check_aacraid
 	battery status of controller 1 not optimal!&lt;br /&gt;
 	$ echo $?
 	1
 	
-<p>We can see that the status is now 1 (Warning), which is expected. So the script was working just fine. Now we need to create a local template for our device and add a new &#8220;Data Source&#8221; to the template. If we just add the Data Source to the original template, it would impact any Machine that is part of that template. So go to the &#8220;Infrastructure&#8221; tab and select our FreeBSD machine. We will see this:</p>
+<p>We can see that the status is now 1 (Warning), which is expected. So the script was working just fine. Now we need to create a local template for our device and add a new "Data Source" to the template. If we just add the Data Source to the original template, it would impact any Machine that is part of that template. So go to the "Infrastructure" tab and select our FreeBSD machine. We will see this:</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-freebsd_details.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-freebsd_details.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-freebsd_details.png" alt="zenoss freebsd details Monitor Different Systems with Zenoss" width="1227" height="603" class="alignnone size-full wp-image-6594" title="Monitor Different Systems with Zenoss" /></a></p>
-<p>Then from the bottom left corner, select &#8220;Add Local Template&#8221;:</p>
+<p>Then from the bottom left corner, select "Add Local Template":</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_add_local_template_button_g.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_add_local_template_button_g.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_add_local_template_button_g.png" alt="zenoss add local template button g Monitor Different Systems with Zenoss" width="273" height="490" class="alignnone size-full wp-image-6692" title="Monitor Different Systems with Zenoss" /></a></p>
 <p>Then name the Template as you desire, here is how mine looked like:</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_add_local_template.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_add_local_template.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_add_local_template.png" alt="zenoss add local template Monitor Different Systems with Zenoss" width="588" height="290" class="alignnone size-full wp-image-6595" title="Monitor Different Systems with Zenoss" /></a></p>
 <p>Then you will see this:</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_new_local_template.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_new_local_template.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_new_local_template.png" alt="zenoss new local template Monitor Different Systems with Zenoss" width="683" height="440" class="alignnone size-full wp-image-6596" title="Monitor Different Systems with Zenoss" /></a></p>
-<p>Notice you new Template under the &#8220;Monitoring Templates&#8221; Section. Now click on the &#8216;+&#8217; button and name your command, here is how mine looked like:</p>
+<p>Notice you new Template under the "Monitoring Templates" Section. Now click on the '+' button and name your command, here is how mine looked like:</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_add_command.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_add_command.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_add_command.png" alt="zenoss add command Monitor Different Systems with Zenoss" width="304" height="125" class="alignnone size-full wp-image-6597" title="Monitor Different Systems with Zenoss" /></a></p>
-<p>Once added, select the &#8220;Data Source&#8221; and click on the Gear -> &#8220;View and Edit Detail&#8221;:</p>
+<p>Once added, select the "Data Source" and click on the Gear -> "View and Edit Detail":</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_data_source_edit_details_g.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_data_source_edit_details_g.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_data_source_edit_details_g.png" alt="zenoss data source edit details g Monitor Different Systems with Zenoss" width="662" height="447" class="alignnone size-full wp-image-6693" title="Monitor Different Systems with Zenoss" /></a></p>
 <p>then fill out all the fields like so:</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_data_source_details_dialog.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_data_source_details_dialog.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_data_source_details_dialog.png" alt="zenoss data source details dialog Monitor Different Systems with Zenoss" width="788" height="486" class="alignnone size-full wp-image-6598" title="Monitor Different Systems with Zenoss" /></a></p>
-<p>and &#8220;Save&#8221; the config. Go back to the Zenoss server and as the <strong>zenoss</strong> user run the following:</p>
+<p>and "Save" the config. Go back to the Zenoss server and as the <strong>zenoss</strong> user run the following:</p>
 	zencommand run -d 192.168.1.101 -v10
 	
 <p>There is a going to be a bunch of output, but here are the important snippets:</p>
@@ -569,19 +569,19 @@ tags:
 	2013-02-24 18:40:57,108 DEBUG zen.RRDUtil: /usr/local/zenoss/perf/Devices/192.168.1.101/Raid_Check_disks.rrd: 2.0
 	2013-02-24 18:40:57,109 DEBUG zen.zencommand: RRD save result: 2.0
 	
-<p>Now we can plot how many disks are online (we can see from the above output that a new RRD file has been generated), just like before. To plot it we first need to add a &#8220;Data Point&#8221; to our &#8220;Data Source&#8221;. This is done by going to the &#8220;Data Source&#8221; view and clicking on the our &#8220;Data Source&#8221; (Raid_Check in our case) and then selecting &#8220;Add Data Point&#8221;:</p>
+<p>Now we can plot how many disks are online (we can see from the above output that a new RRD file has been generated), just like before. To plot it we first need to add a "Data Point" to our "Data Source". This is done by going to the "Data Source" view and clicking on the our "Data Source" (Raid_Check in our case) and then selecting "Add Data Point":</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-add-data-point-button_g.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-add-data-point-button_g.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-add-data-point-button_g.png" alt="zenoss add data point button g Monitor Different Systems with Zenoss" width="628" height="148" class="alignnone size-full wp-image-6694" title="Monitor Different Systems with Zenoss" /></a></p>
-<p>Then just call it &#8220;disks&#8221;.</p>
+<p>Then just call it "disks".</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/03/zenoss-add-data-point-dialog.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/03/zenoss-add-data-point-dialog.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/zenoss-add-data-point-dialog.png" alt="zenoss add data point dialog Monitor Different Systems with Zenoss" width="300" height="102" class="alignnone size-full wp-image-7439" title="Monitor Different Systems with Zenoss" /></a></p>
-<p>Then under the &#8220;Graph Definitions&#8221;, do the same thing and create a graph called &#8220;disks&#8221;:</p>
+<p>Then under the "Graph Definitions", do the same thing and create a graph called "disks":</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-graph-definitions.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-graph-definitions.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-graph-definitions.png" alt="zenoss graph definitions Monitor Different Systems with Zenoss" width="305" height="113" class="alignnone size-full wp-image-6600" title="Monitor Different Systems with Zenoss" /></a></p>
-<p>Now click on the &#8220;Data Point&#8221; called &#8220;disks&#8221; and then click on &#8220;Add Data Point to Graph&#8221; like so:</p>
+<p>Now click on the "Data Point" called "disks" and then click on "Add Data Point to Graph" like so:</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-add-data-point-to-graph_g.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-add-data-point-to-graph_g.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-add-data-point-to-graph_g.png" alt="zenoss add data point to graph g Monitor Different Systems with Zenoss" width="624" height="136" class="alignnone size-full wp-image-6695" title="Monitor Different Systems with Zenoss" /></a></p>
-<p>Then select the graph &#8220;disks&#8221; from the drop down menu and click add:</p>
+<p>Then select the graph "disks" from the drop down menu and click add:</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/03/zenoss_select_graph_g.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/03/zenoss_select_graph_g.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/zenoss_select_graph_g.png" alt="zenoss select graph g Monitor Different Systems with Zenoss" width="306" height="191" class="alignnone size-full wp-image-7440" title="Monitor Different Systems with Zenoss" /></a></p>
-<p>Lastly go the &#8220;Graphs&#8221; view and scroll down to the bottom and you will see a couple of plot points of our new graph:</p>
+<p>Lastly go the "Graphs" view and scroll down to the bottom and you will see a couple of plot points of our new graph:</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_raid_graph.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_raid_graph.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_raid_graph.png" alt="zenoss raid graph Monitor Different Systems with Zenoss" width="885" height="518" class="alignnone size-full wp-image-6601" title="Monitor Different Systems with Zenoss" /></a></p>
-<p>As a test, I made the script return a bad value and I saw the following in my &#8220;Infrastructure&#8221; view:</p>
+<p>As a test, I made the script return a bad value and I saw the following in my "Infrastructure" view:</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-device-warning.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-device-warning.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-device-warning.png" alt="zenoss device warning Monitor Different Systems with Zenoss" width="1239" height="337" class="alignnone size-full wp-image-6602" title="Monitor Different Systems with Zenoss" /></a></p>
 <p>Clicking on the warning showed me this:</p>
 <p><a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_broken_raid_events.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_broken_raid_events.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_broken_raid_events.png" alt="zenoss broken raid events Monitor Different Systems with Zenoss" width="1234" height="159" class="alignnone size-full wp-image-6603" title="Monitor Different Systems with Zenoss" /></a></p>
@@ -590,7 +590,7 @@ tags:
 <h4>Pros</h4>
 <ul>
 <li>
-<p>There is a command line tool to check status of the Zenoss system, it&#8217;s called <strong>zendmd</strong>. More information can be seen in the <a href="http://community.zenoss.org/community/documentation/official_documentation/zenoss-dev-guide" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://community.zenoss.org/community/documentation/official_documentation/zenoss-dev-guide']);">Development Guide</a>. Here is a quick example:</p>
+<p>There is a command line tool to check status of the Zenoss system, it's called <strong>zendmd</strong>. More information can be seen in the <a href="http://community.zenoss.org/community/documentation/official_documentation/zenoss-dev-guide" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://community.zenoss.org/community/documentation/official_documentation/zenoss-dev-guide']);">Development Guide</a>. Here is a quick example:</p>
 	$ zendmd
 	Welcome to the Zenoss dmd command shell!
 	'dmd' is bound to the DataRoot. 'zhelp()' to get a list of commands.
@@ -612,14 +612,14 @@ tags:
 <li>The Web Interface is rich and easy to use</li>
 <li>Creating Custom Graphs is a breeze</li>
 <li>Has the capability of using Nagios Plugins</li>
-<li>&#8216;Agentless&#8217; monitoring of Nodes, mostly uses SSH and SNMP</li>
+<li>'Agentless' monitoring of Nodes, mostly uses SSH and SNMP</li>
 <li>Does it all: monitor, graph, notify, and much more</li>
-<li>Doesn&#8217;t depend on Apache, uses a Zope Instance for it&#8217;s web management portal</li>
+<li>Doesn't depend on Apache, uses a Zope Instance for it's web management portal</li>
 </ul>
 <h4>Cons</h4>
 <ul>
 <li>
-<p>It&#8217;s a beast, the install comes with so many daemons installed</p>
+<p>It's a beast, the install comes with so many daemons installed</p>
 	freebsd:~&gt;ps auxw | grep zenoss | grep -v grep | wc -l
 	17
 	
@@ -627,9 +627,9 @@ tags:
 </ul>
 <p><!-- t --></p>
 <ul>
-<li>Installs it&#8217;s own components, it even installs it&#8217;s own Python version</li>
+<li>Installs it's own components, it even installs it's own Python version</li>
 <li>Requires an External Database (MySQL)</li>
-<li>Doesn&#8217;t provide as much monitoring for FreeBSD nodes as for the Linux nodes</li>
+<li>Doesn't provide as much monitoring for FreeBSD nodes as for the Linux nodes</li>
 </ul>
 <p>Other than being resource intensive, I actually liked the software. I also ran into other sites that mentioned <em>Zabbix</em> as being a good alternative and not as resource intensive:</p>
 <ul>

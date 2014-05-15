@@ -14,7 +14,7 @@ tags:
 ---
 ### Compare and contrast virtual and physical hardware resources
 
-From &#8220;<a href="http://www.vmware.com/files/pdf/VMware-Server-2-DS-EN.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/VMware-Server-2-DS-EN.pdf']);">Transform your Business with Virtualization</a>&#8220;:
+From "<a href="http://www.vmware.com/files/pdf/VMware-Server-2-DS-EN.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/VMware-Server-2-DS-EN.pdf']);">Transform your Business with Virtualization</a>":
 
 > **What is a Virtual Machine?**  
 > A virtual machine is a tightly isolated software container that can run its own operating systems and applications as if it were a physical computer. A virtual machine behaves exactly like a physical computer and contains it own virtual (ie, software-based) CPU, RAM hard disk and network interface card (NIC).
@@ -41,7 +41,7 @@ This was covered in Objective 3.1
 
 ### Identify VMware CPU load balancing techniques
 
-From &#8220;<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>&#8220;:
+From "<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>":
 
 > **ESXi CPU Considerations**  
 > This subsection provides guidance regarding CPU considerations in VMware ESXi.
@@ -94,15 +94,15 @@ Similar settings for the hot-add of the memory. Here is how the option looks lik
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/10/cpu_memory_hot-add.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/10/cpu_memory_hot-add.png']);"><img class="alignnone size-full wp-image-4599" title="cpu_memory_hot-add" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/cpu_memory_hot-add.png" alt="cpu memory hot add VCAP5 DCA Objective 3.2 – Optimize Virtual Machine Resources " width="696" height="616" /></a>
 
-There are also a lot of OS&#8217;es that support it and that don&#8217;t. From the blog &#8220;<a href="http://www.petenetlive.com/KB/Article/0000527.htm" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.petenetlive.com/KB/Article/0000527.htm']);">VMware vSphere Hot Add and Hot Plug</a>&#8220;:
+There are also a lot of OS'es that support it and that don't. From the blog "<a href="http://www.petenetlive.com/KB/Article/0000527.htm" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.petenetlive.com/KB/Article/0000527.htm']);">VMware vSphere Hot Add and Hot Plug</a>":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/10/hot-add_matrix.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/10/hot-add_matrix.png']);"><img class="alignnone size-full wp-image-4600" title="hot-add_matrix" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/hot-add_matrix.png" alt="hot add matrix VCAP5 DCA Objective 3.2 – Optimize Virtual Machine Resources " width="550" height="311" /></a>
 
-Also check out &#8220;<a href="http://www.petri.co.il/vsphere-hot-add-memory-and-cpu.htm#" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.petri.co.il/vsphere-hot-add-memory-and-cpu.htm#']);">Using vSphere Hot-Add to Dynamically Add CPU and RAM</a>&#8220;, &#8220;<a href="http://www.boche.net/blog/index.php/2009/05/10/vsphere-memory-hot-add-cpu-hot-plug/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.boche.net/blog/index.php/2009/05/10/vsphere-memory-hot-add-cpu-hot-plug/']);">vSphere Memory Hot Add/CPU Hot Plug</a>&#8220;, and &#8220;<a href="http://www.simonlong.co.uk/blog/2009/12/09/vmware-hot-add-memory-cpu-support/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.simonlong.co.uk/blog/2009/12/09/vmware-hot-add-memory-cpu-support/']);">VMware Hot-Add Memory/CPU Support</a>&#8220;
+Also check out "<a href="http://www.petri.co.il/vsphere-hot-add-memory-and-cpu.htm#" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.petri.co.il/vsphere-hot-add-memory-and-cpu.htm#']);">Using vSphere Hot-Add to Dynamically Add CPU and RAM</a>", "<a href="http://www.boche.net/blog/index.php/2009/05/10/vsphere-memory-hot-add-cpu-hot-plug/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.boche.net/blog/index.php/2009/05/10/vsphere-memory-hot-add-cpu-hot-plug/']);">vSphere Memory Hot Add/CPU Hot Plug</a>", and "<a href="http://www.simonlong.co.uk/blog/2009/12/09/vmware-hot-add-memory-cpu-support/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.simonlong.co.uk/blog/2009/12/09/vmware-hot-add-memory-cpu-support/']);">VMware Hot-Add Memory/CPU Support</a>"
 
 ### Tune Virtual Machine memory configurations
 
-From &#8220;<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>&#8220;:
+From "<a href="http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf']);">Performance Best Practices for VMware vSphere 5.0</a>":
 
 > **Memory Overhead**
 > 
@@ -142,7 +142,7 @@ From the <a href="http://pubs.vmware.com/vsphere-50/index.jsp?topic=%2Fcom.vmwar
 > *   New for vSphere 5.0, when ESXi is running on certain configurations of the Cisco Unified Computing System (UCS) platform, DirectPath I/O for networking is compatible with vMotion, physical NIC sharing, snapshots, and suspend/resume. It is not compatible with Fault Tolerance, NetIOC, memory overcommit, VMCI, or VMSafe.
 > *   For server hardware other than the Cisco UCS platform, DirectPath I/O is not compatible with vMotion, physical NIC sharing, snapshots, suspend/resume, Fault Tolerance, NetIOC, memory overcommit, or VMSafe. 
 > 
-> Typical virtual machines and their workloads don&#8217;t require the use of DirectPath I/O. For workloads that are very networking intensive and don&#8217;t need the core virtualization features mentioned above, however, DirectPath I/O might be useful to reduce CPU usage.
+> Typical virtual machines and their workloads don't require the use of DirectPath I/O. For workloads that are very networking intensive and don't need the core virtualization features mentioned above, however, DirectPath I/O might be useful to reduce CPU usage.
 
 More from the same document:
 
@@ -222,11 +222,11 @@ From the <a href="http://pubs.vmware.com/vsphere-50/index.jsp?topic=%2Fcom.vmwar
 
 ### Calculate available resources
 
-Under &#8220;Hosts and Cluster&#8221; View you can select the Cluster and then select the &#8220;Hosts&#8221; Tab. The tab looks like this:
+Under "Hosts and Cluster" View you can select the Cluster and then select the "Hosts" Tab. The tab looks like this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/10/cluster_resources.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/10/cluster_resources.png']);"><img class="alignnone size-full wp-image-4604" title="cluster_resources" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/cluster_resources.png" alt="cluster resources VCAP5 DCA Objective 3.2 – Optimize Virtual Machine Resources " width="809" height="116" /></a>
 
-Also under the Summary Tab you can select &#8220;View Resource Distribution Chart&#8221;, here is that option in vCenter:
+Also under the Summary Tab you can select "View Resource Distribution Chart", here is that option in vCenter:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/10/cluster_view_distribution_chart.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/10/cluster_view_distribution_chart.png']);"><img class="alignnone size-full wp-image-4605" title="cluster_view_distribution_chart" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/cluster_view_distribution_chart.png" alt="cluster view distribution chart VCAP5 DCA Objective 3.2 – Optimize Virtual Machine Resources " width="802" height="473" /></a>
 
@@ -247,13 +247,13 @@ and here are some more options:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/10/more_lp_options.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/10/more_lp_options.png']);"><img class="alignnone size-full wp-image-4609" title="more_lp_options" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/more_lp_options.png" alt="more lp options VCAP5 DCA Objective 3.2 – Optimize Virtual Machine Resources " width="565" height="232" /></a>
 
-All of the above options can be modified by going to the &#8220;Host and Clusters&#8221; View -> Select a Host -> Click the &#8220;Configuration&#8221; Tab -> Select &#8220;Advanced Setting&#8221; under the Software Section. Here is how it looks like in vCenter:
+All of the above options can be modified by going to the "Host and Clusters" View -> Select a Host -> Click the "Configuration" Tab -> Select "Advanced Setting" under the Software Section. Here is how it looks like in vCenter:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/10/large_page_settings_on_host.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/10/large_page_settings_on_host.png']);"><img class="alignnone size-full wp-image-4610" title="large_page_settings_on_host" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/large_page_settings_on_host.png" alt="large page settings on host VCAP5 DCA Objective 3.2 – Optimize Virtual Machine Resources " width="925" height="647" /></a>
 
 ### Understand appropriate use cases for CPU affinity
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf']);">vSphere Resource Management ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf']);">vSphere Resource Management ESXi 5.0</a>":
 
 > **Using CPU Affinity**  
 > By specifying a CPU affinity setting for each virtual machine, you can restrict the assignment of virtual machines to a subset of the available processors in multiprocessor systems. By using this feature, you can assign each virtual machine to processors in the specified affinity set.
@@ -264,9 +264,9 @@ From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/P
 > 
 > The CPU affinity setting for a virtual machine applies to all of the virtual CPUs associated with the virtual machine and to all other threads (also known as worlds) associated with the virtual machine. Such virtual machine threads perform processing required for emulating mouse, keyboard, screen, CD-ROM, and miscellaneous legacy devices.
 > 
-> In some cases, such as display-intensive workloads, significant communication might occur between the virtual CPUs and these other virtual machine threads. Performance might degrade if the virtual machine&#8217;s affinity setting prevents these additional threads from being scheduled concurrently with the virtual machine&#8217;s virtual CPUs. Examples of this include a uniprocessor virtual machine with affinity to a single CPU or a two-way SMP virtual machine with affinity to only two CPUs.
+> In some cases, such as display-intensive workloads, significant communication might occur between the virtual CPUs and these other virtual machine threads. Performance might degrade if the virtual machine's affinity setting prevents these additional threads from being scheduled concurrently with the virtual machine's virtual CPUs. Examples of this include a uniprocessor virtual machine with affinity to a single CPU or a two-way SMP virtual machine with affinity to only two CPUs.
 > 
-> For the best performance, when you use manual affinity settings, VMware recommends that you include at least one additional physical CPU in the affinity setting to allow at least one of the virtual machine&#8217;s threads to be scheduled at the same time as its virtual CPUs. Examples of this include a uniprocessor virtual machine with affinity to at least two CPUs or a two-way SMP virtual machine with affinity to at least three CPUs.
+> For the best performance, when you use manual affinity settings, VMware recommends that you include at least one additional physical CPU in the affinity setting to allow at least one of the virtual machine's threads to be scheduled at the same time as its virtual CPUs. Examples of this include a uniprocessor virtual machine with affinity to at least two CPUs or a two-way SMP virtual machine with affinity to at least three CPUs.
 
 Here is how to set it up:
 
@@ -287,14 +287,14 @@ And here is one section from the same document:
 > *   Because CPU admission control does not consider affinity, a virtual machine with manual affinity settings might not always receive its full reservation. Virtual machines that do not have manual affinity settings are not adversely affected by virtual machines with manual affinity settings.
 > *   When you move a virtual machine from one host to another, affinity might no longer apply because the new host might have a different number of processors.
 > *   The NUMA scheduler might not be able to manage a virtual machine that is already assigned to certain processors using affinity.
-> *   Affinity can affect the host&#8217;s ability to schedule virtual machines on multicore or hyperthreaded processors to take full advantage of resources shared on such processors.
+> *   Affinity can affect the host's ability to schedule virtual machines on multicore or hyperthreaded processors to take full advantage of resources shared on such processors.
 
 ### Configure alternate virtual machine swap locations
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf']);">vSphere Resource Management ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf']);">vSphere Resource Management ESXi 5.0</a>":
 
 > **Swap File Location**  
-> By default, the swap file is created in the same location as the virtual machine&#8217;s configuration file.
+> By default, the swap file is created in the same location as the virtual machine's configuration file.
 > 
 > A swap file is created by the ESXi host when a virtual machine is powered on. If this file cannot be created, the virtual machine cannot power on. Instead of accepting the default, you can also:
 > 
@@ -339,7 +339,7 @@ Also from the same document:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/10/host_swap_settings.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/10/host_swap_settings.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/10/host_swap_settings.png" alt="host swap settings VCAP5 DCA Objective 3.2 – Optimize Virtual Machine Resources " title="host_swap_settings" width="891" height="629" class="alignnone size-full wp-image-4614" /></a>
 
-For the VM it self, you can go &#8220;Edit Settings&#8221; of the VM and then go to &#8220;Options&#8221; and then select &#8220;Swapfile Location&#8221;. Here is how it looks like in vCenter:
+For the VM it self, you can go "Edit Settings" of the VM and then go to "Options" and then select "Swapfile Location". Here is how it looks like in vCenter:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/10/vm_swap_setting.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/10/vm_swap_setting.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/10/vm_swap_setting.png" alt="vm swap setting VCAP5 DCA Objective 3.2 – Optimize Virtual Machine Resources " title="vm_swap_setting" width="696" height="615" class="alignnone size-full wp-image-4615" /></a>
 

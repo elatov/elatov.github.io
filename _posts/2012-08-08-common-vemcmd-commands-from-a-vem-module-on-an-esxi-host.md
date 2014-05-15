@@ -1,5 +1,5 @@
 ---
-title: 'Common &#8216;vemcmd&#8217; Commands from a VEM Module on an ESX(i) Host'
+title: "Common 'vemcmd' Commands from a VEM Module on an ESX(i) Host"
 author: Karim Elatov
 layout: post
 permalink: /2012/08/common-vemcmd-commands-from-a-vem-module-on-an-esxi-host/
@@ -14,7 +14,7 @@ tags:
   - vemcmd
   - Virtual Ethernet Module
 ---
-Most of these can be seen from running a &#8216;vem-support all&#8217; on a host, but I wanted to have a good reference point for my self.
+Most of these can be seen from running a 'vem-support all' on a host, but I wanted to have a good reference point for my self.
 
 	  
 	~ # vemcmd show card  

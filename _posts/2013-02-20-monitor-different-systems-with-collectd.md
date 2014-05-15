@@ -45,14 +45,14 @@ My Ubuntu Machine:
 
 ### Monitoring Systems
 
-As I kept researching, I discovered that there are many different monitoring applications out there. Most are included in the wikipedia page &#8220;<a href="http://en.wikipedia.org/wiki/Comparison_of_network_monitoring_systems" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org/wiki/Comparison_of_network_monitoring_systems']);">Comparison of network monitoring systems</a>&#8220;. Checking out other sites, I saw many different comparisons:
+As I kept researching, I discovered that there are many different monitoring applications out there. Most are included in the wikipedia page "<a href="http://en.wikipedia.org/wiki/Comparison_of_network_monitoring_systems" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org/wiki/Comparison_of_network_monitoring_systems']);">Comparison of network monitoring systems</a>". Checking out other sites, I saw many different comparisons:
 
 *   <a href="http://gajendrak.wordpress.com/2012/04/08/best-monitoring-tools-in-linux/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://gajendrak.wordpress.com/2012/04/08/best-monitoring-tools-in-linux/']);">Best Monitoring tools in Linux</a>
 *   <a href="http://www.linuxscrew.com/2012/03/22/linux-monitoring-tools/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.linuxscrew.com/2012/03/22/linux-monitoring-tools/']);">Top 5 Linux Monitoring Tools. Web Based.</a>
 *   <a href="http://sixrevisions.com/tools/10-free-server-network-monitoring-tools-that-kick-ass/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://sixrevisions.com/tools/10-free-server-network-monitoring-tools-that-kick-ass/']);">10 Free Server & Network Monitoring Tools that Kick Ass</a>
 *   <a href="http://www.linuxlinks.com/article/20101118163040955/Monitoring-Extra.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.linuxlinks.com/article/20101118163040955/Monitoring-Extra.html']);">6 More of the Best Free Linux Monitoring Tools</a>
 
-As I mentioned, I have used Nagios before so I wanted to try something new. We also used **Cacti**, alongside with Nagios so I didn&#8217;t want to use that either. I cared about two aspects: simplicity and performance. Having said that, I decided to try out **Collectd**, from <a href="http://sixrevisions.com/tools/10-free-server-network-monitoring-tools-that-kick-ass/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://sixrevisions.com/tools/10-free-server-network-monitoring-tools-that-kick-ass/']);">this</a> site:
+As I mentioned, I have used Nagios before so I wanted to try something new. We also used **Cacti**, alongside with Nagios so I didn't want to use that either. I cared about two aspects: simplicity and performance. Having said that, I decided to try out **Collectd**, from <a href="http://sixrevisions.com/tools/10-free-server-network-monitoring-tools-that-kick-ass/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://sixrevisions.com/tools/10-free-server-network-monitoring-tools-that-kick-ass/']);">this</a> site:
 
 > Collectd is similar to Munin and Cacti in that it focuses on graphing system metrics. Where it excels in is that it is designed specifically for performance and portability; this ultimately means it’s great on rugged systems, low-end systems, and embedded systems. Being designed for performance and low-system resource use means that Collectd can gather data every 10 seconds without interfering with your server processes, providing extremely high-resolution statistics.
 
@@ -69,7 +69,7 @@ But then checking out their <a href="http://linux.die.net/man/5/monitorix.conf" 
     As you can see all three entries use URLs to designate the location of each remote server. This means that on each server most also have been installed a CGI capable web server like Apache. 
     
 
-I didn&#8217;t want to run a webserver on each of my clients just so I could monitor them. So I decided to skip Monitorix.
+I didn't want to run a webserver on each of my clients just so I could monitor them. So I decided to skip Monitorix.
 
 I also wanted to try out **Munin**, from <a href="http://sixrevisions.com/tools/10-free-server-network-monitoring-tools-that-kick-ass/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://sixrevisions.com/tools/10-free-server-network-monitoring-tools-that-kick-ass/']);">this</a> site:
 
@@ -79,7 +79,7 @@ Also from <a href="http://www.thegeekstuff.com/2009/09/top-5-best-network-monito
 
 > The primary emphasis of Munin is on the plug and play architecture for it’s plugin. There are lot of plugins available for Munin, which will just work out-of-the box without lot of tweaking.
 
-Lastly I wanted to compare it to a large application just to see it&#8217;s Pro&#8217;s and Con&#8217;s. Since Nagios and Cacti were out of the picture, I decided to try **Zenoss**. There are a couple of sites that talk about the differences between Nagios and Zenoss, here are a few:
+Lastly I wanted to compare it to a large application just to see it's Pro's and Con's. Since Nagios and Cacti were out of the picture, I decided to try **Zenoss**. There are a couple of sites that talk about the differences between Nagios and Zenoss, here are a few:
 
 *   <a href="http://community.zenoss.org/docs/DOC-5858" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://community.zenoss.org/docs/DOC-5858']);">Zennos VS. Nagios</a> 
 *   <a href="http://www.longitudetech.com/linux-unix/zenoss-we-can-ditch-nagios-now/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.longitudetech.com/linux-unix/zenoss-we-can-ditch-nagios-now/']);">Zenoss: We Can Ditch Nagios Now</a>
@@ -90,11 +90,11 @@ Since I picked 3 different applications, I will break this post into 3 different
 
 ## Collectd
 
-To send information across the network we need to configure a collector (server) and nodes (clients). Instructions on how to configure Collectd for such a setup are here: &#8220;<a href="https://collectd.org/wiki/index.php/Networking_introduction" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://collectd.org/wiki/index.php/Networking_introduction']);">Networking introduction</a>&#8220;
+To send information across the network we need to configure a collector (server) and nodes (clients). Instructions on how to configure Collectd for such a setup are here: "<a href="https://collectd.org/wiki/index.php/Networking_introduction" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://collectd.org/wiki/index.php/Networking_introduction']);">Networking introduction</a>"
 
 ### 1. Install Collectd On Ubuntu and Configure it as a Collector/Server
 
-First let&#8217;s install the software:
+First let's install the software:
 
     kerch:~>sudo apt-get install collectd
     
@@ -160,19 +160,19 @@ Then I started the **collectd** Service:
 
 ### 2. Install Collectd on FreeBSD and set it up as Client
 
-Let&#8217;s find the software:
+Let's find the software:
 
     freebsd:~>whereis collectd 
     collectd: /usr/ports/net-mgmt/collectd
     
 
-Now let&#8217;s go ahead and install it:
+Now let's go ahead and install it:
 
     freebsd:~>cd /usr/ports/net-mgmt/collectd 
     freebsd:/usr/ports/net-mgmt/collectd>sudo make install clean
     
 
-At that point the compile process will fire up and install the software. Just for reference here are the configurations for the **collectd** package and it&#8217;s prerequisites:
+At that point the compile process will fire up and install the software. Just for reference here are the configurations for the **collectd** package and it's prerequisites:
 
     freebsd:/usr/ports/net-mgmt/collectd>make showconfig
     ===> The following configuration options are available for collectd-4.10.8_3:
@@ -276,12 +276,12 @@ After the software is installed, we need to configure it. Edit the **/usr/local/
     </plugin>
     
 
-Now let&#8217;s enable the daemon, this is done by editing **/etc/rc.conf** and adding the following:
+Now let's enable the daemon, this is done by editing **/etc/rc.conf** and adding the following:
 
     collectd_enable="YES"
     
 
-Now let&#8217;s start the **collectd** daemon:
+Now let's start the **collectd** daemon:
 
     freebsd:~>sudo /usr/local/etc/rc.d/collectd start
     
@@ -293,7 +293,7 @@ At this point we can check to make sure the files are now getting uploaded to th
     kerch.dnsd.me
     
 
-That looks good, now let&#8217;s install a web GUI for Collectd.
+That looks good, now let's install a web GUI for Collectd.
 
 ### 3. Install Collectd-Web Front End on the Collector
 
@@ -318,7 +318,7 @@ then make sure all the dependencies look good:
     JSON looks ok
     
 
-Now let&#8217;s just copy the whole directory to a folder where your web Server (I was using *Apache* for other uses) can host the files:
+Now let's just copy the whole directory to a folder where your web Server (I was using *Apache* for other uses) can host the files:
 
     kerch:~>sudo rsync -avzP collectd-web/. /var/www/cw/.
     
@@ -338,7 +338,7 @@ Selecting the remote host (freebsd) and then the CPU option, allowed me to see t
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/collectd-web-freebsd-cpu.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/collectd-web-freebsd-cpu.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/collectd-web-freebsd-cpu.png" alt="collectd web freebsd cpu Monitor Different Systems with Collectd" width="959" height="409" class="alignnone size-full wp-image-6347" title="Monitor Different Systems with Collectd" /></a>
 
-Now let&#8217;s configure the Fedora machine to send information to the collector.
+Now let's configure the Fedora machine to send information to the collector.
 
 ### 4. Install Collectd on Fedora and Configure it as a Client
 
@@ -400,7 +400,7 @@ Starting the service looked like this:
                       └─711 /usr/sbin/collectd -C /etc/collectd.conf -f
     
 
-I then visited the same Collectd-Web portal and saw the new host&#8217;s stats.
+I then visited the same Collectd-Web portal and saw the new host's stats.
 
 All of the above was for Collectd version 4. A newer version is out, version 5, and migration steps are available <a href="https://collectd.org/wiki/index.php/V4_to_v5_migration_guide" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://collectd.org/wiki/index.php/V4_to_v5_migration_guide']);">here</a>. Make sure at least the collector is at version 5, but it would be best to have both collector and nodes be at the same version.
 
@@ -528,7 +528,7 @@ Nothing fancy, it just counts how many disks are online and sets the interval to
     PUTVAL "freebsd.dnsd.me/exec-raid/gauge" interval=10 N:2
     
 
-Now let&#8217;s enable this to be executed from Collectd. Edit **/usr/local/etc/collectd.conf** and add/modify the following
+Now let's enable this to be executed from Collectd. Edit **/usr/local/etc/collectd.conf** and add/modify the following
 
     <plugin exec>
             Exec "elatov:elatov" "/home/elatov/arc.sh"

@@ -44,9 +44,9 @@ Since all CLARiiON arrays are active/passive, from <a href="http://virtualgeek.t
 > CLARiiON arrays are in VMware’s nomenclature an “active/passive” array – they have a LUN ownership  
 > model where internally a LUN is “owned” by one storage processor or the other. This is common in  
 > mid-range (“two brain” aka “storage processors”) arrays who’s core architecture was born in  
-> the 1990s (and is similar to NetApp’s Fibre Channel – but not iSCSI &#8211; implementation, HP EVA and others)
+> the 1990s (and is similar to NetApp’s Fibre Channel – but not iSCSI - implementation, HP EVA and others)
 
-Setting it for ALUA mode is actually a good idea. Before we get too far ahead of our selves, first let&#8217;s define what active/passive means and then we can figure out what ALUA is. From this great post, <a href="http://gestaltit.com/all/tech/storage/bas/assymetric-logical-unit-access-alua-mode-emc-clariion" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://gestaltit.com/all/tech/storage/bas/assymetric-logical-unit-access-alua-mode-emc-clariion']);">Assymetric Logical Unit Access (ALUA) mode on CLARiiON</a>:
+Setting it for ALUA mode is actually a good idea. Before we get too far ahead of our selves, first let's define what active/passive means and then we can figure out what ALUA is. From this great post, <a href="http://gestaltit.com/all/tech/storage/bas/assymetric-logical-unit-access-alua-mode-emc-clariion" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://gestaltit.com/all/tech/storage/bas/assymetric-logical-unit-access-alua-mode-emc-clariion']);">Assymetric Logical Unit Access (ALUA) mode on CLARiiON</a>:
 
 > Normally a path to a CLARiiON is considered active when we are connected to the service processor that is currently serving you the LUN. CLARiiON arrays are so called “active/passive” arrays, meaning that only one service processor is in charge of a LUN, and the secondary service processor is just waiting for a signal to take over the ownership in case of a failure. The array will normally receive a signal that tells it to switch from one service processor to the other one. This routine is called a “trespass” and happens so fast that you usually don’t really notice such a failover.
 
@@ -61,7 +61,7 @@ Now what does ALUA allow us to do, from the same post:
 > processor and is ready to perform I/O and will give you the best performance, and the non-optimal path  
 > is also ready to perform I/O but won’t give you the best performance since you are taking a detour.
 
-Now how does the array actually do this, from the article &#8220;<a href="http://www.emc.com/collateral/hardware/white-papers/h2890-emc-clariion-asymm-active-wp.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.emc.com/collateral/hardware/white-papers/h2890-emc-clariion-asymm-active-wp.pdf']);">EMC CLARiiON Asymmetric Active/Active Feature</a>:
+Now how does the array actually do this, from the article "<a href="http://www.emc.com/collateral/hardware/white-papers/h2890-emc-clariion-asymm-active-wp.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.emc.com/collateral/hardware/white-papers/h2890-emc-clariion-asymm-active-wp.pdf']);">EMC CLARiiON Asymmetric Active/Active Feature</a>:
 
 > In dual-SP systems, such as a CLARiiON, I/O can be routed through either SP. For example, if I/O for a LUN is sent to an SP that does not own the LUN, that SP redirects the I/O to the SP that does own the LUN. This redirection is done through internal communication within the storage system. It is transparent to the host, and the host is not aware that the other SP processed the I/O. Hence, a trespass is not required when I/O is sent to the non-owning (or non- optimal) SP.
 > 
@@ -71,7 +71,7 @@ Inside that same document there is an excellent picture that depicts how ALUA wo
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/04/ALUA.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/04/ALUA.png']);"><img class="alignnone size-full wp-image-1255" title="ALUA" src="http://virtuallyhyper.com/wp-content/uploads/2012/04/ALUA.png" alt="ALUA Seeing a High Number of Trespasses from a CLARiiON Array with ESX Hosts" width="452" height="480" /></a>
 
-ALUA uses Target Port Groups (TGP) for multiple aspects, so it&#8217;s very important to understand  
+ALUA uses Target Port Groups (TGP) for multiple aspects, so it's very important to understand  
 what those are. There is a great picture of TGP in this article, <a href="http://deinoscloud.wordpress.com/2011/07/04/it-all-started-with-this-question/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://deinoscloud.wordpress.com/2011/07/04/it-all-started-with-this-question/']);">It All Started With This Question…</a>:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/04/asymmetricaccessstate.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/04/asymmetricaccessstate.png']);"><img class="alignnone size-full wp-image-1256" title="asymmetricaccessstate" src="http://virtuallyhyper.com/wp-content/uploads/2012/04/asymmetricaccessstate.png" alt="asymmetricaccessstate Seeing a High Number of Trespasses from a CLARiiON Array with ESX Hosts" width="600" height="264" /></a>
@@ -106,7 +106,7 @@ the state of the Group, and the result is called Target Port Group Support (TGPS
 In short, you define a port group that SPs are part of and these port groups can return status of LUNs  
 depending the owner and preference.
 
-Now that we got that out of the way let&#8217;s back to logs, so we saw  
+Now that we got that out of the way let's back to logs, so we saw  
 the following sense code returned: *H:0&#215;0 D:0&#215;2 0&#215;6 0x2a 0&#215;6*. Translating that we get the following:
 
 	  
@@ -119,7 +119,7 @@ the following sense code returned: *H:0&#215;0 D:0&#215;2 0&#215;6 0x2a 0&#215;6
 	
 
 We are getting an *Access State Changed*, and that is expected since this was a trespass. Now looking at  
-the output of the &#8216;nmp device&#8217; we saw the following
+the output of the 'nmp device' we saw the following
 
 	  
 	\# esxcli nmp device list -d naa.600601604670290026cca5f7836fe111  
@@ -161,7 +161,7 @@ Definitions of all the settings can be found at VMware KB <a href="http://kb.vmw
 > which prevents path thrashing in multi-host setups. This option is turned on using the esxcli command  
 > enable\_alua\_followover and turned off using the esxcli command disable\_alua\_followover.
 
-Just to elaborate, the article &#8216;<a href="http://www.emc.com/collateral/hardware/white-papers/h2890-emc-clariion-asymm-active-wp.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.emc.com/collateral/hardware/white-papers/h2890-emc-clariion-asymm-active-wp.pdf']);">EMC CLARiiON Asymmetric Active/Active Feature</a>&#8216;, has a good paragraph  
+Just to elaborate, the article '<a href="http://www.emc.com/collateral/hardware/white-papers/h2890-emc-clariion-asymm-active-wp.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.emc.com/collateral/hardware/white-papers/h2890-emc-clariion-asymm-active-wp.pdf']);">EMC CLARiiON Asymmetric Active/Active Feature</a>', has a good paragraph  
 about implicit and explicit failover:
 
 > Explicit and implicit failover software  
@@ -173,10 +173,10 @@ about implicit and explicit failover:
 > Both *explicit* and *implicit* failover software may or may not provide autorestore capability. Without the  
 > autorestore capability, after an NDU, all LUNs could end up on the same SP. Cluster software could also make use of this functionality.
 
-Also, if you want to know what follow-over is, I would suggest reading this &#8216;[Configuration Settings for ALUA  
-Devices][1]&#8216; .
+Also, if you want to know what follow-over is, I would suggest reading this '[Configuration Settings for ALUA  
+Devices][1]' .
 
-Lastly we also see the following from the *nmp device* command that we haven&#8217;t defined yet:
+Lastly we also see the following from the *nmp device* command that we haven't defined yet:
 
 	  
 	{TPG\_id=1,TPG\_state=AO}{TPG\_id=2,TPG\_state=ANO}  
@@ -217,13 +217,13 @@ I also found VMware KB <a href="http://kb.vmware.com/kb/2005369" onclick="javasc
 	#esxcli nmp psp setconfig --config useANO=1 --device <device uid>  
 	
 
-But we weren&#8217;t using Round Robin and all the hosts were consistent in their preffered path to be the Active  
+But we weren't using Round Robin and all the hosts were consistent in their preffered path to be the Active  
 Optimized Path. The article <a href="http://www.emc.com/collateral/hardware/white-papers/h1416-emc-clariion-intgtn-vmware-wp.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.emc.com/collateral/hardware/white-papers/h1416-emc-clariion-intgtn-vmware-wp.pdf']);">EMC CLARiiON Integration with VMware ESX</a>, talks about some pros and cons of Round Robin Vs. FIXED:
 
 > When using the FIXED policy, the auto-restore or failback capability distributes the LUNs to their  
 > respective default storage processors (SPs) after an NDU operation. This prevents the LUNs from all being on a single storage processor after an NDU (Non-Disruptive Upgrade). When using the FIXED policy, ensure the preferred path setting is configured to be on the same storage processor for all ESX hosts accessing a given LUN.
 > 
-> With the FIXED policy, there is some initial setup that is required to select the preferred path; the preferred path should also be the optimal path when using the ALUA mode. If set up properly, there should not be any performance impact when using failovermode 4 (ALUA). Note that FIXED sends I/O down only a single path. However, if you have multiple LUNs in your environment, you could very well choose a preferred path for a given LUN that is different for other LUNs and achieve static I/O load balancing FIXED performs an automatic restore, hence LUNs won&#8217;t end up on a single SP after an NDU.
+> With the FIXED policy, there is some initial setup that is required to select the preferred path; the preferred path should also be the optimal path when using the ALUA mode. If set up properly, there should not be any performance impact when using failovermode 4 (ALUA). Note that FIXED sends I/O down only a single path. However, if you have multiple LUNs in your environment, you could very well choose a preferred path for a given LUN that is different for other LUNs and achieve static I/O load balancing FIXED performs an automatic restore, hence LUNs won't end up on a single SP after an NDU.
 > 
 > When using Round Robin there is no auto-restore functionality, hence after an NDU all LUNs will end up  
 > on a single SP. A user would need to manually trespass some LUNs to the other SP in order to balance the load. The benefit of Round Robin is that not too many manual setups are necessary during initial setup; by default it uses the optimal path and does primitive load balancing (however, it still sends I/O down only a single path at a time). If multiple LUNs are used in the environment, you might see some performance boost. If you had a script that takes care of the manual trespass issue, then Round Robin would be the way to avoid manual configuration.

@@ -15,7 +15,7 @@ tags:
   - PolicyKit
   - sudo
 ---
-I wanted to create some keyboard short cuts to change the brightness of my screen (similar to what I did <a href="http://virtuallyhyper.com/2013/03/update-chrubuntu-12-04-to-13-04-on-the-samsung-chromebook/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/03/update-chrubuntu-12-04-to-13-04-on-the-samsung-chromebook/']);">here</a>). On my Fedora install I didn&#8217;t have any gnome components installed, I was just using **lightdm** with **icewm**.
+I wanted to create some keyboard short cuts to change the brightness of my screen (similar to what I did <a href="http://virtuallyhyper.com/2013/03/update-chrubuntu-12-04-to-13-04-on-the-samsung-chromebook/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/03/update-chrubuntu-12-04-to-13-04-on-the-samsung-chromebook/']);">here</a>). On my Fedora install I didn't have any gnome components installed, I was just using **lightdm** with **icewm**.
 
 ## Change Screen Brightness with Sysfs
 
@@ -114,14 +114,14 @@ and it just increased the brightness without asking me for my password.
 
 ## IceWM KeyBoard Shortcuts
 
-I wanted to create keyboard shortcuts which would decrease the brightness upon typing &#8220;Command+F1&#8243; and would increase brightness by typing &#8220;Command+F2&#8243;. On Linux the Mac Command key shows up as the Windows Super Key. So adding the following to my **~/.icewm/keys** file should&#8217;ve taken care of this:
+I wanted to create keyboard shortcuts which would decrease the brightness upon typing "Command+F1" and would increase brightness by typing "Command+F2". On Linux the Mac Command key shows up as the Windows Super Key. So adding the following to my **~/.icewm/keys** file should've taken care of this:
 
     elatov@kmac:~$grep ch_br .icewm/keys 
     key "Super+F1"  sudo /usr/local/bin/ch_br down
     key "Super+F2"  sudo /usr/local/bin/ch_br up
     
 
-But I quickly realized that running any command with **sudo** from the **keys** file didn&#8217;t work out. So I decided to look for an alternative to **sudo** and I found **PolKit**.
+But I quickly realized that running any command with **sudo** from the **keys** file didn't work out. So I decided to look for an alternative to **sudo** and I found **PolKit**.
 
 ## PolKit
 
@@ -131,7 +131,7 @@ From this ArchWiki page:
 
 PolicyKit has gone through a lot of changes and is now called PolKit. From the same wiki page:
 
-> In the development of PolicyKit, major changes were introduced around version 0.92. In order to make the distinction clear between the way the old and the new versions worked, the new ones are referred to as &#8216;polkit&#8217; rather than PolicyKit. Searching for PolicyKit on the web will mostly point to outdated documentation and lead to confusion and frustration. The main distinction between PolicyKit and polkit is the abandonment of single-file configuration in favour of directory-based configuration, i.e. there is no PolicyKit.conf.
+> In the development of PolicyKit, major changes were introduced around version 0.92. In order to make the distinction clear between the way the old and the new versions worked, the new ones are referred to as 'polkit' rather than PolicyKit. Searching for PolicyKit on the web will mostly point to outdated documentation and lead to confusion and frustration. The main distinction between PolicyKit and polkit is the abandonment of single-file configuration in favour of directory-based configuration, i.e. there is no PolicyKit.conf.
 
 From <a href="http://www.freedesktop.org/software/polkit/docs/latest/polkit.8.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.freedesktop.org/software/polkit/docs/latest/polkit.8.html']);">this</a> freedesktop page, here is a good architecture of PolKit:
 
@@ -142,8 +142,8 @@ From the initial Arch wiki page, here is the structure of PolKit:
 > PolicyKit definitions can be divided into three kinds:
 > 
 > *   **Actions** are defined in XML *.policy* files located in **/usr/share/polkit-1/actions**. Each action has a set of default permissions attached to it (e.g. you need to identify as an administrator to use the GParted action). The defaults can be overruled but editing the actions files is NOT the correct way. The files installed under **/usr/share/polkit-1/actions** are not meant to be modified. Instead, you should modify the authorities under **/etc/polkit-1/localauthority/50-local.d**.
-> *   **Authorities** are defined in INI-like **.pkla** files. They are found in two places: 3rd party packages can use **/var/lib/polkit-1** (though few if any do) and **/etc/polkit-1** is for local configuration. The **.pkla** files designate a subset of users, refer to one (or more) of the actions specified in the actions files and determine with what restrictions these actions can be taken by that/those user(s). As an example, an authority file could overrule the default requirement for all users to authenticate as an admin when using GParted, determining that some specific user doesn&#8217;t need to. Or isn&#8217;t allowed to use GParted at all.
-> *   **Admin identities** are set in **/etc/polkit-1/localauthority.conf.d**. One of the basic points of using PolicyKit is determining whether or not a user needs to authenticate (possibly as an administrative user) or not in order to get permission to carry out the action. PolicyKit therefore has a specific configuration for deciding if the user trying to carry out an action is or is not an administrative user. Common definitions are &#8216;only root user&#8217; or &#8216;all members of wheel&#8217; (the Arch default).
+> *   **Authorities** are defined in INI-like **.pkla** files. They are found in two places: 3rd party packages can use **/var/lib/polkit-1** (though few if any do) and **/etc/polkit-1** is for local configuration. The **.pkla** files designate a subset of users, refer to one (or more) of the actions specified in the actions files and determine with what restrictions these actions can be taken by that/those user(s). As an example, an authority file could overrule the default requirement for all users to authenticate as an admin when using GParted, determining that some specific user doesn't need to. Or isn't allowed to use GParted at all.
+> *   **Admin identities** are set in **/etc/polkit-1/localauthority.conf.d**. One of the basic points of using PolicyKit is determining whether or not a user needs to authenticate (possibly as an administrative user) or not in order to get permission to carry out the action. PolicyKit therefore has a specific configuration for deciding if the user trying to carry out an action is or is not an administrative user. Common definitions are 'only root user' or 'all members of wheel' (the Arch default).
 
 ### PolKit Actions
 
@@ -234,7 +234,7 @@ Again from the same wiki page:
 >     ResultActive=no
 >     
 > 
-> An authorization needs to be preceded by a heading enclosed in square brackets. The follows an identification with pairs of **unix-user** or **unix-group** and the name. Use semicolons to separate the pairs to include more than one user or group. The designating name of the action is the one from the action&#8217;s id attribute in **/usr/share/polkit-1/actions**. The three Result-settings mirror those from the action definition. Here we have overruled the default **auth_admin** setting and disallowed *jack* and *jill* from running **gparted**.
+> An authorization needs to be preceded by a heading enclosed in square brackets. The follows an identification with pairs of **unix-user** or **unix-group** and the name. Use semicolons to separate the pairs to include more than one user or group. The designating name of the action is the one from the action's id attribute in **/usr/share/polkit-1/actions**. The three Result-settings mirror those from the action definition. Here we have overruled the default **auth_admin** setting and disallowed *jack* and *jill* from running **gparted**.
 
 ### PolKit Admin Identities
 
@@ -255,7 +255,7 @@ From the wiki page:
 >     AdminIdentities=unix-group:wheel
 >     
 > 
-> The only part to edit (once copied) is the right part of the equation: As whom should a user authenticate when asked to authenticate as an administrative user? If she herself is a member of the group designated as admins, she only need enter her own password. If some other user, e.g. **root**, is the only admin identity, she would need to enter in root&#8217;s password. The format of the user identification is the same as the one used in designating authorities. The Arch default is to make all members of the group **wheel** administrators.
+> The only part to edit (once copied) is the right part of the equation: As whom should a user authenticate when asked to authenticate as an administrative user? If she herself is a member of the group designated as admins, she only need enter her own password. If some other user, e.g. **root**, is the only admin identity, she would need to enter in root's password. The format of the user identification is the same as the one used in designating authorities. The Arch default is to make all members of the group **wheel** administrators.
 
 ### PolKit in Different Linux Distributions
 
@@ -395,7 +395,7 @@ and since I was part of the **wheel** group, I would be able to authenticate as 
     ==== AUTHENTICATION COMPLETE ===
     
 
-But if did that, I wouldn&#8217;t be able to use my keyboard short cuts.
+But if did that, I wouldn't be able to use my keyboard short cuts.
 
 ## Change IceWM KeyBoard Shortcuts to Use *pkexec* Rather Than *sudo*
 
@@ -406,21 +406,21 @@ This was pretty simple, here is how my config looked like after the change:
     key "Super+F2"  pkexec /usr/local/bin/ch_br up
     
 
-After restarting IceWM, I was able to modify the brightness level with &#8220;Command+F1&#8243; and &#8220;Command+F2&#8243; without any issues.
+After restarting IceWM, I was able to modify the brightness level with "Command+F1" and "Command+F2" without any issues.
 
 ## PolKit Vs Sudo
 
 There is an ongoing battle amongst Linux users who say that **sudo** is more secure. From the Arch Wiki page:
 
-> PolicyKit operates on top of the existing permissions systems in linux &#8212; group membership, administrator status &#8212; it does not replace them. The example above prohibited the user jack from using the GParted action, but it does not preclude him running GParted by some means that do not respect PolicyKit, e.g. the command line. Therefore it&#8217;s probably better to use PolicyKit to expand access to priviledged services for unpriviledged users, rather than to try using it to curtail the rights of (semi-)privileged users. For security purposes, the sudoers file is still the way to go.
+> PolicyKit operates on top of the existing permissions systems in linux - group membership, administrator status - it does not replace them. The example above prohibited the user jack from using the GParted action, but it does not preclude him running GParted by some means that do not respect PolicyKit, e.g. the command line. Therefore it's probably better to use PolicyKit to expand access to priviledged services for unpriviledged users, rather than to try using it to curtail the rights of (semi-)privileged users. For security purposes, the sudoers file is still the way to go.
 
 From <a href="http://en.wikipedia.org/wiki/Polkit" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org/wiki/Polkit']);">this</a> wikipedia page:
 
-> Whilst contested by its developer, polkit is criticized for contravening the Unix philosophy of doing one task and doing it well as it has a primary task of restricting root processes as an &#8216;authority&#8217; and a secondary but easily mistaken for its primary task of allowing users to obtain temporary privileges &#8216;authorization&#8217;.
+> Whilst contested by its developer, polkit is criticized for contravening the Unix philosophy of doing one task and doing it well as it has a primary task of restricting root processes as an 'authority' and a secondary but easily mistaken for its primary task of allowing users to obtain temporary privileges 'authorization'.
 > 
 > Polkit and its predecessor have stirred up much debate in being criticized for generalizing security functions (actions) and contravening the more code equals more bugs philosophy. The idea being to allow greater peer review of the code running as root, but this requires more code to run as root in itself. So whereby smaller and less popular projects may gain security initially from using polkit. Its continued usage actually limits the potential of an application to be as secure as possible when compared to privilege separated processes utilizing privilege dropping (OpenSSH, truecrypts core service). Therefore cross pollination of reviewed to be secure code itself adaptable to smaller projects specific requirements produces more secure programs but with the added risk of being more likely to be left un-maintaned (unlikely for code running as root which should be as short as possible and need little maintenance in any case).
 
-I do agree that **sudoers** is easier to use and configure, but once you grasp all the PolKit concepts it&#8217;s not that bad. I think PolKit is not as old/established as **sudo** but it looks like a lot more of different OS aspects are starting to support/include it. Also check out &#8220;<a href="http://www.admin-magazine.com/Articles/Assigning-Privileges-with-sudo-and-PolicyKit" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.admin-magazine.com/Articles/Assigning-Privileges-with-sudo-and-PolicyKit']);">Assigning Privileges with sudo and PolicyKit</a>&#8221; for a great comparison of the two.
+I do agree that **sudoers** is easier to use and configure, but once you grasp all the PolKit concepts it's not that bad. I think PolKit is not as old/established as **sudo** but it looks like a lot more of different OS aspects are starting to support/include it. Also check out "<a href="http://www.admin-magazine.com/Articles/Assigning-Privileges-with-sudo-and-PolicyKit" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.admin-magazine.com/Articles/Assigning-Privileges-with-sudo-and-PolicyKit']);">Assigning Privileges with sudo and PolicyKit</a>" for a great comparison of the two.
 
 ## Mac Book Pro Keyboard Backlight Brightness with Sysfs
 

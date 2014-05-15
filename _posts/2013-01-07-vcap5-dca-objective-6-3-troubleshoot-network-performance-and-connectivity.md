@@ -14,24 +14,24 @@ tags:
 ---
 ### Identify vCLI commands and tools used to troubleshoot vSphere networking configurations
 
-This was covered in &#8220;<a href="http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/']);">VCAP5-DCA Objective 2.1</a>&#8221;
+This was covered in "<a href="http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/']);">VCAP5-DCA Objective 2.1</a>"
 
 ### Identify logs used to troubleshoot network issues
 
 Here is a good summary:
 
-DHCP issues &#8211; /var/log/dhclient.log  
-Networking driver issues &#8211; /var/log/vmkernel.log  
-vCenter Connection issues &#8211; /var/log/vpxa.log  
-DVS and virtual port assignment issues &#8211; /var/log/hostd.log
+DHCP issues - /var/log/dhclient.log  
+Networking driver issues - /var/log/vmkernel.log  
+vCenter Connection issues - /var/log/vpxa.log  
+DVS and virtual port assignment issues - /var/log/hostd.log
 
 ### Utilize net-dvs to troubleshoot vNetwork Distributed Switch configurations
 
-This command is to be used for querying only and an example of the output is seen in &#8220;<a href="http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/']);">VCAP5-DCA Objective 2.1</a>&#8221;
+This command is to be used for querying only and an example of the output is seen in "<a href="http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/']);">VCAP5-DCA Objective 2.1</a>"
 
 ### Utilize vSphere CLI commands to troubleshoot ESXi network configurations
 
-Run through the command described in &#8220;<a href="http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/']);">VCAP5-DCA Objective 2.1</a>&#8221; and if you catch any issue then fix it. For example if the Subnet of a vmkernel interface is wrong then fix it, or if the wrong VLAN is assigned to a port group then fix that as well.
+Run through the command described in "<a href="http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/']);">VCAP5-DCA Objective 2.1</a>" and if you catch any issue then fix it. For example if the Subnet of a vmkernel interface is wrong then fix it, or if the wrong VLAN is assigned to a port group then fix that as well.
 
 ### Troubleshoot Private VLANs
 
@@ -167,11 +167,11 @@ Here is a quick summary:
 
 ### Analyze troubleshooting data to determine if the root cause for a given network problem originates in the physical infrastructure or vSphere environment
 
-From &#8220;<a href="http://communities.vmware.com/servlet/JiveServlet/previewBody/14905-102-2-17952/vsphere41-performance-troubleshooting.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://communities.vmware.com/servlet/JiveServlet/previewBody/14905-102-2-17952/vsphere41-performance-troubleshooting.pdf']);">Performance Troubleshooting for VMware vSphere 4.1</a>&#8220;:
+From "<a href="http://communities.vmware.com/servlet/JiveServlet/previewBody/14905-102-2-17952/vsphere41-performance-troubleshooting.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://communities.vmware.com/servlet/JiveServlet/previewBody/14905-102-2-17952/vsphere41-performance-troubleshooting.pdf']);">Performance Troubleshooting for VMware vSphere 4.1</a>":
 
 > **12.2. Dropped Receive Packets**  
 > **12.2.1. Causes**  
-> Network packets may get stored (buffered) in queues at multiple points along their route from the source to the destination. Network switches, physical NICs, device drivers, and network stacks may all contain queues where packet data or headers are buffered before being passed to the next step in the delivery process. These queues are finite in size. When they fill up, no more packets can be received at that point on the route, and additional arriving packets must be dropped. TCP/IP networks use congestion-control algorithms that limit, but do not eliminate, dropped packets. When a packet is dropped, TCP/IP&#8217;s recovery mechanisms work to maintain in-order delivery of packets to applications. However these mechanisms operate at a cost to both networking performance and CPU overhead, a penalty that becomes more severe as the physical network speed increases.
+> Network packets may get stored (buffered) in queues at multiple points along their route from the source to the destination. Network switches, physical NICs, device drivers, and network stacks may all contain queues where packet data or headers are buffered before being passed to the next step in the delivery process. These queues are finite in size. When they fill up, no more packets can be received at that point on the route, and additional arriving packets must be dropped. TCP/IP networks use congestion-control algorithms that limit, but do not eliminate, dropped packets. When a packet is dropped, TCP/IP's recovery mechanisms work to maintain in-order delivery of packets to applications. However these mechanisms operate at a cost to both networking performance and CPU overhead, a penalty that becomes more severe as the physical network speed increases.
 > 
 > vSphere presents virtual network-interface devices, such as the vmxnet or virtual e1000 devices, to the guest OS running in a VM. For received packets, the virtual NIC buffers packet data coming from a virtual switch (vSwitch) until it is retrieved by the device-driver running in the guest OS. The vSwitch, in turn, contains queues for packets sent to the virtual NIC.
 > 
@@ -241,14 +241,14 @@ Check out esxtop and if you see any Drops (received or transmitted) it maybe CPU
 	dropped_smbus: 0  
 	
 
-If any of the failed or dropped counters are high, it could be a sign of a bad Nic Driver or some upstream issues. Also if you check out the logs under */var/log/vmkernel.log* and you see driver related errors then it&#8217;s most like a driver/firmware issue and checking out the vendor recipes is recommended to make sure they are up to the recommended versions.
+If any of the failed or dropped counters are high, it could be a sign of a bad Nic Driver or some upstream issues. Also if you check out the logs under */var/log/vmkernel.log* and you see driver related errors then it's most like a driver/firmware issue and checking out the vendor recipes is recommended to make sure they are up to the recommended versions.
 
 ### Configure and administer Port Mirroring
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-networking-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-networking-guide.pdf']);">vSphere Networking ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-networking-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-networking-guide.pdf']);">vSphere Networking ESXi 5.0</a>":
 
 > **Working With Port Mirroring**  
-> Port mirroring allows you to mirror a distributed port&#8217;s traffic to other distributed ports or specific physical switch ports.  
+> Port mirroring allows you to mirror a distributed port's traffic to other distributed ports or specific physical switch ports.  
 > **Create a Port Mirroring Session**  
 > Create a port mirroring session to mirror vSphere distributed switch traffic to specific physical switch ports.  
 > **Prerequisites**  
@@ -282,7 +282,7 @@ Here are the next steps from the above guide:
 > 2.  Type the source port IDs and click >> to add the sources to the port mirroring session.Separate multiple port IDs with a comma.
 > 3.  Click Next.
 
-So first choose a port you want mirror, by looking under &#8220;Networking&#8221; View -> Select DVS -> Select &#8220;Ports&#8221; tab and you will see the following:
+So first choose a port you want mirror, by looking under "Networking" View -> Select DVS -> Select "Ports" tab and you will see the following:
 
 <a href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-3-troubleshoot-network-performance-and-connectivity/choose_port_from_dvs/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-3-troubleshoot-network-performance-and-connectivity/choose_port_from_dvs/']);" rel="attachment wp-att-5317"><img class="alignnone size-full wp-image-5317" alt="choose port from dvs VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/choose_port_from_dvs.png" width="757" height="357" title="VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity " /></a>
 
@@ -344,7 +344,7 @@ Here is how it looks like in vCenter:
 
 ### Utilize Direct Console User Interface (DCUI) and ESXi Shell to troubleshoot, configure, and monitor ESXi networking
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf']);">vSphere Installation and Setup vSphere 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf']);">vSphere Installation and Setup vSphere 5.0</a>":
 
 > **Configure IP Settings from the Direct Console**  
 > If you have physical access to the host or remote access to the direct console, you can use the direct console to configure the IP address, subnet mask, and default gateway.  

@@ -36,7 +36,7 @@ Most of the instructions are laid out in <a href="http://www.openvas.org/install
     wget -q -O - http://www.atomicorp.com/installers/atomic | sudo sh
     
 
-Get the installer first to see what it does (for those who don&#8217;t just want to run an unknown script from the web). When I was installing **ossec** (check out the post on that <a href="http://virtuallyhyper.com/2014/04/ossec-freebsd/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2014/04/ossec-freebsd/']);">here</a>), I ended up doing that (so I already that had YUM repository enabled). Then to install the software, run the following:
+Get the installer first to see what it does (for those who don't just want to run an unknown script from the web). When I was installing **ossec** (check out the post on that <a href="http://virtuallyhyper.com/2014/04/ossec-freebsd/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2014/04/ossec-freebsd/']);">here</a>), I ended up doing that (so I already that had YUM repository enabled). Then to install the software, run the following:
 
     elatov@ccl:~$sudo yum install openvas
     
@@ -225,11 +225,11 @@ Fill out all the information:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/04/gsa-new-target-filled-out.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/04/gsa-new-target-filled-out.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/gsa-new-target-filled-out.png" alt="gsa new target filled out OpenVAS on CentOS" width="559" height="280" class="alignnone size-full wp-image-10599" title="OpenVAS on CentOS" /></a>
 
-Then click on &#8220;**Create Target**&#8221; and you should see your new target added:
+Then click on "**Create Target**" and you should see your new target added:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/04/gsa-list-of-targets.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/04/gsa-list-of-targets.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/gsa-list-of-targets.png" alt="gsa list of targets OpenVAS on CentOS" width="546" height="214" class="alignnone size-full wp-image-10600" title="OpenVAS on CentOS" /></a>
 
-Then let&#8217;s create a task to run a scan against our newly created target. Go to **Scan Management** -> **New Task**:
+Then let's create a task to run a scan against our newly created target. Go to **Scan Management** -> **New Task**:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/04/gsa-sm-nt.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/04/gsa-sm-nt.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/gsa-sm-nt.png" alt="gsa sm nt OpenVAS on CentOS" width="245" height="144" class="alignnone size-full wp-image-10601" title="OpenVAS on CentOS" /></a>
 
@@ -237,7 +237,7 @@ Then fill out all the information:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/04/new-task-filledout.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/04/new-task-filledout.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/new-task-filledout.png" alt="new task filledout OpenVAS on CentOS" width="463" height="425" class="alignnone size-full wp-image-10602" title="OpenVAS on CentOS" /></a>
 
-Click on &#8220;**Create Task**&#8221; and the task should be ready:
+Click on "**Create Task**" and the task should be ready:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/04/task-created.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/04/task-created.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/task-created.png" alt="task created OpenVAS on CentOS" width="341" height="166" class="alignnone size-full wp-image-10603" title="OpenVAS on CentOS" /></a>
 
@@ -263,7 +263,7 @@ Click on the scan and you will see the details:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/04/task-details-gsa.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/04/task-details-gsa.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/task-details-gsa.png" alt="task details gsa OpenVAS on CentOS" width="911" height="534" class="alignnone size-full wp-image-10610" title="OpenVAS on CentOS" /></a>
 
-Then click on the &#8220;**Magnifying Glass**&#8221; (to see the details of the report) and you will see the following:
+Then click on the "**Magnifying Glass**" (to see the details of the report) and you will see the following:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2014/04/report-details-gsa.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/04/report-details-gsa.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/report-details-gsa.png" alt="report details gsa OpenVAS on CentOS" width="909" height="292" class="alignnone size-full wp-image-10611" title="OpenVAS on CentOS" /></a>
 
@@ -283,7 +283,7 @@ And also the following:
 
 > wapiti report filename is empty.
 
-For the **arachni** one, I actually didn&#8217;t have that installed. To install that, get the package:
+For the **arachni** one, I actually didn't have that installed. To install that, get the package:
 
     elatov@ccl:~$wget http://downloads.arachni-scanner.com/arachni-0.4.6-0.4.3-linux-x86_64.tar.gz
     
@@ -298,7 +298,7 @@ Lastly install in under **/usr/local**:
     elatov@ccl:~$sudo mv arachni-0.4.6-0.4.3 /usr/local/.
     
 
-For ease of use, let&#8217;s create a symlink:
+For ease of use, let's create a symlink:
 
     elatov@ccl:~$sudo ln -s /usr/local/arachni-0.4.6-0.4.3 /usr/local/arachni
     
@@ -319,12 +319,12 @@ For **wapiti**, I had the package for that installed:
     wapiti-2.3.0-5.el6.art.noarch
     
 
-But it wasn&#8217;t working for some reason. I ran the scan manually:
+But it wasn't working for some reason. I ran the scan manually:
 
     elatov@ccl:~$sudo openvas-nasl -t localhost -T log -X -i /var/lib/openvas/plugins /var/lib/openvas/plugins/remote-web-wapiti.nasl
     
 
-and then I realized I was missing a python module. Not sure why it wasn&#8217;t installed. Upon installing the following:
+and then I realized I was missing a python module. Not sure why it wasn't installed. Upon installing the following:
 
     elatov@ccl:~$sudo yum install python-requests
     
@@ -361,7 +361,7 @@ You can enable extra logging on the scanner. Here is the option for that:
     log_whole_attack = yes
     
 
-After that&#8217;s enabled, stop the service and then start it back up:
+After that's enabled, stop the service and then start it back up:
 
     elatov@ccl:~$sudo service openvas-scanner stop
     elatov@ccl:~$sudo service openvas-scanner start

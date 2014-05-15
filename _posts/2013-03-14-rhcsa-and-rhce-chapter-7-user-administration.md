@@ -13,13 +13,13 @@ tags:
   - RHCSA
   - User Management
 ---
-Let&#8217;s get straight to it, from the &#8220;<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Deployment Guide</a>&#8220;:
+Let's get straight to it, from the "<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Deployment Guide</a>":
 
 > **Chapter 3. Managing Users and Groups** The control of users and groups is a core element of Red Hat Enterprise Linux system administration. This chapter explains how to add, manage, and delete users and groups in the graphical user interface and on the command line, and covers advanced topics, such as enabling password aging or creating group directories.
 > 
 > **3.1. Introduction to Users and Groups** While users can be either people (meaning accounts tied to physical users) or accounts which exist for specific applications to use, groups are logical expressions of organization, tying users together for a common purpose. Users within a group can read, write, or execute files owned by that group. Each user is associated with a unique numerical identification number called a user ID (**UID**). Likewise, each group is associated with a group ID (**GID**). A user who creates a file is also the owner and group owner of that file. The file is assigned separate read, write, and execute permissions for the owner, the group, and everyone else. The file owner can be changed only by root, and access permissions can be changed by both the root user and file owner.
 > 
-> **3.1.1. User Private Groups** Red Hat Enterprise Linux uses a user private group (UPG) scheme, which makes UNIX groups easier to manage. A user private group is created whenever a new user is added to the system. It has the same name as the user for which it was created and that user is the only member of the user private group. User private groups make it safe to set default permissions for a newly created file or directory, allowing both the user and the group of that user to make modifications to the file or directory. The setting which determines what permissions are applied to a newly created file or directory is called a **umask** and is configured in the **/etc/bashrc** file. Traditionally on UNIX systems, the **umask** is set to *022*, which allows only the user who created the file or directory to make modifications. Under this scheme, all other users, including members of the creator&#8217;s group, are not allowed to make any modifications. However, under the UPG scheme, this “group protection” is not necessary since every user has their own private group.
+> **3.1.1. User Private Groups** Red Hat Enterprise Linux uses a user private group (UPG) scheme, which makes UNIX groups easier to manage. A user private group is created whenever a new user is added to the system. It has the same name as the user for which it was created and that user is the only member of the user private group. User private groups make it safe to set default permissions for a newly created file or directory, allowing both the user and the group of that user to make modifications to the file or directory. The setting which determines what permissions are applied to a newly created file or directory is called a **umask** and is configured in the **/etc/bashrc** file. Traditionally on UNIX systems, the **umask** is set to *022*, which allows only the user who created the file or directory to make modifications. Under this scheme, all other users, including members of the creator's group, are not allowed to make any modifications. However, under the UPG scheme, this “group protection” is not necessary since every user has their own private group.
 > 
 > **3.1.2. Shadow Passwords** In environments with multiple users, it is very important to use shadow passwords provided by the **shadow-utils** package to enhance the security of system authentication files. For this reason, the installation program enables shadow passwords by default. The following is a list of the advantages shadow passwords have over the traditional way of storing passwords on UNIX-based systems:
 > 
@@ -130,13 +130,13 @@ Let&#8217;s get straight to it, from the &#8220;<a href="https://access.redhat.c
 >     
 >     At this point, a locked account called **juan** exists on the system. To activate it, the administrator must next assign a password to the account using the **passwd** command and, optionally, set password aging guidelines.
 
-Let&#8217;s go ahead and create two users called *user1* and *user2* and check out their settings:
+Let's go ahead and create two users called *user1* and *user2* and check out their settings:
 
     [root@rhel1 ~]# useradd user1
     [root@rhel1 ~]# useradd user2
     
 
-Let&#8217;s see their corresponding information under **/etc/passwd** and **/etc/shadow**:
+Let's see their corresponding information under **/etc/passwd** and **/etc/shadow**:
 
     [root@rhel1 ~]# getent passwd user1 
     user1:x:500:500::/home/user1:/bin/bash 
@@ -148,7 +148,7 @@ Let&#8217;s see their corresponding information under **/etc/passwd** and **/etc
     user2:!!:15744:0:99999:7:::
     
 
-Now let&#8217;s check out their *group* information:
+Now let's check out their *group* information:
 
     [root@rhel1 ~]# getent group user1 
     user1:x:500: 
@@ -160,7 +160,7 @@ Now let&#8217;s check out their *group* information:
     user2 user2:!::
     
 
-That looks good, now let&#8217;s check out their home directories:
+That looks good, now let's check out their home directories:
 
     root@rhel1 ~]# tree -a /home 
     /home 
@@ -175,7 +175,7 @@ That looks good, now let&#8217;s check out their home directories:
     2 directories, 6 files
     
 
-That looks good, let&#8217;s check out under **/etc/skel** to see what files were supposed to be auto copied upon user creation:
+That looks good, let's check out under **/etc/skel** to see what files were supposed to be auto copied upon user creation:
 
     [root@rhel1 ~]# ls -la /etc/skel 
     total 20 
@@ -186,7 +186,7 @@ That looks good, let&#8217;s check out under **/etc/skel** to see what files wer
     -rw-r--r--. 1  root root 124  Jan 27 2011 .bashrc
     
 
-That looks correct. Lastly, let&#8217;s check out the settings for *user* creation:
+That looks correct. Lastly, let's check out the settings for *user* creation:
 
     [root@rhel1 ~]# grep -v -E '^#|^$' /etc/login.defs 
     MAIL_DIR /var/spool/mail 
@@ -208,7 +208,7 @@ We can see that all of the above settings were honored during the creation of th
 
 ### Adding a Group to RHEL with **groupadd**
 
-Now let&#8217;s move onto *groups*, from the same guide:
+Now let's move onto *groups*, from the same guide:
 
 > **3.3.2. Adding a New Group**
 > 
@@ -221,7 +221,7 @@ Now let&#8217;s move onto *groups*, from the same guide:
 > 
 > <a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/groupadd_options.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/groupadd_options.png']);"><img class="alignnone size-full wp-image-6201" alt="groupadd options RHCSA and RHCE Chapter 7 User Administration" src="http://virtuallyhyper.com/wp-content/uploads/2013/02/groupadd_options.png" width="683" height="213" title="RHCSA and RHCE Chapter 7 User Administration" /></a>
 
-So let&#8217;s add two new groups called *group1* and *group2* and add our users to the groups:
+So let's add two new groups called *group1* and *group2* and add our users to the groups:
 
     [root@rhel1 ~]# groupadd group1 
     [root@rhel1 ~]# groupadd group2 
@@ -235,7 +235,7 @@ So let&#8217;s add two new groups called *group1* and *group2* and add our users
     group2:!::
     
 
-The creation went well. Now let&#8217;s add the users to these groups:
+The creation went well. Now let's add the users to these groups:
 
     [root@rhel1 ~]# usermod -G group1 user1 
     [root@rhel1 ~]# usermod -G group2 user2 
@@ -253,7 +253,7 @@ To get a concise view of the IDs (**UID** and **ID**) we can use the command **i
     uid=501(user2) gid=501(user2) groups=501(user2),503(group2)
     
 
-That all looks good. Lastly let&#8217;s create a group called *group3* and make both users be part of that group. This way we can share files:
+That all looks good. Lastly let's create a group called *group3* and make both users be part of that group. This way we can share files:
 
     [root@rhel1 ~]# groupadd group3 
     [root@rhel1 ~]# usermod -G group3 user1 
@@ -262,7 +262,7 @@ That all looks good. Lastly let&#8217;s create a group called *group3* and make 
     group3:x:504:user1,user2
     
 
-That looks good. Now let&#8217;s switch to *user1* and create a new directory called *test* and make it group writable with *group3*:
+That looks good. Now let's switch to *user1* and create a new directory called *test* and make it group writable with *group3*:
 
     [root@rhel1 ~]# su - user1 
     [user1@rhel1 ~]$ mkdir /tmp/test 
@@ -273,33 +273,33 @@ That looks good. Now let&#8217;s switch to *user1* and create a new directory ca
     drwxrwxr-x. 2 user1 group3 4096 Feb 8 07:00 /tmp/test
     
 
-Let&#8217;s do one more thing, let&#8217;s set the **sgid** bit on the folder, this way any file created within that directory will inherit the group ownership. So here is file creation without the bit set:
+Let's do one more thing, let's set the **sgid** bit on the folder, this way any file created within that directory will inherit the group ownership. So here is file creation without the bit set:
 
     [user1@rhel1 ~]$ touch /tmp/test/file1 
     [user1@rhel1 ~]$ ls -l /tmp/test/file1 
     -rw-rw-r--. 1 user1 user1 0 Feb 8 07:03 /tmp/test/file1
     
 
-Now let&#8217;s set the **sgid** bit:
+Now let's set the **sgid** bit:
 
     [user1@rhel1 ~]$ chmod g+s /tmp/test 
     [user1@rhel1 ~]$ ls -ld /tmp/test 
     drwxrwsr-x. 2 user1 group3 4096 Feb 8 07:03 /tmp/test
     
 
-notice the &#8216;**s**&#8216; in the permissions. Now creating a second file:
+notice the '**s**' in the permissions. Now creating a second file:
 
     [user1@rhel1 ~]$ touch /tmp/test/file2 
     [user1@rhel1 ~]$ ls -l /tmp/test/file2 
     -rw-rw-r--. 1 user1 group3 0 Feb 8 07:04 /tmp/test/file2
     
 
-That looks perfect. Now anything created under that directory will be owned by *group3*. That last thing to look after is the **umask**. **Umask** controls the default permission of a newly created file. Let&#8217;s check out the **umask** of our user:
+That looks perfect. Now anything created under that directory will be owned by *group3*. That last thing to look after is the **umask**. **Umask** controls the default permission of a newly created file. Let's check out the **umask** of our user:
 
     [user1@rhel1 ~]$ umask 002
     
 
-That means a file will be created with permission of (777 &#8211; 002 = *775*). Which means that the the group has write permissions, which is good for our above setup. But what if our **umask** was 022? That would make our default permission be *755* and at this point the group wouldn&#8217;t have write permission and this would defeat the purpose of sharing files with our group members. So let&#8217;s change our **umask** and see what happens:
+That means a file will be created with permission of (777 - 002 = *775*). Which means that the the group has write permissions, which is good for our above setup. But what if our **umask** was 022? That would make our default permission be *755* and at this point the group wouldn't have write permission and this would defeat the purpose of sharing files with our group members. So let's change our **umask** and see what happens:
 
     [user1@rhel1 ~]$ umask 022 
     [user1@rhel1 ~]$ touch /tmp/test/file3 
@@ -307,15 +307,15 @@ That means a file will be created with permission of (777 &#8211; 002 = *775*). 
     -rw-r--r--. 1 user1 group3 0 Feb 8 07:16 /tmp/test/file3
     
 
-Now the group can&#8217;t write to the file, so if you&#8217;re sharing files with groups members ensure your **umask** is set appropriately.
+Now the group can't write to the file, so if you're sharing files with groups members ensure your **umask** is set appropriately.
 
 ## RHEL File Permissions and Ownership
 
-To get into permissions more, let&#8217;s check out this old &#8220;<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/4/pdf/Step_by_Step_Guide/Red_Hat_Enterprise_Linux-4-Step_by_Step_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/4/pdf/Step_by_Step_Guide/Red_Hat_Enterprise_Linux-4-Step_by_Step_Guide-en-US.pdf']);">Red Hat Enterprise Linux Step By Step Guide</a>&#8220;:
+To get into permissions more, let's check out this old "<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/4/pdf/Step_by_Step_Guide/Red_Hat_Enterprise_Linux-4-Step_by_Step_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/4/pdf/Step_by_Step_Guide/Red_Hat_Enterprise_Linux-4-Step_by_Step_Guide-en-US.pdf']);">Red Hat Enterprise Linux Step By Step Guide</a>":
 
 > **4.11. Ownership and Permissions**
 > 
-> As a regular user, try to enter root&#8217;s home directory by entering the command **cd /root/.** Note the error message:
+> As a regular user, try to enter root's home directory by entering the command **cd /root/.** Note the error message:
 > 
 >     bash$ cd /root/
 >     Permission denied
@@ -323,7 +323,7 @@ To get into permissions more, let&#8217;s check out this old &#8220;<a href="htt
 > 
 > That was one demonstration of Linux security features. Linux, like UNIX, is a multi-user system and file permissions are one way the system protects against malicious tampering. One way to gain entry when you are denied permission is to enter the command **su -**. This is because whoever knows the root password has complete access However, switching to the superuser is not always convenient or recommended, since it is easy to make mistakes and alter important configuration files as the superuser.
 > 
-> All directories are *owned* by the person who created them. You created &#8220;foo.txt&#8221; in your login directory, so foo.txt belongs to you. That means you can specify who is allowed to read the file, write to the file, or (if it is an application instead of a text file) who can execute the file. **Reading**, **writing**, and **executing** are the three main settings in permissions. Since users are placed into a group when their accounts are created, you can also specify whether certain groups can read, write to, or execute a file. Take a closer look at *foo.txt* with the **ls** command using the **-l** option:
+> All directories are *owned* by the person who created them. You created "foo.txt" in your login directory, so foo.txt belongs to you. That means you can specify who is allowed to read the file, write to the file, or (if it is an application instead of a text file) who can execute the file. **Reading**, **writing**, and **executing** are the three main settings in permissions. Since users are placed into a group when their accounts are created, you can also specify whether certain groups can read, write to, or execute a file. Take a closer look at *foo.txt* with the **ls** command using the **-l** option:
 > 
 >     [user1@rhel1 ~]$ ls -l foo.txt 
 >     -rw-rw-r--. 1 user1 user1 0 Feb 8 07:24 foo.txt
@@ -334,7 +334,7 @@ To get into permissions more, let&#8217;s check out this old &#8220;<a href="htt
 >     -rw-rw-r--
 >     
 > 
-> Those three sets are the **owner** of the file, the **group** in which the file belongs, and &#8220;**others**,&#8221; meaning other users on the system.
+> Those three sets are the **owner** of the file, the **group** in which the file belongs, and "**others**," meaning other users on the system.
 > 
 >     - (rw-) (rw-) (r--) 1 user1 user1
 >     
@@ -358,7 +358,7 @@ To get into permissions more, let&#8217;s check out this old &#8220;<a href="htt
 >     -rw-rw-r--. 1 user1 user1 0 Feb 8 07:24 foo.txt
 >     
 > 
-> The file&#8217;s **owner** (in this case, **user1**) has permission to read and write to the file. The **group**, **user1**, has permission to read and write to *foo.txt*, as well. It is not a program, so neither the **owner** or the **group** has permission to **execute** it.
+> The file's **owner** (in this case, **user1**) has permission to read and write to the file. The **group**, **user1**, has permission to read and write to *foo.txt*, as well. It is not a program, so neither the **owner** or the **group** has permission to **execute** it.
 
 The command that allows you to change permissions of a file is called **chmod**. From the same guide:
 
@@ -369,12 +369,12 @@ The command that allows you to change permissions of a file is called **chmod**.
 >     -rw-rw-r--. 1 user1 user1 0 Feb 8 07:24 foo.txt
 >     
 > 
-> If you are the owner of the file or are logged into the root account, you can change any permissions for the **owner**, **group**, and **others**. Right now, the owner and group can read and write to the file. Anyone outside of the group can only read the file **(r&#8211;)**. In the following example, you want to allow everyone (**others**) to write to the file, so they can read it, write notes in it, and save it. That means you must change the &#8220;**others**&#8221; section of the file permissions:
+> If you are the owner of the file or are logged into the root account, you can change any permissions for the **owner**, **group**, and **others**. Right now, the owner and group can read and write to the file. Anyone outside of the group can only read the file **(r-)**. In the following example, you want to allow everyone (**others**) to write to the file, so they can read it, write notes in it, and save it. That means you must change the "**others**" section of the file permissions:
 > 
 >     [user1@rhel1 ~]$ chmod o+w foo.txt
 >     
 > 
-> The **o+w** command tells the system you want to give **others** write permission to the file *foo.txt*. To check the results, list the file&#8217;s details again. Now, the file looks like this:
+> The **o+w** command tells the system you want to give **others** write permission to the file *foo.txt*. To check the results, list the file's details again. Now, the file looks like this:
 > 
 >     [user1@rhel1 ~]$ ls -l foo.txt 
 >     -rw-rw-rw-. 1 user1 user1 0 Feb 8 07:24 foo.txt
@@ -386,7 +386,7 @@ The command that allows you to change permissions of a file is called **chmod**.
 > 
 > *   **u** the user who owns the file (that is, the owner)
 > *   **g** the group to which the user belongs
-> *   **o** others (not the owner or the owner&#8217;s group)
+> *   **o** others (not the owner or the owner's group)
 > *   **a** everyone or all (**u**, **g**, and **o**) 
 > 
 > Permissions
@@ -410,7 +410,7 @@ The command that allows you to change permissions of a file is called **chmod**.
 > *   **ug+r** allows the owner and group to read the file 
 > *   **g=rx** allows only the group to read and execute (not write) 
 > 
-> By adding the **-R** option, you can change permissions for entire directory trees. Because you can not really &#8220;**execute**&#8221; a directory as you would an application, when you add (or remove) the **execute** permission for a directory, you are really allowing (or denying) permission to search through that directory
+> By adding the **-R** option, you can change permissions for entire directory trees. Because you can not really "**execute**" a directory as you would an application, when you add (or remove) the **execute** permission for a directory, you are really allowing (or denying) permission to search through that directory
 
 Another way of using **chmod** is with octal numbers, from the same guide:
 
@@ -447,7 +447,7 @@ Another way of using **chmod** is with octal numbers, from the same guide:
 > 
 > Now, neither the **group** nor **others** have write permission to *foo.txt*.
 
-The last thing that we should cover is the &#8216;sticky&#8217; bits. From the old &#8220;<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/4/pdf/Introduction_To_System_Administration/Red_Hat_Enterprise_Linux-4-Introduction_To_System_Administration-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/4/pdf/Introduction_To_System_Administration/Red_Hat_Enterprise_Linux-4-Introduction_To_System_Administration-en-US.pdf']);">Red Hat Enterprise Linux 4 Introduction To System Administration</a>&#8220;:
+The last thing that we should cover is the 'sticky' bits. From the old "<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/4/pdf/Introduction_To_System_Administration/Red_Hat_Enterprise_Linux-4-Introduction_To_System_Administration-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/4/pdf/Introduction_To_System_Administration/Red_Hat_Enterprise_Linux-4-Introduction_To_System_Administration-en-US.pdf']);">Red Hat Enterprise Linux 4 Introduction To System Administration</a>":
 
 > There are three such special permissions within Red Hat Enterprise Linux. They are:
 > 
@@ -459,11 +459,11 @@ Hopefully the above helps with permissions.
 
 ### Sharing Files with Group Members in RHEL
 
-We discussed sharing files with group members by using the **sgid** bit on a folder and with appropriate **umask** settings. Another way of sharing files is to setup a group password and allow users to login to that group. From &#8220;<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/4/pdf/Introduction_To_System_Administration/Red_Hat_Enterprise_Linux-4-Introduction_To_System_Administration-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/4/pdf/Introduction_To_System_Administration/Red_Hat_Enterprise_Linux-4-Introduction_To_System_Administration-en-US.pdf']);">Red Hat Enterprise Linux 4 Introduction To System Administration</a>&#8220;:
+We discussed sharing files with group members by using the **sgid** bit on a folder and with appropriate **umask** settings. Another way of sharing files is to setup a group password and allow users to login to that group. From "<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/4/pdf/Introduction_To_System_Administration/Red_Hat_Enterprise_Linux-4-Introduction_To_System_Administration-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/4/pdf/Introduction_To_System_Administration/Red_Hat_Enterprise_Linux-4-Introduction_To_System_Administration-en-US.pdf']);">Red Hat Enterprise Linux 4 Introduction To System Administration</a>":
 
 > **6.3.2.4 . /etc/gshadow**
 > 
-> The **/etc/gshadow** file is readable only by the root user and contains an encrypted password for each group, as well as group membership and administrator information. Just as in the **/etc/group** file, each group&#8217;s information is on a separate line. Each of these lines is a colon delimited list including the following information:
+> The **/etc/gshadow** file is readable only by the root user and contains an encrypted password for each group, as well as group membership and administrator information. Just as in the **/etc/group** file, each group's information is on a separate line. Each of these lines is a colon delimited list including the following information:
 > 
 > *   **Group name** — The name of the group. Used by various utility programs as a human-readable identifier for the group.
 > *   **Encrypted password** — The encrypted password for the group. If set, non-members of the group can join the group by typing the password for that group using the **newgrp** command. If the value of this field is **!**, then no user is allowed to access the group using the **newgrp** command. A value of **!!** is treated the same as a value of **!** — however, it also indicates that a password has never been set before. If the value is null, only group members can log into the group.
@@ -472,14 +472,14 @@ We discussed sharing files with group members by using the **sgid** bit on a fol
 >     `general:!!:shelley:juan,bob`  
 >     This line shows that the **general** group has no password and does not allow non-members to join using the **newgrp** command. In addition, **shelley** is a group administrator, and **juan** and **bob** are regular, non-administrative members.
 
-So let&#8217;s make **user1** be an administrator of **group1**:
+So let's make **user1** be an administrator of **group1**:
 
     [root@rhel1 ~]# gpasswd -A user1 group1 
     [root@rhel1 ~]# getent gshadow group1 
     group1:!:user1:
     
 
-Also let&#8217;s add **user1** as a member as well:
+Also let's add **user1** as a member as well:
 
     [root@rhel1 ~]# gpasswd -a user1 group1 
     Adding user user1 to group group1 
@@ -487,7 +487,7 @@ Also let&#8217;s add **user1** as a member as well:
     group1:!:user1:user1
     
 
-Now let&#8217;s switch to that user and set the password for the group:
+Now let's switch to that user and set the password for the group:
 
     [root@rhel1 ~]# su - user1 
     [user1@rhel1 ~]$ gpasswd group1 
@@ -498,7 +498,7 @@ Now let&#8217;s switch to that user and set the password for the group:
     group1:x:502:user1
     
 
-We now see an &#8216;**x**&#8216; instead of an &#8216;**!**&#8216;, so we know the password is set. Now let&#8217;s create a new directory called **test2** and make the group owner **group1**:
+We now see an '**x**' instead of an '**!**', so we know the password is set. Now let's create a new directory called **test2** and make the group owner **group1**:
 
     [user1@rhel1 ~]$ mkdir /tmp/test2 
     [user1@rhel1 ~]$ chgrp group1 /tmp/test2 
@@ -506,7 +506,7 @@ We now see an &#8216;**x**&#8216; instead of an &#8216;**!**&#8216;, so we know 
     drwxrwxr-x. 2 user1 group1 4096 Feb 9 01:19 /tmp/test2
     
 
-That looks good, now let&#8217;s become **user2** and login to **group1** with the password that we just set:
+That looks good, now let's become **user2** and login to **group1** with the password that we just set:
 
     [root@rhel1 ~]# su - user2 
     [user2@rhel1 ~]$ id -a 
@@ -519,7 +519,7 @@ Just checking out current **gid**:
     501
     
 
-We can see that currently we are part of **user2** (our private group) and **group2**, which is what we setup above. Now let&#8217;s login to **group1**:
+We can see that currently we are part of **user2** (our private group) and **group2**, which is what we setup above. Now let's login to **group1**:
 
     [user2@rhel1 ~]$ newgrp group1 
     Password: 
@@ -539,7 +539,7 @@ We accomplished the same thing without using the **sgid** bit.
 
 ### RHEL Password Aging
 
-Getting back to the &#8220;<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Deployment Guide</a>&#8220;:
+Getting back to the "<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Deployment Guide</a>":
 
 > **3.3.3. Enabling Password Aging**
 > 
@@ -570,7 +570,7 @@ Getting back to the &#8220;<a href="https://access.redhat.com/knowledge/docs/en-
 >     
 >     This command sets the value for the date the password was last changed to the **epoch** (January 1, 1970). This value forces immediate password expiration no matter what password aging policy, if any, is in place. Upon the initial log in, the user is now prompted for a new password.
 
-So let&#8217;s check out the policies our **user1**:
+So let's check out the policies our **user1**:
 
     [root@rhel1 ~]# chage -l user1 
     Last password change : Feb 08, 2013 
@@ -582,7 +582,7 @@ So let&#8217;s check out the policies our **user1**:
     Number of days of warning before password expires : 7
     
 
-All of the above settings are stored in **/etc/shadow**. Let&#8217;s set the password to expire today, and set a warning message to be displayed when the password is expiring one day before the expiration date:
+All of the above settings are stored in **/etc/shadow**. Let's set the password to expire today, and set a warning message to be displayed when the password is expiring one day before the expiration date:
 
     [root@rhel1 ~]# date Sat Feb 9 01:55:28 MST 2013 
     [root@rhel1 ~]# chage -E 2013-02-09 -M 1 user1 
@@ -596,7 +596,7 @@ All of the above settings are stored in **/etc/shadow**. Let&#8217;s set the pas
     Number of days of warning before password expires : 7
     
 
-Now let&#8217;s switch user to **user1**, and see if we get the message:
+Now let's switch user to **user1**, and see if we get the message:
 
     [user2@rhel1 ~]$ su - user1 
     Password: 
@@ -614,7 +614,7 @@ You can also manually lock user accounts by using the **passwd** utility:
     user1:!!$6$IPcp2gLd$mhQKFrXYQDGFPDEDDXeOfz5ObWCMpAKvK4X/3fTUkn0:15745:0::7:::
     
 
-Notice the &#8216;**!!**&#8216; in front of the hash of the password, signifying that the account is locked.
+Notice the '**!!**' in front of the hash of the password, signifying that the account is locked.
 
 ### RHEL Check Integrity of Password and Group Files
 
@@ -631,11 +631,11 @@ The other two utilities mentioned in the guide were **pwck** and **gpwck**. Both
     [root@rhel1 ~]#
     
 
-It looks like for some users the home directory doesn&#8217;t exist, but that is okay and my groups and group password are okay.
+It looks like for some users the home directory doesn't exist, but that is okay and my groups and group password are okay.
 
 ### RHEL System Authentication
 
-Lastly there is &#8220;System Authentication&#8221;, from the deployment guide:
+Lastly there is "System Authentication", from the deployment guide:
 
 > **Chapter 10. Configuring Authentication**
 > 
@@ -643,7 +643,7 @@ Lastly there is &#8220;System Authentication&#8221;, from the deployment guide:
 > 
 > **10.1. Configuring System Authentication** When a user logs into a Red Hat Enterprise Linux system, that user presents some sort of credential to establish the user identity. The system then checks those credentials against the configured authentication service. If the credentials match and the user account is active, then the user is authenticated. (Once a user is authenticated, then the information is passed to the access control service to determine what the user is permitted to do. Those are the resources the user is authorized to access.) The information to verify the user can be located on the local system or the local system can reference a user database on a remote system, such as **LDAP** or **Kerberos**. The system must have a configured list of valid account databases for it to check for user authentication. On Red Hat Enterprise Linux, the Authentication Configuration Tool has both GUI and command-line options to configure any user data stores. A local system can use a variety of different data stores for user information, including Lightweight Directory Access Protocol (**LDAP**), Network Information Service (**NIS**), and **Winbind**. Additionally, both **LDAP** and **NIS** data stores can use **Kerberos** to authenticate users.
 
-First let&#8217;s check out NIS:
+First let's check out NIS:
 
 > **10.1.2.2. Configuring NIS Authentication**
 > 
@@ -652,11 +652,11 @@ First let&#8217;s check out NIS:
 >     [root@server ~]# yum install ypbind 
 >     
 > 
-> When the ypbind service is installed, the **portmap** and **ypbind** services are started and enabled to start at boot time &#8230; &#8230;
+> When the ypbind service is installed, the **portmap** and **ypbind** services are started and enabled to start at boot time ... ...
 > 
 > **10.1.4 .3. Configuring NIS User Stores**
 > 
-> To use a **NIS** identity store, use the **&#8211;enablenis**. This automatically uses **NIS** authentication, unless the **Kerberos** parameters are explicitly set, so it uses **Kerberos** authentication. The only parameters are to identify the **NIS** server and **NIS** domain; if these are not used, then the **authconfig** service scans the network for **NIS** servers.
+> To use a **NIS** identity store, use the **-enablenis**. This automatically uses **NIS** authentication, unless the **Kerberos** parameters are explicitly set, so it uses **Kerberos** authentication. The only parameters are to identify the **NIS** server and **NIS** domain; if these are not used, then the **authconfig** service scans the network for **NIS** servers.
 > 
 >     authconfig --enablenis --nisdomain=EXAMPLE --nisserver=nis.example.com --update
 >     
@@ -672,13 +672,13 @@ The **authconfig** command line can get pretty advanced, so I decided to use **a
     Complete!
     
 
-Let&#8217;s enable both daemons to be started on boot:
+Let's enable both daemons to be started on boot:
 
     [root@rhel1 ~]# chkconfig rpcbind on 
     [root@rhel1 ~]# chkconfig ypbind on
     
 
-Now let&#8217;s configure the machine to authenticate with a **NIS** server (itself for now):
+Now let's configure the machine to authenticate with a **NIS** server (itself for now):
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/authconfig_tui_NIS.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/authconfig_tui_NIS.png']);"><img class="alignnone size-full wp-image-6214" alt="authconfig tui NIS RHCSA and RHCE Chapter 7 User Administration" src="http://virtuallyhyper.com/wp-content/uploads/2013/02/authconfig_tui_NIS.png" width="710" height="430" title="RHCSA and RHCE Chapter 7 User Administration" /></a>
 
@@ -718,7 +718,7 @@ Similar steps can be taken to setup **LDAP** authentication. From the same guide
 > 
 > **10.1.4 .2. Configuring LDAP User Stores**
 > 
-> To use an LDAP identity store, use the **&#8211;enableldap**. To use LDAP as the authentication source, use **&#8211;enableldapauth** and then the requisite connection information, like the LDAP server name, base DN for the user suffix, and (optionally) whether to use TLS. The **authconfig** command also has options to enable or disable RFC 2307bis schema for user entries, which is not possible through the Authentication Configuration UI. Be sure to use the full **LDAP** URL, including the protocol (*ldap* or *ldaps*) and the port number. Do not use a secure **LDAP** URL (*ldaps*) with the **&#8211;enableldaptls** option.
+> To use an LDAP identity store, use the **-enableldap**. To use LDAP as the authentication source, use **-enableldapauth** and then the requisite connection information, like the LDAP server name, base DN for the user suffix, and (optionally) whether to use TLS. The **authconfig** command also has options to enable or disable RFC 2307bis schema for user entries, which is not possible through the Authentication Configuration UI. Be sure to use the full **LDAP** URL, including the protocol (*ldap* or *ldaps*) and the port number. Do not use a secure **LDAP** URL (*ldaps*) with the **-enableldaptls** option.
 > 
 >     authconfig --enableldap --enableldapauth --ldapserver=ldap://ldap.example.com:389,ldap://ldap2.example.com:389 --ldapbasedn="ou=people,dc=example,dc=com" --enableldaptls --ldaploadcacert=https://ca.server.example.com/caCert.crt --update
 >     
@@ -730,10 +730,10 @@ Similar steps can be taken to setup **LDAP** authentication. From the same guide
   
   <ul class="entry-meta">
     <li class="SPOSTARBUST-Related-Post">
-      <a title="RHCSA and RHCE Chapter 10 &#8211; The Kernel" href="http://virtuallyhyper.com/2013/07/rhcsa-and-rhce-chapter-10-the-kernel/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/07/rhcsa-and-rhce-chapter-10-the-kernel/']);" rel="bookmark">RHCSA and RHCE Chapter 10 &#8211; The Kernel</a>
+      <a title="RHCSA and RHCE Chapter 10 - The Kernel" href="http://virtuallyhyper.com/2013/07/rhcsa-and-rhce-chapter-10-the-kernel/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/07/rhcsa-and-rhce-chapter-10-the-kernel/']);" rel="bookmark">RHCSA and RHCE Chapter 10 - The Kernel</a>
     </li>
     <li class="SPOSTARBUST-Related-Post">
-      <a title="RHCSA and RHCE Chapter 9 &#8211; System Logging, Monitoring, and Automation" href="http://virtuallyhyper.com/2013/06/rhcsa-and-rhce-chapter-9-system-logging-monitoring-and-automation/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/06/rhcsa-and-rhce-chapter-9-system-logging-monitoring-and-automation/']);" rel="bookmark">RHCSA and RHCE Chapter 9 &#8211; System Logging, Monitoring, and Automation</a>
+      <a title="RHCSA and RHCE Chapter 9 - System Logging, Monitoring, and Automation" href="http://virtuallyhyper.com/2013/06/rhcsa-and-rhce-chapter-9-system-logging-monitoring-and-automation/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/06/rhcsa-and-rhce-chapter-9-system-logging-monitoring-and-automation/']);" rel="bookmark">RHCSA and RHCE Chapter 9 - System Logging, Monitoring, and Automation</a>
     </li>
     <li class="SPOSTARBUST-Related-Post">
       <a title="RHCSA and RHCE Chapter 8 Network Installs" href="http://virtuallyhyper.com/2013/03/rhcsa-and-rhce-chapter-8-network-installs/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/03/rhcsa-and-rhce-chapter-8-network-installs/']);" rel="bookmark">RHCSA and RHCE Chapter 8 Network Installs</a>

@@ -78,13 +78,13 @@ At this point you can visit the link provided by grive. <a href="http://maketech
     Synchronizing files ... 
     
 
-When it&#8217;s done you will see your Google Drive files:
+When it's done you will see your Google Drive files:
 
     kerch:~/.gdrive>ls 
     old Scratchpad share
     
 
-Now let&#8217;s create a new folder and call it &#8220;**enc**&#8221; and sync that to Google Drive:
+Now let's create a new folder and call it "**enc**" and sync that to Google Drive:
 
     kerch:~/.gdrive>mkdir enc 
     kerch:~/.gdrive>grive 
@@ -97,11 +97,11 @@ Now let&#8217;s create a new folder and call it &#8220;**enc**&#8221; and sync t
     Finished!  
     
 
-Now let&#8217;s do the same thing on the Fedora machine.
+Now let's do the same thing on the Fedora machine.
 
 ### Install and Setup Grive on Fedora
 
-There was no pre-compiled package so I had to compile the application my self. From the above site they list some prerequisites. I was running Fedora 17 so I didn&#8217;t have to compile the prerequisites. Here is my Fedora version:
+There was no pre-compiled package so I had to compile the application my self. From the above site they list some prerequisites. I was running Fedora 17 so I didn't have to compile the prerequisites. Here is my Fedora version:
 
     moxz:~>lsb_release -a
     LSB Version: :core-4.1-ia32:core-4.1-noarch:cxx-4.1-ia32:cxx-4.1-noarch:desktop-4.1-ia32:desktop-4.1-noarch :languages-4.1-ia32:languages-4.1-noarch:printing-4.1-ia32:printing-4.1-noarch 
@@ -206,11 +206,11 @@ I then followed similar instructions as I did for Ubuntu to sync up Google Drive
 
 ## 2. Install EncFS and Encrypt the Google Drive Folder
 
-First let&#8217;s do this on our Fedora System. There are some good guides on that <a href="http://www.danielhall.me/2010/04/using-encfs-to-encrypt-your-files/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.danielhall.me/2010/04/using-encfs-to-encrypt-your-files/']);">here</a>, <a href="http://www.funzt.info/?p=910" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.funzt.info/?p=910']);">here</a>, and <a href="http://movingtofreedom.org/2007/02/21/howto-encfs-encrypted-file-system-in-ubuntu-and-fedora-gnu-linux/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://movingtofreedom.org/2007/02/21/howto-encfs-encrypted-file-system-in-ubuntu-and-fedora-gnu-linux/']);">here</a>.
+First let's do this on our Fedora System. There are some good guides on that <a href="http://www.danielhall.me/2010/04/using-encfs-to-encrypt-your-files/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.danielhall.me/2010/04/using-encfs-to-encrypt-your-files/']);">here</a>, <a href="http://www.funzt.info/?p=910" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.funzt.info/?p=910']);">here</a>, and <a href="http://movingtofreedom.org/2007/02/21/howto-encfs-encrypted-file-system-in-ubuntu-and-fedora-gnu-linux/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://movingtofreedom.org/2007/02/21/howto-encfs-encrypted-file-system-in-ubuntu-and-fedora-gnu-linux/']);">here</a>.
 
 ### Install and Setup *EncFS* on Fedora
 
-First let&#8217;s install the package:
+First let's install the package:
 
     moxz:~>sudo yum install fuse-encfs 
     Resolving Dependencies 
@@ -222,12 +222,12 @@ First let&#8217;s install the package:
     Complete! 
     
 
-Now let&#8217;s create a directory where the decrypted data will be mounted:
+Now let's create a directory where the decrypted data will be mounted:
 
     moxz:~>mkdir .decrypt 
     
 
-And now let&#8217;s mount the volume:
+And now let's mount the volume:
 
     moxz:~>encfs ~/.gdrive/enc/ ~/.decrypt/ 
     Creating new encrypted volume.
@@ -266,14 +266,14 @@ And now let&#8217;s mount the volume:
     moxz:~> 
     
 
-Let&#8217;s see if it&#8217;s mounted:
+Let's see if it's mounted:
 
     moxz:~>df -h -t fuse.encfs
     Filesystem      Size  Used Avail Use% Mounted on
     encfs           56G   45G  9.1G  83% /home/elatov/.decrypt 
     
 
-Now let&#8217;s create a new file under **~/.decrypt** and check if it gets encrypted:
+Now let's create a new file under **~/.decrypt** and check if it gets encrypted:
 
     moxz:~>cd .decrypt/ 
     moxz:~/.decrypt>echo "This is a test" > text.txt 
@@ -284,7 +284,7 @@ Now let&#8217;s create a new file under **~/.decrypt** and check if it gets encr
     This is a test
     
 
-Now let&#8217;s check the encrypted side:
+Now let's check the encrypted side:
 
     moxz:~/.decrypt>ls -l ../.gdrive/enc/ 
     total 4 
@@ -293,7 +293,7 @@ Now let&#8217;s check the encrypted side:
      )Hٴ&o/+jD27Z 
     
 
-That looks perfect. Now let&#8217;s un-mount the volume and sync the data with Google Drive:
+That looks perfect. Now let's un-mount the volume and sync the data with Google Drive:
 
     moxz:~>fusermount -u ~/.decrypt/ 
     moxz:~>df -h | grep enc 
@@ -310,15 +310,15 @@ That looks perfect. Now let&#8217;s un-mount the volume and sync the data with G
     Finished! 
     
 
-Notice the **.encfs6.xml** file, this is the configuration file for EncFS and is very important to this setup. Don&#8217;t worry, without the password this file is useless. From <a href="https://boxcryptor.desk.com/customer/portal/articles/565947" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://boxcryptor.desk.com/customer/portal/articles/565947']);">this</a> BoxCryptor forum:
+Notice the **.encfs6.xml** file, this is the configuration file for EncFS and is very important to this setup. Don't worry, without the password this file is useless. From <a href="https://boxcryptor.desk.com/customer/portal/articles/565947" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://boxcryptor.desk.com/customer/portal/articles/565947']);">this</a> BoxCryptor forum:
 
 > BoxCryptor uses two keys for file encryption: a master key which is derived from a user supplied password and a volume key. All files are encrypted with a volume key which is generated when a new encrypted directory is created. The volume key is stored encrypted by the master key in a configuration file (.encfs6.xml) at the top level of the source directory. When BoxCryptor mounts an encrypted directory you have to enter the password. The password is used to derive the master key and the master key is used to decrypt the volume key which is then used for file encryption.
 
-Now let&#8217;s do the same thing on Ubuntu.
+Now let's do the same thing on Ubuntu.
 
 ### Install and Setup EncFS on Ubuntu
 
-First let&#8217;s install the package:
+First let's install the package:
 
     kerch:~>sudo apt-get install encfs 
     Reading package lists... Done 
@@ -335,7 +335,7 @@ First let&#8217;s install the package:
     ldconfig deferred processing now taking place
     
 
-Now let&#8217;s sync our Google Drive contents:
+Now let's sync our Google Drive contents:
 
     kerch:~/.gdrive>grive -f 
     Reading local directories 
@@ -348,7 +348,7 @@ Now let&#8217;s sync our Google Drive contents:
     Finished!
     
 
-The encrypted file is now there, let&#8217;s mount the encrypted data:
+The encrypted file is now there, let's mount the encrypted data:
 
     kerch:~>encfs ~/.gdrive/enc/ ~/.decrypt/ 
     EncFS Password: 
@@ -356,19 +356,19 @@ The encrypted file is now there, let&#8217;s mount the encrypted data:
     encfs      37G   31G   3.5G 90% /home/elatov/.decrypt
     
 
-Now let&#8217;s see if the file is decrypted properly:
+Now let's see if the file is decrypted properly:
 
     kerch:~>cat .decrypt/test.txt 
     This is a test
     
 
-That is perfect. Now let&#8217;s un-mount the encrypted volume and make sure nothing is in the un-mounted directory:
+That is perfect. Now let's un-mount the encrypted volume and make sure nothing is in the un-mounted directory:
 
     kerch:~>fusermount -u ~/.decrypt/ 
     kerch:~>ls ~/.decrypt/ 
     
 
-Now let&#8217;s see if we can download this file on our Android phone.
+Now let's see if we can download this file on our Android phone.
 
 ## 3. Install and Configure BoxCryptor on the Android Phone
 
@@ -380,7 +380,7 @@ After installing the App and launching it, you will see the following screen:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/box_crypt_launched.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/box_crypt_launched.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/box_crypt_launched.png" alt="box crypt launched Sharing a File Encrypted by EncFS with Android and Linux Systems with Google Drive" width="540" height="960" class="alignnone size-full wp-image-6270" title="Sharing a File Encrypted by EncFS with Android and Linux Systems with Google Drive" /></a>
 
-Select &#8220;Connect to Google Drive&#8221; and then choose the account to login as:
+Select "Connect to Google Drive" and then choose the account to login as:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/bx_crypt_login_google_drive.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/bx_crypt_login_google_drive.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/bx_crypt_login_google_drive.png" alt="bx crypt login google drive Sharing a File Encrypted by EncFS with Android and Linux Systems with Google Drive" width="540" height="960" class="alignnone size-full wp-image-6271" title="Sharing a File Encrypted by EncFS with Android and Linux Systems with Google Drive" /></a>
 

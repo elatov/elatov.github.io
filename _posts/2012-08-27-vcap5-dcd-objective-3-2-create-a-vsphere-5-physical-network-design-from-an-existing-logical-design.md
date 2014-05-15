@@ -75,21 +75,21 @@ From the <a href="http://pubs.vmware.com/vsphere-50/index.jsp?topic=%2Fcom.vmwar
 > 
 > A private VLAN is identified by its primary VLAN ID. A primary VLAN ID can have multiple secondary VLAN IDs associated with it. Primary VLANs are **Promiscuous**, so that ports on a private VLAN can communicate with ports configured as the primary VLAN. Ports on a secondary VLAN can be either **Isolated**, communicating only with promiscuous ports, or **Community**, communicating with both promiscuous ports and other ports on the same secondary VLAN.
 > 
-> To use private VLANs between a host and the rest of the physical network, the physical switch connected to the host needs to be private VLAN-capable and configured with the VLAN IDs being used by ESXi for the private VLAN functionality. For physical switches using dynamic MAC+VLAN ID based learning, all corresponding private VLAN IDs must be first entered into the switch&#8217;s VLAN database.
+> To use private VLANs between a host and the rest of the physical network, the physical switch connected to the host needs to be private VLAN-capable and configured with the VLAN IDs being used by ESXi for the private VLAN functionality. For physical switches using dynamic MAC+VLAN ID based learning, all corresponding private VLAN IDs must be first entered into the switch's VLAN database.
 > 
 > To configure distributed ports to use Private VLAN functionality, you must create the necessary Private VLANs on the vSphere distributed switch to which the distributed ports are connected.
 
-Also check out &#8220;<a href="http://www.ciscopress.com/articles/article.asp?p=29803&seqNum=6" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.ciscopress.com/articles/article.asp?p=29803&seqNum=6']);">VLANs and Trunking</a>&#8221; for sample PVLAN configuration on a Cisco Switch.
+Also check out "<a href="http://www.ciscopress.com/articles/article.asp?p=29803&seqNum=6" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.ciscopress.com/articles/article.asp?p=29803&seqNum=6']);">VLANs and Trunking</a>" for sample PVLAN configuration on a Cisco Switch.
 
 ### Describe switch-specific settings for ESXi-facing ports, including but not limited to (STP,Jumbo Frames, Load-balancing, Trunking)
 
-From &#8220;<a href="http://www.vmware.com/files/pdf/virtual_networking_concepts.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/virtual_networking_concepts.pdf']);">VMware Virtual Networking Concepts</a>&#8220;:
+From "<a href="http://www.vmware.com/files/pdf/virtual_networking_concepts.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/virtual_networking_concepts.pdf']);">VMware Virtual Networking Concepts</a>":
 
 > **Spanning Tree Protocol Not Needed**  
 > VMware Infrastructure 3 enforces a single-tier networking topology. In other words, there is no way to interconnect multiple virtual switches, thus the network cannot be configured to introduce loops. As a result, Spanning Tree Protocol (STP) is not needed and is not present.
 > 
-> &#8230;  
-> &#8230;
+> ...  
+> ...
 > 
 > To minimize delays, disable the following on the physical switch:
 > 
@@ -125,7 +125,7 @@ From this <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd
 
 ### Cite virtual switch security policies and settings
 
-From &#8220;<a href="http://www.vmware.com/files/pdf/virtual_networking_concepts.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/virtual_networking_concepts.pdf']);">VMware Virtual Networking Concepts</a>&#8220;:
+From "<a href="http://www.vmware.com/files/pdf/virtual_networking_concepts.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/virtual_networking_concepts.pdf']);">VMware Virtual Networking Concepts</a>":
 
 > **Layer 2 Security Features**  
 > The virtual switch has the ability to enforce security policies to prevent virtual machines from impersonating other nodes on the network. There are three components to this feature.
@@ -136,13 +136,13 @@ From &#8220;<a href="http://www.vmware.com/files/pdf/virtual_networking_concepts
 
 ### Based on the service catalog and given functional requirements, for each service: Determine the most appropriate networking technologies for the design
 
-There are actually a lot of good VMware networking designs at the <a href="http://kendrickcoleman.com/index.php/Tech-Blog/vmware-vsphere-5-host-nic-network-design-layout-and-vswitch-configuration-major-update.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kendrickcoleman.com/index.php/Tech-Blog/vmware-vsphere-5-host-nic-network-design-layout-and-vswitch-configuration-major-update.html']);">blog</a> written by Kendick Coleman. Each design has it&#8217;s pros and cons. Here is a design factoring in redundancy:
+There are actually a lot of good VMware networking designs at the <a href="http://kendrickcoleman.com/index.php/Tech-Blog/vmware-vsphere-5-host-nic-network-design-layout-and-vswitch-configuration-major-update.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kendrickcoleman.com/index.php/Tech-Blog/vmware-vsphere-5-host-nic-network-design-layout-and-vswitch-configuration-major-update.html']);">blog</a> written by Kendick Coleman. Each design has it's pros and cons. Here is a design factoring in redundancy:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/example_of_redundant_vmware-network-design.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/example_of_redundant_vmware-network-design.png']);"><img class="alignnone size-full wp-image-2886" title="example_of_redundant_vmware-network-design" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/example_of_redundant_vmware-network-design.png" alt="example of redundant vmware network design VCAP5 DCD Objective 3.2 – Create a vSphere 5 Physical Network Design from an Existing Logical Design " width="538" height="362" /></a>
 
 ### Determine and explain the selected network teaming and failover solution
 
-From &#8220;<a href="http://www.vmware.com/files/pdf/virtual_networking_concepts.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/virtual_networking_concepts.pdf']);">VMware Virtual Networking Concepts</a>&#8220;:
+From "<a href="http://www.vmware.com/files/pdf/virtual_networking_concepts.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/virtual_networking_concepts.pdf']);">VMware Virtual Networking Concepts</a>":
 
 > **NIC Teaming**  
 > You can connect a single virtual switch to multiple physical Ethernet adapters using the VMware Infrastructure feature called NIC teaming. A team can share the load of traffic between physical and virtual networks among some or all of its members and provide passive failover in the event of a hardware failure or a network outage. You can set NIC teaming policies at the port group level.
@@ -184,7 +184,7 @@ From the <a href="http://communities.vmware.com/servlet/JiveServlet/download/16
 
 ### Based on service level requirements, determine appropriate network performance characteristics.
 
-From the &#8220;<a href="http://www.vmware.com/files/pdf/techpaper/vsphere-distributed-switch-best-practices.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/techpaper/vsphere-distributed-switch-best-practices.pdf']);">VMware vSphere Distributed Switch Best Practices</a>&#8220;, BTW great paper:
+From the "<a href="http://www.vmware.com/files/pdf/techpaper/vsphere-distributed-switch-best-practices.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/techpaper/vsphere-distributed-switch-best-practices.pdf']);">VMware vSphere Distributed Switch Best Practices</a>", BTW great paper:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/type-of-net-traffic.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/type-of-net-traffic.png']);"><img class="alignnone size-full wp-image-2889" title="type-of-net-traffic" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/type-of-net-traffic.png" alt="type of net traffic VCAP5 DCD Objective 3.2 – Create a vSphere 5 Physical Network Design from an Existing Logical Design " width="571" height="171" /></a>
 
@@ -211,16 +211,16 @@ Also remember to put your 10Gb NIcs on PCIe 8x slots. If possible use NetQueue, 
 
 ### Properly apply converged networking considering VMware best practices If limited on 10Gb NICs utilize NIOC as described in 
 
-<a href="http://www.vmware.com/files/pdf/techpaper/vsphere-distributed-switch-best-practices.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/techpaper/vsphere-distributed-switch-best-practices.pdf']);">VMware vSphere Distributed Switch Best Practices</a>. Also from &#8220;<a href="http://www.vmware.com/files/pdf/techpaper/VMW_Netioc_BestPractices.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/techpaper/VMW_Netioc_BestPractices.pdf']);">VMware Network I/O Control: Architecture, Performance and Best Practices VMware vSphere 4.1</a>&#8220;:
+<a href="http://www.vmware.com/files/pdf/techpaper/vsphere-distributed-switch-best-practices.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/techpaper/vsphere-distributed-switch-best-practices.pdf']);">VMware vSphere Distributed Switch Best Practices</a>. Also from "<a href="http://www.vmware.com/files/pdf/techpaper/VMW_Netioc_BestPractices.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/techpaper/VMW_Netioc_BestPractices.pdf']);">VMware Network I/O Control: Architecture, Performance and Best Practices VMware vSphere 4.1</a>":
 
 > Network convergence using 10GbE technology provides enormous opportunities for IT administrators and architects to simplify the physical network infrastructure while improving performance. Administrators and architects need a simple and reliable way to enable prioritization of critical traffic over the physical network if and when contention for those resources occurs. The Network I/O Control (NetIOC) feature available in VMware® vSphere™ 4.1 (“vSphere”) addresses these challenges by introducing a software approach to partitioning physical network bandwidth among the different types of network traffic flows. It does so by providing appropriate quality of service (QoS) policies enforcing traffic isolation, predictability and prioritization, therefore helping IT organizations overcome the contention resulting from consolidation.
 > 
-> &#8230;  
-> &#8230;
+> ...  
+> ...
 > 
 > NetIOC enables the convergence of diverse workloads on a single networking pipe. It provides sufficient controls to the vSphere administrator in the form of limits and shares parameters to enable and ensure predictable network performance when multiple traffic types contend for the same physical network resources.
 
-Also if an FCoE capable infrastructure is already in place then definitely try to use it. This way your CNA (Converged Network Adapter) can be used as a NIC (Network Interface Controller) and and HBA (Host Bus Adapter). You will definitely save on PCI slots and you won&#8217;t have a need for a LAN switch and a SAN switch. An FCoE enabled switch will replace both. With FCoE make sure flow control is working properly. FCoE is a lossless protocol and it utilizes pause frames to appropriate notion if congestion is taking place. If you want to read up on FCoE I would suggest reading : &#8220;<a href="http://www.cisco.com/en/US/prod/collateral/switches/ps9441/ps9670/white_paper_c11-569320_v1.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.cisco.com/en/US/prod/collateral/switches/ps9441/ps9670/white_paper_c11-569320_v1.pdf']);">QLogic Adapters and Cisco Nexus 5000 Series Switches: Fibre Channel over Ethernet Design Guide</a>&#8220;
+Also if an FCoE capable infrastructure is already in place then definitely try to use it. This way your CNA (Converged Network Adapter) can be used as a NIC (Network Interface Controller) and and HBA (Host Bus Adapter). You will definitely save on PCI slots and you won't have a need for a LAN switch and a SAN switch. An FCoE enabled switch will replace both. With FCoE make sure flow control is working properly. FCoE is a lossless protocol and it utilizes pause frames to appropriate notion if congestion is taking place. If you want to read up on FCoE I would suggest reading : "<a href="http://www.cisco.com/en/US/prod/collateral/switches/ps9441/ps9670/white_paper_c11-569320_v1.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.cisco.com/en/US/prod/collateral/switches/ps9441/ps9670/white_paper_c11-569320_v1.pdf']);">QLogic Adapters and Cisco Nexus 5000 Series Switches: Fibre Channel over Ethernet Design Guide</a>"
 
 Check out the <a href="http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap-dcd-networking-design/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap-dcd-networking-design/']);">APAC BrownBag Session 3</a>, it covers most of the material above.
 

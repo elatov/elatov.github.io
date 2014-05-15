@@ -21,7 +21,7 @@ I came across an interesting issue the other day. I would randomly see high KAVG
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/high-kavg-1.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/high-kavg-1.png']);"><img class="alignnone size-full wp-image-2440" title="high-kavg-1" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/high-kavg-1.png" alt="high kavg 1 Seeing High KAVG with Microsoft Cluster Services  (MSCS) RDMs" width="1134" height="225" /></a>
 
-We can see that there actually isn&#8217;t that much IO going to that LUN. As the issue was happening, I would see the following in the logs:
+We can see that there actually isn't that much IO going to that LUN. As the issue was happening, I would see the following in the logs:
 
 	  
 	Aug 16 20:09:17 vmkernel: 3:12:40:56.871 cpu16:4112)ScsiDeviceIO: 1688: Command 0x1a to device "naa.60060xxxx" failed H:0x5 D:0x0 P:0x0 Possible sense data: 0x0 0x0 0x0.  
@@ -63,11 +63,11 @@ Searching for that vml, I saw the following:
 	vml.0200050000600601603df02d00d06e9cf71b6fe111565241494420  
 	
 
-it did correspond to one of the NAAs that I saw the high KAVG for. I wanted to see if I was seeing Reservation Conflicts on the devices that were experiencing the high KAVG. So I followed the instructions described in the yellow brick blog entitled &#8220;<a href="http://www.yellow-bricks.com/2010/10/26/did-you-know-scsi-reservations/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.yellow-bricks.com/2010/10/26/did-you-know-scsi-reservations/']);">Did you know? SCSI Reservations…</a>&#8220;. This is what I saw in my esxtop output:
+it did correspond to one of the NAAs that I saw the high KAVG for. I wanted to see if I was seeing Reservation Conflicts on the devices that were experiencing the high KAVG. So I followed the instructions described in the yellow brick blog entitled "<a href="http://www.yellow-bricks.com/2010/10/26/did-you-know-scsi-reservations/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.yellow-bricks.com/2010/10/26/did-you-know-scsi-reservations/']);">Did you know? SCSI Reservations…</a>". This is what I saw in my esxtop output:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/high-kavg-with-rsrv-confl.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/high-kavg-with-rsrv-confl.png']);"><img class="alignnone size-full wp-image-2441" title="high-kavg-with-rsrv-confl" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/high-kavg-with-rsrv-confl.png" alt="high kavg with rsrv confl Seeing High KAVG with Microsoft Cluster Services  (MSCS) RDMs" width="1131" height="258" /></a>
 
-We can see that the column &#8220;CONS/S&#8221; has a high number for the device that is experiencing the high KAVG. Also looking at the device statistics:
+We can see that the column "CONS/S" has a high number for the device that is experiencing the high KAVG. Also looking at the device statistics:
 
 	  
 	~ # vsish -e cat /storage/scsifw/devices/naa.60060xxxx/stats  
@@ -109,9 +109,9 @@ To fix this issue you can try the following:
 > 
 > ** Note**: If a host is exhibiting these symptoms and does not host any of the MSCS virtual machine nodes, you may want to consider masking out the LUNs for these hosts.
 
-If you have the luxury of updating to ESXi 5.0 then there is another fix for this. You can set the LUN as perennially reserved and then you won&#8217;t run into this issue. More info from VMware KB <a href="http://kb.vmware.com/kb/1016106" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1016106']);">1016106</a>:
+If you have the luxury of updating to ESXi 5.0 then there is another fix for this. You can set the LUN as perennially reserved and then you won't run into this issue. More info from VMware KB <a href="http://kb.vmware.com/kb/1016106" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1016106']);">1016106</a>:
 
-> ESXi 5.0 uses a different technique to determine if Raw Device Mapped (RDM) LUNs are used for MSCS cluster devices, by introducing a configuration flag to mark each device as &#8220;perennially reserved&#8221; that is participating in an MSCS cluster. During a boot of an ESXi system the storage mid-layer attempts to discover all devices presented to an ESXi system during device claiming phase. However, MSCS LUNs that have a permanent SCSI reservation cause the boot process to elongate as the ESX cannot interrogate the LUN due to the persistent SCSI reservation placed on a device by an active MSCS Node hosted on another ESXi host.
+> ESXi 5.0 uses a different technique to determine if Raw Device Mapped (RDM) LUNs are used for MSCS cluster devices, by introducing a configuration flag to mark each device as "perennially reserved" that is participating in an MSCS cluster. During a boot of an ESXi system the storage mid-layer attempts to discover all devices presented to an ESXi system during device claiming phase. However, MSCS LUNs that have a permanent SCSI reservation cause the boot process to elongate as the ESX cannot interrogate the LUN due to the persistent SCSI reservation placed on a device by an active MSCS Node hosted on another ESXi host.
 > 
 > Configuring the device to be perennially reserved is local to each ESXi system, and must be performed on every ESXi 5.0 system that has visibility to each device participating in an MSCS cluster. This improves the boot time for all ESXi hosts that have visibility to the device(s).
 
@@ -125,7 +125,7 @@ Also from the same KB:
 > 4.  Select Manage Paths to display the device properties of the Mapped RAW LUN and the device identifier (that is, the naa ID).
 > 5.  Take note of the naa ID, which is a globally unique identifier for your shared device.
 > 6.  Use the esxcli command to mark the device as perennially reserved: 
->     1.  esxcli storage core device setconfig -d naa.id &#8211;perennially-reserved=true
+>     1.  esxcli storage core device setconfig -d naa.id -perennially-reserved=true
 > 7.  To verify that the device is perennially reserved, run this command: 
 >     1.  esxcli storage core device list -d naa.id
 >     2.  In the output of the esxcli command, search for the entry Is Perennially Reserved: true. This shows that the device is marked as perennially reserved.
@@ -133,7 +133,7 @@ Also from the same KB:
 > 
 > **Note**: The configuration is permanently stored with the ESXi host and persists across reboots. To remove the perennially reserved flag, run this command:
 > 
-> esxcli storage core device setconfig -d naa.id &#8211;perennially-reserved=false
+> esxcli storage core device setconfig -d naa.id -perennially-reserved=false
 
-This actually didn&#8217;t negatively impact any of VMs or hosts, I just wanted to know what was going on. I left the setup as is and didn&#8217;t see any issues, but once I update to ESXi 5.0 I will definitely set all the RDM LUNs used for MSCS as perennially reserved.
+This actually didn't negatively impact any of VMs or hosts, I just wanted to know what was going on. I left the setup as is and didn't see any issues, but once I update to ESXi 5.0 I will definitely set all the RDM LUNs used for MSCS as perennially reserved.
 

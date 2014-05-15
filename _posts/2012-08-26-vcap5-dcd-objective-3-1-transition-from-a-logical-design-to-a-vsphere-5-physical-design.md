@@ -19,19 +19,19 @@ From <a href="http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_note
 > 
 > *   Uses the Logical Design 
 > *   Uses Specific Hardware detains and implementation information 
-> *   Includes port assignments, pci slots, etc&#8230; 
+> *   Includes port assignments, pci slots, etc... 
 
-Here is an example of a physical diagram, taken from &#8220;<a href="http://www.vmware.com/files/pdf/VMware-vCloud-Implementation-Example-ServiceProvider.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/VMware-vCloud-Implementation-Example-ServiceProvider.pdf']);">VMware vCloud Implementation Example</a>&#8220;:
+Here is an example of a physical diagram, taken from "<a href="http://www.vmware.com/files/pdf/VMware-vCloud-Implementation-Example-ServiceProvider.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/VMware-vCloud-Implementation-Example-ServiceProvider.pdf']);">VMware vCloud Implementation Example</a>":
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/physical-design-diag.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/physical-design-diag.png']);"><img class="alignnone size-full wp-image-2861" title="physical-design-diag" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/physical-design-diag.png" alt="physical design diag VCAP5 DCD Objective 3.1 – Transition from a Logical Design to a vSphere 5 Physical Design" width="565" height="338" /></a>
 
 ### Build functional requirements into the physical design
 
-Let&#8217;s say we had a need for a DMZ, if this was the case, then we would either get a separate switch to be extra secure, or dedicate a new VLAN for our DMZ traffic. We would then allocate a port on the physical switch for our DMZ traffic. Either or, we have to show which port is allowing DMZ traffic.
+Let's say we had a need for a DMZ, if this was the case, then we would either get a separate switch to be extra secure, or dedicate a new VLAN for our DMZ traffic. We would then allocate a port on the physical switch for our DMZ traffic. Either or, we have to show which port is allowing DMZ traffic.
 
 ### Given a logical design, create a physical design taking into account requirements, assumptions and constraints
 
-Let&#8217;s say we looked at some of the previous logical diagrams:
+Let's say we looked at some of the previous logical diagrams:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/logical-diagram.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/logical-diagram.png']);"><img class="alignnone size-full wp-image-2702" title="logical-diagram" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/logical-diagram.png" alt="logical diagram VCAP5 DCD Objective 3.1 – Transition from a Logical Design to a vSphere 5 Physical Design" width="948" height="496" /></a>
 
@@ -56,7 +56,7 @@ From the <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/
 > *   Datastore Consumer
 > *   Network Consumer 
 
-The default should be enough for most cases. It depends on how many people are actually going to be working on the virtualized environment and what policies have been set in place. For example if there is a change control in place for deploying a VM, then have a dedicated &#8220;Virtual Machine Power User&#8221; role defined to have the ability to create VMs. Also have a bunch of users be in the &#8220;Virtual Machine Users&#8221; role and they will be only allowed to use the VMs. With both of these in place, you can ensure that one person keeps track of changes ( what VMs are deployed ) and regular users in the &#8220;Virtual Machine Users&#8221; won&#8217;t be able to make any changes, but can still use the VMs that are already deployed.
+The default should be enough for most cases. It depends on how many people are actually going to be working on the virtualized environment and what policies have been set in place. For example if there is a change control in place for deploying a VM, then have a dedicated "Virtual Machine Power User" role defined to have the ability to create VMs. Also have a bunch of users be in the "Virtual Machine Users" role and they will be only allowed to use the VMs. With both of these in place, you can ensure that one person keeps track of changes ( what VMs are deployed ) and regular users in the "Virtual Machine Users" won't be able to make any changes, but can still use the VMs that are already deployed.
 
 <div class="SPOSTARBUST-Related-Posts">
   <H3>

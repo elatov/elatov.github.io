@@ -13,7 +13,7 @@ tags:
   - Virtual Supervisor Module
   - VSM
 ---
-Most of these command can be seen by executing &#8216;show tech-suppport svs&#8217; on the VSM (Virtual Supervisor Module)
+Most of these command can be seen by executing 'show tech-suppport svs' on the VSM (Virtual Supervisor Module)
 
 Show local time of the N1K  
 	  

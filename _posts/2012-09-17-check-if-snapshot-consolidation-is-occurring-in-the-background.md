@@ -29,7 +29,7 @@ Someone had asked me recently: What happens if the snapshot consolidation proces
 	144 VM-3 [Datastore] VM-3/VM-3.vmx winNetStandardGuest vmx-04  
 	
 
-Let&#8217;s say we were committing snapshots on VM-1, so our VM_ID is 112. Then check for active tasks for that VM, by running the following:
+Let's say we were committing snapshots on VM-1, so our VM_ID is 112. Then check for active tasks for that VM, by running the following:
 
 	  
 	~ # vmware-vim-cmd vmsvc/get.tasklist 112  
@@ -38,7 +38,7 @@ Let&#8217;s say we were committing snapshots on VM-1, so our VM_ID is 112. Then 
 	]  
 	
 
-Each task has an identifier as well. From the above output we see that out task identifier is &#8217;3887&#8242;. If you want you can check for more information regarding that task, you can do it like so:
+Each task has an identifier as well. From the above output we see that out task identifier is '3887'. If you want you can check for more information regarding that task, you can do it like so:
 
 	  
 	~ # vmware-vim-cmd vimsvc/task_info 3887  
@@ -50,7 +50,7 @@ Each task has an identifier as well. From the above output we see that out task 
 	}  
 	
 
-This is a pretty quick test to see if there is a snapshot commit in progress. Another thing you can do is check if there is actual changes going on with the vmdk files. When you commit a snapshot you basically take the delta files and merge them into the base disk. If you want to know more about the snapshots, I would suggest reading &#8220;<a href="http://virtuallyhyper.com/2012/04/vmware-snapshot-troubleshooting/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/04/vmware-snapshot-troubleshooting/']);">VMware Snapshot Troubleshooting</a>&#8221; written by Jarret or &#8220;<a href="http://vmutils.t15.org/TVMsp/TVMsp.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://vmutils.t15.org/TVMsp/TVMsp.html']);">Troubleshooting Virtual Machine snapshot problems</a>&#8221; written by Ruben Gargia. To see if there are changes happening with the vmdks you can run the following command:
+This is a pretty quick test to see if there is a snapshot commit in progress. Another thing you can do is check if there is actual changes going on with the vmdk files. When you commit a snapshot you basically take the delta files and merge them into the base disk. If you want to know more about the snapshots, I would suggest reading "<a href="http://virtuallyhyper.com/2012/04/vmware-snapshot-troubleshooting/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/04/vmware-snapshot-troubleshooting/']);">VMware Snapshot Troubleshooting</a>" written by Jarret or "<a href="http://vmutils.t15.org/TVMsp/TVMsp.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://vmutils.t15.org/TVMsp/TVMsp.html']);">Troubleshooting Virtual Machine snapshot problems</a>" written by Ruben Gargia. To see if there are changes happening with the vmdks you can run the following command:
 
 For ESX:
 
@@ -68,21 +68,21 @@ For ESXi:
 
 The above command is described in VMware KB <a href="http://kb.vmware.com/kb/1007566" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1007566']);">1007566</a>, from that KB:
 
-> for &#8220;watch&#8221;  
+> for "watch"  
 > -d highlights the differences between successive updates
 > 
-> for &#8216;ls&#8217;  
+> for 'ls'  
 > -t sorts by modification time  
 > -l shows a long listing which displays additional information regarding the files themselves.  
 > -u sorts by and shows access time
 
-When you run the command it will basically execute &#8216;ls&#8217; with the above parameters every 2 seconds and any changes that occur with updated time or size differences will be highlighted.
+When you run the command it will basically execute 'ls' with the above parameters every 2 seconds and any changes that occur with updated time or size differences will be highlighted.
 
 The task timing out from the vShpere Client is actually expected. From VMware KB <a href="http://kb.vmware.com/kb/1004790" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1004790']);">1004790</a>:
 
 > vCenter has a default 15 minute timeout for any task.  
-> &#8230;  
-> &#8230;
+> ...  
+> ...
 > 
 > **Note:** In the case of snapshot consolidation, even though the VI Client timeout occurs, the operation on the ESX host is still running. You can verify by observing the .vmdk file for the virtual machine. It is updated every minute which means the delta files are being committed to the .vmdk file.
 
@@ -102,9 +102,9 @@ In the same KB it talks about increasing the timeout, from the KB:
 > 
 > Note: The value 10800 can be changed based on your requirements. This example uses 10800 seconds, or 3 hours.
 
-The example in the KB shows you how to change it from the default value of 15 minutes to 3 hours, probably an over kill but then you make sure the corner case of long snapshot consolidation timing out won&#8217;t happen again.
+The example in the KB shows you how to change it from the default value of 15 minutes to 3 hours, probably an over kill but then you make sure the corner case of long snapshot consolidation timing out won't happen again.
 
-Personally, I think the real fix to this issue is to follow best practices. From VMware KB <a href="http://kb.vmware.com/kb/1025279" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1025279']);">1025279</a> The title of the KB is &#8220;Best practices for virtual machine snapshots in the VMware environment&#8221;. Here is the important bullet point from that KB:
+Personally, I think the real fix to this issue is to follow best practices. From VMware KB <a href="http://kb.vmware.com/kb/1025279" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1025279']);">1025279</a> The title of the KB is "Best practices for virtual machine snapshots in the VMware environment". Here is the important bullet point from that KB:
 
 > *   Use no single snapshot for more than 24-72 hours. 
 >     *   This prevents snapshots from growing so large as to cause issues when deleting/committing them to the original virtual machine disks. Take the snapshot, make the changes to the virtual machine, and delete/commit the snapshot as soon as you have verified the proper working state of the virtual machine.
@@ -114,11 +114,11 @@ Most of the time I see the removal task take a while, when the snapshot (delta) 
 
 The first way is to setup vCenter Alarms to warn us when VMs have snapshots. VMware KB <a href="http://kb.vmware.com/kb/1018029" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1018029']);">1018029</a> has instructions on how to set that up. 
 
-Second way is to use other tools like powerCLI to run through your VM Inventory to create list of VMs which have snapshots. Check out &#8220;<a href="http://www.virtu-al.net/2009/06/22/powercli-snapreminder/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.virtu-al.net/2009/06/22/powercli-snapreminder/']);">PowerCLI: SnapReminder</a>&#8221; blog post from Alan Renouf, it has an example of a powerCLI script that will email the VM owner (uses Active Directory) if certain VMs have snapshots older than 2 weeks. There is also another powerCLI script written by Alan: &#8220;<a href="http://www.virtu-al.net/2009/06/22/powercli-snapreminder/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.virtu-al.net/2009/06/22/powercli-snapreminder/']);">vCheck (Daily Report)</a>&#8220;. You can set it as a scheduled task and it will run and generate a report of your VMware inventory. Among many other statistics it will report VMs with snapshots. 
+Second way is to use other tools like powerCLI to run through your VM Inventory to create list of VMs which have snapshots. Check out "<a href="http://www.virtu-al.net/2009/06/22/powercli-snapreminder/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.virtu-al.net/2009/06/22/powercli-snapreminder/']);">PowerCLI: SnapReminder</a>" blog post from Alan Renouf, it has an example of a powerCLI script that will email the VM owner (uses Active Directory) if certain VMs have snapshots older than 2 weeks. There is also another powerCLI script written by Alan: "<a href="http://www.virtu-al.net/2009/06/22/powercli-snapreminder/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.virtu-al.net/2009/06/22/powercli-snapreminder/']);">vCheck (Daily Report)</a>". You can set it as a scheduled task and it will run and generate a report of your VMware inventory. Among many other statistics it will report VMs with snapshots. 
 
 Lastly you can use third party tools like <a href="http://www.robware.net/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.robware.net/']);">RVtools</a> to generate a listing of VMs that have snapshots. 
 
-In conclusion there are many ways on how to check if VM is still going through snapshot consolidation. However instead of using those tools, be proactive and keep an eye on your environment and don&#8217;t let your VMs have snapshots older than 3 days. Check out &#8220;<a href="http://www.virtualpro.co.uk/2010/06/21/vmware-snapshots-alerting-and-reporting/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.virtualpro.co.uk/2010/06/21/vmware-snapshots-alerting-and-reporting/']);">VMware Snapshot Alerting and Reporting</a>&#8220;, an example of how someone got in trouble with snapshots and started to monitor for snapshots after the incident.
+In conclusion there are many ways on how to check if VM is still going through snapshot consolidation. However instead of using those tools, be proactive and keep an eye on your environment and don't let your VMs have snapshots older than 3 days. Check out "<a href="http://www.virtualpro.co.uk/2010/06/21/vmware-snapshots-alerting-and-reporting/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.virtualpro.co.uk/2010/06/21/vmware-snapshots-alerting-and-reporting/']);">VMware Snapshot Alerting and Reporting</a>", an example of how someone got in trouble with snapshots and started to monitor for snapshots after the incident.
 
 <div class="SPOSTARBUST-Related-Posts">
   <H3>
@@ -127,7 +127,7 @@ In conclusion there are many ways on how to check if VM is still going through s
   
   <ul class="entry-meta">
     <li class="SPOSTARBUST-Related-Post">
-      <a title="Snapshots Take a Long Time When &#8220;Keep Memory&#8221; is Enabled" href="http://virtuallyhyper.com/2013/04/snapshots-take-a-long-time-when-keep-memory-is-checked/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/04/snapshots-take-a-long-time-when-keep-memory-is-checked/']);" rel="bookmark">Snapshots Take a Long Time When &#8220;Keep Memory&#8221; is Enabled</a>
+      <a title="Snapshots Take a Long Time When "Keep Memory" is Enabled" href="http://virtuallyhyper.com/2013/04/snapshots-take-a-long-time-when-keep-memory-is-checked/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/04/snapshots-take-a-long-time-when-keep-memory-is-checked/']);" rel="bookmark">Snapshots Take a Long Time When "Keep Memory" is Enabled</a>
     </li>
   </ul>
 </div>

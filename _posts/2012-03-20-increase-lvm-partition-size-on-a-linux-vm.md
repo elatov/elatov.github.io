@@ -85,7 +85,7 @@ LogVol00 (7.9GB) which is our root parition:
 	/dev/sda1                       99M  16M  78M  17%   /boot
 	tmpfs                           1.5G 164M 1.4G 11%   /dev/shm
 
-and the second Logical Volume (LogVol01) is 1.9GB and is our swap &#8220;partition&#8221;:
+and the second Logical Volume (LogVol01) is 1.9GB and is our swap "partition":
 
 	[root@rac1 ~]# swapon -s
 	Filename Type Size Used Priority
@@ -116,7 +116,7 @@ and here is how the physical disk is paritioned:
 	/dev/sda1 * 1 13 104391 83 Linux
 	/dev/sda2 14 1305 10377990 8e Linux LVM
 
-So /dev/sda1 is formated ext3 and is our boot partition and the /dev/sda2 partition is of type LVM and it&#8217;s split up into the two different Logical Volumes that I described above. For the first server, I will expand the vmdk from 10GB to 17GB and then resize the /dev/sda2 partition to be 17GB and then resize the Volume Group (VG) to be the same size. At that point, I will be able to extend the Logical Volume (LV) up to 17GB &#8211; 2GB (for swap) ~15GB, and lastly I will grow the filesystem on that LV and we will be all set. So let&#8217;s get started on this. Here is how the physical disk looks like after I expand the disk:
+So /dev/sda1 is formated ext3 and is our boot partition and the /dev/sda2 partition is of type LVM and it's split up into the two different Logical Volumes that I described above. For the first server, I will expand the vmdk from 10GB to 17GB and then resize the /dev/sda2 partition to be 17GB and then resize the Volume Group (VG) to be the same size. At that point, I will be able to extend the Logical Volume (LV) up to 17GB - 2GB (for swap) ~15GB, and lastly I will grow the filesystem on that LV and we will be all set. So let's get started on this. Here is how the physical disk looks like after I expand the disk:
 
 	[root@rac1 ~]# fdisk -l /dev/sda
 	
@@ -128,7 +128,7 @@ So /dev/sda1 is formated ext3 and is our boot partition and the /dev/sda2 partit
 	/dev/sda1 * 1 13 104391 83 Linux
 	/dev/sda2 14 1305 10377990 8e Linux LVM
 
-Notice the new size :). So let&#8217;s go ahead and resize the partition with fdisk (delete and re-create with new size):
+Notice the new size :). So let's go ahead and resize the partition with fdisk (delete and re-create with new size):
 
 	[root@rac1 ~]# fdisk /dev/sda
 	
@@ -188,7 +188,7 @@ Notice the new size :). So let&#8217;s go ahead and resize the partition with fd
 	The new table will be used at the next reboot.
 	Syncing disks.
 
-Now notice the &#8220;Device or resource busy&#8221; message. This is expected since we are currently mounting that Volume and the OS is running off of it :). So let&#8217;s go ahead and reboot the Virtual Machine (VM) just to make sure the kernel is updated with our recent changes. When we come back, we should see fdisk listing the correct size of the partition:
+Now notice the "Device or resource busy" message. This is expected since we are currently mounting that Volume and the OS is running off of it :). So let's go ahead and reboot the Virtual Machine (VM) just to make sure the kernel is updated with our recent changes. When we come back, we should see fdisk listing the correct size of the partition:
 
 	[root@rac1 ~]# fdisk -l /dev/sda
 	Disk /dev/sda: 18.2 GB, 18253611008 bytes
@@ -199,28 +199,28 @@ Now notice the &#8220;Device or resource busy&#8221; message. This is expected s
 	/dev/sda1 * 1 13 104391 83 Linux
 	/dev/sda2 14 2219 17719695 8e Linux LVM
 
-But let&#8217;s check out the new Size of the Physical Volume (PV):
+But let's check out the new Size of the Physical Volume (PV):
 
 	[root@rac1 ~]# pvdisplay | grep PV Size
 	PV Size 9.90 GB / not usable 22.76 MB
 
-Huh? That is not the size that I want :). Let&#8217;s tell the Logical Volume Manager (LVM) to rescan the Physical Volume (PV):
+Huh? That is not the size that I want :). Let's tell the Logical Volume Manager (LVM) to rescan the Physical Volume (PV):
 
 	[root@rac1 ~]# pvresize /dev/sda2
 	Physical volume "/dev/sda2" changed
 	1 physical volume(s) resized / 0 physical volume(s) not resized
 
-And now let&#8217;s check out the new size:
+And now let's check out the new size:
 
 	[root@rac1 ~]# pvdisplay | grep PV Size
 	PV Size 16.90 GB / not usable 24.20 MB
 
-That looks better. So now let&#8217;s check out how much free space the VG has:
+That looks better. So now let's check out how much free space the VG has:
 
 	[root@rac1 ~]# vgdisplay | grep Free
 	Free PE / Size 224 / 7.00 GB
 
-Yay! Let&#8217;s go ahead and add that space to the LV:
+Yay! Let's go ahead and add that space to the LV:
 
 * Note- some people use lvresize or lvextend for the below operation, either one will work, it just depends on your preference. (<a href="http://www.redhat.com/archives/linux-lvm/2011-March/msg00042.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.redhat.com/archives/linux-lvm/2011-March/msg00042.html']);">lvextend and lvresize</a>)
 
@@ -288,7 +288,7 @@ And now for the new size:
 	/dev/sda1                       99M  16M  78M   17%  /boot
 	tmpfs                           1.5G 164M 1.4G  11%  /dev/shm
 
-That is what we wanted to see. By the way, resize2fs works on ext3 online only (<a href="http://linux.die.net/man/8/resize2fs" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://linux.die.net/man/8/resize2fs']);">resize2fs(8) &#8211; Linux man page</a>). Other OSes provide ext2online (<a href="http://linux.die.net/man/8/ext2online" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://linux.die.net/man/8/ext2online']);">ext2online(8) &#8211; Linux man page</a>). Like I mentioned, this was probably not the safest way of doing this, so let&#8217;s go ahead and reboot the OS and force a filesystem check, just to be safe:
+That is what we wanted to see. By the way, resize2fs works on ext3 online only (<a href="http://linux.die.net/man/8/resize2fs" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://linux.die.net/man/8/resize2fs']);">resize2fs(8) - Linux man page</a>). Other OSes provide ext2online (<a href="http://linux.die.net/man/8/ext2online" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://linux.die.net/man/8/ext2online']);">ext2online(8) - Linux man page</a>). Like I mentioned, this was probably not the safest way of doing this, so let's go ahead and reboot the OS and force a filesystem check, just to be safe:
 
 	[root@rac1 ~]# touch /forcefsck ; reboot
 	
@@ -343,7 +343,7 @@ On the second machine, we are going to expand the VMDK, create a new partition f
 	/dev/sda1 * 1 13 104391 83 Linux
 	/dev/sda2 14 1305 10377990 8e Linux LVM
 
-Let&#8217;s create a partition from the new space:
+Let's create a partition from the new space:
 
 	[root@rac2 ~]# fdisk /dev/sda
 	
@@ -380,17 +380,17 @@ Let&#8217;s create a partition from the new space:
 	The new table will be used at the next reboot.
 	Syncing disks.
 
-Notice the same message as before regarding the device being busy. This time, since we are not touching the partition that is our root directory, we are in a safer place. Let&#8217;s run partprobe and confirm that we see 3 partitions:
+Notice the same message as before regarding the device being busy. This time, since we are not touching the partition that is our root directory, we are in a safer place. Let's run partprobe and confirm that we see 3 partitions:
 
 	[root@rac2 ~]# partprobe -s /dev/sda
 	/dev/sda: msdos partitions 1 2 3
 
-Now let&#8217;s add the new partition as a PV:
+Now let's add the new partition as a PV:
 
 	[root@rac2 ~]# pvcreate /dev/sda3
 	Physical volume "/dev/sda3" successfully created
 
-and let&#8217;s check the size:
+and let's check the size:
 
 	[root@rac2 ~]# pvdisplay /dev/sda3
 	"/dev/sda3" is a new physical volume of "6.00 GB"
@@ -405,12 +405,12 @@ and let&#8217;s check the size:
 	Allocated PE 0
 	PV UUID wvL3Vz-EEw3-FPGS-4hMo-7UZn-8ZXH-dDCkmt
 
-Now let&#8217;s add the new PV to the VG:
+Now let's add the new PV to the VG:
 
 	[root@rac2 ~]# vgextend VolGroup00 /dev/sda3
 	Volume group "VolGroup00" successfully extended
 
-Let&#8217;s ensure that the new space is there:
+Let's ensure that the new space is there:
 
 	[root@rac2 ~]# vgdisplay
 	--- Volume group ---
@@ -434,7 +434,7 @@ Let&#8217;s ensure that the new space is there:
 	Free PE / Size 191 / 5.97 GB
 	VG UUID W2Towj-pGXi-HokR-Xc80-N3o3-i8GL-4XYLEc
 
-Now let&#8217;s extend the LV from the new partition that we added:
+Now let's extend the LV from the new partition that we added:
 
 	[root@rac2 ~]# lvextend /dev/VolGroup00/LogVol00 /dev/sda3
 	Extending logical volume LogVol00 to 13.88 GB
@@ -444,7 +444,7 @@ Like I mentioned before, we could use lvresize if we wanted to. The command woul
 
 	[root@rac2 ~]# lvresize -l +100%FREE /dev/VolGroup00/LogVol00
 	
-	Now let&#8217;s make sure the size is correct:
+	Now let's make sure the size is correct:
 	
 	[root@rac2 ~]# lvdisplay /dev/VolGroup00/LogVol00
 	--- Logical volume ---
@@ -462,7 +462,7 @@ Like I mentioned before, we could use lvresize if we wanted to. The command woul
 	- currently set to 256
 	Block device 253:0
 
-Everything looks good, now for the final step, let&#8217;s resize the filesystem:
+Everything looks good, now for the final step, let's resize the filesystem:
 
 	[root@rac2 ~]# resize2fs /dev/VolGroup00/LogVol00
 	resize2fs 1.39 (29-May-2006)
@@ -470,7 +470,7 @@ Everything looks good, now for the final step, let&#8217;s resize the filesystem
 	Performing an on-line resize of /dev/VolGroup00/LogVol00 to 3637248 (4k) blocks.
 	The filesystem on /dev/VolGroup00/LogVol00 is now 3637248 blocks long.
 
-Let&#8217;s see if the OS sees the correct size:
+Let's see if the OS sees the correct size:
 
 	[root@rac2 ~]# df -h
 	Filesystem                      Size Used  Avail Use% Mounted on
@@ -478,7 +478,7 @@ Let&#8217;s see if the OS sees the correct size:
 	/dev/sda1                       99M  16M   78M   17%  /boot
 	tmpfs                           1.5G 0     1.5G  0%   /dev/shm
 
-Everything went well. Since this was a &#8220;safer&#8221; way of expanding the LV you can just reboot without running any fsck. I would say I am a pretty paranoid person, so I will force a fsck :).
+Everything went well. Since this was a "safer" way of expanding the LV you can just reboot without running any fsck. I would say I am a pretty paranoid person, so I will force a fsck :).
 
 	[root@rac2 ~]# shutdown -rF now
 	
@@ -506,7 +506,7 @@ If you run out of partitions (4 primary or 3 primary and 1 extended with 11 logi
       <a title="Creating an LVM Logical Volume From Two Used Partitions" href="http://virtuallyhyper.com/2012/10/creating-an-lvm-volume-from-two-used-partitions/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/10/creating-an-lvm-volume-from-two-used-partitions/']);" rel="bookmark">Creating an LVM Logical Volume From Two Used Partitions</a>
     </li>
     <li class="SPOSTARBUST-Related-Post">
-      <a title="WordPress &#8211; Error establishing a database connection, but able to connect via command line &#8211; SELinux and httpd" href="http://virtuallyhyper.com/2012/09/selinux-and-httpd/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/09/selinux-and-httpd/']);" rel="bookmark">WordPress &#8211; Error establishing a database connection, but able to connect via command line &#8211; SELinux and httpd</a>
+      <a title="WordPress - Error establishing a database connection, but able to connect via command line - SELinux and httpd" href="http://virtuallyhyper.com/2012/09/selinux-and-httpd/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/09/selinux-and-httpd/']);" rel="bookmark">WordPress - Error establishing a database connection, but able to connect via command line - SELinux and httpd</a>
     </li>
     <li class="SPOSTARBUST-Related-Post">
       <a title="Recreating VMFS Partitions using Hexdump" href="http://virtuallyhyper.com/2012/09/recreating-vmfs-partitions-using-hexdump/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/09/recreating-vmfs-partitions-using-hexdump/']);" rel="bookmark">Recreating VMFS Partitions using Hexdump</a>

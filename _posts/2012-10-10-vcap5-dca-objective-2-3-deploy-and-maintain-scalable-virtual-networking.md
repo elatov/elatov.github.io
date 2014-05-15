@@ -14,7 +14,7 @@ tags:
 ---
 ### Identify VMware NIC Teaming policies
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-networking-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-networking-guide.pdf']);">vSphere Networking ESXi 5.0</a>&#8221;
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-networking-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-networking-guide.pdf']);">vSphere Networking ESXi 5.0</a>"
 
 > **Edit Failover and Load Balancing Policy for a vSphere Standard Switch**  
 > Use Load Balancing and Failover policies to determine how network traffic is distributed between adapters and how to reroute traffic in the event of an adapter failure.
@@ -47,14 +47,14 @@ Also from the same document, here is a summary of all the policies:
 
 When it comes to virtual switch talking to the physical network these are involved:
 
-STP &#8211; Spanning Tree Issue (it&#8217;s recommended to be disable or at least set portfast, more information in VMware KB <a href="http://kb.vmware.com/kb/1003804" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1003804']);">1003804</a> )  
-LACP &#8211; Link Aggregation Control Protocol only supported with 5.1  
-Etherchannel &#8211; Supported only with the IP_hash Algorithtm (for sample config check out VMware KB <a href="http://kb.vmware.com/kb/1004048" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1004048']);">1004048</a>  
-QOS &#8211; Quality of Service, with VMware only 802.1p tagging is supported (for a good example check out <a href="http://www.vmware.com/files/pdf/techpaper/Whats-New-VMware-vSphere-50-Networking-Technical-Whitepaper.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/techpaper/Whats-New-VMware-vSphere-50-Networking-Technical-Whitepaper.pdf']);">What’s New in VMware vSphere 5.0 Networking</a>)
+STP - Spanning Tree Issue (it's recommended to be disable or at least set portfast, more information in VMware KB <a href="http://kb.vmware.com/kb/1003804" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1003804']);">1003804</a> )  
+LACP - Link Aggregation Control Protocol only supported with 5.1  
+Etherchannel - Supported only with the IP_hash Algorithtm (for sample config check out VMware KB <a href="http://kb.vmware.com/kb/1004048" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1004048']);">1004048</a>  
+QOS - Quality of Service, with VMware only 802.1p tagging is supported (for a good example check out <a href="http://www.vmware.com/files/pdf/techpaper/Whats-New-VMware-vSphere-50-Networking-Technical-Whitepaper.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/techpaper/Whats-New-VMware-vSphere-50-Networking-Technical-Whitepaper.pdf']);">What’s New in VMware vSphere 5.0 Networking</a>)
 
 ### Understand the NIC Teaming failover types and related physical network settings
 
-There are two options as described above, &#8220;Link Status Only&#8221; and Beacon Probing. For &#8220;Link Status Only&#8221; make sure you have a consistent negotiation policy set. For 1GB it&#8217;s recommended to set auto/auto negotiation from the physical switch and from the physical NIC. If that is set properly then failover should be pretty smooth.
+There are two options as described above, "Link Status Only" and Beacon Probing. For "Link Status Only" make sure you have a consistent negotiation policy set. For 1GB it's recommended to set auto/auto negotiation from the physical switch and from the physical NIC. If that is set properly then failover should be pretty smooth.
 
 ### Determine and apply Failover settings
 
@@ -64,7 +64,7 @@ This was discussed in the above objectives.
 
 If you are using Software iSCSI and you want to utilized MPIO (MultiPath IO) then you will need to bind each vmk to a vmnic.
 
-From &#8220;<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf']);">vSphere Storage ESXi 5.0</a>&#8220;:
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf']);">vSphere Storage ESXi 5.0</a>":
 
 > **Change Port Group Policy for iSCSI VMkernel Adapters**  
 > If you use a single vSphere standard switch to connect VMkernel to multiple network adapters, change the port group policy, so that it is compatible with the iSCSI network requirements.

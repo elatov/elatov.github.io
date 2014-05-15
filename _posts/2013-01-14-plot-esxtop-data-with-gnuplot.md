@@ -23,7 +23,7 @@ tags:
   - set timefmt
   - tail
 ---
-Let&#8217;s say you collected esxtop batch data per the instructions laid out in VMware KB <a href="http://kb.vmware.com/kb/1004953" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1004953']);">1004953</a>. So in the end you just had a huge CSV (Comma Separated Values) file, with a lot of data. In my example I was seeing some latency on my NFS datastore and I wanted to find out what is going on. I downloaded the file to my linux machine and here is resulted file:
+Let's say you collected esxtop batch data per the instructions laid out in VMware KB <a href="http://kb.vmware.com/kb/1004953" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1004953']);">1004953</a>. So in the end you just had a huge CSV (Comma Separated Values) file, with a lot of data. In my example I was seeing some latency on my NFS datastore and I wanted to find out what is going on. I downloaded the file to my linux machine and here is resulted file:
 
 	  
 	$ ls -lh esxtop_data.csv  
@@ -36,7 +36,7 @@ So the first thing that I wanted to do was grab all the headers and separate the
 	$ head -1 esxtop_data.csv | sed 's/\,/\n/g' > headers  
 	
 
-Now checking out the &#8216;headers&#8217; file, I saw the following:
+Now checking out the 'headers' file, I saw the following:
 
 	  
 	$ head headers  
@@ -52,7 +52,7 @@ Now checking out the &#8216;headers&#8217; file, I saw the following:
 	"\\local\Physical Cpu(2)\% Processor Time"  
 	
 
-That is perfect, the columns are now separated by new lines. Now the name of the NFS datastore was &#8220;NFS_Datastore&#8221;. So searching for that in the &#8216;headers&#8217; file, I saw the following:
+That is perfect, the columns are now separated by new lines. Now the name of the NFS datastore was "NFS_Datastore". So searching for that in the 'headers' file, I saw the following:
 
 	  
 	$ grep NFS_Datastore headers  
@@ -75,20 +75,20 @@ That is perfect, the columns are now separated by new lines. Now the name of the
 	"\\local\Physical Disk NFS Volume(NFS_Datastore)\Resets/sec"  
 	
 
-So now we see all the available counters/fields for our NFS datastore. I first wanted to concentrate on the Read latency, so I wanted to see what column number did the counter &#8220;Average Guest MilliSec/Read&#8221; correspond to. So I ran the following to determine that:
+So now we see all the available counters/fields for our NFS datastore. I first wanted to concentrate on the Read latency, so I wanted to see what column number did the counter "Average Guest MilliSec/Read" correspond to. So I ran the following to determine that:
 
 	  
 	$ grep -n NFS_Datastore headers | grep 'Average Guest MilliSec/Read'  
 	16391:"\\local\Physical Disk NFS Volume(NFS_Datastore)\Average Guest MilliSec/Read"  
 	
 
-So the column number that corresponded to read latency of the NFS datastore was &#8217;16391&#8242;. So now let&#8217;s grab two columns from our dataset: the first one, which corresponds to the time, and the &#8217;16391&#8242;th one, which corresponds to read latency of our datastore. To do this there are two steps, first let&#8217;s just grab the data and skip the headers. This is done like so:
+So the column number that corresponded to read latency of the NFS datastore was '16391'. So now let's grab two columns from our dataset: the first one, which corresponds to the time, and the '16391'th one, which corresponds to read latency of our datastore. To do this there are two steps, first let's just grab the data and skip the headers. This is done like so:
 
 	  
 	$ tail -n +2 esxtop_data.csv > data  
 	
 
-Next let&#8217;s just grab the columns that we desire from the dataset:
+Next let's just grab the columns that we desire from the dataset:
 
 	  
 	$ awk -F , '{print $1","$16391}' data > nfs\_read\_latency_data  
@@ -110,7 +110,7 @@ Confirming we just have the two column, we can check the data really fast:
 	"12/11/2012 19:09:51","0.00"  
 	
 
-Now let&#8217;s plot just the NFS read latency and see what we discover:
+Now let's plot just the NFS read latency and see what we discover:
 
 	  
 	$ gnuplot -p -e 'set grid;set xdata time; set timefmt "%m/%d/%Y %H:%M:%S"; set datafile sep ","; set y2tics autofreq; set format x "%H:%M" ; plot "nfs\_read\_latency_data" using 1:2 with lines title "Read Lat/s'  
@@ -120,7 +120,7 @@ After running the above command I saw the following graph:
 
 <a href="http://virtuallyhyper.com/2013/01/plot-esxtop-data-with-gnuplot/gnuplot_graph_nfs_latency/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/plot-esxtop-data-with-gnuplot/gnuplot_graph_nfs_latency/']);" rel="attachment wp-att-5378"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/gnuplot_graph_nfs_latency.png" alt="gnuplot graph nfs latency Plot Esxtop Data With gnuplot" width="972" height="620" class="alignnone size-full wp-image-5378" title="Plot Esxtop Data With gnuplot" /></a>
 
-So it looks like we had two spikes, one at about 19:10 and the other at 20:20. Let&#8217;s pick the second one and concentrate on that. First let&#8217;s find the exact time of the spike. It looks like the spike reached about 170ms. So let&#8217;s search for a value above a hundred and see if we can find our spike.
+So it looks like we had two spikes, one at about 19:10 and the other at 20:20. Let's pick the second one and concentrate on that. First let's find the exact time of the spike. It looks like the spike reached about 170ms. So let's search for a value above a hundred and see if we can find our spike.
 
 	  
 	\' nfs\_read\_latency_data  
@@ -130,7 +130,7 @@ So it looks like we had two spikes, one at about 19:10 and the other at 20:20. L
 	"12/11/2012 20:20:16","113.84"  
 	
 
-So the spike was at 20:20 just like I thought. So let&#8217;s grab data just for that minute and plot it. First let&#8217;s grab the data for that minute:
+So the spike was at 20:20 just like I thought. So let's grab data just for that minute and plot it. First let's grab the data for that minute:
 
 	  
 	$ grep '20:20:' nfs\_read\_latency\_data > nfs\_read\_latency\_data\_20\_20  
@@ -161,7 +161,7 @@ Next to confirm the data:
 	"12/11/2012 20:20:56","0.00"  
 	
 
-Lastly let&#8217;s plot the data:
+Lastly let's plot the data:
 
 	  
 	$ gnuplot -p -e 'set grid;set xdata time; set timefmt "%m/%d/%Y %H:%M:%S"; set datafile sep ","; set y2tics autofreq; set format x ":%M:%S" ; plot "nfs\_read\_latency\_data\_20_20" using 1:2 with lines title "Read Lat/ms'  
@@ -171,14 +171,14 @@ Here is what I saw:
 
 <a href="http://virtuallyhyper.com/2013/01/plot-esxtop-data-with-gnuplot/gnuplot_nfs_latency_2020/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/plot-esxtop-data-with-gnuplot/gnuplot_nfs_latency_2020/']);" rel="attachment wp-att-5379"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/gnuplot_nfs_latency_2020.png" alt="gnuplot nfs latency 2020 Plot Esxtop Data With gnuplot" width="861" height="545" class="alignnone size-full wp-image-5379" title="Plot Esxtop Data With gnuplot" /></a>
 
-Now usually the latency happens due to an increase in commands, but let&#8217;s confirm if that is the case. First let&#8217;s figure out the column number for &#8220;Reads/sec&#8221; is.
+Now usually the latency happens due to an increase in commands, but let's confirm if that is the case. First let's figure out the column number for "Reads/sec" is.
 
 	  
 	$ grep -n NFS_Datastore headers | grep '\\Reads/sec'  
 	16386:"\\local\Physical Disk NFS Volume(NFS_Datastore)\Reads/sec"  
 	
 
-So the column for that is &#8217;16386&#8242;. Now let&#8217;s grab all 3 columns and store them in a file:
+So the column for that is '16386'. Now let's grab all 3 columns and store them in a file:
 
 	  
 	$ grep '20:20:' data | awk -F , '{print$1","$16386","$16391}' > nfs\_latency\_and\_nfs\_reads\_data\_20_20  
@@ -200,7 +200,7 @@ To confirm the data, lets see a snippet of our subset:
 	"12/11/2012 20:20:28","0.00","0.00"  
 	
 
-That looks good, not let&#8217;s plot both columns in the same graph:
+That looks good, not let's plot both columns in the same graph:
 
 	  
 	$ gnuplot -p -e 'set grid;set xdata time; set timefmt "%m/%d/%Y %H:%M:%S"; set datafile sep ","; set y2tics autofreq; set format x ":%M:%S" ; plot "nfs\_latency\_and\_nfs\_reads\_data\_20\_20" using 1:3 with lines title "Read Lat/ms"; replot "nfs\_latency\_and\_nfs\_reads\_data\_20\_20" using 1:2 with lines title "Read/s'  
@@ -210,7 +210,7 @@ And here was the graph that I saw:
 
 <a href="http://virtuallyhyper.com/2013/01/plot-esxtop-data-with-gnuplot/gnuplot_nfs_lat_nfs_reads/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/plot-esxtop-data-with-gnuplot/gnuplot_nfs_lat_nfs_reads/']);" rel="attachment wp-att-5381"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/gnuplot_nfs_lat_nfs_reads.png" alt="gnuplot nfs lat nfs reads Plot Esxtop Data With gnuplot" width="912" height="541" class="alignnone size-full wp-image-5381" title="Plot Esxtop Data With gnuplot" /></a>
 
-We can clearly see an increase in the reads sent and therefore the read latency increased. Now to find out why the increase in reads. Let&#8217;s check for all the virtual disks (that are owned by VMs) and their reads at the time of the spike. First here are all the columns for all the Virtual Disk and their reads per second:
+We can clearly see an increase in the reads sent and therefore the read latency increased. Now to find out why the increase in reads. Let's check for all the virtual disks (that are owned by VMs) and their reads at the time of the spike. First here are all the columns for all the Virtual Disk and their reads per second:
 
 	  
 	$ grep -n 'Virtual Disk' headers | grep 'Reads/sec'  
@@ -238,21 +238,21 @@ Now search for all of those columns at our time, we see the following:
 	"12/11/2012 20:20:13","6.36","0.00","6.36","0.00","0.00","0.00","345.87","0.00","345.87","0.00","0.00","0.00","0.00","0.00","0.00"  
 	
 
-We can see that columns &#8217;16554&#8242; and &#8217;16568&#8242; have a high amount of commands sent at the time of our spike. Those columns correspond to the following virtual disks:
+We can see that columns '16554' and '16568' have a high amount of commands sent at the time of our spike. Those columns correspond to the following virtual disks:
 
 	  
 	16554:"\\local\Virtual Disk(SQL01 (104c07ff-3663-44fb-9d89-a563c801611c))\Reads/sec"  
 	16568:"\\local\Virtual Disk(SQL01 (104c07ff-3663-44fb-9d89-a563c801611c):scsi0:1)\Reads/sec"  
 	
 
-This VM was a SQL server, it had huge queries which would take a while and would cause the latency. After talking to the DBA, they optimized their queries and they didn&#8217;t take that much time any more. With that in place, the latency subsided. 
+This VM was a SQL server, it had huge queries which would take a while and would cause the latency. After talking to the DBA, they optimized their queries and they didn't take that much time any more. With that in place, the latency subsided. 
 
 Now to break down our gnuplot command:  
 	  
 	set grid;set xdata time; set timefmt "%m/%d/%Y %H:%M:%S"; set datafile sep ","; set y2tics autofreq; set format x ":%M:%S" ; plot "nfs\_latency\_and\_nfs\_reads\_data\_20_20" using 1:3 with lines title "Read Lat/ms"  
 	
 
-The information was taken from &#8220;<a href="http://www.gnuplot.info/docs_4.4/gnuplot.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.gnuplot.info/docs_4.4/gnuplot.pdf']);">GnuPlot Version 4.4 Documentation</a>&#8221;
+The information was taken from "<a href="http://www.gnuplot.info/docs_4.4/gnuplot.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.gnuplot.info/docs_4.4/gnuplot.pdf']);">GnuPlot Version 4.4 Documentation</a>"
 
 **set grid:** 
 
@@ -277,7 +277,7 @@ The information was taken from &#8220;<a href="http://www.gnuplot.info/docs_4.4/
 Here is an example from the documentation:
 
 > The following example demonstrates time/date plotting.  
-> Suppose the fi le &#8220;data&#8221; contains records like  
+> Suppose the fi le "data" contains records like  
 > 03/21/95 10:00 6.02e23  
 > This file can be plotted by  
 	>   
@@ -291,39 +291,39 @@ Here is an example from the documentation:
 
 **set datafile sep**
 
-> The command *set data file separator &#8220;char&#8221;* tells gnuplot that data fields in subsequent input fi les are separated by &#8216;char&#8217; rather than by whitespace. The most common use is to read in csv (comma-separated value) fi les written by spreadsheet or database programs. 
+> The command *set data file separator "char"* tells gnuplot that data fields in subsequent input fi les are separated by 'char' rather than by whitespace. The most common use is to read in csv (comma-separated value) fi les written by spreadsheet or database programs. 
 
 **set y2tics autofreq**
 
 > Positions of the tics are calculated automatically by default or if the autofreq option is given 
 
-**set format x &#8220;:%M:%S&#8221;**
+**set format x ":%M:%S"**
 
 > In time/date mode, the acceptable formats are:
 > 
 > <a href="http://virtuallyhyper.com/2013/01/plot-esxtop-data-with-gnuplot/gnuplot_time_format_tics/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/plot-esxtop-data-with-gnuplot/gnuplot_time_format_tics/']);" rel="attachment wp-att-5383"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/gnuplot_time_format_tics.png" alt="gnuplot time format tics Plot Esxtop Data With gnuplot" width="357" height="445" class="alignnone size-full wp-image-5383" title="Plot Esxtop Data With gnuplot" /></a>
 > 
-> Except for the non-numerical formats, these may be preceded by a &#8220;0&#8243; (&#8220;zero&#8221;, not &#8220;oh&#8221;) to pad the fi eld length with leading zeroes, and a positive digit, to de fine the minimum field width (which will be overridden if the specifi ed width is not large enough to contain the number). There is a 24-character limit to the length of the printed text; longer strings will be truncated.  
+> Except for the non-numerical formats, these may be preceded by a "0" ("zero", not "oh") to pad the fi eld length with leading zeroes, and a positive digit, to de fine the minimum field width (which will be overridden if the specifi ed width is not large enough to contain the number). There is a 24-character limit to the length of the printed text; longer strings will be truncated.  
 > Examples:  
-> Suppose the text is &#8220;76/12/25 23:11:11&#8243;. Then  
+> Suppose the text is "76/12/25 23:11:11". Then  
 	>   
 	> set format x # defaults to "12/25/76" \n "23:11"  
 	> set format x "%A, %d %b %Y" # "Saturday, 25 Dec 1976"  
 	> set format x "%r %D" # "11:11:11 pm 12/25/76"  
 	>   
-> Suppose the text is &#8220;98/07/06 05:04:03&#8243;. Then  
+> Suppose the text is "98/07/06 05:04:03". Then  
 	>   
 	> set format x "%1y/%2m/%3d %01H:%02M:%03S" # "98/ 7/ 6 5:04:003"  
 	>  
 
-**plot &#8220;data&#8221; using 1:3 with lines title &#8220;Read Lat/ms&#8221;**
+**plot "data" using 1:3 with lines title "Read Lat/ms"**
 
 > The most common data file modifi er is using.  
 > Syntax:  
 	>   
 	> plot 'file' using {<entry> {:<entry> {:<entry> ...}}} {'format'}  
 	>   
-> Each &#8216;entry&#8217; may be a simple column number that selects the value from one fi eld of the input t, an expression enclosed in parentheses, or empty. 
+> Each 'entry' may be a simple column number that selects the value from one fi eld of the input t, an expression enclosed in parentheses, or empty. 
 
 More information from the same document:
 

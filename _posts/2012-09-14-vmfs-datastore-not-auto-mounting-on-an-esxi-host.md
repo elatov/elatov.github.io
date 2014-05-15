@@ -59,16 +59,16 @@ That looks good. The offset is 128 sectors and the File System type is VMFS. If 
 	/vmfs/devices/disks/naa.600144f0928c010000004fc90a3a0001p1 63 272627069 136313471 42 SFS  
 	
 
-That looked a little weird, the Filesystem ID is 42 and the Name is SFS. From the Windows &#8220;<a href="http://technet.microsoft.com/en-us/library/cc977219.aspx" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://technet.microsoft.com/en-us/library/cc977219.aspx']);">Disk Concepts and Troubleshooting</a>&#8221; page:
+That looked a little weird, the Filesystem ID is 42 and the Name is SFS. From the Windows "<a href="http://technet.microsoft.com/en-us/library/cc977219.aspx" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://technet.microsoft.com/en-us/library/cc977219.aspx']);">Disk Concepts and Troubleshooting</a>" page:
 
 > 0&#215;42 Dynamic disk volume
 
-Windows has two different disk types, basic and dynamic. From &#8220;<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa363785(v=vs.85).aspx" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://msdn.microsoft.com/en-us/library/windows/desktop/aa363785(v=vs.85).aspx']);">Basic and Dynamic Disks</a>&#8221;
+Windows has two different disk types, basic and dynamic. From "<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa363785(v=vs.85).aspx" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://msdn.microsoft.com/en-us/library/windows/desktop/aa363785(v=vs.85).aspx']);">Basic and Dynamic Disks</a>"
 
 > **Basic Disks**  
 > Basic disks are the storage types most often used with Windows. The term basic disk refers to a disk that contains partitions, such as primary partitions and logical drives, and these in turn are usually formatted with a file system to become a volume for file storage.  
-> &#8230;  
-> &#8230;  
+> ...  
+> ...  
 > **Dynamic Disks**  
 > Dynamic disks provide features that basic disks do not, such as the ability to create volumes that span multiple disks (spanned and striped volumes) and the ability to create fault-tolerant volumes (mirrored and RAID-5 volumes). Like basic disks, dynamic disks can use the MBR or GPT partition styles on systems that support both. All volumes on dynamic disks are known as dynamic volumes. Dynamic disks offer greater flexibility for volume management because they use a database to track information about dynamic volumes on the disk and about other dynamic disks in the computer.
 

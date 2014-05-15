@@ -15,7 +15,7 @@ tags:
   - vpxa
   - vShield EndPoint
 ---
-I recently had a very interesting issue. An ESXi host was showing up as disconnected in vCenter, however going directly to the host worked fine. Trying to reconnect the host back in vCenter would fail. Just from the previous discoveries we knew that something was wrong with the vpxa service on the host. On ESX(i) there are two processes that run. First is the hostd agent, it&#8217;s best described in VMware KB <a href="http://kb.vmware.com/kb/1002849" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1002849']);">1002849</a>:
+I recently had a very interesting issue. An ESXi host was showing up as disconnected in vCenter, however going directly to the host worked fine. Trying to reconnect the host back in vCenter would fail. Just from the previous discoveries we knew that something was wrong with the vpxa service on the host. On ESX(i) there are two processes that run. First is the hostd agent, it's best described in VMware KB <a href="http://kb.vmware.com/kb/1002849" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1002849']);">1002849</a>:
 
 > The vmware-hostd management service is the main communication channel between ESX/ESXi hosts and VMkernel. If vmware-hostd fails, ESX/ESXi hosts disconnects from vCenter Server/VirtualCenter and cannot be managed, even if you try to connect to the ESX/ESXi host directly
 
@@ -23,7 +23,7 @@ Second is the vpxa agent, and that is best described in VMware KB <a href="http:
 
 > The vCenter Server Agent, also referred to as vpxa or the vmware-vpxa service, is what allows a vCenter Server to connect to a ESX host. Specifically, vpxa is the communication conduit to the hostd, which in turn communicates to the ESX kernel.
 
-So if connecting to an ESX(i) directly with a vSphere Client then you are connecting to hostd. If you are connecting to host via vCenter then you are connecting to vpxa. From the above scenario it looks like vpxa is working properly for some reason. We ssh&#8217;ed over to the ESXi host and checked out */var/log/messages* file and we saw the following:
+So if connecting to an ESX(i) directly with a vSphere Client then you are connecting to hostd. If you are connecting to host via vCenter then you are connecting to vpxa. From the above scenario it looks like vpxa is working properly for some reason. We ssh'ed over to the ESXi host and checked out */var/log/messages* file and we saw the following:
 
 	  
 	Jul 26 01:26:46 vmkernel: 7:21:06:31.191 cpu3:33421)WARNING: Heap: 2218: Heap netGPHeap already at its maximumSize. Cannot expand.  
@@ -121,7 +121,7 @@ That is way too much. Checking for the VMs that those Macs belong to, I saw the 
 	/volumes/71641d44-1e032a47/DSVA01/DSVA01.vmx:ethernet2.generatedAddress = "00:50:56:84:5a:ba"  
 	
 
-The DSVA (Deep Security Virtual Appliance) VMs were the VMs used for vShield Endpoint with TrendMicro, more information can be found here &#8220;<a href="http://www.vmware.com/files/pdf/partners/trendmicro/vmware-trendmicro-anti-virus-virtual-datacenter-sb-en.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/partners/trendmicro/vmware-trendmicro-anti-virus-virtual-datacenter-sb-en.pdf']);">Trend Micro Deep Security</a>&#8220;. From the article:
+The DSVA (Deep Security Virtual Appliance) VMs were the VMs used for vShield Endpoint with TrendMicro, more information can be found here "<a href="http://www.vmware.com/files/pdf/partners/trendmicro/vmware-trendmicro-anti-virus-virtual-datacenter-sb-en.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/partners/trendmicro/vmware-trendmicro-anti-virus-virtual-datacenter-sb-en.pdf']);">Trend Micro Deep Security</a>". From the article:
 
 > **How vShield Endpoint Works with Trend Micro Deep Security Virtual Appliance **  
 > vShield Endpoint is a VMware API that is leveraged by Trend Micro Deep Security. vShield Endpoint  
@@ -169,7 +169,7 @@ We got some heap back. We then restarted the vpxa agent:
 
 After the restart we were able to re-connect the host back to the vCenter.
 
-We contacted TrendMicro and it turned out that the customer had re-installed ESXi but forgot to &#8220;un-prepare&#8221; the host from the vShield Manager. This caused the manager to constantly query those VMs and it caused the host to run out of heap which in turn caused the vpxa agent to crash. After appropriately re-configuring the vShield Endpoint Deep Security Virtual Appliances, the heap was stable and didn&#8217;t run out.
+We contacted TrendMicro and it turned out that the customer had re-installed ESXi but forgot to "un-prepare" the host from the vShield Manager. This caused the manager to constantly query those VMs and it caused the host to run out of heap which in turn caused the vpxa agent to crash. After appropriately re-configuring the vShield Endpoint Deep Security Virtual Appliances, the heap was stable and didn't run out.
 
 <div class="SPOSTARBUST-Related-Posts">
   <H3>

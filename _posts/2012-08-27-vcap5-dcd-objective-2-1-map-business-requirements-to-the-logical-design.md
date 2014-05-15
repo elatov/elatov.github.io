@@ -23,7 +23,7 @@ I covered this in the previous objective, but I will use the same material:
 >     *   Does it meet the requirements but stay within the constraints?
 > *   Does NOT include physical details like port assignments, hardware, vendors, IPs, etc
 > *   illustrate how to arrange infrastructure components
-> *   don&#8217;t get lost in the configuration details
+> *   don't get lost in the configuration details
 > *   be aware of capacity analysis, but include things like LUN sizing, CPU, etc
 > *   document in diagrams, tables, and text
 
@@ -43,14 +43,14 @@ From <a href="http://www.virten.net/2012/05/vdcd510-objective-1-1-gather-and-ana
 
 If we checkout a picture from the previous objective:  
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/another-conceptual-diag.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/another-conceptual-diag.png']);"><img class="alignnone size-full wp-image-2698" title="another-conceptual-diag" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/another-conceptual-diag.png" alt="another conceptual diag VCAP5 DCD Objective 2.1 –Map Business Requirements to the Logical Design " width="592" height="277" /></a>  
-We can see that our non-functional requirement was that the web-server has to be in a DMZ, but we don&#8217;t really have specific IPs of all the firewalls involved in the setup.
+We can see that our non-functional requirement was that the web-server has to be in a DMZ, but we don't really have specific IPs of all the firewalls involved in the setup.
 
 ### Translate given business requirements and the current state of a customer environment into a logical design
 
 If we again look at this picture from the previous objectives:  
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/logical-diagram.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/logical-diagram.png']);"><img class="alignnone size-full wp-image-2702" title="logical-diagram" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/logical-diagram.png" alt="logical diagram VCAP5 DCD Objective 2.1 –Map Business Requirements to the Logical Design " width="948" height="496" /></a>
 
-We can see that a non-functional requirement was to allow for a protected site. We don&#8217;t really mention if SRM will be used or if we will be using Array Based replication or vSphere Based Replication. We just have a logical diagram of a protected site that is replicated.
+We can see that a non-functional requirement was to allow for a protected site. We don't really mention if SRM will be used or if we will be using Array Based replication or vSphere Based Replication. We just have a logical diagram of a protected site that is replicated.
 
 ### Create a Service Catalog
 

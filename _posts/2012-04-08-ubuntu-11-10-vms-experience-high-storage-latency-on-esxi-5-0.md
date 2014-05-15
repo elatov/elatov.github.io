@@ -40,18 +40,18 @@ So 8 cores at 2.66GHz and 8GB of RAM, nothing crazy. Each VM has the minimum amo
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/03/esxtop_latency.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/03/esxtop_latency.png']);"><img class="alignnone size-full wp-image-545" title="esxtop_latency" src="http://virtuallyhyper.com/wp-content/uploads/2012/03/esxtop_latency.png" alt="esxtop latency Ubuntu 11.10 VMs Experience High Storage Latency on ESXi 5.0" width="927" height="686" /></a>
 
-To get to this screen just launch esxtop and hit &#8216;v&#8217; for &#8220;disk VMs&#8221;. On ESXi 5.0 the latency is automatically displayed in this view. If you are on 4.x, after selecting &#8216;v&#8217; you can type in &#8216;f&#8217; and that will show you a list of available columns, select the latency columns and you will see the same as above. From the above picture we see VM &#8220;uaclass39&#8243; and &#8220;uaclass17&#8243; experiencing latency up to 20 milliseconds. At certain times 20 VMs would experience the same issue. I saw this lantency be steady for a couple of minutes. More information regarding latency can be seen at this communities page (<a href="http://communities.vmware.com/docs/DOC-11812" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/docs/DOC-11812']);">Interpreting esxtop 4.1 Statistics</a>). It has a terrific picture (Section 4.2.2 Latency Statistics) regarding the different layers which can experience latency. The above picture shows the latency experienced by the VM. Another great article that helps with troubleshooting disk latency is &#8220;<a href="http://communities.vmware.com/servlet/JiveServlet/downloadBody/14905-102-1-17952/vsphere41-performance-troubleshooting.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://communities.vmware.com/servlet/JiveServlet/downloadBody/14905-102-1-17952/vsphere41-performance-troubleshooting.pdf']);">Performance Troubleshooting for VMware vSphere™ 4.1</a>&#8220;, check out the section entitled &#8217;7.3.13. Check for Slow or Under-Sized Storage Device&#8217;.
+To get to this screen just launch esxtop and hit 'v' for "disk VMs". On ESXi 5.0 the latency is automatically displayed in this view. If you are on 4.x, after selecting 'v' you can type in 'f' and that will show you a list of available columns, select the latency columns and you will see the same as above. From the above picture we see VM "uaclass39" and "uaclass17" experiencing latency up to 20 milliseconds. At certain times 20 VMs would experience the same issue. I saw this lantency be steady for a couple of minutes. More information regarding latency can be seen at this communities page (<a href="http://communities.vmware.com/docs/DOC-11812" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/docs/DOC-11812']);">Interpreting esxtop 4.1 Statistics</a>). It has a terrific picture (Section 4.2.2 Latency Statistics) regarding the different layers which can experience latency. The above picture shows the latency experienced by the VM. Another great article that helps with troubleshooting disk latency is "<a href="http://communities.vmware.com/servlet/JiveServlet/downloadBody/14905-102-1-17952/vsphere41-performance-troubleshooting.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://communities.vmware.com/servlet/JiveServlet/downloadBody/14905-102-1-17952/vsphere41-performance-troubleshooting.pdf']);">Performance Troubleshooting for VMware vSphere™ 4.1</a>", check out the section entitled '7.3.13. Check for Slow or Under-Sized Storage Device'.
 
-I decided to take a look at what the VM is doing and why it was experiencing such high read and write latency. So I ssh&#8217;ed over to one of the VMs and I launched top, and here is I saw:<a href="http://virtuallyhyper.com/wp-content/uploads/2012/03/Ubuntu_11_10_top.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/03/Ubuntu_11_10_top.png']);"><img class="alignnone size-full wp-image-546" title="Ubuntu_11_10_top" src="http://virtuallyhyper.com/wp-content/uploads/2012/03/Ubuntu_11_10_top.png" alt="Ubuntu 11 10 top Ubuntu 11.10 VMs Experience High Storage Latency on ESXi 5.0" width="879" height="163" /></a>
+I decided to take a look at what the VM is doing and why it was experiencing such high read and write latency. So I ssh'ed over to one of the VMs and I launched top, and here is I saw:<a href="http://virtuallyhyper.com/wp-content/uploads/2012/03/Ubuntu_11_10_top.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/03/Ubuntu_11_10_top.png']);"><img class="alignnone size-full wp-image-546" title="Ubuntu_11_10_top" src="http://virtuallyhyper.com/wp-content/uploads/2012/03/Ubuntu_11_10_top.png" alt="Ubuntu 11 10 top Ubuntu 11.10 VMs Experience High Storage Latency on ESXi 5.0" width="879" height="163" /></a>
 
-Check out the %wa (it&#8217;s 97%). Looking at the man page of &#8216;top&#8217;, I see the following:
+Check out the %wa (it's 97%). Looking at the man page of 'top', I see the following:
 
 	  
 	wa -- iowait  
 	Amount of time the CPU has been waiting for I/O to complete.  
 	
 
-Something is doing a lot of IO and the biggest cpu and memory user is a process called update-apt-xapi. Looking at the man page of &#8216;ps&#8217;, I see the folllowing:
+Something is doing a lot of IO and the biggest cpu and memory user is a process called update-apt-xapi. Looking at the man page of 'ps', I see the folllowing:
 
 	  
 	PROCESS STATE CODES  
@@ -74,7 +74,7 @@ I wanted to check what is in disk IO state, so I ran the below:
 	root@uaclass39:~# ps -efly | grep ^D  
 	D root 1570 1 3 90 10 137492 58296 sleep_ 16:54 ? 00:00:15 /usr/bin/python /usr/sbin/update-apt-xapian-index --force --quiet
 
-So it looks like the &#8220;update-apt-xapian-index&#8221; is what&#8217;s causing the high disk IO. I then wanted to check how much IO was happening, so I ran the following:
+So it looks like the "update-apt-xapian-index" is what's causing the high disk IO. I then wanted to check how much IO was happening, so I ran the following:
 
 	  
 	root@uaclass39:~# iostat 1 5 /dev/sda  
@@ -111,7 +111,7 @@ So it looks like the &#8220;update-apt-xapian-index&#8221; is what&#8217;s causi
 	sda 658.65 15638.46 319.23 16264 332  
 	
 
-We consistently see very high %iowait and our reads are at ~15-20MB/s. Don&#8217;t forget this is on local storage too <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Ubuntu 11.10 VMs Experience High Storage Latency on ESXi 5.0" class="wp-smiley" title="Ubuntu 11.10 VMs Experience High Storage Latency on ESXi 5.0" />  
+We consistently see very high %iowait and our reads are at ~15-20MB/s. Don't forget this is on local storage too <img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif" alt="icon smile Ubuntu 11.10 VMs Experience High Storage Latency on ESXi 5.0" class="wp-smiley" title="Ubuntu 11.10 VMs Experience High Storage Latency on ESXi 5.0" />  
 I wanted to find out what this apt-xapian process is, I did some research and I found a bug (<a href="https://bugs.launchpad.net/ubuntu/+source/apt-xapian-index/+bug/363695" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://bugs.launchpad.net/ubuntu/+source/apt-xapian-index/+bug/363695']);">363695</a>) from ubuntu. They tried to fix it by throttling the IO by using ionice, my install had that enabled:
 
 	  
@@ -158,7 +158,7 @@ A more appropriate fix would be to completely remove the package:
 	Processing triggers for man-db ...  
 	
 
-But I didn&#8217;t want to do that just yet. Just as an FYI, here are the spec of each VM:
+But I didn't want to do that just yet. Just as an FYI, here are the spec of each VM:
 
 	  
 	root@uaclass39:~# uname -a  
@@ -193,7 +193,7 @@ But I didn&#8217;t want to do that just yet. Just as an FYI, here are the spec o
 	
 	
 
-Since the apt-xapian-index just indexes all the aptitude packages, I didn&#8217;t really see a problem with disabling it. After I disabled that cron job, I haven&#8217;t seen any high latency on any of the VMs.
+Since the apt-xapian-index just indexes all the aptitude packages, I didn't really see a problem with disabling it. After I disabled that cron job, I haven't seen any high latency on any of the VMs.
 
 <div class="SPOSTARBUST-Related-Posts">
   <H3>
