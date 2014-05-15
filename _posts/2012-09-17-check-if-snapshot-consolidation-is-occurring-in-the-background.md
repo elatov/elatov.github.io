@@ -90,15 +90,15 @@ In the same KB it talks about increasing the timeout, from the KB:
 
 > To increase the timeout values for the virtual machine migration task, add the following timeout parameter in the vpxd.cfg file:
 > 
-	>   
-	> <config>  
-	> ..  
-	> <task>  
-	> <timeout>10800</timeout>  
-	> </task>  
-	> ..  
-	> </config>  
-	> 
+>	   
+> 	<config>  
+> 	..  
+> 	<task>  
+> 	<timeout>10800</timeout>  
+> 	</task>  
+> 	..  
+> 	</config>  
+>	 
 > 
 > Note: The value 10800 can be changed based on your requirements. This example uses 10800 seconds, or 3 hours.
 
@@ -106,9 +106,9 @@ The example in the KB shows you how to change it from the default value of 15 mi
 
 Personally, I think the real fix to this issue is to follow best practices. From VMware KB <a href="http://kb.vmware.com/kb/1025279" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1025279']);">1025279</a> The title of the KB is "Best practices for virtual machine snapshots in the VMware environment". Here is the important bullet point from that KB:
 
-> *   Use no single snapshot for more than 24-72 hours. 
->     *   This prevents snapshots from growing so large as to cause issues when deleting/committing them to the original virtual machine disks. Take the snapshot, make the changes to the virtual machine, and delete/commit the snapshot as soon as you have verified the proper working state of the virtual machine.
->     *   Be especially diligent with snapshot use on high-transaction virtual machines such as email and database servers. These snapshots can very quickly grow in size, filling datastore space. Commit snapshots on these virtual machines as soon as you have verified the proper working state of the process you are testing.|
+> - Use no single snapshot for more than 24-72 hours. 
+> 	- This prevents snapshots from growing so large as to cause issues when deleting/committing them to the original virtual machine disks. Take the snapshot, make the changes to the virtual machine, and delete/commit the snapshot as soon as you have verified the proper working state of the virtual machine.
+>	- Be especially diligent with snapshot use on high-transaction virtual machines such as email and database servers. These snapshots can very quickly grow in size, filling datastore space. Commit snapshots on these virtual machines as soon as you have verified the proper working state of the process you are testing.
 
 Most of the time I see the removal task take a while, when the snapshot (delta) file is huge. If we can prevent delta files from getting large, we can prevent the task from taking more that 15 minutes to complete (under normal conditions). There are many ways to make that happen, but we need to be proactive. 
 
@@ -131,4 +131,3 @@ In conclusion there are many ways on how to check if VM is still going through s
     </li>
   </ul>
 </div>
-

@@ -352,37 +352,33 @@ All was back to normal.
 > The new zfs set share command is used to share a ZFS file system over the NFS or SMB protocols. The share is not published until the sharenfs set property is also set on the file system.
 > 
 > Use the zfs set share command to create an NFS or SMB share of ZFS file system and also set the sharenfs property.
-> 
-	>   
-	> # zfs create rpool/fs1  
-	> # zfs set share=name=fs1,path=/rpool/fs1,prot=nfs rpool/fs1  
-	> name=fs1,path=/rpool/fs1,prot=nfs  
-	> 
-> 
+>   
+>     # zfs create rpool/fs1  
+>     # zfs set share=name=fs1,path=/rpool/fs1,prot=nfs rpool/fs1 name=fs1,path=/rpool/fs1,prot=nfs  
+>	 
+>
 > The share is not published until the sharenfs or sharesmb property is set to on. For example:
 > 
-	>   
-	> # zfs set sharenfs=on rpool/fs1  
-	> # cat /etc/dfs/sharetab  
-	> /rpool/fs1 fs1 nfs sec=sys,rw  
-	> 
+>	   
+> 	# zfs set sharenfs=on rpool/fs1  
+> 	# cat /etc/dfs/sharetab  
+> 	/rpool/fs1 fs1 nfs sec=sys,rw  
+>	
 > 
 > A public NFS share can be created as follows:
 > 
-	>   
-	> # zfs set share=name=pp,path=/pub,prot=nfs,sec=sys,rw=*,public rpool/public  
-	> name=pp,path=/pub,prot=nfs,public=true,sec=sys,rw=*  
-	> # zfs set sharenfs=on rpool/public  
-	> # cat /etc/dfs/sharetab  
-	> /pub pp nfs public,sec=sys,rw  
-	> 
+> 	  
+> 	# zfs set share=name=pp,path=/pub,prot=nfs,sec=sys,rw=*,public rpool/public name=pp,path=pub,prot=nfs,public=true,sec=sys,rw=*  
+> 	# zfs set sharenfs=on rpool/public  
+> 	# cat /etc/dfs/sharetab  
+> 	/pub pp nfs public,sec=sys,rw  
+>	 
 > 
 > You can also create a share of a newly created ZFS file system by using syntax similar to the following:
 > 
-	>   
-	> # zfs create -o mountpoint=/ds -o sharenfs=on rpool/ds  
-	> 
-
+>	   
+> 	# zfs create -o mountpoint=/ds -o sharenfs=on rpool/ds  
+	 
 This was kind of hindsight, so I didn't have a chance to plan accordingly and try it out.
 
 
