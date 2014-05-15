@@ -172,7 +172,7 @@ Use putty or any ssh client of your choice
 #### 2. Add the NFS mount
 
 	  
-	~ # esxcfg-nas -a -o 10.131.9.153 -s /nfs\_share Win2k8\_Share  
+	~ # esxcfg-nas -a -o 10.131.9.153 -s /nfs_share Win2k8_Share  
 	Connecting to NAS volume: Win2k8_Share  
 	Win2k8_Share created and connected.  
 	

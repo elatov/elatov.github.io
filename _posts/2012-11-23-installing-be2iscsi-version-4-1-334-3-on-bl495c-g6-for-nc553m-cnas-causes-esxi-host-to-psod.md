@@ -32,7 +32,7 @@ After we installed the driver and rebooted the host, we saw the following PSOD:
 here is the backtrace:
 
 	  
-	0x412242f1a850:[0x41803745573e]be\_char\_ioctl'@'<None>#<None>+0xc8 stack: 0x412242f1ad21  
+	0x412242f1a850:[0x41803745573e]be_char_ioctl'@'<None>#<None>+0xc8 stack: 0x412242f1ad21  
 	0x412242f1a960:[0x418037646620]LinuxCharIoctl'@'com.vmware.driverAPI#9.2+0x127 stack: 0x412242f27040  
 	0x412242f1a9e0:[0x418036d51292]VMKAPICharDevDevfsWrapIoctl'@'vmkernel#nover+0x109 stack: 0x412242f1aa  
 	0x412242f1ac10:[0x4180370dc4d8]DevFSIoctl'@'vmkernel#nover+0x9bf stack: 0x412242f1ad8c  
@@ -66,9 +66,9 @@ I actually ran into VMware KB <a href="http://kb.vmware.com/kb/2007397" onclick=
 > 
 > For ESXi 5.0, use these drivers:
 > 
-> be2net: 4.0.355.1: http://downloads.vmware.com/d/details/dt\_esxi50\_emulex\_be2net\_403551/dHRAYnQqQHBiZHAlJQ  
-> be2iscsi: 4.0.317.0: http://downloads.vmware.com/d/details/dt\_esxi50\_emulex\_oce11100\_403170/dHRAYnRqdCViZHAlJQ  
-> lpfc: 8.2.2.105.36: http://downloads.vmware.com/d/details/dt\_esxi50\_emulex\_lpfc820\_82210536/dHRAYnRoZCViZHAlJQ 
+> be2net: 4.0.355.1: http://downloads.vmware.com/d/details/dt_esxi50_emulex_be2net_403551/dHRAYnQqQHBiZHAlJQ  
+> be2iscsi: 4.0.317.0: http://downloads.vmware.com/d/details/dt_esxi50_emulex_oce11100_403170/dHRAYnRqdCViZHAlJQ  
+> lpfc: 8.2.2.105.36: http://downloads.vmware.com/d/details/dt_esxi50_emulex_lpfc820_82210536/dHRAYnRoZCViZHAlJQ 
 
 I decided to update my *be2net* driver from 4.0.88 to 4.0.355 (link to driver is above). I installed the driver and rebooted, here is how my driver/firmware looked like:
 

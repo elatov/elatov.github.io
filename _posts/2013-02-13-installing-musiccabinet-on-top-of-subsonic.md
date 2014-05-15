@@ -224,7 +224,7 @@ That looks good. Now let's back up the data:
 Since the application files go under **/usr/share/subsonic**, let's backup those up as well:
 
 	  
-	$ sudo tar cpvjf subsonic\_usr\_backup.tar.bz2 /usr/share/subsonic  
+	$ sudo tar cpvjf subsonic_usr_backup.tar.bz2 /usr/share/subsonic  
 	/usr/share/subsonic/  
 	/usr/share/subsonic/subsonic.sh  
 	/usr/share/subsonic/subsonic-booter-jar-with-dependencies.jar  
@@ -236,7 +236,7 @@ Here are the two resulting files:
 	  
 	$ ls -lh subsonic*  
 	-rw-r--r-- 1 root root 61M Jan 30 17:33 subsonic_backup.tar.bz2  
-	-rw-r--r-- 1 root root 29M Jan 30 17:35 subsonic\_usr\_backup.tar.bz2  
+	-rw-r--r-- 1 root root 29M Jan 30 17:35 subsonic_usr_backup.tar.bz2  
 	
 
 That looks good.

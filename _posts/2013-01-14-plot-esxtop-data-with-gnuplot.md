@@ -91,13 +91,13 @@ So the column number that corresponded to read latency of the NFS datastore was 
 Next let's just grab the columns that we desire from the dataset:
 
 	  
-	$ awk -F , '{print $1","$16391}' data > nfs\_read\_latency_data  
+	$ awk -F , '{print $1","$16391}' data > nfs_read_latency_data  
 	
 
 Confirming we just have the two column, we can check the data really fast:
 
 	  
-	$ head nfs\_read\_latency_data  
+	$ head nfs_read_latency_data  
 	"12/11/2012 19:09:23","0.00"  
 	"12/11/2012 19:09:26","0.00"  
 	"12/11/2012 19:09:29","3.11"  
@@ -113,7 +113,7 @@ Confirming we just have the two column, we can check the data really fast:
 Now let's plot just the NFS read latency and see what we discover:
 
 	  
-	$ gnuplot -p -e 'set grid;set xdata time; set timefmt "%m/%d/%Y %H:%M:%S"; set datafile sep ","; set y2tics autofreq; set format x "%H:%M" ; plot "nfs\_read\_latency_data" using 1:2 with lines title "Read Lat/s'  
+	$ gnuplot -p -e 'set grid;set xdata time; set timefmt "%m/%d/%Y %H:%M:%S"; set datafile sep ","; set y2tics autofreq; set format x "%H:%M" ; plot "nfs_read_latency_data" using 1:2 with lines title "Read Lat/s'  
 	
 
 After running the above command I saw the following graph:
@@ -123,7 +123,7 @@ After running the above command I saw the following graph:
 So it looks like we had two spikes, one at about 19:10 and the other at 20:20. Let's pick the second one and concentrate on that. First let's find the exact time of the spike. It looks like the spike reached about 170ms. So let's search for a value above a hundred and see if we can find our spike.
 
 	  
-	\' nfs\_read\_latency_data  
+	\' nfs_read_latency_data  
 	"12/11/2012 19:10:07","117.87"  
 	"12/11/2012 20:20:10","120.69"  
 	"12/11/2012 20:20:13","171.45"  
@@ -133,13 +133,13 @@ So it looks like we had two spikes, one at about 19:10 and the other at 20:20. L
 So the spike was at 20:20 just like I thought. So let's grab data just for that minute and plot it. First let's grab the data for that minute:
 
 	  
-	$ grep '20:20:' nfs\_read\_latency\_data > nfs\_read\_latency\_data\_20\_20  
+	$ grep '20:20:' nfs_read_latency_data > nfs_read_latency_data_20_20  
 	
 
 Next to confirm the data:
 
 	  
-	$ cat nfs\_read\_latency\_data\_20_20  
+	$ cat nfs_read_latency_data_20_20  
 	"12/11/2012 20:20:00","0.00"  
 	"12/11/2012 20:20:03","0.00"  
 	"12/11/2012 20:20:06","90.91"  
@@ -164,7 +164,7 @@ Next to confirm the data:
 Lastly let's plot the data:
 
 	  
-	$ gnuplot -p -e 'set grid;set xdata time; set timefmt "%m/%d/%Y %H:%M:%S"; set datafile sep ","; set y2tics autofreq; set format x ":%M:%S" ; plot "nfs\_read\_latency\_data\_20_20" using 1:2 with lines title "Read Lat/ms'  
+	$ gnuplot -p -e 'set grid;set xdata time; set timefmt "%m/%d/%Y %H:%M:%S"; set datafile sep ","; set y2tics autofreq; set format x ":%M:%S" ; plot "nfs_read_latency_data_20_20" using 1:2 with lines title "Read Lat/ms'  
 	
 
 Here is what I saw:
@@ -181,13 +181,13 @@ Now usually the latency happens due to an increase in commands, but let's confir
 So the column for that is '16386'. Now let's grab all 3 columns and store them in a file:
 
 	  
-	$ grep '20:20:' data | awk -F , '{print$1","$16386","$16391}' > nfs\_latency\_and\_nfs\_reads\_data\_20_20  
+	$ grep '20:20:' data | awk -F , '{print$1","$16386","$16391}' > nfs_latency_and_nfs_reads_data_20_20  
 	
 
 To confirm the data, lets see a snippet of our subset:
 
 	  
-	$ head nfs\_latency\_and\_nfs\_reads\_data\_20_20  
+	$ head nfs_latency_and_nfs_reads_data_20_20  
 	"12/11/2012 20:20:00","0.00","0.00"  
 	"12/11/2012 20:20:03","0.00","0.00"  
 	"12/11/2012 20:20:06","418.35","90.91"  
@@ -203,7 +203,7 @@ To confirm the data, lets see a snippet of our subset:
 That looks good, not let's plot both columns in the same graph:
 
 	  
-	$ gnuplot -p -e 'set grid;set xdata time; set timefmt "%m/%d/%Y %H:%M:%S"; set datafile sep ","; set y2tics autofreq; set format x ":%M:%S" ; plot "nfs\_latency\_and\_nfs\_reads\_data\_20\_20" using 1:3 with lines title "Read Lat/ms"; replot "nfs\_latency\_and\_nfs\_reads\_data\_20\_20" using 1:2 with lines title "Read/s'  
+	$ gnuplot -p -e 'set grid;set xdata time; set timefmt "%m/%d/%Y %H:%M:%S"; set datafile sep ","; set y2tics autofreq; set format x ":%M:%S" ; plot "nfs_latency_and_nfs_reads_data_20_20" using 1:3 with lines title "Read Lat/ms"; replot "nfs_latency_and_nfs_reads_data_20_20" using 1:2 with lines title "Read/s'  
 	
 
 And here was the graph that I saw:
@@ -249,7 +249,7 @@ This VM was a SQL server, it had huge queries which would take a while and would
 
 Now to break down our gnuplot command:  
 	  
-	set grid;set xdata time; set timefmt "%m/%d/%Y %H:%M:%S"; set datafile sep ","; set y2tics autofreq; set format x ":%M:%S" ; plot "nfs\_latency\_and\_nfs\_reads\_data\_20_20" using 1:3 with lines title "Read Lat/ms"  
+	set grid;set xdata time; set timefmt "%m/%d/%Y %H:%M:%S"; set datafile sep ","; set y2tics autofreq; set format x ":%M:%S" ; plot "nfs_latency_and_nfs_reads_data_20_20" using 1:3 with lines title "Read Lat/ms"  
 	
 
 The information was taken from "<a href="http://www.gnuplot.info/docs_4.4/gnuplot.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.gnuplot.info/docs_4.4/gnuplot.pdf']);">GnuPlot Version 4.4 Documentation</a>"

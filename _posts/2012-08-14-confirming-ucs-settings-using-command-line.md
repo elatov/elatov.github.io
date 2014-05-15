@@ -151,8 +151,8 @@ To see what pool your vHBA belongs to, you can run the following:
 	Max Data Field Size: 2048  
 	Adapter Policy: VMWare  
 	Oper Adapter Policy: org-root/fc-profile-VMWare  
-	WWPN Pool: WWPN\_Pod2\_A  
-	Oper Ident Pool Name: org-root/wwn-pool-WWPN\_Pod2\_A  
+	WWPN Pool: WWPN_Pod2_A  
+	Oper Ident Pool Name: org-root/wwn-pool-WWPN_Pod2_A  
 	Pin Group:  
 	QoS Policy:  
 	Oper QoS Policy:  
@@ -174,8 +174,8 @@ To see what pool your vHBA belongs to, you can run the following:
 	Max Data Field Size: 2048  
 	Adapter Policy: VMWare  
 	Oper Adapter Policy: org-root/fc-profile-VMWare  
-	WWPN Pool: WWPN\_Pod2\_B  
-	Oper Ident Pool Name: org-root/wwn-pool-WWPN\_Pod2\_B  
+	WWPN Pool: WWPN_Pod2_B  
+	Oper Ident Pool Name: org-root/wwn-pool-WWPN_Pod2_B  
 	Pin Group:  
 	QoS Policy:  
 	Oper QoS Policy:  
@@ -184,7 +184,7 @@ To see what pool your vHBA belongs to, you can run the following:
 	Current Task:  
 	
 
-You can see that vHBA1 (fc0) is from WWPN\_Pod2\_A and vHBA2 (fc1) is from WWPN\_Pod2\_B. To see a list of defined pools you can run the following:
+You can see that vHBA1 (fc0) is from WWPN_Pod2_A and vHBA2 (fc1) is from WWPN_Pod2_B. To see a list of defined pools you can run the following:
 
 	  
 	p2-ucsm-A# scope org  
@@ -196,19 +196,19 @@ You can see that vHBA1 (fc0) is from WWPN\_Pod2\_A and vHBA2 (fc1) is from WWPN\
 	default Port Wwn Assignment 0 0  
 	node-default Node Wwn Assignment 0 0  
 	USL_Pod2 Node Wwn Assignment 3 3  
-	WWPN\_Pod2\_A Port Wwn Assignment 3 3  
-	WWPN\_Pod2\_B Port Wwn Assignment 3 3  
+	WWPN_Pod2_A Port Wwn Assignment 3 3  
+	WWPN_Pod2_B Port Wwn Assignment 3 3  
 	
 
 We are using the bottom two. Just to see the pattern of the pool let's check out one of them:
 
 	  
 	p2-ucsm-A# scope org  
-	p2-ucsm-A /org # scope wwn-pool WWPN\_Pod2\_A  
+	p2-ucsm-A /org # scope wwn-pool WWPN_Pod2_A  
 	p2-ucsm-A /org/wwn-pool # show expand
 	
 	WWN Pool:  
-	Name: WWPN\_Pod2\_A  
+	Name: WWPN_Pod2_A  
 	Purpose: Port Wwn Assignment  
 	Size: 3  
 	Assigned: 3
@@ -712,7 +712,7 @@ Now we can see that we will connect to first "50:0A:09:83:8D:1F:72:B5" using fc0
 	Local_Only Operational Yes  
 	NetBoot Operational No  
 	P2-SAN-Boot Operational Yes  
-	SAN\_NET\_Boot Operational Yes  
+	SAN_NET_Boot Operational Yes  
 	utility Utility No  
 	
 

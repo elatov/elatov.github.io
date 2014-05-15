@@ -48,7 +48,7 @@ Looking at the next packet and just looking at the iSCSI information of the pack
 	  
 	$ tshark -O iscsi -V -r iscsi_login.pcap frame.number==7  
 	Frame 7: 114 bytes on wire (912 bits), 114 bytes captured (912 bits)  
-	Ethernet II, Src: Vmware\_73:16:b1 (00:50:56:73:16:b1), Dst: Vmware\_8c:54:94 (00:50:56:8c:54:94)  
+	Ethernet II, Src: Vmware_73:16:b1 (00:50:56:73:16:b1), Dst: Vmware_8c:54:94 (00:50:56:8c:54:94)  
 	Internet Protocol Version 4, Src: 10.131.13.11 (10.131.13.11), Dst: 10.131.13.10 (10.131.13.10)  
 	Transmission Control Protocol, Src Port: 57956 (57956), Dst Port: iscsi-target (3260), Seq: 1, Ack: 1, Len: 48  
 	iSCSI (Login Command)  
@@ -128,7 +128,7 @@ So we sent a *Login Request* and we are ready to send more data, now looking at 
 	  
 	$ tshark -O data -V -r iscsi_login.pcap frame.number==8  
 	Frame 8: 298 bytes on wire (2384 bits), 298 bytes captured (2384 bits)  
-	Ethernet II, Src: Vmware\_73:16:b1 (00:50:56:73:16:b1), Dst: Vmware\_8c:54:94 (00:50:56:8c:54:94)  
+	Ethernet II, Src: Vmware_73:16:b1 (00:50:56:73:16:b1), Dst: Vmware_8c:54:94 (00:50:56:8c:54:94)  
 	Internet Protocol Version 4, Src: 10.131.13.11 (10.131.13.11), Dst: 10.131.13.10 (10.131.13.10)  
 	Transmission Control Protocol, Src Port: 57956 (57956), Dst Port: iscsi-target (3260), Seq: 49, Ack: 1, Len: 232  
 	Data (232 bytes)  
@@ -202,7 +202,7 @@ Here is what we see in the packet capture:
 	  
 	$ tshark -r iscsi_login.pcap -V -O iscsi frame.number==11  
 	Frame 11: 290 bytes on wire (2320 bits), 290 bytes captured (2320 bits)  
-	Ethernet II, Src: Vmware\_8c:54:94 (00:50:56:8c:54:94), Dst: Vmware\_73:16:b1 (00:50:56:73:16:b1)  
+	Ethernet II, Src: Vmware_8c:54:94 (00:50:56:8c:54:94), Dst: Vmware_73:16:b1 (00:50:56:73:16:b1)  
 	Internet Protocol Version 4, Src: 10.131.13.10 (10.131.13.10), Dst: 10.131.13.11 (10.131.13.11)  
 	Transmission Control Protocol, Src Port: iscsi-target (3260), Dst Port: 57956 (57956), Seq: 1, Ack: 281, Len: 224  
 	iSCSI (Login Response)  
@@ -245,7 +245,7 @@ We can see that all the key/value pairs were negotiated successfully and this wa
 	  
 	$ tshark -r iscsi_login.pcap -V -O iscsi frame.number==12  
 	Frame 12: 114 bytes on wire (912 bits), 114 bytes captured (912 bits)  
-	Ethernet II, Src: Vmware\_73:16:b1 (00:50:56:73:16:b1), Dst: Vmware\_8c:54:94 (00:50:56:8c:54:94)  
+	Ethernet II, Src: Vmware_73:16:b1 (00:50:56:73:16:b1), Dst: Vmware_8c:54:94 (00:50:56:8c:54:94)  
 	Internet Protocol Version 4, Src: 10.131.13.11 (10.131.13.11), Dst: 10.131.13.10 (10.131.13.10)  
 	Transmission Control Protocol, Src Port: 57956 (57956), Dst Port: iscsi-target (3260), Seq: 281, Ack: 225, Len: 48  
 	iSCSI (Text Command)  
@@ -321,7 +321,7 @@ Since I am using a discovery session (In ESX "Dynamic Discovery"), this makes pe
 	  
 	$ tshark -r iscsi_login.pcap -V -O iscsi frame.number==15  
 	Frame 15: 202 bytes on wire (1616 bits), 202 bytes captured (1616 bits)  
-	Ethernet II, Src: Vmware\_8c:54:94 (00:50:56:8c:54:94), Dst: Vmware\_73:16:b1 (00:50:56:73:16:b1)  
+	Ethernet II, Src: Vmware_8c:54:94 (00:50:56:8c:54:94), Dst: Vmware_73:16:b1 (00:50:56:73:16:b1)  
 	Internet Protocol Version 4, Src: 10.131.13.10 (10.131.13.10), Dst: 10.131.13.11 (10.131.13.11)  
 	Transmission Control Protocol, Src Port: iscsi-target (3260), Dst Port: 57956 (57956), Seq: 225, Ack: 345, Len: 136  
 	iSCSI (Text Response)  
@@ -368,7 +368,7 @@ We got our targets, and now we actually send a *Logout Request*:
 	  
 	$ tshark -r iscsi_login.pcap -V -O iscsi frame.number==16  
 	Frame 16: 114 bytes on wire (912 bits), 114 bytes captured (912 bits)  
-	Ethernet II, Src: Vmware\_73:16:b1 (00:50:56:73:16:b1), Dst: Vmware\_8c:54:94 (00:50:56:8c:54:94)  
+	Ethernet II, Src: Vmware_73:16:b1 (00:50:56:73:16:b1), Dst: Vmware_8c:54:94 (00:50:56:8c:54:94)  
 	Internet Protocol Version 4, Src: 10.131.13.11 (10.131.13.11), Dst: 10.131.13.10 (10.131.13.10)  
 	Transmission Control Protocol, Src Port: 57956 (57956), Dst Port: iscsi-target (3260), Seq: 345, Ack: 361, Len: 48  
 	iSCSI (Logout Command)  
@@ -398,7 +398,7 @@ After the *Logout Request* we see a *Logout Response*:
 	  
 	$ tshark -r iscsi -V -O iscsi_login.pcap frame.number==17  
 	Frame 17: 114 bytes on wire (912 bits), 114 bytes captured (912 bits)  
-	Ethernet II, Src: Vmware\_8c:54:94 (00:50:56:8c:54:94), Dst: Vmware\_73:16:b1 (00:50:56:73:16:b1)  
+	Ethernet II, Src: Vmware_8c:54:94 (00:50:56:8c:54:94), Dst: Vmware_73:16:b1 (00:50:56:73:16:b1)  
 	Internet Protocol Version 4, Src: 10.131.13.10 (10.131.13.10), Dst: 10.131.13.11 (10.131.13.11)  
 	Transmission Control Protocol, Src Port: iscsi-target (3260), Dst Port: 57956 (57956), Seq: 361, Ack: 393, Len: 48  
 	iSCSI (Logout Response)  
@@ -466,7 +466,7 @@ We then see the *Login Request* with the login parameters:
 	  
 	$ tshark -r iscsi_login.pcap -V -O iscsi frame.number==27  
 	Frame 27: 114 bytes on wire (912 bits), 114 bytes captured (912 bits)  
-	Ethernet II, Src: Vmware\_73:16:b1 (00:50:56:73:16:b1), Dst: Vmware\_8c:54:94 (00:50:56:8c:54:94)  
+	Ethernet II, Src: Vmware_73:16:b1 (00:50:56:73:16:b1), Dst: Vmware_8c:54:94 (00:50:56:8c:54:94)  
 	Internet Protocol Version 4, Src: 10.131.13.11 (10.131.13.11), Dst: 10.131.13.10 (10.131.13.10)  
 	Transmission Control Protocol, Src Port: 58219 (58219), Dst Port: iscsi-target (3260), Seq: 1, Ack: 1, Len: 48  
 	iSCSI (Login Command)  
@@ -493,7 +493,7 @@ We then see the *Login Request* with the login parameters:
 	
 	$ tshark -r iscsi_login.pcap -V -O data frame.number==28  
 	Frame 28: 298 bytes on wire (2384 bits), 298 bytes captured (2384 bits)  
-	Ethernet II, Src: Vmware\_73:16:b1 (00:50:56:73:16:b1), Dst: Vmware\_8c:54:94 (00:50:56:8c:54:94)  
+	Ethernet II, Src: Vmware_73:16:b1 (00:50:56:73:16:b1), Dst: Vmware_8c:54:94 (00:50:56:8c:54:94)  
 	Internet Protocol Version 4, Src: 10.131.13.11 (10.131.13.11), Dst: 10.131.13.10 (10.131.13.10)  
 	Transmission Control Protocol, Src Port: 58219 (58219), Dst Port: iscsi-target (3260), Seq: 49, Ack: 1, Len: 232  
 	Data (232 bytes)
@@ -523,7 +523,7 @@ Then we get the *Login Response*:
 	  
 	$ tshark -r iscsi_login.pcap -V -O iscsi frame.number==31  
 	Frame 31: 290 bytes on wire (2320 bits), 290 bytes captured (2320 bits)  
-	Ethernet II, Src: Vmware\_8c:54:94 (00:50:56:8c:54:94), Dst: Vmware\_73:16:b1 (00:50:56:73:16:b1)  
+	Ethernet II, Src: Vmware_8c:54:94 (00:50:56:8c:54:94), Dst: Vmware_73:16:b1 (00:50:56:73:16:b1)  
 	Internet Protocol Version 4, Src: 10.131.13.10 (10.131.13.10), Dst: 10.131.13.11 (10.131.13.11)  
 	Transmission Control Protocol, Src Port: iscsi-target (3260), Dst Port: 58219 (58219), Seq: 1, Ack: 281, Len: 224  
 	iSCSI (Login Response)  
@@ -566,7 +566,7 @@ After that the initiator sends *Text Request* to get all the available targets w
 	  
 	$ tshark -r iscsi_login.pcap -V -O iscsi frame.number==32  
 	Frame 32: 114 bytes on wire (912 bits), 114 bytes captured (912 bits)  
-	Ethernet II, Src: Vmware\_73:16:b1 (00:50:56:73:16:b1), Dst: Vmware\_8c:54:94 (00:50:56:8c:54:94)  
+	Ethernet II, Src: Vmware_73:16:b1 (00:50:56:73:16:b1), Dst: Vmware_8c:54:94 (00:50:56:8c:54:94)  
 	Internet Protocol Version 4, Src: 10.131.13.11 (10.131.13.11), Dst: 10.131.13.10 (10.131.13.10)  
 	Transmission Control Protocol, Src Port: 58219 (58219), Dst Port: iscsi-target (3260), Seq: 281, Ack: 225, Len: 48  
 	iSCSI (Text Command)  
@@ -598,7 +598,7 @@ Then we get a *Text Response* from the *Text Request* with the available targets
 
 	  
 	Frame 35: 202 bytes on wire (1616 bits), 202 bytes captured (1616 bits)  
-	Ethernet II, Src: Vmware\_8c:54:94 (00:50:56:8c:54:94), Dst: Vmware\_73:16:b1 (00:50:56:73:16:b1)  
+	Ethernet II, Src: Vmware_8c:54:94 (00:50:56:8c:54:94), Dst: Vmware_73:16:b1 (00:50:56:73:16:b1)  
 	Internet Protocol Version 4, Src: 10.131.13.10 (10.131.13.10), Dst: 10.131.13.11 (10.131.13.11)  
 	Transmission Control Protocol, Src Port: iscsi-target (3260), Dst Port: 58219 (58219), Seq: 225, Ack: 345, Len: 136  
 	iSCSI (Text Response)  
@@ -625,7 +625,7 @@ Then we logout:
 	  
 	$ tshark -r iscsi_login.pcap -V -O iscsi frame.number==36  
 	Frame 36: 114 bytes on wire (912 bits), 114 bytes captured (912 bits)  
-	Ethernet II, Src: Vmware\_73:16:b1 (00:50:56:73:16:b1), Dst: Vmware\_8c:54:94 (00:50:56:8c:54:94)  
+	Ethernet II, Src: Vmware_73:16:b1 (00:50:56:73:16:b1), Dst: Vmware_8c:54:94 (00:50:56:8c:54:94)  
 	Internet Protocol Version 4, Src: 10.131.13.11 (10.131.13.11), Dst: 10.131.13.10 (10.131.13.10)  
 	Transmission Control Protocol, Src Port: 58219 (58219), Dst Port: iscsi-target (3260), Seq: 345, Ack: 361, Len: 48  
 	iSCSI (Logout Command)  
@@ -641,7 +641,7 @@ Then we logout:
 	
 	$ tshark -r iscsi_login.pcap -V -O iscsi frame.number==37  
 	Frame 37: 114 bytes on wire (912 bits), 114 bytes captured (912 bits)  
-	Ethernet II, Src: Vmware\_8c:54:94 (00:50:56:8c:54:94), Dst: Vmware\_73:16:b1 (00:50:56:73:16:b1)  
+	Ethernet II, Src: Vmware_8c:54:94 (00:50:56:8c:54:94), Dst: Vmware_73:16:b1 (00:50:56:73:16:b1)  
 	Internet Protocol Version 4, Src: 10.131.13.10 (10.131.13.10), Dst: 10.131.13.11 (10.131.13.11)  
 	Transmission Control Protocol, Src Port: iscsi-target (3260), Dst Port: 58219 (58219), Seq: 361, Ack: 393, Len: 48  
 	iSCSI (Logout Response)  

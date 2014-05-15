@@ -144,8 +144,8 @@ To figure out what IPs we are using to connect to the VNX we can check out the T
 
 Since the customer was only using one port from each SP:
 
-1.  VNX1\_SPA\_A5 is iqn.1992-04.com.emc:cx.xxx3301534.a5 with IP of 10.10.22.21 (vlan 22)
-2.  VNX1\_SPB\_B5 is iqn.1992-04.com.emc:cx.xxx3301534.b5 with IP of 10.10.24.21 (vlan 24)
+1.  VNX1_SPA_A5 is iqn.1992-04.com.emc:cx.xxx3301534.a5 with IP of 10.10.22.21 (vlan 22)
+2.  VNX1_SPB_B5 is iqn.1992-04.com.emc:cx.xxx3301534.b5 with IP of 10.10.24.21 (vlan 24)
 
 they decided to separate each port from each SP by subnet. Checking out the paths for one LUN I saw the following:
 
@@ -156,7 +156,7 @@ they decided to separate each port from each SP by subnet. Checking out the path
 	vmhba39:C0:T0:L12 LUN:12 state:active iscsi Adapter: iqn.1998-01.com.vmware:host2-55c15df4 Target: IQN=iqn.1992-04.com.emc:cx.xxx3301534.a5 Alias= Session=00023d000001 PortalTag=1  
 	
 
-We had two active paths, one from each SP (T4 is SPB\_B5 and T0 is SPA\_A5). Since this was an Active/Passive array the customer enabled ALUA on the array (check out this <a href="http://virtuallyhyper.com/2012/04/seeing-a-high-number-of-trespasses-from-a-clariion-array-with-esx-hosts/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/04/seeing-a-high-number-of-trespasses-from-a-clariion-array-with-esx-hosts/']);">post</a> if you want to know more about ALUA). From the EMC article:
+We had two active paths, one from each SP (T4 is SPB_B5 and T0 is SPA_A5). Since this was an Active/Passive array the customer enabled ALUA on the array (check out this <a href="http://virtuallyhyper.com/2012/04/seeing-a-high-number-of-trespasses-from-a-clariion-array-with-esx-hosts/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/04/seeing-a-high-number-of-trespasses-from-a-clariion-array-with-esx-hosts/']);">post</a> if you want to know more about ALUA). From the EMC article:
 
 > Active-Active mode (failover mode 4) — When the host initiators are configured for ALUA mode, I/Os can be serviced from either SP in the VNX. The LUN is still owned by the SP where it was created. The default SP LUN also provides the optimal I/O path for the LUN.
 
@@ -166,26 +166,26 @@ and from the host:
 	~ # esxcli nmp device list -d naa.60060xxxx  
 	naa.60060xxxx  
 	Device Display Name: DGC iSCSI Disk (naa.60060xxxx)  
-	Storage Array Type: VMW\_SATP\_ALUA_CX  
-	Storage Array Type Device Config: {navireg=on, ipfilter=on}{implicit\_support=on;explicit\_support=on; explicit\_allow=on;alua\_followover=on;{TPG\_id=2,TPG\_state=AO}{TPG\_id=1,TPG\_state=ANO}}  
-	Path Selection Policy: VMW\_PSP\_FIXED_AP  
+	Storage Array Type: VMW_SATP_ALUA_CX  
+	Storage Array Type Device Config: {navireg=on, ipfilter=on}{implicit_support=on;explicit_support=on; explicit_allow=on;alua_followover=on;{TPG_id=2,TPG_state=AO}{TPG_id=1,TPG_state=ANO}}  
+	Path Selection Policy: VMW_PSP_FIXED_AP  
 	Path Selection Policy Device Config: {preferred=vmhba39:C0:T0:L12;current=vmhba39:C0:T4:L12}  
 	Working Paths: vmhba39:C0:T4:L12  
 	
 
 The Path Selection Policy is set to Fixed and that is okay. From the EMC article:
 
-> Although Fixed Path is the preferred PSP for VNX, Round Robin (VMW\_PSP\_RR) is also of interest in some environments due to the ability to actively distribute host I/O across all paths.
+> Although Fixed Path is the preferred PSP for VNX, Round Robin (VMW_PSP_RR) is also of interest in some environments due to the ability to actively distribute host I/O across all paths.
 > 
-> Round Robin is fully supported, but Path Restore is not currently integrated for VNX LUNs. If an SP path becomes unavailable, due to an SP reboot or NDU for example, the LUN trespasses to the peer SP. The LUN does not trespass back when the SP becomes available again. This is why EMC recommends VMW\_PSP\_FIXED. If the path is set to Round Robin, monitor the LUN trespass occurrences through Unisphere. EMC also provides scripted tools to integrate vSphere with VNX, and posts them to the Everything VMware page on the EMC Community website. One such PowerShell script provides an automated method to detect and restore the trespassed LUNs.
+> Round Robin is fully supported, but Path Restore is not currently integrated for VNX LUNs. If an SP path becomes unavailable, due to an SP reboot or NDU for example, the LUN trespasses to the peer SP. The LUN does not trespass back when the SP becomes available again. This is why EMC recommends VMW_PSP_FIXED. If the path is set to Round Robin, monitor the LUN trespass occurrences through Unisphere. EMC also provides scripted tools to integrate vSphere with VNX, and posts them to the Everything VMware page on the EMC Community website. One such PowerShell script provides an automated method to detect and restore the trespassed LUNs.
 
 After confirming that the setup is okay, checking out the logs, I saw the following:
 
 	  
 	Aug 15 06:07:13 vobd: Aug 15 06:07:13.285: 171974745962us:  Lost connectivity to storage device naa.60060xxx. Path vmhba39:C0:T0:L0 is down. Affected datastores: "VMFS_Volume01"..  
 	Aug 15 06:07:13 vobd: Aug 15 06:07:13.285: 171971079169us: [vob.scsi.scsipath.pathstate.dead] scsiPath vmhba39:C0:T0:L1 changed state from on.  
-	Aug 15 06:07:13 vmkernel: 1:23:46:11.079 cpu23:4257)vmw\_psp\_fixed\_ap: psp\_fixed_apSelectPathToActivateInt: Changing active path from vmhba39:C0:T0:L1 to vmhba39:C0:T4:L1 for device "naa.60060xxxx".  
-	Aug 15 06:07:13 vmkernel: 1:23:46:11.079 cpu23:4257)VMW\_SATP\_ALUA: satp\_alua\_activatePaths: Activation disallowed due to follow-over.  
+	Aug 15 06:07:13 vmkernel: 1:23:46:11.079 cpu23:4257)vmw_psp_fixed_ap: psp_fixed_apSelectPathToActivateInt: Changing active path from vmhba39:C0:T0:L1 to vmhba39:C0:T4:L1 for device "naa.60060xxxx".  
+	Aug 15 06:07:13 vmkernel: 1:23:46:11.079 cpu23:4257)VMW_SATP_ALUA: satp_alua_activatePaths: Activation disallowed due to follow-over.  
 	Aug 15 06:07:13 vobd: Aug 15 06:07:13.286: 171974746430us:  Lost path redundancy to storage device naa.6006xxx. Path vmhba39:C0:T0:L1 is down. Affected datastores: "VMFS_Volume02"..  
 	Aug 15 06:07:13 vmkernel: 1:23:46:11.099 cpu13:882014)WARNING: NMP: nmp_IssueCommandToDevice: I/O could not be issued to device "naa.6006xxx" due to Not found  
 	Aug 15 06:07:13 vmkernel: 1:23:46:11.099 cpu13:882014)WARNING: NMP: nmp_DeviceRetryCommand: Device "naa.60060160xxxxx": awaiting fast path state update for failover with I/O blocked. No prior reservation exists on the device.  
@@ -228,7 +228,7 @@ Looks like we disconnected from both of the Targets about the same amount of tim
 	Device Display Name: DGC iSCSI Disk (naa.6006xxxx)  
 	Group State: active unoptimized  
 	Array Priority: 1  
-	Storage Array Type Path Config: {TPG\_id=2,TPG\_state=ANO,RTP\_id=12,RTP\_health=UP}  
+	Storage Array Type Path Config: {TPG_id=2,TPG_state=ANO,RTP_id=12,RTP_health=UP}  
 	Path Selection Policy Path Config: {current: no; preferred: yes}
 	
 	iqn.1998-01.com.vmware:host2,iqn.1992-04.com.emc:cx.xxx3301534.a5,t,1-naa.60060xxxx  
@@ -237,7 +237,7 @@ Looks like we disconnected from both of the Targets about the same amount of tim
 	Device Display Name: DGC iSCSI Disk (naa.60060xxxx)  
 	Group State: active  
 	Array Priority: 0  
-	Storage Array Type Path Config: {TPG\_id=1,TPG\_state=AO,RTP\_id=6,RTP\_health=UP}  
+	Storage Array Type Path Config: {TPG_id=1,TPG_state=AO,RTP_id=6,RTP_health=UP}  
 	Path Selection Policy Path Config: {current: yes; preferred: no}  
 	
 

@@ -128,10 +128,10 @@ We were using a DVS, so just looking at the DVS section, I saw the following:
 	403 1 VM12 ethernet0  
 	
 
-The VMs that had the issue were "NLB\_VM1" and "NLB\_VM2". Checking for the virtual ports (that these VMs correspond to) in vsish, I see that they correspond to the following:
+The VMs that had the issue were "NLB_VM1" and "NLB_VM2". Checking for the virtual ports (that these VMs correspond to) in vsish, I see that they correspond to the following:
 
 	  
-	$ for i in \`vsish -c vsi\_traverse\_-s.txt -e ls /net/portsets/DvsPortset-0/ports/\`; do echo $i; vsish -c vsi\_traverse\_-s.txt -e cat /net/portsets/DvsPortset-0/ports/"$i"status|grep clientName;done  
+	$ for i in \`vsish -c vsi_traverse_-s.txt -e ls /net/portsets/DvsPortset-0/ports/\`; do echo $i; vsish -c vsi_traverse_-s.txt -e cat /net/portsets/DvsPortset-0/ports/"$i"status|grep clientName;done  
 	50331649/  
 	clientName:Management  
 	50331650/  
@@ -169,14 +169,14 @@ The VMs that had the issue were "NLB\_VM1" and "NLB\_VM2". Checking for the virt
 	50331702/  
 	
 
-So our virtual ports are as follows; 50331700 is NLB\_VM1, and 50331701 is NLB\_VM2.
+So our virtual ports are as follows; 50331700 is NLB_VM1, and 50331701 is NLB_VM2.
 
 Now checking for what uplinks those are using at the time of when the logs were taken, I see the following:
 
 	  
-	$ vsish -c vsi\_traverse\_-s.txt -e cat /net/portsets/DvsPortset-0/ports/50331700/teamUplink  
+	$ vsish -c vsi_traverse_-s.txt -e cat /net/portsets/DvsPortset-0/ports/50331700/teamUplink  
 	vmnic2  
-	$ vsish -c vsi\_traverse\_-s.txt -e cat /net/portsets/DvsPortset-0/ports/50331701/teamUplink  
+	$ vsish -c vsi_traverse_-s.txt -e cat /net/portsets/DvsPortset-0/ports/50331701/teamUplink  
 	vmnic2  
 	
 

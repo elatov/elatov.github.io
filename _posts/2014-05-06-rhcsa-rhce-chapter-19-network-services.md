@@ -59,8 +59,8 @@ From the above guide:
 > 
 > *   **instances** - Specifies the maximum number of simultaneous requests that **xinetd** can process.
 > *   **log_type** - Configures **xinetd** to use the **authpriv** log facility, which writes log entries to the **/var/log/secure** file. Adding a directive such as **FILE /var/log/xinetdlog** would create a custom log file called **xinetdlog** in the **/var/log/** directory.
-> *   **log\_on\_success** - Configures **xinetd** to log successful connection attempts. By default, the remote host's IP address and the process ID of the server processing the request are recorded.
-> *   **log\_on\_failure** - Configures **xinetd** to log failed connection attempts or if the connection was denied.
+> *   **log_on_success** - Configures **xinetd** to log successful connection attempts. By default, the remote host's IP address and the process ID of the server processing the request are recorded.
+> *   **log_on_failure** - Configures **xinetd** to log failed connection attempts or if the connection was denied.
 > *   **cps** - Configures **xinetd** to allow no more than 25 connections per second to any given service. If this limit is exceeded, the service is retired for 30 seconds.
 > *   **includedir /etc/xinetd.d/** - Includes options declared in the service-specific configuration files located in the **/etc/xinetd.d/** directory. 
 
@@ -94,7 +94,7 @@ From the Security Guide:
 > *   **wait** - Specifies whether the service is single-threaded (**yes**) or multi-threaded (**no**).
 > *   **user** - Specifies which user ID the process runs under.
 > *   **server** - Specifies which binary executable to launch.
-> *   **log\_on\_failure** - Specifies logging parameters for **log\_on\_failure** in addition to those already defined in **xinetd.conf**.
+> *   **log_on_failure** - Specifies logging parameters for **log_on_failure** in addition to those already defined in **xinetd.conf**.
 > *   **disable** - Specifies whether the service is disabled (**yes**) or enabled (**no**).
 
 #### Xinetd Logging Options
@@ -105,12 +105,12 @@ From the same guide:
 > 
 > The following is a list of some of the more commonly used logging options:
 > 
-> *   **ATTEMPT** - Logs the fact that a failed attempt was made (**log\_on\_failure**).
-> *   **DURATION** - Logs the length of time the service is used by a remote system (**log\_on\_success**).
-> *   **EXIT** - Logs the exit status or termination signal of the service (**log\_on\_success**).
-> *   **HOST** - Logs the remote host's IP address (**log\_on\_failure** and **log\_on\_success**).
-> *   **PID** - Logs the process ID of the server receiving the request (**log\_on\_success**).
-> *   **USERID** - Logs the remote user using the method defined in RFC 1413 for all multi-threaded stream services (**log\_on\_failure** and **log\_on\_success**).
+> *   **ATTEMPT** - Logs the fact that a failed attempt was made (**log_on_failure**).
+> *   **DURATION** - Logs the length of time the service is used by a remote system (**log_on_success**).
+> *   **EXIT** - Logs the exit status or termination signal of the service (**log_on_success**).
+> *   **HOST** - Logs the remote host's IP address (**log_on_failure** and **log_on_success**).
+> *   **PID** - Logs the process ID of the server receiving the request (**log_on_success**).
+> *   **USERID** - Logs the remote user using the method defined in RFC 1413 for all multi-threaded stream services (**log_on_failure** and **log_on_success**).
 
 #### Xinetd Access Control Options
 

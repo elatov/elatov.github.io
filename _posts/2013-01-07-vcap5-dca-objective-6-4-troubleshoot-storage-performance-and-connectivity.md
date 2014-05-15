@@ -96,7 +96,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     > 
 	>     > 1.  Run the following command:  
 	>     >       
-	>     >     esxcli system module parameters set -m iscsi\_vmk -p iscsivmk\_LunQDepth=value  
+	>     >     esxcli system module parameters set -m iscsi_vmk -p iscsivmk_LunQDepth=value  
 	>     >     </p> 
 >     >     The iscsivmk_LunQDepth parameter sets the maximum number of outstanding commands, or queue depth, for each LUN accessed through the software iSCSI adapter. The default value is 128.</li> 
 >     >     *   Reboot your system.
@@ -386,7 +386,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 >     >     
 >     >     So make sure you NAS server supports TCP version 3. From the same document:
 >     >     
->     >     > If you do not have the **no\_root\_squash** option set, you will get the following error when you try to create a virtual machine on the NAS datastore:
+>     >     > If you do not have the **no_root_squash** option set, you will get the following error when you try to create a virtual machine on the NAS datastore:
 >     >     > 
 >     >     > <a href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-4-troubleshoot-storage-performance-and-connectivity/nfs_access_error/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-4-troubleshoot-storage-performance-and-connectivity/nfs_access_error/']);" rel="attachment wp-att-5362"><img class="alignnone size-full wp-image-5362" alt="nfs access error VCAP5 DCA Objective 6.4 – Troubleshoot Storage Performance and Connectivity " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/nfs_access_error.png" width="177" height="110" title="VCAP5 DCA Objective 6.4 – Troubleshoot Storage Performance and Connectivity " /></a>
 >     >     > 
@@ -519,19 +519,19 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 >     >     > Use the vmkfstools command to add an extent to a VMFS volume.
 >     >     > 
 	>     >     >   
-	>     >     > -Z --spanfs span\_partition head\_partition  
+	>     >     > -Z --spanfs span_partition head_partition  
 	>     >     > 
 >     >     > 
->     >     > This option extends the VMFS file system with the specified head partition by spanning it across the partition specified by span\_partition. You must specify the full path name, for example /vmfs/devices/disks/disk\_ID:1. Each time you use this option, you extend a VMFS volume with a new extent so that the volume spans multiple partitions.
+>     >     > This option extends the VMFS file system with the specified head partition by spanning it across the partition specified by span_partition. You must specify the full path name, for example /vmfs/devices/disks/disk_ID:1. Each time you use this option, you extend a VMFS volume with a new extent so that the volume spans multiple partitions.
 >     >     > 
 >     >     > **Example for Extending a VMFS Volume**  
 >     >     > In this example, you extend the logical file system by allowing it to span to a new partition.
 >     >     > 
 	>     >     >   
-	>     >     > vmkfstools -Z /vmfs/devices/disks/naa.disk\_ID\_2:1 /vmfs/devices/disks/naa.disk\_ID\_1:1  
+	>     >     > vmkfstools -Z /vmfs/devices/disks/naa.disk_ID_2:1 /vmfs/devices/disks/naa.disk_ID_1:1  
 	>     >     > 
 >     >     > 
->     >     > The extended file system spans two partitions—naa.disk\_ID\_1:1 and naa.disk\_ID\_2:1. In this example, naa.disk\_ID\_1:1 is the name of the head partition.
+>     >     > The extended file system spans two partitions—naa.disk_ID_1:1 and naa.disk_ID_2:1. In this example, naa.disk_ID_1:1 is the name of the head partition.
 >     >     > 
 >     >     > **Growing an Existing Extent**  
 >     >     > Instead of adding a new extent to a VMFS datastore, you can grow an existing extent using the vmkfstools -G command.  
@@ -544,7 +544,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 >     >     > This option grows an existing VMFS datastore or its extent. For example,
 >     >     > 
 	>     >     >   
-	>     >     > vmkfstools --growfs /vmfs/devices/disks/disk\_ID:1 /vmfs/devices/disks/disk\_ID:1  
+	>     >     > vmkfstools --growfs /vmfs/devices/disks/disk_ID:1 /vmfs/devices/disks/disk_ID:1  
 	>     >     > 
 >     >     > 
 >     >     > **Upgrading a VMFS Datastore**  
@@ -564,23 +564,23 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     >     > The VMware ESX/ESXi 4.x and 5.0 storage multipathing failover sequence is:
 	>     >     > 
 	>     >     > 1.  The connection along a given path is detected as down or offline. For example:  
-	>     >     >     vmkernel: 188:04:24:16.970 cpu8:4288)WARNING: iscsi\_vmk: iscsivmk\_StopConnection: vmhba33:CH:0 T:1 CN:0: iSCSI connection is being marked "OFFLINE"  
+	>     >     >     vmkernel: 188:04:24:16.970 cpu8:4288)WARNING: iscsi_vmk: iscsivmk_StopConnection: vmhba33:CH:0 T:1 CN:0: iSCSI connection is being marked "OFFLINE"  
 	>     >     >     
 	>     >     > 2.  The ESX/ESXi host stops its iSCSI session. For example:  
-	>     >     >     vmkernel: 188:04:24:16.970 cpu8:4288)WARNING: iscsi\_vmk: iscsivmk\_StopConnection: Sess [ISID: 00023d000001 TARGET: iqn.1992-04.com.emc:cx.sl7e2091300074.b1 TPGT: 2 TSIH: 0]  
-	>     >     >     vmkernel: 188:04:24:16.970 cpu8:4288)WARNING: iscsi\_vmk: iscsivmk\_StopConnection: Conn [CID: 0 L: 192.168.2.16:50439 R: 192.168.2.8:3260]  
+	>     >     >     vmkernel: 188:04:24:16.970 cpu8:4288)WARNING: iscsi_vmk: iscsivmk_StopConnection: Sess [ISID: 00023d000001 TARGET: iqn.1992-04.com.emc:cx.sl7e2091300074.b1 TPGT: 2 TSIH: 0]  
+	>     >     >     vmkernel: 188:04:24:16.970 cpu8:4288)WARNING: iscsi_vmk: iscsivmk_StopConnection: Conn [CID: 0 L: 192.168.2.16:50439 R: 192.168.2.8:3260]  
 	>     >     >     
 	>     >     > 3.  As a result of stopping that session, the iSCSI task is aborted. For example:  
-	>     >     >     vmkernel: 188:04:24:16.970 cpu11:4288)WARNING: iscsi\_vmk: iscsivmk\_TaskMgmtIssue: vmhba33:CH:0 T:1 L:14 : Task mgmt "Abort Task" with itt=0x5155cba9 (refITT=0x5155cb93) timed out.  
+	>     >     >     vmkernel: 188:04:24:16.970 cpu11:4288)WARNING: iscsi_vmk: iscsivmk_TaskMgmtIssue: vmhba33:CH:0 T:1 L:14 : Task mgmt "Abort Task" with itt=0x5155cba9 (refITT=0x5155cb93) timed out.  
 	>     >     >     
 	>     >     > 4.  The Native Multi-pathing Plugin detects a Host status of 0&#215;1 for the reason that the command in-flight had failed. A host status of 0&#215;1 translates to NO_CONNECT. For details, see SCSI events that can trigger ESX server to fail a LUN over to another path (1003433). For example:  
 	>     >     >     vmkernel: 188:04:24:16.970 cpu1:4286)NMP: nmp_CompleteCommandForPath: Command 0x28 (0x41000716a200) to NMP device "naa.60060160d5c12200ccd66fd74a81de11" failed on physical path "vmhba33:C0:T1:L7" H:0x1 D:0x0 P:0x0 Possible sense data: 0x2 0x3a 0x1.  
 	>     >     >     
-	>     >     > 5.  Once the NMP receives this host status, it will send a TEST\_UNIT\_READY (TUR) command down that path to confirm that it is down, before initiating a failover. For example:  
+	>     >     > 5.  Once the NMP receives this host status, it will send a TEST_UNIT_READY (TUR) command down that path to confirm that it is down, before initiating a failover. For example:  
 	>     >     >     vmkernel: 188:04:24:16.970 cpu1:4286)WARNING: NMP: nmp_DeviceRetryCommand: Device "naa.60060160d5c12200ccd66fd74a81de11": awaiting fast path state update for failover with I/O blocked. No prior reservation exists on the device.  
 	>     >     >     
 	>     >     > 6.  If this command also fails, the ESX/ESXi host's Path Selection Policy (PSP) activates the next path for the device (LUN). For example:  
-	>     >     >     vmkernel: 188:04:24:16.989 cpu1:4131)vmw\_psp\_mru: psp_mruSelectPathToActivateInt: Changing active path from vmhba33:C0:T1:L7 to vmhba33:C0:T0:L7 for device "naa.60060160d5c12200ccd66fd74a81de11".  
+	>     >     >     vmkernel: 188:04:24:16.989 cpu1:4131)vmw_psp_mru: psp_mruSelectPathToActivateInt: Changing active path from vmhba33:C0:T1:L7 to vmhba33:C0:T0:L7 for device "naa.60060160d5c12200ccd66fd74a81de11".  
 	>     >     >     
 	>     >     > 7.  This line indicates that the path change was successful. The NMP retries the queued commands down this path to ensure they complete successfully, despite a failover condition being triggered. For example:  
 	>     >     >     vmkernel: 188:04:24:17.974 cpu8:4247)WARNING: NMP: nmp_DeviceAttemptFailover: Retry world failover device "naa.60060160d5c12200ccd66fd74a81de11" - issuing command 0x41000716a200  
@@ -606,9 +606,9 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     >     >         vmkernel: 188:04:24:17.975 cpu12:4108)NMP: nmp_CompleteRetryForPath: Retry world recovered device "naa.60060160d5c12200ccd66fd74a81de11"  
 	>     >     >         
 	>     >     >     *   Finally, as this is a S/W iSCSI-based example, you also see the session marked "ONLINE" again:  
-	>     >     >         vmkernel: 188:04:24:20.405 cpu9:4288)WARNING: iscsi\_vmk: iscsivmk\_StartConnection: vmhba33:CH:0 T:1 CN:0: iSCSI connection is being marked "ONLINE"  
-	>     >     >         vmkernel: 188:04:24:20.405 cpu9:4288)WARNING: iscsi\_vmk: iscsivmk\_StartConnection: Sess [ISID: 00023d000001 TARGET: iqn.1992-04.com.emc:cx.sl7e2091300074.b1 TPGT: 2 TSIH: 0]  
-	>     >     >         vmkernel: 188:04:24:20.405 cpu9:4288)WARNING: iscsi\_vmk: iscsivmk\_StartConnection: Conn [CID: 0 L: 192.168.2.16:52160 R: 192.168.2.8:3260]  
+	>     >     >         vmkernel: 188:04:24:20.405 cpu9:4288)WARNING: iscsi_vmk: iscsivmk_StartConnection: vmhba33:CH:0 T:1 CN:0: iSCSI connection is being marked "ONLINE"  
+	>     >     >         vmkernel: 188:04:24:20.405 cpu9:4288)WARNING: iscsi_vmk: iscsivmk_StartConnection: Sess [ISID: 00023d000001 TARGET: iqn.1992-04.com.emc:cx.sl7e2091300074.b1 TPGT: 2 TSIH: 0]  
+	>     >     >         vmkernel: 188:04:24:20.405 cpu9:4288)WARNING: iscsi_vmk: iscsivmk_StartConnection: Conn [CID: 0 L: 192.168.2.16:52160 R: 192.168.2.8:3260]  
 	>     >     >         </ol> 
 >     >     >     **Note:** Since the storage stack handles failover identically for FC, this sequence, with the exception of steps 1, 2, 3, and 11, applies</blockquote> 
 >     >     >     

@@ -123,9 +123,9 @@ Then checking out the contents of the iso, I saw the following:
 	$ tree /media/iso  
 	/media/iso  
 	├── doc  
-	│   ├── open\_source\_licenses\_vmware-esx-drivers-net-ixgbe\_400.3.9.13-1vmw.2.17.249663.txt  
+	│   ├── open_source_licenses_vmware-esx-drivers-net-ixgbe_400.3.9.13-1vmw.2.17.249663.txt  
 	│   ├── README.txt  
-	│   ├── release\_note\_vmware-esx-drivers-net-ixgbe_400.3.9.13-1vmw.2.17.249663.txt  
+	│   ├── release_note_vmware-esx-drivers-net-ixgbe_400.3.9.13-1vmw.2.17.249663.txt  
 	│   └── TRANS.TBL  
 	├── drivers.xml  
 	├── offline-bundle  
@@ -150,7 +150,7 @@ I went ahead and uploaded the 'INT-intel-lad-ddk-ixgbe-400.3.9.13-1.249663-offli
 I then put the host in maintenance mode.
 
 	  
-	~ # vim-cmd hostsvc/maintenance\_mode\_enter  
+	~ # vim-cmd hostsvc/maintenance_mode_enter  
 	'vim.Task:haTask-ha-host-vim.HostSystem.enterMaintenanceMode-20'  
 	
 
@@ -187,7 +187,7 @@ That looked good. Now checking the driver version:
 	HostdRestart - False  
 	MaintenanceMode - True  
 	List of constituent VIBs:  
-	cross\_vmware-esx-drivers-net-ixgbe\_400.3.9.13-1vmw.2.17.249663  
+	cross_vmware-esx-drivers-net-ixgbe_400.3.9.13-1vmw.2.17.249663  
 	
 
 That also looked good, then finally installing the driver:
@@ -215,7 +215,7 @@ After the install, I rebooted the host:
 After the host rebooted, I then exited maintenance mode:
 
 	  
-	~ # vim-cmd hostsvc/maintenance\_mode\_exit  
+	~ # vim-cmd hostsvc/maintenance_mode_exit  
 	'vim.Task:haTask-ha-host-vim.HostSystem.exitMaintenanceMode-18'  
 	
 

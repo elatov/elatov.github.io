@@ -86,8 +86,8 @@ The above article mentions that we could do a LUN reset but from the logs, both 
 	Apr 27 10:26:17 esx_host1 vmkernel: 84:18:52:53.181 cpu1:1062)lpfc0:0712:FPe:SCSI layer issued abort device Data: x0 x83  
 	Apr 27 10:26:18 esx_host1 vmkernel: 84:18:52:54.442 cpu1:1062)lpfc0:0749:FPe:Completed Abort Task Set Data: x0 x83 x128  
 	Apr 27 10:26:19 esx_host1 vmkernel: 84:18:52:54.493 cpu2:1036)FSS: 390: Failed with status Timeout (ok to retry) for f530 28 2 49e64214 77691c3 230046ec 62f5247d 4 1 0 0 0 0 0  
-	Apr 27 16:44:59 esx\_host1 vmkernel: 85:01:11:34.664 cpu1:1112)DevFS: 2221: Unable to find device: 1d3b014-New Virtual Machine\_2-000001-delta.vmdk  
-	Apr 27 16:44:59 esx\_host1 vmkernel: 85:01:11:34.678 cpu1:1112)DevFS: 2221: Unable to find device: 200d-New Virtual Machine\_1-000001-delta.vmdk  
+	Apr 27 16:44:59 esx_host1 vmkernel: 85:01:11:34.664 cpu1:1112)DevFS: 2221: Unable to find device: 1d3b014-New Virtual Machine_2-000001-delta.vmdk  
+	Apr 27 16:44:59 esx_host1 vmkernel: 85:01:11:34.678 cpu1:1112)DevFS: 2221: Unable to find device: 200d-New Virtual Machine_1-000001-delta.vmdk  
 	
 
 We see a gap in the above logs, and from the other host, we saw a similar gap in the logs:

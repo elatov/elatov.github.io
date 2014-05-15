@@ -148,9 +148,9 @@ Now to configure the host to log to the syslog collector server, I ran the follo
 You can run the following command on the ESXi host to send a test message:
 
 	  
-	/var/log # esxcli system syslog mark --message="testing\_syslog\_config"  
+	/var/log # esxcli system syslog mark --message="testing_syslog_config"  
 	/var/log # grep testing /var/log/syslog.log  
-	2012-12-14T18:49:11Z mark: testing\_syslog\_config
+	2012-12-14T18:49:11Z mark: testing_syslog_config
 	
 	
 

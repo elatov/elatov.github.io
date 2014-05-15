@@ -53,7 +53,7 @@ The Splunk Documentation had a couple of post install instructions. From their <
 > 
 > If your server has less than 2 GB of memory, reduce the values accordingly.
 
-The second setting (**vm.max\_proc\_mmap**) no longer existed on FreeBSD 9, so only I added the following to my **/boot/loader.conf** file:
+The second setting (**vm.max_proc_mmap**) no longer existed on FreeBSD 9, so only I added the following to my **/boot/loader.conf** file:
 
     kern.maxdsiz="1063256064"
     kern.dfldsiz="1063256064"

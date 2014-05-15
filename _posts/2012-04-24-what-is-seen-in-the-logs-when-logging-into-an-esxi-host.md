@@ -29,7 +29,7 @@ When logging to an ESXi host directly via ssh you will see the following in /var
 
 	  
 	Apr 16 20:28:23 esx_host sshd[20996]: Accepted password for root from 10.16.244.81 port 55941 ssh2  
-	Apr 16 20:28:23 esx\_host sshd[20996]: pam\_unix(system-auth-generic:session): session opened for user root by (uid=0)  
+	Apr 16 20:28:23 esx_host sshd[20996]: pam_unix(system-auth-generic:session): session opened for user root by (uid=0)  
 	
 
 If you have the wtmp file on your ESXi host, you can copy that file from the host to a Linux machine and run the following on it (because the \`last\` command does not exist on ESXi, but it does exist on ESX classic):
@@ -48,16 +48,16 @@ When logging into an ESXi host via ssh, you will see the following under /var/lo
 
 	  
 	Apr 22 13:27:27 dropbear[7302]: Child connection from 10.0.1.1:53262  
-	Apr 22 13:27:30 dropbear[7302]: pam\_per\_user: create\_subrequest\_handle(): doing map lookup for user "root"  
-	Apr 22 13:27:30 dropbear[7302]: pam\_per\_user: create\_subrequest\_handle(): creating new subrequest (user="root", service="system-auth-generic")  
+	Apr 22 13:27:30 dropbear[7302]: pam_per_user: create_subrequest_handle(): doing map lookup for user "root"  
+	Apr 22 13:27:30 dropbear[7302]: pam_per_user: create_subrequest_handle(): creating new subrequest (user="root", service="system-auth-generic")  
 	Apr 22 13:27:30 shell[7721]: Interactive shell session started  
 	
 
 If you have physical access to an ESXi host and you log in directly via the console (ALT-F1), you will see the following:
 
 	  
-	Apr 22 08:49:37 localhost login: pam\_per\_user: create\_subrequest\_handle(): doing map lookup for user "root"  
-	Apr 22 08:49:37 localhost login: pam\_per\_user: create\_subrequest\_handle(): creating new subrequest (user="root", service="system-auth-generic")  
+	Apr 22 08:49:37 localhost login: pam_per_user: create_subrequest_handle(): doing map lookup for user "root"  
+	Apr 22 08:49:37 localhost login: pam_per_user: create_subrequest_handle(): creating new subrequest (user="root", service="system-auth-generic")  
 	Apr 22 08:49:39 localhost login: pam_unix(system-auth-generic:session): session opened for user root by LOGIN(uid=0)  
 	Apr 22 08:49:39 localhost login: ROOT LOGIN ON tty1  
 	
@@ -101,11 +101,11 @@ We can see that someone had physical access to the ESX host and he clicked "ALT-
 If you have physical access to an ESXi host and you connect directly to the DCUI (Direct Console User Interface), you will see the following under /var/log/messages:
 
 	  
-	Apr 22 13:32:21 DCUI: pam\_per\_user: create\_subrequest\_handle(): doing map lookup for user "root"  
-	Apr 22 13:32:21 DCUI: pam\_per\_user: create\_subrequest\_handle(): creating new subrequest (user="root", service="system-auth-generic")  
+	Apr 22 13:32:21 DCUI: pam_per_user: create_subrequest_handle(): doing map lookup for user "root"  
+	Apr 22 13:32:21 DCUI: pam_per_user: create_subrequest_handle(): creating new subrequest (user="root", service="system-auth-generic")  
 	Apr 22 13:32:21 DCUI: pam_unix(system-auth-generic:auth): authentication failure; logname= uid=0 euid=0 tty= ruser= rhost= user=root  
-	Apr 22 13:32:26 DCUI: pam\_per\_user: create\_subrequest\_handle(): doing map lookup for user "root"  
-	Apr 22 13:32:26 DCUI: pam\_per\_user: create\_subrequest\_handle(): creating new subrequest (user="root", service="system-auth-generic")  
+	Apr 22 13:32:26 DCUI: pam_per_user: create_subrequest_handle(): doing map lookup for user "root"  
+	Apr 22 13:32:26 DCUI: pam_per_user: create_subrequest_handle(): creating new subrequest (user="root", service="system-auth-generic")  
 	Apr 22 13:32:26 DCUI: authentication of user root succeeded  
 	
 
@@ -116,10 +116,10 @@ From the DCUI, you can enable Tech Support Mode (TSM) and then login to get an i
 	Apr 22 13:36:06 init: init: process '/sbin/initterm.sh TTY1 /sbin/techsupport.sh ++min=0,swap' (pid 13818) exited. Scheduling it for restart.  
 	Apr 22 13:36:06 init: init: starting pid 13868, tty '/dev/tty1': '/bin/sh'  
 	Apr 22 13:36:06 root: techsupport VMware Tech Support Mode available  
-	Apr 22 13:36:15 login[13876]: pam\_per\_user: create\_subrequest\_handle(): doing map lookup for user "root"  
-	Apr 22 13:36:15 login[13876]: pam\_per\_user: create\_subrequest\_handle(): creating new subrequest (user="root", service="system-auth-generic")  
+	Apr 22 13:36:15 login[13876]: pam_per_user: create_subrequest_handle(): doing map lookup for user "root"  
+	Apr 22 13:36:15 login[13876]: pam_per_user: create_subrequest_handle(): creating new subrequest (user="root", service="system-auth-generic")  
 	Apr 22 13:36:17 login[13876]: pam_unix(system-auth-generic:session): session opened for user root by (uid=0)  
-	Apr 22 13:36:17 login[13876]: pam\_env(system-auth-generic:setcred): Unable to open config file: /etc/security/pam\_env.conf: No such file or directory  
+	Apr 22 13:36:17 login[13876]: pam_env(system-auth-generic:setcred): Unable to open config file: /etc/security/pam_env.conf: No such file or directory  
 	Apr 22 13:36:17 login[13876]: root login on 'UNKNOWN'  
 	Apr 22 13:36:17 shell[13876]: Interactive shell session started  
 	
@@ -142,8 +142,8 @@ You will also see the following in /var/log/messages:
 and finally you will see the following in /var/log/secure (only under ESX and not on ESXi):
 
 	  
-	Apr 16 20:35:04 esx\_host /usr/lib/vmware/bin/vmware-hostd[23877]: pam\_per\_user: create\_subrequest_handle(): doing map lookup for user "root"  
-	Apr 16 20:35:04 esx\_host /usr/lib/vmware/bin/vmware-hostd[23877]: pam\_per\_user: create\_subrequest_handle(): creating new subrequest (user="root", service="system-auth-generic")  
+	Apr 16 20:35:04 esx_host /usr/lib/vmware/bin/vmware-hostd[23877]: pam_per_user: create_subrequest_handle(): doing map lookup for user "root"  
+	Apr 16 20:35:04 esx_host /usr/lib/vmware/bin/vmware-hostd[23877]: pam_per_user: create_subrequest_handle(): creating new subrequest (user="root", service="system-auth-generic")  
 	
 
 # Logging in via vSphere Client (to vCenter)

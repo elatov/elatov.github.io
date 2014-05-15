@@ -124,7 +124,7 @@ To do this, first we need to generate a PSK of your WPA password. This is done l
     }
     
 
-Next we need to edit the **/etc/wpa\_supplicant/wpa\_supplicant.conf** file to add the appropriate configurations. Here is how my file looked like:
+Next we need to edit the **/etc/wpa_supplicant/wpa_supplicant.conf** file to add the appropriate configurations. Here is how my file looked like:
 
     moxz:~>cat /etc/wpa_supplicant/wpa_supplicant.conf 
     ctrl_interface=/var/run/wpa_supplicant

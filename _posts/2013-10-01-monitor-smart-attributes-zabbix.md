@@ -252,11 +252,11 @@ If the value is returned then it's all good. At this point you can follow my pre
 *   Discovery Rule (here add the custom.disks.discovery_perl2 as the key since you can't have duplicates)
 *   Item Prototypes (for both the temperature and reallocated sector count)
 *   Graph Prototype (only for the temperature)
-*   Trigger Prototype (only for the smart.reallocated\_sec\_cnt)
+*   Trigger Prototype (only for the smart.reallocated_sec_cnt)
 
 ### Add a Trigger Prototype to a Zabbix Discovery Rule
 
-The only new thing that I added was the trigger prototype. The **Reallocated\_Sector\_Ct** attribute should be zero all the time unless the drive is failing. So rather than plotting a graph full of zeroes, I decided to add a trigger which will send a warning message if the value is bigger than 0. To do this from the Zabbix Front End go to "Templates" -> Select the Template you had created -> "Discovery Rules" -> Click on the Discovery Rule you had created -> "Trigger prototypes" -> "Create trigger prototype" and then configure it like so:
+The only new thing that I added was the trigger prototype. The **Reallocated_Sector_Ct** attribute should be zero all the time unless the drive is failing. So rather than plotting a graph full of zeroes, I decided to add a trigger which will send a warning message if the value is bigger than 0. To do this from the Zabbix Front End go to "Templates" -> Select the Template you had created -> "Discovery Rules" -> Click on the Discovery Rule you had created -> "Trigger prototypes" -> "Create trigger prototype" and then configure it like so:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/09/zabbix_trigger_prototype.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/09/zabbix_trigger_prototype.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/09/zabbix_trigger_prototype.png" alt="zabbix trigger prototype Monitor SMART Attributes with Zabbix" width="724" height="422" class="alignnone size-full wp-image-9558" title="Monitor SMART Attributes with Zabbix" /></a>
 

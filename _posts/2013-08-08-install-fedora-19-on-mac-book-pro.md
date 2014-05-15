@@ -40,7 +40,7 @@ The Arch Page entitled "<a href="https://wiki.archlinux.org/index.php/Unified_Ex
 > 
 > Under UEFI, every program whether it is an OS loader or a utility (e.g. a memory testing app or recovery tool), should be a UEFI Application corresponding to the EFI firmware architecture. The vast majority of UEFI firmwares, including recent Apple Macs, use x86_64 EFI firmware. The only known devices that use i386 EFI are older (pre 2008) Apple Macs.
 > 
-> An x86\_64 EFI firmware does not include support for launching 32-bit EFI apps unlike x86\_64 Linux and Windows versions which include such support. Therefore the bootloader must be compiled for that specific architecture.
+> An x86_64 EFI firmware does not include support for launching 32-bit EFI apps unlike x86_64 Linux and Windows versions which include such support. Therefore the bootloader must be compiled for that specific architecture.
 > 
 > **Multibooting on UEFI**  
 > Since each OS or vendor can maintain its own files within the EFI SYSTEM PARTITION without affecting the other, multi-booting using UEFI is just a matter of launching a different UEFI application corresponding to the particular OS's bootloader. This removes the need for relying on chainloading mechanisms of one bootloader to load another to switch OSes.

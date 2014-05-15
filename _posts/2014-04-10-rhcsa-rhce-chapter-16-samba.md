@@ -981,7 +981,7 @@ Now the server is ready to accept connections from clients.
 
 From the deployment guide:
 
-> *   **findsmb <subnet\_broadcast\_address></subnet\_broadcast\_address>** - The **findsmb** program is a Perl script which reports information about SMB-aware systems on a specific subnet. If no subnet is specified the local subnet is used. Items displayed include IP address, NetBIOS name, workgroup or domain name, operating system, and version.
+> *   **findsmb <subnet_broadcast_address></subnet_broadcast_address>** - The **findsmb** program is a Perl script which reports information about SMB-aware systems on a specific subnet. If no subnet is specified the local subnet is used. Items displayed include IP address, NetBIOS name, workgroup or domain name, operating system, and version.
 >     
 >     The following example shows the output of executing findsmb as any valid user on a system:
 >     
@@ -1344,15 +1344,15 @@ From <a href="https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterpr
 
 > When SELinux is enabled, the Samba server (**smbd**) runs confined by default. Confined services run in their own domains, and are separated from other confined services.
 > 
-> Files must be labeled correctly to allow **smbd** to access and share them. For example, **smbd** can read and write to files labeled with the **samba\_share\_t** type, but by default, cannot access files labeled with the **httpd\_sys\_content_t** type, which is intended for use by the Apache HTTP Server. Booleans must be enabled to allow certain behavior, such as allowing home directories and NFS volumes to be exported through Samba, as well as to allow Samba to act as a domain controller.
+> Files must be labeled correctly to allow **smbd** to access and share them. For example, **smbd** can read and write to files labeled with the **samba_share_t** type, but by default, cannot access files labeled with the **httpd_sys_content_t** type, which is intended for use by the Apache HTTP Server. Booleans must be enabled to allow certain behavior, such as allowing home directories and NFS volumes to be exported through Samba, as well as to allow Samba to act as a domain controller.
 
 #### Samba SELinux Types
 
 From the same guide:
 
-> Label files with the **samba\_share\_t** type to allow Samba to share them. Only label files you have created, and do not relabel system files with the **samba\_share\_t** type: Booleans can be enabled to share such files and directories. SELinux allows Samba to write to files labeled with the samba\_share\_t type, as long as /etc/samba/smb.conf and Linux permissions are set accordingly.
+> Label files with the **samba_share_t** type to allow Samba to share them. Only label files you have created, and do not relabel system files with the **samba_share_t** type: Booleans can be enabled to share such files and directories. SELinux allows Samba to write to files labeled with the samba_share_t type, as long as /etc/samba/smb.conf and Linux permissions are set accordingly.
 > 
-> The **samba\_etc\_t** type is used on certain files in **/etc/samba/**, such as **smb.conf**. Do not manually label files with the **samba\_etc\_t** type. If files in **/etc/samba/** are not labeled correctly, run the **restorecon -R -v /etc/samba** command as the root user to restore such files to their default contexts. If **/etc/samba/smb.conf** is not labeled with the **samba\_etc\_t** type, the service smb start command may fail and an SELinux denial may be logged.
+> The **samba_etc_t** type is used on certain files in **/etc/samba/**, such as **smb.conf**. Do not manually label files with the **samba_etc_t** type. If files in **/etc/samba/** are not labeled correctly, run the **restorecon -R -v /etc/samba** command as the root user to restore such files to their default contexts. If **/etc/samba/smb.conf** is not labeled with the **samba_etc_t** type, the service smb start command may fail and an SELinux denial may be logged.
 
 #### Samba SELinux Booleans
 
@@ -1360,17 +1360,17 @@ From the above guide:
 
 > SELinux is based on the least level of access required for a service to run. Services can be run in a variety of ways; therefore, you need to specify how you run your services. > Use the following Booleans to set up SELinux:
 > 
-> *   **allow\_smbd\_anon_write** - Having this Boolean enabled allows **smbd** to write to a public directory, such as an area reserved for common files that otherwise has no special access restrictions.
-> *   **samba\_create\_home_dirs** - Having this Boolean enabled allows Samba to create new home directories independently. This is often done by mechanisms such as PAM.
-> *   **samba\_domain\_controller** - When enabled, this Boolean allows Samba to act as a domain controller, as well as giving it permission to execute related commands such as **useradd**, **groupadd** and **passwd**.
-> *   **samba\_enable\_home_dirs** - Enabling this Boolean allows Samba to share users' home directories.
-> *   **samba\_export\_all_ro** - Export any file or directory, allowing read-only permissions. This allows files and directories that are not labeled with the **samba\_share\_t** type to be shared through Samba. When the **samba\_export\_all_ro** Boolean is on, but the **samba\_export\_all_rw** Boolean is off, write access to Samba shares is denied, even if write access is configured in **/etc/samba/smb.conf**, as well as Linux permissions allowing write access.
-> *   **samba\_export\_all_rw** - Export any file or directory, allowing read and write permissions. This allows files and directories that are not labeled with the **samba\_share\_t** type to be exported through Samba. Permissions in **/etc/samba/smb.conf** and Linux permissions must be configured to allow write access.
-> *   **samba\_run\_unconfined** - Having this Boolean enabled allows Samba to run unconfined scripts in the **/var/lib/samba/scripts/** directory.
-> *   **samba\_share\_fusefs** - This Boolean must be enabled for Samba to share fusefs file systems.
-> *   **samba\_share\_nfs** - Disabling this Boolean prevents **smbd** from having full access to NFS shares via Samba. Enabling this Boolean will allow Samba to share NFS volumes.
-> *   **use\_samba\_home_dirs** - Enable this Boolean to use a remote server for Samba home directories.
-> *   **virt\_use\_samba** Allow virtual machine access to CIFS files.
+> *   **allow_smbd_anon_write** - Having this Boolean enabled allows **smbd** to write to a public directory, such as an area reserved for common files that otherwise has no special access restrictions.
+> *   **samba_create_home_dirs** - Having this Boolean enabled allows Samba to create new home directories independently. This is often done by mechanisms such as PAM.
+> *   **samba_domain_controller** - When enabled, this Boolean allows Samba to act as a domain controller, as well as giving it permission to execute related commands such as **useradd**, **groupadd** and **passwd**.
+> *   **samba_enable_home_dirs** - Enabling this Boolean allows Samba to share users' home directories.
+> *   **samba_export_all_ro** - Export any file or directory, allowing read-only permissions. This allows files and directories that are not labeled with the **samba_share_t** type to be shared through Samba. When the **samba_export_all_ro** Boolean is on, but the **samba_export_all_rw** Boolean is off, write access to Samba shares is denied, even if write access is configured in **/etc/samba/smb.conf**, as well as Linux permissions allowing write access.
+> *   **samba_export_all_rw** - Export any file or directory, allowing read and write permissions. This allows files and directories that are not labeled with the **samba_share_t** type to be exported through Samba. Permissions in **/etc/samba/smb.conf** and Linux permissions must be configured to allow write access.
+> *   **samba_run_unconfined** - Having this Boolean enabled allows Samba to run unconfined scripts in the **/var/lib/samba/scripts/** directory.
+> *   **samba_share_fusefs** - This Boolean must be enabled for Samba to share fusefs file systems.
+> *   **samba_share_nfs** - Disabling this Boolean prevents **smbd** from having full access to NFS shares via Samba. Enabling this Boolean will allow Samba to share NFS volumes.
+> *   **use_samba_home_dirs** - Enable this Boolean to use a remote server for Samba home directories.
+> *   **virt_use_samba** Allow virtual machine access to CIFS files.
 
 #### Samba Share Example with SELinux
 
@@ -1381,7 +1381,7 @@ From the Managing Confined Services Guide:
 > 1.  Run the **rpm -q samba samba-common samba-client** command to confirm the samba, samba-common, and samba-client packages are installed. If any of these packages are not installed, install them by running the **yum install package-name** command as the root user.
 > 2.  Run the **mkdir /myshare** command as the root user to create a new top-level directory to share files through Samba.
 > 3.  Run the **touch /myshare/file1** command as the root user to create an empty file. This file is used later to verify the Samba share mounted correctly.
-> 4.  SELinux allows Samba to read and write to files labeled with the **samba\_share\_t** type, as long as **/etc/samba/smb.conf** and Linux permissions are set accordingly. Run the following command as the root user to add the label change to file-context configuration:
+> 4.  SELinux allows Samba to read and write to files labeled with the **samba_share_t** type, as long as **/etc/samba/smb.conf** and Linux permissions are set accordingly. Run the following command as the root user to add the label change to file-context configuration:
 >     
 >         ~]# semanage fcontext -a -t samba_share_t "/myshare(/.*)?"
 >         

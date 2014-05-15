@@ -380,23 +380,23 @@ From VMware KB <a href="http://kb.vmware.com/kb/1008127" onclick="javascript:_ga
 
 > These commands allow you to add or remove network cards (known as uplinks) to or from a vNetwork Distributed Switch (vDS):  
 	>   
-	> esxcfg-vswitch -Q vmnic -V dvPort\_ID\_of_vmnic dvSwitch # unlink a DVS uplink  
-	> esxcfg-vswitch -P vmnic -V unused\_dvPort\_ID dvSwitch # add a DVS uplink  
+	> esxcfg-vswitch -Q vmnic -V dvPort_ID_of_vmnic dvSwitch # unlink a DVS uplink  
+	> esxcfg-vswitch -P vmnic -V unused_dvPort_ID dvSwitch # add a DVS uplink  
 	> 
 > 
 > To create an ESX Service Console management interface (vswif) and uplink it to the vDS, run the command:  
 	>   
-	> esxcfg-vswif -a -i IP\_address -n Netmask -V dvSwitch -P DVPort\_ID vswif0  
+	> esxcfg-vswif -a -i IP_address -n Netmask -V dvSwitch -P DVPort_ID vswif0  
 	> 
 > 
 > Delete an existing VMkernel port from a vDS with the command:  
 	>   
-	> esxcfg-vmknic -d -s DVswitchname -v virtual\_port\_ID  
+	> esxcfg-vmknic -d -s DVswitchname -v virtual_port_ID  
 	> 
 > 
 > To create a VMkernel port and attach it to the DVPort ID on a vDS, run the command:  
 	>   
-	> esxcfg-vmknic -a -i IP\_address -n netmask -s DVswitchname -v virtual\_port_ID  
+	> esxcfg-vmknic -a -i IP_address -n netmask -s DVswitchname -v virtual_port_ID  
 	>  
 
 ### Analyze command line output to identify vSS and vDS configuration details

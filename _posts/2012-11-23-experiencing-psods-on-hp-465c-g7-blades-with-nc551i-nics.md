@@ -23,15 +23,15 @@ Here is the actual backtrace:
 
 	  
 	0x412200cc7cb0:[0x418017c9ae9c]Util_Udelay'@'vmkernel#nover+0x2f stack: 0x412200010005  
-	0x4122012c7d20:[0x41801d247c34]be\_mcc\_mailbox\_notify\_and_wait'@'#+0x3f stack: 0x0  
-	0x4122012c7d50:[0x41801d248219]\_be\_mpu\_post\_wrb_mailbox'@'#+0x84 stack: 0x0  
-	0x412200cc7d50:[0x4180182458b7]be\_function\_post\_mcc\_wrb'@'#+0x126 stack: 0x41000f4281d0  
-	0x412c42c5a990:[0x41800f30183b]be\_cq\_create'@'#+0x284 stack: 0x4103ba1f1150  
-	0x412200cc7dc0:[0x4180182460e3]ring\_sets\_setup'@'#+0x62c stack: 0x41801903b5a9  
+	0x4122012c7d20:[0x41801d247c34]be_mcc_mailbox_notify_and_wait'@'#+0x3f stack: 0x0  
+	0x4122012c7d50:[0x41801d248219]_be_mpu_post_wrb_mailbox'@'#+0x84 stack: 0x0  
+	0x412200cc7d50:[0x4180182458b7]be_function_post_mcc_wrb'@'#+0x126 stack: 0x41000f4281d0  
+	0x412c42c5a990:[0x41800f30183b]be_cq_create'@'#+0x284 stack: 0x4103ba1f1150  
+	0x412200cc7dc0:[0x4180182460e3]ring_sets_setup'@'#+0x62c stack: 0x41801903b5a9  
 	0x412c42c5aab0:[0x41800f2f0677]be_probe'@'#+0x15e stack: 0x41038d679978  
-	0x412c42c5ab40:[0x41800f15cc6d]pci\_announce\_device'@'com.vmware.driverAPI#9.2+0x94 stack: 0x417f00000  
-	0x412c42c5ab40:[0x41800f15cfe3]_\_pci\_register_driver'@'com.vmware.driverAPI#9.2+0x152 stack: 0x417fce  
-	0x412c42c5aba0:[0x41800f30ae5f]be\_init\_module'@'#+0x2e stack: 0x42c5abd0  
+	0x412c42c5ab40:[0x41800f15cc6d]pci_announce_device'@'com.vmware.driverAPI#9.2+0x94 stack: 0x417f00000  
+	0x412c42c5ab40:[0x41800f15cfe3]__pci_register_driver'@'com.vmware.driverAPI#9.2+0x152 stack: 0x417fce  
+	0x412c42c5aba0:[0x41800f30ae5f]be_init_module'@'#+0x2e stack: 0x42c5abd0  
 	0x412c42c5ac30:[0x41800e6d7a06]Mod_LoadDone'@'vmkernel#nover+0x355 stack: 0xffff  
 	0x412c42c5add0:[0x41800e678e88]Elf_LoadMod'@'vmkernel#nover+0x280f stack: 0x410393b2b7d0  
 	0x412c42c5ae50:[0x41800ef548d9]UWVMKSyscallUnpackLoadVMKModule'@'#+0x1b4 stack: 0x412c42c  

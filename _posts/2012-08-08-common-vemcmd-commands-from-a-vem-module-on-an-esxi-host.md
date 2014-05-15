@@ -280,7 +280,7 @@ Show all Layer 2 Information, if using network segments, the bridge domains will
 	Segment ID 5000, swbd 4096, "dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f"
 	
 	Bridge domain 7 brtmax 4096, brtcnt 0, timeout 300  
-	Segment ID 5001, swbd 4097, "dvs.VCDVSorg\_net\_using\_n1k\_vcd-ni_pool-25717f9d-78cc-48c1-8506-c38b429f3565"
+	Segment ID 5001, swbd 4097, "dvs.VCDVSorg_net_using_n1k_vcd-ni_pool-25717f9d-78cc-48c1-8506-c38b429f3565"
 	
 	Bridge domain 9 brtmax 4096, brtcnt 2, timeout 300  
 	Segment ID 5003, swbd 4099, "dvs.VCDVStg-267074fa-608b-4c2a-8b98-5ffce69aa5f8"  
@@ -297,7 +297,7 @@ If using network segmentation (VXLAN or VLAN), see different Segments
 	Number of valid BDS: 8  
 	BD 6, vdc 1, segment id 5000, segment group IP 224.0.4.1, swbd 4096, 0 ports, "dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f"  
 	Portlist:  
-	BD 7, vdc 1, segment id 5001, segment group IP 224.0.4.2, swbd 4097, 0 ports, "dvs.VCDVSorg\_net\_using\_n1k\_vcd-ni_pool-25717f9d-78cc-48c1-8506-c38b429f3565"  
+	BD 7, vdc 1, segment id 5001, segment group IP 224.0.4.2, swbd 4097, 0 ports, "dvs.VCDVSorg_net_using_n1k_vcd-ni_pool-25717f9d-78cc-48c1-8506-c38b429f3565"  
 	Portlist:  
 	BD 9, vdc 1, segment id 5003, segment group IP 224.0.4.4, swbd 4099, 2 ports, "dvs.VCDVStg-267074fa-608b-4c2a-8b98-5ffce69aa5f8"  
 	Portlist:  
@@ -332,7 +332,7 @@ List the different broadcast domains (usually different VLANs)
 	
 	BD 6, vdc 1, segment id 5000, segment group IP 224.0.4.1, swbd 4096, 0 ports, "dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f"  
 	Portlist:  
-	BD 7, vdc 1, segment id 5001, segment group IP 224.0.4.2, swbd 4097, 0 ports, "dvs.VCDVSorg\_net\_using\_n1k\_vcd-ni_pool-25717f9d-78cc-48c1-8506-c38b429f3565"  
+	BD 7, vdc 1, segment id 5001, segment group IP 224.0.4.2, swbd 4097, 0 ports, "dvs.VCDVSorg_net_using_n1k_vcd-ni_pool-25717f9d-78cc-48c1-8506-c38b429f3565"  
 	Portlist:  
 	BD 9, vdc 1, segment id 5003, segment group IP 224.0.4.4, swbd 4099, 2 ports, "dvs.VCDVStg-267074fa-608b-4c2a-8b98-5ffce69aa5f8"  
 	Portlist:  
@@ -493,7 +493,7 @@ Show port channel information, if used
 
 	  
 	~ # vemcmd show pc  
-	pce\_ind chan pc\_ltl pce\_in\_pc LACP SG_ID NumVethsPinned mbrs  
+	pce_ind chan pc_ltl pce_in_pc LACP SG_ID NumVethsPinned mbrs  
 	\---\---\- --\-- -\---\-- -\---\---\-- -\--- \---\-- -\---\---\---\---\- ----  
 	
 
@@ -501,7 +501,7 @@ Show LACP information
 
 	  
 	~ # vemcmd show pc  
-	pce\_ind chan pc\_ltl pce\_in\_pc LACP SG_ID NumVethsPinned mbrs  
+	pce_ind chan pc_ltl pce_in_pc LACP SG_ID NumVethsPinned mbrs  
 	\---\---\- --\-- -\---\-- -\---\---\-- -\--- \---\-- -\---\---\---\---\- ----  
 	~ # vemcmd show lacp  
 	LACP Offload is Disabled  
@@ -539,7 +539,7 @@ Show pinning information, if not use LACP but static mac pinning for portchannel
 
 	  
 	~ # vemcmd show static pinning config  
-	LTL IfIndex VSM\_SGID Backup\_SGID  
+	LTL IfIndex VSM_SGID Backup_SGID  
 	
 
 Show iSCSI pinning information, if using iSCSI binding with software iSCSI from the esx host

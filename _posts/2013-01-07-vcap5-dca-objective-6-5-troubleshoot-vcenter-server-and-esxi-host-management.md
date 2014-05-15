@@ -79,7 +79,7 @@ The easiest thing to try is to restart the management agents. Here is how that l
 	Running lbtd restart  
 	net-lbt started  
 	Running hostd restart  
-	[5515] Begin 'hostd ++min=0,swap,group=hostd /etc/vmware/hostd/config.xml', min-uptime = 60, max-quick-failures = 1, max-total-failures = 1000000, bg\_pid\_file = ''  
+	[5515] Begin 'hostd ++min=0,swap,group=hostd /etc/vmware/hostd/config.xml', min-uptime = 60, max-quick-failures = 1, max-total-failures = 1000000, bg_pid_file = ''  
 	hostd started.  
 	Running vprobed restart  
 	vprobed started  
@@ -98,7 +98,7 @@ The easiest thing to try is to restart the management agents. Here is how that l
 	Running vobd restart  
 	vobd started  
 	Running vpxa restart  
-	[177860] Begin '/usr/lib/vmware/vpxa/bin/vpxa ++min=0,swap,group=vpxa -D /etc/vmware/vpxa', min-uptime = 60, max-quick-failures = 1, max-total-failures = 1000000, bg\_pid\_file = ''  
+	[177860] Begin '/usr/lib/vmware/vpxa/bin/vpxa ++min=0,swap,group=vpxa -D /etc/vmware/vpxa', min-uptime = 60, max-quick-failures = 1, max-total-failures = 1000000, bg_pid_file = ''  
 	Running sfcbd-watchdog restart  
 	Running wsman restart  
 	Starting openwsmand  
@@ -113,7 +113,7 @@ If you want you can also just restart hostd and vpxa, those are used for Host ma
 	~ # /etc/init.d/hostd restart  
 	watchdog-hostd: Terminating watchdog process with PID 5515  
 	hostd stopped.  
-	[178454] Begin 'hostd ++min=0,swap,group=hostd /etc/vmware/hostd/config.xml', min-uptime = 60, max-quick-failures = 1, max-total-failures = 1000000, bg\_pid\_file = ''  
+	[178454] Begin 'hostd ++min=0,swap,group=hostd /etc/vmware/hostd/config.xml', min-uptime = 60, max-quick-failures = 1, max-total-failures = 1000000, bg_pid_file = ''  
 	hostd started.  
 	
 

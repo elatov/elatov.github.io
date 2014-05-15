@@ -62,10 +62,10 @@ Looking at the NAS connections, I saw the following:
 
 	  
 	$ esxcfg-nas -l  
-	export\_1 is /vol/export\_1 from 10.204.x.29 mounted  
-	export\_2 is /vol/export\_2 from 10.204.x.29 mounted  
-	export\_3 is /vol/export\_3 from 10.204.x.30 mounted  
-	export\_4 is /vol/export\_4 from 10.204.x.30 mounted  
+	export_1 is /vol/export_1 from 10.204.x.29 mounted  
+	export_2 is /vol/export_2 from 10.204.x.29 mounted  
+	export_3 is /vol/export_3 from 10.204.x.30 mounted  
+	export_4 is /vol/export_4 from 10.204.x.30 mounted  
 	...  
 	...  
 	

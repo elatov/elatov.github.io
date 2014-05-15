@@ -29,7 +29,7 @@ however I was able to create new files but the owner of the newly created files 
 
 Why are we seeing the *nsfnobody* user owning new files? This is actually the default behavior for an NFS server. Looking over the man page of <a href="http://linux.die.net/man/5/exports" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://linux.die.net/man/5/exports']);">exports(5)</a>, we see the following:
 
-> Very often, it is not desirable that the root user on a client machine is also treated as root when accessing files on the NFS server. To this end, uid 0 is normally mapped to a different id: the so-called anonymous or *nobody* uid. This mode of operation (called 'root squashing') is the default, and can be turned off with *no\_root\_squash*.
+> Very often, it is not desirable that the root user on a client machine is also treated as root when accessing files on the NFS server. To this end, uid 0 is normally mapped to a different id: the so-called anonymous or *nobody* uid. This mode of operation (called 'root squashing') is the default, and can be turned off with *no_root_squash*.
 
 For ESX(i) to properly connect to a NAS server it needs to have read/write permission for the root user. Per the <a href="http://www.vmware.com/pdf/vsphere4/r41/vsp_41_esx_server_config.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/vsphere4/r41/vsp_41_esx_server_config.pdf']);">ESX Configuration Guide</a>, from the "Network Attached Storage" section we see the following:
 
@@ -39,13 +39,13 @@ This may raise some security concerns and the recommendation is to place your NF
 
 > Another security concern is that the ESX Server must mount the NFS server with root access. This raises some concerns about hackers getting access to the NFS server. To address the concern, it is best practice to use of either dedicated LAN or VLAN to provide protection and isolation.
 
-Not only does the ESX(i) host require root read/write access but it also requires the *no\_root\_squash* option set on the export of the NFS server. From the same Best Practices article above we see the following:
+Not only does the ESX(i) host require root read/write access but it also requires the *no_root_squash* option set on the export of the NFS server. From the same Best Practices article above we see the following:
 
-> If you do not have the **no\_root\_squash** option set, you will get the following error when you try to create a virtual machine on the NAS datastore.  
+> If you do not have the **no_root_squash** option set, you will get the following error when you try to create a virtual machine on the NAS datastore.  
 > ...  
 > ...  
 > This can be confusing since you can still create the datastore, but you will not be able to create any virtual machines on it.  
-> **Note:** the NetApp equivalent of no\_root\_squash is anon=0 in the /etc/exports file.
+> **Note:** the NetApp equivalent of no_root_squash is anon=0 in the /etc/exports file.
 
 This is pretty much what I was seeing, so we logged into the NetApp array and checked how the exports looked like, and we saw the following:
 
@@ -81,7 +81,7 @@ So if a user named *elatov* runs an executeable that had the *setuid* flag set, 
 
 > The result of mounting a file system nosuid varies across Linux kernel versions: some will refuse execution of set-user-ID and set-group-ID executables when this would give the user powers she did not have already (and return EPERM), some will just ignore the set-user-ID and set-group-ID bits and exec() successfully.
 
-ESX(i) doesn't have anything to do with *setuid*, so I decided to get rid of that flag from our export. I also decided to limit the read/write permissions to the NFS subnet and also allow root access from the NFS subnet as well. Lastly I decided to enable *no\_root\_squash* on the export. To edit /etc/exports on the NetApp array, first we need to read the file and see how it looks:
+ESX(i) doesn't have anything to do with *setuid*, so I decided to get rid of that flag from our export. I also decided to limit the read/write permissions to the NFS subnet and also allow root access from the NFS subnet as well. Lastly I decided to enable *no_root_squash* on the export. To edit /etc/exports on the NetApp array, first we need to read the file and see how it looks:
 
 	  
 	NA-NAS05>rdfile /etc/exports  

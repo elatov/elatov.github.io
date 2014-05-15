@@ -37,15 +37,15 @@ If you want to check what your queues are currently set to, you can take a look 
 Not a lot of things touch upon for the Adapter Queue Length (AQLEN). The Emulex driver has an option for this (but apparently this is not settable after ESX 3.5, more information <a href="http://www.yellow-bricks.com/2008/01/31/queue-depth-and-alike-settings-lost-after-an-upgrade-to-esx-35/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.yellow-bricks.com/2008/01/31/queue-depth-and-alike-settings-lost-after-an-upgrade-to-esx-35/']);">here</a>):
 
 	  
-	~ # vmkload\_mod -s lpfc820 | grep lpfc\_hba\_queue\_depth -A 1  
-	lpfc\_hba\_queue_depth: int  
+	~ # vmkload_mod -s lpfc820 | grep lpfc_hba_queue_depth -A 1  
+	lpfc_hba_queue_depth: int  
 	Max number of FCP commands we can queue to a lpfc HBA  
 	
 
 If you are using Software iSCSI there is an option for this as well:
 
 	  
-	~ # vmkload\_mod -s iscsi\_vmk | grep iscsivmk_HostQDepth -A 1  
+	~ # vmkload_mod -s iscsi_vmk | grep iscsivmk_HostQDepth -A 1  
 	iscsivmk_HostQDepth: int  
 	Maximum Outstanding Commands Per Adapter  
 	
@@ -55,11 +55,11 @@ Like mentioned in the above VMware blog the typical size is 1024 (or something i
 The interesting setting is the LUN/Device Queue Length (DQLEN). There are many ways to tweak this option. The first way is to do it via the driver, more on this in <a href="http://kb.vmware.com/kb/1267" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1267']);">VMware KB 1267</a>. For each of the drivers the options are the following:
 
 	  
-	~ # vmkload\_mod -s lpfc820 | grep lpfc\_lun\_queue\_depth -A 1  
-	lpfc\_lun\_queue_depth: int  
+	~ # vmkload_mod -s lpfc820 | grep lpfc_lun_queue_depth -A 1  
+	lpfc_lun_queue_depth: int  
 	Max number of FCP commands we can queue to a specific LUN
 	
-	~ # vmkload\_mod -s iscsi\_vmk | grep iscsivmk_LunQDepth -A 1  
+	~ # vmkload_mod -s iscsi_vmk | grep iscsivmk_LunQDepth -A 1  
 	iscsivmk_LunQDepth: int  
 	Maximum Outstanding Commands Per LUN
 	

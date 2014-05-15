@@ -41,7 +41,7 @@ Here is how the configuration file is broken down for rsyslog:
 > 
 > You may define multiple directives in your **/etc/rsyslog.conf** configuration file. A directive affects the behavior of all configuration options until another occurrence of that same directive is detected.
 > 
-> A comprehensive list of all available configuration directives and their detailed description can be found in **/usr/share/doc/rsyslog-*version-number*/rsyslog\_conf\_global.html**.
+> A comprehensive list of all available configuration directives and their detailed description can be found in **/usr/share/doc/rsyslog-*version-number*/rsyslog_conf_global.html**.
 > 
 > **20.1.2. Modules**  
 > Due to its modular design, **rsyslog** offers a variety of *modules* which provide dynamic functionality. Note that modules can be written by third parties. Most modules provide additional inputs (see Input Modules below) or outputs (see Output Modules below). Other modules provide special functionality specific to each module. The modules may provide additional configuration directives that become available after a module is loaded. To load a module, use the following syntax:
@@ -871,7 +871,7 @@ That looks fabuluos. Moving onto anacron:
 >     
 >     If **RANDOM_DELAY** is, for example, set to 12, then between 6 and 12 minutes are added to the delay in minutes for each job in that particular anacrontab. **RANDOM_DELAY** can also be set to a value below **6**, including \*\*&#42;||&#42;. When set to \*\*&#42;||&#42;, no random delay is added. This proves to be useful when, for example, more computers that share one network connection need to download the same data every day.
 > 
-> *   **START\_HOURS\_RANGE** — interval, when scheduled jobs can be run, in hours
+> *   **START_HOURS_RANGE** — interval, when scheduled jobs can be run, in hours
 >     
 >     In case the time interval is missed, for example due to a power failure, the scheduled jobs are not executed that day.
 > 

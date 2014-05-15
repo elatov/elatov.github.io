@@ -100,7 +100,7 @@ checking out the logs, I saw the following:
 	  
 	/bin/sh: can't access tty; job control turned off  
 	/ # tail messages.log  
-	FILE: File\_GetVMFSfsType: File\_GetVMFSAttributes failed  
+	FILE: File_GetVMFSfsType: File_GetVMFSAttributes failed  
 	DISNLIB-DSCPTR: DescriptorDetermineType: failed to open '/vmfs/volumes/502e8a75-d04a58db-431a-000c29d33d34/esxconsole-4c87dcc7-73b8-71d6-02e2-000c29d33d34/esxconsole.vmdk': Could not find the file (63)  
 	DISKLIB-LIHK : ''/vmfs/volumes/502e8a75-d04a58db-431a-000c29d33d34/esxconsole-4c87dcc7-73b8-71d6-02e2-000c29d33d34/esxconsole.vmdk'': failed to open (The system cannot find the file specified).  
 	DISKLIB-CHAIH: ''/vmfs/volumes/502e8a75-d04a58db-431a-000c29d33d34/esxconsole-4c87dcc7-73b8-71d6-02e2-000c29d33d34/esxconsole.vmdk'': failed to open (The system cannot find the file specified)  

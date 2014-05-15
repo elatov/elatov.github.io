@@ -25,7 +25,7 @@ We grabbed a '*show tech-support svs*' from the N1K. More information on what a 
 
 	  
 	Event:E_DEBUG, length:351, at 951023 usecs after Fri Apr 13 14:46:54 2012  
-	[102] msp\_vppm\_handle\_port\_profile\_update\_resp(434): (ERR) profile DV\_Uplink\_PG update failed: Syserr code: 0x41b1001d,  
+	[102] msp_vppm_handle_port_profile_update_resp(434): (ERR) profile DV_Uplink_PG update failed: Syserr code: 0x41b1001d,  
 	user string:   
 	internal string:   
 	

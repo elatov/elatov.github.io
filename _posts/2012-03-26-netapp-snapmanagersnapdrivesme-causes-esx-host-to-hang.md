@@ -153,7 +153,7 @@ Now translating the SCSI Sense Code: **2/0 0&#215;6 0x3f 0xe**, I get the follow
 
 To translate SCSI sense codes this is a pretty good KB for that, <a href="http://kb.vmware.com/kb/289902" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/289902']);">289902</a>. So the above sense code is not a surprise, we see the a snapshot LUN of a LUN that we have already mounted and the data is different. There is actually a patch released by VMware to accommodate for this behavior: <a href="http://kb.vmware.com/kb/2000609" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/2000609']);">2000609</a>. From that KB
 
-> Updates the NMP module to add support to the *PREEMPT\_AND\_ABORT* service action in the *PERSISTENT RESERVE OUT SCSI* command for passthrough RDMs, which is required by the Symantec clustering software.
+> Updates the NMP module to add support to the *PREEMPT_AND_ABORT* service action in the *PERSISTENT RESERVE OUT SCSI* command for passthrough RDMs, which is required by the Symantec clustering software.
 
 **UPDATE**: After applying the above patch the issue was not fixed, but it shed more light to the issue. I got another log bundle and I saw the following in the logs:
 

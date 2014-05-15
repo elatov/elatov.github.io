@@ -49,18 +49,18 @@ Next create a Port Profile which will be used for your type of Network Segmentat
 
 	  
 	switch# conf t  
-	switch(config)# port-profile type vethernet profile\_for\_segmentation  
+	switch(config)# port-profile type vethernet profile_for_segmentation  
 	switch(config-port-prof)# no shutdown  
 	switch(config-port-prof)# state enabled  
 	switch(config-port-prof)# switchport mode access  
 	switch(config-port-prof)# switchport access vlan 2002  
-	switch(config-port-prof)# show running-config port-profile profile\_for\_segmentation
+	switch(config-port-prof)# show running-config port-profile profile_for_segmentation
 	
-	!Command: show running-config port-profile profile\_for\_segmentation  
+	!Command: show running-config port-profile profile_for_segmentation  
 	!Time: Sun Aug 5 17:54:07 2012
 	
 	version 4.2(1)SV1(5.1)  
-	port-profile type vethernet profile\_for\_segmentation  
+	port-profile type vethernet profile_for_segmentation  
 	switchport mode access  
 	switchport access vlan 2002  
 	no shutdown  
@@ -74,10 +74,10 @@ Next we create a Network Segmentation Policy, this actually depends on your Tena
 	  
 	switch# conf t  
 	switch(config)# network-segment policy vcd-ni-pol  
-	switch(config-network-segment-policy)# description policy\_for\_vcd_ni  
+	switch(config-network-segment-policy)# description policy_for_vcd_ni  
 	switch(config-network-segment-policy)# type segmentation  
 	switch(config-network-segment-policy)# id e461e9cc-1205-40f4-9f36-ad0e841d9c73  
-	switch(config-network-segment-policy)# import port-profile profile\_for\_segmentation  
+	switch(config-network-segment-policy)# import port-profile profile_for_segmentation  
 	switch(config-network-segment-policy)# show run network-segment policy vcd-ni-pol
 	
 	!Command: show running-config network-segment policy vcd-ni-pol  
@@ -88,9 +88,9 @@ Next we create a Network Segmentation Policy, this actually depends on your Tena
 	
 	network-segment policy vcd-ni-pol  
 	id e461e9cc-1205-40f4-9f36-ad0e841d9c73  
-	description policy\_for\_vcd_ni  
+	description policy_for_vcd_ni  
 	type segmentation  
-	import port-profile profile\_for\_segmentation  
+	import port-profile profile_for_segmentation  
 	
 
 Next we register the Nexus1000v Network Segmentation Manager with vShield Manager as a switch provider. Here is step by step process taken from the Cisco article:
@@ -152,7 +152,7 @@ Follow the wizard to add the pool:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/conf_ib_pool.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/conf_ib_pool.png']);"><img class="alignnone size-full wp-image-2034" title="conf_ib_pool" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/conf_ib_pool.png" alt="conf ib pool VCD NI Network Pools with the Cisco Nexus1000v Distributed Switch" width="964" height="652" /></a>
 
-Click Next, and Name your Pool (I called mine "N1K\_VCD-NI\_Pool"). Then finally click Finish.
+Click Next, and Name your Pool (I called mine "N1K_VCD-NI_Pool"). Then finally click Finish.
 
 You are now finished with creating your pool. Now let's make your Organization use this pool by default. To do that follow these instructions:
 
@@ -173,7 +173,7 @@ Or you can login to the Organization Instance with your Organization Administrat
 5.  Click on the Network Pool Tab
 6.  Select the VCD-NI Pool that you just created<a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/change_net_pool_of_vdc.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/change_net_pool_of_vdc.png']);"><img class="alignnone size-full wp-image-2037" title="change_net_pool_of_vdc" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/change_net_pool_of_vdc.png" alt="change net pool of vdc VCD NI Network Pools with the Cisco Nexus1000v Distributed Switch" width="752" height="653" /></a>
 
-Now if we create a new vApp with in this Organization and create a new vApp Network for this vApp it will use this pool. I created a new vApp called "vApp\_admin\_1" and I created a new vApp network for this vApp, I called the vApp Network "test". Here is how the Network looked like for this vApp:
+Now if we create a new vApp with in this Organization and create a new vApp Network for this vApp it will use this pool. I created a new vApp called "vApp_admin_1" and I created a new vApp network for this vApp, I called the vApp Network "test". Here is how the Network looked like for this vApp:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/new_vapp_with_vapp_network.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/new_vapp_with_vapp_network.png']);"><img class="alignnone size-full wp-image-2038" title="new_vapp_with_vapp_network" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/new_vapp_with_vapp_network.png" alt="new vapp with vapp network VCD NI Network Pools with the Cisco Nexus1000v Distributed Switch" width="1062" height="468" /></a>
 
@@ -182,9 +182,9 @@ Upon powering on this vApp, I saw the the new DvPortgroup created and the VM add
 	  
 	switch# show network-segment policy usage
 	
-	network-segment policy default\_segmentation\_template
+	network-segment policy default_segmentation_template
 	
-	network-segment policy default\_vlan\_template
+	network-segment policy default_vlan_template
 	
 	network-segment policy vcd-ni-pol  
 	dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f  
@@ -271,7 +271,7 @@ Then Follow the wizard:
 1.  Select what type of Network you would like this to be (internal, routed, or direct)
 2.  Select the N1K pool that we created to be used by this Org network<a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/select_pool_for_org_network.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/select_pool_for_org_network.png']);"><img class="alignnone size-full wp-image-2041" title="select_pool_for_org_network" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/select_pool_for_org_network.png" alt="select pool for org network VCD NI Network Pools with the Cisco Nexus1000v Distributed Switch" width="934" height="687" /></a>
 3.  Select the IP range for this network
-4.  Name this Org network, I called mine "org\_net\_using\_n1k\_vcd-ni_pool"
+4.  Name this Org network, I called mine "org_net_using_n1k_vcd-ni_pool"
 
 I then deployed a new vApp, added a new VM to the vApp and put the nic of this VM on my newly created Org network. Here is how the network Diagram looked like for this vApp:
 
@@ -283,22 +283,22 @@ Now checking out the settings on the N1K, I saw the following:
 	
 	switch# show network-segment policy usage
 	
-	network-segment policy default\_segmentation\_template
+	network-segment policy default_segmentation_template
 	
-	network-segment policy default\_vlan\_template
+	network-segment policy default_vlan_template
 	
 	network-segment policy vcd-ni-pol  
-	dvs.VCDVSorg\_net\_using\_n1k\_vcd-ni_pool-25717f9d-78cc-48c1-8506-c38b429f3565  
+	dvs.VCDVSorg_net_using_n1k_vcd-ni_pool-25717f9d-78cc-48c1-8506-c38b429f3565  
 	dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f  
 	
 
-Now we have two dvPortGroups: one for the test vApp Network and second for the "org\_net\_using\_n1k\_vcd-ni_pool" Org Network. Then for the bridge domains:
+Now we have two dvPortGroups: one for the test vApp Network and second for the "org_net_using_n1k_vcd-ni_pool" Org Network. Then for the bridge domains:
 
 	
 	
 	switch# show bridge-domain
 	
-	Bridge-domain dvs.VCDVSorg\_net\_using\_n1k\_vcd-ni_pool-25717f9d-78cc-48c1-8506-c38  
+	Bridge-domain dvs.VCDVSorg_net_using_n1k_vcd-ni_pool-25717f9d-78cc-48c1-8506-c38  
 	b429f3565 (1 ports in all)  
 	Segment ID: 5001 (Manual/Active)  
 	Group IP: 224.0.4.2  
@@ -316,7 +316,7 @@ Now we have two dvPortGroups: one for the test vApp Network and second for the "
 Now we have two of those, which also makes sense. One more thing, I noticed the following on the upstream switch:
 
 	  
-	D04\_5010\_A# sho mac-address-table vlan 2002  
+	D04_5010_A# sho mac-address-table vlan 2002  
 	VLAN MAC Address Type Age Port  
 	\---\---\---+\---\---\---\---\-----+\---\----+\---\---\---+\---\---\---\---\---\---\---\---\---\---  
 	2002 0013.f501.00f3 dynamic 30 Po112  

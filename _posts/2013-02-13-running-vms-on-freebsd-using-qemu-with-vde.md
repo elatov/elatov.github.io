@@ -167,7 +167,7 @@ Lastly we can use the "**VDE**" (Virtual Distributed Ethernet) method:
 > ...
 > 
 > vde_switch  
-> The vde\_switch is a virtual switch provided with the vde networking architecture. As vde\_switch can interconnect several virtual networking devices multiple vde\_switches can be connected together with vde\_cables.
+> The vde_switch is a virtual switch provided with the vde networking architecture. As vde_switch can interconnect several virtual networking devices multiple vde_switches can be connected together with vde_cables.
 
 Since Jarret already did a <a href="http://virtuallyhyper.com/2012/07/installing-kvm-as-a-virtual-machine-on-esxi5-with-bridged-networking/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/07/installing-kvm-as-a-virtual-machine-on-esxi5-with-bridged-networking/']);">post</a> on the bridged/*tap* networking with *KVM*, I decided to try out the *VDE* setup. First let's install the *VDE* Package:
 

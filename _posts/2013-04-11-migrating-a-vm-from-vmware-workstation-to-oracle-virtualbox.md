@@ -398,7 +398,7 @@ That looks perfect. There is only one Virtual Disk and the Memory, CPU, and othe
 
 Running without the -n (dry run) option looked like this:
 
-    9: Hard disk image: source image=Win\_XP-disk1.vmdk, target path=/home/elatov/.virt/vm/Win\_XP-disk1.vmdk, controller=7;channel=0 
+    9: Hard disk image: source image=Win_XP-disk1.vmdk, target path=/home/elatov/.virt/vm/Win_XP-disk1.vmdk, controller=7;channel=0 
         (change target path with "--vsys 0 --unit 9 --disk path"; 
         disable with "--vsys 0 --unit 9 --ignore")
     0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%

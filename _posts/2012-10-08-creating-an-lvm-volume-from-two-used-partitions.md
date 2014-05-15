@@ -242,7 +242,7 @@ First find out the UUID of the Logical Volume:
 
 	  
 	moxz:~>blkid | grep data  
-	/dev/mapper/vg\_data-data: UUID="51d8cf3c-9808-438b-b49a-c533ef4b76e8" SEC\_TYPE="ext2" TYPE="ext3"  
+	/dev/mapper/vg_data-data: UUID="51d8cf3c-9808-438b-b49a-c533ef4b76e8" SEC_TYPE="ext2" TYPE="ext3"  
 	
 
 Then add the following to the /etc/fstab file:

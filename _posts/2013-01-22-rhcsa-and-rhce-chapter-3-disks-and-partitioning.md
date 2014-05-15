@@ -999,7 +999,7 @@ Now onto Volume Groups:
 > 
 > To remove unused physical volumes from a volume group, use the **vgreduce** command. The **vgreduce** command shrinks a volume group's capacity by removing one or more empty physical volumes. This frees those physical volumes to be used in different volume groups or to be removed from the system.
 > 
-> The following command removes the physical volume **/dev/hda1** from the volume group **my\_volume\_group**.
+> The following command removes the physical volume **/dev/hda1** from the volume group **my_volume_group**.
 > 
 >      # vgreduce my_volume_group /dev/hda1
 >     

@@ -66,19 +66,19 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 	> ~ # esxcli storage nmp satp list  
 	> Name Default PSP Description  
 	> \---\---\---\---\---\---\- --\---\---\---\-- -\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---  
-	> VMW\_SATP\_ALUA VMW\_PSP\_MRU Supports non-specific arrays that use the ALUA protocol  
-	> VMW\_SATP\_MSA VMW\_PSP\_MRU Placeholder (plugin not loaded)  
-	> VMW\_SATP\_DEFAULT\_AP VMW\_PSP_MRU Placeholder (plugin not loaded)  
-	> VMW\_SATP\_SVC VMW\_PSP\_FIXED Placeholder (plugin not loaded)  
-	> VMW\_SATP\_EQL VMW\_PSP\_FIXED Placeholder (plugin not loaded)  
-	> VMW\_SATP\_INV VMW\_PSP\_FIXED Placeholder (plugin not loaded)  
-	> VMW\_SATP\_EVA VMW\_PSP\_FIXED Placeholder (plugin not loaded)  
-	> VMW\_SATP\_ALUA\_CX VMW\_PSP_FIXED Placeholder (plugin not loaded)  
-	> VMW\_SATP\_SYMM VMW\_PSP\_FIXED Placeholder (plugin not loaded)  
-	> VMW\_SATP\_CX VMW\_PSP\_MRU Placeholder (plugin not loaded)  
-	> VMW\_SATP\_LSI VMW\_PSP\_MRU Placeholder (plugin not loaded)  
-	> VMW\_SATP\_DEFAULT\_AA VMW\_PSP_FIXED Supports non-specific active/active arrays  
-	> VMW\_SATP\_LOCAL VMW\_PSP\_FIXED Supports direct attached devices  
+	> VMW_SATP_ALUA VMW_PSP_MRU Supports non-specific arrays that use the ALUA protocol  
+	> VMW_SATP_MSA VMW_PSP_MRU Placeholder (plugin not loaded)  
+	> VMW_SATP_DEFAULT_AP VMW_PSP_MRU Placeholder (plugin not loaded)  
+	> VMW_SATP_SVC VMW_PSP_FIXED Placeholder (plugin not loaded)  
+	> VMW_SATP_EQL VMW_PSP_FIXED Placeholder (plugin not loaded)  
+	> VMW_SATP_INV VMW_PSP_FIXED Placeholder (plugin not loaded)  
+	> VMW_SATP_EVA VMW_PSP_FIXED Placeholder (plugin not loaded)  
+	> VMW_SATP_ALUA_CX VMW_PSP_FIXED Placeholder (plugin not loaded)  
+	> VMW_SATP_SYMM VMW_PSP_FIXED Placeholder (plugin not loaded)  
+	> VMW_SATP_CX VMW_PSP_MRU Placeholder (plugin not loaded)  
+	> VMW_SATP_LSI VMW_PSP_MRU Placeholder (plugin not loaded)  
+	> VMW_SATP_DEFAULT_AA VMW_PSP_FIXED Supports non-specific active/active arrays  
+	> VMW_SATP_LOCAL VMW_PSP_FIXED Supports direct attached devices  
 	> 
 > 
 > To list multipathing modules, run the following command:
@@ -91,10 +91,10 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 	> 
 > 
 > **Example: Defining an NMP SATP Rule**  
-> The following sample command assigns the VMW\_SATP\_INV plug-in to manage storage arrays with vendor string NewVend and model string NewMod.
+> The following sample command assigns the VMW_SATP_INV plug-in to manage storage arrays with vendor string NewVend and model string NewMod.
 > 
 	>   
-	> \# esxcli storage nmp satp rule add -V NewVend -M NewMod -s VMW\_SATP\_INV  
+	> \# esxcli storage nmp satp rule add -V NewVend -M NewMod -s VMW_SATP_INV  
 	> 
 
 From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf']);">vSphere Command-Line Interface Concepts and Examples ESXi 5.0</a>"
@@ -102,19 +102,19 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 Add a new SATP
 
 	  
-	esxcli storage nmp satp rule add --satp VMW\_SATP\_DEFAULT_AA --vendor="ABC" --model="^120*  
+	esxcli storage nmp satp rule add --satp VMW_SATP_DEFAULT_AA --vendor="ABC" --model="^120*  
 	
 
 Change the SATP for a device/LUN:
 
 	  
-	esxcli storage nmp satp generic deviceconfig set -c VMW\_SATP\_ALUA_CX -d naa.xxx  
+	esxcli storage nmp satp generic deviceconfig set -c VMW_SATP_ALUA_CX -d naa.xxx  
 	
 
 Change the default PSP for an SATP:
 
 	  
-	\# esxcli storage nmp satp set --default-psp VMW\_PSP\_FIXED --satp VMW\_SATP\_ALUA_CX  
+	\# esxcli storage nmp satp set --default-psp VMW_PSP_FIXED --satp VMW_SATP_ALUA_CX  
 	
 
 List all the plugins:
@@ -123,35 +123,35 @@ List all the plugins:
 	~ # esxcli storage core plugin registration list  
 	Module Name Plugin Name Plugin Class Dependencies Full Path  
 	\---\---\---\---\---\---\- --\---\---\---\---\---\-- -\---\---\---\-- -\---\---\---\---\---\---\---\---\---\- --\---\----  
-	mask\_path\_plugin MASK_PATH MP  
+	mask_path_plugin MASK_PATH MP  
 	nmp NMP MP  
-	vmw\_satp\_symm VMW\_SATP\_SYMM SATP  
-	vmw\_satp\_svc VMW\_SATP\_SVC SATP  
-	vmw\_satp\_msa VMW\_SATP\_MSA SATP  
-	vmw\_satp\_lsi VMW\_SATP\_LSI SATP  
-	vmw\_satp\_inv VMW\_SATP\_INV SATP vmw\_satp\_lib_cx  
-	vmw\_satp\_eva VMW\_SATP\_EVA SATP  
-	vmw\_satp\_eql VMW\_SATP\_EQL SATP  
-	vmw\_satp\_cx VMW\_SATP\_CX SATP vmw\_satp\_lib_cx  
-	vmw\_satp\_alua\_cx VMW\_SATP\_ALUA\_CX SATP vmw\_satp\_alua,vmw\_satp\_lib_cx  
-	vmw\_satp\_lib_cx None SATP  
-	vmw\_satp\_alua VMW\_SATP\_ALUA SATP  
-	vmw\_satp\_default\_ap VMW\_SATP\_DEFAULT\_AP SATP  
-	vmw\_satp\_default\_aa VMW\_SATP\_DEFAULT\_AA SATP  
-	vmw\_satp\_local VMW\_SATP\_LOCAL SATP  
-	vmw\_psp\_lib None PSP  
-	vmw\_psp\_mru VMW\_PSP\_MRU PSP vmw\_psp\_lib  
-	vmw\_psp\_rr VMW\_PSP\_RR PSP vmw\_psp\_lib  
-	vmw\_psp\_fixed VMW\_PSP\_FIXED PSP vmw\_psp\_lib  
-	vmw\_vaaip\_emc None VAAI  
-	vmw\_vaaip\_mask VMW\_VAAIP\_MASK VAAI  
-	vmw\_vaaip\_symm VMW\_VAAIP\_SYMM VAAI vmw\_vaaip\_emc  
-	vmw\_vaaip\_netapp VMW\_VAAIP\_NETAPP VAAI  
-	vmw\_vaaip\_lhn VMW\_VAAIP\_LHN VAAI  
-	vmw\_vaaip\_hds VMW\_VAAIP\_HDS VAAI  
-	vmw\_vaaip\_eql VMW\_VAAIP\_EQL VAAI  
-	vmw\_vaaip\_cx VMW\_VAAIP\_CX VAAI vmw\_vaaip\_emc,vmw\_satp\_lib_cx  
-	vaai\_filter VAAI\_FILTER Filter  
+	vmw_satp_symm VMW_SATP_SYMM SATP  
+	vmw_satp_svc VMW_SATP_SVC SATP  
+	vmw_satp_msa VMW_SATP_MSA SATP  
+	vmw_satp_lsi VMW_SATP_LSI SATP  
+	vmw_satp_inv VMW_SATP_INV SATP vmw_satp_lib_cx  
+	vmw_satp_eva VMW_SATP_EVA SATP  
+	vmw_satp_eql VMW_SATP_EQL SATP  
+	vmw_satp_cx VMW_SATP_CX SATP vmw_satp_lib_cx  
+	vmw_satp_alua_cx VMW_SATP_ALUA_CX SATP vmw_satp_alua,vmw_satp_lib_cx  
+	vmw_satp_lib_cx None SATP  
+	vmw_satp_alua VMW_SATP_ALUA SATP  
+	vmw_satp_default_ap VMW_SATP_DEFAULT_AP SATP  
+	vmw_satp_default_aa VMW_SATP_DEFAULT_AA SATP  
+	vmw_satp_local VMW_SATP_LOCAL SATP  
+	vmw_psp_lib None PSP  
+	vmw_psp_mru VMW_PSP_MRU PSP vmw_psp_lib  
+	vmw_psp_rr VMW_PSP_RR PSP vmw_psp_lib  
+	vmw_psp_fixed VMW_PSP_FIXED PSP vmw_psp_lib  
+	vmw_vaaip_emc None VAAI  
+	vmw_vaaip_mask VMW_VAAIP_MASK VAAI  
+	vmw_vaaip_symm VMW_VAAIP_SYMM VAAI vmw_vaaip_emc  
+	vmw_vaaip_netapp VMW_VAAIP_NETAPP VAAI  
+	vmw_vaaip_lhn VMW_VAAIP_LHN VAAI  
+	vmw_vaaip_hds VMW_VAAIP_HDS VAAI  
+	vmw_vaaip_eql VMW_VAAIP_EQL VAAI  
+	vmw_vaaip_cx VMW_VAAIP_CX VAAI vmw_vaaip_emc,vmw_satp_lib_cx  
+	vaai_filter VAAI_FILTER Filter  
 	
 
 List all the devices claimed by NMP:
@@ -160,9 +160,9 @@ List all the devices claimed by NMP:
 	~ # esxcli storage nmp device list  
 	naa.600144f0928c010000004fc511ec0001  
 	Device Display Name: OI iSCSI Disk (naa.600144f0928c010000004fc511ec0001)  
-	Storage Array Type: VMW\_SATP\_ALUA  
-	Storage Array Type Device Config: {implicit\_support=on;explicit\_support=off; explicit\_allow=on;alua\_followover=on;{TPG\_id=0,TPG\_state=AO}}  
-	Path Selection Policy: VMW\_PSP\_MRU  
+	Storage Array Type: VMW_SATP_ALUA  
+	Storage Array Type Device Config: {implicit_support=on;explicit_support=off; explicit_allow=on;alua_followover=on;{TPG_id=0,TPG_state=AO}}  
+	Path Selection Policy: VMW_PSP_MRU  
 	Path Selection Policy Device Config: Current Path=vmhba33:C0:T0:L0  
 	Path Selection Policy Device Custom Config:  
 	Working Paths: vmhba33:C0:T0:L0  
@@ -174,15 +174,15 @@ List all the PSPs:
 	~ # esxcli storage nmp psp list  
 	Name Description  
 	\---\---\---\---\- --\---\---\---\---\---\---\---\---\---\----  
-	VMW\_PSP\_MRU Most Recently Used Path Selection  
-	VMW\_PSP\_RR Round Robin Path Selection  
-	VMW\_PSP\_FIXED Fixed Path Selection  
+	VMW_PSP_MRU Most Recently Used Path Selection  
+	VMW_PSP_RR Round Robin Path Selection  
+	VMW_PSP_FIXED Fixed Path Selection  
 	
 
 Change PSP for device/LUN:
 
 	  
-	esxcli storage nmp device set -d naa.xx -P VMW\_PSP\_MRU  
+	esxcli storage nmp device set -d naa.xx -P VMW_PSP_MRU  
 	
 
 ### Understand different multipathing policy functionalities
@@ -191,18 +191,18 @@ From the <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/
 
 > By default, the VMware NMP supports the following PSPs:
 > 
-> **VMW\_PSP\_MRU** The host selects the path that it used most recently. When the path becomes unavailable, the host selects an alternative path. The host does not revert back  
+> **VMW_PSP_MRU** The host selects the path that it used most recently. When the path becomes unavailable, the host selects an alternative path. The host does not revert back  
 > to the original path when that path becomes available again. There is no preferred path setting with the MRU policy. MRU is the default policy for most active-passive storage devices.
 > 
 > Displayed in the vSphere Client as the Most Recently Used (VMware) path selection policy.
 > 
-> **VMW\_PSP\_FIXED** The host uses the designated preferred path, if it has been configured. Otherwise, it selects the first working path discovered at system boot time. If you want the host to use a particular preferred path, specify it manually. Fixed is the default policy for most active-active storage devices.
+> **VMW_PSP_FIXED** The host uses the designated preferred path, if it has been configured. Otherwise, it selects the first working path discovered at system boot time. If you want the host to use a particular preferred path, specify it manually. Fixed is the default policy for most active-active storage devices.
 > 
 > **NOTE** If the host uses a default preferred path and the path's status turns to Dead, a new path is selected as preferred. However, if you explicitly designate the preferred path, it will remain preferred even when it becomes inaccessible.
 > 
 > Displayed in the vSphere Client as the Fixed (VMware) path selection policy.
 > 
-> **VMW\_PSP\_RR** The host uses an automatic path selection algorithm rotating through all active paths when connecting to active-passive arrays, or through all available paths when connecting to active-active arrays. RR is the default for a number of arrays and can be used with both active-active and active-passive arrays to implement load balancing across paths for different LUNs.
+> **VMW_PSP_RR** The host uses an automatic path selection algorithm rotating through all active paths when connecting to active-passive arrays, or through all available paths when connecting to active-active arrays. RR is the default for a number of arrays and can be used with both active-active and active-passive arrays to implement load balancing across paths for different LUNs.
 > 
 > Displayed in the vSphere Client as the Round Robin (VMware) path selection policy
 
@@ -244,10 +244,10 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 > Set the path policy using esxcli:
 > 
 	>   
-	> esxcli storage nmp device set --device naa.xxx --psp VMW\_PSP\_RR  
+	> esxcli storage nmp device set --device naa.xxx --psp VMW_PSP_RR  
 	> 
 > 
-> If you specified the VMW\_PSP\_FIXED policy, you must make sure the preferred path is set  
+> If you specified the VMW_PSP_FIXED policy, you must make sure the preferred path is set  
 > correctly. Check which path is the preferred path for a device:
 > 
 	>   
@@ -290,7 +290,7 @@ From above:
 > Set the path policy using esxcli:
 > 
 	>   
-	> esxcli storage nmp device set --device naa.xxx --psp VMW\_PSP\_RR  
+	> esxcli storage nmp device set --device naa.xxx --psp VMW_PSP_RR  
 	> 
 
 ### Configure Software iSCSI port binding

@@ -256,7 +256,7 @@ Now let's go to the master and add our new node. On the Ubuntu machine edit **/e
 
     [moxz.dnsd.me] 
       address 192.168.1.102
-      use\_node\_name yes
+      use_node_name yes
     
 
 Also make sure you can connect to the node from the master:

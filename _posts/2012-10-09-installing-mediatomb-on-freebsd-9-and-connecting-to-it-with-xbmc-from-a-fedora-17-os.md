@@ -143,7 +143,7 @@ As you can see it was running as the **mediatomb** user and group. I like securi
 
 ### 3. Go to the Web Management Interface for MediaTomb and Add a Folder Where Your Media is Stored
 
-Open up a browser and point it to **http://IP\_OF\_MEDIATOMB_SERVER:49152**. Here is how my browser looked like:
+Open up a browser and point it to **http://IP_OF_MEDIATOMB_SERVER:49152**. Here is how my browser looked like:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/10/media_tomb_web_mgmt.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/10/media_tomb_web_mgmt.png']);"><img class="alignnone size-full wp-image-4170" title="media_tomb_web_mgmt" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/media_tomb_web_mgmt.png" alt="media tomb web mgmt Installing Mediatomb on FreeBSD 9 and Connecting to it with XBMC from a Fedora 17 OS" width="732" height="240" /></a>
 

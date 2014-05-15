@@ -78,7 +78,7 @@ Doing some research I ran into <a href="https://communities.vmware.com/thread/45
 > VMware Workstation 9 and Player 5 both support kernels up to 3.9. Any later requires patching of the VMware modules.
 > 
 > **3.10 kernels**  
-> The call create\_proc\_entry() has been dropped from 3.10 in favor of proc_create(). This requires patching of the vmblock and vmnet modules that use them. The patches (including the optional fuse patch) can be found here and here:
+> The call create_proc_entry() has been dropped from 3.10 in favor of proc_create(). This requires patching of the vmblock and vmnet modules that use them. The patches (including the optional fuse patch) can be found here and here:
 > 
 >     $ cd /tmp
 >     $ curl -O http://pkgbuild.com/git/aur-mirror.git/plain/vmware-patch/vmblock-9.0.2-5.0.2-3.10.patch

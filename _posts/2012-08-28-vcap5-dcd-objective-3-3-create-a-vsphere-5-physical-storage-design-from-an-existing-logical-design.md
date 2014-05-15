@@ -97,9 +97,9 @@ The recommended PSP for A/P Arrays is MRU.
 
 ALUA is a protocol that makes an A/P Array psuedo A/A. If you more information on ALUA, I would suggest reading my <a href="http://virtuallyhyper.com/2012/04/seeing-a-high-number-of-trespasses-from-a-clariion-array-with-esx-hosts/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/04/seeing-a-high-number-of-trespasses-from-a-clariion-array-with-esx-hosts/']);">post</a> on it. Typical ALUA capable arrays are EMC Clarrion and VNX. I will talk about the VNX Series, from "<a href="http://www.emc.com/collateral/hardware/technical-documentation/h8229-vnx-vmware-tb.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.emc.com/collateral/hardware/technical-documentation/h8229-vnx-vmware-tb.pdf']);">Using EMC VNX Storage with VMware vSphere</a>" :
 
-> vSphere 4.1 and later include an auto-registration feature that registers each SCSI initiator with the VNX storage system. When the host adapters login to the SP, a new server record is created with the ESXi host name. Each record is configured based on the storage array type the host discovers. NMP sets the storage array type for VNX to VMW\_SATP\_ALUA. This sets the host port to ALUA mode and sets the PSP for each LUN to VMW\_PSP\_FIXED.
+> vSphere 4.1 and later include an auto-registration feature that registers each SCSI initiator with the VNX storage system. When the host adapters login to the SP, a new server record is created with the ESXi host name. Each record is configured based on the storage array type the host discovers. NMP sets the storage array type for VNX to VMW_SATP_ALUA. This sets the host port to ALUA mode and sets the PSP for each LUN to VMW_PSP_FIXED.
 > 
-> Although Fixed Path is the preferred PSP for VNX, Round Robin (VMW\_PSP\_RR) is also of interest in some environments due to the ability to actively distribute host I/O across all paths.
+> Although Fixed Path is the preferred PSP for VNX, Round Robin (VMW_PSP_RR) is also of interest in some environments due to the ability to actively distribute host I/O across all paths.
 > 
 > ...  
 > ...
@@ -110,7 +110,7 @@ Here is the mentioned diagram from that article:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/08/vnx-vmware-iscsi-bp.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/08/vnx-vmware-iscsi-bp.png']);"><img class="alignnone size-full wp-image-2965" title="vnx-vmware-iscsi-bp" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/vnx-vmware-iscsi-bp.png" alt="vnx vmware iscsi bp VCAP5 DCD Objective 3.3 – Create a vSphere 5 Physical Storage Design from an Existing Logical Design" width="432" height="217" /></a>
 
-For ALUA the PSP is usually MRU or Round Robin, depends on what the array vendor recommends. In vSphere 4.1 there a new PSP called Fixed\_AP and that was used. If you want more information regarding Fixed\_AP check out <a href="http://virtuallyhyper.com/2012/04/vmw_psp_fixed-vs-vmw_psp_fixed_ap/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/04/vmw_psp_fixed-vs-vmw_psp_fixed_ap/']);">this</a> post by Jarret.
+For ALUA the PSP is usually MRU or Round Robin, depends on what the array vendor recommends. In vSphere 4.1 there a new PSP called Fixed_AP and that was used. If you want more information regarding Fixed_AP check out <a href="http://virtuallyhyper.com/2012/04/vmw_psp_fixed-vs-vmw_psp_fixed_ap/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/04/vmw_psp_fixed-vs-vmw_psp_fixed_ap/']);">this</a> post by Jarret.
 
 Each of the array types are described in "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-storage-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-storage-guide.pdf']);">vSphere Storage Guide</a>". Here is a snippet from that guide:
 
@@ -137,9 +137,9 @@ For the pathing policies, check out VMware KB <a href="http://kb.vmware.com/kb/1
 > 
 > **Note:** This policy is not currently supported for Logical Units that are part of a Microsoft Cluster Service (MSCS) virtual machine.
 > 
-> *   Fixed path with Array Preference — The VMW\_PSP\_FIXED_AP policy was introduced in ESX/ESXi 4.1. It works for both Active/Active and Active/Passive storage arrays that support ALUA. This policy queries the storage array for the preferred path based on the arrays preference. If no preferred path is specified by the user, the storage array selects the preferred path based on specific criteria. 
+> *   Fixed path with Array Preference — The VMW_PSP_FIXED_AP policy was introduced in ESX/ESXi 4.1. It works for both Active/Active and Active/Passive storage arrays that support ALUA. This policy queries the storage array for the preferred path based on the arrays preference. If no preferred path is specified by the user, the storage array selects the preferred path based on specific criteria. 
 > 
-> **Note:** The VMW\_PSP\_FIXED_AP policy has been removed from ESXi 5.0. For ALUA arrays in ESXi 5.0 the PSP MRU is normally selected but some storage arrays need to use Fixed
+> **Note:** The VMW_PSP_FIXED_AP policy has been removed from ESXi 5.0. For ALUA arrays in ESXi 5.0 the PSP MRU is normally selected but some storage arrays need to use Fixed
 
 If the array is capable of using VAAI definitely use, this allows you to offload certain tasks to array. From the <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-storage-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-storage-guide.pdf']);">vSphere Storage Guide</a>:
 

@@ -123,7 +123,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 > 1.  On the Configuration tab, under Settings, click Download Settings.
 > 2.  In the Download Sources pane, select Use a shared repository
 > 3.  Enter the path or the URL to the shared repository.  
->     For example, C:\repository\_path\, https://repository\_path/, or http://repository_path/  
+>     For example, C:\repository_path\, https://repository_path/, or http://repository_path/  
 >     In these examples, repository_path is the path to the folder to which you have exported the downloaded upgrades, patches, extensions, and notifications. In an environment where the Update Manager server does not have direct access to the Internet, but is connected to a machine that has Internet access, the folder can be on a Web server.  
 >     You can specify an HTTP or HTTPS address, or a location on the disk on which Update Manager is installed. HTTPS addresses are supported without any authentication.
 > 4.  Click Validate URL to validate the path.  
@@ -373,10 +373,10 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 >     <a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/options_for_excel_for_vum.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/12/options_for_excel_for_vum.png']);"><img class="alignnone size-full wp-image-5205" title="options_for_excel_for_vum" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/options_for_excel_for_vum.png" alt="options for excel for vum VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="561" height="118" /></a>  
 >     For example, if you want to get the latest scan results for all objects in the inventory and all patches for an inventory object, select the following database views and their corresponding columns from the Available tables and columns pane:</p> 
 >     *   VUMV_UPDATES
->     *   VUMV\_ENTITY\_SCAN_RESULTS
+>     *   VUMV_ENTITY_SCAN_RESULTS
 > 6.  Click OK in the warning message that the query wizard cannot join the tables in your query.
 > 7.  In the Microsoft Query window, drag a column name from the first view to the other column to join the columns in the tables manually.  
->     For example, join the META\_UID column from the VUMV\_UPDATES database view with the UPDATE\_METAUID column from the VUMV\_ENTITY\_SCAN\_RESULTS database view. A line between the columns selected indicates that these columns are joined.
+>     For example, join the META_UID column from the VUMV_UPDATES database view with the UPDATE_METAUID column from the VUMV_ENTITY_SCAN_RESULTS database view. A line between the columns selected indicates that these columns are joined.
 > 
 > The data is automatically queried for all inventory objects in the Microsoft Query window
 
@@ -390,14 +390,14 @@ Also from the same document:
 > *   To generate a report containing the latest scan results for all objects in the inventory and for all patches for an inventory object, run the query in Microsoft SQL Client.
 > 
 	>   
-	> SELECT r.entity\_uid,r.ENTITY\_STATUS,  
+	> SELECT r.entity_uid,r.ENTITY_STATUS,  
 	> u.meta_uid, u.title, u.description, u.type, u.severity,  
 	> (case when u.SPECIAL_ATTRIBUTE is null then 'false'  
 	> else 'true'  
-	> end) as IS\_SERVICE\_PACK,  
-	> r.scanh\_id, r.scan\_start\_time, r.scan\_end_time  
-	> FROM VUMV\_UPDATES u JOIN VUMV\_ENTITY\_SCAN\_RESULTS r ON (u.meta\_uid = r.update\_metauid)  
-	> ORDER BY r.entity\_uid, u.meta\_uid  
+	> end) as IS_SERVICE_PACK,  
+	> r.scanh_id, r.scan_start_time, r.scan_end_time  
+	> FROM VUMV_UPDATES u JOIN VUMV_ENTITY_SCAN_RESULTS r ON (u.meta_uid = r.update_metauid)  
+	> ORDER BY r.entity_uid, u.meta_uid  
 	> 
 > 
 > The query displays all patches that are applicable to the scanned objects in the inventory.

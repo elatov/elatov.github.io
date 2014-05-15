@@ -247,10 +247,10 @@ The configure process didn't fail so then I decided to build/make the applicatio
 	make[2]: Entering directory \`/home/elatov/downloads/sleuthkit-4.0.1/tsk3'  
 	Making all in base  
 	make[3]: Entering directory \`/home/elatov/downloads/sleuthkit-4.0.1/tsk3/base'  
-	/bin/sh ../../libtool --tag=CC --mode=compile gcc -DHAVE\_CONFIG\_H -I. -I../../tsk3 -I../.. -Wall -g -O2 -pthread -I/usr/local/include -MT md5c.lo -MD -MP -MF .deps/md5c.Tpo -c -o md5c.lo md5c.c  
+	/bin/sh ../../libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../tsk3 -I../.. -Wall -g -O2 -pthread -I/usr/local/include -MT md5c.lo -MD -MP -MF .deps/md5c.Tpo -c -o md5c.lo md5c.c  
 	...  
 	...  
-	libtool: link: g++ -g -O2 -pthread -o posix\_cpp\_style posix-cpp-style.o -L/usr/local/lib ../tsk3/.libs/libtsk3.a -ldl -lz -pthread  
+	libtool: link: g++ -g -O2 -pthread -o posix_cpp_style posix-cpp-style.o -L/usr/local/lib ../tsk3/.libs/libtsk3.a -ldl -lz -pthread  
 	make[1]: Leaving directory \`/home/elatov/downloads/sleuthkit-4.0.1/samples'  
 	Making all in man  
 	make[1]: Entering directory \`/home/elatov/downloads/sleuthkit-4.0.1/man'  
@@ -274,7 +274,7 @@ So the compile finished with success as well, which is always good news. I then 
 	make[3]: Nothing to be done for \`install-data-am'.  
 	...  
 	...  
-	/bin/sh /home/elatov/downloads/sleuthkit-4.0.1/config/install-sh -c -m 644 'tsk3/auto/tsk\_auto.h' '/usr/local/sleuthkit/include/tsk3/auto/tsk\_auto.h'  
+	/bin/sh /home/elatov/downloads/sleuthkit-4.0.1/config/install-sh -c -m 644 'tsk3/auto/tsk_auto.h' '/usr/local/sleuthkit/include/tsk3/auto/tsk_auto.h'  
 	make[2]: Leaving directory \`/home/elatov/downloads/sleuthkit-4.0.1'  
 	make[1]: Leaving directory \`/home/elatov/downloads/sleuthkit-4.0.1'  
 	
@@ -294,10 +294,10 @@ So this was a pretty standard install, *bin* is where all the binaries reside, *
 
 	  
 	$ ls /usr/local/sleuthkit/bin  
-	blkcalc fcat hfind img\_cat jls mmstat tsk\_comparedir  
-	blkcat ffind icat img\_stat mactime sigfind tsk\_gettimes  
+	blkcalc fcat hfind img_cat jls mmstat tsk_comparedir  
+	blkcat ffind icat img_stat mactime sigfind tsk_gettimes  
 	blkls fls ifind istat mmcat sorter tsk_loaddb  
-	blkstat fsstat ils jcat mmls srch\_strings tsk\_recover  
+	blkstat fsstat ils jcat mmls srch_strings tsk_recover  
 	
 
 If you want to find out what each command does you can check out the man page in the following manner:
@@ -331,7 +331,7 @@ This lists the inode number, full path of the file and the file name. That was p
 	$ /usr/local/sleuthkit/bin/ils sd.img | less  
 	class|host|device|start_time  
 	ils|klaptop||1353505471  
-	st\_ino|st\_alloc|st\_uid|st\_gid|st\_mtime|st\_atime|st\_ctime|st\_crtime|st\_mode|st\_nlink|st_size  
+	st_ino|st_alloc|st_uid|st_gid|st_mtime|st_atime|st_ctime|st_crtime|st_mode|st_nlink|st_size  
 	10|f|0|0|1226207720|1226127600|0|1226207720|777|0|16384  
 	20|f|0|0|1239120060|1239084000|0|1239120060|777|0|0  
 	565|f|0|0|1226207530|1226127600|0|1226207530|777|0|16384  
@@ -416,7 +416,7 @@ Now I wanted to recover all the files. I ran into a couple of other links: '<a h
 	\# Read in 3 different variables  
 	file_type=\`echo "$line" | awk {'print $1'}\`  
 	inode_number=\`echo "$line" | cut -d : -f 1 |awk {'print $NF'}\`  
-	inode\_number=${inode\_number%:}  
+	inode_number=${inode_number%:}  
 	file_name=\`echo "$line" | cut -f 2\`
 	
 	#un-comment below to see what files will be recovered  
@@ -426,10 +426,10 @@ Now I wanted to recover all the files. I ran into a couple of other links: '<a h
 	
 	\# If a directory, then create it  
 	if [ $file_type == "d/d" ]; then  
-	mkdir -p $OUTPUT\_DIR/"$file\_name"  
+	mkdir -p $OUTPUT_DIR/"$file_name"  
 	\# Else it's a file, so recover the file to output directory  
 	else  
-	/usr/local/sleuthkit/bin/icat -r $IMG\_FILE "$inode\_number" > $OUTPUT\_DIR/"$file\_name"  
+	/usr/local/sleuthkit/bin/icat -r $IMG_FILE "$inode_number" > $OUTPUT_DIR/"$file_name"  
 	fi  
 	done  
 	
@@ -467,7 +467,7 @@ Very similar results, but the recovered files had the same folder structure as t
 
 	  
 	$ man -M /usr/local/sleuthkit/share/man/ tsk_recover  
-	TSK\_RECOVER(1) TSK\_RECOVER(1)
+	TSK_RECOVER(1) TSK_RECOVER(1)
 	
 	NAME  
 	tsk_recover - Export files from an image into a local directory

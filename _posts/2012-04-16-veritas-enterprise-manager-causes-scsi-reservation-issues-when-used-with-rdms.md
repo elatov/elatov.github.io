@@ -18,7 +18,7 @@ tags:
 I recently ran into an issue where a customer was seeing "SCSI Reservation" messages on one of their hosts. I asked for a log bundle (KB <a href="http://kb.vmware.com/kb/653" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/653']);">653</a>), and they had sent me one. I was looking over the vmkernel logs (/var/log/vmkernel) and I saw the following:
 
 	  
-	vmkernel.9:Mar 10 01:00:45 esx\_host vmkernel: 97:00:40:02.937 cpu15:14570)VMW\_SATP\_SVC: satp\_svc_UpdatePath: Failed to update path "vmhba2:C0:T1:L80" state. Status=SCSI reservation conflict  
+	vmkernel.9:Mar 10 01:00:45 esx_host vmkernel: 97:00:40:02.937 cpu15:14570)VMW_SATP_SVC: satp_svc_UpdatePath: Failed to update path "vmhba2:C0:T1:L80" state. Status=SCSI reservation conflict  
 	
 
 Looking at the frequency of the message and what LUN kept having the issue, I saw the following:
@@ -45,7 +45,7 @@ First here is the 'esxcli nmp device' output for that lun:
 	Device Display Name: IBM Fibre Channel Disk (naa.600507680180863d6800000000000062)  
 	Group State: active  
 	Array Priority: 0  
-	Storage Array Type Path Config: SATP VMW\_SATP\_SVC does not support path configuration.  
+	Storage Array Type Path Config: SATP VMW_SATP_SVC does not support path configuration.  
 	Path Selection Policy Path Config: {current: no; preferred: no}  
 	
 

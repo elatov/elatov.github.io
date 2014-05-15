@@ -310,25 +310,25 @@ After you extract the source you will see a '*work*' directory. The patch proces
 > Each patch you wish to apply should be saved into a file named patch-\* where \* indicates the pathname of the file that is patched, such as patch-Imakefile or patch-src-config.h. These files should be stored in PATCHDIR (usually files/, from where they will be automatically applied. All patches must be relative to WRKSRC (generally the directory your port's tarball unpacks itself into, that being where the build is done).  
 > ..  
 > ..  
-> Note that if the path of a patched file contains an underscore (\_) character, the patch needs to have two underscores instead in its name. For example, to patch a file named src/freeglut\_joystick.c, the corresponding patch should be named patch-src-freeglut__joystick.c. 
+> Note that if the path of a patched file contains an underscore (_) character, the patch needs to have two underscores instead in its name. For example, to patch a file named src/freeglut_joystick.c, the corresponding patch should be named patch-src-freeglut__joystick.c. 
 
 So we were patching the "fuse_vnops.c" file. First let's find it's location in the source:
 
 	  
 	elatov@freebsd:/usr/ports/sysutils/fusefs-kmod>find . -name 'fuse_vnops.c'  
-	./work/fuse4bsd-498acaef33b0/fuse\_module/fuse\_vnops.c  
+	./work/fuse4bsd-498acaef33b0/fuse_module/fuse_vnops.c  
 	
 
 Now checking out the distfile directory, I actually saw a patch for that file:
 
 	  
 	elatov@freebsd:/usr/ports/sysutils/fusefs-kmod>ls -l files/ | grep vn  
-	-rw-r--r-- 1 root wheel 443 Sep 21 2011 extra-patch-fuse\_module\_\_fuse\_vnops.c  
-	-rw-r--r-- 1 root wheel 269 May 11 01:08 extrapatch-fuse\_module\_\_fuse\_vnops.c  
-	-rw-r--r-- 1 root wheel 2221 Sep 20 17:52 patch-fuse\_module\_\_fuse\_vnops.c  
+	-rw-r--r-- 1 root wheel 443 Sep 21 2011 extra-patch-fuse_module__fuse_vnops.c  
+	-rw-r--r-- 1 root wheel 269 May 11 01:08 extrapatch-fuse_module__fuse_vnops.c  
+	-rw-r--r-- 1 root wheel 2221 Sep 20 17:52 patch-fuse_module__fuse_vnops.c  
 	
 
-so I went ahead and edited the 'patch-fuse\_module\_\_fuse\_vnops.c' file and added the changes described in the above page. <a href="http://virtuallyhyper.com/wp-content/uploads/2012/10/patch-fuse_module__fuse_vnops.c" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/10/patch-fuse_module__fuse_vnops.c']);">Here</a> is my final patch file. I then removed both packages:
+so I went ahead and edited the 'patch-fuse_module__fuse_vnops.c' file and added the changes described in the above page. <a href="http://virtuallyhyper.com/wp-content/uploads/2012/10/patch-fuse_module__fuse_vnops.c" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/10/patch-fuse_module__fuse_vnops.c']);">Here</a> is my final patch file. I then removed both packages:
 
 	  
 	elatov@freebsd:> sudo /usr/local/etc/rc.d/fusefs stop  
@@ -341,8 +341,8 @@ so I went ahead and edited the 'patch-fuse\_module\_\_fuse\_vnops.c' file and ad
 I then applied my new patch file:
 
 	  
-	elatov@freebsd:~>fetch http://virtuallyhyper.com/wp-content/uploads/2012/10/patch-fuse\_module\_\_fuse\_vnops.c  
-	elatov@freebsd:~>sudo cp patch-fuse\_module\\_\_fuse\_vnops.c /usr/ports/sysutils/fusefs-kmod/files/patch-fuse\_module\_\_fuse_vnops.c  
+	elatov@freebsd:~>fetch http://virtuallyhyper.com/wp-content/uploads/2012/10/patch-fuse_module__fuse_vnops.c  
+	elatov@freebsd:~>sudo cp patch-fuse_module\__fuse_vnops.c /usr/ports/sysutils/fusefs-kmod/files/patch-fuse_module__fuse_vnops.c  
 	
 
 And then re-installed both:

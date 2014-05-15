@@ -209,8 +209,8 @@ Notice that we have system VLAN set as 1, usually this would be your control and
 	switch(config)# port-profile type vethernet control-packet  
 	switch(config-port-prof)# switchport mode access  
 	switch(config-port-prof)# switchport access vlan 1  
-	switch(config-port-prof)# 2012 Aug 4 00:38:00 switch %PORT-PROFILE-1-VLAN\_CONFIGURED\_CONTROL_VLAN: Port-profile is configured to carry the control VLAN 1. Also configure the vlan as system VLAN in this port-profile and other uplink port-profiles that are configured to carry the VLAN for VSM-VEM traffic.  
-	2012 Aug 4 00:38:00 switch %PORT-PROFILE-1-VLAN\_CONFIGURED\_PACKET_VLAN: Port-profile is configured to carry the packet VLAN 1. Also configure the VLAN as system VLAN in this port-profile and other uplink port-profiles that are configured to carry the VLAN for VSM-VEM traffic.
+	switch(config-port-prof)# 2012 Aug 4 00:38:00 switch %PORT-PROFILE-1-VLAN_CONFIGURED_CONTROL_VLAN: Port-profile is configured to carry the control VLAN 1. Also configure the vlan as system VLAN in this port-profile and other uplink port-profiles that are configured to carry the VLAN for VSM-VEM traffic.  
+	2012 Aug 4 00:38:00 switch %PORT-PROFILE-1-VLAN_CONFIGURED_PACKET_VLAN: Port-profile is configured to carry the packet VLAN 1. Also configure the VLAN as system VLAN in this port-profile and other uplink port-profiles that are configured to carry the VLAN for VSM-VEM traffic.
 	
 	switch(config-port-prof)# no shutdown  
 	switch(config-port-prof)# system vlan 1  
@@ -270,7 +270,7 @@ Then proceed with the install:
 	Installation Result  
 	Message: Operation finished successfully.  
 	Reboot Required: false  
-	VIBs Installed: Cisco\_bootbank\_cisco-vem-v140-esx_4.2.1.1.5.1.0-3.0.1  
+	VIBs Installed: Cisco_bootbank_cisco-vem-v140-esx_4.2.1.1.5.1.0-3.0.1  
 	VIBs Removed:  
 	VIBs Skipped:  
 	
@@ -324,7 +324,7 @@ Then go ahead and migrate the first Nic of the N1K VM to the port-group (control
 	~ # vemcmd show port  
 	LTL VSM Port Admin Link State PC-LTL SGID Vem Port Type  
 	18 Eth3/2 UP UP FWD 0 vmnic1  
-	49 Veth1 UP UP FWD 0 vCloud\_Director\_RHEL5.6.eth1  
+	49 Veth1 UP UP FWD 0 vCloud_Director_RHEL5.6.eth1  
 	50 Veth2 UP UP FWD 0 Nexus1000V-4.2.1.SV1.5.1.eth0  
 	
 
@@ -358,8 +358,8 @@ On the N1K, check to make sure the module (host) is there:
 In the logs of the VSM, you will also see the following:
 
 	  
-	2012 Aug 6 21:49:28 switch %VEM\_MGR-2-VEM\_MGR_DETECTED: Host my-esxi-host detected as module 3  
-	2012 Aug 6 21:49:28 switch %VEM\_MGR-2-MOD\_ONLINE: Module 3 is online  
+	2012 Aug 6 21:49:28 switch %VEM_MGR-2-VEM_MGR_DETECTED: Host my-esxi-host detected as module 3  
+	2012 Aug 6 21:49:28 switch %VEM_MGR-2-MOD_ONLINE: Module 3 is online  
 	
 
 And lastly ensure the virtual port for the Control Interface of the VSM is present on the VSM itself. From the above 'vemcmd show port' we can see that Veth2 is the interface that is used for that. So check out that interface:

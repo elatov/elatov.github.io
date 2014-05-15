@@ -40,7 +40,7 @@ tags:
 	[elatov@moxz mus_2003]$ ls -1 
 	Àëñó-Â÷åðà.mp3 
 	??-??.mp3 
-	Газманов\_Олег-На\_заре.mp3
+	Газманов_Олег-На_заре.mp3
 	
 <p>The first one is not even in Russian (or rather it's not displaying in the Cyrillic alphabet), it's looks like the encoding is all messed up. The second one is a bunch of question marks, so the conversion was messed up at some point. And the last one is actually in Russian.</p>
 <p>My goal was to rename all the files to the following format: <strong>ARTIST-TITLE.EXT</strong>. I wasn't worried about <em>id3</em> tags, just the file names for now. I also wanted the filenames to be in English so I could search the title without the need to change my character set. So I wanted to "transliterate" the file names from Russian/Cyrillic to English/Roman. The process is also called "Romanization" or as I have mentioned, transliteration. If you want more information about Romanization/Transliteration, check out <a href="http://en.wikipedia.org/wiki/Romanization_of_Russian" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org/wiki/Romanization_of_Russian']);">this</a> wikipedia page.</p>
@@ -189,8 +189,8 @@ os.rename(src,dst)
 	
 <p>Now to run the script on the playlist:</p>
 	[elatov@moxz mus]$ ./af_ep.py mus_2003 
-	mus_2003/Газманов\_Олег-На\_заре.mp3 
-	Renaming from mus_2003/Газманов\_Олег-На\_заре.mp3 to mus_2003/Gazmanov_Oleg-Na_Zare.mp3 
+	mus_2003/Газманов_Олег-На_заре.mp3 
+	Renaming from mus_2003/Газманов_Олег-На_заре.mp3 to mus_2003/Gazmanov_Oleg-Na_Zare.mp3 
 	mus_2003/Àëñó-Â÷åðà.mp3 
 	Renaming from mus_2003/Àëñó-Â÷åðà.mp3 to mus_2003/-.mp3 
 	mus_2003/??-??.mp3 
@@ -274,12 +274,12 @@ os.rename(src,dst)
 	
 <p>So <em>echoprint</em> wasn't that helpful. But now re-running my script again, after the character set was fixed, I saw the following before the fix:</p>
 	[elatov@moxz best]$ ls mus_2003 
-	Àëñó-Â÷åðà.mp3 ??-??.mp3 Газманов\_Олег-На\_заре.mp3
+	Àëñó-Â÷åðà.mp3 ??-??.mp3 Газманов_Олег-На_заре.mp3
 	
 <p>and then running the script again:</p>
 	[elatov@moxz best]$ ./af_ep.py mus_2003 
-	mus_2003/Газманов\_Олег-На\_заре.mp3 
-	Renaming from mus_2003/Газманов\_Олег-На\_заре.mp3 to mus_2003/Gazmanov_Oleg-Na_Zare.mp3 
+	mus_2003/Газманов_Олег-На_заре.mp3 
+	Renaming from mus_2003/Газманов_Олег-На_заре.mp3 to mus_2003/Gazmanov_Oleg-Na_Zare.mp3 
 	mus_2003/Àëñó-Â÷åðà.mp3 
 	Renaming from mus_2003/Àëñó-Â÷åðà.mp3 to mus_2003/Alsu-Vchera.mp3 
 	mus_2003/??-??.mp3 
@@ -393,12 +393,12 @@ print ("Renaming from " + src + " to " + str(dst))
 os.rename(src,dst) 
 
 <p>So this is the fourth python script I wrote, therefore you know that it basically sucks. I am sure there are a bunch of things I could fix, but the basic functionality is there. So now running the script on files with broken tags and file names. First before:</p>
-	[elatov@moxz best]$ ls mus_2003 Àëñó-Â÷åðà.mp3 ??-??.mp3 Газманов\_Олег-На\_заре.mp3
+	[elatov@moxz best]$ ls mus_2003 Àëñó-Â÷åðà.mp3 ??-??.mp3 Газманов_Олег-На_заре.mp3
 	
 <p>Now the script:</p>
 	[elatov@moxz mus]$ ./af_lf.py mus_2003 
-	mus_2003/Газманов\_Олег-На\_заре.mp3 
-	Renaming from mus_2003/Газманов\_Олег-На\_заре.mp3 to mus_2003/Oleg_Gazmanov-Na_Zare.mp3 
+	mus_2003/Газманов_Олег-На_заре.mp3 
+	Renaming from mus_2003/Газманов_Олег-На_заре.mp3 to mus_2003/Oleg_Gazmanov-Na_Zare.mp3 
 	mus_2003/Àëñó-Â÷åðà.mp3 
 	Renaming from mus_2003/Àëñó-Â÷åðà.mp3 to mus_2003/Alsu-Vchera.mp3 
 	mus_2003/??-??.mp3 

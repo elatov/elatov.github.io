@@ -271,17 +271,17 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 >     Now if you want to create a profile by cloning an existing one, you can do the following:
 >     
 	>       
-	>     PowerCLI C:\> New-EsxImageProfile -CloneProfile ESXi-5.0.0-20120302001-no-tools -Name My\_Cloned\_Profile
+	>     PowerCLI C:\> New-EsxImageProfile -CloneProfile ESXi-5.0.0-20120302001-no-tools -Name My_Cloned_Profile
 	>     
 	>     Name Vendor Last Modified Acceptance Level  
 	>     \---\- --\---\- --\---\---\---\-- -\---\---\---\---\---  
-	>     My\_Cloned\_Profile VMware, Inc. 2/17/2012 11... PartnerSupported
+	>     My_Cloned_Profile VMware, Inc. 2/17/2012 11... PartnerSupported
 	>     
 	>     PowerCLI C:\> Get-EsxImageProfile
 	>     
 	>     Name Vendor Last Modified Acceptance Level  
 	>     \---\- --\---\- --\---\---\---\-- -\---\---\---\---\---  
-	>     My\_Cloned\_Profile VMware, Inc. 2/17/2012 11... PartnerSupported  
+	>     My_Cloned_Profile VMware, Inc. 2/17/2012 11... PartnerSupported  
 	>     ESXi-5.0.0-20120302001-stan... VMware, Inc. 2/17/2012 11... PartnerSupported  
 	>     ESXi-5.0.0-20120302001-no-t... VMware, Inc. 2/17/2012 11... PartnerSupported  
 	>     ESXi-5.0.0-20120301001s-sta... VMware, Inc. 2/17/2012 11... PartnerSupported  
@@ -291,29 +291,29 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 >     We can also create profiles manually. There is a good example in "<a href="http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-1.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-1.pdf']);">VMware vSphere 5.0 Evaluation Guide Volume One</a>". Here is what I did to create a manual profile with just 4 VIBs:
 >     
 	>       
-	>     PowerCLI C:\> New-EsxImageProfile -NewProfile My\_Manual\_Profile -vendor VMware -SoftwarePackage esx-base
+	>     PowerCLI C:\> New-EsxImageProfile -NewProfile My_Manual_Profile -vendor VMware -SoftwarePackage esx-base
 	>     
 	>     Name Vendor Last Modified Acceptance Level  
 	>     \---\- --\---\- --\---\---\---\-- -\---\---\---\---\---  
-	>     My\_Manual\_Profile VMware 12/25/2012 3... VMwareCertified
+	>     My_Manual_Profile VMware 12/25/2012 3... VMwareCertified
 	>     
-	>     PowerCLI C:\> Add-EsxSoftwarePackage -ImageProfile My\_Manual\_Profile -SoftwarePackage esx-tboot
-	>     
-	>     Name Vendor Last Modified Acceptance Level  
-	>     \---\- --\---\- --\---\---\---\-- -\---\---\---\---\---  
-	>     My\_Manual\_Profile VMware 12/25/2012 3... VMwareCertified
-	>     
-	>     PowerCLI C:\> Add-EsxSoftwarePackage -ImageProfile My\_Manual\_Profile -SoftwarePackage misc-drivers
+	>     PowerCLI C:\> Add-EsxSoftwarePackage -ImageProfile My_Manual_Profile -SoftwarePackage esx-tboot
 	>     
 	>     Name Vendor Last Modified Acceptance Level  
 	>     \---\- --\---\- --\---\---\---\-- -\---\---\---\---\---  
-	>     My\_Manual\_Profile VMware 12/25/2012 3... VMwareCertified
+	>     My_Manual_Profile VMware 12/25/2012 3... VMwareCertified
 	>     
-	>     PowerCLI C:\> Add-EsxSoftwarePackage -ImageProfile My\_Manual\_Profile -SoftwarePackage net-e1000e
+	>     PowerCLI C:\> Add-EsxSoftwarePackage -ImageProfile My_Manual_Profile -SoftwarePackage misc-drivers
 	>     
 	>     Name Vendor Last Modified Acceptance Level  
 	>     \---\- --\---\- --\---\---\---\-- -\---\---\---\---\---  
-	>     My\_Manual\_Profile VMware 12/25/2012 3... VMwareCertified  
+	>     My_Manual_Profile VMware 12/25/2012 3... VMwareCertified
+	>     
+	>     PowerCLI C:\> Add-EsxSoftwarePackage -ImageProfile My_Manual_Profile -SoftwarePackage net-e1000e
+	>     
+	>     Name Vendor Last Modified Acceptance Level  
+	>     \---\- --\---\- --\---\---\---\-- -\---\---\---\---\---  
+	>     My_Manual_Profile VMware 12/25/2012 3... VMwareCertified  
 	>     
 >     
 >     Now checking over my manual profile, I see the following:
@@ -324,13 +324,13 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     Name Vendor Last Modified Acceptance Level  
 	>     \---\- --\---\- --\---\---\---\-- -\---\---\---\---\---  
 	>     ESXi-5.0.0-20120301001s-no-... VMware, Inc. 2/17/2012 11... PartnerSupported  
-	>     My\_Cloned\_Profile VMware, Inc. 2/17/2012 11... PartnerSupported  
+	>     My_Cloned_Profile VMware, Inc. 2/17/2012 11... PartnerSupported  
 	>     ESXi-5.0.0-20120302001-no-t... VMware, Inc. 2/17/2012 11... PartnerSupported  
 	>     ESXi-5.0.0-20120301001s-sta... VMware, Inc. 2/17/2012 11... PartnerSupported  
-	>     My\_Manual\_Profile VMware 12/25/2012 1... VMwareCertified  
+	>     My_Manual_Profile VMware 12/25/2012 1... VMwareCertified  
 	>     ESXi-5.0.0-20120302001-stan... VMware, Inc. 2/17/2012 11... PartnerSupported
 	>     
-	>     PowerCLI C:\> Get-EsxImageProfile My\_Manual\_Profile | select -ExpandProperty VibList
+	>     PowerCLI C:\> Get-EsxImageProfile My_Manual_Profile | select -ExpandProperty VibList
 	>     
 	>     Name Version Vendor Release Date  
 	>     \---\- --\---\-- -\---\-- -\---\---\-----  
@@ -343,7 +343,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 >     If you want to remove a VIB (package) from a profile, you can do the following:
 >     
 	>       
-	>     PowerCLI C:\> Get-EsxImageProfile My\_Manual\_Profile | select -ExpandProperty VibList
+	>     PowerCLI C:\> Get-EsxImageProfile My_Manual_Profile | select -ExpandProperty VibList
 	>     
 	>     Name Version Vendor Release Date  
 	>     \---\- --\---\-- -\---\-- -\---\---\-----  
@@ -352,13 +352,13 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     esx-base 5.0.0-1.11.623860 VMware 2/17/2012...  
 	>     misc-drivers 5.0.0-1.11.623860 VMware 2/17/2012...
 	>     
-	>     PowerCLI C:\> Remove-EsxSoftwarePackage -ImageProfile My\_Manual\_Profile -SoftwarePackage net-e1000e
+	>     PowerCLI C:\> Remove-EsxSoftwarePackage -ImageProfile My_Manual_Profile -SoftwarePackage net-e1000e
 	>     
 	>     Name Vendor Last Modified Acceptance Level  
 	>     \---\- --\---\- --\---\---\---\-- -\---\---\---\---\---  
-	>     My\_Manual\_Profile VMware 12/25/2012 3... VMwareCertified
+	>     My_Manual_Profile VMware 12/25/2012 3... VMwareCertified
 	>     
-	>     PowerCLI C:\> Get-EsxImageProfile My\_Manual\_Profile | select -ExpandProperty VibList
+	>     PowerCLI C:\> Get-EsxImageProfile My_Manual_Profile | select -ExpandProperty VibList
 	>     
 	>     Name Version Vendor Release Date  
 	>     \---\- --\---\-- -\---\-- -\---\---\-----  
@@ -370,8 +370,8 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 >     Once you are done customizing your profile you can export it as a zip (to install with VUM or esxcli) or you can export it as an ISO (from which you can boot and update your esxi install). Here is how each look like:
 >     
 	>       
-	>     PowerCLI C:\> Export-EsxImageProfile -ImageProfile My\_Manual\_Profile -ExportToIso -FilePath c:\share\myManualProfile.iso  
-	>     PowerCLI C:\> Export-EsxImageProfile -ImageProfile My\_Manual\_Profile -ExportToBundle -FilePath c:\share\myManualProfile.zip  
+	>     PowerCLI C:\> Export-EsxImageProfile -ImageProfile My_Manual_Profile -ExportToIso -FilePath c:\share\myManualProfile.iso  
+	>     PowerCLI C:\> Export-EsxImageProfile -ImageProfile My_Manual_Profile -ExportToBundle -FilePath c:\share\myManualProfile.zip  
 	>     
 >     
 >     Then checking for the files:
@@ -496,24 +496,24 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     >                             Name Vendor Last Modified Acceptance Level  
 	>     >                             \---\- --\---\- --\---\---\---\-- -\---\---\---\---\---  
 	>     >                             ESXi-5.0.0-20120301001s-no-... VMware, Inc. 2/17/2012 11... PartnerSupported  
-	>     >                             My\_Cloned\_Profile VMware, Inc. 2/17/2012 11... PartnerSupported  
+	>     >                             My_Cloned_Profile VMware, Inc. 2/17/2012 11... PartnerSupported  
 	>     >                             ESXi-5.0.0-20120302001-no-t... VMware, Inc. 2/17/2012 11... PartnerSupported  
 	>     >                             ESXi-5.0.0-20120301001s-sta... VMware, Inc. 2/17/2012 11... PartnerSupported  
-	>     >                             My\_Manual\_Profile VMware 12/25/2012 1... VMwareCertified  
+	>     >                             My_Manual_Profile VMware 12/25/2012 1... VMwareCertified  
 	>     >                             ESXi-5.0.0-20120302001-stan... VMware, Inc. 2/17/2012 11... PartnerSupported
 	>     >                             
-	>     >                             PowerCLI C:\> Get-EsxImageProfile My\_Cloned\_Profile | Select -ExpandProperty VibList | findstr igb  
+	>     >                             PowerCLI C:\> Get-EsxImageProfile My_Cloned_Profile | Select -ExpandProperty VibList | findstr igb  
 	>     >                             net-igb 2.1.11.1-3vmw.500.0.0.469512 VMware 8/19/2011...  
 	>     >                             
 >     >                             
 >     >                             So it looks like our cloned profile has an older version of the driver. So let's remove the old version and add the new async driver:
 >     >                             
 	>     >                               
-	>     >                             PowerCLI C:\> Remove-EsxSoftwarePackage -ImageProfile My\_Cloned\_Profile -SoftwarePackage net-igb
+	>     >                             PowerCLI C:\> Remove-EsxSoftwarePackage -ImageProfile My_Cloned_Profile -SoftwarePackage net-igb
 	>     >                             
 	>     >                             Name Vendor Last Modified Acceptance Level  
 	>     >                             \---\- --\---\- --\---\---\---\-- -\---\---\---\---\---  
-	>     >                             My\_Cloned\_Profile VMware, Inc. 12/25/2012 4... PartnerSupported  
+	>     >                             My_Cloned_Profile VMware, Inc. 12/25/2012 4... PartnerSupported  
 	>     >                             
 >     >                             
 >     >                             Since the name of the driver is the same we will need to include the version number as well:
@@ -526,13 +526,13 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     >                             net-igb 2.1.11.1-3vmw.500.0.0.469512 VMware 8/19/2011...  
 	>     >                             net-igb 3.1.17-1OEM.500.0.0.406165 Intel 7/1/2011 ...
 	>     >                             
-	>     >                             PowerCLI C:\> Add-EsxSoftwarePackage -ImageProfile My\_Cloned\_Profile -SoftwarePackage "net-igb 3.1.*"
+	>     >                             PowerCLI C:\> Add-EsxSoftwarePackage -ImageProfile My_Cloned_Profile -SoftwarePackage "net-igb 3.1.*"
 	>     >                             
 	>     >                             Name Vendor Last Modified Acceptance Level  
 	>     >                             \---\- --\---\- --\---\---\---\-- -\---\---\---\---\---  
-	>     >                             My\_Cloned\_Profile VMware, Inc. 12/25/2012 4... PartnerSupported
+	>     >                             My_Cloned_Profile VMware, Inc. 12/25/2012 4... PartnerSupported
 	>     >                             
-	>     >                             PowerCLI C:\> Get-EsxImageProfile My\_Cloned\_Profile | Select -ExpandProperty VibList | findstr igb  
+	>     >                             PowerCLI C:\> Get-EsxImageProfile My_Cloned_Profile | Select -ExpandProperty VibList | findstr igb  
 	>     >                             net-igb 3.1.17-1OEM.500.0.0.406165 Intel 7/1/2011 ...  
 	>     >                             
 >     >                             
@@ -587,9 +587,9 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     >                             inflating: igb-3.1.17-offline_bundle-455019.zip  
 	>     >                             inflating: net-igb-3.1.17-1OEM.500.0.0.406165.x86_64.vib  
 	>     >                             inflating: doc/README.txt  
-	>     >                             inflating: source/driver\_source\_net-igb_3.1.17-1OEM.500.0.0.406165.tgz  
-	>     >                             inflating: doc/open\_source\_licenses\_net-igb\_3.1.17-1OEM.500.0.0.406165.txt  
-	>     >                             inflating: doc/release\_note\_net-igb_3.1.17-1OEM.500.0.0.406165.txt  
+	>     >                             inflating: source/driver_source_net-igb_3.1.17-1OEM.500.0.0.406165.tgz  
+	>     >                             inflating: doc/open_source_licenses_net-igb_3.1.17-1OEM.500.0.0.406165.txt  
+	>     >                             inflating: doc/release_note_net-igb_3.1.17-1OEM.500.0.0.406165.txt  
 	>     >                             /vmfs/volumes/4fc903bb-6298d17d-8417-00505617149e/driver # ls  
 	>     >                             doc net-igb-3.1.17-1OEM.500.0.0.406165.x86_64.vib  
 	>     >                             igb-3.1.17-455019.zip source  
@@ -599,12 +599,12 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 >     >                             So now we see our offline-bundle. Let's go ahead and install that:
 >     >                             
 	>     >                               
-	>     >                             ~ # esxcli software vib install -d /vmfs/volumes/OI\_LUN0/driver/igb-3.1.17-offline\_bundle-455019.zip  
+	>     >                             ~ # esxcli software vib install -d /vmfs/volumes/OI_LUN0/driver/igb-3.1.17-offline_bundle-455019.zip  
 	>     >                             Installation Result  
 	>     >                             Message: The update completed successfully, but the system needs to be rebooted for the changes to be effective.  
 	>     >                             Reboot Required: true  
-	>     >                             VIBs Installed: Intel\_bootbank\_net-igb_3.1.17-1OEM.500.0.0.406165  
-	>     >                             VIBs Removed: VMware\_bootbank\_net-igb_2.1.11.1-3vmw.500.1.16.721882  
+	>     >                             VIBs Installed: Intel_bootbank_net-igb_3.1.17-1OEM.500.0.0.406165  
+	>     >                             VIBs Removed: VMware_bootbank_net-igb_2.1.11.1-3vmw.500.1.16.721882  
 	>     >                             VIBs Skipped:  
 	>     >                             
 >     >                             

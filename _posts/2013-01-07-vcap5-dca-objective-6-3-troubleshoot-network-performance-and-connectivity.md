@@ -206,36 +206,36 @@ Check out esxtop and if you see any Drops (received or transmitted) it maybe CPU
 	tx_dropped: 0  
 	multicast: 0  
 	collisions: 0  
-	rx\_length\_errors: 0  
-	rx\_over\_errors: 0  
-	rx\_crc\_errors: 0  
-	rx\_frame\_errors: 0  
-	rx\_no\_buffer_count: 0  
-	rx\_missed\_errors: 0  
-	tx\_aborted\_errors: 0  
-	tx\_carrier\_errors: 0  
-	tx\_fifo\_errors: 0  
-	tx\_heartbeat\_errors: 0  
-	tx\_window\_errors: 0  
-	tx\_abort\_late_coll: 0  
-	tx\_deferred\_ok: 0  
-	tx\_single\_coll_ok: 0  
-	tx\_multi\_coll_ok: 0  
-	tx\_timeout\_count: 0  
-	tx\_restart\_queue: 0  
-	rx\_long\_length_errors: 0  
-	rx\_short\_length_errors: 0  
-	rx\_align\_errors: 0  
-	tx\_tcp\_seg_good: 14887  
-	tx\_tcp\_seg_failed: 0  
-	rx\_flow\_control_xon: 0  
-	rx\_flow\_control_xoff: 0  
-	tx\_flow\_control_xon: 0  
-	tx\_flow\_control_xoff: 0  
-	rx\_long\_byte_count: 495915330  
-	rx\_csum\_offload_good: 3036558  
-	rx\_csum\_offload_errors: 0  
-	alloc\_rx\_buff_failed: 0  
+	rx_length_errors: 0  
+	rx_over_errors: 0  
+	rx_crc_errors: 0  
+	rx_frame_errors: 0  
+	rx_no_buffer_count: 0  
+	rx_missed_errors: 0  
+	tx_aborted_errors: 0  
+	tx_carrier_errors: 0  
+	tx_fifo_errors: 0  
+	tx_heartbeat_errors: 0  
+	tx_window_errors: 0  
+	tx_abort_late_coll: 0  
+	tx_deferred_ok: 0  
+	tx_single_coll_ok: 0  
+	tx_multi_coll_ok: 0  
+	tx_timeout_count: 0  
+	tx_restart_queue: 0  
+	rx_long_length_errors: 0  
+	rx_short_length_errors: 0  
+	rx_align_errors: 0  
+	tx_tcp_seg_good: 14887  
+	tx_tcp_seg_failed: 0  
+	rx_flow_control_xon: 0  
+	rx_flow_control_xoff: 0  
+	tx_flow_control_xon: 0  
+	tx_flow_control_xoff: 0  
+	rx_long_byte_count: 495915330  
+	rx_csum_offload_good: 3036558  
+	rx_csum_offload_errors: 0  
+	alloc_rx_buff_failed: 0  
 	tx_smbus: 0  
 	rx_smbus: 0  
 	dropped_smbus: 0  

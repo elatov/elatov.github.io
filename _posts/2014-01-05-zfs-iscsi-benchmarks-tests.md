@@ -545,7 +545,7 @@ this was for **64KB** and here is the **32KB** one:
     3221225472 bytes (3.2 GB) copied, 31.1633 s, 103 MB/s
     
 
-The **DAVG** was pretty high for both (**~70ms**). Modifying the **max\_sectors\_kb** and **nr_requests** to **32** and **4** respectively , yielded very low latency but the bandwidth was lower as well:
+The **DAVG** was pretty high for both (**~70ms**). Modifying the **max_sectors_kb** and **nr_requests** to **32** and **4** respectively , yielded very low latency but the bandwidth was lower as well:
 
     # dd if=/dev/zero of=/dev/sdb bs=1M count=3K
     3072+0 records in
@@ -553,7 +553,7 @@ The **DAVG** was pretty high for both (**~70ms**). Modifying the **max\_sectors\
     3221225472 bytes (3.2 GB) copied, 47.1101 s, 68.4 MB/s
     
 
-Still better than 128KB ZVol Block size. If you don't mind a little latency then leave the default values for **max\_sectors\_kb** and **nr_requests** sysfs variables.
+Still better than 128KB ZVol Block size. If you don't mind a little latency then leave the default values for **max_sectors_kb** and **nr_requests** sysfs variables.
 
 ### Linux VM File System performance tweaks
 
@@ -599,7 +599,7 @@ In summary, I think the following settings made the biggest impact:
 
 1.  Enable Write Back Cache
 2.  Use 64KB or 32KB block size on the ZFS Volume
-3.  If latency is important to you, change the IO size from within the Linux OS (**max\_sectors\_kb** and **nr_requests**)
+3.  If latency is important to you, change the IO size from within the Linux OS (**max_sectors_kb** and **nr_requests**)
 
 In the end here was my final dd result from my Linux VM:
 

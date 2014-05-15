@@ -219,7 +219,7 @@ Notice that the new pool doesn't have a version. This is expected, from the **oi
 > Remember upgrading a zpool is a non-reversable command and any zpools you upgrade may not be readable with previous versions of OI, including other BEs on the same system.
 > 
 > The ZFS feature flags concept is documented here:  
-> http://blog.delphix.com/csiden/files/2012/01/ZFS\_Feature\_Flags.pdf.
+> http://blog.delphix.com/csiden/files/2012/01/ZFS_Feature_Flags.pdf.
 > 
 > In this context the "zpool version" becomes a legacy concept, and the number is set to 5000 on existing pools during a "zpool upgrade" run.
 

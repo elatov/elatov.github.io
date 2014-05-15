@@ -243,9 +243,9 @@ Show all interface information and statistics
 	2 Input Packet Drops 0 Output Packet Drops
 	
 	Vethernet1 is up  
-	Port description is vCloud\_Director\_RHEL5.6, Network Adapter 2  
+	Port description is vCloud_Director_RHEL5.6, Network Adapter 2  
 	Hardware: Virtual, address: 0050.56b3.06d1 (bia 0050.56b3.06d1)  
-	Owner is VM "vCloud\_Director\_RHEL5.6", adapter is Network Adapter 2  
+	Owner is VM "vCloud_Director_RHEL5.6", adapter is Network Adapter 2  
 	Active on module 3  
 	VMware DVS port 101  
 	Port-Profile is Con_Pack  
@@ -399,15 +399,15 @@ Show license usage
 	Count  
 	\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---  
 	--  
-	NEXUS\_VSG\_SERVICES_PKG No 16 Unused 02 Oct 2012 -  
-	NEXUS1000V\_LAN\_SERVICES_PKG No 16 In use 02 Oct 2012 -  
+	NEXUS_VSG_SERVICES_PKG No 16 Unused 02 Oct 2012 -  
+	NEXUS1000V_LAN_SERVICES_PKG No 16 In use 02 Oct 2012 -  
 	\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---  
 	--  
 	
 
 Show detailed license information  
 	  
-	switch# show license usage NEXUS1000V\_LAN\_SERVICES_PKG  
+	switch# show license usage NEXUS1000V_LAN_SERVICES_PKG  
 	\---\---\---\---\---\---\---\---\---\---\---\---\----  
 	Feature Usage Info  
 	\---\---\---\---\---\---\---\---\---\---\---\---\----  
@@ -462,7 +462,7 @@ Show all of your port-profiles
 	port-profile role: none  
 	port-binding: static
 	
-	port-profile Unused\_Or\_Quarantine_Uplink  
+	port-profile Unused_Or_Quarantine_Uplink  
 	type: Ethernet  
 	description: Port-group created for Nexus1000V internal usage. Do not use.  
 	status: enabled  
@@ -473,7 +473,7 @@ Show all of your port-profiles
 	shutdown  
 	evaluated config attributes:  
 	assigned interfaces:  
-	port-group: Unused\_Or\_Quarantine_Uplink  
+	port-group: Unused_Or_Quarantine_Uplink  
 	system vlans: none  
 	capability l3control: no  
 	capability iscsi-multipath: no  
@@ -482,7 +482,7 @@ Show all of your port-profiles
 	port-profile role: none  
 	port-binding: static
 	
-	port-profile Unused\_Or\_Quarantine_Veth  
+	port-profile Unused_Or_Quarantine_Veth  
 	type: Vethernet  
 	description: Port-group created for Nexus1000V internal usage. Do not use.  
 	status: enabled  
@@ -493,7 +493,7 @@ Show all of your port-profiles
 	shutdown  
 	evaluated config attributes:  
 	assigned interfaces:  
-	port-group: Unused\_Or\_Quarantine_Veth  
+	port-group: Unused_Or_Quarantine_Veth  
 	system vlans: none  
 	capability l3control: no  
 	capability iscsi-multipath: no  
@@ -539,8 +539,8 @@ Show port-profile information in a concise view
 	Profile Type State Items Items Intfs Profs  
 	\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\-----  
 	Con_Pack Vethernet 1 3 3 2 0  
-	Unused\_Or\_Quarantine_Uplink Ethernet 1 1 0 0 0  
-	Unused\_Or\_Quarantine_Veth Vethernet 1 1 0 0 0  
+	Unused_Or_Quarantine_Uplink Ethernet 1 1 0 0 0  
+	Unused_Or_Quarantine_Veth Vethernet 1 1 0 0 0  
 	sys-uplink-access Ethernet 1 3 3 2 0  
 	\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\-----  
 	Profile Assigned Total Sys Parent Child UsedBy  
@@ -559,9 +559,9 @@ Show port-profile usage
 	Vethernet1  
 	Vethernet2
 	
-	port-profile Unused\_Or\_Quarantine_Uplink
+	port-profile Unused_Or_Quarantine_Uplink
 	
-	port-profile Unused\_Or\_Quarantine_Veth
+	port-profile Unused_Or_Quarantine_Veth
 	
 	port-profile sys-uplink-access  
 	Ethernet3/2  
@@ -576,7 +576,7 @@ Show port-profile usage with VMs name
 	\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\----  
 	Port Profile Port Adapter Owner  
 	\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\----  
-	Con\_Pack Veth1 Net Adapter 2 vCloud\_Director_RHEL5.6  
+	Con_Pack Veth1 Net Adapter 2 vCloud_Director_RHEL5.6  
 	Veth2 Net Adapter 1 Nexus1000V-4.2.1.SV1.5.1  
 	sys-uplink-access Eth3/2 vmnic1 10.131.1.98  
 	Eth4/2 vmnic1 10.131.1.97  
@@ -597,9 +597,9 @@ Show port-profile usage and show mode of each interface that is part of the port
 	switchport access vlan 1  
 	no shutdown
 	
-	port-profile Unused\_Or\_Quarantine_Uplink
+	port-profile Unused_Or_Quarantine_Uplink
 	
-	port-profile Unused\_Or\_Quarantine_Veth
+	port-profile Unused_Or_Quarantine_Veth
 	
 	port-profile sys-uplink-access  
 	Ethernet3/2  
@@ -744,7 +744,7 @@ Show Virtual Interfaces
 	\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\----  
 	Port Adapter Owner Mod Host  
 	\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\----  
-	Veth1 Net Adapter 2 vCloud\_Director\_RHEL5.6 3 10.131.1.98  
+	Veth1 Net Adapter 2 vCloud_Director_RHEL5.6 3 10.131.1.98  
 	Veth2 Net Adapter 1 Nexus1000V-4.2.1.SV1.5.1 3 10.131.1.98  
 	Veth3 Net Adapter 1 tets (37370594-b4c9-433e 4 10.131.1.97  
 	Veth4 Net Adapter 1 OI (3adadd61-75c1-4af2-9 4 10.131.1.97  
@@ -772,7 +772,7 @@ Show description of virtual ports
 	\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\----  
 	Interface Description  
 	\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\----  
-	Veth1 vCloud\_Director\_RHEL5.6, Network Adapter 2  
+	Veth1 vCloud_Director_RHEL5.6, Network Adapter 2  
 	Veth2 Nexus1000V-4.2.1.SV1.5.1, Network Adapter 1  
 	Veth3 tets (37370594-b4c9-433e-b070-c3265cdefd2f), Network Adapter 1  
 	Veth4 OI (3adadd61-75c1-4af2-9d76-ff467e42e965), Network Adapter 1  
@@ -804,7 +804,7 @@ Show Network Segmentation Manager (NSM) (usually used with vCloud Director) inte
 	  
 	switch# show system internal nsmgr info
 	
-	network dvs.VCDVSorg\_net\_using\_n1k\_vcd-ni_pool-25717f9d-78cc-48c1-8506-c38b429f3565  
+	network dvs.VCDVSorg_net_using_n1k_vcd-ni_pool-25717f9d-78cc-48c1-8506-c38b429f3565  
 	template name: vcd-ni-pol  
 	max ports: 0  
 	vlan id: 0  
@@ -850,12 +850,12 @@ Show Network Segment policy Usage
 	  
 	switch# show network-segment policy usage
 	
-	network-segment policy default\_segmentation\_template
+	network-segment policy default_segmentation_template
 	
-	network-segment policy default\_vlan\_template
+	network-segment policy default_vlan_template
 	
 	network-segment policy vcd-ni-pol  
-	dvs.VCDVSorg\_net\_using\_n1k\_vcd-ni_pool-25717f9d-78cc-48c1-8506-c38b429f3565  
+	dvs.VCDVSorg_net_using_n1k_vcd-ni_pool-25717f9d-78cc-48c1-8506-c38b429f3565  
 	dvs.VCDVStg-267074fa-608b-4c2a-8b98-5ffce69aa5f8  
 	
 
@@ -864,7 +864,7 @@ Show network segments
 	  
 	switch# show network-segment network
 	
-	network dvs.VCDVSorg\_net\_using\_n1k\_vcd-ni_pool-25717f9d-78cc-48c1-8506-c38b429f3565  
+	network dvs.VCDVSorg_net_using_n1k_vcd-ni_pool-25717f9d-78cc-48c1-8506-c38b429f3565  
 	tenant id: e461e9cc-1205-40f4-9f36-ad0e841d9c73  
 	network-segment policy: vcd-ni-pol  
 	segment id: 5001  
@@ -896,7 +896,7 @@ Show different bridge domains when using network segments
 	  
 	switch# show bridge-domain 
 	
-	Bridge-domain dvs.VCDVSorg\_net\_using\_n1k\_vcd-ni_pool-25717f9d-78cc-48c1-8506-c38  
+	Bridge-domain dvs.VCDVSorg_net_using_n1k_vcd-ni_pool-25717f9d-78cc-48c1-8506-c38  
 	b429f3565 (0 ports in all)  
 	Segment ID: 5001 (Manual/Active)  
 	Group IP: 224.0.4.2  

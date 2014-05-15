@@ -47,7 +47,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 
 From the help page:
 
-> about\_Environment\_Variables
+> about_Environment_Variables
 > 
 > SHORT DESCRIPTION  
 > Describes how to access Windows environment variables in Windows  
@@ -469,7 +469,7 @@ And more examples from the same guide:
 	>         EffectiveRole : {-1}  
 	>         Permission : {}  
 	>         Name : localhost.localdomain  
-	>         DisabledMethod : {DisconnectHost\_Task, ReconnectHost\_Task, ReconfigureHost, ForDAS\_Task, PowerUpHostFromStandBy\_Task...}  
+	>         DisabledMethod : {DisconnectHost_Task, ReconnectHost_Task, ReconfigureHost, ForDAS_Task, PowerUpHostFromStandBy_Task...}  
 	>         RecentTask : {}  
 	>         DeclaredAlarmState : {}  
 	>         TriggeredAlarmState : {}  
@@ -494,10 +494,10 @@ And more examples from the same guide:
 	>         $VMReport = @()  
 	>         get-vm | sort name | %{  
 	>         $VM = Get-View $_.ID  
-	>         $row = "" | Select-Object VM\_Name, VM\_Host, VM\_Host\_Model, VM\_Memory, VM\_vCpu, VM\_CpuLimit, VM\_CpuShares  
+	>         $row = "" | Select-Object VM_Name, VM_Host, VM_Host_Model, VM_Memory, VM_vCpu, VM_CpuLimit, VM_CpuShares  
 	>         $row.VM_Name = $VM.Config.Name  
-	>         $row.VM\_Host = Get-VMHost -VM $\_  
-	>         $row.VM\_Host\_Model = Get-VMHost -VM $_ | Get-View | % {$_.Hardware.SystemInfo.Model}  
+	>         $row.VM_Host = Get-VMHost -VM $_  
+	>         $row.VM_Host_Model = Get-VMHost -VM $_ | Get-View | % {$_.Hardware.SystemInfo.Model}  
 	>         $row.VM_Memory = $VM.Config.Hardware.memoryMB  
 	>         $row.VM_vCpu = $VM.Config.Hardware.numCPU  
 	>         $row.VM_CpuLimit = $VM.Config.CpuAllocation.Limit  
@@ -513,15 +513,15 @@ And more examples from the same guide:
 	>         $outputFileVM = 'D:\PowerShell_scripts\Inventory.csv'  
 	>         $VMReport = @()  
 	>         Get-View -ViewType VirtualMachine -Property Name,Runtime.Host,Config.Hardware,Config.CpuAllocation | Sort-Object -Property Name | %{  
-	>         $row = "" | Select-Object VM\_Name, VM\_Host, VM\_Host\_Model, VM\_Memory, VM\_vCpu, VM\_CpuLimit, VM\_CpuShares  
-	>         $row.VM\_Name = $\_.Name  
+	>         $row = "" | Select-Object VM_Name, VM_Host, VM_Host_Model, VM_Memory, VM_vCpu, VM_CpuLimit, VM_CpuShares  
+	>         $row.VM_Name = $_.Name  
 	>         $esx = Get-View $_.Runtime.Host -Property Name,Hardware.SystemInfo.Model  
 	>         $row.VM_Host = $esx.Name  
-	>         $row.VM\_Host\_Model = $esx.Hardware.SystemInfo.Model  
-	>         $row.VM\_Memory = $\_.Config.Hardware.memoryMB  
-	>         $row.VM\_vCpu = $\_.Config.Hardware.numCPU  
-	>         $row.VM\_CpuLimit = $\_.Config.CpuAllocation.Limit  
-	>         $row.VM\_CpuShares = $\_.Config.CpuAllocation.Shares.Shares  
+	>         $row.VM_Host_Model = $esx.Hardware.SystemInfo.Model  
+	>         $row.VM_Memory = $_.Config.Hardware.memoryMB  
+	>         $row.VM_vCpu = $_.Config.Hardware.numCPU  
+	>         $row.VM_CpuLimit = $_.Config.CpuAllocation.Limit  
+	>         $row.VM_CpuShares = $_.Config.CpuAllocation.Shares.Shares  
 	>         $VMReport += $row  
 	>         }  
 	>         $VMReport | Export-Csv $outputFileVM -NoTypeInformation  

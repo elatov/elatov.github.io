@@ -21,7 +21,7 @@ tags:
 
 From the <a href="https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Security_Guide/Red_Hat_Enterprise_Linux-6-Security_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Security_Guide/Red_Hat_Enterprise_Linux-6-Security_Guide-en-US.pdf']);">Security Guide</a>:
 
-> The TCP Wrappers packages (tcp\_wrappers and tcp\_wrappers-libs) are installed by default and provide host-based access control to network services. The most important component within the package is the **/lib/libwrap.so** or **/lib64/libwrap.so** library. In general terms, a TCP-wrapped service is one that has been compiled against the **libwrap.so** library.
+> The TCP Wrappers packages (tcp_wrappers and tcp_wrappers-libs) are installed by default and provide host-based access control to network services. The most important component within the package is the **/lib/libwrap.so** or **/lib64/libwrap.so** library. In general terms, a TCP-wrapped service is one that has been compiled against the **libwrap.so** library.
 > 
 > When a connection attempt is made to a TCP-wrapped service, the service first references the host's access files (**/etc/hosts.allow** and **/etc/hosts.deny**) to determine whether or not the client is allowed to connect. In most cases, it then uses the syslog daemon (**syslogd**) to write the name of the requesting client and the requested service to **/var/log/secure** or **/var/log/messages**.
 > 
@@ -595,13 +595,13 @@ From the Security Guide:
 >     
 >     If this command returns no output, it means the module is not loaded. If necessary, use the **/sbin/rmmod** command to remove the module.
 > 
-> *   **stop** — If a firewall is running, the firewall rules in memory are flushed, and all iptables modules and helpers are unloaded. If the **IPTABLES\_SAVE\_ON_STOP** directive in the **/etc/sysconfig/iptables-config** configuration file is changed from its default value to **yes**, current rules are saved to **/etc/sysconfig/iptables** and any existing rules are moved to the file **/etc/sysconfig/iptables.save**.
+> *   **stop** — If a firewall is running, the firewall rules in memory are flushed, and all iptables modules and helpers are unloaded. If the **IPTABLES_SAVE_ON_STOP** directive in the **/etc/sysconfig/iptables-config** configuration file is changed from its default value to **yes**, current rules are saved to **/etc/sysconfig/iptables** and any existing rules are moved to the file **/etc/sysconfig/iptables.save**.
 > 
 > *   **reload** — If a firewall is running, the firewall rules are reloaded from the configuration file. The reload command does not unload helpers that have been in use before, but will add new helpers that have been added to **IPTABLES_MODULES** (for IPv4) and **IP6TABLES_MODULES** (for IPv6). The advantage of not flushing the current firewall rules is that if the new rules can not be applied, because of an error in the rules, the old rules are still in place.
 > 
-> *   **restart** — If a firewall is running, the firewall rules in memory are flushed, and the firewall is started again if it is configured in **/etc/sysconfig/iptables**. This option only works if the **ipchains** kernel module is not loaded. If the **IPTABLES\_SAVE\_ON_RESTART** directive in the **/etc/sysconfig/iptables-config** configuration file is changed from its default value to **yes**, current rules are saved to **/etc/sysconfig/iptables** and any existing rules are moved to the file **/etc/sysconfig/iptables.save**.
+> *   **restart** — If a firewall is running, the firewall rules in memory are flushed, and the firewall is started again if it is configured in **/etc/sysconfig/iptables**. This option only works if the **ipchains** kernel module is not loaded. If the **IPTABLES_SAVE_ON_RESTART** directive in the **/etc/sysconfig/iptables-config** configuration file is changed from its default value to **yes**, current rules are saved to **/etc/sysconfig/iptables** and any existing rules are moved to the file **/etc/sysconfig/iptables.save**.
 > 
-> *   **status** — Displays the status of the firewall and lists all active rules. The default configuration for this option displays IP addresses in each rule. To display domain and hostname information, edit the **/etc/sysconfig/iptables-config** file and change the value of **IPTABLES\_STATUS\_NUMERIC** to **no**.
+> *   **status** — Displays the status of the firewall and lists all active rules. The default configuration for this option displays IP addresses in each rule. To display domain and hostname information, edit the **/etc/sysconfig/iptables-config** file and change the value of **IPTABLES_STATUS_NUMERIC** to **no**.
 > 
 > *   **panic** — Flushes all firewall rules. The policy of all configured tables is set to **DROP**. This option could be useful if a server is known to be compromised. Rather than physically disconnecting from the network or shutting down the system, you can use this option to stop all further network traffic but leave the machine in a state ready for analysis or other forensics.
 > 
@@ -1016,7 +1016,7 @@ From the same Guide:
 >     
 >     The argument **retry=3** specifies that if the test fails the first time, the user has two more chances to create a strong password.
 > 
-> *   **password required pam\_unix.so shadow nullok use\_authtok** — This line specifies that if the program changes the user's **password**, using the password interface of the **pam_unix.so** module.
+> *   **password required pam_unix.so shadow nullok use_authtok** — This line specifies that if the program changes the user's **password**, using the password interface of the **pam_unix.so** module.
 >     
 >     *   The argument **shadow** instructs the module to create shadow passwords when updating a user's password.
 >     *   The argument **nullok** instructs the module to allow the user to change their password from a blank password, otherwise a null password is treated as an account lock.

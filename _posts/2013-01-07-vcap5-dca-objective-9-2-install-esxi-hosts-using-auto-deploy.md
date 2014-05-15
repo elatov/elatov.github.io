@@ -135,22 +135,22 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>         > Name Vendor Last Modified Acceptance Level  
 	>         > \---\- --\---\- --\---\---\---\-- -\---\---\---\---\---  
 	>         > ESXi-5.0.0-20120301001s-no-... VMware, Inc. 2/17/2012 11... PartnerSupported  
-	>         > My\_Cloned\_Profile VMware, Inc. 12/25/2012 1... PartnerSupported  
+	>         > My_Cloned_Profile VMware, Inc. 12/25/2012 1... PartnerSupported  
 	>         > ESXi-5.0.0-20120302001-no-t... VMware, Inc. 2/17/2012 11... PartnerSupported  
 	>         > ESXi-5.0.0-20120301001s-sta... VMware, Inc. 2/17/2012 11... PartnerSupported  
-	>         > My\_Manual\_Profile VMware 12/25/2012 1... VMwareCertified  
+	>         > My_Manual_Profile VMware 12/25/2012 1... VMwareCertified  
 	>         > ESXi-5.0.0-20120302001-stan... VMware, Inc. 2/17/2012 11... PartnerSupported  
 	>         > 
 >         > 
 >         > Next, identify the IP subnet for the hosts that will be deployed using Auto Deploy. In this example, all the ESXi hosts are on the 10.91.243.0 subnet.  
->         > With the image profile and IP subnet, we can create an Auto Deploy rule to assign the image profile My\_Cloned\_Profile to any hosts that boot on the 10.91.243.0 IP subnet.
+>         > With the image profile and IP subnet, we can create an Auto Deploy rule to assign the image profile My_Cloned_Profile to any hosts that boot on the 10.91.243.0 IP subnet.
 >         > 
 	>         >   
-	>         > PowerCLI C:\> New-DeployRule -Name AssignImageRule1 -Item My\_Manual\_Profile -Pattern "ipv4=10.91.243.1-10.91.243.254"
+	>         > PowerCLI C:\> New-DeployRule -Name AssignImageRule1 -Item My_Manual_Profile -Pattern "ipv4=10.91.243.1-10.91.243.254"
 	>         > 
 	>         > Name : AssignImageRule1  
 	>         > PatternList : {ipv4=10.91.243.1-10.91.243.254}  
-	>         > ItemList : {My\_Manual\_Profile}  
+	>         > ItemList : {My_Manual_Profile}  
 	>         > 
 >         > 
 >         > After Auto Deploy rules are created, they must be activated. This is done by moving the rule into the active rule set with the Add-DeployRule cmdlet.
@@ -160,7 +160,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>         > 
 	>         > Name : AssignImageRule1  
 	>         > PatternList : {ipv4=10.91.243.1-10.91.243.254}  
-	>         > ItemList : {My\_Manual\_Profile}  
+	>         > ItemList : {My_Manual_Profile}  
 	>         > 
 >         
 >         Now we can create another rule to put all the hosts into a specific cluster. From the same guide:
@@ -198,7 +198,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>         > 
 	>         > Name : AssignImageRule1  
 	>         > PatternList : {ipv4=10.91.243.1-10.91.243.254}  
-	>         > ItemList : {My\_Manual\_Profile}
+	>         > ItemList : {My_Manual_Profile}
 	>         > 
 	>         > Name : AssignClusterRule  
 	>         > PatternList : {ipv4=10.91.243.1-10.91.243.254}  
@@ -255,7 +255,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>         > 
 	>         > Name : AssignImageRule1  
 	>         > PatternList : {ipv4=10.91.243.1-10.91.243.254}  
-	>         > ItemList : {My\_Manual\_Profile}
+	>         > ItemList : {My_Manual_Profile}
 	>         > 
 	>         > Name : AssignClusterRule  
 	>         > PatternList : {ipv4=10.91.243.1-10.91.243.254}  
@@ -268,7 +268,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 >         > 
 >         > At this point, we have created the following three Auto Deploy rules:
 >         > 
->         > *   **AssignImageRule** assigns the ESXi image profile My\_Manual\_Profile to hosts in the 10.91.243.0 subnet.
+>         > *   **AssignImageRule** assigns the ESXi image profile My_Manual_Profile to hosts in the 10.91.243.0 subnet.
 >         > *   **AssignClusterRule** places hosts in the 10.91.243.0 subnet into the vsphere5 cluster.
 >         > *   **AssignHostProfileRule** applies the host profile 5.0_Profile to hosts in the 10.91.243.0 subnet.
 >         

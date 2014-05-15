@@ -207,7 +207,7 @@ Save that and if you go back to the discovery rules you will see the following:
 
 ### Add Item Prototypes to Discovery Rule
 
-Go to "Configuration" -> "Templates" -> Template\_Linux\_Disk -> "Discovery" -> "Item Prototypes" -> "Create Item Prototype". Fill out the information. Here is my latency item:
+Go to "Configuration" -> "Templates" -> Template_Linux_Disk -> "Discovery" -> "Item Prototypes" -> "Create Item Prototype". Fill out the information. Here is my latency item:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/06/zab-item-prototype-later.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/06/zab-item-prototype-later.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/zab-item-prototype-later.png" alt="zab item prototype later Monitor Disk IO Stats with Zabbix" width="558" height="370" class="alignnone size-full wp-image-10411" title="Monitor Disk IO Stats with Zabbix" /></a>
 
@@ -221,7 +221,7 @@ I added both read and write disk rates. I also added disk operations (read and w
 
 ### Create Graph Prototypes to Plot the Above Items
 
-Go to "Configuration" -> "Templates" -> Template\_Linux\_Disk -> "Discovery" -> "Graph Prototypes" -> "Create Graph Prototype". Add both read and write like so:
+Go to "Configuration" -> "Templates" -> Template_Linux_Disk -> "Discovery" -> "Graph Prototypes" -> "Create Graph Prototype". Add both read and write like so:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_graphprototypes_latency.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_graphprototypes_latency.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_graphprototypes_latency.png" alt="zabbix graphprototypes latency Monitor Disk IO Stats with Zabbix" width="1131" height="561" class="alignnone size-full wp-image-8947" title="Monitor Disk IO Stats with Zabbix" /></a>
 

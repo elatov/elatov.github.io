@@ -21,7 +21,7 @@ I recently ran into the following PSOD:
 Some other people in the VMware communities have seen the same PSOD. Here is a <a href="http://communities.vmware.com/message/2102510" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/message/2102510']);">link</a> to the communities page. We are crashing at:
 
 	  
-	Failed at vmkdrivers/src\_9/vmklinux\_9/vmware/linux_scsi.c:2221 -- NOT REACHED  
+	Failed at vmkdrivers/src_9/vmklinux_9/vmware/linux_scsi.c:2221 -- NOT REACHED  
 	
 
 It looks like the local disk driver is having an issue. Checking out the host's local controllers, I saw the following:

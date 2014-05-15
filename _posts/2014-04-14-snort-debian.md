@@ -183,11 +183,11 @@ Now run the following to get the rules:
          `----,\    )
           `--==\\  /    PulledPork v0.7.0 - Swine Flu!
            `--==\\/
-         .-~~~~-.Y|\\_  Copyright (C) 2009-2013 JJ Cummings
-      @_/        /  66\_  cummingsj@gmail.com
+         .-~~~~-.Y|\_  Copyright (C) 2009-2013 JJ Cummings
+      @_/        /  66_  cummingsj@gmail.com
         |    \   \   _(")
          \   /-| ||'--'  Rules give me wings!
-          \_\  \_\\
+          _\  _\\
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
     Checking latest MD5 for snortrules-snapshot-2960.tar.gz....

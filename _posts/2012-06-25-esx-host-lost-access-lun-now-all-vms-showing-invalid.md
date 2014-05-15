@@ -26,10 +26,10 @@ When I logged into the host I wanted to make sure we are connected to the SAN ap
 	 # esxcfg-scsidevs -a  
 	vmhba0 megaraid_sas link-n/a unknown.vmhba0 (1:0.0) LSI Logic / Symbios Logic Dell PERC 6/i  
 	vmhba1 qla2xxx link-n/a fc.2000001b320b9001:2100001b320b9001 (8:0.0) QLogic Corp ISP2432-based 4Gb Fibre  
-	vmhba3 ata\_piix\_ link-n/a ide.vmhba3 (0:31.1) Intel Corporation 631xESB/632_ESB IDE  
+	vmhba3 ata_piix_ link-n/a ide.vmhba3 (0:31.1) Intel Corporation 631xESB/632_ESB IDE  
 	vmhba32 usb-storage link-n/a usb.vmhba32 () USB  
 	vmhba33 usb-storage link-n/a usb.vmhba33 () USB  
-	vmhba34 ata\_piix link-n/a ide.vmhba34 (0:31.)} Intel Corporation 631xESB/632\_ESB IDE  
+	vmhba34 ata_piix link-n/a ide.vmhba34 (0:31.)} Intel Corporation 631xESB/632_ESB IDE  
 	
 
 Checking out the proc node for the card that is showing **link-na** and is the only non-local HBA (vmhba1), we saw the following:
@@ -170,7 +170,7 @@ First we needed to make sure that we see our WWN logged into the switch:
 	  
 	san_switch# show flogi database  
 	\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\----  
-	INTERFACE FCID PORT\_NAME NODE\_NAME  
+	INTERFACE FCID PORT_NAME NODE_NAME  
 	\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\---\----
 	
 	fc1/3 0x760200 50:03:08:c0:9c:00:80:01 50:03:08:c0:9c:00:80:00  
@@ -205,7 +205,7 @@ The customer was utilizing *fcalias*es, *zones*, and *zonesets* for his zoning, 
 	san_switch# conf t  
 	Enter configuration commands, one per line.
 	
-	san\_switch(config)# fcalias name ESXHOST3\_VMHBA2  
+	san_switch(config)# fcalias name ESXHOST3_VMHBA2  
 	san_switch(config-fcalias)# no member pwwn 21:00:00:1b:32:0b:8f:01  
 	san_switch(config-fcalias)# member pwwn 21:00:00:1b:32:0b:90:01  
 	san_switch(config-fcalias)#  
@@ -218,8 +218,8 @@ After modifying the fcalias we double checked that the *zones * (collection of 
 	zoneset name zonesetnew  
 	...  
 	...  
-	Zone name ESXHOST\_3\_VMHBA2  
-	fcalias name ESXHOST\_3\_VMHBA2  
+	Zone name ESXHOST_3_VMHBA2  
+	fcalias name ESXHOST_3_VMHBA2  
 	pwwn 21:00:00:1b:32:0b:90:01  
 	fcalias name CX3-40C_SPA  
 	pwwn 50:06:01:60:41:e0:b9:44  
@@ -234,7 +234,7 @@ That looked good, now looking at the *active zoneset* (collection of zone conf
 	zoneset name zonesetnew  
 	...  
 	...  
-	zone name ESXHOST\_3\_VMHBA2  
+	zone name ESXHOST_3_VMHBA2  
 	pwwn 21:00:00:1b:32:0b:8f:01  
 	pwwn 50:06:01:60:41:e0:b9:44  
 	pwwn 50:06:01:68:41:e0:b9:44  

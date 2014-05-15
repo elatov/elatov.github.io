@@ -17,7 +17,7 @@ I recently updated my VMware Workstation from version 8 to version 9. The instal
 
 	  
 	Aug 23 10:32:27 klaptop kernel: [ 92.964074] general protection fault: 0000 [#1] SMP  
-	Aug 23 10:32:27 klaptop kernel: [ 92.965006] Modules linked in: vmnet(O) ppdev parport\_pc parport fuse vsock(O) vmci(O) vmmon(O) nf\_conntrack\_ipv4 nf\_defrag\_ipv4 xt\_state nf\_conntrack binfmt\_misc snd\_hda\_codec\_hdmi snd\_hda\_codec\_idt snd\_hda\_intel arc4 snd\_hda\_codec coretemp uvcvideo videobuf2\_vmalloc videobuf2\_memops videobuf2\_core iwlwifi snd\_hwdep kvm\_intel snd\_pcm videodev udlfb kvm media snd\_page\_alloc mac80211 snd\_timer snd cfg80211 i2c\_i801 e1000e lpc\_ich mfd\_core microcode mei rfkill dell\_wmi sparse\_keymap dell\_laptop dcdbas soundcore nfsd nfs\_acl auth\_rpcgss lockd sunrpc uinput sdhci\_pci sdhci mmc\_core firewire\_ohci firewire\_core crc\_itu\_t ata\_generic pata\_acpi wmi i915 video i2c\_algo\_bit drm\_kms\_helper drm i2c\_core   
+	Aug 23 10:32:27 klaptop kernel: [ 92.965006] Modules linked in: vmnet(O) ppdev parport_pc parport fuse vsock(O) vmci(O) vmmon(O) nf_conntrack_ipv4 nf_defrag_ipv4 xt_state nf_conntrack binfmt_misc snd_hda_codec_hdmi snd_hda_codec_idt snd_hda_intel arc4 snd_hda_codec coretemp uvcvideo videobuf2_vmalloc videobuf2_memops videobuf2_core iwlwifi snd_hwdep kvm_intel snd_pcm videodev udlfb kvm media snd_page_alloc mac80211 snd_timer snd cfg80211 i2c_i801 e1000e lpc_ich mfd_core microcode mei rfkill dell_wmi sparse_keymap dell_laptop dcdbas soundcore nfsd nfs_acl auth_rpcgss lockd sunrpc uinput sdhci_pci sdhci mmc_core firewire_ohci firewire_core crc_itu_t ata_generic pata_acpi wmi i915 video i2c_algo_bit drm_kms_helper drm i2c_core   
 	Aug 23 10:32:27 klaptop kernel: [ 92.965006]  
 	Aug 23 10:32:27 klaptop kernel: [ 92.965006] Pid: 2761, comm: vmware-vmx Tainted: G O 3.5.2-1.fc17.i686.PAE #1 Dell Inc. Latitude E4300 /0D201R  
 	Aug 23 10:32:27 klaptop kernel: [ 92.965006] EIP: 0060:[] EFLAGS: 00213246 CPU: 0  
@@ -40,35 +40,35 @@ I recently updated my VMware Workstation from version 8 to version 9. The instal
 	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] HostIF_CallOnEachCPU+0x19/0x40 [vmmon]  
 	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] Vmx86_GetAllMSRs+0x25/0x50 [vmmon]  
 	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] LinuxDriver_Ioctl+0x32f/0xd00 [vmmon]  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? _\_mem\_cgroup\_commit\_charge+0x144/0x2b0  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? radix\_tree\_lookup_slot+0xd/0x10  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? find\_get\_page+0x1e/0xe0  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? find\_lock\_page+0x35/0x90  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? shmem\_getpage\_gfp+0x8d/0x6f0  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? kmap\_atomic\_prot+0xfe/0x160  
+	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? __mem_cgroup_commit_charge+0x144/0x2b0  
+	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? radix_tree_lookup_slot+0xd/0x10  
+	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? find_get_page+0x1e/0xe0  
+	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? find_lock_page+0x35/0x90  
+	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? shmem_getpage_gfp+0x8d/0x6f0  
+	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? kmap_atomic_prot+0xfe/0x160  
 	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? unlock_page+0x4e/0x70  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? shmem\_write\_end+0x56/0xe0  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? iov\_iter\_copy\_from\_user_atomic+0x55/0x80  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? shmem\_write\_begin+0x40/0x50  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? generic\_file\_buffered_write+0x17d/0x220  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? radix\_tree\_lookup_slot+0xd/0x10  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? find\_get\_page+0x1e/0xe0  
+	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? shmem_write_end+0x56/0xe0  
+	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? iov_iter_copy_from_user_atomic+0x55/0x80  
+	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? shmem_write_begin+0x40/0x50  
+	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? generic_file_buffered_write+0x17d/0x220  
+	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? radix_tree_lookup_slot+0xd/0x10  
+	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? find_get_page+0x1e/0xe0  
 	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? filemap_fault+0xef/0x3b0  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? mem\_cgroup\_update\_page\_stat+0x1a/0x50  
+	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? mem_cgroup_update_page_stat+0x1a/0x50  
 	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? unlock_page+0x4e/0x70  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? _\_do\_fault+0x420/0x5a0  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? _\_lock\_page\_or\_retry+0xa0/0xa0  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? handle\_pte\_fault+0x90/0xb00  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? handle\_mm\_fault+0x1dd/0x280  
+	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? __do_fault+0x420/0x5a0  
+	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? __lock_page_or_retry+0xa0/0xa0  
+	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? handle_pte_fault+0x90/0xb00  
+	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? handle_mm_fault+0x1dd/0x280  
 	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? LinuxDriver_Ioctl+0xd00/0xd00 [vmmon]  
 	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] LinuxDriver_UnlockedIoctl+0x19/0x20 [vmmon]  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] do\_vfs\_ioctl+0x7a/0x580  
+	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] do_vfs_ioctl+0x7a/0x580  
 	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? vmalloc_fault+0x181/0x181  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? do\_page\_fault+0x1b7/0x450  
+	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? do_page_fault+0x1b7/0x450  
 	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? vfs_write+0xe8/0x160  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? wait\_on\_retry\_sync\_kiocb+0x50/0x50  
+	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? wait_on_retry_sync_kiocb+0x50/0x50  
 	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] sys_ioctl+0x68/0x80  
-	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] sysenter\_do\_call+0x12/0x28  
+	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] sysenter_do_call+0x12/0x28  
 	Aug 23 10:32:27 klaptop kernel: \[ 92.965006\] \[\] ? __schedule+0x730/0x770  
 	Aug 23 10:32:27 klaptop kernel: [ 92.965006] Code: 77 ef 89 d8 e8 51 8c 34 c7 90 eb a5 8b 43 08 e8 d6 d4 24 c7 eb d3 8d 74 26 00 55 89 e5 56 66 66 66 66 90 89 c1 31 c0 89 d6 89 c2 32 31 c9 89 06 89 c8 89 56 04 5e 5d c3 90 55 89 e5 57 56 53  
 	Aug 23 10:32:27 klaptop kernel: [ 92.965006] EIP: [] HostIF_SafeRDMSR+0x11/0x20 [vmmon] SS:ESP 0068:eed45c68  
@@ -102,28 +102,28 @@ While searching on the internet, I ran into VMware Community Thread <a href="htt
 > 
 > VMware's vmmon.ko (vmware-vmx/lib/modules/source/vmmon-only/linux/hostif.c) generates exception table using the way described in kernel documentation ($KERNEL/Documentation/x86/exception-tables.txt) but this is quite old and completely useless beginning with Linux kernel 3.5.
 > 
-> Fortunately, there is \_ASM\_EXTABLE macro (in $KERNEL/arch/x86/include/asm/asm.h) to generate portable exception table. So I have created a patch to make exception table portable and make vmmon.ko to support Linux 3.5. I hope this will help.
+> Fortunately, there is _ASM_EXTABLE macro (in $KERNEL/arch/x86/include/asm/asm.h) to generate portable exception table. So I have created a patch to make exception table portable and make vmmon.ko to support Linux 3.5. I hope this will help.
 
 From that thread I found VMware Community <a href="http://communities.vmware.com/message/2103048" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/message/2103048']);">2103048</a>. That had a link to the <a href="http://communities.vmware.com/servlet/JiveServlet/download/2103172-94260/vmware9_kernel35_patch.tar.bz2" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/servlet/JiveServlet/download/2103172-94260/vmware9_kernel35_patch.tar.bz2']);">patch</a> for this issue. I downloaded the patch:
 
 	  
 	$ ls \*patch\*  
-	vmware9\_kernel35\_patch.tar.bz2  
+	vmware9_kernel35_patch.tar.bz2  
 	
 
 I then extracted the patch:
 
 	  
-	$ tar xjfv vmware9\_kernel35\_patch.tar.bz2  
-	vmware9\_kernel3.5\_patch/  
-	vmware9\_kernel3.5\_patch/patch-modules_3.5.0.sh  
-	vmware9\_kernel3.5\_patch/vmware3.5.patch  
+	$ tar xjfv vmware9_kernel35_patch.tar.bz2  
+	vmware9_kernel3.5_patch/  
+	vmware9_kernel3.5_patch/patch-modules_3.5.0.sh  
+	vmware9_kernel3.5_patch/vmware3.5.patch  
 	
 
 I then went inside the patch directory and applied the patch:
 
 	  
-	$ cd vmware9\_kernel3.5\_patch/  
+	$ cd vmware9_kernel3.5_patch/  
 	$ sudo ./patch-modules_3.5.0.sh  
 	patching file vmmon-only/linux/hostif.c  
 	Stopping vmware (via systemctl):  

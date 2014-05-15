@@ -534,7 +534,7 @@ Searching for that error on goodle, I saw <a href="http://askubuntu.com/question
 > 
 > The default is platform-specific. On platforms with a native text mode (such as PC BIOS platforms), the default is ‘text’. Otherwise the default may be ‘auto’ or a specific video mode.
 > 
-> This variable is often set by "GRUB\_GFXPAYLOAD\_LINUX"
+> This variable is often set by "GRUB_GFXPAYLOAD_LINUX"
 
 I then ran across <a href="https://help.ubuntu.com/community/ChangeTTYResolution" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://help.ubuntu.com/community/ChangeTTYResolution']);">ChangeTTYResolution</a>. From that article:
 

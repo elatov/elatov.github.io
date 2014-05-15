@@ -386,7 +386,7 @@ Here is the structure of **sysfs** for the thermal system:
 >         |---cur_state:        Current cooling state of the cooling device
 >     
 > 
-> Then next two dynamic attributes are created/removed in pairs. They represent the relationship between a thermal zone and its associated cooling device. They are created/removed for each successful execution of thermal\_zone\_bind\_cooling\_device/thermal\_zone\_unbind\_cooling\_device.
+> Then next two dynamic attributes are created/removed in pairs. They represent the relationship between a thermal zone and its associated cooling device. They are created/removed for each successful execution of thermal_zone_bind_cooling_device/thermal_zone_unbind_cooling_device.
 > 
 >     /sys/class/thermal/thermal_zone[0-*]:
 >         |---cdev[0-*]:        [0-*]th cooling device in current thermal zone
@@ -484,7 +484,7 @@ So the Exynos thermal driver throttles the CPU determined by the ACTIVE trips th
 
 Depending on which one it tripped we throttle the CPU accordingly. Here are the trip values on the laptop:
 
-    elatov@crbook:~$for i in $(ls /sys/class/thermal/thermal_zone0/trip_point_*\_temp); do echo $i; cat $i; done 
+    elatov@crbook:~$for i in $(ls /sys/class/thermal/thermal_zone0/trip_point_*_temp); do echo $i; cat $i; done 
     /sys/class/thermal/thermal_zone0/trip_point_0_temp 
     85000 
     /sys/class/thermal/thermal_zone0/trip_point_1_temp 

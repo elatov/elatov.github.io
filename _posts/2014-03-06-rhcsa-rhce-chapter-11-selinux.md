@@ -41,7 +41,7 @@ From the same guide here is quick comparison when SELinux is enabled and when it
 >     -rwxrw-r--  user1 group1 unconfined_u:object_r:user_home_t:s0      file1
 >     
 > 
-> In this example, SELinux provides a user (**unconfined_u**), a role (**object_r**), a type (**user\_home\_t**), and a level (**s0**). This information is used to make access control decisions. With DAC, access is controlled based only on Linux user and group IDs. It is important to remember that SELinux policy rules are checked after DAC rules. SELinux policy rules are not used if DAC rules deny access first.
+> In this example, SELinux provides a user (**unconfined_u**), a role (**object_r**), a type (**user_home_t**), and a level (**s0**). This information is used to make access control decisions. With DAC, access is controlled based only on Linux user and group IDs. It is important to remember that SELinux policy rules are checked after DAC rules. SELinux policy rules are not used if DAC rules deny access first.
 
 ### SELinux Modes
 
@@ -104,7 +104,7 @@ Onto domains:
 
 > A process in one domain transitions to another domain by executing an application that has the entrypoint type for the new domain. The entrypoint permission is used in SELinux policy, and controls which applications can be used to enter a domain. The following example demonstrates a domain transition:
 > 
-> 1.  A user wants to change their password. To do this, they run the **passwd** application. The **/usr/bin/passwd** executable is labeled with the **passwd\_exec\_t** type:
+> 1.  A user wants to change their password. To do this, they run the **passwd** application. The **/usr/bin/passwd** executable is labeled with the **passwd_exec_t** type:
 >     
 >         ~]$ ls -Z /usr/bin/passwd
 >         -rwsr-xr-x  root root system_u:object_r:passwd_exec_t:s0 /usr/bin/passwd
@@ -127,7 +127,7 @@ To check rules we can use **sesearch** (from the **setools-console** package). T
 
 Onto the next step:
 
-> _3. An SELinux policy rule states that the **passwd_t** domain has **entrypoint** permission to the **passwd\_exec\_t** type.
+> _3. An SELinux policy rule states that the **passwd_t** domain has **entrypoint** permission to the **passwd_exec_t** type.
 
 Here is the rule for that:
 
@@ -144,7 +144,7 @@ From the same guide:
 
 > This example is not exhaustive, and is used as a basic example to explain domain transition. Although there is an actual rule that allows subjects running in the **passwd_t** domain to access objects labeled with the **shadow_t** file type, other SELinux policy rules must be met before the subject can transition to a new domain. In this example, Type Enforcement ensures:
 > 
-> *   The **passwd_t** domain can only be entered by executing an application labeled with the **passwd\_exec\_t** type; can only execute from authorized shared libraries, such as the **lib_t** type; and cannot execute any other applications.
+> *   The **passwd_t** domain can only be entered by executing an application labeled with the **passwd_exec_t** type; can only execute from authorized shared libraries, such as the **lib_t** type; and cannot execute any other applications.
 > *   Only authorized domains, such as **passwd_t**, can write to files labeled with the **shadow_t** type. Even if other processes are running with superuser privileges, those processes cannot write to files labeled with the **shadow_t** type, as they are not running in the **passwd_t** domain.
 > *   Only authorized domains can transition to the **passwd_t** domain. For example, the sendmail process running in the **sendmail_t** domain does not have a legitimate reason to execute passwd; therefore, it can never transition to the **passwd_t** domain.
 > *   Processes running in the **passwd_t** domain can only read and write to authorized types, such as files labeled with the **etc_t** or **shadow_t** types. This prevents the passwd application from being tricked into reading or writing arbitrary files.
@@ -163,7 +163,7 @@ We can also check contexts of processes. From the same guide:
 > 
 > 3.  In the first tab/terminal, press Ctrl+C to cancel the passwd application.
 > 
-> In this example, when the **passwd** application (labeled with the **passwd\_exec\_t** type) is executed, the user's shell process transitions to the **passwd_t** domain. Remember that the type defines a domain for processes, and a type for files.
+> In this example, when the **passwd** application (labeled with the **passwd_exec_t** type) is executed, the user's shell process transitions to the **passwd_t** domain. Remember that the type defines a domain for processes, and a type for files.
 > 
 > Use the **ps -eZ** command to view the SELinux contexts for running processes. The following is a truncated example of the output, and may differ on your system:
 > 
@@ -319,7 +319,7 @@ We get a lot of information. The most important part is the following:
     denied  { read } for  pid=2989 comm="vsftpd" name="www" dev=dm-0 ino=394931 scontext=system_u:system_r:ftpd_t:s0-s0:c0.c1023 tcontext=unconfined_u:object_r:var_t:s0 tclass=dir
     
 
-as we expected the source context (**scontext=system\_u:system\_r:ftpd_t:s0-s0:c0.c1023**) cannot access the target context (**tcontext=unconfined\_u:object\_r:var_t:s0**). There is a cool tool called **audit2allow**, it basically parses failures and will provide a way to solve the issue, for example here is what it told me:
+as we expected the source context (**scontext=system_u:system_r:ftpd_t:s0-s0:c0.c1023**) cannot access the target context (**tcontext=unconfined_u:object_r:var_t:s0**). There is a cool tool called **audit2allow**, it basically parses failures and will provide a way to solve the issue, for example here is what it told me:
 
     [root@rhel1 ~]# tail /var/log/audit/audit.log | audit2allow  -a -w
     type=AVC msg=audit(1393193843.673:142): avc:  denied  { read } for  pid=3107 comm="vsftpd" name="www" dev=dm-0 ino=394931 scontext=system_u:system_r:ftpd_t:s0-s0:c0.c1023 tcontext=system_u:object_r:httpd_sys_content_t:s0 tclass=dir
@@ -427,7 +427,7 @@ Here is the example:
 >         ~]# chcon -t unconfined_exec_t /usr/sbin/httpd
 >         
 > 
-> 4.  Run the **ls -Z /usr/sbin/httpd** command to confirm that **/usr/sbin/httpd** is labeled with the **unconfined\_exec\_t** type:
+> 4.  Run the **ls -Z /usr/sbin/httpd** command to confirm that **/usr/sbin/httpd** is labeled with the **unconfined_exec_t** type:
 >     
 >         ~]$ ls -Z /usr/sbin/httpd
 >         -rwxr-xr-x  root root system_u:object_r:unconfined_exec_t:s0 /usr/sbin/httpd
@@ -461,7 +461,7 @@ Here is the example:
 >         2009-05-07 01:41:10 (0.00 B/s) - `testfile.1' saved [0/0]
 >         
 >     
->     Although the **httpd** process does not have access to files labeled with the **samba\_share\_t** type, **httpd** is running in the unconfined **unconfined_t** domain, and falls back to using DAC rules, and as such, the **wget** command succeeds. Had **httpd** been running in the confined **httpd_t** domain, the **wget** command would have failed.
+>     Although the **httpd** process does not have access to files labeled with the **samba_share_t** type, **httpd** is running in the unconfined **unconfined_t** domain, and falls back to using DAC rules, and as such, the **wget** command succeeds. Had **httpd** been running in the confined **httpd_t** domain, the **wget** command would have failed.
 > 
 > 8.  The **restorecon** command restores the default SELinux context for files. As the Linux root user, run the **restorecon -v /usr/sbin/httpd** command to restore the default SELinux context for **/usr/sbin/httpd**:
 >     
@@ -469,7 +469,7 @@ Here is the example:
 >         restorecon reset /usr/sbin/httpd context system_u:object_r:unconfined_exec_t:s0->system_u:object_r:httpd_exec_t:s0
 >         
 >     
->     Run the **ls -Z /usr/sbin/httpd** command to confirm that **/usr/sbin/httpd** is labeled with the **httpd\_exec\_t** type:
+>     Run the **ls -Z /usr/sbin/httpd** command to confirm that **/usr/sbin/httpd** is labeled with the **httpd_exec_t** type:
 >     
 >         ~]$ ls -Z /usr/sbin/httpd
 >         -rwxr-xr-x  root root system_u:object_r:httpd_exec_t:s0 /usr/sbin/httpd
@@ -605,9 +605,9 @@ From the Guide:
 > 
 > Run the **setsebool** utility in the **setsebool boolean_name on/off** form to enable or disable Booleans.
 > 
-> To temporarily enable Apache HTTP Server scripts and modules to connect to database servers, run the **setsebool httpd\_can\_network\_connect\_db on** command as the Linux root user.
+> To temporarily enable Apache HTTP Server scripts and modules to connect to database servers, run the **setsebool httpd_can_network_connect_db on** command as the Linux root user.
 > 
-> Use the **getsebool httpd\_can\_network\_connect\_db** command to verify the Boolean is enabled:
+> Use the **getsebool httpd_can_network_connect_db** command to verify the Boolean is enabled:
 > 
 >     ~]$ getsebool httpd_can_network_connect_db
 >     httpd_can_network_connect_db --> on
@@ -624,7 +624,7 @@ The Guide:
 
 > The **chcon** command changes the SELinux context for files. However, changes made with the **chcon** command do not survive a file system relabel, or the execution of the restorecon command. SELinux policy controls whether users are able to modify the SELinux context for any given file. When using chcon, users provide all or part of the SELinux context to change. An incorrect file type is a common cause of SELinux denying access.
 > 
-> Run the **chcon -t samba\_share\_t file1** command to change the type to **samba\_share\_t**. The **-t** option only changes the type. View the change with **ls -Z file1**:
+> Run the **chcon -t samba_share_t file1** command to change the type to **samba_share_t**. The **-t** option only changes the type. View the change with **ls -Z file1**:
 > 
 >     ~]$ ls -Z file1 
 >     -rw-rw-r--  user1 group1 unconfined_u:object_r:samba_share_t:s0 file1

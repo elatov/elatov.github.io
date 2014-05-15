@@ -145,7 +145,7 @@ Then I configured the application to be installed under **/usr/local/grive**:
     moxz:/tmp>cd grive/ 
     moxz:/tmp/grive>sudo mkdir /usr/local/grive 
     moxz:/tmp/grive>sudo chown elatov:elatov /usr/local/grive 
-    moxz:/tmp/grive>cmake -DCMAKE\_INSTALL\_PREFIX:PATH=/usr/local/grive .
+    moxz:/tmp/grive>cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr/local/grive .
     -- The C compiler identification is GNU 4.7.2
     -- The CXX compiler identification is GNU 4.7.2
     -- Check for working C compiler: /bin/cc

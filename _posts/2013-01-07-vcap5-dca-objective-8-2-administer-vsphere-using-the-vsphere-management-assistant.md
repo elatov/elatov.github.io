@@ -243,7 +243,7 @@ From "<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma
 >     *   5 Verify that you can run a vSphere CLI command without authentication by running a command on one  
 >         of the ESXi hosts, for example:  
 	>           
-	>         esxcli --server <VC\_server> --vihost <esx\_host> network nic list  
+	>         esxcli --server <VC_server> --vihost <esx_host> network nic list  
 	>         </p> 
 >         The command runs without prompting for authentication information</li> </ol> </blockquote> 
 >         Here is how adding vCenter to the vMA looks like:
@@ -557,7 +557,7 @@ From "<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma
 	>         vi-admin@localhost:~[192.168.2.110]> vmware-cmd -h 192.168.0.103 -l
 	>         
 	>         /vmfs/volumes/4fc3c05b-c677ee28-ba3c-0050561712cb/test/test.vmx  
-	>         /vmfs/volumes/4fc3c05b-c677ee28-ba3c-0050561712cb/vMA5\_1/vMA5\_1.vmx  
+	>         /vmfs/volumes/4fc3c05b-c677ee28-ba3c-0050561712cb/vMA5_1/vMA5_1.vmx  
 	>         
 >         
 >         Now to check the state of the VMs:
@@ -565,7 +565,7 @@ From "<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma
 	>           
 	>         vi-admin'@'localhost:~[192.168.2.110]> vmware-cmd -h 192.168.0.103 /vmfs/volumes/4fc3c05b-c677ee28-ba3c-0050561712cb/test/test.vmx getstate  
 	>         getstate() = off  
-	>         vi-admin'@'localhost:~[192.168.2.110]> vmware-cmd -h 192.168.0.103 /vmfs/volumes/4fc3c05b-c677ee28-ba3c-0050561712cb/vMA5\_1/vMA5\_1.vmx getstate  
+	>         vi-admin'@'localhost:~[192.168.2.110]> vmware-cmd -h 192.168.0.103 /vmfs/volumes/4fc3c05b-c677ee28-ba3c-0050561712cb/vMA5_1/vMA5_1.vmx getstate  
 	>         getstate() = on  
 	>         
 >         

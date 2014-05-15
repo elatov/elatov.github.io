@@ -78,36 +78,36 @@ So it looks like the "update-apt-xapian-index" is what's causing the high disk I
 
 	  
 	root@uaclass39:~# iostat 1 5 /dev/sda  
-	Linux 3.0.0-17-virtual (uaclass39) 03/29/2012 \_x86\_64_ (1 CPU)
+	Linux 3.0.0-17-virtual (uaclass39) 03/29/2012 _x86_64_ (1 CPU)
 	
 	avg-cpu: %user %nice %system %iowait %steal %idle  
 	1.03 2.09 1.94 44.96 0.00 49.99
 	
-	Device: tps kB\_read/s kB\_wrtn/s kB\_read kB\_wrtn  
+	Device: tps kB_read/s kB_wrtn/s kB_read kB_wrtn  
 	sda 169.03 5636.54 312.89 7418419 411800
 	
 	avg-cpu: %user %nice %system %iowait %steal %idle  
 	0.00 1.98 2.97 95.05 0.00 0.00
 	
-	Device: tps kB\_read/s kB\_wrtn/s kB\_read kB\_wrtn  
+	Device: tps kB_read/s kB_wrtn/s kB_read kB_wrtn  
 	sda 609.90 16419.80 91.09 16584 92
 	
 	avg-cpu: %user %nice %system %iowait %steal %idle  
 	0.00 2.00 2.00 96.00 0.00 0.00
 	
-	Device: tps kB\_read/s kB\_wrtn/s kB\_read kB\_wrtn  
+	Device: tps kB_read/s kB_wrtn/s kB_read kB_wrtn  
 	sda 563.00 14884.00 40.00 14884 40
 	
 	avg-cpu: %user %nice %system %iowait %steal %idle  
 	0.97 1.94 0.97 96.12 0.00 0.00
 	
-	Device: tps kB\_read/s kB\_wrtn/s kB\_read kB\_wrtn  
+	Device: tps kB_read/s kB_wrtn/s kB_read kB_wrtn  
 	sda 779.61 20749.51 38.83 21372 40
 	
 	avg-cpu: %user %nice %system %iowait %steal %idle  
 	0.00 7.69 1.92 90.38 0.00 0.00
 	
-	Device: tps kB\_read/s kB\_wrtn/s kB\_read kB\_wrtn  
+	Device: tps kB_read/s kB_wrtn/s kB_read kB_wrtn  
 	sda 658.65 15638.46 319.23 16264 332  
 	
 
@@ -162,7 +162,7 @@ But I didn't want to do that just yet. Just as an FYI, here are the spec of each
 
 	  
 	root@uaclass39:~# uname -a  
-	Linux uaclass39 3.0.0-17-virtual #30-Ubuntu SMP Thu Mar 8 23:45:51 UTC 2012 x86\_64 x86\_64 x86_64 GNU/Linux
+	Linux uaclass39 3.0.0-17-virtual #30-Ubuntu SMP Thu Mar 8 23:45:51 UTC 2012 x86_64 x86_64 x86_64 GNU/Linux
 	
 	root@uaclass39:~# lsb_release -a  
 	No LSB modules are available.  

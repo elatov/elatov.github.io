@@ -391,9 +391,9 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 	>   
 	> naa.6006016015301d00167ce6e2ddb3de11  
 	> Device Display Name: DGC Fibre Channel Disk (naa.6006016015301d00167ce6e2ddb3de11)  
-	> Storage Array Type: VMW\_SATP\_CX  
+	> Storage Array Type: VMW_SATP_CX  
 	> Storage Array Type Device Config: {navireg ipfilter}  
-	> Path Selection Policy: VMW\_PSP\_MRU  
+	> Path Selection Policy: VMW_PSP_MRU  
 	> Path Selection Policy Device Config: Current Path=vmhba4:C0:T0:L25  
 	> Working Paths: vmhba4:C0:T0:L25  
 	> 
@@ -404,25 +404,25 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 > *   You can add a claim rule by specifying the device name.
 > 
 	>   
-	> esxcli storage nmp satp rule add -s SATP --device device\_name --option=enable\_ssd  
+	> esxcli storage nmp satp rule add -s SATP --device device_name --option=enable_ssd  
 	> 
 > 
 > *   You can add a claim rule by specifying the vendor name and the model name.
 > 
 	>   
-	> esxcli storage nmp satp rule add -s SATP -V vendor\_name -M model\_name --option=enable_ssd  
+	> esxcli storage nmp satp rule add -s SATP -V vendor_name -M model_name --option=enable_ssd  
 	> 
 > 
 > *   You can add a claim rule based on the transport protocol.
 > 
 	>   
-	> esxcli storage nmp satp rule add -s SATP --transport transport\_protocol --option=enable\_ssd  
+	> esxcli storage nmp satp rule add -s SATP --transport transport_protocol --option=enable_ssd  
 	> 
 > 
 > *   You can add a claim rule based on the driver name.
 > 
 	>   
-	> esxcli storage nmp satp rule add -s SATP --driver driver\_name --option=enable\_ssd  
+	> esxcli storage nmp satp rule add -s SATP --driver driver_name --option=enable_ssd  
 	> 
 > 
 > 4 Unclaim the device.
@@ -436,7 +436,7 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 > *   You can unclaim the device by specifying the vendor name and the model name.
 > 
 	>   
-	> esxcli storage core claiming unclaim --type device -V vendor\_name -M model\_name  
+	> esxcli storage core claiming unclaim --type device -V vendor_name -M model_name  
 	> 
 > 
 > *   You can unclaim the device based on the transport protocol.
@@ -486,9 +486,9 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 	>   
 	> #esxcli storage core plugin list --plugin-class=VAAI  
 	> Plugin name Plugin class  
-	> VMW\_VAAIP\_EQL VAAI  
-	> VMW\_VAAIP\_NETAPP VAAI  
-	> VMW\_VAAIP\_CX VAAI  
+	> VMW_VAAIP_EQL VAAI  
+	> VMW_VAAIP_NETAPP VAAI  
+	> VMW_VAAIP_CX VAAI  
 	> 
 > 
 > *   Type Filter to display the Filter.
@@ -536,7 +536,7 @@ And more from the same document:
 	>   
 	> \# esxcli storage core device vaai status get -d naa.XXXXXXXXXXXX4c  
 	> naa.XXXXXXXXXXXX4c  
-	> VAAI Plugin Name: VMW\_VAAIP\_SYMM  
+	> VAAI Plugin Name: VMW_VAAIP_SYMM  
 	> ATS Status: supported  
 	> Clone Status: supported  
 	> Zero Status: supported  

@@ -18,12 +18,12 @@ tags:
 There are two ways to go about finding out battery status of a rooted Android phone. One is simple and uses *cat*, the other is android specific. Here is how the output of the first one looks like:
 
 	  
-	$ ./adb shell cat /sys/class/power\_supply/battery/batt\_attr_text  
+	$ ./adb shell cat /sys/class/power_supply/battery/batt_attr_text  
 	vref: 1248  
 	batt_id: 4  
 	batt_vol: 4155  
 	batt_current: 229  
-	batt\_discharge\_current: 0  
+	batt_discharge_current: 0  
 	batt_temperature: 391  
 	Pd_M: 0  
 	I_MBAT: 229  
@@ -40,7 +40,7 @@ There are two ways to go about finding out battery status of a rooted Android ph
 That gives most of the battery information. If you just want to find out the current percentage, you can always do this:
 
 	  
-	$ ./adb shell cat /sys/class/power\_supply/battery/batt\_attr_text | grep ^level  
+	$ ./adb shell cat /sys/class/power_supply/battery/batt_attr_text | grep ^level  
 	level: 92  
 	
 

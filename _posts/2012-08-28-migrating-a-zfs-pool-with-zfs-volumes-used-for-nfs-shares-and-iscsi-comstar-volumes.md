@@ -55,10 +55,10 @@ And here are my ZFS Volumes:
 	rpool1 238G 11.8G 46K /rpool1  
 	rpool1/iscsi_share 103G 110G 4.71G -  
 	rpool1/iscsi_share2 134G 146G 26.5M -  
-	rpool1/nfs\_share 1000M 11.8G 1000M /rpool1/nfs\_share  
+	rpool1/nfs_share 1000M 11.8G 1000M /rpool1/nfs_share  
 	
 
-As you have probably guessed 'iscsi\_share' and 'iscsi\_share2' are used as iSCSI Comstar Volumes, BTW if you want information on Comstar, I would recommend reading the Oracle Documentation "<a href="http://docs.oracle.com/cd/E19963-01/html/821-1459/fncpi.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://docs.oracle.com/cd/E19963-01/html/821-1459/fncpi.html']);">Configuring COMSTAR (Task Map)</a>":
+As you have probably guessed 'iscsi_share' and 'iscsi_share2' are used as iSCSI Comstar Volumes, BTW if you want information on Comstar, I would recommend reading the Oracle Documentation "<a href="http://docs.oracle.com/cd/E19963-01/html/821-1459/fncpi.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://docs.oracle.com/cd/E19963-01/html/821-1459/fncpi.html']);">Configuring COMSTAR (Task Map)</a>":
 
 	  
 	root@openindiana:~# sbdadm list-lu
@@ -263,7 +263,7 @@ I then re-imported the ZFS Pool with another name:
 	data 238G 11.8G 46K /data  
 	data/iscsi_share 103G 110G 4.71G -  
 	data/iscsi_share2 134G 146G 26.5M -  
-	data/nfs\_share 1000M 11.8G 1000M /data/nfs\_share  
+	data/nfs_share 1000M 11.8G 1000M /data/nfs_share  
 	
 
 That looks good, I then re-enabled the services and checked for my LUNs:

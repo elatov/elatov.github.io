@@ -24,7 +24,7 @@ tags:
   - vdr
   - Virtual Hardware
 ---
-I recently ran into an issue with the VMware VDR appliance. The Integrity Check was failing and a VM (the Email Server VM) was failing to successfully back up. First I wanted to figure out why the Integrity Check was failing. Luckily we had two backup jobs and two Dedupe stores. The Backup Jobs were called "Email\_Server\_Backup\_Job" (this backed up to Dedupe\_Store\_1) and "All\_Other\_VMs\_Backup\_Job" (this backed up to Dedupe\_Store_2). We disabled both jobs to narrow down the issue. Each Dedup store was a 1TB RDM, which is a supported configuration. From the '<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vmware-data-recovery-administrators-guide-20.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vmware-data-recovery-administrators-guide-20.pdf']);">VMware Data Recovery Administration Guide 2.0</a>'
+I recently ran into an issue with the VMware VDR appliance. The Integrity Check was failing and a VM (the Email Server VM) was failing to successfully back up. First I wanted to figure out why the Integrity Check was failing. Luckily we had two backup jobs and two Dedupe stores. The Backup Jobs were called "Email_Server_Backup_Job" (this backed up to Dedupe_Store_1) and "All_Other_VMs_Backup_Job" (this backed up to Dedupe_Store_2). We disabled both jobs to narrow down the issue. Each Dedup store was a 1TB RDM, which is a supported configuration. From the '<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vmware-data-recovery-administrators-guide-20.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vmware-data-recovery-administrators-guide-20.pdf']);">VMware Data Recovery Administration Guide 2.0</a>'
 
 > While Data Recovery does not impose limits on deduplication store size, other factors limit deduplication shares. As a result, deduplication stores are limited to:
 > 
@@ -75,7 +75,7 @@ We updated to the latest version of VDR but unfortunately that didn't help out, 
 
 The first part of the solution was already in place in VDR 2.0.1, so we didn't have to do that. After adding the lines to the above file (from part 2), the Integrity Check succeeded, however we found some damaged restore points. We followed the instructions in VMware KB <a href="http://kb.vmware.com/kb/1013387" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1013387']);">1013387</a> to clear the damaged restore points and to run another manual Integrity Check.
 
-We then re-enabled the Email\_Server\_Backup_Job and it started to fail right away and it actually kept leaving VMware snapshots behind. I then wanted to concentrate on the VMware snapshots failing. The first thing I noticed that that the VM was actually on Virtual HW # 4:
+We then re-enabled the Email_Server_Backup_Job and it started to fail right away and it actually kept leaving VMware snapshots behind. I then wanted to concentrate on the VMware snapshots failing. The first thing I noticed that that the VM was actually on Virtual HW # 4:
 
 	  
 	$ egrep 'virtualHW.v|display' Email.vmx  
@@ -127,7 +127,7 @@ VDDK 5.0U1 is included in ESXi 5.0U1, from the release notes:
 
 We were running 5.0GA, so we went ahead and updated to 5.0U1 (vCenter and ESXi) and the snapshot removal process started working properly without leaving any snapshots behind. This actually explained as to why our Integrity Checks were failing. Our snapshots would always fail and the CBT would only try to back up the last changed blocks but they just kept adding up from previous snapshots and it would cause inconsistent backups. Having discovered that, we added two new RDMs to the VDR appliance and put each of them on a separate SCSI controller (more information on how to do that can be seen in VMware KB <a href="http://kb.vmware.com/kb/1037094" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1037094']);">1037094</a>). We then mounted those two RDMs as two brand new Dedupe Stores.
 
-We re-configured the backup jobs to now point to the new Dedupe Stores and re-enabled the Email\_Server\_Backup_Job and it still failed to even start the backup. We logged into the VDR appliance via ssh as root and we checked out the */var/vmware/datarecovery/datarecovery-0.log* file. When it was failing we saw the following log entry:
+We re-configured the backup jobs to now point to the new Dedupe Stores and re-enabled the Email_Server_Backup_Job and it still failed to even start the backup. We logged into the VDR appliance via ssh as root and we checked out the */var/vmware/datarecovery/datarecovery-0.log* file. When it was failing we saw the following log entry:
 
 	  
 	7/7/2012 18:06:28.000: 0x0123e6a8: $[*20750]Trouble reading files, error -3956 ( operation failed)  
@@ -143,7 +143,7 @@ As I was logged into the appliance I saw that the hostname of the appliance was 
 
 The DNS was all over the place (The VDR appliance didn't have an A record, none of the ESXi host had pointer records, and we were using an old DNS server). After fixing all the DNS related issues, I wanted to change the DNS-Name that showed up in the appliance and ran into VMware communities post <a href="http://communities.vmware.com/thread/212466" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/thread/212466']);">212466,</a> it actually describes how the DNS-Name is set within the appliance:
 
-> There is a script /opt/vmware/share/vami/vami\_set\_hostname, which gets run during boot. This does a rev dns lookup for the ip address as follows:
+> There is a script /opt/vmware/share/vami/vami_set_hostname, which gets run during boot. This does a rev dns lookup for the ip address as follows:
 > 
 > host -W 10 -T <ip> eth0
 > 
@@ -154,9 +154,9 @@ The DNS was all over the place (The VDR appliance didn't have an A record, none 
 Since my DNS was all setup, I just rebooted the appliance and then all the DNS checks passed. If you don't have a DNS server and you want to change the DNS-Name of your Appliance, you can follow the instruction laid out in that communities page:
 
 > cd /opt/vmware/share/vami  
-> cp vami\_set\_hostname vami\_set\_hostname.orig
+> cp vami_set_hostname vami_set_hostname.orig
 > 
-> Comment out the following 4 lines in vami\_set\_hostname (from line 54 of the file)
+> Comment out the following 4 lines in vami_set_hostname (from line 54 of the file)
 > 
 > cp $HOSTFILE ${HOSTFILE}.orig  
 > grep -v '^127.0.0.1\|^::1' < ${HOSTFILE}.orig > $HOSTFILE  
@@ -183,10 +183,10 @@ Since my DNS was all setup, I just rebooted the appliance and then all the DNS c
 > BOOTPROTO=none  
 > ONBOOT=yes  
 > TYPE=Ethernet  
-> IPADDR=<ip\_of\_vdr_appliance>  
-> NETMASK=<netmask\_of\_vdr_appliance>  
-> GATEWAY=<def\_gw\_of\_vdr\_appliance>  
-> BROADCAST=<broadcast\_of\_vdr_appliance>
+> IPADDR=<ip_of_vdr_appliance>  
+> NETMASK=<netmask_of_vdr_appliance>  
+> GATEWAY=<def_gw_of_vdr_appliance>  
+> BROADCAST=<broadcast_of_vdr_appliance>
 
 After working through the DNS issues the Backup still failed with the same log message from */var/vmware/datarecovery/datarecovery-0.log*, but I also checked out the */var/log/datarecovery/vcbAPI-0.log* and I saw the following:
 
@@ -268,22 +268,22 @@ I also noticed that earlier in the day this occured in the logs:
 
 	
 	
-	Aug 17 07:14:42 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM0)" completed successfully  
-	Aug 17 07:26:52 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM1)" completed successfully  
-	Aug 17 07:28:32 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM2)" completed successfully  
-	Aug 17 07:32:19 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM3)" completed successfully  
-	Aug 17 07:35:47 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM4)" completed successfully  
-	Aug 17 07:48:37 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM5)" completed successfully  
-	Aug 17 07:49:28 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM6)" completed successfully  
-	Aug 17 07:50:27 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM7)" completed successfully  
-	Aug 17 07:59:46 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM8)" completed successfully  
+	Aug 17 07:14:42 vdr datarecovery: Job "All_Other_VMs_Backup_Job (VM0)" completed successfully  
+	Aug 17 07:26:52 vdr datarecovery: Job "All_Other_VMs_Backup_Job (VM1)" completed successfully  
+	Aug 17 07:28:32 vdr datarecovery: Job "All_Other_VMs_Backup_Job (VM2)" completed successfully  
+	Aug 17 07:32:19 vdr datarecovery: Job "All_Other_VMs_Backup_Job (VM3)" completed successfully  
+	Aug 17 07:35:47 vdr datarecovery: Job "All_Other_VMs_Backup_Job (VM4)" completed successfully  
+	Aug 17 07:48:37 vdr datarecovery: Job "All_Other_VMs_Backup_Job (VM5)" completed successfully  
+	Aug 17 07:49:28 vdr datarecovery: Job "All_Other_VMs_Backup_Job (VM6)" completed successfully  
+	Aug 17 07:50:27 vdr datarecovery: Job "All_Other_VMs_Backup_Job (VM7)" completed successfully  
+	Aug 17 07:59:46 vdr datarecovery: Job "All_Other_VMs_Backup_Job (VM8)" completed successfully  
 	Aug 17 08:00:01 vdr datarecovery: Job terminated at specified stop time.  
 	Aug 17 08:00:01 vdr last message repeated 4 times  
-	Aug 17 08:00:05 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM9)" incomplete  
-	Aug 17 08:03:47 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM10)" incomplete  
-	Aug 17 08:03:54 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM11)" incomplete  
-	Aug 17 08:04:11 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM12)" incomplete  
-	Aug 17 08:04:25 vdr datarecovery: Job "All\_Other\_VMs\_Backup\_Job (VM13)" incomplete  
+	Aug 17 08:00:05 vdr datarecovery: Job "All_Other_VMs_Backup_Job (VM9)" incomplete  
+	Aug 17 08:03:47 vdr datarecovery: Job "All_Other_VMs_Backup_Job (VM10)" incomplete  
+	Aug 17 08:03:54 vdr datarecovery: Job "All_Other_VMs_Backup_Job (VM11)" incomplete  
+	Aug 17 08:04:11 vdr datarecovery: Job "All_Other_VMs_Backup_Job (VM12)" incomplete  
+	Aug 17 08:04:25 vdr datarecovery: Job "All_Other_VMs_Backup_Job (VM13)" incomplete  
 	
 
 It looks like we had backups going but they didn't finish by 8 AM, which is when our backup windows stops, so the jobs were forcefully stopped. That can cause the Intergrity check to fail since we had data that was half backed up. After we increased our backup window, the Integrity Check stopped failing, since all the VMs had enough time to be backed up.

@@ -178,8 +178,8 @@ From the Arch wiki page:
 > *   **yes**: The user is authorized to carry out the action without any authentification.
 > *   **auth_self**: Authentication is required but the user need not be an administrative user.
 > *   **auth_admin**: Authentication as an administrative user is require.
-> *   **auth\_self\_keep**: The same as auth_self but, like sudo, the authorization lasts a few minutes.
-> *   **auth\_admin\_keep**: The same as auth_admin but, like sudo, the authorization lasts a few minutes.
+> *   **auth_self_keep**: The same as auth_self but, like sudo, the authorization lasts a few minutes.
+> *   **auth_admin_keep**: The same as auth_admin but, like sudo, the authorization lasts a few minutes.
 
 You can list all the defined actions by running **pkaction**:
 

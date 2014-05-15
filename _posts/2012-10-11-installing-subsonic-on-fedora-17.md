@@ -127,7 +127,7 @@ Then save the iptables config:
 
 ### 6. Connect to SubSonic with you browser
 
-Fire up a browser of your choice and enter http://IP\_OF\_SUBSONIC:4040, you will see a page similar to this:
+Fire up a browser of your choice and enter http://IP_OF_SUBSONIC:4040, you will see a page similar to this:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2012/10/subsonic_login_page.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/10/subsonic_login_page.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/10/subsonic_login_page.png" alt="subsonic login page Installing Subsonic on Fedora 17" title="subsonic_login_page" width="261" height="168" class="alignnone size-full wp-image-4238" /></a>
 

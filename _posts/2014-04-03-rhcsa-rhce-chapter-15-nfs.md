@@ -144,7 +144,7 @@ From the same guide:
 > *   **ro** - The exported file system is read-only. Remote hosts cannot change the data shared on the file system. To allow hosts to make changes to the file system (that is, read/write), specify the rw option.
 > *   **sync** - The NFS server will not reply to requests before changes made by previous requests are written to disk. To enable asynchronous writes instead, specify the option async.
 > *   **wdelay** - The NFS server will delay writing to the disk if it suspects another write request is imminent. This can improve performance as it reduces the number of times the disk must be accesses by separate write commands, thereby reducing write overhead. To disable this, specify the **no_wdelay**. **no_wdelay** is only available if the default **sync** option is also specified.
-> *   **root_squash** - This prevents root users connected remotely (as opposed to locally) from having root privileges; instead, the NFS server will assign them the user ID nfsnobody. This effectively "squashes" the power of the remote root user to the lowest local user, preventing possible unauthorized writes on the remote server. To disable root squashing, specify **no\_root\_squash**.
+> *   **root_squash** - This prevents root users connected remotely (as opposed to locally) from having root privileges; instead, the NFS server will assign them the user ID nfsnobody. This effectively "squashes" the power of the remote root user to the lowest local user, preventing possible unauthorized writes on the remote server. To disable root squashing, specify **no_root_squash**.
 > 
 > To squash every remote user (including root), use **all_squash**. To specify the user and group IDs that the NFS server should assign to remote users from a particular host, use the **anonuid** and **anongid** options, respectively, as in:
 > 
@@ -617,25 +617,25 @@ From the same guide:
 
 > By default, mounted NFS volumes on the client side are labeled with a default context defined by policy for NFS. In common policies, this default context uses the **nfs_t** type. The following types are used with NFS. Different types allow you to configure flexible access:
 > 
-> *   **var\_lib\_nfs_t** - This type is used for existing and new files copied to or created in the **/var/lib/nfs/** directory. This type should not need to be changed in normal operation. To restore changes to the default settings, run the **restorecon -R -v /var/lib/nfs** command as the root user.
-> *   **nfsd\_exec\_t** - The **/usr/sbin/rpc.nfsd** file is labeled with the **nfsd\_exec\_t**, as are other system executables and libraries related to NFS. Users should not label any files with this type. **nfsd\_exec\_t** will transition to **nfsd_t**.
+> *   **var_lib_nfs_t** - This type is used for existing and new files copied to or created in the **/var/lib/nfs/** directory. This type should not need to be changed in normal operation. To restore changes to the default settings, run the **restorecon -R -v /var/lib/nfs** command as the root user.
+> *   **nfsd_exec_t** - The **/usr/sbin/rpc.nfsd** file is labeled with the **nfsd_exec_t**, as are other system executables and libraries related to NFS. Users should not label any files with this type. **nfsd_exec_t** will transition to **nfsd_t**.
 > 
 > SELinux is based on the least level of access required for a service to run. Services can be run in a variety of ways; therefore, you need to specify how you run your services. Use the following Booleans to set up SELinux:
 > 
-> *   **allow\_ftpd\_use_nfs** - When enabled, this Boolean allows the **ftpd** daemon to access NFS volumes.
-> *   **cobbler\_use\_nfs** - When enabled, this Boolean allows the **cobblerd** daemon to access NFS volumes.
-> *   **git\_system\_use_nfs** - When enabled, this Boolean allows the **Git** system daemon to read system shared repositories on NFS volumes.
-> *   **httpd\_use\_nfs** - When enabled, this Boolean allows the **httpd** daemon to access files stored on NFS volumes.
-> *   **qemu\_use\_nfs** - When enabled, this Boolean allows **Qemu** to use NFS volumes.
-> *   **rsync\_use\_nfs** - When enabled, this Boolean allows **rsync** servers to share NFS volumes.
-> *   **samba\_share\_nfs** - When enabled, this Boolean allows the **smbd** daemon to share NFS volumes. When disabled, this Boolean prevents **smbd** from having full access to NFS shares via Samba.
-> *   **sanlock\_use\_nfs** - When enabled, this Boolean allows the **sanlock** daemon to manage NFS volumes.
-> *   **sge\_use\_nfs** - When enabled, this Boolean allows the **sge** scheduler to access NFS volumes.
-> *   **use\_nfs\_home_dirs** - When enabled, this Boolean adds support for NFS home directories.
-> *   **virt\_use\_nfs** - When enabled, this Boolean allows confident virtual guests to manage files on NFS volumes.
-> *   **xen\_use\_nfs** When enabled, this Boolean allows **Xen** to manage files on NFS volumes.
-> *   **git\_cgi\_use_nfs** - When enabled, this Boolean allows the Git Common Gateway Interface (CGI) to access NFS volumes.
-> *   **tftp\_use\_nfs** - When enabled, this Boolean allows The Trivial File Transfer Protocol (**TFTP**) to read from NFS volumes for public file transfer services.
+> *   **allow_ftpd_use_nfs** - When enabled, this Boolean allows the **ftpd** daemon to access NFS volumes.
+> *   **cobbler_use_nfs** - When enabled, this Boolean allows the **cobblerd** daemon to access NFS volumes.
+> *   **git_system_use_nfs** - When enabled, this Boolean allows the **Git** system daemon to read system shared repositories on NFS volumes.
+> *   **httpd_use_nfs** - When enabled, this Boolean allows the **httpd** daemon to access files stored on NFS volumes.
+> *   **qemu_use_nfs** - When enabled, this Boolean allows **Qemu** to use NFS volumes.
+> *   **rsync_use_nfs** - When enabled, this Boolean allows **rsync** servers to share NFS volumes.
+> *   **samba_share_nfs** - When enabled, this Boolean allows the **smbd** daemon to share NFS volumes. When disabled, this Boolean prevents **smbd** from having full access to NFS shares via Samba.
+> *   **sanlock_use_nfs** - When enabled, this Boolean allows the **sanlock** daemon to manage NFS volumes.
+> *   **sge_use_nfs** - When enabled, this Boolean allows the **sge** scheduler to access NFS volumes.
+> *   **use_nfs_home_dirs** - When enabled, this Boolean adds support for NFS home directories.
+> *   **virt_use_nfs** - When enabled, this Boolean allows confident virtual guests to manage files on NFS volumes.
+> *   **xen_use_nfs** When enabled, this Boolean allows **Xen** to manage files on NFS volumes.
+> *   **git_cgi_use_nfs** - When enabled, this Boolean allows the Git Common Gateway Interface (CGI) to access NFS volumes.
+> *   **tftp_use_nfs** - When enabled, this Boolean allows The Trivial File Transfer Protocol (**TFTP**) to read from NFS volumes for public file transfer services.
 
 As mentioned above, by default SELinux allows NFS to share directories. I didn't have to make any changes to my RH5 or RH6 systems. To check out the booleans available for NFS just run the **getseboolean** command. Here were the defaults on my system:
 

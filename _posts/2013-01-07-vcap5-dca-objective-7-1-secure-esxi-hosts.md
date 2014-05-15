@@ -18,8 +18,8 @@ Here are the config files for SSH:
 
 	  
 	~ # ls /etc/ssh/  
-	keys-root ssh\_host\_dsa\_key ssh\_host\_rsa\_key sshd_config  
-	moduli ssh\_host\_dsa\_key.pub ssh\_host\_rsa\_key.pub  
+	keys-root ssh_host_dsa_key ssh_host_rsa_key sshd_config  
+	moduli ssh_host_dsa_key.pub ssh_host_rsa_key.pub  
 	
 
 SSH is used to securely manage a host from a remote client. Here are the ssl certificates that used to encrypt data between vCenter and an ESXi host:
@@ -425,7 +425,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 > **Host Password Strength and Complexity**  
 > By default, ESXi uses the pam_passwdqc.so plug-in to set the rules that users must observe when creating passwords and to check password strength.
 > 
-> The pam\_passwdqc.so plug-in lets you determine the basic standards that all passwords must meet. By default, ESXi imposes no restrictions on the root password. However, when nonroot users attempt to change their passwords, the passwords they choose must meet the basic standards that pam\_passwdqc.so sets.
+> The pam_passwdqc.so plug-in lets you determine the basic standards that all passwords must meet. By default, ESXi imposes no restrictions on the root password. However, when nonroot users attempt to change their passwords, the passwords they choose must meet the basic standards that pam_passwdqc.so sets.
 > 
 > A valid password should contain a combination of as many character classes as possible. Character classes include lowercase letters, uppercase letters, numbers, and special characters such as an underscore or dash. To configure password complexity, you can change the default value of the following parameters.
 > 
@@ -437,7 +437,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 > *   N4 is the number of characters required for a password that uses characters from all four character classes.
 > *   match is the number of characters allowed in a string that is reused from the old password. If the pam_passwdqc.so plug-in finds a reused string of this length or longer, it disqualifies the string from the strength test and uses only the remaining characters.
 > 
-> Setting any of these options to -1 directs the pam\_passwdqc.so plug-in to ignore the requirement. Setting any of these options to disabled directs the pam\_passwdqc.so plug-in to disqualify passwords with the associated characteristic. The values used must be in descending order except for -1 and disabled.
+> Setting any of these options to -1 directs the pam_passwdqc.so plug-in to ignore the requirement. Setting any of these options to disabled directs the pam_passwdqc.so plug-in to disqualify passwords with the associated characteristic. The values used must be in descending order except for -1 and disabled.
 > 
 > **Change Default Password Complexity for the pam_passwdqc.so Plug-In**  
 > Configure the pam_passwdqc.so plug-in to determine the basic standards all passwords must meet.

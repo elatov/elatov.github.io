@@ -1198,7 +1198,7 @@ There are a lot of parameters to tune the kernel networking. From the "<a href="
 > 
 > If you are often dealing with SYN floods the following tunning can be helpful:
 > 
->     sysctl -w net.ipv4.tcp\_max\_syn_backlog="16384"
+>     sysctl -w net.ipv4.tcp_max_syn_backlog="16384"
 >     
 
 ### The proc File System

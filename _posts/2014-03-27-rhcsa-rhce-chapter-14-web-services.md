@@ -1086,7 +1086,7 @@ I also ran into a great RedHat Magazine article entitled <a href="http://magazin
 > 
 > **cache_dir ufs /var/spool/squid 1000 15 256** – Uncomment this line. You may want to append a zero to the value 100 which will make the cache size 1000MB instead of 100MB. The last two values stand for the default folder depth the cache will create on the top and subdirectories respectively. They do not need modification.
 > 
-> **cache\_access\_log** – Uncomment this line. This is where all requests to the proxy server will get logged.
+> **cache_access_log** – Uncomment this line. This is where all requests to the proxy server will get logged.
 > 
 > **acl intranet 192.168.0.0/24** – This entry needs to be added. It should correspond to whatever your local network range is. For example, if your Fedora server is 192.168.2.5 then the entry should be acl intranet 192.168.2.0/24
 > 

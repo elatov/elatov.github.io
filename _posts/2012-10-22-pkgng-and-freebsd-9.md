@@ -59,7 +59,7 @@ But have no fear, all the commands that could be run with the previous tools are
 
 	  
 	\# old way, install binary version of the package  
-	$ pkg\_add -r PKG\_NAME
+	$ pkg_add -r PKG_NAME
 	
 	\# New way, install binary version of package  
 	$ pkg install PKG_NAME  
@@ -72,7 +72,7 @@ But have no fear, all the commands that could be run with the previous tools are
 	pkg version -vIL=
 	
 	\# Old way, list files installed by package  
-	pkg\_info -L PKG\_NAME  
+	pkg_info -L PKG_NAME  
 	\# New way, list files installed by package  
 	pkg info -l PKG_NAME
 	

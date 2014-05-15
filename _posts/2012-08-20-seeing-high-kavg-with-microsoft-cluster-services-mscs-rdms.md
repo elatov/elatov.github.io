@@ -39,8 +39,8 @@ VMware KB <a href="http://kb.vmware.com/kb/1016106" onclick="javascript:_gaq.pus
 I also wanted to confirm the device that was experiencing the high KAVG was in fact an RDM. Checking the RDM vmdk of my VM I found the VML identifier of the RDM:
 
 	  
-	\# vmkfstools -q /vmfs/volumes/datastore/MSCS\_NODE/MSCS\_NODE_3.vmdk  
-	Disk /vmfs/volumes/datastore/MSCS\_NODE/MSCS\_NODE_3.vmdk is a Passthrough Raw Device Mapping  
+	\# vmkfstools -q /vmfs/volumes/datastore/MSCS_NODE/MSCS_NODE_3.vmdk  
+	Disk /vmfs/volumes/datastore/MSCS_NODE/MSCS_NODE_3.vmdk is a Passthrough Raw Device Mapping  
 	Maps to: vml.0200050000600601603df02d00d06e9cf71b6fe111565241494420  
 	
 

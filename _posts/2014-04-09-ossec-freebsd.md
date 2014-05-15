@@ -482,7 +482,7 @@ and modify the following:
     sourcetype = ossec_ar
     
 
-Also let's point the app to the correct location of the rules for ossec. Modify the **/opt/splunk/etc/apps/ossec/bin/parse\_ossec\_groups.py** file to contain the following:
+Also let's point the app to the correct location of the rules for ossec. Modify the **/opt/splunk/etc/apps/ossec/bin/parse_ossec_groups.py** file to contain the following:
 
     DEFAULT_RULES_DIR = "/usr/local/ossec-hids/rules/"
     
