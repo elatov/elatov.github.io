@@ -140,7 +140,7 @@ So we would mount the Snapshot LUN from the NetApp Filer to the same Exchange Se
     Mar 1 08:53:36 host.com vmkernel: 2:16:49:12.573 cpu3:4099)ScsiDeviceIO: 1672: Command 0x28 to device "naa.xxxxxxxxxxxxx" failed H:0x0 D:0x2 P:0x0 Valid sense data: 0x6 0x3f 0xe.
     
 
-Now translating the SCSI Sense Code: **2/0 0&#215;6 0x3f 0xe**, I get the following
+Now translating the SCSI Sense Code: **2/0 0x6 0x3f 0xe**, I get the following
 
     Host       0x0       DID_OK - No error
     Device     0x2       CHECK CONDITION

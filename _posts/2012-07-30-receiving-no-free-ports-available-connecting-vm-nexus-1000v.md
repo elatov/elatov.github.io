@@ -102,7 +102,7 @@ One note regarding this, you have migrate all the VMs off the port-profile befor
 I was actually in a critical situation and didn't want to make that many changes. Another way to get around the "Limit Exceeded" error is to increase the "Num Ports" or the "Max Ports" on the ProxySwitch. Don't confuse this with the Max ports for the whole DVS. From the <a href="http://www.vmware.com/pdf/vsphere4/r41/vsp_41_config_max.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/pdf/vsphere4/r41/vsp_41_config_max.pdf']);">Maximums Guide for 4.1</a>:
 
 > **vNetwork Standard and Distributed Switch**  
-> Total virtual network switch ports per host (vDS and vSS ports) 4096 \*4\*  
+> Total virtual network switch ports per host (vDS and vSS ports) 4096 *4*  
 > Ports per distributed switch 20000
 > 
 > *4th Note- Default is 256 with a maximum of 15 VDS’s running concurrently. If the number of ports is increased to 4096, then only one VDS can exist on the host.

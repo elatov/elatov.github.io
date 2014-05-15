@@ -107,7 +107,7 @@ In short, you define a port group that SPs are part of and these port groups can
 depending the owner and preference.
 
 Now that we got that out of the way let's back to logs, so we saw  
-the following sense code returned: *H:0&#215;0 D:0&#215;2 0&#215;6 0x2a 0&#215;6*. Translating that we get the following:
+the following sense code returned: *H:0x0 D:0x2 0x6 0x2a 0x6*. Translating that we get the following:
 
 	  
 	ASC/ASCQ: 2Ah / 06h  

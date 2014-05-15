@@ -105,7 +105,7 @@ With the default configuration, here is how the 'show run' looks like:
 	tcp state-checks  
 	vnm-policy-agent  
 	registration-ip 0.0.0.0  
-	shared-secret \***\***\****  
+	shared-secret **********  
 	log-level  
 	
 

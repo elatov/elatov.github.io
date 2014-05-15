@@ -136,7 +136,7 @@ I then re-read the "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.
 > 4.  Read the license terms and type **yes** to accept them.  
 >     Software components install in /usr unless you specify otherwise.
 >     
->     You might need to edit your **LD&#95;LIBRARY&#95;PATH** environment to include the library installation path, **/usr/lib/vmware-vix-disklib/lib32** (or lib64) for instance. Alternatively, you can add the library location to the list in **/etc/ld.so.conf** and run **ldconfig** as root.
+>     You might need to edit your **LD_LIBRARY_PATH** environment to include the library installation path, **/usr/lib/vmware-vix-disklib/lib32** (or lib64) for instance. Alternatively, you can add the library location to the list in **/etc/ld.so.conf** and run **ldconfig** as root.
 
 So I went ahead and created a file **/etc/ld.so.conf.d/vmware-vix-64.conf** with the following contents:
 
@@ -153,7 +153,7 @@ I then ran **ldconfig** to apply the changes:
        libvixMntapi.so.1 -> libvixMntapi.so.1.1.0
     
 
-and I can see the new libraries are now included. If you don't want to mess with the system's libraries you can always just set the **LB&#95;LIBRARY&#95;PATH** variable. Another person had issues by changing the **ld.so.conf** files and ended going that route. The issue and steps around it are described in <a href="http://communities.vmware.com/thread/303517" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/thread/303517']);">this</a> VMware's Communities page.
+and I can see the new libraries are now included. If you don't want to mess with the system's libraries you can always just set the **LB_LIBRARY_PATH** variable. Another person had issues by changing the **ld.so.conf** files and ended going that route. The issue and steps around it are described in <a href="http://communities.vmware.com/thread/303517" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/thread/303517']);">this</a> VMware's Communities page.
 
 Now re-running my consistency check, I saw the following:
 

@@ -223,7 +223,7 @@ Here are some utilities to configure runlevels and services:
 > 
 > Red Hat Enterprise Linux provides three such utilities:
 > 
-> *   **/sbin/chkconfig** — The **/sbin/chkconfig** utility is a simple command line tool for maintaining the\*\* /etc/rc.d/init.d/\*\* directory hierarchy.
+> *   **/sbin/chkconfig** — The **/sbin/chkconfig** utility is a simple command line tool for maintaining the** /etc/rc.d/init.d/** directory hierarchy.
 > *   **/usr/sbin/ntsysv** — The ncurses-based /sbin/ntsysv utility provides an interactive text-based interface, which some find easier to use than **chkconfig**.
 > *   Services Configuration Tool — The graphical **Services Configuration Tool** (**system-config-services**) program is a flexible utility for configuring runlevels. 
 
@@ -377,12 +377,12 @@ There is a pretty good article from the Red Hat Magazine: "<a href="http://magaz
 
 The first command sets up what device to be used as root. The second command confirms that our device contains the grub.conf file which usually means it will contain the other stage files as well. And lastly the '**setup**' command actually installs grub onto that device. Here is a similar process from the guide:
 
-> **36&#46;1.2.1. Reinstalling the Boot Loader**
+> **36.1.2.1. Reinstalling the Boot Loader**
 > 
 > In many cases, the GRUB boot loader can mistakenly be deleted, corrupted, or replaced by other operating systems. The following steps detail the process on how GRUB is reinstalled on the master boot record:
 > 
 > *   Boot the system from an installation boot medium.
-> *   Type\*\* linux rescue\*\* at the installation boot prompt to enter the rescue environment.
+> *   Type** linux rescue** at the installation boot prompt to enter the rescue environment.
 > *   Type **chroot /mnt/sysimage** to mount the root partition.
 > *   Type **/sbin/grub-install bootpart** to reinstall the GRUB boot loader, where **bootpart** is the boot partition (typically, /dev/sda).
 > *   Review the **/boot/grub/grub.conf** file, as additional entries may be needed for GRUB to control additional operating systems.
@@ -390,7 +390,7 @@ The first command sets up what device to be used as root. The second command con
 
 ### Booting into Different Modes
 
-> **36&#46;1.3. Booting into Single-User Mode**
+> **36.1.3. Booting into Single-User Mode**
 > 
 > One of the advantages of single-user mode is that you do not need a boot CD-ROM; however, it does not give you the option to mount the file systems as read-only or not mount them at all.
 > 
@@ -404,7 +404,7 @@ The first command sets up what device to be used as root. The second command con
 
 And here is emergency mode:
 
-> **36&#46;1.4 . Booting into Emergency Mode**
+> **36.1.4 . Booting into Emergency Mode**
 > 
 > In emergency mode, you are booted into the most minimal environment possible. The root file system is mounted read-only and almost nothing is set up. The main advantage of emergency mode over single user mode is that the init files are not loaded. If init is corrupted or not working, you can still mount file systems to recover data that could be lost during a re-installation.
 > 

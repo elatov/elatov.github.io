@@ -247,7 +247,7 @@ Then on the Zabbix server run the following:
 
 If the value is returned then it's all good. At this point you can follow my previous <a href="http://virtuallyhyper.com/2013/06/monitor-disk-io-stats-with-zabbix/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/06/monitor-disk-io-stats-with-zabbix/']);">post</a> to add the following to the zabbix front end:
 
-*   Regular Expression (we only want /dev/sd\* or /dev/hd\*, in my previous post I also grabbed sd-cards /dev/mmcblk1)
+*   Regular Expression (we only want /dev/sd* or /dev/hd*, in my previous post I also grabbed sd-cards /dev/mmcblk1)
 *   Template
 *   Discovery Rule (here add the custom.disks.discovery_perl2 as the key since you can't have duplicates)
 *   Item Prototypes (for both the temperature and reallocated sector count)

@@ -1074,7 +1074,7 @@ From the Security Guide:
 
 > The **pam_access** PAM module allows an administrator to customize access control based on login names, host or domain names, or IP addresses. By default, the module reads the access rules from the **/etc/security/access.conf** file if no other is specified. For a complete description of the format of these rules, refer to the **access.conf**(5) manual page. By default, in Red Hat Enterprise Linux, **pam_access** is included in the **/etc/pam.d/crond** and **/etc/pam.d/atd** files. To deny the user **john** from accessing system from the console and the graphic desktop environment, follow these steps:
 > 
-> 1.  Include the following line in the account section of both **/etc/pam.d/login** and &#42;&#42;/etc/pam.d/gdm-&#42;&#42;* files:
+> 1.  Include the following line in the account section of both **/etc/pam.d/login** and **/etc/pam.d/gdm-*** files:
 >     
 >         account     required     pam_access.so
 >         

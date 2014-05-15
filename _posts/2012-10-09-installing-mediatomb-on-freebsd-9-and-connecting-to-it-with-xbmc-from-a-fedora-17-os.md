@@ -229,7 +229,7 @@ Also from the MediaTomb <a href="http://mediatomb.cc/dokuwiki/faq:faq" onclick="
 
 > make sure that your firewall is not blocking the server, port 1900 has to be open as well as the port on which the server is running (i.e. web UI port), both TCP and UDP
 
-Again here is an example for iptables from "<a href="http://www.gentoo-wiki.info/HOWTO_Setup_UPnP_with_IPTables" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.gentoo-wiki.info/HOWTO_Setup_UPnP_with_IPTables']);">HOWTO&#95;Setup&#95;UPnP&#95;with&#95;IPTables</a>"
+Again here is an example for iptables from "<a href="http://www.gentoo-wiki.info/HOWTO_Setup_UPnP_with_IPTables" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.gentoo-wiki.info/HOWTO_Setup_UPnP_with_IPTables']);">HOWTO_Setup_UPnP_with_IPTables</a>"
 
     iptables -t filter -A INPUT -i eth0 -d 239.0.0.0/8 -j ACCEPT
     iptables -t filter -A INPUT -i eth0 -p tcp --dport 49152 -j ACCEPT

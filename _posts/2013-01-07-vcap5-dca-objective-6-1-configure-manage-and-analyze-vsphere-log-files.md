@@ -244,7 +244,7 @@ You can also check if the ports are in a listening state on the windows machine:
 	C:\Users\Administrator>netstat -ab | findstr 514  
 	TCP 0.0.0.0:514 WIN-2K5GMV25I0E:0 LISTENING  
 	TCP 0.0.0.0:1514 WIN-2K5GMV25I0E:0 LISTENING  
-	UDP 0.0.0.0:514 \*:\*  
+	UDP 0.0.0.0:514 *:*  
 	
 
 Now you can configure hosts to log to this syslog collector. This setup for that was covered in previous objectives

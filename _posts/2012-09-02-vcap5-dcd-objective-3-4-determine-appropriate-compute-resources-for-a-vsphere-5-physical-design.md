@@ -319,7 +319,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 > 
 > <a href="http://virtuallyhyper.com/wp-content/uploads/2012/09/share_values.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/09/share_values.png']);"><img class="alignnone size-full wp-image-3231" title="share_values" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/share_values.png" alt="share values VCAP5 DCD Objective 3.4 – Determine Appropriate Compute Resources for a vSphere 5 Physical Design " width="588" height="154" /></a>
 > 
-> For example, an SMP virtual machine with two virtual CPUs and 1GB RAM with CPU and memory shares set to Normal has 2&#215;1000=2000 shares of CPU and 10&#215;1024=10240 shares of memory.
+> For example, an SMP virtual machine with two virtual CPUs and 1GB RAM with CPU and memory shares set to Normal has 2x1000=2000 shares of CPU and 10x1024=10240 shares of memory.
 > 
 > **NOTE** Virtual machines with more than one virtual CPU are called SMP (symmetric multiprocessing) virtual machines. ESXi supports up to 32 virtual CPUs per virtual machine.
 > 

@@ -1,5 +1,5 @@
 ---
-title: 'VMware Workstation 9 on Fedora 17 Causes Kernel Error with Message "EIP is at HostIF_SafeRDMSR+0&#215;11/0&#215;20 [vmmon]"'
+title: 'VMware Workstation 9 on Fedora 17 Causes Kernel Error with Message "EIP is at HostIF_SafeRDMSR+0x11/0x20 [vmmon]"'
 author: Karim Elatov
 layout: post
 permalink: /2012/09/vmware-workstation-9-on-fedora-17-cause-kernel-panic-with-eip-is-at-hostif_saferdmsr0x110x20-vmmon/
@@ -107,7 +107,7 @@ While searching on the internet, I ran into VMware Community Thread <a href="htt
 From that thread I found VMware Community <a href="http://communities.vmware.com/message/2103048" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/message/2103048']);">2103048</a>. That had a link to the <a href="http://communities.vmware.com/servlet/JiveServlet/download/2103172-94260/vmware9_kernel35_patch.tar.bz2" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/servlet/JiveServlet/download/2103172-94260/vmware9_kernel35_patch.tar.bz2']);">patch</a> for this issue. I downloaded the patch:
 
 	  
-	$ ls \*patch\*  
+	$ ls *patch*  
 	vmware9_kernel35_patch.tar.bz2  
 	
 

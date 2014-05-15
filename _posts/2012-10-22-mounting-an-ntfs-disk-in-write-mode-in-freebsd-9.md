@@ -45,7 +45,7 @@ Then checking the file system on the disk I saw the following:
 
 	  
 	elatov@freebsd:~>sudo fdisk /dev/da0  
-	\****\*\\*\* Working on device /dev/da0 \*\*\*****  
+	*****\** Working on device /dev/da0 *******  
 	parameters extracted from in-core disklabel are:  
 	cylinders=973 heads=255 sectors/track=63 (16065 blks/cyl)
 	
@@ -267,12 +267,12 @@ That was it. However when I tried to copy files to the NTFS volume, I would get 
 Another person had the issue as well, <a href="http://forums.freebsd.org/showthread.php?t=31161" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://forums.freebsd.org/showthread.php?t=31161']);">here</a> a link to his kernel panic. No one actually answered the previous post, here is a copy of his back trace:
 
 > Fatal trap 12: page fault while in kernel mode  
-> fault virtual address = 0&#215;0  
+> fault virtual address = 0x0  
 > fault code = supervisor read, page not present  
-> instruction pointer = 0&#215;20:0&#215;0  
-> stack pointer = 0&#215;28:0xeae1ec48  
-> frame pointer = 0&#215;28:0xeae1ec70  
-> code segment = base 0&#215;0, limit 0xfffff, type 0x1b  
+> instruction pointer = 0x20:0x0  
+> stack pointer = 0x28:0xeae1ec48  
+> frame pointer = 0x28:0xeae1ec70  
+> code segment = base 0x0, limit 0xfffff, type 0x1b  
 > = DPL 0, pres 1, def32 1, gran 1  
 > processor eflags = interrupt enabled, resume, IOPL = 0  
 > current process = 2390 (mv)  
@@ -307,7 +307,7 @@ Then extract the source:
 
 After you extract the source you will see a '*work*' directory. The patch process is described <a href="http://www.freebsd.org/doc/en_US.ISO8859-1/books/porters-handbook/slow-patch.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.freebsd.org/doc/en_US.ISO8859-1/books/porters-handbook/slow-patch.html']);">here</a>. From the FreeBSD page:
 
-> Each patch you wish to apply should be saved into a file named patch-\* where \* indicates the pathname of the file that is patched, such as patch-Imakefile or patch-src-config.h. These files should be stored in PATCHDIR (usually files/, from where they will be automatically applied. All patches must be relative to WRKSRC (generally the directory your port's tarball unpacks itself into, that being where the build is done).  
+> Each patch you wish to apply should be saved into a file named patch-* where * indicates the pathname of the file that is patched, such as patch-Imakefile or patch-src-config.h. These files should be stored in PATCHDIR (usually files/, from where they will be automatically applied. All patches must be relative to WRKSRC (generally the directory your port's tarball unpacks itself into, that being where the build is done).  
 > ..  
 > ..  
 > Note that if the path of a patched file contains an underscore (_) character, the patch needs to have two underscores instead in its name. For example, to patch a file named src/freeglut_joystick.c, the corresponding patch should be named patch-src-freeglut__joystick.c. 

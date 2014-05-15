@@ -102,7 +102,7 @@ Now let's see what all the options means, from the above guide:
 > *   **-enablehesiod** — Enable *Hesiod* support for looking up user home directories, *UIDs*, and shells. More information on setting up and using Hesiod on your network is in **/usr/share/doc/glibc-2.x.x/README.hesiod**, which is included in the **glibc** package. *Hesiod* is an extension of DNS that uses *DNS* records to store information about users, groups, and various other items.
 > *   **-hesiodlhs** and **-hesiodrhs** — The *Hesiod LHS* (left-hand side) and *RHS* (right-hand side) values, set in **/etc/hesiod.conf**. The *Hesiod* library uses these values to search *DNS* for a name, similar to the way that *LDAP* uses a base DN.  
 >     To look up user information for the username jim, the Hesiod library looks up **jim.passwd**, which should resolve to a TXT record that contains a string identical to an entry for that user in the passwd file: **jim:*:501:501:Jungle Jim:/home/jim:/bin/bash**. To look up groups, the Hesiod library looks up **jim.group** instead.  
->     To look up users and groups by number, make **501.uid** a **CNAME** for **jim.passwd**, and **501.gid** a **CNAME** for **jim.group**. Note that the library does not place a period (.) in front of the LHS and RHS values when performing a search. Therefore, if the &#42;LHS&#42; and &#42;RHS&#42; values need to have a period placed in front of them, you must include the period in the values you set for **-hesiodlhs** and **-hesiodrhs**.
+>     To look up users and groups by number, make **501.uid** a **CNAME** for **jim.passwd**, and **501.gid** a **CNAME** for **jim.group**. Note that the library does not place a period (.) in front of the LHS and RHS values when performing a search. Therefore, if the *LHS* and *RHS* values need to have a period placed in front of them, you must include the period in the values you set for **-hesiodlhs** and **-hesiodrhs**.
 > *   **-enablesmbauth** — Enables authentication of users against an *SMB* server (typically a Samba or Windows server). *SMB* authentication support does not know about home directories, *UIDs*, or shells. If you enable *SMB*, you must make users' accounts known to the workstation by enabling *LDAP*, *NIS*, or *Hesiod* or by using the **/usr/sbin/useradd** command.
 > *   **-smbservers=** — The name of the servers to use for *SMB* authentication. To specify more than one server, separate the names with commas (,).
 > *   **-smbworkgroup=** — The name of the workgroup for the *SMB* servers.
@@ -115,7 +115,7 @@ Now let's see what all the options means, from the above guide:
 > 
 > *   **-encrypted** — Should all devices with support be encrypted by default? This is equivalent to checking the Encrypt checkbox on the initial partitioning screen.
 > *   **-passphrase=** — Provide a default system-wide passphrase for all encrypted devices.
-> *   **-escrowcert=URL&#95;of&#95;X.509_certificate** — Store data encryption keys of all encrypted volumes as files in **/root**, encrypted using the X.509 certificate from the URL specified with **URL&#95;of&#95;X.509_certificate**. The keys are stored as a separate file for each encrypted volume. This option is only meaningful if **-encrypted** is specified.
+> *   **-escrowcert=URL_of_X.509_certificate** — Store data encryption keys of all encrypted volumes as files in **/root**, encrypted using the X.509 certificate from the URL specified with **URL_of_X.509_certificate**. The keys are stored as a separate file for each encrypted volume. This option is only meaningful if **-encrypted** is specified.
 > *   **-backuppassphrase=** — Add a randomly-generated passphrase to each encrypted volume. Store these passphrases in separate files in **/root**, encrypted using the X.509 certificate specified with **-escrowcert**. This option is only meaningful if**-escrowcert**is specified.
 > 
 > **autostep (optional)**
@@ -327,7 +327,7 @@ Now let's see what all the options means, from the above guide:
 > 
 > **keyboard (required)**
 > 
-> Sets the default keyboard type for the system. The file **/usr/lib/python2.6/site-packages/system&#95;config&#95;keyboard/keyboard_models.py** on 32-bit systems or **/usr/lib64/python2.6/site-packages/system&#95;config&#95;keyboard/keyboard_models.py** on 64-bit systems contains list of keyboard type and is part of the **system-config-keyboard** package.
+> Sets the default keyboard type for the system. The file **/usr/lib/python2.6/site-packages/system_config_keyboard/keyboard_models.py** on 32-bit systems or **/usr/lib64/python2.6/site-packages/system_config_keyboard/keyboard_models.py** on 64-bit systems contains list of keyboard type and is part of the **system-config-keyboard** package.
 > 
 > **lang (required)**
 > 
@@ -367,7 +367,7 @@ Now let's see what all the options means, from the above guide:
 > *   **-percent=** — Specify the amount by which to grow the logical volume, as a percentage of the free space in the volume group after any statically-sized logical volumes are taken into account. This option must be used in conjunction with the **-size** and **-grow** options for logvol. 
 > *   **-encrypted** — Specifies that this logical volume should be encrypted, using the passphrase provided in the **-passphrase** option. If you do not specify a passphrase, anaconda uses the default, system-wide passphrase set with the autopart **-passphrase** command, or stops the installation and prompts you to provide a passphrase if no default is set.
 > *   **-passphrase=** — Specifies the passphrase to use when encrypting this logical volume. You must use this option together with the **-encrypted** option; by itself it has no effect. 
-> *   **-escrowcert=URL&#95;of&#95;X.509_certificate** — Store data encryption keys of all encrypted volumes as files in /root, encrypted using the X.509 certificate from the URL specified with **URL&#95;of&#95;X.509_certificate**. The keys are stored as a separate file for each encrypted volume. This option is only meaningful if **-encrypted** is specified. 
+> *   **-escrowcert=URL_of_X.509_certificate** — Store data encryption keys of all encrypted volumes as files in /root, encrypted using the X.509 certificate from the URL specified with **URL_of_X.509_certificate**. The keys are stored as a separate file for each encrypted volume. This option is only meaningful if **-encrypted** is specified. 
 > *   **-backuppassphrase=** — Add a randomly-generated passphrase to each encrypted volume. Store these passphrases in separate files in /root, encrypted using the X.509 certificate specified with **-escrowcert**. This option is only meaningful if **-escrowcert** is specified. 
 > 
 > Create the partition first, create the logical volume group, and then create the logical volume. For example:
@@ -531,7 +531,7 @@ Now let's see what all the options means, from the above guide:
 > 
 > *   **-passphrase**= — Specifies the passphrase to use when encrypting this partition. You must use this option together with the -encrypted option; by itself it has no effect.
 > 
-> *   **-escrowcert=URL&#95;of&#95;X.509_certificate** — Store data encryption keys of all encrypted partitions as files in /root, encrypted using the X.509 certificate from the URL specified with **URL&#95;of&#95;X.509_certificate**. The keys are stored as a separate file for each encrypted partition. This option is only meaningful if -encrypted is specified.
+> *   **-escrowcert=URL_of_X.509_certificate** — Store data encryption keys of all encrypted partitions as files in /root, encrypted using the X.509 certificate from the URL specified with **URL_of_X.509_certificate**. The keys are stored as a separate file for each encrypted partition. This option is only meaningful if -encrypted is specified.
 > 
 > *   **-backuppassphrase=** — Add a randomly-generated passphrase to each encrypted partition. Store these passphrases in separate files in /root, encrypted using the X.509 certificate specified with **-escrowcert**. This option is only meaningful if **-escrowcert** is specified.
 > 
@@ -705,7 +705,7 @@ From the same guide:
 >     docbook*
 >     
 > 
-> The \*\*docbook\*\**||||| entry includes the packages *docbook-dtds*, *docbook-simple*, *docbook-slides* and others that match the pattern represented with the wildcard.
+> The **docbook***||||| entry includes the packages *docbook-dtds*, *docbook-simple*, *docbook-slides* and others that match the pattern represented with the wildcard.
 > 
 > Use a leading dash to specify packages or groups to exclude from the installation. For example:
 > 

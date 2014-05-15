@@ -392,8 +392,8 @@ Are pretty high, the **avg request size** is 1024 sectors (512KB) and the **avg 
 *   **await** — average response time (ms) of IO requests to a device. The name is a bit confusing as this is the total response time including wait time in the requests queue (let call it qutim), and service time that device was working servicing the requests (see next column — svctim).So the formula is *await = qutim + svctim*.
 *   **svctim** — average time (ms) a device was servicing requests. This is a component of total response time of IO requests.
 *   **%util** — this is a pretty confusing value. The man page defines it as, Percentage of CPU time during which I/O requests were issued to the device (bandwidth utilization for the device). Device saturation occurs when this value is close to 100%. A bit difficult to digest. Perhaps it’s better to think of it as percentage of time the device was servicing requests as opposed to being idle. To understand it better here is the formula: 
-    *   *utilization = ( (read requests + write requests) \* service time in ms / 1000 ms ) \* 100%*
-    *   *%util = ( r + w ) \* svctim /10 = ( 10.18 + 9.78 ) \* 8.88 = 17.72448*
+    *   *utilization = ( (read requests + write requests) * service time in ms / 1000 ms ) * 100%*
+    *   *%util = ( r + w ) * svctim /10 = ( 10.18 + 9.78 ) * 8.88 = 17.72448*
 
 From the above output we can see that **avg wait time** is pretty high (**~1000ms**). So we are sending a lot of large IO to the device (**512kb**) and a lot of simultaneous requests (**~128**), the device is taking a while to process this IO and therefore the **avg wait time** is high.
 

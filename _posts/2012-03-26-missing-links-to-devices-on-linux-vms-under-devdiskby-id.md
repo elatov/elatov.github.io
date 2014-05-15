@@ -18,7 +18,7 @@ Recently, I ran into an issue where all links under **/dev/disk/by-id** were mis
     [root@rac2 ~]# scsi_id -p 0x83 -g -s /block/sda
     
 
-*   **0&#215;83** is Device Identification Vital Product Data and **0&#215;80** is Unit Serial Number 
+*   **0x83** is Device Identification Vital Product Data and **0x80** is Unit Serial Number 
 
 as you can see, nothing is returned. I did some research and I found that after ESX 4.0, a SCSI inquiry will not be answered within the VM. There is actually a VMware KB that talks about it, VMware KB <a href="http://kb.vmware.com/kb/1029157" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1029157']);">1029157</a> and here is another blog that talks about the same, <a href="http://www.dizwell.com/wiki/doku.php?id=blog:the_case_of_vmware_and_the_missing_scsi_id" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','']);">The Case of VMware and the missing SCSI ID</a>. Now to fix the issue we can set the following in the **vmx** file:
 

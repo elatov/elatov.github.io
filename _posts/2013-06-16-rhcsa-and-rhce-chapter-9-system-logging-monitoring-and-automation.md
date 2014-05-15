@@ -799,7 +799,7 @@ From <a href="https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterpr
 
 Let's make sure we have it installed:
 
-    [root@rhel1 ~]# rpm -qa cronie\*
+    [root@rhel1 ~]# rpm -qa cronie*
     cronie-1.4.4-7.el6.i686
     cronie-anacron-1.4.4-7.el6.i686
     
@@ -869,7 +869,7 @@ That looks fabuluos. Moving onto anacron:
 > 
 > *   **RANDOM_DELAY** — maximum number of minutes that will be added to the **delay in minutes** variable which is specified for each job The minimum delay value is set, by default, to 6 minutes.
 >     
->     If **RANDOM_DELAY** is, for example, set to 12, then between 6 and 12 minutes are added to the delay in minutes for each job in that particular anacrontab. **RANDOM_DELAY** can also be set to a value below **6**, including \*\*&#42;||&#42;. When set to \*\*&#42;||&#42;, no random delay is added. This proves to be useful when, for example, more computers that share one network connection need to download the same data every day.
+>     If **RANDOM_DELAY** is, for example, set to 12, then between 6 and 12 minutes are added to the delay in minutes for each job in that particular anacrontab. **RANDOM_DELAY** can also be set to a value below **6**, including ***||*. When set to ***||*, no random delay is added. This proves to be useful when, for example, more computers that share one network connection need to download the same data every day.
 > 
 > *   **START_HOURS_RANGE** — interval, when scheduled jobs can be run, in hours
 >     

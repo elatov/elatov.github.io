@@ -573,7 +573,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     >     > 3.  As a result of stopping that session, the iSCSI task is aborted. For example:  
 	>     >     >     vmkernel: 188:04:24:16.970 cpu11:4288)WARNING: iscsi_vmk: iscsivmk_TaskMgmtIssue: vmhba33:CH:0 T:1 L:14 : Task mgmt "Abort Task" with itt=0x5155cba9 (refITT=0x5155cb93) timed out.  
 	>     >     >     
-	>     >     > 4.  The Native Multi-pathing Plugin detects a Host status of 0&#215;1 for the reason that the command in-flight had failed. A host status of 0&#215;1 translates to NO_CONNECT. For details, see SCSI events that can trigger ESX server to fail a LUN over to another path (1003433). For example:  
+	>     >     > 4.  The Native Multi-pathing Plugin detects a Host status of 0x1 for the reason that the command in-flight had failed. A host status of 0x1 translates to NO_CONNECT. For details, see SCSI events that can trigger ESX server to fail a LUN over to another path (1003433). For example:  
 	>     >     >     vmkernel: 188:04:24:16.970 cpu1:4286)NMP: nmp_CompleteCommandForPath: Command 0x28 (0x41000716a200) to NMP device "naa.60060160d5c12200ccd66fd74a81de11" failed on physical path "vmhba33:C0:T1:L7" H:0x1 D:0x0 P:0x0 Possible sense data: 0x2 0x3a 0x1.  
 	>     >     >     
 	>     >     > 5.  Once the NMP receives this host status, it will send a TEST_UNIT_READY (TUR) command down that path to confirm that it is down, before initiating a failover. For example:  

@@ -35,14 +35,14 @@ Multiple LUNs are seeing a value above 1000ms for the DAVG/cmd value. The DAVG v
 
 So we were seeing SCSI Reservation Conflict Messages. There is a great KB on Analyzing the 'Sync CR' messages, VMware KB <a href="http://kb.vmware.com/kb/1005009" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1005009']);">1005009</a>. Also from KB <a href="http://kb.vmware.com/kb/1030381" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1030381']);">1030381</a> this is what SYNC CR messages mean:
 
-> **VMK&#95;SCSI&#95;DEVICE&#95;RESERVATION&#95;CONFLICT = 0&#215;18**  
-> vmkernel: 1:08:40:03.933 cpu5:4736)ScsiDeviceToken: 115: Completed IO with status H:0&#215;0 D:0&#215;18 P:0&#215;0 after losingreservation on device naa.6006016026601d007c174a7aa292df11
+> **VMK_SCSI_DEVICE_RESERVATION_CONFLICT = 0x18**  
+> vmkernel: 1:08:40:03.933 cpu5:4736)ScsiDeviceToken: 115: Completed IO with status H:0x0 D:0x18 P:0x0 after losingreservation on device naa.6006016026601d007c174a7aa292df11
 > 
-> This status is returned when a LUN is in a Reserved status and commands from initiators that did not place that SCSI reservation attempt to issue commands to it. Rarely will you ever see a device status of 0&#215;18 in the format shown above. The most common form of a RESERVATION CONFLICT status message is seen as follows:
+> This status is returned when a LUN is in a Reserved status and commands from initiators that did not place that SCSI reservation attempt to issue commands to it. Rarely will you ever see a device status of 0x18 in the format shown above. The most common form of a RESERVATION CONFLICT status message is seen as follows:
 > 
 > vmkernel: 12:17:46:05.000 cpu12:4108)ScsiCore: 1181: Sync CR (opcode 28) at 992 (wid 4121)
 > 
-> The opcode or SCSI Command Operation Code referenced in this message is 28 or 0&#215;28. This is a READ(10) command or a 10 byte READ, which is a command to be issued by a VM.
+> The opcode or SCSI Command Operation Code referenced in this message is 28 or 0x28. This is a READ(10) command or a 10 byte READ, which is a command to be issued by a VM.
 
 That is exactly what we were seeing (a READ command failing due to a SCSI reservation conflict). The above messages are basically a retry count down (a SCSI command has failed and it is retrying that command, after a certain amount of retries it fails), and eventually show you the LUN that has the stuck reservation, like this (from KB <a href="http://kb.vmware.com/kb/1005009" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1005009']);">1005009</a>):
 
@@ -88,7 +88,7 @@ I asked the SAN admin to take a look at the performance and we noticed that all 
 
 And from the <a href="http://www.vmware.com/resources/compatibility/detail.php?deviceCategory=san&productid=1445&deviceCategory=san&partner=39&keyword=USP%201100&isSVA=1&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.vmware.com/resources/compatibility/detail.php?deviceCategory=san&productid=1445&deviceCategory=san&partner=39&keyword=USP%201100&isSVA=1&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc']);">HCL</a> page of the array, I saw the following:
 
-> **Attention:** Storage partners using ESX 4.0 or later may recommend VMW&#95;PSP&#95;RR for path failover policy for certain storage array models. If desired, contact the storage array manufacturer for recommendation and instruction to set VMW&#95;PSP&#95;RR appropriately.
+> **Attention:** Storage partners using ESX 4.0 or later may recommend VMW_PSP_RR for path failover policy for certain storage array models. If desired, contact the storage array manufacturer for recommendation and instruction to set VMW_PSP_RR appropriately.
 
 We were actually using ESX 4.0, so I decided to change the pathing policy from FIXED to Round Robin. I followed the instructions from Jarret's post <a href="http://virtuallyhyper.com/2012/03/changing-the-path-selection-policy-to-round-robin/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/03/changing-the-path-selection-policy-to-round-robin/']);">Changing the Path Selection Policy to Round Robin</a>. The syntax of my command was a little different, since the customer was not running ESXi 5.0 but ESX 4.0. I ran the following:
 

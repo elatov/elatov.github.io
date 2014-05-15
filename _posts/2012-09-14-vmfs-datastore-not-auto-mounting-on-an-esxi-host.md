@@ -61,7 +61,7 @@ That looks good. The offset is 128 sectors and the File System type is VMFS. If 
 
 That looked a little weird, the Filesystem ID is 42 and the Name is SFS. From the Windows "<a href="http://technet.microsoft.com/en-us/library/cc977219.aspx" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://technet.microsoft.com/en-us/library/cc977219.aspx']);">Disk Concepts and Troubleshooting</a>" page:
 
-> 0&#215;42 Dynamic disk volume
+> 0x42 Dynamic disk volume
 
 Windows has two different disk types, basic and dynamic. From "<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa363785(v=vs.85).aspx" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://msdn.microsoft.com/en-us/library/windows/desktop/aa363785(v=vs.85).aspx']);">Basic and Dynamic Disks</a>"
 

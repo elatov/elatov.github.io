@@ -434,7 +434,7 @@ From "<a href="http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma
 >         
 >         We are going to be using VMFS so our '*type/guid*' will be "AA31E02A400F11DB9590000C2911D1B8". And lastly:
 >         
->         > The partition attribute is a number which identifies properties of the partition. A common attribute is 128 = 0&#215;80, which indicates that the partition is bootable. Otherwise, most partitions have an attribute value of 0. 
+>         > The partition attribute is a number which identifies properties of the partition. A common attribute is 128 = 0x80, which indicates that the partition is bootable. Otherwise, most partitions have an attribute value of 0. 
 >         
 >         Since we are not going to boot from our VMFS volume, our *attribute* will be '0'. Now putting everything together, we get the following:
 >         

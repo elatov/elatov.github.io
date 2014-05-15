@@ -1254,7 +1254,7 @@ I used the password I set with the **smbpasswd** command when I created the user
     Password: 
     Domain=[RHEL1] OS=[Unix] Server=[Samba 3.5.6-86.el6]
     smb: \> ls
-    NT_STATUS_ACCESS_DENIED listing \*
+    NT_STATUS_ACCESS_DENIED listing *
     
             34300 blocks of size 262144. 537 blocks available
     smb: \> quit

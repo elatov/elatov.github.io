@@ -56,7 +56,7 @@ For ESX:
 
 	  
 	# cd /vmfs/volumes/Storage1/VM-1  
-	# watch -d "ls -l --full-time \*-delta.vmdk \*-flat.vmdk"  
+	# watch -d "ls -l --full-time *-delta.vmdk *-flat.vmdk"  
 	
 
 For ESXi:

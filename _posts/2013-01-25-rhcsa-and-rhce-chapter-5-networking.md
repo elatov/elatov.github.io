@@ -129,7 +129,7 @@ Notice next to **BROADCAST** we don't see the **UP**, which of course means that
 
 That looks good. There are also **ifup** and **ifdown** scripts to perform the same functions. From the deployment guide:
 
-> **8&#46;3. Interface Control Scripts**
+> **8.3. Interface Control Scripts**
 > 
 > The interface control scripts activate and deactivate system interfaces. There are two primary interface control scripts that call on control scripts located in the **/etc/sysconfig/network-scripts/** directory: **/sbin/ifdown** and **/sbin/ifup**.
 > 
@@ -222,7 +222,7 @@ Now it's back to normal.
 
 Now onto routing, from the deployment guide:
 
-> **8&#46;4. Static Routes and the Default Gateway**
+> **8.4. Static Routes and the Default Gateway**
 > 
 > Static routes are for traffic that must not, or should not, go through the default gateway. Routing is usually handled by routing devices and therefore it is often not necessary to configure static routes on Red Hat Enterprise Linux servers or clients. Exceptions include traffic that must pass through an encrypted VPN tunnel or traffic that should take a less costly route. The default gateway is for any and all traffic which is not destined for the local network and for which no preferred route is specified in the routing table. The default gateway is traditionally a dedicated network router.
 > 
@@ -257,7 +257,7 @@ Now onto routing, from the deployment guide:
 >     default via X.X.X.X dev interface
 >     
 > 
-> \*X.X.X.X\** is the IP address of the default gateway. The **interface** is the interface that is connected to, or can reach, the default gateway. The **dev** option can be omitted, it is optional.
+> *X.X.X.X** is the IP address of the default gateway. The **interface** is the interface that is connected to, or can reach, the default gateway. The **dev** option can be omitted, it is optional.
 > 
 > Define a static route. Each line is parsed as an individual route:
 > 
@@ -382,7 +382,7 @@ We can now see the route added. The same thing will happen if I reboot the machi
 
 Now let's check out how basic DNS client works in RHEL. From the deployment guide:
 
-> **8&#46;1. Network Configuration Files**
+> **8.1. Network Configuration Files**
 > 
 > Before delving into the interface configuration files, let us first itemize the primary configuration files used in network configuration. Understanding the role these files play in setting up the network stack can be helpful when customizing a Red Hat Enterprise Linux system.
 > 
@@ -753,7 +753,7 @@ So now we queried the DNS server and used that **IP** from that response. Lastly
 
 Now let's move onto other cool networking utilities that can help troubleshoot networking issues. From "<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Security_Guide/Red_Hat_Enterprise_Linux-6-Security_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Security_Guide/Red_Hat_Enterprise_Linux-6-Security_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Security Guide</a>"
 
-> **2&#46;2.8. Verifying Which Ports Are Listening**
+> **2.2.8. Verifying Which Ports Are Listening**
 > 
 > After configuring network services, it is important to pay attention to which ports are actually listening on the system's network interfaces. Any open ports can be evidence of an intrusion.
 > 

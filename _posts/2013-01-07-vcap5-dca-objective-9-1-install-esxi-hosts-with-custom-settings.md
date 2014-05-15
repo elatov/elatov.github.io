@@ -480,7 +480,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 	>     >                             \---\---\---  
 	>     >                             zip:C:\Users\Administrator\Desktop\isos\igb-3.1.17-455019\igb-3.1.17-offline...
 	>     >                             
-	>     >                             PowerCLI C:\> Get-EsxSoftwarePackage -Name "\*igb\*"
+	>     >                             PowerCLI C:\> Get-EsxSoftwarePackage -Name "*igb*"
 	>     >                             
 	>     >                             Name Version Vendor Release Date  
 	>     >                             \---\- --\---\-- -\---\-- -\---\---\-----  
@@ -519,7 +519,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 >     >                             Since the name of the driver is the same we will need to include the version number as well:
 >     >                             
 	>     >                               
-	>     >                             PowerCLI C:\> Get-EsxSoftwarePackage -Name "\*igb\*"
+	>     >                             PowerCLI C:\> Get-EsxSoftwarePackage -Name "*igb*"
 	>     >                             
 	>     >                             Name Version Vendor Release Date  
 	>     >                             \---\- --\---\-- -\---\-- -\---\---\-----  

@@ -17,7 +17,7 @@ tags:
 ---
 There is a lot of good information in "<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Installation Guide</a>". From that Guide:
 
-> **9&#46;3. Welcome to Red Hat Enterprise Linux**
+> **9.3. Welcome to Red Hat Enterprise Linux**
 > 
 > The Welcome screen does not prompt you for any input.
 > 
@@ -25,7 +25,7 @@ There is a lot of good information in "<a href="https://access.redhat.com/knowle
 > 
 > Click on the **Next** button to continue.
 > 
-> **9&#46;4. Language Selection**
+> **9.4. Language Selection**
 > 
 > Using your mouse, select the language (for example, U.S. English) you would prefer to use for the installation and as the system default (refer to the figure below).
 > 
@@ -33,7 +33,7 @@ There is a lot of good information in "<a href="https://access.redhat.com/knowle
 > 
 > <a href="http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-1-installation/rhel6_language_selection/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-1-installation/rhel6_language_selection/']);" rel="attachment wp-att-5686"><img class="alignnone size-full wp-image-5686" alt="rhel6 language selection RHCSA and RHCE Chapter 1   Installation" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_language_selection.png" width="667" height="472" title="RHCSA and RHCE Chapter 1   Installation" /></a>
 > 
-> **9&#46;5. Keyboard Configuration**
+> **9.5. Keyboard Configuration**
 > 
 > Using your mouse, select the correct layout type (for example, U.S. English) for the keyboard you would prefer to use for the installation and as the system default (refer to the figure below).
 > 
@@ -41,7 +41,7 @@ There is a lot of good information in "<a href="https://access.redhat.com/knowle
 > 
 > <a href="http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-1-installation/rhel6_keyboard_configuration/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-1-installation/rhel6_keyboard_configuration/']);" rel="attachment wp-att-5687"><img class="alignnone size-full wp-image-5687" alt="rhel6 keyboard configuration RHCSA and RHCE Chapter 1   Installation" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_keyboard_configuration.png" width="665" height="424" title="RHCSA and RHCE Chapter 1   Installation" /></a>
 > 
-> **9&#46;6. Storage Devices**
+> **9.6. Storage Devices**
 > 
 > You can install Red Hat Enterprise Linux on a large variety of storage devices. This screen allows you to select either basic or specialized storage devices.
 > 
@@ -62,13 +62,13 @@ There is a lot of good information in "<a href="https://access.redhat.com/knowle
 > *   Firmware RAID devices
 > *   Multipath devices Use the Specialized Storage Devices option to configure Internet Small Computer System Interface (iSCSI) and FCoE (Fiber Channel over Ethernet) connections 
 > 
-> **9&#46;7. Setting the Hostname**
+> **9.7. Setting the Hostname**
 > 
 > Setup prompts you to supply a host name for this computer, either as a fully-qualified domain name (FQDN) in the format **hostname.domainname** or as a short host name in the format **hostname**. Many networks have a Dynamic Host Configuration Protocol (DHCP) service that automatically supplies connected systems with a domain name. To allow the DHCP service to assign the domain name to this machine, specify the short host name only
 > 
 > <a href="http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-1-installation/rhel6_set_hostname/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-1-installation/rhel6_set_hostname/']);" rel="attachment wp-att-5690"><img class="alignnone size-full wp-image-5690" alt="rhel6 set hostname RHCSA and RHCE Chapter 1   Installation" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_set_hostname.png" width="664" height="420" title="RHCSA and RHCE Chapter 1   Installation" /></a>
 > 
-> **9&#46;8. Time Zone Configuration**
+> **9.8. Time Zone Configuration**
 > 
 > Set your time zone by selecting the city closest to your computer's physical location. Click on the map to zoom in to a particular geographical region of the world. Specify a time zone even if you plan to use NTP (Network Time Protocol) to maintain the accuracy of the system clock. From here there are two ways for you to select your time zone:
 > 
@@ -79,13 +79,13 @@ There is a lot of good information in "<a href="https://access.redhat.com/knowle
 > 
 > If Red Hat Enterprise Linux is the only operating system on your computer, select **System clock uses UTC**. The system clock is a piece of hardware on your computer system. Red Hat Enterprise Linux uses the timezone setting to determine the offset between the local time and UTC on the system clock. This behavior is standard for systems that use UNIX, Linux, and similar operating systems. Click **Next** to proceed.
 > 
-> **9&#46;9. Set the Root Password**
+> **9.9. Set the Root Password**
 > 
 > Setting up a root account and password is one of the most important steps during your installation. The root account is used to install packages, upgrade RPMs, and perform most system maintenance. Logging in as root gives you complete control over your system.
 > 
 > <a href="http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-1-installation/rhel6_install_root_password/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-1-installation/rhel6_install_root_password/']);" rel="attachment wp-att-5692"><img class="alignnone size-full wp-image-5692" alt="rhel6 install root password RHCSA and RHCE Chapter 1   Installation" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_install_root_password.png" width="664" height="422" title="RHCSA and RHCE Chapter 1   Installation" /></a>
 > 
-> **9&#46;11. Initializing the Hard Disk**
+> **9.11. Initializing the Hard Disk**
 > 
 > If no readable partition tables are found on existing hard disks, the installation program asks to initialize the hard disk. This operation makes any existing data on the hard disk unreadable. If your system has a brand new hard disk with no operating system installed, or you have removed all partitions on the hard disk, click **Re-initialize drive**.
 > 
@@ -93,19 +93,19 @@ There is a lot of good information in "<a href="https://access.redhat.com/knowle
 > 
 > <a href="http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-1-installation/rhel6_install_re-initialize_disk/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-1-installation/rhel6_install_re-initialize_disk/']);" rel="attachment wp-att-5693"><img class="alignnone size-full wp-image-5693" alt="rhel6 install re initialize disk RHCSA and RHCE Chapter 1   Installation" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_install_re-initialize_disk.png" width="667" height="482" title="RHCSA and RHCE Chapter 1   Installation" /></a>
 > 
-> **9&#46;12. Upgrading an Existing System**
+> **9.12. Upgrading an Existing System**
 > 
 > The installation system automatically detects any existing installation of Red Hat Enterprise Linux. The upgrade process updates the existing system software with new versions, but does not remove any data from users' home directories. The existing partition structure on your hard drives does not change. Your system configuration changes only if a package upgrade demands it. Most package upgrades do not change system configuration, but rather install an additional configuration file for you to examine later.
 > 
 > Note that the installation medium that you are using might not contain all the software packages that you need to upgrade your computer.
 > 
-> **9&#46;12.1. The Upgrade Dialog**
+> **9.12.1. The Upgrade Dialog**
 > 
 > If your system contains a Red Hat Enterprise Linux installation, a dialog appears asking whether you want to upgrade that installation. To perform an upgrade of an existing system, choose the appropriate installation from the drop-down list and select **Next**.
 > 
 > <a href="http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-1-installation/rhel6_install_upgrade_dialog/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-1-installation/rhel6_install_upgrade_dialog/']);" rel="attachment wp-att-5694"><img class="alignnone size-full wp-image-5694" alt="rhel6 install upgrade dialog RHCSA and RHCE Chapter 1   Installation" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_install_upgrade_dialog.png" width="664" height="475" title="RHCSA and RHCE Chapter 1   Installation" /></a>
 > 
-> **9&#46;12.3. Upgrading Boot Loader Configuration**
+> **9.12.3. Upgrading Boot Loader Configuration**
 > 
 > Your completed Red Hat Enterprise Linux installation must be registered in the boot loader to boot properly. A boot loader is software on your machine that locates and starts the operating system.
 > 
@@ -121,7 +121,7 @@ There is a lot of good information in "<a href="https://access.redhat.com/knowle
 
 The next section goes into the partitioning schema and it's a lot of information:
 
-> **9&#46;13. Disk Partitioning Setup**
+> **9.13. Disk Partitioning Setup**
 > 
 > Partitioning allows you to divide your hard drive into isolated sections, where each section behaves as its own hard drive. Partitioning is particularly useful if you run multiple operating systems.
 > 
@@ -137,7 +137,7 @@ The next section goes into the partitioning schema and it's a lot of information
 > *   **Use Free Space** Select this option to retain your current data and partitions and install Red Hat Enterprise Linux in the unused space available on the storage drives. Ensure that there is sufficient space available on the storage drives before you select this option
 > *   **Create Custom Layout** Select this option to partition storage devices manually and create customized layouts. Choose your preferred partitioning method by clicking the radio button to the left of its description in the dialog box. Select Encrypt system to encrypt all partitions except the /boot partition. 
 > 
-> **9&#46;14. Encrypt Partitions**
+> **9.14. Encrypt Partitions**
 > 
 > If you selected the **Encrypt System** option, the installer prompts you for a passphrase with which to encrypt the partitions on the system. Partitions are encrypted using the Linux Unified Key Setup
 > 
@@ -145,7 +145,7 @@ The next section goes into the partitioning schema and it's a lot of information
 > 
 > Choose a passphrase and type it into each of the two fields in the dialog box. You must provide this passphrase every time that the system boots.
 > 
-> **9&#46;15. Creating a Custom Layout or Modifying the Default Layout**
+> **9.15. Creating a Custom Layout or Modifying the Default Layout**
 > 
 > If you chose to create a custom layout, you must tell the installation program where to install Red Hat Enterprise Linux. This is done by defining mount points for one or more disk partitions in which Red Hat Enterprise Linux is installed. You may also need to create and/or delete partitions at this time.
 > 
@@ -180,7 +180,7 @@ The next section goes into the partitioning schema and it's a lot of information
 > *   **Delete** - remove a partition, logical volume, or software RAID 
 > *   **Reset** - undo all changes made in this screen 
 > 
-> **9&#46;15.1. Create Storage**
+> **9.15.1. Create Storage**
 > 
 > The Create Storage dialog allows you to create new storage partitions, logical volumes, and software RAIDs. Anaconda presents options as available or unavailable depending on the storage already present on the system or configured to transfer to the system.
 > 
@@ -203,7 +203,7 @@ The next section goes into the partitioning schema and it's a lot of information
 > *   **LVM Volume Group** — create a volume group from one or more physical volumes. This option is only available when at least one physical volume is available on the system.
 > *   **LVM Logical Volume** — create a logical volume on a volume group. This option is only available when at least one volume group is available on the system.
 > 
-> **9&#46;15.2. Adding Partitions**
+> **9.15.2. Adding Partitions**
 > 
 > To add a new partition, select the Create button. A dialog box appears
 > 
@@ -220,7 +220,7 @@ The next section goes into the partitioning schema and it's a lot of information
 > *   **OK**: Select OK once you are satisfied with the settings and wish to create the partition.
 > *   **Cancel**: Select Cancel if you do not want to create the partition.
 > 
-> **9&#46;15.2.1. File System Types**
+> **9.15.2.1. File System Types**
 > 
 > Red Hat Enterprise Linux allows you to create different partition types and file systems. The following is a brief description of the different partition types and file systems available, and how they can be used.
 > 
@@ -242,7 +242,7 @@ The next section goes into the partitioning schema and it's a lot of information
 
 The next section is about recommendations for partitioning. From the same guide:
 
-> **9&#46;15.5. Recommended Partitioning Scheme**
+> **9.15.5. Recommended Partitioning Scheme**
 > 
 > Unless you have a reason for doing otherwise, we recommend that you create the following partitions for x86, AMD64, and Intel 64 systems:
 > 
@@ -280,7 +280,7 @@ The next section is about recommendations for partitioning. From the same guide:
 
 Now to the GRUB section of the installation. From the same guide:
 
-> **9&#46;16. Write changes to disk**
+> **9.16. Write changes to disk**
 > 
 > The installer prompts you to confirm the partitioning options that you selected. Click Write changes to disk to allow the installer to partition your hard drive and install Red Hat Enterprise Linux.
 > 
@@ -288,7 +288,7 @@ Now to the GRUB section of the installation. From the same guide:
 > 
 > If you are certain that you want to proceed, click **Write changes to disk**.
 > 
-> **9&#46;17. x86, AMD64, and Intel 64 Boot Loader Configuration**
+> **9.17. x86, AMD64, and Intel 64 Boot Loader Configuration**
 > 
 > To boot the system without boot media, you usually need to install a boot loader. A boot loader is the first software program that runs when a computer starts. It is responsible for loading and transferring control to the operating system kernel software. The kernel, in turn, initializes the rest of the operating system.
 > 
@@ -296,7 +296,7 @@ Now to the GRUB section of the installation. From the same guide:
 > 
 > <a href="http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-1-installation/rhel6_install_grub_installer/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-1-installation/rhel6_install_grub_installer/']);" rel="attachment wp-att-5704"><img class="alignnone size-full wp-image-5704" alt="rhel6 install grub installer RHCSA and RHCE Chapter 1   Installation" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_install_grub_installer.png" width="667" height="424" title="RHCSA and RHCE Chapter 1   Installation" /></a>
 > 
-> **9&#46;17.1. Advanced Boot Loader Configuration**
+> **9.17.1. Advanced Boot Loader Configuration**
 > 
 > Now that you have chosen which boot loader to install, you can also determine where you want the boot loader to be installed. You may install the boot loader in one of two places:
 > 
@@ -308,7 +308,7 @@ Now to the GRUB section of the installation. From the same guide:
 
 Now onto the Packaging:
 
-> **9&#46;18. Package Group Selection**
+> **9.18. Package Group Selection**
 > 
 > Now that you have made most of the choices for your installation, you are ready to confirm the default package selection or customize packages for your system.
 > 
@@ -329,15 +329,15 @@ Now onto the Packaging:
 > 
 > To select a component, click on the checkbox beside it. To customize your package set further, select the Customize now option on the screen. Clicking **Next** takes you to the Package Group Selection screen.
 > 
-> **9&#46;18.2. Customizing the Software Selection**
+> **9.18.2. Customizing the Software Selection**
 > 
-> Select\*\* Customize now\*\* to specify the software packages for your final system in more detail. This option causes the installation process to display an additional customization screen when you select **Next**
+> Select** Customize now** to specify the software packages for your final system in more detail. This option causes the installation process to display an additional customization screen when you select **Next**
 > 
 > <a href="http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-1-installation/rhel6_install_package_customize_now/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-1-installation/rhel6_install_package_customize_now/']);" rel="attachment wp-att-5707"><img class="alignnone size-full wp-image-5707" alt="rhel6 install package customize now RHCSA and RHCE Chapter 1   Installation" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_install_package_customize_now.png" width="664" height="422" title="RHCSA and RHCE Chapter 1   Installation" /></a>
 > 
 > Now to the final section of the install:
 > 
-> **9&#46;19. Installing Packages**
+> **9.19. Installing Packages**
 > 
 > At this point there is nothing left for you to do until all the packages have been installed. How quickly this happens depends on the number of packages you have selected and your computer's speed.
 > 
@@ -345,7 +345,7 @@ Now onto the Packaging:
 > 
 > <a href="http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-1-installation/rhel6_install_packages_installing/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-1-installation/rhel6_install_packages_installing/']);" rel="attachment wp-att-5708"><img class="alignnone size-full wp-image-5708" alt="rhel6 install packages installing RHCSA and RHCE Chapter 1   Installation" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_install_packages_installing.png" width="310" height="126" title="RHCSA and RHCE Chapter 1   Installation" /></a>
 > 
-> **9&#46;20. Installation Complete**
+> **9.20. Installation Complete**
 > 
 > Congratulations! Your Red Hat Enterprise Linux installation is now complete! The installation program prompts you to prepare your system for reboot.
 > 
@@ -411,11 +411,11 @@ I then logged and started to setup network.
 
 From "<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Deployment Guide</a>":
 
-> **8&#46;2. Interface Configuration Files**
+> **8.2. Interface Configuration Files**
 > 
 > Interface configuration files control the software interfaces for individual network devices. As the system boots, it uses these files to determine what interfaces to bring up and how to configure them. These files are usually named ifcfg-name, where name refers to the name of the device that the configuration file controls.
 > 
-> **8&#46;2.1. Ethernet Interfaces**
+> **8.2.1. Ethernet Interfaces**
 > 
 > One of the most common interface files is **/etc/sysconfig/network-scripts/ifcfg-eth0**, which controls the first Ethernet network interface card or NIC in the system. In a system with multiple NICs, there are multiple ifcfg-ethX files (where X is a unique number corresponding to a specific interface). Because each device has its own configuration file, an administrator can control how each interface functions individually.
 > 

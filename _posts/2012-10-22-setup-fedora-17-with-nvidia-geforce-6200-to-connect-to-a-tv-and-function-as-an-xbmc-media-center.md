@@ -396,7 +396,7 @@ However when I wanted to check out some settings on the machine by hitting CTLR-
 
 > **10.4.1. Trouble With the Graphical GRUB Screen on an x86-based System?**
 > 
-> If you are experiencing problems with GRUB, you may need to disable the graphical boot screen. To do this, temporarily alter the setting at boot time before changing it permanently. * At boot time, press **Esc** to reach the GRUB splash screen. Select the GRUB line, and type **e**. * Edit the kernel line to remove **rhgb**. \* Press Enter to exit the editing mode. \* Once the boot loader screen has returned, type **b** to boot the system.
+> If you are experiencing problems with GRUB, you may need to disable the graphical boot screen. To do this, temporarily alter the setting at boot time before changing it permanently. * At boot time, press **Esc** to reach the GRUB splash screen. Select the GRUB line, and type **e**. * Edit the kernel line to remove **rhgb**. * Press Enter to exit the editing mode. * Once the boot loader screen has returned, type **b** to boot the system.
 > 
 > If your problems with GRUB are now resolved and you want to make the change permanent,
 > 
@@ -480,7 +480,7 @@ I already had the top one, so I went ahead and installed the *terminus* fonts. A
     ter-*f  framebuffer-bold
     
 
-So I tried loading the '&#42;ter-v&#42;*' one (since it included most of the fonts and encodings), like so:
+So I tried loading the '*ter-v**' one (since it included most of the fonts and encodings), like so:
 
     moxz:~>sudo setfont -v ter-v32n -C /dev/tty3 
     Loading 512-char 16x32 font from file /lib/kbd/consolefonts/ter-v32n.psf.gz putfont: 
@@ -540,7 +540,7 @@ I then ran across <a href="https://help.ubuntu.com/community/ChangeTTYResolution
 
 > 1.  Karmic Koala has switched to GRUB 2, and now the settings can be found in the file /etc/default/grub
 > 2.  Resolutions available to GRUB 2 can be displayed by typing vbeinfo in the GRUB 2 command line. The command line is accessed by typing "c" when the main GRUB 2 menu screen is displayed. (Hold the left shift key pressed before ubuntu loads to access it)
-> 3.  Open /etc/default/grub with your text editor with root privilege. Add the following new line using your preferred resolution-depth from the list that vbeinfo gave you. It should be like this if you have a 1280&#215;800 screen:
+> 3.  Open /etc/default/grub with your text editor with root privilege. Add the following new line using your preferred resolution-depth from the list that vbeinfo gave you. It should be like this if you have a 1280x800 screen:
 >     
 >         GRUB_GFXPAYLOAD_LINUX=1280x800
 >         
@@ -560,7 +560,7 @@ I rebooted the machine and then in grub menu typed 'c'. That went into the grub 
     vbeinfo
     
 
-That gave me a list of all the available resolutions. I decided to set it to 800&#215;600 since that is what the message showed :). I rebooted and then edited my */etc/default/grub* file to have the following:
+That gave me a list of all the available resolutions. I decided to set it to 800x600 since that is what the message showed :). I rebooted and then edited my */etc/default/grub* file to have the following:
 
     GRUB_CMDLINE_LINUX="quiet" 
     GRUB_GFXPAYLOAD_LINUX=800x600

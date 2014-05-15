@@ -97,7 +97,7 @@ From the above guide:
 >     };
 >     
 > 
-> The **acl-name** statement name is the name of the access control list, and the **match-element** option is usually an individual IP address (such as **10&#46;0.1.1**) or a CIDR (Classless Inter-Domain Routing) network notation (for example, **10&#46;0.1.0/24**). For a list of already defined keywords, see the below:
+> The **acl-name** statement name is the name of the access control list, and the **match-element** option is usually an individual IP address (such as **10.0.1.1**) or a CIDR (Classless Inter-Domain Routing) network notation (for example, **10.0.1.0/24**). For a list of already defined keywords, see the below:
 > 
 > *   **any** - Matches every IP address.
 > *   **localhost** - Matches any IP address that is in use by the local system.
@@ -235,7 +235,7 @@ From the above guide:
 > 
 > Most changes to the **/etc/named.conf** file of a primary or secondary nameserver involve adding, modifying, or deleting zone statements, and only a small subset of zone statement options is usually needed for a nameserver to work efficiently.
 > 
-> In the below example, the zone is identified as **example.com**, the type is set to **master**, and the **named** service is instructed to read the **/var/named/example.com.zone** file. It also allows only a secondary nameserver (**192&#46;168.0.2**) to transfer the zone.
+> In the below example, the zone is identified as **example.com**, the type is set to **master**, and the **named** service is instructed to read the **/var/named/example.com.zone** file. It also allows only a secondary nameserver (**192.168.0.2**) to transfer the zone.
 > 
 >     zone "example.com" IN {
 >       type master;
@@ -246,7 +246,7 @@ From the above guide:
 > 
 > A secondary server's zone statement is slightly different. The type is set to **slave**, and the **masters** directive is telling named the IP address of the master server.
 > 
-> In the below example, the **named** service is configured to query the primary server at the **192&#46;168.0.1** IP address for information about the **example.com** zone. The received information is then saved to the **/var/named/slaves/example.com.zone** file. Note that you have to put all slave zones to **/var/named/slaves** directory, otherwise the service will fail to transfer the zone.
+> In the below example, the **named** service is configured to query the primary server at the **192.168.0.1** IP address for information about the **example.com** zone. The received information is then saved to the **/var/named/slaves/example.com.zone** file. Note that you have to put all slave zones to **/var/named/slaves** directory, otherwise the service will fail to transfer the zone.
 > 
 >     zone "example.com" {
 >       type slave;
@@ -321,7 +321,7 @@ From the above guide:
 >     hostname IN A IP-address
 >     
 > 
-> If the hostname value is omitted, the record will point to the last specified hostname. In the below example, the requests for **server1.example.com** are pointed to **10&#46;0.1.3** or **10&#46;0.1.5**.
+> If the hostname value is omitted, the record will point to the last specified hostname. In the below example, the requests for **server1.example.com** are pointed to **10.0.1.3** or **10.0.1.5**.
 > 
 >     server1  IN  A  10.0.1.3
 >              IN  A  10.0.1.5
@@ -474,7 +474,7 @@ From the Deployment Guide:
 >     ;
 >     
 > 
-> In this example, the authoritative nameservers are set as **dns1.example.com** and **dns2.example.com**, and are tied to the **10&#46;0.1.1** and **10&#46;0.1.2** IP addresses respectively using the **A** record.
+> In this example, the authoritative nameservers are set as **dns1.example.com** and **dns2.example.com**, and are tied to the **10.0.1.1** and **10.0.1.2** IP addresses respectively using the **A** record.
 > 
 > The email servers configured with the **MX** records point to **mail** and **mail2** via **A** records. Since these names do not end in a trailing period, the **$ORIGIN** domain is placed after them, expanding them to **mail.example.com** and **mail2.example.com**.
 > 
@@ -516,7 +516,7 @@ From the same guide:
 >     4  IN  PTR  ftp.example.com.
 >     
 > 
-> In this example, IP addresses **10&#46;0.1.1** through **10&#46;0.1.6** are pointed to the corresponding fully qualified domain name.
+> In this example, IP addresses **10.0.1.1** through **10.0.1.6** are pointed to the corresponding fully qualified domain name.
 > 
 > This zone file would be called into service with a **zone** statement in the **/etc/named.conf** file similar to the following:
 > 
@@ -861,7 +861,7 @@ As a quick test, run a DNS query from the client machine:
     ;; MSG SIZE  rcvd: 85
     
 
-When using **dig**, it shows a lot of good information, like who is the authoritative DNS server is (in our case we can see that's **rhel1.local.com**) and of course the response to our query (**192&#46;168.2.3**). Here is a similar response for the reverse lookup:
+When using **dig**, it shows a lot of good information, like who is the authoritative DNS server is (in our case we can see that's **rhel1.local.com**) and of course the response to our query (**192.168.2.3**). Here is a similar response for the reverse lookup:
 
     [root@rhel2 ~]# dig -x 192.168.2.4
     
@@ -970,7 +970,7 @@ From the Deployment Guide:
 >     dig -x address
 >     
 > 
-> In the below example, the **dig** utility is used to display the hostname assigned to **192&#46;0.32.10**.
+> In the below example, the **dig** utility is used to display the hostname assigned to **192.0.32.10**.
 > 
 >     ~]$ dig -x 192.0.32.10
 >     

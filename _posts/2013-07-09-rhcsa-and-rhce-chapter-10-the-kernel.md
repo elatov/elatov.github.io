@@ -161,19 +161,19 @@ From <a href="https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterpr
 > 
 > **SCHED_RR**
 > 
-> *   A round-robin variant of the SCHED&#95;FIFO policy. SCHED&#95;RR threads are also given a fixed priority between 1 and 99. However, threads with the same priority are scheduled round-robin style within a certain quantum, or time slice. The **sched&#95;rr&#95;get_interval**(2) system call returns the value of the time slice, but the duration of the time slice cannot be set by a user. This policy is useful if you need multiple thread to run at the same priority.
+> *   A round-robin variant of the SCHED_FIFO policy. SCHED_RR threads are also given a fixed priority between 1 and 99. However, threads with the same priority are scheduled round-robin style within a certain quantum, or time slice. The **sched_rr_get_interval**(2) system call returns the value of the time slice, but the duration of the time slice cannot be set by a user. This policy is useful if you need multiple thread to run at the same priority.
 > 
 > Best practice in defining thread priority is to start low and increase priority only when a legitimate latency is identified. Realtime threads are not time-sliced like normal threads; **SCHED_FIFO** threads run until they block, exit, or are pre-empted by a thread with a higher priority. Setting a priority of 99 is therefore not recommended, as this places your process at the same priority level as migration and watchdog threads. If these threads are blocked because your thread goes into a computational loop, they will not be able to run. Uniprocessor systems will eventually lock up in this situation.
 > 
 > In the Linux kernel, the **SCHED_FIFO** policy includes a bandwidth cap mechanism. This protects realtime application programmers from realtime tasks that might monopolize the CPU. This mechanism can be adjusted through the following /proc file system parameters:
 > 
-> *   **/proc/sys/kernel/sched&#95;rt&#95;period_us** Defines the time period to be considered one hundred percent of CPU bandwidth, in microseconds ('us' being the closest equivalent to 'µs' in plain text). The default value is 1000000µs, or 1 second.
-> *   **/proc/sys/kernel/sched&#95;rt&#95;runtime_us** Defines the time period to be devoted to running realtime threads, in microseconds ('us' being the closest equivalent to 'µs' in plain text). The default value is 950000µs, or 0.95 seconds.
+> *   **/proc/sys/kernel/sched_rt_period_us** Defines the time period to be considered one hundred percent of CPU bandwidth, in microseconds ('us' being the closest equivalent to 'µs' in plain text). The default value is 1000000µs, or 1 second.
+> *   **/proc/sys/kernel/sched_rt_runtime_us** Defines the time period to be devoted to running realtime threads, in microseconds ('us' being the closest equivalent to 'µs' in plain text). The default value is 950000µs, or 0.95 seconds.
 > 
 > **4.2.2. Normal scheduling policies**  
 > There are three normal scheduling policies: **SCHED_OTHER**, **SCHED_BATCH** and **SCHED_IDLE**. However, the **SCHED_BATCH** and **SCHED_IDLE** policies are intended for very low priority jobs, and as such are of limited interest in a performance tuning guide.
 > 
-> *   **SCHED&#95;OTHER, or SCHED&#95;NORMAL** The default scheduling policy. This policy uses the Completely Fair Scheduler (CFS) to provide fair access periods for all threads using this policy. CFS establishes a dynamic priority list partly based on the niceness value of each process thread. This gives users some indirect level of control over process priority, but the dynamic priority list can only be directly changed by the CFS.
+> *   **SCHED_OTHER, or SCHED_NORMAL** The default scheduling policy. This policy uses the Completely Fair Scheduler (CFS) to provide fair access periods for all threads using this policy. CFS establishes a dynamic priority list partly based on the niceness value of each process thread. This gives users some indirect level of control over process priority, but the dynamic priority list can only be directly changed by the CFS.
 
 There was actually a little bit more info from <a href="http://doc.opensuse.org/documentation/html/openSUSE/opensuse-tuning/part.tuning.kernel.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://doc.opensuse.org/documentation/html/openSUSE/opensuse-tuning/part.tuning.kernel.html']);">Part V. Kernel Tuning</a>:
 
@@ -199,7 +199,7 @@ There was actually a little bit more info from <a href="http://doc.opensuse.org/
 >     SCHED_IDLE min/max priority : 0/0
 >     
 > 
-> In the above example, SCHED&#95;OTHER, SCHED&#95;BATCH, SCHED&#95;IDLE polices only allow for priority 0, while that of SCHED&#95;FIFO and SCHED_RR can range from 1 to 99.
+> In the above example, SCHED_OTHER, SCHED_BATCH, SCHED_IDLE polices only allow for priority 0, while that of SCHED_FIFO and SCHED_RR can range from 1 to 99.
 > 
 > To set SCHED_BATCH scheduling policy:
 > 
@@ -245,26 +245,26 @@ From the same page:
 >     kernel.sched_compat_yield = 0
 >     
 > 
-> Note that variables ending with “&#95;ns” and “&#95;us” accept values in nanoseconds and microseconds, respectively.
+> Note that variables ending with “_ns” and “_us” accept values in nanoseconds and microseconds, respectively.
 > 
 > A list of the most important task scheduler **sysctl** tuning variables (located at **/proc/sys/kernel/**) with a short description follows:
 > 
-> *   **sched&#95;child&#95;runs_first** A freshly forked child runs before the parent continues execution. Setting this parameter to 1 is beneficial for an application in which the child performs an execution after fork. For example make -j NO&#95;CPUS performs better when sched&#95;child&#95;runs&#95;first is turned off. The default value is 0.
-> *   **sched&#95;compat&#95;yield** Enables the aggressive yield behavior of the old 0(1) scheduler. Java applications that use synchronization extensively perform better with this value set to 1. Only use it when you see a drop in performance. The default value is 0.  
+> *   **sched_child_runs_first** A freshly forked child runs before the parent continues execution. Setting this parameter to 1 is beneficial for an application in which the child performs an execution after fork. For example make -j NO_CPUS performs better when sched_child_runs_first is turned off. The default value is 0.
+> *   **sched_compat_yield** Enables the aggressive yield behavior of the old 0(1) scheduler. Java applications that use synchronization extensively perform better with this value set to 1. Only use it when you see a drop in performance. The default value is 0.  
 >     Expect applications that depend on the sched_yield() syscall behavior to perform better with the value set to 1.
-> *   **sched&#95;migration&#95;cost** Amount of time after the last execution that a task is considered to be “cache hot” in migration decisions. A “hot” task is less likely to be migrated, so increasing this variable reduces task migrations. The default value is 500000 (ns).  
->     If the CPU idle time is higher than expected when there are runnable processes, try reducing this value. If tasks bounce between CPUs or nodes too often, try increasing it. **sched&#95;latency&#95;ns** Targeted preemption latency for CPU bound tasks. Increasing this variable increases a CPU bound task's timeslice. A task's timeslice is its weighted fair share of the scheduling period:  
+> *   **sched_migration_cost** Amount of time after the last execution that a task is considered to be “cache hot” in migration decisions. A “hot” task is less likely to be migrated, so increasing this variable reduces task migrations. The default value is 500000 (ns).  
+>     If the CPU idle time is higher than expected when there are runnable processes, try reducing this value. If tasks bounce between CPUs or nodes too often, try increasing it. **sched_latency_ns** Targeted preemption latency for CPU bound tasks. Increasing this variable increases a CPU bound task's timeslice. A task's timeslice is its weighted fair share of the scheduling period:  
 >     timeslice = scheduling period * (task's weight/total weight of tasks in the run queue)  
 >     The task's weight depends on the task's nice level and the scheduling policy. Minimum task weight for a SCHED_OTHER task is 15, corresponding to nice 19. The maximum task weight is 88761, corresponding to nice -20.  
->     Timeslices become smaller as the load increases. When the number of runnable tasks exceeds **sched&#95;latency&#95;ns/sched&#95;min&#95;granularity_ns**, the slice becomes **number&#95;of&#95;running&#95;tasks x sched&#95;min&#95;granularity&#95;ns**. Prior to that, the slice is equal to sched&#95;latency&#95;ns.  
+>     Timeslices become smaller as the load increases. When the number of runnable tasks exceeds **sched_latency_ns/sched_min_granularity_ns**, the slice becomes **number_of_running_tasks x sched_min_granularity_ns**. Prior to that, the slice is equal to sched_latency_ns.  
 >     This value also specifies the maximum amount of time during which a sleeping task is considered to be running for entitlement calculations. Increasing this variable increases the amount of time a waking task may consume before being preempted, thus increasing scheduler latency for CPU bound tasks. The default value is 20000000 (ns).
-> *   **sched&#95;min&#95;granularity_ns** Minimal preemption granularity for CPU bound tasks. See **sched&#95;latency&#95;ns** for details. The default value is 4000000 (ns).
-> *   **sched&#95;wakeup&#95;granularity_ns** The wake-up preemption granularity. Increasing this variable reduces wake-up preemption, reducing disturbance of compute bound tasks. Lowering it improves wake-up latency and throughput for latency critical tasks, particularly when a short duty cycle load component must compete with CPU bound components. The default value is 5000000 (ns).
-> *   **sched&#95;rt&#95;period_us** Period over which real-time task bandwidth enforcement is measured. The default value is 1000000 (µs).
-> *   **sched&#95;rt&#95;runtime_us** Quantum allocated to real-time tasks during sched&#95;rt&#95;period&#95;us. Setting to -1 disables RT bandwidth enforcement. By default, RT tasks may consume 95%CPU/sec, thus leaving 5%CPU/sec or 0.05s to be used by SCHED&#95;OTHER tasks.
+> *   **sched_min_granularity_ns** Minimal preemption granularity for CPU bound tasks. See **sched_latency_ns** for details. The default value is 4000000 (ns).
+> *   **sched_wakeup_granularity_ns** The wake-up preemption granularity. Increasing this variable reduces wake-up preemption, reducing disturbance of compute bound tasks. Lowering it improves wake-up latency and throughput for latency critical tasks, particularly when a short duty cycle load component must compete with CPU bound components. The default value is 5000000 (ns).
+> *   **sched_rt_period_us** Period over which real-time task bandwidth enforcement is measured. The default value is 1000000 (µs).
+> *   **sched_rt_runtime_us** Quantum allocated to real-time tasks during sched_rt_period_us. Setting to -1 disables RT bandwidth enforcement. By default, RT tasks may consume 95%CPU/sec, thus leaving 5%CPU/sec or 0.05s to be used by SCHED_OTHER tasks.
 > *   **sched_features** Provides information about specific debugging features.
-> *   **sched&#95;stat&#95;granularity_ns** Specifies the granularity for collecting task scheduler statistics.
-> *   **sched&#95;nr&#95;migrate** Controls how many tasks can be moved across processors through migration software interrupts (softirq). If a large number of tasks is created by SCHED&#95;OTHER policy, they will all be run on the same processor. The default value is 32. Increasing this value gives a performance boost to large SCHED&#95;OTHER threads at the expense of increased latencies for real-time tasks.
+> *   **sched_stat_granularity_ns** Specifies the granularity for collecting task scheduler statistics.
+> *   **sched_nr_migrate** Controls how many tasks can be moved across processors through migration software interrupts (softirq). If a large number of tasks is created by SCHED_OTHER policy, they will all be run on the same processor. The default value is 32. Increasing this value gives a performance boost to large SCHED_OTHER threads at the expense of increased latencies for real-time tasks.
 
 ### RHEL Memory Management
 
@@ -311,9 +311,9 @@ Another concise summary is seen at <a href="http://www.redbooks.ibm.com/redpaper
 > 
 > As you can see in Figure 1-10 on page 11, there are obvious differences in the way the Linux kernel has to address memory in 32-bit and 64-bit systems. Exploring the physical-to-virtual mapping in detail is beyond the scope of this paper, so we highlight some specifics in the Linux memory architecture.
 > 
-> On 32-bit architectures such as the IA-32, the Linux kernel can directly address only the first gigabyte of physical memory (896 MB when considering the reserved range). Memory above the so-called ZONE&#95;NORMAL must be mapped into the lower 1 GB. This mapping is completely transparent to applications, but allocating a memory page in ZONE&#95;HIGHMEM causes a small performance degradation.
+> On 32-bit architectures such as the IA-32, the Linux kernel can directly address only the first gigabyte of physical memory (896 MB when considering the reserved range). Memory above the so-called ZONE_NORMAL must be mapped into the lower 1 GB. This mapping is completely transparent to applications, but allocating a memory page in ZONE_HIGHMEM causes a small performance degradation.
 > 
-> On the other hand, with 64-bit architectures such as x86-64 (also x64), ZONE&#95;NORMAL extends all the way to 64 GB or to 128 GB in the case of IA-64 systems. As you can see, the overhead of mapping memory pages from ZONE&#95;HIGHMEM into ZONE_NORMAL can be eliminated by using a 64-bit architecture.
+> On the other hand, with 64-bit architectures such as x86-64 (also x64), ZONE_NORMAL extends all the way to 64 GB or to 128 GB in the case of IA-64 systems. As you can see, the overhead of mapping memory pages from ZONE_HIGHMEM into ZONE_NORMAL can be eliminated by using a 64-bit architecture.
 > 
 > <a href="http://virtuallyhyper.com/wp-content/uploads/2013/06/memory_zones.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/06/memory_zones.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/memory_zones.png" alt="memory zones RHCSA and RHCE Chapter 10   The Kernel" width="502" height="406" class="alignnone size-full wp-image-9107" title="RHCSA and RHCE Chapter 10   The Kernel" /></a>
 > 
@@ -349,7 +349,7 @@ Another concise summary is seen at <a href="http://www.redbooks.ibm.com/redpaper
 > You can find information on the buddy system through **/proc/buddyinfo**.
 > 
 > **Page frame reclaiming**  
-> If pages are not available when a process requests to map a certain amount of pages, the Linux kernel tries to get pages for the new request by releasing certain pages (which were used before but are not used anymore and are still marked as active pages based on certain principles) and allocating the memory to a new process. This process is called page reclaiming. kswapd kernel thread and try&#95;to&#95;free_page() kernel function are responsible for page reclaiming.
+> If pages are not available when a process requests to map a certain amount of pages, the Linux kernel tries to get pages for the new request by releasing certain pages (which were used before but are not used anymore and are still marked as active pages based on certain principles) and allocating the memory to a new process. This process is called page reclaiming. kswapd kernel thread and try_to_free_page() kernel function are responsible for page reclaiming.
 > 
 > While kswapd is usually sleeping in task interruptible state, it is called by the buddy system when free pages in a zone fall short of a threshold. It tries to find the candidate pages to be taken out of active pages based on the Least Recently Used (LRU) principle. The pages least recently used should be released first. The active list and the inactive list are used to maintain the candidate pages. kswapd scans part of the active list and check how recently the pages were used and the pages not used recently are put into the inactive list. You can take a look at how much memory is considered as active and inactive using the vmstat -a command.
 > 
@@ -374,9 +374,9 @@ From <a href="https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterpr
 > Swapping pages out to disk can introduce latency in any environment. To ensure low latency, the best strategy is to have enough memory in your systems so that swapping is not necessary. Always size the physical RAM as appropriate for your application and system. Use **vmstat** to monitor memory usage and watch the si (swap in) and so (swap out) fields. They should remain on zero as much as possible.
 > 
 > **Out of Memory (OOM)**  
-> Out of Memory (OOM) refers to a computing state where all available memory, including swap space, has been allocated. Normally this will cause the system to panic and stop functioning as expected. There is a switch that controls OOM behavior in **/proc/sys/vm/panic&#95;on&#95;oom**. When set to **1** the kernel will panic on OOM. A setting of **O** instructs the kernel to call a function named **oom_killer** on an OOM. Usually, **oom_killer** can kill rogue processes and the system will survive.
+> Out of Memory (OOM) refers to a computing state where all available memory, including swap space, has been allocated. Normally this will cause the system to panic and stop functioning as expected. There is a switch that controls OOM behavior in **/proc/sys/vm/panic_on_oom**. When set to **1** the kernel will panic on OOM. A setting of **O** instructs the kernel to call a function named **oom_killer** on an OOM. Usually, **oom_killer** can kill rogue processes and the system will survive.
 > 
-> 1.  The easiest way to change this is to echo the new value to **/proc/sys/vm/panic&#95;on&#95;oom**.
+> 1.  The easiest way to change this is to echo the new value to **/proc/sys/vm/panic_on_oom**.
 >     
 >         # cat /proc/sys/vm/panic_on_oom
 >         1
@@ -395,7 +395,7 @@ From <a href="https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterpr
 >         78
 >         
 > 
-> 3.  There is also a special value of -17, which disables oom&#95;killer for that process. In the example below, oom&#95;score returns a value of O, indicating that this process would not be killed.
+> 3.  There is also a special value of -17, which disables oom_killer for that process. In the example below, oom_score returns a value of O, indicating that this process would not be killed.
 >     
 >         # cat /proc/12465/oom_score
 >         78
@@ -449,7 +449,7 @@ Here are some actual tuning parameters:
 > 
 > **overcommit_ratio** Specifies the percentage of physical RAM considered when **overcommit_memory** is set to **2**. The default value is **50**.
 > 
-> **max&#95;map&#95;count** Defines the maximum number of memory map areas that a process may use. In most cases, the default value of **65530** is appropriate. Increase this value if your application needs to map more than this number of files.
+> **max_map_count** Defines the maximum number of memory map areas that a process may use. In most cases, the default value of **65530** is appropriate. Increase this value if your application needs to map more than this number of files.
 > 
 > **nr_hugepages** Defines the number of hugepages configured in the kernel. The default value is 0. It is only possible to allocate (or deallocate) hugepages if there are sufficient physically contiguous free pages in the system. Pages reserved by this parameter cannot be used for other purposes.
 > 
@@ -458,11 +458,11 @@ Here are some actual tuning parameters:
 > 
 > **swappiness** A value from 0 to 100 which controls the degree to which the system swaps. A high value prioritizes system performance, aggressively swapping processes out of physical memory when they are not active. A low value prioritizes interactivity and avoids swapping processes out of physical memory for as long as possible, which decreases response latency. The default value is **60**.
 > 
-> **min&#95;free&#95;kbytes** The minimum number of kilobytes to keep free across the system. This value is used to compute a watermark value for each low memory zone, which are then assigned a number of reserved free pages proportional to their size.
+> **min_free_kbytes** The minimum number of kilobytes to keep free across the system. This value is used to compute a watermark value for each low memory zone, which are then assigned a number of reserved free pages proportional to their size.
 > 
 > **dirty_ratio** Defines a percentage value. Writeout of dirty data begins (via **pdflush**) when dirty data comprises this percentage of total system memory. The default value is **20**.
 > 
-> **dirty&#95;background&#95;ratio** Defines a percentage value. Writeout of dirty data begins in the background (via **pdflush**) when dirty data comprises this percentage of total memory. The default value is **10**.
+> **dirty_background_ratio** Defines a percentage value. Writeout of dirty data begins in the background (via **pdflush**) when dirty data comprises this percentage of total memory. The default value is **10**.
 > 
 > **drop_caches** Setting this value to **1**, **2**, or **3** causes the kernel to drop various combinations of page cache and slab cache.
 > 
@@ -569,7 +569,7 @@ Here are some generic trouble shooting steps from this <a href="http://wiki.deim
 >         vm.vfs_cache_pressure=50
 >         
 > 
-> *   RHEL 6 Will take into account highmem along with lowmem when calculating dirty&#95;ratio and dirty&#95;background_ratio. This will will make page reclaiming faster.
+> *   RHEL 6 Will take into account highmem along with lowmem when calculating dirty_ratio and dirty_background_ratio. This will will make page reclaiming faster.
 >     
 >         vm.highmem_is_dirtyable=1
 >         
@@ -687,7 +687,7 @@ From "<a href="http://www.ibm.com/developerworks/library/l-virtual-filesystem-sw
 > **Superblock**  
 > The superblock is the container for high-level metadata about a file system. The superblock is a structure that exists on disk (actually, multiple places on disk for redundancy) and also in memory. It provides the basis for dealing with the on-disk file system, as it defines the file system's managing parameters (for example, total number of blocks, free blocks, root index node).
 > 
-> On disk, the superblock provides information to the kernel on the structure of the file system on disk. In memory, the superblock provides the necessary information and state to manage the active (mounted) file system. Because Linux supports multiple concurrent file systems mounted at the same time, each super&#95;block structure is maintained in a list (super&#95;blocks, defined in ./linux/fs/super.c, with the structure defined in /linux/include/fs/fs.h).
+> On disk, the superblock provides information to the kernel on the structure of the file system on disk. In memory, the superblock provides the necessary information and state to manage the active (mounted) file system. Because Linux supports multiple concurrent file systems mounted at the same time, each super_block structure is maintained in a list (super_blocks, defined in ./linux/fs/super.c, with the structure defined in /linux/include/fs/fs.h).
 > 
 > Note that within the kernel, another management object called *vfsmount* provides information on mounted file systems. The list of these objects refers to the superblock and defines the mount point, name of the /dev device on which this file system resides, and other higher-level attachment information.
 
@@ -819,7 +819,7 @@ Or you can actually run **slabtop** and see real time usage. Here is how my **sl
 We can see that our *inode_cache* is taking **2172K**. I didn't find that many tuning options for VFS. From <a href="https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Global_File_System_2/s2-vfstuning-gfs2.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Global_File_System_2/s2-vfstuning-gfs2.html']);">RHEL Global File System</a>:
 
 > **2.5.3. VFS Tuning Options: Research and Experiment**  
-> Like all Linux file systems, GFS2 sits on top of a layer called the virtual file system (VFS). You can tune the VFS layer to improve underlying GFS2 performance by using the sysctl(8) command. For example, the values for **dirty&#95;background&#95;ratio** and **vfs&#95;cache&#95;pressure** may be adjusted depending on your situation. To fetch the current values, use the following commands:
+> Like all Linux file systems, GFS2 sits on top of a layer called the virtual file system (VFS). You can tune the VFS layer to improve underlying GFS2 performance by using the sysctl(8) command. For example, the values for **dirty_background_ratio** and **vfs_cache_pressure** may be adjusted depending on your situation. To fetch the current values, use the following commands:
 > 
 >     sysctl -n vm.dirty_background_ratio
 >     sysctl -n vm.vfs_cache_pressure
@@ -849,7 +849,7 @@ From <a href="http://cd-docdb.fnal.gov/0019/001968/001/Linux-Pkt-Recv-Performanc
 > <a href="http://virtuallyhyper.com/wp-content/uploads/2013/07/kernel-networking.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/07/kernel-networking.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/07/kernel-networking.png" alt="kernel networking RHCSA and RHCE Chapter 10   The Kernel" width="821" height="221" class="alignnone size-full wp-image-9163" title="RHCSA and RHCE Chapter 10   The Kernel" /></a>
 > 
 > **2.1 NIC and Device Driver Processing**  
-> The NIC and its device driver perform the layer 1 and 2 functions of the OSI 7-layer network model: packets are received and transformed from raw physical signals, and placed into system memory, ready for higher layer processing. The Linux kernel uses a structure sk&#95;buff to hold any single packet up to the MTU (Maximum Transfer Unit) of the network. The device driver maintains a “ring” of these packet buffers, known as a “ring buffer”, for packet reception (and a separate ring for transmission). A ring buffer consists of a device- and driver-dependent number of packet descriptors. To be able to receive a packet, a packet descriptor should be in “ready” state, which means it has been initialized and pre-allocated with an empty sk&#95;buff which has been memory-mapped into address space accessible by the NIC over the system I/O bus. When a packet comes, one of the ready packet descriptors in the receive ring will be used, the packet will be transferred by DMA into the pre-allocated sk&#95;buff, and the descriptor will be marked as used. A used packet descriptor should be reinitialized and refilled with an empty sk&#95;buff as soon as possible for further incoming packets. If a packet arrives and there is no ready packet descriptor in the receive ring, it will be discarded. Once a packet is transferred into the main memory, during subsequent processing in the network stack, the packet remains at the same kernel memory location.
+> The NIC and its device driver perform the layer 1 and 2 functions of the OSI 7-layer network model: packets are received and transformed from raw physical signals, and placed into system memory, ready for higher layer processing. The Linux kernel uses a structure sk_buff to hold any single packet up to the MTU (Maximum Transfer Unit) of the network. The device driver maintains a “ring” of these packet buffers, known as a “ring buffer”, for packet reception (and a separate ring for transmission). A ring buffer consists of a device- and driver-dependent number of packet descriptors. To be able to receive a packet, a packet descriptor should be in “ready” state, which means it has been initialized and pre-allocated with an empty sk_buff which has been memory-mapped into address space accessible by the NIC over the system I/O bus. When a packet comes, one of the ready packet descriptors in the receive ring will be used, the packet will be transferred by DMA into the pre-allocated sk_buff, and the descriptor will be marked as used. A used packet descriptor should be reinitialized and refilled with an empty sk_buff as soon as possible for further incoming packets. If a packet arrives and there is no ready packet descriptor in the receive ring, it will be discarded. Once a packet is transferred into the main memory, during subsequent processing in the network stack, the packet remains at the same kernel memory location.
 > 
 > Figure 2 shows a general packet receiving process at NIC and device driver level. When a packet is received, it is transferred into main memory and an interrupt is raised only after the packet is accessible to the kernel. When CPU responds to the interrupt, the driver’s interrupt handler is called, within which the
 > 
@@ -994,18 +994,18 @@ More from the same document:
 > **2.2 Kernel Protocol Stack**
 > 
 > **2.2.1 IP Processing**  
-> The IP protocol receive function is called during the processing of a softirq for each IP packet that is dequeued from the ring buffer. This function performs initial checks on the IP packet, which mainly involve verifying its integrity, applying firewall rules, and disposing the packet for forwarding or local delivery to a higher level protocol. For each transport layer protocol, a corresponding handler function is defined: tcp&#95;v4&#95;rcv() and udp_rcv() are two examples.
+> The IP protocol receive function is called during the processing of a softirq for each IP packet that is dequeued from the ring buffer. This function performs initial checks on the IP packet, which mainly involve verifying its integrity, applying firewall rules, and disposing the packet for forwarding or local delivery to a higher level protocol. For each transport layer protocol, a corresponding handler function is defined: tcp_v4_rcv() and udp_rcv() are two examples.
 > 
 > **2.2.2 TCP Processing**  
-> When a packet is handed upwards for TCP processing, the function tcp&#95;v4&#95;rcv() first performs the TCP header processing. Then the socket associated with the packet is determined, and the packet dropped if none exists. A socket has a lock structure to protect it from un-synchronized access. If the socket is locked, the packet waits on the backlog queue before being processed further. If the socket is not locked, and its Data Receiving Process is sleeping for data, the packet is added to the socket’s prequeue and will be processed in batch in the process context, instead of the interrupt context . Placing the first packet in the prequeue will wake up the sleeping data receiving process. If the prequeue mechanism does not accept the packet, which means that the socket is not locked and no process is waiting for input on it, the packet must be processed immediately by a call to tcp&#95;v4&#95;do_rcv(). The same function also is called to drain the backlog queue and prequeue. Those queues (except in the case of prequeue overflow) are drained in the process context, not the interrupt context of the softirq. In the case of prequeue overflow, which means that packets within the prequeue reach/exceed the socket’s receive buffer quota, those packets should be processed as soon as possible, even in the interrupt context.
+> When a packet is handed upwards for TCP processing, the function tcp_v4_rcv() first performs the TCP header processing. Then the socket associated with the packet is determined, and the packet dropped if none exists. A socket has a lock structure to protect it from un-synchronized access. If the socket is locked, the packet waits on the backlog queue before being processed further. If the socket is not locked, and its Data Receiving Process is sleeping for data, the packet is added to the socket’s prequeue and will be processed in batch in the process context, instead of the interrupt context . Placing the first packet in the prequeue will wake up the sleeping data receiving process. If the prequeue mechanism does not accept the packet, which means that the socket is not locked and no process is waiting for input on it, the packet must be processed immediately by a call to tcp_v4_do_rcv(). The same function also is called to drain the backlog queue and prequeue. Those queues (except in the case of prequeue overflow) are drained in the process context, not the interrupt context of the softirq. In the case of prequeue overflow, which means that packets within the prequeue reach/exceed the socket’s receive buffer quota, those packets should be processed as soon as possible, even in the interrupt context.
 > 
 > <a href="http://virtuallyhyper.com/wp-content/uploads/2013/07/linux_kernel_ip_proce.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/07/linux_kernel_ip_proce.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/07/linux_kernel_ip_proce.png" alt="linux kernel ip proce RHCSA and RHCE Chapter 10   The Kernel" width="286" height="514" class="alignnone size-full wp-image-9165" title="RHCSA and RHCE Chapter 10   The Kernel" /></a>
 > 
 > **2.2.3 The UDP Processing**  
-> When a UDP packet arrives from the IP layer, it is passed on to udp&#95;rcv(). udp&#95;rcv()’s mission is to verify the integrity of the UDP packet and to queue one or more copies for delivery to multicast and broadcast sockets and exactly one copy to unicast sockets. When queuing the received packet in the receive queue of the matching socket, if there is insufficient space in the receive buffer quota of the socket, the packet may be discarded. Data within the socket’s receive buffer are ready for delivery to the user space.
+> When a UDP packet arrives from the IP layer, it is passed on to udp_rcv(). udp_rcv()’s mission is to verify the integrity of the UDP packet and to queue one or more copies for delivery to multicast and broadcast sockets and exactly one copy to unicast sockets. When queuing the received packet in the receive queue of the matching socket, if there is insufficient space in the receive buffer quota of the socket, the packet may be discarded. Data within the socket’s receive buffer are ready for delivery to the user space.
 > 
 > **2.3 Data Receiving Process**  
-> Packet data is finally copied from the socket’s receive buffer to user space by data receiving process through socket-related receive system calls. The receiving process supplies a memory address and number of bytes to be transferred, either in a struct iovec, or as two parameters gathered into such a struct by the kernel. As mentioned above, all the TCP socket-related receive system calls result in the final calling of tcp&#95;recvmsg(), which will copy packet data from socket’s buffers (receive queue, prequeue, backlog queue) through iovec. For UDP, all the socket-related receiving system calls result in the final calling of udp&#95;recvmsg(). When udp_recvmsg() is called, data inside receive queue is copied through iovec to user space directly.
+> Packet data is finally copied from the socket’s receive buffer to user space by data receiving process through socket-related receive system calls. The receiving process supplies a memory address and number of bytes to be transferred, either in a struct iovec, or as two parameters gathered into such a struct by the kernel. As mentioned above, all the TCP socket-related receive system calls result in the final calling of tcp_recvmsg(), which will copy packet data from socket’s buffers (receive queue, prequeue, backlog queue) through iovec. For UDP, all the socket-related receiving system calls result in the final calling of udp_recvmsg(). When udp_recvmsg() is called, data inside receive queue is copied through iovec to user space directly.
 
 ## RHEL Network Tuning
 
@@ -1040,7 +1040,7 @@ There are a lot of parameters to tune the kernel networking. From the "<a href="
 > 
 > This indicates that packets are bottlenecked at at least one socket queue, which means either the socket queue drains packets too slowly, or packet volume is too large for that socket queue. If it is the latter, then verify the logs of any network-intensive application for lost data - to resolve this, you would need to optimize or reconfigure the offending application.
 > 
-> **Socket receive buffer size** - Socket send and receive sizes are dynamically adjusted, so they rarely need to be manually edited. If further analysis, such as the analysis presented in the SystemTap network example, **sk&#95;stream&#95;wait_memory.stp**, suggests that the socket queue's drain rate is too slow, then you can increase the depth of the application's socket queue. To do so, increase the size of receive buffers used by sockets by configuring either of the following values:
+> **Socket receive buffer size** - Socket send and receive sizes are dynamically adjusted, so they rarely need to be manually edited. If further analysis, such as the analysis presented in the SystemTap network example, **sk_stream_wait_memory.stp**, suggests that the socket queue's drain rate is too slow, then you can increase the depth of the application's socket queue. To do so, increase the size of receive buffers used by sockets by configuring either of the following values:
 > 
 > **rmem_default** - A kernel parameter that controls the default size of receive buffers used by sockets. To configure this, run the following command:
 > 
@@ -1101,7 +1101,7 @@ There are a lot of parameters to tune the kernel networking. From the "<a href="
 > 
 > **Input traffic** The first option is to slow down input traffic by configuring the rate at which the queue fills. To do so, either filter frames or pre-emptively drop them. You can also slow down input traffic by lowering the NIC's device weight.
 > 
-> **Queue depth** You can also avoid socket queue overruns by increasing the queue depth. To do so, increase the value of either the rmem&#95;default kernel parameter or the SO&#95;RCVBUF socket option.
+> **Queue depth** You can also avoid socket queue overruns by increasing the queue depth. To do so, increase the value of either the rmem_default kernel parameter or the SO_RCVBUF socket option.
 > 
 > **Application call frequency** - Whenever possible, optimize the application to perform calls more frequently. This involves modifying or reconfiguring the network application to perform more frequent POSIX calls (such as **recv**, **read**). In turn, this allows an application to drain the queue faster.
 > 
@@ -1141,27 +1141,27 @@ There are a lot of parameters to tune the kernel networking. From the "<a href="
 > 
 > Other kernel settings that help with the overall server performance when it comes to network traffic are the following:
 > 
-> **TCP&#95;FIN&#95;TIMEOUT** - This setting determines the time that must elapse before TCP/IP can release a closed connection and reuse its resources. During this TIME&#95;WAIT state, reopening the connection to the client costs less than establishing a new connection. By reducing the value of this entry, TCP/IP can release closed connections faster, making more resources available for new connections. Addjust this in the presense of many connections sitting in the TIME&#95;WAIT state:
+> **TCP_FIN_TIMEOUT** - This setting determines the time that must elapse before TCP/IP can release a closed connection and reuse its resources. During this TIME_WAIT state, reopening the connection to the client costs less than establishing a new connection. By reducing the value of this entry, TCP/IP can release closed connections faster, making more resources available for new connections. Addjust this in the presense of many connections sitting in the TIME_WAIT state:
 > 
 >     echo 30 > /proc/sys/net/ipv4/tcp_fin_timeout
 >     
 > 
-> **TCP&#95;KEEPALIVE&#95;INTERVAL** - This determines the wait time between isAlive interval probes. To set:
+> **TCP_KEEPALIVE_INTERVAL** - This determines the wait time between isAlive interval probes. To set:
 > 
 >     echo 30 > /proc/sys/net/ipv4/tcp_keepalive_intvl
 >     
 > 
-> **TCP&#95;KEEPALIVE&#95;PROBES** - This determines the number of probes before timing out. To set:
+> **TCP_KEEPALIVE_PROBES** - This determines the number of probes before timing out. To set:
 > 
 >     echo 5 > /proc/sys/net/ipv4/tcp_keepalive_probes
 >     
 > 
-> **TCP&#95;TW&#95;RECYCLE** - This enables fast recycling of TIME_WAIT sockets. The default value is 0 (disabled). Should be used with caution with loadbalancers.
+> **TCP_TW_RECYCLE** - This enables fast recycling of TIME_WAIT sockets. The default value is 0 (disabled). Should be used with caution with loadbalancers.
 > 
 >     echo 1 > /proc/sys/net/ipv4/tcp_tw_recycle
 >     
 > 
-> **TCP&#95;TW&#95;REUSE** - This allows reusing sockets in TIME_WAIT state for new connections when it is safe from protocol viewpoint. Default value is 0 (disabled). It is generally a safer alternative to **tcp&#95;tw&#95;recycle**
+> **TCP_TW_REUSE** - This allows reusing sockets in TIME_WAIT state for new connections when it is safe from protocol viewpoint. Default value is 0 (disabled). It is generally a safer alternative to **tcp_tw_recycle**
 > 
 >     echo 1 > /proc/sys/net/ipv4/tcp_tw_reuse
 >     
@@ -1176,7 +1176,7 @@ There are a lot of parameters to tune the kernel networking. From the "<a href="
 >     net.core.netdev_max_backlog = 30000
 >     
 > 
-> Starting with version 2.6.13, Linux supports pluggable congestion control algorithms . The congestion control algorithm used is set using the sysctl variable **net.ipv4.tcp&#95;congestion&#95;control**, which is set to bic/cubic or reno by default, depending on which version of the 2.6 kernel you are using. To get a list of congestion control algorithms that are available in your kernel (if you are running 2.6.20 or higher), run:
+> Starting with version 2.6.13, Linux supports pluggable congestion control algorithms . The congestion control algorithm used is set using the sysctl variable **net.ipv4.tcp_congestion_control**, which is set to bic/cubic or reno by default, depending on which version of the 2.6 kernel you are using. To get a list of congestion control algorithms that are available in your kernel (if you are running 2.6.20 or higher), run:
 > 
 >     sysctl net.ipv4.tcp_available_congestion_control
 >     
@@ -1190,7 +1190,7 @@ There are a lot of parameters to tune the kernel networking. From the "<a href="
 > *   vegas: TCP Vegas
 > *   westwood: optimized for lossy networks
 > 
-> If cubic and/or htcp are not listed when you do '**sysctl net.ipv4.tcp&#95;available&#95;congestion_control**', try the following, as most distributions include them as loadable kernel modules:
+> If cubic and/or htcp are not listed when you do '**sysctl net.ipv4.tcp_available_congestion_control**', try the following, as most distributions include them as loadable kernel modules:
 > 
 >     /sbin/modprobe tcp_htcp
 >     /sbin/modprobe tcp_cubic

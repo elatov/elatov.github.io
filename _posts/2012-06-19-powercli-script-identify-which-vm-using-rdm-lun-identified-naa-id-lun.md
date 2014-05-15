@@ -31,7 +31,7 @@ Sample ouput:
 Although helpful, but not exactly what we were looking for. The same KB (<a href="http://kb.vmware.com/kb/1005937" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1005937']);">1005937</a>) also had a way of doing through the command line of the esx host:
 
 	  
-	~ # find /vmfs/volumes/ -type f -name '\*.vmdk' -size -1024k -exec grep -l '^createType=.\*RawDeviceMap' {} \; | xargs -L 1 vmkfstools -q  
+	~ # find /vmfs/volumes/ -type f -name '*.vmdk' -size -1024k -exec grep -l '^createType=.*RawDeviceMap' {} \; | xargs -L 1 vmkfstools -q  
 	
 
 Sample output:

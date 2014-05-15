@@ -523,7 +523,7 @@ Here is the actual update process:
 > 
 > **yum list glob_expression…** - Lists information on installed and available packages matching all glob expressions. Packages with various ABRT addons and plug-ins either begin with “abrt-addon-”, or “abrt-plugin-”. To list these packages, type the following at a shell prompt:
 > 
->     ~]# yum list abrt-addon\* abrt-plugin\*
+>     ~]# yum list abrt-addon* abrt-plugin*
 >     Loaded plugins: product-id, refresh-packagekit, subscription-manager
 >     Updating Red Hat repositories.
 >     INFO:rhsm-app.repolib:repos updated: 0
@@ -551,7 +551,7 @@ Here is the actual update process:
 > 
 > **yum list available** - Lists all available packages in all enabled repositories. To list all available packages with names that contain “gstreamer” and then “plugin”, run the following command:
 > 
->     ~]# yum list available gstreamer\*plugin\*
+>     ~]# yum list available gstreamer*plugin*
 >     Loaded plugins: product-id, refresh-packagekit, subscription-manager
 >     Updating Red Hat repositories.
 >     INFO:rhsm-app.repolib:repos updated: 0
@@ -610,7 +610,7 @@ Here is the actual update process:
 > 
 > You can use glob expressions to quickly install multiple similarly-named packages:
 > 
->     ~]# yum install audacious-plugins-\*
+>     ~]# yum install audacious-plugins-*
 >     
 > 
 > In addition to package names and glob expressions, you can also provide file names to yum install. If you know the name of the binary you want to install, but not its package name, you can give yum install the path name:
@@ -633,9 +633,9 @@ Here is the actual update process:
 > **yum provides "*/file_name"** is a common and useful trick to find the package(s) that contain **file_name**.
 > 
 > **Installing a Package Group**  
-> A package group is similar to a package: it is not useful by itself, but installing one pulls a group of dependent packages that serve a common purpose. A package group has a name and a groupid. The **yum grouplist -v** command lists the names of all package groups, and, next to each of them, their &#42;groupid&#42; in parentheses. The &#42;groupid&#42; is always the term in the last pair of parentheses, such as **kdedesktop** in the following example:
+> A package group is similar to a package: it is not useful by itself, but installing one pulls a group of dependent packages that serve a common purpose. A package group has a name and a groupid. The **yum grouplist -v** command lists the names of all package groups, and, next to each of them, their *groupid* in parentheses. The *groupid* is always the term in the last pair of parentheses, such as **kdedesktop** in the following example:
 > 
->     ~]# yum -v grouplist kde\*
+>     ~]# yum -v grouplist kde*
 >     Loading "product-id" plugin
 >     Loading "refresh-packagekit" plugin
 >     Loading "subscription-manager" plugin
@@ -789,7 +789,7 @@ Here is the actual update process:
 > 
 > For example, to trace the history of subscription-manager and related packages, type the following at a shell prompt:
 > 
->     ~]# yum history package-list subscription-manager\*
+>     ~]# yum history package-list subscription-manager*
 >     Loaded plugins: product-id, refresh-packagekit, subscription-manager
 >     ID     | Action(s)      | Package
 >     -------------------------------------------------------------------------------
@@ -1182,7 +1182,7 @@ Now we see a **repodata** folder inside the repository directory. You can also a
 Now to add this repository to yum. From the guide:
 
 > **5.3.2. Setting [repository] Options**  
-> The **[repository]** sections, where repository is a unique repository ID such as **my&#95;personal&#95;repo** (spaces are not permitted), allow you to define individual Yum repositories. The following is a bare-minimum example of the form a **[repository]** section takes:
+> The **[repository]** sections, where repository is a unique repository ID such as **my_personal_repo** (spaces are not permitted), allow you to define individual Yum repositories. The following is a bare-minimum example of the form a **[repository]** section takes:
 > 
 >     [repository]
 >     name=repository_name
@@ -1203,7 +1203,7 @@ Now to add this repository to yum. From the guide:
 > *   **enabled=value** - …where **value** is one of: 
 >     *   **O** — Do not include this repository as a package source when performing updates and installs. This is an easy way of quickly turning repositories on and off, which is useful when you desire a single package from a repository that you do not want to enable for updates or installs. 
 >     *   **1** — Include this repository as a package source. 
->         Turning repositories on and off can also be performed by passing either the -enablerepo=repo&#95;name or -disablerepo=repo&#95;name option to yum, or through the Add/Remove Software window of the PackageKit utility</li> </ul> </li> </ul> 
+>         Turning repositories on and off can also be performed by passing either the -enablerepo=repo_name or -disablerepo=repo_name option to yum, or through the Add/Remove Software window of the PackageKit utility</li> </ul> </li> </ul> 
 >         Many more **[repository]** options exist. For a complete list, refer to the **[repository]** **OPTIONS** section of the **yum.conf(5)** manual page.</blockquote> 
 >         
 >         So let's create a file called "**my_repo.repo**" under **/etc/yum.repos.d/** and have the following content:
@@ -1327,7 +1327,7 @@ Now to add this repository to yum. From the guide:
 >         >     %changelog
 >         >     
 >         > 
->         > You can use $RPM&#95;BUILD&#95;ROOT instead of %{buildroot}. Both are acceptable, but just be consistent. You may also use the **rpmdev-newspec** command to create a SPEC file for you. **rpmdev-newspec NAME-OF-NEW-PACKAGE** can create an initial SPEC file for a new package, tailored to various types of packages. It will guess what kind of template to use based on the package name, or you can specify a particular template. See **/etc/rpmdevtools/spectemplate-*.spec** for available templates, and see **rpmdev-newspec -help** for more information. For example, to create a new SPEC file for a python module:
+>         > You can use $RPM_BUILD_ROOT instead of %{buildroot}. Both are acceptable, but just be consistent. You may also use the **rpmdev-newspec** command to create a SPEC file for you. **rpmdev-newspec NAME-OF-NEW-PACKAGE** can create an initial SPEC file for a new package, tailored to various types of packages. It will guess what kind of template to use based on the package name, or you can specify a particular template. See **/etc/rpmdevtools/spectemplate-*.spec** for available templates, and see **rpmdev-newspec -help** for more information. For example, to create a new SPEC file for a python module:
 >         > 
 >         >     cd ~/rpmbuild/SPECS 
 >         >     rpmdev-newspec python-antigravity 
@@ -1403,7 +1403,7 @@ Now to add this repository to yum. From the guide:
 >         > The major tags are listed below. Note that the macros **%{name}**, **%{version}** and **%{release}** can be used to refer to the Name, Version and Release tags respectively. When you change the tag, the macros automatically update to use the new value.
 >         > 
 >         > *   **Name:** - The (base) name of the package, which should match the SPEC file name. 
->         > *   **Version:** - The upstream version number.If the version contains tags that are non-numeric (contains tags that are not numbers), you may need to include the additional non-numeric characters in the Release tag. If upstream uses full dates to distinguish versions, consider using version numbers of the form yy.mm&#91;dd&#93; (e.g. 2008-05-01 becomes 8.05). 
+>         > *   **Version:** - The upstream version number.If the version contains tags that are non-numeric (contains tags that are not numbers), you may need to include the additional non-numeric characters in the Release tag. If upstream uses full dates to distinguish versions, consider using version numbers of the form yy.mm[dd] (e.g. 2008-05-01 becomes 8.05). 
 >         > *   **Release:** - The initial value should normally be 1%{?dist}. Increment the number every time you release a new package for the same version of software. When a new upstream version is released, change the Version tag to match and reset the Release number to 1. 
 >         > *   **Summary:** - A brief, one-line summary of the package. Use American English. Do not end in a period. 
 >         > *   **Group:** - This needs to be a pre-existing group, like "Applications/Engineering"; run "**less /usr/share/doc/rpm-*/GROUPS**" to see the complete list. Use the group "Documentation" for any sub-packages (e.g. kernel-doc) containing documentation. Note: This tag is deprecated since Fedora 17. 

@@ -100,7 +100,7 @@ First we should check if the **VobSub** files have multiple languages. You can d
     Duration                                 : 59mn 33s
     
 
-Since we have more than two *texts* that means we have multiple languages in the **VobSub** files. Notice the ID fields: 0&#215;24 and 0&#215;25. We will actually use those later on. You can also use **tcscan** utility to check for the subtitle IDs as well:
+Since we have more than two *texts* that means we have multiple languages in the **VobSub** files. Notice the ID fields: 0x24 and 0x25. We will actually use those later on. You can also use **tcscan** utility to check for the subtitle IDs as well:
 
     $ tcscan -i file1.sub
     [scan_pes.c] found first packet header at stream offset 0x0
@@ -126,9 +126,9 @@ Notice again we have two stream IDs: **0xbd** and **0xbe** which **mediainfo** c
     ID_VSID_5_LANG=en
     
 
-We can see that ID 4 (0&#215;24 or 0xbd) is in english (en) and ID 5 (0&#215;25 or 0xbe) is also in english. There is a brief description from <a href="http://forum.doom9.org/archive/index.php/t-89635.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://forum.doom9.org/archive/index.php/t-89635.html']);">here</a>, regarding the offset and the value being in hexadecimal:
+We can see that ID 4 (0x24 or 0xbd) is in english (en) and ID 5 (0x25 or 0xbe) is also in english. There is a brief description from <a href="http://forum.doom9.org/archive/index.php/t-89635.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://forum.doom9.org/archive/index.php/t-89635.html']);">here</a>, regarding the offset and the value being in hexadecimal:
 
-> The subtitles in MPEG program stream ( = VOB files) use IDs that start at 0&#215;20. tcextract uses those IDs (in fact, tcextract can extract arbitrary streams from PS files). mplayer simply bases its -sid parameter at 0 and adds 0&#215;20 to that value internally when selecting the appropriate stream.
+> The subtitles in MPEG program stream ( = VOB files) use IDs that start at 0x20. tcextract uses those IDs (in fact, tcextract can extract arbitrary streams from PS files). mplayer simply bases its -sid parameter at 0 and adds 0x20 to that value internally when selecting the appropriate stream.
 
 The last method is by checking the **.idx** file. Here is what I saw in mine:
 

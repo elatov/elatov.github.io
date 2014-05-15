@@ -74,7 +74,7 @@ Looking at the next packet and just looking at the iSCSI information of the pack
 	ExpStatSN: 0x00000000  
 	
 
-So we are getting a Login command with the code of *0&#215;03*. From the iSCSI RFC:
+So we are getting a Login command with the code of *0x03*. From the iSCSI RFC:
 
 > **10.2.1.2. Opcode**
 > 
@@ -85,14 +85,14 @@ So we are getting a Login command with the code of *0&#215;03*. From the iSCSI R
 > 
 > Initiator opcodes defined in this specification are:
 > 
-> 0&#215;00 NOP-Out  
-> 0&#215;01 SCSI Command (encapsulates a SCSI Command Descriptor Block)  
-> 0&#215;02 SCSI Task Management function request  
-> 0&#215;03 Login Request  
-> 0&#215;04 Text Request  
-> 0&#215;05 SCSI Data-Out (for WRITE operations)  
-> 0&#215;06 Logout Request  
-> 0&#215;10 SNACK Request  
+> 0x00 NOP-Out  
+> 0x01 SCSI Command (encapsulates a SCSI Command Descriptor Block)  
+> 0x02 SCSI Task Management function request  
+> 0x03 Login Request  
+> 0x04 Text Request  
+> 0x05 SCSI Data-Out (for WRITE operations)  
+> 0x06 Logout Request  
+> 0x10 SNACK Request  
 > 0x1c-0x1e Vendor specific codes
 
 So we sent a *Login Request*, from the RFC:
@@ -263,7 +263,7 @@ We can see that all the key/value pairs were negotiated successfully and this wa
 	ExpStatSN: 0x00000001  
 	
 
-The *Text Command* is *0&#215;04* and from the above snippet of the RFC we can see that it's a *Text Request*:
+The *Text Command* is *0x04* and from the above snippet of the RFC we can see that it's a *Text Request*:
 
 > **3.5.3.1. Text Request and Text Response**
 > 

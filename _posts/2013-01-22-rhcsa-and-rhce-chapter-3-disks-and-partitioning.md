@@ -53,7 +53,7 @@ Before we keep going with disk and partitioning, I want to setup the RHEL Instal
 
 From "<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Installation Guide</a>":
 
-> **35&#46;3.1.2. Using a Red Hat Enterprise Linux Installation DVD as a Software Repository**
+> **35.3.1.2. Using a Red Hat Enterprise Linux Installation DVD as a Software Repository**
 > 
 > To use a Red Hat Enterprise Linux installation DVD as a software repository, either in the form of a physical disc, or in the form of an ISO image file.
 > 
@@ -299,14 +299,14 @@ Now to partitions, from "<a href="https://access.redhat.com/knowledge/docs/en-US
 
 Now to partitioning with **fdisk**. From this old "<a href="http://www.tldp.org/HOWTO/Partition/fdisk_partitioning.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.tldp.org/HOWTO/Partition/fdisk_partitioning.html']);">Partitioning with fdisk</a>" guide:
 
-> **5&#46; Partitioning with fdisk** This section shows you how to actually partition your hard drive with the fdisk utility. Linux allows only 4 primary partitions. You can have a much larger number of logical partitions by sub-dividing one of the primary partitions. Only one of the primary partitions can be sub-divided.
+> **5. Partitioning with fdisk** This section shows you how to actually partition your hard drive with the fdisk utility. Linux allows only 4 primary partitions. You can have a much larger number of logical partitions by sub-dividing one of the primary partitions. Only one of the primary partitions can be sub-divided.
 > 
 > Examples:
 > 
 > *   Four primary partitions 
 > *   Mixed primary and logical partitions 
 > 
-> **5&#46;1. fdisk usage**
+> **5.1. fdisk usage**
 > 
 > **fdisk** is started by typing (as root) **fdisk device** at the command prompt. device might be something like **/dev/hda** or **/dev/sda**. The basic **fdisk** commands you need are:
 > 
@@ -336,7 +336,7 @@ Here is how my partition table looked like on 1st SCSI disk:
 
 And back to guide:
 
-> The first line shows the geometry of your hard drive. It may not be physically accurate, but you can accept it as though it were. The hard drive in this example is made of 32 double-sided platters with one head on each side (probably not true). Each platter has 2610 concentric tracks. A 3-dimensional track (the same track on all disks) is called a cylinder. Each track is divided into 63 sectors. Each sector contains 512 bytes of data. Therefore the block size in the partition table is 64 heads \* 63 sectors \* 512 bytes er...divided by 1024. The start and end values are cylinders.
+> The first line shows the geometry of your hard drive. It may not be physically accurate, but you can accept it as though it were. The hard drive in this example is made of 32 double-sided platters with one head on each side (probably not true). Each platter has 2610 concentric tracks. A 3-dimensional track (the same track on all disks) is called a cylinder. Each track is divided into 63 sectors. Each sector contains 512 bytes of data. Therefore the block size in the partition table is 64 heads * 63 sectors * 512 bytes er...divided by 1024. The start and end values are cylinders.
 
 Then the guide has an example of how to create 4 primary partitions with **fdisk**.
 
@@ -666,7 +666,7 @@ From "<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise
 > 
 > <a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/parted_commands.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/12/parted_commands.png']);" rel="attachment wp-att-5770"><img class="alignnone size-full wp-image-5770" alt="parted commands RHCSA and RHCE Chapter 3 Disks and Partitioning" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/parted_commands.png" width="678" height="563" title="RHCSA and RHCE Chapter 3 Disks and Partitioning" /></a>
 > 
-> **5&#46;1. Viewing the Partition Table**
+> **5.1. Viewing the Partition Table**
 > 
 > After starting **parted**, use the command print to view the partition table. A table similar to the following appears:
 > 
@@ -707,7 +707,7 @@ From "<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise
 
 Now let's actually create some partitions:
 
-> **5&#46;2. Creating a Partition**
+> **5.2. Creating a Partition**
 > 
 > **Procedure 5.1. Creating a partition**
 > 
@@ -717,7 +717,7 @@ Now let's actually create some partitions:
 > 
 > If there is not enough free space, you can resize an existing partition
 > 
-> **5&#46;2.1. Making the Partition**
+> **5.2.1. Making the Partition**
 > 
 > From the partition table, determine the start and end points of the new partition and what partition type it should be. You can only have four primary partitions (with no extended partition) on a device. If you need more than four partitions, you can have three primary partitions, one extended partition, and multiple logical partitions within the extended.
 > 
@@ -872,7 +872,7 @@ And here more information regarding each layer:
 
 #### LVM Physical Volumes
 
-> **2&#46;1. Physical Volumes**
+> **2.1. Physical Volumes**
 > 
 > The underlying physical storage unit of an LVM logical volume is a block device such as a partition or whole disk. To use the device for an LVM logical volume the device must be initialized as a physical volume (PV). Initializing a block device as a physical volume places a label near the start of the device.
 > 
@@ -888,7 +888,7 @@ And here more information regarding each layer:
 
 #### LVM Logical Volumes
 
-> **2&#46;2. Volume Groups**
+> **2.2. Volume Groups**
 > 
 > Physical volumes are combined into volume groups (VGs). This creates a pool of disk space out of which logical volumes can be allocated.
 > 
@@ -898,7 +898,7 @@ And here more information regarding each layer:
 
 #### LVM Logical Volumes
 
-> **2&#46;3. LVM Logical Volumes**
+> **2.3. LVM Logical Volumes**
 > 
 > In LVM, a volume group is divided up into logical volumes. There are three types of LVM logical volumes: linear volumes, striped volumes, and mirrored volumes.
 
@@ -906,15 +906,15 @@ And here more information regarding each layer:
 
 Here are the command utilities used to manage LVMs:
 
-> **4&#46;2. Physical Volume Administration**
+> **4.2. Physical Volume Administration**
 > 
 > This section describes the commands that perform the various aspects of physical volume administration.
 > 
-> **4&#46;2.1. Creating Physical Volumes**
+> **4.2.1. Creating Physical Volumes**
 > 
 > The following subsections describe the commands used for creating physical volumes.
 > 
-> **4&#46;2.1.2. Initializing Physical Volumes**
+> **4.2.1.2. Initializing Physical Volumes**
 > 
 > Use the **pvcreate** command to initialize a block device to be used as a physical volume. Initialization is analogous to formatting a file system. The following command initializes **/dev/sdd**, **/dev/sde**, and **/dev/sdf** as LVM physical volumes for later use as part of LVM logical volumes.
 > 
@@ -926,9 +926,9 @@ Here are the command utilities used to manage LVMs:
 >     # pvcreate /dev/hdb1
 >     
 > 
-> **4&#46;2.1.3. Scanning for Block Devices** You can scan for block devices that may be used as physical volumes with the **lvmdiskscan** command.
+> **4.2.1.3. Scanning for Block Devices** You can scan for block devices that may be used as physical volumes with the **lvmdiskscan** command.
 > 
-> **4&#46;2.2. Displaying Physical Volumes**
+> **4.2.2. Displaying Physical Volumes**
 > 
 > There are three commands you can use to display properties of LVM physical volumes: **pvs**, **pvdisplay**, and **pvscan**.
 > 
@@ -936,7 +936,7 @@ Here are the command utilities used to manage LVMs:
 > 
 > The **pvscan** command scans all supported LVM block devices in the system for physical volumes.
 > 
-> **4&#46;2.5. Removing Physical Volumes**
+> **4.2.5. Removing Physical Volumes**
 > 
 > If a device is no longer required for use by LVM, you can remove the LVM label with the **pvremove** command. Executing the **pvremove** command zeroes the LVM metadata on an empty physical volume.
 > 
@@ -948,7 +948,7 @@ Here are the command utilities used to manage LVMs:
 
 Now onto Volume Groups:
 
-> **4&#46;3.1. Creating Volume Groups**
+> **4.3.1. Creating Volume Groups**
 > 
 > To create a volume group from one or more physical volumes, use the **vgcreate** command. The **vgcreate** command creates a new volume group by name and adds at least one physical volume to it.
 > 
@@ -976,7 +976,7 @@ Now onto Volume Groups:
 >     /dev/myvg2/lv03
 >     
 > 
-> **4&#46;3.3. Adding Physical Volumes to a Volume Group**
+> **4.3.3. Adding Physical Volumes to a Volume Group**
 > 
 > To add additional physical volumes to an existing volume group, use the **vgextend** command. The **vgextend** command increases a volume group's capacity by adding one or more free physical volumes.
 > 
@@ -985,7 +985,7 @@ Now onto Volume Groups:
 >     # vgextend vg1 /dev/sdf1
 >     
 > 
-> **4&#46;3.4 . Displaying Volume Groups**
+> **4.3.4 . Displaying Volume Groups**
 > 
 > There are two commands you can use to display properties of LVM volume groups: **vgs** and **vgdisplay**
 > 
@@ -995,7 +995,7 @@ Now onto Volume Groups:
 > 
 > The **vgdisplay** command displays volume group properties (such as size, extents, number of physical volumes, etc.) in a fixed form.
 > 
-> **4&#46;3.6. Removing Physical Volumes from a Volume Group**
+> **4.3.6. Removing Physical Volumes from a Volume Group**
 > 
 > To remove unused physical volumes from a volume group, use the **vgreduce** command. The **vgreduce** command shrinks a volume group's capacity by removing one or more empty physical volumes. This frees those physical volumes to be used in different volume groups or to be removed from the system.
 > 
@@ -1004,7 +1004,7 @@ Now onto Volume Groups:
 >      # vgreduce my_volume_group /dev/hda1
 >     
 > 
-> **4&#46;3.9. Removing Volume Groups**
+> **4.3.9. Removing Volume Groups**
 > 
 > To remove a volume group that contains no logical volumes, use the **vgremove** command.
 > 
@@ -1014,7 +1014,7 @@ Now onto Volume Groups:
 
 Lastly onto the Logical Volumes:
 
-> **4&#46;4.1. Creating Linear Logical Volumes**
+> **4.4.1. Creating Linear Logical Volumes**
 > 
 > To create a logical volume, use the **lvcreate** command. If you do not specify a name for the logical volume, the default name **lvol#** is used where # is the internal number of the logical volume.
 > 
@@ -1056,7 +1056,7 @@ Lastly onto the Logical Volumes:
 >     # lvcreate -L 1500 -ntestlv testvg /dev/sdg1
 >     
 > 
-> **4&#46;4.7. Resizing Logical Volumes**
+> **4.4.7. Resizing Logical Volumes**
 > 
 > To reduce the size of a logical volume, use the **lvreduce** command. If the logical volume contains a file system, be sure to reduce the file system first (or use the LVM GUI) so that the logical volume is always at least as large as the file system expects it to be.
 > 
@@ -1065,7 +1065,7 @@ Lastly onto the Logical Volumes:
 >     # lvreduce -l -3 vg00/lvol1
 >     
 > 
-> **4&#46;4.10. Removing Logical Volumes**
+> **4.4.10. Removing Logical Volumes**
 > 
 > To remove an inactive logical volume, use the **lvremove** command. If the logical volume is currently mounted, unmount the volume before removing it. In addition, in a clustered environment you must deactivate a logical volume before it can be removed.
 > 
@@ -1078,7 +1078,7 @@ Lastly onto the Logical Volumes:
 > 
 > You could explicitly deactivate the logical volume before removing it with the **lvchange -an** command, in which case you would not see the prompt verifying whether you want to remove an active logical volume.
 > 
-> **4&#46;4.11. Displaying Logical Volumes** There are three commands you can use to display properties of LVM logical volumes: **lvs**, **lvdisplay**, and **lvscan**.
+> **4.4.11. Displaying Logical Volumes** There are three commands you can use to display properties of LVM logical volumes: **lvs**, **lvdisplay**, and **lvscan**.
 > 
 > The **lvs** command provides logical volume information in a configurable form, displaying one line per logical volume. The **lvs** command provides a great deal of format control, and is useful for scripting.
 > 
@@ -1086,7 +1086,7 @@ Lastly onto the Logical Volumes:
 > 
 > The **lvscan** command scans for all logical volumes in the system and lists them.
 > 
-> **4&#46;4.12. Growing Logical Volumes**
+> **4.4.12. Growing Logical Volumes**
 > 
 > To increase the size of a logical volume, use the **lvextend** command.
 > 
@@ -1219,11 +1219,11 @@ Now let's move to **mdadm**. From "<a href="https://access.redhat.com/knowledge/
 > 
 > The basic idea behind RAID is to combine multiple small, inexpensive disk drives into an array to accomplish performance or redundancy goals not attainable with one large and expensive drive. This array of drives appears to the computer as a single logical storage unit or drive.
 > 
-> **16&#46;1. What is RAID?** RAID allows information to be spread across several disks. RAID uses techniques such as disk striping (RAID Level 0), disk mirroring (RAID Level 1), and disk striping with parity (RAID Level 5) to achieve redundancy, lower latency, increased bandwidth, and maximized ability to recover from hard disk crashes.
+> **16.1. What is RAID?** RAID allows information to be spread across several disks. RAID uses techniques such as disk striping (RAID Level 0), disk mirroring (RAID Level 1), and disk striping with parity (RAID Level 5) to achieve redundancy, lower latency, increased bandwidth, and maximized ability to recover from hard disk crashes.
 > 
 > RAID distributes data across each drive in the array by breaking it down into consistently-sized chunks (commonly 256K or 512k, although other values are acceptable). Each chunk is then written to a hard drive in the RAID array according to the RAID level employed. When the data is read, the process is reversed, giving the illusion that the multiple drives in the array are actually one large drive.
 > 
-> **16&#46;2. Who Should Use RAID?**
+> **16.2. Who Should Use RAID?**
 > 
 > System Administrators and others who manage large amounts of data would benefit from using RAID technology. Primary reasons to deploy RAID include:
 > 
@@ -1231,7 +1231,7 @@ Now let's move to **mdadm**. From "<a href="https://access.redhat.com/knowledge/
 > 2.  Increases storage capacity using a single virtual disk
 > 3.  Minimizes data loss from disk failure
 > 
-> **16&#46;3. RAID Types**
+> **16.3. RAID Types**
 > 
 > There are three possible RAID approaches: Firmware RAID, Hardware RAID and Software RAID
 > 
@@ -1263,7 +1263,7 @@ Now let's move to **mdadm**. From "<a href="https://access.redhat.com/knowledge/
 
 ### RAID Levels
 
-> **16&#46;4. RAID Levels and Linear Support** RAID supports various configurations, including levels 0, 1, 4, 5, 6, 10, and linear. These RAID types are defined as follows:
+> **16.4. RAID Levels and Linear Support** RAID supports various configurations, including levels 0, 1, 4, 5, 6, 10, and linear. These RAID types are defined as follows:
 > 
 > **Level 0**
 > 
@@ -1291,7 +1291,7 @@ Now let's move to **mdadm**. From "<a href="https://access.redhat.com/knowledge/
 
 ### Linux Raid Subsystems
 
-> **16&#46;5. Linux RAID Subsystems**
+> **16.5. Linux RAID Subsystems**
 > 
 > RAID in Linux is composed of the following subsystems:
 > 
@@ -1311,7 +1311,7 @@ Now let's move to **mdadm**. From "<a href="https://access.redhat.com/knowledge/
 
 From an older guide "<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/5/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-5-Installation_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/5/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-5-Installation_Guide-en-US.pdf']);">Red Hat Enterprise Linux 5 Installation Guide</a>", here is an example of creating a raid configuration with **dmadm**:
 
-> **22&#46;3.1. Creating a RAID Device With mdadm**
+> **22.3.1. Creating a RAID Device With mdadm**
 > 
 > To create a RAID device, edit the **/etc/mdadm.conf** file to define appropriate **DEVICE** and **ARRAY** values:
 > 

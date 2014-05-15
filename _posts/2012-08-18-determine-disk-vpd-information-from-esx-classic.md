@@ -21,17 +21,17 @@ tags:
 ---
 ESX issues an <a href="http://virtuallyhyper.com/wp-content/uploads/2014/01/spc3r23.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://virtuallyhyper.com/wp-content/uploads/2014/01/spc3r23.pdf']);">INQUIRY</a> to get the list of supported <a href="http://en.wikipedia.org/wiki/Vital_Product_Data" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://en.wikipedia.org/wiki/Vital_Product_Data']);">Vital Product Data</a> (VPD) pages. If page 83 is supported, ESX issues an INQUIRY on that page and extracts an NAA ID (<a href="http://tools.ietf.org/html/rfc3980#section-5.4" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://tools.ietf.org/html/rfc3980#section-5.4']);">RFC 3980</a>). If page 83 is not supported, or an NAA ID is not found, ESX issues an INQUIRY on page 80, if it is supported. If page 80 is supported, a Unit serial number is extracted and used as the basis for the unique id. More information from this VMware KB <a href="http://kb.vmware.com/kb/1010244" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1010244']);">1010244</a>:
 
-> During a re-enumeration of storage devices, the VMware ESX/ESXi VMkernel sends SCSI Report LUNs command (0xa0) to the target to retrieve a list of LUNs, and SCSI Inquiry commands (0&#215;12) to each LUN to determine the type of device (disk, CD-ROM, USB, etc), the make and model of the device, and the features the device supports.
+> During a re-enumeration of storage devices, the VMware ESX/ESXi VMkernel sends SCSI Report LUNs command (0xa0) to the target to retrieve a list of LUNs, and SCSI Inquiry commands (0x12) to each LUN to determine the type of device (disk, CD-ROM, USB, etc), the make and model of the device, and the features the device supports.
 > 
-> A SCSI Inquiry requests Vital Product Data (VPD) page information from the LUN, including the unit serial number (page 0&#215;80), a device identification number (page 0&#215;83), and the management network address (page 0&#215;85).
+> A SCSI Inquiry requests Vital Product Data (VPD) page information from the LUN, including the unit serial number (page 0x80), a device identification number (page 0x83), and the management network address (page 0x85).
 > 
-> If a SCSI device does not support a particular VPD page, it may respond to such a request with an error. Specifically, it may return SCSI Status 2 (Check Condition), with sense key 5 (Illegal Request) and additional sense code (ASC) and additional sense code qualifier (ASCQ) set to 0&#215;20/0&#215;0 or 0&#215;24/0&#215;0.
+> If a SCSI device does not support a particular VPD page, it may respond to such a request with an error. Specifically, it may return SCSI Status 2 (Check Condition), with sense key 5 (Illegal Request) and additional sense code (ASC) and additional sense code qualifier (ASCQ) set to 0x20/0x0 or 0x24/0x0.
 
 Usually Local devices device don't have page 83 information, but they do contain page 80 information. From the same KB:
 
-> Local storage devices often do not support VPD page 0&#215;83, and thus cannot be used for Raw Device Mappings (RDMs). The content of page 0&#215;83 is used as a unique identifier for the device.
+> Local storage devices often do not support VPD page 0x83, and thus cannot be used for Raw Device Mappings (RDMs). The content of page 0x83 is used as a unique identifier for the device.
 > 
-> CD or DVD-ROM devices often do not support VPD pages 0&#215;80, 0&#215;83 or 0&#215;85. This can be ignored.
+> CD or DVD-ROM devices often do not support VPD pages 0x80, 0x83 or 0x85. This can be ignored.
 > 
 > Some device controllers do not support Report LUNs. If there is no LUN 0, or the SCSI version reported is 2 or lower, the ESX/ESXi host iteratively scans for LUNs on this controller.
 

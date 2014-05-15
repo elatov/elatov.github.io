@@ -379,7 +379,7 @@ When finished, click "Save". Then from the same window click on "Graphs" -> "Cre
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_graph_raid_disks.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_graph_raid_disks.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_graph_raid_disks.png" alt="zabbix graph raid disks Monitor Different Systems with Zabbix" width="1244" height="546" class="alignnone size-full wp-image-7255" title="Monitor Different Systems with Zabbix" /></a>
 
-Then checking out the graph (by going to "Monitoring" -> "Graphs" -> "Host" -> "FreeBSD" -> "Graph" -> "Raid&#95;#&#95;Disks_Online"), here is what I saw:
+Then checking out the graph (by going to "Monitoring" -> "Graphs" -> "Host" -> "FreeBSD" -> "Graph" -> "Raid_#_Disks_Online"), here is what I saw:
 
 <a href="http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_graph_disks_online.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_graph_disks_online.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_graph_disks_online.png" alt="zabbix graph disks online Monitor Different Systems with Zabbix" width="1241" height="371" class="alignnone size-full wp-image-7256" title="Monitor Different Systems with Zabbix" /></a>
 

@@ -16,16 +16,16 @@ tags:
 ---
 Recently I ran into an issue with updating chromium on my FreeBSD machine. I was running the following version:
 
-	moxz:~&gt;sudo cat /var/db/freebsd-update/tag | awk -F '|' '{print $3,"patch-"$4}'
+	moxz:~>sudo cat /var/db/freebsd-update/tag | awk -F '|' '{print $3,"patch-"$4}'
 	8.2-RELEASE patch-6
-	moxz:&gt;uname -a
+	moxz:>uname -a
 	FreeBSD moxz 8.2-RELEASE-p3 FreeBSD 8.2-RELEASE-p3 #0: Tue Sep 27 18:45:57 UTC 2011 root@amd64-builder.daemonology.net:/usr/obj/usr/src/sys/GENERIC amd64
 
 Whenever I would try to update chromium I would run into the following error message:
 
 	  
 	===> chromium-18.0.1025.142 does not compile with base gcc.  
-	\*** Error code 1
+	*** Error code 1
 	
 	Stop in /usr/ports/www/chromium.  
 	

@@ -110,7 +110,7 @@ From the same guide:
 > 
 > *   Blank lines are ignored.
 > *   To add a comment, start a line with the hash mark (**#**).
-> *   You can wrap long lines with a backslash (\****).
+> *   You can wrap long lines with a backslash (****).
 > *   Each exported file system should be on its own individual line.
 > *   Any lists of authorized hosts placed after an exported file system must be separated by space characters.
 > *   Options for each of the hosts must be placed in parentheses directly after the host identifier, without any spaces separating the host and the first parenthesis.
@@ -169,7 +169,7 @@ Here are the hostname formats from the same guide:
 > The host(s) can be in the following forms:
 > 
 > *   **Single machine** - A fully-qualified domain name (that can be resolved by the server), hostname (that can be resolved by the server), or an IP address.
-> *   **Series of machines specified with wildcards** - Use the \***** or **?** character to specify a string match. Wildcards are not to be used with IP addresses; however, they may accidentally work if reverse DNS lookups fail. When specifying wildcards in fully qualified domain names, dots (.) are not included in the wildcard. For example, ***.example.com** includes **one.example.com** but does not include **one.two.example.com**.
+> *   **Series of machines specified with wildcards** - Use the ***** or **?** character to specify a string match. Wildcards are not to be used with IP addresses; however, they may accidentally work if reverse DNS lookups fail. When specifying wildcards in fully qualified domain names, dots (.) are not included in the wildcard. For example, ***.example.com** includes **one.example.com** but does not include **one.two.example.com**.
 > *   **IP networks** - Use **a.b.c.d/z**, where **a.b.c.d** is the network and **z** is the number of bits in the netmask (for example **192.168.0.0/24**). Another acceptable format is **a.b.c.d/netmask**, where **a.b.c.d** is the network and **netmask** is the netmask (for example, **192.168.100.8/255.255.255.0**).
 > *   **Netgroups** - Use the format **@group-name**, where **group-name** is the NIS netgroup name.
 

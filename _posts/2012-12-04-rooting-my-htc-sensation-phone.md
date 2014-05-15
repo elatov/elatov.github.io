@@ -121,7 +121,7 @@ You can then upload the above output to their site and they will provide a *.bin
 
 ### 3. Install ClockWorkMod Recovery Using Android SDK
 
-Download the \*.img \* file and then run the following to install the image:
+Download the *.img * file and then run the following to install the image:
 
     [elatov@klaptop platform-tools]$ ./fastboot flash recovery ~/downloads/recovery.img
     sending 'recovery' (4876 KB)...

@@ -42,7 +42,7 @@ tags:
 
 After we have partitioned our drives to our heart's desire, we should actually start using them. The first thing that we need to do is put a file system on our partitions so we can later mount them. From "<a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Storage_Administration_Guide/Red_Hat_Enterprise_Linux-6-Storage_Administration_Guide-en-US.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Storage_Administration_Guide/Red_Hat_Enterprise_Linux-6-Storage_Administration_Guide-en-US.pdf']);">Red Hat Enterprise Linux 6 Storage Administration Guide</a>", here are some file systems that are supported my RHEL:
 
-> **2&#46;2. Overview of Supported File Systems**
+> **2.2. Overview of Supported File Systems**
 > 
 > This section shows basic technical information on each file system supported by Red Hat Enterprise Linux 6.
 > 
@@ -50,7 +50,7 @@ After we have partitioned our drives to our heart's desire, we should actually s
 
 Now here is the process to format a partition with **ext3**:
 
-> **5&#46;2.2. Formatting and Labeling the Partition**
+> **5.2.2. Formatting and Labeling the Partition**
 > 
 > To format and label the partition use the following procedure:
 > 
@@ -141,7 +141,7 @@ Now to put an **ext2** filesystem on our newly created partition:
 
 The biggest difference between **ext2** and **ext3** is that **ext3** has journaling. So let's convert our file system from **ext2** to **ext3**. From the same guide:
 
-> **8&#46;2. Converting to an Ext3 File System**
+> **8.2. Converting to an Ext3 File System**
 > 
 > The **tune2fs** allows you to convert an **ext2** file system to **ext3**. To convert an ext2 file system to ext3, log in as root and type the following command in a terminal:
 > 
@@ -185,7 +185,7 @@ If we keep going in the guide, we will see this:
 > 
 > On Linux, UNIX, and similar operating systems, file systems on different partitions and removable devices (CDs, DVDs, or USB flash drives for example) can be attached to a certain point (the mount point) in the directory tree, and then detached again. To attach or detach a file system, use the **mount** or **umount** command respectively. This chapter describes the basic use of these commands, as well as some advanced topics, such as moving a mount point or creating shared subtrees.
 > 
-> **7&#46;1. Listing Currently Mounted File Systems**
+> **7.1. Listing Currently Mounted File Systems**
 > 
 > To display all currently attached file systems, run the mount command with no additional arguments:
 > 
@@ -201,7 +201,7 @@ If we keep going in the guide, we will see this:
 >     findmnt
 >     
 > 
-> **7&#46;1.1. Specifying the File System Type**
+> **7.1.1. Specifying the File System Type**
 > 
 > By default, the output of the mount command includes various virtual file systems such as **sysfs** and **tmpfs**. To display only the devices with a certain file system type, supply the **-t** option on the command line:
 > 
@@ -242,7 +242,7 @@ Here is what I had on my system:
 
 Now moving through the guide:
 
-> **7&#46;2. Mounting a File System**
+> **7.2. Mounting a File System**
 > 
 > To attach a certain file system, use the mount command in the following form:
 > 
@@ -257,7 +257,7 @@ Now moving through the guide:
 >     mount [option…] device
 >     
 > 
-> **7&#46;2.1. Specifying the File System Type**
+> **7.2.1. Specifying the File System Type**
 > 
 > In most cases, mount detects the file system automatically. However, there are certain file systems, such as **NFS** (Network File System) or **CIFS** (Common Internet File System), that are not recognized, and need to be specified manually. To specify the file system type, use the mount command in the following form:
 > 
@@ -279,7 +279,7 @@ So let's go ahead and mount my new file system by device:
 
 Now let's un-mount the device. From the storage guide:
 
-> **7&#46;3. Unmounting a File System**
+> **7.3. Unmounting a File System**
 > 
 > To detach a previously mounted file system, use either of the following variants of the umount command:
 > 
@@ -373,7 +373,7 @@ After a file system is mounted you can then put files on it. From the same guide
 > 
 > Categorizing files in this manner helps correlate the function of each file with the permissions assigned to the directories which hold them. How the operating system and its users interact with a file determines the directory in which it is placed, whether that directory is mounted with read-only or read/write permissions, and the level of access each user has to that file. The top level of this organization is crucial; access to the underlying directories can be restricted, otherwise security problems could arise if, from the top level down, access rules do not adhere to a rigid structure.
 > 
-> **6&#46;2. Overview of File System Hierarchy Standard (FHS)**
+> **6.2. Overview of File System Hierarchy Standard (FHS)**
 > 
 > Red Hat Enterprise Linux uses the Filesystem Hierarchy Standard (FHS) file system structure, which defines the names, locations, and permissions for many file types and directories.
 > 
@@ -384,7 +384,7 @@ After a file system is mounted you can then put files on it. From the same guide
 > *   Compatibility with other FHS-compliant systems
 > *   The ability to mount a /usr/ partition as read-only. This is especially crucial, since /usr/ contains common executables and should not be changed by users. In addition, since /usr/ is mounted as read-only, it should be mountable from the CD-ROM drive or from another machine via a read-only NFS mount.
 > 
-> **6&#46;2.1.1. Gathering File System Information**
+> **6.2.1.1. Gathering File System Information**
 > 
 > The **df** command reports the system's disk space usage.
 > 
@@ -402,7 +402,7 @@ I just mounted the file system, I didn't put any files on it.
 
 Another popular file system is a swap file system. From the storage guide:
 
-> **17&#46;1. What is Swap Space?**
+> **17.1. What is Swap Space?**
 > 
 > Swap space in Linux is used when the amount of physical memory (RAM) is full. If the system needs more memory resources and the RAM is full, inactive pages in memory are moved to the swap space. While swap space can help machines with a small amount of RAM, it should not be considered a replacement for more RAM. Swap space is located on hard drives, which have a slower access time than physical memory.
 > 
@@ -410,13 +410,13 @@ Another popular file system is a swap file system. From the storage guide:
 > 
 > For systems with really large amounts of RAM (more than 32 GB) you can likely get away with a smaller swap partition (around 1x, or less, of physical RAM).
 > 
-> **17&#46;2. Adding Swap Space**
+> **17.2. Adding Swap Space**
 > 
 > Sometimes it is necessary to add more swap space after installation. For example, you may upgrade the amount of RAM in your system from 1 GB to 2 GB, but there is only 2 GB of swap space. It might be advantageous to increase the amount of swap space to 4 GB if you perform memory-intense operations or run applications that require a large amount of memory.
 > 
 > You have three options: create a new swap partition, create a new swap file, or extend swap on an existing LVM2 logical volume. It is recommended that you extend an existing logical volume.
 > 
-> **17&#46;2.2. Creating an LVM2 Logical Volume for Swap**
+> **17.2.2. Creating an LVM2 Logical Volume for Swap**
 > 
 > 1.  Create the LVM2 logical volume of size 2 GB:
 >     
@@ -438,9 +438,9 @@ Another popular file system is a swap file system. From the storage guide:
 >         # swapon -v /dev/VolGroup00/LogVol02
 >         
 > 
-> To test if the logical volume was successfully created, use cat \*\* /proc/swaps\*\* or **free** to inspect the swap space.
+> To test if the logical volume was successfully created, use cat ** /proc/swaps** or **free** to inspect the swap space.
 > 
-> **17&#46;2.3. Creating a Swap File**
+> **17.2.3. Creating a Swap File**
 > 
 > To add a swap file:
 > 
@@ -559,11 +559,11 @@ Notice under swap we have about 9GB, this is the combination of the system swap 
 
 Now onto the removing section:
 
-> **17&#46;3. Removing Swap Space**
+> **17.3. Removing Swap Space**
 > 
 > Sometimes it can be prudent to reduce swap space after installation. For example, say you downgraded the amount of RAM in your system from 1 GB to 512 MB, but there is 2 GB of swap space still assigned. It might be advantageous to reduce the amount of swap space to 1 GB, since the larger 2 GB could be wasting disk space.
 > 
-> **17&#46;3.2. Removing an LVM2 Logical Volume for Swap**
+> **17.3.2. Removing an LVM2 Logical Volume for Swap**
 > 
 > To remove a swap volume group
 > 
@@ -586,7 +586,7 @@ Now onto the removing section:
 > 
 > To test if the logical volume size was successfully removed, use > **cat /proc/swaps** or **free** to inspect the swap space.
 > 
-> **17&#46;3.3. Removing a Swap File**
+> **17.3.3. Removing a Swap File**
 > 
 > To remove a swap file:
 > 
@@ -626,7 +626,7 @@ And we can see only the system defined one. Lastly here is output of **free**:
 
 Through out the guide we see the mention of the **/etc/fstab** file. From the storage guide:
 
-> **5&#46;2.3. Add to /etc/fstab**
+> **5.2.3. Add to /etc/fstab**
 > 
 > As root, edit the **/etc/fstab** file to include the new partition using the partition's UUID. Use the command **blkid -o list** for a complete list of the partition's UUID, or **blkid device** for individual device details.
 > 
@@ -961,7 +961,7 @@ Now let's see how this is actually done:
 > 
 > **C.4.7. Add an entry to /etc/fstab**
 > 
-> Add an entry to **/etc/fstab**. This is only necessary if you want to establish a persistent association between the device and a mountpoint. Use the decrypted device, **/dev/mapper/name** in the\*\* /etc/fstab\*\* file.
+> Add an entry to **/etc/fstab**. This is only necessary if you want to establish a persistent association between the device and a mountpoint. Use the decrypted device, **/dev/mapper/name** in the **/etc/fstab** file.
 > 
 > In many cases it is desirable to list devices in **/etc/fstab** by UUID or by a filesystem label. The main purpose of this is to provide a constant identifier in the event that the device name (eg: **/dev/sda4**) changes. LUKS device names in the form of **/dev/mapper/luks-luks_uuid** are based only on the device's LUKS UUID, and are therefore guaranteed to remain constant. This fact makes them suitable for use in **/etc/fstab**.
 
@@ -1136,7 +1136,7 @@ Now to the actual configuration. From the storage guide:
 
 #### Enables Quotas
 
-> **18&#46;1. Configuring Disk Quotas**
+> **18.1. Configuring Disk Quotas**
 > 
 > To implement disk quotas, use the following steps:
 > 
@@ -1145,7 +1145,7 @@ Now to the actual configuration. From the storage guide:
 > 3.  Create the quota database files and generate the disk usage table.
 > 4.  Assign quota policies. Each of these steps is discussed in detail in the following sections. 
 > 
-> **18&#46;1.1. Enabling Quotas**
+> **18.1.1. Enabling Quotas**
 > 
 > As root, using a text editor, edit the **/etc/fstab** file.
 > 
@@ -1172,7 +1172,7 @@ Now to the actual configuration. From the storage guide:
 > 
 > In this example, the **/home** file system has both user and group quotas enabled.
 > 
-> **18&#46;1.2. Remounting the File Systems**
+> **18.1.2. Remounting the File Systems**
 > 
 > After adding the **usrquota** and/or **grpquota** options, remount each file system whose **fstab** entry has been modified. If the file system is not in use by any process, use one of the following methods:
 > 
@@ -1181,7 +1181,7 @@ Now to the actual configuration. From the storage guide:
 > 
 > If the file system is currently in use, the easiest method for remounting the file system is to reboot the system.
 > 
-> **18&#46;1.3. Creating the Quota Database Files**
+> **18.1.3. Creating the Quota Database Files**
 > 
 > After each quota-enabled file system is remounted run the **quotacheck** command.
 > 
@@ -1216,7 +1216,7 @@ Now to the actual configuration. From the storage guide:
 
 #### Assigning Quotas to Users
 
-> **18&#46;1.4 . Assigning Quotas per User**
+> **18.1.4 . Assigning Quotas per User**
 > 
 > The last step is assigning the disk quotas with the **edquota** command. To configure the quota for a user, as root in a shell prompt, execute the command:
 > 
@@ -1253,7 +1253,7 @@ Now to the actual configuration. From the storage guide:
 >     /dev/sdb 1000* 1000 1000 0 0 0
 >     
 > 
-> **18&#46;1.6. Setting the Grace Period for Soft Limits**
+> **18.1.6. Setting the Grace Period for Soft Limits**
 > 
 > If a given quota has soft limits, you can edit the grace period (i.e. the amount of time a soft limit can be exceeded) with the following command:
 > 
@@ -1264,13 +1264,13 @@ Now to the actual configuration. From the storage guide:
 
 #### Managing Disk Quotas
 
-> **18&#46;2. Managing Disk Quotas**
+> **18.2. Managing Disk Quotas**
 > 
 > If quotas are implemented, they need some maintenance — mostly in the form of watching to see if the quotas are exceeded and making sure the quotas are accurate.
 > 
 > Of course, if users repeatedly exceed their quotas or consistently reach their soft limits, a system administrator has a few choices to make depending on what type of users they are and how much disk space impacts their work. The administrator can either help the user determine how to use less disk space or increase the user's disk quota.
 > 
-> **18&#46;2.1. Enabling and Disabling**
+> **18.2.1. Enabling and Disabling**
 > 
 > It is possible to disable quotas without setting them to 0. To turn all user and group quotas off, use the following command:
 > 
@@ -1295,7 +1295,7 @@ Now to the actual configuration. From the storage guide:
 
 #### Reporting Disk Quotas
 
-> **18&#46;2.2. Reporting on Disk Quotas**
+> **18.2.2. Reporting on Disk Quotas**
 > 
 > Creating a disk usage report entails running the **repquota** utility.
 > 
@@ -1540,7 +1540,7 @@ Another function with file systems is advanced ACLs. From the storage guide:
 
 Going down the guide:
 
-> **19&#46;1. Mounting File Systems**
+> **19.1. Mounting File Systems**
 > 
 > Before using ACLs for a file or directory, the partition for the file or directory must be mounted with ACL support. If it is a local **ext3** file system, it can mounted with the following command:
 > 
@@ -1559,7 +1559,7 @@ Going down the guide:
 > 
 > If an **ext3** file system is accessed via **Samba** and ACLs have been enabled for it, the ACLs are recognized because Samba has been compiled with the **-with-acl-support** option. No special flags are required when accessing or mounting a Samba
 > 
-> **19&#46;1.1. NFS**
+> **19.1.1. NFS**
 > 
 > By default, if the file system being exported by an NFS server supports ACLs and he NFS client can read ACLs, ACLs are utilized by the client system.
 > 
@@ -1567,7 +1567,7 @@ Going down the guide:
 
 #### Setting up ACLs
 
-> **19&#46;2. Setting Access ACLs**
+> **19.2. Setting Access ACLs**
 > 
 > There are two types of ACLs: access ACLs and default ACLs. An access ACL is the access control list for a specific file or directory. A default ACL can only be associated with a directory; if a file within the directory does not have an access ACL, it uses the rules of the default ACL for the directory. Default ACLs are optional. ACLs can be configured:
 > 
@@ -1611,7 +1611,7 @@ Going down the guide:
 >     # setfacl -x u:500 /project/somefile
 >     
 > 
-> **19&#46;3. Setting Default ACLs**
+> **19.3. Setting Default ACLs**
 > 
 > To set a default ACL, add d: before the rule and specify a directory instead of a file name.
 > 
@@ -1624,7 +1624,7 @@ Going down the guide:
 
 #### Retrieving ACLs
 
-> **19&#46;4. Retrieving ACLs**
+> **19.4. Retrieving ACLs**
 > 
 > To determine the existing ACLs for a file or directory, use the **getfacl** command. In the example below, the **getfacl** is used to determine the existing ACLs for a file.
 > 

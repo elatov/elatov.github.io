@@ -145,7 +145,7 @@ From the above guide:
 >     }
 >     
 > 
-> In this example, when a client system from the **172&#46;16.45.0/24** network, such as **172&#46;16.45.2**, tries to access the Telnet service, it receives the following message:
+> In this example, when a client system from the **172.16.45.0/24** network, such as **172.16.45.2**, tries to access the Telnet service, it receives the following message:
 > 
 >     Connection closed by foreign host.
 >     
@@ -194,7 +194,7 @@ From the Security Guide:
 >     }
 >     
 > 
-> The **bind** and **redirect** options in this file ensure that the Telnet service on the machine is bound to the external IP address (**123&#46;123.123.123**), the one facing the Internet. In addition, any requests for Telnet service sent to **123&#46;123.123.123** are redirected via a second network adapter to an internal IP address (**10&#46;0.1.13**) that only the firewall and internal systems can access. The firewall then sends the communication between the two systems, and the connecting system thinks it is connected to **123&#46;123.123.123** when it is actually connected to a different machine.
+> The **bind** and **redirect** options in this file ensure that the Telnet service on the machine is bound to the external IP address (**123.123.123.123**), the one facing the Internet. In addition, any requests for Telnet service sent to **123.123.123.123** are redirected via a second network adapter to an internal IP address (**10.0.1.13**) that only the firewall and internal systems can access. The firewall then sends the communication between the two systems, and the connecting system thinks it is connected to **123.123.123.123** when it is actually connected to a different machine.
 > 
 > This feature is particularly useful for users with broadband connections and only one fixed IP address. When using Network Address Translation (NAT), the systems behind the gateway machine, which are using internal-only IP addresses, are not available from outside the gateway system. However, when certain services controlled by xinetd are configured with the bind and redirect options, the gateway machine can act as a proxy between outside systems and a particular internal machine configured to provide the service. In addition, the various **xinetd** access control and logging options are also available for additional protection.
 
@@ -504,7 +504,7 @@ From the above guide:
 >     }
 >     
 > 
-> To assign an IP address to a client based on the MAC address of the network interface card, use the **hardware ethernet** parameter within a host declaration. As demonstrated in the below example, the host apex declaration specifies that the network interface card with the MAC address **00:A0:78:8E:9E:AA** always receives the IP address **192&#46;168.1.4**.
+> To assign an IP address to a client based on the MAC address of the network interface card, use the **hardware ethernet** parameter within a host declaration. As demonstrated in the below example, the host apex declaration specifies that the network interface card with the MAC address **00:A0:78:8E:9E:AA** always receives the IP address **192.168.1.4**.
 > 
 > Note that you can also use the optional parameter **host-name** to assign a host name to the client.
 > 
@@ -632,7 +632,7 @@ From the above guide:
 >     DHCPDARGS="eth0";
 >     
 > 
-> The following is a basic **/etc/dhcp/dhcpd.conf** file, for a server that has two network interfaces, **eth0** in a **10&#46;0.0.0/24** network, and **eth1** in a **172&#46;16.0.0/24** network. Multiple subnet declarations allow you to define different settings for multiple networks:
+> The following is a basic **/etc/dhcp/dhcpd.conf** file, for a server that has two network interfaces, **eth0** in a **10.0.0.0/24** network, and **eth1** in a **172.16.0.0/24** network. Multiple subnet declarations allow you to define different settings for multiple networks:
 > 
 >     default-lease-time 600;
 >     max-lease-time 7200;
@@ -1086,7 +1086,7 @@ From the above guide:
 >     
 >     The **kod** option means a “Kiss-o'-death” packet is to be sent to reduce unwanted queries. The **nomodify** options prevents any changes to the configuration. The **notrap** option prevents **ntpdc** control message protocol traps. The **nopeer** option prevents a peer association being formed. The **noquery** option prevents **ntpq** and **ntpdc** queries, but not time queries, from being answered. The **-6** option is required before an IPv6 address.
 >     
->     Addresses within the range **127&#46;0.0.0/8** range are sometimes required by various processes or applications. As the "restrict default" line above prevents access to everything not explicitly allowed, access to the standard loopback address for IPv4 and IPv6 is permitted by means of the following lines:
+>     Addresses within the range **127.0.0.0/8** range are sometimes required by various processes or applications. As the "restrict default" line above prevents access to everything not explicitly allowed, access to the standard loopback address for IPv4 and IPv6 is permitted by means of the following lines:
 >     
 >         # the administrative functions.
 >         restrict 127.0.0.1 
@@ -1095,17 +1095,17 @@ From the above guide:
 >     
 >     Addresses can be added underneath if specifically required by another application. The **-6** option is required before an IPv6 address.
 >     
->     Hosts on the local network are not permitted because of the "restrict default" line above. To change this, for example to allow hosts from the **192&#46;0.2.0/24** network to query the time and statistics but nothing more, a line in the following format is required:
+>     Hosts on the local network are not permitted because of the "restrict default" line above. To change this, for example to allow hosts from the **192.0.2.0/24** network to query the time and statistics but nothing more, a line in the following format is required:
 >     
 >         restrict 192.0.2.0 mask 255.255.255.0 nomodify notrap nopeer
 >         
 >     
->     To allow unrestricted access from a specific host, for example **192&#46;0.2.250/24**, a line in the following format is required:
+>     To allow unrestricted access from a specific host, for example **192.0.2.250/24**, a line in the following format is required:
 >     
 >         restrict 192.0.2.250
 >         
 >     
->     A mask of **255&#46;255.255.255** is applied if none is specified.
+>     A mask of **255.255.255.255** is applied if none is specified.
 >     
 >     The restrict commands are explained in the **ntp_acc**(5) man page.
 > 

@@ -59,15 +59,15 @@ The first message indicates that the command was aborted for scsi(3:1:1), which 
 	2010-10-30T02:20:55.012Z cpu12:4290)<6>qla2xxx 0000:04:00.1: scsi(3:1:1): Abort command succeeded -- 1 29950.  
 	
 
-The second line, is the vmkernel noticing that a command aborted, specifically command 0&#215;28, which is a 10 byte READ command. 
+The second line, is the vmkernel noticing that a command aborted, specifically command 0x28, which is a 10 byte READ command. 
 
 	  
 	2010-10-30T02:20:55.013Z cpu14:4110)NMP: nmp_ThrottleLogForDevice:2318: Cmd 0x28 (0x412441199080) to dev "naa.60a9800064655a77524a6c4938685950" on path "vmhba2:C0:T1:L1" Failed: H:0x8 D:0x0 P:0x0 Possible sense data: 0x0 0x0 0x0.Act:EVAL  
 	
 
-The NMP (Native Multipath Plugin) returns a Host status of 0&#215;8, which translates to VMK_SCSI_HOST_RESET. More information on SCSI Host statuses can be at VMware KB <a href="http://kb.vmware.com/kb/1029039" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1029039']);">1029039</a>. From that KB:
+The NMP (Native Multipath Plugin) returns a Host status of 0x8, which translates to VMK_SCSI_HOST_RESET. More information on SCSI Host statuses can be at VMware KB <a href="http://kb.vmware.com/kb/1029039" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1029039']);">1029039</a>. From that KB:
 
-> VMK_SCSI_HOST_RESET = 0&#215;08 or 0&#215;8
+> VMK_SCSI_HOST_RESET = 0x08 or 0x8
 > 
 > This status is returned when the HBA driver has aborted the I/O. It can also occur if the HBA does a reset of the target.
 

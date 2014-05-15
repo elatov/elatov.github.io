@@ -180,14 +180,14 @@ I still couldn't export. I even checked the connection table to make sure nothin
 	Local Address Remote Address State  
 	\---\---\---\---\---\---\-- -\---\---\---\---\---\---\- --\---\-----  
 	*.111 Idle  
-	\*.\* Unbound  
+	*.* Unbound  
 	*.57026 Idle  
 	*.111 Idle  
-	\*.\* Unbound  
+	*.* Unbound  
 	*.53050 Idle  
-	\*.\* Unbound  
-	\*.\* Unbound  
-	\*.\* Unbound  
+	*.* Unbound  
+	*.* Unbound  
+	*.* Unbound  
 	*.4045 Idle  
 	*.4045 Idle  
 	*.50102 Idle  
@@ -198,19 +198,19 @@ I still couldn't export. I even checked the connection table to make sure nothin
 	TCP: IPv4  
 	Local Address Remote Address Swind Send-Q Rwind Recv-Q State  
 	\---\---\---\---\---\---\-- -\---\---\---\---\---\---\- --\--- \---\--- \---\-- -\---\-- -\---\---\----  
-	\*.111 \*.* 0 0 128000 0 LISTEN  
-	\*.\* \*.\* 0 0 128000 0 IDLE  
-	\*.111 \*.* 0 0 128000 0 LISTEN  
-	\*.\* \*.\* 0 0 128000 0 IDLE  
-	\*.4045 \*.* 0 0 1049200 0 LISTEN  
-	\*.4045 \*.* 0 0 1048952 0 LISTEN  
-	\*.35450 \*.* 0 0 128000 0 LISTEN  
-	\*.46501 \*.* 0 0 128000 0 LISTEN  
-	\*.22 \*.* 0 0 128000 0 LISTEN  
-	\*.65075 \*.* 0 0 128000 0 LISTEN  
-	\*.59457 \*.* 0 0 128000 0 LISTEN  
-	127.0.0.1.25 \*.\* 0 0 128000 0 LISTEN  
-	127.0.0.1.587 \*.\* 0 0 128000 0 LISTEN  
+	*.111 *.* 0 0 128000 0 LISTEN  
+	*.* *.* 0 0 128000 0 IDLE  
+	*.111 *.* 0 0 128000 0 LISTEN  
+	*.* *.* 0 0 128000 0 IDLE  
+	*.4045 *.* 0 0 1049200 0 LISTEN  
+	*.4045 *.* 0 0 1048952 0 LISTEN  
+	*.35450 *.* 0 0 128000 0 LISTEN  
+	*.46501 *.* 0 0 128000 0 LISTEN  
+	*.22 *.* 0 0 128000 0 LISTEN  
+	*.65075 *.* 0 0 128000 0 LISTEN  
+	*.59457 *.* 0 0 128000 0 LISTEN  
+	127.0.0.1.25 *.* 0 0 128000 0 LISTEN  
+	127.0.0.1.587 *.* 0 0 128000 0 LISTEN  
 	192.168.1.107.22 192.168.1.100.56242 64768 51 128480 0 ESTABLISHED  
 	
 
