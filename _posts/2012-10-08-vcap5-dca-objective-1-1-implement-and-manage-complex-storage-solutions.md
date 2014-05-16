@@ -231,61 +231,61 @@ Check out one of my <a href="http://virtuallyhyper.com/2012/08/enabling-disk-ena
 
 > To list the volumes detected as snapshots, run this command:
 > 
-	>   
-	> # esxcli storage vmfs snapshot list  
-	> 
+>	   
+>	 # esxcli storage vmfs snapshot list  
+>	 
 > 
 > The output appears similar to:
 > 
-	>   
-	> 49d22e2e-996a0dea-b555-001f2960aed8  
-	> Volume Name: VMFS_1  
-	> VMFS UUID: 4e26f26a-9fe2664c-c9c7-000c2988e4dd  
-	> Can mount: true  
-	> Reason for un-mountability:  
-	> Can resignature: true  
-	> Reason for non-resignaturability:  
-	> Unresolved Extent Count: 1  
-	> 
+>	   
+>	 49d22e2e-996a0dea-b555-001f2960aed8  
+>	 Volume Name: VMFS_1  
+>	 VMFS UUID: 4e26f26a-9fe2664c-c9c7-000c2988e4dd  
+>	 Can mount: true  
+>	 Reason for un-mountability:  
+>	 Can resignature: true  
+>	 Reason for non-resignaturability:  
+>	 Unresolved Extent Count: 1  
+>	 
 > 
 > To mount a snapshot/replica LUN that is persistent across reboots, run this command:
 > 
-	>   
-	> # esxcli storage vmfs snapshot mount -l label|-u uuid  
-	> 
+>	   
+>	 # esxcli storage vmfs snapshot mount -l label|-u uuid  
+>	 
 > 
 > For example:
 > 
-	>   
-	> # esxcli storage vmfs snapshot mount -l VMFS_1  
-	> # esxcli storage vmfs snapshot mount -u 49d22e2e-996a0dea-b555-001f2960aed8  
-	> 
+>	   
+>	 # esxcli storage vmfs snapshot mount -l VMFS_1  
+>	 # esxcli storage vmfs snapshot mount -u 49d22e2e-996a0dea-b555-001f2960aed8  
+>	 
 > 
 > To mount a snapshot/replica LUN that is not persistent across reboots, run this command:
 > 
-	>   
-	> # esxcli storage vmfs snapshot mount -n -l label|-u uuid  
-	> 
+>	   
+>	 # esxcli storage vmfs snapshot mount -n -l label|-u uuid  
+>	 
 > 
 > For example:
 > 
-	>   
-	> # esxcli storage vmfs snapshot mount -n -l VMFS_1  
-	> # esxcli storage vmfs snapshot mount -n -u 49d22e2e-996a0dea-b555-001f2960aed8  
-	> 
+>	   
+>	 # esxcli storage vmfs snapshot mount -n -l VMFS_1  
+>	 # esxcli storage vmfs snapshot mount -n -u 49d22e2e-996a0dea-b555-001f2960aed8  
+>	 
 > 
 > To resignature a snapshot/replica LUN, run this command:
 > 
-	>   
-	> # esxcli storage vmfs snapshot resignature -l label|-u uuid  
-	> 
+>	   
+>	 # esxcli storage vmfs snapshot resignature -l label|-u uuid  
+>	 
 > 
 > For example:
 > 
-	>   
-	> # esxcli storage vmfs snapshot resignature -l VMFS_1  
-	> # esxcli storage vmfs snapshot resignature -u 49d22e2e-996a0dea-b555-001f2960aed8  
-	> 
+>	   
+>	 # esxcli storage vmfs snapshot resignature -l VMFS_1  
+>	 # esxcli storage vmfs snapshot resignature -u 49d22e2e-996a0dea-b555-001f2960aed8  
+>	 
 
 ### Understand and apply LUN masking using PSA-related commands
 
@@ -297,59 +297,54 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 > **Procedure**  
 > 1 Check what the next available rule ID is.
 > 
-	>   
-	> esxcli storage core claimrule list  
-	> 
-> 
+>	esxcli storage core claimrule list  
+>
 > The claim rules that you use to mask paths should have rule IDs in the range of 101 – 200. If this command shows that rule 101 and 102 already exist, you can specify 103 for the rule to add.
 > 
 > 2 Assign the MASK_PATH plug-in to a path by creating a new claim rule for the plug-in.
 > 
-	>   
-	> esxcli storage core claimrule add -P MASK_PATH  
-	> 
-> 
+>	esxcli storage core claimrule add -P MASK_PATH  
+>	 
 > 3 Load the MASK_PATH claim rule into your system.
 > 
-	>   
-	> esxcli storage core claimrule load  
-	> 
+>	esxcli storage core claimrule load  
+>	 
 > 
 > 4 Verify that the MASK_PATH claim rule was added correctly.
 > 
-	>   
-	> esxcli storage core claimrule list  
-	> 
+>	   
+>	 esxcli storage core claimrule list  
+>	 
 > 
 > 5 If a claim rule for the masked path exists, remove the rule.
 > 
-	>   
-	> esxcli storage core claiming unclaim  
-	> 
+>	   
+>	 esxcli storage core claiming unclaim  
+>	 
 > 
 > 6 Run the path claiming rules.
 > 
-	>   
-	> esxcli storage core claimrule run  
-	> 
+>	   
+>	 esxcli storage core claimrule run  
+>	 
 > 
 > After you assign the MASK_PATH plug-in to a path, the path state becomes irrelevant and is no longer maintained by the host. As a result, commands that display the masked path's information might show the path state as dead.
 > 
 > **Example: Masking a LUN**  
 > In this example, you mask the LUN 20 on targets T1 and T2 accessed through storage adapters vmhba2 and vmhba3.
 > 
-	>   
-	> ~ # esxcli storage core claimrule list  
-	> ~ # esxcli storage core claimrule add -P MASK_PATH -r 109 -t location -A vmhba2 -C 0 -T 1 -L 20  
-	> ~ # esxcli storage core claimrule add -P MASK_PATH -r 110 -t location -A vmhba3 -C 0 -T 1 -L 20  
-	> ~ # esxcli storage core claimrule add -P MASK_PATH -r 111 -t location -A vmhba2 -C 0 -T 2 -L 20  
-	> ~ # esxcli storage core claimrule add -P MASK_PATH -r 112 -t location -A vmhba3 -C 0 -T 2 -L 20  
-	> ~ # esxcli storage core claimrule load  
-	> ~ # esxcli storage core claimrule list  
-	> ~ # esxcli storage core claiming unclaim -t location -A vmhba2  
-	> ~ # esxcli storage core claiming unclaim -t location -A vmhba3  
-	> ~ # esxcli storage core claimrule run  
-	> 
+>	   
+>	 ~ # esxcli storage core claimrule list  
+>	 ~ # esxcli storage core claimrule add -P MASK_PATH -r 109 -t location -A vmhba2 -C 0 -T 1 -L 20  
+>	 ~ # esxcli storage core claimrule add -P MASK_PATH -r 110 -t location -A vmhba3 -C 0 -T 1 -L 20  
+>	 ~ # esxcli storage core claimrule add -P MASK_PATH -r 111 -t location -A vmhba2 -C 0 -T 2 -L 20  
+>	 ~ # esxcli storage core claimrule add -P MASK_PATH -r 112 -t location -A vmhba3 -C 0 -T 2 -L 20  
+>	 ~ # esxcli storage core claimrule load  
+>	 ~ # esxcli storage core claimrule list  
+>	 ~ # esxcli storage core claiming unclaim -t location -A vmhba2  
+>	 ~ # esxcli storage core claiming unclaim -t location -A vmhba3  
+>	 ~ # esxcli storage core claimrule run  
+>	 
 
 ### Analyze I/O workloads to determine storage performance requirements
 
@@ -382,93 +377,78 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 > **Procedure**  
 > 1 Identify the device to be tagged and its SATP.
 > 
-	>   
-	> esxcli storage nmp device list  
-	> 
+>	   
+>	 esxcli storage nmp device list  
+>	 
 > 
 > The command results in the following information.
 > 
-	>   
-	> naa.6006016015301d00167ce6e2ddb3de11  
-	> Device Display Name: DGC Fibre Channel Disk (naa.6006016015301d00167ce6e2ddb3de11)  
-	> Storage Array Type: VMW_SATP_CX  
-	> Storage Array Type Device Config: {navireg ipfilter}  
-	> Path Selection Policy: VMW_PSP_MRU  
-	> Path Selection Policy Device Config: Current Path=vmhba4:C0:T0:L25  
-	> Working Paths: vmhba4:C0:T0:L25  
-	> 
+>	   
+>	 naa.6006016015301d00167ce6e2ddb3de11  
+>	 Device Display Name: DGC Fibre Channel Disk (naa.6006016015301d00167ce6e2ddb3de11)  
+>	 Storage Array Type: VMW_SATP_CX  
+>	 Storage Array Type Device Config: {navireg ipfilter}  
+>	 Path Selection Policy: VMW_PSP_MRU  
+>	 Path Selection Policy Device Config: Current Path=vmhba4:C0:T0:L25  
+>	 Working Paths: vmhba4:C0:T0:L25  
+>	 
 > 
 > 2 Note down the SATP associated with the device.  
 > 3 Add a PSA claim rule to mark the device as SSD.
 > 
-> *   You can add a claim rule by specifying the device name.
+> - You can add a claim rule by specifying the device name
 > 
-	>   
-	> esxcli storage nmp satp rule add -s SATP --device device_name --option=enable_ssd  
-	> 
+>		esxcli storage nmp satp rule add -s SATP --device device_name --option=enable_ssd  
 > 
-> *   You can add a claim rule by specifying the vendor name and the model name.
+> - You can add a claim rule by specifying the vendor name and the model name.
+>	   
+>		esxcli storage nmp satp rule add -s SATP -V vendor_name -M model_name --option=enable_ssd  
 > 
-	>   
-	> esxcli storage nmp satp rule add -s SATP -V vendor_name -M model_name --option=enable_ssd  
-	> 
+> - You can add a claim rule based on the transport protocol.
+>	   
+>		esxcli storage nmp satp rule add -s SATP --transport transport_protocol --option=enable_ssd  
 > 
-> *   You can add a claim rule based on the transport protocol.
-> 
-	>   
-	> esxcli storage nmp satp rule add -s SATP --transport transport_protocol --option=enable_ssd  
-	> 
-> 
-> *   You can add a claim rule based on the driver name.
-> 
-	>   
-	> esxcli storage nmp satp rule add -s SATP --driver driver_name --option=enable_ssd  
-	> 
-> 
+> - You can add a claim rule based on the driver name.
+>
+>		esxcli storage nmp satp rule add -s SATP --driver driver_name --option=enable_ssd  
+>	 
 > 4 Unclaim the device.
 > 
-> *   You can unclaim the device by specifying the device name.
+> - You can unclaim the device by specifying the device name.
 > 
-	>   
-	> esxcli storage core claiming unclaim --type device --device device_name  
-	> 
+>		esxcli storage core claiming unclaim --type device --device device_name
 > 
-> *   You can unclaim the device by specifying the vendor name and the model name.
+> - You can unclaim the device by specifying the vendor name and the model name.
+>
+>		esxcli storage core claiming unclaim --type device -V vendor_name -M model_name  
+>
+> - You can unclaim the device based on the transport protocol.
 > 
-	>   
-	> esxcli storage core claiming unclaim --type device -V vendor_name -M model_name  
-	> 
-> 
-> *   You can unclaim the device based on the transport protocol.
-> 
-	>   
-	> esxcli storage core claiming unclaim --type device --transport transport_protocol  
-	> 
-> 
-> *   You can unclaim the device based on the driver name.
-> 
-	>   
-	> esxcli storage core claiming unclaim --type device --driver driver_name  
-	> 
+>		esxcli storage core claiming unclaim --type device --transport transport_protocol
+>	 	
+> - You can unclaim the device based on the driver name.
+>    
+>		esxcli storage core claiming unclaim --type device --driver driver_name  
+>	 
 > 
 > 5 Reclaim the device by running the following commands.
 > 
-	>   
-	> esxcli storage core claimrule load  
-	> esxcli storage core claimrule run  
-	> 
+>	   
+>	 esxcli storage core claimrule load  
+>	 esxcli storage core claimrule run  
+>	 
 > 
 > 6 Verify if devices are tagged as SSD.
 > 
-	>   
-	> esxcli storage core device list -d device_name  
-	> 
+>	   
+>	 esxcli storage core device list -d device_name  
+>	 
 > 
 > The command output indicates if a listed device is tagged as SSD.
 > 
-	>   
-	> Is SSD: true  
-	> 
+>	   
+>	 Is SSD: true  
+>	 
 
 ### Administer hardware acceleration for VAAI
 
@@ -482,23 +462,22 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 > *   Run the esxcli storage core plugin list -plugin-class=value command.For value, enter one of the following options: 
 >     *   Type VAAI to display plug-ins.
 >     *   The output of this command is similar to the following example:
-> 
-	>   
-	> #esxcli storage core plugin list --plugin-class=VAAI  
-	> Plugin name Plugin class  
-	> VMW_VAAIP_EQL VAAI  
-	> VMW_VAAIP_NETAPP VAAI  
-	> VMW_VAAIP_CX VAAI  
-	> 
+>  
+> 			#esxcli storage core plugin list --plugin-class=VAAI  
+> 			Plugin name Plugin class  
+> 			VMW_VAAIP_EQL VAAI  
+> 			VMW_VAAIP_NETAPP VAAI  
+> 			VMW_VAAIP_CX VAAI  
+>	 
 > 
 > *   Type Filter to display the Filter.
 > *   The output of this command is similar to the following example:
 > 
-	>   
-	> esxcli storage core plugin list --plugin-class=Filter  
-	> Plugin name Plugin class  
-	> VAAI_FILTER Filter  
-	> 
+>	   
+> 		esxcli storage core plugin list --plugin-class=Filter  
+> 		Plugin name Plugin class  
+> 		VAAI_FILTER Filter  
+>	 
 
 From the same article:
 
@@ -510,18 +489,18 @@ From the same article:
 > *   Run the esxcli storage core device list -d=device_ID command.
 > *   The output shows the hardware acceleration, or VAAI, status that can be unknown, supported, or unsupported.
 > 
-	>   
-	> # esxcli storage core device list -d naa.XXXXXXXXXXXX4c  
-	> naa.XXXXXXXXXXXX4c  
-	> Display Name: XXXX Fibre Channel Disk(naa.XXXXXXXXXXXX4c)  
-	> Size: 20480  
-	> Device Type: Direct-Access  
-	> Multipath Plugin: NMP  
-	> XXXXXXXXXXXXXXXX  
-	> Attached Filters: VAAI_FILTER  
-	> VAAI Status: supported  
-	> XXXXXXXXXXXXXXXX  
-	> 
+>	   
+> 		# esxcli storage core device list -d naa.XXXXXXXXXXXX4c  
+> 		naa.XXXXXXXXXXXX4c  
+> 		Display Name: XXXX Fibre Channel Disk(naa.XXXXXXXXXXXX4c)  
+> 		Size: 20480  
+> 		Device Type: Direct-Access  
+> 		Multipath Plugin: NMP  
+> 		XXXXXXXXXXXXXXXX  
+> 		Attached Filters: VAAI_FILTER  
+> 		VAAI Status: supported  
+> 		XXXXXXXXXXXXXXXX  
+>	 
 
 And more from the same document:
 
@@ -533,15 +512,15 @@ And more from the same document:
 > *   Run the esxcli storage core device vaai status get -d=device_ID command.
 > *   If the device is managed by a VAAI plug-in, the output shows the name of the plug-in attached to the device. The output also shows the support status for each T10 SCSI based primitive, if available. Output appears in the following example:
 > 
-	>   
-	> # esxcli storage core device vaai status get -d naa.XXXXXXXXXXXX4c  
-	> naa.XXXXXXXXXXXX4c  
-	> VAAI Plugin Name: VMW_VAAIP_SYMM  
-	> ATS Status: supported  
-	> Clone Status: supported  
-	> Zero Status: supported  
-	> Delete Status: unsupported  
-	> 
+>	   
+> 		# esxcli storage core device vaai status get -d naa.XXXXXXXXXXXX4c  
+> 		naa.XXXXXXXXXXXX4c  
+> 		VAAI Plugin Name: VMW_VAAIP_SYMM  
+> 		ATS Status: supported  
+> 		Clone Status: supported  
+> 		Zero Status: supported  
+> 		Delete Status: unsupported  
+>	 
 
 ### Configure and administer profile-based storage
 
@@ -709,58 +688,58 @@ Also check out KB "<a href="http://kb.vmware.com/kb/2004605" onclick="javascript
 > 
 > If the LUN is an RDM, skip to step 4. Otherwise, to get a list of all datastores mounted to an ESXi host, run the command:
 > 
-	>   
-	> # esxcli storage filesystem list  
-	> 
+>	   
+>	 # esxcli storage filesystem list  
+>	 
 > 
 > The output, which lists all VMFS datastores, is similar to:
 > 
-	>   
-	> Mount Point Volume Name UUID Mounted Type Size Free  
-	> ------------------------------------------------- ----------- ----------------------------------- ------- ------ ----------- -----------  
-	> /vmfs/volumes/4de4cb24-4cff750f-85f5-0019b9f1ecf6 datastore1 4de4cb24-4cff750f-85f5-0019b9f1ecf6 true VMFS-5 140660178944 94577360896  
-	> /vmfs/volumes/4c5fbff6-f4069088-af4f-0019b9f1ecf4 Storage2 4c5fbff6-f4069088-af4f-0019b9f1ecf4 true VMFS-3 146028888064 7968129024  
-	> /vmfs/volumes/4c5fc023-ea0d4203-8517-0019b9f1ecf4 Storage4 4c5fc023-ea0d4203-8517-0019b9f1ecf4 true VMFS-3 146028888064 121057050624  
-	> /vmfs/volumes/4e414917-a8d75514-6bae-0019b9f1ecf4 LUN01 4e414917-a8d75514-6bae-0019b9f1ecf4 true VMFS-5 146028888064 4266131456  
-	> 
+>	   
+>	 Mount Point Volume Name UUID Mounted Type Size Free  
+>	 ------------------------------------------------- ----------- ----------------------------------- ------- ------ ----------- -----------  
+>	 /vmfs/volumes/4de4cb24-4cff750f-85f5-0019b9f1ecf6 datastore1 4de4cb24-4cff750f-85f5-0019b9f1ecf6 true VMFS-5 140660178944 94577360896  
+>	 /vmfs/volumes/4c5fbff6-f4069088-af4f-0019b9f1ecf4 Storage2 4c5fbff6-f4069088-af4f-0019b9f1ecf4 true VMFS-3 146028888064 7968129024  
+>	 /vmfs/volumes/4c5fc023-ea0d4203-8517-0019b9f1ecf4 Storage4 4c5fc023-ea0d4203-8517-0019b9f1ecf4 true VMFS-3 146028888064 121057050624  
+>	 /vmfs/volumes/4e414917-a8d75514-6bae-0019b9f1ecf4 LUN01 4e414917-a8d75514-6bae-0019b9f1ecf4 true VMFS-5 146028888064 4266131456  
+>	 
 > 
 > Unmount the datastore by running the command:
 > 
-	>   
-	> # esxcli storage filesystem unmount [-u | -l <label> | -p ]  
-	> 
+>	   
+>	 # esxcli storage filesystem unmount [-u | -l <label> | -p ]  
+>	 
 > 
 > For example, use one of these commands to unmount the LUN01 datastore:
 > 
-	>   
-	> # esxcli storage filesystem unmount -l LUN01  
-	> # esxcli storage filesystem unmount -u 4e414917-a8d75514-6bae-0019b9f1ecf4  
-	> # esxcli storage filesystem unmount -p /vmfs/volumes/4e414917-a8d75514-6bae-0019b9f1ecf4  
-	> 
+>	   
+>	 # esxcli storage filesystem unmount -l LUN01  
+>	 # esxcli storage filesystem unmount -u 4e414917-a8d75514-6bae-0019b9f1ecf4  
+>	 # esxcli storage filesystem unmount -p /vmfs/volumes/4e414917-a8d75514-6bae-0019b9f1ecf4  
+>	 
 > 
 > Note: If the VMFS filesystem you are attempting to unmount has active I/O or has not fulfilled the prerequisites to unmount the VMFS datastore, the vmkernel logs show this error:
 > 
-	>   
-	> WARNING: VC: 637: unmounting opened volume ('4e414917-a8d75514-6bae-0019b9f1ecf4' 'LUN01') is not allowed.  
-	> VC: 802: Unmount VMFS volume f530 28 2 4e414917a8d7551419006bae f4ecf19b 4 1 0 0 0 0 0 : Busy  
-	> 
+>	   
+>	 WARNING: VC: 637: unmounting opened volume ('4e414917-a8d75514-6bae-0019b9f1ecf4' 'LUN01') is not allowed.  
+>	 VC: 802: Unmount VMFS volume f530 28 2 4e414917a8d7551419006bae f4ecf19b 4 1 0 0 0 0 0 : Busy  
+>	 
 > 
 > To verify that the datastore has been unmounted, run the command:
 > 
-	>   
-	> # esxcli storage filesystem list  
-	> 
+>	   
+>	 # esxcli storage filesystem list  
+>	 
 > 
 > The output is similar to:
 > 
-	>   
-	> Mount Point Volume Name UUID Mounted Type Size Free  
-	> ------------------------------------------------- ----------- ----------------------------------- ------- ------ ----------- -----------  
-	> /vmfs/volumes/4de4cb24-4cff750f-85f5-0019b9f1ecf6 datastore1 4de4cb24-4cff750f-85f5-0019b9f1ecf6 true VMFS-5 140660178944 94577360896  
-	> /vmfs/volumes/4c5fbff6-f4069088-af4f-0019b9f1ecf4 Storage2 4c5fbff6-f4069088-af4f-0019b9f1ecf4 true VMFS-3 146028888064 7968129024  
-	> /vmfs/volumes/4c5fc023-ea0d4203-8517-0019b9f1ecf4 Storage4 4c5fc023-ea0d4203-8517-0019b9f1ecf4 true VMFS-3 146028888064 121057050624  
-	> LUN01 4e414917-a8d75514-6bae-0019b9f1ecf4 false VMFS-unknown version 0 0  
-	> 
+>	   
+>	 Mount Point Volume Name UUID Mounted Type Size Free  
+>	 ------------------------------------------------- ----------- ----------------------------------- ------- ------ ----------- -----------  
+>	 /vmfs/volumes/4de4cb24-4cff750f-85f5-0019b9f1ecf6 datastore1 4de4cb24-4cff750f-85f5-0019b9f1ecf6 true VMFS-5 140660178944 94577360896  
+>	 /vmfs/volumes/4c5fbff6-f4069088-af4f-0019b9f1ecf4 Storage2 4c5fbff6-f4069088-af4f-0019b9f1ecf4 true VMFS-3 146028888064 7968129024  
+>	 /vmfs/volumes/4c5fc023-ea0d4203-8517-0019b9f1ecf4 Storage4 4c5fc023-ea0d4203-8517-0019b9f1ecf4 true VMFS-3 146028888064 121057050624  
+>	 LUN01 4e414917-a8d75514-6bae-0019b9f1ecf4 false VMFS-unknown version 0 0  
+>	 
 > 
 > Note that the Mounted field is set to false, the Type field is set to VMFS-unknown version, and that no Mount Point exists.
 > 
@@ -768,61 +747,61 @@ Also check out KB "<a href="http://kb.vmware.com/kb/2004605" onclick="javascript
 > 
 > To detach the device/LUN, run this command:
 > 
-	>   
-	> # esxcli storage core device set --state=off -d NAA_ID  
-	> 
+>	   
+>	 # esxcli storage core device set --state=off -d NAA_ID  
+>	 
 > 
 > To verify that the device is offline, run this command:
 > 
-	>   
-	> # esxcli storage core device list -d NAA_ID  
-	> 
+>	   
+>	 # esxcli storage core device list -d NAA_ID  
+>	 
 > 
 > The output, which shows that the status of the disk is off, is similar to:
 > 
-	>   
-	> naa.60a98000572d54724a34655733506751  
-	> Display Name: NETAPP Fibre Channel Disk (naa.60a98000572d54724a34655733506751)  
-	> Has Settable Display Name: true  
-	> Size: 1048593  
-	> Device Type: Direct-Access  
-	> Multipath Plugin: NMP  
-	> Devfs Path: /vmfs/devices/disks/naa.60a98000572d54724a34655733506751  
-	> Vendor: NETAPP  
-	> Model: LUN  
-	> Revision: 7330  
-	> SCSI Level: 4  
-	> Is Pseudo: false  
-	> Status: off  
-	> Is RDM Capable: true  
-	> Is Local: false  
-	> Is Removable: false  
-	> Is SSD: false  
-	> Is Offline: false  
-	> Is Perennially Reserved: false  
-	> Thin Provisioning Status: yes  
-	> Attached Filters:  
-	> VAAI Status: unknown  
-	> Other UIDs: vml.020000000060a98000572d54724a346557335067514c554e202020  
-	> 
+>	   
+>	 naa.60a98000572d54724a34655733506751  
+>	 Display Name: NETAPP Fibre Channel Disk (naa.60a98000572d54724a34655733506751)  
+>	 Has Settable Display Name: true  
+>	 Size: 1048593  
+>	 Device Type: Direct-Access  
+>	 Multipath Plugin: NMP  
+>	 Devfs Path: /vmfs/devices/disks/naa.60a98000572d54724a34655733506751  
+>	 Vendor: NETAPP  
+>	 Model: LUN  
+>	 Revision: 7330  
+>	 SCSI Level: 4  
+>	 Is Pseudo: false  
+>	 Status: off  
+>	 Is RDM Capable: true  
+>	 Is Local: false  
+>	 Is Removable: false  
+>	 Is SSD: false  
+>	 Is Offline: false  
+>	 Is Perennially Reserved: false  
+>	 Thin Provisioning Status: yes  
+>	 Attached Filters:  
+>	 VAAI Status: unknown  
+>	 Other UIDs: vml.020000000060a98000572d54724a346557335067514c554e202020  
+>	 
 > 
 > Running the partedUtil getptbl command on the device shows that the device is not found.
 > 
 > For example:
 > 
-	>   
-	> # partedUtil getptbl /vmfs/devices/disks/naa.60a98000572d54724a34655733506751
-	> 
-	> Error: Could not stat device /vmfs/devices/disks/naa.60a98000572d54724a34655733506751- No such file or directory.  
-	> Unable to get device /vmfs/devices/disks/naa.60a98000572d54724a34655733506751  
-	> 
+>	   
+>	 # partedUtil getptbl /vmfs/devices/disks/naa.60a98000572d54724a34655733506751
+>	 
+>	 Error: Could not stat device /vmfs/devices/disks/naa.60a98000572d54724a34655733506751- No such file or directory.  
+>	 Unable to get device /vmfs/devices/disks/naa.60a98000572d54724a34655733506751  
+>	 
 > 
 > The LUN can now be unpresented from the SAN. For more information, contact your storage array vendor.  
 > To rescan all devices on the ESXi host, run the command:
 > 
-	>   
-	> # esxcli storage core adapter rescan [ -A vmhba# | --all ]  
-	> 
+>	   
+>	 # esxcli storage core adapter rescan [ -A vmhba# | --all ]  
+>	 
 > 
 > The devices are automatically removed from the Storage Adapters.
 > 
@@ -830,38 +809,38 @@ Also check out KB "<a href="http://kb.vmware.com/kb/2004605" onclick="javascript
 > 
 > Note: When the device is detached, it stays in an unmounted state even if the device is represented (that is, the detached state is persistent). To bring the device back online, the device needs to be attached. To do this via the command line, run the command:
 > 
-	>   
-	> # esxcli storage core device set --state=on -d NAA_ID  
-	> 
+>	   
+>	 # esxcli storage core device set --state=on -d NAA_ID  
+>	 
 > 
 > If the device is to be permanently decommissioned from an ESXi servers(s), (that is, the LUN has been destroyed), remove the NAA entries from the host configuration by issuing these commands:
 > 
 > To list the permanently detached devices:
 > 
-	>   
-	> # esxcli storage core device detached list  
-	> 
+>	   
+>	 # esxcli storage core device detached list  
+>	 
 > 
 > The output is similar to:
 > 
-	>   
-	> Device UID State  
-	> ---------------------------- -----  
-	> naa.50060160c46036df50060160c46036df off  
-	> naa.6006016094602800c8e3e1c5d3c8e011 off  
-	> 
+>	   
+>	 Device UID State  
+>	 ---------------------------- -----  
+>	 naa.50060160c46036df50060160c46036df off  
+>	 naa.6006016094602800c8e3e1c5d3c8e011 off  
+>	 
 > 
 > To permanently remove the device configuration information from the system:
 > 
-	>   
-	> # esxcli storage core device detached remove -d NAA_ID  
-	> 
+>	   
+>	 # esxcli storage core device detached remove -d NAA_ID  
+>	 
 > 
 > For example:
 > 
-	>   
-	> # esxcli storage core device detached remove -d naa.50060160c46036df50060160c46036df  
-	> 
+>	   
+>	 # esxcli storage core device detached remove -d naa.50060160c46036df50060160c46036df  
+>	 
 > 
 > The reference to the device configuration is permanently removed from the ESXi host's configuration.
 
