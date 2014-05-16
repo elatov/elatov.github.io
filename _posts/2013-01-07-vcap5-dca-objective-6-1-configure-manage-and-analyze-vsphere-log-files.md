@@ -30,7 +30,7 @@ From VMware KB <a href="http://kb.vmware.com/kb/2004201" onclick="javascript:_ga
 > *   /var/log/esxupdate.log: ESXi patch and update installation logs.
 > *   /var/log/hostd.log: Host management service logs, including virtual machine and host Task and Events, communication with the vSphere Client and vCenter Server vpxa agent, and SDK connections.
 > *   /var/log/shell.log: ESXi Shell usage logs, including enable/disable and every command entered.
-> *   /var/log/boot.gz: A compressed file that contains boot log information and can be read using zcat /var/log/boot.gz|more.
+> *   /var/log/boot.gz: A compressed file that contains boot log information and can be read using zcat /var/log/boot.gz\|more.
 > *   /var/log/syslog.log: Management service initialization, watchdogs, scheduled tasks and DCUI use.
 > *   /var/log/usb.log: USB device arbitration events, such as discovery and pass-through to virtual machines.
 > *   /var/log/vob.log: VMkernel Observation events, similar to vob.component.event.
@@ -185,32 +185,32 @@ This is a per-issue kind of scenario. It really depends on what you are searchin
 
 > When a user or script reboots a VMware ESX host, it generates a series events under /var/log/messages similar to:
 > 
-	>   
-	> Mar 9 10:01:49 localhost logger: (1265803308) hb: vmk loaded, 1746.98, 1745.148, 0, 208167, 208167, 0, vmware-h-59580, sfcbd-7660, sfcbd-3524  
-	> Mar 9 10:24:42 localhost vmkhalt: (1268148282) Rebooting system...  
-	> Mar 9 10:26:13 localhost vmkhalt: (1268148374) Starting system...  
-	> Mar 9 10:26:47 localhost logger: (1268148407) loaded VMkernel
-	> 
-	> Hostd: [2010-03-16 12:51:54.284 27D13B90 info 'TaskManager'] Task Created : haTask-ha-host-vim.HostSystem.reboot-50  
-	> 
+>	   
+>	Mar 9 10:01:49 localhost logger: (1265803308) hb: vmk loaded, 1746.98, 1745.148, 0, 208167, 208167, 0, vmware-h-59580, sfcbd-7660, sfcbd-3524  
+>	Mar 9 10:24:42 localhost vmkhalt: (1268148282) Rebooting system...  
+>	Mar 9 10:26:13 localhost vmkhalt: (1268148374) Starting system...  
+>	Mar 9 10:26:47 localhost logger: (1268148407) loaded VMkernel
+>	 
+>	Hostd: [2010-03-16 12:51:54.284 27D13B90 info 'TaskManager'] Task Created : haTask-ha-host-vim.HostSystem.reboot-50  
+>	 
 > 
 > Determine if the VMware ESX host was deliberately shut down. When a user or script shuts down a VMware ESX host, it generates a series events similar to:
 > 
-	>   
-	> Mar 9 10:01:49 localhost logger: (1265803308) hb: vmk loaded, 1746.98, 1745.148, 0, 208167, 208167, 0, vmware-h-59580, sfcbd-7660, sfcbd-3524  
-	> Mar 9 10:42:34 localhost vmkhalt: (1268149354) Halting system...  
-	> Mar 9 10:44:46 localhost vmkhalt: (1268149486) Starting system...  
-	> Mar 9 10:45:40 localhost logger: (1268149540) loaded VMkernel  
-	> 
+>	   
+>	Mar 9 10:01:49 localhost logger: (1265803308) hb: vmk loaded, 1746.98, 1745.148, 0, 208167, 208167, 0, vmware-h-59580, sfcbd-7660, sfcbd-3524  
+>	Mar 9 10:42:34 localhost vmkhalt: (1268149354) Halting system...  
+>	Mar 9 10:44:46 localhost vmkhalt: (1268149486) Starting system...  
+>	Mar 9 10:45:40 localhost logger: (1268149540) loaded VMkernel  
+>	 
 > 
 > Determine if the ESX host experienced a kernel error. When an ESX host experiences a kernel error, it generates a series of events similar to:
 > 
-	>   
-	> Sep 1 02:01:09 vsphere5 logger: (1251788469) hb: vmk loaded, 3597562.98, 3597450.113, 13, 164009, 164009, 356, vmware-h-79976, vpxa-54148, sfcbd-12600  
-	> Sep 1 04:26:35 vsphere5 vmkhalt: (1251797195) Starting system...  
-	> Sep 1 04:26:46 vsphere5 logger: (1251797206) VMkernel error  
-	> Sep 1 04:27:41 vsphere5 logger: (1251797261) loaded VMkernel  
-	> 
+>	   
+>	Sep 1 02:01:09 vsphere5 logger: (1251788469) hb: vmk loaded, 3597562.98, 3597450.113, 13, 164009, 164009, 356, vmware-h-79976, vpxa-54148, sfcbd-12600  
+>	Sep 1 04:26:35 vsphere5 vmkhalt: (1251797195) Starting system...  
+>	Sep 1 04:26:46 vsphere5 logger: (1251797206) VMkernel error  
+>	Sep 1 04:27:41 vsphere5 logger: (1251797261) loaded VMkernel  
+>	 
 
 ### Install and configure VMware syslog Collector and ESXi Dump Collector
 
