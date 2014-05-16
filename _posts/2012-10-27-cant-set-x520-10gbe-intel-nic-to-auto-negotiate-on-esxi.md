@@ -97,9 +97,9 @@ We decided to try out the latest driver. <a href="https://my.vmware.com/web/vmwa
 > 5.  Enter maintenance mode.
 > 6.  Navigate to /vmfs/volumes// and locate the .zip file.
 > 7.  Run this command to install drivers using the offline bundle:  
-	>       
-	>     esxupdate --bundle=OFFLINE_BUNDLE.zip update  
-	>      
+>	       
+>	     esxupdate --bundle=OFFLINE_BUNDLE.zip update  
+>	      
 > 8.  Reboot the ESX or ESXi host.
 > 9.  Exit maintenance mode.
 

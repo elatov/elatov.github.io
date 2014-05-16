@@ -80,27 +80,27 @@ And more from the same document:
 >     The default location in 64-bit Windows is C:\Program Files(x86)\VMware\Infrastructure\UpdateManager.
 > 3.  Specify the updates to download. 
 >     *   To set up a download of all ESX/ESXi host updates and all virtual  appliance upgrades, run the following command:  
-	>           
-	>         vmware-umds -S --enable-host --enable-va  
-	>         
+>	           
+>	         vmware-umds -S --enable-host --enable-va  
+>	         
 >     *   To set up a download of all ESX/ESXi host updates and disable the download of virtual appliance upgrades, run the following command:  
-	>           
-	>         vmware-umds -S --enable-host --disable-va  
-	>         
+>	           
+>	         vmware-umds -S --enable-host --disable-va  
+>	         
 >     *   To set up a download of all virtual appliance upgrades and disable the download of host updates, run the following command:  
-	>           
-	>         vmware-umds -S --disable-host --enable-va  
-	>         
+>	           
+>	         vmware-umds -S --disable-host --enable-va  
+>	         
 >     *   To set up a download of only ESX 4.0 and ESXi 4.0 host updates, run the following commands:  
-	>           
-	>         vmware-umds -S --disable-host  
-	>         vmware-umds -S -e esx-4.0.0 embeddedEsx-4.0.0  
-	>         
+>	           
+>	         vmware-umds -S --disable-host  
+>	         vmware-umds -S -e esx-4.0.0 embeddedEsx-4.0.0  
+>	         
 >     *   To set up a download of all ESX/ESXi 4.x and ESXi 5.0 updates, and to disable downloading of only ESX 3.5 and ESXi 3.5 host updates, run the following commands:  
-	>           
-	>         vmware-umds -S --enable-host  
-	>         vmware-umds -S -d esx-3.5.0 embeddedEsx-3.5.0  
-	>         
+>	           
+>	         vmware-umds -S --enable-host  
+>	         vmware-umds -S -d esx-3.5.0 embeddedEsx-3.5.0  
+>	         
 
 Also check out "<a href="http://www.jasemccarty.com/blog/?p=1859" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.jasemccarty.com/blog/?p=1859']);">VMware Update Manager Download Service on Windows 2008 R2 Core</a>" for a step-by-step guide with pictures. Another good step-by-step guide is "<a href="http://kunaludapi.blogspot.com/2012/08/installing-and-configuring-umds-update.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kunaludapi.blogspot.com/2012/08/installing-and-configuring-umds-update.html']);">Installing and Configuring UMDS Update manager download services.</a>", and <a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/umds.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://virtuallyhyper.com/wp-content/uploads/2012/12/umds.pdf']);">here</a> is the pdf version of that site.
 
@@ -389,16 +389,16 @@ Also from the same document:
 > 
 > *   To generate a report containing the latest scan results for all objects in the inventory and for all patches for an inventory object, run the query in Microsoft SQL Client.
 > 
-	>   
-	> SELECT r.entity_uid,r.ENTITY_STATUS,  
-	> u.meta_uid, u.title, u.description, u.type, u.severity,  
-	> (case when u.SPECIAL_ATTRIBUTE is null then 'false'  
-	> else 'true'  
-	> end) as IS_SERVICE_PACK,  
-	> r.scanh_id, r.scan_start_time, r.scan_end_time  
-	> FROM VUMV_UPDATES u JOIN VUMV_ENTITY_SCAN_RESULTS r ON (u.meta_uid = r.update_metauid)  
-	> ORDER BY r.entity_uid, u.meta_uid  
-	> 
+>	   
+> 		SELECT r.entity_uid,r.ENTITY_STATUS,  
+> 		u.meta_uid, u.title, u.description, u.type, u.severity,  
+> 		(case when u.SPECIAL_ATTRIBUTE is null then 'false'  
+> 		else 'true'  
+> 		end) as IS_SERVICE_PACK,  
+> 		r.scanh_id, r.scan_start_time, r.scan_end_time  
+> 		FROM VUMV_UPDATES u JOIN VUMV_ENTITY_SCAN_RESULTS r ON (u.meta_uid = r.update_metauid)  
+> 		ORDER BY r.entity_uid, u.meta_uid  
+>	 
 > 
 > The query displays all patches that are applicable to the scanned objects in the inventory.
 
@@ -414,198 +414,190 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 > 1.  (Optional) Create a virtual appliance upgrade baseline.  
 >     You create virtual appliance baselines from the Baselines and Groups tab in the Update Manager Administration view.
 > 2.  Attach virtual appliance upgrade baselines to an object containing the virtual appliances that you want to upgrade. 
->     To scan and upgrade virtual appliances, attach your virtual appliance upgrade baselines to a container object containing the virtual appliances that you want to upgrade. The container object can be a folder, vApp, or datacenter.</li> 
+>     To scan and upgrade virtual appliances, attach your virtual appliance upgrade baselines to a container object containing the virtual appliances that you want to upgrade. The container object can be a folder, vApp, or datacenter.
 >     *   Scan the container object.  
->         After you attach the virtual appliance upgrade baselines to the selected container object, you must scan it to view the compliance state of the virtual appliances in the container. You can scan selected objects manually to start the scanning  
->         immediately.</p> 
->         You can also scan the virtual appliances in the container object at a time convenient for you by scheduling a scan task.</li> 
+>         After you attach the virtual appliance upgrade baselines to the selected container object, you must scan it to view the compliance state of the virtual appliances in the container. You can scan selected objects manually to start the scanning immediately.
+>         You can also scan the virtual appliances in the container object at a time convenient for you by scheduling a scan task.
 >         *   Review the scan results displayed in the Update Manager Client Compliance view.
->         *   Remediate the virtual appliances in the container object against the attached  
->             virtual appliance upgrade baselines.</p> 
+>         *   Remediate the virtual appliances in the container object against the attached virtual appliance upgrade baselines.
 >             If virtual appliances are in a Non-Compliant state, remediate the container object of the virtual appliances to make it compliant with the attached baselines. You can start the remediation process manually or schedule a remediation task.
 >             
->             Update Manager directs the virtual appliances to download the missing updates and controls the remediation process of when and how to remediate, but the virtual appliance downloads and installs the updates itself.</li> </ol> 
->             The remediated virtual appliances become compliant with the attached baselines.</blockquote> 
+>             Update Manager directs the virtual appliances to download the missing updates and controls the remediation process of when and how to remediate, but the virtual appliance downloads and installs the updates itself. 
+>             The remediated virtual appliances become compliant with the attached baseli
 >             
->             Here is an example of updating the vMA appliance.
->             
->             First create a new Baseline for the Virtual Appliance:  
->             <a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/create_new_baseline_for_va_update.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/12/create_new_baseline_for_va_update.png']);"><img class="alignnone size-full wp-image-5210" title="create_new_baseline_for_va_update" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/create_new_baseline_for_va_update.png" alt="create new baseline for va update VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="736" height="553" /></a>
->             
->             Next Create a Vendor Rule:
->             
->             <a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/create_vendor_rule_for_va_update.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/12/create_vendor_rule_for_va_update.png']);"><img class="alignnone size-full wp-image-5211" title="create_vendor_rule_for_va_update" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/create_vendor_rule_for_va_update.png" alt="create vendor rule for va update VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="739" height="555" /></a>
->             
->             Here are the options for the Vendor Rules:
->             
->             <a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/vendor_rules_options_va_update.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/12/vendor_rules_options_va_update.png']);"><img class="alignnone size-full wp-image-5212" title="vendor_rules_options_va_update" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/vendor_rules_options_va_update.png" alt="vendor rules options va update VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="711" height="444" /></a>
->             
->             After completion, go the "VMs and Templates" View and select the Appliance and attach your baseline to it. Here is how it will look:
->             
->             <a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/non-compliant_va_for_update.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/12/non-compliant_va_for_update.png']);"><img class="alignnone size-full wp-image-5213" title="non-compliant_va_for_update" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/non-compliant_va_for_update.png" alt="non compliant va for update VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="821" height="579" /></a>
->             
->             Click "Scan" from the same screen and select the type of scan:
->             
->             <a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/va_vum_scan.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/12/va_vum_scan.png']);"><img class="alignnone size-full wp-image-5216" title="va_vum_scan" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/va_vum_scan.png" alt="va vum scan VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="496" height="202" /></a>
->             
->             Then click on "Remediate" to actually perform the upgrade:
->             
->             <a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/remediate_va_update.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/12/remediate_va_update.png']);"><img class="alignnone size-full wp-image-5217" title="remediate_va_update" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/remediate_va_update.png" alt="remediate va update VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="856" height="647" /></a>
->             
->             That should be it.
->             
->             ### Utilize Update Manager PowerCLI to export baselines for testing
->             
->             From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf']);">Installing and Administering VMware vSphere Update Manager</a>":
->             
->             > **Testing Patches or Extensions and Exporting Baselines to Another Update Manager Server**  
->             > Before you apply patches or extensions to ESX/ESXi hosts, you might want to test the patches and extensions by applying them to hosts in a test environment. You can then use Update Manager PowerCLI to export the tested baselines to another Update Manager server instance and apply the patches and extensions to the other hosts.
->             > 
->             > Update Manager PowerCLI is a command-line and scripting tool built on Windows PowerShell, and provides a set of cmdlets for managing and automating Update Manager. For more information about installing and using Update Manager PowerCLI, see VMware vSphere Update Manager PowerCLI Installation and Administration Guide
->             
->             From the same document:
->             
->             > You can export and import patch baselines from one Update Manager server to another by using an Update Manager PowerCLI script. The following example script creates a duplicate of the baseline MyBaseline on the $destinationServer.  
->             > NOTE The script works for fixed and dynamic patch baselines as well as for extension baselines.
->             > 
-	>             >   
-	>             > # $destinationServer = Connect-VIServer  
-	>             > # $sourceServer = Connect-VIServer  
-	>             > # $baselines = Get-PatchBaseline MyBaseline -Server $sourceServer  
-	>             > # ExportImportBaselines.ps1 $baselines $destinationServer  
-	>             > Param([VMware.VumAutomation.Types.Baseline[]] $baselines,  
-	>             > [VMware.VimAutomation.Types.VIServer[]]$destinationServers)  
-	>             > $ConfirmPreference = 'None'  
-	>             > $includePatches = @()  
-	>             > $excludePatches = @()  
-	>             > function ExtractPatchesFromServer([VMware.VumAutomation.Types.Patch[]]$patches,  
-	>             > [VMware.VimAutomation.Types.VIServer]$destinationServer){  
-	>             > $result = @()  
-	>             > if ($patches -ne $null){  
-	>             > foreach($patch in $patches){  
-	>             > $extractedPatches = Get-Patch -Server $destinationServer -SearchPhrase  
-	>             > $patch.Name  
-	>             > if ($extractedPatches -eq $null){  
-	>             > Write-Warning -Message "Patch '$($patch.Name)' is not available on the server  
-	>             > $destinationServer"  
-	>             > } else {  
-	>             > $isFound = $false  
-	>             > foreach ($newPatch in $extractedPatches){  
-	>             > if ($newPatch.IdByVendor -eq $patch.IdByVendor){  
-	>             > $result += $newPatch  
-	>             > $isFound = $true  
-	>             > }  
-	>             > }  
-	>             > if ($isFound -eq $false) {  
-	>             > Write-Warning -Message "Patch '$($patch.Name)' with VendorId '$($patch.IdByVendor)' is  
-	>             > not available on the server $destinationServer"  
-	>             > }  
-	>             > }  
-	>             > }  
-	>             > }  
-	>             > return .$result;  
-	>             > }  
-	>             > function  
-	>             > CreateStaticBaseline([VMware.VumAutomation.Types.Baseline]$baseline,  
-	>             > [VMware.VimAutomation.Types.VIServer]$destinationServer){  
-	>             > $includePatches = ExtractPatchesFromServer $baseline.CurrentPatches $destinationServer  
-	>             > if ($includePatches.Count -lt 1){  
-	>             > write-error "Static baseline '$($baseline.Name)' can't be imported. No one of the patches  
-	>             > it contains are available on the server $destinationServer"  
-	>             > } else {  
-	>             > $command = 'New-PatchBaseline -Server $destinationServer -Name $baseline.Name -Description  
-	>             > $baseline.Description -Static -TargetType $baseline.TargetType -IncludePatch $includePatches'  
-	>             > if ($baseline.IsExtension) {  
-	>             > $command += ' -Extension'  
-	>             > }  
-	>             > Invoke-Expression $command  
-	>             > }  
-	>             > }  
-	>             > function  
-	>             > CreateDynamicBaseline([VMware.VumAutomation.Types.Baseline]$baseline,  
-	>             > [VMware.VimAutomation.Types.VIServer]$destinationServer)  
-	>             > {  
-	>             > if ($baseline.BaselineContentType -eq 'Dynamic'){  
-	>             > $command = 'New-PatchBaseline -Server $destinationServer -Name $baseline.Name -Description  
-	>             > $baseline.Description -TargetType $baseline.TargetType -Dynamic -SearchPatchStartDate  
-	>             > $baseline.SearchPatchStartDate - SearchPatchEndDate $baseline.SearchPatchEndDate -  
-	>             > SearchPatchProduct $baseline.SearchPatchProduct -SearchPatchSeverity  
-	>             > $baseline.SearchPatchSeverity -SearchPatchVendor $baseline.SearchPatchVendor'  
-	>             > } elseif ($baseline.BaselineContentType -eq 'Both'){  
-	>             > $includePatches = ExtractPatchesFromServer $baseline.InclPatches $destinationServer  
-	>             > $excludePatches = ExtractPatchesFromServer $baseline.ExclPatches $destinationServer  
-	>             > $command = 'New-PatchBaseline -Server $destinationServer -Name $baseline.Name -Description  
-	>             > $baseline.Description -TargetType $baseline.TargetType -Dynamic -SearchPatchStartDate  
-	>             > $baseline.SearchPatchStartDate -SearchPatchEndDate $baseline.SearchPatchEndDate -  
-	>             > SearchPatchProduct $baseline.SearchPatchProduct -SearchPatchSeverity  
-	>             > $baseline.SearchPatchSeverity -SearchPatchVendor $baseline.SearchPatchVendor'  
-	>             > if ($includePatches.Count -gt 0){  
-	>             > $command += ' -IncludePatch $includePatches'  
-	>             > }  
-	>             > if ($excludePatches.Count -gt 0){  
-	>             > $command += ' -ExcludePatch $excludePatches'  
-	>             > }  
-	>             > }  
-	>             > #check for null because there is known issue for creating baseline with null  
-	>             > SearchPatchPhrase  
-	>             > if ($baseline.SearchPatchPhrase -ne $null){  
-	>             > $command += ' -SearchPatchPhrase $baseline.SearchPatchPhrase'  
-	>             > }  
-	>             > Invoke-Expression $command  
-	>             > }  
-	>             > foreach ($destinationServer in $destinationServers) {  
-	>             > if ($baselines -eq $null) {  
-	>             > Write-Error "The baselines parameter is null"  
-	>             > } else {  
-	>             > foreach($baseline in $baselines){  
-	>             > if ($baseline.GetType().FullName -eq 'VMware.VumAutomation.Types.PatchBaselineImpl'){  
-	>             > Write-Host "Import '" $baseline.Name "' to the server $destinationServer"  
-	>             > if($baseline.BaselineContentType -eq 'Static'){  
-	>             > CreateStaticBaseline $baseline $destinationServer  
-	>             > } else {  
-	>             > CreateDynamicBaseline $baseline $destinationServer  
-	>             > }  
-	>             > } else {  
-	>             > Write-Warning -Message "Baseline '$($baseline.Name)' is not patch baseline and will be  
-	>             > skipped."  
-	>             > }  
-	>             > }  
-	>             > }  
-	>             > }  
-	>             > 
->             > 
->             > You have now exported the tested baseline to another Update Manager server.
->             
->             ### Utilize the Update Manager Utility to reconfigure vUM settings
->             
->             From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-reconfig-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-reconfig-guide.pdf']);">Reconfiguring VMware vSphere Update Manager</a>":
->             
->             > **Start the Update Manager Utility and Log In**  
->             > To use the Update Manager Utility, you must start the utility and log in
->             > 
->             > **Prerequisites**
->             > 
->             > *   Make sure that you have local administrative credentials for the machine on which the Update Manager server is installed.
->             > *   Stop the Update Manager service.
->             > 
->             > **Procedure**
->             > 
->             > 1.  Log in as an administrator to the machine on which the Update Manager server is installed.
->             > 2.  Navigate to the Update Manager installation directory. The default location is C:\Program Files (x86)\VMware\Infrastructure\Update Manager.
->             > 3.  Double-click the VMwareUpdateManagerUtility.exe file.
->             > 4.  Type the vCenter Server machine IP address or host name and the administrative credentials to the vCenter Server system.
->             > 5.  Click Login.
->             > 
->             > You successfully logged in to the Update Manager Utility.
->             
->             You will be presented with the utility, from here you can edit the following:
->             
->             > **Using the Update Manager Utility**  
->             > By using the Update Manager Utility, you can change the database connection settings and proxy authentication, re-register Update Manager with vCenter Server, and replace the SSL certificate.
->             
->             Here is a couple of screenshots of some of the available settings:
->             
->             <a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/1st_window_vum_utility.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/12/1st_window_vum_utility.png']);"><img class="alignnone size-full wp-image-5226" title="1st_window_vum_utility" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/1st_window_vum_utility.png" alt="1st window vum utility VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="545" height="447" /></a>
->             
->             <a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/vum_utility.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/12/vum_utility.png']);"><img class="alignnone size-full wp-image-5223" title="vum_utility" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/vum_utility.png" alt="vum utility VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="556" height="291" /></a>
->             
+
+Here is an example of updating the vMA appliance. First Create a new Baseline for the Virtual Appliance:  
+
+<a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/create_new_baseline_for_va_update.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/12/create_new_baseline_for_va_update.png']);"><img class="alignnone size-full wp-image-5210" title="create_new_baseline_for_va_update" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/create_new_baseline_for_va_update.png" alt="create new baseline for va update VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="736" height="553" /></a>
+
+Next Create a Vendor Rule:
+
+<a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/create_vendor_rule_for_va_update.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/12/create_vendor_rule_for_va_update.png']);"><img class="alignnone size-full wp-image-5211" title="create_vendor_rule_for_va_update" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/create_vendor_rule_for_va_update.png" alt="create vendor rule for va update VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="739" height="555" /></a>
+
+Here are the options for the Vendor Rules:
+
+<a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/vendor_rules_options_va_update.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/12/vendor_rules_options_va_update.png']);"><img class="alignnone size-full wp-image-5212" title="vendor_rules_options_va_update" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/vendor_rules_options_va_update.png" alt="vendor rules options va update VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="711" height="444" /></a>
+
+After completion, go the "VMs and Templates" View and select the Appliance and attach your baseline to it. Here is how it will look:
+
+<a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/non-compliant_va_for_update.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/12/non-compliant_va_for_update.png']);"><img class="alignnone size-full wp-image-5213" title="non-compliant_va_for_update" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/non-compliant_va_for_update.png" alt="non compliant va for update VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="821" height="579" /></a>
+
+Click "Scan" from the same screen and select the type of scan:
+
+<a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/va_vum_scan.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/12/va_vum_scan.png']);"><img class="alignnone size-full wp-image-5216" title="va_vum_scan" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/va_vum_scan.png" alt="va vum scan VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="496" height="202" /></a>
+
+Then click on "Remediate" to actually perform the upgrade:
+
+<a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/remediate_va_update.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/12/remediate_va_update.png']);"><img class="alignnone size-full wp-image-5217" title="remediate_va_update" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/remediate_va_update.png" alt="remediate va update VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="856" height="647" /></a>
+
+That should be it.
+
+### Utilize Update Manager PowerCLI to export baselines for testing
+
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf']);">Installing and Administering VMware vSphere Update Manager</a>":
+
+> **Testing Patches or Extensions and Exporting Baselines to Another Update Manager Server**  
+> Before you apply patches or extensions to ESX/ESXi hosts, you might want to test the patches and extensions by applying them to hosts in a test environment. You can then use Update Manager PowerCLI to export the tested baselines to another Update Manager server instance and apply the patches and extensions to the other hosts.
+> 
+> Update Manager PowerCLI is a command-line and scripting tool built on Windows PowerShell, and provides a set of cmdlets for managing and automating Update Manager. For more information about installing and using Update Manager PowerCLI, see VMware vSphere Update Manager PowerCLI Installation and Administration Guide
+
+From the same document:
+
+> You can export and import patch baselines from one Update Manager server to another by using an Update Manager PowerCLI script. The following example script creates a duplicate of the baseline MyBaseline on the $destinationServer.  
+> NOTE The script works for fixed and dynamic patch baselines as well as for extension baselines.
+> 
+>   
+> 	# $destinationServer = Connect-VIServer  
+> 	# $sourceServer = Connect-VIServer  
+> 	# $baselines = Get-PatchBaseline MyBaseline -Server $sourceServer  
+> 	# ExportImportBaselines.ps1 $baselines $destinationServer  
+> 	Param([VMware.VumAutomation.Types.Baseline[]] $baselines,  
+> 	[VMware.VimAutomation.Types.VIServer[]]$destinationServers)  
+> 	$ConfirmPreference = 'None'  
+> 	$includePatches = @()  
+> 	$excludePatches = @()  
+> 	function ExtractPatchesFromServer([VMware.VumAutomation.Types.Patch[]]$patches,  
+> 	[VMware.VimAutomation.Types.VIServer]$destinationServer){  
+> 	$result = @()  
+> 	if ($patches -ne $null){  
+> 	foreach($patch in $patches){  
+> 	$extractedPatches = Get-Patch -Server $destinationServer -SearchPhrase  
+> 	$patch.Name  
+> 	if ($extractedPatches -eq $null){  
+> 	Write-Warning -Message "Patch '$($patch.Name)' is not available on the server$destinationServer"  
+> 	} else {  
+> 	$isFound = $false  
+> 	foreach ($newPatch in $extractedPatches){  
+> 	if ($newPatch.IdByVendor -eq $patch.IdByVendor){  
+> 	$result += $newPatch  
+> 	$isFound = $true  
+> 	}  
+> 	}  
+> 	if ($isFound -eq $false) {  
+> 	Write-Warning -Message "Patch '$($patch.Name)' with VendorId '$($patch.IdByVendor)' is not available on the server $destinationServer"  
+> 	}  
+> 	}  
+> 	}  
+> 	}  
+> 	return .$result;  
+> 	}  
+> 	function CreateStaticBaseline([VMware.VumAutomation.Types.Baseline]$baseline,  
+> 	[VMware.VimAutomation.Types.VIServer]$destinationServer){  
+> 	$includePatches = ExtractPatchesFromServer $baseline.CurrentPatches $destinationServer  
+> 	if ($includePatches.Count -lt 1){  
+> 	write-error "Static baseline '$($baseline.Name)' can't be imported. No one of the patches  
+> 	it contains are available on the server $destinationServer"  
+> 	} else {  
+> 	$command = 'New-PatchBaseline -Server $destinationServer -Name $baseline.Name -Description  
+> 	$baseline.Description -Static -TargetType $baseline.TargetType -IncludePatch $includePatches'  
+> 	if ($baseline.IsExtension) {  
+> 	$command += ' -Extension'  
+> 	}  
+> 	Invoke-Expression $command  
+> 	}  
+> 	}  
+> 	function  CreateDynamicBaseline([VMware.VumAutomation.Types.Baseline]$baseline,  
+> 	[VMware.VimAutomation.Types.VIServer]$destinationServer)  
+> 	{  
+> 	if ($baseline.BaselineContentType -eq 'Dynamic'){  
+> 	$command = 'New-PatchBaseline -Server $destinationServer -Name $baseline.Name -Description  
+> 	$baseline.Description -TargetType $baseline.TargetType -Dynamic -SearchPatchStartDate  
+> 	$baseline.SearchPatchStartDate - SearchPatchEndDate $baseline.SearchPatchEndDate -  
+> 	 SearchPatchProduct $baseline.SearchPatchProduct -SearchPatchSeverity  
+> 	 $baseline.SearchPatchSeverity -SearchPatchVendor $baseline.SearchPatchVendor'  
+> 	} elseif ($baseline.BaselineContentType -eq 'Both'){  
+> 	 $includePatches = ExtractPatchesFromServer $baseline.InclPatches $destinationServer  
+> 	 $excludePatches = ExtractPatchesFromServer $baseline.ExclPatches $destinationServer  
+> 	 $command = 'New-PatchBaseline -Server $destinationServer -Name $baseline.Name -Description  
+> 	$baseline.Description -TargetType $baseline.TargetType -Dynamic -SearchPatchStartDate  
+> 	$baseline.SearchPatchStartDate -SearchPatchEndDate $baseline.SearchPatchEndDate -  
+> 	SearchPatchProduct $baseline.SearchPatchProduct -SearchPatchSeverity  
+> 	$baseline.SearchPatchSeverity -SearchPatchVendor $baseline.SearchPatchVendor'  
+> 	if ($includePatches.Count -gt 0){  
+> 	$command += ' -IncludePatch $includePatches'  
+> 	}  
+> 	if ($excludePatches.Count -gt 0){  
+> 	 $command += ' -ExcludePatch $excludePatches'  
+> 	}  
+> 	 }  
+> 	 #check for null because there is known issue for creating baseline with null  
+> 	SearchPatchPhrase  
+> 	 if ($baseline.SearchPatchPhrase -ne $null){  
+> 	 $command += ' -SearchPatchPhrase $baseline.SearchPatchPhrase'  
+> 	}  
+> 	Invoke-Expression $command  
+> 	 }  
+> 	foreach ($destinationServer in $destinationServers) {  
+> 	 if ($baselines -eq $null) {  
+> 	 Write-Error "The baselines parameter is null"  
+> 	 } else {  
+> 	 foreach($baseline in $baselines){  
+> 	if ($baseline.GetType().FullName -eq 'VMware.VumAutomation.Types.PatchBaselineImpl'){  
+> 	 Write-Host "Import '" $baseline.Name "' to the server $destinationServer"  
+> 	 if($baseline.BaselineContentType -eq 'Static'){  
+> 	 CreateStaticBaseline $baseline $destinationServer  
+> 	} else {  
+> 	CreateDynamicBaseline $baseline $destinationServer  
+> 	}  
+> 	} else {  
+> 	Write-Warning -Message "Baseline '$($baseline.Name)' is not patch baseline and will be skipped."  
+> 	}  
+> 	}  
+> 	}  
+> 	}  
+ 
+ 
+You have now exported the tested baseline to another Update Manager server.
+             
+### Utilize the Update Manager Utility to reconfigure vUM settings
+ 
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-reconfig-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-reconfig-guide.pdf']);">Reconfiguring VMware vSphere Update Manager</a>":
+
+> **Start the Update Manager Utility and Log In**  
+> To use the Update Manager Utility, you must start the utility and log in
+> 
+> **Prerequisites**
+> 
+> *   Make sure that you have local administrative credentials for the machine on which the Update Manager server is installed.
+> *   Stop the Update Manager service.
+> 
+> **Procedure**
+> 
+> 1.  Log in as an administrator to the machine on which the Update Manager server is installed.
+> 2.  Navigate to the Update Manager installation directory. The default location is C:\Program Files (x86)\VMware\Infrastructure\Update Manager.
+> 3.  Double-click the VMwareUpdateManagerUtility.exe file.
+> 4.  Type the vCenter Server machine IP address or host name and the administrative credentials to the vCenter Server system.
+> 5.  Click Login.
+> 
+> You successfully logged in to the Update Manager Utility.             
+
+You will be presented with the utility, from here you can edit the following:
+             
+> **Using the Update Manager Utility**  
+> By using the Update Manager Utility, you can change the database connection settings and proxy authentication, re-register Update Manager with vCenter Server, and replace the SSL certificate.
+             
+Here is a couple of screenshots of some of the available settings:
+             
+<a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/1st_window_vum_utility.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/12/1st_window_vum_utility.png']);"><img class="alignnone size-full wp-image-5226" title="1st_window_vum_utility" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/1st_window_vum_utility.png" alt="1st window vum utility VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="545" height="447" /></a>
+             
+<a href="http://virtuallyhyper.com/wp-content/uploads/2012/12/vum_utility.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/12/vum_utility.png']);"><img class="alignnone size-full wp-image-5223" title="vum_utility" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/vum_utility.png" alt="vum utility VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="556" height="291" /></a>         

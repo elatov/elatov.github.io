@@ -65,10 +65,10 @@ I was definitely on version 4 of ESXi, lastly vCenter was at version 5. So I mat
 > 4.  Click Configuration Parameters.
 > 5.  Locate the values below for the IDE disk and set the values to FALSE.  
 >     for example:  
-	>       
-	>     ide0:0.ctkEnabled = "TRUE"  
-	>     ctkEnabled = "TRUE"  
-	>     
+>	       
+>	     ide0:0.ctkEnabled = "TRUE"  
+>	     ctkEnabled = "TRUE"  
+>	     
 > 6.  Click OK then OK again.
 > 7.  Power-on the virtual machine and retry the clone operation.
 

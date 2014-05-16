@@ -85,9 +85,9 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 
 > To configure SNMP communities,run vicfg-snmp -c, specifying a comma‐separated list of communities. For example:
 > 
-	>   
-	> vicfg-snmp -c public, internal  
-	> 
+>	   
+>	 vicfg-snmp -c public, internal  
+>	 
 
 From the same document:
 
@@ -97,20 +97,20 @@ From the same document:
 > **To configure a trap destination**  
 > 1 Make sure a community is set up.
 > 
-	>   
-	> vicfg-snmp --show  
-	> Current SNMP agent settings:  
-	> Enabled: 1  
-	> UDP port: 161  
-	> Communities: public  
-	> Notification targets:  
-	> 
+>	   
+>	 vicfg-snmp --show  
+>	 Current SNMP agent settings:  
+>	 Enabled: 1  
+>	 UDP port: 161  
+>	 Communities: public  
+>	 Notification targets:  
+>	 
 > 
 > 2 Run vicfg-snmp -target with the target address, port number, and community.
 > 
-	>   
-	> vicfg-snmp -t target.example.com@163/public  
-	> 
+>	   
+>	 vicfg-snmp -t target.example.com@163/public  
+>	 
 > 
 > Each time you specify a target with this command, the settings you specify overwrite all previously specified settings. To specify multiple targets, separate them with a comma.
 > 
@@ -118,15 +118,15 @@ From the same document:
 > 
 > 3 (Optional) Enable the SNMP agent if it is not yet running.
 > 
-	>   
-	> vicfg-snmp --enable  
-	> 
+>	   
+>	 vicfg-snmp --enable  
+>	 
 > 
 > 4 (Optional) Send a test trap to verify that the agent is configured correctly.
 > 
-	>   
-	> vicfg-snmp --test  
-	> 
+>	   
+>	 vicfg-snmp --test  
+>	 
 > 
 > The agent sends a warmStart trap to the configured target.
 
@@ -140,9 +140,9 @@ And the last section:
 > **To configure the SNMP agent for polling**  
 > 1 Run vicfg-snmp -target with the target address, port number, and community.
 > 
-	>   
-	> vicfg-snmp -c public -t target.example.com@163/public  
-	> 
+>	   
+>	 vicfg-snmp -c public -t target.example.com@163/public  
+>	 
 > 
 > Each time you specify a target with this command, the settings you specify overwrite all previously specified settings. To specify multiple targets, separate them with a comma.
 > 
@@ -150,52 +150,52 @@ And the last section:
 > 
 > 2 (Optional) Specify a port for listening for polling requests.
 > 
-	>   
-	> vicfg-snmp -p  
-	> 
+>	   
+>	 vicfg-snmp -p  
+>	 
 > 
 > 3 (Optional) If the SNMP agent is not enabled, enable it.
 > 
-	>   
-	> vicfg-snmp --enable  
-	> 
+>	   
+>	 vicfg-snmp --enable  
+>	 
 > 
 > 4 Run vicfg-snmp -test to validate the configuration.  
 > The following example shows how the commands are run in sequence.
 > 
-	>   
-	> vicfg-snmp –c public –t example.com@162/private --enable  
-	> # next validate your config by doing these things:  
-	> vicfg-snmp -–test  
-	> walk –v1 –c public esx-host  
-	>  
+>	   
+>	 vicfg-snmp –c public –t example.com@162/private --enable  
+>	 # next validate your config by doing these things:  
+>	 vicfg-snmp -–test  
+>	 walk –v1 –c public esx-host  
+>	  
 
 The above commands have to be run either from VMA or vCLI. If you don't want to use any of those tools, you can do it manually. From this blog "<a href="http://thebashline.wordpress.com/2012/01/14/esxi-add-snmp/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://thebashline.wordpress.com/2012/01/14/esxi-add-snmp/']);">Esxi – Add SNMP</a>":
 
 > Log onto esxi CLI
 > 
-	>   
-	> vi /etc/vmware/snmp.xml  
-	> 
+>	   
+>	 vi /etc/vmware/snmp.xml  
+>	 
 > 
 > Make the following changes detailed below
 > 
-	>   
-	> <config>  
-	> <snmpSettings>  
-	> <communities>public</communities>  
-	> <enable>true</enable>  
-	> <port>161</port>  
-	> <targets>target.example.com@161 public</targets>  
-	> </snmpSettings>  
-	> </config>  
-	> 
+>	   
+>	 <config>  
+>	 <snmpSettings>  
+>	 <communities>public</communities>  
+>	 <enable>true</enable>  
+>	 <port>161</port>  
+>	 <targets>target.example.com@161 public</targets>  
+>	 </snmpSettings>  
+>	 </config>  
+>	 
 > 
 > Apply the changes by restarting the services:
 > 
-	>   
-	> services.sh restart  
-	> 
+>	   
+>	 services.sh restart  
+>	 
 > 
 > The server should now be available to be polled via snmp. 
 
@@ -271,133 +271,133 @@ From <a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsph
 
 > On ESXi 5.0, ifconfig information should be the information of the VMkernel NIC that attaches to the Management Network port group. You can retrieve information by using ESXCLI commands.
 > 
-	>   
-	> esxcli network ip interface list  
-	> esxcli network ip interface ipv4 get -n vmkX  
-	> esxcli network ip interface ipv6 get -n vmkX  
-	> esxcli network ip interface ipv6 address list  
-	> 
+>	   
+>	 esxcli network ip interface list  
+>	 esxcli network ip interface ipv4 get -n vmkX  
+>	 esxcli network ip interface ipv6 get -n vmkX  
+>	 esxcli network ip interface ipv6 address list  
+>	 
 > 
 > For information corresponding to the Linux netstat command, use the following ESXCLI command.  
-	>   
-	> esxcli network ip connection list  
-	> 
+>	   
+>	 esxcli network ip connection list  
+>	 
 > 
 > List all virtual switches and associated port groups.  
-	>   
-	> esxcli network vswitch standard list  
-	> 
+>	   
+>	 esxcli network vswitch standard list  
+>	 
 > 
 > List the network policy settings (security policy, traffic shaping policy, and failover policy) for the virtual switch. The following commands are supported.
 > 
-	>   
-	> esxcli network vswitch standard policy failover get  
-	> esxcli network vswitch standard policy security get  
-	> esxcli network vswitch standard policy shaping get  
-	> 
+>	   
+>	 esxcli network vswitch standard policy failover get  
+>	 esxcli network vswitch standard policy security get  
+>	 esxcli network vswitch standard policy shaping get  
+>	 
 > 
 > Add a virtual switch.  
-	>   
-	> esxcli network vswitch standard add --vswitch-name=vSwitch42  
-	> 
+>	   
+>	 esxcli network vswitch standard add --vswitch-name=vSwitch42  
+>	 
 > 
 > You can specify the number of port groups while adding the virtual switch. If you do not specify a value, the default value is used. The system‐wide port count cannot be greater than 4096.  
-	>   
-	> esxcli network vswitch standard add --vswitch-name=vSwitch42 --ports=8  
-	> 
+>	   
+>	 esxcli network vswitch standard add --vswitch-name=vSwitch42 --ports=8  
+>	 
 > 
 > Delete a virtual switch.  
-	>   
-	> esxcli network vswitch standard remove --vswitch-name=vSwitch42  
-	> 
+>	   
+>	 esxcli network vswitch standard remove --vswitch-name=vSwitch42  
+>	 
 > 
 > Set the MTU for a vSwitch.  
-	>   
-	> esxcli network vswitch standard set --mtu=9000 --vswitch-name=vSwitch1  
-	> 
+>	   
+>	 esxcli network vswitch standard set --mtu=9000 --vswitch-name=vSwitch1  
+>	 
 > 
 > Set the CDP value for a vSwitch. You can set status to down, listen, advertise, or both.
 > 
-	>   
-	> esxcli network vswitch standard set --cdp-status=listen --vswitch-name=vSwitch1  
-	> 
+>	   
+>	 esxcli network vswitch standard set --cdp-status=listen --vswitch-name=vSwitch1  
+>	 
 > 
 > List port groups currently associated with a virtual switch.  
-	>   
-	> esxcli network vswitch standard portgroup list  
-	> 
+>	   
+>	 esxcli network vswitch standard portgroup list  
+>	 
 > 
 > Add a port group.  
-	>   
-	> esxcli network vswitch standard portgroup add --portgroup-name=NAME --vswitch-name=vSwitch1  
-	>   
+>	   
+>	 esxcli network vswitch standard portgroup add --portgroup-name=NAME --vswitch-name=vSwitch1  
+>	   
 > Delete one of the existing port groups.  
-	>   
-	> esxcli network vswitch standard portgroup remove --portgroup-name=NAME --vswitch-name=vSwitch1  
-	> 
+>	   
+>	 esxcli network vswitch standard portgroup remove --portgroup-name=NAME --vswitch-name=vSwitch1  
+>	 
 > 
 > Connect a port group with an uplink adapter.  
-	>   
-	> esxcli network vswitch standard portgroup policy failover set --active-uplinks=vmnic1,vmnic6,vmnic7  
-	> 
+>	   
+>	 esxcli network vswitch standard portgroup policy failover set --active-uplinks=vmnic1,vmnic6,vmnic7  
+>	 
 > 
 > Make some of the adapters standby instead of active.  
-	>   
-	> esxcli network vswitch standard portgroup policy failover set --standby-uplinks=vmnic1,vmnic6,vmnic7  
-	> 
+>	   
+>	 esxcli network vswitch standard portgroup policy failover set --standby-uplinks=vmnic1,vmnic6,vmnic7  
+>	 
 > 
 > Allow port groups to reach port groups located on other VLANs.  
-	>   
-	> esxcli network vswitch standard portgroup set -p <pg_name> --vlan-id 4095  
-	>  
+>	   
+>	 esxcli network vswitch standard portgroup set -p <pg_name> --vlan-id 4095  
+>	  
 > 
 > List all uplinks and information about each device.  
-	>   
-	> esxcli network nic list  
-	> 
+>	   
+>	 esxcli network nic list  
+>	 
 > 
 > Bring down one of the uplink adapters.  
-	>   
-	> esxcli network nic down --nic-name=vmnic0  
-	> 
+>	   
+>	 esxcli network nic down --nic-name=vmnic0  
+>	 
 > 
 > Add a new VMkernel network interface.  
-	>   
-	> esxcli network ip interface add --interface-name=vmkX-portgroup-name=PORTGROUP  
-	> 
+>	   
+>	 esxcli network ip interface add --interface-name=vmkX-portgroup-name=PORTGROUP  
+>	 
 > 
 > Configure the interface as an IPv4 interface. You must specify the IP address using -ip, the netmask, and the name. For the following examples, assume that VMSF‐VMK‐363 is a port group to which you want to add a VMkernel network interface.  
-	>   
-	> esxcli network ip interface ipv4 set --ip=<ip_address> --netmask=255.255.255.0 --interface-name=vmkX  
-	> 
+>	   
+>	 esxcli network ip interface ipv4 set --ip=<ip_address> --netmask=255.255.255.0 --interface-name=vmkX  
+>	 
 > 
 > List information about all VMkernel network interfaces on the system.  
-	>   
-	> esxcli network ip interface list  
-	>  
+>	   
+>	 esxcli network ip interface list  
+>	  
 
 From VMware KB <a href="http://kb.vmware.com/kb/1008127" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1008127']);">1008127</a>:
 
 > These commands allow you to add or remove network cards (known as uplinks) to or from a vNetwork Distributed Switch (vDS):  
-	>   
-	> esxcfg-vswitch -Q vmnic -V dvPort_ID_of_vmnic dvSwitch # unlink a DVS uplink  
-	> esxcfg-vswitch -P vmnic -V unused_dvPort_ID dvSwitch # add a DVS uplink  
-	> 
+>	   
+>	 esxcfg-vswitch -Q vmnic -V dvPort_ID_of_vmnic dvSwitch # unlink a DVS uplink  
+>	 esxcfg-vswitch -P vmnic -V unused_dvPort_ID dvSwitch # add a DVS uplink  
+>	 
 > 
 > To create an ESX Service Console management interface (vswif) and uplink it to the vDS, run the command:  
-	>   
-	> esxcfg-vswif -a -i IP_address -n Netmask -V dvSwitch -P DVPort_ID vswif0  
-	> 
+>	   
+>	 esxcfg-vswif -a -i IP_address -n Netmask -V dvSwitch -P DVPort_ID vswif0  
+>	 
 > 
 > Delete an existing VMkernel port from a vDS with the command:  
-	>   
-	> esxcfg-vmknic -d -s DVswitchname -v virtual_port_ID  
-	> 
+>	   
+>	 esxcfg-vmknic -d -s DVswitchname -v virtual_port_ID  
+>	 
 > 
 > To create a VMkernel port and attach it to the DVPort ID on a vDS, run the command:  
-	>   
-	> esxcfg-vmknic -a -i IP_address -n netmask -s DVswitchname -v virtual_port_ID  
-	>  
+>	   
+>	 esxcfg-vmknic -a -i IP_address -n netmask -s DVswitchname -v virtual_port_ID  
+>	  
 
 ### Analyze command line output to identify vSS and vDS configuration details
 
