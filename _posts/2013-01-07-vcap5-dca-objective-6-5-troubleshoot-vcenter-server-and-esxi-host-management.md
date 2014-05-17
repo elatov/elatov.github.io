@@ -182,12 +182,12 @@ The is a lot of good information in VMware KB <a href="http://kb.vmware.com/kb/1
 >     *   Could not start the VMware VirtualCenter Server service on Local Computer. Error 1069: The service did not start due to a logon failure.
 >     *   The VMware VirtualCenter Server Service on Local Computer started then stopped. Some services stop automatically if they have no work to do, for example the Performance Logs and Alerts service.
 > *   In the %ALLUSERSPROFILE%\VMware\VMware VirtualCenter\Logs\vpxd.log file of vCenter Server, you see an entry similar to:  
-	>       
-	>     [VpxdReverseProxy] Failed to create http proxy: An attempt was made to access a socket in a way forbidden by its access permissions.  
-	>     [Vpxd::ServerApp::Init] Init failed: VpxdMoReverseProxy::Init()  
-	>     Failed to intialize VMware VirtualCenter. Shutting down...  
-	>     Forcing shutdown of VMware VirtualCenter now  
-	>     
+>	       
+>	     [VpxdReverseProxy] Failed to create http proxy: An attempt was made to access a socket in a way forbidden by its access permissions.  
+>	     [Vpxd::ServerApp::Init] Init failed: VpxdMoReverseProxy::Init()  
+>	     Failed to intialize VMware VirtualCenter. Shutting down...  
+>	     Forcing shutdown of VMware VirtualCenter now  
+>	     
 
 After that it has a lot of different steps to figure out why the service didn't start. Also try to stop and start the vCenter Service manually and check out the event viewer for any errors:
 
@@ -239,202 +239,196 @@ And from KB 1003928:
 >     *   Click **Test Data Source** to verify the information entered.
 >     *   When the test completes, review the information presented and click **OK**.
 >     *   If the test was successful, click **OK** to exit the wizard. If the test did not complete successfully, click **Cancel** and review the information entered to ensure it is valid.
->     *   Once the test is successful, click **OK** to exit the ODBC Data Source Administrator window.</ol> </blockquote> 
->     ### Troubleshoot the ESXi firewall
+>     *   Once the test is successful, click **OK** to exit the ODBC Data Source Administrator window.
+
+### Troubleshoot the ESXi firewall
+
+From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf']);">vSphere Command-Line Interface Concepts and Examples</a>":
+
+> **To limit shell access**
+> 
+> 1.  Check firewall status and sshServer ruleset status.  
+>       
+>         esxcli network firewall get  
+>         Default Action: DROP  
+>         Enabled: true  
+>         Loaded: true  
+>         esxcli network firewall ruleset list --ruleset-id sshServer  
+>         Name Enabled  
+>         --------- -------  
+>         sshServer true  
 >     
->     From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf']);">vSphere Command-Line Interface Concepts and Examples</a>":
+> 2.  Enable the sshServer ruleset if it is disabled.  
+>       
+>         esxcli network firewall ruleset set --ruleset-id sshServer --enabled true  
 >     
->     > **To limit shell access**
->     > 
->     > 1.  Check firewall status and sshServer ruleset status.  
-	>     >       
-	>     >     esxcli network firewall get  
-	>     >     Default Action: DROP  
-	>     >     Enabled: true  
-	>     >     Loaded: true  
-	>     >     esxcli network firewall ruleset list --ruleset-id sshServer  
-	>     >     Name Enabled  
-	>     >     --------- -------  
-	>     >     sshServer true  
-	>     >     
->     > 2.  Enable the sshServer ruleset if it is disabled.  
-	>     >       
-	>     >     esxcli network firewall ruleset set --ruleset-id sshServer --enabled true  
-	>     >     
->     > 3.  Obtain access to the ESXi Shell and check the status of the allowedAll flag.  
-	>     >       
-	>     >     esxcli network firewall ruleset allowedip list --ruleset-id sshServer  
-	>     >     Ruleset Allowed IP Addresses  
-	>     >     --------- --------------------  
-	>     >     sshServer All  
-	>     >     
->     > 4.  Set the status of the allowedAll flag to false.  
-	>     >       
-	>     >     esxcli network firewall ruleset set --ruleset-id sshServer --allowed-all false  
-	>     >     
->     > 5.  Add the list of allowed IP addresses.  
-	>     >       
-	>     >     esxcli network firewall ruleset allowedip add --ruleset-id sshServer --ip-address 192.XXX.1.0/24  
-	>     >     esxcli network firewall ruleset allowedip add --ruleset-id sshServer --ip-address 192.XXX.10.10  
-	>     >     
->     > 6.  Check the allowed IP address list.  
-	>     >       
-	>     >     esxcli network firewall ruleset allowedip list --ruleset-id sshServer  
-	>     >     Ruleset Allowed IP Addresses  
-	>     >     --------- -----------------------------  
-	>     >     sshServer 192.XXX.10.10, 192.XXX.1.0/24  
-	>     >     
+> 3.  Obtain access to the ESXi Shell and check the status of the allowedAll flag.  
+>       
+>         esxcli network firewall ruleset allowedip list --ruleset-id sshServer  
+>         Ruleset Allowed IP Addresses  
+>         --------- --------------------  
+>         sshServer All  
 >     
->     From VMware KB <a href="http://kb.vmware.com/kb/2008226" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/2008226']);">2008226</a>:
+> 4.  Set the status of the allowedAll flag to false.  
+>       
+>         esxcli network firewall ruleset set --ruleset-id sshServer --allowed-all false  
 >     
->     > To enable DNS for TCP, complete these steps: </p> 
->     > 1.  Open an SSH connection to the host.
->     > 2.  List the firewall rules with this command:  
-	>     >       
-	>     >     # esxcli network firewall ruleset list  
-	>     >     Name Enabled  
-	>     >     -------------------------------  
-	>     >     sshServer true  
-	>     >     sshClient false  
-	>     >     nfsClient true  
-	>     >     dhcp true  
-	>     >     dns true  
-	>     >     snmp true  
-	>     >     ntpClient false  
-	>     >     CIMHttpServer true  
-	>     >     CIMHttpsServer true  
-	>     >     CIMSLP true  
-	>     >     iSCSI true  
-	>     >       
->     >     Note: On vSphere client, the DNS service is open on port 53 for UDP only.
->     > 
->     > To enable the DNS service on port 53 for TCP:
->     > 
->     > 1.  Backup the file /etc/vmware/firewall/service.xml. 
->     >     Note: Verify that the service.xml file has enough privileges for the modifications to be saved. Use the chmod command to change the file permissions.</li> 
->     >     *   Add this rule to the service.xml file in a plain text editor: 
-	>     >           
-	>     >         <service id="0032">  
-	>     >         <id>DNSTCPOut </id>  
-	>     >         <rule id='0000'>  
-	>     >         <direction>outbound</direction>  
-	>     >         <protocol>tcp</protocol>  
-	>     >         <porttype>dst</porttype>  
-	>     >         <port>53</port>  
-	>     >         </rule>  
-	>     >         <enabled>true</enabled>  
-	>     >         <required>false</required>  
-	>     >         </service>  
-	>     >         
->     >         
->     >         **Example of the rule set configuration file**
->     >         
-	>     >           
-	>     >         <ConfigRoot>  
-	>     >         <service id='0000'>  
-	>     >         <id>serviceName</id>  
-	>     >         <rule id = '0000'>  
-	>     >         <direction>inbound</direction>  
-	>     >         <protocol>tcp</protocol>  
-	>     >         <porttype>dst</porttype>  
-	>     >         <port>80</port>  
-	>     >         </rule>  
-	>     >         <rule id='0001'>  
-	>     >         <direction>inbound</direction>  
-	>     >         <protocol>tcp</protocol>  
-	>     >         <porttype>src</porttype>  
-	>     >         <port>  
-	>     >         <begin>1020</begin>  
-	>     >         <end>1050</end>  
-	>     >         </port>  
-	>     >         </rule>  
-	>     >         <enabled>true</enabled>  
-	>     >         <required>false</required>  
-	>     >         </service>  
-	>     >         </ConfigRoot>  
-	>     >          </li> 
->     >         *   Refresh the firewall rules for the changes to take effect with this command: 
-	>     >               
-	>     >             # esxcli network firewall refresh  
-	>     >             
->     >             
->     >             Note: This setting does not persist after a reboot. To make it persistent, refer KB 2011818.</li> 
->     >             *   List the rules again using this command:  
-	>     >                   
-	>     >                 # esxcli network firewall ruleset list  
-	>     >                 Name Enabled  
-	>     >                 -------------- -----------------  
-	>     >                 sshServer true  
-	>     >                 sshClient false  
-	>     >                 nfsClient true  
-	>     >                 dhcp true  
-	>     >                 dns true  
-	>     >                 snmp true  
-	>     >                 ntpClient false  
-	>     >                 CIMHttpServer true  
-	>     >                 CIMHttpsServer true  
-	>     >                 CIMSLP true  
-	>     >                 iSCSI true  
-	>     >                 DNSTCPOut true  
-	>     >                  
->     >             Note: The new firewall rule DNSTCPOut allows outgoing connections on TCP port 53. </ol> </blockquote> 
->     >             ### Troubleshoot ESXi host management and connectivity issues
->     >             
->     >             From the host ping another host and the vCenter IPs:
->     >             
-	>     >               
-	>     >             ~ # vmkping 192.168.0.101 -c 1  
-	>     >             PING 192.168.0.101 (192.168.0.101): 56 data bytes  
-	>     >             64 bytes from 192.168.0.101: icmp_seq=0 ttl=64 time=0.848 ms
-	>     >             
-	>     >             --- 192.168.0.101 ping statistics ---  
-	>     >             1 packets transmitted, 1 packets received, 0% packet loss  
-	>     >             round-trip min/avg/max = 0.848/0.848/0.848 ms  
-	>     >             
->     >             
->     >             Then find out the IP of vCenter and ping it:
->     >             
-	>     >               
-	>     >             ~ # grep serverIp /etc/vmware/vpxa/vpxa.cfg  
-	>     >             <serverIp>192.168.0.121</serverIp>  
-	>     >             ~ # vmkping -c 1 192.168.0.121  
-	>     >             PING 192.168.0.121 (192.168.0.121): 56 data bytes  
-	>     >             64 bytes from 192.168.0.121: icmp_seq=0 ttl=128 time=0.906 ms
-	>     >             
-	>     >             --- 192.168.0.121 ping statistics ---  
-	>     >             1 packets transmitted, 1 packets received, 0% packet loss  
-	>     >             round-trip min/avg/max = 0.906/0.906/0.906 ms  
-	>     >             
->     >             
->     >             Make sure DNS is working as well:
->     >             
-	>     >               
-	>     >             ~ # nslookup vcenter  
-	>     >             Name: vcenter  
-	>     >             Address 1: 192.168.0.121 vcenter  
-	>     >             ~ # nslookup esx1  
-	>     >             Name: esx1  
-	>     >             Address 1: 192.168.0.101 esx1  
-	>     >             
->     >             
->     >             From the vCenter make sure you can telnet to hostd of the host:
->     >             
-	>     >               
-	>     >             C:\Users\Administrator>telnet 192.168.0.103 902  
-	>     >             220 VMware Authentication Daemon Version 1.10: SSL Required, ServerDaemonProtoco  
-	>     >             l:SOAP, MKSDisplayProtocol:VNC , VMXARGS supported  
-	>     >             
->     >             
->     >             ### Determine the root cause of a vSphere management or connectivity issue
->     >             
->     >             Check out the logs under:
->     >             
->     >             /var/log/hostd.log main management daemon  
->     >             /var/log/vpxa.log management daemon that handles request from vCenter and forwards to hostd
->     >             
->     >             You will see disconnects there.
->     >             
->     >             ### Utilize Direct Console User Interface (DCUI) and ESXi Shell to troubleshoot, configure, and monitor an environment
->     >             
->     >             This was covered in "<a href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-3-troubleshoot-network-performance-and-connectivity/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-3-troubleshoot-network-performance-and-connectivity/']);">VCAP5-DCA Objective 6.3</a>"
->     >             
+> 5.  Add the list of allowed IP addresses.  
+>       
+>         esxcli network firewall ruleset allowedip add --ruleset-id sshServer --ip-address 192.XXX.1.0/24  
+>         esxcli network firewall ruleset allowedip add --ruleset-id sshServer --ip-address 192.XXX.10.10  
+>     
+> 6.  Check the allowed IP address list.  
+>       
+>         esxcli network firewall ruleset allowedip list --ruleset-id sshServer  
+>         Ruleset Allowed IP Addresses  
+>         --------- -----------------------------  
+>         sshServer 192.XXX.10.10, 192.XXX.1.0/24  
+>     
+
+From VMware KB <a href="http://kb.vmware.com/kb/2008226" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/2008226']);">2008226</a>:
+
+> To enable DNS for TCP, complete these steps: 
+>
+> 1.  Open an SSH connection to the host.
+> 2.  List the firewall rules with this command:  
+>       
+>         # esxcli network firewall ruleset list  
+>         Name Enabled  
+>         -------------------------------  
+>         sshServer true  
+>         sshClient false  
+>         nfsClient true  
+>         dhcp true  
+>         dns true  
+>         snmp true  
+>         ntpClient false  
+>         CIMHttpServer true  
+>         CIMHttpsServer true  
+>         CIMSLP true  
+>         iSCSI true  
+>  
+> **Note**: On vSphere client, the DNS service is open on port 53 for UDP only.
+> 
+> To enable the DNS service on port 53 for TCP:
+> 
+> 1.  Backup the file **/etc/vmware/firewall/service.xml**. 
+>     Note: Verify that the service.xml file has enough privileges for the modifications to be saved. Use the chmod command to change the file permissions.</li> 
+>     *   Add this rule to the **service.xml** file in a plain text editor: 
+>           
+>              <service id="0032">  
+>              <id>DNSTCPOut </id>  
+>              <rule id='0000'>  
+>              <direction>outbound</direction>  
+>              <protocol>tcp</protocol>  
+>              <porttype>dst</porttype>  
+>              <port>53</port>  
+>              </rule>  
+>              <enabled>true</enabled>  
+>              <required>false</required>  
+>              </service>  
+>         
+>         
+> **Example of the rule set configuration file**
+>          
+>         <ConfigRoot>  
+>         <service id='0000'>  
+>         <id>serviceName</id>  
+>         <rule id = '0000'>  
+>         <direction>inbound</direction>  
+>         <protocol>tcp</protocol>  
+>         <porttype>dst</porttype>  
+>         <port>80</port>  
+>         </rule>  
+>         <rule id='0001'>  
+>         <direction>inbound</direction>  
+>         <protocol>tcp</protocol>  
+>         <porttype>src</porttype>  
+>         <port>  
+>         <begin>1020</begin>  
+>         <end>1050</end>  
+>         </port>  
+>         </rule>  
+>         <enabled>true</enabled>  
+>         <required>false</required>  
+>         </service>  
+>         </ConfigRoot>  
+> 
+> *   Refresh the firewall rules for the changes to take effect with this command: 
+>               
+>          # esxcli network firewall refresh  
+>
+> **Note**: This setting does not persist after a reboot. To make it persistent, refer KB 2011818.
+>
+> *   List the rules again using this command:  
+>                   
+>         # esxcli network firewall ruleset list  
+>         Name Enabled  
+>         -------------- -----------------  
+>         sshServer true  
+>         sshClient false  
+>         nfsClient true  
+>         dhcp true  
+>         dns true  
+>         snmp true  
+>         ntpClient false  
+>         CIMHttpServer true  
+>         CIMHttpsServer true  
+>         CIMSLP true  
+>         iSCSI true  
+>         DNSTCPOut true  
+>                  
+>  **Note**: The new firewall rule DNSTCPOut allows outgoing connections on TCP port 53.
+
+### Troubleshoot ESXi host management and connectivity issues
+
+From the host ping another host and the vCenter IPs:
+
+
+     ~ # vmkping 192.168.0.101 -c 1  
+     PING 192.168.0.101 (192.168.0.101): 56 data bytes  
+     64 bytes from 192.168.0.101: icmp_seq=0 ttl=64 time=0.848 ms
+     
+     --- 192.168.0.101 ping statistics ---  
+     1 packets transmitted, 1 packets received, 0% packet loss  
+     round-trip min/avg/max = 0.848/0.848/0.848 ms  
+     
+Then find out the IP of vCenter and ping it:
+
+     ~ # grep serverIp /etc/vmware/vpxa/vpxa.cfg  
+     <serverIp>192.168.0.121</serverIp>  
+     ~ # vmkping -c 1 192.168.0.121  
+     PING 192.168.0.121 (192.168.0.121): 56 data bytes  
+     64 bytes from 192.168.0.121: icmp_seq=0 ttl=128 time=0.906 ms
+     
+     --- 192.168.0.121 ping statistics ---  
+     1 packets transmitted, 1 packets received, 0% packet loss  
+     round-trip min/avg/max = 0.906/0.906/0.906 ms  
+               
+Make sure DNS is working as well:
+
+     ~ # nslookup vcenter  
+     Name: vcenter  
+     Address 1: 192.168.0.121 vcenter  
+     ~ # nslookup esx1  
+     Name: esx1  
+     Address 1: 192.168.0.101 esx1  
+     
+From the vCenter make sure you can telnet to hostd of the host:
+
+     C:\Users\Administrator>telnet 192.168.0.103 902  
+     220 VMware Authentication Daemon Version 1.10: SSL Required, ServerDaemonProtocol:SOAP, MKSDisplayProtocol:VNC , VMXARGS supported  
+     
+
+### Determine the root cause of a vSphere management or connectivity issue
+
+Check out the logs under:
+
+- **/var/log/hostd.log** - main management daemon  
+- **/var/log/vpxa.log** - management daemon that handles request from vCenter and forwards to hostd
+
+You will see disconnects there.
+
+### Utilize Direct Console User Interface (DCUI) and ESXi Shell to troubleshoot, configure, and monitor an environment
+      
+This was covered in "<a href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-3-troubleshoot-network-performance-and-connectivity/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-3-troubleshoot-network-performance-and-connectivity/']);">VCAP5-DCA Objective 6.3</a>"          
