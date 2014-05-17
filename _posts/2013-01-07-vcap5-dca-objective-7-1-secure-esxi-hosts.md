@@ -88,9 +88,9 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 > 2.  Click the Local Users & Groups tab and click Users.
 > 3.  Right-click anywhere in the Users table and click Add to open the Add New User dialog box.
 > 4.  Enter a login, a user name, a numeric user ID (UID), and a password. 
->     *   n Specifying the user name and UID are optional. If you do not specify the UID, the vSphere Client assigns the next available UID.
->     *   n Create a password that meets the length and complexity requirements. The host checks for password compliance using the default authentication plug-in, pam_passwdqc.so. If the password is not compliant, the following error appears: A general system error occurred: passwd: Authentication token manipulation error.
-> 5.  To change the user’s ability to access ESXi through a command shell, select or deselect Grant shell access to this user.In general, do not grant shell access unless the user has a justifiable need. Users that access the host only through the vSphere Client do not need shell access.
+>     *   n Specifying the user name and UID are optional. If you do not specify the UID, the vSphere Client assigns the next available UID.
+>     *   n Create a password that meets the length and complexity requirements. The host checks for password compliance using the default authentication plug-in, pam_passwdqc.so. If the password is not compliant, the following error appears: A general system error occurred: passwd: Authentication token manipulation error.
+> 5.  To change the user’s ability to access ESXi through a command shell, select or deselect Grant shell access to this user.In general, do not grant shell access unless the user has a justifiable need. Users that access the host only through the vSphere Client do not need shell access.
 > 6.  To add the user to a group, select the group name from the Group drop-down menu and click Add.
 > 7.  Click OK.
 
@@ -109,8 +109,8 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 > 1.  Log in to ESXi using the vSphere Client.
 > 2.  Click the Local Users & Groups tab and click Groups.
 > 3.  Right-click anywhere in the Groups table and click Add to open the Create New Group dialog box.
-> 4.  Enter a group name and numeric group ID (GID).Specifying the ID is optional. If you do not specify an ID, the vSphere Client assigns the next available group ID.
-> 5.   From the User list, select user to add and click Add.
+> 4.  Enter a group name and numeric group ID (GID).Specifying the ID is optional. If you do not specify an ID, the vSphere Client assigns the next available group ID.
+> 5.   From the User list, select user to add and click Add.
 > 6.  Click OK
 
 Here is how it looks like from the vSphere Client:
@@ -180,10 +180,10 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 > 1.  Log in to the vCenter Server system using the vSphere Client.
 > 2.  Select Administration > vCenter Server Settings.
 > 3.  Click SSL Settings in the left pane and verify that Check host certificates is selected.
-> 4.  If there are hosts that require manual validation, compare the thumbprints listed for the hosts to the thumbprints in the host console.To obtain the host thumbprint, use the Direct Console User Interface (DCUI). 
+> 4.  If there are hosts that require manual validation, compare the thumbprints listed for the hosts to the thumbprints in the host console.To obtain the host thumbprint, use the Direct Console User Interface (DCUI). 
 >     *   Log in to the direct console and press F2 to access the System Customization menu.
 >     *   Select View Support Information.The host thumbprint appears in the column on the right.
-> 5.  If the thumbprint matches, select the Verify check box next to the host. Hosts that are not selected will be disconnected after you click OK.
+> 5.  If the thumbprint matches, select the Verify check box next to the host. Hosts that are not selected will be disconnected after you click OK.
 > 6.  Click OK.
 
 Here is how the setting looks like from vCenter:
@@ -200,15 +200,17 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 > **Procedure**
 > 
 > 1.  Log in to the ESXi Shell and acquire root privileges.
-	> 2.  In the directory /etc/vmware/ssl, back up any existing certificates by renaming them using the following commands.  
-	>     mv rui.crt orig.rui.crt  
-	>     mv rui.key orig.rui.key  
-	>     
+>	 2.  In the directory /etc/vmware/ssl, back up any existing certificates by renaming them using the following commands.
+>  
+>         mv rui.crt orig.rui.crt  
+>         mv rui.key orig.rui.key  
+>	     
 > 3.  Run the command */sbin/generate-certificates* to generate new certificates.
-> 4.  Restart the host after you install the new certificate. Alternatively, you can put the host into maintenance mode, install the new certificate, and then use the Direct Console User Interface (DCUI) to restart the management agents.
-	> 5.  Confirm that the host successfully generated new certificates by using the following command and comparing the time stamps of the new certificate files with orig.rui.crt and orig.rui.key.  
-	>     ls -la  
-	>     
+> 4.  Restart the host after you install the new certificate. Alternatively, you can put the host into maintenance mode, install the new certificate, and then use the Direct Console User Interface (DCUI) to restart the management agents.
+>	 5.  Confirm that the host successfully generated new certificates by using the following command and comparing the time stamps of the new certificate files with orig.rui.crt and orig.rui.key.  
+>  
+>         ls -la  
+>	     
 
 ### Enable ESXi lockdown mode
 
@@ -284,12 +286,13 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 > **Procedure**
 > 
 > 1.  Log in to the ESXi Shell and acquire root privileges.
-	> 2.  In the directory /etc/vmware/ssl, rename the existing certificates using the following commands.  
-	>     mv rui.crt orig.rui.crt  
-	>     mv rui.key orig.rui.key  
-	>     
-> 3.  Copy the new certificate and key to /etc/vmware/ssl.
-> 4.  Rename the new certificate and key to rui.crt and rui.key.
+>	 2.  In the directory /etc/vmware/ssl, rename the existing certificates using the following commands.  
+>	     
+>         mv rui.crt orig.rui.crt  
+>         mv rui.key orig.rui.key  
+>	     
+> 3.  Copy the new certificate and key to **/etc/vmware/ssl**.
+> 4.  Rename the new certificate and key to **rui.crt** and **rui.key**.
 > 5.  Restart the host after you install the new certificate. Alternatively, you can put the host into maintenance mode, install the new certificate, and then use the Direct Console User Interface (DCUI) to restart the management agents.
 
 ### Configure SSL timeouts
@@ -302,37 +305,35 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 > *   The Read Timeout setting applies to connections that have completed the SSL handshake process with port 443 of ESXi.
 > *   The Handshake Timeout setting applies to connections that have not completed the SSL handshake process with port 443 of ESXi.
 > 
-> Both connection timeouts are set in milliseconds. Idle connections are disconnected after the timeout period. By default, fully established SSL connections have a timeout of infinity. **Procedure**
+> Both connection timeouts are set in milliseconds. Idle connections are disconnected after the timeout period. By default, fully established SSL connections have a timeout of infinity. **Procedure**
 > 
 > 1.  Log in to the ESXi Shell and acquire root privileges.
 > 2.  Change to the directory **/etc/vmware/hostd/**.
 > 3.  Use a text editor to open the config.xml file.
-	> 4.  Enter the value in milliseconds. For example, to set the Read Timeout to 20 seconds, enter the following command.  
-	>     20000  
-	>     
-	> 5.  Enter the value in milliseconds. For example, to set the Handshake Timeout to 20 seconds, enter the following command.  
-	>     20000  
-	>     
+> 4.  Enter the value in milliseconds. For example, to set the Read Timeout to 20 seconds, enter the following command.  
+>
+>         20000  
+>	     
+> 5.  Enter the value in milliseconds. For example, to set the Handshake Timeout to 20 seconds, enter the following command.  
+>
+>         20000  
+>	     
 > 6.  Save your changes and close the file.
-	> 7.  Restart the hostd process:  
-	>     /etc/init.d/hostd restart  
-	>     
+> 7.  Restart the hostd process:  
+>
+>         /etc/init.d/hostd restart  
+>	     
 > 
 > **Example: Configuration File** The following section from the file */etc/vmware/hostd/config.xml* shows where to enter the SSL timeout settings.
 > 
-	> 
-	> 
-	> ...
-	> 
-	> 20000
-	> 
-	> ...
-	> 
-	> ...  
-	> 20000  
-	> ...
-	> 
-	> 
+>	 
+>     ...
+>     20000
+>     ...
+>     ...  
+>     20000  
+>     ...
+>	 
 
 ### Configure vSphere Authentication Proxy
 
@@ -395,7 +396,7 @@ Now we need to export the certificates from the CAM service and upload it to our
 >     3.  Browse to the certificate and select Open.
 > 3.  Select the Configuration tab and click Authentication Services.
 > 4.  Click Import Certificate.
-> 5.  Enter the full path to the authentication proxy server certificate file on the host and the IP address of the authentication proxy server.Use the form  file path to enter the path to the proxy server.
+> 5.  Enter the full path to the authentication proxy server certificate file on the host and the IP address of the authentication proxy server.Use the form  file path to enter the path to the proxy server.
 > 6.  Click Import.
 
 Lastly use the Proxy to add a host to a domain:
@@ -423,21 +424,21 @@ Lastly use the Proxy to add a host to a domain:
 From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf']);">vSphere Security ESXi 5.0</a>":
 
 > **Host Password Strength and Complexity**  
-> By default, ESXi uses the pam_passwdqc.so plug-in to set the rules that users must observe when creating passwords and to check password strength.
+> By default, ESXi uses the pam_passwdqc.so plug-in to set the rules that users must observe when creating passwords and to check password strength.
 > 
-> The pam_passwdqc.so plug-in lets you determine the basic standards that all passwords must meet. By default, ESXi imposes no restrictions on the root password. However, when nonroot users attempt to change their passwords, the passwords they choose must meet the basic standards that pam_passwdqc.so sets.
+> The pam_passwdqc.so plug-in lets you determine the basic standards that all passwords must meet. By default, ESXi imposes no restrictions on the root password. However, when nonroot users attempt to change their passwords, the passwords they choose must meet the basic standards that pam_passwdqc.so sets.
 > 
-> A valid password should contain a combination of as many character classes as possible. Character classes include lowercase letters, uppercase letters, numbers, and special characters such as an underscore or dash. To configure password complexity, you can change the default value of the following parameters.
+> A valid password should contain a combination of as many character classes as possible. Character classes include lowercase letters, uppercase letters, numbers, and special characters such as an underscore or dash. To configure password complexity, you can change the default value of the following parameters.
 > 
-> *   retry is the number of times a user is prompted for a new password if the password candidate is not sufficiently strong.
-> *   N0 is the number of characters required for a password that uses characters from only one character class. For example, the password contains only lowercase letters.
+> *   retry is the number of times a user is prompted for a new password if the password candidate is not sufficiently strong.
+> *   N0 is the number of characters required for a password that uses characters from only one character class. For example, the password contains only lowercase letters.
 > *   N1 is the number of characters required for a password that uses characters from two character classes.
-> *   N2 is used for passphrases. ESXi requires three words for a passphrase. Each word in the passphrase must be 8-40 characters long.
+> *   N2 is used for passphrases. ESXi requires three words for a passphrase. Each word in the passphrase must be 8-40 characters long.
 > *   N3 is the number of characters required for a password that uses characters from three character classes.
 > *   N4 is the number of characters required for a password that uses characters from all four character classes.
-> *   match is the number of characters allowed in a string that is reused from the old password. If the pam_passwdqc.so plug-in finds a reused string of this length or longer, it disqualifies the string from the strength test and uses only the remaining characters.
+> *   match is the number of characters allowed in a string that is reused from the old password. If the pam_passwdqc.so plug-in finds a reused string of this length or longer, it disqualifies the string from the strength test and uses only the remaining characters.
 > 
-> Setting any of these options to -1 directs the pam_passwdqc.so plug-in to ignore the requirement. Setting any of these options to disabled directs the pam_passwdqc.so plug-in to disqualify passwords with the associated characteristic. The values used must be in descending order except for -1 and disabled.
+> Setting any of these options to -1 directs the pam_passwdqc.so plug-in to ignore the requirement. Setting any of these options to disabled directs the pam_passwdqc.so plug-in to disqualify passwords with the associated characteristic. The values used must be in descending order except for -1 and disabled.
 > 
 > **Change Default Password Complexity for the pam_passwdqc.so Plug-In**  
 > Configure the pam_passwdqc.so plug-in to determine the basic standards all passwords must meet.
@@ -446,18 +447,19 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 > 
 > 1.  Log in to the ESXi Shell and acquire root privileges.
 > 2.  Open the passwd file with a text editor.For example, **vi /etc/pam.d/passwd**
-	> 3.  Edit the following line.  
-	>     password requisite /lib/security/$ISA/pam_passwdqc.so retry=N min=N0,N1,N2,N3,N4  
-	>     
+> 3.  Edit the following line.
+>  
+>         password requisite /lib/security/$ISA/pam_passwdqc.so retry=N min=N0,N1,N2,N3,N4  
+>	     
 > 4.  Save the file.
 
 Here is an example from the same document:
 
 > **Example: Editing /etc/pam.d/passwd**
 > 
-	>   
-	> password requisite /lib/security/$ISA/pam_passwdqc.so retry=3 min=12,9,8,7,6  
-	> 
+>	   
+>     password requisite /lib/security/$ISA/pam_passwdqc.so retry=3 min=12,9,8,7,6  
+>	 
 > 
 > With this setting in effect, the password requirements are:
 > 
@@ -476,7 +478,7 @@ From "<a href="http://communities.vmware.com/docs/DOC-19605" onclick="javascript
 > By default, remote console sessions can be connected to by more than one user at a time. When multiple sessions are activated, each terminal window gets a notification about the new session. If an administrator in the VM logs in using a VMware remote console during their session, a nonadministrator in the VM might connect to the console and observe the administrator's actions. Also, this could result in an administrator losing console access to a virtual machine. For example if a jump box is being used for an open console session, and the admin loses connection to that box, then the console session remains open. Allowing two console sessions permits debugging via a shared session. For highest security, only one remote console session at a time should be allowed
 > 
 > **tools.setInfo.sizeLimit**  
-> "The configuration file containing these name-value pairs is limited to a size of 1MB. This 1MB capacity should be sufficient for most cases, but you can change this value if necessary. You might increase this value if large amounts of custom information are being stored in the configuration file. The default limit is 1MB; this limit is applied even when the sizeLimit parameter is not listed in the .vmx file. Uncontrolled size for the VMX file can lead to denial of service if the datastore is filled."
+> "The configuration file containing these name-value pairs is limited to a size of 1MB. This 1MB capacity should be sufficient for most cases, but you can change this value if necessary. You might increase this value if large amounts of custom information are being stored in the configuration file. The default limit is 1MB; this limit is applied even when the sizeLimit parameter is not listed in the .vmx file. Uncontrolled size for the VMX file can lead to denial of service if the datastore is filled."
 > 
 > **isolation.tools.copy.disable**  
 > Copy and paste operations are disabled by default however by explicitly disabling this feature it will enable audit controls to check that this setting is correct.
@@ -542,7 +544,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 > You can enter the domain name in one of two ways:
 > 
 > *   **name.tld** (for example, **domain.com**): The account is created under the default container.
-> *   **name.tld/container/path** (for example, **domain.com/OU1/OU2**): The account is created under a particular organizational unit (OU).
+> *   **name.tld/container/path** (for example, **domain.com/OU1/OU2**): The account is created under a particular organizational unit (OU).
 > 
 > **Procedure**
 > 
@@ -552,7 +554,7 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 > 4.  Enter a domain. 
 >     Use the form **name.tld** or **name.tld/container/path**.</li> 
 >     *   Click Join Domain.
->     *   Enter the user name and password of a directory service user who has permissions to join the host to the domain, and click OK.
+>     *   Enter the user name and password of a directory service user who has permissions to join the host to the domain, and click OK.
 >     *   Click OK to close the Directory Services Configuration dialog box</ol> </blockquote> 
 >     Here is how it looks like from vCenter:
 >     
