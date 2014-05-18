@@ -176,11 +176,7 @@ That looked good. Now checking the driver version:
 	Install Date -  
 	Description - This package contains the VMware ESX 4.0 driver for the  
 	Intel(R) 10GbE PCI Express Family of Server Adapters.  
-	KB URL -
-	
-	http://www.intel.com/network/connectivity/products/server_adap
-	
-	ters.htm  
+	KB URL - http://www.intel.com/network/connectivity/products/server_adapters.htm  
 	Contact - linux.nics'@'intel.com  
 	Compliant - False  
 	RebootRequired - True  
@@ -191,59 +187,43 @@ That looked good. Now checking the driver version:
 	
 
 That also looked good, then finally installing the driver:
-
-	  
+  
 	~ # esxupdate --bundle=/vmfs/volumes/datastore1/INT-intel-lad-ddk-ixgbe-400.3.9.13-1.249663-offline_bundle-697530.zip update  
 	Unpacking cross_vmware-esx-dr.. ######################################## [100%]
-	
 	Removing packages :vmware-esx.. ######################################## [100%]
-	
 	Installing packages :cross_vm.. ######################################## [100%]
 	
 	Running [/usr/sbin/vmkmod-install.sh]...  
 	ok.  
-	The update completed successfully, but the system needs to be rebooted for the  
-	changes to be effective.  
+	The update completed successfully, but the system needs to be rebooted for the  changes to be effective.  
 	
-
 After the install, I rebooted the host:
-
 	  
 	~ # reboot  
 	
-
 After the host rebooted, I then exited maintenance mode:
-
 	  
 	~ # vim-cmd hostsvc/maintenance_mode_exit  
 	'vim.Task:haTask-ha-host-vim.HostSystem.exitMaintenanceMode-18'  
 	
-
 and I was able to set the NIC to auto negotiate:
-
 	  
 	~ # esxcfg-nics -a vmnic7  
 	~ # ethtool vmnic7 | grep auto  
 	Supports auto-negotiation: Yes  
 	Advertised auto-negotiation: Yes  
 	
-
 Lastly confirming the driver:
-
 	  
 	~ # vmkload_mod -s ixgbe | grep -i version  
 	Version: Version 3.9.13-NAPI, Build: 249663, Interface: 9.0, Built on: Apr 12 2012  
 	
-
 and 
-
-	  
+ 
 	~ # ethtool -i vmnic7  
 	driver: ixgbe  
 	version: 3.9.13-NAPI  
 	firmware-version: 0x54600001  
 	bus-info: 0000:02:00.0  
 	
-
 Everything was working as expected: I had the latest driver installed and I was able to set my NIC to auto negotiate.
-
