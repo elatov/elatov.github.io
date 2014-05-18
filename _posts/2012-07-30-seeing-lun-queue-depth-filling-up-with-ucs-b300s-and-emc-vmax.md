@@ -20,9 +20,9 @@ tags:
   - SIOC
   - Storage Queues
 ---
-Recently I ran into an issue where the device queue length was filling up. Looking at esxtop here is how it looked like:<img class="alignnone size-full wp-image-1777" title="full_queue_depth_s" src="http://virtuallyhyper.com/wp-content/uploads/2012/07/full_queue_depth_s.png" alt="full queue depth s Seeing LUN Queue Depth Filling up with UCS B230/B200 using Cisco VICs and EMC VMAX" width="1617" height="184" />As I ran into this issue I realized I didn't really know of all the different aspects of all the different queues at different storage layers. I also didn't realize of all the possible ways to help out with the issue. First let's tackle the description of all the different queues at different layers. There is an excellent VMware blog on this topic: "<a href="http://blogs.vmware.com/vsphere/2012/07/troubleshooting-storage-performance-in-vsphere-part-5-storage-queues.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://blogs.vmware.com/vsphere/2012/07/troubleshooting-storage-performance-in-vsphere-part-5-storage-queues.html']);">Troubleshooting Storage Performance in vSphere – Storage Queues</a>". I will shamelessly copy their diagram just to make it easier to follow the blog:
+Recently I ran into an issue where the device queue length was filling up. Looking at esxtop here is how it looked like:<img class="alignnone size-full wp-image-1777" title="full_queue_depth_s" src="http://virtuallyhyper.com/wp-content/uploads/2012/07/full_queue_depth_s.png" alt="full queue depth s Seeing LUN Queue Depth Filling up with UCS B230/B200 using Cisco VICs and EMC VMAX" width="1617" height="184" />As I ran into this issue I realized I didn't really know of all the different aspects of all the different queues at different storage layers. I also didn't realize of all the possible ways to help out with the issue. First let's tackle the description of all the different queues at different layers. There is an excellent VMware blog on this topic: "[Troubleshooting Storage Performance in vSphere – Storage Queues](http://blogs.vmware.com/vsphere/2012/07/troubleshooting-storage-performance-in-vsphere-part-5-storage-queues.html)". I will shamelessly copy their diagram just to make it easier to follow the blog:
 
-<a href="http://virtuallyhyper.com/wp-content/uploads/2012/07/storage_queues1.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/07/storage_queues1.png']);"><img class="alignnone size-full wp-image-1779" title="storage_queues" src="http://virtuallyhyper.com/wp-content/uploads/2012/07/storage_queues1.png" alt="storage queues1 Seeing LUN Queue Depth Filling up with UCS B230/B200 using Cisco VICs and EMC VMAX" width="836" height="624" /></a>
+[<img class="alignnone size-full wp-image-1779" title="storage_queues" src="http://virtuallyhyper.com/wp-content/uploads/2012/07/storage_queues1.png" alt="storage queues1 Seeing LUN Queue Depth Filling up with UCS B230/B200 using Cisco VICs and EMC VMAX" width="836" height="624" />](http://virtuallyhyper.com/wp-content/uploads/2012/07/storage_queues1.png)
 
 Here is an excerpt from the same blog:
 
@@ -32,62 +32,62 @@ and also this:
 
 > As you can see, the I/O requests flow into the per virtual machine queue, which then flows into the per HBA queue, and then finally the I/O flows from the adapter queue into the per LUN queue for the LUN the I/O is going to. From the default sizes you can see that each VM is able to issue 32 concurrent I/O requests, the adapter queue beneath it is generally quite large and can normally accept all those I/O requests, but the LUN queue beneath that typically only has a size of 32 itself.
 
-If you want to check what your queues are currently set to, you can take a look at <a href="http://kb.vmware.com/kb/1027901" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1027901']);">VMware KB 1027901</a>.
+If you want to check what your queues are currently set to, you can take a look at [VMware KB 1027901](http://kb.vmware.com/kb/1027901).
 
-Not a lot of things touch upon for the Adapter Queue Length (AQLEN). The Emulex driver has an option for this (but apparently this is not settable after ESX 3.5, more information <a href="http://www.yellow-bricks.com/2008/01/31/queue-depth-and-alike-settings-lost-after-an-upgrade-to-esx-35/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.yellow-bricks.com/2008/01/31/queue-depth-and-alike-settings-lost-after-an-upgrade-to-esx-35/']);">here</a>):
+Not a lot of things touch upon for the Adapter Queue Length (AQLEN). The Emulex driver has an option for this (but apparently this is not settable after ESX 3.5, more information [here](http://www.yellow-bricks.com/2008/01/31/queue-depth-and-alike-settings-lost-after-an-upgrade-to-esx-35/)):
 
-	  
-	~ # vmkload_mod -s lpfc820 | grep lpfc_hba_queue_depth -A 1  
-	lpfc_hba_queue_depth: int  
-	Max number of FCP commands we can queue to a lpfc HBA  
-	
+
+	~ # vmkload_mod -s lpfc820 | grep lpfc_hba_queue_depth -A 1
+	lpfc_hba_queue_depth: int
+	Max number of FCP commands we can queue to a lpfc HBA
+
 
 If you are using Software iSCSI there is an option for this as well:
 
-	  
-	~ # vmkload_mod -s iscsi_vmk | grep iscsivmk_HostQDepth -A 1  
-	iscsivmk_HostQDepth: int  
-	Maximum Outstanding Commands Per Adapter  
-	
+
+	~ # vmkload_mod -s iscsi_vmk | grep iscsivmk_HostQDepth -A 1
+	iscsivmk_HostQDepth: int
+	Maximum Outstanding Commands Per Adapter
+
 
 Like mentioned in the above VMware blog the typical size is 1024 (or something in the thousands) but usually the default size is good. The vendor knows the best option for this piece of hardware and it's rarely possible to change that value.
 
-The interesting setting is the LUN/Device Queue Length (DQLEN). There are many ways to tweak this option. The first way is to do it via the driver, more on this in <a href="http://kb.vmware.com/kb/1267" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1267']);">VMware KB 1267</a>. For each of the drivers the options are the following:
+The interesting setting is the LUN/Device Queue Length (DQLEN). There are many ways to tweak this option. The first way is to do it via the driver, more on this in [VMware KB 1267](http://kb.vmware.com/kb/1267). For each of the drivers the options are the following:
 
-	  
-	~ # vmkload_mod -s lpfc820 | grep lpfc_lun_queue_depth -A 1  
-	lpfc_lun_queue_depth: int  
+
+	~ # vmkload_mod -s lpfc820 | grep lpfc_lun_queue_depth -A 1
+	lpfc_lun_queue_depth: int
 	Max number of FCP commands we can queue to a specific LUN
-	
-	~ # vmkload_mod -s iscsi_vmk | grep iscsivmk_LunQDepth -A 1  
-	iscsivmk_LunQDepth: int  
-	Maximum Outstanding Commands Per LUN
-	
-	~ # vmkload_mod -s qla2xxx | grep ql2xmaxqdepth -A 1  
-	ql2xmaxqdepth: int  
-	Maximum queue depth to report for target devices.  
-	
 
-The Cisco VIC sets the DQLEN value to be 32. From the Cisco article "<a href="http://www.cisco.com/en/US/prod/collateral/ps10265/ps10276/whitepaper_c11-702584.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.cisco.com/en/US/prod/collateral/ps10265/ps10276/whitepaper_c11-702584.html']);">Cisco Unified Computing System (UCS) Storage Connectivity Options and Best Practices with NetApp Storage</a>".
+	~ # vmkload_mod -s iscsi_vmk | grep iscsivmk_LunQDepth -A 1
+	iscsivmk_LunQDepth: int
+	Maximum Outstanding Commands Per LUN
+
+	~ # vmkload_mod -s qla2xxx | grep ql2xmaxqdepth -A 1
+	ql2xmaxqdepth: int
+	Maximum queue depth to report for target devices.
+
+
+The Cisco VIC sets the DQLEN value to be 32. From the Cisco article "[Cisco Unified Computing System (UCS) Storage Connectivity Options and Best Practices with NetApp Storage](http://www.cisco.com/en/US/prod/collateral/ps10265/ps10276/whitepaper_c11-702584.html)".
 
 > Hardcoded Parameters
-> 
-> LUN Queue Depth  
+>
+> LUN Queue Depth
 > This value affects performance in a FC environment when the host throughput is limited by the various queues that exist in the FC driver and SCSI layer of the operating system
-> 
+>
 > This Cisco VIC adapter sets this value to 32 per LUN on ESX and Linux and 255 on Windows and does not expose this parameter in the FC adapter policy. Emulex and Qlogic expose this setting using their host based utilities. Many customers have asked about how to change this value using the Cisco VIC adapter. Cisco is considering this request as an enhancement for a future release. However FC performance with the VIC adapter has been excellent and there no cases in evidence (that the author is aware of) indicating that this setting is not optimal at its current value. It should be noted that this is the default value recommended by VMware for ESX and other operating systems vendors.
 
-The VMware white paper "<a href="http://www.vmware.com/files/pdf/scalable_storage_performance.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://www.vmware.com/files/pdf/scalable_storage_performance.pdf']);">Scalable Storage Performance</a>" describes what DQLEN is:
+The VMware white paper "[Scalable Storage Performance](http://www.vmware.com/files/pdf/scalable_storage_performance.pdf)" describes what DQLEN is:
 
 > The SCSI protocol allows multiple commands to be active on a LUN at the same time. SCSI device drivers have a configurable parameter called the LUN queue depth that determines how many commands can be active at one time to a given LUN. QLogic Fibre Channel HBAs support up to 255 outstanding commands per LUN,and Emulex HBAs support up to 128. However, the default value for both drivers is set to 32. If an ESX host generates more commands to a LUN than the LUN queue depth, the excess commands are queued in the ESX kernel, and this increases the latency.
-> 
+>
 > SCSI device drivers have a configurable parameter called the LUN queue depth that determines how many commands to a given LUN can be active at one time. The default in ESX is 32. If an ESX host generates more commands to a LUN than the LUN queue depth, the excess commands are queued in the ESX kernel, and this increases the latency. The queue depth is per‐LUN, and not per‐initiator. The initiator (or the host bus adapter) supports many more commands (typically 2,000 to 4,000 commands per port).
 
-There is also another way of tweaking this value and that is with Disk.SchedNumReqOutstanding (DSNRO). This actually comes before the LUN Queues. There is a very good step by step diagram of the queues at the Virtual Geek blog "<a href="http://virtualgeek.typepad.com/virtual_geek/2009/06/vmware-io-queues-micro-bursting-and-multipathing.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtualgeek.typepad.com/virtual_geek/2009/06/vmware-io-queues-micro-bursting-and-multipathing.html']);">VMware I/O queues, “micro-bursting”, and multipathing</a>". Here is the picture from that blog:
+There is also another way of tweaking this value and that is with Disk.SchedNumReqOutstanding (DSNRO). This actually comes before the LUN Queues. There is a very good step by step diagram of the queues at the Virtual Geek blog "[VMware I/O queues, “micro-bursting”, and multipathing](http://virtualgeek.typepad.com/virtual_geek/2009/06/vmware-io-queues-micro-bursting-and-multipathing.html)". Here is the picture from that blog:
 
-<a href="http://virtuallyhyper.com/wp-content/uploads/2012/07/all_storage_queues.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2012/07/all_storage_queues.png']);"><img class="alignnone size-full wp-image-1784" title="all_storage_queues" src="http://virtuallyhyper.com/wp-content/uploads/2012/07/all_storage_queues.png" alt="all storage queues Seeing LUN Queue Depth Filling up with UCS B230/B200 using Cisco VICs and EMC VMAX" width="630" height="465" /></a>
+[<img class="alignnone size-full wp-image-1784" title="all_storage_queues" src="http://virtuallyhyper.com/wp-content/uploads/2012/07/all_storage_queues.png" alt="all storage queues Seeing LUN Queue Depth Filling up with UCS B230/B200 using Cisco VICs and EMC VMAX" width="630" height="465" />](http://virtuallyhyper.com/wp-content/uploads/2012/07/all_storage_queues.png)
 
-To edit this option you can follow instructions from <a href="http://kb.vmware.com/kb/1268" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1268']);">VMware KB 1268</a>. There is a caveat with this option. From the above KB:
+To edit this option you can follow instructions from [VMware KB 1268](http://kb.vmware.com/kb/1268). There is a caveat with this option. From the above KB:
 
 > **Note:** This limit does not apply when only one virtual machine is active on a Datastore/LUN. In that case, the bandwidth is limited by the queue depth of the storage adapter.
 
@@ -99,12 +99,12 @@ And one more note regarding DSNRO, from the same PDF:
 
 > Also make sure to set the Disk.SchedNumReqOutstanding parameter to the same value as the queue depth. If this parameter is given a higher value than the queue depth, it is still capped at the queue depth. However, if this parameter is given a lower value than the queue depth, only that many outstanding commands are issued from the ESX kernel to the LUN from all virtual machines. The Disk.SchedNumReqOutstanding setting has no effect when there is only one virtual machine issuing I/O to the LUN.
 
-So when modifying the LUN Queue Length on the HBA drivers also modify the DSNRO accordingly. Because DQLEN will be set to the minimum of the two. If you want to read more on how DSNRO works, I suggest reading this yellow brick blog "<a href="http://www.yellow-bricks.com/2011/06/23/disk-schednumreqoutstanding-the-story/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.yellow-bricks.com/2011/06/23/disk-schednumreqoutstanding-the-story/']);">Disk.SchedNumReqOutstanding the story</a>".
+So when modifying the LUN Queue Length on the HBA drivers also modify the DSNRO accordingly. Because DQLEN will be set to the minimum of the two. If you want to read more on how DSNRO works, I suggest reading this yellow brick blog "[Disk.SchedNumReqOutstanding the story](http://www.yellow-bricks.com/2011/06/23/disk-schednumreqoutstanding-the-story/)".
 
-There are two other things that can affect the DQLEN value. The first one is the adaptive queue depth algorithm. More information can be found in the <a href="http://kb.vmware.com/kb/1008113" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1008113']);">VMware KB 1008113</a>. From that KB:
+There are two other things that can affect the DQLEN value. The first one is the adaptive queue depth algorithm. More information can be found in the [VMware KB 1008113](http://kb.vmware.com/kb/1008113). From that KB:
 
 > VMware ESX 3.5 Update 4 and ESX 4.0 introduces an adaptive queue depth algorithm that adjusts the LUN queue depth in the VMkernel I/O stack. This algorithm is activated when the storage array indicates I/O congestion by returning a BUSY or QUEUE FULL status. These status codes may indicate congestion at the LUN level or at the port (or ports) on the array. When congestion is detected, VMkernel throttles the LUN queue depth. The VMkernel attempts to gradually restore the queue depth when congestion conditions subside.
-> 
+>
 > This algorithm can be activated by changing the values of the QFullSampleSize and QFullThreshold parameters. When the number of QUEUE FULL or BUSY conditions reaches the QFullSampleSize value, the LUN queue depth reduces to half of the original value. When the number of good status conditions received reaches the QFullThreshold value, the LUN queue depth increases one at a time.
 
 If you see the SCSI Sense Codes mentioned in the above KB then you know your DQLEN value is impacted.

@@ -29,9 +29,9 @@ I was connecting my *HTC* phone to another *Fedora* computer and I realized I di
     * daemon started successfully *
     List of devices attached
     ???????????? no permissions usb:1-2
-    
 
-*Googling* around I found <a href="http://ptspts.blogspot.com/2011/10/how-to-fix-adb-no-permissions-error-on.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://ptspts.blogspot.com/2011/10/how-to-fix-adb-no-permissions-error-on.html']);">this</a> post on how to fix it, and there are similar instructions on the *Android* <a href="http://developer.android.com/tools/device.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://developer.android.com/tools/device.html']);">page</a> as well. The blog post was for *Ubuntu* and it included a lot of phones, which I didn't really need. So I decided to create my own *udev* rules for my *Fedora* 17 install. The first thing that we need to is figure out the device path of our usb phone. After plugging the phone into the usb slot, we will see the following in **dmesg**:
+
+*Googling* around I found [page](http://ptspts.blogspot.com/2011/10/how-to-fix-adb-no-permissions-error-on.html) as well. The blog post was for *Ubuntu* and it included a lot of phones, which I didn't really need. So I decided to create my own *udev* rules for my *Fedora* 17 install. The first thing that we need to is figure out the device path of our usb phone. After plugging the phone into the usb slot, we will see the following in **dmesg**:
 
     moxz:~>dmesg | tail -11
     [1004050.455351] usb 1-2: USB disconnect, device number 18
@@ -45,7 +45,7 @@ I was connecting my *HTC* phone to another *Fedora* computer and I realized I di
     [1004061.444207] scsi 18:0:0:0: Direct-Access HTC File-CD Gadget 0000 PQ: 0 ANSI: 2
     [1004061.450206] sd 18:0:0:0: Attached scsi generic sg3 type 0
     [1004061.468162] sd 18:0:0:0: [sdb] Attached SCSI removable disk
-    
+
 
 We can see that our phone device is **sdb**, now using *udev* we can query the device for more information, like so:
 
@@ -81,7 +81,7 @@ We can see that our phone device is **sdb**, now using *udev* we can query the d
     E: TAGS=:systemd:
     E: UDISKS_PRESENTATION_NOPOLICY=0
     E: USEC_INITIALIZED=1004061498268
-    
+
 
 The most important information is the following:
 
@@ -89,7 +89,7 @@ The most important information is the following:
     E: ID_SERIAL_SHORT=HT164T500742
     E: ID_VENDOR=HTC
     E: ID_VENDOR_ID=0bb4
-    
+
 
 Now based on that information we need to create a *udev* rule to allow *others* to write to the device. Actually using *udev* again, we can print a more 'udev' friendly output, like this:
 
@@ -99,7 +99,7 @@ Now based on that information we need to create a *udev* rule to allow *others* 
     found, all possible attributes in the udev rules key format.
     A rule to match, can be composed by the attributes of the device
     and the attributes from one single parent device.
-    
+
     looking at device '/devices/pci0000:00/0000:00:02.2/usb1/1-2':
     KERNEL=="1-2"
     SUBSYSTEM=="usb"
@@ -130,18 +130,18 @@ Now based on that information we need to create a *udev* rule to allow *others* 
     ATTR{manufacturer}=="HTC"
     ATTR{product}=="HTC"
     ATTR{serial}=="HT164T500742"
-    
+
 
 Now copying the above output, let's create a new rule file called **/etc/udev/rules.d/51-phone.rules** and put the following into it:
 
     SUBSYSTEM=="usb",ATTR{idVendor}=="0bb4",GROUP="elatov",MODE="0666"
-    
+
 
 The reason why the file is numbered 51 is because by default the system *udev* rules change the permission of all USB devices to *664* in rule number 50. Here is the file and line that does that:
 
     moxz:~>grep usb /lib/udev/rules.d/50-udev-default.rules | grep MODE
     SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", MODE="0664"
-    
+
 
 So we need to make sure our rule loads after that one (therefore we are 51).Now let's reload the rules and restart the *udev* daemon:
 
@@ -154,7 +154,7 @@ So we need to make sure our rule loads after that one (therefore we are 51).Now 
     Main PID: 28367 (udevd)
     CGroup: name=systemd:/system/udev.service
     └ 28367 /usr/lib/udev/udevd
-    
+
 
 That looks good. Now we have to uplug the device and plug it back it. First let's check out the current permissions on the USB device. Here is a list of the USB devices on the *Fedora* machine:
 
@@ -163,13 +163,13 @@ That looks good. Now we have to uplug the device and plug it back it. First let'
     Bus 002 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
     Bus 001 Device 002: ID 413c:3200 Dell Computer Corp. Mouse
     Bus 001 Device 019: ID 0bb4:0c86 High Tech Computer Corp.
-    
+
 
 The last one is the phone (bus 001, device 019), now checking out the permissions of the file corresponding to that device, we see this:
 
     moxz:~>ls -l /dev/bus/usb/001/019
-    crw-rw-r-- 1 root root 189, 18 Feb 5 13:06 /dev/bus/usb/001/019 
-    
+    crw-rw-r-- 1 root root 189, 18 Feb 5 13:06 /dev/bus/usb/001/019
+
 
 Now unplugging the phone and plugging it back in, we see the following:
 
@@ -178,18 +178,18 @@ Now unplugging the phone and plugging it back in, we see the following:
     Bus 002 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
     Bus 001 Device 002: ID 413c:3200 Dell Computer Corp. Mouse
     Bus 001 Device 020: ID 0bb4:0c86 High Tech Computer Corp.
-    
+
 
 We can see that the device *ID* has changed. Now checking out the permissions of the new file:
 
     moxz:~>ls -l /dev/bus/usb/001/020
     crw-rw-rw- 1 root root 189, 19 Feb 5 13:31 /dev/bus/usb/001/020
-    
+
 
 That's all good. Now listing the available devices with **adb**, we see the following:
 
     moxz:~>adb devices
     List of devices attached
     HT164T500742 device
-    
+
 

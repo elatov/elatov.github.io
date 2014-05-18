@@ -19,51 +19,51 @@ tags:
 
 One day I tried to open console on a VM and I got the **MKS** error:
 
-<a href="http://virtuallyhyper.com/wp-content/uploads/2013/08/mks_error.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/08/mks_error.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2013/08/mks_error.png" alt="mks error ESXi hostd Crash (5.1GA) Due to Leftover SNMP Traps" width="307" height="136" class="alignnone size-full wp-image-9296" title="ESXi hostd Crash (5.1GA) Due to Leftover SNMP Traps" /></a>
+[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/08/mks_error.png" alt="mks error ESXi hostd Crash (5.1GA) Due to Leftover SNMP Traps" width="307" height="136" class="alignnone size-full wp-image-9296" title="ESXi hostd Crash (5.1GA) Due to Leftover SNMP Traps" />](http://virtuallyhyper.com/wp-content/uploads/2013/08/mks_error.png)
 
 I logged into the host and I tried to run an **esxcli** command and I saw the following:
 
-    ~ # esxcli network 
+    ~ # esxcli network
     Connect to localhost failed: Connection failure
-    
+
 
 It looks like **hostd** wasn't happy. I quickly restarted services:
 
     ~ # services.sh restart
-    
+
 
 and that brought back **hostd** and the **MKS** errors went away. I didn't have time to find out what was going on, so I grabbed a log bundle:
 
     ~ # vm-support
-    
+
 
 I downloaded the log bundle from the ESXi host and put it on my laptop. Here is the file:
 
     elatov@kmac:~/es$ls *.tgz
     esx-prod-vmware01-2013-08-12--14.06.tgz
-    
+
 
 I extracted the file:
 
     elatov@kmac:~/es$ tar xvzf esx-prod-vmware01-2013-08-12--14.06.tgz
-    
+
 
 I then put the log files together since they get split apart to save space when the log bundle is generated:
 
     elatov@kmac:~/es$cd esx-prod-vmware01-2013-08-12--14.06/
-    elatov@kmac:~/es/esx-prod-vmware01-2013-08-12--14.06$./reconstruct.sh 
-    
+    elatov@kmac:~/es/esx-prod-vmware01-2013-08-12--14.06$./reconstruct.sh
+
 
 First I wanted to see what time we ran the service restart, here is when that happened:
 
     elatov@kmac:~/es/esx-prod-vmware01-2013-08-12--14.06/var/log$grep 'services.sh restart' shell.log  | tail -1
     2013-08-12T13:55:30Z shell[3389987]: [root]: services.sh restart
-    
+
 
 Around that time I saw the following in the **var/log/hostd.log** file:
 
     2013-08-12T13:48:25.650Z [6FE81B90 info 'ha-eventmgr'] Event 8573 : The file table of the ramdisk 'root' is full.  As a result, the file /var/run/vmware/tickets/vmtck-5206bb19-94d6-12 could not be created by the application 'hostd-worker'.
-    
+
 
 There was actually an event fired for the "ramdisk" is full:
 
@@ -112,12 +112,12 @@ There was actually an event fired for the "ramdisk" is full:
     -->    objectName = <unset>,
     -->    fault = (vmodl.MethodFault) null,
     --> }
-    
 
-I found <a href="http://kb.vmware.com/kb/2040707" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/2040707']);">this</a> VMware KB, notice some of the symptoms list the following:
+
+I found [this](http://kb.vmware.com/kb/2040707) VMware KB, notice some of the symptoms list the following:
 
 > Opening a virtual machine console from the vSphere Client fails with the error:
-> 
+>
 > Unable to contact the MKS
 
 That is what we saw. Apparently this is caused by enabling SNMPD. From the same KB:
@@ -143,19 +143,19 @@ Looking over the esxi host, I did see SNMPD enabled:
        <privProtocol></privProtocol>
      </snmpSettings>
     </config>
-    
+
 
 From KB we can double confirm if that is issue by running the following:
 
 > ls /var/spool/snmp | wc -l
-> 
+>
 > Note: If the output indicates that the value is 2000 or more, then this may be causing the full inodes.
 
 Running that on the host, we saw the following:
 
     ~ # ls /var/spool/snmp | wc -l
-    5385 
-    
+    5385
+
 
 That confirmed that we are running into that issue. This is fixed in 5.1u1, again from the KB:
 
@@ -166,13 +166,13 @@ Checking over the current version that we were on, I saw the following:
     elatov@kmac:~/es/esx-prod-vmware01-2013-08-12--14.06$cat commands/vmware_-vl.txt
     VMware ESXi 5.1.0 build-799733
     VMware ESXi 5.1.0 GA
-    
+
 
 For now we disabled SNMP logging and also cleaned up the left over SNMP files:
 
     # cd /var/spool/snmp
     # for i in $(ls | grep trp); do rm -f $i;done
-    
+
 
 After we update to 5.1U1, I am sure the issue will be fixed.
 

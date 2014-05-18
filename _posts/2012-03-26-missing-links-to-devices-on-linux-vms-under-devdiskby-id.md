@@ -16,14 +16,14 @@ Recently, I ran into an issue where all links under **/dev/disk/by-id** were mis
 
     [root@rac2 ~]# scsi_id -p 0x80 -g -s /block/sda
     [root@rac2 ~]# scsi_id -p 0x83 -g -s /block/sda
-    
 
-*   **0x83** is Device Identification Vital Product Data and **0x80** is Unit Serial Number 
 
-as you can see, nothing is returned. I did some research and I found that after ESX 4.0, a SCSI inquiry will not be answered within the VM. There is actually a VMware KB that talks about it, VMware KB <a href="http://kb.vmware.com/kb/1029157" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1029157']);">1029157</a> and here is another blog that talks about the same, <a href="http://www.dizwell.com/wiki/doku.php?id=blog:the_case_of_vmware_and_the_missing_scsi_id" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','']);">The Case of VMware and the missing SCSI ID</a>. Now to fix the issue we can set the following in the **vmx** file:
+*   **0x83** is Device Identification Vital Product Data and **0x80** is Unit Serial Number
+
+as you can see, nothing is returned. I did some research and I found that after ESX 4.0, a SCSI inquiry will not be answered within the VM. There is actually a VMware KB that talks about it, VMware KB [The Case of VMware and the missing SCSI ID](http://kb.vmware.com/kb/1029157). Now to fix the issue we can set the following in the **vmx** file:
 
     disk.EnableUUID = "TRUE"
-    
+
 
 and then it will correctly answer to the SCSI inquiry. I made the above change to a Linux VM, and here is what I saw:
 
@@ -31,7 +31,7 @@ and then it will correctly answer to the SCSI inquiry. I made the above change t
     SVMware Virtual disk 6000c2907159c1057f111400f66d4642
     [root@rac1 ~]# scsi_id -p 0x83 -g -s /block/sda
     36000c2907159c1057f111400f66d4642
-    
+
 
 Now they are returning the VPD information. And also looking under **/dev/disk/by-id**, I see the following:
 
@@ -43,23 +43,23 @@ Now they are returning the VPD information. And also looking under **/dev/disk/b
     lrwxrwxrwx 1 root root 9 Mar 25 13:55 /dev/disk/by-id/scsi-36000c2993b74b940e6952b381d6be0d5 -> ../../sdb
     lrwxrwxrwx 1 root root 10 Mar 25 13:55 /dev/disk/by-id/scsi-36000c2993b74b940e6952b381d6be0d5-part1 -> ../../sdb1
     [root@rac1 ~]#
-    
+
 
 As a side note, under different distros the **scsi_id** command might be under different locations and might accept other flags. For Fedora 16, it looks like this:
 
     [root@fed ~]$ /lib/udev/scsi_id -p 0x83 -g -d /dev/sda
     35000c50024837909
-    
+
 
 and on Ubuntu:
 
     root@ub: ~$ /lib/udev/scsi_id -p 0x83 -g -d /dev/sda
     35000c86787963
-    
+
 
 and on RHEL
 
     [root@rac1 ~]# /sbin/scsi_id -p 0x83 -g -s /block/sdb
     36000c2993b74b940e6952b381d6be0d5
-    
+
 
