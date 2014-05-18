@@ -41,8 +41,10 @@ From "<a href="http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-E
 
 Also here are the other prerequisites:
 
-> **Set Up the PXE Boot Infrastructure **  
-> Auto Deploy uses a PXE to network boot ESXi hosts. The PXE requires a DHCP and TFTP server.  
+> **Set Up the PXE Boot Infrastructure**
+>
+> Auto Deploy uses a PXE to network boot ESXi hosts. The PXE requires a DHCP and TFTP server.
+>
 > **TFTP Server**  
 > Auto Deploy can utilize any standard TFTP infrastructure. You will need to copy the Auto Deploy gPXE boot files from your vCenter server into the TFTP home directory (the steps to do this are discussed later). The following example shows the contents of the TFTP home directory on a Linux server that has been configured for Auto Deploy:
 > 
