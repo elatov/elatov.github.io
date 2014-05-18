@@ -552,10 +552,10 @@ From "<a href="http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp
 > 2.  Click Properties.
 > 3.  In the Directory Services Configuration dialog box, select the directory service from the drop-down menu.
 > 4.  Enter a domain. 
->     Use the form **name.tld** or **name.tld/container/path**.</li> 
+>     Use the form **name.tld** or **name.tld/container/path**. 
 >     *   Click Join Domain.
 >     *   Enter the user name and password of a directory service user who has permissions to join the host to the domain, and click OK.
->     *   Click OK to close the Directory Services Configuration dialog box</ol> </blockquote> 
+>     *   Click OK to close the Directory Services Configuration dialog box  
 >     Here is how it looks like from vCenter:
 >     
 >     <a href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-7-1-secure-esxi-hosts/ad_integration/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/vcap5-dca-objective-7-1-secure-esxi-hosts/ad_integration/']);" rel="attachment wp-att-5512"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/ad_integration.png" alt="ad integration VCAP5 DCA Objective 7.1 – Secure ESXi Hosts " width="919" height="511" class="alignnone size-full wp-image-5512" title="VCAP5 DCA Objective 7.1 – Secure ESXi Hosts " /></a>

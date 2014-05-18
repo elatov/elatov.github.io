@@ -224,7 +224,7 @@ And from KB 1003928:
 > 
 > 1.  Log into the vCenter Server as an administrator.
 > 2.  Click **Start** > **Control Panel** > **Administrative Tools** > **Data Sources (ODBC)**.For vCenter Server 4.0 running on a 64-bit host: 
->     Click **Start** > **Run**, type %systemdrive%\Windows\SysWoW64\Odbcad32.exe, and press **Enter**.</li> 
+>     Click **Start** > **Run**, type %systemdrive%\Windows\SysWoW64\Odbcad32.exe, and press **Enter**. 
 >     *   Click the **System DSN** tab.
 >     *   Under System Data Sources, select the Data Source that vCenter Server is using, as noted in the previous section of this article.
 >     *   Click **Configure**.
@@ -313,7 +313,7 @@ From VMware KB <a href="http://kb.vmware.com/kb/2008226" onclick="javascript:_ga
 > To enable the DNS service on port 53 for TCP:
 > 
 > 1.  Backup the file **/etc/vmware/firewall/service.xml**. 
->     Note: Verify that the service.xml file has enough privileges for the modifications to be saved. Use the chmod command to change the file permissions.</li> 
+>     Note: Verify that the service.xml file has enough privileges for the modifications to be saved. Use the chmod command to change the file permissions. 
 >     *   Add this rule to the **service.xml** file in a plain text editor: 
 >           
 >              <service id="0032">  

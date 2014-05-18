@@ -54,7 +54,7 @@ The list keeps going. If you want to see the sizes of all the VMDKs you can do t
 If you want to see the whole list don't pipe the command to *head*. So I first wanted to see all the VMDK sizes across all the hosts. In my scenario I had 8 hosts, my extracted logs looked like this:
 
 	  
-	$ for log in \`ls -d esx-*\`; do echo $log; done  
+	$ for log in `ls -d esx-*`; do echo $log; done  
 	esx-host1.com-2012-08-20--19.28  
 	esx-host2.com-2012-08-20--19.36  
 	esx-host3.com-2012-08-20--19.44  
@@ -68,7 +68,7 @@ If you want to see the whole list don't pipe the command to *head*. So I first w
 Now to list the sum of VMDKs per host in KiloBytes we can do the following:
 
 	  
-	$ for log in \`ls -d esx-*\`; do echo $log; sum=0;for vmdk in \`grep "label = 'Hard disk" $log/commands/vmware-vimdump.txt -A 1 | grep summary| awk '{print $3}' | cut -d \' -f 2 | sed -e s/,//g\`; do ((sum+=$vmdk)); done ; echo $sum; done  
+	$ for log in `ls -d esx-*`; do echo $log; sum=0;for vmdk in `grep "label = 'Hard disk" $log/commands/vmware-vimdump.txt -A 1 | grep summary| awk '{print $3}' | cut -d \' -f 2 | sed -e s/,//g`; do ((sum+=$vmdk)); done ; echo $sum; done  
 	esx-host1.com-2012-08-20--19.28  
 	16191900876  
 	esx-host2.com-2012-08-20--19.36  
@@ -90,7 +90,7 @@ Now to list the sum of VMDKs per host in KiloBytes we can do the following:
 Converting the values to TB here is what we get:
 
 	  
-	$ for log in \`ls -d esx-*\`; do echo $log; sum=0;for vmdk in \`grep "label = 'Hard disk" $log/commands/vmware-vimdump.txt -A 1 | grep summary| awk '{print $3}' | cut -d \' -f 2 | sed -e s/,//g\`; do ((sum+=$vmdk)); done ; tb=\`echo "scale=2;$sum / 1024 / 1024 / 1024"| bc -l\`; echo $tb; done  
+	$ for log in `ls -d esx-*`; do echo $log; sum=0;for vmdk in `grep "label = 'Hard disk" $log/commands/vmware-vimdump.txt -A 1 | grep summary| awk '{print $3}' | cut -d \' -f 2 | sed -e s/,//g`; do ((sum+=$vmdk)); done ; tb=`echo "scale=2;$sum / 1024 / 1024 / 1024"| bc -l`; echo $tb; done  
 	esx-host1.com-2012-08-20--19.28  
 	15.07  
 	esx-host2.com-2012-08-20--19.36  
@@ -112,7 +112,7 @@ Converting the values to TB here is what we get:
 Now getting a grand total of all of that, I get the following:
 
 	  
-	$ tbsum=0;for log in \`ls -d esx-*\`; do echo $log; sum=0; for vmdk in \`grep "label = 'Hard disk" $log/commands/vmware-vimdump.txt -A 1 | grep summary| awk '{print $3}' | cut -d \' -f 2 | sed -e s/,//g\`; do ((sum+=$vmdk)); done ; tb=\`echo "scale=2;$sum / 1024 / 1024 / 1024"| bc -l\`; tbsum=\`echo "scale=2;$tb+$tbsum"|bc -l\`; echo $tb; done ;echo $tbsum  
+	$ tbsum=0;for log in `ls -d esx-*`; do echo $log; sum=0; for vmdk in `grep "label = 'Hard disk" $log/commands/vmware-vimdump.txt -A 1 | grep summary| awk '{print $3}' | cut -d \' -f 2 | sed -e s/,//g`; do ((sum+=$vmdk)); done ; tb=`echo "scale=2;$sum / 1024 / 1024 / 1024"| bc -l`; tbsum=`echo "scale=2;$tb+$tbsum"|bc -l`; echo $tb; done ;echo $tbsum  
 	esx-host1.com-2012-08-14--19.28  
 	15.07  
 	esx-host2.com-2012-08-20--19.36  
@@ -135,7 +135,7 @@ Now getting a grand total of all of that, I get the following:
 So we are approximately using 100TB of space across all the eight hosts. The issue would come up when we would consolidate the cluster to about 2 or 3 hosts. That would mean that we would have about either 50TB per host (with 2 hosts) or 33TB per host (with 3 hosts). Now looking at VMware KB <a href="http://kb.vmware.com/kb/1004424" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1004424']);">1004424</a>. We can see that setting the *VMFS3.MaxHeapSizeMB* to 256MB we should be able to handle 64TB of open space. Checking our hosts, we already had that option set:
 
 	  
-	$ for log in \`ls -d esx-*\`; do echo $log; grep '\.MaxHeapSizeMB' -A 1 $log/commands/esxcfg-info_-a.txt; done  
+	$ for log in `ls -d esx-*`; do echo $log; grep '\.MaxHeapSizeMB' -A 1 $log/commands/esxcfg-info_-a.txt; done  
 	esx-host1.com-2012-08-20--19.28  
 	|----Option Name..................................MaxHeapSizeMB  
 	|----Current Value................................256  

@@ -254,11 +254,11 @@ This is pretty easy, let's create a temporary directory and download the install
 	Connecting to dilerium.se (dilerium.se)|193.202.110.54|:80... connected.  
 	HTTP request sent, awaiting response... 200 OK  
 	Length: 29481485 (28M)   
-	Saving to: \`subsonic-installer-standalone.zip'
+	Saving to: 'subsonic-installer-standalone.zip'
 	
 	100%[=====================================>] 29,481,485 482K/s in 76s 
 	
-	2013-01-30 17:40:41 (380 KB/s) - \`subsonic-installer-standalone.zip' saved [29481485/29481485]  
+	2013-01-30 17:40:41 (380 KB/s) - 'subsonic-installer-standalone.zip' saved [29481485/29481485]  
 	
 
 Now let's extract the contents:

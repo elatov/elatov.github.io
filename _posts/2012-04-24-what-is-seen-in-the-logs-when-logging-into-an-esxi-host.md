@@ -32,7 +32,7 @@ When logging to an ESXi host directly via ssh you will see the following in /var
 	Apr 16 20:28:23 esx_host sshd[20996]: pam_unix(system-auth-generic:session): session opened for user root by (uid=0)  
 	
 
-If you have the wtmp file on your ESXi host, you can copy that file from the host to a Linux machine and run the following on it (because the \`last\` command does not exist on ESXi, but it does exist on ESX classic):
+If you have the wtmp file on your ESXi host, you can copy that file from the host to a Linux machine and run the following on it (because the `last` command does not exist on ESXi, but it does exist on ESX classic):
 
 	  
 	# last -f /var/log/wtmp | head  

@@ -128,10 +128,10 @@ I then went inside the patch directory and applied the patch:
 	patching file vmmon-only/linux/hostif.c  
 	Stopping vmware (via systemctl):  
 	Using 2.6.x kernel build system.  
-	make: Entering directory \`/tmp/modconfig-j0gI7d/vmmon-only'  
+	make: Entering directory '/tmp/modconfig-j0gI7d/vmmon-only'  
 	/usr/bin/make -C /lib/modules/3.5.2-3.fc17.i686.PAE/build/include/.. SUBDIRS=$PWD SRCROOT=$PWD/. \  
 	MODULEBUILDDIR= modules  
-	make[1]: Entering directory \`/usr/src/kernels/3.5.2-3.fc17.i686.PAE'  
+	make[1]: Entering directory '/usr/src/kernels/3.5.2-3.fc17.i686.PAE'  
 	CC [M] /tmp/modconfig-j0gI7d/vmmon-only/linux/driver.o  
 	CC [M] /tmp/modconfig-j0gI7d/vmmon-only/linux/hostif.o  
 	CC [M] /tmp/modconfig-j0gI7d/vmmon-only/linux/driverLog.o  
@@ -149,19 +149,19 @@ I then went inside the patch directory and applied the patch:
 	MODPOST 1 modules  
 	CC /tmp/modconfig-j0gI7d/vmmon-only/vmmon.mod.o  
 	LD [M] /tmp/modconfig-j0gI7d/vmmon-only/vmmon.ko  
-	make[1]: Leaving directory \`/usr/src/kernels/3.5.2-3.fc17.i686.PAE'  
+	make[1]: Leaving directory '/usr/src/kernels/3.5.2-3.fc17.i686.PAE'  
 	/usr/bin/make -C $PWD SRCROOT=$PWD/. \  
 	MODULEBUILDDIR= postbuild  
-	make[1]: Entering directory \`/tmp/modconfig-j0gI7d/vmmon-only'  
-	make[1]: \`postbuild' is up to date.  
-	make[1]: Leaving directory \`/tmp/modconfig-j0gI7d/vmmon-only'  
+	make[1]: Entering directory '/tmp/modconfig-j0gI7d/vmmon-only'  
+	make[1]: 'postbuild' is up to date.  
+	make[1]: Leaving directory '/tmp/modconfig-j0gI7d/vmmon-only'  
 	cp -f vmmon.ko ./../vmmon.o  
-	make: Leaving directory \`/tmp/modconfig-j0gI7d/vmmon-only'  
+	make: Leaving directory '/tmp/modconfig-j0gI7d/vmmon-only'  
 	Using 2.6.x kernel build system.  
-	make: Entering directory \`/tmp/modconfig-j0gI7d/vmnet-only'  
+	make: Entering directory '/tmp/modconfig-j0gI7d/vmnet-only'  
 	/usr/bin/make -C /lib/modules/3.5.2-3.fc17.i686.PAE/build/include/.. SUBDIRS=$PWD SRCROOT=$PWD/. \  
 	MODULEBUILDDIR= modules  
-	make[1]: Entering directory \`/usr/src/kernels/3.5.2-3.fc17.i686.PAE'  
+	make[1]: Entering directory '/usr/src/kernels/3.5.2-3.fc17.i686.PAE'  
 	CC [M] /tmp/modconfig-j0gI7d/vmnet-only/hub.o  
 	CC [M] /tmp/modconfig-j0gI7d/vmnet-only/driver.o  
 	CC [M] /tmp/modconfig-j0gI7d/vmnet-only/userif.o  
@@ -178,19 +178,19 @@ I then went inside the patch directory and applied the patch:
 	MODPOST 1 modules  
 	CC /tmp/modconfig-j0gI7d/vmnet-only/vmnet.mod.o  
 	LD [M] /tmp/modconfig-j0gI7d/vmnet-only/vmnet.ko  
-	make[1]: Leaving directory \`/usr/src/kernels/3.5.2-3.fc17.i686.PAE'  
+	make[1]: Leaving directory '/usr/src/kernels/3.5.2-3.fc17.i686.PAE'  
 	/usr/bin/make -C $PWD SRCROOT=$PWD/. \  
 	MODULEBUILDDIR= postbuild  
-	make[1]: Entering directory \`/tmp/modconfig-j0gI7d/vmnet-only'  
-	make[1]: \`postbuild' is up to date.  
-	make[1]: Leaving directory \`/tmp/modconfig-j0gI7d/vmnet-only'  
+	make[1]: Entering directory '/tmp/modconfig-j0gI7d/vmnet-only'  
+	make[1]: 'postbuild' is up to date.  
+	make[1]: Leaving directory '/tmp/modconfig-j0gI7d/vmnet-only'  
 	cp -f vmnet.ko ./../vmnet.o  
-	make: Leaving directory \`/tmp/modconfig-j0gI7d/vmnet-only'  
+	make: Leaving directory '/tmp/modconfig-j0gI7d/vmnet-only'  
 	Using 2.6.x kernel build system.  
-	make: Entering directory \`/tmp/modconfig-j0gI7d/vmblock-only'  
+	make: Entering directory '/tmp/modconfig-j0gI7d/vmblock-only'  
 	/usr/bin/make -C /lib/modules/3.5.2-3.fc17.i686.PAE/build/include/.. SUBDIRS=$PWD SRCROOT=$PWD/. \  
 	MODULEBUILDDIR= modules  
-	make[1]: Entering directory \`/usr/src/kernels/3.5.2-3.fc17.i686.PAE'  
+	make[1]: Entering directory '/usr/src/kernels/3.5.2-3.fc17.i686.PAE'  
 	CC [M] /tmp/modconfig-j0gI7d/vmblock-only/linux/filesystem.o  
 	CC [M] /tmp/modconfig-j0gI7d/vmblock-only/linux/stubs.o  
 	CC [M] /tmp/modconfig-j0gI7d/vmblock-only/linux/file.o  
@@ -205,19 +205,19 @@ I then went inside the patch directory and applied the patch:
 	MODPOST 1 modules  
 	CC /tmp/modconfig-j0gI7d/vmblock-only/vmblock.mod.o  
 	LD [M] /tmp/modconfig-j0gI7d/vmblock-only/vmblock.ko  
-	make[1]: Leaving directory \`/usr/src/kernels/3.5.2-3.fc17.i686.PAE'  
+	make[1]: Leaving directory '/usr/src/kernels/3.5.2-3.fc17.i686.PAE'  
 	/usr/bin/make -C $PWD SRCROOT=$PWD/. \  
 	MODULEBUILDDIR= postbuild  
-	make[1]: Entering directory \`/tmp/modconfig-j0gI7d/vmblock-only'  
-	make[1]: \`postbuild' is up to date.  
-	make[1]: Leaving directory \`/tmp/modconfig-j0gI7d/vmblock-only'  
+	make[1]: Entering directory '/tmp/modconfig-j0gI7d/vmblock-only'  
+	make[1]: 'postbuild' is up to date.  
+	make[1]: Leaving directory '/tmp/modconfig-j0gI7d/vmblock-only'  
 	cp -f vmblock.ko ./../vmblock.o  
-	make: Leaving directory \`/tmp/modconfig-j0gI7d/vmblock-only'  
+	make: Leaving directory '/tmp/modconfig-j0gI7d/vmblock-only'  
 	Using 2.6.x kernel build system.  
-	make: Entering directory \`/tmp/modconfig-j0gI7d/vmci-only'  
+	make: Entering directory '/tmp/modconfig-j0gI7d/vmci-only'  
 	/usr/bin/make -C /lib/modules/3.5.2-3.fc17.i686.PAE/build/include/.. SUBDIRS=$PWD SRCROOT=$PWD/. \  
 	MODULEBUILDDIR= modules  
-	make[1]: Entering directory \`/usr/src/kernels/3.5.2-3.fc17.i686.PAE'  
+	make[1]: Entering directory '/usr/src/kernels/3.5.2-3.fc17.i686.PAE'  
 	CC [M] /tmp/modconfig-j0gI7d/vmci-only/linux/driver.o  
 	CC [M] /tmp/modconfig-j0gI7d/vmci-only/linux/vmciKernelIf.o  
 	CC [M] /tmp/modconfig-j0gI7d/vmci-only/common/vmciDatagram.o  
@@ -236,19 +236,19 @@ I then went inside the patch directory and applied the patch:
 	MODPOST 1 modules  
 	CC /tmp/modconfig-j0gI7d/vmci-only/vmci.mod.o  
 	LD [M] /tmp/modconfig-j0gI7d/vmci-only/vmci.ko  
-	make[1]: Leaving directory \`/usr/src/kernels/3.5.2-3.fc17.i686.PAE'  
+	make[1]: Leaving directory '/usr/src/kernels/3.5.2-3.fc17.i686.PAE'  
 	/usr/bin/make -C $PWD SRCROOT=$PWD/. \  
 	MODULEBUILDDIR= postbuild  
-	make[1]: Entering directory \`/tmp/modconfig-j0gI7d/vmci-only'  
-	make[1]: \`postbuild' is up to date.  
-	make[1]: Leaving directory \`/tmp/modconfig-j0gI7d/vmci-only'  
+	make[1]: Entering directory '/tmp/modconfig-j0gI7d/vmci-only'  
+	make[1]: 'postbuild' is up to date.  
+	make[1]: Leaving directory '/tmp/modconfig-j0gI7d/vmci-only'  
 	cp -f vmci.ko ./../vmci.o  
-	make: Leaving directory \`/tmp/modconfig-j0gI7d/vmci-only'  
+	make: Leaving directory '/tmp/modconfig-j0gI7d/vmci-only'  
 	Using 2.6.x kernel build system.  
-	make: Entering directory \`/tmp/modconfig-j0gI7d/vsock-only'  
+	make: Entering directory '/tmp/modconfig-j0gI7d/vsock-only'  
 	/usr/bin/make -C /lib/modules/3.5.2-3.fc17.i686.PAE/build/include/.. SUBDIRS=$PWD SRCROOT=$PWD/. \  
 	MODULEBUILDDIR= modules  
-	make[1]: Entering directory \`/usr/src/kernels/3.5.2-3.fc17.i686.PAE'  
+	make[1]: Entering directory '/usr/src/kernels/3.5.2-3.fc17.i686.PAE'  
 	CC [M] /tmp/modconfig-j0gI7d/vsock-only/linux/af_vsock.o  
 	CC [M] /tmp/modconfig-j0gI7d/vsock-only/linux/vsockAddr.o  
 	CC [M] /tmp/modconfig-j0gI7d/vsock-only/linux/notifyQState.o  
@@ -261,14 +261,14 @@ I then went inside the patch directory and applied the patch:
 	MODPOST 1 modules  
 	CC /tmp/modconfig-j0gI7d/vsock-only/vsock.mod.o  
 	LD [M] /tmp/modconfig-j0gI7d/vsock-only/vsock.ko  
-	make[1]: Leaving directory \`/usr/src/kernels/3.5.2-3.fc17.i686.PAE'  
+	make[1]: Leaving directory '/usr/src/kernels/3.5.2-3.fc17.i686.PAE'  
 	/usr/bin/make -C $PWD SRCROOT=$PWD/. \  
 	MODULEBUILDDIR= postbuild  
-	make[1]: Entering directory \`/tmp/modconfig-j0gI7d/vsock-only'  
-	make[1]: \`postbuild' is up to date.  
-	make[1]: Leaving directory \`/tmp/modconfig-j0gI7d/vsock-only'  
+	make[1]: Entering directory '/tmp/modconfig-j0gI7d/vsock-only'  
+	make[1]: 'postbuild' is up to date.  
+	make[1]: Leaving directory '/tmp/modconfig-j0gI7d/vsock-only'  
 	cp -f vsock.ko ./../vsock.o  
-	make: Leaving directory \`/tmp/modconfig-j0gI7d/vsock-only'  
+	make: Leaving directory '/tmp/modconfig-j0gI7d/vsock-only'  
 	Starting vmware (via systemctl):
 	
 	All done, you can now run VMWare WorkStation.  

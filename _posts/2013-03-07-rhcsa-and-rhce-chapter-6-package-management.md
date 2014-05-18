@@ -1203,394 +1203,386 @@ Now to add this repository to yum. From the guide:
 > *   **enabled=value** - …where **value** is one of: 
 >     *   **O** — Do not include this repository as a package source when performing updates and installs. This is an easy way of quickly turning repositories on and off, which is useful when you desire a single package from a repository that you do not want to enable for updates or installs. 
 >     *   **1** — Include this repository as a package source. 
->         Turning repositories on and off can also be performed by passing either the -enablerepo=repo_name or -disablerepo=repo_name option to yum, or through the Add/Remove Software window of the PackageKit utility</li> </ul> </li> </ul> 
->         Many more **[repository]** options exist. For a complete list, refer to the **[repository]** **OPTIONS** section of the **yum.conf(5)** manual page.</blockquote> 
->         
->         So let's create a file called "**my_repo.repo**" under **/etc/yum.repos.d/** and have the following content:
->         
->             [root@rhel1 ~]# cat /etc/yum.repos.d/my_repo.repo 
->             [my_repo] 
->             baseurl=file:///root/my_repo 
->             name=my_repo
->             
->         
->         Now checking the **repolist**, we see this:
->         
->             [root@rhel1 ~]# yum repolist
->             Loaded plugins: product-id, subscription-manager
->             Updating Red Hat repositories.
->             dvd                           | 4.0 kB     00:00 ... 
->             my_repo                       | 1.3 kB     00:00 ... 
->             repo id                 repo name          status
->             dvd                     rhel_dvd           2,977
->             my_repo                 my_repo            2
->             repolist: 2,979
->             
->         
->         We can see that we have 2 packages in "my_repo" repository. Since the same package exists in two repositories, we have to disable one like so:
->         
->             [root@rhel1 ~]# yum list tcsh --disablerepo=dvd
->             Loaded plugins: product-id, subscription-manager
->             Updating Red Hat repositories.
->             Installed Packages
->             tcsh.i686                6.17-12.el6    @my_repo
->             
->         
->         Now to actually install we can do this:
->         
->             [root@rhel1 ~]# yum install tcsh --disablerepo=dvd
->             
->         
->         And that is how we can create our own YUM repository.
->         
->         ## RPMBuild
->         
->         Now let's see how we can create our own RPM package. There is great Fedora link about this: "<a href="http://fedoraproject.org/wiki/How_to_create_an_RPM_package" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://fedoraproject.org/wiki/How_to_create_an_RPM_package']);">How to create an RPM package</a>". From that page:
->         
->         > **Preparing your system**  
->         > Before you create RPM packages on Fedora, you need to install some core development tools and set up the account(s) you will use:
->         > 
->         >     yum install rpm-build rpmdevtools
->         >     
->         > 
->         > You can create a dummy user specifically for creating RPM packages so that a build process gone wrong can't trash your files or send your private keys to the world. Create a new user named **makerpm**, add the user to the '**mock**' group, set a password, and login as that user:
->         > 
->         >     # /usr/sbin/useradd makerpm 
->         >     # usermod -a -G mock makerpm 
->         >     # passwd makerpm
->         >     
->         
->         ### RPMBuild Structure
->         
->         > Once you're logged in as the build/dummy user, create the required directory structure in your home directory by executing:
->         > 
->         >     $ rpmdev-setuptree
->         >     
->         > 
->         > The **rpmdev-setuptree** program will create the *~/rpmbuild* directory and a set of subdirectories (e.g. SPECS and BUILD), which you will use for creating your packages. The *~/.rpmmacros* file is also created, which can be used for setting various options.
->         > 
->         > **The basics of building RPM packages**  
->         > To create an RPM package, you will need to create a ".spec" text file that provides information about the software being packaged. You then run the **rpmbuild** command on the SPEC file, which will go through a series of steps to produce your packages. Normally, you should place your original (pristine) sources, such as *.tar.gz* files from the original developers, into the **~/rpmbuild/SOURCES** directory. Place your .spec file in the **~/rpmbuild/SPECS** directory and name it "NAME.spec", where NAME is the base name of the package. To create both binary and source packages, change directory to **~/rpmbuild/SPECS** and run:
->         > 
->         >     $ rpmbuild -ba NAME.spec
->         >     
->         > 
->         > When invoked this way, **rpmbuild** will read the .spec file and go through in order the stages listed below. Names beginning with % are predefined macros (see the next table down). <a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/rpmbuild_stages.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/rpmbuild_stages.png']);"><img class="alignnone size-full wp-image-6169" alt="rpmbuild stages RHCSA and RHCE Chapter 6 Package Management" src="http://virtuallyhyper.com/wp-content/uploads/2013/02/rpmbuild_stages.png" width="1056" height="330" title="RHCSA and RHCE Chapter 6 Package Management" /></a>  
->         > As you can tell, certain directories have certain purposes in **rpmbuild**. These are:   
->         > <a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/rpmbuild_directories.png</unset></root></jhradilek></unset></jhradilek></unset></jhradilek></twaugh></rel></twaugh></http:>"><img class=" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','']);"alignnone size-full wp-image-6170" alt="rpmbuild directories RHCSA and RHCE Chapter 6 Package Management" src="http://virtuallyhyper.com/wp-content/uploads/2013/02/rpmbuild_directories.png" width="833" height="169" title="RHCSA and RHCE Chapter 6 Package Management" /></a>  
->         > If a stage fails, look at the output to see why it falied and change the .spec file (or other input) as needed.
->         
->         ### RPMBuild SPEC File
->         
->         > **Creating a SPEC file**  
->         > You now need to create a SPEC file in the **~/rpmbuild/SPECS** directory. You should name it after the program name (e.g. "program.spec"). Use the archive name or the name advocated by the software author where you can. **SPEC templates** When you're creating a SPEC file for the first time, vim or emacs will automatically create a template for you:
->         > 
->         >     $ cd ~/rpmbuild/SPECS 
->         >     $ vim program.spec
->         >     
->         > 
->         > Here's an example of what that template will look like:
->         > 
->         >     Name:     
->         >     Version:  
->         >     Release:  1%{?dist}
->         >     Summary:  
->         >     Group:        
->         >     License:  
->         >     URL:      
->         >     Source0:  
->         >     BuildRoot:    %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
->         >     
->         >     BuildRequires:    
->         >     Requires: 
->         >     
->         >     %description
->         >     
->         >     %prep
->         >     %setup -q
->         >     
->         >     %build
->         >     %configure
->         >     make %{?_smp_mflags}
->         >     
->         >     %install
->         >     rm -rf %{buildroot}
->         >     make install DESTDIR=%{buildroot}
->         >     
->         >     %clean
->         >     rm -rf %{buildroot}
->         >     
->         >     %files
->         >     %defattr(-,root,root,-)
->         >     %doc
->         >     
->         >     %changelog
->         >     
->         > 
->         > You can use $RPM_BUILD_ROOT instead of %{buildroot}. Both are acceptable, but just be consistent. You may also use the **rpmdev-newspec** command to create a SPEC file for you. **rpmdev-newspec NAME-OF-NEW-PACKAGE** can create an initial SPEC file for a new package, tailored to various types of packages. It will guess what kind of template to use based on the package name, or you can specify a particular template. See **/etc/rpmdevtools/spectemplate-*.spec** for available templates, and see **rpmdev-newspec -help** for more information. For example, to create a new SPEC file for a python module:
->         > 
->         >     cd ~/rpmbuild/SPECS 
->         >     rpmdev-newspec python-antigravity 
->         >     vi python-antigravity.spec
->         >     
->         > 
->         > **SPEC example**  
->         > Here's a simple example showing a Fedora 16 SPEC file for the eject program:
->         > 
->         >     Summary:            A program that ejects removable media using software control
->         >     Name:               eject
->         >     Version:            2.1.5
->         >     Release:            21%{?dist}
->         >     License:            GPLv2+
->         >     Group:              System Environment/Base
->         >     Source:             %{name}-%{version}.tar.gz
->         >     Patch1:             eject-2.1.1-verbose.patch
->         >     Patch2:             eject-timeout.patch
->         >     Patch3:             eject-2.1.5-opendevice.patch
->         >     Patch4:             eject-2.1.5-spaces.patch
->         >     Patch5:             eject-2.1.5-lock.patch
->         >     Patch6:             eject-2.1.5-umount.patch
->         >     URL:                
->         >     ExcludeArch:        s390 s390x
->         >     BuildRequires:      gettext
->         >     BuildRequires:      libtool
->         >     
->         >     %description
->         >     The eject program allows the user to eject removable media (typically
->         >     CD-ROMs, floppy disks or Iomega Jaz or Zip disks) using software
->         >     control. Eject can also control some multi-disk CD changers and even
->         >     some devices' auto-eject features.
->         >     
->         >     Install eject if you'd like to eject removable media using software
->         >     control.
->         >     
->         >     %prep
->         >     %setup -q -n %{name}
->         >     %patch1 -p1
->         >     %patch2 -p1
->         >     %patch3 -p1
->         >     %patch4 -p1
->         >     %patch5 -p1
->         >     %patch6 -p1
->         >     
->         >     %build
->         >     %configure
->         >     make %{?_smp_mflags}
->         >     
->         >     %install
->         >     make DESTDIR=%{buildroot} install
->         >     
->         >     install -m 755 -d %{buildroot}/%{_sbindir}
->         >     ln -s ../bin/eject %{buildroot}/%{_sbindir}
->         >     
->         >     %find_lang %{name}
->         >     
->         >     %files -f %{name}.lang
->         >     %doc README TODO COPYING ChangeLog
->         >     %{_bindir}/*
->         >     %{_sbindir}/*
->         >     %{_mandir}/man1/*
->         >     
->         >     %changelog
->         >     * Tue Feb 08 2011 Fedora Release Engineering <rel -eng@lists.fedoraproject.org> - 2.1.5-21
->         >     - Rebuilt for https://fedoraproject.org/wiki/Fedora_15_Mass_Rebuild
->         >     
->         >     * Fri Jul 02 2010 Kamil Dudka <kdudka '@'redhat.com> 2.1.5-20
->         >     - handle multi-partition devices with spaces in mount points properly (#608502)
->         >     
->         > 
->         > **SPEC file overview**  
->         > The major tags are listed below. Note that the macros **%{name}**, **%{version}** and **%{release}** can be used to refer to the Name, Version and Release tags respectively. When you change the tag, the macros automatically update to use the new value.
->         > 
->         > *   **Name:** - The (base) name of the package, which should match the SPEC file name. 
->         > *   **Version:** - The upstream version number.If the version contains tags that are non-numeric (contains tags that are not numbers), you may need to include the additional non-numeric characters in the Release tag. If upstream uses full dates to distinguish versions, consider using version numbers of the form yy.mm[dd] (e.g. 2008-05-01 becomes 8.05). 
->         > *   **Release:** - The initial value should normally be 1%{?dist}. Increment the number every time you release a new package for the same version of software. When a new upstream version is released, change the Version tag to match and reset the Release number to 1. 
->         > *   **Summary:** - A brief, one-line summary of the package. Use American English. Do not end in a period. 
->         > *   **Group:** - This needs to be a pre-existing group, like "Applications/Engineering"; run "**less /usr/share/doc/rpm-*/GROUPS**" to see the complete list. Use the group "Documentation" for any sub-packages (e.g. kernel-doc) containing documentation. Note: This tag is deprecated since Fedora 17. 
->         > *   **License:** - The license, which must be an open source software license. Do not use the old Copyright tag. Use a standard abbreviation (e.g. "GPLv2+") and be specific (e.g. use "GPLv2+" for GPL version 2 or greater instead of just "GPL" or "GPLv2" where it's true). You can list multiple licenses by combining them with "and" and "or" (e.g. "GPLv2 and BSD"). 
->         > *   **URL:** - The full URL for more information about the program (e.g. the project website). Note: This is not where the original source code came from which is meant for the Source0 tag below. 
->         > *   **Source0:** - The full URL for the compressed archive containing the (original) pristine source code, as upstream released it. "Source" is synonymous with "Source0". If you give a full URL (and you should), its basename will be used when looking in the SOURCES directory. If possible, embed %{name} and %{version}, so that changes to either will go to the right place. Preserve timestamps when downloading source files. If there is more than one source, name them Source1, Source2 and so on. If you're adding whole new files in addition to the pristine sources, list them as sources after the pristine sources. A copy of each of these sources will be included in any SRPM you create, unless you specifically direct otherwise. 
->         > *   **Patch0:** - The name of the first patch to apply to the source code. If you need to patch the files after they've been uncompressed, you should edit the files and save their differences as a "patch" file in your **~/rpmbuild/SOURCES** directory. Patches should make only one logical change each, so it's quite possible to have multiple patch files. 
->         > *   **BuildArch:** - If you're packaging files that are architecture-independent (e.g. shell scripts, data files), then add "BuildArch: noarch". The architecture for the binary RPM will then be "noarch". 
->         > *   **BuildRoot:** - This is where files will be "installed" during the **%install** process (after the **%build** process). This is now redundant in Fedora and is only needed for EPEL5. By default, the build root is placed in "**%{_topdir}/BUILDROOT/**". 
->         > *   **BuildRequires:** - A comma-separated list of packages required for building (compiling) the program. This field can be (and is commonly) repeated on multiple lines. These dependencies are not automatically determined, so you need to include everything needed to build the program. Some common packages can be omitted, such as gcc. You can specify a minimum version if necessary (e.g. "ocaml >= 3.08"). If you need the file /EGGS, determine the package that owns it by running "**rpm -qf /EGGS**". If you need the program EGGS, determine the package that owns it by running "**rpm -qf &#96;which EGGS&#96;**". Keep dependencies to a minimum (e.g. use sed instead of perl if you don't really need perl's abilities), but beware that some applications permanently disable functions if the associated dependency is not present; in those cases you may need to include the additional packages. The auto-buildrequires package may be helpful. 
->         > *   **Requires:** - A comma-separate list of packages that are required when the program is installed. Note that the **BuildRequires** tag lists what is required to build the binary RPM, while the Requires tag lists what is required when installing/running the program; a package may be in one list or in both. In many cases, rpmbuild automatically detects dependencies so the Requires tag is not always necessary. However, you may wish to highlight some specific packages as being required, or they may not be automatically detected. 
->         > *   **%description:** - A longer, multi-line description of the program. Use American English. All lines must be 80 characters or less. Blank lines indicate a new paragraph. Some graphical user interface installation programs will reformat paragraphs; lines that start with whitespace will be treated as preformatted text and displayed as is, normally with a fixed-width font. 
->         > *   **%prep:** Script commands to "prepare" the program (e.g. to uncompress it) so that it will be ready for building. Typically this is just "**%setup -q**"; a common variation is "**%setup -q -n NAME**" if the source file unpacks into NAME. 
->         > *   **%build:** - Script commands to "build" the program (e.g. to compile it) and get it ready for installing. The program should come with instructions on how to do this. 
->         > *   **%check**: Script commands to "test" the program. This is run between the **%build** and **%install** procedures, so place it there if you have this section. Often it simply contains "make test" or "make check". This is separated from **%build** so that people can skip the self-test if they desire. 
->         > *   **%install:** - Script commands to "**install**" the program. The commands should copy the files from the BUILD directory **%{_builddir}** into the buildroot directory, **%{buildroot}**. 
->         > *   **%clean:** - Instructions to clean out the build root. Note that this section is now redundant in Fedora and is only necessary for EPEL. Typically this contains only: 
->         >     *   `rm -rf %{buildroot}`
->         > *   **%files:** The list of files that will be installed.
->         > *   **%changelog:** - Changes in the package. Use the format example above.
->         > *   **ExcludeArch:** If the package does not successfully compile, build or work on a particular architecture, list those architectures under this tag. You can add sections so that code will run when packages are installed or removed on the real system (as opposed to just running the **%install** script, which only does a pseudo-install to the build root). These are called "scriptlets", and they are usually used to update the running system with information from the package. RPM also supports the creation of several packages (called subpackages) from a single SPEC file, such as name-libs and name-devel packages. 
->         
->         So let's try it out. First, let's install the necessary packages:
->         
->             [root@rhel1 ~]# yum install rpm-build rpmdevtools
->             
->         
->         I know it's recommended to setup a non-root user, but since this was just for testing, I decided to just use root. First let's create a **tar** archive with just a file:
->         
->             [root@rhel1 ~]# mkdir myrpm-1.0 
->             [root@rhel1 ~]# touch myrpm-1.0/test.txt 
->             [root@rhel1 ~]# tar cpvzf myrpm-1.0.tar.gz myrpm-1.0/ 
->             myrpm-1.0/ 
->             myrpm-1.0/test.txt
->             
->         
->         Now let's create the appropriate tree structure:
->         
->             [root@rhel1 ~]# rpmdev-setuptree 
->             [root@rhel1 ~]# ls rpmbuild/ 
->             BUILD RPMS SOURCES SPECS SRPMS
->             
->         
->         Now let's copy our "source" file to the SOURCES directory:
->         
->             [root@rhel1 ~]# mv myrpm-1.0.tar.gz rpmbuild/SOURCES/.
->             
->         
->         Now let's create a template **spec** file for our rpm:
->         
->             [root@rhel1 ~]# cd rpmbuild/SPECS/ 
->             [root@rhel1 SPECS]# rpmdev-newspec myrpm.spec 
->             Skeleton specfile (minimal) has been created to "myrpm.spec".
->             
->         
->         I then edited the file with vi:
->         
->             [root@rhel1 SPECS]# vi myrpm.spec 
->             
->         
->         Here is how the *spec* file looked like after I was done:
->         
->             [root@rhel1 SPECS]# cat myrpm.spec 
->             Name:           myrpm
->             Version:        1.0
->             Release:        1%{?dist}
->             Summary:        MyRPM
->             Group:         Development/Tools 
->             License:       GPL 
->             URL:           www.example.com
->             Source0:       myrpm-1.0.tar.gz
->             BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
->             %description
->             Description of myrpm
->             %prep
->             %setup -q
->             %build
->             %install
->             rm -rf $RPM_BUILD_ROOT
->             install -d $RPM_BUILD_ROOT/opt/myrpm-1.0
->             install test.txt $RPM_BUILD_ROOT/opt/myrpm-1.0/test.txt
->             %clean
->             rm -rf $RPM_BUILD_ROOT
->             %files
->             %defattr(-,root,root,-)
->             /opt/myrpm-1.0/test.txt
->             
->         
->         That should extract the source "myrpm.tar.gz" and put it under **/opt/myrpm**. There is also another application which can check a *spec* file, it's called **rpmlint**, let's install it:
->         
->             [root@rhel1 ~]# yum install rpmlint
->             
->         
->         Now let's check out the *spec* file:
->         
->             [root@rhel1 ~]# rpmlint -v rpmbuild/SPECS/myrpm.spec
->             rpmbuild/SPECS/myrpm.spec:4: W: mixed-use-of-spaces-and-tabs (spaces: line 1, tab: line 4)
->             rpmbuild/SPECS/myrpm.spec: W: invalid-url Source0: myrpm-1.0.tar.gz
->             0 packages and 1 specfiles checked; 0 errors, 2 warnings.
->             
->         
->         I just have some formatting issues, other than that it looks good. Now let's create just the binary for the rpm (without the source rpm):
->         
->             [root@rhel1 ~]# rpmbuild -v -bb rpmbuild/SPECS/myrpm.spec
->             Executing(%prep): /bin/sh -e /var/tmp/rpm-tmp.9ekT1s
->             + umask 022
->             + cd /root/rpmbuild/BUILD
->             + cd /root/rpmbuild/BUILD
->             + rm -rf myrpm-1.0
->             + /bin/tar -xf -
->             + /usr/bin/gzip -dc /root/rpmbuild/SOURCES/myrpm-1.0.tar.gz
->             + STATUS=0
->             + '[' 0 -ne 0 ']'
->             + cd myrpm-1.0
->             + /bin/chmod -Rf a+rX,u+w,g-w,o-w .
->             + exit 0
->             Executing(%build): /bin/sh -e /var/tmp/rpm-tmp.BFgcK2
->             + umask 022
->             + cd /root/rpmbuild/BUILD
->             + cd myrpm-1.0
->             + exit 0
->             Executing(%install): /bin/sh -e /var/tmp/rpm-tmp.CiG8YC
->             + umask 022
->             + cd /root/rpmbuild/BUILD
->             + cd myrpm-1.0
->             + rm -rf /root/rpmbuild/BUILDROOT/myrpm-1.0-1.el6.i386
->             + install -d /root/rpmbuild/BUILDROOT/myrpm-1.0-1.el6.i386/opt/myrpm-1.0
->             + install test.txt /root/rpmbuild/BUILDROOT/myrpm-1.0-1.el6.i386/opt/myrpm-1.0/test.txt
->             + /usr/lib/rpm/check-rpaths /usr/lib/rpm/check-buildroot
->             + /usr/lib/rpm/brp-compress
->             + /usr/lib/rpm/brp-strip
->             + /usr/lib/rpm/brp-strip-static-archive
->             + /usr/lib/rpm/brp-strip-comment-note
->             Processing files: myrpm-1.0-1.el6.i386
->             Requires(rpmlib): rpmlib(CompressedFileNames) < = 3.0.4-1 rpmlib(PayloadFilesHavePrefix) <= 4.0-1
->             Checking for unpackaged file(s): /usr/lib/rpm/check-files /root/rpmbuild/BUILDROOT/myrpm-1.0-1.el6.i386
->             Wrote: /root/rpmbuild/RPMS/i386/myrpm-1.0-1.el6.i386.rpm
->             Executing(%clean): /bin/sh -e /var/tmp/rpm-tmp.F7pXOY
->             + umask 022
->             + cd /root/rpmbuild/BUILD
->             + cd myrpm-1.0
->             + rm -rf /root/rpmbuild/BUILDROOT/myrpm-1.0-1.el6.i386
->             + exit 0
->             
->         
->         We can see every step of the build process, and we notice that the '-1.0' suffix of the directory is very important and the build process actually depends on it. Now let's checkout our newly created rpm:
->         
->             [root@rhel1 ~]# rpm -qip rpmbuild/RPMS/i386/myrpm-1.0-1.el6.i386.rpm
->             Name        : myrpm                        Relocations: (not relocatable)
->             Version     : 1.0                               Vendor: (none)
->             Release     : 1.el6                         Build Date: Sun 03 Mar 2013 02:30:33 AM MST
->             Install Date: (not installed)               Build Host: rhel1.local.com
->             Group       : Development/Tools             Source RPM: myrpm-1.0-1.el6.src.rpm
->             Size        : 0                                License: GPL
->             Signature   : (none)
->             URL         : www.example.com
->             Summary     : MyRPM
->             Description :
->             Description of myrpm
->             
->         
->         We can also check out the permissions of the files that will be installed, by running **rpmls** on the rpm, like so:
->         
->             [root@rhel1 ~]# rpmls -l rpmbuild/RPMS/i386/myrpm-1.0-1.el6.i386.rpm
->             -rwxr-xr-x  root     root     /opt/myrpm-1.0/test.txt
->             
->         
->         That looks correct. Now let's try to install the package and make sure the files are copied appropriately:
->         
->             [root@rhel1 ~]# ls /opt
->             [root@rhel1 ~]# rpm -ivh rpmbuild/RPMS/i386/myrpm-1.0-1.el6.i386.rpm
->             Preparing...                ########################################### [100%]
->                1:myrpm                  ########################################### [100%]
->             [root@rhel1 ~]# tree /opt
->             /opt
->             └── myrpm-1.0
->                 └── test.txt
->             1 directory, 1 file
->             
->         
->         Now to confirm what files were installed by our rpm:
->         
->             [root@rhel1 ~]# rpm -ql myrpm
->             /opt/myrpm-1.0/test.txt
->             
->         
->         That's all good.
->         
->         <root> </kdudka></rel></root>
->         
+>         Turning repositories on and off can also be performed by passing either the -enablerepo=repo_name or -disablerepo=repo_name option to yum, or through the Add/Remove Software window of the PackageKit utility
+>         Many more **[repository]** options exist. For a complete list, refer to the **[repository]** **OPTIONS** section of the **yum.conf(5)** manual page.
+
+So let's create a file called "**my_repo.repo**" under **/etc/yum.repos.d/** and have the following content:
+
+	[root@rhel1 ~]# cat /etc/yum.repos.d/my_repo.repo 
+	[my_repo] 
+	baseurl=file:///root/my_repo 
+	name=my_repo
+
+Now checking the **repolist**, we see this:
+
+	[root@rhel1 ~]# yum repolist
+	Loaded plugins: product-id, subscription-manager
+	Updating Red Hat repositories.
+	dvd                           | 4.0 kB     00:00 ... 
+	my_repo                       | 1.3 kB     00:00 ... 
+	repo id                 repo name          status
+	dvd                     rhel_dvd           2,977
+	my_repo                 my_repo            2
+	repolist: 2,979
+
+We can see that we have 2 packages in "my_repo" repository. Since the same package exists in two repositories, we have to disable one like so:
+
+	[root@rhel1 ~]# yum list tcsh --disablerepo=dvd
+	Loaded plugins: product-id, subscription-manager
+	Updating Red Hat repositories.
+	Installed Packages
+	tcsh.i686                6.17-12.el6    @my_repo
+
+Now to actually install we can do this:
+
+	[root@rhel1 ~]# yum install tcsh --disablerepo=dvd
+
+And that is how we can create our own YUM repository.
+
+## RPMBuild
+
+Now let's see how we can create our own RPM package. There is great Fedora link about this: "<a href="http://fedoraproject.org/wiki/How_to_create_an_RPM_package" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://fedoraproject.org/wiki/How_to_create_an_RPM_package']);">How to create an RPM package</a>". From that page:
+
+> **Preparing your system**  
+> Before you create RPM packages on Fedora, you need to install some core development tools and set up the account(s) you will use:
+> 
+>     yum install rpm-build rpmdevtools
+>     
+> 
+> You can create a dummy user specifically for creating RPM packages so that a build process gone wrong can't trash your files or send your private keys to the world. Create a new user named **makerpm**, add the user to the '**mock**' group, set a password, and login as that user:
+> 
+>     # /usr/sbin/useradd makerpm 
+>     # usermod -a -G mock makerpm 
+>     # passwd makerpm
+>     
+
+### RPMBuild Structure
+
+> Once you're logged in as the build/dummy user, create the required directory structure in your home directory by executing:
+> 
+>     $ rpmdev-setuptree
+>     
+> 
+> The **rpmdev-setuptree** program will create the *~/rpmbuild* directory and a set of subdirectories (e.g. SPECS and BUILD), which you will use for creating your packages. The *~/.rpmmacros* file is also created, which can be used for setting various options.
+> 
+> **The basics of building RPM packages**  
+> To create an RPM package, you will need to create a ".spec" text file that provides information about the software being packaged. You then run the **rpmbuild** command on the SPEC file, which will go through a series of steps to produce your packages. Normally, you should place your original (pristine) sources, such as *.tar.gz* files from the original developers, into the **~/rpmbuild/SOURCES** directory. Place your .spec file in the **~/rpmbuild/SPECS** directory and name it "NAME.spec", where NAME is the base name of the package. To create both binary and source packages, change directory to **~/rpmbuild/SPECS** and run:
+> 
+>     $ rpmbuild -ba NAME.spec
+>     
+> 
+> When invoked this way, **rpmbuild** will read the .spec file and go through in order the stages listed below. Names beginning with % are predefined macros (see the next table down). <a href="http://virtuallyhyper.com/wp-content/uploads/2013/02/rpmbuild_stages.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2013/02/rpmbuild_stages.png']);"><img class="alignnone size-full wp-image-6169" alt="rpmbuild stages RHCSA and RHCE Chapter 6 Package Management" src="http://virtuallyhyper.com/wp-content/uploads/2013/02/rpmbuild_stages.png" width="1056" height="330" title="RHCSA and RHCE Chapter 6 Package Management" /></a>  
+> As you can tell, certain directories have certain purposes in **rpmbuild**. These are:
+>
+> ![RHCSA and RHCE Chapter 6 Package Management](http://virtuallyhyper.com/wp-content/uploads/2013/02/rpmbuild_directories.png)
+> If a stage fails, look at the output to see why it falied and change the .spec file (or other input) as needed.
+
+### RPMBuild SPEC File
+
+> **Creating a SPEC file**  
+> You now need to create a SPEC file in the **~/rpmbuild/SPECS** directory. You should name it after the program name (e.g. "program.spec"). Use the archive name or the name advocated by the software author where you can. **SPEC templates** When you're creating a SPEC file for the first time, vim or emacs will automatically create a template for you:
+> 
+>     $ cd ~/rpmbuild/SPECS 
+>     $ vim program.spec
+>     
+> 
+> Here's an example of what that template will look like:
+> 
+>     Name:     
+>     Version:  
+>     Release:  1%{?dist}
+>     Summary:  
+>     Group:        
+>     License:  
+>     URL:      
+>     Source0:  
+>     BuildRoot:    %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+>     
+>     BuildRequires:    
+>     Requires: 
+>     
+>     %description
+>     
+>     %prep
+>     %setup -q
+>     
+>     %build
+>     %configure
+>     make %{?_smp_mflags}
+>     
+>     %install
+>     rm -rf %{buildroot}
+>     make install DESTDIR=%{buildroot}
+>     
+>     %clean
+>     rm -rf %{buildroot}
+>     
+>     %files
+>     %defattr(-,root,root,-)
+>     %doc
+>     
+>     %changelog
+>     
+> 
+> You can use $RPM_BUILD_ROOT instead of %{buildroot}. Both are acceptable, but just be consistent. You may also use the **rpmdev-newspec** command to create a SPEC file for you. **rpmdev-newspec NAME-OF-NEW-PACKAGE** can create an initial SPEC file for a new package, tailored to various types of packages. It will guess what kind of template to use based on the package name, or you can specify a particular template. See **/etc/rpmdevtools/spectemplate-*.spec** for available templates, and see **rpmdev-newspec -help** for more information. For example, to create a new SPEC file for a python module:
+> 
+>     cd ~/rpmbuild/SPECS 
+>     rpmdev-newspec python-antigravity 
+>     vi python-antigravity.spec
+>     
+> 
+> **SPEC example**  
+> Here's a simple example showing a Fedora 16 SPEC file for the eject program:
+> 
+>     Summary:            A program that ejects removable media using software control
+>     Name:               eject
+>     Version:            2.1.5
+>     Release:            21%{?dist}
+>     License:            GPLv2+
+>     Group:              System Environment/Base
+>     Source:             %{name}-%{version}.tar.gz
+>     Patch1:             eject-2.1.1-verbose.patch
+>     Patch2:             eject-timeout.patch
+>     Patch3:             eject-2.1.5-opendevice.patch
+>     Patch4:             eject-2.1.5-spaces.patch
+>     Patch5:             eject-2.1.5-lock.patch
+>     Patch6:             eject-2.1.5-umount.patch
+>     URL:                
+>     ExcludeArch:        s390 s390x
+>     BuildRequires:      gettext
+>     BuildRequires:      libtool
+>     
+>     %description
+>     The eject program allows the user to eject removable media (typically
+>     CD-ROMs, floppy disks or Iomega Jaz or Zip disks) using software
+>     control. Eject can also control some multi-disk CD changers and even
+>     some devices' auto-eject features.
+>     
+>     Install eject if you'd like to eject removable media using software
+>     control.
+>     
+>     %prep
+>     %setup -q -n %{name}
+>     %patch1 -p1
+>     %patch2 -p1
+>     %patch3 -p1
+>     %patch4 -p1
+>     %patch5 -p1
+>     %patch6 -p1
+>     
+>     %build
+>     %configure
+>     make %{?_smp_mflags}
+>     
+>     %install
+>     make DESTDIR=%{buildroot} install
+>     
+>     install -m 755 -d %{buildroot}/%{_sbindir}
+>     ln -s ../bin/eject %{buildroot}/%{_sbindir}
+>     
+>     %find_lang %{name}
+>     
+>     %files -f %{name}.lang
+>     %doc README TODO COPYING ChangeLog
+>     %{_bindir}/*
+>     %{_sbindir}/*
+>     %{_mandir}/man1/*
+>     
+>     %changelog
+>     * Tue Feb 08 2011 Fedora Release Engineering <rel -eng@lists.fedoraproject.org> - 2.1.5-21
+>     - Rebuilt for https://fedoraproject.org/wiki/Fedora_15_Mass_Rebuild
+>     
+>     * Fri Jul 02 2010 Kamil Dudka <kdudka '@'redhat.com> 2.1.5-20
+>     - handle multi-partition devices with spaces in mount points properly (#608502)
+>     
+> 
+> **SPEC file overview**  
+> The major tags are listed below. Note that the macros **%{name}**, **%{version}** and **%{release}** can be used to refer to the Name, Version and Release tags respectively. When you change the tag, the macros automatically update to use the new value.
+> 
+> *   **Name:** - The (base) name of the package, which should match the SPEC file name. 
+> *   **Version:** - The upstream version number.If the version contains tags that are non-numeric (contains tags that are not numbers), you may need to include the additional non-numeric characters in the Release tag. If upstream uses full dates to distinguish versions, consider using version numbers of the form yy.mm[dd] (e.g. 2008-05-01 becomes 8.05). 
+> *   **Release:** - The initial value should normally be 1%{?dist}. Increment the number every time you release a new package for the same version of software. When a new upstream version is released, change the Version tag to match and reset the Release number to 1. 
+> *   **Summary:** - A brief, one-line summary of the package. Use American English. Do not end in a period. 
+> *   **Group:** - This needs to be a pre-existing group, like "Applications/Engineering"; run "**less /usr/share/doc/rpm-*/GROUPS**" to see the complete list. Use the group "Documentation" for any sub-packages (e.g. kernel-doc) containing documentation. Note: This tag is deprecated since Fedora 17. 
+> *   **License:** - The license, which must be an open source software license. Do not use the old Copyright tag. Use a standard abbreviation (e.g. "GPLv2+") and be specific (e.g. use "GPLv2+" for GPL version 2 or greater instead of just "GPL" or "GPLv2" where it's true). You can list multiple licenses by combining them with "and" and "or" (e.g. "GPLv2 and BSD"). 
+> *   **URL:** - The full URL for more information about the program (e.g. the project website). Note: This is not where the original source code came from which is meant for the Source0 tag below. 
+> *   **Source0:** - The full URL for the compressed archive containing the (original) pristine source code, as upstream released it. "Source" is synonymous with "Source0". If you give a full URL (and you should), its basename will be used when looking in the SOURCES directory. If possible, embed %{name} and %{version}, so that changes to either will go to the right place. Preserve timestamps when downloading source files. If there is more than one source, name them Source1, Source2 and so on. If you're adding whole new files in addition to the pristine sources, list them as sources after the pristine sources. A copy of each of these sources will be included in any SRPM you create, unless you specifically direct otherwise. 
+> *   **Patch0:** - The name of the first patch to apply to the source code. If you need to patch the files after they've been uncompressed, you should edit the files and save their differences as a "patch" file in your **~/rpmbuild/SOURCES** directory. Patches should make only one logical change each, so it's quite possible to have multiple patch files. 
+> *   **BuildArch:** - If you're packaging files that are architecture-independent (e.g. shell scripts, data files), then add "BuildArch: noarch". The architecture for the binary RPM will then be "noarch". 
+> *   **BuildRoot:** - This is where files will be "installed" during the **%install** process (after the **%build** process). This is now redundant in Fedora and is only needed for EPEL5. By default, the build root is placed in "**%{_topdir}/BUILDROOT/**". 
+> *   **BuildRequires:** - A comma-separated list of packages required for building (compiling) the program. This field can be (and is commonly) repeated on multiple lines. These dependencies are not automatically determined, so you need to include everything needed to build the program. Some common packages can be omitted, such as gcc. You can specify a minimum version if necessary (e.g. "ocaml >= 3.08"). If you need the file /EGGS, determine the package that owns it by running "**rpm -qf /EGGS**". If you need the program EGGS, determine the package that owns it by running "**rpm -qf &#96;which EGGS&#96;**". Keep dependencies to a minimum (e.g. use sed instead of perl if you don't really need perl's abilities), but beware that some applications permanently disable functions if the associated dependency is not present; in those cases you may need to include the additional packages. The auto-buildrequires package may be helpful. 
+> *   **Requires:** - A comma-separate list of packages that are required when the program is installed. Note that the **BuildRequires** tag lists what is required to build the binary RPM, while the Requires tag lists what is required when installing/running the program; a package may be in one list or in both. In many cases, rpmbuild automatically detects dependencies so the Requires tag is not always necessary. However, you may wish to highlight some specific packages as being required, or they may not be automatically detected. 
+> *   **%description:** - A longer, multi-line description of the program. Use American English. All lines must be 80 characters or less. Blank lines indicate a new paragraph. Some graphical user interface installation programs will reformat paragraphs; lines that start with whitespace will be treated as preformatted text and displayed as is, normally with a fixed-width font. 
+> *   **%prep:** Script commands to "prepare" the program (e.g. to uncompress it) so that it will be ready for building. Typically this is just "**%setup -q**"; a common variation is "**%setup -q -n NAME**" if the source file unpacks into NAME. 
+> *   **%build:** - Script commands to "build" the program (e.g. to compile it) and get it ready for installing. The program should come with instructions on how to do this. 
+> *   **%check**: Script commands to "test" the program. This is run between the **%build** and **%install** procedures, so place it there if you have this section. Often it simply contains "make test" or "make check". This is separated from **%build** so that people can skip the self-test if they desire. 
+> *   **%install:** - Script commands to "**install**" the program. The commands should copy the files from the BUILD directory **%{_builddir}** into the buildroot directory, **%{buildroot}**. 
+> *   **%clean:** - Instructions to clean out the build root. Note that this section is now redundant in Fedora and is only necessary for EPEL. Typically this contains only: 
+>     *   `rm -rf %{buildroot}`
+> *   **%files:** The list of files that will be installed.
+> *   **%changelog:** - Changes in the package. Use the format example above.
+> *   **ExcludeArch:** If the package does not successfully compile, build or work on a particular architecture, list those architectures under this tag. You can add sections so that code will run when packages are installed or removed on the real system (as opposed to just running the **%install** script, which only does a pseudo-install to the build root). These are called "scriptlets", and they are usually used to update the running system with information from the package. RPM also supports the creation of several packages (called subpackages) from a single SPEC file, such as name-libs and name-devel packages. 
+
+So let's try it out. First, let's install the necessary packages:
+
+	[root@rhel1 ~]# yum install rpm-build rpmdevtools
+
+
+I know it's recommended to setup a non-root user, but since this was just for testing, I decided to just use root. First let's create a **tar** archive with just a file:
+
+	[root@rhel1 ~]# mkdir myrpm-1.0 
+	[root@rhel1 ~]# touch myrpm-1.0/test.txt 
+	[root@rhel1 ~]# tar cpvzf myrpm-1.0.tar.gz myrpm-1.0/ 
+	myrpm-1.0/ 
+	myrpm-1.0/test.txt
+
+
+Now let's create the appropriate tree structure:
+
+	[root@rhel1 ~]# rpmdev-setuptree 
+	[root@rhel1 ~]# ls rpmbuild/ 
+	BUILD RPMS SOURCES SPECS SRPMS
+
+
+Now let's copy our "source" file to the SOURCES directory:
+
+	[root@rhel1 ~]# mv myrpm-1.0.tar.gz rpmbuild/SOURCES/.
+
+
+Now let's create a template **spec** file for our rpm:
+
+	[root@rhel1 ~]# cd rpmbuild/SPECS/ 
+	[root@rhel1 SPECS]# rpmdev-newspec myrpm.spec 
+	Skeleton specfile (minimal) has been created to "myrpm.spec".
+
+
+I then edited the file with vi:
+
+	[root@rhel1 SPECS]# vi myrpm.spec 
+
+
+Here is how the *spec* file looked like after I was done:
+
+	[root@rhel1 SPECS]# cat myrpm.spec 
+	Name:           myrpm
+	Version:        1.0
+	Release:        1%{?dist}
+	Summary:        MyRPM
+	Group:         Development/Tools 
+	License:       GPL 
+	URL:           www.example.com
+	Source0:       myrpm-1.0.tar.gz
+	BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+	%description
+	Description of myrpm
+	%prep
+	%setup -q
+	%build
+	%install
+	rm -rf $RPM_BUILD_ROOT
+	install -d $RPM_BUILD_ROOT/opt/myrpm-1.0
+	install test.txt $RPM_BUILD_ROOT/opt/myrpm-1.0/test.txt
+	%clean
+	rm -rf $RPM_BUILD_ROOT
+	%files
+	%defattr(-,root,root,-)
+	/opt/myrpm-1.0/test.txt
+
+
+That should extract the source "myrpm.tar.gz" and put it under **/opt/myrpm**. There is also another application which can check a *spec* file, it's called **rpmlint**, let's install it:
+
+	[root@rhel1 ~]# yum install rpmlint
+
+Now let's check out the *spec* file:
+
+	[root@rhel1 ~]# rpmlint -v rpmbuild/SPECS/myrpm.spec
+	rpmbuild/SPECS/myrpm.spec:4: W: mixed-use-of-spaces-and-tabs (spaces: line 1, tab: line 4)
+	rpmbuild/SPECS/myrpm.spec: W: invalid-url Source0: myrpm-1.0.tar.gz
+	0 packages and 1 specfiles checked; 0 errors, 2 warnings.
+
+
+I just have some formatting issues, other than that it looks good. Now let's create just the binary for the rpm (without the source rpm):
+
+	[root@rhel1 ~]# rpmbuild -v -bb rpmbuild/SPECS/myrpm.spec
+	Executing(%prep): /bin/sh -e /var/tmp/rpm-tmp.9ekT1s
+	+ umask 022
+	+ cd /root/rpmbuild/BUILD
+	+ cd /root/rpmbuild/BUILD
+	+ rm -rf myrpm-1.0
+	+ /bin/tar -xf -
+	+ /usr/bin/gzip -dc /root/rpmbuild/SOURCES/myrpm-1.0.tar.gz
+	+ STATUS=0
+	+ '[' 0 -ne 0 ']'
+	+ cd myrpm-1.0
+	+ /bin/chmod -Rf a+rX,u+w,g-w,o-w .
+	+ exit 0
+	Executing(%build): /bin/sh -e /var/tmp/rpm-tmp.BFgcK2
+	+ umask 022
+	+ cd /root/rpmbuild/BUILD
+	+ cd myrpm-1.0
+	+ exit 0
+	Executing(%install): /bin/sh -e /var/tmp/rpm-tmp.CiG8YC
+	+ umask 022
+	+ cd /root/rpmbuild/BUILD
+	+ cd myrpm-1.0
+	+ rm -rf /root/rpmbuild/BUILDROOT/myrpm-1.0-1.el6.i386
+	+ install -d /root/rpmbuild/BUILDROOT/myrpm-1.0-1.el6.i386/opt/myrpm-1.0
+	+ install test.txt /root/rpmbuild/BUILDROOT/myrpm-1.0-1.el6.i386/opt/myrpm-1.0/test.txt
+	+ /usr/lib/rpm/check-rpaths /usr/lib/rpm/check-buildroot
+	+ /usr/lib/rpm/brp-compress
+	+ /usr/lib/rpm/brp-strip
+	+ /usr/lib/rpm/brp-strip-static-archive
+	+ /usr/lib/rpm/brp-strip-comment-note
+	Processing files: myrpm-1.0-1.el6.i386
+	Requires(rpmlib): rpmlib(CompressedFileNames) < = 3.0.4-1 rpmlib(PayloadFilesHavePrefix) <= 4.0-1
+	Checking for unpackaged file(s): /usr/lib/rpm/check-files /root/rpmbuild/BUILDROOT/myrpm-1.0-1.el6.i386
+	Wrote: /root/rpmbuild/RPMS/i386/myrpm-1.0-1.el6.i386.rpm
+	Executing(%clean): /bin/sh -e /var/tmp/rpm-tmp.F7pXOY
+	+ umask 022
+	+ cd /root/rpmbuild/BUILD
+	+ cd myrpm-1.0
+	+ rm -rf /root/rpmbuild/BUILDROOT/myrpm-1.0-1.el6.i386
+	+ exit 0
+
+
+We can see every step of the build process, and we notice that the '-1.0' suffix of the directory is very important and the build process actually depends on it. Now let's checkout our newly created rpm:
+
+	[root@rhel1 ~]# rpm -qip rpmbuild/RPMS/i386/myrpm-1.0-1.el6.i386.rpm
+	Name        : myrpm                        Relocations: (not relocatable)
+	Version     : 1.0                               Vendor: (none)
+	Release     : 1.el6                         Build Date: Sun 03 Mar 2013 02:30:33 AM MST
+	Install Date: (not installed)               Build Host: rhel1.local.com
+	Group       : Development/Tools             Source RPM: myrpm-1.0-1.el6.src.rpm
+	Size        : 0                                License: GPL
+	Signature   : (none)
+	URL         : www.example.com
+	Summary     : MyRPM
+	Description :
+	Description of myrpm
+
+
+We can also check out the permissions of the files that will be installed, by running **rpmls** on the rpm, like so:
+
+	[root@rhel1 ~]# rpmls -l rpmbuild/RPMS/i386/myrpm-1.0-1.el6.i386.rpm
+	-rwxr-xr-x  root     root     /opt/myrpm-1.0/test.txt
+
+
+That looks correct. Now let's try to install the package and make sure the files are copied appropriately:
+
+	[root@rhel1 ~]# ls /opt
+	[root@rhel1 ~]# rpm -ivh rpmbuild/RPMS/i386/myrpm-1.0-1.el6.i386.rpm
+	Preparing...                ########################################### [100%]
+	1:myrpm                  ########################################### [100%]
+	[root@rhel1 ~]# tree /opt
+	/opt
+	└── myrpm-1.0
+	└── test.txt
+	1 directory, 1 file
+
+
+Now to confirm what files were installed by our rpm:
+
+	[root@rhel1 ~]# rpm -ql myrpm
+	/opt/myrpm-1.0/test.txt
+
+That's all good.

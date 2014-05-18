@@ -136,10 +136,10 @@ To figure out what IPs we are using to connect to the VNX we can check out the T
 
 	  
 	~ # sed -n '/Targets/,/\.address'  
-	\`node.name\`='iqn.1992-04.com.emc:cx.xxx3301534.a5'  
-	\`node.conn[0].address\`='10.10.22.21'  
-	\`node.name\`='iqn.1992-04.com.emc:cx.xxx3301534.b5'  
-	\`node.conn[0].address\`='10.10.24.21'  
+	'node.name'='iqn.1992-04.com.emc:cx.xxx3301534.a5'  
+	'node.conn[0].address'='10.10.22.21'  
+	'node.name'='iqn.1992-04.com.emc:cx.xxx3301534.b5'  
+	'node.conn[0].address'='10.10.24.21'  
 	
 
 Since the customer was only using one port from each SP:

@@ -159,21 +159,21 @@ I checked to see if my local drive is seen as a snapshot:
 
 and that was the case. When working with snapshots there are usually three things to do:
 
-> 1. Mount the volume without performing a resignature of that volume (this volume is unmounted when the ESX host is rebooted), run this command:
+> 1_. Mount the volume without performing a resignature of that volume (this volume is unmounted when the ESX host is rebooted), run this command:
 > 
-> # esxcfg-volume -m
+> 	# esxcfg-volume -m
 
 Or you can
 
-> 2. Persistently mount the volume without performing a resignaturing of that volume (this volume is mounted when the ESX host is rebooted), run this command:
+> 2_. Persistently mount the volume without performing a resignaturing of that volume (this volume is mounted when the ESX host is rebooted), run this command:
 > 
-> # esxcfg-volume -M
+>	# esxcfg-volume -M
 
 And lastly you can
 
-> 3. Resignature the volume (the volume is mounted immediately after the resignature):
+> 3_. Resignature the volume (the volume is mounted immediately after the resignature):
 > 
-> # esxcfg-volume -r
+>	# esxcfg-volume -r
 
 These are all take from VMware KB <a href="http://kb.vmware.com/kb/1011387" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://kb.vmware.com/kb/1011387']);">1011387</a>. Option 1 didn't really suit me cause I wanted my fix to be permanent, so I will discuss options 2 and 3.
 
@@ -232,7 +232,7 @@ Everything looks good. Go ahead and type 'exit' and if everything is good the ES
 If you want to rename the datastore to the original name, you can do the following:
 
 	  
-	# ln -sf \`readlink -f /vmfs/volumes/snap-69a82519-Storage1\` /vmfs/volumes/Storage1  
+	# ln -sf `readlink -f /vmfs/volumes/snap-69a82519-Storage1` /vmfs/volumes/Storage1  
 	
 
 and then make sure the name looks good:

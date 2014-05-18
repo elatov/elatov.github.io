@@ -131,7 +131,7 @@ We were using a DVS, so just looking at the DVS section, I saw the following:
 The VMs that had the issue were "NLB_VM1" and "NLB_VM2". Checking for the virtual ports (that these VMs correspond to) in vsish, I see that they correspond to the following:
 
 	  
-	$ for i in \`vsish -c vsi_traverse_-s.txt -e ls /net/portsets/DvsPortset-0/ports/\`; do echo $i; vsish -c vsi_traverse_-s.txt -e cat /net/portsets/DvsPortset-0/ports/"$i"status|grep clientName;done  
+	$ for i in `vsish -c vsi_traverse_-s.txt -e ls /net/portsets/DvsPortset-0/ports/`; do echo $i; vsish -c vsi_traverse_-s.txt -e cat /net/portsets/DvsPortset-0/ports/"$i"status|grep clientName;done  
 	50331649/  
 	clientName:Management  
 	50331650/  

@@ -242,23 +242,23 @@ The configure process didn't fail so then I decided to build/make the applicatio
 	  
 	$ make -j 4  
 	Making all in tsk3  
-	make[1]: Entering directory \`/home/elatov/downloads/sleuthkit-4.0.1/tsk3'  
+	make[1]: Entering directory '/home/elatov/downloads/sleuthkit-4.0.1/tsk3'  
 	make all-recursive  
-	make[2]: Entering directory \`/home/elatov/downloads/sleuthkit-4.0.1/tsk3'  
+	make[2]: Entering directory '/home/elatov/downloads/sleuthkit-4.0.1/tsk3'  
 	Making all in base  
-	make[3]: Entering directory \`/home/elatov/downloads/sleuthkit-4.0.1/tsk3/base'  
+	make[3]: Entering directory '/home/elatov/downloads/sleuthkit-4.0.1/tsk3/base'  
 	/bin/sh ../../libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../tsk3 -I../.. -Wall -g -O2 -pthread -I/usr/local/include -MT md5c.lo -MD -MP -MF .deps/md5c.Tpo -c -o md5c.lo md5c.c  
 	...  
 	...  
 	libtool: link: g++ -g -O2 -pthread -o posix_cpp_style posix-cpp-style.o -L/usr/local/lib ../tsk3/.libs/libtsk3.a -ldl -lz -pthread  
-	make[1]: Leaving directory \`/home/elatov/downloads/sleuthkit-4.0.1/samples'  
+	make[1]: Leaving directory '/home/elatov/downloads/sleuthkit-4.0.1/samples'  
 	Making all in man  
-	make[1]: Entering directory \`/home/elatov/downloads/sleuthkit-4.0.1/man'  
-	make[1]: Nothing to be done for \`all'.  
-	make[1]: Leaving directory \`/home/elatov/downloads/sleuthkit-4.0.1/man'  
-	make[1]: Entering directory \`/home/elatov/downloads/sleuthkit-4.0.1'  
-	make[1]: Nothing to be done for \`all-am'.  
-	make[1]: Leaving directory \`/home/elatov/downloads/sleuthkit-4.0.1'  
+	make[1]: Entering directory '/home/elatov/downloads/sleuthkit-4.0.1/man'  
+	make[1]: Nothing to be done for 'all'.  
+	make[1]: Leaving directory '/home/elatov/downloads/sleuthkit-4.0.1/man'  
+	make[1]: Entering directory '/home/elatov/downloads/sleuthkit-4.0.1'  
+	make[1]: Nothing to be done for 'all-am'.  
+	make[1]: Leaving directory '/home/elatov/downloads/sleuthkit-4.0.1'  
 	
 
 So the compile finished with success as well, which is always good news. I then installed the package:
@@ -266,17 +266,17 @@ So the compile finished with success as well, which is always good news. I then 
 	  
 	$ make install  
 	Making install in tsk3  
-	make[1]: Entering directory \`/home/elatov/downloads/sleuthkit-4.0.1/tsk3'  
+	make[1]: Entering directory '/home/elatov/downloads/sleuthkit-4.0.1/tsk3'  
 	Making install in base  
-	make[2]: Entering directory \`/home/elatov/downloads/sleuthkit-4.0.1/tsk3/base'  
-	make[3]: Entering directory \`/home/elatov/downloads/sleuthkit-4.0.1/tsk3/base'  
-	make[3]: Nothing to be done for \`install-exec-am'.  
-	make[3]: Nothing to be done for \`install-data-am'.  
+	make[2]: Entering directory '/home/elatov/downloads/sleuthkit-4.0.1/tsk3/base'  
+	make[3]: Entering directory '/home/elatov/downloads/sleuthkit-4.0.1/tsk3/base'  
+	make[3]: Nothing to be done for 'install-exec-am'.  
+	make[3]: Nothing to be done for 'install-data-am'.  
 	...  
 	...  
 	/bin/sh /home/elatov/downloads/sleuthkit-4.0.1/config/install-sh -c -m 644 'tsk3/auto/tsk_auto.h' '/usr/local/sleuthkit/include/tsk3/auto/tsk_auto.h'  
-	make[2]: Leaving directory \`/home/elatov/downloads/sleuthkit-4.0.1'  
-	make[1]: Leaving directory \`/home/elatov/downloads/sleuthkit-4.0.1'  
+	make[2]: Leaving directory '/home/elatov/downloads/sleuthkit-4.0.1'  
+	make[1]: Leaving directory '/home/elatov/downloads/sleuthkit-4.0.1'  
 	
 
 That finished without issue also. I then checked out the contents of the package and it looked like this:
@@ -414,10 +414,10 @@ Now I wanted to recover all the files. I ran into a couple of other links: '<a h
 	while read line  
 	do  
 	# Read in 3 different variables  
-	file_type=\`echo "$line" | awk {'print $1'}\`  
-	inode_number=\`echo "$line" | cut -d : -f 1 |awk {'print $NF'}\`  
+	file_type='echo "$line" | awk {'print $1'}'  
+	inode_number='echo "$line" | cut -d : -f 1 |awk {'print $NF'}'  
 	inode_number=${inode_number%:}  
-	file_name=\`echo "$line" | cut -f 2\`
+	file_name='echo "$line" | cut -f 2'
 	
 	#un-comment below to see what files will be recovered  
 	#echo "$file_type"  
@@ -619,5 +619,5 @@ In conclusion, there are a lot of recovery tools out there, so pick your poison:
 > 
 > In many cases you will want to use Magic Rescue in addition to the tools mentioned above. They are not mutually exclusive, e.g. combining magicrescue with dls from The Sleuth Kit could give good results. In many cases you'll want to use magicrescue to extract its known file types and another utility to extract the rest. 
 
-So try everything out and sees what works best :) 
+So try everything out and see what works best :) 
 
