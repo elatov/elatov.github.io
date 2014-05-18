@@ -77,26 +77,19 @@ That is perfect, the columns are now separated by new lines. Now the name of the
 
 So now we see all the available counters/fields for our NFS datastore. I first wanted to concentrate on the Read latency, so I wanted to see what column number did the counter "Average Guest MilliSec/Read" correspond to. So I ran the following to determine that:
 
-	  
 	$ grep -n NFS_Datastore headers | grep 'Average Guest MilliSec/Read'  
 	16391:"\\local\Physical Disk NFS Volume(NFS_Datastore)\Average Guest MilliSec/Read"  
-	
 
 So the column number that corresponded to read latency of the NFS datastore was '16391'. So now let's grab two columns from our dataset: the first one, which corresponds to the time, and the '16391'th one, which corresponds to read latency of our datastore. To do this there are two steps, first let's just grab the data and skip the headers. This is done like so:
 
-	  
 	$ tail -n +2 esxtop_data.csv > data  
-	
 
 Next let's just grab the columns that we desire from the dataset:
 
-	  
 	$ awk -F , '{print $1","$16391}' data > nfs_read_latency_data  
-	
 
 Confirming we just have the two column, we can check the data really fast:
 
-	  
 	$ head nfs_read_latency_data  
 	"12/11/2012 19:09:23","0.00"  
 	"12/11/2012 19:09:26","0.00"  
@@ -123,7 +116,7 @@ After running the above command I saw the following graph:
 So it looks like we had two spikes, one at about 19:10 and the other at 20:20. Let's pick the second one and concentrate on that. First let's find the exact time of the spike. It looks like the spike reached about 170ms. So let's search for a value above a hundred and see if we can find our spike.
 
 	  
-	\' nfs_read_latency_data  
+	[elatov@klaptop]$ grep '1[0-9][0-9]' nfs_read_latency_data  
 	"12/11/2012 19:10:07","117.87"  
 	"12/11/2012 20:20:10","120.69"  
 	"12/11/2012 20:20:13","171.45"  
@@ -266,10 +259,10 @@ The information was taken from "<a href="http://www.gnuplot.info/docs_4.4/gnuplo
 
 > This command applies to time series where data are composed of dates/times. It has no meaning unless the command set xdata time is given also.  
 > Syntax:  
-	>   
-	> set timefmt "<format string>"  
-	> show timefmt  
-	>   
+>	   
+>	 set timefmt "<format string>"  
+>	 show timefmt  
+>	   
 > The string argument tells gnuplot how to read time data from the data file. The valid formats are:
 > 
 > <a href="http://virtuallyhyper.com/2013/01/plot-esxtop-data-with-gnuplot/gnuplot_time_formate/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/01/plot-esxtop-data-with-gnuplot/gnuplot_time_formate/']);" rel="attachment wp-att-5382"><img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/gnuplot_time_formate.png" alt="gnuplot time formate Plot Esxtop Data With gnuplot" width="418" height="231" class="alignnone size-full wp-image-5382" title="Plot Esxtop Data With gnuplot" /></a> 
@@ -280,14 +273,14 @@ Here is an example from the documentation:
 > Suppose the fi le "data" contains records like  
 > 03/21/95 10:00 6.02e23  
 > This file can be plotted by  
-	>   
-	> set xdata time  
-	> set timefmt "%m/%d/%y"  
-	> set xrange ["03/21/95":"03/22/95"]  
-	> set format x "%m/%d"  
-	> set timefmt "%m/%d/%y %H:%M"  
-	> plot "data" using 1:3  
-	>  
+>	   
+>	 set xdata time  
+>	 set timefmt "%m/%d/%y"  
+>	 set xrange ["03/21/95":"03/22/95"]  
+>	 set format x "%m/%d"  
+>	 set timefmt "%m/%d/%y %H:%M"  
+>	 plot "data" using 1:3  
+>	  
 
 **set datafile sep**
 
@@ -306,23 +299,23 @@ Here is an example from the documentation:
 > Except for the non-numerical formats, these may be preceded by a "0" ("zero", not "oh") to pad the fi eld length with leading zeroes, and a positive digit, to de fine the minimum field width (which will be overridden if the specifi ed width is not large enough to contain the number). There is a 24-character limit to the length of the printed text; longer strings will be truncated.  
 > Examples:  
 > Suppose the text is "76/12/25 23:11:11". Then  
-	>   
-	> set format x # defaults to "12/25/76" \n "23:11"  
-	> set format x "%A, %d %b %Y" # "Saturday, 25 Dec 1976"  
-	> set format x "%r %D" # "11:11:11 pm 12/25/76"  
-	>   
+>	   
+>	 set format x # defaults to "12/25/76" \n "23:11"  
+>	 set format x "%A, %d %b %Y" # "Saturday, 25 Dec 1976"  
+>	 set format x "%r %D" # "11:11:11 pm 12/25/76"  
+>	   
 > Suppose the text is "98/07/06 05:04:03". Then  
-	>   
-	> set format x "%1y/%2m/%3d %01H:%02M:%03S" # "98/ 7/ 6 5:04:003"  
-	>  
+>	   
+>	 set format x "%1y/%2m/%3d %01H:%02M:%03S" # "98/ 7/ 6 5:04:003"  
+>	  
 
 **plot "data" using 1:3 with lines title "Read Lat/ms"**
 
 > The most common data file modifi er is using.  
 > Syntax:  
-	>   
-	> plot 'file' using {<entry> {:<entry> {:<entry> ...}}} {'format'}  
-	>   
+>	   
+>	 plot 'file' using {<entry> {:<entry> {:<entry> ...}}} {'format'}  
+>	   
 > Each 'entry' may be a simple column number that selects the value from one fi eld of the input t, an expression enclosed in parentheses, or empty. 
 
 More information from the same document:
@@ -331,8 +324,7 @@ More information from the same document:
 > 
 > You also have the option to specify the plot style explicitly as part of the plot or splot command. If you want to mix plot styles within a single plot, you must specify the plot style for each component.  
 > Example:  
-	>   
-	> plot 'data' with boxes, sin(x) with lines  
-	>   
+>	   
+>	 plot 'data' with boxes, sin(x) with lines  
+>	   
 > Each plot style has its own expected set of data entries in a data fi le. For example by default the lines style expects either a single column of y values (with implicit x ordering) or a pair of columns with x in the fi rst and y in the second. 
-
