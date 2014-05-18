@@ -347,107 +347,102 @@ Lastly, create the *VDE*-Switch boot. Add the following to the **/etc/rc.local**
     /usr/local/bin/vde_switch -d -s /tmp/vde1 -M /tmp/mgmt1 -tap tap0 -m 660 -g elatov --mgmtmode 660 --mgmtgroup elatov
     
 
-	So I rebooted the FreeBSD host and I wanted to make sure all the settings look good. First I wanted to make sure my **bridge0** and **tap0** interfaces were setup: 
+So I rebooted the FreeBSD host and I wanted to make sure all the settings look good. First I wanted to make sure my **bridge0** and **tap0** interfaces were setup: 
 	
-	    elatov@freebsd:~> ifconfig tap0 
-	    tap0: flags=8942<BROADCAST,RUNNING,PROMISC,SIMPLEX,MULTICAST> metric 0 mtu 1500
-	          options=80000<LINKSTATE> 
-	          ether 00:bd:90:1a:00:00 
-	          nd6 options=29<PERFORMNUD,IFDISABLED,AUTO_LINKLOCAL>
+	elatov@freebsd:~> ifconfig tap0 
+	tap0: flags=8942<BROADCAST,RUNNING,PROMISC,SIMPLEX,MULTICAST> metric 0 mtu 1500
+		  options=80000<LINKSTATE> 
+		  ether 00:bd:90:1a:00:00 
+		  nd6 options=29<PERFORMNUD,IFDISABLED,AUTO_LINKLOCAL>
 	    
 	
-	and the **bridge0** interface:
+and the **bridge0** interface:
 	
-	    elatov@freebsd:~> ifconfig bridge0 
-	    bridge0: flags=8843<UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST> metric 0 mtu 1500 
-	             ether 02:84:95:2c:24:00 
-	             nd6 options=29<PERFORMNUD,IFDISABLED,AUTO_LINKLOCAL> 
-	             id 00:00:00:00:00:00 priority 32768 hellotime 2 fwddelay 15 
-	             maxage 20 holdcnt 6 proto rstp maxaddr 100 timeout 1200 
-	             root id 00:00:00:00:00:00 priority 32768 ifcost 0 port 0 
-	             member: tap0 flags=143<LEARNING,DISCOVER,AUTOEDGE,AUTOPTP> 
-	                     ifmaxaddr 0 port 7 priority 128 path cost 2000000 
-	             member: em0 flags=143<LEARNING,DISCOVER,AUTOEDGE,AUTOPTP> 
-	                     ifmaxaddr 0 port 1 priority 128 path cost 2000000
-	    
+	elatov@freebsd:~> ifconfig bridge0 
+	bridge0: flags=8843<UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST> metric 0 mtu 1500 
+			 ether 02:84:95:2c:24:00 
+			 nd6 options=29<PERFORMNUD,IFDISABLED,AUTO_LINKLOCAL> 
+			 id 00:00:00:00:00:00 priority 32768 hellotime 2 fwddelay 15 
+			 maxage 20 holdcnt 6 proto rstp maxaddr 100 timeout 1200 
+			 root id 00:00:00:00:00:00 priority 32768 ifcost 0 port 0 
+			 member: tap0 flags=143<LEARNING,DISCOVER,AUTOEDGE,AUTOPTP> 
+					 ifmaxaddr 0 port 7 priority 128 path cost 2000000 
+			 member: em0 flags=143<LEARNING,DISCOVER,AUTOEDGE,AUTOPTP> 
+					 ifmaxaddr 0 port 1 priority 128 path cost 2000000
+
+
+That looked good. Next I wanted to make sure my *VDE*-Switch was created:
 	
-	That looked good. Next I wanted to make sure my *VDE*-Switch was created:
+	elatov@freebsd:~> unixterm /tmp/mgmt1 
+	VDE switch V.2.3.2 
+	(C) Virtual Square Team (coord. R. Davoli) 2005,2006,2007 - GPLv2 
+
+	vde$ ds/showinfo 
+	0000 DATA END WITH '.' 
+	ctl dir /tmp/vde1 
+	std mode 0660 
+	. 
+	1000 Success 
+
+	vde$ port/allprint 
+	0000 DATA END WITH '.' 
+	Port 0001 untagged_vlan=0000 ACTIVE - Unnamed Allocatable 
+	Current User: NONE Access Control: (User: NONE - Group: NONE) 
+	-- endpoint ID 0007 module tuntap : tap0 
+	. 
+	1000 Success 
+
+
+That also looked good, we even see the **tap0** device connected. Then I wanted to make sure the persmission on my **tap0** device were correct:
+
+	elatov@freebsd:~> ls -l /dev/tap0 
+	crw-rw---- 1 root elatov 0, 102 Feb 3 18:00 /dev/tap0
+
+and I wanted to make sure the *sysctl* settings looked good as well:
+
+	elatov@freebsd:~> sysctl net.link.tap.user_open 
+	net.link.tap.user_open: 1 
+	elatov@freebsd:~> sysctl net.link.tap.up_on_open 
+	net.link.tap.up_on_open: 1
+
+And lastly I wanted to make sure the kernel modules were loaded:
+
+	elatov@freebsd:~>kldstat 
+	Id Refs Address Size Name 
+	1 13 0xc0400000 e9ec64 kernel 
+	2 1 0xc62de000 5000 if_tap.ko 
+	3 1 0xc6302000 9000 if_bridge.ko 
+	4 1 0xc630b000 6000 bridgestp.ko 
+	5 1 0xc647c000 e000 fuse.ko 
+	6 1 0xc64ef000 8000 aio.ko 
+	7 1 0xc64fa000 21000 kqemu.ko
+
+Everything looked good. As Jarret mentioned in his <a href="http://virtuallyhyper.com/2012/07/installing-kvm-as-a-virtual-machine-on-esxi5-with-bridged-networking/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/07/installing-kvm-as-a-virtual-machine-on-esxi5-with-bridged-networking/']);">post</a>, there are a lot of ways to go about managing VMs. Here is <a href="http://www.linux-kvm.org/page/Management_Tools" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.linux-kvm.org/page/Management_Tools']);">web-page</a> with all the different tools. Checking over the FreeBSD ports, I only found the following:
+
+*   virt-manager
+*   virtinst
+*   aqemu
+*   virsh 
 	
-	    elatov@freebsd:~> unixterm /tmp/mgmt1 
-	    VDE switch V.2.3.2 
-	    (C) Virtual Square Team (coord. R. Davoli) 2005,2006,2007 - GPLv2 
-	    
-	    vde$ ds/showinfo 
-	    0000 DATA END WITH '.' 
-	    ctl dir /tmp/vde1 
-	    std mode 0660 
-	    . 
-	    1000 Success 
-	    
-	    vde$ port/allprint 
-	    0000 DATA END WITH '.' 
-	    Port 0001 untagged_vlan=0000 ACTIVE - Unnamed Allocatable 
-	    Current User: NONE Access Control: (User: NONE - Group: NONE) 
-	    -- endpoint ID 0007 module tuntap : tap0 
-	    . 
-	    1000 Success 
-	    
+All of the above (except **aqemu**) depend on the **libvirt** libraries. After further investigation it turned out that *libvirt* and *VDE* don't work together... yet. From <a href="https://gist.github.com/1787749" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://gist.github.com/1787749']);">here</a>, a snippet:
 	
-	That also looked good, we even see the **tap0** device connected. Then I wanted to make sure the persmission on my **tap0** device were correct:
-	
-	    elatov@freebsd:~> ls -l /dev/tap0 
-	    crw-rw---- 1 root elatov 0, 102 Feb 3 18:00 /dev/tap0
-	    
-	
-	and I wanted to make sure the *sysctl* settings looked good as well:
-	
-	    elatov@freebsd:~> sysctl net.link.tap.user_open 
-	    net.link.tap.user_open: 1 
-	    elatov@freebsd:~> sysctl net.link.tap.up_on_open 
-	    net.link.tap.up_on_open: 1
-	    
-	
-	And lastly I wanted to make sure the kernel modules were loaded:
-	
-	    elatov@freebsd:~>kldstat 
-	    Id Refs Address Size Name 
-	    1 13 0xc0400000 e9ec64 kernel 
-	    2 1 0xc62de000 5000 if_tap.ko 
-	    3 1 0xc6302000 9000 if_bridge.ko 
-	    4 1 0xc630b000 6000 bridgestp.ko 
-	    5 1 0xc647c000 e000 fuse.ko 
-	    6 1 0xc64ef000 8000 aio.ko 
-	    7 1 0xc64fa000 21000 kqemu.ko
-	    
-	
-	Everything looked good. As Jarret mentioned in his <a href="http://virtuallyhyper.com/2012/07/installing-kvm-as-a-virtual-machine-on-esxi5-with-bridged-networking/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2012/07/installing-kvm-as-a-virtual-machine-on-esxi5-with-bridged-networking/']);">post</a>, there are a lot of ways to go about managing VMs. Here is <a href="http://www.linux-kvm.org/page/Management_Tools" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.linux-kvm.org/page/Management_Tools']);">web-page</a> with all the different tools. Checking over the FreeBSD ports, I only found the following:
-	
-	*   virt-manager
-	*   virtinst
-	*   aqemu
-	*   virsh 
-	
-	All of the above (except **aqemu**) depend on the **libvirt** libraries. After further investigation it turned out that *libvirt* and *VDE* don't work together... yet. From <a href="https://gist.github.com/1787749" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://gist.github.com/1787749']);">here</a>, a snippet:
-	
-	> For generic situations libvirt and virt-manager are useful tools to help manage VM clusters. ubuntu-vm-builder is useful for creating VMs and adding them to libvirt hosts. VDE and libvirt Don't Play Together
-	> 
-	> Unfortunately libvirt doesn't currently support VDE networks, although it is possible for someone to implement a VDE interface using the libvirt network API.
-	
-	I was planning on only running 2 VMs, so this wasn't a big deal for me. Running the follow two commands to start my VMs is pretty easy:
-	
-	    elatov@freebsd:~>vdeqemu -hda rhel1.img -m 512 -kernel-kqemu -vnc :0 -localtime -no-acpi -net nic,model=e1000,macaddr=52:54:00:12:34:56 -net vde,sock=/tmp/vde1 & 
-	    elatov@freebsd:~>vdeqemu -hda rhel2.img -m 256 -kernel-kqemu -vnc :1 -localtime -no-acpi -net nic,model=e1000,macaddr=52:54:00:12:34:57 -net vde,sock=/tmp/vde1 &
-	    
-	
-	<div class="SPOSTARBUST-Related-Posts">
-	  <H3>
-	    Related Posts
-	  </H3>
-	  
-	  <ul class="entry-meta">
-	    <li class="SPOSTARBUST-Related-Post">
-	      <a title="Migrating a VM from VMware Workstation to Oracle VirtualBox" href="http://virtuallyhyper.com/2013/04/migrating-a-vm-from-vmware-workstation-to-oracle-virtualbox/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/04/migrating-a-vm-from-vmware-workstation-to-oracle-virtualbox/']);" rel="bookmark">Migrating a VM from VMware Workstation to Oracle VirtualBox</a>
-	    </li>
-	  </ul>
-	</div>
-	
+> For generic situations libvirt and virt-manager are useful tools to help manage VM clusters. ubuntu-vm-builder is useful for creating VMs and adding them to libvirt hosts. VDE and libvirt Don't Play Together
+> 
+> Unfortunately libvirt doesn't currently support VDE networks, although it is possible for someone to implement a VDE interface using the libvirt network API.
+
+I was planning on only running 2 VMs, so this wasn't a big deal for me. Running the follow two commands to start my VMs is pretty easy:
+
+	elatov@freebsd:~>vdeqemu -hda rhel1.img -m 512 -kernel-kqemu -vnc :0 -localtime -no-acpi -net nic,model=e1000,macaddr=52:54:00:12:34:56 -net vde,sock=/tmp/vde1 & 
+	elatov@freebsd:~>vdeqemu -hda rhel2.img -m 256 -kernel-kqemu -vnc :1 -localtime -no-acpi -net nic,model=e1000,macaddr=52:54:00:12:34:57 -net vde,sock=/tmp/vde1 &
+
+<div class="SPOSTARBUST-Related-Posts">
+  <H3>
+	Related Posts
+  </H3>
+
+  <ul class="entry-meta">
+	<li class="SPOSTARBUST-Related-Post">
+	  <a title="Migrating a VM from VMware Workstation to Oracle VirtualBox" href="http://virtuallyhyper.com/2013/04/migrating-a-vm-from-vmware-workstation-to-oracle-virtualbox/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/2013/04/migrating-a-vm-from-vmware-workstation-to-oracle-virtualbox/']);" rel="bookmark">Migrating a VM from VMware Workstation to Oracle VirtualBox</a>
+	</li>
+  </ul>
+</div>
