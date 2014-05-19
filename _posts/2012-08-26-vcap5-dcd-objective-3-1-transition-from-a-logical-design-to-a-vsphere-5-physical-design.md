@@ -58,27 +58,11 @@ From the [vSphere Security Guide](http://pubs.vmware.com/vsphere-50/topic/com.vm
 
 The default should be enough for most cases. It depends on how many people are actually going to be working on the virtualized environment and what policies have been set in place. For example if there is a change control in place for deploying a VM, then have a dedicated "Virtual Machine Power User" role defined to have the ability to create VMs. Also have a bunch of users be in the "Virtual Machine Users" role and they will be only allowed to use the VMs. With both of these in place, you can ensure that one person keeps track of changes ( what VMs are deployed ) and regular users in the "Virtual Machine Users" won't be able to make any changes, but can still use the VMs that are already deployed.
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="VCAP5-DCD Objective 4.3 – Create an Installation Guide" href="http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-4-3-create-an-installation-guide/" rel="bookmark">VCAP5-DCD Objective 4.3 – Create an Installation Guide</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="VCAP5-DCD Objective 4.2 – Create an Implementation Plan" href="http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-4-2-create-an-implementation-plan/" rel="bookmark">VCAP5-DCD Objective 4.2 – Create an Implementation Plan</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="VCAP5-DCD Objective 4.1 – Create an Execute a Validation Plan" href="http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-4-1-create-an-execute-a-validation-plan/" rel="bookmark">VCAP5-DCD Objective 4.1 – Create an Execute a Validation Plan</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="VCAP5-DCD Objective 3.6 – Determine Datacenter Management Options for a vSphere 5 Physical Design" href="http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-3-6-determine-datacenter-management-options-for-a-vsphere-5-physical-design/" rel="bookmark">VCAP5-DCD Objective 3.6 – Determine Datacenter Management Options for a vSphere 5 Physical Design</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="VCAP5-DCD Objective 3.4 – Determine Appropriate Compute Resources for a vSphere 5 Physical Design" href="http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-3-4-determine-appropriate-compute-resources-for-a-vsphere-5-physical-design/" rel="bookmark">VCAP5-DCD Objective 3.4 – Determine Appropriate Compute Resources for a vSphere 5 Physical Design</a>
-    </li>
-  </ul>
-</div>
+- [VCAP5-DCD Objective 4.3 – Create an Installation Guide](http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-4-3-create-an-installation-guide/)
+- [VCAP5-DCD Objective 4.2 – Create an Implementation Plan](http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-4-2-create-an-implementation-plan/)
+- [VCAP5-DCD Objective 4.1 – Create an Execute a Validation Plan](http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-4-1-create-an-execute-a-validation-plan/)
+- [VCAP5-DCD Objective 3.6 – Determine Datacenter Management Options for a vSphere 5 Physical Design](http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-3-6-determine-datacenter-management-options-for-a-vsphere-5-physical-design/)
+- [VCAP5-DCD Objective 3.4 – Determine Appropriate Compute Resources for a vSphere 5 Physical Design](http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-3-4-determine-appropriate-compute-resources-for-a-vsphere-5-physical-design/)
 

@@ -672,15 +672,7 @@ Now I have completely replaced the default **iptables** firewall on the DD-WRT R
 
 <root> </root>
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Snort On Debian" href="http://virtuallyhyper.com/2014/04/snort-debian/" rel="bookmark">Snort On Debian</a>
-    </li>
-  </ul>
-</div>
+- [Snort On Debian](http://virtuallyhyper.com/2014/04/snort-debian/)
 

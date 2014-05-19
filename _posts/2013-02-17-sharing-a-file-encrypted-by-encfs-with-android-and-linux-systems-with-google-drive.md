@@ -402,15 +402,7 @@ Lastly, click on the text file and make sure you can see the contents:
 
 You can always script something to automate the encrypting, decrypting, and syncing of the files.
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Installing VMware Workstation 9.0.2 on Fedora 19" href="http://virtuallyhyper.com/2013/08/installing-vmware-workstation-9-0-2-on-fedora-19/" rel="bookmark">Installing VMware Workstation 9.0.2 on Fedora 19</a>
-    </li>
-  </ul>
-</div>
+- [Installing VMware Workstation 9.0.2 on Fedora 19](http://virtuallyhyper.com/2013/08/installing-vmware-workstation-9-0-2-on-fedora-19/)
 

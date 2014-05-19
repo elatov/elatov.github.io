@@ -490,27 +490,11 @@ Again you can check the progress of the fsck through the vSphere Client if you d
 
 If you run out of partitions (4 primary or 3 primary and 1 extended with 11 logical partitions for SCSI: [Max Partitions on Linux](http://www.linuxforums.org/forum/installation/42716-maximum-partitions-linux.html)), you could always add a new disk to the VM and follow the same steps.
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="RHCSA and RHCE Chapter 4 File Systems and Such" href="http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-4-file-systems-and-such/" rel="bookmark">RHCSA and RHCE Chapter 4 File Systems and Such</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="RHCSA and RHCE Chapter 3 Disks and Partitioning" href="http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-3-disks-and-partitioning/" rel="bookmark">RHCSA and RHCE Chapter 3 Disks and Partitioning</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Creating an LVM Logical Volume From Two Used Partitions" href="http://virtuallyhyper.com/2012/10/creating-an-lvm-volume-from-two-used-partitions/" rel="bookmark">Creating an LVM Logical Volume From Two Used Partitions</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="WordPress - Error establishing a database connection, but able to connect via command line - SELinux and httpd" href="http://virtuallyhyper.com/2012/09/selinux-and-httpd/" rel="bookmark">WordPress - Error establishing a database connection, but able to connect via command line - SELinux and httpd</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Recreating VMFS Partitions using Hexdump" href="http://virtuallyhyper.com/2012/09/recreating-vmfs-partitions-using-hexdump/" rel="bookmark">Recreating VMFS Partitions using Hexdump</a>
-    </li>
-  </ul>
-</div>
+- [RHCSA and RHCE Chapter 4 File Systems and Such](http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-4-file-systems-and-such/)
+- [RHCSA and RHCE Chapter 3 Disks and Partitioning](http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-3-disks-and-partitioning/)
+- [Creating an LVM Logical Volume From Two Used Partitions](http://virtuallyhyper.com/2012/10/creating-an-lvm-volume-from-two-used-partitions/)
+- [WordPress - Error establishing a database connection, but able to connect via command line - SELinux and httpd](http://virtuallyhyper.com/2012/09/selinux-and-httpd/)
+- [Recreating VMFS Partitions using Hexdump](http://virtuallyhyper.com/2012/09/recreating-vmfs-partitions-using-hexdump/)
 

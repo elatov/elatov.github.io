@@ -649,6 +649,6 @@ Here is example usage:
 
 > To make SELinux context changes that survive a file system relabel:
 >
-> 1.  Run the **semanage fcontext -a options file-name|directory-name** command, remembering to use the full path to the file or directory.
-> 2.  Run the **restorecon -v file-name|directory-name** command to apply the context changes.
+> 1.  Run the `semanage fcontext -a options file-name|directory-name` command, remembering to use the full path to the file or directory.
+> 2.  Run the `restorecon -v file-name|directory-name` command to apply the context changes.
 

@@ -120,14 +120,6 @@ Lastly you can use third party tools like [RVtools](http://www.robware.net/) to 
 
 In conclusion there are many ways on how to check if VM is still going through snapshot consolidation. However instead of using those tools, be proactive and keep an eye on your environment and don't let your VMs have snapshots older than 3 days. Check out "[VMware Snapshot Alerting and Reporting](http://www.virtualpro.co.uk/2010/06/21/vmware-snapshots-alerting-and-reporting/)", an example of how someone got in trouble with snapshots and started to monitor for snapshots after the incident.
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Snapshots Take a Long Time When "Keep Memory" is Enabled" href="http://virtuallyhyper.com/2013/04/snapshots-take-a-long-time-when-keep-memory-is-checked/" rel="bookmark">Snapshots Take a Long Time When "Keep Memory" is Enabled</a>
-    </li>
-  </ul>
-</div>
+- [Snapshots Take a Long Time When "Keep Memory" is Enabled](http://virtuallyhyper.com/2013/04/snapshots-take-a-long-time-when-keep-memory-is-checked/)

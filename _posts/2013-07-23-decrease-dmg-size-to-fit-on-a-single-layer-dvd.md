@@ -454,27 +454,28 @@ The 10.8 Installer is downloadable via App Store and even though it's doesn't fi
 
 From the bottom link (Mac OS X hints), here is a snippet of the code that can accomplishes our goal:
 
-<pre class="brush:  /bin/bash; notranslate">rm -f /private/tmp/Mountain\ Lion\ DVD\ Image\ read-write.dmg # Remove any old copies of the DVD image before we begin.
-
-echo "Creating DVD Image..."
-hdiutil create -size 4.2g -volname "Mac OS X Install ESD" /private/tmp/Mountain\ Lion\ DVD\ Image\ read-write.dmg -fs HFS+ -layout SPUD
-
-hdiutil attach -nobrowse ~/Desktop/InstallESD.dmg
-hdiutil attach -nobrowse /private/tmp/Mountain\ Lion\ DVD\ Image\ read-write.dmg
-
-echo "Copying Mountain Lion to new image..."
-cp -pRv /Volumes/Mac\ OS\ X\ Install\ ESD/* /Volumes/Mac\ OS\ X\ Install\ ESD\ 1/
-
-hdiutil detach /Volumes/Mac\ OS\ X\ Install\ ESD\ 1
-hdiutil detach /Volumes/Mac\ OS\ X\ Install\ ESD
-
-echo "Converting to read-only..."
-hdiutil convert /private/tmp/Mountain\ Lion\ DVD\ Image\ read-write.dmg -format UDZO -o ~/Desktop/Mountain\ Lion\ DVD\ Image.dmg
-
-rm -f /private/tmp/Mountain\ Lion\ DVD\ Image\ read-write.dmg
-
-echo "Image Creation Complete. Please burn '~/Desktop/Mountain Lion DVD Image.dmg' to a DVD using Disk Utility."
-open ~/Desktop/
+	#!/bin/bash
+	rm -f /private/tmp/Mountain\ Lion\ DVD\ Image\ read-write.dmg # Remove any old copies of the DVD image before we begin.
+	
+	echo "Creating DVD Image..."
+	hdiutil create -size 4.2g -volname "Mac OS X Install ESD" /private/tmp/Mountain\ Lion\ DVD\ Image\ read-write.dmg -fs HFS+ -layout SPUD
+	
+	hdiutil attach -nobrowse ~/Desktop/InstallESD.dmg
+	hdiutil attach -nobrowse /private/tmp/Mountain\ Lion\ DVD\ Image\ read-write.dmg
+	
+	echo "Copying Mountain Lion to new image..."
+	cp -pRv /Volumes/Mac\ OS\ X\ Install\ ESD/* /Volumes/Mac\ OS\ X\ Install\ ESD\ 1/
+	
+	hdiutil detach /Volumes/Mac\ OS\ X\ Install\ ESD\ 1
+	hdiutil detach /Volumes/Mac\ OS\ X\ Install\ ESD
+	
+	echo "Converting to read-only..."
+	hdiutil convert /private/tmp/Mountain\ Lion\ DVD\ Image\ read-write.dmg -format UDZO -o ~/Desktop/Mountain\ Lion\ DVD\ Image.dmg
+	
+	rm -f /private/tmp/Mountain\ Lion\ DVD\ Image\ read-write.dmg
+	
+	echo "Image Creation Complete. Please burn '~/Desktop/Mountain Lion DVD Image.dmg' to a DVD using Disk Utility."
+	open ~/Desktop/
 
 
 ### 2. Mac OS X 10.8 Has a Built-in Recovery Partition
@@ -501,4 +502,3 @@ From "[OS X Recovery Disk Assistant v1.0](http://support.apple.com/kb/dl1433)":
 > The OS X Recovery Disk Assistant lets you create OS X Recovery on an external drive that has all of the same capabilities as the built-in OS X Recovery: reinstall Lion or Mountain Lion, repair the disk using Disk Utility, restore from a Time Machine backup, or browse the web with Safari.
 
 Well at least I have a cheap bootable OS 10.6 DVD now :)
-

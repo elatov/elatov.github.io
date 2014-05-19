@@ -41,18 +41,8 @@ So we are capable of utilizing the full 1GB but the hypervisor is limiting the u
 
 This is by design and makes perfect sense. We want all our resources dedicated to the VMs and not to any of the tools within the hypervisor. There is a pretty good article entitled [ I/O Analyzer](http://www.quora.com/What-is-the-architecture-of-VMWare-ESX-like-and-how-does-it-compare-to-other-operating-systems). It's a VMware appliance that comes pre-installed with a Linux distro and has IOmeter preloaded on it. I might do a post on how to use that tool, as well. :)
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Recover Files from an SD Card Using Linux Utilities" href="http://virtuallyhyper.com/2012/11/recover-files-from-an-sd-card-using-linux-utilities/" rel="bookmark">Recover Files from an SD Card Using Linux Utilities</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Can't Set X520 10GbE Intel NIC to Auto Negotiate on ESX(i)" href="http://virtuallyhyper.com/2012/10/cant-set-x520-10gbe-intel-nic-to-auto-negotiate-on-esxi/" rel="bookmark">Can't Set X520 10GbE Intel NIC to Auto Negotiate on ESX(i)</a>
-    </li>
-  </ul>
-</div>
+- [Recover Files from an SD Card Using Linux Utilities](http://virtuallyhyper.com/2012/11/recover-files-from-an-sd-card-using-linux-utilities/)
+- [Can't Set X520 10GbE Intel NIC to Auto Negotiate on ESX(i)](http://virtuallyhyper.com/2012/10/cant-set-x520-10gbe-intel-nic-to-auto-negotiate-on-esxi/)
 

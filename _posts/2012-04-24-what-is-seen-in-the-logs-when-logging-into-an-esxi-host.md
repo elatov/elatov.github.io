@@ -158,15 +158,7 @@ If you connect to the vCenter using the vSphere client, you will only see the lo
 
 **Note:** Log location depends on your Windows version, please consult VMware KB [1021804](http://kb.vmware.com/kb/1021804) to make sure you are looking at the correct location.
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="ESX(i) Host  Randomly Disconnects from vCenter Server due to Hostd Backtracing" href="http://virtuallyhyper.com/2012/10/esxi-host-randomly-disconnects-from-vcenter-server-due-to-hostd-back-tracing/" rel="bookmark">ESX(i) Host Randomly Disconnects from vCenter Server due to Hostd Backtracing</a>
-    </li>
-  </ul>
-</div>
+- [ESX(i) Host  Randomly Disconnects from vCenter Server due to Hostd Backtracing](http://virtuallyhyper.com/2012/10/esxi-host-randomly-disconnects-from-vcenter-server-due-to-hostd-back-tracing/)
 

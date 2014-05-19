@@ -132,26 +132,10 @@ If you using windows, use sDelete to reclaim the space and then SvMotion to keep
 **Solution 2:**
 Use VMware Converter and P2V the VM. Ensure you use the thin disk.
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="What is the difference between a Redo log and a Snapshot?" href="http://virtuallyhyper.com/2012/09/what-is-the-difference-between-a-redo-log-and-a-snapshot/" rel="bookmark">What is the difference between a Redo log and a Snapshot?</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Advanced Snapshot Troubleshooting: Missing VMDK Descriptors" href="http://virtuallyhyper.com/2012/04/advanced-snapshot-troubleshooting-missing-vmdk-descriptors/" rel="bookmark">Advanced Snapshot Troubleshooting: Missing VMDK Descriptors</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title=""Thin on Thin" With VMware Thin Provisioned Disks and EMC Symmetrix Virtual Provisioning" href="http://virtuallyhyper.com/2012/04/thin-on-thin-with-vmware-thin-provisioned-disks-and-emc-symmetrix-virtual-provisioning/" rel="bookmark">"Thin on Thin" With VMware Thin Provisioned Disks and EMC Symmetrix Virtual Provisioning</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Accidently Changed the Disk Size when the VM was Running on Snapshots" href="http://virtuallyhyper.com/2012/04/accidently-changed-the-disk-size-when-the-vm-was-running-on-snapshots/" rel="bookmark">Accidently Changed the Disk Size when the VM was Running on Snapshots</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Advanced Snapshot Troubleshooting: Incorrect VMDK Geometry" href="http://virtuallyhyper.com/2012/04/advanced-snapshot-troubleshooting-incorrect-vmdk-geometry/" rel="bookmark">Advanced Snapshot Troubleshooting: Incorrect VMDK Geometry</a>
-    </li>
-  </ul>
-</div>
+- [What is the difference between a Redo log and a Snapshot?](http://virtuallyhyper.com/2012/09/what-is-the-difference-between-a-redo-log-and-a-snapshot/)
+- [Advanced Snapshot Troubleshooting: Missing VMDK Descriptors](http://virtuallyhyper.com/2012/04/advanced-snapshot-troubleshooting-missing-vmdk-descriptors/)
+- ["Thin on Thin" With VMware Thin Provisioned Disks and EMC Symmetrix Virtual Provisioning](http://virtuallyhyper.com/2012/04/thin-on-thin-with-vmware-thin-provisioned-disks-and-emc-symmetrix-virtual-provisioning/)
+- [Accidently Changed the Disk Size when the VM was Running on Snapshots](http://virtuallyhyper.com/2012/04/accidently-changed-the-disk-size-when-the-vm-was-running-on-snapshots/)
+- [Advanced Snapshot Troubleshooting: Incorrect VMDK Geometry](http://virtuallyhyper.com/2012/04/advanced-snapshot-troubleshooting-incorrect-vmdk-geometry/)

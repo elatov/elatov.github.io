@@ -64,15 +64,7 @@ I did a couple of searches and I came across VMware KB [article](http://kb.vmwar
 
 We were on 5.0, so we ran the top command. After running the above command the messages were not as frequent but still happening. Lastly I ran into VMware KB [link](http://kb.vmware.com/kb/2008044) to the release notes). After applying that firmware version, the messages stopped.
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="ESX(i) Host with Emulex NC553i CNA Disconnects from Strorage" href="http://virtuallyhyper.com/2012/11/host-with-emulex-nc553i-cna-disconnects-from-strorage/" rel="bookmark">ESX(i) Host with Emulex NC553i CNA Disconnects from Strorage</a>
-    </li>
-  </ul>
-</div>
+- [ESX(i) Host with Emulex NC553i CNA Disconnects from Strorage](http://virtuallyhyper.com/2012/11/host-with-emulex-nc553i-cna-disconnects-from-strorage/)
 

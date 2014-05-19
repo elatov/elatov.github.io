@@ -135,18 +135,8 @@ Then edit the **/etc/chromium-browser/default** file and add the following:
 
 The version in the command matches of what we found in the info file above. That should be it, now you can use ChrUbuntu with almost all the functionality that you need. I am planning to update to ChrUbuntu 13.04, so stay tuned...
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Update ChrUbuntu 13.04 to 13.10 on the Samsung Chromebook" href="http://virtuallyhyper.com/2013/11/update-chrubuntu-13-04-13-10-samsung-chromebook/" rel="bookmark">Update ChrUbuntu 13.04 to 13.10 on the Samsung Chromebook</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Update ChrUbuntu 12.04 to 13.04 on the Samsung Chromebook" href="http://virtuallyhyper.com/2013/03/update-chrubuntu-12-04-to-13-04-on-the-samsung-chromebook/" rel="bookmark">Update ChrUbuntu 12.04 to 13.04 on the Samsung Chromebook</a>
-    </li>
-  </ul>
-</div>
+- [Update ChrUbuntu 13.04 to 13.10 on the Samsung Chromebook](http://virtuallyhyper.com/2013/11/update-chrubuntu-13-04-13-10-samsung-chromebook/)
+- [Update ChrUbuntu 12.04 to 13.04 on the Samsung Chromebook](http://virtuallyhyper.com/2013/03/update-chrubuntu-12-04-to-13-04-on-the-samsung-chromebook/)
 

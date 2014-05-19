@@ -539,24 +539,10 @@ After some time the graph started to populate with data. Here is a very small sa
 
 ![collectd web freebsd raid gauge Monitor Different Systems with Collectd](http://virtuallyhyper.com/wp-content/uploads/2013/02/collectd-web-freebsd-raid-gauge.png)
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Monitor Disk IO Stats with Zabbix" href="http://virtuallyhyper.com/2013/06/monitor-disk-io-stats-with-zabbix/" rel="bookmark">Monitor Disk IO Stats with Zabbix</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Monitor Different Systems with Zabbix" href="http://virtuallyhyper.com/2013/03/monitor-different-systems-with-zabbix/" rel="bookmark">Monitor Different Systems with Zabbix</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Monitor Different Systems with Zenoss" href="http://virtuallyhyper.com/2013/03/monitor-different-systems-with-zenoss/" rel="bookmark">Monitor Different Systems with Zenoss</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Monitor Different Systems with Munin" href="http://virtuallyhyper.com/2013/03/monitor-different-systems-with-munin/" rel="bookmark">Monitor Different Systems with Munin</a>
-    </li>
-  </ul>
-</div>
+- [Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/2013/06/monitor-disk-io-stats-with-zabbix/)
+- [Monitor Different Systems with Zabbix](http://virtuallyhyper.com/2013/03/monitor-different-systems-with-zabbix/)
+- [Monitor Different Systems with Zenoss](http://virtuallyhyper.com/2013/03/monitor-different-systems-with-zenoss/)
+- [Monitor Different Systems with Munin](http://virtuallyhyper.com/2013/03/monitor-different-systems-with-munin/)
 

@@ -115,15 +115,7 @@ Sample Output:
 
 Hope this helps someone out.
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Determine Disk VPD Information from ESX Classic" href="http://virtuallyhyper.com/2012/08/determine-disk-vpd-information-from-esx-classic/" rel="bookmark">Determine Disk VPD Information from ESX Classic</a>
-    </li>
-  </ul>
-</div>
+- [Determine Disk VPD Information from ESX Classic](http://virtuallyhyper.com/2012/08/determine-disk-vpd-information-from-esx-classic/)
 

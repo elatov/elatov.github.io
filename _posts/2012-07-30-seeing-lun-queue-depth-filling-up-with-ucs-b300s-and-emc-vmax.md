@@ -22,7 +22,7 @@ tags:
 ---
 Recently I ran into an issue where the device queue length was filling up. Looking at esxtop here is how it looked like:
 
-![full_queue_depth_s](http://virtuallyhyper.com/wp-content/uploads/2012/07/full_queue_depth_s.png")
+![full_queue_depth_s](http://virtuallyhyper.com/wp-content/uploads/2012/07/full_queue_depth_s.png)
 
 As I ran into this issue I realized I didn't really know of all the different aspects of all the different queues at different storage layers. I also didn't realize of all the possible ways to help out with the issue. First let's tackle the description of all the different queues at different layers. There is an excellent VMware blog on this topic: "[Troubleshooting Storage Performance in vSphere – Storage Queues](http://blogs.vmware.com/vsphere/2012/07/troubleshooting-storage-performance-in-vsphere-part-5-storage-queues.html)". I will shamelessly copy their diagram just to make it easier to follow the blog:
 

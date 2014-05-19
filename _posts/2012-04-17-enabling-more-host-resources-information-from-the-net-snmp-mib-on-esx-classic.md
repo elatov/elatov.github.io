@@ -92,21 +92,9 @@ And if you run the same query again:
 
 The output was much larger. This only works for ESX and not for ESXi and as the "[2005377](http://www.vmware.com/pdf/vsp_4_snmp_config.pdf), the Host-Resources MIB is added for ESXi 5.0, so if you want to get that information on an ESXi host, then update to 5.0 :)
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="ESXi on MacMini 6,2" href="http://virtuallyhyper.com/2014/04/esxi-macmini-62/" rel="bookmark">ESXi on MacMini 6,2</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="A Few Words on VOMA" href="http://virtuallyhyper.com/2012/09/a-few-words-on-voma/" rel="bookmark">A Few Words on VOMA</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="ESX Host Experiencing High Latency to a Hitachi HDS Array" href="http://virtuallyhyper.com/2012/04/esx-host-experiencing-high-latency-to-a-hitachi-array/" rel="bookmark">ESX Host Experiencing High Latency to a Hitachi HDS Array</a>
-    </li>
-  </ul>
-</div>
+- [ESXi on MacMini 6,2](http://virtuallyhyper.com/2014/04/esxi-macmini-62/)
+- [A Few Words on VOMA](http://virtuallyhyper.com/2012/09/a-few-words-on-voma/)
+- [ESX Host Experiencing High Latency to a Hitachi HDS Array](http://virtuallyhyper.com/2012/04/esx-host-experiencing-high-latency-to-a-hitachi-array/)
 

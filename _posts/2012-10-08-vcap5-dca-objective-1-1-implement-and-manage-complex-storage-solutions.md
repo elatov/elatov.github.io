@@ -878,27 +878,11 @@ Also from the same guide:
 >
 > **NOTE** All hosts accessing the datastore must support VMFS5 . If any ESX/ESXi host version 4.x or earlier is using the VMFS3 datastore, the upgrade fails and the host's mac address is displayed. with the Mac address details of the Host which is actively using the Datastore
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="VCAP5-DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files" href="http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-1-configure-manage-and-analyze-vsphere-log-files/" rel="bookmark">VCAP5-DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="VCAP5-DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" href="http://virtuallyhyper.com/2012/12/vcap5-dca-objective-5-2-deploy-and-manage-complex-update-manager-environments/" rel="bookmark">VCAP5-DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="VCAP5-DCA Objective 5.1 – Implement and Maintain Host Profiles" href="http://virtuallyhyper.com/2012/11/vcap5-dca-objective-5-1-implement-and-maintain-host-profiles/" rel="bookmark">VCAP5-DCA Objective 5.1 – Implement and Maintain Host Profiles</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="VCAP5-DCA Objective 4.2 – Deploy and Test VMware FT" href="http://virtuallyhyper.com/2012/11/vcap5-dca-objective-4-2-deploy-and-test-vmware-ft/" rel="bookmark">VCAP5-DCA Objective 4.2 – Deploy and Test VMware FT</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="VCAP5-DCA Objective 4.1 – Implement and Maintain Complex VMware HA Solutions" href="http://virtuallyhyper.com/2012/11/vcap5-dca-objective-4-1-implement-and-maintain-complex-vmware-ha-solutions/" rel="bookmark">VCAP5-DCA Objective 4.1 – Implement and Maintain Complex VMware HA Solutions</a>
-    </li>
-  </ul>
-</div>
+- [VCAP5-DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-1-configure-manage-and-analyze-vsphere-log-files/)
+- [VCAP5-DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments](http://virtuallyhyper.com/2012/12/vcap5-dca-objective-5-2-deploy-and-manage-complex-update-manager-environments/)
+- [VCAP5-DCA Objective 5.1 – Implement and Maintain Host Profiles](http://virtuallyhyper.com/2012/11/vcap5-dca-objective-5-1-implement-and-maintain-host-profiles/)
+- [VCAP5-DCA Objective 4.2 – Deploy and Test VMware FT](http://virtuallyhyper.com/2012/11/vcap5-dca-objective-4-2-deploy-and-test-vmware-ft/)
+- [VCAP5-DCA Objective 4.1 – Implement and Maintain Complex VMware HA Solutions](http://virtuallyhyper.com/2012/11/vcap5-dca-objective-4-1-implement-and-maintain-complex-vmware-ha-solutions/)
 

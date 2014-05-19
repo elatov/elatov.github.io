@@ -759,15 +759,7 @@ After we applied all the above changes the snapshot consolidation looked much be
 
 So the snapshot did happen and the unstun took 4 seconds, which was much better than ~230 seconds and is expected with active I/O and Change Block Tracking enabled.
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Check if Snapshot Consolidation is Occurring in the Background on an ESX(i) Host" href="http://virtuallyhyper.com/2012/09/check-if-snapshot-consolidation-is-occurring-in-the-background/" rel="bookmark">Check if Snapshot Consolidation is Occurring in the Background on an ESX(i) Host</a>
-    </li>
-  </ul>
-</div>
+- [Check if Snapshot Consolidation is Occurring in the Background on an ESX(i) Host](http://virtuallyhyper.com/2012/09/check-if-snapshot-consolidation-is-occurring-in-the-background/)
 

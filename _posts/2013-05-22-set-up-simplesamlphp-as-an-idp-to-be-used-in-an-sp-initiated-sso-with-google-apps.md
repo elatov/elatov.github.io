@@ -577,19 +577,7 @@ This ensures that this is for the **test** user. And finally Google confirms the
 
 This is steps 7 and 8 from the diagram. Using Cookies and **RelayState** we are forwarded to the appropriate session. I will try to do an IdP (Identity Provider) Initiated SAML SSO Exchange in another post.
 
-<root>
+### Related Posts
 
-</root></artifactresponse></response></authnrequest>
-
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
-
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="LemonLDAP-NG With LDAP and SAML Google Apps" href="http://virtuallyhyper.com/2014/02/lemonldap-ng-ldap-saml-google-apps/" rel="bookmark">LemonLDAP-NG With LDAP and SAML Google Apps</a>
-    </li>
-  </ul>
-</div>
+- [LemonLDAP-NG With LDAP and SAML Google Apps](http://virtuallyhyper.com/2014/02/lemonldap-ng-ldap-saml-google-apps/)
 

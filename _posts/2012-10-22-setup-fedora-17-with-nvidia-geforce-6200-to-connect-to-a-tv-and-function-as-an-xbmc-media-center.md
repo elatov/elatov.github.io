@@ -647,15 +647,7 @@ I then saved the *iptables* settings.
 
 And that is all it took :) I was able to watch videos on my TV from my PC and use my phone as a remote control for my PC.
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="RHCSA and RHCE Chapter 2 System Initialization" href="http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-2-system-initialization/" rel="bookmark">RHCSA and RHCE Chapter 2 System Initialization</a>
-    </li>
-  </ul>
-</div>
+- [RHCSA and RHCE Chapter 2 System Initialization](http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-2-system-initialization/)
 

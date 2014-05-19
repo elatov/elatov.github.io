@@ -22,13 +22,13 @@ There are a couple of steps to this process. First you need to determine if you 
 
 ### Determine if you have a ghosted DVS
 
-1. Under "Host and Clusters" if you select a host and then go to summary you will see a message similar to this:
+**1.** Under "Host and Clusters" if you select a host and then go to summary you will see a message similar to this:
 
 > The distributed Virtual Switch corresponding to the proxy switches d5 6e 22 50 dd f2 94 7b-a6 1f b2 c2 e6 aa 0f bf on the host does not exist in vCenter or does not contain the host.
 
 This is discussed in VMware KB [vSphere DvSwitch caveats and best practices!](http://kb.vmware.com/kb/1017558)"
 
-2. Under "Host and Clusters" if you select a Host and then go to Configuration -> Networking -> vNetwork Distributed Switch
+**2.** Under "Host and Clusters" if you select a Host and then go to Configuration -> Networking -> vNetwork Distributed Switch
 
 You will see something like this:
 
@@ -52,13 +52,13 @@ But when you login directly to the host via ssh and run 'esxcfg-vswitch -l' you 
 	201 1 test.eth0
 
 
-3. If you Edit Setting of your VMs and select the Network Card, under Network Label it shows "Invalid Backing"
+**3.** If you Edit Setting of your VMs and select the Network Card, under Network Label it shows "Invalid Backing"
 
 Taken from [this](http://communities.vmware.com/thread/323439) VMware Communities page. Here is how it looks like:
 
 ![VM_Missing_BackingDevice](http://virtuallyhyper.com/wp-content/uploads/2012/09/VM_Missing_BackingDevice.png)
 
-4. Don't confuse this as an 'out-of-sync' scenario
+**4.** Don't confuse this as an 'out-of-sync' scenario
 
 The blog post "[vDS out of sync](http://sostech.wordpress.com/2011/06/06/vds-out-of-sync/)" talks about how it looks like. Basically you might see something like this:
 
@@ -76,7 +76,7 @@ Now, once you have identified an "Inconsistent" DVS, let's start fixing it.
 
 Most of these steps are laid out in "[VMware vNetwork Distributed Switch: Migration and Configuration](http://www.vmware.com/files/pdf/vsphere-vnetwork-ds-migration-configuration-wp.pdf)"
 
-1. Create a new Stardard Virtual Switch
+**1.** Create a new Stardard Virtual Switch
 
 
 	~ # esxcfg-vswitch -a vSwitch3
@@ -96,7 +96,7 @@ Most of these steps are laid out in "[VMware vNetwork Distributed Switch: Migrat
 	...
 
 
-2. Remove the Uplink from the Distributed Virtual Switch and add it to the newly created Standard switch
+**2.** Remove the Uplink from the Distributed Virtual Switch and add it to the newly created Standard switch
 
 
 	~ # esxcfg-vswitch -Q vmnic2 -V 97 dvswitch
@@ -119,7 +119,7 @@ Most of these steps are laid out in "[VMware vNetwork Distributed Switch: Migrat
 
 ### Create the necessary Port Groups
 
-1. Create the appropriate Port Groups on the Standard Virtual Switch
+**1.** Create the appropriate Port Groups on the Standard Virtual Switch
 Let say you had four types of networks: Mgmt (vlan 100), vMotion (vlan 101), NFS (vlan 102), and VM (103). So let's create 4 different Port Groups with the appropriate VLAN Tags.
 
 
@@ -153,7 +153,7 @@ Let say you had four types of networks: Mgmt (vlan 100), vMotion (vlan 101), NFS
 
 ### Migrate your vmkernel interfaces from the Ghosted Distributed Virtual Switch to the Standard switch
 
-1. Determine the IP settings of your current vmkernel interfaces
+**1.** Determine the IP settings of your current vmkernel interfaces
 
 
 	~ # esxcfg-vmknic -l
@@ -192,7 +192,7 @@ Let say you had four types of networks: Mgmt (vlan 100), vMotion (vlan 101), NFS
 
 So vmk0 is Mgmt, vmk1 is vMotion, and vmk2 is NFS.
 
-2. Remove the vmkernel interfaces from the Ghosted Distributed Virtual Switch
+**2.** Remove the vmkernel interfaces from the Ghosted Distributed Virtual Switch
 **NOTE** If you were doing the above steps via an SSH session, the below commands will disrupt your Management interface. If you have a DRAC/ILO ( any out-of-band management tool) please use them. This will NOT disrupt your VM traffic.
 
 	~ # esxcfg-vmknic -d -v 129 -s dvswitch
@@ -228,7 +228,7 @@ So vmk0 is Mgmt, vmk1 is vMotion, and vmk2 is NFS.
 
 You can see that they are gone from the DvSwitch.
 
-3. Recreate the vmkernel interfaces on the standard virtual switch
+**3.** Recreate the vmkernel interfaces on the standard virtual switch
 
 
 	~ # esxcfg-vmknic -a -i 1.1.1.2 -n 255.255.255.0 -p Mgmt
@@ -334,4 +334,3 @@ Notice that there is a "Remove" button available. Go ahead and click "Remove", t
 *   reboot the host
 
 Usually the last one fixes the shadow ports issue. Now you are completely off the Ghosted DVS. If you want to re-create the DVS or re-add the host back to the DVS and migrate everything back then you can follow the instructions laid out in "[VMware vNetwork Distributed Switch: Migration and Configuration](http://www.vmware.com/files/pdf/vsphere-vnetwork-ds-migration-configuration-wp.pdf)"
-

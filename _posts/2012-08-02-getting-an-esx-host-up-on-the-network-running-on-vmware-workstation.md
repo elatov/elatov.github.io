@@ -150,15 +150,7 @@ So the management interface of the ESXi host uses the same MAC as the physical N
 
 So for security reasons VMware workstation is not allowing to send traffic with a MAC address other than what is assigned to the VM. I found a couple web pages which described how to get around the issue: [sanbarrow](http://kb.vmware.com/kb/1042). Supposedly setting the option *ethernetX.noForgedSrcAddr* to *False* should allow for MAC Address changes. I tried setting that option and many others, but whatever I tried to put into the VMX file of the ESX host VM, it would not work. So I j
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Use FWBuilder to Deploy an IPtables Firewall to a DD-WRT Router" href="http://virtuallyhyper.com/2013/04/use-fwbuilder-to-deploy-an-iptables-firewall-to-a-dd-wrt-router/" rel="bookmark">Use FWBuilder to Deploy an IPtables Firewall to a DD-WRT Router</a>
-    </li>
-  </ul>
-</div>
+- [Use FWBuilder to Deploy an IPtables Firewall to a DD-WRT Router](http://virtuallyhyper.com/2013/04/use-fwbuilder-to-deploy-an-iptables-firewall-to-a-dd-wrt-router/)
 

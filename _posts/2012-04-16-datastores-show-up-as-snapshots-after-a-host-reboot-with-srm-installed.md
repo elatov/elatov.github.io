@@ -66,15 +66,7 @@ All in all, we ran into 3 issues:
 2.  <span style="line-height: 22px;">LUNs were auto resignatured after a host reboot (had the *EnableResignature* option enabled)</span>
 3.  <span style="line-height: 22px;">The *EnableResignature* Option is set automatically (when Using SRM this is expected behavior, customer will change option manually after an SRM failover)</span>
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Enabling disk.EnableUUID on a Nested ESX Host in Workstation" href="http://virtuallyhyper.com/2012/08/enabling-disk-enableuuid-on-a-nested-esx-host-in-workstation/" rel="bookmark">Enabling disk.EnableUUID on a Nested ESX Host in Workstation</a>
-    </li>
-  </ul>
-</div>
+- [Enabling disk.EnableUUID on a Nested ESX Host in Workstation](http://virtuallyhyper.com/2012/08/enabling-disk-enableuuid-on-a-nested-esx-host-in-workstation/)
 

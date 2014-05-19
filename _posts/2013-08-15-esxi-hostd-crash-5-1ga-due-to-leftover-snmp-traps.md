@@ -147,7 +147,7 @@ Looking over the esxi host, I did see SNMPD enabled:
 
 From KB we can double confirm if that is issue by running the following:
 
-> ls /var/spool/snmp | wc -l
+> 	ls /var/spool/snmp | wc -l
 >
 > Note: If the output indicates that the value is 2000 or more, then this may be causing the full inodes.
 

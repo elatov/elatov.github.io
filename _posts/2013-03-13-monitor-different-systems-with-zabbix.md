@@ -426,18 +426,8 @@ and then fixing the script to return the correct value, allowed the trigger to b
 *   Doesn't load multiple Graphs at ones, only one aspect at a time (CPU or Memory but not both)
 *   Requires an external Database (MySQL)
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" href="http://virtuallyhyper.com/2013/12/configure-ipmi-supermicro-server-monitor-ipmi-sensors-zabbix/" rel="bookmark">Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Monitor SMART Attributes with Zabbix" href="http://virtuallyhyper.com/2013/10/monitor-smart-attributes-zabbix/" rel="bookmark">Monitor SMART Attributes with Zabbix</a>
-    </li>
-  </ul>
-</div>
+- [Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix](http://virtuallyhyper.com/2013/12/configure-ipmi-supermicro-server-monitor-ipmi-sensors-zabbix/)
+- [Monitor SMART Attributes with Zabbix](http://virtuallyhyper.com/2013/10/monitor-smart-attributes-zabbix/)
 

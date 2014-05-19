@@ -86,27 +86,11 @@ That would update all of your ports, and then run:
 
 And that would forcefully recompile all of your packages.
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="OSSEC on FreeBSD" href="http://virtuallyhyper.com/2014/04/ossec-freebsd/" rel="bookmark">OSSEC on FreeBSD</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Install Samhain with Beltane on FreeBSD" href="http://virtuallyhyper.com/2014/03/install-samhain-beltane-freebsd/" rel="bookmark">Install Samhain with Beltane on FreeBSD</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Installing Splunk on FreeBSD" href="http://virtuallyhyper.com/2013/12/installing-splunk-freebsd/" rel="bookmark">Installing Splunk on FreeBSD</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Setting up a FreeBSD 9 WordPress Server on 128MB of RAM" href="http://virtuallyhyper.com/2013/04/setting-up-freebsd-9-wordpress-server-on-128mb-of-ram/" rel="bookmark">Setting up a FreeBSD 9 WordPress Server on 128MB of RAM</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Running VMs On FreeBSD using QEMU with VDE" href="http://virtuallyhyper.com/2013/02/running-vms-on-freebsd-using-qemu-with-vde/" rel="bookmark">Running VMs On FreeBSD using QEMU with VDE</a>
-    </li>
-  </ul>
-</div>
+- [OSSEC on FreeBSD](http://virtuallyhyper.com/2014/04/ossec-freebsd/)
+- [Install Samhain with Beltane on FreeBSD](http://virtuallyhyper.com/2014/03/install-samhain-beltane-freebsd/)
+- [Installing Splunk on FreeBSD](http://virtuallyhyper.com/2013/12/installing-splunk-freebsd/)
+- [Setting up a FreeBSD 9 WordPress Server on 128MB of RAM](http://virtuallyhyper.com/2013/04/setting-up-freebsd-9-wordpress-server-on-128mb-of-ram/)
+- [Running VMs On FreeBSD using QEMU with VDE](http://virtuallyhyper.com/2013/02/running-vms-on-freebsd-using-qemu-with-vde/)
 

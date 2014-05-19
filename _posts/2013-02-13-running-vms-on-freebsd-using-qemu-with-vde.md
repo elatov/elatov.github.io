@@ -435,14 +435,6 @@ I was planning on only running 2 VMs, so this wasn't a big deal for me. Running 
 	elatov@freebsd:~>vdeqemu -hda rhel1.img -m 512 -kernel-kqemu -vnc :0 -localtime -no-acpi -net nic,model=e1000,macaddr=52:54:00:12:34:56 -net vde,sock=/tmp/vde1 &
 	elatov@freebsd:~>vdeqemu -hda rhel2.img -m 256 -kernel-kqemu -vnc :1 -localtime -no-acpi -net nic,model=e1000,macaddr=52:54:00:12:34:57 -net vde,sock=/tmp/vde1 &
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-	Related Posts
-  </H3>
+###Related Posts
 
-  <ul class="entry-meta">
-	<li class="SPOSTARBUST-Related-Post">
-	  <a title="Migrating a VM from VMware Workstation to Oracle VirtualBox" href="http://virtuallyhyper.com/2013/04/migrating-a-vm-from-vmware-workstation-to-oracle-virtualbox/" rel="bookmark">Migrating a VM from VMware Workstation to Oracle VirtualBox</a>
-	</li>
-  </ul>
-</div>
+- [Migrating a VM from VMware Workstation to Oracle VirtualBox](http://virtuallyhyper.com/2013/04/migrating-a-vm-from-vmware-workstation-to-oracle-virtualbox/)

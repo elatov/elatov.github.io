@@ -465,7 +465,7 @@ Here are the rest of the options:
 >
 > 1.  1 From the direct console, select Restore Standard Switch and press Enter.
 >     If the host is on a standard switch, this selection is dimmed, and you cannot select it.
->     *   Press F11 to confirm. </blockquote>
+>     *   Press F11 to confirm.
 >     Here are all the options as seen in the DCUI:
 >
 >     ![dcui options VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/dcui_options.png)

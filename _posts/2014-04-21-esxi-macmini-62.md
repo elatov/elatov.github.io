@@ -38,16 +38,20 @@ Instructions on how to make a bootable USB Disk from a VMware Installer ISO are 
 >         /sbin/fdisk /dev/sdb
 >
 >
->     a. Type **d** to delete partitions until they are all deleted. b. Type **n** to create primary partition 1 that extends over the entire disk. c. Type **t** to set the type to an appropriate setting for the FAT32 file system, such as **c**. d. Type **a** to set the active flag on partition 1. e. Type **p** to print the partition table. The result should be similar to the following text:
+>     1. Type **d** to delete partitions until they are all deleted. 
+>     2. Type **n** to create primary partition 1 that extends over the entire disk. 
+>     3. Type **t** to set the type to an appropriate setting for the FAT32 file system, such as **c**. 
+>     4. Type **a** to set the active flag on partition 1. 
+>     5. Type **p** to print the partition table. The result should be similar to the following text:
 >
->         Disk /dev/sdb: 2004 MB, 2004877312 bytes
->         255 heads, 63 sectors/track, 243 cylinders
->         Units = cylinders of 16065 * 512 = 8225280 bytes
->            Device Boot      Start         End      Blocks   Id  System
->         /dev/sdb1   *           1         243     1951866    c  W95 FAT32 (LBA)
+> 			Disk /dev/sdb: 2004 MB, 2004877312 bytes
+> 			255 heads, 63 sectors/track, 243 cylinders
+> 			Units = cylinders of 16065 * 512 = 8225280 bytes
+> 			Device Boot      Start         End      Blocks   Id  System
+> 			/dev/sdb1   *           1         243     1951866    c  W95 FAT32 (LBA)
 >
 >
->     f. Type **w** to write the partition table and quit.
+>     6. Type **w** to write the partition table and quit.
 >
 > 2.  Format the USB flash drive with the Fat32 file system.
 >
@@ -739,8 +743,7 @@ I am planning on moving the **M2** machine to the **M2** datastore. So the VM we
 
 Then copy the harddisk
 
-    PowerCLI C:\> Copy-HardDisk -HardDisk (Get-HardDisk -vm M2  | Where {$_.Name -eq
-     "Hard disk 1"}) -DestinationPath "[M2] M2"
+    PowerCLI C:\> Copy-HardDisk -HardDisk (Get-HardDisk -vm M2  | Where {$_.Name -eq "Hard disk 1"}) -DestinationPath "[M2] M2"
 
     CapacityGB      Persistence                                            Filename
     ----------      -----------                                            --------
@@ -797,8 +800,7 @@ Now for the re-connect to the new host:
 
 Let's copy the harddisk to the local datastore of the new host:
 
-    PowerCLI C:\> Copy-HardDisk -HardDisk (Get-HardDisk -Datastore "M2" -DatastorePa
-    th "[M2] M2/" | where {$_.Name -eq "M2.vmdk"}) -DestinationPath "[datastore1] M2
+    PowerCLI C:\> Copy-HardDisk -HardDisk (Get-HardDisk -Datastore "M2" -DatastorePath "[M2] M2/" | where {$_.Name -eq "M2.vmdk"}) -DestinationPath "[datastore1] M2
     "
 
     CapacityGB      Persistence                                            Filename
@@ -842,14 +844,11 @@ Let's make sure the disk locations are correct:
 I was surprised to see this automatically pick up the correct locations, but it did :) (I was thinking that I would have to fix the VM settings with other commands).Then go ahead and start the VM:
 
     PowerCLI C:\> Start-VM M2
-    Start-VM : 4/5/2014 11:42:48 AM    Start-VM        This VM has questions that m
-    ust be answered before the operation can continue.
+    Start-VM : 4/5/2014 11:42:48 AM    Start-VM        This VM has questions that must be answered before the operation can continue.
     At line:1 char:9
     + Start-VM <<<<  M2
-        + CategoryInfo          : InvalidOperation: (:) [Start-VM], VmBlockedByQue
-       stionException
-        + FullyQualifiedErrorId : Client20_VmServiceImpl_WrapInVMQuestionWatchingT
-       ask_HasQuestions,VMware.VimAutomation.ViCore.Cmdlets.Commands.StartVM
+        + CategoryInfo          : InvalidOperation: (:) [Start-VM], VmBlockedByQuestionException
+        + FullyQualifiedErrorId : Client20_VmServiceImpl_WrapInVMQuestionWatchingTask_HasQuestions,VMware.VimAutomation.ViCore.Cmdlets.Commands.StartVM
 
 
 Since we copied the files (we need to let ESX know whether we *moved it* or *copied it*), we can then run the following to answer the question:

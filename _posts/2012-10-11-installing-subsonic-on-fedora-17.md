@@ -25,9 +25,9 @@ I recently posted on [List of streaming media systems](http://virtuallyhyper.com
 
 I kept reading other forums and here is what I came across:
 
-[Subsonic vs. Jinzora](http://forum.subsonic.org/forum/viewtopic.php?t=564) (+1 Subsonic -1 Jinzora)
-[Subsonic vs Ampache](http://ubuntuforums.org/showthread.php?t=1581344) (+1 Subsonic -1 AmPache)
-[Install Subsonic on Ubuntu Server](http://blog.lundscape.com/2009/05/install-subsonic-on-ubuntu-server/) (+1 SubSonic -1 Firefly -1 Jinzora)
+- [Subsonic vs. Jinzora](http://forum.subsonic.org/forum/viewtopic.php?t=564) (+1 Subsonic -1 Jinzora)
+- [Subsonic vs Ampache](http://ubuntuforums.org/showthread.php?t=1581344) (+1 Subsonic -1 AmPache)
+- [Install Subsonic on Ubuntu Server](http://blog.lundscape.com/2009/05/install-subsonic-on-ubuntu-server/) (+1 SubSonic -1 Firefly -1 Jinzora)
 
 It seemed that everyone was really liking SubSonic. I actually used SqueezeBox a while back and I really liked it , but I wanted to try something new. So I decided to try SubSonic, here are steps I followed to setup SubSonic on my Fedora machine.
 
@@ -145,21 +145,9 @@ After that if you go to your Home screen and you should see your music library t
 
 The cool thing about SubSonic is the variety of applications that can be used to connect to it. There are even mobile apps available. Check out the full list [here](http://www.subsonic.org/pages/apps.jsp).
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="RHCSA and RHCE Chapter 6 Package Management" href="http://virtuallyhyper.com/2013/03/rhcsa-and-rhce-chapter-6-package-management/" rel="bookmark">RHCSA and RHCE Chapter 6 Package Management</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Fixing Android Phone Device Permissions on Fedora 17" href="http://virtuallyhyper.com/2013/02/fixing-android-phone-device-permissions-on-fedora-17/" rel="bookmark">Fixing Android Phone Device Permissions on Fedora 17</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Installing MusicCabinet on Top of SubSonic" href="http://virtuallyhyper.com/2013/02/installing-musiccabinet-on-top-of-subsonic/" rel="bookmark">Installing MusicCabinet on Top of SubSonic</a>
-    </li>
-  </ul>
-</div>
+- [RHCSA and RHCE Chapter 6 Package Management](http://virtuallyhyper.com/2013/03/rhcsa-and-rhce-chapter-6-package-management/)
+- [Fixing Android Phone Device Permissions on Fedora 17](http://virtuallyhyper.com/2013/02/fixing-android-phone-device-permissions-on-fedora-17/)
+- [Installing MusicCabinet on Top of SubSonic](http://virtuallyhyper.com/2013/02/installing-musiccabinet-on-top-of-subsonic/)
 

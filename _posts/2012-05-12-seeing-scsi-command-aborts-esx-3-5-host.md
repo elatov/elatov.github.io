@@ -143,15 +143,12 @@ That is a lot of LUNS from the same HBA. Those messages are described in VMware 
 
 > <div>
 >   There is no Sense Key or Addition Sense Code/ASC Qualifier information for this status as this is a host side condition.
-> </div>
 >
 > <div>
 >
-> </div>
 >
 > <div>
 >   This issue can occur if the affected hosts are using Emulex 2Gb, 4Gb and 8Gb HBA's with old or outdated firmware. For example, 4GB HBA Firmware Versions 2.10*, 2.5*, 2.7*, and 2.80* and 2GB HBA Firmware Versions: 1.8*, 1.90*, and 1.91* are outdated.
-> </div>
 
 We updated the firmware on the HBAs and the issues stopped.
 

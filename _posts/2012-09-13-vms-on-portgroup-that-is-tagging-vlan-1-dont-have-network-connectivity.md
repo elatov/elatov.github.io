@@ -81,15 +81,7 @@ Since VLAN 1 is usually the default VLAN, when you trunk the default VLAN it wil
 
 So now it was kind of setup as EST (External Switch Tagging). More information regarding EST can be seen in VMware KB [1004127](http://kb.vmware.com/kb/1004127). After making that change the VMs were able to get online without any issue.
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Tag Multiple VLANs on Trunk Port on DD-WRT Router" href="http://virtuallyhyper.com/2014/04/tag-multiple-vlans-on-trunk-port-on-dd-wrt-router/" rel="bookmark">Tag Multiple VLANs on Trunk Port on DD-WRT Router</a>
-    </li>
-  </ul>
-</div>
+- [Tag Multiple VLANs on Trunk Port on DD-WRT Router](http://virtuallyhyper.com/2014/04/tag-multiple-vlans-on-trunk-port-on-dd-wrt-router/)
 

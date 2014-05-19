@@ -195,24 +195,10 @@ But I didn't want to do that just yet. Just as an FYI, here are the spec of each
 
 Since the apt-xapian-index just indexes all the aptitude packages, I didn't really see a problem with disabling it. After I disabled that cron job, I haven't seen any high latency on any of the VMs.
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Sharing a File Encrypted by EncFS with Android and Linux Systems with Google Drive" href="http://virtuallyhyper.com/2013/02/sharing-a-file-encrypted-by-encfs-with-android-and-linux-systems-with-google-drive/" rel="bookmark">Sharing a File Encrypted by EncFS with Android and Linux Systems with Google Drive</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Plot Esxtop Data With gnuplot" href="http://virtuallyhyper.com/2013/01/plot-esxtop-data-with-gnuplot/" rel="bookmark">Plot Esxtop Data With gnuplot</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="VMs are Slow to Boot from an HP MSA 2000 Array" href="http://virtuallyhyper.com/2012/11/vms-are-slow-to-boot-from-an-hp-msa-2000-array/" rel="bookmark">VMs are Slow to Boot from an HP MSA 2000 Array</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Seeing High KAVG with Microsoft Cluster Services  (MSCS) RDMs" href="http://virtuallyhyper.com/2012/08/seeing-high-kavg-with-microsoft-cluster-services-mscs-rdms/" rel="bookmark">Seeing High KAVG with Microsoft Cluster Services (MSCS) RDMs</a>
-    </li>
-  </ul>
-</div>
+- [Sharing a File Encrypted by EncFS with Android and Linux Systems with Google Drive](http://virtuallyhyper.com/2013/02/sharing-a-file-encrypted-by-encfs-with-android-and-linux-systems-with-google-drive/)
+- [Plot Esxtop Data With gnuplot](http://virtuallyhyper.com/2013/01/plot-esxtop-data-with-gnuplot/)
+- [VMs are Slow to Boot from an HP MSA 2000 Array](http://virtuallyhyper.com/2012/11/vms-are-slow-to-boot-from-an-hp-msa-2000-array/)
+- [Seeing High KAVG with Microsoft Cluster Services  (MSCS) RDMs](http://virtuallyhyper.com/2012/08/seeing-high-kavg-with-microsoft-cluster-services-mscs-rdms/)
 

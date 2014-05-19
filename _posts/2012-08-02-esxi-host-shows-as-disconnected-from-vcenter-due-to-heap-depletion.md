@@ -171,15 +171,7 @@ After the restart we were able to re-connect the host back to the vCenter.
 
 We contacted TrendMicro and it turned out that the customer had re-installed ESXi but forgot to "un-prepare" the host from the vShield Manager. This caused the manager to constantly query those VMs and it caused the host to run out of heap which in turn caused the vpxa agent to crash. After appropriately re-configuring the vShield Endpoint Deep Security Virtual Appliances, the heap was stable and didn't run out.
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="ESXi hostd Crash (5.1GA) Due to Leftover SNMP Traps" href="http://virtuallyhyper.com/2013/08/esxi-hostd-crash-5-1ga-due-to-leftover-snmp-traps/" rel="bookmark">ESXi hostd Crash (5.1GA) Due to Leftover SNMP Traps</a>
-    </li>
-  </ul>
-</div>
+- [ESXi hostd Crash (5.1GA) Due to Leftover SNMP Traps](http://virtuallyhyper.com/2013/08/esxi-hostd-crash-5-1ga-due-to-leftover-snmp-traps/)
 

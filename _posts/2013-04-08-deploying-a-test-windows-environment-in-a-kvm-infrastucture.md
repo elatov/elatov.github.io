@@ -619,18 +619,8 @@ and then you will see the following:
 
 ![spicy connected Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/spicy_connected.png)
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Configure AD Replication with Windows 2008" href="http://virtuallyhyper.com/2013/06/configure-ad-replication-with-windows-2008/" rel="bookmark">Configure AD Replication with Windows 2008</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Enabling LDAPS on Windows 2008 Active Directory Server" href="http://virtuallyhyper.com/2013/06/enabling-ldaps-on-windows-2008-active-directory-server/" rel="bookmark">Enabling LDAPS on Windows 2008 Active Directory Server</a>
-    </li>
-  </ul>
-</div>
+- [Configure AD Replication with Windows 2008](http://virtuallyhyper.com/2013/06/configure-ad-replication-with-windows-2008/)
+- [Enabling LDAPS on Windows 2008 Active Directory Server](http://virtuallyhyper.com/2013/06/enabling-ldaps-on-windows-2008-active-directory-server/)
 

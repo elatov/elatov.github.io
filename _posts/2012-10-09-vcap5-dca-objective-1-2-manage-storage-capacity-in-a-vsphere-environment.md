@@ -208,24 +208,10 @@ It will look something like this:
 
 After that, whatever Storage DRS settings you setup will be applied.
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="VCAP5-DCA Objective 2.3 – Deploy and Maintain Scalable Virtual Networking" href="http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-3-deploy-and-maintain-scalable-virtual-networking/" rel="bookmark">VCAP5-DCA Objective 2.3 – Deploy and Maintain Scalable Virtual Networking</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="VCAP5-DCA Objective 2.2 – Configure and Maintain VLANs, PVLANs and VLAN Settings" href="http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-2-configure-and-maintain-vlans-pvlans-and-vlan-settings/" rel="bookmark">VCAP5-DCA Objective 2.2 – Configure and Maintain VLANs, PVLANs and VLAN Settings</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="VCAP5-DCA Objective 2.1 – Implement and Manage Complex Virtual Networks" href="http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/" rel="bookmark">VCAP5-DCA Objective 2.1 – Implement and Manage Complex Virtual Networks</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="VCAP5-DCA Objective 1.3 – Configure and Manage Complex Multipathing and PSA Plug-ins" href="http://virtuallyhyper.com/2012/10/vcap5-dca-objective-1-3-configure-and-manage-complex-multipathing-and-psa-plug-ins/" rel="bookmark">VCAP5-DCA Objective 1.3 – Configure and Manage Complex Multipathing and PSA Plug-ins</a>
-    </li>
-  </ul>
-</div>
+- [VCAP5-DCA Objective 2.3 – Deploy and Maintain Scalable Virtual Networking](http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-3-deploy-and-maintain-scalable-virtual-networking/)
+- [VCAP5-DCA Objective 2.2 – Configure and Maintain VLANs, PVLANs and VLAN Settings](http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-2-configure-and-maintain-vlans-pvlans-and-vlan-settings/)
+- [VCAP5-DCA Objective 2.1 – Implement and Manage Complex Virtual Networks](http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/)
+- [VCAP5-DCA Objective 1.3 – Configure and Manage Complex Multipathing and PSA Plug-ins](http://virtuallyhyper.com/2012/10/vcap5-dca-objective-1-3-configure-and-manage-complex-multipathing-and-psa-plug-ins/)
 

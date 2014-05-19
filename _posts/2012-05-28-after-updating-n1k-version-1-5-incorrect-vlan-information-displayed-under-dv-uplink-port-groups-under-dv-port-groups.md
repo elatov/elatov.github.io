@@ -32,24 +32,10 @@ We grabbed a '*show tech-support svs*' from the N1K. More information on what a 
 
 We contacted Cisco and they had identified a known bug on the N1K. If you have cisco account you can check out bug [2025321](http://tools.cisco.com/Support/BugToolKit/search/getBugDetails.do?method=fetchBugDetails&bugId=CSCtz24512))
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="ESXi Hosts Show Up as a VEM Module with All Zeros for UUIDs on the Nexus 1000v" href="http://virtuallyhyper.com/2013/01/esxi-hosts-show-up-as-a-vem-module-with-all-zeros-for-uuids-on-the-nexus-1000v/" rel="bookmark">ESXi Hosts Show Up as a VEM Module with All Zeros for UUIDs on the Nexus 1000v</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Nexus 1000v Disconnects from vCenter" href="http://virtuallyhyper.com/2012/09/nexus-1000v-disconnects-from-vcenter/" rel="bookmark">Nexus 1000v Disconnects from vCenter</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Common Commands for Nexus 1000v VSM" href="http://virtuallyhyper.com/2012/08/common-commands-for-nexus-1000v-vsm/" rel="bookmark">Common Commands for Nexus 1000v VSM</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Receiving "No Free Ports" Available when Connecting a VM to the Nexus 1000v" href="http://virtuallyhyper.com/2012/07/receiving-no-free-ports-available-connecting-vm-nexus-1000v/" rel="bookmark">Receiving "No Free Ports" Available when Connecting a VM to the Nexus 1000v</a>
-    </li>
-  </ul>
-</div>
+- [ESXi Hosts Show Up as a VEM Module with All Zeros for UUIDs on the Nexus 1000v](http://virtuallyhyper.com/2013/01/esxi-hosts-show-up-as-a-vem-module-with-all-zeros-for-uuids-on-the-nexus-1000v/)
+- [Nexus 1000v Disconnects from vCenter](http://virtuallyhyper.com/2012/09/nexus-1000v-disconnects-from-vcenter/)
+- [Common Commands for Nexus 1000v VSM](http://virtuallyhyper.com/2012/08/common-commands-for-nexus-1000v-vsm/)
+- [Receiving "No Free Ports" Available when Connecting a VM to the Nexus 1000v](http://virtuallyhyper.com/2012/07/receiving-no-free-ports-available-connecting-vm-nexus-1000v/)
 

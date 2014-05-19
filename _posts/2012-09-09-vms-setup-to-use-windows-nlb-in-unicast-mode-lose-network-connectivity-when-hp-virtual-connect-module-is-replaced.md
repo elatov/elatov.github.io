@@ -302,15 +302,7 @@ So in our case this was expected. Here is a step by step process of what happene
 
 So lesson learned, VMs that participate in NLB in unicast mode will be down if the there is a failover of physical NICs.
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Load Balancing IIS Sites with NLB" href="http://virtuallyhyper.com/2013/04/load-balancing-iis-sites-with-nlb/" rel="bookmark">Load Balancing IIS Sites with NLB</a>
-    </li>
-  </ul>
-</div>
+- [Load Balancing IIS Sites with NLB](http://virtuallyhyper.com/2013/04/load-balancing-iis-sites-with-nlb/)
 

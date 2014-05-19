@@ -131,15 +131,7 @@ The same article has a section entitled "Thin pool management" and it has great 
 
 Along the same topic, sometimes performance between thick and thin VMDKs comes up. There is a good study that was done regarding that: [Performance Study of VMware vStorage Thin Provisioning](http://www.vmware.com/pdf/vsp_4_thinprov_perf.pdf). I don't want to get side tracked, so I might discuss that specific topic in another post.
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="VMFS Datastore not Auto-Mounting on an ESX(i) Host because the VMFS Partition is Overwritten" href="http://virtuallyhyper.com/2012/09/vmfs-datastore-not-auto-mounting-on-an-esxi-host/" rel="bookmark">VMFS Datastore not Auto-Mounting on an ESX(i) Host because the VMFS Partition is Overwritten</a>
-    </li>
-  </ul>
-</div>
+- [VMFS Datastore not Auto-Mounting on an ESX(i) Host because the VMFS Partition is Overwritten](http://virtuallyhyper.com/2012/09/vmfs-datastore-not-auto-mounting-on-an-esxi-host/)
 

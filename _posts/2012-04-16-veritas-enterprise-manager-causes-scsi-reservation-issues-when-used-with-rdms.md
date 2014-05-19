@@ -82,15 +82,7 @@ From above, we could gather that it's a Fibre-Channel Lun of about 30GB, but the
 
 I asked the customer what that RDM was used for, and to check if there is any special application within the Guest OS that would use SCSI Reservations. It turned out that it was a change within Veritas Enterprise Administrator, just had to click a button that said "Remove SCSI reservations". After that, the messages stopped showing up in the vmkernel.
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Seeing SCSI Command Aborts on an ESX 3.5 Host" href="http://virtuallyhyper.com/2012/05/seeing-scsi-command-aborts-esx-3-5-host/" rel="bookmark">Seeing SCSI Command Aborts on an ESX 3.5 Host</a>
-    </li>
-  </ul>
-</div>
+- [Seeing SCSI Command Aborts on an ESX 3.5 Host](http://virtuallyhyper.com/2012/05/seeing-scsi-command-aborts-esx-3-5-host/)
 

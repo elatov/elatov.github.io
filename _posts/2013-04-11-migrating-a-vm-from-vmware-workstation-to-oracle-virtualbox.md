@@ -504,8 +504,3 @@ Here is how it looked like in the prompt:
 Notice the "*" (star) next to the partition after making it active. Then I rebooted and I saw a successful Windows boot process:
 
 ![xp successful boot Migrating a VM from VMware Workstation to Oracle VirtualBox](http://virtuallyhyper.com/wp-content/uploads/2013/03/xp_successful_boot.png)
-
-<root>
-
-</root></mb></n></name></type></ovf>
-

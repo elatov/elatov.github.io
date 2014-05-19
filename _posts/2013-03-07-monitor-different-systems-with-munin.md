@@ -285,23 +285,24 @@ Look like the node was added without issues. Checking out the management page (*
 
 Instructions on how to write a plug-in for *Munin* are [here](http://munin-monitoring.org/wiki/HowToWritePlugins). Following the instuctions from the site, I wrote this script:
 
-<pre class="brush: /bin/sh; notranslate">case $1 in
-   config)
-        cat < <'EOM'
-graph_title Raid_Status
-graph_vlabel #_Disks
-raid.label #_Disks
-graph_args --base 1000 -l 0
-graph_noscale true
-graph_category disk
-load.critical 1
-graph_info Show Disks Online at a certain time
-raid.info Online Disks from the Raid
-EOM
-        exit 0;;
-esac
-val=$(/usr/local/sbin/arcconf getconfig 1 PD | grep State | grep Online| /usr/bin/wc -l)
-echo "raid.value $(echo $val)"
+	#!/bin/sh 
+	case $1 in
+	   config)
+	        cat < <'EOM'
+	graph_title Raid_Status
+	graph_vlabel #_Disks
+	raid.label #_Disks
+	graph_args --base 1000 -l 0
+	graph_noscale true
+	graph_category disk
+	load.critical 1
+	graph_info Show Disks Online at a certain time
+	raid.info Online Disks from the Raid
+	EOM
+	        exit 0;;
+	esac
+	val=$(/usr/local/sbin/arcconf getconfig 1 PD | grep State | grep Online| /usr/bin/wc -l)
+	echo "raid.value $(echo $val)"
 
 
 Here is what the script produced as ouput:

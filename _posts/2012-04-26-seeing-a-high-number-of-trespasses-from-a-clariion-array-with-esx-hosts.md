@@ -230,17 +230,9 @@ Optimized Path. The article [EMC CLARiiON Integration with VMware ESX](http://ww
 
 It turned out that the SAN Admin was doing some maintenance on the array and was manually trespassing the LUN to perform updates on the SPs. So the above logs were expected and there was nothing to worry about :)
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="ESX(i) Host Experiencing a lot of Active Path Changes and Disconnects to/from VNX 5300 over iSCSI" href="http://virtuallyhyper.com/2012/08/esxi-host-experiencing-a-lot-of-active-path-changes-and-disconnects-to-vnx-5300-over-iscsi/" rel="bookmark">ESX(i) Host Experiencing a lot of Active Path Changes and Disconnects to/from VNX 5300 over iSCSI</a>
-    </li>
-  </ul>
-</div>
+- [ESX(i) Host Experiencing a lot of Active Path Changes and Disconnects to/from VNX 5300 over iSCSI](http://virtuallyhyper.com/2012/08/esxi-host-experiencing-a-lot-of-active-path-changes-and-disconnects-to-vnx-5300-over-iscsi/)
 
 
  [1]: http://blogs.vmware.com/vsphere/2012/02/configuration-settings-for-alua-devices.html

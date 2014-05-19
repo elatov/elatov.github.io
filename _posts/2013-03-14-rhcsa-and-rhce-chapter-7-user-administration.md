@@ -723,21 +723,9 @@ Similar steps can be taken to setup **LDAP** authentication. From the same guide
 >     authconfig --enableldap --enableldapauth --ldapserver=ldap://ldap.example.com:389,ldap://ldap2.example.com:389 --ldapbasedn="ou=people,dc=example,dc=com" --enableldaptls --ldaploadcacert=https://ca.server.example.com/caCert.crt --update
 >
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="RHCSA and RHCE Chapter 10 - The Kernel" href="http://virtuallyhyper.com/2013/07/rhcsa-and-rhce-chapter-10-the-kernel/" rel="bookmark">RHCSA and RHCE Chapter 10 - The Kernel</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="RHCSA and RHCE Chapter 9 - System Logging, Monitoring, and Automation" href="http://virtuallyhyper.com/2013/06/rhcsa-and-rhce-chapter-9-system-logging-monitoring-and-automation/" rel="bookmark">RHCSA and RHCE Chapter 9 - System Logging, Monitoring, and Automation</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="RHCSA and RHCE Chapter 8 Network Installs" href="http://virtuallyhyper.com/2013/03/rhcsa-and-rhce-chapter-8-network-installs/" rel="bookmark">RHCSA and RHCE Chapter 8 Network Installs</a>
-    </li>
-  </ul>
-</div>
+- [RHCSA and RHCE Chapter 10 - The Kernel](http://virtuallyhyper.com/2013/07/rhcsa-and-rhce-chapter-10-the-kernel/)
+- [RHCSA and RHCE Chapter 9 - System Logging, Monitoring, and Automation](http://virtuallyhyper.com/2013/06/rhcsa-and-rhce-chapter-9-system-logging-monitoring-and-automation/)
+- [RHCSA and RHCE Chapter 8 Network Installs](http://virtuallyhyper.com/2013/03/rhcsa-and-rhce-chapter-8-network-installs/)
 

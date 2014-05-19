@@ -705,15 +705,7 @@ You can also get a summary of all the iSCSI commands in a packet capture using t
 
 For anyone that is interested, here is a [link](http://virtuallyhyper.com/wp-content/uploads/2012/06/iscsi_login.pcap) to the packet capture that I grabbed during the iSCSI login process.
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="HTTP Based Data Transfers from Windows 8 VM to Linux Physical Machine are Corrupted" href="http://virtuallyhyper.com/2013/01/http-based-data-transfer-from-windows-8-vm-to-linux-physical-machine-gets-corrupted/" rel="bookmark">HTTP Based Data Transfers from Windows 8 VM to Linux Physical Machine are Corrupted</a>
-    </li>
-  </ul>
-</div>
+- [HTTP Based Data Transfers from Windows 8 VM to Linux Physical Machine are Corrupted](http://virtuallyhyper.com/2013/01/http-based-data-transfer-from-windows-8-vm-to-linux-physical-machine-gets-corrupted/)
 

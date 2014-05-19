@@ -29,12 +29,8 @@ UPDATE: This has been back ported into 4.0 and is included in P11 for ESX [2011
 
 ESXi 5.0 U1 fixes similar issues, from the [ESXi 5.0 U1 Release Notes](https://www.vmware.com/support/vsphere5/doc/vsp_esxi50_u1_rel_notes.html):
 
-<div>
-</div>
 
-> <div>
->   **ESXi host generates excessive RARP broadcasts with multicast traffic**<br /> ESXi host generates excessive Reverse Address Resolution Protocol (RARP) packets when virtual machines join or leave multicast groups.This issue is resolved in this release.
-> </div>
+> **ESXi host generates excessive RARP broadcasts with multicast traffic**<br /> ESXi host generates excessive Reverse Address Resolution Protocol (RARP) packets when virtual machines join or leave multicast groups.This issue is resolved in this release.
 
 And lastly, I have seen a lot of RARPs when you have Beacon probes enabled. Another person actually blogged about it already: [Beacon probing resulting in excessive broadcasts](http://virtualrj.wordpress.com/2009/01/14/beacon-probing-resulting-in-excessive-broadcasts/).
 
@@ -54,21 +50,9 @@ The way that an ESX host updates the switch is by sending a GARP ([Gratuitous AR
 
 So you can see that the Mac address 00:50:56:9b:4f:0d (the mac address of the VM) is sending a GARP (but the packet capture shows it as a RARP) and you can see the target machine is itself (tell 00:50:56:9b:4f:0d). If you don't want to apply the patches above, you can just set the 'notify-switch' option to 'no'. Instructions can be found here: [Edit Failover and Load Balancing Policy for a vSphere Standard Switch](http://pubs.vmware.com/vsphere-50/index.jsp?topic=/com.vmware.vsphere.networking.doc_50/GUID-D5EA6315-5DCD-463E-A701-B3D8D9250FB5.html)
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="VMs Setup to Use Windows NLB in Unicast Mode Lose Network Connectivity When HP Virtual Connect Module is Replaced" href="http://virtuallyhyper.com/2012/09/vms-setup-to-use-windows-nlb-in-unicast-mode-lose-network-connectivity-when-hp-virtual-connect-module-is-replaced/" rel="bookmark">VMs Setup to Use Windows NLB in Unicast Mode Lose Network Connectivity When HP Virtual Connect Module is Replaced</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Corosync Pacemaker running on RHEL 6 VMs Receiving "Failed To Receive" Messages" href="http://virtuallyhyper.com/2012/08/corosync-pacemaker-running-on-rhel-6-vms-receiving-failed-to-receive-messages/" rel="bookmark">Corosync Pacemaker running on RHEL 6 VMs Receiving "Failed To Receive" Messages</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="VCD-NI Network Pools with the Cisco Nexus1000v Distributed Switch" href="http://virtuallyhyper.com/2012/08/vcd-ni-network-pools-with-the-cisco-nexus1000v/" rel="bookmark">VCD-NI Network Pools with the Cisco Nexus1000v Distributed Switch</a>
-    </li>
-  </ul>
-</div>
+- [VMs Setup to Use Windows NLB in Unicast Mode Lose Network Connectivity When HP Virtual Connect Module is Replaced](http://virtuallyhyper.com/2012/09/vms-setup-to-use-windows-nlb-in-unicast-mode-lose-network-connectivity-when-hp-virtual-connect-module-is-replaced/)
+- [Corosync Pacemaker running on RHEL 6 VMs Receiving "Failed To Receive" Messages](http://virtuallyhyper.com/2012/08/corosync-pacemaker-running-on-rhel-6-vms-receiving-failed-to-receive-messages/)
+- [VCD-NI Network Pools with the Cisco Nexus1000v Distributed Switch](http://virtuallyhyper.com/2012/08/vcd-ni-network-pools-with-the-cisco-nexus1000v/)
 

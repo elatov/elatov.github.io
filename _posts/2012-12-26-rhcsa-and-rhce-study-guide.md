@@ -50,27 +50,11 @@ And here is a good diagram on how the networking is setup:
 
 All of the above were taken from [here](http://ptgmedia.pearsoncmg.com/images/9780321767950/samplepages/0321767950.pdf).
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="RHCSA and RHCE Chapter 19 - Network Services" href="http://virtuallyhyper.com/2014/05/rhcsa-rhce-chapter-19-network-services/" rel="bookmark">RHCSA and RHCE Chapter 19 - Network Services</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="RHCSA and RHCE Chapter 18 - DNS" href="http://virtuallyhyper.com/2014/04/rhcsa-rhce-chapter-18-dns/" rel="bookmark">RHCSA and RHCE Chapter 18 - DNS</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="RHCSA and RHCE Chapter 17 – FTP" href="http://virtuallyhyper.com/2014/04/rhcsa-rhce-chapter-17-ftp/" rel="bookmark">RHCSA and RHCE Chapter 17 – FTP</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="RHCSA and RHCE Chapter 16 - Samba" href="http://virtuallyhyper.com/2014/04/rhcsa-rhce-chapter-16-samba/" rel="bookmark">RHCSA and RHCE Chapter 16 - Samba</a>
-    </li>
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="RHCSA and RHCE Chapter 13 – Remote Access" href="http://virtuallyhyper.com/2014/03/rhcsa-rhce-chapter-13-remote-access/" rel="bookmark">RHCSA and RHCE Chapter 13 – Remote Access</a>
-    </li>
-  </ul>
-</div>
+- [RHCSA and RHCE Chapter 19 - Network Services](http://virtuallyhyper.com/2014/05/rhcsa-rhce-chapter-19-network-services/)
+- [RHCSA and RHCE Chapter 18 - DNS](http://virtuallyhyper.com/2014/04/rhcsa-rhce-chapter-18-dns/)
+- [RHCSA and RHCE Chapter 17 – FTP](http://virtuallyhyper.com/2014/04/rhcsa-rhce-chapter-17-ftp/)
+- [RHCSA and RHCE Chapter 16 - Samba](http://virtuallyhyper.com/2014/04/rhcsa-rhce-chapter-16-samba/)
+- [RHCSA and RHCE Chapter 13 – Remote Access](http://virtuallyhyper.com/2014/03/rhcsa-rhce-chapter-13-remote-access/)
 

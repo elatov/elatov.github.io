@@ -551,15 +551,7 @@ Show iSCSI pinning information, if using iSCSI binding with software iSCSI from 
 
 I will try to add commands that I find useful later on.
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Quick Step by Step Guide on how to Setup the Nexus1000v Distributed Switch" href="http://virtuallyhyper.com/2012/08/quick-step-by-step-guide-on-how-to-setup-the-nexus1000v-distributed-switch/" rel="bookmark">Quick Step by Step Guide on how to Setup the Nexus1000v Distributed Switch</a>
-    </li>
-  </ul>
-</div>
+- [Quick Step by Step Guide on how to Setup the Nexus1000v Distributed Switch](http://virtuallyhyper.com/2012/08/quick-step-by-step-guide-on-how-to-setup-the-nexus1000v-distributed-switch/)
 

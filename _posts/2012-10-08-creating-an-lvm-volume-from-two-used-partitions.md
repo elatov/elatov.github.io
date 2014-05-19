@@ -262,15 +262,7 @@ Create the mount point and make sure you can mount it manually.
 
 Reboot the machine and make sure it's auto mounted.
 
-<div class="SPOSTARBUST-Related-Posts">
-  <H3>
-    Related Posts
-  </H3>
+### Related Posts
 
-  <ul class="entry-meta">
-    <li class="SPOSTARBUST-Related-Post">
-      <a title="Mounting an NTFS Volume in FreeBSD 9 with the /etc/fstab File" href="http://virtuallyhyper.com/2012/10/mounting-an-ntfs-volume-on-freebsd-9-with-etcfstab-file/" rel="bookmark">Mounting an NTFS Volume in FreeBSD 9 with the /etc/fstab File</a>
-    </li>
-  </ul>
-</div>
+- [Mounting an NTFS Volume in FreeBSD 9 with the /etc/fstab File](http://virtuallyhyper.com/2012/10/mounting-an-ntfs-volume-on-freebsd-9-with-etcfstab-file/)
 

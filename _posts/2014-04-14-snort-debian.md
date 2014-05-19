@@ -708,5 +708,5 @@ After a couple of days, I saw the following alert:
 
 ![php vulnerability Snort On Debian](http://virtuallyhyper.com/wp-content/uploads/2014/04/php-vulnerability.png)
 
-[link](http://humbug.me.uk/linux/trojan.htm) that talks about disabling PHP Remote File Inclusion.
+[Here](http://humbug.me.uk/linux/trojan.htm) is a little more information about the attack and here is a [link](http://wiki.vpslink.com/Defend_Against_Web_Application_Exploits:_Remote_File_Inclusion_and_Local_Filesystem_Access) that talks about disabling PHP Remote File Inclusion.
 
