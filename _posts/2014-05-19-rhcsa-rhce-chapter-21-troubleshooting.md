@@ -1,18 +1,19 @@
 ---
-title: 'RHCSA and RHCE Chapter 21 - Troubleshooting'
+title: "RHCSA and RHCE Chapter 21 - Troubleshooting"
 author: Karim Elatov
 layout: post
-permalink: /2014/05/rhcsa-rhce-chapter-21-troubleshooting/
-categories:
+permalink: "/2014/05/rhcsa-rhce-chapter-21-troubleshooting/"
+categories: 
   - Certifications
   - Home Lab
   - Networking
   - RHCSA and RHCE
-tags:
+tags: 
   - fsck
   - ip_routing
   - rhcsa_and_rhce
   - linux_rescue
+published: true
 ---
 
 We covered a lot of these over the course of all the chapters. But here is a quick review.
@@ -96,27 +97,27 @@ From the same guide:
 
 We covered booting into Single User mode in [Chapter 2][2]. So let's boot into Single User mode. First reboot the machine and when it starts booting up you should see the Grub Menu:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/05/grub-menu.png" alt="grub-menu" width="607" height="341" class="alignnone size-full wp-image-10703" />][3]
+![grub-menu][3]
 
 Then leave the first one selected and type **e** to edit that entry and you should see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/05/grub-menu-after-e.png" alt="grub-menu-after-e" width="612" height="356" class="alignnone size-full wp-image-10704" />][4]
+![grub-menu-after-e][4]
 
 Then scroll down to the **kernel** line and type **e** again to edit:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/05/kernel-line-menu.png" alt="kernel-line-menu" width="623" height="119" class="alignnone size-full wp-image-10705" />][5]
+![kernel-line-menu][5]
 
 then append the word **single** to the kernel parameter:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/05/single-appended.png" alt="single-appended" width="613" height="111" class="alignnone size-full wp-image-10706" />][6]
+![single-appended][6]
 
 then hit **enter** and then type **b** to boot the current configuration. After it's booted into Single User mode, you will see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/05/single-user-mode-booted.png" alt="single-user-mode-booted" width="719" height="227" class="alignnone size-full wp-image-10707" />][7]
+![single-user-mode-booted][7]
 
 type the command **passwd** and set the password for the root user:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/05/password-reset.png" alt="password-reset" width="527" height="166" class="alignnone size-full wp-image-10708" />][8]
+![password-reset][8]
 
 After that, just type **exit** to reboot the system.
 
@@ -124,47 +125,47 @@ After that, just type **exit** to reboot the system.
 
 Insert the install media into the server and boot from the CD/DVD. You should see the following if you booted from the CD successfully:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/05/dvd-booted.png" alt="dvd-booted" width="592" height="399" class="alignnone size-full wp-image-10712" />][9]
+![dvd-booted][9]
 
 Scroll down and select "Rescue Installed System", after it's done loading it will ask you to select your language:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/05/boot-cd-select-lang.png" alt="boot-cd-select-lang" width="561" height="361" class="alignnone size-full wp-image-10713" />][10]
+![boot-cd-select-lang][10]
 
 After selecting English, I saw the keyboard type selection screen:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/05/boot-cd-keyb-sel.png" alt="boot-cd-keyb-sel" width="553" height="364" class="alignnone size-full wp-image-10714" />][11]
+![boot-cd-keyb-sel][11]
 
 After selecting us, I saw the Rescue Method screen:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/05/boot-cd-res-metho.png" alt="boot-cd-res-metho" width="592" height="330" class="alignnone size-full wp-image-10715" />][12]
+![boot-cd-res-method][12]
 
 After selecting "Local CD/DVD", it asked me if I wanted to start networking:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/05/boot-cd-select-net.png" alt="boot-cd-select-net" width="410" height="231" class="alignnone size-full wp-image-10716" />][13]
+![boot-cd-select-net][13]
 
 I was just resetting the password, so I didn't need networking. After selecting **No**, I saw the the screen which talked about attempting to mount the Linux installation:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/05/boot-cd-attempt-moount.png" alt="boot-cd-attempt-moount" width="564" height="359" class="alignnone size-full wp-image-10717" />][14]
+![boot-cd-attempt-moount][14]
 
 I selected "Continue" and after successfully mounting the Linux Installation, I saw the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/05/boot-cd-success-mount-linux.png" alt="boot-cd-success-mount-linux" width="384" height="331" class="alignnone size-full wp-image-10718" />][15]
+![boot-cd-success-mount-linux][15]
 
 Upon clicking **OK** I got another confirmation that it has been mounted:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/05/boot-cd-mounted-linux.png" alt="boot-cd-mounted-linux" width="380" height="203" class="alignnone size-full wp-image-10719" />][16]
+![boot-cd-mounted-linux][16]
 
 Upon clicking OK again, I saw the "First Aid Kit quickstart menu":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/05/first-aide-quickstart-menu.png" alt="first-aide-quickstart-menu" width="438" height="313" class="alignnone size-full wp-image-10721" />][17]
+![first-aide-quickstart-menu][17]
 
 I left **shell** selected and click **OK**, at which point it dropped into a shell:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/05/shell-dropped.png" alt="shell-dropped" width="581" height="376" class="alignnone size-full wp-image-10722" />][18]
+![shell-dropped][18]
 
 I made sure the correct LVM volumes was mounted, I then chrooted into the system, and lastly I reset the password:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/05/res-chroot-pass-reset.png" alt="res-chroot-pass-reset" width="606" height="317" class="alignnone size-full wp-image-10723" />][19]
+![res-chroot-pass-reset][19]
 
 I exited out of the **chroot**, then out of the *\*shell\*, and rebooted the system.
 
@@ -172,21 +173,21 @@ I exited out of the **chroot**, then out of the *\*shell\*, and rebooted the sys
 
 There are a couple of ways of doing this (they were both covered in [Chapter 2][2]). You can boot into **rescue** mode as described above and run the **grub** console (from there you can re-install MBR) or you can just run the **grub-install** command. Here is how the long way looks like:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/05/grub-reinstall-p1.png" alt="grub-reinstall-p1" width="709" height="231" class="alignnone size-full wp-image-10724" />][20]
+![grub-reinstall-p1][20]
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/05/mbr-reinstall-p2.png" alt="mbr-reinstall-p2" width="717" height="242" class="alignnone size-full wp-image-10725" />][21]
+![mbr-reinstall-p2][21]
 
 You can run **quit** to exit the grub console, and then reboot the system.
 
 Or here is the quick way (still from **rescue** mode):
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/05/grub-install.png" alt="grub-install" width="617" height="283" class="alignnone size-full wp-image-10727" />][22]
+![grub-install][22]
 
 ### Running a FileSystem Check Example
 
 If for some reason you think the File System is corrupt then you can run a file system check on it. I try to do it from external media, so boot into **rescue** mode and don't auto detect the file system (since we don't want to mount it). When dropped to the shell activate the LVM volumes and then do the file system check with **fsck**:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/05/fsck-lvm.png" alt="fsck-lvm" width="713" height="355" class="alignnone size-full wp-image-10729" />][23]
+![fsck-lvm][23]
 
 To activate the LVM volumes, run the following:
 
