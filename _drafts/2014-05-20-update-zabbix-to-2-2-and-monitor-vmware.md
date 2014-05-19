@@ -196,7 +196,7 @@ and I saw the following in the logs under **/var/log/zabbix/zabbix_server.log**:
 
 To Discover the Hypervisor and VMs, create a new host and leave the default agent interface:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/def-inteface-vmware.png" alt="def-inteface-vmware" width="907" height="84" class="alignnone size-full wp-image-10659" />][7]
+![def-inteface-vmware][7]
 
 Then under Macros, define the following:
 
@@ -204,19 +204,19 @@ Then under Macros, define the following:
 *   **{$USERNAME}** - VMware service user name
 *   **{$PASSWORD}** - VMware service {$USERNAME} user password
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/vm_host_macros.png" alt="vm_host_macros" width="612" height="235" class="alignnone size-full wp-image-10660" />][8]
+![vm_host_macros][8]
 
 Lastly assign the VMware Template to it:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/vm_host_templates.png" alt="vm_host_templates" width="613" height="246" class="alignnone size-full wp-image-10661" />][9]
+![vm_host_templates][9]
 
 After some time, you will see the VMs and Hypervisors discovered and their corresponding templates assigned to them. For example here are two VMs that I was running on one of my hosts:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/vmware-vms-discovered-1024x42.png" alt="vmware-vms-discovered" width="620" height="25" class="alignnone size-large wp-image-10662" />][10]
+![vmware-vms-discovered][10]
 
 If you go inside the VM, you will see that most of the items are grayed out:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/vmwarevm-discovered-detail.png" alt="vmwarevm-discovered-detail" width="457" height="98" class="alignnone size-full wp-image-10663" />][11]
+![vmwarevm-discovered-detail][11]
 
 and the host is the UUID of the VM. Same thing was done for the hypervisor, except it attached the **VMware Hypervisor** Template to it, instead of the **VMware Guest** one.
 
@@ -224,11 +224,11 @@ and the host is the UUID of the VM. Same thing was done for the hypervisor, exce
 
 By default the templates didn't have any graphs defined so I ended up defining graphs for CPU Usage and Memory Usage. I just ended up plotting the already existing items and that was pretty easy. I also ended up creating calculated items to help out with some triggers. Here are the calculated items, I added to the Hypervisor Template:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/added-calculated-items-hv-1024x63.png" alt="added-calculated-items-hv" width="620" height="38" class="alignnone size-large wp-image-10669" />][12]
+![added-calculated-items-hv][12]
 
 Here is what I had in the HV CPU Usage Percentage:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/hv-cpu-usage-percent.png" alt="hv-cpu-usage-percent" width="504" height="265" class="alignnone size-full wp-image-10670" />][13]
+![hv-cpu-usage-percent][13]
 
 Here is actual formula:
 
@@ -239,15 +239,15 @@ I decided to use **vmware.hv.hw.cpu.threads** to calculate total CPU, but **vmwa
 
 All of the available VMware keys, are listed [here][14]. For creating calculated items, check out the zabbix documentation [Calculated items][15]. And here was the triggers I ended up creating:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/hv-template-triggers.png" alt="hv-template-triggers" width="976" height="133" class="alignnone size-full wp-image-10671" />][16]
+![hv-template-triggers][16]
 
 All the trigger functions are defined in [Supported trigger functions][17]. I also ended up modifying the discovery rules to do graphing for the Datastores and to trigger on high latency. I ended up making similar modifications to the VMware Guest Template. BTW the default keys for the VMware Guest are the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/vmware-guest-keys.png" alt="vmware-guest-keys" width="644" height="473" class="alignnone size-full wp-image-10672" />][18]
+![vmware-guest-keys][18]
 
 It's not much but it's a good start. There are already a couple of feature request to get more data. For example [here][19] is a link to one asking for the %RDY of the VM. Now I can tell my ESX host is completely under utilized :)
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/cpu-usage-esx.png" alt="cpu-usage-esx" width="857" height="380" class="alignnone size-full wp-image-10675" />][20]
+![cpu-usage-esx][20]
 
  [1]: https://www.zabbix.com/documentation/2.2/manual/introduction/whatsnew220
  [2]: https://www.zabbix.org/wiki/Zabbix_Templates/Official_Templates#Zabbix_2.2.0
