@@ -1,19 +1,21 @@
 ---
-title: 'RHCSA and RHCE Chapter 20 - Email Services'
+title: "RHCSA and RHCE Chapter 20 - Email Services"
 author: Karim Elatov
 layout: post
-permalink: /2014/05/rhcsa-rhce-chapter-20-email-services/
-categories:
+permalink: "/2014/05/rhcsa-rhce-chapter-20-email-services/"
+categories: 
   - Certifications
   - Home Lab
   - Networking
   - RHCSA and RHCE
-tags:
+tags: 
   - Dovecot
   - Postfix
   - rhcsa_and_rhce
   - SMTP
+published: true
 ---
+
 ## Email
 
 From the [Deployment Guide][1]:
@@ -757,7 +759,7 @@ Had to set the following in the **/etc/dovecot/10-mail.conf**:
 
 After that, mutt showed me the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/mutt-connected-to-imap.png" alt="mutt-connected-to-imap" width="794" height="470" class="alignnone size-full wp-image-10686" />][2]
+![mutt-connected-to-imap][2]
 
 Here is the connection to IMAP with telnet:
 
@@ -1008,7 +1010,7 @@ and I saw the following warning:
 
 After accepting the certificate, I saw my INBOX over IMAPS:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/mutt-connected-to-imap1.png" alt="mutt-connected-to-imap" width="794" height="470" class="alignnone size-full wp-image-10693" />][4]
+![mutt-connected-to-imap][4]
 
 Here is the connection to the IMAP server over SSL with the **openssl** command:
 
