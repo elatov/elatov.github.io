@@ -16,7 +16,7 @@ tags:
 
 From "[Installing and Administering VMware vSphere Update Manager](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf)", here is table of ports used by update manager:
 
-[<img class="alignnone size-full wp-image-5150" title="vum_net_ports" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/vum_net_ports.png" alt="vum net ports VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="633" height="265" />](http://virtuallyhyper.com/wp-content/uploads/2012/12/vum_net_ports.png)
+![vum_net_ports](http://virtuallyhyper.com/wp-content/uploads/2012/12/vum_net_ports.png)
 
 ### Install and configure Update Manager Download Service
 
@@ -135,7 +135,7 @@ From "[Installing and Administering VMware vSphere Update Manager](http://pubs.v
 
 Taken from "[VMware vSphere 4 Evaluator's Guide](http://www.vmware.com/files/pdf/vsphere-evaluators-guide.pdf)", here is how it looks like from vCenter:
 
-[<img class="alignnone size-full wp-image-5175" title="shared_repository_vum" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/shared_repository_vum.png" alt="shared repository vum VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="514" height="379" />](http://virtuallyhyper.com/wp-content/uploads/2012/12/shared_repository_vum.png)
+![shared_repository_vum](http://virtuallyhyper.com/wp-content/uploads/2012/12/shared_repository_vum.png)
 
 ### Configure smart rebooting
 
@@ -156,7 +156,7 @@ Taken from "[VMware vSphere 4 Evaluator's Guide](http://www.vmware.com/files/pdf
 
 Here is how it looks like from vCenter:
 
-[<img class="alignnone size-full wp-image-5170" title="vum_smart-booting" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/vum_smart-booting.png" alt="vum smart booting VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="662" height="318" />](http://virtuallyhyper.com/wp-content/uploads/2012/12/vum_smart-booting.png)
+![vum_smart-booting](http://virtuallyhyper.com/wp-content/uploads/2012/12/vum_smart-booting.png)
 
 ### Manually download updates to a repository
 
@@ -189,15 +189,15 @@ From "[Installing and Administering VMware vSphere Update Manager](http://pubs.v
 
 Here is an example of importing the 5.0u1 update into update manager. First go to Home-> 'Solution and Application' -> 'Update Manager' -> Select 'Patch Repository' tab -> click on 'Import Patches'. You will see the following screen:
 
-[<img class="alignnone size-full wp-image-5176" title="vum-import-patch" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/vum-import-patch.png" alt="vum import patch VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="749" height="403" />](http://virtuallyhyper.com/wp-content/uploads/2012/12/vum-import-patch.png)
+![vum-import-patch](http://virtuallyhyper.com/wp-content/uploads/2012/12/vum-import-patch.png)
 
 Click Next to upload the patch, during the upload you will see the progress like so:
 
-[<img class="alignnone size-full wp-image-5177" title="progress_import_patch_vum" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/progress_import_patch_vum.png" alt="progress import patch vum VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="664" height="136" />](http://virtuallyhyper.com/wp-content/uploads/2012/12/progress_import_patch_vum.png)
+![progress_import_patch_vum](http://virtuallyhyper.com/wp-content/uploads/2012/12/progress_import_patch_vum.png)
 
 When the upload is done you will see a list of patches, including yours:
 
-[<img class="alignnone size-full wp-image-5178" title="finished_import_of_patch_vum" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/finished_import_of_patch_vum.png" alt="finished import of patch vum VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="751" height="405" />](http://virtuallyhyper.com/wp-content/uploads/2012/12/finished_import_of_patch_vum.png)
+![finished_import_of_patch_vum](http://virtuallyhyper.com/wp-content/uploads/2012/12/finished_import_of_patch_vum.png)
 
 ### Perform orchestrated vSphere upgrades
 
@@ -244,31 +244,31 @@ and from "[VMware vSphere 5.0 Upgrade Best Practices](http://www.vmware.com/file
 > **Uploading the ESXi Installation ISO**
 > Start the upgrade by uploading the ESXi 5.0 installation image into Update Manager. From the Update Manager screen, choose the ESXi Images tab and click the link to Import ESXi Image… . Follow the wizard to import the ESXi 5.0 Image.
 >
-> [<img class="alignnone size-full wp-image-5198" title="import_esxi_image_vum" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/import_esxi_image_vum.png" alt="import esxi image vum VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="988" height="117" />](http://virtuallyhyper.com/wp-content/uploads/2012/12/import_esxi_image_vum.png)
+> ![import_esxi_image_vum](http://virtuallyhyper.com/wp-content/uploads/2012/12/import_esxi_image_vum.png)
 >
 > **Creating an Upgrade Baseline**
 > Create an upgrade baseline using the uploaded ESXi 5.0 image. From the Update Manager screen, choose the Baselines and Groups tab. From the Baselines section on the left, choose Create… to create a new baseline. Follow the wizard to create a new baseline.
 >
-> [<img class="alignnone size-full wp-image-5192" title="create_new_baseline_vum" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/create_new_baseline_vum.png" alt="create new baseline vum VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="736" height="553" />](http://virtuallyhyper.com/wp-content/uploads/2012/12/create_new_baseline_vum.png)
+> ![create_new_baseline_vum](http://virtuallyhyper.com/wp-content/uploads/2012/12/create_new_baseline_vum.png)
 >
-> [<img class="alignnone size-full wp-image-5195" title="esxi_image_vum" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/esxi_image_vum.png" alt="esxi image vum VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="734" height="221" />](http://virtuallyhyper.com/wp-content/uploads/2012/12/esxi_image_vum.png)
+> ![esxi_image_vum](http://virtuallyhyper.com/wp-content/uploads/2012/12/esxi_image_vum.png)
 >
 > **Attaching the Baseline to Your Cluster/Host**
 > Attach the upgrade baseline to your host or cluster. From the vCenter Hosts and Clusters view, select the Update Manager tab and choose Attach… . Select the upgrade baseline created previously. If you have any other upgrade baselines attached, remove them.
 >
-> [<img class="alignnone size-full wp-image-5186" title="host_update_vum_p4" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/host_update_vum_p4.png" alt="host update vum p4 VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="487" height="289" />](http://virtuallyhyper.com/wp-content/uploads/2012/12/host_update_vum_p4.png)
+> ![host_update_vum_p4](http://virtuallyhyper.com/wp-content/uploads/2012/12/host_update_vum_p4.png)
 >
 > **Scanning the Cluster/Host**
 > Scan your hosts to ensure that the host requirements are met and you are ready to upgrade. From the vCenter Hosts and Clusters view, select the host/cluster, select the Update Manager tab and select Scan... . Wait for the scan to complete.
 >
 > If the hosts return a status of Non-Compliant, you are ready to proceed with upgrading the host.
 >
-> [<img class="alignnone size-full wp-image-5185" title="host_update_vum_p3_1" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/host_update_vum_p3_1.png" alt="host update vum p3 1 VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="1134" height="324" />](http://virtuallyhyper.com/wp-content/uploads/2012/12/host_update_vum_p3_1.png)
+> ![host_update_vum_p3_1](http://virtuallyhyper.com/wp-content/uploads/2012/12/host_update_vum_p3_1.png)
 >
 > **Remediating Your Host**
 > After the scan completes and your host is flagged as Non-Compliant, you are ready to perform the upgrade. From the Hosts and Clusters view, select the host/cluster, select the Update Manager tab and select Remediate. You will get a pop-up asking if you want to install patches, upgrade, or do both. Choose the upgrade option and follow the wizard to complete the remediation.
 >
-> [<img class="alignnone size-full wp-image-5187" title="host_update_vum_p5" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/host_update_vum_p5.png" alt="host update vum p5 VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="875" height="350" />](http://virtuallyhyper.com/wp-content/uploads/2012/12/host_update_vum_p5.png)
+> ![host_update_vum_p5](http://virtuallyhyper.com/wp-content/uploads/2012/12/host_update_vum_p5.png)
 >
 > Assuming that DRS is enabled and running in fully automated mode, Update Manager will proceed to place the host into maintenance mode (if not already in maintenance mode) and perform the upgrade. If DRS is not enabled, you must evacuate the virtual machines off the host and put it into maintenance mode before remediating.
 >
@@ -297,9 +297,9 @@ From "[Installing and Administering VMware vSphere Update Manager](http://pubs.v
 >
 > Update Manager provides upgrade, patch, and extension baselines.
 >
-> [<img class="alignnone size-full wp-image-5189" title="vum_upgrade_baselines" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/vum_upgrade_baselines.png" alt="vum upgrade baselines VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="583" height="376" />](http://virtuallyhyper.com/wp-content/uploads/2012/12/vum_upgrade_baselines.png)
+> ![vum_upgrade_baselines](http://virtuallyhyper.com/wp-content/uploads/2012/12/vum_upgrade_baselines.png)
 >
-> [<img class="alignnone size-full wp-image-5190" title="vum_extension_baselines" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/vum_extension_baselines.png" alt="vum extension baselines VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="589" height="121" />](http://virtuallyhyper.com/wp-content/uploads/2012/12/vum_extension_baselines.png)
+> ![vum_extension_baselines](http://virtuallyhyper.com/wp-content/uploads/2012/12/vum_extension_baselines.png)
 
 More from the same document:
 
@@ -370,7 +370,7 @@ From "[Installing and Administering VMware vSphere Update Manager](http://pubs.v
 > 4.  In the Choose Data Source window, select VMware Update Manager and click OK.
 >     If necessary, in the database query wizard, select the ODBC DSN name and enter the user name and password for the ODBC database connection.
 > 5.  In the Query Wizard - Choose Columns window, select the columns of data to include in your query and click Next
->     [<img class="alignnone size-full wp-image-5205" title="options_for_excel_for_vum" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/options_for_excel_for_vum.png" alt="options for excel for vum VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="561" height="118" />](http://virtuallyhyper.com/wp-content/uploads/2012/12/options_for_excel_for_vum.png)
+>     ![options_for_excel_for_vum](http://virtuallyhyper.com/wp-content/uploads/2012/12/options_for_excel_for_vum.png)
 >     For example, if you want to get the latest scan results for all objects in the inventory and all patches for an inventory object, select the following database views and their corresponding columns from the Available tables and columns pane:</p>
 >     *   VUMV_UPDATES
 >     *   VUMV_ENTITY_SCAN_RESULTS
@@ -428,27 +428,27 @@ From "[Installing and Administering VMware vSphere Update Manager](http://pubs.v
 
 Here is an example of updating the vMA appliance. First Create a new Baseline for the Virtual Appliance:
 
-[<img class="alignnone size-full wp-image-5210" title="create_new_baseline_for_va_update" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/create_new_baseline_for_va_update.png" alt="create new baseline for va update VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="736" height="553" />](http://virtuallyhyper.com/wp-content/uploads/2012/12/create_new_baseline_for_va_update.png)
+![create_new_baseline_for_va_update](http://virtuallyhyper.com/wp-content/uploads/2012/12/create_new_baseline_for_va_update.png)
 
 Next Create a Vendor Rule:
 
-[<img class="alignnone size-full wp-image-5211" title="create_vendor_rule_for_va_update" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/create_vendor_rule_for_va_update.png" alt="create vendor rule for va update VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="739" height="555" />](http://virtuallyhyper.com/wp-content/uploads/2012/12/create_vendor_rule_for_va_update.png)
+![create_vendor_rule_for_va_update](http://virtuallyhyper.com/wp-content/uploads/2012/12/create_vendor_rule_for_va_update.png)
 
 Here are the options for the Vendor Rules:
 
-[<img class="alignnone size-full wp-image-5212" title="vendor_rules_options_va_update" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/vendor_rules_options_va_update.png" alt="vendor rules options va update VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="711" height="444" />](http://virtuallyhyper.com/wp-content/uploads/2012/12/vendor_rules_options_va_update.png)
+![vendor_rules_options_va_update](http://virtuallyhyper.com/wp-content/uploads/2012/12/vendor_rules_options_va_update.png)
 
 After completion, go the "VMs and Templates" View and select the Appliance and attach your baseline to it. Here is how it will look:
 
-[<img class="alignnone size-full wp-image-5213" title="non-compliant_va_for_update" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/non-compliant_va_for_update.png" alt="non compliant va for update VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="821" height="579" />](http://virtuallyhyper.com/wp-content/uploads/2012/12/non-compliant_va_for_update.png)
+![non-compliant_va_for_update](http://virtuallyhyper.com/wp-content/uploads/2012/12/non-compliant_va_for_update.png)
 
 Click "Scan" from the same screen and select the type of scan:
 
-[<img class="alignnone size-full wp-image-5216" title="va_vum_scan" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/va_vum_scan.png" alt="va vum scan VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="496" height="202" />](http://virtuallyhyper.com/wp-content/uploads/2012/12/va_vum_scan.png)
+![va_vum_scan](http://virtuallyhyper.com/wp-content/uploads/2012/12/va_vum_scan.png)
 
 Then click on "Remediate" to actually perform the upgrade:
 
-[<img class="alignnone size-full wp-image-5217" title="remediate_va_update" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/remediate_va_update.png" alt="remediate va update VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="856" height="647" />](http://virtuallyhyper.com/wp-content/uploads/2012/12/remediate_va_update.png)
+![remediate_va_update](http://virtuallyhyper.com/wp-content/uploads/2012/12/remediate_va_update.png)
 
 That should be it.
 
@@ -598,6 +598,6 @@ You will be presented with the utility, from here you can edit the following:
 
 Here is a couple of screenshots of some of the available settings:
 
-[<img class="alignnone size-full wp-image-5226" title="1st_window_vum_utility" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/1st_window_vum_utility.png" alt="1st window vum utility VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="545" height="447" />](http://virtuallyhyper.com/wp-content/uploads/2012/12/1st_window_vum_utility.png)
+![1st_window_vum_utility](http://virtuallyhyper.com/wp-content/uploads/2012/12/1st_window_vum_utility.png)
 
-[<img class="alignnone size-full wp-image-5223" title="vum_utility" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/vum_utility.png" alt="vum utility VCAP5 DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments" width="556" height="291" />](http://virtuallyhyper.com/wp-content/uploads/2012/12/vum_utility.png)
+![vum_utility](http://virtuallyhyper.com/wp-content/uploads/2012/12/vum_utility.png)

@@ -42,13 +42,13 @@ From [this](http://www.virten.net/2012/05/vdcd510-objective-1-1-gather-and-analy
 ### Build non-functional requirements into a specific logical design
 
 If we checkout a picture from the previous objective:
-[<img class="alignnone size-full wp-image-2698" title="another-conceptual-diag" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/another-conceptual-diag.png" alt="another conceptual diag VCAP5 DCD Objective 2.1 –Map Business Requirements to the Logical Design " width="592" height="277" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/another-conceptual-diag.png)
+![another-conceptual-diag](http://virtuallyhyper.com/wp-content/uploads/2012/08/another-conceptual-diag.png)
 We can see that our non-functional requirement was that the web-server has to be in a DMZ, but we don't really have specific IPs of all the firewalls involved in the setup.
 
 ### Translate given business requirements and the current state of a customer environment into a logical design
 
 If we again look at this picture from the previous objectives:
-[<img class="alignnone size-full wp-image-2702" title="logical-diagram" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/logical-diagram.png" alt="logical diagram VCAP5 DCD Objective 2.1 –Map Business Requirements to the Logical Design " width="948" height="496" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/logical-diagram.png)
+![logical-diagram](http://virtuallyhyper.com/wp-content/uploads/2012/08/logical-diagram.png)
 
 We can see that a non-functional requirement was to allow for a protected site. We don't really mention if SRM will be used or if we will be using Array Based replication or vSphere Based Replication. We just have a logical diagram of a protected site that is replicated.
 

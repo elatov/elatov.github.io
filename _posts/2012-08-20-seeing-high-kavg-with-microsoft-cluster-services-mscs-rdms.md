@@ -19,7 +19,7 @@ tags:
 ---
 I came across an interesting issue the other day. I would randomly see high KAVG and QAVG on my ESX hosts. It would look something like this:
 
-[<img class="alignnone size-full wp-image-2440" title="high-kavg-1" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/high-kavg-1.png" alt="high kavg 1 Seeing High KAVG with Microsoft Cluster Services  (MSCS) RDMs" width="1134" height="225" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/high-kavg-1.png)
+![high-kavg-1](http://virtuallyhyper.com/wp-content/uploads/2012/08/high-kavg-1.png)
 
 We can see that there actually isn't that much IO going to that LUN. As the issue was happening, I would see the following in the logs:
 
@@ -65,7 +65,7 @@ Searching for that vml, I saw the following:
 
 it did correspond to one of the NAAs that I saw the high KAVG for. I wanted to see if I was seeing Reservation Conflicts on the devices that were experiencing the high KAVG. So I followed the instructions described in the yellow brick blog entitled "[Did you know? SCSI Reservations…](http://www.yellow-bricks.com/2010/10/26/did-you-know-scsi-reservations/)". This is what I saw in my esxtop output:
 
-[<img class="alignnone size-full wp-image-2441" title="high-kavg-with-rsrv-confl" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/high-kavg-with-rsrv-confl.png" alt="high kavg with rsrv confl Seeing High KAVG with Microsoft Cluster Services  (MSCS) RDMs" width="1131" height="258" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/high-kavg-with-rsrv-confl.png)
+![high-kavg-with-rsrv-confl](http://virtuallyhyper.com/wp-content/uploads/2012/08/high-kavg-with-rsrv-confl.png)
 
 We can see that the column "CONS/S" has a high number for the device that is experiencing the high KAVG. Also looking at the device statistics:
 
@@ -107,7 +107,7 @@ To fix this issue you can try the following:
 > *   For ESX machines that host virtual machines that participate in Microsoft Clustering and virtual machines that are configured like the above scenarios, perform the Rescan/Storage addition on the machines hosting the active Microsoft cluster node. If you want to perform those operations on the other ESX machine hosting the Passive Microsoft Cluster node, make that node Active.
 > *   For ESX machines that are exposed to the LUNs used by Microsoft Clustering and no virtual machine on these hosts are involved in MSCS, VMware recommends that you do not expose the LUNs used by MSCS to ESX hosts that are not part of the Cluster configuration.
 >
-> ** Note**: If a host is exhibiting these symptoms and does not host any of the MSCS virtual machine nodes, you may want to consider masking out the LUNs for these hosts.
+> **Note**: If a host is exhibiting these symptoms and does not host any of the MSCS virtual machine nodes, you may want to consider masking out the LUNs for these hosts.
 
 If you have the luxury of updating to ESXi 5.0 then there is another fix for this. You can set the LUN as perennially reserved and then you won't run into this issue. More info from VMware KB [1016106](http://kb.vmware.com/kb/1016106):
 

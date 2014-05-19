@@ -121,7 +121,7 @@ From VMware KB [1003712](http://kb.vmware.com/kb/1003712):
 
 From this [PDF](http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.pdf):
 
-> Create a single virtual Switch with teamed NICs across separate switches[<img class="alignnone size-full wp-image-2884" title="redundant-switches" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/redundant-switches.png" alt="redundant switches VCAP5 DCD Objective 3.2 – Create a vSphere 5 Physical Network Design from an Existing Logical Design " width="784" height="272" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/redundant-switches.png)
+> Create a single virtual Switch with teamed NICs across separate switches![redundant-switches](http://virtuallyhyper.com/wp-content/uploads/2012/08/redundant-switches.png)
 
 ### Cite virtual switch security policies and settings
 
@@ -138,7 +138,7 @@ From "[VMware Virtual Networking Concepts](http://www.vmware.com/files/pdf/virtu
 
 There are actually a lot of good VMware networking designs at the [blog](http://kendrickcoleman.com/index.php/Tech-Blog/vmware-vsphere-5-host-nic-network-design-layout-and-vswitch-configuration-major-update.html) written by Kendick Coleman. Each design has it's pros and cons. Here is a design factoring in redundancy:
 
-[<img class="alignnone size-full wp-image-2886" title="example_of_redundant_vmware-network-design" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/example_of_redundant_vmware-network-design.png" alt="example of redundant vmware network design VCAP5 DCD Objective 3.2 – Create a vSphere 5 Physical Network Design from an Existing Logical Design " width="538" height="362" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/example_of_redundant_vmware-network-design.png)
+![example_of_redundant_vmware-network-design](http://virtuallyhyper.com/wp-content/uploads/2012/08/example_of_redundant_vmware-network-design.png)
 
 ### Determine and explain the selected network teaming and failover solution
 
@@ -180,23 +180,23 @@ And from the same document:
 
 From the [VMUG](http://communities.vmware.com/servlet/JiveServlet/download/1633024-44565/VMUG%20Presentation.pptx) Presentation:
 
-[<img class="alignnone size-full wp-image-2888" title="trust_zone_vcd" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/trust_zone_vcd.png" alt="trust zone vcd VCAP5 DCD Objective 3.2 – Create a vSphere 5 Physical Network Design from an Existing Logical Design " width="608" height="370" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/trust_zone_vcd.png)
+![trust_zone_vcd](http://virtuallyhyper.com/wp-content/uploads/2012/08/trust_zone_vcd.png)
 
 ### Based on service level requirements, determine appropriate network performance characteristics.
 
 From the "[VMware vSphere Distributed Switch Best Practices](http://www.vmware.com/files/pdf/techpaper/vsphere-distributed-switch-best-practices.pdf)", BTW great paper:
 
-[<img class="alignnone size-full wp-image-2889" title="type-of-net-traffic" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/type-of-net-traffic.png" alt="type of net traffic VCAP5 DCD Objective 3.2 – Create a vSphere 5 Physical Network Design from an Existing Logical Design " width="571" height="171" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/type-of-net-traffic.png)
+![type-of-net-traffic](http://virtuallyhyper.com/wp-content/uploads/2012/08/type-of-net-traffic.png)
 
 Based on the type of traffic they can use NIOC to allocate appropriate bandwidth. Here is an example from one of the designs:
 
-[<img class="alignnone size-full wp-image-2890" title="nioc_example" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/nioc_example.png" alt="nioc example VCAP5 DCD Objective 3.2 – Create a vSphere 5 Physical Network Design from an Existing Logical Design " width="558" height="235" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/nioc_example.png)
+![nioc_example](http://virtuallyhyper.com/wp-content/uploads/2012/08/nioc_example.png)
 
 ### Given a current network configuration as well as technical requirements and constraints,determine the appropriate virtual switch solution: vSphere Standard Switch, vSphere Distributed Switch, Third-party solutions (ex. Nexus 1000V),Hybrid solutions
 
 Here is a [link](http://www.cisco.com/en/US/prod/collateral/switches/ps9441/ps9902/solution_overview_c22-526262.pdf) that talks about all the different features of all the different virtual Switches. Here is just a snippet from the page:
 
-[<img class="alignnone size-full wp-image-2891" title="vswitch-feature-comparison" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/vswitch-feature-comparison.png" alt="vswitch feature comparison VCAP5 DCD Objective 3.2 – Create a vSphere 5 Physical Network Design from an Existing Logical Design " width="672" height="855" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/vswitch-feature-comparison.png)
+![vswitch-feature-comparison](http://virtuallyhyper.com/wp-content/uploads/2012/08/vswitch-feature-comparison.png)
 
 If there is a requirement to use any of those then pick accordingly. I would use the N1K if I needed advanced features like ACLs, LACP, and SNMP. I would use the VMware DVS if I was using LLDP, centralized management and NIOC. I would the standard switch if it was a simple setup and none of the advanced feature were necessary. Finally the hybrid is good, because you can leave you mgmt network on the standard switch and if vCenter goes down then you network will be still okay.
 

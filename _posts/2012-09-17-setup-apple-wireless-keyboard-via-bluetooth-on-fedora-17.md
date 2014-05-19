@@ -198,7 +198,7 @@ After the pairing is complete, go ahead and connect to the device:
 
 If you don't like the command line, then run "**bluetooth-wizard**" from a terminal and a GUI will show up which will allow you to complete steps 3-7 without the need to download any 'simple-agent' scripts. You can also start '**gnome-control-center**' and then click on **bluetooth**. After you are done, your successful setup should look like this:
 
-[<img class="alignnone size-full wp-image-3616" title="bluetooth" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/bluetooth.png" alt="bluetooth Setup Apple Wireless Keyboard via Bluetooth on Fedora 17" width="675" height="415" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/bluetooth.png)
+![bluetooth](http://virtuallyhyper.com/wp-content/uploads/2012/09/bluetooth.png)
 
 To use '**bluetooth-wizard**', make sure the following packages are installed:
 

@@ -15,7 +15,7 @@ tags:
 
 This was covered in [APAC BrownBag Session 12](http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-3-3-create-a-vsphere-5-physical-storage-design-from-an-existing-logical-design/):
 
-[<img class="alignnone size-full wp-image-3290" title="rdm_for_vms" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/rdm_for_vms.png" alt="rdm for vms VCAP5 DCD Objective 3.5 – Determine Virtual Machine Configuration for a vSphere 5 Physical Design " width="824" height="463" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/rdm_for_vms.png)
+![rdm_for_vms](http://virtuallyhyper.com/wp-content/uploads/2012/09/rdm_for_vms.png)
 
 ### Based on the service catalog and given functional requirements, for each service: Determine the most appropriate virtual machine configuration for the design
 
@@ -147,7 +147,7 @@ Now for memory from the same document:
 
 And lastly from [APAC BrownBag Session 12](http://professionalvmware.com/2012/04/apac-vbrownbag-follow-up-vm-design/):
 
-[<img class="alignnone size-full wp-image-3299" title="super-size-vm" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/super-size-vm.png" alt="super size vm VCAP5 DCD Objective 3.5 – Determine Virtual Machine Configuration for a vSphere 5 Physical Design " width="722" height="481" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/super-size-vm.png)
+![super-size-vm](http://virtuallyhyper.com/wp-content/uploads/2012/09/super-size-vm.png)
 
 ### Determine appropriate reservations, shares, and limits
 
@@ -159,7 +159,7 @@ From [this](http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.
 > *   Are there Apps that need resources even during contention? Then use Reservations
 > *   This adds complexity and administration overhead and from
 
-[<img class="alignnone size-full wp-image-3300" title="reser-share-limits" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/reser-share-limits.png" alt="reser share limits VCAP5 DCD Objective 3.5 – Determine Virtual Machine Configuration for a vSphere 5 Physical Design " width="823" height="493" />](http://professionalvmware.com/2012/04/apac-vbrownbag-follow-up-vm-design/)
+![reser-share-limits](http://virtuallyhyper.com/wp-content/uploads/2012/09/reser-share-limits.png)
 
 This was also discussed in [Objective 3.4](http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-3-4-determine-appropriate-compute-resources-for-a-vsphere-5-physical-design/)
 
@@ -219,11 +219,11 @@ From "[vSphere Virtual Machine Administration ESXi 5.0](http://pubs.vmware.com/v
 
 from [APAC BrownBag Session 12](http://professionalvmware.com/2012/04/apac-vbrownbag-follow-up-vm-design/):
 
-[<img class="alignnone size-full wp-image-3302" title="vHw" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/vHw.png" alt="vHw VCAP5 DCD Objective 3.5 – Determine Virtual Machine Configuration for a vSphere 5 Physical Design " width="809" height="429" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/vHw.png)
+![vHw](http://virtuallyhyper.com/wp-content/uploads/2012/09/vHw.png)
 
 ### Design a vApp catalog of appropriate VM offerings (e.g., templates, OVFs, vCO)
 
-from [<img class="alignnone size-full wp-image-3303" title="self_provisioning" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/self_provisioning.png" alt="self provisioning VCAP5 DCD Objective 3.5 – Determine Virtual Machine Configuration for a vSphere 5 Physical Design " width="821" height="425" />](http://professionalvmware.com/2012/04/apac-vbrownbag-follow-up-vm-design/)
+from ![self_provisioning](http://virtuallyhyper.com/wp-content/uploads/2012/09/self_provisioning.png)
 
 If you have a service with multiple dependecies, then create a vApp with appropriate VMs in it and set the appropriate boot order respectively of the dependencies. Next if this vApp will used across multiple Datacenters, export this vApp as an OVF and put it on a file share where people can download it from. Or even put it on your USB drive and deploy the vApp as necessary. You can even use export vApps during your upgrade process.
 
@@ -231,11 +231,11 @@ If you have a service with multiple dependecies, then create a vApp with appropr
 
 from [APAC BrownBag Session 12](http://professionalvmware.com/2012/04/apac-vbrownbag-follow-up-vm-design/):
 
-[<img class="alignnone size-full wp-image-3304" title="vapps" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/vapps.png" alt="vapps VCAP5 DCD Objective 3.5 – Determine Virtual Machine Configuration for a vSphere 5 Physical Design " width="587" height="334" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/vapps.png)
+![vapps](http://virtuallyhyper.com/wp-content/uploads/2012/09/vapps.png)
 
 and
 
-[<img class="alignnone size-full wp-image-3305" title="vapp_use-cases" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/vapp_use-cases.png" alt="vapp use cases VCAP5 DCD Objective 3.5 – Determine Virtual Machine Configuration for a vSphere 5 Physical Design " width="776" height="385" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/vapp_use-cases.png)
+![vapp_use-cases](http://virtuallyhyper.com/wp-content/uploads/2012/09/vapp_use-cases.png)
 
 This was also discussed in [Objective 3.4](http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-3-4-determine-appropriate-compute-resources-for-a-vsphere-5-physical-design/)
 
@@ -271,15 +271,15 @@ From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/
 
 From [APAC BrownBag Session 12](http://professionalvmware.com/2012/04/apac-vbrownbag-follow-up-vm-design/):
 
-[<img class="alignnone size-full wp-image-3306" title="vm-ft" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/vm-ft.png" alt="vm ft VCAP5 DCD Objective 3.5 – Determine Virtual Machine Configuration for a vSphere 5 Physical Design " width="799" height="461" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/vm-ft.png)
+![vm-ft](http://virtuallyhyper.com/wp-content/uploads/2012/09/vm-ft.png)
 
 From "[Virtualizing Business-Critical Applications on VMware](http://www.vmware.com/files/pdf/solutions/VMware-Virtualizing-Business-Critical-Apps-on-VMware_en-wp.pdf)"
 
-> The siloed example of availability methods shown in Figure 11 requires expensive licenses, dedicated standby infrastructure, and highly skilled staff to configure and manage. The alternative to this expensive approach is a standardized approach using vSphere technology, though some companies choose to implement both appspecific and VMware solutions running in tandem. [<img class="alignnone size-full wp-image-3308" title="3rd-party-availability_apps" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/3rd-party-availability_apps.png" alt="3rd party availability apps VCAP5 DCD Objective 3.5 – Determine Virtual Machine Configuration for a vSphere 5 Physical Design " width="601" height="261" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/3rd-party-availability_apps.png)
+> The siloed example of availability methods shown in Figure 11 requires expensive licenses, dedicated standby infrastructure, and highly skilled staff to configure and manage. The alternative to this expensive approach is a standardized approach using vSphere technology, though some companies choose to implement both appspecific and VMware solutions running in tandem. ![3rd-party-availability_apps](http://virtuallyhyper.com/wp-content/uploads/2012/09/3rd-party-availability_apps.png)
 
 Also from "[Virtualizing Business-Critical Applications on VMware vSphere](http://www.vmware.com/files/pdf/VMW_10Q1_WP_vSPHERE_USLET_EN_R6_proof.pdf)":
 
-[<img class="alignnone size-full wp-image-3309" title="percent-of-coverage_for-availability" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/percent-of-coverage_for-availability.png" alt="percent of coverage for availability VCAP5 DCD Objective 3.5 – Determine Virtual Machine Configuration for a vSphere 5 Physical Design " width="670" height="430" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/percent-of-coverage_for-availability.png)
+![percent-of-coverage_for-availability](http://virtuallyhyper.com/wp-content/uploads/2012/09/percent-of-coverage_for-availability.png)
 
 Here are examples of each 3rd party clustering products:
 
@@ -290,13 +290,13 @@ Here are examples of each 3rd party clustering products:
 
 and from [APAC BrownBag Session 12](http://professionalvmware.com/2012/04/apac-vbrownbag-follow-up-vm-design/):
 
-[<img class="alignnone size-full wp-image-3310" title="3rd_party-clusters" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/3rd_party-clusters.png" alt="3rd party clusters VCAP5 DCD Objective 3.5 – Determine Virtual Machine Configuration for a vSphere 5 Physical Design " width="804" height="433" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/3rd_party-clusters.png)
+![3rd_party-clusters](http://virtuallyhyper.com/wp-content/uploads/2012/09/3rd_party-clusters.png)
 
 So if you have a specific application like SQL, Oracle, or Exchange that cannot be limited to 1 vCPU(FT) or just 2 nodes (MSCS), then use application level clustering/availability described in the above papers. But if you have application that requires 100% uptime and it's low resource then VMware FT will be perfect for that.
 
 ### Determine and implement an anti-virus solution
 
-[<img class="alignnone size-full wp-image-3311" title="AV-for-VMs" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/AV-for-VMs.png" alt="AV for VMs VCAP5 DCD Objective 3.5 – Determine Virtual Machine Configuration for a vSphere 5 Physical Design " width="826" height="450" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/AV-for-VMs.png)
+![AV-for-VMs](http://virtuallyhyper.com/wp-content/uploads/2012/09/AV-for-VMs.png)
 
 So if you want a centralized Anti-Virus application, setup vShield End-Point. This does add on some complexity and management over head. If you end up setting up an Anti-Virus instance per VM try to schedule the AV Scans at different times. You can over load the system when all 100 of your VMs are doing an AV Scan at the same time. If you want more information on vShield check out "[Antivirus Practices for VMware View 5](http://www.vmware.com/products/vsphere/features-endpoint)". It talks about vShield End Point and some other best practices for VMware View. Here are some excerpts from that paper:
 

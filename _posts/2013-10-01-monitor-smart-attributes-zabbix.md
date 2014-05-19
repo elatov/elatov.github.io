@@ -258,7 +258,7 @@ If the value is returned then it's all good. At this point you can follow my pre
 
 The only new thing that I added was the trigger prototype. The **Reallocated_Sector_Ct** attribute should be zero all the time unless the drive is failing. So rather than plotting a graph full of zeroes, I decided to add a trigger which will send a warning message if the value is bigger than 0. To do this from the Zabbix Front End go to "Templates" -> Select the Template you had created -> "Discovery Rules" -> Click on the Discovery Rule you had created -> "Trigger prototypes" -> "Create trigger prototype" and then configure it like so:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/09/zabbix_trigger_prototype.png" alt="zabbix trigger prototype Monitor SMART Attributes with Zabbix" width="724" height="422" class="alignnone size-full wp-image-9558" title="Monitor SMART Attributes with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/09/zabbix_trigger_prototype.png)
+![zabbix trigger prototype Monitor SMART Attributes with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/09/zabbix_trigger_prototype.png)
 
 Now we will get notified if that value is above zero.
 
@@ -399,5 +399,5 @@ And that was it, I then restart the *agentd* process:
 
 and after some time, I saw the following graph in zabbix:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/09/zabbix_pogo_hd_temp.png" alt="zabbix pogo hd temp Monitor SMART Attributes with Zabbix" width="1187" height="490" class="alignnone size-full wp-image-9580" title="Monitor SMART Attributes with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/09/zabbix_pogo_hd_temp.png)
+![zabbix pogo hd temp Monitor SMART Attributes with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/09/zabbix_pogo_hd_temp.png)
 

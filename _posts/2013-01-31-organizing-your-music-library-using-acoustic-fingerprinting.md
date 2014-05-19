@@ -60,15 +60,15 @@ At first I ran across an article entitled "[Auto-tagging MP3s](http://superuser.
 
 I tried some of the applications, but they couldn't find any information on my songs. Here is a screenshot of  *picard* for my 3 songs:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/01/picard_no_match_g.png" alt="picard no match g Organizing Your Music Library Using Acoustic Fingerprinting" width="883" height="576" class="alignnone size-full wp-image-5946" title="Organizing Your Music Library Using Acoustic Fingerprinting" />](http://virtuallyhyper.com/wp-content/uploads/2013/01/picard_no_match_g.png)
+![picard no match g Organizing Your Music Library Using Acoustic Fingerprinting](http://virtuallyhyper.com/wp-content/uploads/2013/01/picard_no_match_g.png)
 
 Notice at the bottom it says "No Matching Tracks above the threshold for file". I tried enabling Fingerprinting:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/01/picard_finger_printing_enabled.png" alt="picard finger printing enabled Organizing Your Music Library Using Acoustic Fingerprinting" width="761" height="538" class="alignnone size-full wp-image-5944" title="Organizing Your Music Library Using Acoustic Fingerprinting" />](http://virtuallyhyper.com/wp-content/uploads/2013/01/picard_finger_printing_enabled.png)
+![picard finger printing enabled Organizing Your Music Library Using Acoustic Fingerprinting](http://virtuallyhyper.com/wp-content/uploads/2013/01/picard_finger_printing_enabled.png)
 
 I also enabled the *lastfm* plugin:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/01/picard_lastfm_plugin.png" alt="picard lastfm plugin Organizing Your Music Library Using Acoustic Fingerprinting" width="764" height="537" class="alignnone size-full wp-image-5945" title="Organizing Your Music Library Using Acoustic Fingerprinting" />](http://virtuallyhyper.com/wp-content/uploads/2013/01/picard_lastfm_plugin.png)
+![picard lastfm plugin Organizing Your Music Library Using Acoustic Fingerprinting](http://virtuallyhyper.com/wp-content/uploads/2013/01/picard_lastfm_plugin.png)
 
 But neither of those options/plugins were able to identify my songs, I tried the other utilities but it was to no avail. It looks like *musicbrainz* or similar databases are album centric. From the [picard](http://musicbrainz.org/doc/MusicBrainz_Picard) home page:
 
@@ -533,35 +533,35 @@ And now checking the tags:
 
 And now we can use **EasyTag** to fill the tags from our file names. First start up *EasyTag*, it will look like this:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/01/easytag_started.png" alt="easytag started Organizing Your Music Library Using Acoustic Fingerprinting" width="1038" height="689" class="alignnone size-full wp-image-5958" title="Organizing Your Music Library Using Acoustic Fingerprinting" />](http://virtuallyhyper.com/wp-content/uploads/2013/01/easytag_started.png)
+![easytag started Organizing Your Music Library Using Acoustic Fingerprinting](http://virtuallyhyper.com/wp-content/uploads/2013/01/easytag_started.png)
 
 Then navigate to your folder/playlist, it will looks something like this:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/01/easy_tag_load_folder.png" alt="easy tag load folder Organizing Your Music Library Using Acoustic Fingerprinting" width="1038" height="690" class="alignnone size-full wp-image-5959" title="Organizing Your Music Library Using Acoustic Fingerprinting" />](http://virtuallyhyper.com/wp-content/uploads/2013/01/easy_tag_load_folder.png)
+![easy tag load folder Organizing Your Music Library Using Acoustic Fingerprinting](http://virtuallyhyper.com/wp-content/uploads/2013/01/easy_tag_load_folder.png)
 
 We can see that, 3 files were found (which is expected) and the *id3* tags are blank. Then select all 3 files and go to "Scanner" -> "Fill Tags", it will look like this:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/01/easy_tag_scanner_fill_tags_g.png" alt="easy tag scanner fill tags g Organizing Your Music Library Using Acoustic Fingerprinting" width="1039" height="692" class="alignnone size-full wp-image-5960" title="Organizing Your Music Library Using Acoustic Fingerprinting" />](http://virtuallyhyper.com/wp-content/uploads/2013/01/easy_tag_scanner_fill_tags_g.png)
+![easy tag scanner fill tags g Organizing Your Music Library Using Acoustic Fingerprinting](http://virtuallyhyper.com/wp-content/uploads/2013/01/easy_tag_scanner_fill_tags_g.png)
 
 After you select that, a window will pop up. Here you can define the pattern of your file names. In my case my files were named **ARTIST-TITLE** which in *easytag* will translate to "%a-%t". So I entered that pattern and I saw the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/01/fill_tag_pattern.png" alt="fill tag pattern Organizing Your Music Library Using Acoustic Fingerprinting" width="398" height="115" class="alignnone size-full wp-image-5961" title="Organizing Your Music Library Using Acoustic Fingerprinting" />](http://virtuallyhyper.com/wp-content/uploads/2013/01/fill_tag_pattern.png)
+![fill tag pattern Organizing Your Music Library Using Acoustic Fingerprinting](http://virtuallyhyper.com/wp-content/uploads/2013/01/fill_tag_pattern.png)
 
 You can see it even shows what it matched for the first file. To fill in the tags, just click on the "Green Folder" button and it will start filling in the tags. After it's done, in the logs pane you can see if it was successful and now the tags will be filled in. It will look like this:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/01/fill_tags_after_scan.png" alt="fill tags after scan Organizing Your Music Library Using Acoustic Fingerprinting" width="1040" height="685" class="alignnone size-full wp-image-5962" title="Organizing Your Music Library Using Acoustic Fingerprinting" />](http://virtuallyhyper.com/wp-content/uploads/2013/01/fill_tags_after_scan.png)
+![fill tags after scan Organizing Your Music Library Using Acoustic Fingerprinting](http://virtuallyhyper.com/wp-content/uploads/2013/01/fill_tags_after_scan.png)
 
 After that, to save the changes, close the scanner window and go to "File" -> "Save Files":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/01/easytag_savefiles_g.png" alt="easytag savefiles g Organizing Your Music Library Using Acoustic Fingerprinting" width="1041" height="694" class="alignnone size-full wp-image-5965" title="Organizing Your Music Library Using Acoustic Fingerprinting" />](http://virtuallyhyper.com/wp-content/uploads/2013/01/easytag_savefiles_g.png)
+![easytag savefiles g Organizing Your Music Library Using Acoustic Fingerprinting](http://virtuallyhyper.com/wp-content/uploads/2013/01/easytag_savefiles_g.png)
 
 After you hit "Save Files", it will ask you to confirm and you can check the box "Repeat Action for the rest of the files" so it does it to all of them:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/01/confirm_save_files.png" alt="confirm save files Organizing Your Music Library Using Acoustic Fingerprinting" width="296" height="120" class="alignnone size-full wp-image-5966" title="Organizing Your Music Library Using Acoustic Fingerprinting" />](http://virtuallyhyper.com/wp-content/uploads/2013/01/confirm_save_files.png)
+![confirm save files Organizing Your Music Library Using Acoustic Fingerprinting](http://virtuallyhyper.com/wp-content/uploads/2013/01/confirm_save_files.png)
 
 After it's done, in the logs pane you will see messages like "Updated Tag" like so:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/01/easytag_saved_tags.png" alt="easytag saved tags Organizing Your Music Library Using Acoustic Fingerprinting" width="1039" height="626" class="alignnone size-full wp-image-5967" title="Organizing Your Music Library Using Acoustic Fingerprinting" />](http://virtuallyhyper.com/wp-content/uploads/2013/01/easytag_saved_tags.png)
+![easytag saved tags Organizing Your Music Library Using Acoustic Fingerprinting](http://virtuallyhyper.com/wp-content/uploads/2013/01/easytag_saved_tags.png)
 
 Now checking that tags on all the files:
 

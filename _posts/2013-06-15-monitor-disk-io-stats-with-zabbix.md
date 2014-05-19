@@ -136,29 +136,29 @@ It spit out the partitions as well, I left it that way in case I might use them 
 
 I didn't want disk statistics per partition but per disk, so let's add a rule to just catch the disk without the partitions. Login to zabbix and then go to "Administration" -> General -> "Regular Expression":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbiz_reg_expression_g.png" alt="zabbiz reg expression g Monitor Disk IO Stats with Zabbix" width="1167" height="419" class="alignnone size-full wp-image-8934" title="Monitor Disk IO Stats with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbiz_reg_expression_g.png)
+![zabbiz reg expression g Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbiz_reg_expression_g.png)
 
 Then click "Create New Regular Expression" and under "Expressions", click "New" and add the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbiz_reg_expression_create.png" alt="zabbiz reg expression create Monitor Disk IO Stats with Zabbix" width="513" height="133" class="alignnone size-full wp-image-8935" title="Monitor Disk IO Stats with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbiz_reg_expression_create.png)
+![zabbiz reg expression create Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbiz_reg_expression_create.png)
 
 Save that and on the left side, name the Regular Expression and do a test to make sure it works:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbiz_reg_expression_test.png" alt="zabbiz reg expression test Monitor Disk IO Stats with Zabbix" width="973" height="251" class="alignnone size-full wp-image-8936" title="Monitor Disk IO Stats with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbiz_reg_expression_test.png)
+![zabbiz reg expression test Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbiz_reg_expression_test.png)
 
 and also put in a partition to make sure it fails:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbiz_reg_expression_test_fail.png" alt="zabbiz reg expression test fail Monitor Disk IO Stats with Zabbix" width="970" height="244" class="alignnone size-full wp-image-8937" title="Monitor Disk IO Stats with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbiz_reg_expression_test_fail.png)
+![zabbiz reg expression test fail Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbiz_reg_expression_test_fail.png)
 
 Save that and if you go back to the regular expression list you will see yours there:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbiz_reg_expression_list.png" alt="zabbiz reg expression list Monitor Disk IO Stats with Zabbix" width="907" height="216" class="alignnone size-full wp-image-8939" title="Monitor Disk IO Stats with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbiz_reg_expression_list.png)
+![zabbiz reg expression list Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbiz_reg_expression_list.png)
 
 ### Create a New Template in Zabbix
 
 Let's create a new template for our items and graphs. Go to "Configuration" -> "Template" -> "Create Template". Fill out the information and add your hosts to the template:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_create_template.png" alt="zabbix create template Monitor Disk IO Stats with Zabbix" width="939" height="383" class="alignnone size-full wp-image-8940" title="Monitor Disk IO Stats with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_create_template.png)
+![zabbix create template Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_create_template.png)
 
 ### Create a new UserParameter for Disk Discovery
 
@@ -195,57 +195,57 @@ The list kept going, but we now know that works.
 
 Go to "Configuration" -> "Templates":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_templates.png" alt="zabbix templates Monitor Disk IO Stats with Zabbix" width="1351" height="235" class="alignnone size-full wp-image-8941" title="Monitor Disk IO Stats with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_templates.png)
+![zabbix templates Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_templates.png)
 
 Scroll down and you will see the template that you created earlier. Click on "Discovery" -> "Create Discovery Rule". Here we will name the rule, query the *UserParameter* we created, and apply a filter (regular expression) to get just the disk. Here is how my configuration looked like:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_discovery_rule.png" alt="zabbix discovery rule Monitor Disk IO Stats with Zabbix" width="680" height="442" class="alignnone size-full wp-image-8942" title="Monitor Disk IO Stats with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_discovery_rule.png)
+![zabbix discovery rule Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_discovery_rule.png)
 
 Save that and if you go back to the discovery rules you will see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_discovery_rule_list.png" alt="zabbix discovery rule list Monitor Disk IO Stats with Zabbix" width="1365" height="171" class="alignnone size-full wp-image-8943" title="Monitor Disk IO Stats with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_discovery_rule_list.png)
+![zabbix discovery rule list Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_discovery_rule_list.png)
 
 ### Add Item Prototypes to Discovery Rule
 
 Go to "Configuration" -> "Templates" -> Template_Linux_Disk -> "Discovery" -> "Item Prototypes" -> "Create Item Prototype". Fill out the information. Here is my latency item:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/zab-item-prototype-later.png" alt="zab item prototype later Monitor Disk IO Stats with Zabbix" width="558" height="370" class="alignnone size-full wp-image-10411" title="Monitor Disk IO Stats with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/06/zab-item-prototype-later.png)
+![zab item prototype later Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zab-item-prototype-later.png)
 
 I added both read and write latency. Here is my Disk Rate in Bps:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/zab-item-prototype-after-dr.png" alt="zab item prototype after dr Monitor Disk IO Stats with Zabbix" width="565" height="360" class="alignnone size-full wp-image-10413" title="Monitor Disk IO Stats with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/06/zab-item-prototype-after-dr.png)
+![zab item prototype after dr Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zab-item-prototype-after-dr.png)
 
 I added both read and write disk rates. I also added disk operations (read and write). I ended up defining 6 items in total, here is the list:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_itemprototypes_list.png" alt="zabbix itemprototypes list Monitor Disk IO Stats with Zabbix" width="1224" height="328" class="alignnone size-full wp-image-8946" title="Monitor Disk IO Stats with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_itemprototypes_list.png)
+![zabbix itemprototypes list Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_itemprototypes_list.png)
 
 ### Create Graph Prototypes to Plot the Above Items
 
 Go to "Configuration" -> "Templates" -> Template_Linux_Disk -> "Discovery" -> "Graph Prototypes" -> "Create Graph Prototype". Add both read and write like so:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_graphprototypes_latency.png" alt="zabbix graphprototypes latency Monitor Disk IO Stats with Zabbix" width="1131" height="561" class="alignnone size-full wp-image-8947" title="Monitor Disk IO Stats with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_graphprototypes_latency.png)
+![zabbix graphprototypes latency Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_graphprototypes_latency.png)
 
 Using the same technique I created 3 graph prototypes:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_graphprototypes_list.png" alt="zabbix graphprototypes list Monitor Disk IO Stats with Zabbix" width="1179" height="245" class="alignnone size-full wp-image-8948" title="Monitor Disk IO Stats with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_graphprototypes_list.png)
+![zabbix graphprototypes list Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_graphprototypes_list.png)
 
 ## Check out the Graphs
 
 Go to "Monitoring" -> "Graphs". Then pick a host and make sure only it's corresponding disks show. For example here is what I saw for my Fedora Box which had an LVM setup:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_graph_lists_fedora_g.png" alt="zabbix graph lists fedora g Monitor Disk IO Stats with Zabbix" width="441" height="202" class="alignnone size-full wp-image-8949" title="Monitor Disk IO Stats with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_graph_lists_fedora_g.png)
+![zabbix graph lists fedora g Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_graph_lists_fedora_g.png)
 
 and here is one graph:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_disk_rate_fedora.png" alt="zabbix disk rate fedora Monitor Disk IO Stats with Zabbix" width="1382" height="612" class="alignnone size-full wp-image-8950" title="Monitor Disk IO Stats with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_disk_rate_fedora.png)
+![zabbix disk rate fedora Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_disk_rate_fedora.png)
 
 And here are the available graphs for my Ubuntu which just had one drive in it:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_graph_lists_ub_g.png" alt="zabbix graph lists ub g Monitor Disk IO Stats with Zabbix" width="422" height="133" class="alignnone size-full wp-image-8951" title="Monitor Disk IO Stats with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_graph_lists_ub_g.png)
+![zabbix graph lists ub g Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_graph_lists_ub_g.png)
 
 and here is latency for the disk:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_disk_latency_ubuntu.png" alt="zabbix disk latency ubuntu Monitor Disk IO Stats with Zabbix" width="1378" height="561" class="alignnone size-full wp-image-8952" title="Monitor Disk IO Stats with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_disk_latency_ubuntu.png)
+![zabbix disk latency ubuntu Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_disk_latency_ubuntu.png)
 
 Everything looked perfect.
 

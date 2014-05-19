@@ -18,7 +18,7 @@ I had an old box laying around that wasn't really doing anything. It only had 1G
 
 I checked the [Splunk System Requirements](http://docs.splunk.com/Documentation/Splunk/6.0/Installation/Systemrequirements) and I was okay:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/11/splunk-hw-capacity.png" alt="splunk hw capacity Installing Splunk on FreeBSD" width="714" height="182" class="alignnone size-full wp-image-9795" title="Installing Splunk on FreeBSD" />](http://virtuallyhyper.com/wp-content/uploads/2013/11/splunk-hw-capacity.png)
+![splunk hw capacity Installing Splunk on FreeBSD](http://virtuallyhyper.com/wp-content/uploads/2013/11/splunk-hw-capacity.png)
 
 This was just for a home setup, I was only planning to monitor 6-8 machines.
 
@@ -26,7 +26,7 @@ This was just for a home setup, I was only planning to monitor 6-8 machines.
 
 Looking over the download page, I saw that FreeBSD 9 is supported:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/11/freebsd_download.png" alt="freebsd download Installing Splunk on FreeBSD" width="954" height="267" class="alignnone size-full wp-image-9796" title="Installing Splunk on FreeBSD" />](http://virtuallyhyper.com/wp-content/uploads/2013/11/freebsd_download.png)
+![freebsd download Installing Splunk on FreeBSD](http://virtuallyhyper.com/wp-content/uploads/2013/11/freebsd_download.png)
 
 I grabbed the intel/native package and then ran the following to install it:
 
@@ -164,11 +164,11 @@ You ran then restart the **syslogd** process to apply the settings:
 
 Now we can add a Data Source to listen on UDP 514 for Syslog Logs. From the Splunk Web Portal Home Page click on **Data Inputs** and you should see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/11/splunk-data-inputs.png" alt="splunk data inputs Installing Splunk on FreeBSD" width="550" height="388" class="alignnone size-full wp-image-9797" title="Installing Splunk on FreeBSD" />](http://virtuallyhyper.com/wp-content/uploads/2013/11/splunk-data-inputs.png)
+![splunk data inputs Installing Splunk on FreeBSD](http://virtuallyhyper.com/wp-content/uploads/2013/11/splunk-data-inputs.png)
 
 Then click on **UDP** and fill out all the settings:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/11/514-data-input.png" alt="514 data input Installing Splunk on FreeBSD" width="567" height="777" class="alignnone size-full wp-image-9798" title="Installing Splunk on FreeBSD" />](http://virtuallyhyper.com/wp-content/uploads/2013/11/514-data-input.png)
+![514 data input Installing Splunk on FreeBSD](http://virtuallyhyper.com/wp-content/uploads/2013/11/514-data-input.png)
 
 Then click **Save** and you should be all set. You can confirm it's listening on that port by running the following on the Splunk server:
 
@@ -198,15 +198,15 @@ And lastly restart the **rsyslog** service to apply the change:
     $ sudo service rsyslog restart
 
 
-On the WRT router, you can go to the **Services** Tab and configure it to send logs to a remote syslog server : [<img src="http://virtuallyhyper.com/wp-content/uploads/2013/11/wrt-syslog.png" alt="wrt syslog Installing Splunk on FreeBSD" width="452" height="100" class="alignnone size-full wp-image-9799" title="Installing Splunk on FreeBSD" />](http://virtuallyhyper.com/wp-content/uploads/2013/11/wrt-syslog.png)
+On the WRT router, you can go to the **Services** Tab and configure it to send logs to a remote syslog server : ![wrt syslog Installing Splunk on FreeBSD](http://virtuallyhyper.com/wp-content/uploads/2013/11/wrt-syslog.png)
 
 On OpenELEC, you can go to the OpenELEC settings and under **Services** you can specify a remote syslog server:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/11/openelec-remote-syslog.png" alt="openelec remote syslog Installing Splunk on FreeBSD" width="720" height="480" class="alignnone size-full wp-image-9800" title="Installing Splunk on FreeBSD" />](http://virtuallyhyper.com/wp-content/uploads/2013/11/openelec-remote-syslog.png)
+![openelec remote syslog Installing Splunk on FreeBSD](http://virtuallyhyper.com/wp-content/uploads/2013/11/openelec-remote-syslog.png)
 
 After I was done with the configurations, here are all the hosts seen in splunk (under **Search** -> **Data Summary**):
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/11/data-summary_g.png" alt="data summary g Installing Splunk on FreeBSD" width="428" height="316" class="alignnone size-full wp-image-9801" title="Installing Splunk on FreeBSD" />](http://virtuallyhyper.com/wp-content/uploads/2013/11/data-summary_g.png)
+![data summary g Installing Splunk on FreeBSD](http://virtuallyhyper.com/wp-content/uploads/2013/11/data-summary_g.png)
 
 #### Setup Splunk to Automatically Start on boot
 
@@ -258,7 +258,7 @@ To apply those settings, restart the splunk server:
 
 I don't want to waste space on old data. I checked my Quota usage under "**Settings**" -> "**Licensing**" -> "**Usage Report**" and I wasn't even close to reaching the quota:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/11/license-usage-splunk_g.png" alt="license usage splunk g Installing Splunk on FreeBSD" width="1204" height="845" class="alignnone size-full wp-image-9809" title="Installing Splunk on FreeBSD" />](http://virtuallyhyper.com/wp-content/uploads/2013/11/license-usage-splunk_g.png)
+![license usage splunk g Installing Splunk on FreeBSD](http://virtuallyhyper.com/wp-content/uploads/2013/11/license-usage-splunk_g.png)
 
 Unrelated to my above settings, but still good to know.
 
@@ -266,17 +266,17 @@ Unrelated to my above settings, but still good to know.
 
 I know I have a 60 day Enterprise trial version, but before I get used to all the neat features, I wanted to setup and use the Free version of Splunk. To change the License Group, go to **Settings** -> **Licensing**:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/11/system-license_g.png" alt="system license g Installing Splunk on FreeBSD" width="232" height="154" class="alignnone size-full wp-image-9802" title="Installing Splunk on FreeBSD" />](http://virtuallyhyper.com/wp-content/uploads/2013/11/system-license_g.png)
+![system license g Installing Splunk on FreeBSD](http://virtuallyhyper.com/wp-content/uploads/2013/11/system-license_g.png)
 
 Then click on **Change License Group**. Select the Free License and apply. It will restart splunk to apply the change. If you go back to **Settings** -> **Licensing** you should see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/11/splunk-license-group.png" alt="splunk license group Installing Splunk on FreeBSD" width="453" height="224" class="alignnone size-full wp-image-9803" title="Installing Splunk on FreeBSD" />](http://virtuallyhyper.com/wp-content/uploads/2013/11/splunk-license-group.png)
+![splunk license group Installing Splunk on FreeBSD](http://virtuallyhyper.com/wp-content/uploads/2013/11/splunk-license-group.png)
 
 #### Disable the Welcome Page for Splunk Free Version
 
 As soon as you switch over to the Free License, you will notice that the authentication page is no longer present and splunk will check for an update and if it doesn't find one it will ask you to continue:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/11/splunk-free-version-welcome-screen.png" alt="splunk free version welcome screen Installing Splunk on FreeBSD" width="547" height="211" class="alignnone size-full wp-image-9804" title="Installing Splunk on FreeBSD" />](http://virtuallyhyper.com/wp-content/uploads/2013/11/splunk-free-version-welcome-screen.png)
+![splunk free version welcome screen Installing Splunk on FreeBSD](http://virtuallyhyper.com/wp-content/uploads/2013/11/splunk-free-version-welcome-screen.png)
 
 Upon clicking **Continue**, it will just log you without any sort of authentication. First let's go ahead and disable that page. I ran across [this](http://answers.splunk.com/answers/4981/disabling-welcome-screen) splunk community page, which helped. To get rid of the welcome/update page, edit (or create if it doesn't exist) the **/opt/splunk/etc/system/local/web.conf** file and add the following to it:
 
@@ -339,7 +339,7 @@ To apply the settings restart splunk:
 
 Now if you visit **http://SPLUNK_SERVER:8000**, you should see all the URLs start with **/splunk**, like so:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/11/splunk-url-changed_g.png" alt="splunk url changed g Installing Splunk on FreeBSD" width="424" height="115" class="alignnone size-full wp-image-9805" title="Installing Splunk on FreeBSD" />](http://virtuallyhyper.com/wp-content/uploads/2013/11/splunk-url-changed_g.png)
+![splunk url changed g Installing Splunk on FreeBSD](http://virtuallyhyper.com/wp-content/uploads/2013/11/splunk-url-changed_g.png)
 
 Now if you visit **http://YOUR_WEBSERVER/splunk**, it should take to the Splunk Web Portal.
 

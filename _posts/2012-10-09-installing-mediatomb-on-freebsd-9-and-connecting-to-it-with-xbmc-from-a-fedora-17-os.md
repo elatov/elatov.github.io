@@ -21,13 +21,13 @@ I recently got some new hardware and wanted to setup a video streaming server in
 
 The paper also included a pretty good table of all the guidelines from the DLNA, from the paper:
 
-[<img class="alignnone size-full wp-image-4169" title="dlna_guidelines" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/dlna_guidelines.png" alt="dlna guidelines Installing Mediatomb on FreeBSD 9 and Connecting to it with XBMC from a Fedora 17 OS" width="530" height="377" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/dlna_guidelines.png)
+![dlna_guidelines](http://virtuallyhyper.com/wp-content/uploads/2012/10/dlna_guidelines.png)
 
 DLNA uses UPnP for a lot of it's functions, so I decided to setup a UPnP capable server to stream my media. I was then checking out the wiki page "[Comparison of UPnP AV media servers](http://en.wikipedia.org/wiki/Comparison_of_UPnP_AV_MediaServers)" to see a list of UPnP servers. Of course, I wanted to choose a media server with the most functionality. Here are the ones that stood out:
 
 *   [MediaTomb](http://mediatomb.cc)
-*   [Plex](http://en.wikipedia.org/wiki/Plex_(software)" title="Plex (software))
-*   [PS3 Media Server](http://en.wikipedia.org/wiki/PS3_Media_Server" title="PS3 Media Server)
+*   [Plex](http://en.wikipedia.org/wiki/Plex_(software))
+*   [PS3 Media Server](http://en.wikipedia.org/wiki/PS3_Media_Server)
 *   [MiniDLNA](http://sourceforge.net/projects/minidlna/)
 
 I then wanted to check out what other people were setting up, after doing some googling around, I found the following:
@@ -145,11 +145,11 @@ As you can see it was running as the **mediatomb** user and group. I like securi
 
 Open up a browser and point it to **http://IP_OF_MEDIATOMB_SERVER:49152**. Here is how my browser looked like:
 
-[<img class="alignnone size-full wp-image-4170" title="media_tomb_web_mgmt" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/media_tomb_web_mgmt.png" alt="media tomb web mgmt Installing Mediatomb on FreeBSD 9 and Connecting to it with XBMC from a Fedora 17 OS" width="732" height="240" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/media_tomb_web_mgmt.png)
+![media_tomb_web_mgmt](http://virtuallyhyper.com/wp-content/uploads/2012/10/media_tomb_web_mgmt.png)
 
 From here you can expand your file system and add a directory which will be served by the UPnP server and you can set it be scanned for new media at your desired frequency. Here is how my folder looked like:
 
-[<img class="alignnone size-full wp-image-4177" title="media_tomb_add_folder" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/media_tomb_add_folder.png" alt="media tomb add folder Installing Mediatomb on FreeBSD 9 and Connecting to it with XBMC from a Fedora 17 OS" width="790" height="390" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/media_tomb_add_folder.png)
+![media_tomb_add_folder](http://virtuallyhyper.com/wp-content/uploads/2012/10/media_tomb_add_folder.png)
 
 That should be it for the MediaTomb Setup.
 
@@ -263,7 +263,7 @@ Here is the installed package:
 
 I then started **upnp-inspector** and I saw the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/10/upnp-inspector.png" alt="upnp inspector Installing Mediatomb on FreeBSD 9 and Connecting to it with XBMC from a Fedora 17 OS" title="upnp-inspector" width="324" height="233" class="alignnone size-full wp-image-4178" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/upnp-inspector.png)
+![upnp-inspector](http://virtuallyhyper.com/wp-content/uploads/2012/10/upnp-inspector.png)
 
 So I was able to see the MediaTomb Server just fine. YAY! While I launched **upnp-inspector**, I also fired up **tcpdump** in back ground to see what kind of traffic was going through:
 
@@ -374,11 +374,11 @@ The install is pretty easy:
 
 After it's installed you can just launch it by running **xbmc** from the command prompt/terminal. Once it's launched it will look something like this:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/10/screenshot000.png" alt="screenshot000 Installing Mediatomb on FreeBSD 9 and Connecting to it with XBMC from a Fedora 17 OS" title="screenshot000" width="1280" height="800" class="alignnone size-full wp-image-4180" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/screenshot000.png)
+![screenshot000](http://virtuallyhyper.com/wp-content/uploads/2012/10/screenshot000.png)
 
 Next, enable the built-in UPnP client from XBMC. Go to System -> Settings -> Network -> Services and Check the box that says "Allow Control of XBMC via UPnP". The GUI looks something like this:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/10/screenshot001.png" alt="screenshot001 Installing Mediatomb on FreeBSD 9 and Connecting to it with XBMC from a Fedora 17 OS" title="screenshot001" width="1280" height="800" class="alignnone size-full wp-image-4181" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/screenshot001.png)
+![screenshot001](http://virtuallyhyper.com/wp-content/uploads/2012/10/screenshot001.png)
 
 The settings are described in "[Settings/Network](http://wiki.xbmc.org/index.php?title=Settings/Network)" of the XMBC web site. From the site:
 
@@ -390,7 +390,7 @@ The settings are described in "[Settings/Network](http://wiki.xbmc.org/index.php
 
 Lastly add a UPnP Share by going to Videos -> Files -> Add Videos -> Browse -> UPnP Devices. From there you will see your MediaTomb Server. It will look something like this:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/10/screenshot011.png" alt="screenshot011 Installing Mediatomb on FreeBSD 9 and Connecting to it with XBMC from a Fedora 17 OS" title="screenshot011" width="1280" height="800" class="alignnone size-full wp-image-4182" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/screenshot011.png)
+![screenshot011](http://virtuallyhyper.com/wp-content/uploads/2012/10/screenshot011.png)
 
 After you have added your share, you can go back to Videos -> Files and your share will be there. There are actually many other UPnP clients out there, I just heard of XBMC before and decided to try it out and I actually really like it. Here is a [link](http://www.makeuseof.com/tag/using-your-linux-computer-as-a-media-center-part-1/</full></performnud></rxcsum></up>) that talks about other Media Centers.
 

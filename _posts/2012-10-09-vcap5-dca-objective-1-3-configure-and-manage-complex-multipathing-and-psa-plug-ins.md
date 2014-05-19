@@ -22,11 +22,11 @@ From this VMware KB [1011375](http://kb.vmware.com/kb/1011375):
 
 From the [vSphere Storage ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf):
 
-[<img class="alignnone size-full wp-image-3905" title="vsphere_storage" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/vsphere_storage.png" alt="vsphere storage VCAP5 DCA Objective 1.3 – Configure and Manage Complex Multipathing and PSA Plug ins " width="441" height="572" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/vsphere_storage.png)
+![vsphere_storage](http://virtuallyhyper.com/wp-content/uploads/2012/09/vsphere_storage.png)
 
 The PSA is made up of many other technologies, like SATP,NMP, PSP, and MPP. Actually from the same guide, here is good picture:
 
-[<img class="alignnone size-full wp-image-3906" title="PSA_Architecture" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/PSA_Architecture.png" alt="PSA Architecture VCAP5 DCA Objective 1.3 – Configure and Manage Complex Multipathing and PSA Plug ins " width="341" height="192" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/PSA_Architecture.png)
+![PSA_Architecture](http://virtuallyhyper.com/wp-content/uploads/2012/09/PSA_Architecture.png)
 
 And more information from the same guide:
 
@@ -35,7 +35,7 @@ And more information from the same guide:
 >
 > Topics discussing path management use the following acronyms
 >
-> [<img class="alignnone size-full wp-image-3907" title="multipathing_acronyms" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/multipathing_acronyms.png" alt="multipathing acronyms VCAP5 DCA Objective 1.3 – Configure and Manage Complex Multipathing and PSA Plug ins " width="588" height="175" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/multipathing_acronyms.png)
+> ![multipathing_acronyms](http://virtuallyhyper.com/wp-content/uploads/2012/09/multipathing_acronyms.png)
 >
 > The VMkernel multipathing plug-in that ESXi provides by default is the VMware Native Multipathing PlugIn (NMP). The NMP is an extensible module that manages sub plug-ins. There are two types of NMP sub plugins, Storage Array Type Plug-Ins (SATPs), and Path Selection Plug-Ins (PSPs). SATPs and PSPs can be built-in and provided by VMware, or can be provided by a third party.
 >

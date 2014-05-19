@@ -15,11 +15,11 @@ tags:
 
 From the [US BrownBag Objective 1](http://www.slideshare.net/ProfessionalVMware/professionalvmware-brownbag-jason-boche-vcapdcd-objective-1) Slide Deck:
 
-[<img class="alignnone size-full wp-image-2720" title="arch-vision" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/arch-vision.png" alt="arch vision VCAP5 DCD Objective 1.3 – Determine Risks, Constraints, and Assumptions " width="1111" height="691" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/arch-vision.png)
+![arch-vision](http://virtuallyhyper.com/wp-content/uploads/2012/08/arch-vision.png)
 
 and from the [APAC BrownBag Session 1 Slide Deck](http://portal.sliderocket.com/BLIHZ/VCAP5-DCD-BrownBag---Session-1):
 
-[<img class="alignnone size-full wp-image-2721" title="rcar" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/rcar.png" alt="rcar VCAP5 DCD Objective 1.3 – Determine Risks, Constraints, and Assumptions " width="1240" height="569" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/rcar.png)
+![rcar](http://virtuallyhyper.com/wp-content/uploads/2012/08/rcar.png)
 
 ### Given a statement, determine whether it is a risk, requirement, a constraint, or an assumption
 
@@ -53,7 +53,7 @@ Also good examples can be found here:
 
 From the [US BrownBag Objective 1](http://www.slideshare.net/ProfessionalVMware/professionalvmware-brownbag-jason-boche-vcapdcd-objective-1) Slide Deck:
 
-[<img class="alignnone size-full wp-image-2726" title="best-practices-rules" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/best-practices-rules.png" alt="best practices rules VCAP5 DCD Objective 1.3 – Determine Risks, Constraints, and Assumptions " width="1074" height="541" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/best-practices-rules.png)
+![best-practices-rules](http://virtuallyhyper.com/wp-content/uploads/2012/08/best-practices-rules.png)
 
 Basically try to be flexible with best practices, not everything falls under best practices or a certain criteria. For this section the Blue Print has a link to an excellent document from Glasshouse, I would definitely recommend reading it: [Developing Your Virtualization Strategy and Deployment Plan](http://communities.vmware.com/docs/DOC-17431)
 

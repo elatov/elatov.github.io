@@ -15,7 +15,7 @@ tags:
   - VMware Converter
   - WAN
 ---
-I had a customer trying to cold migrate a VM across datacenters (across a WAN connection). Probably not the best setup, but it should work. Here is good white paper that talks about vCenter in WAN environments: [<img class="alignnone size-full wp-image-554" title="Two_ESX_Connected_With_WAN" src="http://virtuallyhyper.com/wp-content/uploads/2012/03/Two_ESX_Connected_With_WAN.jpg" alt="Two ESX Connected With WAN Timeouts During a Cold Migration Across Datacenters" width="912" height="170" />](http://www.vmware.com/files/pdf/techpaper/VMW-WP-Performance-vCenter.pdf)
+I had a customer trying to cold migrate a VM across datacenters (across a WAN connection). Probably not the best setup, but it should work. Here is good white paper that talks about vCenter in WAN environments: ![Two_ESX_Connected_With_WAN](http://virtuallyhyper.com/wp-content/uploads/2012/03/Two_ESX_Connected_With_WAN.jpg)
 Both of the hosts are managed by the same vCenter server. So we are trying to move the VM from ESX_1 to ESX_2. I definitely agree that there are much better solutions and here is a great tech paper that talks about some of the alternatives: [Data Migrations Techniques for VMware vSphere](http://www.emc.com/collateral/software/white-papers/h8063-data-migration-vsphere-wp.pdf), but we were just stuck with this setup for now.
 Whenever we tried to cold migrate, we would see the following in the vpxa logs (/var/log/vmware/vpx/vpxa.log in ESX 4.x or /var/log/vpxa.log in ESXi 5.0) of the source host:
 

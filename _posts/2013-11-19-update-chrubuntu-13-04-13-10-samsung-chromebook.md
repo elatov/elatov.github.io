@@ -132,7 +132,7 @@ At the same time I would run the following to check the status of pulseaudio:
 
 We can see that it said it's **running**. I also installed **pavumeter** and launched it as I was running the **aplay** command, I saw activity:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/10/pulsemeter_output.png" alt="pulsemeter output Update ChrUbuntu 13.04 to 13.10 on the Samsung Chromebook" width="409" height="131" class="alignnone size-full wp-image-9708" title="Update ChrUbuntu 13.04 to 13.10 on the Samsung Chromebook" />](http://virtuallyhyper.com/wp-content/uploads/2013/10/pulsemeter_output.png)
+![pulsemeter output Update ChrUbuntu 13.04 to 13.10 on the Samsung Chromebook](http://virtuallyhyper.com/wp-content/uploads/2013/10/pulsemeter_output.png)
 
 So **pulseaudio** is receiving the audio, but for some reason it's not passing it to **alsa**. I then killed the current **pulseaudio** process and started it in verbose mode:
 
@@ -315,7 +315,7 @@ Lastly, the sound for flash stopped working as well. With the above fix, all the
 
 and then my sound was working with flash. Here is the version of flash that I was using:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/10/chromium_flash.png" alt="chromium flash Update ChrUbuntu 13.04 to 13.10 on the Samsung Chromebook" width="519" height="251" class="alignnone size-full wp-image-9711" title="Update ChrUbuntu 13.04 to 13.10 on the Samsung Chromebook" />](http://virtuallyhyper.com/wp-content/uploads/2013/10/chromium_flash.png)
+![chromium flash Update ChrUbuntu 13.04 to 13.10 on the Samsung Chromebook](http://virtuallyhyper.com/wp-content/uploads/2013/10/chromium_flash.png)
 
 ## Network Manager Scanning Every Two minutes
 
@@ -345,11 +345,11 @@ I decided to take the latter approach. So start the network-manager connection e
 
 Then click on your acess point and select **Edit**. Then go the **General** tab and uncheck "Automatically connect to this network when it is available":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/10/gen-tab-con-editor.png" alt="gen tab con editor Update ChrUbuntu 13.04 to 13.10 on the Samsung Chromebook" width="412" height="109" class="alignnone size-full wp-image-9709" title="Update ChrUbuntu 13.04 to 13.10 on the Samsung Chromebook" />](http://virtuallyhyper.com/wp-content/uploads/2013/10/gen-tab-con-editor.png)
+![gen tab con editor Update ChrUbuntu 13.04 to 13.10 on the Samsung Chromebook](http://virtuallyhyper.com/wp-content/uploads/2013/10/gen-tab-con-editor.png)
 
 and under the **Wi-Fi** tab choose the *BSSID* from the dropdown:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/10/wi-fi-tab-con-edit_g.png" alt="wi fi tab con edit g Update ChrUbuntu 13.04 to 13.10 on the Samsung Chromebook" width="432" height="471" class="alignnone size-full wp-image-9710" title="Update ChrUbuntu 13.04 to 13.10 on the Samsung Chromebook" />](http://virtuallyhyper.com/wp-content/uploads/2013/10/wi-fi-tab-con-edit_g.png)
+![wi fi tab con edit g Update ChrUbuntu 13.04 to 13.10 on the Samsung Chromebook](http://virtuallyhyper.com/wp-content/uploads/2013/10/wi-fi-tab-con-edit_g.png)
 
 Now that it won't connect automatically, you can either run the following at boot (**/etc/rc.local**) or at login (**~/.icewm/startup**):
 

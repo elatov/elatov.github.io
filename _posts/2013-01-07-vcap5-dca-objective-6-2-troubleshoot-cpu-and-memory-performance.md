@@ -16,33 +16,33 @@ tags:
 
 From "[vSphere Monitoring and Performance](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-monitoring-performance-guide.pdf)", here are the CPU counters:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/esxtop_cpu_counters_p1.png" alt="esxtop cpu counters p1 VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance " width="595" height="886" class="alignnone size-full wp-image-5283" title="VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-2-troubleshoot-cpu-and-memory-performance/esxtop_cpu_counters_p1/" rel="attachment wp-att-5283)
+![esxtop cpu counters p1 VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance ](http://virtuallyhyper.com/wp-content/uploads/2012/12/esxtop_cpu_counters_p1.png)
 
 Here are more of CPU counters:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/esxtop_cpu_p2.png" alt="esxtop cpu p2 VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance " width="598" height="641" class="alignnone size-full wp-image-5284" title="VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-2-troubleshoot-cpu-and-memory-performance/esxtop_cpu_p2/" rel="attachment wp-att-5284)
+![esxtop cpu p2 VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance ](http://virtuallyhyper.com/wp-content/uploads/2012/12/esxtop_cpu_p2.png)
 
 From the same pdf, here are the memory counters:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/esxtop_mem_p1.png" alt="esxtop mem p1 VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance " width="587" height="801" class="alignnone size-full wp-image-5285" title="VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-2-troubleshoot-cpu-and-memory-performance/esxtop_mem_p1/" rel="attachment wp-att-5285)
+![esxtop mem p1 VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance ](http://virtuallyhyper.com/wp-content/uploads/2012/12/esxtop_mem_p1.png)
 
 Here are more counters from the same page:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/esxtop_mem_p2.png" alt="esxtop mem p2 VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance " width="589" height="868" class="alignnone size-full wp-image-5286" title="VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-2-troubleshoot-cpu-and-memory-performance/esxtop_mem_p2/" rel="attachment wp-att-5286)
+![esxtop mem p2 VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance ](http://virtuallyhyper.com/wp-content/uploads/2012/12/esxtop_mem_p2.png)
 
 And here is the last page for the memory counters:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/esxtop_mem_p3.png" alt="esxtop mem p3 VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance " width="595" height="401" class="alignnone size-full wp-image-5287" title="VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-2-troubleshoot-cpu-and-memory-performance/esxtop_mem_p3/" rel="attachment wp-att-5287)
+![esxtop mem p3 VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance ](http://virtuallyhyper.com/wp-content/uploads/2012/12/esxtop_mem_p3.png)
 
 ### Identify vCenter Server Performance Chart metrics related to memory and CPU
 
 From [this](http://communities.vmware.com/docs/DOC-5600) Communities page:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/perf_charts_cpu_counters.png" alt="perf charts cpu counters VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance " width="669" height="328" class="alignnone size-full wp-image-5288" title="VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-2-troubleshoot-cpu-and-memory-performance/perf_charts_cpu_counters/" rel="attachment wp-att-5288)
+![perf charts cpu counters VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance ](http://virtuallyhyper.com/wp-content/uploads/2012/12/perf_charts_cpu_counters.png)
 
 and here are the memory counters:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/perf_charts_mem_counters.png" alt="perf charts mem counters VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance " width="667" height="743" class="alignnone size-full wp-image-5289" title="VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-2-troubleshoot-cpu-and-memory-performance/perf_charts_mem_counters/" rel="attachment wp-att-5289)
+![perf charts mem counters VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance ](http://virtuallyhyper.com/wp-content/uploads/2012/12/perf_charts_mem_counters.png)
 
 You can also check out the full list [here](http://pubs.vmware.com/vsphere-50/index.jsp?topic=/com.vmware.wssdk.apiref.doc_50/right-pane.html).
 
@@ -50,7 +50,7 @@ You can also check out the full list [here](http://pubs.vmware.com/vsphere-50/in
 
 From [this](http://www.vmworld.net/wp-content/uploads/2012/05/Esxtop_Troubleshooting_eng.pdf) pdf:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/esxtop_cpu_performance.png" alt="esxtop cpu performance VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance " width="864" height="370" class="alignnone size-full wp-image-5282" title="VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-2-troubleshoot-cpu-and-memory-performance/esxtop_cpu_performance/" rel="attachment wp-att-5282)
+![esxtop cpu performance VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance ](http://virtuallyhyper.com/wp-content/uploads/2012/12/esxtop_cpu_performance.png)
 
 Here is a good summary:
 
@@ -61,17 +61,17 @@ Here is a good summary:
 
 Also this is from a 4.x document but it applies to 5.0 as well. Here is the document: "[Performance Troubleshooting for VMware vSphere 4.1](http://communities.vmware.com/servlet/JiveServlet/previewBody/14905-102-2-17952/vsphere41-performance-troubleshooting.pdf)". From that document:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/check_for_host_cpu_saturation.png" alt="check for host cpu saturation VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance " width="640" height="536" class="alignnone size-full wp-image-5292" title="VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-2-troubleshoot-cpu-and-memory-performance/check_for_host_cpu_saturation/" rel="attachment wp-att-5292)
+![check for host cpu saturation VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance ](http://virtuallyhyper.com/wp-content/uploads/2012/12/check_for_host_cpu_saturation.png)
 
 Here is a similar diagram for Guest CPU saturation:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/check_for_guest_cpu_saturation.png" alt="check for guest cpu saturation VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance " width="588" height="299" class="alignnone size-full wp-image-5293" title="VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-2-troubleshoot-cpu-and-memory-performance/check_for_guest_cpu_saturation/" rel="attachment wp-att-5293)
+![check for guest cpu saturation VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance ](http://virtuallyhyper.com/wp-content/uploads/2012/12/check_for_guest_cpu_saturation.png)
 
 ### Troubleshoot ESXi host and Virtual Machine memory performance issues using appropriate metrics
 
 From [this](http://www.vmworld.net/wp-content/uploads/2012/05/Esxtop_Troubleshooting_eng.pdf) pdf:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/esxtop_memory_issues.png" alt="esxtop memory issues VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance " width="746" height="421" class="alignnone size-full wp-image-5294" title="VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-2-troubleshoot-cpu-and-memory-performance/esxtop_memory_issues/" rel="attachment wp-att-5294)
+![esxtop memory issues VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance ](http://virtuallyhyper.com/wp-content/uploads/2012/12/esxtop_memory_issues.png)
 
 Here is a good summary:
 
@@ -84,11 +84,11 @@ Here is a good summary:
 
 And from "[Performance Troubleshooting for VMware vSphere 4.1](http://communities.vmware.com/servlet/JiveServlet/previewBody/14905-102-2-17952/vsphere41-performance-troubleshooting.pdf)":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/check_for_vm_swapping.png" alt="check for vm swapping VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance " width="621" height="424" class="alignnone size-full wp-image-5297" title="VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-2-troubleshoot-cpu-and-memory-performance/check_for_vm_swapping/" rel="attachment wp-att-5297)
+![check for vm swapping VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance ](http://virtuallyhyper.com/wp-content/uploads/2012/12/check_for_vm_swapping.png)
 
 and here is another flow chart for VM memory issues:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/check_vm_fo_compression.png" alt="check vm fo compression VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance " width="629" height="427" class="alignnone size-full wp-image-5298" title="VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-2-troubleshoot-cpu-and-memory-performance/check_vm_fo_compression/" rel="attachment wp-att-5298)
+![check vm fo compression VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance ](http://virtuallyhyper.com/wp-content/uploads/2012/12/check_vm_fo_compression.png)
 
 ### Use Hot-Add functionality to resolve identified Virtual Machine CPU and memory performance issues
 

@@ -38,7 +38,7 @@ I will just setup our server as an *indexer* which we can search. From the same 
 
 Here is good table of the functions:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/functions.png" alt="functions Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" width="499" height="207" class="alignnone size-full wp-image-8976" title="Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" />](http://virtuallyhyper.com/wp-content/uploads/2013/06/functions.png)
+![functions Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL](http://virtuallyhyper.com/wp-content/uploads/2013/06/functions.png)
 
 Also here are the processes that splunk starts up, from Splunk architecture and processes:
 
@@ -59,7 +59,7 @@ Also here are the processes that splunk starts up, from Splunk architecture and 
 
 Lastly, here is a pretty good picture of all the components:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/arch_diag.png" alt="arch diag Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" width="623" height="334" class="alignnone size-full wp-image-8983" title="Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" />](http://virtuallyhyper.com/wp-content/uploads/2013/06/arch_diag.png)
+![arch diag Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL](http://virtuallyhyper.com/wp-content/uploads/2013/06/arch_diag.png)
 
 ### Splunk Free
 
@@ -86,7 +86,7 @@ So we are just limited to processing/indexing 500MB of logs. For a local setup a
 
 The install is pretty straight forward. Just download the RPM from [here](http://www.splunk.com/download). We will want the Linux 64 bit version:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/splunk_download.png" alt="splunk download Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" width="987" height="380" class="alignnone size-full wp-image-8985" title="Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" />](http://virtuallyhyper.com/wp-content/uploads/2013/06/splunk_download.png)
+![splunk download Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL](http://virtuallyhyper.com/wp-content/uploads/2013/06/splunk_download.png)
 
 BTW here is the OS that I am using:
 
@@ -222,33 +222,33 @@ Lastly, confirm the **iptables** rules are in place:
 
 Finally point your browser to the splunk server: **http://IP:8000**, here is how it will look:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/splunk_first_login.png" alt="splunk first login Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" width="789" height="520" class="alignnone size-full wp-image-8986" title="Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" />](http://virtuallyhyper.com/wp-content/uploads/2013/06/splunk_first_login.png)
+![splunk first login Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL](http://virtuallyhyper.com/wp-content/uploads/2013/06/splunk_first_login.png)
 
 After you login, you will be asked to change your password:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/splunk_change_passwd.png" alt="splunk change passwd Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" width="770" height="423" class="alignnone size-full wp-image-8987" title="Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" />](http://virtuallyhyper.com/wp-content/uploads/2013/06/splunk_change_passwd.png)
+![splunk change passwd Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL](http://virtuallyhyper.com/wp-content/uploads/2013/06/splunk_change_passwd.png)
 
 After that is done, you will see the *SplunkWeb* portal:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/splunk_logged_in.png" alt="splunk logged in Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" width="970" height="386" class="alignnone size-full wp-image-8988" title="Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" />](http://virtuallyhyper.com/wp-content/uploads/2013/06/splunk_logged_in.png)
+![splunk logged in Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL](http://virtuallyhyper.com/wp-content/uploads/2013/06/splunk_logged_in.png)
 
 ### Add Remote Syslog Data Type
 
 From the Home screen, click "Add Data":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/splunk_add_data.png" alt="splunk add data Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" width="835" height="521" class="alignnone size-full wp-image-8989" title="Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" />](http://virtuallyhyper.com/wp-content/uploads/2013/06/splunk_add_data.png)
+![splunk add data Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL](http://virtuallyhyper.com/wp-content/uploads/2013/06/splunk_add_data.png)
 
 Then Click "Syslog":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/add_syslog_data.png" alt="add syslog data Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" width="862" height="654" class="alignnone size-full wp-image-8990" title="Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" />](http://virtuallyhyper.com/wp-content/uploads/2013/06/add_syslog_data.png)
+![add syslog data Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL](http://virtuallyhyper.com/wp-content/uploads/2013/06/add_syslog_data.png)
 
 Click "Next" under the **Consume syslog over TCP section**. And then put the port you want to use and select the source to be "syslog":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/syslog_tcp_remote.png" alt="syslog tcp remote Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" width="905" height="717" class="alignnone size-full wp-image-8991" title="Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" />](http://virtuallyhyper.com/wp-content/uploads/2013/06/syslog_tcp_remote.png)
+![syslog tcp remote Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL](http://virtuallyhyper.com/wp-content/uploads/2013/06/syslog_tcp_remote.png)
 
 After you click "Save", you should see the following success page:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/success-add-syslog_tcp.png" alt="success add syslog tcp Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" width="860" height="366" class="alignnone size-full wp-image-8992" title="Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" />](http://virtuallyhyper.com/wp-content/uploads/2013/06/success-add-syslog_tcp.png)
+![success add syslog tcp Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL](http://virtuallyhyper.com/wp-content/uploads/2013/06/success-add-syslog_tcp.png)
 
 At this point if you go back to the splunk server, you will see it listening on port **514**:
 
@@ -324,15 +324,15 @@ And of course make sure it's back up and running:
 
 From the home page click on "Launch search app":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/launch_search_app.png" alt="launch search app Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" width="570" height="211" class="alignnone size-full wp-image-8993" title="Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" />](http://virtuallyhyper.com/wp-content/uploads/2013/06/launch_search_app.png)
+![launch search app Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL](http://virtuallyhyper.com/wp-content/uploads/2013/06/launch_search_app.png)
 
 and you will see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/logs_getting_to_splunk_g.png" alt="logs getting to splunk g Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" width="1039" height="560" class="alignnone size-full wp-image-9010" title="Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" />](http://virtuallyhyper.com/wp-content/uploads/2013/06/logs_getting_to_splunk_g.png)
+![logs getting to splunk g Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL](http://virtuallyhyper.com/wp-content/uploads/2013/06/logs_getting_to_splunk_g.png)
 
 If you click on one of the hosts from the bottom left pane, you should see something like this:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/host_logs_splunk.png" alt="host logs splunk Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" width="1030" height="551" class="alignnone size-full wp-image-8995" title="Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" />](http://virtuallyhyper.com/wp-content/uploads/2013/06/host_logs_splunk.png)
+![host logs splunk Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL](http://virtuallyhyper.com/wp-content/uploads/2013/06/host_logs_splunk.png)
 
 ## Enable Splunk to Receive Syslog over TCP with SSL
 
@@ -513,7 +513,7 @@ and nothing else.
 
 Login to SplunkWeb (**http://IP:8000**) and click on "Launch search app" and you should now see logs coming in on both "Sources":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/06/splunk_logs_both_sources.png" alt="splunk logs both sources Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" width="678" height="392" class="alignnone size-full wp-image-8997" title="Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL" />](http://virtuallyhyper.com/wp-content/uploads/2013/06/splunk_logs_both_sources.png)
+![splunk logs both sources Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL](http://virtuallyhyper.com/wp-content/uploads/2013/06/splunk_logs_both_sources.png)
 
 ### Encypted Data vs Non-Encrypted Data
 

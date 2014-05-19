@@ -29,7 +29,7 @@ From "[vSphere Host Profiles ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/c
 
 Here is how it looks like in vCenter:
 
-[<img class="alignnone size-full wp-image-5055" title="host_profile_view" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/host_profile_view.png" alt="host profile view VCAP5 DCA Objective 5.1 – Implement and Maintain Host Profiles" width="1041" height="570" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/host_profile_view.png)
+![host_profile_view](http://virtuallyhyper.com/wp-content/uploads/2012/11/host_profile_view.png)
 
 To edit a host profile we have to create one first. From the same document:
 
@@ -58,19 +58,19 @@ To edit a host profile we have to create one first. From the same document:
 
 Here is the process as it's seen in vCenter:
 
-[<img class="alignnone size-full wp-image-5057" title="create_hp_step1" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/create_hp_step1.png" alt="create hp step1 VCAP5 DCA Objective 5.1 – Implement and Maintain Host Profiles" width="700" height="513" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/create_hp_step1.png)
+![create_hp_step1](http://virtuallyhyper.com/wp-content/uploads/2012/11/create_hp_step1.png)
 
 then select a host from which you want to create a profile from:
 
-[<img class="alignnone size-full wp-image-5058" title="create_hp_step2" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/create_hp_step2.png" alt="create hp step2 VCAP5 DCA Objective 5.1 – Implement and Maintain Host Profiles" width="698" height="513" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/create_hp_step2.png)
+![create_hp_step2](http://virtuallyhyper.com/wp-content/uploads/2012/11/create_hp_step2.png)
 
 Then name your host profile:
 
-[<img class="alignnone size-full wp-image-5059" title="create_hp_step3" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/create_hp_step3.png" alt="create hp step3 VCAP5 DCA Objective 5.1 – Implement and Maintain Host Profiles" width="701" height="516" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/create_hp_step3.png)
+![create_hp_step3](http://virtuallyhyper.com/wp-content/uploads/2012/11/create_hp_step3.png)
 
 After that click "Finish" and then you will have a profile under the Host Profile view, like so:
 
-[<img class="alignnone size-full wp-image-5060" title="create_hp" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/create_hp.png" alt="create hp VCAP5 DCA Objective 5.1 – Implement and Maintain Host Profiles" width="542" height="127" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/create_hp.png)
+![create_hp](http://virtuallyhyper.com/wp-content/uploads/2012/11/create_hp.png)
 
 Now From the VMware documentation:
 
@@ -87,7 +87,7 @@ Now From the VMware documentation:
 
 Here is how editing of the Host Profile looks like in vCenter:
 
-[<img class="alignnone size-full wp-image-5061" title="edit_host_profile" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/edit_host_profile.png" alt="edit host profile VCAP5 DCA Objective 5.1 – Implement and Maintain Host Profiles" width="993" height="543" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/edit_host_profile.png)
+![edit_host_profile](http://virtuallyhyper.com/wp-content/uploads/2012/11/edit_host_profile.png)
 
 ### Create sub-profiles
 
@@ -100,7 +100,7 @@ From "[vSphere Host Profiles ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/c
 >
 > Each policy consists of one or more options that contains one or more parameters. Each parameter consists of a key and a value. The value can be one of a few basic types, for example integer, string, string array, or integer array
 >
-> [<img class="alignnone size-full wp-image-5063" title="hp_subprofiles" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/hp_subprofiles.png" alt="hp subprofiles VCAP5 DCA Objective 5.1 – Implement and Maintain Host Profiles" width="591" height="768" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/hp_subprofiles.png)
+> ![hp_subprofiles](http://virtuallyhyper.com/wp-content/uploads/2012/11/hp_subprofiles.png)
 
 ### Use Host Profiles to deploy vDS
 
@@ -134,7 +134,7 @@ From "[VMware Host Profiles: Technical Overview](http://www.vmware.com/files/pdf
 
 Expand the "Storage Configuration" under the profile section and change whatever setting necessary. Here are some of the available settings from the vCenter:
 
-[<img class="alignnone size-full wp-image-5065" title="hp-storage_conf" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/hp-storage_conf.png" alt="hp storage conf VCAP5 DCA Objective 5.1 – Implement and Maintain Host Profiles" width="328" height="271" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/hp-storage_conf.png)
+![hp-storage_conf](http://virtuallyhyper.com/wp-content/uploads/2012/11/hp-storage_conf.png)
 
 ### Manage Answer Files
 
@@ -188,9 +188,9 @@ More from the same document:
 
 Here is how the options for answer file looks like from vCenter:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/11/answer_file_options.png" alt="answer file options VCAP5 DCA Objective 5.1 – Implement and Maintain Host Profiles" title="answer_file_options" width="1120" height="344" class="alignnone size-full wp-image-5066" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/answer_file_options.png)
+![answer file options VCAP5 DCA Objective 5.1 – Implement and Maintain Host Profiles](http://virtuallyhyper.com/wp-content/uploads/2012/11/answer_file_options.png)
 
 Also here is how editing the answer file looks like, by selecting "Update Answer File", from vCenter:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/11/update_answer_files.png" alt="update answer files VCAP5 DCA Objective 5.1 – Implement and Maintain Host Profiles" title="update_answer_files" width="995" height="734" class="alignnone size-full wp-image-5067" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/update_answer_files.png)
+![update answer files VCAP5 DCA Objective 5.1 – Implement and Maintain Host Profiles](http://virtuallyhyper.com/wp-content/uploads/2012/11/update_answer_files.png)
 

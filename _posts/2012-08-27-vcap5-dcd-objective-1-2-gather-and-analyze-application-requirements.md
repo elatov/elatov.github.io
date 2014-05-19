@@ -15,7 +15,7 @@ tags:
 
 [US BrownBag Objective 1 slide deck](http://www.slideshare.net/ProfessionalVMware/professionalvmware-brownbag-jason-boche-vcapdcd-objective-1):
 
-[<img class="alignnone size-full wp-image-2712" title="current-state-analysis" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/current-state-analysis.png" alt="current state analysis VCAP5 DCD Objective 1.2 – Gather and analyze application requirements " width="1100" height="788" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/current-state-analysis.png)
+![current-state-analysis](http://virtuallyhyper.com/wp-content/uploads/2012/08/current-state-analysis.png)
 
 ### Given a set of applications within a physical environment, determine the requirements for virtualization
 

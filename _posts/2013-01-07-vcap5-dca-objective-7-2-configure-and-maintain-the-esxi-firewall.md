@@ -19,13 +19,13 @@ From "[vSphere Security ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vm
 > **Firewall Configuration Using the ESXi Shell**
 > The vSphere Client graphical user interface provides the preferred means of performing many configuration tasks. However, you can use the ESXi Shell to configure ESXi at the command line if necessary.
 >
-> [<img class="alignnone size-full wp-image-5518" alt="esxcli firewall commands VCAP5 DCA Objective 7.2 – Configure and Maintain the ESXi Firewall " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/esxcli_firewall_commands.png" width="589" height="372" title="VCAP5 DCA Objective 7.2 – Configure and Maintain the ESXi Firewall " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-7-2-configure-and-maintain-the-esxi-firewall/esxcli_firewall_commands/" rel="attachment wp-att-5518)
+> ![esxcli firewall commands VCAP5 DCA Objective 7.2 – Configure and Maintain the ESXi Firewall ](http://virtuallyhyper.com/wp-content/uploads/2012/12/esxcli_firewall_commands.png)
 
 ### Explain the three firewall security levels
 
 This comes from the old "[ESX Configuration Guide ESX 4.1](http://www.vmware.com/pdf/vsphere4/r41/vsp_41_esx_server_config.pdf)":
 
-[<img class="alignnone size-full wp-image-5521" alt="firewall security levels VCAP5 DCA Objective 7.2 – Configure and Maintain the ESXi Firewall " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/firewall_security_levels.png" width="600" height="166" title="VCAP5 DCA Objective 7.2 – Configure and Maintain the ESXi Firewall " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-7-2-configure-and-maintain-the-esxi-firewall/firewall_security_levels/" rel="attachment wp-att-5521)
+![firewall security levels VCAP5 DCA Objective 7.2 – Configure and Maintain the ESXi Firewall ](http://virtuallyhyper.com/wp-content/uploads/2012/12/firewall_security_levels.png)
 
 You can check the default action like so:
 
@@ -155,9 +155,9 @@ Here is how to actually configure it:
 
 Here is how it looks like from vCenter:
 
-[<img class="alignnone size-full wp-image-5525" alt="security profile view VCAP5 DCA Objective 7.2 – Configure and Maintain the ESXi Firewall " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/security_profile_view.png" width="893" height="493" title="VCAP5 DCA Objective 7.2 – Configure and Maintain the ESXi Firewall " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-7-2-configure-and-maintain-the-esxi-firewall/security_profile_view/" rel="attachment wp-att-5525)
+![security profile view VCAP5 DCA Objective 7.2 – Configure and Maintain the ESXi Firewall ](http://virtuallyhyper.com/wp-content/uploads/2012/12/security_profile_view.png)
 
-[<img class="alignnone size-full wp-image-5526" alt="startup policy for service VCAP5 DCA Objective 7.2 – Configure and Maintain the ESXi Firewall " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/startup_policy_for_service.png" width="644" height="633" title="VCAP5 DCA Objective 7.2 – Configure and Maintain the ESXi Firewall " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-7-2-configure-and-maintain-the-esxi-firewall/startup_policy_for_service/" rel="attachment wp-att-5526)
+![startup policy for service VCAP5 DCA Objective 7.2 – Configure and Maintain the ESXi Firewall ](http://virtuallyhyper.com/wp-content/uploads/2012/12/startup_policy_for_service.png)
 
 ### Open/Close ports in the firewall
 

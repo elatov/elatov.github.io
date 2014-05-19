@@ -15,11 +15,11 @@ tags:
 ---
 In [this](http://virtuallyhyper.com/2013/04/deploying-a-test-windows-environment-in-a-kvm-infrastucture/) previous post, I deployed a test IIS Server and used a self signed SSL Certificate to encrypt the HTTP traffic. I am sure everyone have seen this page in Internet Explorer:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/IE_cert_error.png" alt="IE cert error Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="776" height="348" class="alignnone size-full wp-image-8438" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/IE_cert_error.png)
+![IE cert error Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/IE_cert_error.png)
 
 When I clicked "View Certificate", I saw the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/view_certificate.png" alt="view certificate Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="405" height="508" class="alignnone size-full wp-image-8439" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/view_certificate.png)
+![view certificate Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/view_certificate.png)
 
 We can see that certificate is issued by the same entity as the site-name itself. We can also see that the Root CA is not trusted. Since this is a self-signed Certificate, you are the Root CA in a manner of speaking. My goal is to get rid of that message and to become a "trusted" Certificate Authority (CA) in my local Windows Environment.
 
@@ -102,65 +102,65 @@ Luckily *Gnomint* was part of the Fedora packages, so a simple:
 
 Took care of all my troubles. Then running **gnomint** launched the GUI for me:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_started.png" alt="gnomint started Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="395" height="268" class="alignnone size-full wp-image-8440" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_started.png)
+![gnomint started Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_started.png)
 
 Then I clicked on "Add Autosigned CA certificate" and it showed me the "New CA" dialog:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_new_ca.png" alt="gnomint new ca Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="548" height="325" class="alignnone size-full wp-image-8441" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_new_ca.png)
+![gnomint new ca Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_new_ca.png)
 
 Here is what I entered for my new CA certificate:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_new_ca_filledout.png" alt="gnomint new ca filledout Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="548" height="325" class="alignnone size-full wp-image-8504" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_new_ca_filledout.png)
+![gnomint new ca filledout Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_new_ca_filledout.png)
 
 Then if you click "Next" you will see the "New CA Properties" window:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_new_ca_props.png" alt="gnomint new ca props Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="548" height="325" class="alignnone size-full wp-image-8442" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_new_ca_props.png)
+![gnomint new ca props Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_new_ca_props.png)
 
 Choose what you think is necessary; the higher the bit count the better the encryption is. Click "Next" and you will be asked to provide the "CRL Distribution Point". This is included with the Root CA Certificate. If a certificate is revoked, people can check for that at this "Destribution Point"/Link. I won't be a public CA, so I left this blank:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_crl_dist_point.png" alt="gnomint crl dist point Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="548" height="325" class="alignnone size-full wp-image-8443" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_crl_dist_point.png)
+![gnomint crl dist point Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_crl_dist_point.png)
 
 I then clicked "OK" and my new Root CA Certificate was created:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_root_ca_created.png" alt="gnomint root ca created Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="618" height="284" class="alignnone size-full wp-image-8444" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_root_ca_created.png)
+![gnomint root ca created Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_root_ca_created.png)
 
 ## Generate a new Certificate Request and Sign it with your Root CA Certificate in Gnomint
 
 At this point we can generate a Certificate Signing Request (CSR) by clicking on "Add CSR":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_csr_req.png" alt="gnomint csr req Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="514" height="325" class="alignnone size-full wp-image-8445" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_csr_req.png)
+![gnomint csr req Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_csr_req.png)
 
 After "Inheriting CA Fields" we can click "Next" and fill out the Request:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_req_props_filled_out.png" alt="gnomint req props filled out Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="514" height="325" class="alignnone size-full wp-image-8446" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_req_props_filled_out.png)
+![gnomint req props filled out Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_req_props_filled_out.png)
 
 I went ahead and requested for a "wildcard" (*.domain.com) certificate just to have one certificate cover my test windows domain. This way I can import one Certificate on both of my IIS servers. Clicking "Next" will take us to the Encryption details, I left the defaults here (I know with Windows as long as it's above 2048 bits then it should work):
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_csr_req_enc.png" alt="gnomint csr req enc Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="514" height="325" class="alignnone size-full wp-image-8447" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_csr_req_enc.png)
+![gnomint csr req enc Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_csr_req_enc.png)
 
 Clicking "OK" created the CSR:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_csr_created.png" alt="gnomint csr created Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="618" height="284" class="alignnone size-full wp-image-8448" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_csr_created.png)
+![gnomint csr created Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_csr_created.png)
 
 To "Sign" the CSR, just right click on it and select "Sign":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_sign_csr.png" alt="gnomint sign csr Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="669" height="370" class="alignnone size-full wp-image-8449" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_sign_csr.png)
+![gnomint sign csr Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_sign_csr.png)
 
 and the following window will show up:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_sign_csr_diag.png" alt="gnomint sign csr diag Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="394" height="336" class="alignnone size-full wp-image-8450" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_sign_csr_diag.png)
+![gnomint sign csr diag Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_sign_csr_diag.png)
 
 Click "Next" and it will ask you to choose the CA to sign with:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_sign_csr_choose_ca.png" alt="gnomint sign csr choose ca Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="394" height="336" class="alignnone size-full wp-image-8451" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_sign_csr_choose_ca.png)
+![gnomint sign csr choose ca Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_sign_csr_choose_ca.png)
 
 After clicking "Next" we choose how long the certificate is valid for and what it can be used for:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_sign_csr_uses.png" alt="gnomint sign csr uses Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="509" height="535" class="alignnone size-full wp-image-8452" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_sign_csr_uses.png)
+![gnomint sign csr uses Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_sign_csr_uses.png)
 
 The defaults were fine with me, clicking "OK" finished the process and I now had a signed certificate:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_signed_cert.png" alt="gnomint signed cert Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="710" height="378" class="alignnone size-full wp-image-8453" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_signed_cert.png)
+![gnomint signed cert Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_signed_cert.png)
 
 ## Check out the Gnomint Database
 
@@ -205,19 +205,19 @@ That looks good to me.
 
 Now we need upload our signed Certificate to our IIS server to make sure it works okay. First, let go ahead and export the certificate from Gnomint. This is done by right clicking on our Cerficate and selecting "Export":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_export_cert.png" alt="gnomint export cert Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="710" height="378" class="alignnone size-full wp-image-8460" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_export_cert.png)
+![gnomint export cert Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_export_cert.png)
 
 After that, you will be presented to choose the format of the certificate. Choose "Both Parts":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_export_format.png" alt="gnomint export format Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="452" height="438" class="alignnone size-full wp-image-8461" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_export_format.png)
+![gnomint export format Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_export_format.png)
 
 After clicking "Next", you can choose to save the exported file on your computer. I called the file **wild-elatov-local.pfx** and stored it on my Desktop:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint-export_save_diag.png" alt="gnomint export save diag Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="818" height="467" class="alignnone size-full wp-image-8462" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint-export_save_diag.png)
+![gnomint export save diag Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint-export_save_diag.png)
 
 After clicking "Save", you will be asked to password protect the file:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint-pass_pro_pfx_file.png" alt="gnomint pass pro pfx file Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="515" height="281" class="alignnone size-full wp-image-8463" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint-pass_pro_pfx_file.png)
+![gnomint pass pro pfx file Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint-pass_pro_pfx_file.png)
 
 Click "OK" and you will now have the exported certificate in PKCS #12 format.
 
@@ -258,46 +258,46 @@ The Export password and the PEM password are the same one that we used during th
 
 Upload the **.pfx** file to the IIS server:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/cert-uploaded-to-win.png" alt="cert uploaded to win Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="78" height="86" class="alignnone size-full wp-image-8464" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/cert-uploaded-to-win.png)
+![cert uploaded to win Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/cert-uploaded-to-win.png)
 
 Then start up IIS manager:
 
     inetmgr
 
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/inetmgr_started_iis2.png" alt="inetmgr started iis2 Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="762" height="529" class="alignnone size-full wp-image-8465" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/inetmgr_started_iis2.png)
+![inetmgr started iis2 Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/inetmgr_started_iis2.png)
 
 Then click on "Server Certificates":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/server_certs_inetmgr.png" alt="server certs inetmgr Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="858" height="599" class="alignnone size-full wp-image-8466" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/server_certs_inetmgr.png)
+![server certs inetmgr Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/server_certs_inetmgr.png)
 
 After you double click on "Server Certificate" you will see a list of current certificates, I only have the self signed certificate:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/server_certs_1-self-signed.png" alt="server certs 1 self signed Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="858" height="596" class="alignnone size-full wp-image-8524" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/server_certs_1-self-signed.png)
+![server certs 1 self signed Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/server_certs_1-self-signed.png)
 
 Now click on "Import" from the top left and the Import Certificate Dialogue will show up. Hit "Browse" and point to our certificate and enter the Export password:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/import_pfx_iis.png" alt="import pfx iis Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="305" height="217" class="alignnone size-full wp-image-8468" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/import_pfx_iis.png)
+![import pfx iis Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/import_pfx_iis.png)
 
 After you click "OK" you will see the newly import Certificate:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/inetmer-new-cert-imported.png" alt="inetmer new cert imported Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="913" height="599" class="alignnone size-full wp-image-8528" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/inetmer-new-cert-imported.png)
+![inetmer new cert imported Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/inetmer-new-cert-imported.png)
 
 Now if you click on "Default Web Site" you can click on "Bindings" from the left pane:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/def_site_selected.png" alt="def site selected Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="856" height="598" class="alignnone size-full wp-image-8470" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/def_site_selected.png)
+![def site selected Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/def_site_selected.png)
 
 Then select the "https" binding:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/https_binding_iis.png" alt="https binding iis Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="481" height="220" class="alignnone size-full wp-image-8471" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/https_binding_iis.png)
+![https binding iis Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/https_binding_iis.png)
 
 Lastly select "Edit" and select the newly imported SSL certificate:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/https_change_binding.png" alt="https change binding Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="401" height="213" class="alignnone size-full wp-image-8530" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/https_change_binding.png)
+![https change binding Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/https_change_binding.png)
 
 To test out the new Certificate, open up the browser to the same site and you will still see the same "ssl" warning, but if you click on "View Certificate" you will see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/ie_cert_props.png" alt="ie cert props Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="403" height="508" class="alignnone size-full wp-image-8472" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/ie_cert_props.png)
+![ie cert props Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/ie_cert_props.png)
 
 We can see that the "Issue By" and the "Issue To" fields look correct.
 
@@ -309,11 +309,11 @@ Now that we our own CA we need to import it to our Domain Controller and push it
 
 To export the Root CA Certificate we just have to do the same thing as with the regular Certificate. Right click on the Certificate and select "Export". During the Export process choose "Public Only" for the format:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_export_public_only.png" alt="gnomint export public only Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="452" height="438" class="alignnone size-full wp-image-8475" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_export_public_only.png)
+![gnomint export public only Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/gnomint_export_public_only.png)
 
 If all is well you should see a succesful export:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/successful_export.png" alt="successful export Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="292" height="152" class="alignnone size-full wp-image-8476" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/successful_export.png)
+![successful export Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/successful_export.png)
 
 ### Confirm Contents of the Root CA .PEM File
 
@@ -359,35 +359,35 @@ Upload the Root CA Certificate to the DC Server and then launch the "Group Polic
     gpmc.msc
 
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/gpmc_started.png" alt="gpmc started Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="758" height="528" class="alignnone size-full wp-image-8482" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/gpmc_started.png)
+![gpmc started Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/gpmc_started.png)
 
 Next let's expand the following hierarchy: Forest -> Domains -> "elatov.local" -> "Group Policy Objects":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/gpmc_GPOs.png" alt="gpmc GPOs Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="761" height="530" class="alignnone size-full wp-image-8483" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/gpmc_GPOs.png)
+![gpmc GPOs Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/gpmc_GPOs.png)
 
 Then right click on "Defaul Domain Policy" and select "Edit" and you will see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/default_domain_policy_gpo_editor.png" alt="default domain policy gpo editor Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="794" height="566" class="alignnone size-full wp-image-8484" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/default_domain_policy_gpo_editor.png)
+![default domain policy gpo editor Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/default_domain_policy_gpo_editor.png)
 
 Now let's expand the hierarchy as follows: "Default Domain Policy" -> "Computer Configuration" -> "Policies" -> "Windows Settings" -> "Security Settings" -> "Public Key Policies" -> "Trusted Root Certification Authorities":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/trca_gpo.png" alt="trca gpo Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="794" height="567" class="alignnone size-full wp-image-8485" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/trca_gpo.png)
+![trca gpo Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/trca_gpo.png)
 
 Right click on "Trusted Root Certification Authorities" and select "Import", then point to the Root CA:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/import_root-ca.png" alt="import root ca Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="495" height="444" class="alignnone size-full wp-image-8486" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/import_root-ca.png)
+![import root ca Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/import_root-ca.png)
 
 After clicking "Next" it will let you know that it will add the certificate into the "Trusted Root Certifications Authorities":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/place_root_ca_in-trca.png" alt="place root ca in trca Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="495" height="442" class="alignnone size-full wp-image-8487" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/place_root_ca_in-trca.png)
+![place root ca in trca Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/place_root_ca_in-trca.png)
 
 Lastly click "Next" and then "Finish" and you will the following message:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/cert_import_successful.png" alt="cert import successful Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="218" height="139" class="alignnone size-full wp-image-8488" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/cert_import_successful.png)
+![cert import successful Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/cert_import_successful.png)
 
 And in the end you will see your root CA imported:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/root-ca-in-trca.png" alt="root ca in trca Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="913" height="565" class="alignnone size-full wp-image-8489" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/root-ca-in-trca.png)
+![root ca in trca Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/root-ca-in-trca.png)
 
 Now you can close the GPO consoles.
 
@@ -413,19 +413,19 @@ Now that we have synced the new Group Policies from our Domain controller, we sh
 
 and the "Certificate Manager" will start up:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/certmgr_started.png" alt="certmgr started Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="625" height="442" class="alignnone size-full wp-image-8490" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/certmgr_started.png)
+![certmgr started Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/certmgr_started.png)
 
 If you expand "Trusted Root Certification Authorities" -> "Certificates", you should your Root CA in there:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/root_cert_added_win_client.png" alt="root cert added win client Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="836" height="481" class="alignnone size-full wp-image-8491" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/root_cert_added_win_client.png)
+![root cert added win client Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/root_cert_added_win_client.png)
 
 Now going to the site: shows me the following page without any warnings:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/iis-https_no-error.png" alt="iis https no error Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="747" height="486" class="alignnone size-full wp-image-8492" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/iis-https_no-error.png)
+![iis https no error Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/iis-https_no-error.png)
 
 And checking out the SSL certificate we see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/trusted_ssl-cert.png" alt="trusted ssl cert Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" width="403" height="509" class="alignnone size-full wp-image-8493" title="Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/trusted_ssl-cert.png)
+![trusted ssl cert Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/wp-content/uploads/2013/04/trusted_ssl-cert.png)
 
 It's trusted and I feel so much safer.
 

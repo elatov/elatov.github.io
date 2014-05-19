@@ -158,7 +158,7 @@ And more information from the same document:
 > virtual machines from Host 1 to Host 2 and Host 3. On the right side of the diagram, the properly load balanced
 > configuration of the hosts that results appears.
 >
-> [<img class="alignnone size-full wp-image-4631" title="drs_load_balancing" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/drs_load_balancing.png" alt="drs load balancing VCAP5 DCA Objective 3.3 – Implement and Maintain Complex DRS Solutions " width="276" height="358" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/drs_load_balancing.png)
+> ![drs_load_balancing](http://virtuallyhyper.com/wp-content/uploads/2012/10/drs_load_balancing.png)
 >
 > When a cluster becomes unbalanced, DRS makes recommendations or migrates virtual machines, depending on the default automation level:
 >
@@ -280,17 +280,17 @@ From "[vCenter Server and Host Management ESXi 5.0](http://pubs.vmware.com/vsphe
 
 Here is how the configuration looks from the vCenter:
 
-[<img class="alignnone size-full wp-image-4637" title="dpm_cluster_settings" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/dpm_cluster_settings.png" alt="dpm cluster settings VCAP5 DCA Objective 3.3 – Implement and Maintain Complex DRS Solutions " width="709" height="584" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/dpm_cluster_settings.png)
+![dpm_cluster_settings](http://virtuallyhyper.com/wp-content/uploads/2012/10/dpm_cluster_settings.png)
 
 ### Configure EVC using appropriate baseline
 
 From VMware KB [1003212](http://kb.vmware.com/kb/1003212) here is are the baselines:
 
-[<img class="alignnone size-full wp-image-4638" title="evc_baselines" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/evc_baselines.png" alt="evc baselines VCAP5 DCA Objective 3.3 – Implement and Maintain Complex DRS Solutions " width="644" height="571" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/evc_baselines.png)
+![evc_baselines](http://virtuallyhyper.com/wp-content/uploads/2012/10/evc_baselines.png)
 
 and here is a table from the same KB:
 
-[<img class="alignnone size-full wp-image-4639" title="evc_baselines_table" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/evc_baselines_table.png" alt="evc baselines table VCAP5 DCA Objective 3.3 – Implement and Maintain Complex DRS Solutions " width="652" height="1036" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/evc_baselines_table.png)
+![evc_baselines_table](http://virtuallyhyper.com/wp-content/uploads/2012/10/evc_baselines_table.png)
 
 ### Change the EVC mode on an existing DRS cluster
 
@@ -319,7 +319,7 @@ From "[vSphere Resource Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/t
 
 Here is how the settings looks like in vCenter:
 
-[<img class="alignnone size-full wp-image-4641" title="change_evc_mode" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/change_evc_mode.png" alt="change evc mode VCAP5 DCA Objective 3.3 – Implement and Maintain Complex DRS Solutions " width="481" height="624" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/change_evc_mode.png)
+![change_evc_mode](http://virtuallyhyper.com/wp-content/uploads/2012/10/change_evc_mode.png)
 
 ### Create DRS and DPM alarms
 
@@ -331,7 +331,7 @@ The Bios Settings are Host specific, but for the Managements settings, from "[vS
 > The most serious potential error you face when using vSphere DPM is the failure of a host to exit standby mode when its capacity is needed by the DRS cluster. You can monitor for instances when this error occurs by using the preconfigured Exit Standby Error alarm in vCenter Server. If vSphere DPM cannot bring a host out of
 > standby mode (vCenter Server event DrsExitStandbyModeFailedEvent), you can configure this alarm to send an alert email to the administrator or to send notification using an SNMP trap. By default, this alarm is cleared after vCenter Server is able to successfully connect to that host.
 >
-> [<img class="alignnone size-full wp-image-4642" title="dpm_events" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/dpm_events.png" alt="dpm events VCAP5 DCA Objective 3.3 – Implement and Maintain Complex DRS Solutions " width="594" height="137" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/dpm_events.png)
+> ![dpm_events](http://virtuallyhyper.com/wp-content/uploads/2012/10/dpm_events.png)
 >
 > To monitor vSphere DPM activity, you can also create alarms for the following vCenter Server events.
 >
@@ -340,7 +340,7 @@ The Bios Settings are Host specific, but for the Managements settings, from "[vS
 
 For DRS there are options when you create an Alarm. Here are the available alarms in vCenter:
 
-[<img class="alignnone size-full wp-image-4643" title="create_alarm_for_DRS" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/create_alarm_for_DRS.png" alt="create alarm for DRS VCAP5 DCA Objective 3.3 – Implement and Maintain Complex DRS Solutions " width="736" height="467" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/create_alarm_for_DRS.png)
+![create_alarm_for_DRS](http://virtuallyhyper.com/wp-content/uploads/2012/10/create_alarm_for_DRS.png)
 
 ### Configure applicable power management settings for ESXi hosts
 
@@ -353,7 +353,7 @@ For DRS there are options when you create an Alarm. Here are the available alarm
 >
 > You select a policy for a host using the vSphere Client. If you do not select a policy, ESXi uses Balanced by default.
 >
-> [<img class="alignnone size-full wp-image-4645" title="power_mgmt_policies" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/power_mgmt_policies.png" alt="power mgmt policies VCAP5 DCA Objective 3.3 – Implement and Maintain Complex DRS Solutions " width="584" height="289" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/power_mgmt_policies.png)
+> ![power_mgmt_policies](http://virtuallyhyper.com/wp-content/uploads/2012/10/power_mgmt_policies.png)
 >
 > When a CPU runs at lower frequency, it can also run at lower voltage, which saves power. This type of power management is typically called Dynamic Voltage and Frequency Scaling (DVFS). ESXi attempts to adjust CPU frequencies so that virtual machine performance is not affected.
 >
@@ -388,12 +388,12 @@ From "[vSphere Resource Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/t
 > 4.  (Optional) To temporarily disable any individual virtual machine overrides, deselect the Enable individual virtual machine automation levels check box. Virtual machine settings are restored when the check box is selected again.
 > 5.  (Optional) To temporarily suspend all vMotion activity in a cluster, put the cluster in manual mode and deselect the Enable individual virtual machine automation levels check box.
 > 6.  Select one or more virtual machines.
-> 7.  Click the Automation Level column and select an automation level from the drop-down menu.[<img class="alignnone size-full wp-image-4648" title="drs_automation_levels" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/drs_automation_levels.png" alt="drs automation levels VCAP5 DCA Objective 3.3 – Implement and Maintain Complex DRS Solutions " width="562" height="147" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/drs_automation_levels.png)
+> 7.  Click the Automation Level column and select an automation level from the drop-down menu.![drs_automation_levels](http://virtuallyhyper.com/wp-content/uploads/2012/10/drs_automation_levels.png)
 > 8.  Click OK.
 
 Here is how it looks like in vCenter:
 
-[<img class="alignnone size-full wp-image-4649" title="vm_automation_levels" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/vm_automation_levels.png" alt="vm automation levels VCAP5 DCA Objective 3.3 – Implement and Maintain Complex DRS Solutions " width="704" height="583" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/vm_automation_levels.png)
+![vm_automation_levels](http://virtuallyhyper.com/wp-content/uploads/2012/10/vm_automation_levels.png)
 
 ### Create and administer ESXi host and Datastore Clusters
 
@@ -409,7 +409,7 @@ From "[vSphere Resource Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/t
 > 2.  Name the cluster in the Name text box. This name appears in the vSphere Client inventory panel.
 > 3.  Enable the DRS feature by clicking the vSphere DRS box. You can also enable the vSphere HA feature by clicking vSphere HA.
 > 4.  Click Next.
-> 5.  Select a default automation level for DRS.[<img class="alignnone size-full wp-image-4650" title="drs_automatiion_levels" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/drs_automatiion_levels.png" alt="drs automatiion levels VCAP5 DCA Objective 3.3 – Implement and Maintain Complex DRS Solutions " width="565" height="135" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/drs_automatiion_levels.png)
+> 5.  Select a default automation level for DRS.![drs_automatiion_levels](http://virtuallyhyper.com/wp-content/uploads/2012/10/drs_automatiion_levels.png)
 > 6.  Set the migration threshold for DRS.
 > 7.  Click Next.
 > 8.  Specify the default power management setting for the cluster. If you enable power management, select a vSphere DPM threshold setting.

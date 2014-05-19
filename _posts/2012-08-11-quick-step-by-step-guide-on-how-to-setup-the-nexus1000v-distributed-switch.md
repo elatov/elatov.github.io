@@ -22,15 +22,15 @@ tags:
   - Virtual Supervisor Module
   - VSM
 ---
-In this example I used version 4.2(1)SV1(5.1) of the Nexus. First and foremost download the Nexus1000v software. Once you logged in to your Cisco account and found the download, it will look like this:[<img class="alignnone size-full wp-image-2075" title="download_n1k" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/download_n1k.png" alt="download n1k Quick Step by Step Guide on how to Setup the Nexus1000v Distributed Switch" width="1195" height="351" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/download_n1k.png)
+In this example I used version 4.2(1)SV1(5.1) of the Nexus. First and foremost download the Nexus1000v software. Once you logged in to your Cisco account and found the download, it will look like this:![download_n1k](http://virtuallyhyper.com/wp-content/uploads/2012/08/download_n1k.png)
 
 After you have downloaded the software to your desktop and extracted it, the contents will look something like this:
 
-[<img class="alignnone size-full wp-image-2076" title="contents_of_n1k" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/contents_of_n1k.png" alt="contents of n1k Quick Step by Step Guide on how to Setup the Nexus1000v Distributed Switch" width="659" height="311" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/contents_of_n1k.png)
+![contents_of_n1k](http://virtuallyhyper.com/wp-content/uploads/2012/08/contents_of_n1k.png)
 
 Inside the "VSM" (Virtual Supervisor Module) folder will be the "Install" folder and inside of the "Install" folder will be the "ova" which you can deploy in your vCenter. So login to your vCenter and go to "File" -> "Deploy OVF Template", then browse to your downloaded N1K software. It will look something like this:
 
-[<img class="alignnone size-full wp-image-2077" title="deploy_n1k_ova" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/deploy_n1k_ova.png" alt="deploy n1k ova Quick Step by Step Guide on how to Setup the Nexus1000v Distributed Switch" width="713" height="676" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/deploy_n1k_ova.png)
+![deploy_n1k_ova](http://virtuallyhyper.com/wp-content/uploads/2012/08/deploy_n1k_ova.png)
 
 Click "Next", then "Next" again, then "Accept" and one more "Next". Name the VSM as desired, I just left the default (Nexus1000V-4.2.1.SV1.5.1). Under the configuration, select "Nexus 1000V Installer" (it should be the default). Keep going through the wizard, until you get to the Customization Page, then fill out the required information:
 
@@ -42,11 +42,11 @@ Click "Next", then "Next" again, then "Accept" and one more "Next". Name the VSM
 
 Here is my configuration looked like:
 
-[<img class="alignnone size-full wp-image-2079" title="custom_settings_N1K" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/custom_settings_N1K.png" alt="custom settings N1K Quick Step by Step Guide on how to Setup the Nexus1000v Distributed Switch" width="719" height="780" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/custom_settings_N1K.png)
+![custom_settings_N1K](http://virtuallyhyper.com/wp-content/uploads/2012/08/custom_settings_N1K.png)
 
 Then click "Next" and then "Finish". After you are done you should see the N1K deployed as a VM in your inventory. Power the N1K VM on and then you should be able to SSH to it. Here is how my putty session looked like after I logged in:
 
-[<img class="alignnone size-full wp-image-2080" title="putty-to_n1k" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/putty-to_n1k.png" alt="putty to n1k Quick Step by Step Guide on how to Setup the Nexus1000v Distributed Switch" width="663" height="408" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/putty-to_n1k.png)
+![putty-to_n1k](http://virtuallyhyper.com/wp-content/uploads/2012/08/putty-to_n1k.png)
 
 With the default configuration, here is how the 'show run' looks like:
 
@@ -122,15 +122,15 @@ We can see that VLAN 1 is defined and the IP that we configured during deploymen
 
 Now let's download the Nexus 1000v extension and register it with your vCenter. This will allow the communication between the VSM and the vCenter. Point your browser to the IP of the VSM and save the Extension to your desktop:
 
-[<img class="alignnone size-full wp-image-2084" title="download-n1k-ext_1" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/download-n1k-ext_1.png" alt="download n1k ext 1 Quick Step by Step Guide on how to Setup the Nexus1000v Distributed Switch" width="1068" height="819" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/download-n1k-ext_1.png)
+![download-n1k-ext_1](http://virtuallyhyper.com/wp-content/uploads/2012/08/download-n1k-ext_1.png)
 
 After you have downloaded the extension, install it as a plug-in in your vCenter. In vCenter go to "Plugins" -> "Manage Plugins". Right click on the empty area and select "New Plug-In". Then browse to your extension, you will then see a screen similar to this:
 
-[<img class="alignnone size-full wp-image-2085" title="register_n1k_ext" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/register_n1k_ext.png" alt="register n1k ext Quick Step by Step Guide on how to Setup the Nexus1000v Distributed Switch" width="734" height="642" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/register_n1k_ext.png)
+![register_n1k_ext](http://virtuallyhyper.com/wp-content/uploads/2012/08/register_n1k_ext.png)
 
 Then click "Register Plug-in", your plug-in manager should look like this after the registration completes:
 
-[<img class="alignnone size-full wp-image-2086" title="plug-in-manager-after-n1k-ext-regis" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/plug-in-manager-after-n1k-ext-regis.png" alt="plug in manager after n1k ext regis Quick Step by Step Guide on how to Setup the Nexus1000v Distributed Switch" width="938" height="427" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/plug-in-manager-after-n1k-ext-regis.png)
+![plug-in-manager-after-n1k-ext-regis](http://virtuallyhyper.com/wp-content/uploads/2012/08/plug-in-manager-after-n1k-ext-regis.png)
 
 Nothing else has to be done for the plug-in. Next configure the Nexus 1000v to connect to your vCenter:
 
@@ -168,7 +168,7 @@ Next we can confirm the connection:
 
 In vCenter you will see the Distributed Switch created under "Home" -> "Inventory" -> "Networking". Here is how it will looks like:
 
-[<img class="alignnone size-full wp-image-2082" title="n1k_under_vc" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/n1k_under_vc.png" alt="n1k under vc Quick Step by Step Guide on how to Setup the Nexus1000v Distributed Switch" width="934" height="425" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/n1k_under_vc.png)
+![n1k_under_vc](http://virtuallyhyper.com/wp-content/uploads/2012/08/n1k_under_vc.png)
 
 You can see the Distributed Switch called "switch" and under summary it has Cisco for the Manufacturer.
 
@@ -246,7 +246,7 @@ We should done with the basic setup, so let's commit our configuration
 
 Last thing to do is to install the VEM (Virtual Ethernet Module) on the host and connect the host to the N1K. To install the VEM, point your browser to the IP of the VSM and right click on the version of ESX that you need to install the VEM on and save the bundle that are you going to install:
 
-[<img class="alignnone size-full wp-image-2088" title="save_vem_bundle_1" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/save_vem_bundle_1.png" alt="save vem bundle 1 Quick Step by Step Guide on how to Setup the Nexus1000v Distributed Switch" width="1070" height="819" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/save_vem_bundle_1.png)
+![save_vem_bundle_1](http://virtuallyhyper.com/wp-content/uploads/2012/08/save_vem_bundle_1.png)
 
 Upload the zip bundle to your host via the datastore browser. After you are done you should be able to
 SSH to the host and install the VEM. First check to see if the file is there,
@@ -296,11 +296,11 @@ Next make sure the VEM module is running properly:
 
 That all looks good. Now go ahead and add the host to your N1K. From vCenter go to "Home" -> "Inventory" -> "Networking". Right click on the DVS and select "Add Host". Check the host you want to add and provide an uplink to the sys-uplink:
 
-[<img class="alignnone size-full wp-image-2089" title="add-host-to-n1k" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/add-host-to-n1k.png" alt="add host to n1k Quick Step by Step Guide on how to Setup the Nexus1000v Distributed Switch" width="820" height="622" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/add-host-to-n1k.png)
+![add-host-to-n1k](http://virtuallyhyper.com/wp-content/uploads/2012/08/add-host-to-n1k.png)
 
 Click "Next", we don't need to migrate any vmkernel interfaces to the N1K. Click "Next" again, we don't need to migrate any of the VMs either. Then click "Finish". Make sure the task succeeds. Then from vCenter go to "Home" -> "Inventory" -> "Networking". Select the N1K switch, and then select the "Hosts" tab, you should see your hosts connected to the N1K there:
 
-[<img class="alignnone size-full wp-image-2091" title="check-host-on-n1k" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/check-host-on-n1k.png" alt="check host on n1k Quick Step by Step Guide on how to Setup the Nexus1000v Distributed Switch" width="929" height="725" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/check-host-on-n1k.png)
+![check-host-on-n1k](http://virtuallyhyper.com/wp-content/uploads/2012/08/check-host-on-n1k.png)
 
 Then go to the host and make sure the VEM sees the new DVS:
 

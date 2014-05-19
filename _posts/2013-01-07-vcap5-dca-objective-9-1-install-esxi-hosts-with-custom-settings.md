@@ -35,7 +35,7 @@ From "[vSphere Installation and Setup vSphere 5.0](http://pubs.vmware.com/vspher
 >
 > The installation script must be stored in a location that the host can access by HTTP, HTTPS, FTP, NFS, CDROM, or USB. You can PXE boot the ESXi installer or boot it from a CD/DVD or USB drive.
 >
-> [<img class="alignnone size-full wp-image-5620" alt="scripted installation VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/scripted_installation.png" width="291" height="288" title="VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-9-1-install-esxi-hosts-with-custom-settings/scripted_installation/" rel="attachment wp-att-5620)
+> ![scripted installation VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings ](http://virtuallyhyper.com/wp-content/uploads/2012/12/scripted_installation.png)
 >
 > **vSphere Auto Deploy ESXi Installation Option**
 > With the vSphere Auto Deploy ESXi Installation, you can provision and reprovision large numbers of ESXi hosts efficiently with vCenter Server.
@@ -78,7 +78,7 @@ From "[vSphere Installation and Setup vSphere 5.0](http://pubs.vmware.com/vspher
 > **Procedure**
 >
 > 1.  At the PowerShell prompt, add the depot that contains the profile you want to clone to the current session
->     [<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/image_builder_add_software_depot.png" alt="image builder add software depot VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings " width="561" height="112" class="alignnone size-full wp-image-5622" title="VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-9-1-install-esxi-hosts-with-custom-settings/image_builder_add_software_depot/" rel="attachment wp-att-5622)
+>     ![image builder add software depot VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings ](http://virtuallyhyper.com/wp-content/uploads/2012/12/image_builder_add_software_depot.png)
 >     The cmdlet returns one or more SoftwareDepot objects.
 > 2.  (Optional) Run the **Get-EsxImageProfile** cmdlet to find the name of the profile that you want to clone.
 >
@@ -93,11 +93,11 @@ From "[vSphere Installation and Setup vSphere 5.0](http://pubs.vmware.com/vspher
 
 Let's say you wanted to create a custom profile for the 5.0U1 update. First download the offline zip bundle from My VMware:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/5_0U1_offline_bundle_download.png" alt="5 0U1 offline bundle download VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings " width="878" height="803" class="alignnone size-full wp-image-5624" title="VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-9-1-install-esxi-hosts-with-custom-settings/5_0u1_offline_bundle_download/" rel="attachment wp-att-5624)
+![5 0U1 offline bundle download VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings ](http://virtuallyhyper.com/wp-content/uploads/2012/12/5_0U1_offline_bundle_download.png)
 
 Once downloaded you will see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/offline_bundle_downloaded.png" alt="offline bundle downloaded VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings " width="91" height="104" class="alignnone size-full wp-image-5625" title="VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-9-1-install-esxi-hosts-with-custom-settings/offline_bundle_downloaded/" rel="attachment wp-att-5625)
+![offline bundle downloaded VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings ](http://virtuallyhyper.com/wp-content/uploads/2012/12/offline_bundle_downloaded.png)
 
 Then open up PowerCLI and import the zip as an Software Depot:
 
@@ -333,11 +333,11 @@ VMware KB [2005205](http://kb.vmware.com/kb/2005205) talks about the process:
 
 From the previous objective we have already imported the 5.0U1 offline bundle. Now let's download an offline-bundle for a driver and insert it into a new merged profile that we create. Let say you downloaded a driver and it looked like this:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/igb_offline_bundle.png" alt="igb offline bundle VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings " width="108" height="97" class="alignnone size-full wp-image-5629" title="VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-9-1-install-esxi-hosts-with-custom-settings/igb_offline_bundle/" rel="attachment wp-att-5629)
+![igb offline bundle VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings ](http://virtuallyhyper.com/wp-content/uploads/2012/12/igb_offline_bundle.png)
 
 After extracting the zip you see the following contents:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/igb_driver_extracted.png" alt="igb driver extracted VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings " width="590" height="101" class="alignnone size-full wp-image-5630" title="VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-9-1-install-esxi-hosts-with-custom-settings/igb_driver_extracted/" rel="attachment wp-att-5630)
+![igb driver extracted VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings ](http://virtuallyhyper.com/wp-content/uploads/2012/12/igb_driver_extracted.png)
 
 Now let's import the offline bundle as a Software Depot:
 
@@ -483,7 +483,7 @@ From "[vSphere Installation and Setup vSphere 5.0](http://pubs.vmware.com/vspher
 >
 > 1.  Start the host.
 > 2.  When the ESXi installer window appears, press Shift+O to edit boot options.
->     [<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/esxi_boot_screen.png" alt="esxi boot screen VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings " width="560" height="267" class="alignnone size-full wp-image-5634" title="VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-9-1-install-esxi-hosts-with-custom-settings/esxi_boot_screen/" rel="attachment wp-att-5634)
+>     ![esxi boot screen VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings ](http://virtuallyhyper.com/wp-content/uploads/2012/12/esxi_boot_screen.png)
 > 3.  At the runweasel command prompt, type
 >
 >     	ks=location of installation script plus boot command line options
@@ -500,7 +500,7 @@ Here is a list of all the supported boot options:
 > **Boot Options**
 > When you perform a scripted installation, you might need to specify options at boot time to access the kickstart file.
 > **Supported Boot Options**
-> [<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/boot_options_esxi.png" alt="boot options esxi VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings " width="587" height="732" class="alignnone size-full wp-image-5635" title="VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-9-1-install-esxi-hosts-with-custom-settings/boot_options_esxi/" rel="attachment wp-att-5635)
+> ![boot options esxi VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings ](http://virtuallyhyper.com/wp-content/uploads/2012/12/boot_options_esxi.png)
 
 ### Configure kernel options
 
@@ -524,7 +524,7 @@ From "[vSphere Installation and Setup vSphere 5.0](http://pubs.vmware.com/vspher
 >
 > The commands in boot.cfg configure the boot loader.
 >
-> [<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/boot_cfg_options.png" alt="boot cfg options VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings " width="590" height="157" class="alignnone size-full wp-image-5638" title="VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-9-1-install-esxi-hosts-with-custom-settings/boot_cfg_options/" rel="attachment wp-att-5638)
+> ![boot cfg options VCAP5 DCA Objective 9.1 – Install ESXi hosts with custom settings ](http://virtuallyhyper.com/wp-content/uploads/2012/12/boot_cfg_options.png)
 
 ### Given a scenario, determine when to customize a configuration
 

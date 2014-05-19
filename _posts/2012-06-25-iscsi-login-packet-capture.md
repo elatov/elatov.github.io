@@ -678,9 +678,9 @@ At this point we have gone through a successful login phase and now we will see 
 
 At this point the iSCSI protocol will get pretty chatty and if you loaded the packet capture into wireshark, it will look something like this:
 
-[<img class="alignnone size-full wp-image-1396" title="iscsi_1" src="http://virtuallyhyper.com/wp-content/uploads/2012/04/iscsi_1.png" alt="iscsi 1 iSCSI Login in a Packet Capture" width="1252" height="457" />](http://virtuallyhyper.com/wp-content/uploads/2012/04/iscsi_1.png)
+![iscsi_1](http://virtuallyhyper.com/wp-content/uploads/2012/04/iscsi_1.png)
 
-[<img class="alignnone size-full wp-image-1397" title="iscsi_2" src="http://virtuallyhyper.com/wp-content/uploads/2012/04/iscsi_2.png" alt="iscsi 2 iSCSI Login in a Packet Capture" width="1256" height="464" />](http://virtuallyhyper.com/wp-content/uploads/2012/04/iscsi_2.png)
+![iscsi_2](http://virtuallyhyper.com/wp-content/uploads/2012/04/iscsi_2.png)
 
 You can also get a summary of all the iSCSI commands in a packet capture using tshark (starting with version [1.6](http://www.wireshark.org/news/20110607.html) ):
 

@@ -230,7 +230,7 @@ Now to partitions, from "[Red Hat Enterprise Linux 6 Installation Guide](https:/
 >
 > When discussing issues such as disk partitioning, it is important to know a bit about the underlying hardware. Unfortunately, it is easy to become bogged down in details. Therefore, this appendix uses a simplified diagram of a disk drive to help explain what is really happening when a disk drive is partitioned. Figure A.1, “An Unused Disk Drive”, shows a brand-new, unused disk drive.
 >
-> [<img class="alignnone size-full wp-image-5771" alt="unused disk drive RHCSA and RHCE Chapter 3 Disks and Partitioning" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/unused_disk_drive.png" width="256" height="126" title="RHCSA and RHCE Chapter 3 Disks and Partitioning" />](http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-3-disks-and-partitioning/unused_disk_drive/" rel="attachment wp-att-5771)
+> ![unused disk drive RHCSA and RHCE Chapter 3 Disks and Partitioning](http://virtuallyhyper.com/wp-content/uploads/2012/12/unused_disk_drive.png)
 >
 > Not much to look at, is it? But if we are talking about disk drives on a basic level, it is adequate. Say that we would like to store some data on this drive. As things stand now, it will not work. There is something we need to do first.
 >
@@ -238,7 +238,7 @@ Now to partitions, from "[Red Hat Enterprise Linux 6 Installation Guide](https:/
 >
 > Experienced computer users probably got this one on the first try. We need to format the drive. Formatting (usually known as "making a file system") writes information to the drive, creating order out of the empty space in an unformatted drive.
 >
-> [<img class="alignnone size-full wp-image-5772" alt="disk drive with data RHCSA and RHCE Chapter 3 Disks and Partitioning" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/disk_drive_with_data.png" width="299" height="126" title="RHCSA and RHCE Chapter 3 Disks and Partitioning" />](http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-3-disks-and-partitioning/disk_drive_with_data/" rel="attachment wp-att-5772)
+> ![disk drive with data RHCSA and RHCE Chapter 3 Disks and Partitioning](http://virtuallyhyper.com/wp-content/uploads/2012/12/disk_drive_with_data.png)
 >
 > As Figure A.2, “Disk Drive with a File System”, implies, the order imposed by a file system involves some trade-offs:
 >
@@ -249,11 +249,11 @@ Now to partitions, from "[Red Hat Enterprise Linux 6 Installation Guide](https:/
 >
 > It is also worth noting that there is no single, universal file system. As Figure A.3, “Disk Drive with a Different File System”, shows, a disk drive may have one of many different file systems written on it. As you might guess, different file systems tend to be incompatible; that is, an operating system that supports one file system (or a handful of related file system types) may not support another. This last statement is not a hard-and-fast rule, however. For example, Red Hat Enterprise Linux supports a wide variety of file systems (including many commonly used by other operating systems), making data interchange between different file systems easy.
 >
-> [<img class="alignnone size-full wp-image-5773" alt="disk with another fs RHCSA and RHCE Chapter 3 Disks and Partitioning" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/disk_with_another_fs.png" width="364" height="139" title="RHCSA and RHCE Chapter 3 Disks and Partitioning" />](http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-3-disks-and-partitioning/disk_with_another_fs/" rel="attachment wp-att-5773)
+> ![disk with another fs RHCSA and RHCE Chapter 3 Disks and Partitioning](http://virtuallyhyper.com/wp-content/uploads/2012/12/disk_with_another_fs.png)
 >
 > Of course, writing a file system to disk is only the beginning. The goal of this process is to actually store and retrieve data. Let us take a look at our drive after some files have been written to it.
 >
-> [<img class="alignnone size-full wp-image-5774" alt="disk data written RHCSA and RHCE Chapter 3 Disks and Partitioning" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/disk_data_written.png" width="334" height="126" title="RHCSA and RHCE Chapter 3 Disks and Partitioning" />](http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-3-disks-and-partitioning/disk_data_written/" rel="attachment wp-att-5774)
+> ![disk data written RHCSA and RHCE Chapter 3 Disks and Partitioning](http://virtuallyhyper.com/wp-content/uploads/2012/12/disk_data_written.png)
 >
 > As Figure A.4, “Disk Drive with Data Written to It”, shows, some of the previously-empty blocks are now holding data. However, by just looking at this picture, we cannot determine exactly how many files reside on this drive. There may only be one file or many, as all files use at least one block and some files use multiple blocks. Another important point to note is that the used blocks do not have to form a contiguous region; used and unused blocks may be interspersed. This is known as fragmentation. **Fragmentation** can play a part when attempting to resize an existing partition.
 >
@@ -265,7 +265,7 @@ Now to partitions, from "[Red Hat Enterprise Linux 6 Installation Guide](https:/
 >
 > The solution to this problem was to divide disks into partitions. Each partition can be accessed as if it was a separate disk. This is done through the addition of a partition table.
 >
-> [<img class="alignnone size-full wp-image-5775" alt="disk with part table RHCSA and RHCE Chapter 3 Disks and Partitioning" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/disk_with_part_table.png" width="346" height="128" title="RHCSA and RHCE Chapter 3 Disks and Partitioning" />](http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-3-disks-and-partitioning/disk_with_part_table/" rel="attachment wp-att-5775)
+> ![disk with part table RHCSA and RHCE Chapter 3 Disks and Partitioning](http://virtuallyhyper.com/wp-content/uploads/2012/12/disk_with_part_table.png)
 >
 > As Figure A.5, “Disk Drive with Partition Table” shows, the partition table is divided into four sections or four primary partitions. A primary partition is a partition on a hard drive that can contain only one logical drive (or section). Each section can hold the information necessary to define a single partition, meaning that the partition table can define no more than four partitions. Each partition table entry contains several important characteristics of the partition:
 >
@@ -277,13 +277,13 @@ Now to partitions, from "[Red Hat Enterprise Linux 6 Installation Guide](https:/
 >
 > By this point, you might be wondering how all this additional complexity is normally used. Refer to Figure A.6, “Disk Drive With Single Partition”, for an example.
 >
-> [<img class="alignnone size-full wp-image-5776" alt="disk drive with one part RHCSA and RHCE Chapter 3 Disks and Partitioning" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/disk_drive_with_one_part.png" width="335" height="128" title="RHCSA and RHCE Chapter 3 Disks and Partitioning" />](http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-3-disks-and-partitioning/disk_drive_with_one_part/" rel="attachment wp-att-5776)
+> ![disk drive with one part RHCSA and RHCE Chapter 3 Disks and Partitioning](http://virtuallyhyper.com/wp-content/uploads/2012/12/disk_drive_with_one_part.png)
 >
 > In many cases, there is only a single partition spanning the entire disk, essentially duplicating the method used before partitions. The partition table has only one entry used, and it points to the start of the partition.
 >
 > Table A.1, “Partition Types”, contains a listing of some popular (and obscure) partition types, along with their hexadecimal numeric values.
 >
-> [<img class="alignnone size-full wp-image-5777" alt="part types RHCSA and RHCE Chapter 3 Disks and Partitioning" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/part_types.png" width="681" height="495" title="RHCSA and RHCE Chapter 3 Disks and Partitioning" />](http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-3-disks-and-partitioning/part_types/" rel="attachment wp-att-5777)
+> ![part types RHCSA and RHCE Chapter 3 Disks and Partitioning](http://virtuallyhyper.com/wp-content/uploads/2012/12/part_types.png)
 >
 > **A.1.3. Partitions within Partitions — An Overview of Extended Partitions** Of course, over time it became obvious that four partitions would not be enough. As disk drives continued to grow, it became more and more likely that a person could configure four reasonably-sized partitions and still have disk space left over. There needed to be some way of creating more partitions.
 >
@@ -291,7 +291,7 @@ Now to partitions, from "[Red Hat Enterprise Linux 6 Installation Guide](https:/
 >
 > When a partition is created and its type is set to "Extended," an extended partition table is created. In essence, the extended partition is like a disk drive in its own right — it has a partition table that points to one or more partitions (now called logical partitions, as opposed to the four primary partitions) contained entirely within the extended partition itself. Figure A.7, “Disk Drive With Extended Partition”, shows a disk drive with one primary partition and one extended partition containing two logical partitions (along with some unpartitioned free space).
 >
-> [<img class="alignnone size-full wp-image-5778" alt="extended parts RHCSA and RHCE Chapter 3 Disks and Partitioning" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/extended_parts.png" width="312" height="121" title="RHCSA and RHCE Chapter 3 Disks and Partitioning" />](http://virtuallyhyper.com/wp-content/uploads/2012/12/extended_parts.png" rel="attachment wp-att-5778)
+> ![extended parts RHCSA and RHCE Chapter 3 Disks and Partitioning](http://virtuallyhyper.com/wp-content/uploads/2012/12/extended_parts.png)
 >
 > As this figure implies, there is a difference between primary and logical partitions — there can only be four primary partitions, but there is no fixed limit to the number of logical partitions that can exist. However, due to the way in which partitions are accessed in Linux, you should avoid defining more than 12 logical partitions on a single disk drive.
 
@@ -664,7 +664,7 @@ From "[Red Hat Enterprise Linux 6 Storage Administration Guide](https://access.r
 >
 > Alternately, if the drive does not contain any partitions in use (system processes that use or lock the file system from being unmounted), you can unmount them with the **umount** command and turn off all the swap space on the hard drive with the **swapoff** command.
 >
-> [<img class="alignnone size-full wp-image-5770" alt="parted commands RHCSA and RHCE Chapter 3 Disks and Partitioning" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/parted_commands.png" width="678" height="563" title="RHCSA and RHCE Chapter 3 Disks and Partitioning" />](http://virtuallyhyper.com/wp-content/uploads/2012/12/parted_commands.png" rel="attachment wp-att-5770)
+> ![parted commands RHCSA and RHCE Chapter 3 Disks and Partitioning](http://virtuallyhyper.com/wp-content/uploads/2012/12/parted_commands.png)
 >
 > **5.1. Viewing the Partition Table**
 >
@@ -866,7 +866,7 @@ Now onto LVMs, from "[Red Hat Enterprise Linux 6 Logical Volume Manager Administ
 >
 > Figure 1.1, “LVM Logical Volume Components” shows the components of a simple LVM logical volume:
 >
-> [<img class="alignnone size-full wp-image-5783" alt="lvm components RHCSA and RHCE Chapter 3 Disks and Partitioning" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/lvm_components.png" width="332" height="342" title="RHCSA and RHCE Chapter 3 Disks and Partitioning" />](http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-3-disks-and-partitioning/lvm_components/" rel="attachment wp-att-5783)
+> ![lvm components RHCSA and RHCE Chapter 3 Disks and Partitioning](http://virtuallyhyper.com/wp-content/uploads/2012/12/lvm_components.png)
 
 And here more information regarding each layer:
 

@@ -999,7 +999,7 @@ From the deployment guide:
 >         10.1.56.205   NANCYN       +[MYGROUP] [Unix] [Samba 2.2.7a-security-rollup-fix]
 >
 >
-> *   **net <protocol> <function> <misc_options> <target_options></target_options></misc_options></function></protocol>** - The **net** utility is similar to the **net** utility used for Windows and MS-DOS. The first argument is used to specify the protocol to use when executing a command. The ** <protocol></protocol>** option can be **ads**, **rap**, or **rpc** for specifying the type of server connection. Active Directory uses **ads**, Win9x/NT3 uses **rap**, and Windows NT4/2000/2003/2008 uses **rpc**. If the protocol is omitted, net automatically tries to determine it.
+> *   **net <protocol> <function> <misc_options> <target_options>** - The **net** utility is similar to the **net** utility used for Windows and MS-DOS. The first argument is used to specify the protocol to use when executing a command. The **<protocol>** option can be **ads**, **rap**, or **rpc** for specifying the type of server connection. Active Directory uses **ads**, Win9x/NT3 uses **rap**, and Windows NT4/2000/2003/2008 uses **rpc**. If the protocol is omitted, net automatically tries to determine it.
 >
 >     The following example displays a list the available shares for a host named wakko:
 >

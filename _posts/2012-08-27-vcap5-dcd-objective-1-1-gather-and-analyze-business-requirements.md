@@ -13,7 +13,7 @@ tags:
 ---
 ### Associate a stakeholder with the information that needs to be collected.
 
-From the [<img class="alignnone  wp-image-2688" title="stake-holders" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/stake-holders.png" alt="stake holders VCAP5 DCD Objective 1.1 – Gather and analyze business requirements" width="814" height="504" />](http://portal.sliderocket.com/BLIHZ/VCAP5-DCD-BrownBag---Session-1)
+From the ![stake-holders](http://virtuallyhyper.com/wp-content/uploads/2012/08/stake-holders.png)
 
 From [this](http://www.virten.net/2012/05/vdcd510-objective-1-1-gather-and-analyze-business-requirements/) blog:
 
@@ -48,7 +48,7 @@ From [this](http://www.virten.net/2012/05/vdcd510-objective-1-1-gather-and-analy
 
 From the [US BrownBag for Objective 1](http://www.slideshare.net/ProfessionalVMware/professionalvmware-brownbag-jason-boche-vcapdcd-objective-1) slide deck:
 
-[<img class="alignnone size-full wp-image-2690" title="5-step-design-process" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/5-step-design-process.png" alt="5 step design process VCAP5 DCD Objective 1.1 – Gather and analyze business requirements" width="1125" height="794" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/5-step-design-process.png)
+![5-step-design-process](http://virtuallyhyper.com/wp-content/uploads/2012/08/5-step-design-process.png)
 
 ### Analyze customer interview data to explicitly define customer objectives for a conceptual design.
 
@@ -64,7 +64,7 @@ From this [blog's notes](http://virtuallyhyper.com/wp-content/uploads/2013/04/vc
 
 From the same [pdf](http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.pdf), here is an example of a conceptual diagram:
 
-[<img class="alignnone size-full wp-image-2697" title="conceptual_diag1" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/conceptual_diag1.png" alt="conceptual diag1 VCAP5 DCD Objective 1.1 – Gather and analyze business requirements" width="1074" height="399" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/conceptual_diag1.png)
+![conceptual_diag1](http://virtuallyhyper.com/wp-content/uploads/2012/08/conceptual_diag1.png)
 
 ### Identify the need for and apply requirements tracking.
 
@@ -88,7 +88,7 @@ From the above pdf again:
 
 Generate a similar conceptual diagram as above. Here is a conceptual diagram from [this](http://www.virten.net/2012/05/vdcd510-objective-1-1-gather-and-analyze-business-requirements/) blog:
 
-[<img class="alignnone size-full wp-image-2698" title="another-conceptual-diag" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/another-conceptual-diag.png" alt="another conceptual diag VCAP5 DCD Objective 1.1 – Gather and analyze business requirements" width="592" height="277" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/another-conceptual-diag.png)
+![another-conceptual-diag](http://virtuallyhyper.com/wp-content/uploads/2012/08/another-conceptual-diag.png)
 
 ### Categorize requirements by infrastructure qualities to prepare for logical design requirements.
 
@@ -108,7 +108,7 @@ From the [PDF](http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_not
 
 Here is an example of a logical diagram taken from the pdf:
 
-[<img class="alignnone size-full wp-image-2702" title="logical-diagram" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/logical-diagram.png" alt="logical diagram VCAP5 DCD Objective 1.1 – Gather and analyze business requirements" width="948" height="496" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/logical-diagram.png)
+![logical-diagram](http://virtuallyhyper.com/wp-content/uploads/2012/08/logical-diagram.png)
 
 I would also suggest to watch the following recordings as well:
 

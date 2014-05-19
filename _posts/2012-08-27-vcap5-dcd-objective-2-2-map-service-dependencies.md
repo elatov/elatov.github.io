@@ -49,7 +49,7 @@ Again from [this](http://www.virten.net/2012/06/vdcd510-objective-2-2-map-servic
 
 > If you have a website for example. The website runs on a webserver which runs on a linux server which is hosted by a VMware Cluster. This is an example of the dependency map:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/08/application-dependency.png" alt="application dependency VCAP5 DCD Objective 2.2 – Map Service Dependencies " title="application-dependency" width="556" height="67" class="alignnone size-full wp-image-2745" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/application-dependency.png)
+![application dependency VCAP5 DCD Objective 2.2 – Map Service Dependencies](http://virtuallyhyper.com/wp-content/uploads/2012/08/application-dependency.png)
 
 ### Include service dependencies in a vSphere 5 logical design
 

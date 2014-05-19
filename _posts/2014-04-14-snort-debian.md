@@ -446,7 +446,7 @@ Lastly go ahead and start up snorby:
 
 At this point you can go to **http://localhost:3000** and see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/snorby-login.png" alt="snorby login Snort On Debian" width="587" height="575" class="alignnone size-full wp-image-10523" title="Snort On Debian" />](http://virtuallyhyper.com/wp-content/uploads/2014/04/snorby-login.png)
+![snorby login Snort On Debian](http://virtuallyhyper.com/wp-content/uploads/2014/04/snorby-login.png)
 
 You can login with:
 
@@ -663,11 +663,11 @@ Good thing to check to make sure the snort sensor is not overloaded (checking th
 
 After some time if you login to snorby, you should see some alerts:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/snorby-dashboard.png" alt="snorby dashboard Snort On Debian" width="747" height="744" class="alignnone size-full wp-image-10524" title="Snort On Debian" />](http://virtuallyhyper.com/wp-content/uploads/2014/04/snorby-dashboard.png)
+![snorby dashboard Snort On Debian](http://virtuallyhyper.com/wp-content/uploads/2014/04/snorby-dashboard.png)
 
 If you go to the events tab, you will see the specifics:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/snorby-events-1024x229.png" alt="snorby events 1024x229 Snort On Debian" width="620" height="138" class="alignnone size-large wp-image-10525" title="Snort On Debian" />](http://virtuallyhyper.com/wp-content/uploads/2014/04/snorby-events.png)
+![snorby events 1024x229 Snort On Debian](http://virtuallyhyper.com/wp-content/uploads/2014/04/snorby-events-1024x229.png)
 
 I was getting a bunch of false positive initially, here are some rules I added to suppress some of them:
 
@@ -700,13 +700,13 @@ The best thing to do, would be to put a switch between your Cable Modem and your
 
 This is not recommended for performance reasons. I kept an eye on my DD-WRT router and I didn't see any performance issues. If the router starts to bog down, I will try to setup the other recommended configuration. BTW from [this](http://www.aboutdebian.com/snort.htm) site, here is suggested approach:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/snort-suggested-setup.png" alt="snort suggested setup Snort On Debian" width="688" height="460" class="alignnone size-full wp-image-10526" title="Snort On Debian" />](http://virtuallyhyper.com/wp-content/uploads/2014/04/snort-suggested-setup.png)
+![snort suggested setup Snort On Debian](http://virtuallyhyper.com/wp-content/uploads/2014/04/snort-suggested-setup.png)
 
 ### First Interesting Alert
 
 After a couple of days, I saw the following alert:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/php-vulnerability.png" alt="php vulnerability Snort On Debian" width="986" height="730" class="alignnone size-full wp-image-10544" title="Snort On Debian" />](http://virtuallyhyper.com/wp-content/uploads/2014/04/php-vulnerability.png)
+![php vulnerability Snort On Debian](http://virtuallyhyper.com/wp-content/uploads/2014/04/php-vulnerability.png)
 
 [link](http://humbug.me.uk/linux/trojan.htm) that talks about disabling PHP Remote File Inclusion.
 

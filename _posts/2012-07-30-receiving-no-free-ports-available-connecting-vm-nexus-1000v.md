@@ -134,7 +134,7 @@ I tested that on a regular VMware DVS and it worked fine. To use the above Power
 
 The sad thing was that it didn't work for the Nexus 1000v. So I edited the VC_DB and then it worked. Here is how my MS-SQL Management Studio looked like prior to the change:
 
-[<img class="alignnone size-full wp-image-1747" title="sql-mgmt-studio" src="http://virtuallyhyper.com/wp-content/uploads/2012/07/sql-mgmt-studio.png" alt="sql mgmt studio Receiving No Free Ports Available when Connecting a VM to the Nexus 1000v" width="1022" height="726" />](http://virtuallyhyper.com/wp-content/uploads/2012/07/sql-mgmt-studio.png)
+![sql-mgmt-studio](http://virtuallyhyper.com/wp-content/uploads/2012/07/sql-mgmt-studio.png)
 
 The cool thing is that with vCenter 5.0 you can now do this through the vSphere Client. You can go to:
 
@@ -142,7 +142,7 @@ The cool thing is that with vCenter 5.0 you can now do this through the vSphere 
 
 It looks like this:
 
-[<img class="alignnone size-full wp-image-1748" title="VC_5_Change_Ports_per_host" src="http://virtuallyhyper.com/wp-content/uploads/2012/07/VC_5_Change_Ports_per_host.png" alt="VC 5 Change Ports per host Receiving No Free Ports Available when Connecting a VM to the Nexus 1000v" width="1022" height="527" />](http://virtuallyhyper.com/wp-content/uploads/2012/07/VC_5_Change_Ports_per_host.png)
+![VC_5_Change_Ports_per_host](http://virtuallyhyper.com/wp-content/uploads/2012/07/VC_5_Change_Ports_per_host.png)
 
 A reboot of each host is required if done after the creation of the DVS. [VMware KB 2004075](http://kb.vmware.com/kb/2004075) has more instructions on changing the Max ProxySwitch Ports when using vCenter 5.0. Here is a Table of the versions that I was on:
 

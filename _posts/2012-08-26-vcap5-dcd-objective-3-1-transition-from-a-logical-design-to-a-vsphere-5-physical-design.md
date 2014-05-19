@@ -23,7 +23,7 @@ From [this](http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.
 
 Here is an example of a physical diagram, taken from "[VMware vCloud Implementation Example](http://www.vmware.com/files/pdf/VMware-vCloud-Implementation-Example-ServiceProvider.pdf)":
 
-[<img class="alignnone size-full wp-image-2861" title="physical-design-diag" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/physical-design-diag.png" alt="physical design diag VCAP5 DCD Objective 3.1 – Transition from a Logical Design to a vSphere 5 Physical Design" width="565" height="338" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/physical-design-diag.png)
+![physical-design-diag](http://virtuallyhyper.com/wp-content/uploads/2012/08/physical-design-diag.png)
 
 ### Build functional requirements into the physical design
 
@@ -33,7 +33,7 @@ Let's say we had a need for a DMZ, if this was the case, then we would either ge
 
 Let's say we looked at some of the previous logical diagrams:
 
-[<img class="alignnone size-full wp-image-2702" title="logical-diagram" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/logical-diagram.png" alt="logical diagram VCAP5 DCD Objective 3.1 – Transition from a Logical Design to a vSphere 5 Physical Design" width="948" height="496" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/logical-diagram.png)
+![logical-diagram](http://virtuallyhyper.com/wp-content/uploads/2012/08/logical-diagram.png)
 
 Now our physical diagram would include:
 

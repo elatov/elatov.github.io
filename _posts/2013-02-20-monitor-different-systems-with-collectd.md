@@ -332,11 +332,11 @@ Lastly make sure *collectd* looks under the correct location (where the *RRD* fi
 
 This should be the default, but just in case. Now visiting the Collectd-Web portal (**http://localhost/cw**), I saw the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/collectd-web-first-page.png" alt="collectd web first page Monitor Different Systems with Collectd" width="456" height="227" class="alignnone size-full wp-image-6346" title="Monitor Different Systems with Collectd" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/collectd-web-first-page.png)
+![collectd web first page Monitor Different Systems with Collectd](http://virtuallyhyper.com/wp-content/uploads/2013/02/collectd-web-first-page.png)
 
 Selecting the remote host (freebsd) and then the CPU option, allowed me to see the CPU stats of my FreeBSD machine:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/collectd-web-freebsd-cpu.png" alt="collectd web freebsd cpu Monitor Different Systems with Collectd" width="959" height="409" class="alignnone size-full wp-image-6347" title="Monitor Different Systems with Collectd" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/collectd-web-freebsd-cpu.png)
+![collectd web freebsd cpu Monitor Different Systems with Collectd](http://virtuallyhyper.com/wp-content/uploads/2013/02/collectd-web-freebsd-cpu.png)
 
 Now let's configure the Fedora machine to send information to the collector.
 
@@ -537,7 +537,7 @@ Now let's enable this to be executed from Collectd. Edit **/usr/local/etc/collec
 
 After some time the graph started to populate with data. Here is a very small sample of how it looked like:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/collectd-web-freebsd-raid-gauge.png" alt="collectd web freebsd raid gauge Monitor Different Systems with Collectd" width="962" height="375" class="alignnone size-full wp-image-6353" title="Monitor Different Systems with Collectd" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/collectd-web-freebsd-raid-gauge.png)
+![collectd web freebsd raid gauge Monitor Different Systems with Collectd](http://virtuallyhyper.com/wp-content/uploads/2013/02/collectd-web-freebsd-raid-gauge.png)
 
 <div class="SPOSTARBUST-Related-Posts">
   <H3>

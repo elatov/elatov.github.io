@@ -130,31 +130,31 @@ The application is GUI driven but to launch it, here is what I ran:
 
 Here is how it looked like:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/11/photo_rec_screen_1.png" alt="photo rec screen 1 Recover Files from an SD Card Using Linux Utilities" title="photo_rec_screen_1" width="735" height="455" class="alignnone size-full wp-image-4861" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/photo_rec_screen_1.png)
+![photo_rec_screen_1](http://virtuallyhyper.com/wp-content/uploads/2012/11/photo_rec_screen_1.png)
 
 After I selected 'proceed', I saw a screen which determined my partition type:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_part_window.png" alt="photorec part window Recover Files from an SD Card Using Linux Utilities" title="photorec_part_window" width="735" height="455" class="alignnone size-full wp-image-4868" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_part_window.png)
+![photorec_part_window](http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_part_window.png)
 
 From here you can go to 'File Opt' and select what files to search for, but since it was just a 1GB SD Card, I decided to recover as much as possible. So I just selected 'search':
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_screen_3.png" alt="photorec screen 3 Recover Files from an SD Card Using Linux Utilities" title="photorec_screen_3" width="735" height="455" class="alignnone size-full wp-image-4869" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_screen_3.png)
+![photorec_screen_3](http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_screen_3.png)
 
 At this screen it's asking you to choose the partition type. My SD Card used to be Fat32, so I selected the 'other' option:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_free_vs_whole.png" alt="photorec free vs whole Recover Files from an SD Card Using Linux Utilities" title="photorec_free_vs_whole" width="735" height="455" class="alignnone size-full wp-image-4870" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_free_vs_whole.png)
+![photorec_free_vs_whole](http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_free_vs_whole.png)
 
 Usually deleted files reside in the free unallocated space, but again since this was a 1GB image, I decided to search all the space. So I selected 'whole':
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_select_dir.png" alt="photorec select dir Recover Files from an SD Card Using Linux Utilities" title="photorec_select_dir" width="735" height="455" class="alignnone size-full wp-image-4872" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_select_dir.png)
+![photorec_select_dir](http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_select_dir.png)
 
 This next screen asked the output directory to save the recovered files to. Before launching photorec, I created a folder called 'recovery', so I scrolled down to that folder and then typed 'C'. After I did that, the recovery process started and here is how it looked like:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_progress.png" alt="photorec progress Recover Files from an SD Card Using Linux Utilities" title="photorec_progress" width="735" height="455" class="alignnone size-full wp-image-4873" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_progress.png)
+![photorec_progress](http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_progress.png)
 
 After the process finished I saw the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_recovery_finished.png" alt="photorec recovery finished Recover Files from an SD Card Using Linux Utilities" title="photorec_recovery_finished" width="735" height="455" class="alignnone size-full wp-image-4874" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_recovery_finished.png)
+![photorec_recovery_finished](http://virtuallyhyper.com/wp-content/uploads/2012/11/photorec_recovery_finished.png)
 
 So it recovered 426 file total, I then quit the program and went to check out the contents of '~/recovery/recup_dir.1':
 

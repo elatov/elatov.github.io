@@ -62,7 +62,7 @@ I then updated the Makefile for the chromium port
 
 
 and made sure gcc4.6 is checked, it looks like something this:
-[<img class="alignnone size-full wp-image-617" title="make_config_chromium_fb8_2" src="http://virtuallyhyper.com/wp-content/uploads/2012/04/make_config_chromium_fb8_2.png" alt="make config chromium fb8 2 Error updating Chromium on FreeBSD 8.2 p6" width="695" height="393" />](http://virtuallyhyper.com/wp-content/uploads/2012/04/make_config_chromium_fb8_2.png)
+![make_config_chromium_fb8_2](http://virtuallyhyper.com/wp-content/uploads/2012/04/make_config_chromium_fb8_2.png)
 
 I was then able to run the following to update chromium with the following command:
 

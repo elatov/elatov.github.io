@@ -1239,13 +1239,13 @@ on our DHCP server we can see that our IP was leased:
 
 You will see the machine contact the DHCP Server and then go to the TFTP Server:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/tftp_boot_succesful.png" alt="tftp boot succesful RHCSA and RHCE Chapter 8 Network Installs" width="722" height="257" class="alignnone size-full wp-image-7625" title="RHCSA and RHCE Chapter 8 Network Installs" />](http://virtuallyhyper.com/wp-content/uploads/2013/03/tftp_boot_succesful.png)
+![tftp boot succesful RHCSA and RHCE Chapter 8 Network Installs](http://virtuallyhyper.com/wp-content/uploads/2013/03/tftp_boot_succesful.png)
 
 If that is successful then you will see the PXE-Menu that you created, like so:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/pxeboot_menu_g.png" alt="pxeboot menu g RHCSA and RHCE Chapter 8 Network Installs" width="714" height="399" class="alignnone size-full wp-image-7678" title="RHCSA and RHCE Chapter 8 Network Installs" />](http://virtuallyhyper.com/wp-content/uploads/2013/03/pxeboot_menu_g.png)
+![pxeboot menu g RHCSA and RHCE Chapter 8 Network Installs](http://virtuallyhyper.com/wp-content/uploads/2013/03/pxeboot_menu_g.png)
 
 And then finally we will see the package starting to install:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/package_installation_g.png" alt="package installation g RHCSA and RHCE Chapter 8 Network Installs" width="719" height="400" class="alignnone size-full wp-image-7679" title="RHCSA and RHCE Chapter 8 Network Installs" />](http://virtuallyhyper.com/wp-content/uploads/2013/03/package_installation_g.png)
+![package installation g RHCSA and RHCE Chapter 8 Network Installs](http://virtuallyhyper.com/wp-content/uploads/2013/03/package_installation_g.png)
 

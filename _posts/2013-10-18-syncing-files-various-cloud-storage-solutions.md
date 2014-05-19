@@ -32,11 +32,11 @@ I haven't used **skydrive** before, so I wanted to give it a try. First, what is
 
 So it's Microsoft's version of a cloud storage solution. There is a pretty good comparison page from a Microsoft, comparing SkyDrive, iCloud, Google Drive, and DropBox. Here is quick snippet from the [page](http://windows.microsoft.com/en-us/skydrive/compare):
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/10/SkyDrive_Comparison.png" alt="SkyDrive Comparison Syncing Files with Various Cloud Storage Solutions" width="1027" height="357" class="alignnone size-full wp-image-9662" title="Syncing Files with Various Cloud Storage Solutions" />](http://virtuallyhyper.com/wp-content/uploads/2013/10/SkyDrive_Comparison.png)
+![SkyDrive Comparison Syncing Files with Various Cloud Storage Solutions](http://virtuallyhyper.com/wp-content/uploads/2013/10/SkyDrive_Comparison.png)
 
 You can register for the free 7GB SkyDrive account [here](https://skydrive.live.com) . After the registration is finished you can login and see your account:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/10/skydrive-logged-in.png" alt="skydrive logged in Syncing Files with Various Cloud Storage Solutions" width="452" height="238" class="alignnone size-full wp-image-9663" title="Syncing Files with Various Cloud Storage Solutions" />](http://virtuallyhyper.com/wp-content/uploads/2013/10/skydrive-logged-in.png)
+![skydrive logged in Syncing Files with Various Cloud Storage Solutions](http://virtuallyhyper.com/wp-content/uploads/2013/10/skydrive-logged-in.png)
 
 There is a python client available for SkyDrive that uses the SkyDrive API. It's called **python-skydrive**, here is a link to the [client](https://pypi.python.org/pypi/python-skydrive/" class="broken_link).
 
@@ -44,15 +44,15 @@ There is a python client available for SkyDrive that uses the SkyDrive API. It's
 
 To use the **python-skypdrive** client, you have to register the SkyDrive application with the "Live Connect Developer Center". First visit the Dev Center, [here](http://msdn.microsoft.com/en-us/live/). Login with the same credentials that you created when you registered for SkyDrive and you should be inside the Dev Center:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/10/Live_connect_dev_center.png" alt="Live connect dev center Syncing Files with Various Cloud Storage Solutions" width="1041" height="396" class="alignnone size-full wp-image-9664" title="Syncing Files with Various Cloud Storage Solutions" />](http://virtuallyhyper.com/wp-content/uploads/2013/10/Live_connect_dev_center.png)
+![Live connect dev center Syncing Files with Various Cloud Storage Solutions](http://virtuallyhyper.com/wp-content/uploads/2013/10/Live_connect_dev_center.png)
 
 Click on "**My Apps**" and then click on "**Create Application**":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/10/Live_dev_center_my_apps.png" alt="Live dev center my apps Syncing Files with Various Cloud Storage Solutions" width="677" height="330" class="alignnone size-full wp-image-9665" title="Syncing Files with Various Cloud Storage Solutions" />](http://virtuallyhyper.com/wp-content/uploads/2013/10/Live_dev_center_my_apps.png)
+![Live dev center my apps Syncing Files with Various Cloud Storage Solutions](http://virtuallyhyper.com/wp-content/uploads/2013/10/Live_dev_center_my_apps.png)
 
 After clicking "**Create Application**" you can call it whatever you want. Then after clicking **Next** it will show your *client ID* and the *client secret*:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/10/skydrive_Api_rgistered_i.png" alt="skydrive Api rgistered i Syncing Files with Various Cloud Storage Solutions" width="999" height="579" class="alignnone size-full wp-image-9666" title="Syncing Files with Various Cloud Storage Solutions" />](http://virtuallyhyper.com/wp-content/uploads/2013/10/skydrive_Api_rgistered_i.png)
+![skydrive Api rgistered i Syncing Files with Various Cloud Storage Solutions](http://virtuallyhyper.com/wp-content/uploads/2013/10/skydrive_Api_rgistered_i.png)
 
 Make sure to set **Mobile Client App** to **yes** and then click **Save**. Add both the *Client ID* and *Secret* to your **.lcrc** file:
 
@@ -169,11 +169,11 @@ You can't even **put** a directory into SkyDrive, so I would have to write anoth
 
 At this point I wanted to try the most popular cloud storage solution out there: DropBox. I first installed it on my Mac. The install was pretty straight forward, just download it and launch it, at which point it will ask you to login to dropbox:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/10/dropbox_installer.png" alt="dropbox installer Syncing Files with Various Cloud Storage Solutions" width="571" height="512" class="alignnone size-full wp-image-9667" title="Syncing Files with Various Cloud Storage Solutions" />](http://virtuallyhyper.com/wp-content/uploads/2013/10/dropbox_installer.png)
+![dropbox installer Syncing Files with Various Cloud Storage Solutions](http://virtuallyhyper.com/wp-content/uploads/2013/10/dropbox_installer.png)
 
 After the install is done, you will see the dropbox status in your notification area:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/10/dropbox_notificateion.png" alt="dropbox notificateion Syncing Files with Various Cloud Storage Solutions" width="48" height="22" class="alignnone size-full wp-image-9668" title="Syncing Files with Various Cloud Storage Solutions" />](http://virtuallyhyper.com/wp-content/uploads/2013/10/dropbox_notificateion.png)
+![dropbox notificateion Syncing Files with Various Cloud Storage Solutions](http://virtuallyhyper.com/wp-content/uploads/2013/10/dropbox_notificateion.png)
 
 That was just for the Mac. I then read up on how to setup dropbox on a headless linux server:
 
@@ -331,7 +331,7 @@ In my efforts to speed up Davfs with Box, I ran into Storage Made Easy (SME). Fr
 
 So SME is basically a broker for all different cloud solutions and they just keep metadata of all the files and don't actually store the data. They support a bunch of cloud solutions, from their [cloud list](http://storagemadeeasy.com/cloud_list/), here is their supported list:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/10/sme_cloud_list.png" alt="sme cloud list Syncing Files with Various Cloud Storage Solutions" width="449" height="621" class="alignnone size-full wp-image-9669" title="Syncing Files with Various Cloud Storage Solutions" />](http://virtuallyhyper.com/wp-content/uploads/2013/10/sme_cloud_list.png)
+![sme cloud list Syncing Files with Various Cloud Storage Solutions](http://virtuallyhyper.com/wp-content/uploads/2013/10/sme_cloud_list.png)
 
 You can see that SkyDrive, Dropbox, and Box are all supported and a lot of other ones are supported as well. Surprisingly the Ubuntu Client actually worked on my Chromebox (ARM Based). I downloaded the client from [here](http://storagemadeeasy.com/LinuxDrive/). The install went okay, first install the **deb** package:
 
@@ -394,11 +394,11 @@ After it's installed you can launch the GUI to configure the cloud providers. So
 
 and it will ask you to authenticate:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/10/sme_explorer.png" alt="sme explorer Syncing Files with Various Cloud Storage Solutions" width="472" height="312" class="alignnone size-full wp-image-9675" title="Syncing Files with Various Cloud Storage Solutions" />](http://virtuallyhyper.com/wp-content/uploads/2013/10/sme_explorer.png)
+![sme explorer Syncing Files with Various Cloud Storage Solutions](http://virtuallyhyper.com/wp-content/uploads/2013/10/sme_explorer.png)
 
 After your are authenticated, you can add a storage provider. For example I added **box.net**:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/10/sme_add_cloud_provider.png" alt="sme add cloud provider Syncing Files with Various Cloud Storage Solutions" width="833" height="413" class="alignnone size-full wp-image-9676" title="Syncing Files with Various Cloud Storage Solutions" />](http://virtuallyhyper.com/wp-content/uploads/2013/10/sme_add_cloud_provider.png)
+![sme add cloud provider Syncing Files with Various Cloud Storage Solutions](http://virtuallyhyper.com/wp-content/uploads/2013/10/sme_add_cloud_provider.png)
 
 Then you can launch the sync center:
 
@@ -407,11 +407,11 @@ Then you can launch the sync center:
 
 You will have to authenticate again and you can define the sync schedule. For example I asked it to sync every 5 minutes:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/10/sme-sync-center-5min.png" alt="sme sync center 5min Syncing Files with Various Cloud Storage Solutions" width="695" height="657" class="alignnone size-full wp-image-9677" title="Syncing Files with Various Cloud Storage Solutions" />](http://virtuallyhyper.com/wp-content/uploads/2013/10/sme-sync-center-5min.png)
+![sme sync center 5min Syncing Files with Various Cloud Storage Solutions](http://virtuallyhyper.com/wp-content/uploads/2013/10/sme-sync-center-5min.png)
 
 and then you can link a local folder to a remote folder from any of the providers that you have added. Here I am syncing my local **pic** folder to the **Box.net** provider:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/10/link_folder-sme.png" alt="link folder sme Syncing Files with Various Cloud Storage Solutions" width="560" height="350" class="alignnone size-full wp-image-9678" title="Syncing Files with Various Cloud Storage Solutions" />](http://virtuallyhyper.com/wp-content/uploads/2013/10/link_folder-sme.png)
+![link folder sme Syncing Files with Various Cloud Storage Solutions](http://virtuallyhyper.com/wp-content/uploads/2013/10/link_folder-sme.png)
 
 You can also mount all the providers with the **smeclient**. Run it with the following command:
 
@@ -420,7 +420,7 @@ You can also mount all the providers with the **smeclient**. Run it with the fol
 
 and then choose a mount point and enter your credentials and it will mount it for you:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/10/smeclient_1.png" alt="smeclient 1 Syncing Files with Various Cloud Storage Solutions" width="390" height="367" class="alignnone size-full wp-image-9679" title="Syncing Files with Various Cloud Storage Solutions" />](http://virtuallyhyper.com/wp-content/uploads/2013/10/smeclient_1.png)
+![smeclient 1 Syncing Files with Various Cloud Storage Solutions](http://virtuallyhyper.com/wp-content/uploads/2013/10/smeclient_1.png)
 
 After it's done you will see the mount point:
 
@@ -458,15 +458,15 @@ Next we can launch the GUI to get authenticated:
 
 And you will see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/10/ubone_setup.png" alt="ubone setup Syncing Files with Various Cloud Storage Solutions" width="736" height="525" class="alignnone size-full wp-image-9685" title="Syncing Files with Various Cloud Storage Solutions" />](http://virtuallyhyper.com/wp-content/uploads/2013/10/ubone_setup.png)
+![ubone setup Syncing Files with Various Cloud Storage Solutions](http://virtuallyhyper.com/wp-content/uploads/2013/10/ubone_setup.png)
 
 After that click on "**Sign me in with my existing account**" and it will ask you to authenticate:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/10/ubon_auth.png" alt="ubon auth Syncing Files with Various Cloud Storage Solutions" width="640" height="525" class="alignnone size-full wp-image-9680" title="Syncing Files with Various Cloud Storage Solutions" />](http://virtuallyhyper.com/wp-content/uploads/2013/10/ubon_auth.png)
+![ubon auth Syncing Files with Various Cloud Storage Solutions](http://virtuallyhyper.com/wp-content/uploads/2013/10/ubon_auth.png)
 
 After you are authenticated it will show you which folder it will sync with and the one we have set it perfect:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/10/ub_one_sync.png" alt="ub one sync Syncing Files with Various Cloud Storage Solutions" width="736" height="525" class="alignnone size-full wp-image-9681" title="Syncing Files with Various Cloud Storage Solutions" />](http://virtuallyhyper.com/wp-content/uploads/2013/10/ub_one_sync.png)
+![ub one sync Syncing Files with Various Cloud Storage Solutions](http://virtuallyhyper.com/wp-content/uploads/2013/10/ub_one_sync.png)
 
 After you are done with the configuration, you should see the **syncdaemon** running:
 
@@ -653,7 +653,7 @@ Now start the daemon:
 
 Now login to your **seacloud** management console and click on your library and it will show your repo ID for your library:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/10/seafile_repo_url.png" alt="seafile repo url Syncing Files with Various Cloud Storage Solutions" width="605" height="119" class="alignnone size-full wp-image-9672" title="Syncing Files with Various Cloud Storage Solutions" />](http://virtuallyhyper.com/wp-content/uploads/2013/10/seafile_repo_url.png)
+![seafile repo url Syncing Files with Various Cloud Storage Solutions](http://virtuallyhyper.com/wp-content/uploads/2013/10/seafile_repo_url.png)
 
 The string after repo if what you need. Now to synchronize with that library create a local directory and run the following to synchronize your local directory with the remote library:
 
@@ -689,9 +689,9 @@ You can launch the applet, by running the following:
 
 After executing that, it will check if the **seafile-daemon** is running. If it is, it'll just attach it self to that. If the **seafile-daemon** is not running, then it will start it up and then attach it self to that. Here is seafile running in the notification area:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/10/seafile_applet.png" alt="seafile applet Syncing Files with Various Cloud Storage Solutions" width="27" height="27" class="alignnone size-full wp-image-9682" title="Syncing Files with Various Cloud Storage Solutions" />](http://virtuallyhyper.com/wp-content/uploads/2013/10/seafile_applet.png)
+![seafile applet Syncing Files with Various Cloud Storage Solutions](http://virtuallyhyper.com/wp-content/uploads/2013/10/seafile_applet.png)
 
 This definitely fit my needs and I was happy with the setup. Lastly you can check on the local **seafile** daemon, by visiting **https://localhost:13420** to see the status:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/10/seafile_client_browser.png" alt="seafile client browser Syncing Files with Various Cloud Storage Solutions" width="639" height="191" class="alignnone size-full wp-image-9673" title="Syncing Files with Various Cloud Storage Solutions" />](http://virtuallyhyper.com/wp-content/uploads/2013/10/seafile_client_browser.png)
+![seafile client browser Syncing Files with Various Cloud Storage Solutions](http://virtuallyhyper.com/wp-content/uploads/2013/10/seafile_client_browser.png)
 

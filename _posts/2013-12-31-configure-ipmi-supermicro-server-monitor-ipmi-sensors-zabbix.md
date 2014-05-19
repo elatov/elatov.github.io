@@ -21,11 +21,11 @@ At home I have a SuperMicro [X8DTU-F](http://www.supermicro.com/products/motherb
 
 The process is described in this [pdf](http://virtuallyhyper.com/wp-content/uploads/2013/12/Manual_IPMI.pdf). If you want to be able to use KVM (Keyboard-Video-Mouse) over LAN, make sure you follow the **Enabling COM Port for SOL (IPMI)** section. All the settings were already enabled on my system, all I had to do was assign the IPMI a static IP. Here are the BIOS settings, after I was done:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/IPMI_static_IP_g-1024x705.jpg" alt="IPMI static IP g 1024x705 Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" width="620" height="426" class="alignnone size-large wp-image-9893" title="Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/IPMI_static_IP_g.jpg)
+![IPMI static IP g 1024x705 Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/12/IPMI_static_IP_g-1024x705.jpg)
 
 I then plugged in an RJ45 Cable into the switch and the IPMI interface and I was able to ping the interface. Now upon pointing the browser to the IP, I was able to see the login page to the IPMI management console:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/ipmi-login-page.png" alt="ipmi login page Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" width="944" height="379" class="alignnone size-full wp-image-9870" title="Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/ipmi-login-page.png)
+![ipmi login page Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/12/ipmi-login-page.png)
 
 Another quick test would be to use the **ipmitool** utility to query the sensor information. I first installed the utility on my Debian machine:
 
@@ -75,7 +75,7 @@ and then I was successfully able to query the IPMI interface:
 
 I realized the IPMI firmware was out of date, so I downloaded the latest one from [here](http://www.supermicro.com/support/bios/firmware.aspx). The latest version at the time of writing this post is the following one:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/firmware-update-site.png" alt="firmware update site Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" width="519" height="363" class="alignnone size-full wp-image-9871" title="Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/firmware-update-site.png)
+![firmware update site Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/12/firmware-update-site.png)
 
 After you download the *zip* archive, you can extract it. Here are the contents of the archive:
 
@@ -90,11 +90,11 @@ After you download the *zip* archive, you can extract it. Here are the contents 
 
 The instructions on how to update the firmware are in the document from the archive. The gist of it, go to the **maintenance** tab in the IPMI management console and click **Update Firmare**. Then upload the **.ima** file for the update. Also during the update, make sure you un-check the "**Preserve Configuration**" setting (this will wipe all the settings to default, but is necessary for the update). Then start the update, here is how the update process looked like for me:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/ipmi-fw-update.png" alt="ipmi fw update Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" width="1091" height="248" class="alignnone size-full wp-image-9872" title="Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/ipmi-fw-update.png)
+![ipmi fw update Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/12/ipmi-fw-update.png)
 
 After that the system information looked up-to-date:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/ipmi-sys-infor.png" alt="ipmi sys infor Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" width="363" height="183" class="alignnone size-full wp-image-9873" title="Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/ipmi-sys-infor.png)
+![ipmi sys infor Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/12/ipmi-sys-infor.png)
 
 Since the update wipes all the settings, I actually had to go check out my router to find out which DHCP address IPMI grabbed. After I figured that out, I just pointed to that IP in the browser and re-configured all the static IP settings.
 
@@ -102,7 +102,7 @@ Since the update wipes all the settings, I actually had to go check out my route
 
 While I was at it, I decided to update the BIOS as well. I downloaded the new BIOS from [here](http://www.supermicro.com/support/resources/results.aspx). At the time of writing here is the latest version:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/bios-update-super.png" alt="bios update super Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" width="488" height="351" class="alignnone size-full wp-image-9874" title="Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/bios-update-super.png)
+![bios update super Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/12/bios-update-super.png)
 
 Checking out the contents of the archive, I saw the following:
 
@@ -122,7 +122,7 @@ The **Readme** had the following instructions:
 
 Initially I wanted to create a bootable ISO with a size of a floppy image (the process to do that is described [here](http://www.nenie.org/misc/flashbootcd.html)). The IPMI KVM allows to upload up to the floppy image size:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/ipmi-virtua-media.png" alt="ipmi virtua media Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" width="1256" height="160" class="alignnone size-full wp-image-9875" title="Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/ipmi-virtua-media.png)
+![ipmi virtua media Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/12/ipmi-virtua-media.png)
 
 As I was creating the ISO, I realized the size of the BIOS update is bigger than 1.44M:
 
@@ -140,11 +140,11 @@ It's about 4M.
 
 At this point, I had two choices: create an ISO with a bigger size and share it via Samba or create an ISO and just use my USB stick. I have gone without a samba share all this time, and I didn't want to set one up just for a BIOS update (but I was still impressed with the fact that IPMI can connect to a samba share). There is a Russian site which provides custom sized images. [Here](http://bootcd.narod.ru/images.htm) is a link to that site and here is a list of all their images:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/custom-size-images-rus.png" alt="custom size images rus Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" width="993" height="580" class="alignnone size-full wp-image-9876" title="Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/custom-size-images-rus.png)
+![custom size images rus Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/12/custom-size-images-rus.png)
 
 All the images for CDs and I wanted to get one specific for a USB drive. It probably doesn't make a difference, but I later ran into FreeDOS and they provided an image specifically for a USB Drive. [Here](http://chtaube.eu/computers/freedos/bootable-usb/) is a link to the site and here is a list of images:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/freedos_boot-usb.png" alt="freedos boot usb Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" width="1112" height="373" class="alignnone size-full wp-image-9877" title="Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/freedos_boot-usb.png)
+![freedos boot usb Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/12/freedos_boot-usb.png)
 
 So I backed up my USB drive and then I ran the following to put the FreeDOS image on it:
 
@@ -202,41 +202,41 @@ And that's it. I then un-mounted the usb drive, unplugged it from my laptop, and
 
 I logged into the IPMI Management console and went to the **Remote Control** tab:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/remote-control-tab-ipmi.png" alt="remote control tab ipmi Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" width="382" height="329" class="alignnone size-full wp-image-9878" title="Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/remote-control-tab-ipmi.png)
+![remote control tab ipmi Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/12/remote-control-tab-ipmi.png)
 
 Upon clicking **Remote Console**, I saw the server:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/jviewer-started.png" alt="jviewer started Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" width="1051" height="401" class="alignnone size-full wp-image-9879" title="Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/jviewer-started.png)
+![jviewer started Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/12/jviewer-started.png)
 
 I then put the host into maintenance mode and rebooted the server. Upon boot, I made sure it's booting from the USB. After it booted from the USB, I saw the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/freedos-booted.png" alt="freedos booted Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" width="648" height="428" class="alignnone size-full wp-image-9880" title="Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/freedos-booted.png)
+![freedos booted Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/12/freedos-booted.png)
 
 I then started the BIOS update:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/start-bios-update.png" alt="start bios update Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" width="642" height="426" class="alignnone size-full wp-image-9881" title="Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/start-bios-update.png)
+![start bios update Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/12/start-bios-update.png)
 
 After a couple of minutes the BIOS update finished:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/bio-update-done.png" alt="bio update done Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" width="728" height="429" class="alignnone size-full wp-image-9882" title="Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/bio-update-done.png)
+![bio update done Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/12/bio-update-done.png)
 
 That should be it. You can reboot the server by sending a **Ctr-Alt-Del**:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/send-cad_g.png" alt="send cad g Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" width="381" height="371" class="alignnone size-full wp-image-9883" title="Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/send-cad_g.png)
+![send cad g Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/12/send-cad_g.png)
 
 ### Send IPMI Alerts Through an SMTP server
 
 The IPMI has the capability to send email alerts. To set this up you need to have an SMTP server (which I already had). From the IPMI Management Console go to the **Configuration** tab and click on **SMTP**:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/impi-config-tab.png" alt="impi config tab Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" width="441" height="593" class="alignnone size-full wp-image-9884" title="Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/impi-config-tab.png)
+![impi config tab Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/12/impi-config-tab.png)
 
 Then configure your SMTP server settings:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/smtp-settings-impi.png" alt="smtp settings impi Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" width="234" height="195" class="alignnone size-full wp-image-9885" title="Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/smtp-settings-impi.png)
+![smtp settings impi Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/12/smtp-settings-impi.png)
 
 Then under the **Configuration** tab click on **Alerts** and select the level of alerts that you want sent (I setup informational and above):
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/alerts-impi.png" alt="alerts impi Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" width="545" height="194" class="alignnone size-full wp-image-9886" title="Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/alerts-impi.png)
+![alerts impi Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/12/alerts-impi.png)
 
 That should be it. If you want to make sure your SMTP configuration is working, under **alerts** you can click on "**Send Test Alert**" and make sure you get an email.
 
@@ -244,11 +244,11 @@ That should be it. If you want to make sure your SMTP configuration is working, 
 
 Surprisingly there is no IPMI SuperMicro Template, so I ended up creating my items manually. First create a host and select the IPMI interface:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/zabbix-impi-interfaces.png" alt="zabbix impi interfaces Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" width="844" height="188" class="alignnone size-full wp-image-9887" title="Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/zabbix-impi-interfaces.png)
+![zabbix impi interfaces Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/12/zabbix-impi-interfaces.png)
 
 Enter the credentials to login into the IPMI system. Here is how my IPMI tab looked like:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/ipmi-tab-zabbix.png" alt="ipmi tab zabbix Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" width="383" height="264" class="alignnone size-full wp-image-9901" title="Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/ipmi-tab-zabbix.png)
+![ipmi tab zabbix Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/12/ipmi-tab-zabbix.png)
 
 Then create an item for that host and under the **IPMI Sensor** put in the value that you see under the **ipmitool** output:
 
@@ -311,11 +311,11 @@ To make sure you get the right Sensor, you can do a **get** on it, like so:
 
 Here is what I entered to define the **System Temp** item in **zabbix**:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/system-temp-item-zabbix.png" alt="system temp item zabbix Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" width="483" height="166" class="alignnone size-full wp-image-9888" title="Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/system-temp-item-zabbix.png)
+![system temp item zabbix Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/12/system-temp-item-zabbix.png)
 
 After I was done adding all the Fans and Temperatures, I was able to see the graphs:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/cpu-plot-ipmi-zabbix.png" alt="cpu plot ipmi zabbix Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" width="887" height="450" class="alignnone size-full wp-image-9889" title="Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/cpu-plot-ipmi-zabbix.png)
+![cpu plot ipmi zabbix Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/12/cpu-plot-ipmi-zabbix.png)
 
 If you want to be able to get discrete values you have to use zabbix 2.1. Here is an example of a discrete value:
 

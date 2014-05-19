@@ -23,7 +23,7 @@ From [this](http://www.virten.net/2012/06/vdcd510-objective-2-3-build-availabili
 
 From the [APAC BrownBag Session 4](http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap5-dca-availability-dr/) slide deck:
 
-[<img class="alignnone size-full wp-image-2761" title="availability_features" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/availability_features.png" alt="availability features VCAP5 DCD Objective 2.3 – Build Availability Requirements into the Logical Design " width="1003" height="458" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/availability_features.png)
+![availability_features](http://virtuallyhyper.com/wp-content/uploads/2012/08/availability_features.png)
 
 ### Identify and differentiate infrastructure qualities (Availability, Manageability, Performance, Recoverability, Security)
 
@@ -92,13 +92,13 @@ From [this](http://www.virten.net/2012/06/vdcd510-objective-2-3-build-availabili
 
 Here a slide from the [APAC BrownBag Session 4](http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap5-dca-availability-dr/):
 
-[<img class="alignnone size-full wp-image-2764" title="dr_vs_bc" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/dr_vs_bc.png" alt="dr vs bc VCAP5 DCD Objective 2.3 – Build Availability Requirements into the Logical Design " width="1166" height="514" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/dr_vs_bc.png)
+![dr_vs_bc](http://virtuallyhyper.com/wp-content/uploads/2012/08/dr_vs_bc.png)
 
 ### Determine availability component of service level agreements (SLAs) and service level management processes
 
 From [APAC BrownBag Session 4](http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap5-dca-availability-dr/) slide deck:
 
-[<img class="alignnone size-full wp-image-2765" title="types_of_failures" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/types_of_failures.png" alt="types of failures VCAP5 DCD Objective 2.3 – Build Availability Requirements into the Logical Design " width="458" height="476" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/types_of_failures.png)
+![types_of_failures](http://virtuallyhyper.com/wp-content/uploads/2012/08/types_of_failures.png)
 
 Define an SLA for each and design a setup that will accommodate. For example if your SLA for a certain VM failure is 0, then configure that VM for FT. Or if your SLA is a couple minutes then VMware HA should be good enough. If there are other services that you commit to (i.e. performance) then create storage tiers as necessary.
 
@@ -106,7 +106,7 @@ Define an SLA for each and design a setup that will accommodate. For example if 
 
 The popular logical design that we have seen is the remote site replication, here is that diagram:
 
-[<img class="alignnone size-full wp-image-2768" title="srm-logical-diagram" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/srm-logical-diagram.png" alt="srm logical diagram VCAP5 DCD Objective 2.3 – Build Availability Requirements into the Logical Design " width="656" height="287" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/srm-logical-diagram.png)
+![srm-logical-diagram](http://virtuallyhyper.com/wp-content/uploads/2012/08/srm-logical-diagram.png)
 
 ### Define an availability plan, including maintenance processes.
 
@@ -127,7 +127,7 @@ Using VMware HA set the reboot priority depending on the availability requiremen
 
 From the [APAC BrownBag Session 4](http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap5-dca-availability-dr/):
 
-[<img class="alignnone size-full wp-image-2770" title="infra_qualities" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/infra_qualities.png" alt="infra qualities VCAP5 DCD Objective 2.3 – Build Availability Requirements into the Logical Design " width="990" height="568" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/infra_qualities.png)
+![infra_qualities](http://virtuallyhyper.com/wp-content/uploads/2012/08/infra_qualities.png)
 
 From the VMware Article "[Improving Business Continuity with VMware Virtualization](http://virtuallyhyper.com/wp-content/uploads/2012/11/Improving_Business_Continuity_With_VMware_Virtualization.pdf)"
 

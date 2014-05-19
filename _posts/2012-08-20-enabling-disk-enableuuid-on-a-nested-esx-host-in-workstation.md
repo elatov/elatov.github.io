@@ -93,7 +93,7 @@ That looks good, so let's go ahead and power on the VM:
 
 Upon booting the VM I saw the following:
 
-[<img class="alignnone size-full wp-image-2386" title="boot-issue-after-enableuuid" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/boot-issue-after-enableuuid.png" alt="boot issue after enableuuid Enabling disk.EnableUUID on a Nested ESX Host in Workstation" width="757" height="426" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/boot-issue-after-enableuuid.png)
+![boot-issue-after-enableuuid](http://virtuallyhyper.com/wp-content/uploads/2012/08/boot-issue-after-enableuuid.png)
 
 checking out the logs, I saw the following:
 

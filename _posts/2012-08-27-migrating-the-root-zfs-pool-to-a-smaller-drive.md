@@ -215,23 +215,23 @@ The first thing I need to do is to create an "fdisk partition", so let's do that
 
 It then goes through an interactive menu, here is how it looked like. First select to "create a partition":
 
-[<img class="alignnone size-full wp-image-2532" title="create_new_partition" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/create_new_partition.png" alt="create new partition Migrating the Root ZFS Pool to a Smaller Drive" width="575" height="321" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/create_new_partition.png)
+![create_new_partition](http://virtuallyhyper.com/wp-content/uploads/2012/08/create_new_partition.png)
 
 and then select the partition type:
 
-[<img class="alignnone size-full wp-image-2533" title="select_partition_type" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/select_partition_type.png" alt="select partition type Migrating the Root ZFS Pool to a Smaller Drive" width="562" height="390" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/select_partition_type.png)
+![select_partition_type](http://virtuallyhyper.com/wp-content/uploads/2012/08/select_partition_type.png)
 
 then select to use the whole partition (100%):
 
-[<img class="alignnone size-full wp-image-2534" title="select_to_use_100" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/select_to_use_100.png" alt="select to use 100 Migrating the Root ZFS Pool to a Smaller Drive" width="561" height="339" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/select_to_use_100.png)
+![select_to_use_100](http://virtuallyhyper.com/wp-content/uploads/2012/08/select_to_use_100.png)
 
 Then let's go ahead and activate the partition:
 
-[<img class="alignnone size-full wp-image-2535" title="activate_the_partition" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/activate_the_partition.png" alt="activate the partition Migrating the Root ZFS Pool to a Smaller Drive" width="570" height="355" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/activate_the_partition.png)
+![activate_the_partition](http://virtuallyhyper.com/wp-content/uploads/2012/08/activate_the_partition.png)
 
 and finally let's write the changes to disk:
 
-[<img class="alignnone size-full wp-image-2536" title="commit_changes" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/commit_changes.png" alt="commit changes Migrating the Root ZFS Pool to a Smaller Drive" width="588" height="369" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/commit_changes.png)
+![commit_changes](http://virtuallyhyper.com/wp-content/uploads/2012/08/commit_changes.png)
 
 If you didn't want to go through the interactive menu you could've run this command to create a partition using 100% of the space, like so:
 
@@ -856,11 +856,11 @@ The easiest way to accomplish this would be to make the fdisk partition not acti
 
 Then select '0'; to not have any bootable partitions:
 
-[<img class="alignnone size-full wp-image-2571" title="select_none_to_boot_from" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/select_none_to_boot_from.png" alt="select none to boot from Migrating the Root ZFS Pool to a Smaller Drive" width="600" height="321" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/select_none_to_boot_from.png)
+![select_none_to_boot_from](http://virtuallyhyper.com/wp-content/uploads/2012/08/select_none_to_boot_from.png)
 
 then exit and commit the changes:
 
-[<img class="alignnone size-full wp-image-2572" title="deactivate-bootable-parition" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/deactivate-bootable-parition1.png" alt="deactivate bootable parition1 Migrating the Root ZFS Pool to a Smaller Drive" width="582" height="368" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/deactivate-bootable-parition1.png)
+![deactivate-bootable-parition](http://virtuallyhyper.com/wp-content/uploads/2012/08/deactivate-bootable-parition1.png)
 
 So checking the partition prior to the change, I saw the following:
 

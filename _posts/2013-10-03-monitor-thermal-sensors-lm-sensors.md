@@ -82,7 +82,7 @@ It looks like it found the **asb100** chip. This was a very old P4 machine, here
 
 Checking the supported devices from the lm-sensors [page](http://lm-sensors.org/wiki/Devices). I saw the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/09/lm-sensors-devices-asus.png" alt="lm sensors devices asus Monitor Thermal Sensors With lm sensors" width="999" height="58" class="alignnone size-full wp-image-9585" title="Monitor Thermal Sensors With lm sensors" />](http://virtuallyhyper.com/wp-content/uploads/2013/09/lm-sensors-devices-asus.png)
+![lm sensors devices asus Monitor Thermal Sensors With lm sensors](http://virtuallyhyper.com/wp-content/uploads/2013/09/lm-sensors-devices-asus.png)
 
 It looks like *Asus* is supported by the selected chip. Then running **sensors** again, I saw the following:
 
@@ -293,13 +293,13 @@ I then ran into this presentation: [A simplified thermal framework for ARM platf
 
 It seems that thermal monitoring is a little different on the SOC systems. I then ran into this interesting presentation: [PDF](http://virtuallyhyper.com/wp-content/uploads/2013/09/Thermal_Mgmt_using_Generic_thermal_fw.pdf) (thermal zones, cooling devices, and other aspects). Here is a high level overview of the concepts:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/09/kernel_thermal_overview.png" alt="kernel thermal overview Monitor Thermal Sensors With lm sensors" width="929" height="658" class="alignnone size-full wp-image-9589" title="Monitor Thermal Sensors With lm sensors" />](http://virtuallyhyper.com/wp-content/uploads/2013/09/kernel_thermal_overview.png)
+![kernel thermal overview Monitor Thermal Sensors With lm sensors](http://virtuallyhyper.com/wp-content/uploads/2013/09/kernel_thermal_overview.png)
 
 ### Linux Thermal Zones
 
 From the same [PDF](http://virtuallyhyper.com/wp-content/uploads/2013/09/Thermal_Mgmt_using_Generic_thermal_fw.pdf), here is an example of a thermal zone:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/09/Thermal_zone.png" alt="Thermal zone Monitor Thermal Sensors With lm sensors" width="744" height="586" class="alignnone size-full wp-image-9588" title="Monitor Thermal Sensors With lm sensors" />](http://virtuallyhyper.com/wp-content/uploads/2013/09/Thermal_zone.png)
+![Thermal zone Monitor Thermal Sensors With lm sensors](http://virtuallyhyper.com/wp-content/uploads/2013/09/Thermal_zone.png)
 
 Here is some information regarding the thermal zones:
 
@@ -333,7 +333,7 @@ I then ran into this: [Inducing Thermal-Awareness in Multicore Systems Using Net
 
 And they have a pretty good picture as well:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/09/thermal_sensors_on_soc.png" alt="thermal sensors on soc Monitor Thermal Sensors With lm sensors" width="593" height="377" class="alignnone size-full wp-image-9595" title="Monitor Thermal Sensors With lm sensors" />](http://virtuallyhyper.com/wp-content/uploads/2013/09/thermal_sensors_on_soc.png)
+![thermal sensors on soc Monitor Thermal Sensors With lm sensors](http://virtuallyhyper.com/wp-content/uploads/2013/09/thermal_sensors_on_soc.png)
 
 So using multiple sensors on the board, the system can determine what the best course of action to take (ie Scale down the frequency of the CPU).
 
@@ -480,7 +480,7 @@ Later on the same PDF talks about the specific Exynos Thermal Driver:
 
 So the Exynos thermal driver throttles the CPU determined by the ACTIVE trips that are created. Here is a pretty good diagram of the process:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/09/exynos_thermal_driver.png" alt="exynos thermal driver Monitor Thermal Sensors With lm sensors" width="927" height="604" class="alignnone size-full wp-image-9594" title="Monitor Thermal Sensors With lm sensors" />](http://virtuallyhyper.com/wp-content/uploads/2013/09/exynos_thermal_driver.png)
+![exynos thermal driver Monitor Thermal Sensors With lm sensors](http://virtuallyhyper.com/wp-content/uploads/2013/09/exynos_thermal_driver.png)
 
 Depending on which one it tripped we throttle the CPU accordingly. Here are the trip values on the laptop:
 
@@ -636,7 +636,7 @@ Now all that I had to do was plot those values in zabbix :)
 
 While in Mac OS X you can install **iStat** and then from the dashboard you can see all the temperature information. Here is how mine looked like:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/09/i_stat_dashboard.png" alt="i stat dashboard Monitor Thermal Sensors With lm sensors" width="262" height="109" class="alignnone size-full wp-image-9622" title="Monitor Thermal Sensors With lm sensors" />](http://virtuallyhyper.com/wp-content/uploads/2013/09/i_stat_dashboard.png)
+![i stat dashboard Monitor Thermal Sensors With lm sensors](http://virtuallyhyper.com/wp-content/uploads/2013/09/i_stat_dashboard.png)
 
 You can also download the temperature Monitor from [here](http://www.bresink.com/osx/0TemperatureMonitor/download.php5). After you install, it you can run it manually. Here is what I saw when I ran it on my system:
 
@@ -907,11 +907,11 @@ I realized that my **Memory_Module Bank B** wasn't showing anything (and the **A
 
 I decided to use the label **CPU_Package** cause it was the most appropriate. Imagine the CPU chip looking like this:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/09/cpu_chip1.png" alt="cpu chip1 Monitor Thermal Sensors With lm sensors" width="498" height="408" class="alignnone size-full wp-image-9631" title="Monitor Thermal Sensors With lm sensors" />](http://virtuallyhyper.com/wp-content/uploads/2013/09/cpu_chip1.png)
+![cpu chip1 Monitor Thermal Sensors With lm sensors](http://virtuallyhyper.com/wp-content/uploads/2013/09/cpu_chip1.png)
 
 In my case there are 4 Cores, but the idea is the same. The whole CPU (confusing term) is the Processor Package (check out [this](http://superuser.com/questions/324284/what-is-meant-by-the-terms-cpu-core-die-and-package) page for definitions of CPU,Core, and Processor Package). The easiest tool that helps the representation of the CPUs is **powertop**. When I ran that tool, here is what I saw:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/09/powertop1.png" alt="powertop1 Monitor Thermal Sensors With lm sensors" width="929" height="730" class="alignnone size-full wp-image-9640" title="Monitor Thermal Sensors With lm sensors" />](http://virtuallyhyper.com/wp-content/uploads/2013/09/powertop1.png)
+![powertop1 Monitor Thermal Sensors With lm sensors](http://virtuallyhyper.com/wp-content/uploads/2013/09/powertop1.png)
 
 So my laptop has **1** Process Package, which consists of **4** Cores and (since hyper-threading is enabled) we have 2 "virtual cores" per core. I could've just made the label **CPU** and that would make sense as well. What I saw in **powertop**, matched the laptop description:
 
@@ -947,7 +947,7 @@ As I was labeling the sensors I came across some interesting acronyms. The first
 
 So PECI is another interface that grabs the average temperature across multiple CPUs (or any thermal sensors) and it's supposed to be more accurate. There was also a **PECI_SA** sensor, that actually corresponds to the *System Agent*. Looking over ["Power management architecture of the 2nd generation Intel Core"](http://virtuallyhyper.com/wp-content/uploads/2013/09/HC23.19.921.SandyBridge_Power_10-Rotem-Intel.pdf), we see this:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/09/intel_peci_sa.png" alt="intel peci sa Monitor Thermal Sensors With lm sensors" width="958" height="467" class="alignnone size-full wp-image-9633" title="Monitor Thermal Sensors With lm sensors" />](http://virtuallyhyper.com/wp-content/uploads/2013/09/intel_peci_sa.png)
+![intel peci sa Monitor Thermal Sensors With lm sensors](http://virtuallyhyper.com/wp-content/uploads/2013/09/intel_peci_sa.png)
 
 So we have two PECI capable sensors, GPU and SA. The GPU (Graphical Processing Unit.. self explanatory) and SA (the system agent, basically representing the Thermal Environment.. so I am guessing all the CPUs).
 
@@ -959,11 +959,11 @@ The other term is PCH. Here is a pretty good definition from [wikipedia](http://
 
 From the [Apple Technician Guide MacBook Pro 15](http://virtuallyhyper.com/wp-content/uploads/2013/09/mbp15_mid10.pdf), here is a good diagram:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/09/macbookpro_15_PCH.png" alt="macbookpro 15 PCH Monitor Thermal Sensors With lm sensors" width="778" height="732" class="alignnone size-full wp-image-9634" title="Monitor Thermal Sensors With lm sensors" />](http://virtuallyhyper.com/wp-content/uploads/2013/09/macbookpro_15_PCH.png)
+![macbookpro 15 PCH Monitor Thermal Sensors With lm sensors](http://virtuallyhyper.com/wp-content/uploads/2013/09/macbookpro_15_PCH.png)
 
 So we can see that most of the components go through the PCH. Also from ["Intel 7 Series / C216 Chipset Platform Controller Hub (PCH)"](http://virtuallyhyper.com/wp-content/uploads/2013/09/7-series-chipset-pch-thermal-design-guide.pdf) here is a table of all the components that connect to the PCH:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/09/PCH_Components_core_I7.png" alt="PCH Components core I7 Monitor Thermal Sensors With lm sensors" width="537" height="637" class="alignnone size-full wp-image-9635" title="Monitor Thermal Sensors With lm sensors" />](http://virtuallyhyper.com/wp-content/uploads/2013/09/PCH_Components_core_I7.png)
+![PCH Components core I7 Monitor Thermal Sensors With lm sensors](http://virtuallyhyper.com/wp-content/uploads/2013/09/PCH_Components_core_I7.png)
 
 I would say the PCH Temperature basically represents the Temperature of the motherboard.
 

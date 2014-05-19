@@ -43,12 +43,12 @@ From same blog as above:
 ### Analyze current performance, identify and address gaps when building the logical design
 
 From the [APAC BrownBag Session 14](http://professionalvmware.com/2012/05/apac-vbrownbag-follow-up-vcap-dcd-performance/) Slide deck:
-[<img class="alignnone size-full wp-image-2789" title="slide7of13-1" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/slide7of13-1.png" alt="slide7of13 1 VCAP5 DCD Objective 2.5 – Build Performance Requirements into the Logical Design" width="943" height="601" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/slide7of13-1.png)
+![slide7of13-1](http://virtuallyhyper.com/wp-content/uploads/2012/08/slide7of13-1.png)
 
 ### Using a conceptual design, create a logical design that meets performance requirements.
 
 Let's say we say that we will have production VMs and development VMs. From the Conceptual design we will just have two different containers that represent each type of a VM. For the Logical Design we will have DRS Resource Pools and Tiered Storage. Here is an example take from a VMware article called "[Storage Considerations for VMware vCloud Director](http://www.vmware.com/files/pdf/techpaper/VMW_10Q3_WP_vCloud_Director_Storage.pdf)":
-[<img class="alignnone size-full wp-image-2793" title="RP-tiered_storage" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/RP-tiered_storage.png" alt="RP tiered storage VCAP5 DCD Objective 2.5 – Build Performance Requirements into the Logical Design" width="467" height="321" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/RP-tiered_storage.png)
+![RP-tiered_storage](http://virtuallyhyper.com/wp-content/uploads/2012/08/RP-tiered_storage.png)
 
 ### Identify performance-related functional requirements based on given non-functional requirements and service dependencies
 
@@ -75,7 +75,7 @@ Make sure to define what the capacity is of the current environment.
 
 ### Incorporate scalability requirements into the logical design.
 
-Use [vCops](http://www.vmware.com/products/capacity-planner/overview.html" target="_blank).
+Use [vCops](http://www.vmware.com/products/capacity-planner/overview.html)
 
 ### Determine performance component of SLAs and service level management processes
 

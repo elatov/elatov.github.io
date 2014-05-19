@@ -64,23 +64,23 @@ Power on the VM and from within Windows run:
 
 And you will see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/windows_disk_mgmt.png" alt="windows disk mgmt Extending the System Drive on Windows 2008 Running Under KVM" width="635" height="447" class="alignnone size-full wp-image-8058" title="Extending the System Drive on Windows 2008 Running Under KVM" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/windows_disk_mgmt.png)
+![windows disk mgmt Extending the System Drive on Windows 2008 Running Under KVM](http://virtuallyhyper.com/wp-content/uploads/2013/04/windows_disk_mgmt.png)
 
 Then right click on the **C:** partition and then select "Extend Volume":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/right_click_c-part.png" alt="right click c part Extending the System Drive on Windows 2008 Running Under KVM" width="637" height="546" class="alignnone size-full wp-image-8059" title="Extending the System Drive on Windows 2008 Running Under KVM" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/right_click_c-part.png)
+![right click c part Extending the System Drive on Windows 2008 Running Under KVM](http://virtuallyhyper.com/wp-content/uploads/2013/04/right_click_c-part.png)
 
 Then the "Extend Volume Wizard" will startup:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/extend_volume_wizard.png" alt="extend volume wizard Extending the System Drive on Windows 2008 Running Under KVM" width="497" height="394" class="alignnone size-full wp-image-8060" title="Extending the System Drive on Windows 2008 Running Under KVM" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/extend_volume_wizard.png)
+![extend volume wizard Extending the System Drive on Windows 2008 Running Under KVM](http://virtuallyhyper.com/wp-content/uploads/2013/04/extend_volume_wizard.png)
 
 Click "Next" and it will automatically select the available space on that disk:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/select_disks_extend_volume.png" alt="select disks extend volume Extending the System Drive on Windows 2008 Running Under KVM" width="495" height="395" class="alignnone size-full wp-image-8061" title="Extending the System Drive on Windows 2008 Running Under KVM" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/select_disks_extend_volume.png)
+![select disks extend volume Extending the System Drive on Windows 2008 Running Under KVM](http://virtuallyhyper.com/wp-content/uploads/2013/04/select_disks_extend_volume.png)
 
 In our case we have 5GB available which as I mentioned is automatically selected. At this point just click "Next" and then "Finish". After the process is finished, you will see the **C:** partition take up the rest of the drive:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/c_part_extended.png" alt="c part extended Extending the System Drive on Windows 2008 Running Under KVM" width="636" height="542" class="alignnone size-full wp-image-8062" title="Extending the System Drive on Windows 2008 Running Under KVM" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/c_part_extended.png)
+![c part extended Extending the System Drive on Windows 2008 Running Under KVM](http://virtuallyhyper.com/wp-content/uploads/2013/04/c_part_extended.png)
 
 Now we can apply more updates :)
 

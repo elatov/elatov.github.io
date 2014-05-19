@@ -159,7 +159,7 @@ Remove a route from the routing table:
 
 From [this](http://www.vmworld.net/wp-content/uploads/2012/05/Esxtop_Troubleshooting_eng.pdf) pdf:
 
-[<img class="alignnone size-full wp-image-5313" alt="esxtop network problems VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/esxtop_network_problems.png" width="603" height="236" title="VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-3-troubleshoot-network-performance-and-connectivity/esxtop_network_problems/" rel="attachment wp-att-5313)
+![esxtop network problems VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/esxtop_network_problems.png)
 
 Here is a quick summary:
 
@@ -270,7 +270,7 @@ From "[vSphere Networking ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.
 
 Here is how it looks like in vCenter:
 
-[<img class="alignnone size-full wp-image-5316" alt="create port mirror VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/create_port_mirror.png" width="821" height="548" title="VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-3-troubleshoot-network-performance-and-connectivity/create_port_mirror/" rel="attachment wp-att-5316)
+![create port mirror VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/create_port_mirror.png)
 
 Here are the next steps from the above guide:
 
@@ -284,11 +284,11 @@ Here are the next steps from the above guide:
 
 So first choose a port you want mirror, by looking under "Networking" View -> Select DVS -> Select "Ports" tab and you will see the following:
 
-[<img class="alignnone size-full wp-image-5317" alt="choose port from dvs VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/choose_port_from_dvs.png" width="757" height="357" title="VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-3-troubleshoot-network-performance-and-connectivity/choose_port_from_dvs/" rel="attachment wp-att-5317)
+![choose port from dvs VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/choose_port_from_dvs.png)
 
 Then in the Create Mirror Session Wizard use that port number, like so:
 
-[<img class="alignnone size-full wp-image-5318" alt="mirror session select port VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/mirror_session_select_port.png" width="818" height="546" title="VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-3-troubleshoot-network-performance-and-connectivity/mirror_session_select_port/" rel="attachment wp-att-5318)
+![mirror session select port VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/mirror_session_select_port.png)
 
 And more steps from the guide:
 
@@ -301,14 +301,14 @@ And more steps from the guide:
 > **Procedure**
 >
 > 1.  Choose the Source type.
->     [<img class="alignnone size-full wp-image-5320" alt="mirror session source type VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/mirror_session_source_type.png" width="562" height="97" title="VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-3-troubleshoot-network-performance-and-connectivity/mirror_session_source_type/" rel="attachment wp-att-5320)
+>     ![mirror session source type VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/mirror_session_source_type.png)
 > 2.  Click >> to add the selected destinations to the port mirroring session.
 > 3.  (Optional) Repeat the above steps to add multiple destinations.
 > 4.  Click Next.
 
 Here is how it looks like in vCenter:
 
-[<img class="alignnone size-full wp-image-5321" alt="mirror session select destination port VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/mirror_session_select_destination_port.png" width="817" height="545" title="VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-3-troubleshoot-network-performance-and-connectivity/mirror_session_select_destination_port/" rel="attachment wp-att-5321)
+![mirror session select destination port VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/mirror_session_select_destination_port.png)
 
 In the above example I chose an uplink to be the destination of the mirror session. And here are more steps from the same guide:
 
@@ -323,7 +323,7 @@ In the above example I chose an uplink to be the destination of the mirror sessi
 
 Here is how it looks like from vCenter:
 
-[<img class="alignnone size-full wp-image-5322" alt="mirror session verify settings VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/mirror_session_verify_settings.png" width="821" height="552" title="VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-3-troubleshoot-network-performance-and-connectivity/mirror_session_verify_settings/" rel="attachment wp-att-5322)
+![mirror session verify settings VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/mirror_session_verify_settings.png)
 
 And here are the last steps from the guide:
 
@@ -340,7 +340,7 @@ And here are the last steps from the guide:
 
 Here is how it looks like in vCenter:
 
-[<img class="alignnone size-full wp-image-5324" alt="mirror session check settings VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/mirror_session_check_settings.png" width="692" height="531" title="VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-3-troubleshoot-network-performance-and-connectivity/mirror_session_check_settings/" rel="attachment wp-att-5324)
+![mirror session check settings VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/mirror_session_check_settings.png)
 
 ### Utilize Direct Console User Interface (DCUI) and ESXi Shell to troubleshoot, configure, and monitor ESXi networking
 
@@ -357,7 +357,7 @@ From "[vSphere Installation and Setup vSphere 5.0](http://pubs.vmware.com/vspher
 
 Here is how it looks like in the DCUI:
 
-[<img class="alignnone size-full wp-image-5325" alt="dcui ip config VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/dcui_ip_config.png" width="620" height="260" title="VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-3-troubleshoot-network-performance-and-connectivity/dcui_ip_config/" rel="attachment wp-att-5325)
+![dcui ip config VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/dcui_ip_config.png)
 
 More information from the same guide:
 
@@ -380,7 +380,7 @@ More information from the same guide:
 
 Here is how it looks like from the DCUI:
 
-[<img class="alignnone size-full wp-image-5326" alt="dcui dns settings VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/dcui_dns_settings.png" width="616" height="259" title="VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-3-troubleshoot-network-performance-and-connectivity/dcui_dns_settings/" rel="attachment wp-att-5326)
+![dcui dns settings VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/dcui_dns_settings.png)
 
 More from the same guide:
 
@@ -400,11 +400,11 @@ More from the same guide:
 
 Here is how the test setup looks like from DCUI:
 
-[<img class="alignnone size-full wp-image-5327" alt="test mgmt network dcui VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/test_mgmt_network_dcui.png" width="556" height="217" title="VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-3-troubleshoot-network-performance-and-connectivity/test_mgmt_network_dcui/" rel="attachment wp-att-5327)
+![test mgmt network dcui VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/test_mgmt_network_dcui.png)
 
 And here is how the results look like:
 
-[<img class="alignnone size-full wp-image-5328" alt="dcui test mgmt net results VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/dcui_test_mgmt_net_results.png" width="595" height="198" title="VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-3-troubleshoot-network-performance-and-connectivity/dcui_test_mgmt_net_results/" rel="attachment wp-att-5328)
+![dcui test mgmt net results VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/dcui_test_mgmt_net_results.png)
 
 Some more stuff to try:
 
@@ -424,7 +424,7 @@ Some more stuff to try:
 
 Here is how it looks like from DCUI:
 
-[<img class="alignnone size-full wp-image-5330" alt="restart mgmt agents success VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/restart_mgmt_agents_success.png" width="560" height="182" title="VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-3-troubleshoot-network-performance-and-connectivity/restart_mgmt_agents_dcui/" rel="attachment wp-att-5330)
+![restart mgmt agents success VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/restart_mgmt_agents_success.png)
 
 Here are the rest of the options:
 
@@ -468,5 +468,5 @@ Here are the rest of the options:
 >     *   Press F11 to confirm. </blockquote>
 >     Here are all the options as seen in the DCUI:
 >
->     [<img class="alignnone size-full wp-image-5331" alt="dcui options VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/dcui_options.png" width="1011" height="239" title="VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-3-troubleshoot-network-performance-and-connectivity/dcui_options/" rel="attachment wp-att-5331)
+>     ![dcui options VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/dcui_options.png)
 >

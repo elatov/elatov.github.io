@@ -35,7 +35,7 @@ These were covered in the previous objective
 
 Figure out what is currently used for Management and try to integrate vCenter into it. Here is a logical diagram of vCenter managing a vSphere Environment:
 
-[<img class="alignnone size-full wp-image-2782" title="logical-diag-vcenter" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/logical-diag-vcenter.png" alt="logical diag vcenter VCAP5 DCD Objective 2.4 – Build Manageability Requirements into the Logical Design " width="592" height="374" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/logical-diag-vcenter.png)
+![logical-diag-vcenter](http://virtuallyhyper.com/wp-content/uploads/2012/08/logical-diag-vcenter.png)
 
 You can also integrate vCenter into LDAP, this will allow easier manageability.
 
@@ -93,7 +93,7 @@ From the same ITIL Document:
 
 On top of what was described in the previous objective, also define a roll who can make changes to the golden templates. New changes come in and updates come out, all of these have to be kept up to date. With a defined roll to complete this, all changes are known for tracking purposes. Also VMware provides a product vCenter Configuration Manager, here is how it looks like:
 
-[<img class="alignnone size-full wp-image-2785" title="conf-manager" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/conf-manager.png" alt="conf manager VCAP5 DCD Objective 2.4 – Build Manageability Requirements into the Logical Design " width="743" height="568" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/conf-manager.png)
+![conf-manager](http://virtuallyhyper.com/wp-content/uploads/2012/08/conf-manager.png)
 
 With this tool you can keep track of all the changes that took place in your environment.
 

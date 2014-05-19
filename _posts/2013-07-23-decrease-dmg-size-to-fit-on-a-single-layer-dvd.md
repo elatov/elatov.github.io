@@ -248,11 +248,11 @@ Luckily, I had iDefrag :). Mount your Sparse image:
 
 then start up iDefrag and you will see you drive there. Click "Go" and it will start defragmenting:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/07/iDefrag_started.png" alt="iDefrag started Decrease DMG Size to Fit on a Single Layer DVD" width="793" height="524" class="alignnone size-full wp-image-9224" title="Decrease DMG Size to Fit on a Single Layer DVD" />](http://virtuallyhyper.com/wp-content/uploads/2013/07/iDefrag_started.png)
+![iDefrag started Decrease DMG Size to Fit on a Single Layer DVD](http://virtuallyhyper.com/wp-content/uploads/2013/07/iDefrag_started.png)
 
 after it's done you will the following message:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/07/iDefrag_finished.png" alt="iDefrag finished Decrease DMG Size to Fit on a Single Layer DVD" width="400" height="140" class="alignnone size-full wp-image-9225" title="Decrease DMG Size to Fit on a Single Layer DVD" />](http://virtuallyhyper.com/wp-content/uploads/2013/07/iDefrag_finished.png)
+![iDefrag finished Decrease DMG Size to Fit on a Single Layer DVD](http://virtuallyhyper.com/wp-content/uploads/2013/07/iDefrag_finished.png)
 
 at this point you can quit iDefrag and unmount the Sparse Image:
 

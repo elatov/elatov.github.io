@@ -62,7 +62,7 @@ Pretty standard stuff, but I realized that when I created that VM I used the 2GB
 
 So the first thing I wanted to do, was to convert the 2GB Split Spare VMDKs into a single monolithic VMDK (also reffered to as Monolithic Sparse VMDK). You can check out all the VMDK formats in the [Virtual Disk Programming Guide Virtual Disk Development Kit (VDDK) 5.1](http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vddk51_programming.pdf). Here is a table from that pdf:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/VMDK_Types.png" alt="VMDK Types Migrating a VM from VMware Workstation to Oracle VirtualBox" width="596" height="534" class="alignnone size-full wp-image-7772" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" />](http://virtuallyhyper.com/wp-content/uploads/2013/03/VMDK_Types.png)
+![VMDK Types Migrating a VM from VMware Workstation to Oracle VirtualBox](http://virtuallyhyper.com/wp-content/uploads/2013/03/VMDK_Types.png)
 
 ### Convert Split Sparse VMDK to a Monolithic Sparse VMDK
 
@@ -73,7 +73,7 @@ Looking over a couple of sites, it looks like **vmware-vdiskmanager** is the way
 
 The **vmware-vdiskmanager** is packaged with the "Virtual Disk Development Kit" which you can download from [here](http://www.vmware.com/support/developer/vddk/). Here is screenshot of the available downloads after I logged into the VMware portal:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/vddk_download.png" alt="vddk download Migrating a VM from VMware Workstation to Oracle VirtualBox" width="1314" height="380" class="alignnone size-full wp-image-7773" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" />](http://virtuallyhyper.com/wp-content/uploads/2013/03/vddk_download.png)
+![vddk download Migrating a VM from VMware Workstation to Oracle VirtualBox](http://virtuallyhyper.com/wp-content/uploads/2013/03/vddk_download.png)
 
 After I downloaded the archive, I had the following file:
 
@@ -243,7 +243,7 @@ Now that my VM is ready to be imported into an OVA, let's check out the [OVF Too
 
 [Here](http://www.vmware.com/support/developer/ovf/) is the download page for the *ovftool* application. After I logged in, here were the downloads that I saw:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/Download_Ovftool.png" alt="Download Ovftool Migrating a VM from VMware Workstation to Oracle VirtualBox" width="1307" height="603" class="alignnone size-full wp-image-7780" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" />](http://virtuallyhyper.com/wp-content/uploads/2013/03/Download_Ovftool.png)
+![Download Ovftool Migrating a VM from VMware Workstation to Oracle VirtualBox](http://virtuallyhyper.com/wp-content/uploads/2013/03/Download_Ovftool.png)
 
 When I was done with the download, I had the following file:
 
@@ -260,11 +260,11 @@ Now let's install the ovf tool:
 
 At this point a GUI installer will come up, like so:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/OVF_Installer.png" alt="OVF Installer Migrating a VM from VMware Workstation to Oracle VirtualBox" width="642" height="509" class="alignnone size-full wp-image-7781" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" />](http://virtuallyhyper.com/wp-content/uploads/2013/03/OVF_Installer.png)
+![OVF Installer Migrating a VM from VMware Workstation to Oracle VirtualBox](http://virtuallyhyper.com/wp-content/uploads/2013/03/OVF_Installer.png)
 
 Just hit "Install" and the process with go through pretty quickly. After it's finished you will see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/OVF_Installer_Finished.png" alt="OVF Installer Finished Migrating a VM from VMware Workstation to Oracle VirtualBox" width="642" height="509" class="alignnone size-full wp-image-7782" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" />](http://virtuallyhyper.com/wp-content/uploads/2013/03/OVF_Installer_Finished.png)
+![OVF Installer Finished Migrating a VM from VMware Workstation to Oracle VirtualBox](http://virtuallyhyper.com/wp-content/uploads/2013/03/OVF_Installer_Finished.png)
 
 In the [OVF User Guide](http://www.vmware.com/support/developer/ovf/ovf301/ovftool-301-userguide.pdf) there are good examples of how to use *ovftool*. Here is what I ran to create my OVA template:
 
@@ -299,7 +299,7 @@ Also from the same guide:
 
 Here is also a table comparison:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/OVF_VS_OVA.png" alt="OVF VS OVA Migrating a VM from VMware Workstation to Oracle VirtualBox" width="568" height="207" class="alignnone size-full wp-image-7783" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" />](http://virtuallyhyper.com/wp-content/uploads/2013/03/OVF_VS_OVA.png)
+![OVF VS OVA Migrating a VM from VMware Workstation to Oracle VirtualBox](http://virtuallyhyper.com/wp-content/uploads/2013/03/OVF_VS_OVA.png)
 
 After the process was done, I saw the following:
 
@@ -414,7 +414,7 @@ Another person had a similar issue when they renamed the ova file. You can read 
 
 After the import is finished, start VirtualBox and you will see you newly imported VM:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/VirtualBox_with_VM_Imported.png" alt="VirtualBox with VM Imported Migrating a VM from VMware Workstation to Oracle VirtualBox" width="772" height="579" class="alignnone size-full wp-image-7784" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" />](http://virtuallyhyper.com/wp-content/uploads/2013/03/VirtualBox_with_VM_Imported.png)
+![VirtualBox with VM Imported Migrating a VM from VMware Workstation to Oracle VirtualBox](http://virtuallyhyper.com/wp-content/uploads/2013/03/VirtualBox_with_VM_Imported.png)
 
 If you want to keep it command line, you can run:
 
@@ -429,21 +429,21 @@ And that will show you a lot of information regarding the VM that you just impor
 
 After powering on the VM, I saw the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/WIN_Boot_Error.png" alt="WIN Boot Error Migrating a VM from VMware Workstation to Oracle VirtualBox" width="722" height="470" class="alignnone size-full wp-image-7817" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" />](http://virtuallyhyper.com/wp-content/uploads/2013/03/WIN_Boot_Error.png)
+![WIN Boot Error Migrating a VM from VMware Workstation to Oracle VirtualBox](http://virtuallyhyper.com/wp-content/uploads/2013/03/WIN_Boot_Error.png)
 
 ## Fixing "Error loading operating system" After Migrating XP VM
 
 The first that I did was change the Disk Controller from SCSI to IDE. Here is how the Storage settings initially after the migration:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/Storage_Settings_after_Conversion.png" alt="Storage Settings after Conversion Migrating a VM from VMware Workstation to Oracle VirtualBox" width="666" height="501" class="alignnone size-full wp-image-7818" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" />](http://virtuallyhyper.com/wp-content/uploads/2013/03/Storage_Settings_after_Conversion.png)
+![Storage Settings after Conversion Migrating a VM from VMware Workstation to Oracle VirtualBox](http://virtuallyhyper.com/wp-content/uploads/2013/03/Storage_Settings_after_Conversion.png)
 
 Then I changed the Contoller to IDE and also added my XP ISO, so I could boot from it. Here is how the settings looked like after the changes:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/storage_settings_to_ide.png" alt="storage settings to ide Migrating a VM from VMware Workstation to Oracle VirtualBox" width="666" height="501" class="alignnone size-full wp-image-7819" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" />](http://virtuallyhyper.com/wp-content/uploads/2013/03/storage_settings_to_ide.png)
+![storage settings to ide Migrating a VM from VMware Workstation to Oracle VirtualBox](http://virtuallyhyper.com/wp-content/uploads/2013/03/storage_settings_to_ide.png)
 
 Reboot the VM and you will see "Press any key to boot from the CD..". I pressed "Enter" and it started booting from the CD and then you will see this screen:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/xp_welcome_screen.png" alt="xp welcome screen Migrating a VM from VMware Workstation to Oracle VirtualBox" width="722" height="466" class="alignnone size-full wp-image-7820" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" />](http://virtuallyhyper.com/wp-content/uploads/2013/03/xp_welcome_screen.png)
+![xp welcome screen Migrating a VM from VMware Workstation to Oracle VirtualBox](http://virtuallyhyper.com/wp-content/uploads/2013/03/xp_welcome_screen.png)
 
 At this point I typed "R" to bring up the "Recovery Command Prompt". At the command prompt, I ran the following:
 
@@ -453,31 +453,31 @@ At this point I typed "R" to bring up the "Recovery Command Prompt". At the comm
 
 Here is how that looks like:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/fixboot_fixmbr.png" alt="fixboot fixmbr Migrating a VM from VMware Workstation to Oracle VirtualBox" width="722" height="466" class="alignnone size-full wp-image-7821" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" />](http://virtuallyhyper.com/wp-content/uploads/2013/03/fixboot_fixmbr.png)
+![fixboot fixmbr Migrating a VM from VMware Workstation to Oracle VirtualBox](http://virtuallyhyper.com/wp-content/uploads/2013/03/fixboot_fixmbr.png)
 
 That should re-install the MBR on the disk. After I rebooted the error was gone, but it just showed a black screen like so:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/blank-screen-after-fix-boot.png" alt="blank screen after fix boot Migrating a VM from VMware Workstation to Oracle VirtualBox" width="722" height="470" class="alignnone size-full wp-image-7822" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" />](http://virtuallyhyper.com/wp-content/uploads/2013/03/blank-screen-after-fix-boot.png)
+![blank screen after fix boot Migrating a VM from VMware Workstation to Oracle VirtualBox](http://virtuallyhyper.com/wp-content/uploads/2013/03/blank-screen-after-fix-boot.png)
 
 At this point I booted from the Vista Recovery Disk. The disk used to be available for free from "[Windows Vista Recovery Disc Download](http://neosmart.net/blog/2008/windows-vista-recovery-disc-download/)", but now you have to pay for it. If you have a Vista Install CD, you can use that as well. Here is how my storage settings looked after I added the new ISO:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/storage_settings_with_vista_recovery.png" alt="storage settings with vista recovery Migrating a VM from VMware Workstation to Oracle VirtualBox" width="666" height="501" class="alignnone size-full wp-image-7823" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" />](http://virtuallyhyper.com/wp-content/uploads/2013/03/storage_settings_with_vista_recovery.png)
+![storage settings with vista recovery Migrating a VM from VMware Workstation to Oracle VirtualBox](http://virtuallyhyper.com/wp-content/uploads/2013/03/storage_settings_with_vista_recovery.png)
 
 Rebooting the VM and pressing "Enter" at the "Press any key to boot from CD....", I saw the following screen:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/win_vista_install_windows.png" alt="win vista install windows Migrating a VM from VMware Workstation to Oracle VirtualBox" width="802" height="670" class="alignnone size-full wp-image-7824" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" />](http://virtuallyhyper.com/wp-content/uploads/2013/03/win_vista_install_windows.png)
+![win vista install windows Migrating a VM from VMware Workstation to Oracle VirtualBox](http://virtuallyhyper.com/wp-content/uploads/2013/03/win_vista_install_windows.png)
 
 I then clicked "Next" and saw the following screen:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/vista_repair_your_computer.png" alt="vista repair your computer Migrating a VM from VMware Workstation to Oracle VirtualBox" width="802" height="670" class="alignnone size-full wp-image-7825" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" />](http://virtuallyhyper.com/wp-content/uploads/2013/03/vista_repair_your_computer.png)
+![vista repair your computer Migrating a VM from VMware Workstation to Oracle VirtualBox](http://virtuallyhyper.com/wp-content/uploads/2013/03/vista_repair_your_computer.png)
 
 Then I clicked "Repair your Computer" and I saw the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/vista_repair-options.png" alt="vista repair options Migrating a VM from VMware Workstation to Oracle VirtualBox" width="802" height="670" class="alignnone size-full wp-image-7826" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" />](http://virtuallyhyper.com/wp-content/uploads/2013/03/vista_repair-options.png)
+![vista repair options Migrating a VM from VMware Workstation to Oracle VirtualBox](http://virtuallyhyper.com/wp-content/uploads/2013/03/vista_repair-options.png)
 
 At that screen I clicked "Next" and that yielded this screen:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/vista_rec-options_command_prompt.png" alt="vista rec options command prompt Migrating a VM from VMware Workstation to Oracle VirtualBox" width="802" height="670" class="alignnone size-full wp-image-7827" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" />](http://virtuallyhyper.com/wp-content/uploads/2013/03/vista_rec-options_command_prompt.png)
+![vista rec options command prompt Migrating a VM from VMware Workstation to Oracle VirtualBox](http://virtuallyhyper.com/wp-content/uploads/2013/03/vista_rec-options_command_prompt.png)
 
 I then clicked "Command Prompt" and in the command prompt I fixed the MBR again (just for good measure) with following commands:
 
@@ -487,7 +487,7 @@ I then clicked "Command Prompt" and in the command prompt I fixed the MBR again 
 
 Here is how it looked like:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/bootrec_vista.png" alt="bootrec vista Migrating a VM from VMware Workstation to Oracle VirtualBox" width="802" height="670" class="alignnone size-full wp-image-7828" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" />](http://virtuallyhyper.com/wp-content/uploads/2013/03/bootrec_vista.png)
+![bootrec vista Migrating a VM from VMware Workstation to Oracle VirtualBox](http://virtuallyhyper.com/wp-content/uploads/2013/03/bootrec_vista.png)
 
 Looking around some settings, I noticed that the partition is not active, I then ran the following to activate the partition:
 
@@ -499,11 +499,11 @@ Looking around some settings, I noticed that the partition is not active, I then
 
 Here is how it looked like in the prompt:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/vista_mark_partition_active.png" alt="vista mark partition active Migrating a VM from VMware Workstation to Oracle VirtualBox" width="802" height="670" class="alignnone size-full wp-image-7829" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" />](http://virtuallyhyper.com/wp-content/uploads/2013/03/vista_mark_partition_active.png)
+![vista mark partition active Migrating a VM from VMware Workstation to Oracle VirtualBox](http://virtuallyhyper.com/wp-content/uploads/2013/03/vista_mark_partition_active.png)
 
 Notice the "*" (star) next to the partition after making it active. Then I rebooted and I saw a successful Windows boot process:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/xp_successful_boot.png" alt="xp successful boot Migrating a VM from VMware Workstation to Oracle VirtualBox" width="802" height="670" class="alignnone size-full wp-image-7830" title="Migrating a VM from VMware Workstation to Oracle VirtualBox" />](http://virtuallyhyper.com/wp-content/uploads/2013/03/xp_successful_boot.png)
+![xp successful boot Migrating a VM from VMware Workstation to Oracle VirtualBox](http://virtuallyhyper.com/wp-content/uploads/2013/03/xp_successful_boot.png)
 
 <root>
 

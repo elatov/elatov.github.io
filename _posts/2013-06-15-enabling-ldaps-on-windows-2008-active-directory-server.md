@@ -38,23 +38,23 @@ To start the "Active Directory Users and Computers" Console, execute the followi
 
 At which point you will see the following window:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/dsa_started.png" alt="dsa started Enabling LDAPS on Windows 2008 Active Directory Server" width="764" height="530" class="alignnone size-full wp-image-8744" title="Enabling LDAPS on Windows 2008 Active Directory Server" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/dsa_started.png)
+![dsa started Enabling LDAPS on Windows 2008 Active Directory Server](http://virtuallyhyper.com/wp-content/uploads/2013/05/dsa_started.png)
 
 Then right click in the white space and go to "New" -> "User":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/new_user_dsa_g.png" alt="new user dsa g Enabling LDAPS on Windows 2008 Active Directory Server" width="764" height="535" class="alignnone size-full wp-image-8745" title="Enabling LDAPS on Windows 2008 Active Directory Server" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/new_user_dsa_g.png)
+![new user dsa g Enabling LDAPS on Windows 2008 Active Directory Server](http://virtuallyhyper.com/wp-content/uploads/2013/05/new_user_dsa_g.png)
 
 Then fill out the User information:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/new_user_filled_out.png" alt="new user filled out Enabling LDAPS on Windows 2008 Active Directory Server" width="433" height="362" class="alignnone size-full wp-image-8746" title="Enabling LDAPS on Windows 2008 Active Directory Server" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/new_user_filled_out.png)
+![new user filled out Enabling LDAPS on Windows 2008 Active Directory Server](http://virtuallyhyper.com/wp-content/uploads/2013/05/new_user_filled_out.png)
 
 Lastly set the user's password:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/set_password.png" alt="set password Enabling LDAPS on Windows 2008 Active Directory Server" width="433" height="364" class="alignnone size-full wp-image-8747" title="Enabling LDAPS on Windows 2008 Active Directory Server" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/set_password.png)
+![set password Enabling LDAPS on Windows 2008 Active Directory Server](http://virtuallyhyper.com/wp-content/uploads/2013/05/set_password.png)
 
 After it's all said and done you will see the following in the "Active Directory Users and Computers" Console:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/user_added_dsa.png" alt="user added dsa Enabling LDAPS on Windows 2008 Active Directory Server" width="762" height="530" class="alignnone size-full wp-image-8748" title="Enabling LDAPS on Windows 2008 Active Directory Server" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/user_added_dsa.png)
+![user added dsa Enabling LDAPS on Windows 2008 Active Directory Server](http://virtuallyhyper.com/wp-content/uploads/2013/05/user_added_dsa.png)
 
 So our test user will be **elatov**.
 
@@ -67,35 +67,35 @@ From the run dialogue run:
 
 and you will see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/ldp_exe_started.png" alt="ldp exe started Enabling LDAPS on Windows 2008 Active Directory Server" width="765" height="424" class="alignnone size-full wp-image-8749" title="Enabling LDAPS on Windows 2008 Active Directory Server" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/ldp_exe_started.png)
+![ldp exe started Enabling LDAPS on Windows 2008 Active Directory Server](http://virtuallyhyper.com/wp-content/uploads/2013/05/ldp_exe_started.png)
 
 Now let's *bind* to the AD server, since we are local to the AD server we can just bind with the same user that we are currently logged in:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/ldp_exe_bind_button_g.png" alt="ldp exe bind button g Enabling LDAPS on Windows 2008 Active Directory Server" width="765" height="425" class="alignnone size-full wp-image-8750" title="Enabling LDAPS on Windows 2008 Active Directory Server" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/ldp_exe_bind_button_g.png)
+![ldp exe bind button g Enabling LDAPS on Windows 2008 Active Directory Server](http://virtuallyhyper.com/wp-content/uploads/2013/05/ldp_exe_bind_button_g.png)
 
 and let's leave the defaults:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/bind_dialogue.png" alt="bind dialogue Enabling LDAPS on Windows 2008 Active Directory Server" width="278" height="249" class="alignnone size-full wp-image-8751" title="Enabling LDAPS on Windows 2008 Active Directory Server" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/bind_dialogue.png)
+![bind dialogue Enabling LDAPS on Windows 2008 Active Directory Server](http://virtuallyhyper.com/wp-content/uploads/2013/05/bind_dialogue.png)
 
 After clicking OK, you will see the connection go through and the *bind* to the AD server succeed:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/ldp_exe_bound.png" alt="ldp exe bound Enabling LDAPS on Windows 2008 Active Directory Server" width="766" height="571" class="alignnone size-full wp-image-8752" title="Enabling LDAPS on Windows 2008 Active Directory Server" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/ldp_exe_bound.png)
+![ldp exe bound Enabling LDAPS on Windows 2008 Active Directory Server](http://virtuallyhyper.com/wp-content/uploads/2013/05/ldp_exe_bound.png)
 
 Now let's start browsing the AD server, first let's select the "Tree" view:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/ldp_exe_tree_button_g.png" alt="ldp exe tree button g Enabling LDAPS on Windows 2008 Active Directory Server" width="768" height="571" class="alignnone size-full wp-image-8753" title="Enabling LDAPS on Windows 2008 Active Directory Server" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/ldp_exe_tree_button_g.png)
+![ldp exe tree button g Enabling LDAPS on Windows 2008 Active Directory Server](http://virtuallyhyper.com/wp-content/uploads/2013/05/ldp_exe_tree_button_g.png)
 
 After that we need to choose the **BaseDN**, this is basically where we want to start the search. We will choose **dc=elatov,dc=local**, which is basically the root of the AD server.
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/tree_view_base_dn.png" alt="tree view base dn Enabling LDAPS on Windows 2008 Active Directory Server" width="432" height="126" class="alignnone size-full wp-image-8777" title="Enabling LDAPS on Windows 2008 Active Directory Server" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/tree_view_base_dn.png)
+![tree view base dn Enabling LDAPS on Windows 2008 Active Directory Server](http://virtuallyhyper.com/wp-content/uploads/2013/05/tree_view_base_dn.png)
 
 I just want to see all the available branches/children that are part of the AD server:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/children_AD_server.png" alt="children AD server Enabling LDAPS on Windows 2008 Active Directory Server" width="767" height="574" class="alignnone size-full wp-image-8754" title="Enabling LDAPS on Windows 2008 Active Directory Server" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/children_AD_server.png)
+![children AD server Enabling LDAPS on Windows 2008 Active Directory Server](http://virtuallyhyper.com/wp-content/uploads/2013/05/children_AD_server.png)
 
 Expanding the **User** branch and locating our test user "elatov", we see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/elatov_user_info_ldp_exe.png" alt="elatov user info ldp exe Enabling LDAPS on Windows 2008 Active Directory Server" width="792" height="637" class="alignnone size-full wp-image-8755" title="Enabling LDAPS on Windows 2008 Active Directory Server" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/elatov_user_info_ldp_exe.png)
+![elatov user info ldp exe Enabling LDAPS on Windows 2008 Active Directory Server](http://virtuallyhyper.com/wp-content/uploads/2013/05/elatov_user_info_ldp_exe.png)
 
 We can see that the DN (Distinguished Name) of the test user is:
 
@@ -316,11 +316,11 @@ I had recently created my own certificate with my own CA. Check out "[certificat
 
 So let's fire up **gnomint** and check to see if I was lucky enough to allow this certificate to be used for a "TLS WWW Server". To check out if the certificate can be used for that functionality, right click on the certificate and select **Properties**:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/gnomint_props_cert.png" alt="gnomint props cert Enabling LDAPS on Windows 2008 Active Directory Server" width="606" height="426" class="alignnone size-full wp-image-8756" title="Enabling LDAPS on Windows 2008 Active Directory Server" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/gnomint_props_cert.png)
+![gnomint props cert Enabling LDAPS on Windows 2008 Active Directory Server](http://virtuallyhyper.com/wp-content/uploads/2013/05/gnomint_props_cert.png)
 
 Then click on the "Details" tab, expand the "Extensions", and lastly expand the "Extended Key Usage" section:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/cert-props-gnomint.png" alt="cert props gnomint Enabling LDAPS on Windows 2008 Active Directory Server" width="766" height="770" class="alignnone size-full wp-image-8787" title="Enabling LDAPS on Windows 2008 Active Directory Server" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/cert-props-gnomint.png)
+![cert props gnomint Enabling LDAPS on Windows 2008 Active Directory Server](http://virtuallyhyper.com/wp-content/uploads/2013/05/cert-props-gnomint.png)
 
 Yay! I was lucky enough to leave that option enabled. I was using a wild certificate so the subject name would match as well. Now let's follow the instructions from the above Microsoft page to import the certificate.
 
@@ -335,39 +335,39 @@ From the Run dialogue, enter:
 
 and you will this:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/mmc_started.png" alt="mmc started Enabling LDAPS on Windows 2008 Active Directory Server" width="762" height="529" class="alignnone size-full wp-image-8758" title="Enabling LDAPS on Windows 2008 Active Directory Server" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/mmc_started.png)
+![mmc started Enabling LDAPS on Windows 2008 Active Directory Server](http://virtuallyhyper.com/wp-content/uploads/2013/05/mmc_started.png)
 
 #### 2.Click **File**, click **Add/Remove Snap-in**, select **Certificates** from the available snap-ins, and then click **Add**:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/cert-snap-int.png" alt="cert snap int Enabling LDAPS on Windows 2008 Active Directory Server" width="670" height="463" class="alignnone size-full wp-image-8759" title="Enabling LDAPS on Windows 2008 Active Directory Server" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/cert-snap-int.png)
+![cert snap int Enabling LDAPS on Windows 2008 Active Directory Server](http://virtuallyhyper.com/wp-content/uploads/2013/05/cert-snap-int.png)
 
 #### 3. In **Add or Remove Snap-ins**, click **Service account** to view the certificates that are stored in the service's personal store, and then click **Next**:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/serv_acct_cert_snapin.png" alt="serv acct cert snapin Enabling LDAPS on Windows 2008 Active Directory Server" width="514" height="373" class="alignnone size-full wp-image-8760" title="Enabling LDAPS on Windows 2008 Active Directory Server" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/serv_acct_cert_snapin.png)
+![serv acct cert snapin Enabling LDAPS on Windows 2008 Active Directory Server](http://virtuallyhyper.com/wp-content/uploads/2013/05/serv_acct_cert_snapin.png)
 
 #### 4. In **Add or Remove Snap-ins**, click **Local computer**, and then click **Next**.
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/loc_comp_cert_snapin.png" alt="loc comp cert snapin Enabling LDAPS on Windows 2008 Active Directory Server" width="519" height="375" class="alignnone size-full wp-image-8761" title="Enabling LDAPS on Windows 2008 Active Directory Server" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/loc_comp_cert_snapin.png)
+![loc comp cert snapin Enabling LDAPS on Windows 2008 Active Directory Server](http://virtuallyhyper.com/wp-content/uploads/2013/05/loc_comp_cert_snapin.png)
 
 #### 5. In **Add or Remove Snap-ins**, click **Active Directory Domain Services**, click **Finish**, and then click **OK**:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/ad-ds-cert-snapin.png" alt="ad ds cert snapin Enabling LDAPS on Windows 2008 Active Directory Server" width="518" height="373" class="alignnone size-full wp-image-8762" title="Enabling LDAPS on Windows 2008 Active Directory Server" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/ad-ds-cert-snapin.png)
+![ad ds cert snapin Enabling LDAPS on Windows 2008 Active Directory Server](http://virtuallyhyper.com/wp-content/uploads/2013/05/ad-ds-cert-snapin.png)
 
 #### 6. In the console tree, expand **Certificates - Service (Active Directory Domain Services)**, expand **Personal**, and then expand **Certificates**:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/ntds-cert-snapin.png" alt="ntds cert snapin Enabling LDAPS on Windows 2008 Active Directory Server" width="762" height="530" class="alignnone size-full wp-image-8763" title="Enabling LDAPS on Windows 2008 Active Directory Server" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/ntds-cert-snapin.png)
+![ntds cert snapin Enabling LDAPS on Windows 2008 Active Directory Server](http://virtuallyhyper.com/wp-content/uploads/2013/05/ntds-cert-snapin.png)
 
 #### 7. To import a certificate, right-click the **NTDS\Personal folder**, click **All Tasks**, and then click **Import**:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/cert_snapin-import_cert.png" alt="cert snapin import cert Enabling LDAPS on Windows 2008 Active Directory Server" width="764" height="532" class="alignnone size-full wp-image-8764" title="Enabling LDAPS on Windows 2008 Active Directory Server" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/cert_snapin-import_cert.png)
+![cert snapin import cert Enabling LDAPS on Windows 2008 Active Directory Server](http://virtuallyhyper.com/wp-content/uploads/2013/05/cert_snapin-import_cert.png)
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/import-cert.png" alt="import cert Enabling LDAPS on Windows 2008 Active Directory Server" width="496" height="446" class="alignnone size-full wp-image-8765" title="Enabling LDAPS on Windows 2008 Active Directory Server" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/import-cert.png)
+![import cert Enabling LDAPS on Windows 2008 Active Directory Server](http://virtuallyhyper.com/wp-content/uploads/2013/05/import-cert.png)
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/include_extended_props_import_cert.png" alt="include extended props import cert Enabling LDAPS on Windows 2008 Active Directory Server" width="494" height="444" class="alignnone size-full wp-image-8766" title="Enabling LDAPS on Windows 2008 Active Directory Server" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/include_extended_props_import_cert.png)
+![include extended props import cert Enabling LDAPS on Windows 2008 Active Directory Server](http://virtuallyhyper.com/wp-content/uploads/2013/05/include_extended_props_import_cert.png)
 
 After the certificate is imported you will see the following in the Snap-In:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/ldaps_cert_imported.png" alt="ldaps cert imported Enabling LDAPS on Windows 2008 Active Directory Server" width="761" height="530" class="alignnone size-full wp-image-8767" title="Enabling LDAPS on Windows 2008 Active Directory Server" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/ldaps_cert_imported.png)
+![ldaps cert imported Enabling LDAPS on Windows 2008 Active Directory Server](http://virtuallyhyper.com/wp-content/uploads/2013/05/ldaps_cert_imported.png)
 
 Since this a self-signed certificate make sure you follow the instructions laid out in "[Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/2013/04/setup-your-own-certificate-authority-ca-on-linux-and-use-it-in-a-windows-environment/)" to import your own CA Certificate under the regular Certificate store. Just launch:
 
@@ -376,17 +376,17 @@ Since this a self-signed certificate make sure you follow the instructions laid 
 
 and make sure your CA is in the "Trusted Root Certificate Authorities" folder:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/trusted_root_ca_certs_self_signed.png" alt="trusted root ca certs self signed Enabling LDAPS on Windows 2008 Active Directory Server" width="870" height="452" class="alignnone size-full wp-image-8768" title="Enabling LDAPS on Windows 2008 Active Directory Server" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/trusted_root_ca_certs_self_signed.png)
+![trusted root ca certs self signed Enabling LDAPS on Windows 2008 Active Directory Server](http://virtuallyhyper.com/wp-content/uploads/2013/05/trusted_root_ca_certs_self_signed.png)
 
 ### Test LDAPS Connection with **ldp.exe**
 
 Start **ldp.exe**, go to "Connection" -> "Connect", and fill out the necessary information and make sure SSL is chosen:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/ldp_exe_ssl.png" alt="ldp exe ssl Enabling LDAPS on Windows 2008 Active Directory Server" width="746" height="443" class="alignnone size-full wp-image-8769" title="Enabling LDAPS on Windows 2008 Active Directory Server" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/ldp_exe_ssl.png)
+![ldp exe ssl Enabling LDAPS on Windows 2008 Active Directory Server](http://virtuallyhyper.com/wp-content/uploads/2013/05/ldp_exe_ssl.png)
 
 Then click OK and make sure the connection is successful:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/successful_ldp_exe_ssl.png" alt="successful ldp exe ssl Enabling LDAPS on Windows 2008 Active Directory Server" width="755" height="603" class="alignnone size-full wp-image-8770" title="Enabling LDAPS on Windows 2008 Active Directory Server" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/successful_ldp_exe_ssl.png)
+![successful ldp exe ssl Enabling LDAPS on Windows 2008 Active Directory Server](http://virtuallyhyper.com/wp-content/uploads/2013/05/successful_ldp_exe_ssl.png)
 
 ### Perform LDAPS Query with OpenLDAP tools
 

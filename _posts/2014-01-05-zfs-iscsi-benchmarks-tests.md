@@ -74,15 +74,15 @@ Nothing crazy or expensive.
 
 Before we present an iSCSI LUN to our ESXi host let's see what speeds we get locally. I actually installed **napp-it** on my **omnios** install (if you need help with that, check out [Jarret's post here](http://virtuallyhyper.com/2013/04/installing-and-configuring-omnios/)). In the *napp-it* web-gui there are a bunch of available tests:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/napp-it-benchmarks_g.png" alt="napp it benchmarks g ZFS iSCSI Benchmark Tests on ESX" width="745" height="554" class="alignnone size-full wp-image-9836" title="ZFS iSCSI Benchmark Tests on ESX" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/napp-it-benchmarks_g.png)
+![napp it benchmarks g ZFS iSCSI Benchmark Tests on ESX](http://virtuallyhyper.com/wp-content/uploads/2013/12/napp-it-benchmarks_g.png)
 
 Doing a quick **DD** test yielded the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/napp-it-dd-test.png" alt="napp it dd test ZFS iSCSI Benchmark Tests on ESX" width="505" height="439" class="alignnone size-full wp-image-9837" title="ZFS iSCSI Benchmark Tests on ESX" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/napp-it-dd-test.png)
+![napp it dd test ZFS iSCSI Benchmark Tests on ESX](http://virtuallyhyper.com/wp-content/uploads/2013/12/napp-it-dd-test.png)
 
 I was actually impressed. Checking out the [data sheet](http://www.seagate.com/www-content/product-content/barracuda-fam/desktop-hdd/barracuda-7200-14/en-gb/docs/desktop-hdd-data-sheet-ds1770-1-1212gb.pdf) of the hardrive, I saw the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/hd-specs.png" alt="hd specs ZFS iSCSI Benchmark Tests on ESX" width="724" height="253" class="alignnone size-full wp-image-9840" title="ZFS iSCSI Benchmark Tests on ESX" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/hd-specs.png)
+![hd specs ZFS iSCSI Benchmark Tests on ESX](http://virtuallyhyper.com/wp-content/uploads/2013/12/hd-specs.png)
 
 The **Avg Data** rate is **156MB/s**, the **Max Data** rate is **210 MB/s** and I got **177MB/s**. This was a regular DD test, I am sure if I did a **bonnie++** I would get closer to the **210MB/s** mark. But I wanted a realistic test, with FileSystem Cache and OS limitations involved. Doing the same test from the command line, I saw the following:
 
@@ -152,11 +152,11 @@ The **iostat** columns are described in the **man** page quite well:
 
 We can see that the device was definitely pushed to the max: the percent busy (**%b**) was almost 100% and same for the percent wait (**%w**). But the service time (**svc_t**) was still really good, below *6.5 ms* and below the **avg seek time** as mentioned in the data sheet above. Just for fun I ran the **iozone 1gb** test and here is what I saw:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/iozon-test.png" alt="iozon test ZFS iSCSI Benchmark Tests on ESX" width="1054" height="342" class="alignnone size-full wp-image-9843" title="ZFS iSCSI Benchmark Tests on ESX" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/iozon-test.png)
+![iozon test ZFS iSCSI Benchmark Tests on ESX](http://virtuallyhyper.com/wp-content/uploads/2013/12/iozon-test.png)
 
 The sequential write was about the same speed **175MB/s**. A **bonnie++** test, yielded slightly higher speeds:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/bonnie_test.png" alt="bonnie test ZFS iSCSI Benchmark Tests on ESX" width="1069" height="259" class="alignnone size-full wp-image-9844" title="ZFS iSCSI Benchmark Tests on ESX" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/bonnie_test.png)
+![bonnie test ZFS iSCSI Benchmark Tests on ESX](http://virtuallyhyper.com/wp-content/uploads/2013/12/bonnie_test.png)
 
 ### Network Benchmark
 
@@ -269,7 +269,7 @@ I went ahead and put VMFS on it and then I did a quick **dd** test from the ESXi
 
 As the above test was running I ran **esxtop** and here is what I saw:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/dd-first-try_g.png" alt="dd first try g ZFS iSCSI Benchmark Tests on ESX" width="1474" height="176" class="alignnone size-full wp-image-9845" title="ZFS iSCSI Benchmark Tests on ESX" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/dd-first-try_g.png)
+![dd first try g ZFS iSCSI Benchmark Tests on ESX](http://virtuallyhyper.com/wp-content/uploads/2013/12/dd-first-try_g.png)
 
 That didn't look good at all. I also checked out **iostat** on the *omnios* machine and I saw the following:
 
@@ -293,7 +293,7 @@ That is really slow, but it's not like the *omnios* machine was over loaded or a
 
 So then I checked out the LUN and I saw that **write-back cache** was not enabled. Per [this](http://kb.vmware.com/kb/1006602) VMware KB, it's recommended to enable that. So inside *napp-it*, I went ahead and enabled that:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/enable-write-cache.png" alt="enable write cache ZFS iSCSI Benchmark Tests on ESX" width="1014" height="237" class="alignnone size-full wp-image-9846" title="ZFS iSCSI Benchmark Tests on ESX" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/enable-write-cache.png)
+![enable write cache ZFS iSCSI Benchmark Tests on ESX](http://virtuallyhyper.com/wp-content/uploads/2013/12/enable-write-cache.png)
 
 After I enabled that I went ahead and did another **dd** test:
 
@@ -307,7 +307,7 @@ After I enabled that I went ahead and did another **dd** test:
 
 Also checked out **esxtop** and saw the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/davg-after-wirte-cache-enabled.png" alt="davg after wirte cache enabled ZFS iSCSI Benchmark Tests on ESX" width="1478" height="165" class="alignnone size-full wp-image-9847" title="ZFS iSCSI Benchmark Tests on ESX" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/davg-after-wirte-cache-enabled.png)
+![davg after wirte cache enabled ZFS iSCSI Benchmark Tests on ESX](http://virtuallyhyper.com/wp-content/uploads/2013/12/davg-after-wirte-cache-enabled.png)
 
 That is way better, now I am writing at **~80MB/s**.
 
@@ -315,11 +315,11 @@ That is way better, now I am writing at **~80MB/s**.
 
 I then installed a windows VM and installed **IOmeter** on it. I then added a **VMDK** to the VM that resided on my test LUN. After that I followed the instructions laid out in [cool perl](http://kb.vmware.com/kb/2019131) script which grabs a couple of columns and generates an HTML file of those columns. I modified the script to grab latency stats as well. I also modified the *IOmeter* results to only include sequential tests (excluded the random tests). Here is the result of my initial test:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/iometer-results-reg-test1.png" alt="iometer results reg test1 ZFS iSCSI Benchmark Tests on ESX" width="1298" height="542" class="alignnone size-full wp-image-9852" title="ZFS iSCSI Benchmark Tests on ESX" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/iometer-results-reg-test1.png)
+![iometer results reg test1 ZFS iSCSI Benchmark Tests on ESX](http://virtuallyhyper.com/wp-content/uploads/2013/12/iometer-results-reg-test1.png)
 
 That is actually pretty good, I am getting about **105-111 MB/s** for small IO sizes between **4K** and **32K**. We can see that the latency looks good as well **1-9ms**. And of course as the block size increases so does the latency :) I decided to do a test with larger IO. I modified the test to include **128K-1M** sequential read and writes. Here were the results:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/iometer-big-tests1.png" alt="iometer big tests1 ZFS iSCSI Benchmark Tests on ESX" width="1311" height="713" class="alignnone size-full wp-image-9851" title="ZFS iSCSI Benchmark Tests on ESX" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/iometer-big-tests1.png)
+![iometer big tests1 ZFS iSCSI Benchmark Tests on ESX](http://virtuallyhyper.com/wp-content/uploads/2013/12/iometer-big-tests1.png)
 
 The results are really impressive but so is the latency. Our bandwidth is **107-178MB/s** but our latency varies from **24ms** to **408ms**
 
@@ -344,7 +344,7 @@ Then doing a **dd** test just to the disk, I saw the following:
 
 At the same time checking out **esxtop** here is what I saw:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/linux_vm_dd_g.png" alt="linux vm dd g ZFS iSCSI Benchmark Tests on ESX" width="1495" height="139" class="alignnone size-full wp-image-9854" title="ZFS iSCSI Benchmark Tests on ESX" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/linux_vm_dd_g.png)
+![linux vm dd g ZFS iSCSI Benchmark Tests on ESX](http://virtuallyhyper.com/wp-content/uploads/2013/12/linux_vm_dd_g.png)
 
 That wasn't so good. As I ran the **dd** test, I also ran an **iostat** within the VM and here is what I saw:
 
@@ -439,7 +439,7 @@ Now running the **dd** command again:
 
 The speed was the same, but when I checked out **esxtop**, I saw **DAVG** go down:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/linux_vm_dd_32bit_max_sec_g.png" alt="linux vm dd 32bit max sec g ZFS iSCSI Benchmark Tests on ESX" width="1492" height="136" class="alignnone size-full wp-image-9860" title="ZFS iSCSI Benchmark Tests on ESX" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/linux_vm_dd_32bit_max_sec_g.png)
+![linux vm dd 32bit max sec g ZFS iSCSI Benchmark Tests on ESX](http://virtuallyhyper.com/wp-content/uploads/2013/12/linux_vm_dd_32bit_max_sec_g.png)
 
 Checking out **iostat** from within the VM I saw the following:
 
@@ -505,9 +505,9 @@ When I created the zfs volume, I set the block size to **128KB**:
 
 After reading a couple of sites:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/zfs-block-sizes.png" alt="zfs block sizes ZFS iSCSI Benchmark Tests on ESX" width="558" height="236" class="alignnone size-full wp-image-9861" title="ZFS iSCSI Benchmark Tests on ESX" />](http://www.oracle.com/technetwork/server-storage/sun-unified-storage/documentation/bestprac-zfssa-vsphere5-1940129.pdf)
+![zfs block sizes ZFS iSCSI Benchmark Tests on ESX](http://virtuallyhyper.com/wp-content/uploads/2013/12/zfs-block-sizes.png)
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/zfs-ds-examples.png" alt="zfs ds examples ZFS iSCSI Benchmark Tests on ESX" width="544" height="520" class="alignnone size-full wp-image-9862" title="ZFS iSCSI Benchmark Tests on ESX" />](http://www.oracle.com/technetwork/articles/servers-storage-admin/sto-settings-vmware-cluster-1968087.html)
+![zfs ds examples ZFS iSCSI Benchmark Tests on ESX](http://virtuallyhyper.com/wp-content/uploads/2013/12/zfs-ds-examples.png)
 
 [ZFS Zvol blocksize and ESXi](http://n4f.siftusystems.com/index.php/2013/07/14/zfs-zvol-blocksize-and-esxi/)
 
@@ -611,7 +611,7 @@ In the end here was my final dd result from my Linux VM:
 
 And checking out my NIC Utilization during the above test:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/12/nic-usage.png" alt="nic usage ZFS iSCSI Benchmark Tests on ESX" width="831" height="125" class="alignnone size-full wp-image-9863" title="ZFS iSCSI Benchmark Tests on ESX" />](http://virtuallyhyper.com/wp-content/uploads/2013/12/nic-usage.png)
+![nic usage ZFS iSCSI Benchmark Tests on ESX](http://virtuallyhyper.com/wp-content/uploads/2013/12/nic-usage.png)
 
 Almost the full pipe :) Lastly here is how the *omnios* **iostat** looked like:
 

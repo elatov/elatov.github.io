@@ -16,7 +16,7 @@ tags:
 
 If you launch Esxtop and type '**h**' it will show you the following:
 
-[<img class="alignnone size-full wp-image-4939" title="esxtop_shortcuts" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/esxtop_shortcuts.png" alt="esxtop shortcuts VCAP5 DCA Objective 3.4 – Utilize Advanced vSphere Performance Monitoring Tools " width="735" height="455" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/esxtop_shortcuts.png)
+![esxtop_shortcuts](http://virtuallyhyper.com/wp-content/uploads/2012/11/esxtop_shortcuts.png)
 
 The most important ones are:
 
@@ -31,7 +31,7 @@ The most important ones are:
 
 For the fields, I would check out [vSphere Monitoring and Performance vSphere 5.0](http://communities.vmware.com/docs/DOC-9279)' documentation. It covers all the fields in great detail. You can also go to each panel from above (cpu, memory... etc) and then type in '**f**' and it will show you the available fields. Here is how the LUN fields look like:
 
-[<img class="alignnone size-full wp-image-4940" title="esxtop_lun_fields" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/esxtop_lun_fields.png" alt="esxtop lun fields VCAP5 DCA Objective 3.4 – Utilize Advanced vSphere Performance Monitoring Tools " width="735" height="455" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/esxtop_lun_fields.png)
+![esxtop_lun_fields](http://virtuallyhyper.com/wp-content/uploads/2012/11/esxtop_lun_fields.png)
 
 ### Identify fields used with vscsiStats
 
@@ -48,11 +48,11 @@ From "[Storage Workload Characterization and Consolidation in Virtualized Enviro
 
 From '[vSphere Monitoring and Performance vSphere 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf)':
 
-[<img class="alignnone size-full wp-image-4941" title="esxtop_save_profile" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/esxtop_save_profile.png" alt="esxtop save profile VCAP5 DCA Objective 3.4 – Utilize Advanced vSphere Performance Monitoring Tools " width="591" height="42" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/esxtop_save_profile.png)
+![esxtop_save_profile](http://virtuallyhyper.com/wp-content/uploads/2012/11/esxtop_save_profile.png)
 
 So launch *esxtop* and configure the fields that you would like to see and then save the configuration by typing "**W**", here is how it looks like:
 
-[<img class="alignnone size-full wp-image-4942" title="esxtop_W" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/esxtop_W.png" alt="esxtop W VCAP5 DCA Objective 3.4 – Utilize Advanced vSphere Performance Monitoring Tools " width="692" height="89" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/esxtop_W.png)
+![esxtop_W](http://virtuallyhyper.com/wp-content/uploads/2012/11/esxtop_W.png)
 
 Select the default file name and now the next time you launch *esxtop* it will start with your custom fields.
 

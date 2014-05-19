@@ -95,7 +95,7 @@ From [vSphere Availability ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com
 > *   There are five powered-on virtual machines in the cluster with differing CPU and memory requirements.VM1 needs 2GHz of CPU resources and 1GB of memory, while VM2 needs 2GHz and 1GB, VM3 needs 1GHz and 2GB, VM4 needs 1GHz and 1GB, and VM5 needs 1GHz and 1GB.
 > *   The Host Failures Cluster Tolerates is set to one
 >
-> [<img class="alignnone size-full wp-image-4962" title="ha_host_failure_policy_example" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_host_failure_policy_example.png" alt="ha host failure policy example VCAP5 DCA Objective 4.1 – Implement and Maintain Complex VMware HA Solutions " width="451" height="316" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_host_failure_policy_example.png)
+> ![ha_host_failure_policy_example](http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_host_failure_policy_example.png)
 >
 > 1.  Slot size is calculated by comparing both the CPU and memory requirements of the virtual machines and selecting the largest.
 >     The largest CPU requirement (shared by VM1 and VM2) is 2GHz, while the largest memory requirement (for VM3) is 2GB. Based on this, the slot size is 2GHz CPU and 2GB memory.
@@ -114,7 +114,7 @@ Here is the next policy:
 > *   There are five powered-on virtual machines in the cluster with differing CPU and memory requirements.VM1 needs 2GHz of CPU resources and 1GB of memory, while VM2 needs 2GHz and 1GB, VM3 needs 1GHz and 2GB, VM4 needs 1GHz and 1GB, and VM5 needs 1GHz and 1GB.
 > *   The Configured Failover Capacity is set to 25%.
 >
-> [<img class="alignnone size-full wp-image-4964" title="ha_percentage_example" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_percentage_example.png" alt="ha percentage example VCAP5 DCA Objective 4.1 – Implement and Maintain Complex VMware HA Solutions " width="521" height="303" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_percentage_example.png)
+> ![ha_percentage_example](http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_percentage_example.png)
 >
 > The total resource requirements for the powered-on virtual machines is 7GHz and 6GB. The total host resources available for virtual machines is 24GHz and 21GB. Based on this, the Current CPU Failover Capacity is 70% ((24GHz - 7GHz)/24GHz). Similarly, the Current Memory Failover Capacity is 71% ((21GB-6GB)/21GB).
 >
@@ -126,18 +126,18 @@ For the last one, not much to calculate there is a stand by host in case of a ho
 
 If you go to the "Host and Cluster" View -> Right click on the cluster and select "Edit Settings" -> Then Under the "HA" section select "Virtual Machine Options" you will be able to set an isolation response either per cluster or per VM. Here is how it looks like in vCenter:
 
-[<img class="alignnone size-full wp-image-4965" title="custom_isolation_response" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/custom_isolation_response.png" alt="custom isolation response VCAP5 DCA Objective 4.1 – Implement and Maintain Complex VMware HA Solutions " width="708" height="578" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/custom_isolation_response.png)
+![custom_isolation_response](http://virtuallyhyper.com/wp-content/uploads/2012/11/custom_isolation_response.png)
 
 Also from [vSphere Availability ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf), here are some advanced settings for the cluster:
 
 > **vSphere HA Advanced Attributes**
 > You can set advanced attributes that affect the behavior of your vSphere HA cluster.
 >
-> [<img class="alignnone size-full wp-image-4966" title="ha_advanced_settings_isolation" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_advanced_settings_isolation.png" alt="ha advanced settings isolation VCAP5 DCA Objective 4.1 – Implement and Maintain Complex VMware HA Solutions " width="583" height="287" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_advanced_settings_isolation.png)
+> ![ha_advanced_settings_isolation](http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_advanced_settings_isolation.png)
 
 Each of these can be edited by going to "Host and Cluster" View -> Right click on the cluster and select "Edit Settings" -> Then select"HA" -> Then select "Advanced Options". This will give you a window where you can enter a option/value combo. Here is how it looks like in vCenter:
 
-[<img class="alignnone size-full wp-image-4967" title="advanced_ha_setting_in_vc" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/advanced_ha_setting_in_vc.png" alt="advanced ha setting in vc VCAP5 DCA Objective 4.1 – Implement and Maintain Complex VMware HA Solutions " width="709" height="577" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/advanced_ha_setting_in_vc.png)
+![advanced_ha_setting_in_vc](http://virtuallyhyper.com/wp-content/uploads/2012/11/advanced_ha_setting_in_vc.png)
 
 ### Configure HA redundancy (Management Network, Datastore Heartbeat, Network partitions)
 
@@ -163,11 +163,11 @@ Each of these can be edited by going to "Host and Cluster" View -> Right click o
 
 From this old white paper "[VMware HA Concepts, Implementation and Best Practices](http://www.vmware.com/files/pdf/VMwareHA_twp.pdf)", either do this:
 
-[<img class="alignnone size-full wp-image-4968" title="redundancy_with_nic_teaming" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/redundancy_with_nic_teaming.png" alt="redundancy with nic teaming VCAP5 DCA Objective 4.1 – Implement and Maintain Complex VMware HA Solutions " width="427" height="306" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/redundancy_with_nic_teaming.png)
+![redundancy_with_nic_teaming](http://virtuallyhyper.com/wp-content/uploads/2012/11/redundancy_with_nic_teaming.png)
 
 or do this:
 
-[<img class="alignnone size-full wp-image-4970" title="redundancy_with_two_mgmt_ints" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/redundancy_with_two_mgmt_ints.png" alt="redundancy with two mgmt ints VCAP5 DCA Objective 4.1 – Implement and Maintain Complex VMware HA Solutions " width="422" height="329" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/redundancy_with_two_mgmt_ints.png)
+![redundancy_with_two_mgmt_ints](http://virtuallyhyper.com/wp-content/uploads/2012/11/redundancy_with_two_mgmt_ints.png)
 
 Since this is for ESXi 5.0 you won't have a vswif interface but a vmkernel interface marked as a management interface.
 
@@ -182,7 +182,7 @@ Here is a section regarding datastore heart-beating:
 
 So you can select a custom datastore to be used for heartbeating if the default is not to your liking. To do so go to the "Host and Cluster" View -> Right click on the cluster and select "Edit Settings" -> Then Under the "HA" section select "Datastore Heartbeating". Here you can select another datastore to be used for heartbeating. Here is how it looks like in vCenter:
 
-[<img class="alignnone size-full wp-image-4971" title="datastore_heartbeating_option" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/datastore_heartbeating_option.png" alt="datastore heartbeating option VCAP5 DCA Objective 4.1 – Implement and Maintain Complex VMware HA Solutions " width="709" height="576" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/datastore_heartbeating_option.png)
+![datastore_heartbeating_option](http://virtuallyhyper.com/wp-content/uploads/2012/11/datastore_heartbeating_option.png)
 
 You can also change the option *das.heartbeatdsperhost* to change the number of heartbeat datastores selected by vCenter Server for each host. The process on how to do that was covered in the above section.
 
@@ -224,15 +224,15 @@ From [vSphere Availability ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com
 
 To check on the HA status of the cluster you can go to "Host and Clusters" view -> then Select a cluster -> then to go the "Summary" tab -> and under the "vSphere HA" Section -> select "Advanced Runtime Info". Here is how it looks like in vCenter:
 
-[<img class="alignnone size-full wp-image-4991" title="ha_advanced_runtime_info" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_advanced_runtime_info.png" alt="ha advanced runtime info VCAP5 DCA Objective 4.1 – Implement and Maintain Complex VMware HA Solutions " width="712" height="347" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_advanced_runtime_info.png)
+![ha_advanced_runtime_info](http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_advanced_runtime_info.png)
 
 From the same section you can click on "Cluster Status", that will show you what host is the master, how many VMs are protected, and what datastores are used for heart-beating. Here is how it looks like in vCenter:
 
-[<img class="alignnone size-full wp-image-4992" title="ha_cluster_status" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_cluster_status.png" alt="ha cluster status VCAP5 DCA Objective 4.1 – Implement and Maintain Complex VMware HA Solutions " width="364" height="408" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_cluster_status.png)
+![ha_cluster_status](http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_cluster_status.png)
 
 Lastly you can check out the "Configuration Issues":
 
-[<img class="alignnone size-full wp-image-4993" title="ha_cluster_configuration_issues" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_cluster_configuration_issues.png" alt="ha cluster configuration issues VCAP5 DCA Objective 4.1 – Implement and Maintain Complex VMware HA Solutions " width="809" height="403" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_cluster_configuration_issues.png)
+![ha_cluster_configuration_issues](http://virtuallyhyper.com/wp-content/uploads/2012/11/ha_cluster_configuration_issues.png)
 
 ### Create a custom slot size configuration
 

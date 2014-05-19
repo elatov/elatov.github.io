@@ -38,7 +38,7 @@ Let's get straight to it, from the "[Red Hat Enterprise Linux 6 Deployment Guide
 
 > **3.3. Using Command Line Tools**
 >
-> [<img class="alignnone size-full wp-image-6191" alt="user mgmt commands RHCSA and RHCE Chapter 7 User Administration" src="http://virtuallyhyper.com/wp-content/uploads/2013/02/user_mgmt_commands.png" width="681" height="273" title="RHCSA and RHCE Chapter 7 User Administration" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/user_mgmt_commands.png)
+> ![user mgmt commands RHCSA and RHCE Chapter 7 User Administration](http://virtuallyhyper.com/wp-content/uploads/2013/02/user_mgmt_commands.png)
 >
 > **3.3.1. Adding a New User**
 >
@@ -52,7 +52,7 @@ Let's get straight to it, from the "[Red Hat Enterprise Linux 6 Deployment Guide
 >     passwd username
 >
 >
-> [<img class="alignnone size-full wp-image-6199" alt="useradd options RHCSA and RHCE Chapter 7 User Administration" src="http://virtuallyhyper.com/wp-content/uploads/2013/02/useradd_options.png" width="683" height="494" title="RHCSA and RHCE Chapter 7 User Administration" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/useradd_options.png)
+> ![useradd options RHCSA and RHCE Chapter 7 User Administration](http://virtuallyhyper.com/wp-content/uploads/2013/02/useradd_options.png)
 >
 > **Explaining the Process**
 >
@@ -219,7 +219,7 @@ Now let's move onto *groups*, from the same guide:
 >
 > …where options are command line options as described in Table 3.3, “groupadd command line options”.
 >
-> [<img class="alignnone size-full wp-image-6201" alt="groupadd options RHCSA and RHCE Chapter 7 User Administration" src="http://virtuallyhyper.com/wp-content/uploads/2013/02/groupadd_options.png" width="683" height="213" title="RHCSA and RHCE Chapter 7 User Administration" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/groupadd_options.png)
+> ![groupadd options RHCSA and RHCE Chapter 7 User Administration](http://virtuallyhyper.com/wp-content/uploads/2013/02/groupadd_options.png)
 
 So let's add two new groups called *group1* and *group2* and add our users to the groups:
 
@@ -548,7 +548,7 @@ Getting back to the "[Red Hat Enterprise Linux 6 Deployment Guide](https://acces
 >      chage [options] username
 >
 >
-> …where options are command line options as described in Table 3.4, “chage command line options”. When the **chage** command is followed directly by a username (that is, when no command line options are specified), it displays the current password aging values and allows you to change them interactively. [<img class="alignnone size-full wp-image-6213" alt="chage options RHCSA and RHCE Chapter 7 User Administration" src="http://virtuallyhyper.com/wp-content/uploads/2013/02/chage_options.png" width="679" height="392" title="RHCSA and RHCE Chapter 7 User Administration" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/chage_options.png)
+> …where options are command line options as described in Table 3.4, “chage command line options”. When the **chage** command is followed directly by a username (that is, when no command line options are specified), it displays the current password aging values and allows you to change them interactively. ![chage options RHCSA and RHCE Chapter 7 User Administration](http://virtuallyhyper.com/wp-content/uploads/2013/02/chage_options.png)
 >
 > You can configure a password to expire the first time a user logs in. This forces users to change passwords immediately.
 >
@@ -680,9 +680,9 @@ Let's enable both daemons to be started on boot:
 
 Now let's configure the machine to authenticate with a **NIS** server (itself for now):
 
-[<img class="alignnone size-full wp-image-6214" alt="authconfig tui NIS RHCSA and RHCE Chapter 7 User Administration" src="http://virtuallyhyper.com/wp-content/uploads/2013/02/authconfig_tui_NIS.png" width="710" height="430" title="RHCSA and RHCE Chapter 7 User Administration" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/authconfig_tui_NIS.png)
+![authconfig tui NIS RHCSA and RHCE Chapter 7 User Administration](http://virtuallyhyper.com/wp-content/uploads/2013/02/authconfig_tui_NIS.png)
 
-[<img class="alignnone size-full wp-image-6215" alt="auth tui NIS settings RHCSA and RHCE Chapter 7 User Administration" src="http://virtuallyhyper.com/wp-content/uploads/2013/02/auth_tui_NIS_settings.png" width="711" height="429" title="RHCSA and RHCE Chapter 7 User Administration" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/auth_tui_NIS_settings.png)
+![auth tui NIS settings RHCSA and RHCE Chapter 7 User Administration](http://virtuallyhyper.com/wp-content/uploads/2013/02/auth_tui_NIS_settings.png)
 
 If I had actually setup a **NIS** server, the rest would just fall into place. After I hit next **authconfig-tui** tried to start the appropriate services, but failed, cause there was no **NIS** server:
 

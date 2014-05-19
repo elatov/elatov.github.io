@@ -31,7 +31,7 @@ So there are two replication methods: *inter-site* and *intra-site*. From the sa
 
 So intra-site replication is automatically setup, while inter-site requires some manual configuration of site links. I will be deploying another Domain Controller within my Virtual KVM environment, so I will setup intra-site replication. Here is a picture that shows both types of replications:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/site-replication.png" alt="site replication Configure AD Replication with Windows 2008" width="560" height="355" class="alignnone size-full wp-image-8809" title="Configure AD Replication with Windows 2008" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/site-replication.png)
+![site replication Configure AD Replication with Windows 2008](http://virtuallyhyper.com/wp-content/uploads/2013/05/site-replication.png)
 
 ## Data Replicated with AD Replication
 
@@ -80,7 +80,7 @@ From "[How the Active Directory Replication Model Works?](http://technet.microso
 
 Here is a nice diagram of the process:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/repl_seq.png" alt="repl seq Configure AD Replication with Windows 2008" width="488" height="534" class="alignnone size-full wp-image-8813" title="Configure AD Replication with Windows 2008" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/repl_seq.png)
+![repl seq Configure AD Replication with Windows 2008](http://virtuallyhyper.com/wp-content/uploads/2013/05/repl_seq.png)
 
 ## Install 2nd Active Directory Server
 
@@ -151,43 +151,43 @@ I installed a second Active Directory Server by selecting the “Active Director
 
 And I saw the following screen:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/ad_wizard.png" alt="ad wizard Configure AD Replication with Windows 2008" width="497" height="471" class="alignnone size-full wp-image-8816" title="Configure AD Replication with Windows 2008" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/ad_wizard.png)
+![ad wizard Configure AD Replication with Windows 2008](http://virtuallyhyper.com/wp-content/uploads/2013/05/ad_wizard.png)
 
 Let's choose to "Add a domain controller to an existing domain":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/existing_forest.png" alt="existing forest Configure AD Replication with Windows 2008" width="496" height="471" class="alignnone size-full wp-image-8817" title="Configure AD Replication with Windows 2008" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/existing_forest.png)
+![existing forest Configure AD Replication with Windows 2008](http://virtuallyhyper.com/wp-content/uploads/2013/05/existing_forest.png)
 
 Enter the name of the Domain and enter the admin password for that Domain:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/enter_domain_name.png" alt="enter domain name Configure AD Replication with Windows 2008" width="498" height="469" class="alignnone size-full wp-image-8818" title="Configure AD Replication with Windows 2008" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/enter_domain_name.png)
+![enter domain name Configure AD Replication with Windows 2008](http://virtuallyhyper.com/wp-content/uploads/2013/05/enter_domain_name.png)
 
 If the connection to the primary DC is successful, you will see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/existing_DC.png" alt="existing DC Configure AD Replication with Windows 2008" width="495" height="468" class="alignnone size-full wp-image-8819" title="Configure AD Replication with Windows 2008" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/existing_DC.png)
+![existing DC Configure AD Replication with Windows 2008](http://virtuallyhyper.com/wp-content/uploads/2013/05/existing_DC.png)
 
 We won't be doing any inter-site setup, so selecting the default site name is okay here:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/default_site_ad_setup.png" alt="default site ad setup Configure AD Replication with Windows 2008" width="496" height="469" class="alignnone size-full wp-image-8820" title="Configure AD Replication with Windows 2008" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/default_site_ad_setup.png)
+![default site ad setup Configure AD Replication with Windows 2008](http://virtuallyhyper.com/wp-content/uploads/2013/05/default_site_ad_setup.png)
 
 Next let's setup a DNS server on the new DC and let's NOT make it Read only (RODC):
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/additional_dc_options.png" alt="additional dc options Configure AD Replication with Windows 2008" width="494" height="467" class="alignnone size-full wp-image-8821" title="Configure AD Replication with Windows 2008" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/additional_dc_options.png)
+![additional dc options Configure AD Replication with Windows 2008](http://virtuallyhyper.com/wp-content/uploads/2013/05/additional_dc_options.png)
 
 Next, let's go ahead and replicate the AD configuration from the primary DC:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/replicate_data_ad_wizrd.png" alt="replicate data ad wizrd Configure AD Replication with Windows 2008" width="495" height="469" class="alignnone size-full wp-image-8822" title="Configure AD Replication with Windows 2008" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/replicate_data_ad_wizrd.png)
+![replicate data ad wizrd Configure AD Replication with Windows 2008](http://virtuallyhyper.com/wp-content/uploads/2013/05/replicate_data_ad_wizrd.png)
 
 Click "Next" a couple of times and at the end, you will get to the summary page:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/ad_wizard_summary.png" alt="ad wizard summary Configure AD Replication with Windows 2008" width="496" height="469" class="alignnone size-full wp-image-8823" title="Configure AD Replication with Windows 2008" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/ad_wizard_summary.png)
+![ad wizard summary Configure AD Replication with Windows 2008](http://virtuallyhyper.com/wp-content/uploads/2013/05/ad_wizard_summary.png)
 
 After you click "Next", the replication will start:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/replicating_data.png" alt="replicating data Configure AD Replication with Windows 2008" width="425" height="293" class="alignnone size-full wp-image-8824" title="Configure AD Replication with Windows 2008" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/replicating_data.png)
+![replicating data Configure AD Replication with Windows 2008](http://virtuallyhyper.com/wp-content/uploads/2013/05/replicating_data.png)
 
 After it's done, you will see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/ad_wizard_finished.png" alt="ad wizard finished Configure AD Replication with Windows 2008" width="495" height="468" class="alignnone size-full wp-image-8826" title="Configure AD Replication with Windows 2008" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/ad_wizard_finished.png)
+![ad wizard finished Configure AD Replication with Windows 2008](http://virtuallyhyper.com/wp-content/uploads/2013/05/ad_wizard_finished.png)
 
 Click "Finish" and restart the machine.
 
@@ -303,7 +303,7 @@ I thought that was pretty convenient. We can also make sure the two server are i
 
 Expand "Sites" -> "Default Site" -> "Servers" and make sure you see both servers:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/dssite_msc.png" alt="dssite msc Configure AD Replication with Windows 2008" width="483" height="225" class="alignnone size-full wp-image-8842" title="Configure AD Replication with Windows 2008" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/dssite_msc.png)
+![dssite msc Configure AD Replication with Windows 2008](http://virtuallyhyper.com/wp-content/uploads/2013/05/dssite_msc.png)
 
 If we were doing inter-site replication, we would have to create different site and replication schedules here.
 
@@ -326,11 +326,11 @@ That will create a "cookie" file with the data inside of it, in my case the file
 
 And select "New" -> "User":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/dsa_msc_new_user.png" alt="dsa msc new user Configure AD Replication with Windows 2008" width="761" height="531" class="alignnone size-full wp-image-8828" title="Configure AD Replication with Windows 2008" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/dsa_msc_new_user.png)
+![dsa msc new user Configure AD Replication with Windows 2008](http://virtuallyhyper.com/wp-content/uploads/2013/05/dsa_msc_new_user.png)
 
 Let's call our user "test":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/05/test_user_dsa_msc.png" alt="test user dsa msc Configure AD Replication with Windows 2008" width="433" height="363" class="alignnone size-full wp-image-8829" title="Configure AD Replication with Windows 2008" />](http://virtuallyhyper.com/wp-content/uploads/2013/05/test_user_dsa_msc.png)
+![test user dsa msc Configure AD Replication with Windows 2008](http://virtuallyhyper.com/wp-content/uploads/2013/05/test_user_dsa_msc.png)
 
 After the user is created run the above command again:
 

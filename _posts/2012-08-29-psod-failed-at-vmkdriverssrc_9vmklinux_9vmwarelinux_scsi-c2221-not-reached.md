@@ -16,7 +16,7 @@ tags:
 ---
 I recently ran into the following PSOD:
 
-[<img class="alignnone size-full wp-image-3079" title="psod-lsi-" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/psod-lsi-.png" alt="psod lsi  PSOD Failed at vmkdrivers/src 9/vmklinux 9/vmware/linux scsi.c:2221 — NOT REACHED" width="1163" height="677" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/psod-lsi-.png)
+![psod-lsi-](http://virtuallyhyper.com/wp-content/uploads/2012/08/psod-lsi-.png)
 
 Some other people in the VMware communities have seen the same PSOD. Here is a [link](http://communities.vmware.com/message/2102510) to the communities page. We are crashing at:
 
@@ -62,11 +62,11 @@ So we are using the mpt2sas and megaraid_sas drivers for our local drives. Here 
 
 For vmhba1:
 
-[<img class="alignnone size-full wp-image-3084" title="hcl-vmhba1" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/hcl-vmhba1.png" alt="hcl vmhba1 PSOD Failed at vmkdrivers/src 9/vmklinux 9/vmware/linux scsi.c:2221 — NOT REACHED" width="939" height="420" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/hcl-vmhba1.png)
+![hcl-vmhba1](http://virtuallyhyper.com/wp-content/uploads/2012/08/hcl-vmhba1.png)
 
 and for vmhba2:
 
-[<img class="alignnone size-full wp-image-3085" title="hcl-vmhba2" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/hcl-vmhba2.png" alt="hcl vmhba2 PSOD Failed at vmkdrivers/src 9/vmklinux 9/vmware/linux scsi.c:2221 — NOT REACHED" width="939" height="421" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/hcl-vmhba2.png)
+![hcl-vmhba2](http://virtuallyhyper.com/wp-content/uploads/2012/08/hcl-vmhba2.png)
 
 Here is our hardware and VMware versions:
 
@@ -110,7 +110,7 @@ Checking the current version, I saw the following:
 
 So we were at the latest version for both. Searching for the available mpt2sas drivers from the VMware downloads page, I saw the following:
 
-[<img class="alignnone size-full wp-image-3086" title="mp2sas-drivers" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/mp2sas-drivers.png" alt="mp2sas drivers PSOD Failed at vmkdrivers/src 9/vmklinux 9/vmware/linux scsi.c:2221 — NOT REACHED" width="717" height="734" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/mp2sas-drivers.png)
+![mp2sas-drivers](http://virtuallyhyper.com/wp-content/uploads/2012/08/mp2sas-drivers.png)
 
 So these version of the drivers are available:
 

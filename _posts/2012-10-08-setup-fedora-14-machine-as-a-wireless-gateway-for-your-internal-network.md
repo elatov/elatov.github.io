@@ -16,7 +16,7 @@ tags:
 ---
 First of all, let me explain why I did this. I used to have a basement and in the basement I had a couple of physical machines. I wanted to use these machines as an internal lab, just for some testing. One machine had a wireless card and no physical cable could go down to the basement. So I decided to connect the machine with the wireless card to the wireless router and then connect it's physical ethernet NIC to a switch and have it act a gateway for my internal lab. Here is a good diagram of what the setup looked like:
 
-[<img class="alignnone size-full wp-image-4022" title="wireless_gateway" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/wireless_gateway.png" alt="wireless gateway Setup Fedora 14 Machine as a Wireless Gateway for an Internal Network" width="556" height="531" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/wireless_gateway.png)
+![wireless_gateway](http://virtuallyhyper.com/wp-content/uploads/2012/09/wireless_gateway.png)
 
 First, I had to make sure my wireless card was working with Fedora. Here is the model of my card:
 
@@ -282,7 +282,7 @@ For example, let's say that someone connects to port 333 from the outside networ
 
 Here is a good diagram of traffic flow:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/09/double_nat.png" alt="double nat Setup Fedora 14 Machine as a Wireless Gateway for an Internal Network" title="double_nat" width="1005" height="332" class="alignnone size-full wp-image-4044" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/double_nat.png)
+![double_nat](http://virtuallyhyper.com/wp-content/uploads/2012/09/double_nat.png)
 
 Finally I saved the iptables setup:
 

@@ -325,7 +325,7 @@ From the same guide:
 >
 > Every network packet received by or sent from a Linux system is subject to at least one table. However, a packet may be subjected to multiple rules within each table before emerging at the end of the chain. The structure and purpose of these rules may vary, but they usually seek to identify a packet coming from or going to a particular IP address, or set of addresses, when using a particular protocol and network service. The following image outlines how the flow of packets is examined by the **iptables** subsystem:
 >
-> [<img src="http://virtuallyhyper.com/wp-content/uploads/2014/03/iptables-process.png" alt="iptables process RHCSA and RHCE Chapter 12 – System Security" width="533" height="257" class="alignnone size-full wp-image-10174" title="RHCSA and RHCE Chapter 12 – System Security" />](http://virtuallyhyper.com/wp-content/uploads/2014/03/iptables-process.png)
+> ![iptables process RHCSA and RHCE Chapter 12 – System Security](http://virtuallyhyper.com/wp-content/uploads/2014/03/iptables-process.png)
 
 ### Input and Output Chains
 

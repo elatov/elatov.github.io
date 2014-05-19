@@ -92,11 +92,11 @@ Also from the same page:
 
 Similar settings for the hot-add of the memory. Here is how the option looks like in vCenter:
 
-[<img class="alignnone size-full wp-image-4599" title="cpu_memory_hot-add" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/cpu_memory_hot-add.png" alt="cpu memory hot add VCAP5 DCA Objective 3.2 – Optimize Virtual Machine Resources " width="696" height="616" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/cpu_memory_hot-add.png)
+![cpu_memory_hot-add](http://virtuallyhyper.com/wp-content/uploads/2012/10/cpu_memory_hot-add.png)
 
 There are also a lot of OS'es that support it and that don't. From the blog "[VMware vSphere Hot Add and Hot Plug](http://www.petenetlive.com/KB/Article/0000527.htm)":
 
-[<img class="alignnone size-full wp-image-4600" title="hot-add_matrix" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/hot-add_matrix.png" alt="hot add matrix VCAP5 DCA Objective 3.2 – Optimize Virtual Machine Resources " width="550" height="311" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/hot-add_matrix.png)
+![hot-add_matrix](http://virtuallyhyper.com/wp-content/uploads/2012/10/hot-add_matrix.png)
 
 Also check out "[VMware Hot-Add Memory/CPU Support](http://www.petri.co.il/vsphere-hot-add-memory-and-cpu.htm#)"
 
@@ -224,11 +224,11 @@ From the [vSphere Documenation](http://pubs.vmware.com/vsphere-50/index.jsp?topi
 
 Under "Hosts and Cluster" View you can select the Cluster and then select the "Hosts" Tab. The tab looks like this:
 
-[<img class="alignnone size-full wp-image-4604" title="cluster_resources" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/cluster_resources.png" alt="cluster resources VCAP5 DCA Objective 3.2 – Optimize Virtual Machine Resources " width="809" height="116" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/cluster_resources.png)
+![cluster_resources](http://virtuallyhyper.com/wp-content/uploads/2012/10/cluster_resources.png)
 
 Also under the Summary Tab you can select "View Resource Distribution Chart", here is that option in vCenter:
 
-[<img class="alignnone size-full wp-image-4605" title="cluster_view_distribution_chart" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/cluster_view_distribution_chart.png" alt="cluster view distribution chart VCAP5 DCA Objective 3.2 – Optimize Virtual Machine Resources " width="802" height="473" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/cluster_view_distribution_chart.png)
+![cluster_view_distribution_chart](http://virtuallyhyper.com/wp-content/uploads/2012/10/cluster_view_distribution_chart.png)
 
 It will show you a similar output of the CPU and Memory usage. You can also check out esxtop on the host. More on esxtop in later objectives.
 
@@ -241,15 +241,15 @@ I actually covered this in [DCD Objective 3.5](http://virtuallyhyper.com/2012/09
 From the [vSphere Documenation](http://pubs.vmware.com/vsphere-50/index.jsp?topic=%2Fcom.vmware.vsphere.resmgmt.doc_50%2FGUID-D98E6EC9-3730-4BC0-A9FC-93B9079E1AEE.html):
 
 > **Advanced Memory Attributes**
-> You can use the advanced memory attributes to customize memory resource usage. [<img class="alignnone size-full wp-image-4606" title="Large_Page_Options" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/Large_Page_Options.png" alt="Large Page Options VCAP5 DCA Objective 3.2 – Optimize Virtual Machine Resources " width="613" height="420" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/Large_Page_Options.png)
+> You can use the advanced memory attributes to customize memory resource usage. ![Large_Page_Options](http://virtuallyhyper.com/wp-content/uploads/2012/10/Large_Page_Options.png)
 
 and here are some more options:
 
-[<img class="alignnone size-full wp-image-4609" title="more_lp_options" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/more_lp_options.png" alt="more lp options VCAP5 DCA Objective 3.2 – Optimize Virtual Machine Resources " width="565" height="232" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/more_lp_options.png)
+![more_lp_options](http://virtuallyhyper.com/wp-content/uploads/2012/10/more_lp_options.png)
 
 All of the above options can be modified by going to the "Host and Clusters" View -> Select a Host -> Click the "Configuration" Tab -> Select "Advanced Setting" under the Software Section. Here is how it looks like in vCenter:
 
-[<img class="alignnone size-full wp-image-4610" title="large_page_settings_on_host" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/large_page_settings_on_host.png" alt="large page settings on host VCAP5 DCA Objective 3.2 – Optimize Virtual Machine Resources " width="925" height="647" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/large_page_settings_on_host.png)
+![large_page_settings_on_host](http://virtuallyhyper.com/wp-content/uploads/2012/10/large_page_settings_on_host.png)
 
 ### Understand appropriate use cases for CPU affinity
 
@@ -320,7 +320,7 @@ From the same document:
 
 Here is how the setup looks in the vCenter:
 
-[<img class="alignnone size-full wp-image-4612" title="cluster_swap_settings" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/cluster_swap_settings.png" alt="cluster swap settings VCAP5 DCA Objective 3.2 – Optimize Virtual Machine Resources " width="709" height="585" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/cluster_swap_settings.png)
+![cluster_swap_settings](http://virtuallyhyper.com/wp-content/uploads/2012/10/cluster_swap_settings.png)
 
 Also from the same document:
 
@@ -337,9 +337,9 @@ Also from the same document:
 >
 > Host-local swap is now enabled for the standalone host. Here is how it looks like in vCenter:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/10/host_swap_settings.png" alt="host swap settings VCAP5 DCA Objective 3.2 – Optimize Virtual Machine Resources " title="host_swap_settings" width="891" height="629" class="alignnone size-full wp-image-4614" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/host_swap_settings.png)
+![host_swap_settings](http://virtuallyhyper.com/wp-content/uploads/2012/10/host_swap_settings.png)
 
 For the VM it self, you can go "Edit Settings" of the VM and then go to "Options" and then select "Swapfile Location". Here is how it looks like in vCenter:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/10/vm_swap_setting.png" alt="vm swap setting VCAP5 DCA Objective 3.2 – Optimize Virtual Machine Resources " title="vm_swap_setting" width="696" height="615" class="alignnone size-full wp-image-4615" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/vm_swap_setting.png)
+![vm_swap_setting](http://virtuallyhyper.com/wp-content/uploads/2012/10/vm_swap_setting.png)
 

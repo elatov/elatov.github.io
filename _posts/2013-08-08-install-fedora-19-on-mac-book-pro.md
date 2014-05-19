@@ -107,7 +107,7 @@ I just needed 50GB for my Linux install. Before I made any changes, here is how 
 
 While in Mac OS X, From Utilities (Command-Shift-U), I started up DiskUtility. Then I selected the OS Hard-Drive, selected the Partition tab, re-sized the OS partition , and clicked apply:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/07/DiskUtility_Resize_partition.png" alt="DiskUtility Resize partition Install Fedora 19 on Mac Book Pro" width="768" height="671" class="alignnone size-full wp-image-9245" title="Install Fedora 19 on Mac Book Pro" />](http://virtuallyhyper.com/wp-content/uploads/2013/07/DiskUtility_Resize_partition.png)
+![DiskUtility Resize partition Install Fedora 19 on Mac Book Pro](http://virtuallyhyper.com/wp-content/uploads/2013/07/DiskUtility_Resize_partition.png)
 
 That was really easy.
 
@@ -115,15 +115,15 @@ That was really easy.
 
 After I burned the DVD ISO, I inserted into the Disk drive and rebooted. Right after I rebooted, I held down the "Alt/Option" key and I saw that the following media was bootable:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/07/MAC_BOOT_MEDIA.jpg" alt="MAC BOOT MEDIA Install Fedora 19 on Mac Book Pro" width="3264" height="1840" class="alignnone size-full wp-image-9244" title="Install Fedora 19 on Mac Book Pro" />](http://virtuallyhyper.com/wp-content/uploads/2013/07/MAC_BOOT_MEDIA.jpg)
+![MAC BOOT MEDIA Install Fedora 19 on Mac Book Pro](http://virtuallyhyper.com/wp-content/uploads/2013/07/MAC_BOOT_MEDIA.jpg)
 
 I selected the Fedora Media and booted from it. During the install I selected the "Custom partition" method and I made the follow partitioning schema:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/07/Partitions_added_fedora_install.jpg" alt="Partitions added fedora install Install Fedora 19 on Mac Book Pro" width="3264" height="1840" class="alignnone size-full wp-image-9246" title="Install Fedora 19 on Mac Book Pro" />](http://virtuallyhyper.com/wp-content/uploads/2013/07/Partitions_added_fedora_install.jpg)
+![Partitions added fedora install Install Fedora 19 on Mac Book Pro](http://virtuallyhyper.com/wp-content/uploads/2013/07/Partitions_added_fedora_install.jpg)
 
 Even after following the instruction in the bug, it still gave the "you have not created a bootloader stage1 target device" error. So I decided not to install a boot-loader at all. This is done by clicking on "Full Disk Summary and bootloader" and then selecting "Do not install bootloader":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/07/do-not-install-bl-f19.jpg" alt="do not install bl f19 Install Fedora 19 on Mac Book Pro" width="3264" height="1840" class="alignnone size-full wp-image-9254" title="Install Fedora 19 on Mac Book Pro" />](http://virtuallyhyper.com/wp-content/uploads/2013/07/do-not-install-bl-f19.jpg)
+![do not install bl f19 Install Fedora 19 on Mac Book Pro](http://virtuallyhyper.com/wp-content/uploads/2013/07/do-not-install-bl-f19.jpg)
 
 After opting out of the bootloading, the install started.
 
@@ -131,7 +131,7 @@ After opting out of the bootloading, the install started.
 
 After the install finished, I rebooted into the Install DVD again and selected "Troubleshooting":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/07/troubleshoot_fedora_dvd.png" alt="troubleshoot fedora dvd Install Fedora 19 on Mac Book Pro" width="640" height="480" class="alignnone size-full wp-image-9247" title="Install Fedora 19 on Mac Book Pro" />](http://virtuallyhyper.com/wp-content/uploads/2013/07/troubleshoot_fedora_dvd.png)
+![troubleshoot fedora dvd Install Fedora 19 on Mac Book Pro](http://virtuallyhyper.com/wp-content/uploads/2013/07/troubleshoot_fedora_dvd.png)
 
 I selected to discover any previous Linux installs and the rescue CD mounted it under **/mnt/sysimage**. After it dropped me into the shell, I did the following to create the GRUB configuration:
 
@@ -287,11 +287,11 @@ Then after yet another reboot, the **Fn** keys were permanently fixed. Another p
 
 If you want to reboot into Mac OS X, you can reboot the MacBook Pro and hold down 'Alt/Option" during the boot and you will available bootable media, like so:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/07/mac-osx-bootable_media.jpg" alt="mac osx bootable media Install Fedora 19 on Mac Book Pro" width="3264" height="1840" class="alignnone size-full wp-image-9255" title="Install Fedora 19 on Mac Book Pro" />](http://virtuallyhyper.com/wp-content/uploads/2013/07/mac-osx-bootable_media.jpg)
+![mac osx bootable media Install Fedora 19 on Mac Book Pro](http://virtuallyhyper.com/wp-content/uploads/2013/07/mac-osx-bootable_media.jpg)
 
 Select "Macintosh HD" and it will boot back into Mac OS X. To set it permanently to boot into Mac OS X. While in Mac OS X, open up System Preferences and select the "Start Up Disk":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/07/Startup_disk.png" alt="Startup disk Install Fedora 19 on Mac Book Pro" width="782" height="534" class="alignnone size-full wp-image-9256" title="Install Fedora 19 on Mac Book Pro" />](http://virtuallyhyper.com/wp-content/uploads/2013/07/Startup_disk.png)
+![Startup disk Install Fedora 19 on Mac Book Pro](http://virtuallyhyper.com/wp-content/uploads/2013/07/Startup_disk.png)
 
 Then select "Macintosh HD" and it will reboot into Mac OS X permanently. Or you can run this command to re-enable boot in the Mac OS HD:
 

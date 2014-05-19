@@ -252,15 +252,15 @@ One service (**zensyslog**) didn’t start, but that is okay. Checking out the a
 
 Most are for local communication. Visiting **127.0.0.1:8080** showed the following page:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/setup_page_zenoss.png" alt="setup page zenoss Monitor Different Systems with Zenoss" width="1296" height="455" class="alignnone size-full wp-image-6579" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/setup_page_zenoss.png)
+![setup page zenoss Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/setup_page_zenoss.png)
 
 I then setup the users and passwords:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/setup_user_zenoss.png" alt="setup user zenoss Monitor Different Systems with Zenoss" width="869" height="317" class="alignnone size-full wp-image-6580" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/setup_user_zenoss.png)
+![setup user zenoss Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/setup_user_zenoss.png)
 
 And then I skipped adding devices and went to the dashboard:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_dashboard.png" alt="zenoss dashboard Monitor Different Systems with Zenoss" width="1306" height="661" class="alignnone size-full wp-image-6581" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_dashboard.png)
+![zenoss dashboard Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_dashboard.png)
 
 Looking over the [Administration Guide](http://community.zenoss.org/community/documentation/official_documentation/zenoss-guide), I saw this:
 
@@ -311,7 +311,7 @@ and then I switched to the **zenoss** user and installed the ZenPack:
 
 You could do the same thing from the web page. Basically from the Dashboard go to “Advanced” -> "ZenPacks" -> “Gear” -> “Install ZenPack”, here is how it looks like:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_install_zenpack.png" alt="zenoss install zenpack Monitor Different Systems with Zenoss" width="723" height="308" class="alignnone size-full wp-image-6590" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_install_zenpack.png)
+![zenoss install zenpack Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_install_zenpack.png)
 
 After the ZenPack is installed, we need to restart **zenoss**. Here is how that looks:
 
@@ -361,51 +361,51 @@ You can confirm if the ZenPack is installed by switching back to the **zenoss** 
 
 Then go back to 'Infrastructure' Tab and expand the Hierarchy on the Left Panel to "Device Classes" -> "Server" -> "SSH" -> "Linux". At this point you will see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-ssh-linux-device.png" alt="zenoss ssh linux device Monitor Different Systems with Zenoss" width="795" height="556" class="alignnone size-full wp-image-6547" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-ssh-linux-device.png)
+![zenoss ssh linux device Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-ssh-linux-device.png)
 
 Now click on the "Add Device" button, and select "Add a Single Device":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_add_device_button_g.png" alt="zenoss add device button g Monitor Different Systems with Zenoss" width="447" height="131" class="alignnone size-full wp-image-6585" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_add_device_button_g.png)
+![zenoss add device button g Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_add_device_button_g.png)
 
 Then fill out all the fields, here is how mine looked like:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_add_device_dialog.png" alt="zenoss add device dialog Monitor Different Systems with Zenoss" width="789" height="301" class="alignnone size-full wp-image-6552" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_add_device_dialog.png)
+![zenoss add device dialog Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_add_device_dialog.png)
 
 After a little bit, you will see the device under the Infrastructure Tab:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_added_ubuntu.png" alt="zenoss added ubuntu Monitor Different Systems with Zenoss" width="936" height="484" class="alignnone size-full wp-image-6553" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_added_ubuntu.png)
+![zenoss added ubuntu Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_added_ubuntu.png)
 
 Now we need to add the SSH Login Credentials. Click on the newly added device and you will see this screen:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_ubuntu_details.png" alt="zenoss ubuntu details Monitor Different Systems with Zenoss" width="1236" height="564" class="alignnone size-full wp-image-6554" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_ubuntu_details.png)
+![zenoss ubuntu details Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_ubuntu_details.png)
 
 Next let's confirm that the device will collect Linux information. Click on "Modeler Plugins" and you should see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_ubuntu_modeler_plugins.png" alt="zenoss ubuntu modeler plugins Monitor Different Systems with Zenoss" width="689" height="378" class="alignnone size-full wp-image-6555" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_ubuntu_modeler_plugins.png)
+![zenoss ubuntu modeler plugins Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_ubuntu_modeler_plugins.png)
 
 Notice the "Linux" Commands. Now select "Configuration Properties" and you will see this:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_ubuntu_config_prop.png" alt="zenoss ubuntu config prop Monitor Different Systems with Zenoss" width="1224" height="449" class="alignnone size-full wp-image-6556" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_ubuntu_config_prop.png)
+![zenoss ubuntu config prop Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_ubuntu_config_prop.png)
 
 In this screen edit the **zCommandPassword** (SSH Password) and **zCommandUsername** (SSH User) properties accordingly. After you are done, click "Save" at the bottom of the screen. Now let's "model" the device; at the bottom left corner click on the "Gear" Icon and select "Model Device":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-model-device_g.png" alt="zenoss model device g Monitor Different Systems with Zenoss" width="1302" height="666" class="alignnone size-full wp-image-6586" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-model-device_g.png)
+![zenoss model device g Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-model-device_g.png)
 
 Now you should see all the plugins getting executed:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenodd_model_device_terminal.png" alt="zenodd model device terminal Monitor Different Systems with Zenoss" width="768" height="477" class="alignnone size-full wp-image-6557" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenodd_model_device_terminal.png)
+![zenodd model device terminal Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenodd_model_device_terminal.png)
 
 >Notice the "Using SSH Collection method" line (this is expected since we are using SSH). Now if you go back to the 'Infrastructure' tab and click on the device, under the device details you should see a new section called "Components". Selecting one of the components will show more information about the device:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-ubuntu_components_int.png" alt="zenoss ubuntu components int Monitor Different Systems with Zenoss" width="1238" height="472" class="alignnone size-full wp-image-6558" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-ubuntu_components_int.png)
+![zenoss ubuntu components int Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-ubuntu_components_int.png)
 
 You can also go to "Graphs" and see CPU, Memory, and Load graphs:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_ubuntu_graphs.png" alt="zenoss ubuntu graphs Monitor Different Systems with Zenoss" width="1141" height="541" class="alignnone size-full wp-image-6559" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_ubuntu_graphs.png)
+![zenoss ubuntu graphs Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_ubuntu_graphs.png)
 
 After everything have been configured, you should be able to see the device on the 'Infrastructure' tab without any issues:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-ubuntu-no-issues.png" alt="zenoss ubuntu no issues Monitor Different Systems with Zenoss" width="1238" height="375" class="alignnone size-full wp-image-6560" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-ubuntu-no-issues.png)
+![zenoss ubuntu no issues Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-ubuntu-no-issues.png)
 
 Now let's move to our FreeBSD machine.
 
@@ -481,11 +481,11 @@ Then doing a quick test:
 
 Then going to the Zenoss dashboard and then going to the "Infrastructure" Tab, we can expand the left pane and go to "Device Classes" -> "Server" -> "Remote". Lastly we can click on "Add Device" -> "Add Single Device", and fill out all the options like so:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-add-device_dialog_fb.png" alt="zenoss add device dialog fb Monitor Different Systems with Zenoss" width="791" height="546" class="alignnone size-full wp-image-6561" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-add-device_dialog_fb.png)
+![zenoss add device dialog fb Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-add-device_dialog_fb.png)
 
 After the device is added, we can see new components from the host:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-freebsd-device-details.png" alt="zenoss freebsd device details Monitor Different Systems with Zenoss" width="1243" height="477" class="alignnone size-full wp-image-6562" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-freebsd-device-details.png)
+![zenoss freebsd device details Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-freebsd-device-details.png)
 
 Not as many as for Linux Host but still enough. Now let's monitor the Fedora Machine.
 
@@ -589,11 +589,11 @@ Now let's do an **snmpwalk** from our Zenoss server:
 
 Now let's go back to the Zenoss Dashboard and go to the Infrastructure tab, then expand "Device Classes" -> "Server" -> "Linux". Lastly click on "Add Device" -> "Add a Single Device" and fill out the information. Here is how mine looked like:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-add-device-diag-fed2.png" alt="zenoss add device diag fed2 Monitor Different Systems with Zenoss" width="791" height="545" class="alignnone size-full wp-image-6569" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-add-device-diag-fed2.png)
+![zenoss add device diag fed2 Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-add-device-diag-fed2.png)
 
 After the device was added and 'modeled', I saw similar information under the components section as I did for the other machines:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-fedora-device-details.png" alt="zenoss fedora device details Monitor Different Systems with Zenoss" width="844" height="491" class="alignnone size-full wp-image-6568" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-fedora-device-details.png)
+![zenoss fedora device details Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-fedora-device-details.png)
 
 Now let's monitor our RAID on the FreebSD Machine.
 
@@ -616,31 +616,31 @@ No errors were reported and the correct status was returned. I didn't have a bat
 
 We can see that the status is now 1 (Warning), which is expected. So the script was working just fine. Now we need to create a local template for our device and add a new "Data Source" to the template. If we just add the Data Source to the original template, it would impact any Machine that is part of that template. So go to the "Infrastructure" tab and select our FreeBSD machine. We will see this:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-freebsd_details.png" alt="zenoss freebsd details Monitor Different Systems with Zenoss" width="1227" height="603" class="alignnone size-full wp-image-6594" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-freebsd_details.png)
+![zenoss freebsd details Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-freebsd_details.png)
 
 Then from the bottom left corner, select "Add Local Template":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_add_local_template_button_g.png" alt="zenoss add local template button g Monitor Different Systems with Zenoss" width="273" height="490" class="alignnone size-full wp-image-6692" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_add_local_template_button_g.png)
+![zenoss add local template button g Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_add_local_template_button_g.png)
 
 Then name the Template as you desire, here is how mine looked like:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_add_local_template.png" alt="zenoss add local template Monitor Different Systems with Zenoss" width="588" height="290" class="alignnone size-full wp-image-6595" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_add_local_template.png)
+![zenoss add local template Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_add_local_template.png)
 
 Then you will see this:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_new_local_template.png" alt="zenoss new local template Monitor Different Systems with Zenoss" width="683" height="440" class="alignnone size-full wp-image-6596" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_new_local_template.png)
+![zenoss new local template Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_new_local_template.png)
 
 Notice you new Template under the "Monitoring Templates" Section. Now click on the '+' button and name your command, here is how mine looked like:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_add_command.png" alt="zenoss add command Monitor Different Systems with Zenoss" width="304" height="125" class="alignnone size-full wp-image-6597" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_add_command.png)
+![zenoss add command Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_add_command.png)
 
 Once added, select the "Data Source" and click on the Gear -> "View and Edit Detail":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_data_source_edit_details_g.png" alt="zenoss data source edit details g Monitor Different Systems with Zenoss" width="662" height="447" class="alignnone size-full wp-image-6693" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_data_source_edit_details_g.png)
+![zenoss data source edit details g Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_data_source_edit_details_g.png)
 
 then fill out all the fields like so:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_data_source_details_dialog.png" alt="zenoss data source details dialog Monitor Different Systems with Zenoss" width="788" height="486" class="alignnone size-full wp-image-6598" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_data_source_details_dialog.png)
+![zenoss data source details dialog Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_data_source_details_dialog.png)
 
 and "Save" the config. Go back to the Zenoss server and as the **zenoss** user run the following:
 
@@ -677,35 +677,35 @@ After make that addition, here is how output from the above **zencommand** looke
 
 Now we can plot how many disks are online (we can see from the above output that a new RRD file has been generated), just like before. To plot it we first need to add a "Data Point" to our "Data Source". This is done by going to the "Data Source" view and clicking on the our "Data Source" (Raid_Check in our case) and then selecting "Add Data Point":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-add-data-point-button_g.png" alt="zenoss add data point button g Monitor Different Systems with Zenoss" width="628" height="148" class="alignnone size-full wp-image-6694" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-add-data-point-button_g.png)
+![zenoss add data point button g Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-add-data-point-button_g.png)
 
 Then just call it "disks".
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/zenoss-add-data-point-dialog.png" alt="zenoss add data point dialog Monitor Different Systems with Zenoss" width="300" height="102" class="alignnone size-full wp-image-7439" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/03/zenoss-add-data-point-dialog.png)
+![zenoss add data point dialog Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/03/zenoss-add-data-point-dialog.png)
 
 Then under the "Graph Definitions", do the same thing and create a graph called "disks":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-graph-definitions.png" alt="zenoss graph definitions Monitor Different Systems with Zenoss" width="305" height="113" class="alignnone size-full wp-image-6600" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-graph-definitions.png)
+![zenoss graph definitions Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-graph-definitions.png)
 
 Now click on the "Data Point" called "disks" and then click on "Add Data Point to Graph" like so:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-add-data-point-to-graph_g.png" alt="zenoss add data point to graph g Monitor Different Systems with Zenoss" width="624" height="136" class="alignnone size-full wp-image-6695" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-add-data-point-to-graph_g.png)
+![zenoss add data point to graph g Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-add-data-point-to-graph_g.png)
 
 Then select the graph "disks" from the drop down menu and click add:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/03/zenoss_select_graph_g.png" alt="zenoss select graph g Monitor Different Systems with Zenoss" width="306" height="191" class="alignnone size-full wp-image-7440" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/03/zenoss_select_graph_g.png)
+![zenoss select graph g Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/03/zenoss_select_graph_g.png)
 
 Lastly go the "Graphs" view and scroll down to the bottom and you will see a couple of plot points of our new graph:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_raid_graph.png" alt="zenoss raid graph Monitor Different Systems with Zenoss" width="885" height="518" class="alignnone size-full wp-image-6601" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_raid_graph.png)
+![zenoss raid graph Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_raid_graph.png)
 
 As a test, I made the script return a bad value and I saw the following in my "Infrastructure" view:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-device-warning.png" alt="zenoss device warning Monitor Different Systems with Zenoss" width="1239" height="337" class="alignnone size-full wp-image-6602" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-device-warning.png)
+![zenoss device warning Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss-device-warning.png)
 
 Clicking on the warning showed me this:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_broken_raid_events.png" alt="zenoss broken raid events Monitor Different Systems with Zenoss" width="1234" height="159" class="alignnone size-full wp-image-6603" title="Monitor Different Systems with Zenoss" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_broken_raid_events.png)
+![zenoss broken raid events Monitor Different Systems with Zenoss](http://virtuallyhyper.com/wp-content/uploads/2013/02/zenoss_broken_raid_events.png)
 
 We can even see the message that was returned from the script.
 

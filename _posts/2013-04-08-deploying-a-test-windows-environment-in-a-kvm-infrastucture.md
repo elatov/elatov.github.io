@@ -46,15 +46,15 @@ Then from the remote machine let's launch **virt-manager**:
 
 At this point you should see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/connected_virt-manager.png" alt="connected virt manager Deploying a Test Windows Environment in a KVM Infrastucture" width="839" height="278" class="alignnone size-full wp-image-7924" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/connected_virt-manager.png)
+![connected virt manager Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/connected_virt-manager.png)
 
 As you can see it will auto connect to the local instance (if properly configured). You will see a list of the VMs that are currently running and small performance graphs on the right as well. You can go to "Edit" -> "Connection Details":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/virt_manager_connection_details.png" alt="virt manager connection details Deploying a Test Windows Environment in a KVM Infrastucture" width="854" height="318" class="alignnone size-full wp-image-7925" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/virt_manager_connection_details.png)
+![virt manager connection details Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/virt_manager_connection_details.png)
 
 After selecting that you will see the following window:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/ssh-x-kvm-conn-details_g.png" alt="ssh x kvm conn details g Deploying a Test Windows Environment in a KVM Infrastucture" width="746" height="495" class="alignnone size-full wp-image-7926" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/ssh-x-kvm-conn-details_g.png)
+![ssh x kvm conn details g Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/ssh-x-kvm-conn-details_g.png)
 
 From here you can see: connection details, configured Storage Pools, and Configured Networks.
 
@@ -62,83 +62,83 @@ From here you can see: connection details, configured Storage Pools, and Configu
 
 From the main **virt-manager** window click on the "New" button:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/virt-manager_create-new-vm-button.png" alt="virt manager create new vm button Deploying a Test Windows Environment in a KVM Infrastucture" width="854" height="318" class="alignnone size-full wp-image-7927" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/virt-manager_create-new-vm-button.png)
+![virt manager create new vm button Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/virt-manager_create-new-vm-button.png)
 
 And that will start the "Create New VM" Wizard:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm-wizard_step1.png" alt="create new vm wizard step1 Deploying a Test Windows Environment in a KVM Infrastucture" width="481" height="392" class="alignnone size-full wp-image-7928" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm-wizard_step1.png)
+![create new vm wizard step1 Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm-wizard_step1.png)
 
 At the first step: name the VM as you desire, select "Local install media" (since we are going to use the ISO that is locally stored on the KVM server), and then click "Forward":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_wizard_step1_filled_out.png" alt="create new vm wizard step1 filled out Deploying a Test Windows Environment in a KVM Infrastucture" width="481" height="392" class="alignnone size-full wp-image-7929" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_wizard_step1_filled_out.png)
+![create new vm wizard step1 filled out Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_wizard_step1_filled_out.png)
 
-Then you will see the 2nd step of the wizard: [<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_wizard_step2.png" alt="create new vm wizard step2 Deploying a Test Windows Environment in a KVM Infrastucture" width="481" height="403" class="alignnone size-full wp-image-7930" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_wizard_step2.png)
+Then you will see the 2nd step of the wizard: ![create new vm wizard step2 Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_wizard_step2.png)
 
 Select "Use ISO image", click on "Browse", and then you will see the available Storage Pools:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_wizard_step2_browse_storage_volumes.png" alt="create new vm wizard step2 browse storage volumes Deploying a Test Windows Environment in a KVM Infrastucture" width="775" height="195" class="alignnone size-full wp-image-7931" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_wizard_step2_browse_storage_volumes.png)
+![create new vm wizard step2 browse storage volumes Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_wizard_step2_browse_storage_volumes.png)
 
 This will show you the *img* files for already running VMs. If we had a storage pool with one big directory of ISOs then you could just select the ISO from that Storage pool (but this wasn't the case for us). Next click on "Browse Local" which is only available if we are connecting locally or with SSH with X-Forwarding. Then we will see the "Browse for ISO" dialogue:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_step2_locate_iso_dialogue.png" alt="create new vm step2 locate iso dialogue Deploying a Test Windows Environment in a KVM Infrastucture" width="665" height="355" class="alignnone size-full wp-image-7932" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_step2_locate_iso_dialogue.png)
+![create new vm step2 locate iso dialogue Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_step2_locate_iso_dialogue.png)
 
 At this point just browse to the location of the ISOs and select your Win2k8 ISO. After that is done, here how step 2 of the wizard will look like:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_step2_filled_out.png" alt="create new vm step2 filled out Deploying a Test Windows Environment in a KVM Infrastucture" width="481" height="403" class="alignnone size-full wp-image-7933" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_step2_filled_out.png)
+![create new vm step2 filled out Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_step2_filled_out.png)
 
 Then click "Forward" and then we will get to step 3 of the wizard:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_step3.png" alt="create new vm step3 Deploying a Test Windows Environment in a KVM Infrastucture" width="481" height="403" class="alignnone size-full wp-image-7934" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_step3.png)
+![create new vm step3 Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_step3.png)
 
 We have to choose CPU and RAM settings, looking over [this](http://technet.microsoft.com/en-us/windowsserver/bb414778.aspx) microsoft page, we can see their minimum requirements:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/microsoft_min_reqs.png" alt="microsoft min reqs Deploying a Test Windows Environment in a KVM Infrastucture" width="666" height="416" class="alignnone size-full wp-image-7935" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/microsoft_min_reqs.png)
+![microsoft min reqs Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/microsoft_min_reqs.png)
 
 I just kept 1CPU and 1GB of RAM and clicked "Forward", at which point I saw step 4 of the wizard:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_step4.png" alt="create new vm step4 Deploying a Test Windows Environment in a KVM Infrastucture" width="481" height="403" class="alignnone size-full wp-image-7936" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_step4.png)
+![create new vm step4 Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_step4.png)
 
 I did other installs of the Win2K8R2 and after all the windows updates it ended up using about 20GB, so that is what I setup. Here is how my final step 4 looked like:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_wizard_step4_filled_out.png" alt="create new vm wizard step4 filled out Deploying a Test Windows Environment in a KVM Infrastucture" width="481" height="403" class="alignnone size-full wp-image-7937" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_wizard_step4_filled_out.png)
+![create new vm wizard step4 filled out Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_wizard_step4_filled_out.png)
 
 I then clicked "Forward" and it took to the 5th step (the last step):
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_wizard_step5.png" alt="create new vm wizard step5 Deploying a Test Windows Environment in a KVM Infrastucture" width="481" height="538" class="alignnone size-full wp-image-7938" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_wizard_step5.png)
+![create new vm wizard step5 Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_wizard_step5.png)
 
 Here you can select the networking setup for the VM. We were using "bridged" (the same setup that Jarret described in [his](http://virtuallyhyper.com/2012/07/installing-kvm-as-a-virtual-machine-on-esxi5-with-bridged-networking/) post). So I left the defaults and clicked "Finish". At that point the console to the VM started up:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_console.png" alt="create new vm console Deploying a Test Windows Environment in a KVM Infrastucture" width="825" height="732" class="alignnone size-full wp-image-7939" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_console.png)
+![create new vm console Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_console.png)
 
 Keep going through the install as you would usually do. Here is a screenshot of the install process going:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_windows_install_process.png" alt="create new vm windows install process Deploying a Test Windows Environment in a KVM Infrastucture" width="825" height="732" class="alignnone size-full wp-image-7940" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_windows_install_process.png)
+![create new vm windows install process Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/create_new_vm_windows_install_process.png)
 
 ### Connect to the KVM Server Remotely with virt-manager
 
 After the initial install of the OS is finished you don't need to use SSH X-Forwarding to connect to the KVM server. Install **virt-manager** locally and then fire it up and when it starts up it will try to automatically connect to a hyper-visor:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/searching_for_available_hypervisors.png" alt="searching for available hypervisors Deploying a Test Windows Environment in a KVM Infrastucture" width="314" height="229" class="alignnone size-full wp-image-7941" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/searching_for_available_hypervisors.png)
+![searching for available hypervisors Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/searching_for_available_hypervisors.png)
 
 Since we are not running one locally you will get error like this:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/failure_to_connect_to_libvirtd.png" alt="failure to connect to libvirtd Deploying a Test Windows Environment in a KVM Infrastucture" width="490" height="211" class="alignnone size-full wp-image-7942" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/failure_to_connect_to_libvirtd.png)
+![failure to connect to libvirtd Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/failure_to_connect_to_libvirtd.png)
 
 You can just close that and then you will see your **virt-manager** in a disconnected state:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/virt-manager_not_connected.png" alt="virt manager not connected Deploying a Test Windows Environment in a KVM Infrastucture" width="822" height="244" class="alignnone size-full wp-image-7943" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/virt-manager_not_connected.png)
+![virt manager not connected Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/virt-manager_not_connected.png)
 
 At this point go to "File" -> "Add Connection":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/virt-manager_add_connection.png" alt="virt manager add connection Deploying a Test Windows Environment in a KVM Infrastucture" width="822" height="244" class="alignnone size-full wp-image-7945" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/virt-manager_add_connection.png)
+![virt manager add connection Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/virt-manager_add_connection.png)
 
 Then go ahead and fill out the necessary information:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/add_connection_filled_out.png" alt="add connection filled out Deploying a Test Windows Environment in a KVM Infrastucture" width="366" height="316" class="alignnone size-full wp-image-7962" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/add_connection_filled_out.png)
+![add connection filled out Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/add_connection_filled_out.png)
 
 If you hit connect it will ask for you the virtuser password:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/ssh_password_g.png" alt="ssh password g Deploying a Test Windows Environment in a KVM Infrastucture" width="292" height="247" class="alignnone size-full wp-image-7963" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/ssh_password_g.png)
+![ssh password g Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/ssh_password_g.png)
 
 It will actually keep asking for the password when you launch VMs. The best thing to do is use SSH keys so you don't have to keep typing in the password. First generate your own pair of SSH keys:
 
@@ -178,7 +178,7 @@ If you have ssh-agent running then you will just have to type in that password o
 
 Now if you try to connect to the KVM server with **virt-manager** via *qemu+ssh* you won't have to enter the virtuser password every time. When you use **virt-manager** remotely you will only see CPU usage like so:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/remote_virt-manager.png" alt="remote virt manager Deploying a Test Windows Environment in a KVM Infrastucture" width="822" height="244" class="alignnone size-full wp-image-7964" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/remote_virt-manager.png)
+![remote virt manager Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/remote_virt-manager.png)
 
 ### Setup a Windows Active Directory Server
 
@@ -189,19 +189,19 @@ Most of the instructions are laid out [here](http://www.rackspace.com/knowledge_
 
 In the run dialog and you will see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/server_manager_started.png" alt="server manager started Deploying a Test Windows Environment in a KVM Infrastucture" width="794" height="550" class="alignnone size-full wp-image-7977" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/server_manager_started.png)
+![server manager started Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/server_manager_started.png)
 
 Then go to "Roles" and click on "Add Roles":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/blank_roles_win2k8.png" alt="blank roles win2k8 Deploying a Test Windows Environment in a KVM Infrastucture" width="774" height="568" class="alignnone size-full wp-image-7978" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/blank_roles_win2k8.png)
+![blank roles win2k8 Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/blank_roles_win2k8.png)
 
 From the list select "Active Directory Domain Services":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/dc_role_selected.png" alt="dc role selected Deploying a Test Windows Environment in a KVM Infrastucture" width="772" height="569" class="alignnone size-full wp-image-7979" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/dc_role_selected.png)
+![dc role selected Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/dc_role_selected.png)
 
 Then click "Next" and couple of times, followed by a "Finish". After the install is done you will see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/dc_install_finished.png" alt="dc install finished Deploying a Test Windows Environment in a KVM Infrastucture" width="775" height="569" class="alignnone size-full wp-image-7980" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/dc_install_finished.png)
+![dc install finished Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/dc_install_finished.png)
 
 Now let's actually configure it. To do that run:
 
@@ -210,51 +210,51 @@ Now let's actually configure it. To do that run:
 
 from the Run dialog and you will see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/ad_setup_wizard.png" alt="ad setup wizard Deploying a Test Windows Environment in a KVM Infrastucture" width="497" height="471" class="alignnone size-full wp-image-7981" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/ad_setup_wizard.png)
+![ad setup wizard Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/ad_setup_wizard.png)
 
 Click "Next" a couple of times and you see the "Choose Deployment Configuration" window:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/choose_deployment_conf_ad_wizard.png" alt="choose deployment conf ad wizard Deploying a Test Windows Environment in a KVM Infrastucture" width="498" height="469" class="alignnone size-full wp-image-7982" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/choose_deployment_conf_ad_wizard.png)
+![choose deployment conf ad wizard Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/choose_deployment_conf_ad_wizard.png)
 
 I didn't have an existing domain, so I selected "Create a New Domain in a new forest" and clicked next:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/name_forest_room_domain_ad_wizard.png" alt="name forest room domain ad wizard Deploying a Test Windows Environment in a KVM Infrastucture" width="497" height="472" class="alignnone size-full wp-image-7983" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/name_forest_room_domain_ad_wizard.png)
+![name forest room domain ad wizard Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/name_forest_room_domain_ad_wizard.png)
 
 For my domain I chose "elatov.local":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/elatov_local_name_ad_wizard.png" alt="elatov local name ad wizard Deploying a Test Windows Environment in a KVM Infrastucture" width="497" height="470" class="alignnone size-full wp-image-7984" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/elatov_local_name_ad_wizard.png)
+![elatov local name ad wizard Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/elatov_local_name_ad_wizard.png)
 
 After clicking "Next" I was presented with the following screen:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/set_forest_functionality_lelel_ad_wiz.png" alt="set forest functionality lelel ad wiz Deploying a Test Windows Environment in a KVM Infrastucture" width="497" height="470" class="alignnone size-full wp-image-7985" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/set_forest_functionality_lelel_ad_wiz.png)
+![set forest functionality lelel ad wiz Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/set_forest_functionality_lelel_ad_wiz.png)
 
 I wasn't planning on using anything below Server 2003, so I left the default option and clicked "Next". At this point I saw the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/set_domain_functional_level_ad_wiz.png" alt="set domain functional level ad wiz Deploying a Test Windows Environment in a KVM Infrastucture" width="497" height="468" class="alignnone size-full wp-image-7986" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/set_domain_functional_level_ad_wiz.png)
+![set domain functional level ad wiz Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/set_domain_functional_level_ad_wiz.png)
 
 Same thing here, I left the default and clicked "Next". I was then asked to setup a DNS server:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/additional_domain_controller_options.png" alt="additional domain controller options Deploying a Test Windows Environment in a KVM Infrastucture" width="497" height="469" class="alignnone size-full wp-image-7987" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/additional_domain_controller_options.png)
+![additional domain controller options Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/additional_domain_controller_options.png)
 
 I didn't have a local DNS server in the environment so I decided to set one up. I left the "DNS server" selected and clicked "Next" and saw the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/location_of_db_log_ad_wiz.png" alt="location of db log ad wiz Deploying a Test Windows Environment in a KVM Infrastucture" width="499" height="470" class="alignnone size-full wp-image-7988" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/location_of_db_log_ad_wiz.png)
+![location of db log ad wiz Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/location_of_db_log_ad_wiz.png)
 
 I left the defaults here as well and clicked "Next", at this point I was asked to enter the "Restore Domain Administrator" Password:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/dir_ser_rest_mode_admin_pass_ad_wiz.png" alt="dir ser rest mode admin pass ad wiz Deploying a Test Windows Environment in a KVM Infrastucture" width="498" height="469" class="alignnone size-full wp-image-7989" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/dir_ser_rest_mode_admin_pass_ad_wiz.png)
+![dir ser rest mode admin pass ad wiz Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/dir_ser_rest_mode_admin_pass_ad_wiz.png)
 
 After that I was presented with the "Summary" page:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/summary_ad_wiz.png" alt="summary ad wiz Deploying a Test Windows Environment in a KVM Infrastucture" width="496" height="469" class="alignnone size-full wp-image-7990" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/summary_ad_wiz.png)
+![summary ad wiz Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/summary_ad_wiz.png)
 
 After clicking "Next" the install process started, after the install was finished I saw the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/ad_setup_finished_ad_wizard.png" alt="ad setup finished ad wizard Deploying a Test Windows Environment in a KVM Infrastucture" width="499" height="472" class="alignnone size-full wp-image-7991" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/ad_setup_finished_ad_wizard.png)
+![ad setup finished ad wizard Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/ad_setup_finished_ad_wizard.png)
 
 Selecting "Finish" from the above window prompted for a restart. After the restart I saw the following at the login screen:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/ad_server_joined_to_domain.png" alt="ad server joined to domain Deploying a Test Windows Environment in a KVM Infrastucture" width="1042" height="886" class="alignnone size-full wp-image-7992" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/ad_server_joined_to_domain.png)
+![ad server joined to domain Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/ad_server_joined_to_domain.png)
 
 Indicating that I was part of the "elatov" domain :) After I logged in I checked the IP settings and I saw the following:
 
@@ -292,31 +292,31 @@ Now let's install an IIS Server. From the Run Dialogue, enter
 
 You will then start up the Server Manager:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/servermanager_started1.png" alt="servermanager started1 Deploying a Test Windows Environment in a KVM Infrastucture" width="796" height="552" class="alignnone size-full wp-image-8047" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/servermanager_started1.png)
+![servermanager started1 Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/servermanager_started1.png)
 
 Click on "Roles":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/servermanager_roles-selected.png" alt="servermanager roles selected Deploying a Test Windows Environment in a KVM Infrastucture" width="795" height="551" class="alignnone size-full wp-image-7994" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/servermanager_roles-selected.png)
+![servermanager roles selected Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/servermanager_roles-selected.png)
 
 Then click on "Add Roles", and you will see the "Add Roles Wizard":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/add_roles_wizard.png" alt="add roles wizard Deploying a Test Windows Environment in a KVM Infrastucture" width="773" height="568" class="alignnone size-full wp-image-7995" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/add_roles_wizard.png)
+![add roles wizard Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/add_roles_wizard.png)
 
 Select "Web Server (IIS)":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/Web_server_selected_roles_wiz.png" alt="Web server selected roles wiz Deploying a Test Windows Environment in a KVM Infrastucture" width="775" height="570" class="alignnone size-full wp-image-7996" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/Web_server_selected_roles_wiz.png)
+![Web server selected roles wiz Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/Web_server_selected_roles_wiz.png)
 
 Then click "Next" until you get to the "Select Role Services":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/web_server_role_services.png" alt="web server role services Deploying a Test Windows Environment in a KVM Infrastucture" width="773" height="569" class="alignnone size-full wp-image-7997" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/web_server_role_services.png)
+![web server role services Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/web_server_role_services.png)
 
 From here you can select the necessary components of IIS that you need. After you have selected the necessary components, click "Next" and then finally click "Install" to start the install:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/iis_installing.png" alt="iis installing Deploying a Test Windows Environment in a KVM Infrastucture" width="772" height="568" class="alignnone size-full wp-image-7998" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/iis_installing.png)
+![iis installing Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/iis_installing.png)
 
 After the install is finished, open Internet Explorer and point it to **http://localhost** you should see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/IE_IIS_Installed.png" alt="IE IIS Installed Deploying a Test Windows Environment in a KVM Infrastucture" width="794" height="549" class="alignnone size-full wp-image-7999" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/IE_IIS_Installed.png)
+![IE IIS Installed Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/IE_IIS_Installed.png)
 
 Now let's go ahead and enable SSL on our IIS Server. From the Run Dialog enter
 
@@ -325,43 +325,43 @@ Now let's go ahead and enable SSL on our IIS Server. From the Run Dialog enter
 
 and you will see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/inetmgr_started.png" alt="inetmgr started Deploying a Test Windows Environment in a KVM Infrastucture" width="763" height="528" class="alignnone size-full wp-image-8000" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/inetmgr_started.png)
+![inetmgr started Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/inetmgr_started.png)
 
 Then click on IIS Instance and on the right side you will see a lot of options. Among those options you will see "Server Certificates":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/inetmgr_server_certificates.png" alt="inetmgr server certificates Deploying a Test Windows Environment in a KVM Infrastucture" width="907" height="610" class="alignnone size-full wp-image-8001" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/inetmgr_server_certificates.png)
+![inetmgr server certificates Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/inetmgr_server_certificates.png)
 
 Then double click on "Server Certificates" and you will see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/server_certificated_from_iis.png" alt="server certificated from iis Deploying a Test Windows Environment in a KVM Infrastucture" width="906" height="609" class="alignnone size-full wp-image-8002" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/server_certificated_from_iis.png)
+![server certificated from iis Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/server_certificated_from_iis.png)
 
 Then from the "Right Pane" select "Create Self-Signed Certificate" and the Wizard will start up. Enter the name of the site:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/create_self_signed_certificate.png" alt="create self signed certificate Deploying a Test Windows Environment in a KVM Infrastucture" width="576" height="439" class="alignnone size-full wp-image-8003" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/create_self_signed_certificate.png)
+![create self signed certificate Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/create_self_signed_certificate.png)
 
 Then click "OK". You will then see the following under the "Server Certificates":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/server_certificates_self_signed_cert_created.png" alt="server certificates self signed cert created Deploying a Test Windows Environment in a KVM Infrastucture" width="906" height="611" class="alignnone size-full wp-image-8004" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/server_certificates_self_signed_cert_created.png)
+![server certificates self signed cert created Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/server_certificates_self_signed_cert_created.png)
 
 Now that we have an SSL certificate, we need to enable IIS to listen on port 443. This is done by expanding IIS Instance then expanding the Sites folder and selecting "Default Web Site":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/inetmgr_default_site_selected.png" alt="inetmgr default site selected Deploying a Test Windows Environment in a KVM Infrastucture" width="907" height="609" class="alignnone size-full wp-image-8005" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/inetmgr_default_site_selected.png)
+![inetmgr default site selected Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/inetmgr_default_site_selected.png)
 
 On the right you will see an option called "Binding". Click on that and the following will show up:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/inetmgr_site_bindings.png" alt="inetmgr site bindings Deploying a Test Windows Environment in a KVM Infrastucture" width="482" height="223" class="alignnone size-full wp-image-8006" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/inetmgr_site_bindings.png)
+![inetmgr site bindings Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/inetmgr_site_bindings.png)
 
 Then click "add" and you see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/add_site_binding_inetmgr.png" alt="add site binding inetmgr Deploying a Test Windows Environment in a KVM Infrastucture" width="399" height="214" class="alignnone size-full wp-image-8007" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/add_site_binding_inetmgr.png)
+![add site binding inetmgr Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/add_site_binding_inetmgr.png)
 
 Then change the type to 'https" and select the SSL certificate that we created. In the end it will look like this:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/add_site_binding_filled_out_inetmgr.png" alt="add site binding filled out inetmgr Deploying a Test Windows Environment in a KVM Infrastucture" width="400" height="216" class="alignnone size-full wp-image-8008" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/add_site_binding_filled_out_inetmgr.png)
+![add site binding filled out inetmgr Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/add_site_binding_filled_out_inetmgr.png)
 
 Then click "OK" and "Close" and you should be all set. From Internet Explorer go to **https://localhost** and make you see the same page as before:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/IE_with_https_IIS.png" alt="IE with https IIS Deploying a Test Windows Environment in a KVM Infrastucture" width="797" height="552" class="alignnone size-full wp-image-8009" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/IE_with_https_IIS.png)
+![IE with https IIS Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/IE_with_https_IIS.png)
 
 ### Setup A Windows 7 Client
 
@@ -409,19 +409,19 @@ Now let's join our Windows 7 client to our domain. From the Run dialogue type in
 
 and then you will see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/sys_properties_client.png" alt="sys properties client Deploying a Test Windows Environment in a KVM Infrastucture" width="412" height="458" class="alignnone size-full wp-image-8013" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/sys_properties_client.png)
+![sys properties client Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/sys_properties_client.png)
 
 Then click "Change" and fill out the Computer Name and the domain you want to join:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/filled_out_join_domain.png" alt="filled out join domain Deploying a Test Windows Environment in a KVM Infrastucture" width="325" height="387" class="alignnone size-full wp-image-8014" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/filled_out_join_domain.png)
+![filled out join domain Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/filled_out_join_domain.png)
 
 Then click "OK" and you will need to enter the Domain Administrator's credentials to allow this machine to join:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/join_domain_security_creds.png" alt="join domain security creds Deploying a Test Windows Environment in a KVM Infrastucture" width="426" height="255" class="alignnone size-full wp-image-8015" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/join_domain_security_creds.png)
+![join domain security creds Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/join_domain_security_creds.png)
 
 If all is successful you will see the following prompt:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/successful_join_to_domain.png" alt="successful join to domain Deploying a Test Windows Environment in a KVM Infrastucture" width="305" height="159" class="alignnone size-full wp-image-8016" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/successful_join_to_domain.png)
+![successful join to domain Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/successful_join_to_domain.png)
 
 And then it will ask you restart the machine. While the machine is restarting go the DC Server and run:
 
@@ -430,31 +430,31 @@ And then it will ask you restart the machine. While the machine is restarting go
 
 That should show you the "Active Directory Users and Computers" dialogue:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/dsa_msc.png" alt="dsa msc Deploying a Test Windows Environment in a KVM Infrastucture" width="764" height="533" class="alignnone size-full wp-image-8017" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/dsa_msc.png)
+![dsa msc Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/dsa_msc.png)
 
 Expand your domain (elatov.local), then go to "Computers" and you should see the newly added computer there:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/dsa_comp_added.png" alt="dsa comp added Deploying a Test Windows Environment in a KVM Infrastucture" width="760" height="533" class="alignnone size-full wp-image-8018" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/dsa_comp_added.png)
+![dsa comp added Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/dsa_comp_added.png)
 
 In the same window add a new user by right clicking on the "Users" folder and selecting "Add" -> "User":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/add_user_from_dsa_msc_g.png" alt="add user from dsa msc g Deploying a Test Windows Environment in a KVM Infrastucture" width="761" height="532" class="alignnone size-full wp-image-8022" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/add_user_from_dsa_msc_g.png)
+![add user from dsa msc g Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/add_user_from_dsa_msc_g.png)
 
 Here is an example of one user I added:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/add_user_dialogue.png" alt="add user dialogue Deploying a Test Windows Environment in a KVM Infrastucture" width="434" height="364" class="alignnone size-full wp-image-8019" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/add_user_dialogue.png)
+![add user dialogue Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/add_user_dialogue.png)
 
 After we are done adding the user we will see it in the User's list:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/dsa_msc_user_addedd.png" alt="dsa msc user addedd Deploying a Test Windows Environment in a KVM Infrastucture" width="761" height="530" class="alignnone size-full wp-image-8024" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/dsa_msc_user_addedd.png)
+![dsa msc user addedd Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/dsa_msc_user_addedd.png)
 
 Then from the client log in with that user, like so:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/login_to_domain_from_windows7_client.png" alt="login to domain from windows7 client Deploying a Test Windows Environment in a KVM Infrastucture" width="1058" height="881" class="alignnone size-full wp-image-8020" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/login_to_domain_from_windows7_client.png)
+![login to domain from windows7 client Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/login_to_domain_from_windows7_client.png)
 
 To login to the local user, hit switch user and then type: **.\elatov** along the password:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/login_to_local_windows7_client.png" alt="login to local windows7 client Deploying a Test Windows Environment in a KVM Infrastucture" width="1058" height="881" class="alignnone size-full wp-image-8021" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/login_to_local_windows7_client.png)
+![login to local windows7 client Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/login_to_local_windows7_client.png)
 
 Another check you can do is make sure the machine was added to DNS. From the DC/DNS Server run:
 
@@ -463,11 +463,11 @@ Another check you can do is make sure the machine was added to DNS. From the DC/
 
 and you will see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/dnsmgmt_started.png" alt="dnsmgmt started Deploying a Test Windows Environment in a KVM Infrastucture" width="760" height="528" class="alignnone size-full wp-image-8025" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/dnsmgmt_started.png)
+![dnsmgmt started Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/dnsmgmt_started.png)
 
 Expand the "Forward Lookup Zones" and then select your domain (elatov.local), on the right side you will see an "A" record for the newly joined machine:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/dnsmgmt_added_machine.png" alt="dnsmgmt added machine Deploying a Test Windows Environment in a KVM Infrastucture" width="829" height="465" class="alignnone size-full wp-image-8026" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/dnsmgmt_added_machine.png)
+![dnsmgmt added machine Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/dnsmgmt_added_machine.png)
 
 ### Connect To KVM Virtual Machines from a Local Machine Using VNCViewer
 
@@ -512,53 +512,53 @@ To enable Copy and paste within any KVM VM, we need to use **Spice**, more infor
 
 If those are installed then we can enable Spice on our VMs. To enable Spice on a KVM machine, first shut off the VM. Then from Virt-Manager select the VM, and then go to "Edit" -> "Virtual Machine Details":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/edit_vm_details.png" alt="edit vm details Deploying a Test Windows Environment in a KVM Infrastucture" width="979" height="379" class="alignnone size-full wp-image-7965" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/edit_vm_details.png)
+![edit vm details Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/edit_vm_details.png)
 
 Notice the VM is a "Shutoff" state, at that point the Console to the VM will open:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/vm_details_vm_off.png" alt="vm details vm off Deploying a Test Windows Environment in a KVM Infrastucture" width="825" height="725" class="alignnone size-full wp-image-7966" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/vm_details_vm_off.png)
+![vm details vm off Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/vm_details_vm_off.png)
 
 Right Next to the "Console" button there is a "Details" button, by clicking that you will see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/vm_details_window.png" alt="vm details window Deploying a Test Windows Environment in a KVM Infrastucture" width="825" height="725" class="alignnone size-full wp-image-7967" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/vm_details_window.png)
+![vm details window Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/vm_details_window.png)
 
 From the left pane, select "Video" and you will see this:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/vm_details_video_panel.png" alt="vm details video panel Deploying a Test Windows Environment in a KVM Infrastucture" width="825" height="725" class="alignnone size-full wp-image-7968" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/vm_details_video_panel.png)
+![vm details video panel Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/vm_details_video_panel.png)
 
 Change the Model from "vga" to "qxl":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/vm_details_change_video_to_glx.png" alt="vm details change video to glx Deploying a Test Windows Environment in a KVM Infrastucture" width="825" height="725" class="alignnone size-full wp-image-7969" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/vm_details_change_video_to_glx.png)
+![vm details change video to glx Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/vm_details_change_video_to_glx.png)
 
 Then select "Apply" and then select "Display VNC" and you will see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/vm_details_vnc_display_panel.png" alt="vm details vnc display panel Deploying a Test Windows Environment in a KVM Infrastucture" width="825" height="725" class="alignnone size-full wp-image-7970" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/vm_details_vnc_display_panel.png)
+![vm details vnc display panel Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/vm_details_vnc_display_panel.png)
 
 Then change the "Type" from "VNC" to "Spice", and then click on "Apply", as soon as you hit apply you will see the following pop up:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/vm_details_change_from_vnc_spice_pop_up.png" alt="vm details change from vnc spice pop up Deploying a Test Windows Environment in a KVM Infrastucture" width="382" height="152" class="alignnone size-full wp-image-7971" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/vm_details_change_from_vnc_spice_pop_up.png)
+![vm details change from vnc spice pop up Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/vm_details_change_from_vnc_spice_pop_up.png)
 
 Click "Yes", after you click "Yes" you will see a new device added called "Channel" like so:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/vm_details_spice_channel_added.png" alt="vm details spice channel added Deploying a Test Windows Environment in a KVM Infrastucture" width="825" height="725" class="alignnone size-full wp-image-7972" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/vm_details_spice_channel_added.png)
+![vm details spice channel added Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/vm_details_spice_channel_added.png)
 
 From there you can click "Run" and the VM will start booting, don't forget to switch from "Details" to "Console" to see the VM's boot process.
 
 After the VM is booted up we need to install the Spice Guest Tools. Open a browse from within the VM and go to **www.spice-space.org/download.html**:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/spice_download_page_from_vm.png" alt="spice download page from vm Deploying a Test Windows Environment in a KVM Infrastucture" width="814" height="712" class="alignnone size-full wp-image-7973" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/spice_download_page_from_vm.png)
+![spice download page from vm Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/spice_download_page_from_vm.png)
 
 Scroll down until you see the "Windows guest tools":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/spice_guest_windows_tools_from_vm_in_IE.png" alt="spice guest windows tools from vm in IE Deploying a Test Windows Environment in a KVM Infrastucture" width="814" height="712" class="alignnone size-full wp-image-7974" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/spice_guest_windows_tools_from_vm_in_IE.png)
+![spice guest windows tools from vm in IE Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/spice_guest_windows_tools_from_vm_in_IE.png)
 
 Download the tools onto the desktop:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/spice_tools_downloaded_on_desktop_in_VM.png" alt="spice tools downloaded on desktop in VM Deploying a Test Windows Environment in a KVM Infrastucture" width="814" height="712" class="alignnone size-full wp-image-7975" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/spice_tools_downloaded_on_desktop_in_VM.png)
+![spice tools downloaded on desktop in VM Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/spice_tools_downloaded_on_desktop_in_VM.png)
 
 Then double click on the installer and follow the onscreen instructions:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/spice_installer_in_VM.png" alt="spice installer in VM Deploying a Test Windows Environment in a KVM Infrastucture" width="814" height="712" class="alignnone size-full wp-image-7976" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/spice_installer_in_VM.png)
+![spice installer in VM Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/spice_installer_in_VM.png)
 
 After the install is done, restart the VM one more time. After the VM reboots you should be able to copy and paste from the console of virt-manager. If you check for running tasks you will see the following processes:
 
@@ -597,7 +597,7 @@ Here are examples of each:
 
 Here is how it looks like:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/spicec_logged_in.png" alt="spicec logged in Deploying a Test Windows Environment in a KVM Infrastucture" width="1026" height="797" class="alignnone size-full wp-image-7946" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/spicec_logged_in.png)
+![spicec logged in Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/spicec_logged_in.png)
 
 or with **remote-viewer**:
 
@@ -606,18 +606,18 @@ or with **remote-viewer**:
 
 Here is how that will look:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/remote-viewer_spice.png" alt="remote viewer spice Deploying a Test Windows Environment in a KVM Infrastucture" width="1026" height="818" class="alignnone size-full wp-image-7947" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/remote-viewer_spice.png) and lastly with **spicy**:
+![remote viewer spice Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/remote-viewer_spice.png) and lastly with **spicy**:
 
     [elatov@klaptop ~]$ spicy
 
 
 That will launch a GUI and then you can fill out the necessary information, like so:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/sipcy_filled_out.png" alt="sipcy filled out Deploying a Test Windows Environment in a KVM Infrastucture" width="428" height="448" class="alignnone size-full wp-image-7949" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/sipcy_filled_out.png)
+![sipcy filled out Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/sipcy_filled_out.png)
 
 and then you will see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/spicy_connected.png" alt="spicy connected Deploying a Test Windows Environment in a KVM Infrastucture" width="1026" height="903" class="alignnone size-full wp-image-7950" title="Deploying a Test Windows Environment in a KVM Infrastucture" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/spicy_connected.png)
+![spicy connected Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/wp-content/uploads/2013/04/spicy_connected.png)
 
 <div class="SPOSTARBUST-Related-Posts">
   <H3>

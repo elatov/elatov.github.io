@@ -25,13 +25,13 @@ Someone had given me a PogoPlug Series 4 ([PogoPlug_Series4](http://virtuallyhyp
 
 Go to **pogoplug.com** and login with with the credential that you created during your registration process. After you are logged in you will see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/09/pogoplug_loggedin.png" alt="pogoplug loggedin Backing Up with Rsync to Pogoplug" width="1159" height="288" class="alignnone size-full wp-image-9493" title="Backing Up with Rsync to Pogoplug" />](http://virtuallyhyper.com/wp-content/uploads/2013/09/pogoplug_loggedin.png)
+![pogoplug loggedin Backing Up with Rsync to Pogoplug](http://virtuallyhyper.com/wp-content/uploads/2013/09/pogoplug_loggedin.png)
 
 Notice there are two section: the Seagate drive (which is the 60GB 2.5 SATA Drive that I plugged into the pogoplug) and then there is "*Pogoplug Cloud*" section. By default you get 5GB of cloud storage (you can pay to get unlimited storage space, but I was planning on utilizing the 60GB drive for all of my setup).
 
 From the top right corner click on **Settings** and then click on **Security**. Then go ahead and "**Enable SSH access for this Pogoplug Device**":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/09/pogoplug_com_security.png" alt="pogoplug com security Backing Up with Rsync to Pogoplug" width="740" height="282" class="alignnone size-full wp-image-9494" title="Backing Up with Rsync to Pogoplug" />](http://virtuallyhyper.com/wp-content/uploads/2013/09/pogoplug_com_security.png)
+![pogoplug com security Backing Up with Rsync to Pogoplug](http://virtuallyhyper.com/wp-content/uploads/2013/09/pogoplug_com_security.png)
 
 After you enable SSH, it will ask you to set your password.
 
@@ -53,11 +53,11 @@ Here is the PCI information from the pogoplug device (I ran this command after I
 
 Looking up the device on the PCI database, I saw the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/09/pci_database.png" alt="pci database Backing Up with Rsync to Pogoplug" width="350" height="214" class="alignnone size-full wp-image-9495" title="Backing Up with Rsync to Pogoplug" />](http://virtuallyhyper.com/wp-content/uploads/2013/09/pci_database.png)
+![pci database Backing Up with Rsync to Pogoplug](http://virtuallyhyper.com/wp-content/uploads/2013/09/pci_database.png)
 
 Then clicking on that device:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/09/vendor_ID_pcie.png" alt="vendor ID pcie Backing Up with Rsync to Pogoplug" width="731" height="226" class="alignnone size-full wp-image-9496" title="Backing Up with Rsync to Pogoplug" />](http://virtuallyhyper.com/wp-content/uploads/2013/09/vendor_ID_pcie.png)
+![vendor ID pcie Backing Up with Rsync to Pogoplug](http://virtuallyhyper.com/wp-content/uploads/2013/09/vendor_ID_pcie.png)
 
 So as advertised, there is an internal PCIe controller for the USB 3.0 ports.
 
@@ -937,7 +937,7 @@ That looks perfect. If you want OpenSSH start automatically, add the following t
 
 Download the app and configure it like so:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/09/botsync_config.png" alt="botsync config Backing Up with Rsync to Pogoplug" width="540" height="960" class="alignnone size-full wp-image-9499" title="Backing Up with Rsync to Pogoplug" />](http://virtuallyhyper.com/wp-content/uploads/2013/09/botsync_config.png)
+![botsync config Backing Up with Rsync to Pogoplug](http://virtuallyhyper.com/wp-content/uploads/2013/09/botsync_config.png)
 
 The reason why I chose **/sdcard/TitaniumBackup** is because I use *TitaniumBackup* to create a compressed backup of my desired Apps and configurations to that location. If you didn't use *TitaniumBackup* then you can back up the whole **/sdcard** directory. After you are done with the configuration of the App, you can click **start** and it will start the synchronization process.
 

@@ -46,7 +46,7 @@ After we have partitioned our drives to our heart's desire, we should actually s
 >
 > This section shows basic technical information on each file system supported by Red Hat Enterprise Linux 6.
 >
-> [<img class="alignnone size-full wp-image-5803" alt="fs support RHCSA and RHCE Chapter 4 File Systems and Such" src="http://virtuallyhyper.com/wp-content/uploads/2013/01/fs_support.png" width="555" height="256" title="RHCSA and RHCE Chapter 4 File Systems and Such" />](http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-4-file-systems-and-such/fs_support/" rel="attachment wp-att-5803)
+> ![fs support RHCSA and RHCE Chapter 4 File Systems and Such](http://virtuallyhyper.com/wp-content/uploads/2013/01/fs_support.png)
 
 Now here is the process to format a partition with **ext3**:
 
@@ -266,7 +266,7 @@ Now moving through the guide:
 >
 > Table 7.1, “Common File System Types” provides a list of common file system types that can be used with the mount command.
 >
-> [<img class="alignnone size-full wp-image-5804" alt="fs for mount RHCSA and RHCE Chapter 4 File Systems and Such" src="http://virtuallyhyper.com/wp-content/uploads/2013/01/fs_for_mount.png" width="694" height="348" title="RHCSA and RHCE Chapter 4 File Systems and Such" />](http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-4-file-systems-and-such/fs_for_mount/" rel="attachment wp-att-5804)
+> ![fs for mount RHCSA and RHCE Chapter 4 File Systems and Such](http://virtuallyhyper.com/wp-content/uploads/2013/01/fs_for_mount.png)
 
 So let's go ahead and mount my new file system by device:
 
@@ -438,7 +438,7 @@ Another popular file system is a swap file system. From the storage guide:
 >         # swapon -v /dev/VolGroup00/LogVol02
 >
 >
-> To test if the logical volume was successfully created, use cat ** /proc/swaps** or **free** to inspect the swap space.
+> To test if the logical volume was successfully created, use cat **/proc/swaps** or **free** to inspect the swap space.
 >
 > **17.2.3. Creating a Swap File**
 >

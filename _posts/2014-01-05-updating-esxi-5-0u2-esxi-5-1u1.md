@@ -27,13 +27,13 @@ I was currently on 5.0U2:
 
 Reading over the [vSphere Upgrade Guide for vSphere 5.1](http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-51-upgrade-guide.pdf), I saw that **esxcli** was a viable option for the update. From the guide, here is a table of the upgrade paths:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/01/51-upgrade-methp1.png" alt="51 upgrade methp1 Updating ESXi 5.0U2 to ESXi 5.1U1" width="592" height="148" class="alignnone size-full wp-image-9972" title="Updating ESXi 5.0U2 to ESXi 5.1U1" />](http://virtuallyhyper.com/wp-content/uploads/2014/01/51-upgrade-methp1.png)
+![51 upgrade methp1 Updating ESXi 5.0U2 to ESXi 5.1U1](http://virtuallyhyper.com/wp-content/uploads/2014/01/51-upgrade-methp1.png)
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/01/51-upgrade-methp2.png" alt="51 upgrade methp2 Updating ESXi 5.0U2 to ESXi 5.1U1" width="591" height="104" class="alignnone size-full wp-image-9973" title="Updating ESXi 5.0U2 to ESXi 5.1U1" />](http://virtuallyhyper.com/wp-content/uploads/2014/01/51-upgrade-methp2.png)
+![51 upgrade methp2 Updating ESXi 5.0U2 to ESXi 5.1U1](http://virtuallyhyper.com/wp-content/uploads/2014/01/51-upgrade-methp2.png)
 
 There is also [VMware KB 2032757](http://kb.vmware.com/kb/2032757) which summarizes the upgrade guide into a KB. The KB is really helpful except it has a conflicting statement. The KB has a table that says **esxcli** cannot be used when going from 5.0 to 5.1. Here is the table:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/01/wrong_table_from_Kb.png" alt="wrong table from Kb Updating ESXi 5.0U2 to ESXi 5.1U1" width="654" height="265" class="alignnone size-full wp-image-9976" title="Updating ESXi 5.0U2 to ESXi 5.1U1" />](http://virtuallyhyper.com/wp-content/uploads/2014/01/wrong_table_from_Kb.png)
+![wrong table from Kb Updating ESXi 5.0U2 to ESXi 5.1U1](http://virtuallyhyper.com/wp-content/uploads/2014/01/wrong_table_from_Kb.png)
 
 Under the **Update a Host with Image Profiles** section of the Upgrade Guide, I saw the following:
 
@@ -41,7 +41,7 @@ Under the **Update a Host with Image Profiles** section of the Upgrade Guide, I 
 >
 > ...
 >
-> Update the existing image profile to include the VIBs or install new VIBs. [<img src="http://virtuallyhyper.com/wp-content/uploads/2014/01/esxcli-update-51-guide.png" alt="esxcli update 51 guide Updating ESXi 5.0U2 to ESXi 5.1U1" width="560" height="190" class="alignnone size-full wp-image-9971" title="Updating ESXi 5.0U2 to ESXi 5.1U1" />](http://virtuallyhyper.com/wp-content/uploads/2014/01/esxcli-update-51-guide.png)
+> Update the existing image profile to include the VIBs or install new VIBs. ![esxcli update 51 guide Updating ESXi 5.0U2 to ESXi 5.1U1](http://virtuallyhyper.com/wp-content/uploads/2014/01/esxcli-update-51-guide.png)
 
 I did some research and I came across [A Pretty Cool Method of Upgrading to ESXi 5.1](http://www.virtuallyghetto.com/2012/09/a-pretty-cool-method-of-upgrading-to.html). In that post it describes the process on how to update to 5.1 with **esxcli** and download the upgrade from a VMware hosted VUM depot. In summary here are the steps:
 
@@ -55,7 +55,7 @@ In the example from the above post, the blogger goes from 5.0u1 to 5.1 using **e
 
 I checked out the download for 5.1 and I saw the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/01/51-offline-bundle-1024x113.png" alt="51 offline bundle 1024x113 Updating ESXi 5.0U2 to ESXi 5.1U1" width="620" height="68" class="alignnone size-large wp-image-9978" title="Updating ESXi 5.0U2 to ESXi 5.1U1" />](http://virtuallyhyper.com/wp-content/uploads/2014/01/51-offline-bundle.png)
+![51 offline bundle 1024x113 Updating ESXi 5.0U2 to ESXi 5.1U1](http://virtuallyhyper.com/wp-content/uploads/2014/01/51-offline-bundle-1024x113.png)
 
 The bundle was ~300MB, rather than downloading that using the ESXi host, I decided to first download it to my local desktop and then copy it to the host (just in case the update fails, I wouldn't want to download that again... plus I can save it in my ISOs repository for later use as well). Then uploading the file to my datastore:
 
@@ -122,11 +122,11 @@ At first the update looked really good, the host rebooted and the regular ESXi m
 
 Checking out the VMware Communities, I ran into [this](https://communities.vmware.com/thread/421269) discussion. The person from that discussion ran into a similar issue and fixed the issue by resetting the configurations. So going through the IPMI interface, I tried the same thing:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/01/reset-configuration.png" alt="reset configuration Updating ESXi 5.0U2 to ESXi 5.1U1" width="1004" height="358" class="alignnone size-full wp-image-9979" title="Updating ESXi 5.0U2 to ESXi 5.1U1" />](http://virtuallyhyper.com/wp-content/uploads/2014/01/reset-configuration.png)
+![reset configuration Updating ESXi 5.0U2 to ESXi 5.1U1](http://virtuallyhyper.com/wp-content/uploads/2014/01/reset-configuration.png)
 
 After the reset, it started the reboot of the host:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/01/settings-reset_g.png" alt="settings reset g Updating ESXi 5.0U2 to ESXi 5.1U1" width="526" height="304" class="alignnone size-full wp-image-9980" title="Updating ESXi 5.0U2 to ESXi 5.1U1" />](http://virtuallyhyper.com/wp-content/uploads/2014/01/settings-reset_g.png)
+![settings reset g Updating ESXi 5.0U2 to ESXi 5.1U1](http://virtuallyhyper.com/wp-content/uploads/2014/01/settings-reset_g.png)
 
 After the host rebooted, **hostd** started up fine without issues. I must've made some customization that caused **hostd** to fail. I reconnected to the host and recreated: my vSwitch, iSCSI, and networking settings (it actually didn't take that long, but if you had a lot of settings be careful).
 
@@ -134,7 +134,7 @@ After the host rebooted, **hostd** started up fine without issues. I must've mad
 
 While I was in the updating mood, I decided to update to the latest 5.1 version. I want back to the **myvmware** web page and saw the *offline bundle*:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/01/51_u1_offline-bundle-1024x116.png" alt="51 u1 offline bundle 1024x116 Updating ESXi 5.0U2 to ESXi 5.1U1" width="620" height="70" class="alignnone size-large wp-image-9981" title="Updating ESXi 5.0U2 to ESXi 5.1U1" />](http://virtuallyhyper.com/wp-content/uploads/2014/01/51_u1_offline-bundle.png)
+![51 u1 offline bundle 1024x116 Updating ESXi 5.0U2 to ESXi 5.1U1](http://virtuallyhyper.com/wp-content/uploads/2014/01/51_u1_offline-bundle-1024x116.png)
 
 This was just a regular offline bundle, so after I copied the file to the ESXi host, I ran the following to apply the update:
 

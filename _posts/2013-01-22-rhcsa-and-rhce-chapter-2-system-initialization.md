@@ -444,11 +444,11 @@ Here is entry that I added:
 
 To the bottom of the file. After I rebooted I saw the following on my GRUB Menu:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/01/grub_with_single.png" alt="grub with single RHCSA and RHCE Chapter 2 System Initialization" width="616" height="336" class="alignnone size-full wp-image-6196" title="RHCSA and RHCE Chapter 2 System Initialization" />](http://virtuallyhyper.com/wp-content/uploads/2013/01/grub_with_single.png)
+![grub with single RHCSA and RHCE Chapter 2 System Initialization](http://virtuallyhyper.com/wp-content/uploads/2013/01/grub_with_single.png)
 
 Selecting that entry from GRUB yielded in the OS booting into *single* user mode, like so:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/01/boot_single_user_mode.png" alt="boot single user mode RHCSA and RHCE Chapter 2 System Initialization" width="715" height="307" class="alignnone size-full wp-image-6197" title="RHCSA and RHCE Chapter 2 System Initialization" />](http://virtuallyhyper.com/wp-content/uploads/2013/01/boot_single_user_mode.png)
+![boot single user mode RHCSA and RHCE Chapter 2 System Initialization](http://virtuallyhyper.com/wp-content/uploads/2013/01/boot_single_user_mode.png)
 
 Another thing that was mentioned thought the guide is **Upstart**. RHEL 6 doesn't have that many service converted to that, but to list the services that are using Upstart to start up you can do the following:
 

@@ -28,12 +28,12 @@ Defined in previous objectives
 
 ### Differentiate Business Continuity and Disaster Recovery concepts.
 
-Defined in [Objective 2.3](http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-2-3-build-availability-requirements-into-the-logical-design/" title="VCAP5-DCD Objective 2.3 – Build Availability Requirements into the Logical Design" target="_blank)
+Defined in [Objective 2.3](http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-2-3-build-availability-requirements-into-the-logical-design/)
 
 ### Describe and differentiate between RTO and RPO
 
 From the [APAC BrownBag Session 4](http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap5-dca-availability-dr/):
-[<img class="alignnone size-full wp-image-2803" title="rpo_vs_rto" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/rpo_vs_rto.png" alt="rpo vs rto VCAP5 DCD Objective 2.6 – Build Recoverability Requirements into the Logical Design" width="604" height="310" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/rpo_vs_rto.png)
+![rpo_vs_rto](http://virtuallyhyper.com/wp-content/uploads/2012/08/rpo_vs_rto.png)
 
 ### Given specific RTO and RPO requirements, build these requirements into the logical design
 

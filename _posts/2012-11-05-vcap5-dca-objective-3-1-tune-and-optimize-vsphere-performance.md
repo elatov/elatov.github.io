@@ -109,7 +109,7 @@ From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/
 >
 > *    When selecting hardware, it is a good idea to consider CPU compatibility for VMware vMotion™ (which in turn affects DRS) and VMware Fault Tolerance.
 >
-> ** Hardware-Assisted Virtualization**
+> **Hardware-Assisted Virtualization**
 > Most recent processors from both Intel and AMD include hardware features to assist virtualization. These features were released in two generations:
 >
 > *    the first generation introduced CPU virtualization;
@@ -181,7 +181,7 @@ From "[vSphere Resource Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/t
 
 Here is how it looks in the vCenter:
 
-[<img class="alignnone size-full wp-image-4581" title="host_advanced_settings" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/host_advanced_settings.png" alt="host advanced settings VCAP5 DCA Objective 3.1 – Tune and Optimize vSphere Performance " width="721" height="596" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/host_advanced_settings.png)
+![host_advanced_settings](http://virtuallyhyper.com/wp-content/uploads/2012/10/host_advanced_settings.png)
 
 ### Configure and apply advanced Virtual Machine attributes
 
@@ -197,7 +197,7 @@ From "[vSphere Resource Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/t
 
 Here is how it looks like in vCenter:
 
-[<img class="alignnone size-full wp-image-4582" title="advanced_settings_VM" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/advanced_settings_VM.png" alt="advanced settings VM VCAP5 DCA Objective 3.1 – Tune and Optimize vSphere Performance " width="694" height="617" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/advanced_settings_VM.png)
+![advanced_settings_VM](http://virtuallyhyper.com/wp-content/uploads/2012/10/advanced_settings_VM.png)
 
 ### Configure advanced cluster attributes
 
@@ -212,9 +212,9 @@ From "[vSphere Availability ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/co
 
 Here is how it looks like from vCenter:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/10/advanced_settings_HA.png" alt="advanced settings HA VCAP5 DCA Objective 3.1 – Tune and Optimize vSphere Performance " title="advanced_settings_HA" width="708" height="586" class="alignnone size-full wp-image-4584" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/advanced_settings_HA.png)
+![advanced_settings_HA](http://virtuallyhyper.com/wp-content/uploads/2012/10/advanced_settings_HA.png)
 
 In the same Cluster Settings Window you can edit DRS options as well. Here is how it looks like from vCenter:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/10/DRS_Advanced_options.png" alt="DRS Advanced options VCAP5 DCA Objective 3.1 – Tune and Optimize vSphere Performance " title="DRS_Advanced_options" width="708" height="582" class="alignnone size-full wp-image-4585" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/DRS_Advanced_options.png)
+![DRS_Advanced_options](http://virtuallyhyper.com/wp-content/uploads/2012/10/DRS_Advanced_options.png)
 

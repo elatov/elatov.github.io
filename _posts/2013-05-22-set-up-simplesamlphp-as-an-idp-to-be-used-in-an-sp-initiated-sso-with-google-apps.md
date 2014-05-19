@@ -102,7 +102,7 @@ From the same site here is a step by step process:
 
 In our particular example simpleSAMLphp will be the IdP (Identity Provider) and Google Apps will be the SP (Service Provider). Google Apps supports SSO with SAML and that is why I am using it in this example. Actually here is the same process described on their site: "[SAML Single Sign-On (SSO) Service for Google Apps](https://developers.google.com/google-apps/sso/saml_reference_implementation)". For that site here is a diagram of the process:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/gapps_sso_saml.png" alt="gapps sso saml Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" width="696" height="630" class="alignnone size-full wp-image-8598" title="Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/gapps_sso_saml.png)
+![gapps sso saml Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps](http://virtuallyhyper.com/wp-content/uploads/2013/04/gapps_sso_saml.png)
 
 After we set this up, we will take a look at the HTTP interaction in our Browser.
 
@@ -140,7 +140,7 @@ Then go ahead and restart the Apache service:
 
 At this point you can check to see if the SimpleSAMLPHP is working by visiting **http://localhost/simplesamlphp**. You should see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/simplesamlphp-install-page.png" alt="simplesamlphp install page Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" width="943" height="458" class="alignnone size-full wp-image-8600" title="Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/simplesamlphp-install-page.png)
+![simplesamlphp install page Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps](http://virtuallyhyper.com/wp-content/uploads/2013/04/simplesamlphp-install-page.png)
 
 ## Configure SimpleSAMLPHP as an IdP (Identity Provider)
 
@@ -191,19 +191,19 @@ That will add a user called *test* with a password of **password**. After the us
 
 Now that we added a **test** user, let's make sure we can login with the **test** credentials. Point your browser to the SimpleSAMLPHP install (in my case it was **http://awsub.dnsd.me/simplesamlphp**) and then click on the "Authentication" tab. You will see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/simplesaml-php-auth-tab.png" alt="simplesaml php auth tab Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" width="939" height="305" class="alignnone size-full wp-image-8605" title="Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/simplesaml-php-auth-tab.png)
+![simplesaml php auth tab Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps](http://virtuallyhyper.com/wp-content/uploads/2013/04/simplesaml-php-auth-tab.png)
 
 Then click on "Test configured authentication sources" and you will see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/simplesamlplhp-test_auth-sources.png" alt="simplesamlplhp test auth sources Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" width="939" height="302" class="alignnone size-full wp-image-8606" title="Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/simplesamlplhp-test_auth-sources.png)
+![simplesamlplhp test auth sources Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps](http://virtuallyhyper.com/wp-content/uploads/2013/04/simplesamlplhp-test_auth-sources.png)
 
 Then click on "example-userpass" and you will see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/simplesamlphp-enter-user-and-pass.png" alt="simplesamlphp enter user and pass Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" width="938" height="425" class="alignnone size-full wp-image-8607" title="Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/simplesamlphp-enter-user-and-pass.png)
+![simplesamlphp enter user and pass Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps](http://virtuallyhyper.com/wp-content/uploads/2013/04/simplesamlphp-enter-user-and-pass.png)
 
 Then enter your credentials and if it successfully authenticates, you will see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/simplesamlphp-logged-in.png" alt="simplesamlphp logged in Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" width="941" height="530" class="alignnone size-full wp-image-8608" title="Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/simplesamlphp-logged-in.png)
+![simplesamlphp logged in Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps](http://virtuallyhyper.com/wp-content/uploads/2013/04/simplesamlphp-logged-in.png)
 
 That looks good and it's returning the appropriate attribute.
 
@@ -249,21 +249,21 @@ These instructions are also laid out in the same SimpleSAMLPHP [page](http://sim
 
 Go to your domain's Google Apps page, mine is **http://www.google.com/a/moxz.nine.nu** and you will see something like this:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/moxz_mine_nu_gapps.png" alt="moxz mine nu gapps Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" width="935" height="355" class="alignnone size-full wp-image-8616" title="Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/moxz_mine_nu_gapps.png)
+![moxz mine nu gapps Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps](http://virtuallyhyper.com/wp-content/uploads/2013/04/moxz_mine_nu_gapps.png)
 
 After you login as the Administrator you will see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/google_apps_dashboard.png" alt="google apps dashboard Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" width="1008" height="639" class="alignnone size-full wp-image-8617" title="Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/google_apps_dashboard.png)
+![google apps dashboard Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps](http://virtuallyhyper.com/wp-content/uploads/2013/04/google_apps_dashboard.png)
 
 ### Configure SSO For Google Apps
 
 Then click on the "Advanced tools" tab:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/adv-tools-tab-gapps.png" alt="adv tools tab gapps Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" width="1415" height="548" class="alignnone size-full wp-image-8618" title="Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/adv-tools-tab-gapps.png)
+![adv tools tab gapps Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps](http://virtuallyhyper.com/wp-content/uploads/2013/04/adv-tools-tab-gapps.png)
 
 Then click on "Set up single sign-on (SSO)" and fill out all the necessary information:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/gapps_sso_settings.png" alt="gapps sso settings Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" width="1238" height="366" class="alignnone size-full wp-image-8619" title="Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/gapps_sso_settings.png)
+![gapps sso settings Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps](http://virtuallyhyper.com/wp-content/uploads/2013/04/gapps_sso_settings.png)
 
 Here are all the values:
 
@@ -287,37 +287,37 @@ Here are all the values:
 
 Click on the "Users" tab in the Google Apps Dashboard and then click on "Create User":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/testuser_gapps.png" alt="testuser gapps Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" width="353" height="204" class="alignnone size-full wp-image-8633" title="Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/testuser_gapps.png)
+![testuser gapps Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps](http://virtuallyhyper.com/wp-content/uploads/2013/04/testuser_gapps.png)
 
 After it's created you will see your *test* user. Make sure the **username** for the user matches the **uid** that you created in SimpleSAMLPHP in the *Example-Userpass* Authentication Source (in my case it was **test**). Here is my **test** user in Google Apps:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/users-tab-gapps.png" alt="users tab gapps Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" width="1080" height="262" class="alignnone size-full wp-image-8632" title="Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/users-tab-gapps.png)
+![users tab gapps Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps](http://virtuallyhyper.com/wp-content/uploads/2013/04/users-tab-gapps.png)
 
 ## Test out SSO
 
 Go to **gmail.com** and try to login to your domain with the test user:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/gmail_login.png" alt="gmail login Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" width="1045" height="374" class="alignnone size-full wp-image-8634" title="Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/gmail_login.png)
+![gmail login Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps](http://virtuallyhyper.com/wp-content/uploads/2013/04/gmail_login.png)
 
 After you try to login, you see the following message:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/gmail_sso_turned_on.png" alt="gmail sso turned on Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" width="369" height="368" class="alignnone size-full wp-image-8635" title="Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/gmail_sso_turned_on.png)
+![gmail sso turned on Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps](http://virtuallyhyper.com/wp-content/uploads/2013/04/gmail_sso_turned_on.png)
 
 This is the SP telling us to go to the IdP to get authenticated. As soon as you hit "Sign In", you will see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/simplesamlphp-authenticate.png" alt="simplesamlphp authenticate Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" width="901" height="356" class="alignnone size-full wp-image-8636" title="Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/simplesamlphp-authenticate.png)
+![simplesamlphp authenticate Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps](http://virtuallyhyper.com/wp-content/uploads/2013/04/simplesamlphp-authenticate.png)
 
 After you authenticate it will redirect you back to Gmail:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/loggedin_gmail_test.png" alt="loggedin gmail test Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" width="1442" height="323" class="alignnone size-full wp-image-8637" title="Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/loggedin_gmail_test.png)
+![loggedin gmail test Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps](http://virtuallyhyper.com/wp-content/uploads/2013/04/loggedin_gmail_test.png)
 
 Another note, if you go directly to **mail.google.com/a/moxz.mine.nu** it will redirect you directly to the IdP. If you sign out of *gmail*:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/gmail-signout.png" alt="gmail signout Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" width="298" height="261" class="alignnone size-full wp-image-8638" title="Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/gmail-signout.png)
+![gmail signout Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps](http://virtuallyhyper.com/wp-content/uploads/2013/04/gmail-signout.png)
 
 You will be take to the IdP's log-out page:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/04/simplesaml-php-loggedout.png" alt="simplesaml php loggedout Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" width="939" height="296" class="alignnone size-full wp-image-8639" title="Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps" />](http://virtuallyhyper.com/wp-content/uploads/2013/04/simplesaml-php-loggedout.png)
+![simplesaml php loggedout Set up simpleSAMLphp as an IdP to be Used in an SP Initiated SSO with Google Apps](http://virtuallyhyper.com/wp-content/uploads/2013/04/simplesaml-php-loggedout.png)
 
 And everything worked out okay.
 

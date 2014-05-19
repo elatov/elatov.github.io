@@ -64,7 +64,7 @@ And here is the last set of requirements:
 > **Features and Devices Incompatible with Fault Tolerance**
 > For a virtual machine to be compatible with Fault Tolerance, the Virtual Machine must not use the following features or devices
 >
-> [<img class="alignnone size-full wp-image-5021" title="ft_vm_devices_unsupported" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_vm_devices_unsupported.png" alt="ft vm devices unsupported VCAP5 DCA Objective 4.2 – Deploy and Test VMware FT" width="585" height="662" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_vm_devices_unsupported.png)
+> ![ft_vm_devices_unsupported](http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_vm_devices_unsupported.png)
 
 ### Modify VM and ESXi host settings to allow for FT compatibility
 
@@ -176,7 +176,7 @@ From "[vSphere Availability ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/co
 
 Here is how it looks like from vCenter:
 
-[<img class="alignnone size-full wp-image-5025" title="ft_logging_pg" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_logging_pg.png" alt="ft logging pg VCAP5 DCA Objective 4.2 – Deploy and Test VMware FT" width="524" height="644" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_logging_pg.png)
+![ft_logging_pg](http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_logging_pg.png)
 
 ### Prepare the infrastructure for FT compliance
 
@@ -196,7 +196,7 @@ From "[vSphere Availability ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/co
 
 Here is how it looks like in vCenter:
 
-[<img class="alignnone size-full wp-image-5026" title="profile_compliance_check" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/profile_compliance_check.png" alt="profile compliance check VCAP5 DCA Objective 4.2 – Deploy and Test VMware FT" width="900" height="477" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/profile_compliance_check.png)
+![profile_compliance_check](http://virtuallyhyper.com/wp-content/uploads/2012/11/profile_compliance_check.png)
 
 Also from the same document:
 
@@ -204,7 +204,7 @@ Also from the same document:
 
 Here is how it looks like in vCenter:
 
-[<img class="alignnone size-full wp-image-5027" title="host_ft_compliance" src="http://virtuallyhyper.com/wp-content/uploads/2012/11/host_ft_compliance.png" alt="host ft compliance VCAP5 DCA Objective 4.2 – Deploy and Test VMware FT" width="720" height="165" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/host_ft_compliance.png)
+![host_ft_compliance](http://virtuallyhyper.com/wp-content/uploads/2012/11/host_ft_compliance.png)
 
 ### Test FT failover, secondary restart, and application fault tolerance in a FT Virtual Machine
 
@@ -214,33 +214,33 @@ I actually don't have CPU capable of supporting FT, but there is a great step by
 >
 > 1. Image depicting the Network configuration.
 >
-> [<img src="http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step1_c.jpeg" alt=" VCAP5 DCA Objective 4.2 – Deploy and Test VMware FT" title="ft_step1_c" width="632" height="472" class="alignnone size-full wp-image-5038" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step1_c.jpeg)
+> ![ft_step1_c](http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step1_c.jpeg)
 >
 > 2. Turning on FT.
 >
-> [<img src="http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step2_c.jpeg" alt=" VCAP5 DCA Objective 4.2 – Deploy and Test VMware FT" title="ft_step2_c" width="577" height="463" class="alignnone size-full wp-image-5039" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step2_c.jpeg)
+> ![ft_step2_c](http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step2_c.jpeg)
 >
 > 3. 54% through setting up FT.
 >
-> [<img src="http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step3_c.jpeg" alt=" VCAP5 DCA Objective 4.2 – Deploy and Test VMware FT" title="ft_step3_c" width="577" height="417" class="alignnone size-full wp-image-5040" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step3_c.jpeg)
+> ![ft_step3_c](http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step3_c.jpeg)
 >
 > 4. FT setup complete.
 >
-> [<img src="http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step4_c.jpeg" alt=" VCAP5 DCA Objective 4.2 – Deploy and Test VMware FT" title="ft_step4_c" width="573" height="419" class="alignnone size-full wp-image-5041" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step4_c.jpeg)
+> ![ft_step4_c](http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step4_c.jpeg)
 >
 > 5. vLockstep Interval and Log Bandwidth information are now updated.
 >
-> [<img src="http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step5_c.jpeg" alt=" VCAP5 DCA Objective 4.2 – Deploy and Test VMware FT" title="ft_step5_c" width="634" height="397" class="alignnone size-full wp-image-5042" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step5_c.jpeg)
+> ![ft_step5_c](http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step5_c.jpeg)
 >
 > 6. Primary VM is located on 10.10.10.146.
 >
-> [<img src="http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step6_c.jpeg" alt=" VCAP5 DCA Objective 4.2 – Deploy and Test VMware FT" title="ft_step6_c" width="640" height="119" class="alignnone size-full wp-image-5043" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step6_c.jpeg)
+> ![ft_step6_c](http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step6_c.jpeg)
 >
 > 7. Secondary VM is running on the Secondary Host- 10.10.10.145.
 >
-> [<img src="http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step7_c.jpeg" alt=" VCAP5 DCA Objective 4.2 – Deploy and Test VMware FT" title="ft_step7_c" width="635" height="119" class="alignnone size-full wp-image-5044" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step7_c.jpeg)
+> ![ft_step7_c](http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step7_c.jpeg)
 >
 > 8. Testing FT using the built in Test Failover command.
 >
-> [<img src="http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step8_c.jpeg" alt=" VCAP5 DCA Objective 4.2 – Deploy and Test VMware FT" title="ft_step8_c" width="507" height="386" class="alignnone size-full wp-image-5045" />](http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step8_c.jpeg)
+> ![ft_step8_c](http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step8_c.jpeg)
 

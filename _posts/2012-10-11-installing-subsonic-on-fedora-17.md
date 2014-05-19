@@ -17,10 +17,10 @@ tags:
 ---
 I recently posted on [List of streaming media systems](http://virtuallyhyper.com/2012/10/installing-mediatomb-on-freebsd-9-and-connecting-to-it-with-xbmc-from-a-fedora-17-os/)". Here are the ones that stood out:
 
-*   <a title="Firefly Media Server" href="http://en.wikipedia.org/wiki/Firefly_Media_Server">Firefly Media Server</a>
-*   <a title="Squeezebox Server" href="http://en.wikipedia.org/wiki/Squeezebox_Server">Squeezebox Server</a>
-*   <a title="Ampache" href="http://en.wikipedia.org/wiki/Ampache">Ampache</a>
-*   <a title="Subsonic (media server)" href="http://en.wikipedia.org/wiki/Subsonic_(media_server)">Subsonic</a>
+*   [Firefly Media Server](http://en.wikipedia.org/wiki/Firefly_Media_Server)
+*   [Squeezebox Server](http://en.wikipedia.org/wiki/Squeezebox_Server)
+*   [Ampache](http://en.wikipedia.org/wiki/Ampache)
+*   [Subsonic (media server)](http://en.wikipedia.org/wiki/Subsonic_(media_server))
 *   [Jinzora](http://sourceforge.net/projects/jinzora/)
 
 I kept reading other forums and here is what I came across:
@@ -129,7 +129,7 @@ Then save the iptables config:
 
 Fire up a browser of your choice and enter http://IP_OF_SUBSONIC:4040, you will see a page similar to this:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/10/subsonic_login_page.png" alt="subsonic login page Installing Subsonic on Fedora 17" title="subsonic_login_page" width="261" height="168" class="alignnone size-full wp-image-4238" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/subsonic_login_page.png)
+![subsonic_login_page](http://virtuallyhyper.com/wp-content/uploads/2012/10/subsonic_login_page.png)
 
 You can login with username 'admin' and password 'admin', but it will ask you to change that upon login.
 
@@ -137,7 +137,7 @@ You can login with username 'admin' and password 'admin', but it will ask you to
 
 Go to "Settings" -> "Media Folder" and add a folder then click "Save", it will look something like this:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/10/subsonic_media_folders.png" alt="subsonic media folders Installing Subsonic on Fedora 17" title="subsonic_media_folders" width="683" height="426" class="alignnone size-full wp-image-4237" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/subsonic_media_folders.png)
+![subsonic_media_folders](http://virtuallyhyper.com/wp-content/uploads/2012/10/subsonic_media_folders.png)
 
 After that if you go to your Home screen and you should see your music library there.
 

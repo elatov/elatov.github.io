@@ -38,15 +38,15 @@ I recently ran into this great study guide for RHCSA and RHCE entitled "[here](h
 
 Each chapter has hands on examples and they depend on this setup:
 
-[<img class="alignnone size-full wp-image-5670" alt="rhc lab layout RHCSA and RHCE Study Guide" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/rhc_lab_layout.png" width="685" height="205" title="RHCSA and RHCE Study Guide" />](http://virtuallyhyper.com/2012/12/rhcsa-and-rhce-study-guide/rhc_lab_layout/" rel="attachment wp-att-5670)
+![rhc lab layout RHCSA and RHCE Study Guide](http://virtuallyhyper.com/wp-content/uploads/2012/12/rhc_lab_layout.png)
 
 Here is the disk lay out of the machines:
 
-[<img class="alignnone size-full wp-image-5671" alt="rhc part layout RHCSA and RHCE Study Guide" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/rhc_part_layout.png" width="464" height="275" title="RHCSA and RHCE Study Guide" />](http://virtuallyhyper.com/2012/12/rhcsa-and-rhce-study-guide/rhc_part_layout/" rel="attachment wp-att-5671)
+![rhc part layout RHCSA and RHCE Study Guide](http://virtuallyhyper.com/wp-content/uploads/2012/12/rhc_part_layout.png)
 
 And here is a good diagram on how the networking is setup:
 
-[<img class="alignnone size-full wp-image-5672" alt="rhc net diagram RHCSA and RHCE Study Guide" src="http://virtuallyhyper.com/wp-content/uploads/2012/12/rhc_net_diagram.png" width="601" height="366" title="RHCSA and RHCE Study Guide" />](http://virtuallyhyper.com/2012/12/rhcsa-and-rhce-study-guide/rhc_net_diagram/" rel="attachment wp-att-5672)
+![rhc net diagram RHCSA and RHCE Study Guide](http://virtuallyhyper.com/wp-content/uploads/2012/12/rhc_net_diagram.png)
 
 All of the above were taken from [here](http://ptgmedia.pearsoncmg.com/images/9780321767950/samplepages/0321767950.pdf).
 

@@ -42,19 +42,19 @@ From VMware KB [2004201](http://kb.vmware.com/kb/2004201):
 
 There are a couple of ways to get around this. First you can look from the DCUI, so if you are in front of the physical machine you can hit F2, then enter the root password, you will then be presented with the following screen:
 
-[<img class="alignnone size-full wp-image-5240" alt="esxi DCUI VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/esxi_DCUI.png" width="976" height="343" title="VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-1-configure-manage-and-analyze-vsphere-log-files/esxi_dcui/" rel="attachment wp-att-5240)
+![esxi DCUI VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files ](http://virtuallyhyper.com/wp-content/uploads/2012/12/esxi_DCUI.png)
 
 Scroll down to "View System Logs" and check you can select different logs to look at:
 
-[<img class="alignnone size-full wp-image-5241" alt="view logs from dcui VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/view_logs_from_dcui.png" width="861" height="278" title="VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-1-configure-manage-and-analyze-vsphere-log-files/view_logs_from_dcui/" rel="attachment wp-att-5241)
+![view logs from dcui VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files ](http://virtuallyhyper.com/wp-content/uploads/2012/12/view_logs_from_dcui.png)
 
 Another way is from the vSphere Client, open one up directly to the host and then Click on "Home" and you will see the following screen:
 
-[<img class="alignnone size-full wp-image-5242" alt="home view from host VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/home_view_from_host.png" width="401" height="311" title="VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-1-configure-manage-and-analyze-vsphere-log-files/home_view_from_host/" rel="attachment wp-att-5242)
+![home view from host VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files ](http://virtuallyhyper.com/wp-content/uploads/2012/12/home_view_from_host.png)
 
 Then click on "System Log" and you will see the following:
 
-[<img class="alignnone size-full wp-image-5243" alt="view logs from vsphere client VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/view_logs_from_vsphere_client.png" width="1135" height="634" title="VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-1-configure-manage-and-analyze-vsphere-log-files/view_logs_from_vsphere_client/" rel="attachment wp-att-5243)
+![view logs from vsphere client VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files ](http://virtuallyhyper.com/wp-content/uploads/2012/12/view_logs_from_vsphere_client.png)
 
 You can also choose which logs to look at by choosing the desired log from the drop down menu.
 
@@ -62,11 +62,11 @@ You can also choose which logs to look at by choosing the desired log from the d
 
 The easiest way to do this is from the vSphere client. Login to your vCenter and then select the vCenter (the top icon of the hierarchy on the left). Then go to "File" -> "Export" -> "Export System Logs...". It will look like this:
 
-[<img class="alignnone size-full wp-image-5244" alt="export system logs from vcenter VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/export_system_logs_from_vcenter.png" width="609" height="308" title="VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-1-configure-manage-and-analyze-vsphere-log-files/export_system_logs_from_vcenter/" rel="attachment wp-att-5244)
+![export system logs from vcenter VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files ](http://virtuallyhyper.com/wp-content/uploads/2012/12/export_system_logs_from_vcenter.png)
 
 Then the next screen will allow you to choose for which host to generate a log bundle and you can choose to "Include information from vCenter and vSphere Client". Here is how it looks like in vCenter:
 
-[<img class="alignnone size-full wp-image-5245" alt="generate host and vc logs VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/generate_host_and_vc_logs.png" width="644" height="526" title="VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-1-configure-manage-and-analyze-vsphere-log-files/generate_host_and_vc_logs/" rel="attachment wp-att-5245)
+![generate host and vc logs VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files ](http://virtuallyhyper.com/wp-content/uploads/2012/12/generate_host_and_vc_logs.png)
 
 ### Use esxcli system syslog to configure centralized logging on ESXi hosts
 
@@ -74,7 +74,7 @@ From "[vSphere Command-Line Interface Concepts and Examples](http://pubs.vmware.
 
 > The *esxcli system syslog* command allows you to configure the logging behavior of your ESXi system. With vSphere 5.0, you can manage the top‐level logger and subloggers. The command has the following options.
 >
-> [<img class="alignnone size-full wp-image-5246" alt="esxcli system syslog commands VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/esxcli_system_syslog_commands.png" width="589" height="333" title="VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-1-configure-manage-and-analyze-vsphere-log-files/esxcli_system_syslog_commands/" rel="attachment wp-att-5246)
+> ![esxcli system syslog commands VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files ](http://virtuallyhyper.com/wp-content/uploads/2012/12/esxcli_system_syslog_commands.png)
 
 I had configured "Syslog Collector" as per the instructions below and then I ran the following to check the syslog settings on the host:
 
@@ -162,11 +162,11 @@ Now go to the Machine where Syslog Collector is running and open up Explorer to 
 
 You will see something like this:
 
-[<img class="alignnone size-full wp-image-5259" alt="syslog collector logs1 VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/syslog_collector_logs1.png" width="796" height="268" title="VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-1-configure-manage-and-analyze-vsphere-log-files/syslog_collector_logs-2/" rel="attachment wp-att-5259)
+![syslog collector logs1 VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files ](http://virtuallyhyper.com/wp-content/uploads/2012/12/syslog_collector_logs1.png)
 
 Open up the latest file with notepad and then search for the string that you used and you should see it in that file, like so:
 
-[<img class="alignnone size-full wp-image-5260" alt="testing syslog collection VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/testing_syslog_collection.png" width="861" height="134" title="VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-1-configure-manage-and-analyze-vsphere-log-files/testing_syslog_collection/" rel="attachment wp-att-5260)
+![testing syslog collection VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files ](http://virtuallyhyper.com/wp-content/uploads/2012/12/testing_syslog_collection.png)
 
 ### Analyze log entries to obtain configuration information
 
@@ -216,27 +216,27 @@ This is a per-issue kind of scenario. It really depends on what you are searchin
 
 Let's do the Syslog Collector First. Start the vCenter Installer. It looks something like this:
 
-[<img class="alignnone size-full wp-image-5247" alt="vcenter installer VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/vcenter_installer.png" width="689" height="504" title="VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-1-configure-manage-and-analyze-vsphere-log-files/vcenter_installer/" rel="attachment wp-att-5247)
+![vcenter installer VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files ](http://virtuallyhyper.com/wp-content/uploads/2012/12/vcenter_installer.png)
 
 Select "VMware Syslog Collector" and click "Install":
 
-[<img class="alignnone size-full wp-image-5248" alt="select syslog collector VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/select_syslog_collector.png" width="686" height="501" title="VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-1-configure-manage-and-analyze-vsphere-log-files/select_syslog_collector/" rel="attachment wp-att-5248)
+![select syslog collector VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files ](http://virtuallyhyper.com/wp-content/uploads/2012/12/select_syslog_collector.png)
 
 Then the installer will start up, click Next a couple of times and accept the "License Agreement". After that you will get to this screen:
 
-[<img class="alignnone size-full wp-image-5249" alt="syslog collector configuration VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/syslog_collector_configuration.png" width="502" height="375" title="VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-1-configure-manage-and-analyze-vsphere-log-files/syslog_collector_configuration/" rel="attachment wp-att-5249)
+![syslog collector configuration VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files ](http://virtuallyhyper.com/wp-content/uploads/2012/12/syslog_collector_configuration.png)
 
 Choose the appropriate size and rotation settings for your logs and click Next. After that choose which installation you fall under:
 
-[<img class="alignnone size-full wp-image-5250" alt="syslog collector installation type VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/syslog_collector_installation_type.png" width="500" height="375" title="VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-1-configure-manage-and-analyze-vsphere-log-files/syslog_collector_installation_type/" rel="attachment wp-att-5250)
+![syslog collector installation type VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files ](http://virtuallyhyper.com/wp-content/uploads/2012/12/syslog_collector_installation_type.png)
 
 Then keep the default port settings:
 
-[<img class="alignnone size-full wp-image-5251" alt="syslog collector port settings VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/syslog_collector_port_settings.png" width="499" height="376" title="VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-1-configure-manage-and-analyze-vsphere-log-files/syslog_collector_port_settings/" rel="attachment wp-att-5251)
+![syslog collector port settings VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files ](http://virtuallyhyper.com/wp-content/uploads/2012/12/syslog_collector_port_settings.png)
 
 Then click Next and then Finish. After that you will see the service starts under "services.msc":
 
-[<img class="alignnone size-full wp-image-5252" alt="syslog service started VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/syslog_service_started.png" width="671" height="68" title="VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-1-configure-manage-and-analyze-vsphere-log-files/syslog_service_started/" rel="attachment wp-att-5252)
+![syslog service started VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files ](http://virtuallyhyper.com/wp-content/uploads/2012/12/syslog_service_started.png)
 
 You can also check if the ports are in a listening state on the windows machine:
 
@@ -251,23 +251,23 @@ Now you can configure hosts to log to this syslog collector. This setup for that
 
 The ESXi Dump collector is very similar. Start up the vCenter installer and then follow the on-screen instructions. This [VMware](http://blogs.vmware.com/vsphere/2011/07/setting-up-the-esxi-50-dump-collector.html) Blog has a very good step-by-step guide. Here is the content from that blog:
 
-> [<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/vcenter_install_dump_collector.png" alt="vcenter install dump collector VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " width="757" height="554" class="alignnone size-full wp-image-5266" title="VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-1-configure-manage-and-analyze-vsphere-log-files/vcenter_install_dump_collector/" rel="attachment wp-att-5266)
+> ![vcenter install dump collector VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files ](http://virtuallyhyper.com/wp-content/uploads/2012/12/vcenter_install_dump_collector.png)
 
 During the install you will be asked where on the host you want to store the core dumps, by default the dump repository is 2GB, which should be sufficient for most environments.
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/dump_collector_install_size.png" alt="dump collector install size VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " width="698" height="519" class="alignnone size-full wp-image-5267" title="VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-1-configure-manage-and-analyze-vsphere-log-files/dump_collector_install_size/" rel="attachment wp-att-5267)
+![dump collector install size VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files ](http://virtuallyhyper.com/wp-content/uploads/2012/12/dump_collector_install_size.png)
 
 You will also be asked if you want to do a Standalone installation or integrate the dump collector with vCenter. If you choose the VMware vCenter Server Installation it will register the Dump Collector plug-in with the vCenter server.
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/dump_collector_install_type.png" alt="dump collector install type VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " width="697" height="521" class="alignnone size-full wp-image-5268" title="VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-1-configure-manage-and-analyze-vsphere-log-files/dump_collector_install_type/" rel="attachment wp-att-5268)
+![dump collector install type VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files ](http://virtuallyhyper.com/wp-content/uploads/2012/12/dump_collector_install_type.png)
 
 The final step is to use the ESXCLI to configure each host to use the Dump Collector. The screen shot below shows the commands to do this.
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/esxcli_core_dump.png" alt="esxcli core dump VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " width="938" height="254" class="alignnone size-full wp-image-5269" title="VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-1-configure-manage-and-analyze-vsphere-log-files/esxcli_core_dump/" rel="attachment wp-att-5269)
+![esxcli core dump VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files ](http://virtuallyhyper.com/wp-content/uploads/2012/12/esxcli_core_dump.png)
 
 Now anytime your ESXi 5.0 host generates a core dump the file will be saved on the network server and available for analysis. The screen shots below show the file being copied to the network server when my ESXi host PSODs. I also provided a listing of the corefile for reference.
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/psod_dump_collector.png" alt="psod dump collector VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " width="876" height="358" class="alignnone size-full wp-image-5270" title="VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-1-configure-manage-and-analyze-vsphere-log-files/psod_dump_collector/" rel="attachment wp-att-5270)
+![psod dump collector VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files ](http://virtuallyhyper.com/wp-content/uploads/2012/12/psod_dump_collector.png)
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/ls_core_dump.png" alt="ls core dump VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " width="847" height="119" class="alignnone size-full wp-image-5271" title="VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-1-configure-manage-and-analyze-vsphere-log-files/ls_core_dump/" rel="attachment wp-att-5271)
+![ls core dump VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files ](http://virtuallyhyper.com/wp-content/uploads/2012/12/ls_core_dump.png)
 

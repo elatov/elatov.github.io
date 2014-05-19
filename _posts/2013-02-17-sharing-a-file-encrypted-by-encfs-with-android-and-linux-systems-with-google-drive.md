@@ -374,31 +374,31 @@ Now let's see if we can download this file on our Android phone.
 
 First, go to **Google Play** and find the App:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/box_cryptor_google_play.png" alt="box cryptor google play Sharing a File Encrypted by EncFS with Android and Linux Systems with Google Drive" width="540" height="960" class="alignnone size-full wp-image-6269" title="Sharing a File Encrypted by EncFS with Android and Linux Systems with Google Drive" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/box_cryptor_google_play.png)
+![box cryptor google play Sharing a File Encrypted by EncFS with Android and Linux Systems with Google Drive](http://virtuallyhyper.com/wp-content/uploads/2013/02/box_cryptor_google_play.png)
 
 After installing the App and launching it, you will see the following screen:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/box_crypt_launched.png" alt="box crypt launched Sharing a File Encrypted by EncFS with Android and Linux Systems with Google Drive" width="540" height="960" class="alignnone size-full wp-image-6270" title="Sharing a File Encrypted by EncFS with Android and Linux Systems with Google Drive" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/box_crypt_launched.png)
+![box crypt launched Sharing a File Encrypted by EncFS with Android and Linux Systems with Google Drive](http://virtuallyhyper.com/wp-content/uploads/2013/02/box_crypt_launched.png)
 
 Select "Connect to Google Drive" and then choose the account to login as:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/bx_crypt_login_google_drive.png" alt="bx crypt login google drive Sharing a File Encrypted by EncFS with Android and Linux Systems with Google Drive" width="540" height="960" class="alignnone size-full wp-image-6271" title="Sharing a File Encrypted by EncFS with Android and Linux Systems with Google Drive" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/bx_crypt_login_google_drive.png)
+![bx crypt login google drive Sharing a File Encrypted by EncFS with Android and Linux Systems with Google Drive](http://virtuallyhyper.com/wp-content/uploads/2013/02/bx_crypt_login_google_drive.png)
 
 Then another window will pop up asking you to give permission to this App to connect to Google Drive:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/allow_bx_crypt_to_google_drive.png" alt="allow bx crypt to google drive Sharing a File Encrypted by EncFS with Android and Linux Systems with Google Drive" width="540" height="960" class="alignnone size-full wp-image-6272" title="Sharing a File Encrypted by EncFS with Android and Linux Systems with Google Drive" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/allow_bx_crypt_to_google_drive.png)
+![allow bx crypt to google drive Sharing a File Encrypted by EncFS with Android and Linux Systems with Google Drive](http://virtuallyhyper.com/wp-content/uploads/2013/02/allow_bx_crypt_to_google_drive.png)
 
 At this point you will see your folders, it will automatically find the encrypted folder and ask you for the password:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/bx_crypt_enter_pass.png" alt="bx crypt enter pass Sharing a File Encrypted by EncFS with Android and Linux Systems with Google Drive" width="540" height="960" class="alignnone size-full wp-image-6273" title="Sharing a File Encrypted by EncFS with Android and Linux Systems with Google Drive" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/bx_crypt_enter_pass.png)
+![bx crypt enter pass Sharing a File Encrypted by EncFS with Android and Linux Systems with Google Drive](http://virtuallyhyper.com/wp-content/uploads/2013/02/bx_crypt_enter_pass.png)
 
 After you have authenticated, you should see the contents of your folder:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/bx_crypt_see_contents.png" alt="bx crypt see contents Sharing a File Encrypted by EncFS with Android and Linux Systems with Google Drive" width="540" height="960" class="alignnone size-full wp-image-6274" title="Sharing a File Encrypted by EncFS with Android and Linux Systems with Google Drive" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/bx_crypt_see_contents.png)
+![bx crypt see contents Sharing a File Encrypted by EncFS with Android and Linux Systems with Google Drive](http://virtuallyhyper.com/wp-content/uploads/2013/02/bx_crypt_see_contents.png)
 
 Lastly, click on the text file and make sure you can see the contents:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/02/bx_crypt_open_txt_file.png" alt="bx crypt open txt file Sharing a File Encrypted by EncFS with Android and Linux Systems with Google Drive" width="540" height="960" class="alignnone size-full wp-image-6275" title="Sharing a File Encrypted by EncFS with Android and Linux Systems with Google Drive" />](http://virtuallyhyper.com/wp-content/uploads/2013/02/bx_crypt_open_txt_file.png)
+![bx crypt open txt file Sharing a File Encrypted by EncFS with Android and Linux Systems with Google Drive](http://virtuallyhyper.com/wp-content/uploads/2013/02/bx_crypt_open_txt_file.png)
 
 You can always script something to automate the encrypting, decrypting, and syncing of the files.
 

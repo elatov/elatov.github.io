@@ -45,7 +45,7 @@ From "[vSphere Management Assistant Guide vSphere 5.1](http://pubs.vmware.com/vs
 
 From "[vSphere Management Assistant Guide vSphere 5.1](http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf)":
 
-[<img class="alignnone size-full wp-image-5580" alt="vma commands VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/vma_commands.png" width="605" height="246" title="VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/vma_commands/" rel="attachment wp-att-5580)
+![vma commands VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant ](http://virtuallyhyper.com/wp-content/uploads/2012/12/vma_commands.png)
 
 ### Determine when vMA is needed
 
@@ -69,7 +69,7 @@ So if you want to have a centralized management console, vMA is perfect. You can
 
 I decided to install the 5.1 version of VMa just for fun. First download the zip file from My VMware:
 
-[<img class="alignnone size-full wp-image-5576" alt="vma download VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/vma_download.png" width="988" height="614" title="VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/vma_download/" rel="attachment wp-att-5576)
+![vma download VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant ](http://virtuallyhyper.com/wp-content/uploads/2012/12/vma_download.png)
 
 Then from "[vSphere Management Assistant Guide vSphere 5.1](http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf)"::
 
@@ -94,30 +94,30 @@ Then from "[vSphere Management Assistant Guide vSphere 5.1](http://pubs.vmware.c
 
 Here is how what I did to deploy the vMA. After you downloaded from the above site, you will see the following file:
 
-[<img class="alignnone size-full wp-image-5581" alt="vma zip file VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/vma_zip_file.png" width="90" height="89" title="VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/vma_zip_file/" rel="attachment wp-att-5581)
+![vma zip file VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant ](http://virtuallyhyper.com/wp-content/uploads/2012/12/vma_zip_file.png)
 
 After extracting the archive, you will see the following files:
 
-[<img class="alignnone size-full wp-image-5582" alt="zip extracted vma VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/zip_extracted_vma.png" width="588" height="100" title="VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/zip_extracted_vma/" rel="attachment wp-att-5582)
+![zip extracted vma VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant ](http://virtuallyhyper.com/wp-content/uploads/2012/12/zip_extracted_vma.png)
 
 Now to deploy the 'ovf', we can go to "File -> Deploy OVF Template":
 
-[<img class="alignnone size-full wp-image-5583" alt="deploy ovf template VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/deploy_ovf_template.png" width="237" height="96" title="VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/deploy_ovf_template/" rel="attachment wp-att-5583)
+![deploy ovf template VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant ](http://virtuallyhyper.com/wp-content/uploads/2012/12/deploy_ovf_template.png)
 
 Browsing to our ovf and selecting it, we get this from vCenter:
-[<img class="alignnone size-full wp-image-5584" alt="deploy ovf template vma VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/deploy_ovf_template_vma.png" width="714" height="676" title="VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/deploy_ovf_template_vma/" rel="attachment wp-att-5584)
+![deploy ovf template vma VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant ](http://virtuallyhyper.com/wp-content/uploads/2012/12/deploy_ovf_template_vma.png)
 
 Keep Clicking through the Deployment Wizard:
 
-[<img class="alignnone size-full wp-image-5585" alt="deploy ovf vma wizard VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/deploy_ovf_vma_wizard.png" width="716" height="676" title="VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/deploy_ovf_vma_wizard/" rel="attachment wp-att-5585)
+![deploy ovf vma wizard VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant ](http://virtuallyhyper.com/wp-content/uploads/2012/12/deploy_ovf_vma_wizard.png)
 
 At end the final screen will look like this:
 
-[<img class="alignnone size-full wp-image-5586" alt="final screen ovf vma VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/final_screen_ovf_vma.png" width="718" height="675" title="VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/final_screen_ovf_vma/" rel="attachment wp-att-5586)
+![final screen ovf vma VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant ](http://virtuallyhyper.com/wp-content/uploads/2012/12/final_screen_ovf_vma.png)
 
 After the VM is Deployed, you will see it in the inventory:
 
-[<img class="alignnone size-full wp-image-5587" alt="vma vm vc inventory VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/vma_vm_vc_inventory.png" width="196" height="95" title="VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/vma_vm_vc_inventory/" rel="attachment wp-att-5587)
+![vma vm vc inventory VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant ](http://virtuallyhyper.com/wp-content/uploads/2012/12/vma_vm_vc_inventory.png)
 
 Next we can Power on the VM and open Console to it. And per the instructions from the guide:
 
@@ -139,31 +139,31 @@ Next we can Power on the VM and open Console to it. And per the instructions fro
 
 Here is how it looked like on first boot:
 
-[<img class="alignnone size-full wp-image-5589" alt="first boot vma VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/first_boot_vma.png" width="725" height="498" title="VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/first_boot_vma/" rel="attachment wp-att-5589)
+![first boot vma VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant ](http://virtuallyhyper.com/wp-content/uploads/2012/12/first_boot_vma.png)
 
 Here is how you can set the IP for the vMA:
 
-[<img class="alignnone size-full wp-image-5590" alt="ip conf vma VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/ip_conf_vma.png" width="727" height="496" title="VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/ip_conf_vma/" rel="attachment wp-att-5590)
+![ip conf vma VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant ](http://virtuallyhyper.com/wp-content/uploads/2012/12/ip_conf_vma.png)
 
 After the boot up process is finished, you will see the following screen on the vMA VM:
 
-[<img class="alignnone size-full wp-image-5591" alt="vma finish boot VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/vma_finish_boot.png" width="728" height="500" title="VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " />](http://virtuallyhyper.com/wp-content/uploads/2012/12/vma_finish_boot.png" rel="attachment wp-att-5591)
+![vma finish boot VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant ](http://virtuallyhyper.com/wp-content/uploads/2012/12/vma_finish_boot.png)
 
 Also visiting the management console from the Browser, I saw the following:
 
-[<img class="alignnone size-full wp-image-5592" alt="vma browser VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/vma_browser.png" width="703" height="368" title="VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/vma_browser/" rel="attachment wp-att-5592)
+![vma browser VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant ](http://virtuallyhyper.com/wp-content/uploads/2012/12/vma_browser.png)
 
 Upon logging into the vMA, I the following screen:
 
-[<img class="alignnone size-full wp-image-5593" alt="vma browser login VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/vma_browser_login.png" width="830" height="310" title="VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/vma_browser_login/" rel="attachment wp-att-5593)
+![vma browser login VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant ](http://virtuallyhyper.com/wp-content/uploads/2012/12/vma_browser_login.png)
 
 I tried to login to the vMA via ssh, but I kept the following error in putty:
 
-[<img class="alignnone size-full wp-image-5594" alt="vma ssh fail VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/vma_ssh_fail.png" width="662" height="407" title="VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/vma_ssh_fail/" rel="attachment wp-att-5594)
+![vma ssh fail VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant ](http://virtuallyhyper.com/wp-content/uploads/2012/12/vma_ssh_fail.png)
 
 I logged in via the VM Console and checked out the messages file and I saw the following:
 
-[<img class="alignnone size-full wp-image-5595" alt="tcp wrappers vma login VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " src="http://virtuallyhyper.com/wp-content/uploads/2012/12/tcp_wrappers_vma_login.png" width="727" height="499" title="VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/tcp_wrappers_vma_login/" rel="attachment wp-att-5595)
+![tcp wrappers vma login VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant ](http://virtuallyhyper.com/wp-content/uploads/2012/12/tcp_wrappers_vma_login.png)
 
 Checking out the file and that line, I saw the following:
 
@@ -301,11 +301,11 @@ From "[vSphere Management Assistant Guide vSphere 5.1](http://pubs.vmware.com/vs
 
 Here is how it looks like from the web browser:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/vma_update_page.png" alt="vma update page VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " width="837" height="242" class="alignnone size-full wp-image-5608" title="VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/vma_update_page/" rel="attachment wp-att-5608)
+![vma update page VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant ](http://virtuallyhyper.com/wp-content/uploads/2012/12/vma_update_page.png)
 
 Then checking out the Repository settings:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/repository_settings_vma.png" alt="repository settings vma VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " width="830" height="544" class="alignnone size-full wp-image-5609" title="VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/repository_settings_vma/" rel="attachment wp-att-5609)
+![repository settings vma VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant ](http://virtuallyhyper.com/wp-content/uploads/2012/12/repository_settings_vma.png)
 
 The settings looked good, then going back to the status page and Clicking "Check Updates" nothing came up since this was the latest version at the time.
 
@@ -552,7 +552,7 @@ From "[vSphere Management Assistant Guide vSphere 5.1](http://pubs.vmware.com/vs
 > **Troubleshooting vMA**
 > You can find troubleshooting information for all VMware products in VMware Knowledge Base articles and information about vMA known issues in the release notes. Table 2‐3 explains a few commonly encountered issues that are easily resolved.
 >
-> [<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/troubleshooting_vma.png" alt="troubleshooting vma VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " width="592" height="491" class="alignnone size-full wp-image-5610" title="VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant " />](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/troubleshooting_vma/" rel="attachment wp-att-5610)
+> ![troubleshooting vma VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant ](http://virtuallyhyper.com/wp-content/uploads/2012/12/troubleshooting_vma.png)
 >
 > This release of vMA provides the vma-support script that enables you to collect various system configuration information and other logs. You can run this script by issuing the following command:
 >

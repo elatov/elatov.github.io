@@ -111,7 +111,7 @@ Now let's plot just the NFS read latency and see what we discover:
 
 After running the above command I saw the following graph:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/gnuplot_graph_nfs_latency.png" alt="gnuplot graph nfs latency Plot Esxtop Data With gnuplot" width="972" height="620" class="alignnone size-full wp-image-5378" title="Plot Esxtop Data With gnuplot" />](http://virtuallyhyper.com/2013/01/plot-esxtop-data-with-gnuplot/gnuplot_graph_nfs_latency/" rel="attachment wp-att-5378)
+![gnuplot graph nfs latency Plot Esxtop Data With gnuplot](http://virtuallyhyper.com/wp-content/uploads/2012/12/gnuplot_graph_nfs_latency.png)
 
 So it looks like we had two spikes, one at about 19:10 and the other at 20:20. Let's pick the second one and concentrate on that. First let's find the exact time of the spike. It looks like the spike reached about 170ms. So let's search for a value above a hundred and see if we can find our spike.
 
@@ -162,7 +162,7 @@ Lastly let's plot the data:
 
 Here is what I saw:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/gnuplot_nfs_latency_2020.png" alt="gnuplot nfs latency 2020 Plot Esxtop Data With gnuplot" width="861" height="545" class="alignnone size-full wp-image-5379" title="Plot Esxtop Data With gnuplot" />](http://virtuallyhyper.com/2013/01/plot-esxtop-data-with-gnuplot/gnuplot_nfs_latency_2020/" rel="attachment wp-att-5379)
+![gnuplot nfs latency 2020 Plot Esxtop Data With gnuplot](http://virtuallyhyper.com/wp-content/uploads/2012/12/gnuplot_nfs_latency_2020.png)
 
 Now usually the latency happens due to an increase in commands, but let's confirm if that is the case. First let's figure out the column number for "Reads/sec" is.
 
@@ -201,7 +201,7 @@ That looks good, not let's plot both columns in the same graph:
 
 And here was the graph that I saw:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/gnuplot_nfs_lat_nfs_reads.png" alt="gnuplot nfs lat nfs reads Plot Esxtop Data With gnuplot" width="912" height="541" class="alignnone size-full wp-image-5381" title="Plot Esxtop Data With gnuplot" />](http://virtuallyhyper.com/2013/01/plot-esxtop-data-with-gnuplot/gnuplot_nfs_lat_nfs_reads/" rel="attachment wp-att-5381)
+![gnuplot nfs lat nfs reads Plot Esxtop Data With gnuplot](http://virtuallyhyper.com/wp-content/uploads/2012/12/gnuplot_nfs_lat_nfs_reads.png)
 
 We can clearly see an increase in the reads sent and therefore the read latency increased. Now to find out why the increase in reads. Let's check for all the virtual disks (that are owned by VMs) and their reads at the time of the spike. First here are all the columns for all the Virtual Disk and their reads per second:
 
@@ -265,7 +265,7 @@ The information was taken from "[GnuPlot Version 4.4 Documentation](http://www.g
 >
 > The string argument tells gnuplot how to read time data from the data file. The valid formats are:
 >
-> [<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/gnuplot_time_formate.png" alt="gnuplot time formate Plot Esxtop Data With gnuplot" width="418" height="231" class="alignnone size-full wp-image-5382" title="Plot Esxtop Data With gnuplot" />](http://virtuallyhyper.com/2013/01/plot-esxtop-data-with-gnuplot/gnuplot_time_formate/" rel="attachment wp-att-5382)
+> ![gnuplot time formate Plot Esxtop Data With gnuplot](http://virtuallyhyper.com/wp-content/uploads/2012/12/gnuplot_time_formate.png)
 
 Here is an example from the documentation:
 
@@ -294,7 +294,7 @@ Here is an example from the documentation:
 
 > In time/date mode, the acceptable formats are:
 >
-> [<img src="http://virtuallyhyper.com/wp-content/uploads/2012/12/gnuplot_time_format_tics.png" alt="gnuplot time format tics Plot Esxtop Data With gnuplot" width="357" height="445" class="alignnone size-full wp-image-5383" title="Plot Esxtop Data With gnuplot" />](http://virtuallyhyper.com/2013/01/plot-esxtop-data-with-gnuplot/gnuplot_time_format_tics/" rel="attachment wp-att-5383)
+> ![gnuplot time format tics Plot Esxtop Data With gnuplot](http://virtuallyhyper.com/wp-content/uploads/2012/12/gnuplot_time_format_tics.png)
 >
 > Except for the non-numerical formats, these may be preceded by a "0" ("zero", not "oh") to pad the fi eld length with leading zeroes, and a positive digit, to de fine the minimum field width (which will be overridden if the specifi ed width is not large enough to contain the number). There is a 24-character limit to the length of the printed text; longer strings will be truncated.
 > Examples:

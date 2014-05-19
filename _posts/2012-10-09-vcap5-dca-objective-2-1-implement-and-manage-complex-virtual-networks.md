@@ -68,7 +68,7 @@ And more from the same document:
 > Sends out and listens for beacon probes — Ethernet broadcast frames sent by physical adapters to detect upstream network connection failures — on all physical Ethernet adapters in the team, as shown in Figure . It uses this information, in addition to link status, to determine link failure. This detects many of the failures mentioned above that are not detected by link status alone, however beacon
 > probing should not be used as a substitute for a robust redundant Layer  network design. Beacon probing is most useful to detect failures in the closest switch to the ESX Server hosts, where the failure does not cause a link-down event for the host.
 >
-> [<img class="alignnone size-full wp-image-3951" title="beacon_probes" src="http://virtuallyhyper.com/wp-content/uploads/2012/09/beacon_probes.png" alt="beacon probes VCAP5 DCA Objective 2.1 – Implement and Manage Complex Virtual Networks " width="305" height="772" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/beacon_probes.png)
+> ![beacon_probes](http://virtuallyhyper.com/wp-content/uploads/2012/09/beacon_probes.png)
 
 And the last section from the document:
 
@@ -207,7 +207,7 @@ This was covered in the previous section
 
 From [VMware vNetwork Distributed Switch: Migration and Configuration](http://www.vmware.com/files/pdf/vsphere-vnetwork-ds-migration-configuration-wp.pdf)
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/09/vss_to_dvs_migration.png" alt="vss to dvs migration VCAP5 DCA Objective 2.1 – Implement and Manage Complex Virtual Networks " title="vss_to_dvs_migration" width="465" height="337" class="alignnone size-full wp-image-3960" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/vss_to_dvs_migration.png)
+![vss_to_dvs_migration](http://virtuallyhyper.com/wp-content/uploads/2012/09/vss_to_dvs_migration.png)
 
 From the same document:
 
@@ -215,11 +215,11 @@ From the same document:
 >
 > vNetwork Distributed Switches are created at the Datacenter level in the vSphere environment. A datacenter is the primary container for inventory objects such as hosts and virtual machines. The starting point is shown below from a vSphere Client attached to a vCenter Server. In the example environment, the Datacenter is labeled Datacenter_09.
 >
-> [<img src="http://virtuallyhyper.com/wp-content/uploads/2012/09/create_dvs.png" alt="create dvs VCAP5 DCA Objective 2.1 – Implement and Manage Complex Virtual Networks " title="create_dvs" width="549" height="228" class="alignnone size-full wp-image-3961" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/create_dvs.png)
+> ![create_dvs](http://virtuallyhyper.com/wp-content/uploads/2012/09/create_dvs.png)
 >
 > After creating the vDS, the Networking Inventory panel will show a dvSwitch (the default name is chosen here), and an Uplink Group for the uplinks (in this example, this was named dvswitch-DVUplinks-199). Note that both these new items can be renamed to conform to any local naming standards.
 >
-> [<img src="http://virtuallyhyper.com/wp-content/uploads/2012/09/after_creating_dvs.png" alt="after creating dvs VCAP5 DCA Objective 2.1 – Implement and Manage Complex Virtual Networks " title="after_creating_dvs" width="244" height="174" class="alignnone size-full wp-image-3962" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/after_creating_dvs.png)
+> ![after_creating_dvs](http://virtuallyhyper.com/wp-content/uploads/2012/09/after_creating_dvs.png)
 >
 > **Step 2: Create Distributed Virtual Port Groups on vDS to Match Existing or Required Environment**
 > In this step, a Distributed Virtual Port Groups on the vDS is created to match the existing environment and prepare the vDS for migration of the individual ports and Port Groups from the Standard Switches on each of the hosts.
@@ -230,7 +230,7 @@ From the same document:
 > The first panel in creating the dv-VM01 DV Port Group is shown in Figure 17. Note the number of ports. This defaults to 128 and is the number of ports that this DV port group will allow once created. As this DV Port Group will support VMs, it means up to 128 VMs can use this DV Port Group. Modify this to a higher number if you need to support more VMs within a single DV
 > Port Group. In this example environment, 128 ports are quite adequate.
 >
-> [<img src="http://virtuallyhyper.com/wp-content/uploads/2012/09/create_dvportgroup.png" alt="create dvportgroup VCAP5 DCA Objective 2.1 – Implement and Manage Complex Virtual Networks " title="create_dvportgroup" width="444" height="240" class="alignnone size-full wp-image-3963" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/create_dvportgroup.png)
+> ![create_dvportgroup](http://virtuallyhyper.com/wp-content/uploads/2012/09/create_dvportgroup.png)
 >
 > **Step 3: Add host to vDS and migrate vmnics, Virtual Ports, and VM Networking**
 > In this step, the Standard Switch environment of one host is migrated to the vDS and DV Port Groups created in steps 1 and 2. The process is described below.
@@ -238,17 +238,17 @@ From the same document:
 > 1. Switch to the Home > Inventory > Networking view
 > 2. Right click on the vDS and select Add Host. This is shown in Figure 19.
 >
-> [<img src="http://virtuallyhyper.com/wp-content/uploads/2012/09/add_host_to_dvs.png" alt="add host to dvs VCAP5 DCA Objective 2.1 – Implement and Manage Complex Virtual Networks " title="add_host_to_dvs" width="391" height="274" class="alignnone size-full wp-image-3964" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/add_host_to_dvs.png)
+> ![add_host_to_dvs](http://virtuallyhyper.com/wp-content/uploads/2012/09/add_host_to_dvs.png)
 >
 > **Step 3b: Select Physical Adapters (vmnics)**
 > Next, select the host being migrated to vDS (esx09a.tml.local in this environment). For this example, all four vmnics are migrated from the Standard Switch on esx09a.tml.local to the vDS at one time. Refer to Figure 20.
 >
-> [<img src="http://virtuallyhyper.com/wp-content/uploads/2012/09/select_host_vmnics_to_migrate_to_dvs.png" alt="select host vmnics to migrate to dvs VCAP5 DCA Objective 2.1 – Implement and Manage Complex Virtual Networks " title="select_host_vmnics_to_migrate_to_dvs" width="580" height="244" class="alignnone size-full wp-image-3965" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/select_host_vmnics_to_migrate_to_dvs.png)
+> ![select_host_vmnics_to_migrate_to_dvs](http://virtuallyhyper.com/wp-content/uploads/2012/09/select_host_vmnics_to_migrate_to_dvs.png)
 >
 > **Step 3c: Migrate Virtual Adapters**
 > Now the virtual adapters on the Standard Switch with the DV Port Groups created in Step 2 need to be matched up. In this example, the Port Groups and DV Port Groups from Table 2 are matched up. Double check that the VLAN selected for the Management DVPort Group (dv-management in this example) matches that of the Service Console port (vswif0). Any mismatch or mistake with the service console definition could isolate the host and require ILO or console connection to restore connectivity. See Figure 21.
 >
-> [<img src="http://virtuallyhyper.com/wp-content/uploads/2012/09/select_Virtual_adapter_to_migrate_to_dvs.png" alt="select Virtual adapter to migrate to dvs VCAP5 DCA Objective 2.1 – Implement and Manage Complex Virtual Networks " title="select_Virtual_adapter_to_migrate_to_dvs" width="493" height="256" class="alignnone size-full wp-image-3966" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/select_Virtual_adapter_to_migrate_to_dvs.png)
+> ![select_Virtual_adapter_to_migrate_to_dvs](http://virtuallyhyper.com/wp-content/uploads/2012/09/select_Virtual_adapter_to_migrate_to_dvs.png)
 >
 > **Step 3d: Migrate Virtual Machine Networking**
 >
@@ -261,7 +261,7 @@ From the same document:
 > 4. Select the VMs you wish to migrate (all of them in this case).
 > 5. Repeat for each of the remaining VM networking Port Groups.
 >
-> [<img src="http://virtuallyhyper.com/wp-content/uploads/2012/09/migrate_vms_to_dvs.png" alt="migrate vms to dvs VCAP5 DCA Objective 2.1 – Implement and Manage Complex Virtual Networks " title="migrate_vms_to_dvs" width="596" height="440" class="alignnone size-full wp-image-3967" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/migrate_vms_to_dvs.png)
+> ![migrate_vms_to_dvs](http://virtuallyhyper.com/wp-content/uploads/2012/09/migrate_vms_to_dvs.png)
 
 That should be it.
 
@@ -687,7 +687,7 @@ From [vSphere Networking ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.v
 
 Here is how it looks like in the GUI:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/09/netflow_settings.png" alt="netflow settings VCAP5 DCA Objective 2.1 – Implement and Manage Complex Virtual Networks " title="netflow_settings" width="692" height="530" class="alignnone size-full wp-image-3972" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/netflow_settings.png)
+![netflow_settings](http://virtuallyhyper.com/wp-content/uploads/2012/09/netflow_settings.png)
 
 The topic is also discussed in the VMware Blogs "[vSphere 5 New Networking Features – NetFlow](http://blogs.vmware.com/vsphere/2011/08/vsphere-5-new-networking-features-netflow.html)"
 
@@ -716,13 +716,13 @@ From the same document:
 > 5 Select Cisco Discovery Protocol from the Type drop-down menu.
 > 6 Select the CDP mode from the Operation drop-down menu.
 >
-> [<img src="http://virtuallyhyper.com/wp-content/uploads/2012/09/CPD_Options.png" alt="CPD Options VCAP5 DCA Objective 2.1 – Implement and Manage Complex Virtual Networks " title="CPD_Options" width="563" height="167" class="alignnone size-full wp-image-3983" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/CPD_Options.png)
+> ![CPD_Options](http://virtuallyhyper.com/wp-content/uploads/2012/09/CPD_Options.png)
 >
 > 7 Click OK
 
 Here is how it looks like:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/09/cdp_dvs_options.png" alt="cdp dvs options VCAP5 DCA Objective 2.1 – Implement and Manage Complex Virtual Networks " title="cdp_dvs_options" width="695" height="534" class="alignnone size-full wp-image-3984" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/cdp_dvs_options.png)
+![cdp_dvs_options](http://virtuallyhyper.com/wp-content/uploads/2012/09/cdp_dvs_options.png)
 
 And again from the same document:
 
@@ -737,12 +737,12 @@ And again from the same document:
 > 4 Select Enabled from the Status drop-down menu.
 > 5 Select Link Layer Discovery Protocol from the Type drop-down menu
 > 6 Select the LLDP mode from the Operation drop-down menu.
-> [<img src="http://virtuallyhyper.com/wp-content/uploads/2012/09/lddp_options.png" alt="lddp options VCAP5 DCA Objective 2.1 – Implement and Manage Complex Virtual Networks " title="lddp_options" width="563" height="167" class="alignnone size-full wp-image-3985" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/lddp_options.png)
+> ![lddp_options](http://virtuallyhyper.com/wp-content/uploads/2012/09/lddp_options.png)
 > 7 Click OK.
 
 Here is how it looks like:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/09/lddp_dvs_options.png" alt="lddp dvs options VCAP5 DCA Objective 2.1 – Implement and Manage Complex Virtual Networks " title="lddp_dvs_options" width="690" height="532" class="alignnone size-full wp-image-3986" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/lddp_dvs_options.png)
+![lddp_dvs_options](http://virtuallyhyper.com/wp-content/uploads/2012/09/lddp_dvs_options.png)
 
 Pick the one that matches your physical environment. If you have Cisco switches then use CDP, if you have a non-cisco environment then use LLDP.
 

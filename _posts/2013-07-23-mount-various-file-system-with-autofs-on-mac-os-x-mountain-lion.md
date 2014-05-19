@@ -173,7 +173,7 @@ The first thing that we need to do is install Mac Ports.
 
 Go to [Installing MacPorts](http://www.macports.org/install.php) and download the *pkg* installer. Launch installer and you will see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/07/mac_ports_install.png" alt="mac ports install Mount Various File Systems with Autofs on Mac OS X Mountain Lion" width="613" height="434" class="alignnone size-full wp-image-9204" title="Mount Various File Systems with Autofs on Mac OS X Mountain Lion" />](http://virtuallyhyper.com/wp-content/uploads/2013/07/mac_ports_install.png)
+![mac ports install Mount Various File Systems with Autofs on Mac OS X Mountain Lion](http://virtuallyhyper.com/wp-content/uploads/2013/07/mac_ports_install.png)
 
 Follow the on-screen instructions install *Mac Ports*.
 
@@ -181,17 +181,17 @@ Follow the on-screen instructions install *Mac Ports*.
 
 *X-Code* is necessary for Mac Ports, so go ahead and install it from [XCode](https://developer.apple.com/xcode/). It will actually start up the *App Store* to do the download. After it's done your *App Store* will look like this:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/07/xcode-install-app-store.png" alt="xcode install app store Mount Various File Systems with Autofs on Mac OS X Mountain Lion" width="747" height="290" class="alignnone size-full wp-image-9205" title="Mount Various File Systems with Autofs on Mac OS X Mountain Lion" />](http://virtuallyhyper.com/wp-content/uploads/2013/07/xcode-install-app-store.png)
+![xcode install app store Mount Various File Systems with Autofs on Mac OS X Mountain Lion](http://virtuallyhyper.com/wp-content/uploads/2013/07/xcode-install-app-store.png)
 
 #### Install X-Code Command Line tools:
 
 Go to your Applications (Command-Shift-a) and launch X-Code (accept the license agreement). Then go to the preferences:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/07/xcode-preferences.png" alt="xcode preferences Mount Various File Systems with Autofs on Mac OS X Mountain Lion" width="245" height="144" class="alignnone size-full wp-image-9206" title="Mount Various File Systems with Autofs on Mac OS X Mountain Lion" />](http://virtuallyhyper.com/wp-content/uploads/2013/07/xcode-preferences.png)
+![xcode preferences Mount Various File Systems with Autofs on Mac OS X Mountain Lion](http://virtuallyhyper.com/wp-content/uploads/2013/07/xcode-preferences.png)
 
 Then go to the "Downloads" tab and install command line tools. After they are installed you will see the following under preferences:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/07/xcode-command-line-tools.png" alt="xcode command line tools Mount Various File Systems with Autofs on Mac OS X Mountain Lion" width="734" height="289" class="alignnone size-full wp-image-9207" title="Mount Various File Systems with Autofs on Mac OS X Mountain Lion" />](http://virtuallyhyper.com/wp-content/uploads/2013/07/xcode-command-line-tools.png)
+![xcode command line tools Mount Various File Systems with Autofs on Mac OS X Mountain Lion](http://virtuallyhyper.com/wp-content/uploads/2013/07/xcode-command-line-tools.png)
 
 #### Update Ports
 

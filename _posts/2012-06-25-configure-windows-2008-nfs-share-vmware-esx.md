@@ -30,35 +30,35 @@ Start -> Run -> servermanager.msc
 
 Actions -> Add Role
 
-[<img class="alignnone size-full wp-image-1630" title="Add_roles" src="http://virtuallyhyper.com/wp-content/uploads/2012/05/Add_roles.png" alt="Add roles Configure Windows 2008 as NFS share for VMware ESX" width="200" height="176" />](http://virtuallyhyper.com/wp-content/uploads/2012/05/Add_roles.png)
+![Add_roles](http://virtuallyhyper.com/wp-content/uploads/2012/05/Add_roles.png)
 
 #### 3. Click Next on the "Before you Begin" Screen
 
-[<img class="alignnone size-full wp-image-1635" title="Before_you_begin" src="http://virtuallyhyper.com/wp-content/uploads/2012/05/Before_you_begin.png" alt="Before you begin Configure Windows 2008 as NFS share for VMware ESX" width="779" height="585" />](http://virtuallyhyper.com/wp-content/uploads/2012/05/Before_you_begin.png)
+![Before_you_begin](http://virtuallyhyper.com/wp-content/uploads/2012/05/Before_you_begin.png)
 
 #### 4. Select "File Services" Under "Select Server Roles"
 
-[<img class="alignnone size-full wp-image-1636" title="select_file_server" src="http://virtuallyhyper.com/wp-content/uploads/2012/05/select_file_server.png" alt="select file server Configure Windows 2008 as NFS share for VMware ESX" width="777" height="582" />](http://virtuallyhyper.com/wp-content/uploads/2012/05/select_file_server.png)
+![select_file_server](http://virtuallyhyper.com/wp-content/uploads/2012/05/select_file_server.png)
 
 #### 5. Click Next on the "File Services" Screen
 
-[<img class="alignnone size-full wp-image-1637" title="file_services" src="http://virtuallyhyper.com/wp-content/uploads/2012/05/file_services.png" alt="file services Configure Windows 2008 as NFS share for VMware ESX" width="778" height="584" />](http://virtuallyhyper.com/wp-content/uploads/2012/05/file_services.png)
+![file_services](http://virtuallyhyper.com/wp-content/uploads/2012/05/file_services.png)
 
 #### 6. Select "Services For Network File System" under the second "Select Server Roles" screen
 
-[<img class="alignnone size-full wp-image-1638" title="select_network_file_services" src="http://virtuallyhyper.com/wp-content/uploads/2012/05/select_network_file_services.png" alt="select network file services Configure Windows 2008 as NFS share for VMware ESX" width="776" height="582" />](http://virtuallyhyper.com/wp-content/uploads/2012/05/select_network_file_services.png)
+![select_network_file_services](http://virtuallyhyper.com/wp-content/uploads/2012/05/select_network_file_services.png)
 
 #### 7. Click Install on the "Confirm Installation Selections" Screen
 
-[<img class="alignnone size-full wp-image-1639" title="confirm_installation_selections" src="http://virtuallyhyper.com/wp-content/uploads/2012/05/confirm_installation_selections.png" alt="confirm installation selections Configure Windows 2008 as NFS share for VMware ESX" width="777" height="582" />](http://virtuallyhyper.com/wp-content/uploads/2012/05/confirm_installation_selections.png)
+![confirm_installation_selections](http://virtuallyhyper.com/wp-content/uploads/2012/05/confirm_installation_selections.png)
 
 #### 8. Check out the progress of the install
 
-[<img class="alignnone size-full wp-image-1640" title="installation_progress" src="http://virtuallyhyper.com/wp-content/uploads/2012/05/installation_progress.png" alt="installation progress Configure Windows 2008 as NFS share for VMware ESX" width="780" height="580" />](http://virtuallyhyper.com/wp-content/uploads/2012/05/installation_progress.png)
+![installation_progress](http://virtuallyhyper.com/wp-content/uploads/2012/05/installation_progress.png)
 
 #### 9. Click Close under the "Installation results
 
-[<img class="alignnone size-full wp-image-1641" title="installation_confirmation" src="http://virtuallyhyper.com/wp-content/uploads/2012/05/installation_confirmation.png" alt="installation confirmation Configure Windows 2008 as NFS share for VMware ESX" width="775" height="582" />](http://virtuallyhyper.com/wp-content/uploads/2012/05/installation_confirmation.png)
+![installation_confirmation](http://virtuallyhyper.com/wp-content/uploads/2012/05/installation_confirmation.png)
 
 ***Make sure the install is successful**
 
@@ -74,11 +74,11 @@ Start -> Run -> secpol.msc
 2.  Click on Security Options
 3.  Scroll down to "Network Access: Let Everyone permissions apply to anonymous users"
 
-#### [<img class="alignnone size-full wp-image-1648" title="local_policy_settings" src="http://virtuallyhyper.com/wp-content/uploads/2012/05/local_policy_settings.jpg" alt="local policy settings Configure Windows 2008 as NFS share for VMware ESX" width="800" height="572" />](http://virtuallyhyper.com/wp-content/uploads/2012/05/local_policy_settings.jpg)
+#### ![local_policy_settings](http://virtuallyhyper.com/wp-content/uploads/2012/05/local_policy_settings.jpg)
 
 #### 3. Enable "Let Everyone permissions apply to anonymous users"
 
-[<img class="alignnone size-full wp-image-1649" title="enable_everyone_permission" src="http://virtuallyhyper.com/wp-content/uploads/2012/05/enable_everyone_permission-e1338184606868.jpg" alt="enable everyone permission e1338184606868 Configure Windows 2008 as NFS share for VMware ESX" width="419" height="495" />](http://virtuallyhyper.com/wp-content/uploads/2012/05/enable_everyone_permission.jpg)
+![enable_everyone_permission](http://virtuallyhyper.com/wp-content/uploads/2012/05/enable_everyone_permission-e1338184606868.jpg)
 
 ### Create A folder to Share with NFS
 
@@ -93,7 +93,7 @@ In our example I created a folder called "nfs_share"
 
 ####
 
-#### [<img class="alignnone size-full wp-image-1650" title="properties_of_folder" src="http://virtuallyhyper.com/wp-content/uploads/2012/05/properties_of_folder-e1338184317604.jpg" alt="properties of folder e1338184317604 Configure Windows 2008 as NFS share for VMware ESX" width="364" height="491" />](http://virtuallyhyper.com/wp-content/uploads/2012/05/properties_of_folder.jpg)
+#### ![properties_of_folder](http://virtuallyhyper.com/wp-content/uploads/2012/05/properties_of_folder-e1338184317604.jpg)
 
 #### 3.  Click "Manage NFS Sharing" of the Folder
 
@@ -103,7 +103,7 @@ In our example I created a folder called "nfs_share"
 
 ####
 
-#### [<img class="alignnone size-full wp-image-1653" title="nfs_sharing_properties" src="http://virtuallyhyper.com/wp-content/uploads/2012/05/nfs_sharing_properties-e1338184408866.jpg" alt="nfs sharing properties e1338184408866 Configure Windows 2008 as NFS share for VMware ESX" width="353" height="325" />](http://virtuallyhyper.com/wp-content/uploads/2012/05/nfs_sharing_properties.jpg)
+#### ![nfs_sharing_properties](http://virtuallyhyper.com/wp-content/uploads/2012/05/nfs_sharing_properties-e1338184408866.jpg)
 
 #### 4. Click Permissions From the "NFS Advanced Sharing" Window
 
@@ -112,7 +112,7 @@ In our example I created a folder called "nfs_share"
 
 ####
 
-#### [<img class="alignnone size-full wp-image-1654" title="nfs_share_persmissions" src="http://virtuallyhyper.com/wp-content/uploads/2012/05/nfs_share_persmissions-e1338184515249.jpg" alt="nfs share persmissions e1338184515249 Configure Windows 2008 as NFS share for VMware ESX" width="444" height="352" />](http://virtuallyhyper.com/wp-content/uploads/2012/05/nfs_share_persmissions.jpg)
+#### ![nfs_share_persmissions](http://virtuallyhyper.com/wp-content/uploads/2012/05/nfs_share_persmissions-e1338184515249.jpg)
 
 #### 5. Click OK to apply the settings
 
@@ -124,21 +124,21 @@ Right Click on the folder and Select Properties
 
 #### 2. Select the Security Tab of the Properties
 
-[<img class="alignnone size-full wp-image-1655" title="Security_tab_folder" src="http://virtuallyhyper.com/wp-content/uploads/2012/05/Security_tab_folder-e1338183872576.jpg" alt="Security tab folder e1338183872576 Configure Windows 2008 as NFS share for VMware ESX" width="360" height="488" />](http://virtuallyhyper.com/wp-content/uploads/2012/05/Security_tab_folder-e1338183872576.jpg)
+![Security_tab_folder](http://virtuallyhyper.com/wp-content/uploads/2012/05/Security_tab_folder-e1338183872576.jpg)
 
 #### 3. Click "Edit" on the Security Tab
 
-[<img class="alignnone size-full wp-image-1656" title="edit_permissions_of_folder" src="http://virtuallyhyper.com/wp-content/uploads/2012/05/edit_permissions_of_folder-e1338184001726.jpg" alt="edit permissions of folder e1338184001726 Configure Windows 2008 as NFS share for VMware ESX" width="363" height="441" />](http://virtuallyhyper.com/wp-content/uploads/2012/05/edit_permissions_of_folder-e1338184001726.jpg)
+![edit_permissions_of_folder](http://virtuallyhyper.com/wp-content/uploads/2012/05/edit_permissions_of_folder-e1338184001726.jpg)
 
 #### 4. Click "Add" to add a new User
 
 Type "Everyone" in the object Names and select "Check Names
 
-[<img class="alignnone size-full wp-image-1657" title="Everyone_User" src="http://virtuallyhyper.com/wp-content/uploads/2012/05/Everyone_User-e1338182928954.jpg" alt="Everyone User e1338182928954 Configure Windows 2008 as NFS share for VMware ESX" width="462" height="245" />](http://virtuallyhyper.com/wp-content/uploads/2012/05/Everyone_User.jpg)
+![Everyone_User](http://virtuallyhyper.com/wp-content/uploads/2012/05/Everyone_User-e1338182928954.jpg)
 
 #### 6. Allow Full Control to Everyone
 
-[<img class="alignnone size-full wp-image-1658" title="allow_full_control_to_everyone" src="http://virtuallyhyper.com/wp-content/uploads/2012/05/allow_full_control_to_everyone-e1338183007786.jpg" alt="allow full control to everyone e1338183007786 Configure Windows 2008 as NFS share for VMware ESX" width="359" height="435" />](http://virtuallyhyper.com/wp-content/uploads/2012/05/allow_full_control_to_everyone.jpg)
+![allow_full_control_to_everyone](http://virtuallyhyper.com/wp-content/uploads/2012/05/allow_full_control_to_everyone-e1338183007786.jpg)
 
 ### Set the NFS server to be TCP Only
 
@@ -146,17 +146,17 @@ Type "Everyone" in the object Names and select "Check Names
 
 Start -> Run -> nfsmgmt.msc
 
-[<img class="alignnone size-full wp-image-1659" title="nfs_mgmt_console" src="http://virtuallyhyper.com/wp-content/uploads/2012/05/nfs_mgmt_console.jpg" alt="nfs mgmt console Configure Windows 2008 as NFS share for VMware ESX" width="683" height="404" />](http://virtuallyhyper.com/wp-content/uploads/2012/05/nfs_mgmt_console.jpg)
+![nfs_mgmt_console](http://virtuallyhyper.com/wp-content/uploads/2012/05/nfs_mgmt_console.jpg)
 
 #### 2. Edit Settings of the NFS Server
 
 Right Click on "Server for NFS" and click properties
 
-[<img class="alignnone size-full wp-image-1660" title="properties_of_nfs_server" src="http://virtuallyhyper.com/wp-content/uploads/2012/05/properties_of_nfs_server.png" alt="properties of nfs server Configure Windows 2008 as NFS share for VMware ESX" width="677" height="397" />](http://virtuallyhyper.com/wp-content/uploads/2012/05/properties_of_nfs_server.png)
+![properties_of_nfs_server](http://virtuallyhyper.com/wp-content/uploads/2012/05/properties_of_nfs_server.png)
 
 #### 3. Change the Transport Protocol to be "TCP"
 
-[<img class="alignnone size-full wp-image-1661" title="nfs_tcp_only" src="http://virtuallyhyper.com/wp-content/uploads/2012/05/nfs_tcp_only-e1338183626137.jpg" alt="nfs tcp only e1338183626137 Configure Windows 2008 as NFS share for VMware ESX" width="405" height="464" />](http://virtuallyhyper.com/wp-content/uploads/2012/05/nfs_tcp_only.jpg)
+![nfs_tcp_only](http://virtuallyhyper.com/wp-content/uploads/2012/05/nfs_tcp_only-e1338183626137.jpg)
 
 #### 4. Restart the NFS Server
 

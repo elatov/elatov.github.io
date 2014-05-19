@@ -493,7 +493,7 @@ But it still gave me the same error. I then ran across [Change tty font size wit
 
 There is also a pretty good table of the desired resolutions:
 
-[<img class="alignnone size-full wp-image-4347" title="console_resolution_tab" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/console_resolution_tab.png" alt="console resolution tab Setup Fedora 17 with nVidia GeForce 6200 Video Card to Connect to a TV and Function as an XBMC Media Center" width="404" height="169" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/console_resolution_tab.png)
+![console_resolution_tab](http://virtuallyhyper.com/wp-content/uploads/2012/10/console_resolution_tab.png)
 
 So I made the following change to my */etc/default/grub* file:
 
@@ -632,7 +632,7 @@ After everything was setup I went ahead and installed an app on my android phone
 
 After I installed "XBMC Remote" on my phone, I enabled the "XBMC Media Center" to be controlled remotely. To do that, you have to go to "System" -> "Settings" -> "Network" -> "Services" -> and check "Allow Control of XBMC via HTTP". Also set a password for authentication purposes. Here is a screenshot of how the config looks like:
 
-[<img class="alignnone size-full wp-image-4348" title="xbmc_remote_control" src="http://virtuallyhyper.com/wp-content/uploads/2012/10/xbmc_remote_control.png" alt="xbmc remote control Setup Fedora 17 with nVidia GeForce 6200 Video Card to Connect to a TV and Function as an XBMC Media Center" width="1280" height="800" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/xbmc_remote_control.png)
+![xbmc_remote_control](http://virtuallyhyper.com/wp-content/uploads/2012/10/xbmc_remote_control.png)
 
 Then I opened up port 8080 on the server so my android phone can connect to it over the wireless network at my home. Here is the command I used to allow access to the port:
 

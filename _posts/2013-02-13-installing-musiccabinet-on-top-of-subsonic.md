@@ -335,35 +335,35 @@ That looks good.
 
 Visit the *subsonic* web page and the interface will look different:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/01/music-cabinet-subsonic.png" alt="music cabinet subsonic Installing MusicCabinet on Top of SubSonic" width="889" height="478" class="alignnone size-full wp-image-6005" title="Installing MusicCabinet on Top of SubSonic" />](http://virtuallyhyper.com/wp-content/uploads/2013/01/music-cabinet-subsonic.png)
+![music cabinet subsonic Installing MusicCabinet on Top of SubSonic](http://virtuallyhyper.com/wp-content/uploads/2013/01/music-cabinet-subsonic.png)
 
 Then go to "Settings" -> "MusicCabinet" and specify the postgres user password:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/01/subsonic-music-cabinet-settings.png" alt="subsonic music cabinet settings Installing MusicCabinet on Top of SubSonic" width="648" height="243" class="alignnone size-full wp-image-6006" title="Installing MusicCabinet on Top of SubSonic" />](http://virtuallyhyper.com/wp-content/uploads/2013/01/subsonic-music-cabinet-settings.png)
+![subsonic music cabinet settings Installing MusicCabinet on Top of SubSonic](http://virtuallyhyper.com/wp-content/uploads/2013/01/subsonic-music-cabinet-settings.png)
 
 After you type in the *postgres* password it will ask you to "Upgrade Database":
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/01/music_cabin_upgrade_db.png" alt="music cabin upgrade db Installing MusicCabinet on Top of SubSonic" width="737" height="213" class="alignnone size-full wp-image-6007" title="Installing MusicCabinet on Top of SubSonic" />](http://virtuallyhyper.com/wp-content/uploads/2013/01/music_cabin_upgrade_db.png)
+![music cabin upgrade db Installing MusicCabinet on Top of SubSonic](http://virtuallyhyper.com/wp-content/uploads/2013/01/music_cabin_upgrade_db.png)
 
 After it's done updating the database, it will ask you to update your search index:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/01/music_cabinet_update_index.png" alt="music cabinet update index Installing MusicCabinet on Top of SubSonic" width="674" height="331" class="alignnone size-full wp-image-6008" title="Installing MusicCabinet on Top of SubSonic" />](http://virtuallyhyper.com/wp-content/uploads/2013/01/music_cabinet_update_index.png)
+![music cabinet update index Installing MusicCabinet on Top of SubSonic](http://virtuallyhyper.com/wp-content/uploads/2013/01/music_cabinet_update_index.png)
 
 While the scan is going you can check the progress of the scan:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/01/music-cabinet-scan-progress.png" alt="music cabinet scan progress Installing MusicCabinet on Top of SubSonic" width="657" height="476" class="alignnone size-full wp-image-6009" title="Installing MusicCabinet on Top of SubSonic" />](http://virtuallyhyper.com/wp-content/uploads/2013/01/music-cabinet-scan-progress.png)
+![music cabinet scan progress Installing MusicCabinet on Top of SubSonic](http://virtuallyhyper.com/wp-content/uploads/2013/01/music-cabinet-scan-progress.png)
 
 While it's indexing, you can also enable *lastfm* 'scrobbling' by going to "Settings" -> "Personal", if you scroll down a little bit you will an option to "Configure lastfm scrobbling", like so:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/01/music-cabinet-lastfm-scrobbling.png" alt="music cabinet lastfm scrobbling Installing MusicCabinet on Top of SubSonic" width="658" height="411" class="alignnone size-full wp-image-6033" title="Installing MusicCabinet on Top of SubSonic" />](http://virtuallyhyper.com/wp-content/uploads/2013/01/music-cabinet-lastfm-scrobbling.png)
+![music cabinet lastfm scrobbling Installing MusicCabinet on Top of SubSonic](http://virtuallyhyper.com/wp-content/uploads/2013/01/music-cabinet-lastfm-scrobbling.png)
 
 After the indexing is done, the settings page for *MusicCabinet* will look like this:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/01/music-cabinet-index-done.png" alt="music cabinet index done Installing MusicCabinet on Top of SubSonic" width="634" height="493" class="alignnone size-full wp-image-6035" title="Installing MusicCabinet on Top of SubSonic" />](http://virtuallyhyper.com/wp-content/uploads/2013/01/music-cabinet-index-done.png)
+![music cabinet index done Installing MusicCabinet on Top of SubSonic](http://virtuallyhyper.com/wp-content/uploads/2013/01/music-cabinet-index-done.png)
 
 Now if you search for something there will be an option to do an "Advanced Search", here is how it looks like:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2013/01/advanced_search_music_cabinet.png" alt="advanced search music cabinet Installing MusicCabinet on Top of SubSonic" width="614" height="309" class="alignnone size-full wp-image-6049" title="Installing MusicCabinet on Top of SubSonic" />](http://virtuallyhyper.com/wp-content/uploads/2013/01/advanced_search_music_cabinet.png)
+![advanced search music cabinet Installing MusicCabinet on Top of SubSonic](http://virtuallyhyper.com/wp-content/uploads/2013/01/advanced_search_music_cabinet.png)
 
 You now can also view your library by Tags, I still prefer the File-based browsing but this just adds more functionality. Also, every time you play a song it updates your *lastfm* library as well. I am sure there are a lot more updates, but those are the ones that stood out to me.
 

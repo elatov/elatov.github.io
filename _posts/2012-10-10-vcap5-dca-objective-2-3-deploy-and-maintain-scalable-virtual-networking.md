@@ -31,17 +31,17 @@ From the same document:
 
 > In the Load Balancing list, select an option for how to select an uplink.
 >
-> [<img src="http://virtuallyhyper.com/wp-content/uploads/2012/09/load_balancing_algorithms.png" alt="load balancing algorithms VCAP5 DCA Objective 2.3 – Deploy and Maintain Scalable Virtual Networking " title="load_balancing_algorithms" width="572" height="167" class="alignnone size-full wp-image-4017" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/load_balancing_algorithms.png)
+> ![load_balancing_algorithms](http://virtuallyhyper.com/wp-content/uploads/2012/09/load_balancing_algorithms.png)
 >
 > In the Network failover detection list, select the option to use for failover detection.
 >
-> [<img src="http://virtuallyhyper.com/wp-content/uploads/2012/09/network_failover_detection.png" alt="network failover detection VCAP5 DCA Objective 2.3 – Deploy and Maintain Scalable Virtual Networking " title="network_failover_detection" width="562" height="179" class="alignnone size-full wp-image-4018" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/network_failover_detection.png)
+> ![network_failover_detection](http://virtuallyhyper.com/wp-content/uploads/2012/09/network_failover_detection.png)
 
 Also from the same document, here is a summary of all the policies:
 
 > Specify the settings in the Policy Exceptions group
 >
-> [<img src="http://virtuallyhyper.com/wp-content/uploads/2012/09/portgroup_network_policies.png" alt="portgroup network policies VCAP5 DCA Objective 2.3 – Deploy and Maintain Scalable Virtual Networking " title="portgroup_network_policies" width="558" height="724" class="alignnone size-full wp-image-4019" />](http://virtuallyhyper.com/wp-content/uploads/2012/09/portgroup_network_policies.png)
+> ![portgroup_network_policies](http://virtuallyhyper.com/wp-content/uploads/2012/09/portgroup_network_policies.png)
 
 ### Identify common network protocols
 
@@ -89,5 +89,5 @@ If you are limited on NICs you can have one vSwitch with two uplinks. Inside the
 
 Use VST and trunk ports on the physical switch and try to isolate your traffic by physical nics as well. Here is a pretty good example:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/10/vswitch_example.png" alt="vswitch example VCAP5 DCA Objective 2.3 – Deploy and Maintain Scalable Virtual Networking " title="vswitch_example" width="477" height="660" class="alignnone size-full wp-image-4271" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/vswitch_example.png)
+![vswitch_example](http://virtuallyhyper.com/wp-content/uploads/2012/10/vswitch_example.png)
 

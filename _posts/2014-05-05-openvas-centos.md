@@ -25,7 +25,7 @@ I wanted to run a vulnerability scan against my home lab to see if snort catches
 
 From their [software](http://www.openvas.org/software.html) page here are the components of OpenVAS:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/openvas-components.png" alt="openvas components OpenVAS on CentOS" width="758" height="409" class="alignnone size-full wp-image-10592" title="OpenVAS on CentOS" />](http://virtuallyhyper.com/wp-content/uploads/2014/04/openvas-components.png)
+![openvas components OpenVAS on CentOS](http://virtuallyhyper.com/wp-content/uploads/2014/04/openvas-components.png)
 
 The software looked good to me, so I decided to install OpenVAS on CentOS.
 
@@ -207,65 +207,65 @@ If you need to make sure the configuration is all good, you can run the followin
 
 Go to the GreenBone Security Assistant (https://IP:9293) and you should see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/greenbone-assistant.png" alt="greenbone assistant OpenVAS on CentOS" width="681" height="513" class="alignnone size-full wp-image-10594" title="OpenVAS on CentOS" />](http://virtuallyhyper.com/wp-content/uploads/2014/04/greenbone-assistant.png)
+![greenbone assistant OpenVAS on CentOS](http://virtuallyhyper.com/wp-content/uploads/2014/04/greenbone-assistant.png)
 
 After logging in you should see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/gsa-first-page.png" alt="gsa first page OpenVAS on CentOS" width="922" height="496" class="alignnone size-full wp-image-10595" title="OpenVAS on CentOS" />](http://virtuallyhyper.com/wp-content/uploads/2014/04/gsa-first-page.png)
+![gsa first page OpenVAS on CentOS](http://virtuallyhyper.com/wp-content/uploads/2014/04/gsa-first-page.png)
 
 Then add a target host, by going to **Configuration** -> **Targets**:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/gsa-conf-targets.png" alt="gsa conf targets OpenVAS on CentOS" width="335" height="288" class="alignnone size-full wp-image-10597" title="OpenVAS on CentOS" />](http://virtuallyhyper.com/wp-content/uploads/2014/04/gsa-conf-targets.png)
+![gsa conf targets OpenVAS on CentOS](http://virtuallyhyper.com/wp-content/uploads/2014/04/gsa-conf-targets.png)
 
 Then click on the *star* to add a target:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/gsa-new-target-button.png" alt="gsa new target button OpenVAS on CentOS" width="155" height="73" class="alignnone size-full wp-image-10598" title="OpenVAS on CentOS" />](http://virtuallyhyper.com/wp-content/uploads/2014/04/gsa-new-target-button.png)
+![gsa new target button OpenVAS on CentOS](http://virtuallyhyper.com/wp-content/uploads/2014/04/gsa-new-target-button.png)
 
 Fill out all the information:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/gsa-new-target-filled-out.png" alt="gsa new target filled out OpenVAS on CentOS" width="559" height="280" class="alignnone size-full wp-image-10599" title="OpenVAS on CentOS" />](http://virtuallyhyper.com/wp-content/uploads/2014/04/gsa-new-target-filled-out.png)
+![gsa new target filled out OpenVAS on CentOS](http://virtuallyhyper.com/wp-content/uploads/2014/04/gsa-new-target-filled-out.png)
 
 Then click on "**Create Target**" and you should see your new target added:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/gsa-list-of-targets.png" alt="gsa list of targets OpenVAS on CentOS" width="546" height="214" class="alignnone size-full wp-image-10600" title="OpenVAS on CentOS" />](http://virtuallyhyper.com/wp-content/uploads/2014/04/gsa-list-of-targets.png)
+![gsa list of targets OpenVAS on CentOS](http://virtuallyhyper.com/wp-content/uploads/2014/04/gsa-list-of-targets.png)
 
 Then let's create a task to run a scan against our newly created target. Go to **Scan Management** -> **New Task**:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/gsa-sm-nt.png" alt="gsa sm nt OpenVAS on CentOS" width="245" height="144" class="alignnone size-full wp-image-10601" title="OpenVAS on CentOS" />](http://virtuallyhyper.com/wp-content/uploads/2014/04/gsa-sm-nt.png)
+![gsa sm nt OpenVAS on CentOS](http://virtuallyhyper.com/wp-content/uploads/2014/04/gsa-sm-nt.png)
 
 Then fill out all the information:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/new-task-filledout.png" alt="new task filledout OpenVAS on CentOS" width="463" height="425" class="alignnone size-full wp-image-10602" title="OpenVAS on CentOS" />](http://virtuallyhyper.com/wp-content/uploads/2014/04/new-task-filledout.png)
+![new task filledout OpenVAS on CentOS](http://virtuallyhyper.com/wp-content/uploads/2014/04/new-task-filledout.png)
 
 Click on "**Create Task**" and the task should be ready:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/task-created.png" alt="task created OpenVAS on CentOS" width="341" height="166" class="alignnone size-full wp-image-10603" title="OpenVAS on CentOS" />](http://virtuallyhyper.com/wp-content/uploads/2014/04/task-created.png)
+![task created OpenVAS on CentOS](http://virtuallyhyper.com/wp-content/uploads/2014/04/task-created.png)
 
 BTW here are all the available scan configuration from the default install:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/scan-configuration-gsa.png" alt="scan configuration gsa OpenVAS on CentOS" width="748" height="370" class="alignnone size-full wp-image-10604" title="OpenVAS on CentOS" />](http://virtuallyhyper.com/wp-content/uploads/2014/04/scan-configuration-gsa.png)
+![scan configuration gsa OpenVAS on CentOS](http://virtuallyhyper.com/wp-content/uploads/2014/04/scan-configuration-gsa.png)
 
 Lastly click on the *play* button to start the scan:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/start-scan-button-gsa.png" alt="start scan button gsa OpenVAS on CentOS" width="922" height="187" class="alignnone size-full wp-image-10605" title="OpenVAS on CentOS" />](http://virtuallyhyper.com/wp-content/uploads/2014/04/start-scan-button-gsa.png)
+![start scan button gsa OpenVAS on CentOS](http://virtuallyhyper.com/wp-content/uploads/2014/04/start-scan-button-gsa.png)
 
 Here is the scan kicked off:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/scan-started.png" alt="scan started OpenVAS on CentOS" width="377" height="172" class="alignnone size-full wp-image-10606" title="OpenVAS on CentOS" />](http://virtuallyhyper.com/wp-content/uploads/2014/04/scan-started.png)
+![scan started OpenVAS on CentOS](http://virtuallyhyper.com/wp-content/uploads/2014/04/scan-started.png)
 
 ### Getting OpenVAS Scan Results
 
 After the scan is finished, you will see the following under the **Tasks** section:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/scan-finished.png" alt="scan finished OpenVAS on CentOS" width="339" height="166" class="alignnone size-full wp-image-10609" title="OpenVAS on CentOS" />](http://virtuallyhyper.com/wp-content/uploads/2014/04/scan-finished.png)
+![scan finished OpenVAS on CentOS](http://virtuallyhyper.com/wp-content/uploads/2014/04/scan-finished.png)
 
 Click on the scan and you will see the details:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/task-details-gsa.png" alt="task details gsa OpenVAS on CentOS" width="911" height="534" class="alignnone size-full wp-image-10610" title="OpenVAS on CentOS" />](http://virtuallyhyper.com/wp-content/uploads/2014/04/task-details-gsa.png)
+![task details gsa OpenVAS on CentOS](http://virtuallyhyper.com/wp-content/uploads/2014/04/task-details-gsa.png)
 
 Then click on the "**Magnifying Glass**" (to see the details of the report) and you will see the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/report-details-gsa.png" alt="report details gsa OpenVAS on CentOS" width="909" height="292" class="alignnone size-full wp-image-10611" title="OpenVAS on CentOS" />](http://virtuallyhyper.com/wp-content/uploads/2014/04/report-details-gsa.png)
+![report details gsa OpenVAS on CentOS](http://virtuallyhyper.com/wp-content/uploads/2014/04/report-details-gsa.png)
 
 From there you can download the the PDF version of the scan results.
 
@@ -273,13 +273,13 @@ From there you can download the the PDF version of the scan results.
 
 Initially I was see the following warnings on my scan results:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/arachni-missing-in-results.png" alt="arachni missing in results OpenVAS on CentOS" width="599" height="258" class="alignnone size-full wp-image-10612" title="OpenVAS on CentOS" />](http://virtuallyhyper.com/wp-content/uploads/2014/04/arachni-missing-in-results.png)
+![arachni missing in results OpenVAS on CentOS](http://virtuallyhyper.com/wp-content/uploads/2014/04/arachni-missing-in-results.png)
 
 > Arachni could not be found in your system path.
 
 And also the following:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/wapiti-empty-report.png" alt="wapiti empty report OpenVAS on CentOS" width="594" height="250" class="alignnone size-full wp-image-10613" title="OpenVAS on CentOS" />](http://virtuallyhyper.com/wp-content/uploads/2014/04/wapiti-empty-report.png)
+![wapiti empty report OpenVAS on CentOS](http://virtuallyhyper.com/wp-content/uploads/2014/04/wapiti-empty-report.png)
 
 > wapiti report filename is empty.
 
@@ -311,7 +311,7 @@ Then lastly symlink the binaries under **/usr/bin**:
 
 After that it started working, and I saw the following in my reports:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/arachni-results-included_i.jpg" alt="arachni results included i OpenVAS on CentOS" width="691" height="585" class="alignnone size-full wp-image-10614" title="OpenVAS on CentOS" />](http://virtuallyhyper.com/wp-content/uploads/2014/04/arachni-results-included_i.jpg)
+![arachni results included i OpenVAS on CentOS](http://virtuallyhyper.com/wp-content/uploads/2014/04/arachni-results-included_i.jpg)
 
 For **wapiti**, I had the package for that installed:
 
@@ -351,7 +351,7 @@ and then running the command again, I saw the following:
 
 It looks like it worked this time around. Running another scan and the results showed the same:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/watipi-results-included_i1.jpg" alt="watipi results included i1 OpenVAS on CentOS" width="693" height="307" class="alignnone size-full wp-image-10623" title="OpenVAS on CentOS" />](http://virtuallyhyper.com/wp-content/uploads/2014/04/watipi-results-included_i1.jpg)
+![watipi results included i1 OpenVAS on CentOS](http://virtuallyhyper.com/wp-content/uploads/2014/04/watipi-results-included_i1.jpg)
 
 ### Checking out the Progress of a Scan
 
@@ -422,7 +422,7 @@ The **rsync** was causing an IO spike on my little VM, so I decided to limit the
 
 After I ran the scan against a web server, I saw snort catching the scan right away:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/snort-catching-openvas-scan_i2.jpg" alt="snort catching openvas scan i2 OpenVAS on CentOS" width="1021" height="490" class="alignnone size-full wp-image-10624" title="OpenVAS on CentOS" />](http://virtuallyhyper.com/wp-content/uploads/2014/04/snort-catching-openvas-scan_i2.jpg)
+![snort catching openvas scan i2 OpenVAS on CentOS](http://virtuallyhyper.com/wp-content/uploads/2014/04/snort-catching-openvas-scan_i2.jpg)
 
 I was also running **ossec** with active-responses enabled, that blocked the IP of the scanner right away.
 

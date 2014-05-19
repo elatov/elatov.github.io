@@ -262,7 +262,7 @@ That looked good, and I was able to write to the usb disk:
 
 That was it. However when I tried to copy files to the NTFS volume, I would get a kernel panic. Here is a screenshot:
 
-[<img src="http://virtuallyhyper.com/wp-content/uploads/2012/10/freebsd_kernel_panic_copy_ntfs.png" alt="freebsd kernel panic copy ntfs Mounting an NTFS Disk with Write Capabilties in FreeBSD 9" title="freebsd_kernel_panic_copy_ntfs" width="1860" height="1772" class="alignnone size-full wp-image-4424" />](http://virtuallyhyper.com/wp-content/uploads/2012/10/freebsd_kernel_panic_copy_ntfs.png)
+![freebsd_kernel_panic_copy_ntfs](http://virtuallyhyper.com/wp-content/uploads/2012/10/freebsd_kernel_panic_copy_ntfs.png)
 
 Another person had the issue as well, [here](http://forums.freebsd.org/showthread.php?t=31161) a link to his kernel panic. No one actually answered the previous post, here is a copy of his back trace:
 

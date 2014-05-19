@@ -41,7 +41,7 @@ I recently ran into an issue with the VMware VDR appliance. The Integrity Check 
 
 We logged into the VDR appliance and looked under the Reports Tab and we saw the following:
 
-[<img class="alignnone size-full wp-image-1878" title="recatalog_fails_1" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/recatalog_fails_1.png" alt="recatalog fails 1 VDR Appliance Fails to Complete Integrity Check and Fails to Backup Certain VMs" width="882" height="118" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/recatalog_fails_1.png)
+![recatalog_fails_1](http://virtuallyhyper.com/wp-content/uploads/2012/08/recatalog_fails_1.png)
 
 VMware KB [2014249](http://kb.vmware.com/kb/2014249) talks about this:
 
@@ -87,7 +87,7 @@ Since VDR uses Change Block Tracking (CBT) to efficiently make backups, the VM a
 
 > For virtual machines created in vSphere 4.0 or later, the Data Recovery appliance creates a quiesced snapshot of the virtual machine during the backup. The backups use the changed block tracking functionality on the ESX/ESXi hosts. For each virtual disk being backed up, it checks for a prior backup of the virtual disk. It uses the change-tracking functionality on ESX/ESXi hosts to obtain the changes since the last backup. The deduplicated store creates a virtual full backup based on the last backup image and applies the changes to it.
 >
-> **NOTE ** These optimizations apply to virtual machines created with hardware version 7 or later, but they do not apply to virtual machines created with VMware products prior to vSphere 4.0. For example, change block tracking is not used with virtual machines created with Virtual Infrastructure 3.5 or earlier. As a result, Virtual machines created with earlier Hardware versions take longer to back up.
+> **NOTE** These optimizations apply to virtual machines created with hardware version 7 or later, but they do not apply to virtual machines created with VMware products prior to vSphere 4.0. For example, change block tracking is not used with virtual machines created with Virtual Infrastructure 3.5 or earlier. As a result, Virtual machines created with earlier Hardware versions take longer to back up.
 
 Following the instructions laid out in VMware KB [1010675](http://kb.vmware.com/kb/1010675), we updated the virtual HW to version 7, but it didn't help out. I then looked at the *vmware.log* file as the snapshot deletion process was going and I saw the following:
 
@@ -231,11 +231,11 @@ I then ran across VMware KB [2013450](http://kb.vmware.com/kb/2013450), which ha
 
 After removing the original entries from datarecovery.ini file and replacing them with the above, the backup started to work. We left the backup job running for a couple of days and it was successful for a couple of days, but one of the days it failed with the following:
 
-[<img class="alignnone size-full wp-image-1884" title="failed_to_backup_cause_of_quiesce_1" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/failed_to_backup_cause_of_quiesce_1.png" alt="failed to backup cause of quiesce 1 VDR Appliance Fails to Complete Integrity Check and Fails to Backup Certain VMs" width="659" height="55" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/failed_to_backup_cause_of_quiesce_1.png)
+![failed_to_backup_cause_of_quiesce_1](http://virtuallyhyper.com/wp-content/uploads/2012/08/failed_to_backup_cause_of_quiesce_1.png)
 
 Looking inside the Guest Operating System Event Viewer we saw the following:
 
-[<img class="alignnone size-full wp-image-1885" title="failed_to_flush" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/failed_to_flush.png" alt="failed to flush VDR Appliance Fails to Complete Integrity Check and Fails to Backup Certain VMs" width="402" height="446" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/failed_to_flush.png)
+![failed_to_flush](http://virtuallyhyper.com/wp-content/uploads/2012/08/failed_to_flush.png)
 
 Searching for that error, I came across Symantec Tech Article [127767](http://www.symantec.com/docs/TECH127767). It talks about the following:
 
@@ -256,7 +256,7 @@ Searching for that error, I came across Symantec Tech Article [127767](http://ww
 
 All was well for a while, but then one day one of the Integrity check failed again. Here is what we saw in the reports tabs of VDR.
 
-[<img class="alignnone size-full wp-image-3161" title="vdr-int-check-failing" src="http://virtuallyhyper.com/wp-content/uploads/2012/08/vdr-int-check-failing.png" alt="vdr int check failing VDR Appliance Fails to Complete Integrity Check and Fails to Backup Certain VMs" width="1075" height="438" />](http://virtuallyhyper.com/wp-content/uploads/2012/08/vdr-int-check-failing.png)
+![vdr-int-check-failing](http://virtuallyhyper.com/wp-content/uploads/2012/08/vdr-int-check-failing.png)
 We logged into the appliance again and checking out the */var/vmware/datarecovery/datarecovery-0.log*, we saw the following:
 
 
