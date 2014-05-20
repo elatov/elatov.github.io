@@ -31,8 +31,8 @@ I recently ran into this great study guide for RHCSA and RHCE entitled "[here](h
 *   [Chapter 16 Samba](http://virtuallyhyper.com/2014/04/rhcsa-rhce-chapter-16-samba/)
 *   [Chapter 17 FTP](http://virtuallyhyper.com/2014/04/rhcsa-rhce-chapter-17-ftp)
 *   [Chapter 18 DNS](http://virtuallyhyper.com/2014/04/rhcsa-rhce-chapter-18-dns)
-*   [Chapter 19 Network Services](http://virtuallyhyper.com/2014/04/rhcsa-rhce-chapter-19-network-services)
-*   [Chapter 20 Email Services](http://virtuallyhyper.com/2014/04/rhcsa-rhce-chapter-20-email-services)
+*   [Chapter 19 Network Services](http://virtuallyhyper.com/2014/05/rhcsa-rhce-chapter-19-network-services)
+*   [Chapter 20 Email Services](http://virtuallyhyper.com/2014/05/rhcsa-rhce-chapter-20-email-services)
 *   [Chapter 21 Troubleshooting](http://virtuallyhyper.com/2014/05/rhcsa-rhce-chapter-21-troubleshooting)
 *   Chapter 22 Virtualization with KVM
 

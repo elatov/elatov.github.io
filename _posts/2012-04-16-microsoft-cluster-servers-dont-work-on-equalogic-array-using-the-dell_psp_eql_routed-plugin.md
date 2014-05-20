@@ -59,5 +59,5 @@ After that we don't see all the paths set as working paths:
 	Working Paths: vmhba33:C7:T12:L0
 
 
-After setting changing the PSP, both VMs booted up just fine and didn't have any issue sharing the RDM. Since we are using iSCSI, I would also recommend not presenting RDMs but instead using an in-guest iSCSI initiator to get to a supported configuration. See [this KB](http://kb.vmware.com/kb/1037959" target="_blank) for more information on supported MSCS configurations.
+After setting changing the PSP, both VMs booted up just fine and didn't have any issue sharing the RDM. Since we are using iSCSI, I would also recommend not presenting RDMs but instead using an in-guest iSCSI initiator to get to a supported configuration. See [this KB](http://kb.vmware.com/kb/1037959) for more information on supported MSCS configurations.
 

@@ -533,7 +533,7 @@ Initially I kept seeing the following errors:
 
 ![out pty devices ossec splunk OSSEC on FreeBSD](http://virtuallyhyper.com/wp-content/uploads/2014/03/out-pty-devices-ossec-splunk.png)
 
-After looking into the issue, I realized I was missing the **/dev/ptmx** file. I ran into [this](http://forums.freebsd.org/viewtopic.php?f=3&t=43673) FreeBSD forum which recommended to load the following kernel module:
+After looking into the issue, I realized I was missing the **/dev/ptmx** file. I ran into [this](http://forums.freebsd.org/viewtopic.php?t=43673) FreeBSD forum which recommended to load the following kernel module:
 
     moxz:~>sudo kldload pty
 

@@ -392,5 +392,5 @@ Lastly add a UPnP Share by going to Videos -> Files -> Add Videos -> Browse -> U
 
 ![screenshot011](http://virtuallyhyper.com/wp-content/uploads/2012/10/screenshot011.png)
 
-After you have added your share, you can go back to Videos -> Files and your share will be there. There are actually many other UPnP clients out there, I just heard of XBMC before and decided to try it out and I actually really like it. Here is a [link](http://www.makeuseof.com/tag/using-your-linux-computer-as-a-media-center-part-1/</full></performnud></rxcsum></up>) that talks about other Media Centers.
+After you have added your share, you can go back to Videos -> Files and your share will be there. There are actually many other UPnP clients out there, I just heard of XBMC before and decided to try it out and I actually really like it. Here is a [link](http://www.makeuseof.com/tag/using-your-linux-computer-as-a-media-center-part-1/) that talks about other Media Centers.
 

@@ -15,7 +15,7 @@ tags:
   - LemonLDAP-NG
   - SAML
 ---
-I wanted to try out a WebSSO program and I ran into [Known supported applications](http://lemonldap-ng.org/)
+I wanted to try out a WebSSO program and I ran into [LemonLDAP-NG](http://lemonldap-ng.org/welcome/)
 
 ## Install LemonLDAP::NG on CentOS
 
