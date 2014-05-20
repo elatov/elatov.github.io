@@ -185,7 +185,7 @@ Then checking the logs after the Cron job ran, I saw the following:
     2013/02/20 11:55:08 [INFO]: Munin-update finished for node dnsd.me;kerch.dnsd.me (5.45 sec)
     2013/02/20 11:55:09 [INFO]: Munin-update finished for node dnsd.me;freebsd.dnsd.me (6.15 sec)
     2013/02/20 11:55:09 [INFO] Reaping Munin::Master::UpdateWorker<dnsd .me;kerch.dnsd.me>. Exit value/signal: 0/0
-    2013/02/20 11:55:09 [INFO] Reaping Munin::Master::UpdateWorker</dnsd><dnsd .me;freebsd.dnsd.me>. Exit value/signal: 0/0
+    2013/02/20 11:55:09 [INFO] Reaping Munin::Master::UpdateWorker<freebsd.dnsd.me>. Exit value/signal: 0/0
     2013/02/20 11:55:10 [INFO]: Munin-update finished (7.05 sec)
 
 
@@ -399,5 +399,5 @@ Looks like our average value is 2, which is perfect. Going to the site and zoomi
 5.  Traffic is TCP, more overhead. *Collectd* uses udp.
 
 
- [1]: virtuallyhyper.com/2013/02/monitor-different-systems-with-collectd/
+ [1]: /2013/02/monitor-different-systems-with-collectd/
  [2]: http://munin-monitoring.org/
