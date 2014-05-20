@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 
 Starting with Version 2.2 of Zabbix, we can now monitor VMware hosts. From [What's new in Zabbix 2.2.0][1]:
