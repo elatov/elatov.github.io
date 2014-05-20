@@ -29,7 +29,7 @@ Order of installation definitely matters. You can't install vCenter without inst
 
 ### Recognize opportunities to utilize automated procedures to optimize installation
 
-Check out [Objective 3.6](http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-3-6-determine-datacenter-management-options-for-a-vsphere-5-physical-design/) on how to setup a scripted install for ESXi.
+Check out [Objective 3.6](/2012/09/vcap5-dcd-objective-3-6-determine-datacenter-management-options-for-a-vsphere-5-physical-design/) on how to setup a scripted install for ESXi.
 
 ### Create installation documentation specific to the design
 
