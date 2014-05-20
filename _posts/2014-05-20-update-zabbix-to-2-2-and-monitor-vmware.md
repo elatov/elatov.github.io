@@ -1,5 +1,17 @@
 ---
 published: true
+title: Update Zabbix to 2.2 and Monitor VMware
+author: Karim Elatov
+layout: post
+permalink: "/2014/05/update-zabbix-2-2-monitor-vmware/"
+categories: 
+  - OS
+  - Home Lab
+  - VMware
+tags: 
+  - debian
+  - zabbix
+  - vmware
 ---
 
 Starting with Version 2.2 of Zabbix, we can now monitor VMware hosts. From [What's new in Zabbix 2.2.0][1]:
