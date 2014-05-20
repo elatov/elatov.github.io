@@ -117,5 +117,3 @@ or run the following:
 
 
 	net-dvs -l
-
-
