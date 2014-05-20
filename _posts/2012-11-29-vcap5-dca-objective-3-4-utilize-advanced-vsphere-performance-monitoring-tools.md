@@ -107,7 +107,7 @@ If you are experiencing an issue right now then launch *esxtop* and use interact
 
 ### Use vscsiStats to gather storage performance data
 
-There is a very good example [here](http://www.gabesvirtualworld.com/using-vscsistats-the-full-how-to/" class="broken_link). Here is summary of the command without the output. List your virtual machines on your host by typing:
+There is a very good example [here](http://www.gabesvirtualworld.com/using-vscsistats-the-full-how-to/). Here is summary of the command without the output. List your virtual machines on your host by typing:
 
     ~# vscsistats -l
 

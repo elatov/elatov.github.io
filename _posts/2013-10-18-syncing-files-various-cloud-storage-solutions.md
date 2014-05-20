@@ -38,7 +38,7 @@ You can register for the free 7GB SkyDrive account [here](https://skydrive.live.
 
 ![skydrive logged in Syncing Files with Various Cloud Storage Solutions](http://virtuallyhyper.com/wp-content/uploads/2013/10/skydrive-logged-in.png)
 
-There is a python client available for SkyDrive that uses the SkyDrive API. It's called **python-skydrive**, here is a link to the [client](https://pypi.python.org/pypi/python-skydrive/" class="broken_link).
+There is a python client available for SkyDrive that uses the SkyDrive API. It's called **python-skydrive**, here is a link to the [client](https://pypi.python.org/pypi/python-skydrive/).
 
 #### Python-Skydrive
 
