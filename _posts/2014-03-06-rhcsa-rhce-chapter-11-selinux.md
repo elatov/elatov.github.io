@@ -532,7 +532,7 @@ More from the guide:
 
 > SELinux decisions, such as allowing or disallowing access, are cached. This cache is known as the **Access Vector Cache** (AVC). Denial messages are logged when SELinux denies access. These denials are also known as "AVC denials", and are logged to a different location, depending on which daemons are running:
 >
-> ![selinux log files1 RHCSA and RHCE Chapter 11   SELinux](https://github.com/elatov/uploads/raw/master/2014/02/selinux-log-files1.png)
+> ![selinux log files RHCSA and RHCE Chapter 11   SELinux](https://github.com/elatov/uploads/raw/master/2014/02/selinux-log-files.png)
 >
 > If DAC rules (standard Linux permissions) allow access, check **/var/log/messages** and **/var/log/audit/audit.log** for "SELinux is preventing" and "denied" errors respectively. This can be done by running the following commands as the Linux root user:
 >
