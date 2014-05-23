@@ -4,11 +4,11 @@ title: Update Zabbix to 2.2 and Monitor VMware
 author: Karim Elatov
 layout: post
 permalink: "/2014/05/update-zabbix-2-2-monitor-vmware/"
-categories: 
+categories:
   - OS
   - Home Lab
   - VMware
-tags: 
+tags:
   - debian
   - zabbix
   - vmware
@@ -17,7 +17,7 @@ tags:
 Starting with Version 2.2 of Zabbix, we can now monitor VMware hosts. From [What's new in Zabbix 2.2.0][1]:
 
 > A new feature in Zabbix 2.2.0 is VMware virtual machine monitoring. It allows to monitor VMware vCenter and vSphere installations for various VMware hypervisor and virtual machine properties and statistics.
-> 
+>
 > Zabbix can use low-level discovery rules to automatically discover VMware hypervisors and virtual machines and create hosts to monitor them, based on pre-defined host prototypes. See Virtual machine monitoring for more detailed information.
 
 So I decided to update Zabbix to 2.2 and Monitor VMware hosts.
@@ -27,12 +27,12 @@ So I decided to update Zabbix to 2.2 and Monitor VMware hosts.
 All the settings for zabbix are stored under **/etc/zabbix**, so let's backup that directory:
 
     sudo tar cpvjf /tmp/zabbix-conf-back.tar.bz2 /etc/zabbix
-    
+
 
 If you have the space, backup the MySQL DB as well:
 
     mysqldump -h localhost -u zabbix -p zabbix > zabbix.sql
-    
+
 
 ### Update Zabbix to 2.2
 
@@ -40,30 +40,30 @@ I was using Debian so the process is pretty easy. First stop the service:
 
     sudo service zabbix-server stop
     sudo service zabbix-agent stop
-    
+
 
 Next get the new repository:
 
     wget http://repo.zabbix.com/zabbix/2.2/debian/pool/main/z/zabbix-release/zabbix-release_2.2-1+wheezy_all.deb
-    
+
 
 Then install the new deb package and update all the packages:
 
     sudo dpkg -i zabbix-release_2.2-1+wheezy_all.deb
     sudo apt-get update
     sudo apt-get dist-upgrade
-    
+
 
 During the install process it will ask you to setup a Database, **skip** that. The install process will also install new configuration files and will ask you which files you want to keep, choose the following:
 
     keep the maintainer version
-    
+
 
 There were a lot of new options and I decided to just keep the new configuration and re-add my original settings into the new version. After the install, the zabbix services are automatically started, so let's go ahead and stop them:
 
     sudo service zabbix-server stop
     sudo service zabbix-agent stop
-    
+
 
 Then fix the configuration to include your original settings, here is what I had after I was done:
 
@@ -82,7 +82,7 @@ Then fix the configuration to include your original settings, here is what I had
     ExternalScripts=/usr/lib/zabbix/externalscripts
     FpingLocation=/usr/bin/fping
     Fping6Location=/usr/bin/fping6
-    
+
 
 Then do the same thing for the agentd configuration, here is what I had after I was done:
 
@@ -96,35 +96,35 @@ Then do the same thing for the agentd configuration, here is what I had after I 
     Hostname=me.local.com
     Timeout=15
     Include=/etc/zabbix/zabbix_agentd.d/
-    
+
 
 The new version installs it's own configuration into apache automatically:
 
     $ls -l /etc/apache2/conf.d/zabbix
     lrwxrwxrwx 1 root root 23 Feb  8 12:41 /etc/apache2/conf.d/zabbix -> /etc/zabbix/apache.conf
-    
+
 
 If you had any apache settings for the frontend you can remove them and just use that configuration. Restart apache after you removed (if any) the settings for the zabbix frontend:
 
     sudo service apache2 restart
-    
+
 
 Then let's copy our original PHP frontend settings into the new install:
 
     sudo cp /etc/zabbix/zabbix.conf.php /etc/zabbix/web/.
-    
+
 
 Then start the zabbix services:
 
     sudo service zabbix-server start
     sudo service zabbix-agent start
-    
+
 
 Check out the logs to make sure everything is okay:
 
     less /var/log/zabbix/zabbix-server.log
     less /var/log/zabbix/zabbix-agent.log
-    
+
 
 Then visit your PHP frontend (http://localhost/zabbix) and make sure all the information is still there.
 
@@ -132,10 +132,10 @@ Then visit your PHP frontend (http://localhost/zabbix) and make sure all the inf
 
 The new VMware Templates are available [here][2]. Go ahead and download them:
 
-    wget https://www.zabbix.org/mw/images/5/50/Template_Virt_VMware-2.2.0.xml 
-    wget https://www.zabbix.org/mw/images/5/5d/Template_Virt_VMware_Guest-2.2.0.xml 
+    wget https://www.zabbix.org/mw/images/5/50/Template_Virt_VMware-2.2.0.xml
+    wget https://www.zabbix.org/mw/images/5/5d/Template_Virt_VMware_Guest-2.2.0.xml
     wget https://www.zabbix.org/mw/images/7/7e/Template_Virt_VMware_Hypervisor-2.2.0.xml
-    
+
 
 Upon initial import I received the following error:
 
@@ -152,7 +152,7 @@ Looks like another person ran into a similar issue [here][3] (it's in Russian, b
     INSERT INTO `mappings` (`mappingid`,`valuemapid`,`value`,`newvalue`) values ('82','14','0','poweredOff');
     INSERT INTO `mappings` (`mappingid`,`valuemapid`,`value`,`newvalue`) values ('83','14','1','poweredOn');
     INSERT INTO `mappings` (`mappingid`,`valuemapid`,`value`,`newvalue`) values ('84','14','2','suspended');
-    
+
 
 After that, I imported the templates in this order:
 
@@ -171,19 +171,19 @@ This can be confirmed, by checking the linked libraries of the binary. Here is w
     elatov@kerch:~$ldd /usr/sbin/zabbix_server | grep -E 'xml|curl'
         libxml2.so.2 => /usr/lib/x86_64-linux-gnu/libxml2.so.2 (0x00007fd56965a000)
         libcurl-gnutls.so.4 => /usr/lib/x86_64-linux-gnu/libcurl-gnutls.so.4 (0x00007fd567f29000)
-    
+
 
 Then to enable the collector I added the following to my **/etc/zabbix/zabbix_server.conf** file:
 
     StartVMwareCollectors = 1
     VMwareCacheSize = 8M
     VMwareFrequency = 60
-    
+
 
 I then restarted the service:
 
     sudo service zabbix_server restart
-    
+
 
 and I saw the following in the logs under **/var/log/zabbix/zabbix_server.log**:
 
@@ -202,7 +202,7 @@ and I saw the following in the logs under **/var/log/zabbix/zabbix_server.log**:
      17807:20140418:135649.763 ******************************
     ...
      17842:20140418:135649.798 server #28 started [vmware collector #1]
-    
+
 
 ### Enable VMware Discovery
 
@@ -245,7 +245,7 @@ Here is what I had in the HV CPU Usage Percentage:
 Here is actual formula:
 
     last("vmware.hv.cpu.usage[{$URL},{HOST.HOST}]",0)/(last("vmware.hv.hw.cpu.freq[{$URL},{HOST.HOST}]",0)*last("vmware.hv.hw.cpu.threads[{$URL},{HOST.HOST}]",0))
-    
+
 
 I decided to use **vmware.hv.hw.cpu.threads** to calculate total CPU, but **vmware.hv.hw.cpu.num** is also available (I thought it was appropriate since HyperThreading is enabled).
 
@@ -267,17 +267,17 @@ It's not much but it's a good start. There are already a couple of feature reque
  [4]: https://www.zabbix.com/forum/showthread.php?p=142941#post142941
  [5]: https://www.zabbix.com/forum/showpost.php?p=142098
  [6]: https://www.zabbix.com/documentation/2.2/manual/vm_monitoring
- [7]: http://virtuallyhyper.com/wp-content/uploads/2014/04/def-inteface-vmware.png
- [8]: http://virtuallyhyper.com/wp-content/uploads/2014/04/vm_host_macros.png
- [9]: http://virtuallyhyper.com/wp-content/uploads/2014/04/vm_host_templates.png
- [10]: http://virtuallyhyper.com/wp-content/uploads/2014/04/vmware-vms-discovered.png
- [11]: http://virtuallyhyper.com/wp-content/uploads/2014/04/vmwarevm-discovered-detail.png
- [12]: http://virtuallyhyper.com/wp-content/uploads/2014/04/added-calculated-items-hv.png
- [13]: http://virtuallyhyper.com/wp-content/uploads/2014/04/hv-cpu-usage-percent.png
+ [7]: https://github.com/elatov/uploads/raw/master/2014/04/def-inteface-vmware.png
+ [8]: https://github.com/elatov/uploads/raw/master/2014/04/vm_host_macros.png
+ [9]: https://github.com/elatov/uploads/raw/master/2014/04/vm_host_templates.png
+ [10]: https://github.com/elatov/uploads/raw/master/2014/04/vmware-vms-discovered.png
+ [11]: https://github.com/elatov/uploads/raw/master/2014/04/vmwarevm-discovered-detail.png
+ [12]: https://github.com/elatov/uploads/raw/master/2014/04/added-calculated-items-hv.png
+ [13]: https://github.com/elatov/uploads/raw/master/2014/04/hv-cpu-usage-percent.png
  [14]: https://www.zabbix.com/documentation/2.2/manual/config/items/itemtypes/simple_checks/vmware_keys
  [15]: https://www.zabbix.com/documentation/2.2/manual/config/items/itemtypes/calculated#usage_examples
- [16]: http://virtuallyhyper.com/wp-content/uploads/2014/04/hv-template-triggers.png
+ [16]: https://github.com/elatov/uploads/raw/master/2014/04/hv-template-triggers.png
  [17]: https://www.zabbix.com/documentation/2.2/manual/appendix/triggers/functions
- [18]: http://virtuallyhyper.com/wp-content/uploads/2014/04/vmware-guest-keys.png
+ [18]: https://github.com/elatov/uploads/raw/master/2014/04/vmware-guest-keys.png
  [19]: https://support.zabbix.com/browse/ZBXNEXT-2180
- [20]: http://virtuallyhyper.com/wp-content/uploads/2014/04/cpu-usage-esx.png
+ [20]: https://github.com/elatov/uploads/raw/master/2014/04/cpu-usage-esx.png

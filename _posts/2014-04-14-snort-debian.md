@@ -446,7 +446,7 @@ Lastly go ahead and start up snorby:
 
 At this point you can go to **http://localhost:3000** and see the following:
 
-![snorby login Snort On Debian](http://virtuallyhyper.com/wp-content/uploads/2014/04/snorby-login.png)
+![snorby login Snort On Debian](https://github.com/elatov/uploads/raw/master/2014/04/snorby-login.png)
 
 You can login with:
 
@@ -663,11 +663,11 @@ Good thing to check to make sure the snort sensor is not overloaded (checking th
 
 After some time if you login to snorby, you should see some alerts:
 
-![snorby dashboard Snort On Debian](http://virtuallyhyper.com/wp-content/uploads/2014/04/snorby-dashboard.png)
+![snorby dashboard Snort On Debian](https://github.com/elatov/uploads/raw/master/2014/04/snorby-dashboard.png)
 
 If you go to the events tab, you will see the specifics:
 
-![snorby events 1024x229 Snort On Debian](http://virtuallyhyper.com/wp-content/uploads/2014/04/snorby-events-1024x229.png)
+![snorby events 1024x229 Snort On Debian](https://github.com/elatov/uploads/raw/master/2014/04/snorby-events.png)
 
 I was getting a bunch of false positive initially, here are some rules I added to suppress some of them:
 
@@ -700,13 +700,13 @@ The best thing to do, would be to put a switch between your Cable Modem and your
 
 This is not recommended for performance reasons. I kept an eye on my DD-WRT router and I didn't see any performance issues. If the router starts to bog down, I will try to setup the other recommended configuration. BTW from [this](http://www.aboutdebian.com/snort.htm) site, here is suggested approach:
 
-![snort suggested setup Snort On Debian](http://virtuallyhyper.com/wp-content/uploads/2014/04/snort-suggested-setup.png)
+![snort suggested setup Snort On Debian](https://github.com/elatov/uploads/raw/master/2014/04/snort-suggested-setup.png)
 
 ### First Interesting Alert
 
 After a couple of days, I saw the following alert:
 
-![php vulnerability Snort On Debian](http://virtuallyhyper.com/wp-content/uploads/2014/04/php-vulnerability.png)
+![php vulnerability Snort On Debian](https://github.com/elatov/uploads/raw/master/2014/04/php-vulnerability.png)
 
 [Here](http://humbug.me.uk/linux/trojan.htm) is a little more information about the attack and here is a [link](http://wiki.vpslink.com/Defend_Against_Web_Application_Exploits:_Remote_File_Inclusion_and_Local_Filesystem_Access) that talks about disabling PHP Remote File Inclusion.
 

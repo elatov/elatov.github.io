@@ -20,7 +20,7 @@ tags:
 ---
 A VirtualConnect Module was being replaced on an HP Enclosure and only the VMs used for Windows NLB lost network connectivity.  If you are not too familiar with the HP VirtualConnect I would suggest reading "[HP Virtual Connect traffic flow](http://h20000.www2.hp.com/bc/docs/support/SupportManual/c01990371/c01990371.pdf)", here is a good picture:
 
-![flex-fabric](http://virtuallyhyper.com/wp-content/uploads/2012/09/flex-fabric.png)
+![flex-fabric](https://github.com/elatov/uploads/raw/master/2012/09/flex-fabric.png)
 
 In the above picture, Flex Fabric Interconnect is our Virtual Connect Interconnect Module. Flex Fabric is an extension of the Virtual Connect Module. From "[HP BladeSystem c-Class architecture](http://h20000.www2.hp.com/bc/docs/support/SupportManual/c00810839/c00810839.pdf)":
 
@@ -29,7 +29,7 @@ In the above picture, Flex Fabric Interconnect is our Virtual Connect Interconne
 >
 > Virtual Connect uses connection profiles in combination with dynamic pools of unique MAC and WWN addresses to establish server connections to LANs and SANs. The server connection profiles contain MAC, WWN, and boot-from-SAN definitions assigned to BladeSystem enclosure bays and not to individual servers. The physical server in each bay uses the MAC and WWN assignments in the bay profile instead of its default NIC or HBA addresses. Even if you replace a server, the MAC and WWN assignments for the device bay remain constant, and the change is invisible to the network.
 >
-> ![vc-server-edge](http://virtuallyhyper.com/wp-content/uploads/2012/09/vc-server-edge.png)
+> ![vc-server-edge](https://github.com/elatov/uploads/raw/master/2012/09/vc-server-edge.png)
 >
 > **Virtual Connect Flex-10 **
 > Virtual Connect Flex-10 technology is a hardware-based technology. It lets you separate the
@@ -44,11 +44,11 @@ Also from "[Overview of HP Virtual Connect technologies](http://h20000.www2.hp.c
 > **FlexNIC capabilities**
 > Flex-10 and FlexFabric adapters allow you to partition a 10 Gb link into several smaller bandwidth FlexNICs. Virtual machine applications often require increased network connections per server, increasing network complexity while reducing the number of server resources. Virtual Connect addresses this issue by letting you divide a 10 Gb network connection into four independent FlexNIC server connections. A FlexNIC is a physical PCIe function (PF) that appears to the system ROM, OS, or hypervisor as a discrete physical NIC with its own driver instance. It is not a virtual NIC contained in a software layer.
 >
-> ![flex-10-adapters](http://virtuallyhyper.com/wp-content/uploads/2012/09/flex-10-adapters.png)
+> ![flex-10-adapters](https://github.com/elatov/uploads/raw/master/2012/09/flex-10-adapters.png)
 
 Here is another picture of the HP Virtual Connect FlexFabric InterConnect Module :
 
-![flex-fabric2](http://virtuallyhyper.com/wp-content/uploads/2012/09/flex-fabric2.png)
+![flex-fabric2](https://github.com/elatov/uploads/raw/master/2012/09/flex-fabric2.png)
 
 Sometimes the Virtual Connect Module technology is just bundled as one technology, but in reality it consists of a couple of things. From "[HP Virtual Connect for the Cisco Network Administrator](http://h20000.www2.hp.com/bc/docs/support/SupportManual/c01386629/c01386629.pdf)":
 
@@ -58,17 +58,17 @@ Sometimes the Virtual Connect Module technology is just bundled as one technolog
 > Virtual Connect Ethernet modules, Virtual Connect Fibre Channel modules, Virtual Connect
 > Manager (VCM).
 >
-> ![hp-vc-components](http://virtuallyhyper.com/wp-content/uploads/2012/09/hp-vc-components.png)
+> ![hp-vc-components](https://github.com/elatov/uploads/raw/master/2012/09/hp-vc-components.png)
 
 There also many different types of Virtual Connect Modules:
 
-![diff-vcs](http://virtuallyhyper.com/wp-content/uploads/2012/09/diff-vcs.png)
+![diff-vcs](https://github.com/elatov/uploads/raw/master/2012/09/diff-vcs.png)
 
 So with the Virtual Connect FlexFabric Module you pass-through both NICs and HBAs. This is actually exactly what we were replacing in our setup.
 
 Let's get back on track. Upon replacing the Virtual Connect Module (VCM), VMs that were using Windows NLB, lost network connectivity. We had two Virtual Connect Modules and they were setup in an Active/Active Manner. This picture from "[HP Virtual Connect Ethernet Cookbook: Single and Multi Enclosure Domain (Stacked) Scenarios](http://h20000.www2.hp.com/bc/docs/support/SupportManual/c01990371/c01990371.pdf)" depicts our setup pretty well:
 
-![flex-10-server-profile-a_a](http://virtuallyhyper.com/wp-content/uploads/2012/09/flex-10-server-profile-a_a.png)
+![flex-10-server-profile-a_a](https://github.com/elatov/uploads/raw/master/2012/09/flex-10-server-profile-a_a.png)
 
 I wasn't present when the VMC replacement took place but we grabbed logs right as the incident occurred. From the logs, I saw the following NICs on the HP Blade Server:
 

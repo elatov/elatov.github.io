@@ -38,11 +38,11 @@ I have a lab environment where I deploy about 30 VMs on one physical server and 
 
 So 8 cores at 2.66GHz and 8GB of RAM, nothing crazy. Each VM has the minimum amount of RAM (192MB) and it actually runs pretty well. I was looking over esxtop and at random period of times, I saw different VMs experiencing high latency. Here is what I saw.
 
-![esxtop_latency](http://virtuallyhyper.com/wp-content/uploads/2012/03/esxtop_latency.png)
+![esxtop_latency](https://github.com/elatov/uploads/raw/master/2012/03/esxtop_latency.png)
 
 To get to this screen just launch esxtop and hit 'v' for "disk VMs". On ESXi 5.0 the latency is automatically displayed in this view. If you are on 4.x, after selecting 'v' you can type in 'f' and that will show you a list of available columns, select the latency columns and you will see the same as above. From the above picture we see VM "uaclass39" and "uaclass17" experiencing latency up to 20 milliseconds. At certain times 20 VMs would experience the same issue. I saw this lantency be steady for a couple of minutes. More information regarding latency can be seen at this communities page ([Performance Troubleshooting for VMware vSphere™ 4.1](http://communities.vmware.com/docs/DOC-11812)", check out the section entitled '7.3.13. Check for Slow or Under-Sized Storage Device'.
 
-I decided to take a look at what the VM is doing and why it was experiencing such high read and write latency. So I ssh'ed over to one of the VMs and I launched top, and here is I saw:![Ubuntu_11_10_top](http://virtuallyhyper.com/wp-content/uploads/2012/03/Ubuntu_11_10_top.png)
+I decided to take a look at what the VM is doing and why it was experiencing such high read and write latency. So I ssh'ed over to one of the VMs and I launched top, and here is I saw:![Ubuntu_11_10_top](https://github.com/elatov/uploads/raw/master/2012/03/Ubuntu_11_10_top.png)
 
 Check out the %wa (it's 97%). Looking at the man page of 'top', I see the following:
 

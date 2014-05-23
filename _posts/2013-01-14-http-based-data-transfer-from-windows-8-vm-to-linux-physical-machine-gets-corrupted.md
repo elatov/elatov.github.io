@@ -31,7 +31,7 @@ After I uploaded the file to the Windows server and then back to my Linux host, 
 
 I grabbed a Wireshark capture on my VM during the transfer process and saw the following:
 
-![SRC Win VM HTTP Based Data Transfers from Windows 8 VM to Linux Physical Machine are Corrupted](http://virtuallyhyper.com/wp-content/uploads/2012/12/SRC_Win_VM.png)
+![SRC Win VM HTTP Based Data Transfers from Windows 8 VM to Linux Physical Machine are Corrupted](https://github.com/elatov/uploads/raw/master/2012/12/SRC_Win_VM.png)
 
 The size of the packet is 8266 bytes and jumbo frames are not setup. If TSO or LRO is enabled then packet sizes in Wireshark are not accurate. From [this](http://wiki.wireshark.org/CaptureSetup/Offloading) wireshark page:
 

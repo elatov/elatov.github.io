@@ -18,7 +18,7 @@ tags:
 ---
 I had recently received a call saying that all of the VMs are grayed out in his inventory when logged into the vCenter and checking the storage view doesn't show any LUNS. When I logged into the system I saw the following:
 
-![missing_vms](http://virtuallyhyper.com/wp-content/uploads/2012/05/missing_vms.png)
+![missing_vms](https://github.com/elatov/uploads/raw/master/2012/05/missing_vms.png)
 
 When I logged into the host I wanted to make sure we are connected to the SAN appropriately, so first I checked which HBAs are active, and I saw the following:
 

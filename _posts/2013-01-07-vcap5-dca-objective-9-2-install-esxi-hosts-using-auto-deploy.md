@@ -30,14 +30,14 @@ From "[VMware vSphere 5.0 Evaluation Guide Volume Four – Auto Deploy](http://w
 
 > The Auto Deploy Windows Installer is included with the vCenter installation media. From the main installation menu, choose the option to install the Auto Deploy server.
 >
-> ![auto deploy installer VCAP5 DCA Objective 9.2 – Install ESXi Hosts Using Auto Deploy ](http://virtuallyhyper.com/wp-content/uploads/2012/12/auto_deploy_installer.png)
+> ![auto deploy installer VCAP5 DCA Objective 9.2 – Install ESXi Hosts Using Auto Deploy ](https://github.com/elatov/uploads/raw/master/2012/12/auto_deploy_installer.png)
 >
 > During the installation, you will be prompted to provide the login credentials for your vCenter server. This is required in order to allow the installer to register the Auto Deploy server and enable the plug-in.
 >
 > **Verify the Auto Deploy Server Installation**
 > After you have installed the Auto Deploy server, or deployed the VCSA, log in to your vSphere Client and verify that the Auto Deploy plug-in is successfully registered by selecting **Plug-ins -> Manage Plug-ins…** from the menu bar. Verify that the Auto Deploy plug-in is listed and is enabled.
 >
-> ![plug in manager auto deploy VCAP5 DCA Objective 9.2 – Install ESXi Hosts Using Auto Deploy ](http://virtuallyhyper.com/wp-content/uploads/2012/12/plug_in_manager_auto_deploy.png)
+> ![plug in manager auto deploy VCAP5 DCA Objective 9.2 – Install ESXi Hosts Using Auto Deploy ](https://github.com/elatov/uploads/raw/master/2012/12/plug_in_manager_auto_deploy.png)
 
 Also here are the other prerequisites:
 
@@ -48,14 +48,14 @@ Also here are the other prerequisites:
 > **TFTP Server**
 > Auto Deploy can utilize any standard TFTP infrastructure. You will need to copy the Auto Deploy gPXE boot files from your vCenter server into the TFTP home directory (the steps to do this are discussed later). The following example shows the contents of the TFTP home directory on a Linux server that has been configured for Auto Deploy:
 >
-> ![tftp contents for auto deploy VCAP5 DCA Objective 9.2 – Install ESXi Hosts Using Auto Deploy ](http://virtuallyhyper.com/wp-content/uploads/2012/12/tftp_contents_for_auto_deploy.png)
+> ![tftp contents for auto deploy VCAP5 DCA Objective 9.2 – Install ESXi Hosts Using Auto Deploy ](https://github.com/elatov/uploads/raw/master/2012/12/tftp_contents_for_auto_deploy.png)
 >
 > **DHCP Server**
 > Any DHCP server can be used. Ensure that the DHCP server is configured both to provide an IP address and to update the DNS, to include setting up reverse pointer records. It is recommended that you use static IP reservations for Auto Deploy hosts, because this will facilitate IP address tracking and troubleshooting. Within the DHCP configuration, you must set the Boot Server (DHCP option 66) to the IP address of your TFTP server and the Bootfile Name (DHCP option 67) to the file name of the gPXE boot file – undionly.kpxe.vmw-hardwired (this file is included in the files copied from the vCenter to the TFTP server).
 >
 > The following example shows the DHCP settings for a windows DHCP server (version 5.2):
 >
-> ![dhcp for auto deploy VCAP5 DCA Objective 9.2 – Install ESXi Hosts Using Auto Deploy ](http://virtuallyhyper.com/wp-content/uploads/2012/12/dhcp_for_auto_deploy.png)
+> ![dhcp for auto deploy VCAP5 DCA Objective 9.2 – Install ESXi Hosts Using Auto Deploy ](https://github.com/elatov/uploads/raw/master/2012/12/dhcp_for_auto_deploy.png)
 
 ### Utilize Auto Deploy cmdlets to deploy ESXi hosts
 
@@ -69,7 +69,7 @@ From "[vSphere Installation and Setup vSphere 5.0](http://pubs.vmware.com/vspher
 > *   Basic help: Get-Help cmdlet_name
 > *   Detailed help: Get-Help cmdlet_name -Detailed
 >
-> ![auto deploy powercli cmdlets VCAP5 DCA Objective 9.2 – Install ESXi Hosts Using Auto Deploy ](http://virtuallyhyper.com/wp-content/uploads/2012/12/auto_deploy_powercli_cmdlets.png)
+> ![auto deploy powercli cmdlets VCAP5 DCA Objective 9.2 – Install ESXi Hosts Using Auto Deploy ](https://github.com/elatov/uploads/raw/master/2012/12/auto_deploy_powercli_cmdlets.png)
 
 ### Configure Bulk Licensing
 
@@ -122,7 +122,7 @@ From "[VMware vSphere 5.0 Evaluation Guide Volume Four – Auto Deploy](http://w
 > Create Auto Deploy Rules
 > From the vSphere PowerCLI shell you will create the rules to identify the image profile and host profile to use and where in vCenter to place the auto deployed host. The rules use pattern matching to compare the attributes of the host being deployed against the predefined rules. There are a number of attributes that can be used. The following figure shows the list of available attributes that can be used for pattern matching in Auto Deploy.
 >
-> ![auto deploy attributes VCAP5 DCA Objective 9.2 – Install ESXi Hosts Using Auto Deploy ](http://virtuallyhyper.com/wp-content/uploads/2012/12/auto_deploy_attributes.png)
+> ![auto deploy attributes VCAP5 DCA Objective 9.2 – Install ESXi Hosts Using Auto Deploy ](https://github.com/elatov/uploads/raw/master/2012/12/auto_deploy_attributes.png)
 >
 > At a minimum, each host needs at least one rule to identify the image profile to install. Additional rules can then be created to optionally apply host profiles and place the host in vCenter.
 >
@@ -207,11 +207,11 @@ Now we are ready to provision/deploy a host:
 >
 > PXE boot the host by powering it on. On boot, the host will contact the DHCP server and get assigned an IP address. The DHCP server will also provide the host with the IP address of the TFTP server and the name of the gPXE boot file. The gPXE boot file will provide the host with the information necessary to initiate an HTTP boot from the Auto Deploy server.
 >
-> ![pxe boot auto deploy VCAP5 DCA Objective 9.2 – Install ESXi Hosts Using Auto Deploy ](http://virtuallyhyper.com/wp-content/uploads/2012/12/pxe_boot_auto_deploy.png)
+> ![pxe boot auto deploy VCAP5 DCA Objective 9.2 – Install ESXi Hosts Using Auto Deploy ](https://github.com/elatov/uploads/raw/master/2012/12/pxe_boot_auto_deploy.png)
 >
 > Once this is complete, the server compares the host information against the rules in the active rule set to determine which image profile to install on the host, which host profile to use to configure the host, and where in vCenter to place the host after it is installed.
 >
-> ![booting from autodeploy VCAP5 DCA Objective 9.2 – Install ESXi Hosts Using Auto Deploy ](http://virtuallyhyper.com/wp-content/uploads/2012/12/booting_from_autodeploy.png)
+> ![booting from autodeploy VCAP5 DCA Objective 9.2 – Install ESXi Hosts Using Auto Deploy ](https://github.com/elatov/uploads/raw/master/2012/12/booting_from_autodeploy.png)
 >
 > The chosen image profile is then copied over the network, where it is loaded directly into the host’s memory.
 

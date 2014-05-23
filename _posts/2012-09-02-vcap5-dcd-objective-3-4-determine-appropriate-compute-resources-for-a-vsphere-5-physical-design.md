@@ -39,7 +39,7 @@ If you want more information on the different technologies, I would suggest read
 
 ### Based on the service catalog and given functional requirements, for each service: Determine the most appropriate compute technologies for the design
 
-From [this](http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.pdf) PDF:
+From [this](https://github.com/elatov/uploads/raw/master/2013/04/vcap-dcd_notes.pdf) PDF:
 
 > CPU Features
 >
@@ -149,9 +149,9 @@ If performance is your goal, get hardware that can support all the power saving 
 
 From [APAC BrownBag Session 8](http://professionalvmware.com/2012/03/apac-vbrownbag-follow-up-vcap-dcd-host-design/)
 
-![scale_up_vs_out](http://virtuallyhyper.com/wp-content/uploads/2012/09/scale_up_vs_out.png)
+![scale_up_vs_out](https://github.com/elatov/uploads/raw/master/2012/09/scale_up_vs_out.png)
 
-From [this](http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.pdf) PDF:
+From [this](https://github.com/elatov/uploads/raw/master/2013/04/vcap-dcd_notes.pdf) PDF:
 
 > **Host Hardware Type**
 > Blades or Pizza boxes?
@@ -170,15 +170,15 @@ From [this](http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.
 
 From the [APAC Brownbag Session 8](http://professionalvmware.com/2012/03/apac-vbrownbag-follow-up-vcap-dcd-host-design/):
 
-![blades_racks](http://virtuallyhyper.com/wp-content/uploads/2012/09/blades_racks.png)
+![blades_racks](https://github.com/elatov/uploads/raw/master/2012/09/blades_racks.png)
 
 There is a also a great article from IBM "[VMware ESX Server: Scale Up or Scale Out?](http://www.redbooks.ibm.com/redpapers/pdfs/redp3953.pdf)", from that paper:
 
-![scale_out_example](http://virtuallyhyper.com/wp-content/uploads/2012/09/scale_out_example.png)
+![scale_out_example](https://github.com/elatov/uploads/raw/master/2012/09/scale_out_example.png)
 
 and also this:
 
-![scale_up_example](http://virtuallyhyper.com/wp-content/uploads/2012/09/scale_up_example.png)
+![scale_up_example](https://github.com/elatov/uploads/raw/master/2012/09/scale_up_example.png)
 
 Duncap Epping has two posts about these topics "[Scale Up/Out and impact of vRAM?!? (part 2)](http://www.yellow-bricks.com/2010/03/17/scale-up/)". It has good examples of each. From the blog:
 
@@ -236,7 +236,7 @@ And from "[VMWare ESX Performance Optimization](http://www.ittoday.info/Articles
 >
 > It is important to note here that system memory has quickly become one of the most expensive components found in today's modern server; so you need to make sure that you properly match up the amount of memory in the system to the virtual machine density that can be achieved with the amount of processing power available. In other words, if you have enough processor resources in your host server to support ten virtual machines, don't overpopulate your host server with expensive additional memory beyond what that density is capable of consuming if you cannot achieve a higher consolidation ratio due to processor limitations.
 
-During your initial capacity analysis figure out what the actual CPU and RAM usage is. Then purchase the necessary hardware to fill the need of the usage. Also keep in mind if Scale Out or Scale Up is your goal. If you decide to go for redundancy then Scale Out is your plan, in which case your consolidation ratio will be a little smaller since you will have smaller physical servers. If you decide to go with scale up (bigger servers) then your consolidation ratio will be better since the physical servers will have more CPU and RAM. A good thing to keep in mind, from [this](http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.pdf) PDF:
+During your initial capacity analysis figure out what the actual CPU and RAM usage is. Then purchase the necessary hardware to fill the need of the usage. Also keep in mind if Scale Out or Scale Up is your goal. If you decide to go for redundancy then Scale Out is your plan, in which case your consolidation ratio will be a little smaller since you will have smaller physical servers. If you decide to go with scale up (bigger servers) then your consolidation ratio will be better since the physical servers will have more CPU and RAM. A good thing to keep in mind, from [this](https://github.com/elatov/uploads/raw/master/2013/04/vcap-dcd_notes.pdf) PDF:
 
 > Cores per CPU:
 > The number of cores per host must match or exceed the number of vCPUs of the Largest VM
@@ -247,7 +247,7 @@ Here is a real life example for the UCS blades, "[Cisco, VMware: Cisco UCS B200-
 
 Also if you are using Capacity Planner you can check your consolidation ratio, by running different reports. For more information check out "[Twenty-to-One Consolidation on Intel Architecture](http://www.virtualizationteam.com/virtualization-vmware/capacity-planner/optimize-your-vmware-capacity-planning-report.html)":
 
-![consolidation](http://virtuallyhyper.com/wp-content/uploads/2012/09/consolidation.png)
+![consolidation](https://github.com/elatov/uploads/raw/master/2012/09/consolidation.png)
 
 ### Calculate the number of nodes in an HA cluster based upon host failure count and resource guarantees.
 
@@ -279,7 +279,7 @@ There is also an example in "[vSphere Availability ESXi 5.0](http://pubs.vmware.
 > *   There are five powered-on virtual machines in the cluster with differing CPU and memory requirements. VM1 needs 2GHz of CPU resources and 1GB of memory, while VM2 needs 2GHz and 1GB, VM3 needs1GHz and 2GB, VM4 needs 1GHz and 1GB, and VM5 needs 1GHz and 1GB.
 > *   The Host Failures Cluster Tolerates is set to one.
 
-![ha-host_failures_set_example](http://virtuallyhyper.com/wp-content/uploads/2012/09/ha-host_failures_set_example.png)
+![ha-host_failures_set_example](https://github.com/elatov/uploads/raw/master/2012/09/ha-host_failures_set_example.png)
 
 > 1.  Slot size is calculated by comparing both the CPU and memory requirements of the virtual machines and selecting the largest. The largest CPU requirement (shared by VM1 and VM2) is 2GHz, while the largest memory requirement (for VM3) is 2GB. Based on this, the slot size is 2GHz CPU and 2GB memory.
 > 2.  Maximum number of slots that each host can support is determined. H1 can support four slots. H2 can support three slots (which is the smaller of 9GHz/2GHz and 6GB/2GB) and H3 can also support three slots.
@@ -294,7 +294,7 @@ And another example from the same document:
 > *   There are five powered-on virtual machines in the cluster with differing CPU and memory requirements. VM1 needs 2GHz of CPU resources and 1GB of memory, while VM2 needs 2GHz and 1GB, VM3 needs 1GHz and 2GB, VM4 needs 1GHz and 1GB, and VM5 needs 1GHz and 1GB.
 > *   The Configured Failover Capacity is set to 25%.
 
-![ha-percent-example](http://virtuallyhyper.com/wp-content/uploads/2012/09/ha-percent-example.png)
+![ha-percent-example](https://github.com/elatov/uploads/raw/master/2012/09/ha-percent-example.png)
 
 > The total resource requirements for the powered-on virtual machines is 7GHz and 6GB. The total host resources available for virtual machines is 24GHz and 21GB. Based on this, the Current CPU Failover Capacity is 70% ((24GHz - 7GHz)/24GHz). Similarly, the Current Memory Failover Capacity is 71% ((21GB-6GB)/21GB).Because the cluster's Configured Failover Capacity is set to 25%, 45% of the cluster's total CPU resources and 46% of the cluster's memory resources are still available to power on additional virtual machines.
 
@@ -317,7 +317,7 @@ From "[vSphere Resource Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/t
 >
 > The following table shows the default CPU and memory share values for a virtual machine. For resource pools, the default CPU and memory share values are the same, but must be multiplied as if the resource pool were a virtual machine with four virtual CPUs and 16 GB of memory.
 >
-> ![share_values](http://virtuallyhyper.com/wp-content/uploads/2012/09/share_values.png)
+> ![share_values](https://github.com/elatov/uploads/raw/master/2012/09/share_values.png)
 >
 > For example, an SMP virtual machine with two virtual CPUs and 1GB RAM with CPU and memory shares set to Normal has 2x1000=2000 shares of CPU and 10x1024=10240 shares of memory.
 >
@@ -384,7 +384,7 @@ From [vSphere Resource Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/to
 >
 > For example, assume a host has a number of virtual machines. The marketing department uses three of the virtual machines and the QA department uses two virtual machines. Because the QA department needs larger amounts of CPU and memory, the administrator creates one resource pool for each group. The administrator sets CPU Shares to High for the QA department pool and to Normal for the Marketing department pool so that the QA department users can run automated tests. The second resource pool with fewer CPU and memory resources is sufficient for the lighter load of the marketing staff. Whenever the QA department is not fully using its allocation, the marketing department can use the available resources. The numbers in the following figure show the effective allocations to the resource pools.
 >
-> ![resource_pools](http://virtuallyhyper.com/wp-content/uploads/2012/09/resource_pools.png)
+> ![resource_pools](https://github.com/elatov/uploads/raw/master/2012/09/resource_pools.png)
 
 So if you have some SLA's defined, then define Resource Pools for each SLA. Also as mentioned you can use them to separate departments for organizational purposes.
 
@@ -405,7 +405,7 @@ From "[Sizing server hardware for virtual machines](http://searchservervirtualiz
 >
 > You should always have at least one more core than the maximum number of vCPUs that will be assigned to a single VM. For example, don't buy a two processor dual-core server with a total of four cores and try to run a four vCPU VM on it. The reason being that the CPU scheduler of the hypervisor needs to find 4 free cores simultaneously each time the VM makes a CPU request. If there are only a total of four available cores, the performance will be very slow. My recommendation would be to use quad core CPUs because more cores provide the CPU scheduler with more flexibility to process requests.
 
-From [this](http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.pdf) PDF:
+From [this](https://github.com/elatov/uploads/raw/master/2013/04/vcap-dcd_notes.pdf) PDF:
 
 > CPU Capacity:
 >

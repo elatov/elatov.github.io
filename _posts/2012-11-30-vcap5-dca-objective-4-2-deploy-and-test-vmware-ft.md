@@ -64,7 +64,7 @@ And here is the last set of requirements:
 > **Features and Devices Incompatible with Fault Tolerance**
 > For a virtual machine to be compatible with Fault Tolerance, the Virtual Machine must not use the following features or devices
 >
-> ![ft_vm_devices_unsupported](http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_vm_devices_unsupported.png)
+> ![ft_vm_devices_unsupported](https://github.com/elatov/uploads/raw/master/2012/11/ft_vm_devices_unsupported.png)
 
 ### Modify VM and ESXi host settings to allow for FT compatibility
 
@@ -176,7 +176,7 @@ From "[vSphere Availability ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/co
 
 Here is how it looks like from vCenter:
 
-![ft_logging_pg](http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_logging_pg.png)
+![ft_logging_pg](https://github.com/elatov/uploads/raw/master/2012/11/ft_logging_pg.png)
 
 ### Prepare the infrastructure for FT compliance
 
@@ -196,7 +196,7 @@ From "[vSphere Availability ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/co
 
 Here is how it looks like in vCenter:
 
-![profile_compliance_check](http://virtuallyhyper.com/wp-content/uploads/2012/11/profile_compliance_check.png)
+![profile_compliance_check](https://github.com/elatov/uploads/raw/master/2012/11/profile_compliance_check.png)
 
 Also from the same document:
 
@@ -204,7 +204,7 @@ Also from the same document:
 
 Here is how it looks like in vCenter:
 
-![host_ft_compliance](http://virtuallyhyper.com/wp-content/uploads/2012/11/host_ft_compliance.png)
+![host_ft_compliance](https://github.com/elatov/uploads/raw/master/2012/11/host_ft_compliance.png)
 
 ### Test FT failover, secondary restart, and application fault tolerance in a FT Virtual Machine
 
@@ -214,33 +214,33 @@ I actually don't have CPU capable of supporting FT, but there is a great step by
 >
 > 1. Image depicting the Network configuration.
 >
-> ![ft_step1_c](http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step1_c.jpeg)
+> ![ft_step1_c](https://github.com/elatov/uploads/raw/master/2012/11/ft_step1_c.jpeg)
 >
 > 2. Turning on FT.
 >
-> ![ft_step2_c](http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step2_c.jpeg)
+> ![ft_step2_c](https://github.com/elatov/uploads/raw/master/2012/11/ft_step2_c.jpeg)
 >
 > 3. 54% through setting up FT.
 >
-> ![ft_step3_c](http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step3_c.jpeg)
+> ![ft_step3_c](https://github.com/elatov/uploads/raw/master/2012/11/ft_step3_c.jpeg)
 >
 > 4. FT setup complete.
 >
-> ![ft_step4_c](http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step4_c.jpeg)
+> ![ft_step4_c](https://github.com/elatov/uploads/raw/master/2012/11/ft_step4_c.jpeg)
 >
 > 5. vLockstep Interval and Log Bandwidth information are now updated.
 >
-> ![ft_step5_c](http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step5_c.jpeg)
+> ![ft_step5_c](https://github.com/elatov/uploads/raw/master/2012/11/ft_step5_c.jpeg)
 >
 > 6. Primary VM is located on 10.10.10.146.
 >
-> ![ft_step6_c](http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step6_c.jpeg)
+> ![ft_step6_c](https://github.com/elatov/uploads/raw/master/2012/11/ft_step6_c.jpeg)
 >
 > 7. Secondary VM is running on the Secondary Host- 10.10.10.145.
 >
-> ![ft_step7_c](http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step7_c.jpeg)
+> ![ft_step7_c](https://github.com/elatov/uploads/raw/master/2012/11/ft_step7_c.jpeg)
 >
 > 8. Testing FT using the built in Test Failover command.
 >
-> ![ft_step8_c](http://virtuallyhyper.com/wp-content/uploads/2012/11/ft_step8_c.jpeg)
+> ![ft_step8_c](https://github.com/elatov/uploads/raw/master/2012/11/ft_step8_c.jpeg)
 

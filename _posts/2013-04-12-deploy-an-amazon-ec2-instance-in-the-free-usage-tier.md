@@ -14,11 +14,11 @@ tags:
 ---
 If you want to try out AWS (Amazon Web Services), there is a 12 month (1 year) free trial (Free Usage Tier). Most of the information regarding the Free Usage Tier is outlined in the "[Getting Started Guide AWS Free Usage Tier](http://s3.amazonaws.com/awsdocs/gettingstarted/latest/awsgsg-freetier.pdf)". From the Guide here is a table of all the available services:
 
-![FUT AWS Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/FUT_AWS.png)
+![FUT AWS Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/FUT_AWS.png)
 
 From the same PDF here are some limitations:
 
-![FUT Usage Limits Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/FUT_Usage_Limits.png)
+![FUT Usage Limits Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/FUT_Usage_Limits.png)
 
 Here is more information from the PDF:
 
@@ -38,15 +38,15 @@ There are a max of 744 (31 days in month * 24 hours in a day) hours of execution
 ###Sign up for AWS Free Usage Tier and Check Eligibility
 You can go to **http://aws.amazon.com/** click on the "Sign Up" button:
 
-![sign up aws Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/sign_up_aws.png)
+![sign up aws Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/sign_up_aws.png)
 
 It will ask you for your Credit Card, but don't worry as long as you stay within the limitations you won't be charged. After you signed up you can go to **http://aws.amazon.com/account/**:
 
-![aws account Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/aws_account.png)
+![aws account Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/aws_account.png)
 
 And then Click on "Account Activity" and you will see the following:
 
-![FUT Eligible Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/FUT_Eligible.png)
+![FUT Eligible Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/FUT_Eligible.png)
 
 At this point we can deploy an EC2 Instance.
 
@@ -59,40 +59,40 @@ Most of the Instructions on how to Deploy an EC2 instance can be found in "[Amaz
 
 To get this started we have go to the "Amazon EC2 console". To get to the console, we first have to go to the "AWS Management Console". Go to **http://aws.amazon.com** and then click on the "My Account/Console" and you will see the following:
 
-![aws my account console Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/aws_my_account_console.png)
+![aws my account console Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/aws_my_account_console.png)
 
 
 From the Drop Down Menu select "AWS Management Console", and that will bring you to the following page:
 
-![aws mgmt console Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/aws_mgmt_console.png)
+![aws mgmt console Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/aws_mgmt_console.png)
 
 This is the central portal to manage all the Amazon Web Services. From here click on "EC2 Virtual Servers In the Cloud" and that will take you here:
 
-![EC2 Dashboard Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/EC2_Dashboard.png)
+![EC2 Dashboard Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/EC2_Dashboard.png)
 
 To create a new EC2 instance click on the "Launch Instance" button:
 
-![create instance Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/create_instance.png)
+![create instance Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/create_instance.png)
 
 You will then be presented with a choice of wizards:
 
-![New Instance Wizard Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/New_Instance_Wizard.png)
+![New Instance Wizard Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/New_Instance_Wizard.png)
 
 I just left the "Classic Wizard" selected and clicked on "Continue". At this point you can select what AMI (Amazon Machine Image) to deploy. If there is a yellow star next to the AMI that means you can deploy it in the Free Usage Tier. Here is a list that I saw:
 
-![select AMI Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/select_AMI.png)
+![select AMI Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/select_AMI.png)
 
 I selected Ubuntu 12.04 LTS and clicked "Continue" and then I was able to see the Instance Details. I selected the "Instance Type" and we can see that a micro Instance consists of 613MB of RAM and a single Core CPU. Notice the yellow start next to the Micro Instance, indicating that this is available for the Free Usage Tier:
 
-![Instance details Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/Instance_details.png)
+![Instance details Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/Instance_details.png)
 
 I left the defaults and clicked "Continue" at which point I saw the "Advanced Instance Details". I left the defaults here as well:
 
-![adv inst opt Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/adv_inst_opt.png)
+![adv inst opt Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/adv_inst_opt.png)
 
 After clicking "Continue", I was presented with the "Storage Device Configuration" page:
 
-![storage dev conf Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/storage_dev_conf.png)
+![storage dev conf Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/storage_dev_conf.png)
 
 If you click "Edit" you can configure EBS (Elastic Block Store) Volumes, from the user Guide:
 
@@ -102,7 +102,7 @@ If you click "Edit" you can configure EBS (Elastic Block Store) Volumes, from th
 
 Here are the available options from the Wizard:
 
-![EBS Volumes New Instance Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/EBS_Volumes_New_Instance.png)
+![EBS Volumes New Instance Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/EBS_Volumes_New_Instance.png)
 
 I was only going to run one instance so I didn't add another volume to my VM. You can also change the type of the volume from "Standard" to "Provisioned IOPS". From the User Guide:
 
@@ -112,15 +112,15 @@ I was only going to run one instance so I didn't add another volume to my VM. Yo
 
 I only had 2M IOPS on the Free Usage Tier and I didn't want to dedicate/reserve any amount of IOPS to my volume since I wasn't going to run any IO Intensive Application on my VM. Here is how the options looked like from the Wizard:
 
-![Provisioned IOPS g Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/Provisioned_IOPS_g.png)
+![Provisioned IOPS g Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/Provisioned_IOPS_g.png)
 
 8GB of space for my Ubuntu Test VM was good enough for now, so I just clicked "Continue". At this point I was presented with the "Tags" page. I just defined one tag and that was the "Name" tag like so:
 
-![Tags New Instance Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/Tags_New_Instance.png)
+![Tags New Instance Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/Tags_New_Instance.png)
 
 I then clicked "Continue" and was presented with the "Create Key Pair" page. When you deploy a Linux VM in EC2, an SSH key pair is created so you can use it to login to the VM. I named my key:
 
-![Create new Key Pair Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/Create_new_Key_Pair.png)
+![Create new Key Pair Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/Create_new_Key_Pair.png)
 
 I then clicked "Create and Download Key" and the key was downloaded to my download directory:
 
@@ -141,19 +141,19 @@ In between are the contents of the private key :)  It then took me to the "Secur
 
 I selected "Create New Security Group" and created a new rule to only allow port 22, since for now that is all that I need:
 
-![create new security group Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/create_new_security_group.png)
+![create new security group Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/create_new_security_group.png)
 
 After I clicked "Continue" I was presented with the Summary of all the Settings:
 
-![Review new instance Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/Review_new_instance.png)
+![Review new instance Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/Review_new_instance.png)
 
 After I clicked "Launch" I was presented with the following dialog:
 
-![Instance is launching Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/Instance_is_launching.png)
+![Instance is launching Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/Instance_is_launching.png)
 
 I then went to the EC2 Dashboard and selected "Instances" and I saw the following:
 
-![ec2 intances Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/ec2_intances.png)
+![ec2 intances Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/ec2_intances.png)
 
 Now let's connect to our EC2 Instance with SSH.
 
@@ -176,23 +176,23 @@ Also here more information:
 
 So we can use one EIP and if it's not associated with a running instance for more than 1 hour we get charged. Something to keep in mind :)  To associate an EIP with my EC2 instance, from the EC2 Dashboard I clicked on "Elastic IPs" and saw the following:
 
-![EIPs Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/EIPs.png)
+![EIPs Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/EIPs.png)
 
 I then clicked on "Allocate New Address" and the following dialog popped up:
 
-![Allow new EIP Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/Allow_new_EIP.png)
+![Allow new EIP Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/Allow_new_EIP.png)
 
 I left the defaults and then clicked on "Yes, Allocate" and then under "Elastic IPs" the new IP showed up:
 
-![New EIP Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/New_EIP.png)
+![New EIP Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/New_EIP.png)
 
 Now we have to associate our EIP with our EC2 instance, cause if we don't and leave it like that for over an hour we will get charged. So from the above screen click on "Associate Address" and following dialog showed up:
 
-![Associate EIP with Ec2 instance Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/Associate_EIP_with_Ec2_instance.png)
+![Associate EIP with Ec2 instance Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/Associate_EIP_with_Ec2_instance.png)
 
 I selected my Instance from the drop down menu and then clicked "Yes, Associate". Then I saw the following in the "Elastic IPs" section:
 
-![EIP Associated Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/EIP_Associated.png)
+![EIP Associated Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/EIP_Associated.png)
 
 We can see that is' associated to our EC2 instance. At this point you can assign the EIP to a more friendly hostname if you have your own DNS service:
 
@@ -259,20 +259,20 @@ And now you can configure a web server or whatever you desire and use it for a y
 ### Monitor EC2 Instance Usage
 If you want a general over view of the usage you can go to **http://aws.amazon.com** then hover over "My Account/Console" and from the drop down menu select "Account Activity". From here scroll down to the "AWS Service Charges" and Expand "Amazon Elastic Compute Cloud" and "AWS Data Transfer". You will then see the following:
 
-![AWS Service charges Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/AWS_Service_charges.png)
+![AWS Service charges Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/AWS_Service_charges.png)
 
 Here you can see if you are getting close to IOPS or something and shutdown the VM for the rest of the month. If you want a more granular view of the VM. In the EC2 Dashboard you can click "Instances" and then select your Instance and then Select the "Monitoring" Tab and you will see the following statistics:
 
-![Instance metrics Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/Instance_metrics.png)
+![Instance metrics Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/Instance_metrics.png)
 
 ### Create an Alarm to Monitor EC2 Instance
 If you want you can create an Alarm to monitor a specific metric. From the Monitoring Tab, you can select "Create Alarm" and then choose a metric to monitor:
 
-![create an alarm g Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/create_an_alarm_g.png)
+![create an alarm g Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/create_an_alarm_g.png)
 
 For example here is alarm that would be triggered if the sum of the outgoing network traffic is more than 1GB in a span of 6 hours. If that keeps going then you will end up going above the limit real fast.
 
-![Alarm net out 1gb 6 hours Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/Alarm-net-out-1gb-6-hours.png)
+![Alarm net out 1gb 6 hours Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/Alarm-net-out-1gb-6-hours.png)
 
 You can setup 10 Alarms in the Free Usage Tier, from the User Guide:
 
@@ -284,14 +284,14 @@ and you can have 100 email notifications sent out for free:
 
 After the alarm was set I clicked "Create Alarm" and the following pop-up showed up:
 
-![Successful alarm creation Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/Successful_alarm_creation.png)
+![Successful alarm creation Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/Successful_alarm_creation.png)
 
 You will also receive a confirmation email to the address that you specified and you need to confirm that you want to receive those notifications. You can confirm your Alarm by going to the "AWS Management Console":
 
-![aws mgmt console Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/aws_mgmt_console.png)
+![aws mgmt console Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/aws_mgmt_console.png)
 
 and then selecting "CloudWatch" and then you will see the following:
 
-![cloud watch dashboard Deploy an Amazon EC2 instance in the Free Usage Tier](http://virtuallyhyper.com/wp-content/uploads/2013/03/cloud_watch_dashboard.png)
+![cloud watch dashboard Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/cloud_watch_dashboard.png)
 
 You can also click on the Alarm and see the specifics if you want.

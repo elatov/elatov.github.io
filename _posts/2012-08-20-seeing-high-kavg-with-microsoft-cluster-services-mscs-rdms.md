@@ -19,7 +19,7 @@ tags:
 ---
 I came across an interesting issue the other day. I would randomly see high KAVG and QAVG on my ESX hosts. It would look something like this:
 
-![high-kavg-1](http://virtuallyhyper.com/wp-content/uploads/2012/08/high-kavg-1.png)
+![high-kavg-1](https://github.com/elatov/uploads/raw/master/2012/08/high-kavg-1.png)
 
 We can see that there actually isn't that much IO going to that LUN. As the issue was happening, I would see the following in the logs:
 
@@ -65,7 +65,7 @@ Searching for that vml, I saw the following:
 
 it did correspond to one of the NAAs that I saw the high KAVG for. I wanted to see if I was seeing Reservation Conflicts on the devices that were experiencing the high KAVG. So I followed the instructions described in the yellow brick blog entitled "[Did you know? SCSI Reservations…](http://www.yellow-bricks.com/2010/10/26/did-you-know-scsi-reservations/)". This is what I saw in my esxtop output:
 
-![high-kavg-with-rsrv-confl](http://virtuallyhyper.com/wp-content/uploads/2012/08/high-kavg-with-rsrv-confl.png)
+![high-kavg-with-rsrv-confl](https://github.com/elatov/uploads/raw/master/2012/08/high-kavg-with-rsrv-confl.png)
 
 We can see that the column "CONS/S" has a high number for the device that is experiencing the high KAVG. Also looking at the device statistics:
 

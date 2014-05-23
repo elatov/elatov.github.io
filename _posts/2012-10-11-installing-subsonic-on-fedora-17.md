@@ -129,7 +129,7 @@ Then save the iptables config:
 
 Fire up a browser of your choice and enter http://IP_OF_SUBSONIC:4040, you will see a page similar to this:
 
-![subsonic_login_page](http://virtuallyhyper.com/wp-content/uploads/2012/10/subsonic_login_page.png)
+![subsonic_login_page](https://github.com/elatov/uploads/raw/master/2012/10/subsonic_login_page.png)
 
 You can login with username 'admin' and password 'admin', but it will ask you to change that upon login.
 
@@ -137,7 +137,7 @@ You can login with username 'admin' and password 'admin', but it will ask you to
 
 Go to "Settings" -> "Media Folder" and add a folder then click "Save", it will look something like this:
 
-![subsonic_media_folders](http://virtuallyhyper.com/wp-content/uploads/2012/10/subsonic_media_folders.png)
+![subsonic_media_folders](https://github.com/elatov/uploads/raw/master/2012/10/subsonic_media_folders.png)
 
 After that if you go to your Home screen and you should see your music library there.
 

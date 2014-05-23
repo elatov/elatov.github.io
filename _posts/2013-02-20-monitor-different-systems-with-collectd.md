@@ -332,11 +332,11 @@ Lastly make sure *collectd* looks under the correct location (where the *RRD* fi
 
 This should be the default, but just in case. Now visiting the Collectd-Web portal (**http://localhost/cw**), I saw the following:
 
-![collectd web first page Monitor Different Systems with Collectd](http://virtuallyhyper.com/wp-content/uploads/2013/02/collectd-web-first-page.png)
+![collectd web first page Monitor Different Systems with Collectd](https://github.com/elatov/uploads/raw/master/2013/02/collectd-web-first-page.png)
 
 Selecting the remote host (freebsd) and then the CPU option, allowed me to see the CPU stats of my FreeBSD machine:
 
-![collectd web freebsd cpu Monitor Different Systems with Collectd](http://virtuallyhyper.com/wp-content/uploads/2013/02/collectd-web-freebsd-cpu.png)
+![collectd web freebsd cpu Monitor Different Systems with Collectd](https://github.com/elatov/uploads/raw/master/2013/02/collectd-web-freebsd-cpu.png)
 
 Now let's configure the Fedora machine to send information to the collector.
 
@@ -537,7 +537,7 @@ Now let's enable this to be executed from Collectd. Edit **/usr/local/etc/collec
 
 After some time the graph started to populate with data. Here is a very small sample of how it looked like:
 
-![collectd web freebsd raid gauge Monitor Different Systems with Collectd](http://virtuallyhyper.com/wp-content/uploads/2013/02/collectd-web-freebsd-raid-gauge.png)
+![collectd web freebsd raid gauge Monitor Different Systems with Collectd](https://github.com/elatov/uploads/raw/master/2013/02/collectd-web-freebsd-raid-gauge.png)
 
 ### Related Posts
 

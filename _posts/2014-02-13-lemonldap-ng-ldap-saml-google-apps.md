@@ -134,7 +134,7 @@ Second we need a DNS Name for the application portal, this is where regular user
 
 Lastly to be able to update configuration from the administration portal, we will need **reload.dnsd.me**. After that is in place we can start configuring *lemonldap-ng*. You can setup each of the components on different servers as shown [here](http://wiki.lemonldap.ow2.org/xwiki/bin/view/NG/Presentation#HArchitecture):
 
-![lemonldap arch LemonLDAP NG With LDAP and SAML Google Apps](http://virtuallyhyper.com/wp-content/uploads/2014/01/lemonldap-arch.png)
+![lemonldap arch LemonLDAP NG With LDAP and SAML Google Apps](https://github.com/elatov/uploads/raw/master/2014/01/lemonldap-arch.png)
 
 I actually ended up using the same server for all the components of the setup.
 
@@ -176,7 +176,7 @@ Lastly add the **reload** name in your **/etc/hosts** file to allow config updat
 
 At this point you can visit the administration console (**http://man.dnsd.me**) and it will redirect you to the authentication portal:
 
-![lemonldap ng auth portal LemonLDAP NG With LDAP and SAML Google Apps](http://virtuallyhyper.com/wp-content/uploads/2014/01/lemonldap-ng-auth-portal.png)
+![lemonldap ng auth portal LemonLDAP NG With LDAP and SAML Google Apps](https://github.com/elatov/uploads/raw/master/2014/01/lemonldap-ng-auth-portal.png)
 
 By default you can login with:
 
@@ -185,11 +185,11 @@ By default you can login with:
 
 After you login, you should see the administration console:
 
-![lemonldp admin console LemonLDAP NG With LDAP and SAML Google Apps](http://virtuallyhyper.com/wp-content/uploads/2014/01/lemonldp-admin-console.png)
+![lemonldp admin console LemonLDAP NG With LDAP and SAML Google Apps](https://github.com/elatov/uploads/raw/master/2014/01/lemonldp-admin-console.png)
 
 If you visit the authentication portal (**port.dnsd.me**) and login with the same credentials, it will log you to the regular portal:
 
-![lemonldap auth portal LemonLDAP NG With LDAP and SAML Google Apps](http://virtuallyhyper.com/wp-content/uploads/2014/01/lemonldap-auth-portal.png)
+![lemonldap auth portal LemonLDAP NG With LDAP and SAML Google Apps](https://github.com/elatov/uploads/raw/master/2014/01/lemonldap-auth-portal.png)
 
 ## Install and Configure an LDAP Server for LemonLDAP::NG Authentication
 
@@ -234,19 +234,19 @@ Now for your local machine (Linux or Mac) run the following to launch the 389 Ad
 
 After entering all the credentials, you should see the following:
 
-![389 console login cres LemonLDAP NG With LDAP and SAML Google Apps](http://virtuallyhyper.com/wp-content/uploads/2014/01/389-console-login-cres.png)
+![389 console login cres LemonLDAP NG With LDAP and SAML Google Apps](https://github.com/elatov/uploads/raw/master/2014/01/389-console-login-cres.png)
 
 Upon a successful login, you will see the following:
 
-![389 console logged in LemonLDAP NG With LDAP and SAML Google Apps](http://virtuallyhyper.com/wp-content/uploads/2014/01/389-console-logged-in.png)
+![389 console logged in LemonLDAP NG With LDAP and SAML Google Apps](https://github.com/elatov/uploads/raw/master/2014/01/389-console-logged-in.png)
 
 Then click on the **User and Groups** tab and then click **Create** -> **User**:
 
-![add user 389 console LemonLDAP NG With LDAP and SAML Google Apps](http://virtuallyhyper.com/wp-content/uploads/2014/01/add-user-389-console.png)
+![add user 389 console LemonLDAP NG With LDAP and SAML Google Apps](https://github.com/elatov/uploads/raw/master/2014/01/add-user-389-console.png)
 
 After you create the user it should look like this:
 
-![389 console user LemonLDAP NG With LDAP and SAML Google Apps](http://virtuallyhyper.com/wp-content/uploads/2014/01/389-console-user.png)
+![389 console user LemonLDAP NG With LDAP and SAML Google Apps](https://github.com/elatov/uploads/raw/master/2014/01/389-console-user.png)
 
 Notice the email address is **test@moxz.mine.nu**, this actually corresponds to the email address in my Google Apps account (this will come into play when using SAML to login into Google Apps).
 
@@ -297,7 +297,7 @@ Login to the administrative portal and go to **General Parameters** -> **Authent
 
 All to be **LDAP**:
 
-![ldap enabled LemonLDAP NG With LDAP and SAML Google Apps](http://virtuallyhyper.com/wp-content/uploads/2014/01/ldap-enabled.png)
+![ldap enabled LemonLDAP NG With LDAP and SAML Google Apps](https://github.com/elatov/uploads/raw/master/2014/01/ldap-enabled.png)
 
 Then go to **General Parameters** -> **Authentication Modules** -> **LDAP parameters** -> **Connection** and set the following settings:
 
@@ -311,7 +311,7 @@ Then go to **General Parameters** -> **Authentication Modules** -> **LDAP parame
 
 As you saw I created a user called **elatov** in LDAP. Also as mentioned, by default the **dwho** user is configured to access the manager console. Let's change that to be the user **elatov**. To configure this go to **Virtual Hosts** -> **man.dnsd.me** -> **Rules**. And change the **default** rule to be `$uid eq "elatov"`:
 
-![lemon ldap change access to man LemonLDAP NG With LDAP and SAML Google Apps](http://virtuallyhyper.com/wp-content/uploads/2014/01/lemon-ldap-change-access-to-man.png)
+![lemon ldap change access to man LemonLDAP NG With LDAP and SAML Google Apps](https://github.com/elatov/uploads/raw/master/2014/01/lemon-ldap-change-access-to-man.png)
 
 Now you can configure *lemonldap-ng* with the **elatov** user.
 
@@ -323,21 +323,21 @@ Now let's setup *lemonldap-ng* to be a SAML **IDP** (Identity Provider) connecti
 
 First let's enable **SAML**. From the managamentment console (**man.dnsd.me**), go to **General Settings** -> **Issuer Module** -> **SAML** -> **Activation** -> **On**:
 
-![enable saml lemonldap LemonLDAP NG With LDAP and SAML Google Apps](http://virtuallyhyper.com/wp-content/uploads/2014/01/enable-saml-lemonldap.png)
+![enable saml lemonldap LemonLDAP NG With LDAP and SAML Google Apps](https://github.com/elatov/uploads/raw/master/2014/01/enable-saml-lemonldap.png)
 
 Then ensure the **Email NameID Format** is configured to send the **mail** attribute from LDAP. This is done going to **SAML 2 Service** -> **NameID Format** -> **Email** -> **mail**:
 
-![lemonldap mail email format LemonLDAP NG With LDAP and SAML Google Apps](http://virtuallyhyper.com/wp-content/uploads/2014/01/lemonldap-mail-email-format.png)
+![lemonldap mail email format LemonLDAP NG With LDAP and SAML Google Apps](https://github.com/elatov/uploads/raw/master/2014/01/lemonldap-mail-email-format.png)
 
 Then generate a private SSL key which will be used for the signature of the SAML Assertions. Go to **SAML2 Service** -> **Security parameters** -> **Signature** -> **Private key** -> **Generate**:
 
-![private key generat lemon ldap LemonLDAP NG With LDAP and SAML Google Apps](http://virtuallyhyper.com/wp-content/uploads/2014/01/private-key-generat-lemon-ldap.png)
+![private key generat lemon ldap LemonLDAP NG With LDAP and SAML Google Apps](https://github.com/elatov/uploads/raw/master/2014/01/private-key-generat-lemon-ldap.png)
 
 After it's generated, go ahead and **download** it and save it as **lemondap-priv-key.pem** (we will use this later to generate the public certificate to upload to Google Apps).
 
 For completion, fill out your *Organization* information under **SAML2 Service** -> **Organization** -> **Display Name / Name / URL**:
 
-![lemon ldap org name 1024x365 LemonLDAP NG With LDAP and SAML Google Apps](http://virtuallyhyper.com/wp-content/uploads/2014/01/lemon-ldap-org-name-1024x365.png)
+![lemon ldap org name 1024x365 LemonLDAP NG With LDAP and SAML Google Apps](https://github.com/elatov/uploads/raw/master/2014/01/lemon-ldap-org-name.png)
 
 ### Add Google Apps Service Provider in LemonLDAP::NG
 
@@ -355,15 +355,15 @@ After it's created add Google Apps SAML Metadata. **SAML service provider** -> *
 
 ** Make sure you set the **Location** to your google domain.
 
-![saml metadata for gapps 1024x272 LemonLDAP NG With LDAP and SAML Google Apps](http://virtuallyhyper.com/wp-content/uploads/2014/01/saml-metadata-for-gapps-1024x272.png)
+![saml metadata for gapps 1024x272 LemonLDAP NG With LDAP and SAML Google Apps](https://github.com/elatov/uploads/raw/master/2014/01/saml-metadata-for-gapps.png)
 
 Now let's configure to use the **Email** Format for the **NameID** attribute. **SAML service provider** -> **gapps** > **Options** -> **Authentication response** -> **Default NameID format** -> **Email**:
 
-![nameid format lemonldap gapps 1024x373 LemonLDAP NG With LDAP and SAML Google Apps](http://virtuallyhyper.com/wp-content/uploads/2014/01/nameid-format-lemonldap-gapps-1024x373.png)
+![nameid format lemonldap gapps 1024x373 LemonLDAP NG With LDAP and SAML Google Apps](https://github.com/elatov/uploads/raw/master/2014/01/nameid-format-lemonldap-gapps.png)
 
 Lastly let's disable the advanced features in *lemonldap-ng*. This is done by going to **SAML service provider** -> **gapps** -> **Options** -> **Signature**. Then disable everything except "**Sign SSO message**":
 
-![sign sso assertion LemonLDAP NG With LDAP and SAML Google Apps](http://virtuallyhyper.com/wp-content/uploads/2014/01/sign-sso-assertion.png)
+![sign sso assertion LemonLDAP NG With LDAP and SAML Google Apps](https://github.com/elatov/uploads/raw/master/2014/01/sign-sso-assertion.png)
 
 ### Enable SAML SSO in Google Apps
 
@@ -375,7 +375,7 @@ First let's generate the signing certificate. Run the following two commands:
 
 Then login to the Google Apps Domain Admin Console: **google.com/a/moxz.mine.nu** (use your domain as necessary). After you login, go to **Security** -> **Advanced** -> **Set up single sign-on (SSO)**:
 
-![gapps sso settings 1024x266 LemonLDAP NG With LDAP and SAML Google Apps](http://virtuallyhyper.com/wp-content/uploads/2014/01/gapps-sso-settings-1024x266.png)
+![gapps sso settings 1024x266 LemonLDAP NG With LDAP and SAML Google Apps](https://github.com/elatov/uploads/raw/master/2014/01/gapps-sso-settings.png)
 
 Configure the following settings:
 
@@ -386,7 +386,7 @@ Configure the following settings:
 
 Here is how my configuration looked like:
 
-![gapps sso settings LemonLDAP NG With LDAP and SAML Google Apps](http://virtuallyhyper.com/wp-content/uploads/2014/01/gapps_sso-settings.png)
+![gapps sso settings LemonLDAP NG With LDAP and SAML Google Apps](https://github.com/elatov/uploads/raw/master/2014/01/gapps_sso-settings.png)
 
 ### Create An Application in LemonLDAP::NG for Google Apps
 
@@ -397,15 +397,15 @@ Since Google Apps uses an SP-Initiated SAML flow, we can just go to Google Apps 
 *   Address => **https://mail.google.com/a/moxz.mine.nu?hl=en**
 *   Description => **Google Apps**
 
-![gapps application lemonldap ng LemonLDAP NG With LDAP and SAML Google Apps](http://virtuallyhyper.com/wp-content/uploads/2014/01/gapps-application-lemonldap-ng.png)
+![gapps application lemonldap ng LemonLDAP NG With LDAP and SAML Google Apps](https://github.com/elatov/uploads/raw/master/2014/01/gapps-application-lemonldap-ng.png)
 
 ### Test out the application
 
 Go to the authentication portal (**port.dnsd.me**) and login as a user which has the same email address as the one set in google apps. After logging in, should see the Google Apps application:
 
-![user loggedin lemonldap 1024x214 LemonLDAP NG With LDAP and SAML Google Apps](http://virtuallyhyper.com/wp-content/uploads/2014/01/user-loggedin-lemonldap-1024x214.png)
+![user loggedin lemonldap 1024x214 LemonLDAP NG With LDAP and SAML Google Apps](https://github.com/elatov/uploads/raw/master/2014/01/user-loggedin-lemonldap.png)
 
 I logged in with user **elatov** (from above I set his email to be **test@moxz.mine.nu** in LDAP... I of course had a user in Google Apps with that same email set). Then clicking on the **Google Apps** application logged me into Google Apps:
 
-![logged into gmail from lemonldap 1024x134 LemonLDAP NG With LDAP and SAML Google Apps](http://virtuallyhyper.com/wp-content/uploads/2014/01/logged-into-gmail-from-lemonldap-1024x134.png)
+![logged into gmail from lemonldap 1024x134 LemonLDAP NG With LDAP and SAML Google Apps](https://github.com/elatov/uploads/raw/master/2014/01/logged-into-gmail-from-lemonldap.png)
 

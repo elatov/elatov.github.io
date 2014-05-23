@@ -62,7 +62,7 @@ The vDS (virtual Distributed Switch) contains multiple proxy switches, which res
 > *   Inside the .dvsData folder there is a UUID number for each vDS switch.
 > *   Inside the UUID folder is a smaller file that is a number. This number corresponds to the ethernetx.dvs.portId inside the .vmx file of a VM. Below we can see that ethernet0.dvs.portId=10.
 >
-> ![.dvsData_example](http://virtuallyhyper.com/wp-content/uploads/2012/10/dvsData_example.png)
+> ![.dvsData_example](https://github.com/elatov/uploads/raw/master/2012/10/dvsData_example.png)
 > ...
 > ...
 >
@@ -131,7 +131,7 @@ From VMware KB [1022312](http://kb.vmware.com/kb/1022312):
 
 To change the settings go to "Networking" View -> Right Click on a DVPortGroup -> Edit settings. It will look something like this:
 
-![dvs_port_binding](http://virtuallyhyper.com/wp-content/uploads/2012/10/dvs_port_binding.png)
+![dvs_port_binding](https://github.com/elatov/uploads/raw/master/2012/10/dvs_port_binding.png)
 
 ### Configure Live Port Moving
 
@@ -152,17 +152,17 @@ From [Public Docs](http://pubs.vmware.com/vsphere-4-esxi-installable-vcenter/ind
 
 Here is how the GUI looks like:
 
-![live_port_migrating](http://virtuallyhyper.com/wp-content/uploads/2012/10/live_port_migrating.png)
+![live_port_migrating](https://github.com/elatov/uploads/raw/master/2012/10/live_port_migrating.png)
 
 ### Given a set of network requirements, identify the appropriate distributed switch technology to use
 
 From "[Virtual Networking Features of VMware vSphere Distributed Switch and Cisco Nexus 1000V Series Switches](http://www.cisco.com/en/US/prod/collateral/switches/ps9441/ps9902/solution_overview_c22-526262.pdf)", here is a good feature list of the DVS:
 
-![p1_dvs_features](http://virtuallyhyper.com/wp-content/uploads/2012/10/p1_dvs_features.png)
+![p1_dvs_features](https://github.com/elatov/uploads/raw/master/2012/10/p1_dvs_features.png)
 
-![p2_dvs_features](http://virtuallyhyper.com/wp-content/uploads/2012/10/p2_dvs_features.png)
+![p2_dvs_features](https://github.com/elatov/uploads/raw/master/2012/10/p2_dvs_features.png)
 
-![p3_dvs_features](http://virtuallyhyper.com/wp-content/uploads/2012/10/p3_dvs_features.png)
+![p3_dvs_features](https://github.com/elatov/uploads/raw/master/2012/10/p3_dvs_features.png)
 
 Everything depends on the requirements, if you need QOS, then you can set that up. If you need to monitor the your network traffic then you can use NetFlow. If you need resource allocation then use NIOC. If you need DMZs then use PVLANs or just regular VLANs. The sky is the limit :)
 
@@ -198,7 +198,7 @@ Also from the same document:
 
 Here is how it looks in vCenter:
 
-![enable_nioc](http://virtuallyhyper.com/wp-content/uploads/2012/10/enable_nioc.png)
+![enable_nioc](https://github.com/elatov/uploads/raw/master/2012/10/enable_nioc.png)
 
 There is also a very good example in the VMware blog "[vSphere 5 New Networking Features – Enhanced NIOC](http://blogs.vmware.com/vsphere/2011/08/vsphere-5-new-networking-features-enhanced-nioc.html)". From the blog:
 
@@ -208,7 +208,7 @@ There is also a very good example in the VMware blog "[vSphere 5 New Networking 
 >
 > Figure below shows an example of a user-defined resource pool with shares, limits and IEEE 802.1p tag parameters described in a table. In this example, Tenant 1 and Tenant 2 are two user-defined resource pools with virtual machines connected to their respective independent port groups. Tenant 1, with three virtual machines, has five I/O shares. Tenant 2, with one virtual machine, has 15 I/O shares. This indicates that during contention scenarios, Tenant 2 virtual machines will have a higher guaranteed share than Tenant 1 virtual machines.
 >
-> ![user_defined_nioc_example](http://virtuallyhyper.com/wp-content/uploads/2012/10/user_defined_nioc_example.png)
+> ![user_defined_nioc_example](https://github.com/elatov/uploads/raw/master/2012/10/user_defined_nioc_example.png)
 > ...
 > ...
 >
@@ -216,7 +216,7 @@ There is also a very good example in the VMware blog "[vSphere 5 New Networking 
 >
 > The new resource pools can be defined at the Distributed Switch level by selecting the resource allocation tab and clicking on new network resource pools. After a new network resource pool is defined with shares and limits parameters, that resource pool can be associated with a port group. This association of a network resource pool with a port group enables customers to allocate I/O resources to a group of virtual machines or workloads. The figure below shows the new Tenant 1 and Tenant 2 resource pools created under user-defined network resource pools.
 >
-> ![user_defined_network_resources](http://virtuallyhyper.com/wp-content/uploads/2012/10/user_defined_network_resources.png)
+> ![user_defined_network_resources](https://github.com/elatov/uploads/raw/master/2012/10/user_defined_network_resources.png)
 >
 > ...
 > ...
@@ -229,7 +229,7 @@ There is also a very good example in the VMware blog "[vSphere 5 New Networking 
 >
 > IEEE 802.1p tagging can be enabled per traffic type. Customers can select the Distributed Switch and then the resource allocation tab to see the different traffic types, including system and user-defined traffic types. After selecting a traffic type, the user can edit the QoS priority tag field by choosing any number from 1 to 7. Figure below is the screenshot of QoS priority tag configuration for the MyVMTraffic traffic type.
 >
-> ![nioc_qos](http://virtuallyhyper.com/wp-content/uploads/2012/10/nioc_qos.png)
+> ![nioc_qos](https://github.com/elatov/uploads/raw/master/2012/10/nioc_qos.png)
 
 ### Use command line tools to troubleshoot and identify configuration items from an existing vDS
 

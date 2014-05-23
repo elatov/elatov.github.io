@@ -22,10 +22,10 @@ tags:
 ---
 A couple of days ago I had an issue with powering on VMs that resided on a NetApp NAS datastore. I logged into the host and tried to see if I had access to the datastore and it was really strange. I could not touch any existing files:
 
-![touch_perm_denied_2](http://virtuallyhyper.com/wp-content/uploads/2012/04/touch_perm_denied_2.png)
+![touch_perm_denied_2](https://github.com/elatov/uploads/raw/master/2012/04/touch_perm_denied_2.png)
 however I was able to create new files but the owner of the newly created files was *nfsnobody*. Running 'ls', after I created a new file, looked like this:
 
-![ls_nfsnobody_2](http://virtuallyhyper.com/wp-content/uploads/2012/04/ls_nfsnobody_2.png)
+![ls_nfsnobody_2](https://github.com/elatov/uploads/raw/master/2012/04/ls_nfsnobody_2.png)
 
 Why are we seeing the *nsfnobody* user owning new files? This is actually the default behavior for an NFS server. Looking over the man page of [exports(5)](http://linux.die.net/man/5/exports), we see the following:
 

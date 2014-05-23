@@ -22,11 +22,11 @@ tags:
 ---
 Recently I ran into an issue where the device queue length was filling up. Looking at esxtop here is how it looked like:
 
-![full_queue_depth_s](http://virtuallyhyper.com/wp-content/uploads/2012/07/full_queue_depth_s.png)
+![full_queue_depth_s](https://github.com/elatov/uploads/raw/master/2012/07/full_queue_depth_s.png)
 
 As I ran into this issue I realized I didn't really know of all the different aspects of all the different queues at different storage layers. I also didn't realize of all the possible ways to help out with the issue. First let's tackle the description of all the different queues at different layers. There is an excellent VMware blog on this topic: "[Troubleshooting Storage Performance in vSphere – Storage Queues](http://blogs.vmware.com/vsphere/2012/07/troubleshooting-storage-performance-in-vsphere-part-5-storage-queues.html)". I will shamelessly copy their diagram just to make it easier to follow the blog:
 
-![storage_queues](http://virtuallyhyper.com/wp-content/uploads/2012/07/storage_queues1.png)
+![storage_queues](https://github.com/elatov/uploads/raw/master/2012/07/storage_queues1.png)
 
 Here is an excerpt from the same blog:
 
@@ -89,7 +89,7 @@ The VMware white paper "[Scalable Storage Performance](http://www.vmware.com/fil
 
 There is also another way of tweaking this value and that is with Disk.SchedNumReqOutstanding (DSNRO). This actually comes before the LUN Queues. There is a very good step by step diagram of the queues at the Virtual Geek blog "[VMware I/O queues, “micro-bursting”, and multipathing](http://virtualgeek.typepad.com/virtual_geek/2009/06/vmware-io-queues-micro-bursting-and-multipathing.html)". Here is the picture from that blog:
 
-![all_storage_queues](http://virtuallyhyper.com/wp-content/uploads/2012/07/all_storage_queues.png)
+![all_storage_queues](https://github.com/elatov/uploads/raw/master/2012/07/all_storage_queues.png)
 
 To edit this option you can follow instructions from [VMware KB 1268](http://kb.vmware.com/kb/1268). There is a caveat with this option. From the above KB:
 

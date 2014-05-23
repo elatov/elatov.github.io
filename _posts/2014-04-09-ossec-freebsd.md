@@ -25,7 +25,7 @@ From their [home](http://www.ossec.net/) page, here is a quick summary of the so
 
 From their [How It Works](http://www.ossec.net/?page_id=169) page, they describe the Server/Client approach. Here is a diagram from that page:
 
-![ossec architecture OSSEC on FreeBSD](http://virtuallyhyper.com/wp-content/uploads/2014/03/ossec-architecture.png)
+![ossec architecture OSSEC on FreeBSD](https://github.com/elatov/uploads/raw/master/2014/03/ossec-architecture.png)
 
 #### Install OSSEC Server on FreeBSD
 
@@ -443,11 +443,11 @@ Then restart apache:
 
 Now if you visit **http://<OSSEC_SERVER/>/os**, you should see something like this:
 
-![ossec web ui OSSEC on FreeBSD](http://virtuallyhyper.com/wp-content/uploads/2014/03/ossec-web-ui.png)
+![ossec web ui OSSEC on FreeBSD](https://github.com/elatov/uploads/raw/master/2014/03/ossec-web-ui.png)
 
 It will have all the alerts on that page. You can also check out any files that have changed recently:
 
-![ossec web ui integrity OSSEC on FreeBSD](http://virtuallyhyper.com/wp-content/uploads/2014/03/ossec-web-ui-integrity.png)
+![ossec web ui integrity OSSEC on FreeBSD](https://github.com/elatov/uploads/raw/master/2014/03/ossec-web-ui-integrity.png)
 
 #### Install OSSEC App for Splunk
 
@@ -494,15 +494,15 @@ At this point go ahead and the **splunk** service:
 
 If you visit your splunk instance, you will see the OSSEC app:
 
-![select splunk for ossec OSSEC on FreeBSD](http://virtuallyhyper.com/wp-content/uploads/2014/03/select-splunk-for-ossec.png)
+![select splunk for ossec OSSEC on FreeBSD](https://github.com/elatov/uploads/raw/master/2014/03/select-splunk-for-ossec.png)
 
 Upon the selecting the *OSSEC* App and selecting the dashboard you will see the following:
 
-![ossec app splunk plots OSSEC on FreeBSD](http://virtuallyhyper.com/wp-content/uploads/2014/03/ossec-app-splunk-plots.png)
+![ossec app splunk plots OSSEC on FreeBSD](https://github.com/elatov/uploads/raw/master/2014/03/ossec-app-splunk-plots.png)
 
 You can also see any files that have been changed from here:
 
-![ossec splunk file changes g OSSEC on FreeBSD](http://virtuallyhyper.com/wp-content/uploads/2014/03/ossec-splunk-file-changes_g.png)
+![ossec splunk file changes g OSSEC on FreeBSD](https://github.com/elatov/uploads/raw/master/2014/03/ossec-splunk-file-changes_g.png)
 
 If you want to see agent status, you will have to do some additional configurations. First configure the **agent_control** command:
 
@@ -531,7 +531,7 @@ Do a quick test and make sure you can run that:
 
 Initially I kept seeing the following errors:
 
-![out pty devices ossec splunk OSSEC on FreeBSD](http://virtuallyhyper.com/wp-content/uploads/2014/03/out-pty-devices-ossec-splunk.png)
+![out pty devices ossec splunk OSSEC on FreeBSD](https://github.com/elatov/uploads/raw/master/2014/03/out-pty-devices-ossec-splunk.png)
 
 After looking into the issue, I realized I was missing the **/dev/ptmx** file. I ran into [this](http://forums.freebsd.org/viewtopic.php?t=43673) FreeBSD forum which recommended to load the following kernel module:
 
@@ -562,19 +562,19 @@ Then restarting the splunk service:
 
 and checking out the logs in splunk, I saw the following:
 
-![active clients ossec splunk OSSEC on FreeBSD](http://virtuallyhyper.com/wp-content/uploads/2014/03/active-clients-ossec-splunk.png)
+![active clients ossec splunk OSSEC on FreeBSD](https://github.com/elatov/uploads/raw/master/2014/03/active-clients-ossec-splunk.png)
 
 That looked good. Checking out the Agent status dashboard and I saw the following:
 
-![ossec agent status OSSEC on FreeBSD](http://virtuallyhyper.com/wp-content/uploads/2014/03/ossec-agent-status.png)
+![ossec agent status OSSEC on FreeBSD](https://github.com/elatov/uploads/raw/master/2014/03/ossec-agent-status.png)
 
 Then going to the Agent Coverage dashboard, I saw the following:
 
-![agent coverage ossec splunk OSSEC on FreeBSD](http://virtuallyhyper.com/wp-content/uploads/2014/03/agent-coverage-ossec-splunk.png)
+![agent coverage ossec splunk OSSEC on FreeBSD](https://github.com/elatov/uploads/raw/master/2014/03/agent-coverage-ossec-splunk.png)
 
 There were a bunch of new reports created which provided a bunch of cool information:
 
-![ossec splunk reports1 OSSEC on FreeBSD](http://virtuallyhyper.com/wp-content/uploads/2014/03/ossec-splunk-reports1.png)
+![ossec splunk reports1 OSSEC on FreeBSD](https://github.com/elatov/uploads/raw/master/2014/03/ossec-splunk-reports1.png)
 
 Last thing to note is that by default OSSEC installs a couple of active response script. If you are using PF as a firewall, you will need to a new table to make it work. For more information check out [this](http://taosecurity.blogspot.com/2008/12/ossec-and-pf-on-freebsd-to-limit-ssh.html) post.
 

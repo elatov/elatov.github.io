@@ -46,7 +46,7 @@ After we have partitioned our drives to our heart's desire, we should actually s
 >
 > This section shows basic technical information on each file system supported by Red Hat Enterprise Linux 6.
 >
-> ![fs support RHCSA and RHCE Chapter 4 File Systems and Such](http://virtuallyhyper.com/wp-content/uploads/2013/01/fs_support.png)
+> ![fs support RHCSA and RHCE Chapter 4 File Systems and Such](https://github.com/elatov/uploads/raw/master/2013/01/fs_support.png)
 
 Now here is the process to format a partition with **ext3**:
 
@@ -266,7 +266,7 @@ Now moving through the guide:
 >
 > Table 7.1, “Common File System Types” provides a list of common file system types that can be used with the mount command.
 >
-> ![fs for mount RHCSA and RHCE Chapter 4 File Systems and Such](http://virtuallyhyper.com/wp-content/uploads/2013/01/fs_for_mount.png)
+> ![fs for mount RHCSA and RHCE Chapter 4 File Systems and Such](https://github.com/elatov/uploads/raw/master/2013/01/fs_for_mount.png)
 
 So let's go ahead and mount my new file system by device:
 

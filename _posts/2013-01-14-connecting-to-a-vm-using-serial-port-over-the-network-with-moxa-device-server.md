@@ -16,7 +16,7 @@ tags:
 ---
 Before we get into how to set this up, let's get a good diagram going to better understand how all the components work. Here is what I came up with:
 
-![VM Serial Connection Over Network Connecting to a VM using Serial Port Over the Network With a Moxa Device Server](http://virtuallyhyper.com/wp-content/uploads/2012/12/VM_Serial_Connection_Over_Network.jpg)
+![VM Serial Connection Over Network Connecting to a VM using Serial Port Over the Network With a Moxa Device Server](https://github.com/elatov/uploads/raw/master/2012/12/VM_Serial_Connection_Over_Network.jpg)
 
 So to configure this from the VM, we can follow instructions laid out in "[vSphere Virtual Machine Administration ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-virtual-machine-admin-guide.pdf)". From that document:
 
@@ -25,7 +25,7 @@ So to configure this from the VM, we can follow instructions laid out in "[vSphe
 >
 > You can set up virtual serial ports to send data in the following ways.
 >
-> ![vserial port configuration Connecting to a VM using Serial Port Over the Network With a Moxa Device Server](http://virtuallyhyper.com/wp-content/uploads/2012/12/vserial_port_configuration.png)
+> ![vserial port configuration Connecting to a VM using Serial Port Over the Network With a Moxa Device Server](https://github.com/elatov/uploads/raw/master/2012/12/vserial_port_configuration.png)
 
 Then from the same document:
 
@@ -38,8 +38,8 @@ Then from the same document:
 > 2.  In the VM Hardware panel, click Edit Settings.
 > 3.  Click Virtual Hardware.
 > 4.  Click the triangle next to the serial port to expand the serial port options.
-> 5.  (Optional) Change the Device status settings.![vserial connected box Connecting to a VM using Serial Port Over the Network With a Moxa Device Server](http://virtuallyhyper.com/wp-content/uploads/2012/12/vserial_connected_box.png)
-> 6.  Select a connection type.![options for serial port Connecting to a VM using Serial Port Over the Network With a Moxa Device Server](http://virtuallyhyper.com/wp-content/uploads/2012/12/options_for_serial_port.png)
+> 5.  (Optional) Change the Device status settings.![vserial connected box Connecting to a VM using Serial Port Over the Network With a Moxa Device Server](https://github.com/elatov/uploads/raw/master/2012/12/vserial_connected_box.png)
+> 6.  Select a connection type.![options for serial port Connecting to a VM using Serial Port Over the Network With a Moxa Device Server](https://github.com/elatov/uploads/raw/master/2012/12/options_for_serial_port.png)
 > 7.  (Optional) Select Yield on poll. Select this option only for guest operating systems that use serial ports in polled mode. This option prevents the guest from consuming excessive CPUs.
 > 8.  Click OK.
 >
@@ -59,7 +59,7 @@ Then from the same document:
 From Moxa's "[TCP Server Mode for NPort](http://www.moxa.com/resource_file/2036200811171320.pdf)" document:
 
 > What is TCP Server Mode?
-> In TCP Server mode, the serial port on the NPort is assigned a port number which must not conflict with any other serial port on the NPort. The host computer initiates contact with the NPort, establishes the connection, and receives data from the serial device. This operation mode also supports up to 8 simultaneous connections, enabling multiple hosts to collect data from the same serial device at the same time. The whole system should connect like this: ![moxa tcp server mode Connecting to a VM using Serial Port Over the Network With a Moxa Device Server](http://virtuallyhyper.com/wp-content/uploads/2012/12/moxa_tcp_server_mode.png)
+> In TCP Server mode, the serial port on the NPort is assigned a port number which must not conflict with any other serial port on the NPort. The host computer initiates contact with the NPort, establishes the connection, and receives data from the serial device. This operation mode also supports up to 8 simultaneous connections, enabling multiple hosts to collect data from the same serial device at the same time. The whole system should connect like this: ![moxa tcp server mode Connecting to a VM using Serial Port Over the Network With a Moxa Device Server](https://github.com/elatov/uploads/raw/master/2012/12/moxa_tcp_server_mode.png)
 
 And here is how the actual configuration of the Moxa device is:
 
@@ -78,7 +78,7 @@ And here is how the actual configuration of the Moxa device is:
 
 So we are going to use the "Port URI" since we are not using a vSPC (ie Avocent ACS v6000 Virtual Serial Port Concentrator). More information on that can be seen in VMware KB [1022303](http://kb.vmware.com/kb/1022303). And as per the Moxa documentation the port that I need to connect to is **4001** . Here is how my VM looked like after the configuration was done:
 
-![vm serial port conf Connecting to a VM using Serial Port Over the Network With a Moxa Device Server](http://virtuallyhyper.com/wp-content/uploads/2012/12/vm_serial_port_conf.png)
+![vm serial port conf Connecting to a VM using Serial Port Over the Network With a Moxa Device Server](https://github.com/elatov/uploads/raw/master/2012/12/vm_serial_port_conf.png)
 
 Here is last note from the vSphere documentation:
 

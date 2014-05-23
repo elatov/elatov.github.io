@@ -76,11 +76,11 @@ then copy the PHP files:
 
 Lastly visit the site at **127.0.0.1/zab**. When I did, I saw the following:
 
-![zabbix web front end setup page Monitor Different Systems with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_web_front_end_setup_page.png)
+![zabbix web front end setup page Monitor Different Systems with Zabbix](https://github.com/elatov/uploads/raw/master/2013/03/zabbix_web_front_end_setup_page.png)
 
 I then clicked "Next" and I saw the following:
 
-![zabbic web front php setting fail Monitor Different Systems with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbic_web_front_php_setting_fail.png)
+![zabbic web front php setting fail Monitor Different Systems with Zabbix](https://github.com/elatov/uploads/raw/master/2013/03/zabbic_web_front_php_setting_fail.png)
 
 It looks like some of my PHP options were not up to Zabbix's standards. So I edited the **/etc/php5/apache2/php.ini** file and fixed all of the above options, then I restarted Apache like so:
 
@@ -91,23 +91,23 @@ It looks like some of my PHP options were not up to Zabbix's standards. So I edi
 
 Then clicking **Retry**, I saw the following:
 
-![zabbix web front php settings pass Monitor Different Systems with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_web_front_php_settings_pass.png)
+![zabbix web front php settings pass Monitor Different Systems with Zabbix](https://github.com/elatov/uploads/raw/master/2013/03/zabbix_web_front_php_settings_pass.png)
 
 then I clicked "Next" and saw the database page, I filled out the settings and clicked "Test Connection" and it was successful, like so:
 
-![zabbix web front mysql settings Monitor Different Systems with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_web_front_mysql_settings.png)
+![zabbix web front mysql settings Monitor Different Systems with Zabbix](https://github.com/elatov/uploads/raw/master/2013/03/zabbix_web_front_mysql_settings.png)
 
 Then, I filled out the server connection details:
 
-![zabbix web front server details Monitor Different Systems with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_web_front_server_details.png)
+![zabbix web front server details Monitor Different Systems with Zabbix](https://github.com/elatov/uploads/raw/master/2013/03/zabbix_web_front_server_details.png)
 
 And then I saw the pre-installation summary page:
 
-![zabbix web front summary detail Monitor Different Systems with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_web_front_summary_detail.png)
+![zabbix web front summary detail Monitor Different Systems with Zabbix](https://github.com/elatov/uploads/raw/master/2013/03/zabbix_web_front_summary_detail.png)
 
 it then tried to auto create a configuration file under **/etc/zabbix** but it failed:
 
-![zabbix web front install config file Monitor Different Systems with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_web_front_install_config_file.png)
+![zabbix web front install config file Monitor Different Systems with Zabbix](https://github.com/elatov/uploads/raw/master/2013/03/zabbix_web_front_install_config_file.png)
 
 So I downloaded it manually and copied the file to the appropriate location:
 
@@ -116,15 +116,15 @@ So I downloaded it manually and copied the file to the appropriate location:
 
 Then hitting "Retry" I saw the following page:
 
-![zabbix web front install config file pass Monitor Different Systems with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_web_front_install_config_file_pass.png)
+![zabbix web front install config file pass Monitor Different Systems with Zabbix](https://github.com/elatov/uploads/raw/master/2013/03/zabbix_web_front_install_config_file_pass.png)
 
 Hitting "Next" yielded the following page:
 
-![zabbix web front login page Monitor Different Systems with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_web_front_login_page.png)
+![zabbix web front login page Monitor Different Systems with Zabbix](https://github.com/elatov/uploads/raw/master/2013/03/zabbix_web_front_login_page.png)
 
 You can login with Username: **Admin**, Password: **zabbix**. After you login, you can create another user; instruction on user setup and default password are [here](https://www.zabbix.com/documentation/2.0/manual/quickstart/login). After I logged in, I saw the following:
 
-![zabbix web front dashboard Monitor Different Systems with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_web_front_dashboard.png)
+![zabbix web front dashboard Monitor Different Systems with Zabbix](https://github.com/elatov/uploads/raw/master/2013/03/zabbix_web_front_dashboard.png)
 
 Now let's start monitoring some systems.
 
@@ -164,27 +164,27 @@ This node is a special case since it will be both the server and a node. So make
 
 That looks good. Now let's add the host to be monitored with Zabbix via the PHP frontend. Most of the instructions are laid out [here](https://www.zabbix.com/documentation/2.0/manual/config/hosts/host). So in the Zabbix Dashboard go to "Configuration" -> "Hosts" and you will see the following:
 
-![zabbix web conf hosts Monitor Different Systems with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_web_conf-hosts.png)
+![zabbix web conf hosts Monitor Different Systems with Zabbix](https://github.com/elatov/uploads/raw/master/2013/03/zabbix_web_conf-hosts.png)
 
 Then click on "Create Host" and fill out all the information, mine looked like this:
 
-![zabbix web create host Monitor Different Systems with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_web_create_host.png)
+![zabbix web create host Monitor Different Systems with Zabbix](https://github.com/elatov/uploads/raw/master/2013/03/zabbix_web_create_host.png)
 
 Under the template section choose "Template OS Linux":
 
-![zabbix web create host add template Monitor Different Systems with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_web_create_host_add_template.png)
+![zabbix web create host add template Monitor Different Systems with Zabbix](https://github.com/elatov/uploads/raw/master/2013/03/zabbix_web_create_host_add_template.png)
 
 Then click "Save" and you will see the following:
 
-![zabbix web host added Monitor Different Systems with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_web_host_added.png)
+![zabbix web host added Monitor Different Systems with Zabbix](https://github.com/elatov/uploads/raw/master/2013/03/zabbix_web_host_added.png)
 
 At first I checked out a graph but the font was missing for some reason, I found a fix on the Zabbix forums from [here](https://www.zabbix.com/forum/showthread.php?p=91923). After I pointed to the appropriate path for the fonts, I was able to see the graphs like so:
 
-![zabbix web graph cpu usage Monitor Different Systems with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_web_graph_cpu_usage.png)
+![zabbix web graph cpu usage Monitor Different Systems with Zabbix](https://github.com/elatov/uploads/raw/master/2013/03/zabbix_web_graph_cpu_usage.png)
 
 Also going to "Monitoring" -> "Overview" you can see current values for our hosts:
 
-![zabbix monitoring overview Monitor Different Systems with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_monitoring_overview.png)
+![zabbix monitoring overview Monitor Different Systems with Zabbix](https://github.com/elatov/uploads/raw/master/2013/03/zabbix_monitoring_overview.png)
 
 Now let's add our FreeBSD machine to the mix.
 
@@ -237,19 +237,19 @@ Lastly ensure it's listening on the correct port:
 
 Now let's add the host to the Zabbix server. Go back to the dashboard (**127.0.0.1/zab**) and then go to "Configuration" -> "Hosts" -> "Create Host" and fill out all the necessary information:
 
-![zabbix add freebsd host Monitor Different Systems with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_add_freebsd_host.png)
+![zabbix add freebsd host Monitor Different Systems with Zabbix](https://github.com/elatov/uploads/raw/master/2013/03/zabbix_add_freebsd_host.png)
 
 And under templates choose, "Template OS FreeBSD":
 
-![zabbix freebsd os template Monitor Different Systems with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_freebsd_os_template.png)
+![zabbix freebsd os template Monitor Different Systems with Zabbix](https://github.com/elatov/uploads/raw/master/2013/03/zabbix_freebsd_os_template.png)
 
 After a little bit of time you should see the host as monitored with a green **Z** under "Configuration" -> "Hosts":
 
-![zabbix freebsd green z Monitor Different Systems with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_freebsd_green_z.png)
+![zabbix freebsd green z Monitor Different Systems with Zabbix](https://github.com/elatov/uploads/raw/master/2013/03/zabbix_freebsd_green_z.png)
 
 If you want to check what items will be monitored, you can go to "Configuration" -> "Host" -> Pick a Host -> "Items" and you will see a list of all the checks:
 
-![zabbix freebsd monitored items Monitor Different Systems with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_freebsd_monitored_items.png)
+![zabbix freebsd monitored items Monitor Different Systems with Zabbix](https://github.com/elatov/uploads/raw/master/2013/03/zabbix_freebsd_monitored_items.png)
 
 From there you can add triggers and graphs depending on the items, but we will get into that later. Now let's add another machine to monitor.
 
@@ -299,7 +299,7 @@ to the **/etc/sysconfig/iptables** file and restarting the **iptables** service 
 
 Lastly add the host using the Zabbix front-end and make sure "Template OS Linux" is selected. When it's all done we should see something like this under "Configuration" -> "Hosts":
 
-![zabbix all three greenZ Monitor Different Systems with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_all_three_greenZ.png)
+![zabbix all three greenZ Monitor Different Systems with Zabbix](https://github.com/elatov/uploads/raw/master/2013/03/zabbix_all_three_greenZ.png)
 
 ## Monitor raid status on FreeBSD with Zabbix
 
@@ -373,39 +373,39 @@ Both look good. Now trying the same thing from the Zaabix server:
 
 That looks good. Now to add items for our new values. From the Zabbix front-end go to "Configuration" -> "Hosts" -> Select FreebSD -> "Items" -> "Create Item" and fill out all the settings:
 
-![zabbix add raid online drives item Monitor Different Systems with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_add_raid_online_drives_item.png)
+![zabbix add raid online drives item Monitor Different Systems with Zabbix](https://github.com/elatov/uploads/raw/master/2013/03/zabbix_add_raid_online_drives_item.png)
 
 When finished, click "Save". Then from the same window click on "Graphs" -> "Create Graph" and fill out the information:
 
-![zabbix graph raid disks Monitor Different Systems with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_graph_raid_disks.png)
+![zabbix graph raid disks Monitor Different Systems with Zabbix](https://github.com/elatov/uploads/raw/master/2013/03/zabbix_graph_raid_disks.png)
 
 Then checking out the graph (by going to "Monitoring" -> "Graphs" -> "Host" -> "FreeBSD" -> "Graph" -> "Raid_#_Disks_Online"), here is what I saw:
 
-![zabbix graph disks online Monitor Different Systems with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_graph_disks_online.png)
+![zabbix graph disks online Monitor Different Systems with Zabbix](https://github.com/elatov/uploads/raw/master/2013/03/zabbix_graph_disks_online.png)
 
 Now let's setup a new item for the controller status. Go to "Configuration" -> "Hosts" -> Select host -> "Items" -> "Create New Item" and fill out all the information:
 
-![zabbix item raid cont status Monitor Different Systems with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_item_raid_cont_status.png)
+![zabbix item raid cont status Monitor Different Systems with Zabbix](https://github.com/elatov/uploads/raw/master/2013/03/zabbix_item_raid_cont_status.png)
 
 Then from the same page, click on "Triggers" -> "Create Trigger". In the new window select "Add" under Trigger Expressions and make the follow expression:
 
-![zabbix trigger expression Monitor Different Systems with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_trigger_expression.png)
+![zabbix trigger expression Monitor Different Systems with Zabbix](https://github.com/elatov/uploads/raw/master/2013/03/zabbix_trigger_expression.png)
 
 then click "Save". Your final result will look like this:
 
-![zabbix add trigger Monitor Different Systems with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_add_trigger.png)
+![zabbix add trigger Monitor Different Systems with Zabbix](https://github.com/elatov/uploads/raw/master/2013/03/zabbix_add_trigger.png)
 
 You can go to "Monitoring" -> "Latest Data" and then expand the Name when you groupped your item, in my case I put it under OS. Expanding OS, I saw the latest value of that item:
 
-![zabbix latest data controller status Monitor Different Systems with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_latest_data_controller_status.png)
+![zabbix latest data controller status Monitor Different Systems with Zabbix](https://github.com/elatov/uploads/raw/master/2013/03/zabbix_latest_data_controller_status.png)
 
 Also forcing a non-zero return value from that script yeilded the trigger to be fired. Here is what I saw under "Monitoring" -> "Triggers":
 
-![zabbix trigger fired Monitor Different Systems with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_trigger_fired.png)
+![zabbix trigger fired Monitor Different Systems with Zabbix](https://github.com/elatov/uploads/raw/master/2013/03/zabbix_trigger_fired.png)
 
 and then fixing the script to return the correct value, allowed the trigger to be fixed. Here is what I saw under "Monitoring" -> "Events" after the issue was fixed:
 
-![zabbix events after issue fixed Monitor Different Systems with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_events_after_issue_fixed.png)
+![zabbix events after issue fixed Monitor Different Systems with Zabbix](https://github.com/elatov/uploads/raw/master/2013/03/zabbix_events_after_issue_fixed.png)
 
 ## Zabbix Vs. Zenoss, Munin, and Collectd
 
@@ -417,7 +417,7 @@ and then fixing the script to return the correct value, allowed the trigger to b
 *   Very easy to customize Triggers and Graphs
 *   Has the capability to monitor with agents and without
 *   Has great support for most OSes, even FreeBSD
-*   Works like an Intrusion Detection System (IDS). I installed a new software and it automatically added a new user, I then saw the following under events: ![zabbix password changed Monitor Different Systems with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/03/zabbix_password_changed.png)
+*   Works like an Intrusion Detection System (IDS). I installed a new software and it automatically added a new user, I then saw the following under events: ![zabbix password changed Monitor Different Systems with Zabbix](https://github.com/elatov/uploads/raw/master/2013/03/zabbix_password_changed.png)
 
 ### CONs
 

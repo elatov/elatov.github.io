@@ -17,7 +17,7 @@ tags:
 ---
 We were trying to power on a couple of VMs on an ESX 3.5 host and they would take forever to boot. Opening esxtop and checking the latency to the array we saw the following:
 
-![esxtop_latency_msa_2000](http://virtuallyhyper.com/wp-content/uploads/2012/11/esxtop_latency_msa_2000.png)
+![esxtop_latency_msa_2000](https://github.com/elatov/uploads/raw/master/2012/11/esxtop_latency_msa_2000.png)
 
 At the same time we saw a lot of aborts to the array:
 
@@ -31,7 +31,7 @@ At the same time we saw a lot of aborts to the array:
 
 The IO was aborting cause the latency was so high, as we see from the esxtop output above, it's at 5000ms. While I was looking at esxtop I saw values up to 10000ms. We decided to check out the array manager. We logged into the MSA web based management and as soon as we logged in, we saw the following pop up:
 
-![msa_degraded_message_c1](http://virtuallyhyper.com/wp-content/uploads/2012/11/msa_degraded_message_c1.png)
+![msa_degraded_message_c1](https://github.com/elatov/uploads/raw/master/2012/11/msa_degraded_message_c1.png)
 
 Here are the messages:
 
@@ -39,7 +39,7 @@ Here are the messages:
 
 As soon as we saw that message, the customer mentioned that they had a failed hard drive but they have since 'offlined' the drive and the spare took over. We checked out the event view, and we saw the following:
 
-![errors_in_event_on_msa_c](http://virtuallyhyper.com/wp-content/uploads/2012/11/errors_in_event_on_msa_c.png)
+![errors_in_event_on_msa_c](https://github.com/elatov/uploads/raw/master/2012/11/errors_in_event_on_msa_c.png)
 
 Here are the messages that stood out were:
 

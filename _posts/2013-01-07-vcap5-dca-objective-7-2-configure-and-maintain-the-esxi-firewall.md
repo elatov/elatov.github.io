@@ -19,13 +19,13 @@ From "[vSphere Security ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vm
 > **Firewall Configuration Using the ESXi Shell**
 > The vSphere Client graphical user interface provides the preferred means of performing many configuration tasks. However, you can use the ESXi Shell to configure ESXi at the command line if necessary.
 >
-> ![esxcli firewall commands VCAP5 DCA Objective 7.2 – Configure and Maintain the ESXi Firewall ](http://virtuallyhyper.com/wp-content/uploads/2012/12/esxcli_firewall_commands.png)
+> ![esxcli firewall commands VCAP5 DCA Objective 7.2 – Configure and Maintain the ESXi Firewall ](https://github.com/elatov/uploads/raw/master/2012/12/esxcli_firewall_commands.png)
 
 ### Explain the three firewall security levels
 
 This comes from the old "[ESX Configuration Guide ESX 4.1](http://www.vmware.com/pdf/vsphere4/r41/vsp_41_esx_server_config.pdf)":
 
-![firewall security levels VCAP5 DCA Objective 7.2 – Configure and Maintain the ESXi Firewall ](http://virtuallyhyper.com/wp-content/uploads/2012/12/firewall_security_levels.png)
+![firewall security levels VCAP5 DCA Objective 7.2 – Configure and Maintain the ESXi Firewall ](https://github.com/elatov/uploads/raw/master/2012/12/firewall_security_levels.png)
 
 You can check the default action like so:
 
@@ -155,9 +155,9 @@ Here is how to actually configure it:
 
 Here is how it looks like from vCenter:
 
-![security profile view VCAP5 DCA Objective 7.2 – Configure and Maintain the ESXi Firewall ](http://virtuallyhyper.com/wp-content/uploads/2012/12/security_profile_view.png)
+![security profile view VCAP5 DCA Objective 7.2 – Configure and Maintain the ESXi Firewall ](https://github.com/elatov/uploads/raw/master/2012/12/security_profile_view.png)
 
-![startup policy for service VCAP5 DCA Objective 7.2 – Configure and Maintain the ESXi Firewall ](http://virtuallyhyper.com/wp-content/uploads/2012/12/startup_policy_for_service.png)
+![startup policy for service VCAP5 DCA Objective 7.2 – Configure and Maintain the ESXi Firewall ](https://github.com/elatov/uploads/raw/master/2012/12/startup_policy_for_service.png)
 
 ### Open/Close ports in the firewall
 

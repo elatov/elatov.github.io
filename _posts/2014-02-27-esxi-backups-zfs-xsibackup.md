@@ -310,9 +310,9 @@ I was using Exim on my Linux box, the fix for that issue is described [here](htt
 
 After that was in place, I received the following email:
 
-![xsi report 2 ESXi Backups with ZFS and XSIBackup](http://virtuallyhyper.com/wp-content/uploads/2014/02/xsi-report-2.png)
+![xsi report 2 ESXi Backups with ZFS and XSIBackup](https://github.com/elatov/uploads/raw/master/2014/02/xsi-report-2.png)
 
 The speeds were really good, I also checked out **esxtop** and latency was pretty good as well:
 
-![esxtop during backup2 g 1024x96 ESXi Backups with ZFS and XSIBackup](http://virtuallyhyper.com/wp-content/uploads/2014/02/esxtop-during-backup2_g-1024x96.png)
+![esxtop during backup2 g 1024x96 ESXi Backups with ZFS and XSIBackup](https://github.com/elatov/uploads/raw/master/2014/02/esxtop-during-backup2_g.png)
 

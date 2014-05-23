@@ -262,7 +262,7 @@ That looked good, and I was able to write to the usb disk:
 
 That was it. However when I tried to copy files to the NTFS volume, I would get a kernel panic. Here is a screenshot:
 
-![freebsd_kernel_panic_copy_ntfs](http://virtuallyhyper.com/wp-content/uploads/2012/10/freebsd_kernel_panic_copy_ntfs.png)
+![freebsd_kernel_panic_copy_ntfs](https://github.com/elatov/uploads/raw/master/2012/10/freebsd_kernel_panic_copy_ntfs.png)
 
 Another person had the issue as well, [here](http://forums.freebsd.org/showthread.php?t=31161) a link to his kernel panic. No one actually answered the previous post, here is a copy of his back trace:
 
@@ -328,7 +328,7 @@ Now checking out the distfile directory, I actually saw a patch for that file:
 	-rw-r--r-- 1 root wheel 2221 Sep 20 17:52 patch-fuse_module__fuse_vnops.c
 
 
-so I went ahead and edited the 'patch-fuse_module__fuse_vnops.c' file and added the changes described in the above page. [Here](http://virtuallyhyper.com/wp-content/uploads/2012/10/patch-fuse_module__fuse_vnops.c) is my final patch file. I then removed both packages:
+so I went ahead and edited the 'patch-fuse_module__fuse_vnops.c' file and added the changes described in the above page. [Here](https://github.com/elatov/uploads/raw/master/2012/10/patch-fuse_module__fuse_vnops.c) is my final patch file. I then removed both packages:
 
 
 	elatov@freebsd:> sudo /usr/local/etc/rc.d/fusefs stop
@@ -341,7 +341,7 @@ so I went ahead and edited the 'patch-fuse_module__fuse_vnops.c' file and added 
 I then applied my new patch file:
 
 
-	elatov@freebsd:~>fetch http://virtuallyhyper.com/wp-content/uploads/2012/10/patch-fuse_module__fuse_vnops.c
+	elatov@freebsd:~>fetch https://github.com/elatov/uploads/raw/master/2012/10/patch-fuse_module__fuse_vnops.c
 	elatov@freebsd:~>sudo cp patch-fuse_module\__fuse_vnops.c /usr/ports/sysutils/fusefs-kmod/files/patch-fuse_module__fuse_vnops.c
 
 

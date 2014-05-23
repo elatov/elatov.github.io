@@ -23,11 +23,11 @@ From [this](http://www.virten.net/2012/06/vdcd510-objective-2-3-build-availabili
 
 From the [APAC BrownBag Session 4](http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap5-dca-availability-dr/) slide deck:
 
-![availability_features](http://virtuallyhyper.com/wp-content/uploads/2012/08/availability_features.png)
+![availability_features](https://github.com/elatov/uploads/raw/master/2012/08/availability_features.png)
 
 ### Identify and differentiate infrastructure qualities (Availability, Manageability, Performance, Recoverability, Security)
 
-From [this](http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.pdf) PDF:
+From [this](https://github.com/elatov/uploads/raw/master/2013/04/vcap-dcd_notes.pdf) PDF:
 
 > **Design Criteria**
 >
@@ -92,13 +92,13 @@ From [this](http://www.virten.net/2012/06/vdcd510-objective-2-3-build-availabili
 
 Here a slide from the [APAC BrownBag Session 4](http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap5-dca-availability-dr/):
 
-![dr_vs_bc](http://virtuallyhyper.com/wp-content/uploads/2012/08/dr_vs_bc.png)
+![dr_vs_bc](https://github.com/elatov/uploads/raw/master/2012/08/dr_vs_bc.png)
 
 ### Determine availability component of service level agreements (SLAs) and service level management processes
 
 From [APAC BrownBag Session 4](http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap5-dca-availability-dr/) slide deck:
 
-![types_of_failures](http://virtuallyhyper.com/wp-content/uploads/2012/08/types_of_failures.png)
+![types_of_failures](https://github.com/elatov/uploads/raw/master/2012/08/types_of_failures.png)
 
 Define an SLA for each and design a setup that will accommodate. For example if your SLA for a certain VM failure is 0, then configure that VM for FT. Or if your SLA is a couple minutes then VMware HA should be good enough. If there are other services that you commit to (i.e. performance) then create storage tiers as necessary.
 
@@ -106,7 +106,7 @@ Define an SLA for each and design a setup that will accommodate. For example if 
 
 The popular logical design that we have seen is the remote site replication, here is that diagram:
 
-![srm-logical-diagram](http://virtuallyhyper.com/wp-content/uploads/2012/08/srm-logical-diagram.png)
+![srm-logical-diagram](https://github.com/elatov/uploads/raw/master/2012/08/srm-logical-diagram.png)
 
 ### Define an availability plan, including maintenance processes.
 
@@ -127,9 +127,9 @@ Using VMware HA set the reboot priority depending on the availability requiremen
 
 From the [APAC BrownBag Session 4](http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap5-dca-availability-dr/):
 
-![infra_qualities](http://virtuallyhyper.com/wp-content/uploads/2012/08/infra_qualities.png)
+![infra_qualities](https://github.com/elatov/uploads/raw/master/2012/08/infra_qualities.png)
 
-From the VMware Article "[Improving Business Continuity with VMware Virtualization](http://virtuallyhyper.com/wp-content/uploads/2012/11/Improving_Business_Continuity_With_VMware_Virtualization.pdf)"
+From the VMware Article "[Improving Business Continuity with VMware Virtualization](https://github.com/elatov/uploads/raw/master/2012/11/Improving_Business_Continuity_With_VMware_Virtualization.pdf)"
 
 > VMware also helps protect against unplanned downtime from common failures, including:
 >

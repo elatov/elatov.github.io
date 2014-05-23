@@ -93,7 +93,7 @@ That looks good, so let's go ahead and power on the VM:
 
 Upon booting the VM I saw the following:
 
-![boot-issue-after-enableuuid](http://virtuallyhyper.com/wp-content/uploads/2012/08/boot-issue-after-enableuuid.png)
+![boot-issue-after-enableuuid](https://github.com/elatov/uploads/raw/master/2012/08/boot-issue-after-enableuuid.png)
 
 checking out the logs, I saw the following:
 

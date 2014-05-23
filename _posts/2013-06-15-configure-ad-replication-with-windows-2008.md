@@ -31,7 +31,7 @@ So there are two replication methods: *inter-site* and *intra-site*. From the sa
 
 So intra-site replication is automatically setup, while inter-site requires some manual configuration of site links. I will be deploying another Domain Controller within my Virtual KVM environment, so I will setup intra-site replication. Here is a picture that shows both types of replications:
 
-![site replication Configure AD Replication with Windows 2008](http://virtuallyhyper.com/wp-content/uploads/2013/05/site-replication.png)
+![site replication Configure AD Replication with Windows 2008](https://github.com/elatov/uploads/raw/master/2013/05/site-replication.png)
 
 ## Data Replicated with AD Replication
 
@@ -80,7 +80,7 @@ From "[How the Active Directory Replication Model Works?](http://technet.microso
 
 Here is a nice diagram of the process:
 
-![repl seq Configure AD Replication with Windows 2008](http://virtuallyhyper.com/wp-content/uploads/2013/05/repl_seq.png)
+![repl seq Configure AD Replication with Windows 2008](https://github.com/elatov/uploads/raw/master/2013/05/repl_seq.png)
 
 ## Install 2nd Active Directory Server
 
@@ -151,43 +151,43 @@ I installed a second Active Directory Server by selecting the “Active Director
 
 And I saw the following screen:
 
-![ad wizard Configure AD Replication with Windows 2008](http://virtuallyhyper.com/wp-content/uploads/2013/05/ad_wizard.png)
+![ad wizard Configure AD Replication with Windows 2008](https://github.com/elatov/uploads/raw/master/2013/05/ad_wizard.png)
 
 Let's choose to "Add a domain controller to an existing domain":
 
-![existing forest Configure AD Replication with Windows 2008](http://virtuallyhyper.com/wp-content/uploads/2013/05/existing_forest.png)
+![existing forest Configure AD Replication with Windows 2008](https://github.com/elatov/uploads/raw/master/2013/05/existing_forest.png)
 
 Enter the name of the Domain and enter the admin password for that Domain:
 
-![enter domain name Configure AD Replication with Windows 2008](http://virtuallyhyper.com/wp-content/uploads/2013/05/enter_domain_name.png)
+![enter domain name Configure AD Replication with Windows 2008](https://github.com/elatov/uploads/raw/master/2013/05/enter_domain_name.png)
 
 If the connection to the primary DC is successful, you will see the following:
 
-![existing DC Configure AD Replication with Windows 2008](http://virtuallyhyper.com/wp-content/uploads/2013/05/existing_DC.png)
+![existing DC Configure AD Replication with Windows 2008](https://github.com/elatov/uploads/raw/master/2013/05/existing_DC.png)
 
 We won't be doing any inter-site setup, so selecting the default site name is okay here:
 
-![default site ad setup Configure AD Replication with Windows 2008](http://virtuallyhyper.com/wp-content/uploads/2013/05/default_site_ad_setup.png)
+![default site ad setup Configure AD Replication with Windows 2008](https://github.com/elatov/uploads/raw/master/2013/05/default_site_ad_setup.png)
 
 Next let's setup a DNS server on the new DC and let's NOT make it Read only (RODC):
 
-![additional dc options Configure AD Replication with Windows 2008](http://virtuallyhyper.com/wp-content/uploads/2013/05/additional_dc_options.png)
+![additional dc options Configure AD Replication with Windows 2008](https://github.com/elatov/uploads/raw/master/2013/05/additional_dc_options.png)
 
 Next, let's go ahead and replicate the AD configuration from the primary DC:
 
-![replicate data ad wizrd Configure AD Replication with Windows 2008](http://virtuallyhyper.com/wp-content/uploads/2013/05/replicate_data_ad_wizrd.png)
+![replicate data ad wizrd Configure AD Replication with Windows 2008](https://github.com/elatov/uploads/raw/master/2013/05/replicate_data_ad_wizrd.png)
 
 Click "Next" a couple of times and at the end, you will get to the summary page:
 
-![ad wizard summary Configure AD Replication with Windows 2008](http://virtuallyhyper.com/wp-content/uploads/2013/05/ad_wizard_summary.png)
+![ad wizard summary Configure AD Replication with Windows 2008](https://github.com/elatov/uploads/raw/master/2013/05/ad_wizard_summary.png)
 
 After you click "Next", the replication will start:
 
-![replicating data Configure AD Replication with Windows 2008](http://virtuallyhyper.com/wp-content/uploads/2013/05/replicating_data.png)
+![replicating data Configure AD Replication with Windows 2008](https://github.com/elatov/uploads/raw/master/2013/05/replicating_data.png)
 
 After it's done, you will see the following:
 
-![ad wizard finished Configure AD Replication with Windows 2008](http://virtuallyhyper.com/wp-content/uploads/2013/05/ad_wizard_finished.png)
+![ad wizard finished Configure AD Replication with Windows 2008](https://github.com/elatov/uploads/raw/master/2013/05/ad_wizard_finished.png)
 
 Click "Finish" and restart the machine.
 
@@ -303,7 +303,7 @@ I thought that was pretty convenient. We can also make sure the two server are i
 
 Expand "Sites" -> "Default Site" -> "Servers" and make sure you see both servers:
 
-![dssite msc Configure AD Replication with Windows 2008](http://virtuallyhyper.com/wp-content/uploads/2013/05/dssite_msc.png)
+![dssite msc Configure AD Replication with Windows 2008](https://github.com/elatov/uploads/raw/master/2013/05/dssite_msc.png)
 
 If we were doing inter-site replication, we would have to create different site and replication schedules here.
 
@@ -326,11 +326,11 @@ That will create a "cookie" file with the data inside of it, in my case the file
 
 And select "New" -> "User":
 
-![dsa msc new user Configure AD Replication with Windows 2008](http://virtuallyhyper.com/wp-content/uploads/2013/05/dsa_msc_new_user.png)
+![dsa msc new user Configure AD Replication with Windows 2008](https://github.com/elatov/uploads/raw/master/2013/05/dsa_msc_new_user.png)
 
 Let's call our user "test":
 
-![test user dsa msc Configure AD Replication with Windows 2008](http://virtuallyhyper.com/wp-content/uploads/2013/05/test_user_dsa_msc.png)
+![test user dsa msc Configure AD Replication with Windows 2008](https://github.com/elatov/uploads/raw/master/2013/05/test_user_dsa_msc.png)
 
 After the user is created run the above command again:
 

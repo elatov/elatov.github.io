@@ -17,7 +17,7 @@ tags:
 ---
 Today I ran into an interesting issue. A customer called in saying that his VMs are down and some of his Datastores are showing up as snapshots. Looking at the Datastore View from vCenter, we saw the following:
 
-![datastore_snapshots_1](http://virtuallyhyper.com/wp-content/uploads/2012/04/datastore_snapshots_1.png)
+![datastore_snapshots_1](https://github.com/elatov/uploads/raw/master/2012/04/datastore_snapshots_1.png)
 
 The original datastores showed up as Inactive in the same view and looked exactly as descibed in [KB 9453805](http://kb.vmware.com/kb/9453805). To get all the VMs up and running, we had to follow the intructions laid out in the above KB.
 

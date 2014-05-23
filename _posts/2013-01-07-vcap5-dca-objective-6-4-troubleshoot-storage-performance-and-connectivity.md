@@ -156,7 +156,7 @@ From the above guide:
 
 From the same guide here are the available options:
 
-> ![iscsi parameters VCAP5 DCA Objective 6.4 – Troubleshoot Storage Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/iscsi_parameters.png)
+> ![iscsi parameters VCAP5 DCA Objective 6.4 – Troubleshoot Storage Performance and Connectivity ](https://github.com/elatov/uploads/raw/master/2012/12/iscsi_parameters.png)
 >
 > Here is an example of the parameters for the adapter:
 >
@@ -368,7 +368,7 @@ So make sure you NAS server supports TCP version 3. From the same document:
 
 > If you do not have the **no_root_squash** option set, you will get the following error when you try to create a virtual machine on the NAS datastore:
 >
-> ![nfs access error VCAP5 DCA Objective 6.4 – Troubleshoot Storage Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/nfs_access_error.png)
+> ![nfs access error VCAP5 DCA Objective 6.4 – Troubleshoot Storage Performance and Connectivity ](https://github.com/elatov/uploads/raw/master/2012/12/nfs_access_error.png)
 >
 
 This can be confusing since you can still create the datastore, but you will not be able to create any virtual machines on it.
@@ -386,7 +386,7 @@ You will also see the following if you are directly on the Console:
 
 Here is a good summary of some issues from the above document:
 
-> ![common nfs issues VCAP5 DCA Objective 6.4 – Troubleshoot Storage Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/common_nfs_issues.png)
+> ![common nfs issues VCAP5 DCA Objective 6.4 – Troubleshoot Storage Performance and Connectivity ](https://github.com/elatov/uploads/raw/master/2012/12/common_nfs_issues.png)
 
 ### Use esxtop/resxtop and vscsiStats to identify storage performance issues
 
@@ -394,7 +394,7 @@ The vscsiStats were covered in "[VCAP5-DCA Objective 3.4](http://virtuallyhyper.
 
 As for esxtop, from [this](http://www.vmworld.net/wp-content/uploads/2012/05/Esxtop_Troubleshooting_eng.pdf) pdf:
 
-> ![esxtop thresholds for disk VCAP5 DCA Objective 6.4 – Troubleshoot Storage Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/esxtop_thresholds_for_disk.png)
+> ![esxtop thresholds for disk VCAP5 DCA Objective 6.4 – Troubleshoot Storage Performance and Connectivity ](https://github.com/elatov/uploads/raw/master/2012/12/esxtop_thresholds_for_disk.png)
 
 Here is a quick summary:
 
@@ -406,7 +406,7 @@ Here is a quick summary:
 
 From "[Performance Troubleshooting for vSphere 4.1](http://www.vmware.com/resources/techresources/10179)":
 
-> ![storage performance troubleshooting VCAP5 DCA Objective 6.4 – Troubleshoot Storage Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/storage_performance_troubleshooting.png)
+> ![storage performance troubleshooting VCAP5 DCA Objective 6.4 – Troubleshoot Storage Performance and Connectivity ](https://github.com/elatov/uploads/raw/master/2012/12/storage_performance_troubleshooting.png)
 
 ### Configure and troubleshoot VMFS datastores using vmkfstools
 

@@ -21,7 +21,7 @@ I was running an ESXi host in my home network and I wanted to dedicate on NIC of
 
 So I decided to allow vlans 1 and 3 to go through port 4 of the dd-wrt router. First let's add vlan 3 to the dd-wrt configuration and assign a 10.0.0.0/24 network range to this vlan. This is done in the management UI. Point your browser to the dd-wrt router, after you login you should see the following:
 
-![dd wrt admin ui Tag Multiple VLANs on Trunk Port on DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2014/03/dd-wrt-admin-ui.png)
+![dd wrt admin ui Tag Multiple VLANs on Trunk Port on DD WRT Router](https://github.com/elatov/uploads/raw/master/2014/03/dd-wrt-admin-ui.png)
 
 Now let's add vlan3 to port 4:
 
@@ -38,7 +38,7 @@ Next let's configure vlan 3's network:
 4.  Set the Subnet Mask to 255.255.255.0
 5.  **Save** the configuration
 
-![dd wrt port setup Tag Multiple VLANs on Trunk Port on DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2014/03/dd-wrt-port-setup.png)
+![dd wrt port setup Tag Multiple VLANs on Trunk Port on DD WRT Router](https://github.com/elatov/uploads/raw/master/2014/03/dd-wrt-port-setup.png)
 
 Let's also enable DHCP for VLAN3:
 
@@ -46,7 +46,7 @@ Let's also enable DHCP for VLAN3:
 2.  Set DHCP 0 to vlan3 with a Leasetime of 3600.
 3.  Click Save and Apply Settings
 
-![dd wrt dhcp Tag Multiple VLANs on Trunk Port on DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2014/03/dd-wrt-dhcp.png)
+![dd wrt dhcp Tag Multiple VLANs on Trunk Port on DD WRT Router](https://github.com/elatov/uploads/raw/master/2014/03/dd-wrt-dhcp.png)
 
 Now let's bring up the vlan3 interface on boot. To do this:
 
@@ -62,7 +62,7 @@ ifconfig vlan3 up
 
 After it's done you should see the following under the **Start up** section:
 
-![dd wrt startup commands Tag Multiple VLANs on Trunk Port on DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2014/03/dd-wrt-startup-commands.png)
+![dd wrt startup commands Tag Multiple VLANs on Trunk Port on DD WRT Router](https://github.com/elatov/uploads/raw/master/2014/03/dd-wrt-startup-commands.png)
 
 If you have SSH enabled on the router you can run the following to assign vlan3 to port 4:
 

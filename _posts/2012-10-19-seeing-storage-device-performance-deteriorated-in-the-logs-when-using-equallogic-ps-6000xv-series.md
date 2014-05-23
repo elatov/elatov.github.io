@@ -160,7 +160,7 @@ I read over the article ' [EqualLogic PS Series Usability and Performance](http:
 
 The above test was done with 8K, we didn't exactly match it but we were pretty close. So I didn't see a performance issue with anything lower than **32K** block size. I then ran **IOmeter** manually with random block sizes and then realized that any IO greater than **64K** would cause pretty high latency. The customer mentioned that doing a local copy from the same disk also causes high latency. I fired up **perfmon** as the windows copy was going and here is what I saw:
 
-![windows_copy_with_180Kbs](http://virtuallyhyper.com/wp-content/uploads/2012/07/windows_copy_with_180Kbs.png)
+![windows_copy_with_180Kbs](https://github.com/elatov/uploads/raw/master/2012/07/windows_copy_with_180Kbs.png)
 
 The windows copy had random spikes of different block sizes and sometimes went all the way to 180KB as seen in the above picture. I then came across an interesting Dell Article entitled "[EqualLogic Snapshots and Clones: Best Practices and Sizing Guidelines](http://en.community.dell.com/dell-groups/dtcmedia/m/mediagallery/20097871/download.aspx)". Some interesting things that came out of that paper:
 
@@ -193,19 +193,19 @@ There was a community forum on Dell's site "[Equallogic - W2K8 latency with IO l
 
 We implemented the above suggestions, but they didn't help out. We then engaged Dell and they ran the '[Dell Performance Analysis Collection Kit](http://i.dell.com/sites/content/shared-content/campaigns/en/Documents/dpack-brochure.pdf)' (DPACK). Here were some of the results for the whole array. It breaks it down per host (non-VMware as well). Here was the result from a Win2k Server:
 
-![dpack_win2k_host](http://virtuallyhyper.com/wp-content/uploads/2012/07/dpack_win2k_host.png)
+![dpack_win2k_host](https://github.com/elatov/uploads/raw/master/2012/07/dpack_win2k_host.png)
 
 And here is the same thing from a Win2k3 host:
 
-![dpack_win2k3](http://virtuallyhyper.com/wp-content/uploads/2012/07/dpack_win2k3.png)
+![dpack_win2k3](https://github.com/elatov/uploads/raw/master/2012/07/dpack_win2k3.png)
 
 And here is one from a Win2k8 machine:
 
-![dpack_win2k8r2](http://virtuallyhyper.com/wp-content/uploads/2012/07/dpack_win2k8r2.png)
+![dpack_win2k8r2](https://github.com/elatov/uploads/raw/master/2012/07/dpack_win2k8r2.png)
 
 And lastly here is the one from the ESXi 5.0 host:
 
-![dpack_esxi5](http://virtuallyhyper.com/wp-content/uploads/2012/10/dpack_esxi5.png)
+![dpack_esxi5](https://github.com/elatov/uploads/raw/master/2012/10/dpack_esxi5.png)
 
 We can see that the higher the block size the higher the latency and the Windows 2K8 R2 machine also had high latency. I then decided to change the **DiskMaxIOSize** per VMware KB [1003469](http://kb.vmware.com/kb/1003469). That stopped the message from happening as often but it still happened once in a while.
 

@@ -136,29 +136,29 @@ It spit out the partitions as well, I left it that way in case I might use them 
 
 I didn't want disk statistics per partition but per disk, so let's add a rule to just catch the disk without the partitions. Login to zabbix and then go to "Administration" -> General -> "Regular Expression":
 
-![zabbiz reg expression g Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbiz_reg_expression_g.png)
+![zabbiz reg expression g Monitor Disk IO Stats with Zabbix](https://github.com/elatov/uploads/raw/master/2013/06/zabbiz_reg_expression_g.png)
 
 Then click "Create New Regular Expression" and under "Expressions", click "New" and add the following:
 
-![zabbiz reg expression create Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbiz_reg_expression_create.png)
+![zabbiz reg expression create Monitor Disk IO Stats with Zabbix](https://github.com/elatov/uploads/raw/master/2013/06/zabbiz_reg_expression_create.png)
 
 Save that and on the left side, name the Regular Expression and do a test to make sure it works:
 
-![zabbiz reg expression test Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbiz_reg_expression_test.png)
+![zabbiz reg expression test Monitor Disk IO Stats with Zabbix](https://github.com/elatov/uploads/raw/master/2013/06/zabbiz_reg_expression_test.png)
 
 and also put in a partition to make sure it fails:
 
-![zabbiz reg expression test fail Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbiz_reg_expression_test_fail.png)
+![zabbiz reg expression test fail Monitor Disk IO Stats with Zabbix](https://github.com/elatov/uploads/raw/master/2013/06/zabbiz_reg_expression_test_fail.png)
 
 Save that and if you go back to the regular expression list you will see yours there:
 
-![zabbiz reg expression list Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbiz_reg_expression_list.png)
+![zabbiz reg expression list Monitor Disk IO Stats with Zabbix](https://github.com/elatov/uploads/raw/master/2013/06/zabbiz_reg_expression_list.png)
 
 ### Create a New Template in Zabbix
 
 Let's create a new template for our items and graphs. Go to "Configuration" -> "Template" -> "Create Template". Fill out the information and add your hosts to the template:
 
-![zabbix create template Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_create_template.png)
+![zabbix create template Monitor Disk IO Stats with Zabbix](https://github.com/elatov/uploads/raw/master/2013/06/zabbix_create_template.png)
 
 ### Create a new UserParameter for Disk Discovery
 
@@ -195,57 +195,57 @@ The list kept going, but we now know that works.
 
 Go to "Configuration" -> "Templates":
 
-![zabbix templates Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_templates.png)
+![zabbix templates Monitor Disk IO Stats with Zabbix](https://github.com/elatov/uploads/raw/master/2013/06/zabbix_templates.png)
 
 Scroll down and you will see the template that you created earlier. Click on "Discovery" -> "Create Discovery Rule". Here we will name the rule, query the *UserParameter* we created, and apply a filter (regular expression) to get just the disk. Here is how my configuration looked like:
 
-![zabbix discovery rule Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_discovery_rule.png)
+![zabbix discovery rule Monitor Disk IO Stats with Zabbix](https://github.com/elatov/uploads/raw/master/2013/06/zabbix_discovery_rule.png)
 
 Save that and if you go back to the discovery rules you will see the following:
 
-![zabbix discovery rule list Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_discovery_rule_list.png)
+![zabbix discovery rule list Monitor Disk IO Stats with Zabbix](https://github.com/elatov/uploads/raw/master/2013/06/zabbix_discovery_rule_list.png)
 
 ### Add Item Prototypes to Discovery Rule
 
 Go to "Configuration" -> "Templates" -> Template_Linux_Disk -> "Discovery" -> "Item Prototypes" -> "Create Item Prototype". Fill out the information. Here is my latency item:
 
-![zab item prototype later Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zab-item-prototype-later.png)
+![zab item prototype later Monitor Disk IO Stats with Zabbix](https://github.com/elatov/uploads/raw/master/2013/06/zab-item-prototype-later.png)
 
 I added both read and write latency. Here is my Disk Rate in Bps:
 
-![zab item prototype after dr Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zab-item-prototype-after-dr.png)
+![zab item prototype after dr Monitor Disk IO Stats with Zabbix](https://github.com/elatov/uploads/raw/master/2013/06/zab-item-prototype-after-dr.png)
 
 I added both read and write disk rates. I also added disk operations (read and write). I ended up defining 6 items in total, here is the list:
 
-![zabbix itemprototypes list Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_itemprototypes_list.png)
+![zabbix itemprototypes list Monitor Disk IO Stats with Zabbix](https://github.com/elatov/uploads/raw/master/2013/06/zabbix_itemprototypes_list.png)
 
 ### Create Graph Prototypes to Plot the Above Items
 
 Go to "Configuration" -> "Templates" -> Template_Linux_Disk -> "Discovery" -> "Graph Prototypes" -> "Create Graph Prototype". Add both read and write like so:
 
-![zabbix graphprototypes latency Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_graphprototypes_latency.png)
+![zabbix graphprototypes latency Monitor Disk IO Stats with Zabbix](https://github.com/elatov/uploads/raw/master/2013/06/zabbix_graphprototypes_latency.png)
 
 Using the same technique I created 3 graph prototypes:
 
-![zabbix graphprototypes list Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_graphprototypes_list.png)
+![zabbix graphprototypes list Monitor Disk IO Stats with Zabbix](https://github.com/elatov/uploads/raw/master/2013/06/zabbix_graphprototypes_list.png)
 
 ## Check out the Graphs
 
 Go to "Monitoring" -> "Graphs". Then pick a host and make sure only it's corresponding disks show. For example here is what I saw for my Fedora Box which had an LVM setup:
 
-![zabbix graph lists fedora g Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_graph_lists_fedora_g.png)
+![zabbix graph lists fedora g Monitor Disk IO Stats with Zabbix](https://github.com/elatov/uploads/raw/master/2013/06/zabbix_graph_lists_fedora_g.png)
 
 and here is one graph:
 
-![zabbix disk rate fedora Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_disk_rate_fedora.png)
+![zabbix disk rate fedora Monitor Disk IO Stats with Zabbix](https://github.com/elatov/uploads/raw/master/2013/06/zabbix_disk_rate_fedora.png)
 
 And here are the available graphs for my Ubuntu which just had one drive in it:
 
-![zabbix graph lists ub g Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_graph_lists_ub_g.png)
+![zabbix graph lists ub g Monitor Disk IO Stats with Zabbix](https://github.com/elatov/uploads/raw/master/2013/06/zabbix_graph_lists_ub_g.png)
 
 and here is latency for the disk:
 
-![zabbix disk latency ubuntu Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/06/zabbix_disk_latency_ubuntu.png)
+![zabbix disk latency ubuntu Monitor Disk IO Stats with Zabbix](https://github.com/elatov/uploads/raw/master/2013/06/zabbix_disk_latency_ubuntu.png)
 
 Everything looked perfect.
 

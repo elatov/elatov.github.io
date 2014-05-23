@@ -159,7 +159,7 @@ Remove a route from the routing table:
 
 From [this](http://www.vmworld.net/wp-content/uploads/2012/05/Esxtop_Troubleshooting_eng.pdf) pdf:
 
-![esxtop network problems VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/esxtop_network_problems.png)
+![esxtop network problems VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](https://github.com/elatov/uploads/raw/master/2012/12/esxtop_network_problems.png)
 
 Here is a quick summary:
 
@@ -270,7 +270,7 @@ From "[vSphere Networking ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.
 
 Here is how it looks like in vCenter:
 
-![create port mirror VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/create_port_mirror.png)
+![create port mirror VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](https://github.com/elatov/uploads/raw/master/2012/12/create_port_mirror.png)
 
 Here are the next steps from the above guide:
 
@@ -284,11 +284,11 @@ Here are the next steps from the above guide:
 
 So first choose a port you want mirror, by looking under "Networking" View -> Select DVS -> Select "Ports" tab and you will see the following:
 
-![choose port from dvs VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/choose_port_from_dvs.png)
+![choose port from dvs VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](https://github.com/elatov/uploads/raw/master/2012/12/choose_port_from_dvs.png)
 
 Then in the Create Mirror Session Wizard use that port number, like so:
 
-![mirror session select port VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/mirror_session_select_port.png)
+![mirror session select port VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](https://github.com/elatov/uploads/raw/master/2012/12/mirror_session_select_port.png)
 
 And more steps from the guide:
 
@@ -301,14 +301,14 @@ And more steps from the guide:
 > **Procedure**
 >
 > 1.  Choose the Source type.
->     ![mirror session source type VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/mirror_session_source_type.png)
+>     ![mirror session source type VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](https://github.com/elatov/uploads/raw/master/2012/12/mirror_session_source_type.png)
 > 2.  Click >> to add the selected destinations to the port mirroring session.
 > 3.  (Optional) Repeat the above steps to add multiple destinations.
 > 4.  Click Next.
 
 Here is how it looks like in vCenter:
 
-![mirror session select destination port VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/mirror_session_select_destination_port.png)
+![mirror session select destination port VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](https://github.com/elatov/uploads/raw/master/2012/12/mirror_session_select_destination_port.png)
 
 In the above example I chose an uplink to be the destination of the mirror session. And here are more steps from the same guide:
 
@@ -323,7 +323,7 @@ In the above example I chose an uplink to be the destination of the mirror sessi
 
 Here is how it looks like from vCenter:
 
-![mirror session verify settings VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/mirror_session_verify_settings.png)
+![mirror session verify settings VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](https://github.com/elatov/uploads/raw/master/2012/12/mirror_session_verify_settings.png)
 
 And here are the last steps from the guide:
 
@@ -340,7 +340,7 @@ And here are the last steps from the guide:
 
 Here is how it looks like in vCenter:
 
-![mirror session check settings VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/mirror_session_check_settings.png)
+![mirror session check settings VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](https://github.com/elatov/uploads/raw/master/2012/12/mirror_session_check_settings.png)
 
 ### Utilize Direct Console User Interface (DCUI) and ESXi Shell to troubleshoot, configure, and monitor ESXi networking
 
@@ -357,7 +357,7 @@ From "[vSphere Installation and Setup vSphere 5.0](http://pubs.vmware.com/vspher
 
 Here is how it looks like in the DCUI:
 
-![dcui ip config VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/dcui_ip_config.png)
+![dcui ip config VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](https://github.com/elatov/uploads/raw/master/2012/12/dcui_ip_config.png)
 
 More information from the same guide:
 
@@ -380,7 +380,7 @@ More information from the same guide:
 
 Here is how it looks like from the DCUI:
 
-![dcui dns settings VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/dcui_dns_settings.png)
+![dcui dns settings VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](https://github.com/elatov/uploads/raw/master/2012/12/dcui_dns_settings.png)
 
 More from the same guide:
 
@@ -400,11 +400,11 @@ More from the same guide:
 
 Here is how the test setup looks like from DCUI:
 
-![test mgmt network dcui VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/test_mgmt_network_dcui.png)
+![test mgmt network dcui VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](https://github.com/elatov/uploads/raw/master/2012/12/test_mgmt_network_dcui.png)
 
 And here is how the results look like:
 
-![dcui test mgmt net results VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/dcui_test_mgmt_net_results.png)
+![dcui test mgmt net results VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](https://github.com/elatov/uploads/raw/master/2012/12/dcui_test_mgmt_net_results.png)
 
 Some more stuff to try:
 
@@ -424,7 +424,7 @@ Some more stuff to try:
 
 Here is how it looks like from DCUI:
 
-![restart mgmt agents success VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/restart_mgmt_agents_success.png)
+![restart mgmt agents success VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](https://github.com/elatov/uploads/raw/master/2012/12/restart_mgmt_agents_success.png)
 
 Here are the rest of the options:
 
@@ -468,5 +468,5 @@ Here are the rest of the options:
 >     *   Press F11 to confirm.
 >     Here are all the options as seen in the DCUI:
 >
->     ![dcui options VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](http://virtuallyhyper.com/wp-content/uploads/2012/12/dcui_options.png)
+>     ![dcui options VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](https://github.com/elatov/uploads/raw/master/2012/12/dcui_options.png)
 >

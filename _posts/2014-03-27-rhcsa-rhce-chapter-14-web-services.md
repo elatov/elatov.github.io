@@ -87,7 +87,7 @@ From the above guide:
 
 > When the httpd service is started, by default, it reads the configuration from locations defined below:
 >
-> ![apache config RHCSA and RHCE Chapter 14 – Web Services](http://virtuallyhyper.com/wp-content/uploads/2014/03/apache-config.png)
+> ![apache config RHCSA and RHCE Chapter 14 – Web Services](https://github.com/elatov/uploads/raw/master/2014/03/apache-config.png)
 >
 > Although the default configuration should be suitable for most situations, it is a good idea to become at least familiar with some of the more important configuration options. Note that for any changes to take effect, the web server has to be restarted first.
 >
@@ -158,7 +158,7 @@ Check the Deployment Guide for a full list, I will cover a couple of the ones th
 >
 > The address can be an IP address, a fully qualified domain name, or a special form as described in the below table:
 >
-> ![apache vh options RHCSA and RHCE Chapter 14 – Web Services](http://virtuallyhyper.com/wp-content/uploads/2014/03/apache-vh-options.png)
+> ![apache vh options RHCSA and RHCE Chapter 14 – Web Services](https://github.com/elatov/uploads/raw/master/2014/03/apache-vh-options.png)
 >
 > **Example 16.6. Using the <virtualhost> directive</virtualhost>**
 >
@@ -235,7 +235,7 @@ Check the Deployment Guide for a full list, I will cover a couple of the ones th
 >
 > The **type** has to be one of the available grouping options as described in the below table:
 >
-> ![apache allowoverride options RHCSA and RHCE Chapter 14 – Web Services](http://virtuallyhyper.com/wp-content/uploads/2014/03/apache-allowoverride-options.png)
+> ![apache allowoverride options RHCSA and RHCE Chapter 14 – Web Services](https://github.com/elatov/uploads/raw/master/2014/03/apache-allowoverride-options.png)
 >
 > **Example 16.19. Using the AllowOverride directive**
 >
@@ -291,7 +291,7 @@ Check the Deployment Guide for a full list, I will cover a couple of the ones th
 >
 > The **option** has to be a valid keyword as described in the below table:
 >
-> ![apache order options RHCSA and RHCE Chapter 14 – Web Services](http://virtuallyhyper.com/wp-content/uploads/2014/03/apache-order-options.png)
+> ![apache order options RHCSA and RHCE Chapter 14 – Web Services](https://github.com/elatov/uploads/raw/master/2014/03/apache-order-options.png)
 >
 > **Example 16.53. Using the Order directive**
 >
@@ -424,11 +424,11 @@ Now on the RH5 machine let's run **elinks** and check if we can reach our server
 
 After running that, you will see the following:
 
-![rhel1 apache elinks RHCSA and RHCE Chapter 14 – Web Services](http://virtuallyhyper.com/wp-content/uploads/2014/03/rhel1-apache-elinks.png)
+![rhel1 apache elinks RHCSA and RHCE Chapter 14 – Web Services](https://github.com/elatov/uploads/raw/master/2014/03/rhel1-apache-elinks.png)
 
 If you server is available using a client running a chrome web browser, visiting that same page with chrome will show you the following:
 
-![rhel1 apache chrome RHCSA and RHCE Chapter 14 – Web Services](http://virtuallyhyper.com/wp-content/uploads/2014/03/rhel1-apache-chrome.png)
+![rhel1 apache chrome RHCSA and RHCE Chapter 14 – Web Services](https://github.com/elatov/uploads/raw/master/2014/03/rhel1-apache-chrome.png)
 
 Now let's create a sub-directory under the *DirectoryRoot* (**/var/www/html**) and create another html file there:
 
@@ -444,7 +444,7 @@ Now from the RH5 client, running elinks:
 
 I saw the following:
 
-![rhel1 apache with dir elinks RHCSA and RHCE Chapter 14 – Web Services](http://virtuallyhyper.com/wp-content/uploads/2014/03/rhel1-apache-with-dir-elinks.png)
+![rhel1 apache with dir elinks RHCSA and RHCE Chapter 14 – Web Services](https://github.com/elatov/uploads/raw/master/2014/03/rhel1-apache-with-dir-elinks.png)
 
 We can also check the access log and confirm that a client connected to our site:
 
@@ -477,7 +477,7 @@ Now confirming the configuration is okay and then restarting the apache service:
 
 As a test trying to connect from the rhel5 client with **elinks**, I saw the following:
 
-![apache denied access RHCSA and RHCE Chapter 14 – Web Services](http://virtuallyhyper.com/wp-content/uploads/2014/03/apache-denied-access.png)
+![apache denied access RHCSA and RHCE Chapter 14 – Web Services](https://github.com/elatov/uploads/raw/master/2014/03/apache-denied-access.png)
 
 I tried with another client and I was able to access the page. I saw the following in the **error_log** when access was denied:
 
@@ -591,7 +591,7 @@ Now let's modify our custom configuration for that sub-directory, here is how mi
 
 After that, visiting the page from the client, I saw the following:
 
-![apache auth required RHCSA and RHCE Chapter 14 – Web Services](http://virtuallyhyper.com/wp-content/uploads/2014/03/apache-auth-required.png)
+![apache auth required RHCSA and RHCE Chapter 14 – Web Services](https://github.com/elatov/uploads/raw/master/2014/03/apache-auth-required.png)
 
 To do the same thing with the **.htaccess** we will need to add **authconfig** to the **AllowOverride** list.
 
@@ -694,7 +694,7 @@ Then connecting from the client to the new DNS name:
 
 I saw the following:
 
-![apache vh elinks RHCSA and RHCE Chapter 14 – Web Services](http://virtuallyhyper.com/wp-content/uploads/2014/03/apache-vh-elinks.png)
+![apache vh elinks RHCSA and RHCE Chapter 14 – Web Services](https://github.com/elatov/uploads/raw/master/2014/03/apache-vh-elinks.png)
 
 ### Apache SSL
 
@@ -810,19 +810,19 @@ Now let's run it:
 
 Then the wizard will start up:
 
-![genkey p1 RHCSA and RHCE Chapter 14 – Web Services](http://virtuallyhyper.com/wp-content/uploads/2014/03/genkey-p1.png)
+![genkey p1 RHCSA and RHCE Chapter 14 – Web Services](https://github.com/elatov/uploads/raw/master/2014/03/genkey-p1.png)
 
 After that you can choose the size of the private key (I went with 2048):
 
-![genkey p2 RHCSA and RHCE Chapter 14 – Web Services](http://virtuallyhyper.com/wp-content/uploads/2014/03/genkey-p2.png)
+![genkey p2 RHCSA and RHCE Chapter 14 – Web Services](https://github.com/elatov/uploads/raw/master/2014/03/genkey-p2.png)
 
 Then the generation of the private key will start:
 
-![genkey p3 RHCSA and RHCE Chapter 14 – Web Services](http://virtuallyhyper.com/wp-content/uploads/2014/03/genkey-p3.png)
+![genkey p3 RHCSA and RHCE Chapter 14 – Web Services](https://github.com/elatov/uploads/raw/master/2014/03/genkey-p3.png)
 
 If it takes a while to generate random data:
 
-![genkey p4 RHCSA and RHCE Chapter 14 – Web Services](http://virtuallyhyper.com/wp-content/uploads/2014/03/genkey-p4.png)
+![genkey p4 RHCSA and RHCE Chapter 14 – Web Services](https://github.com/elatov/uploads/raw/master/2014/03/genkey-p4.png)
 
 Then manually generate some random I/O:
 
@@ -839,15 +839,15 @@ I had to run that a couple of times to get through the random data collection pa
 
 After it was done, it asked if I wanted to sent the CSR to a CA:
 
-![genkey p5 RHCSA and RHCE Chapter 14 – Web Services](http://virtuallyhyper.com/wp-content/uploads/2014/03/genkey-p5.png)
+![genkey p5 RHCSA and RHCE Chapter 14 – Web Services](https://github.com/elatov/uploads/raw/master/2014/03/genkey-p5.png)
 
 I just wanted to create a self signed SSL certificate, so I selected **NO** and then it wanted to encrypt the private key:
 
-![genkey p6 RHCSA and RHCE Chapter 14 – Web Services](http://virtuallyhyper.com/wp-content/uploads/2014/03/genkey-p6.png)
+![genkey p6 RHCSA and RHCE Chapter 14 – Web Services](https://github.com/elatov/uploads/raw/master/2014/03/genkey-p6.png)
 
 I opted out of that, since I didn't want to enter a passphase every single time I restarted apache. Then I entered the information regarding the server:
 
-![genkey p7 RHCSA and RHCE Chapter 14 – Web Services](http://virtuallyhyper.com/wp-content/uploads/2014/03/genkey-p7.png)
+![genkey p7 RHCSA and RHCE Chapter 14 – Web Services](https://github.com/elatov/uploads/raw/master/2014/03/genkey-p7.png)
 
 After that the wizard stopped and I saw the following output:
 
@@ -928,11 +928,11 @@ Now trying to connect from the client:
 
 I saw the following:
 
-![rhel1 elinks https RHCSA and RHCE Chapter 14 – Web Services](http://virtuallyhyper.com/wp-content/uploads/2014/03/rhel1-elinks-https.png)
+![rhel1 elinks https RHCSA and RHCE Chapter 14 – Web Services](https://github.com/elatov/uploads/raw/master/2014/03/rhel1-elinks-https.png)
 
 If you connect from an actual browser, you will notice that the connection is not trusted (broken lock), that's because we are using a self signed certificate:
 
-![rhel1 https chrome RHCSA and RHCE Chapter 14 – Web Services](http://virtuallyhyper.com/wp-content/uploads/2014/03/rhel1-https-chrome.png)
+![rhel1 https chrome RHCSA and RHCE Chapter 14 – Web Services](https://github.com/elatov/uploads/raw/master/2014/03/rhel1-https-chrome.png)
 
 You can also check the certificate information, by using **openssl**:
 
@@ -1156,7 +1156,7 @@ Now from our rhel5 machine, let's try to connect to our site with **elinks**:
 
 and I got the following error:
 
-![rhel1 elinks blocked2 RHCSA and RHCE Chapter 14 – Web Services](http://virtuallyhyper.com/wp-content/uploads/2014/03/rhel1-elinks-blocked2.png)
+![rhel1 elinks blocked2 RHCSA and RHCE Chapter 14 – Web Services](https://github.com/elatov/uploads/raw/master/2014/03/rhel1-elinks-blocked2.png)
 
 Now on the RH6 machine let's install **squid**:
 
@@ -1239,7 +1239,7 @@ Now let's configure the rhel5 machine to go through the proxy:
 
 and I was able to see the page:
 
-![elinks thru squid proxy RHCSA and RHCE Chapter 14 – Web Services](http://virtuallyhyper.com/wp-content/uploads/2014/03/elinks-thru-squid-proxy.png)
+![elinks thru squid proxy RHCSA and RHCE Chapter 14 – Web Services](https://github.com/elatov/uploads/raw/master/2014/03/elinks-thru-squid-proxy.png)
 
 Looking at the **access.log**, I saw the following:
 

@@ -31,17 +31,17 @@ From the same document:
 
 > In the Load Balancing list, select an option for how to select an uplink.
 >
-> ![load_balancing_algorithms](http://virtuallyhyper.com/wp-content/uploads/2012/09/load_balancing_algorithms.png)
+> ![load_balancing_algorithms](https://github.com/elatov/uploads/raw/master/2012/09/load_balancing_algorithms.png)
 >
 > In the Network failover detection list, select the option to use for failover detection.
 >
-> ![network_failover_detection](http://virtuallyhyper.com/wp-content/uploads/2012/09/network_failover_detection.png)
+> ![network_failover_detection](https://github.com/elatov/uploads/raw/master/2012/09/network_failover_detection.png)
 
 Also from the same document, here is a summary of all the policies:
 
 > Specify the settings in the Policy Exceptions group
 >
-> ![portgroup_network_policies](http://virtuallyhyper.com/wp-content/uploads/2012/09/portgroup_network_policies.png)
+> ![portgroup_network_policies](https://github.com/elatov/uploads/raw/master/2012/09/portgroup_network_policies.png)
 
 ### Identify common network protocols
 
@@ -89,5 +89,5 @@ If you are limited on NICs you can have one vSwitch with two uplinks. Inside the
 
 Use VST and trunk ports on the physical switch and try to isolate your traffic by physical nics as well. Here is a pretty good example:
 
-![vswitch_example](http://virtuallyhyper.com/wp-content/uploads/2012/10/vswitch_example.png)
+![vswitch_example](https://github.com/elatov/uploads/raw/master/2012/10/vswitch_example.png)
 

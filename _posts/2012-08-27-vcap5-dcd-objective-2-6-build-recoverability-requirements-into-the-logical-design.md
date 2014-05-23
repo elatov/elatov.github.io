@@ -33,7 +33,7 @@ Defined in [Objective 2.3](http://virtuallyhyper.com/2012/08/vcap5-dcd-objective
 ### Describe and differentiate between RTO and RPO
 
 From the [APAC BrownBag Session 4](http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap5-dca-availability-dr/):
-![rpo_vs_rto](http://virtuallyhyper.com/wp-content/uploads/2012/08/rpo_vs_rto.png)
+![rpo_vs_rto](https://github.com/elatov/uploads/raw/master/2012/08/rpo_vs_rto.png)
 
 ### Given specific RTO and RPO requirements, build these requirements into the logical design
 

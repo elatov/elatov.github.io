@@ -19,15 +19,15 @@ I decided to learn how [how-to](http://www.fwbuilder.org/) from DD-WRT.
 
 The first thing that we need to do is enable SSH on the DD-WRT router. To do so, point your browser to the internal IP of your router. In my case it's **192.168.1.1**. After logging in, I saw the following:
 
-![dd wrt login Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2013/04/dd-wrt-login.png)
+![dd wrt login Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/dd-wrt-login.png)
 
 Then go to "Services" Tab, scroll down, and you will see "Secure Shell":
 
-![ddwrt services sshd Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2013/04/ddwrt-services-sshd.png)
+![ddwrt services sshd Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/ddwrt-services-sshd.png)
 
 Go ahead and enable it:
 
-![ddwrt sshd enabled Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2013/04/ddwrt-sshd-enabled.png)
+![ddwrt sshd enabled Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/ddwrt-sshd-enabled.png)
 
 After it's enabled you will be able to login:
 
@@ -181,7 +181,7 @@ At this point you might ask: so where is the wireless interface? Well that is ac
 
 When we SSH over to a DD-WRT router we are actually not seeing the full picture. There is an excellent description of how networking is setup on the DD-WRT router [here](http://www.dd-wrt.com/wiki/index.php/Default_Configuration_Overview), here is a picture from that article:
 
-![dd wrt internals Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2013/04/dd-wrt-internals.png)
+![dd wrt internals Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/dd-wrt-internals.png)
 
 You will notice the vlans don't match but those are just representations. From the above article:
 
@@ -201,7 +201,7 @@ There is actually a good community [post](http://www.dd-wrt.com/phpBB2/viewtopic
 
 The person from the above community post actually created another diagram to ease the above explanation:
 
-![dd wrt internal simple Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2013/04/dd-wrt-internal-simple.png)
+![dd wrt internal simple Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/dd-wrt-internal-simple.png)
 
 Don't get hung up on the **eth0.x** VLAN representations, from the same article:
 
@@ -241,7 +241,7 @@ So let's go ahead and enable **JFFS**. Most of the instructions are laid out [he
 
 That looks good. Now go back and disable "Clean JFFS2" and click "Save":
 
-![jffs2 clean disabled Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2013/04/jffs2-clean-disabled.png)
+![jffs2 clean disabled Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/jffs2-clean-disabled.png)
 
 Now reboot the router to make sure everything is good. After the reboot you should still see **JFFS** mounted:
 
@@ -321,27 +321,27 @@ After it's installed you can launch it by running:
 
 at which point you will see the following window:
 
-![fwbuilder started Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2013/04/fwbuilder_started.png)
+![fwbuilder started Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/fwbuilder_started.png)
 
 Then click on "Create Firewall" and fill out the specs of our firewall. Here is how mine looked like:
 
-![fwbldr new fw dd wrt Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2013/04/fwbldr_new_fw_dd-wrt.png)
+![fwbldr new fw dd wrt Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/fwbldr_new_fw_dd-wrt.png)
 
 From the Templates I chose the "DDWRT Template":
 
-![ddwrt template chose Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2013/04/ddwrt-template-chose.png)
+![ddwrt template chose Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/ddwrt-template-chose.png)
 
 On the "Objects" screen, I renamed **vlan1** to **vlan2**, but the left the rest as is:
 
-![fw bldr create objects Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2013/04/fw_bldr_create_objects.png)
+![fw bldr create objects Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/fw_bldr_create_objects.png)
 
-At this point you will see the following firewall policy: ![fw bldr dd wrt policy Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2013/04/fw-bldr-dd-wrt-policy.png)
+At this point you will see the following firewall policy: ![fw bldr dd wrt policy Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/fw-bldr-dd-wrt-policy.png)
 
 ### FWBuilder Firewall Rule Break-Down
 
 We can break down each rule, just to make sure we know what is going on. If we "Save" the project and then "Compile" the rule, we can then inspect the actual generated file:
 
-![inspect fw script Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2013/04/inspect_fw_script.png)
+![inspect fw script Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/inspect_fw_script.png)
 
 Here is what **Rule 0** does:
 
@@ -430,31 +430,31 @@ Deny the rest :) Without looking at the specific **iptables** commands, you can 
 
 I noticed that we don't allow DNS to our DD-WRT firewall and **dnsmasq** is running on the DD-WRT Router . So let's add that, change the library from "user" to "standard" and go to "Service" > "UDP" and you will see a service called "domain":
 
-![domain service std library Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2013/04/domain_service_std_library.png)
+![domain service std library Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/domain_service_std_library.png)
 
 Now let's go ahead and drag-and-drop that into our 3rd Rule:
 
-![drag drop dns to policy Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2013/04/drag_drop_dns_to_policy.png)
+![drag drop dns to policy Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/drag_drop_dns_to_policy.png)
 
 Usually DNS uses UDP for quieries and TCP for zone transfers, but I allowed both just in case:
 
-![domain added policy Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2013/04/domain_added_policy.png)
+![domain added policy Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/domain_added_policy.png)
 
 Later on I discovered that there is a DNS groups that contains both already:
 
-![DNS group fwbuilder Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2013/04/DNS_group_fwbuilder.png)
+![DNS group fwbuilder Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/DNS_group_fwbuilder.png)
 
 Now go ahead and compile the firewall:
 
-![Compile rules fwbldr Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2013/04/Compile_rules_fwbldr.png)
+![Compile rules fwbldr Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/Compile_rules_fwbldr.png)
 
 Once you hit the "Compile" button you will be presented with available firewalls to compile:
 
-![Select fw to compile Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2013/04/Select_fw_to_compile.png)
+![Select fw to compile Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/Select_fw_to_compile.png)
 
 Select the only one you have and click "Next", if the compile is successful you will see the following:
 
-![Compile succesful Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2013/04/Compile_succesful.png)
+![Compile succesful Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/Compile_succesful.png)
 
 You can click "Inspect Generated Files" and make sure the new **Rule 3** looks something like this:
 
@@ -477,25 +477,25 @@ Notice both **UDP** and **TCP** **53** are now in there.
 
 It's always a good idea to always allow a specific IP to connect to our firewall (in case we break something and lock ourselves out). To set this up, double click on the Firewall and you will see the following:
 
-![fw bldr fw selected Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2013/04/fw-bldr_fw_selected.png)
+![fw bldr fw selected Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/fw-bldr_fw_selected.png)
 
 Then click on "Firewall Settings" and you will see the following:
 
-![fw settings Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2013/04/fw_settings.png)
+![fw settings Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/fw_settings.png)
 
 Check the box that says "Always permit ssh access from the management workstation with this address" and enter the desired IP:
 
-![fw settings ssh back door Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2013/04/fw_settings_ssh_back_door.png)
+![fw settings ssh back door Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/fw_settings_ssh_back_door.png)
 
 ### Deploy the New Firewall to the DD_WRT Router
 
 Under the "Firewall Settings", make sure "Compiler" Tab looks like this:
 
-![Compiler tab fw sts Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2013/04/Compiler_tab_fw_sts.png)
+![Compiler tab fw sts Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/Compiler_tab_fw_sts.png)
 
 and the "Installer" Tab looks like this:
 
-![Installer Tab firewall sts Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2013/04/Installer_Tab_firewall_sts.png)
+![Installer Tab firewall sts Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/Installer_Tab_firewall_sts.png)
 
 If you chose the "DD-WRT (JFFS)" for the OS those should be the default. You can also check out the installer scripts for DD-WRT from the FWBuilder package:
 
@@ -515,11 +515,11 @@ If you chose the "DD-WRT (JFFS)" for the OS those should be the default. You can
 
 Looks like we are going to set the appropriate settings on the DD-WRT Router. Then go ahead and click on the "Install" button:
 
-![fw builder install button Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2013/04/fw_builder_install_button.png)
+![fw builder install button Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/fw_builder_install_button.png)
 
 It will launch the wizard and you can select which firewall to install (we only have one). Then it will "Compile" the rules and then it will ask for the SSH credentials:
 
-![Install Options for dd wrt Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2013/04/Install_Options_for_dd-wrt.png)
+![Install Options for dd wrt Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/Install_Options_for_dd-wrt.png)
 
 After I hit "Install", I saw the following:
 
@@ -548,7 +548,7 @@ After I hit "Install", I saw the following:
 
 The above looked good and after it finished I saw the following:
 
-![Successful install Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2013/04/Successful_install.png)
+![Successful install Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/Successful_install.png)
 
 I then logged into the DD-WRT Router via SSH (Luckily I was still able to), and checked out the firewall:
 
@@ -614,7 +614,7 @@ After I rebooted I realized I wasn't able to get a DHCP address from the wireles
 
 I tried to change that but I couldn't (without running multiple DHCP Servers). So **Rule 2** was blocking the private network from broadcasting to the public interface. To get around this I modified **Rule 2** to look like this:
 
-![rule2 changed Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2013/04/rule2-changed.png)
+![rule2 changed Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/rule2-changed.png)
 
 After I compiled the firewall I saw the following rule generated:
 
@@ -635,15 +635,15 @@ The above were from the external network, and I was able to get a DHCP address f
 
 By default we have the following rule for our NAT:
 
-![Nat Rules def Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2013/04/Nat_Rules_def.png)
+![Nat Rules def Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/Nat_Rules_def.png)
 
 Creating DNAT rules is outlines in [this](http://www.fwbuilder.org/4.0/docs/users_guide5/destination-address-translation.shtml) FWBuilder guide. So let's forward port 80 to our web server which has the Internal IP of **192.168.1.100**. Here is NAT rule that I created for that:
 
-![dnat port 80 Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2013/04/dnat_port_80.png)
+![dnat port 80 Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/dnat_port_80.png)
 
 On top of that I also added the following rule to main policy:
 
-![Forward for web server policy Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2013/04/Forward_for_web_server_policy.png)
+![Forward for web server policy Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/Forward_for_web_server_policy.png)
 
 After you compile and install the firewall you will see these two rules in **iptables**:
 
@@ -655,7 +655,7 @@ After you compile and install the firewall you will see these two rules in **ipt
 
 As a side note, if you want the webserver to be accessible using the public IP from both external and internal networks then add the following NAT rule:
 
-![dnat from internal Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](http://virtuallyhyper.com/wp-content/uploads/2013/04/dnat_from_internal.png)
+![dnat from internal Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/dnat_from_internal.png)
 
 That will generate the following rules:
 

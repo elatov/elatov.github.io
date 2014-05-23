@@ -22,7 +22,7 @@ The kernel is a very complex concept, I will try to use some references to put i
 
 > The Linux kernel consists of several important parts: process management, memory management, hardware device drivers, filesystem drivers, network management, and various other bits and pieces.
 >
-> ![kernel overview1 RHCSA and RHCE Chapter 10   The Kernel](http://virtuallyhyper.com/wp-content/uploads/2013/06/kernel_overview1.png)
+> ![kernel overview1 RHCSA and RHCE Chapter 10   The Kernel](https://github.com/elatov/uploads/raw/master/2013/06/kernel_overview1.png)
 >
 > Probably the most important parts of the kernel (nothing else works without them) are memory management and process management. Memory management takes care of assigning memory areas and swap space areas to processes, parts of the kernel, and for the buffer cache. Process management creates processes, and implements multitasking by switching the active process on the processor.
 >
@@ -32,7 +32,7 @@ From [Conceptual Architecture of the Linux Kernel](http://oss.org.cn/ossdocs/lin
 
 > The Linux kernel is useless in isolation; it participates as one part in a larger system that, as a whole, is useful.
 >
-> ![linux system major sys RHCSA and RHCE Chapter 10   The Kernel](http://virtuallyhyper.com/wp-content/uploads/2013/06/linux_system_major_sys.png)
+> ![linux system major sys RHCSA and RHCE Chapter 10   The Kernel](https://github.com/elatov/uploads/raw/master/2013/06/linux_system_major_sys.png)
 >
 > The Linux operating system is composed of four major subsystems:
 >
@@ -55,11 +55,11 @@ From [Conceptual Architecture of the Linux Kernel](http://oss.org.cn/ossdocs/lin
 >
 > Figure 2.2 shows a high-level decomposition of the Linux kernel, where lines are drawn from dependent subsystems to the subsystems they depend on:
 >
-> ![kernel subsystem RHCSA and RHCE Chapter 10   The Kernel](http://virtuallyhyper.com/wp-content/uploads/2013/06/kernel_subsystem.png)
+> ![kernel subsystem RHCSA and RHCE Chapter 10   The Kernel](https://github.com/elatov/uploads/raw/master/2013/06/kernel_subsystem.png)
 
 Another view from [Anatomy of the Linux kernel](http://www.ibm.com/developerworks/library/l-linux-kernel/):
 
-> ![gnu linux RHCSA and RHCE Chapter 10   The Kernel](http://virtuallyhyper.com/wp-content/uploads/2013/06/gnu_linux.png)
+> ![gnu linux RHCSA and RHCE Chapter 10   The Kernel](https://github.com/elatov/uploads/raw/master/2013/06/gnu_linux.png)
 
 ### RHEL CPU Scheduler
 
@@ -276,7 +276,7 @@ From this pretty old RHEL document entitled [Understanding Virtual Memory](http:
 > **Definitions**
 > To properly understand how a Virtual Memory Manager does its job, it helps to understand what components comprise a VM. While the low level details of a VM are overwhelming for most, a high level view is nonetheless helpful in understanding how a VM works, and how it can be optimized for various workloads. A high level overview of the components that make up a Virtual memory manager is presented in Figure 1 below:
 >
-> **What Comprises a VM** ![virtual mem RHCSA and RHCE Chapter 10   The Kernel](http://virtuallyhyper.com/wp-content/uploads/2013/06/virtual_mem.png)
+> **What Comprises a VM** ![virtual mem RHCSA and RHCE Chapter 10   The Kernel](https://github.com/elatov/uploads/raw/master/2013/06/virtual_mem.png)
 >
 > **2.3 Zoned Buddy Allocator**
 > The Zoned Buddy Allocator is responsible for the management of page allocations to the entire system. This code manages lists of physically contiguous pages and maps them into the MMU page tables, so as to provide other kernel subsystems with valid physical address ranges when the kernel requests them (Physical to Virtual Address mapping is handled by a higher layer of the VM and is collapsed into the kernel subsystems block of Figure 1 ). The name Buddy Allocator is derived from the algorithm this subsystem uses to maintain it free page lists. All physical pages in RAM are cataloged by the buddy allocator and grouped into lists. Each list represents clusters of 2n pages, where n is incremented in each list. There is a list of single pages, a list of 2 page clusters, a list of 4 page cluster, and so on. When a request comes in for an amount of memory, that value is rounded up to the nearest power of 2, and a entry is removed from the appropriate list, registered in the page tables of the MMU and a corresponding physical address is returned to the caller, which is then mapped into a virtual address for kernel use. If no entries exist on the requested list, an entry from the next list up is broken into two separate clusters, and 1 is returned to the caller while the other is added to the next list down. When an allocation is returned to the buddy allocator, the reverse process happens. The allocation is returned to the requisite list, and the list is then examined to determine if a larger cluster can be made from the existing entries on the list which was just updated. This algorithm is advantageous in that it automatically returns pages to the highest order free list possible. That is to say, as allocations are returned to the free pool, they automatically form larger clusters, so that when a need arises for a large amount of physically contiguous memory (i.e. for a DMA operation), it is more likely that the request can be satisﬁed. Note that the buddy allocator allocates memory in page multiples only. Other subsystems are responsible for ﬁner grained control over allocation size. For more information regarding the ﬁner details of a buddy allocator, refer to [1](http://www.tldp.org/LDP/sag/html/kernel-parts.html). Note that the Buddy allocator also manages memory zones, which deﬁne pools of memory which have diﬀerent purposes. Currently there are three memory pools which the buddy allocator manages accesses for:
@@ -299,7 +299,7 @@ From this pretty old RHEL document entitled [Understanding Virtual Memory](http:
 > *   **INACTIVE DIRTY** - Th state indicates that the page has fallen into disuse by the entity which allocated it, and as such is a candidate for removal from main memory. The **kscand** task periodically sweeps through all the pages in memory Taking note of the amount of time the page has been in memory since it was last accessed. If kscand ﬁnds that a page has been accessed since it last visited the page, it increments the pages age counter, otherwise, it decrements that counter. If **kscand** happens on a page which has its age counter at zero, then the page is moved to the inactive dirty state. Pages in the inactive dirty state are kept in a list of pages to be laundered.
 > *   **INACTIVE CLEAN** - Pages in this state have been laundered. This means that the contents of the page are in sync with they backing data on disk. As such they may be deallocated by the VM or overwritten for other purposes.
 >
-> ![vm page states RHCSA and RHCE Chapter 10   The Kernel](http://virtuallyhyper.com/wp-content/uploads/2013/06/vm_page_states.png)
+> ![vm page states RHCSA and RHCE Chapter 10   The Kernel](https://github.com/elatov/uploads/raw/master/2013/06/vm_page_states.png)
 
 Another concise summary is seen at [Linux Performance and Tuning Guidelines](http://www.redbooks.ibm.com/redpapers/pdfs/redp4285.pdf):
 
@@ -315,7 +315,7 @@ Another concise summary is seen at [Linux Performance and Tuning Guidelines](htt
 >
 > On the other hand, with 64-bit architectures such as x86-64 (also x64), ZONE_NORMAL extends all the way to 64 GB or to 128 GB in the case of IA-64 systems. As you can see, the overhead of mapping memory pages from ZONE_HIGHMEM into ZONE_NORMAL can be eliminated by using a 64-bit architecture.
 >
-> ![memory zones RHCSA and RHCE Chapter 10   The Kernel](http://virtuallyhyper.com/wp-content/uploads/2013/06/memory_zones.png)
+> ![memory zones RHCSA and RHCE Chapter 10   The Kernel](https://github.com/elatov/uploads/raw/master/2013/06/memory_zones.png)
 >
 > **Virtual memory addressing layout**
 > Figure 1-11 shows the Linux virtual addressing layout for 32-bit and 64-bit architecture.
@@ -324,14 +324,14 @@ Another concise summary is seen at [Linux Performance and Tuning Guidelines](htt
 >
 > On the other hand, on 64-bit architecture such as x86_64 and ia64, no such restriction exits. Each single process can benefit from the vast and huge address space.
 >
-> ![memory addressing RHCSA and RHCE Chapter 10   The Kernel](http://virtuallyhyper.com/wp-content/uploads/2013/06/memory_addressing.png)
+> ![memory addressing RHCSA and RHCE Chapter 10   The Kernel](https://github.com/elatov/uploads/raw/master/2013/06/memory_addressing.png)
 >
 > **1.2.2 Virtual memory manager**
 > The physical memory architecture of an operating system is usually hidden to the application and the user because operating systems map any memory into virtual memory. If we want to understand the tuning possibilities within the Linux operating system, we have to understand how Linux handles virtual memory. As explained in 1.2.1, “Physical and virtual memory” on page 10, applications do not allocate physical memory, but request a memory map of a certain size at the Linux kernel and in exchange receive a map in virtual memory. As you can see in Figure 1-12, virtual memory does not necessarily have to be mapped into physical memory. If your application allocates a large amount of memory, some of it might be mapped to the swap file on the disk subsystem
 >
 > Figure 1-12 shows that applications usually do not write directly to the disk subsystem, but into cache or buffers. The pdflush kernel threads then flushes out data in cache/buffers to the disk when it has time to do so or if a file size exceeds the buffer cache. Refer to “Flushing a dirty buffer” on page 22.
 >
-> ![linux vmm RHCSA and RHCE Chapter 10   The Kernel](http://virtuallyhyper.com/wp-content/uploads/2013/06/linux_vmm.png)
+> ![linux vmm RHCSA and RHCE Chapter 10   The Kernel](https://github.com/elatov/uploads/raw/master/2013/06/linux_vmm.png)
 >
 > Closely connected to the way the Linux kernel handles writes to the physical disk subsystem is the way the Linux kernel manages disk cache. While other operating systems allocate only a certain portion of memory as disk cache, Linux handles the memory resource far more efficiently. The default configuration of the virtual memory manager allocates all available free memory space as disk cache. Hence it is not unusual to see productive Linux systems that boast gigabytes of memory but only have 20 MB of that memory free.
 >
@@ -342,7 +342,7 @@ Another concise summary is seen at [Linux Performance and Tuning Guidelines](htt
 >
 > Buddy system The Linux kernel maintains its free pages by using a mechanism called a buddy system. The buddy system maintains free pages and tries to allocate pages for page allocation requests. It tries to keep the memory area contiguous. If small pages are scattered without consideration, it might cause memory fragmentation and it’s more difficult to allocate a large portion of pages into a contiguous area. It could lead to inefficient memory use and performance decline. Figure 1-13 illustrates how the buddy system allocates pages.
 >
-> ![memory buddy system RHCSA and RHCE Chapter 10   The Kernel](http://virtuallyhyper.com/wp-content/uploads/2013/06/memory_buddy_system.png)
+> ![memory buddy system RHCSA and RHCE Chapter 10   The Kernel](https://github.com/elatov/uploads/raw/master/2013/06/memory_buddy_system.png)
 >
 > When the attempt of pages allocation fails, the page reclaiming is activated. Refer to “Page frame reclaiming” on page 14.
 >
@@ -670,12 +670,12 @@ From "[Anatomy of the Linux virtual file system switch](http://www.ibm.com/devel
 >
 > Finally, a removable USB flash drive (UFD) can be hot-plugged, providing yet another file system. All the while, the same set of file I/O interfaces can be used over these devices, permitting the underlying file system and physical device to be abstracted away from the user (see Figure 1).
 >
-> ![vfs abstraction layer RHCSA and RHCE Chapter 10   The Kernel](http://virtuallyhyper.com/wp-content/uploads/2013/06/vfs-abstraction-layer.png)
+> ![vfs abstraction layer RHCSA and RHCE Chapter 10   The Kernel](https://github.com/elatov/uploads/raw/master/2013/06/vfs-abstraction-layer.png)
 >
 > **Layered abstractions**
 > Now, let's add some concrete architecture to the abstract features that the Linux VFS provides. Figure 2 shows a high-level view of the Linux stack from the point of view of the VFS. Above the VFS is the standard kernel system-call interface (SCI). This interface allows calls from user-space to transition to the kernel (in different address spaces). In this domain, a user-space application invoking the POSIX open call passes through the GNU C library (glibc) into the kernel and into system call de-multiplexing. Eventually, the VFS is invoked using the call *sys_open*.
 >
-> ![vfs layered RHCSA and RHCE Chapter 10   The Kernel](http://virtuallyhyper.com/wp-content/uploads/2013/06/vfs_layered.png)
+> ![vfs layered RHCSA and RHCE Chapter 10   The Kernel](https://github.com/elatov/uploads/raw/master/2013/06/vfs_layered.png)
 >
 > The VFS provides the abstraction layer, separating the POSIX API from the details of how a particular file system implements that behavior. The key here is that Open, Read, Write, or Close API system calls work the same regardless of whether the underlying file system is ext3 or Btrfs. VFS provides a common file model that the underlying file systems inherit (they must implement behaviors for the various POSIX API functions). A further abstraction, outside of the VFS, hides the underlying physical device (which could be a disk, partition of a disk, networked storage entity, memory, or any other medium able to store information—even transiently).
 >
@@ -783,12 +783,12 @@ We can use **stat** to figure out the inode information of a file residing on a 
 >
 > At the top is the open file object, which is referenced by a process's file descriptor list. The file object refers to a dentry object, which refers to an inode. Both the inode and dentry objects refer to the underlying super_block object. Multiple file objects may refer to the same dentry (as in the case of two users sharing the same file). Note also in Figure 7 that a dentry object refers to another dentry object. In this case, a directory refers to file, which in turn refers to the inode for the particular file.
 >
-> ![vfs relationships RHCSA and RHCE Chapter 10   The Kernel](http://virtuallyhyper.com/wp-content/uploads/2013/06/vfs_relationships.png)
+> ![vfs relationships RHCSA and RHCE Chapter 10   The Kernel](https://github.com/elatov/uploads/raw/master/2013/06/vfs_relationships.png)
 >
 > **The VFS architecture**
 > The internal architecture of the VFS is made up of a dispatching layer that provides the file system abstraction and a number of caches to improve the performance of file system operations. This section explores the internal architecture and how the major objects interact (see Figure 8).
 >
-> ![vfs arch RHCSA and RHCE Chapter 10   The Kernel](http://virtuallyhyper.com/wp-content/uploads/2013/06/vfs_arch.png)
+> ![vfs arch RHCSA and RHCE Chapter 10   The Kernel](https://github.com/elatov/uploads/raw/master/2013/06/vfs_arch.png)
 >
 > The two major objects that are dynamically managed in the VFS include the dentry and inode objects. These are cached to improve the performance of accesses to the underlying file systems. When a file is opened, the dentry cache is populated with entries representing the directory levels representing the path. An inode for the object is also created representing the file. The dentry cache is built using a hash table and is hashed by the name of the object. Entries for the dentry cache are allocated from the dentry_cache slab allocator and use a least-recently-used (LRU) algorithm to prune entries when memory pressure exists. You can find the functions associated with the dentry cache in ./linux/fs/dcache.c (and ./linux/include/linux/dcache.h).
 >
@@ -846,14 +846,14 @@ From [The Performance Analysis of Linux Networking – Packet Receiving](http://
 >
 > In the following sections, we detail these three stages.
 >
-> ![kernel networking RHCSA and RHCE Chapter 10   The Kernel](http://virtuallyhyper.com/wp-content/uploads/2013/07/kernel-networking.png)
+> ![kernel networking RHCSA and RHCE Chapter 10   The Kernel](https://github.com/elatov/uploads/raw/master/2013/07/kernel-networking.png)
 >
 > **2.1 NIC and Device Driver Processing**
 > The NIC and its device driver perform the layer 1 and 2 functions of the OSI 7-layer network model: packets are received and transformed from raw physical signals, and placed into system memory, ready for higher layer processing. The Linux kernel uses a structure sk_buff to hold any single packet up to the MTU (Maximum Transfer Unit) of the network. The device driver maintains a “ring” of these packet buffers, known as a “ring buffer”, for packet reception (and a separate ring for transmission). A ring buffer consists of a device- and driver-dependent number of packet descriptors. To be able to receive a packet, a packet descriptor should be in “ready” state, which means it has been initialized and pre-allocated with an empty sk_buff which has been memory-mapped into address space accessible by the NIC over the system I/O bus. When a packet comes, one of the ready packet descriptors in the receive ring will be used, the packet will be transferred by DMA into the pre-allocated sk_buff, and the descriptor will be marked as used. A used packet descriptor should be reinitialized and refilled with an empty sk_buff as soon as possible for further incoming packets. If a packet arrives and there is no ready packet descriptor in the receive ring, it will be discarded. Once a packet is transferred into the main memory, during subsequent processing in the network stack, the packet remains at the same kernel memory location.
 >
 > Figure 2 shows a general packet receiving process at NIC and device driver level. When a packet is received, it is transferred into main memory and an interrupt is raised only after the packet is accessible to the kernel. When CPU responds to the interrupt, the driver’s interrupt handler is called, within which the
 >
-> ![kernel networking ring buffer RHCSA and RHCE Chapter 10   The Kernel](http://virtuallyhyper.com/wp-content/uploads/2013/07/kernel-networking-ring-buffer.png)
+> ![kernel networking ring buffer RHCSA and RHCE Chapter 10   The Kernel](https://github.com/elatov/uploads/raw/master/2013/07/kernel-networking-ring-buffer.png)
 >
 > The softirq is serviced shortly afterward. The CPU polls each device in its poll queue to get the received packets from the ring buffer by calling the poll method of the device driver. Each received packet is passed upwards for further protocol processing. After a received packet is dequeued from its receive ring buffer for further processing, its corresponding packet descriptor in the receive ring buffer needs to be reinitialized and refilled.
 
@@ -999,7 +999,7 @@ More from the same document:
 > **2.2.2 TCP Processing**
 > When a packet is handed upwards for TCP processing, the function tcp_v4_rcv() first performs the TCP header processing. Then the socket associated with the packet is determined, and the packet dropped if none exists. A socket has a lock structure to protect it from un-synchronized access. If the socket is locked, the packet waits on the backlog queue before being processed further. If the socket is not locked, and its Data Receiving Process is sleeping for data, the packet is added to the socket’s prequeue and will be processed in batch in the process context, instead of the interrupt context . Placing the first packet in the prequeue will wake up the sleeping data receiving process. If the prequeue mechanism does not accept the packet, which means that the socket is not locked and no process is waiting for input on it, the packet must be processed immediately by a call to tcp_v4_do_rcv(). The same function also is called to drain the backlog queue and prequeue. Those queues (except in the case of prequeue overflow) are drained in the process context, not the interrupt context of the softirq. In the case of prequeue overflow, which means that packets within the prequeue reach/exceed the socket’s receive buffer quota, those packets should be processed as soon as possible, even in the interrupt context.
 >
-> ![linux kernel ip proce RHCSA and RHCE Chapter 10   The Kernel](http://virtuallyhyper.com/wp-content/uploads/2013/07/linux_kernel_ip_proce.png)
+> ![linux kernel ip proce RHCSA and RHCE Chapter 10   The Kernel](https://github.com/elatov/uploads/raw/master/2013/07/linux_kernel_ip_proce.png)
 >
 > **2.2.3 The UDP Processing**
 > When a UDP packet arrives from the IP layer, it is passed on to udp_rcv(). udp_rcv()’s mission is to verify the integrity of the UDP packet and to queue one or more copies for delivery to multicast and broadcast sockets and exactly one copy to unicast sockets. When queuing the received packet in the receive queue of the matching socket, if there is insufficient space in the receive buffer quota of the socket, the packet may be discarded. Data within the socket’s receive buffer are ready for delivery to the user space.
@@ -1054,7 +1054,7 @@ There are a lot of parameters to tune the kernel networking. From the "[Performa
 > **8.3. Overview of Packet Reception**
 > To better analyze network bottlenecks and performance issues, you need to understand how packet reception works. Packet reception is important in network performance tuning because the receive path is where frames are often lost. Lost frames in the receive path can cause a significant penalty to network performance.
 >
-> ![RHEL packet recv RHCSA and RHCE Chapter 10   The Kernel](http://virtuallyhyper.com/wp-content/uploads/2013/07/RHEL_packet_recv.png)
+> ![RHEL packet recv RHCSA and RHCE Chapter 10   The Kernel](https://github.com/elatov/uploads/raw/master/2013/07/RHEL_packet_recv.png)
 >
 > The Linux kernel receives each frame and subjects it to a four-step process:
 >

@@ -17,7 +17,7 @@ tags:
 ---
 Recently ran into an issue when cloning a VM. The clone would start and would run and at about 99% it would fail with the following error:
 
-![clone_fail_1](http://virtuallyhyper.com/wp-content/uploads/2012/10/clone_fail_1.png)
+![clone_fail_1](https://github.com/elatov/uploads/raw/master/2012/10/clone_fail_1.png)
 
 Checking out the /var/log/vmware/hostd.log file, I saw the following error:
 

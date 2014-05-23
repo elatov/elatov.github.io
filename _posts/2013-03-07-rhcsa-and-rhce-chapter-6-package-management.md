@@ -1271,10 +1271,10 @@ Now let's see how we can create our own RPM package. There is great Fedora link 
 >     $ rpmbuild -ba NAME.spec
 >
 >
-> When invoked this way, **rpmbuild** will read the .spec file and go through in order the stages listed below. Names beginning with % are predefined macros (see the next table down). ![rpmbuild stages RHCSA and RHCE Chapter 6 Package Management](http://virtuallyhyper.com/wp-content/uploads/2013/02/rpmbuild_stages.png)
+> When invoked this way, **rpmbuild** will read the .spec file and go through in order the stages listed below. Names beginning with % are predefined macros (see the next table down). ![rpmbuild stages RHCSA and RHCE Chapter 6 Package Management](https://github.com/elatov/uploads/raw/master/2013/02/rpmbuild_stages.png)
 > As you can tell, certain directories have certain purposes in **rpmbuild**. These are:
 >
-> ![RHCSA and RHCE Chapter 6 Package Management](http://virtuallyhyper.com/wp-content/uploads/2013/02/rpmbuild_directories.png)
+> ![RHCSA and RHCE Chapter 6 Package Management](https://github.com/elatov/uploads/raw/master/2013/02/rpmbuild_directories.png)
 > If a stage fails, look at the output to see why it falied and change the .spec file (or other input) as needed.
 
 ### RPMBuild SPEC File

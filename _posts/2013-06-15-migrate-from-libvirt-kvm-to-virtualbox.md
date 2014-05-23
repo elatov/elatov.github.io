@@ -578,7 +578,7 @@ I liked the outcome: memory, CPU, and hard disk information was correct. I decid
 
 I then launched VirtualBox and powered on the VM, it booted without any issues:
 
-![successful boot after migration Migrate from Libvirt KVM to Virtualbox](http://virtuallyhyper.com/wp-content/uploads/2013/05/successful_boot_after_migration.png)
+![successful boot after migration Migrate from Libvirt KVM to Virtualbox](https://github.com/elatov/uploads/raw/master/2013/05/successful_boot_after_migration.png)
 
 <root>
 </root>

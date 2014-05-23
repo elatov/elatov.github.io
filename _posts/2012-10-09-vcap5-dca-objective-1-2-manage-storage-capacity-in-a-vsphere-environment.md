@@ -16,7 +16,7 @@ tags:
 
 For protocols we have Fibre Channel, iSCSI, NFS, FCoE. Check out "[Storage Protocol Comparison – A vSphere Perspective](http://blogs.vmware.com/vsphere/2012/02/storage-protocol-comparison-a-vsphere-perspective.html)" to find out what the differences are. Here is a snippet from that page:
 
-![storage_protocols](http://virtuallyhyper.com/wp-content/uploads/2012/09/storage_protocols.png)
+![storage_protocols](https://github.com/elatov/uploads/raw/master/2012/09/storage_protocols.png)
 
 For vmdks we have, Lazy Zeroed Thick, Eager Zeroed Thick, and Thin. From the "[vSphere Storage ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf)":
 
@@ -36,23 +36,23 @@ For vmdks we have, Lazy Zeroed Thick, Eager Zeroed Thick, and Thin. From the "[v
 
 To check for different storage aspects you can use storage views. Check out "[Using VMware vSphere Storage Views](http://www.virtualizationadmin.com/articles-tutorials/vmware-esx-and-vsphere-articles/storage-management/using-vmware-vsphere-storage-views.html)". Go to "Datastore" View -> Click on a datastore -> Click on the "Storage View" Tab. It should look like this:
 
-![storage_view_vms](http://virtuallyhyper.com/wp-content/uploads/2012/09/storage_view_vms.png)
+![storage_view_vms](https://github.com/elatov/uploads/raw/master/2012/09/storage_view_vms.png)
 
 You can also use the Storage Maps to see how you connections look like. Go to the same view as above and then change the view to "Maps". It might look something like this:
 
-![datastore_maps](http://virtuallyhyper.com/wp-content/uploads/2012/09/datastore_maps.png)
+![datastore_maps](https://github.com/elatov/uploads/raw/master/2012/09/datastore_maps.png)
 
 For Alarms regarding storage go to "Datastore" View -> Select a Datastore -> Then Select the "Alarms" Tab. You will see predefined alarms for datastores. Something like this:
 
-![datastore_alarms](http://virtuallyhyper.com/wp-content/uploads/2012/09/datastore_alarms.png)
+![datastore_alarms](https://github.com/elatov/uploads/raw/master/2012/09/datastore_alarms.png)
 
 You can also check out storage metrics by going to the performance tab. It will look something like this:
 
-![performance_tab_datastore](http://virtuallyhyper.com/wp-content/uploads/2012/09/performance_tab_datastore.png)
+![performance_tab_datastore](https://github.com/elatov/uploads/raw/master/2012/09/performance_tab_datastore.png)
 
 You can also look at the performance from the host view. Go to "Host and Clusters" View -> Select a Host -> Select the Performance Tab -> Select "Advanced" -> Then Switch to "Disk" or "Datastore". It will look something like this:
 
-![host_disk_performance](http://virtuallyhyper.com/wp-content/uploads/2012/09/host_disk_performance.png)
+![host_disk_performance](https://github.com/elatov/uploads/raw/master/2012/09/host_disk_performance.png)
 
 If you want to really check metrics, fire up esxtop and go to the Disk or LUN view. We will discuss that in detail in later objectives.
 
@@ -89,11 +89,11 @@ Same as [Objective 1.1](http://virtuallyhyper.com/2012/10/vcap5-dca-objective-1-
 
 Go To "File" -> "New" -> "Alarm" and then you will see something like this:
 
-![create_new_alarm](http://virtuallyhyper.com/wp-content/uploads/2012/09/create_new_alarm.png)
+![create_new_alarm](https://github.com/elatov/uploads/raw/master/2012/09/create_new_alarm.png)
 
 Go to the "Trigger" tab -> Right Click on the white space -> Select "New Trigger" -> Select a trigger from the drop down menu. It will look something like this:
 
-![select_trigger_for_alarm](http://virtuallyhyper.com/wp-content/uploads/2012/09/select_trigger_for_alarm.png)
+![select_trigger_for_alarm](https://github.com/elatov/uploads/raw/master/2012/09/select_trigger_for_alarm.png)
 
 Select the Warning and Alert limits. Under the Actions Tab, select whether you want to "Send a notification email", "Send a notification trap", or "Run a command". And you are all set.
 
@@ -148,35 +148,35 @@ Now to the actual process:
 > 1.  In the Datastores and Datastore Clusters view of the vSphere Client inventory, right-click the Datacenter object and select New Datastore Cluster.
 > 2.  Follow the prompts to complete the Create Datastore Cluster wizard.
 
-![right_click_datastore_view](http://virtuallyhyper.com/wp-content/uploads/2012/09/right_click_datastore_view.png)
+![right_click_datastore_view](https://github.com/elatov/uploads/raw/master/2012/09/right_click_datastore_view.png)
 
 Fill Out the Name:
 
-![Name_Storage_DRS_Cluster](http://virtuallyhyper.com/wp-content/uploads/2012/09/Name_Storage_DRS_Cluster.png)
+![Name_Storage_DRS_Cluster](https://github.com/elatov/uploads/raw/master/2012/09/Name_Storage_DRS_Cluster.png)
 
 Set the Automation Level:
 
-![SDRS_Automation_level](http://virtuallyhyper.com/wp-content/uploads/2012/09/SDRS_Automation_level.png)
+![SDRS_Automation_level](https://github.com/elatov/uploads/raw/master/2012/09/SDRS_Automation_level.png)
 
 Set the Threshold Limits:
 
-![SDRS_Threshold_limits](http://virtuallyhyper.com/wp-content/uploads/2012/09/SDRS_Threshold_limits.png)
+![SDRS_Threshold_limits](https://github.com/elatov/uploads/raw/master/2012/09/SDRS_Threshold_limits.png)
 
 Select Cluster to enable Storage DRS on:
 
-![SDRS_Select_Hosts](http://virtuallyhyper.com/wp-content/uploads/2012/09/SDRS_Select_Hosts.png)
+![SDRS_Select_Hosts](https://github.com/elatov/uploads/raw/master/2012/09/SDRS_Select_Hosts.png)
 
 Select Datastores to participate in the Storage DRS Cluster:
 
-![SDRS_Select_Datastore](http://virtuallyhyper.com/wp-content/uploads/2012/09/SDRS_Select_Datastore.png)
+![SDRS_Select_Datastore](https://github.com/elatov/uploads/raw/master/2012/09/SDRS_Select_Datastore.png)
 
 Click Finish on the Summary Page:
 
-![SDRS_Summary_page](http://virtuallyhyper.com/wp-content/uploads/2012/09/SDRS_Summary_page.png)
+![SDRS_Summary_page](https://github.com/elatov/uploads/raw/master/2012/09/SDRS_Summary_page.png)
 
 You will see the datastore cluster that you created, like so:
 
-![datastore_cluster_view_with_dscl](http://virtuallyhyper.com/wp-content/uploads/2012/09/datastore_cluster_view_with_dscl.png)
+![datastore_cluster_view_with_dscl](https://github.com/elatov/uploads/raw/master/2012/09/datastore_cluster_view_with_dscl.png)
 
 Now going back to guide:
 
@@ -204,7 +204,7 @@ Now going back to guide:
 
 It will look something like this:
 
-![enable_datastore_cluster](http://virtuallyhyper.com/wp-content/uploads/2012/09/enable_datastore_cluster.png)
+![enable_datastore_cluster](https://github.com/elatov/uploads/raw/master/2012/09/enable_datastore_cluster.png)
 
 After that, whatever Storage DRS settings you setup will be applied.
 

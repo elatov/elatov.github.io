@@ -15,15 +15,15 @@ tags:
 
 From the [US BrownBag Objective 1](http://www.slideshare.net/ProfessionalVMware/professionalvmware-brownbag-jason-boche-vcapdcd-objective-1) Slide Deck:
 
-![arch-vision](http://virtuallyhyper.com/wp-content/uploads/2012/08/arch-vision.png)
+![arch-vision](https://github.com/elatov/uploads/raw/master/2012/08/arch-vision.png)
 
 and from the [APAC BrownBag Session 1 Slide Deck](http://portal.sliderocket.com/BLIHZ/VCAP5-DCD-BrownBag---Session-1):
 
-![rcar](http://virtuallyhyper.com/wp-content/uploads/2012/08/rcar.png)
+![rcar](https://github.com/elatov/uploads/raw/master/2012/08/rcar.png)
 
 ### Given a statement, determine whether it is a risk, requirement, a constraint, or an assumption
 
-From this [PDF](http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.pdf):
+From this [PDF](https://github.com/elatov/uploads/raw/master/2013/04/vcap-dcd_notes.pdf):
 
 > **Architectural Vision: A high level vision for the project** includes the following aspects:
 >
@@ -53,7 +53,7 @@ Also good examples can be found here:
 
 From the [US BrownBag Objective 1](http://www.slideshare.net/ProfessionalVMware/professionalvmware-brownbag-jason-boche-vcapdcd-objective-1) Slide Deck:
 
-![best-practices-rules](http://virtuallyhyper.com/wp-content/uploads/2012/08/best-practices-rules.png)
+![best-practices-rules](https://github.com/elatov/uploads/raw/master/2012/08/best-practices-rules.png)
 
 Basically try to be flexible with best practices, not everything falls under best practices or a certain criteria. For this section the Blue Print has a link to an excellent document from Glasshouse, I would definitely recommend reading it: [Developing Your Virtualization Strategy and Deployment Plan](http://communities.vmware.com/docs/DOC-17431)
 

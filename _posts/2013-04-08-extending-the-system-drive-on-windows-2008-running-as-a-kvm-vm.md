@@ -64,23 +64,23 @@ Power on the VM and from within Windows run:
 
 And you will see the following:
 
-![windows disk mgmt Extending the System Drive on Windows 2008 Running Under KVM](http://virtuallyhyper.com/wp-content/uploads/2013/04/windows_disk_mgmt.png)
+![windows disk mgmt Extending the System Drive on Windows 2008 Running Under KVM](https://github.com/elatov/uploads/raw/master/2013/04/windows_disk_mgmt.png)
 
 Then right click on the **C:** partition and then select "Extend Volume":
 
-![right click c part Extending the System Drive on Windows 2008 Running Under KVM](http://virtuallyhyper.com/wp-content/uploads/2013/04/right_click_c-part.png)
+![right click c part Extending the System Drive on Windows 2008 Running Under KVM](https://github.com/elatov/uploads/raw/master/2013/04/right_click_c-part.png)
 
 Then the "Extend Volume Wizard" will startup:
 
-![extend volume wizard Extending the System Drive on Windows 2008 Running Under KVM](http://virtuallyhyper.com/wp-content/uploads/2013/04/extend_volume_wizard.png)
+![extend volume wizard Extending the System Drive on Windows 2008 Running Under KVM](https://github.com/elatov/uploads/raw/master/2013/04/extend_volume_wizard.png)
 
 Click "Next" and it will automatically select the available space on that disk:
 
-![select disks extend volume Extending the System Drive on Windows 2008 Running Under KVM](http://virtuallyhyper.com/wp-content/uploads/2013/04/select_disks_extend_volume.png)
+![select disks extend volume Extending the System Drive on Windows 2008 Running Under KVM](https://github.com/elatov/uploads/raw/master/2013/04/select_disks_extend_volume.png)
 
 In our case we have 5GB available which as I mentioned is automatically selected. At this point just click "Next" and then "Finish". After the process is finished, you will see the **C:** partition take up the rest of the drive:
 
-![c part extended Extending the System Drive on Windows 2008 Running Under KVM](http://virtuallyhyper.com/wp-content/uploads/2013/04/c_part_extended.png)
+![c part extended Extending the System Drive on Windows 2008 Running Under KVM](https://github.com/elatov/uploads/raw/master/2013/04/c_part_extended.png)
 
 Now we can apply more updates :)
 

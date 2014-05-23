@@ -87,7 +87,7 @@ Notice the "mounted" field is showing up now. Here is how the routing table look
 
 So here is how the network looked like:
 
-![static_route_example](http://virtuallyhyper.com/wp-content/uploads/2012/11/static_route_example.jpg)
+![static_route_example](https://github.com/elatov/uploads/raw/master/2012/11/static_route_example.jpg)
 
 In the beginning we were connecting through the top switch (mgmt_switch) and since the new security in place, we couldn't go that way. After we added the static route, we were connecting through the bottom switch (NFS_Switch) and that is the way it's supposed to be. I realize the setup is not the best, and the best way to fix this would be to put the NAS server on the same network (10.178.46.x) as the NFS interface (for performance and security reasons) but some times the physical setup is outside of our control.
 

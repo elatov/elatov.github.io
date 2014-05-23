@@ -228,7 +228,7 @@ So we have a FAS3240 running ONTAP version 8.0.3P3.
 
 Now before we go down further, we should take a look at the logical view of how NetApp handles it's storage. From "[The Benefits of Converged Networking with NetApp FAS6280 and Intel Xeon Servers](http://www.buynetappstorage.com/download/netapp_fas6200_technical_report.pdf)",we see the following:
 
-![ontap_logical_view](http://virtuallyhyper.com/wp-content/uploads/2012/11/ontap_logical_view.png)
+![ontap_logical_view](https://github.com/elatov/uploads/raw/master/2012/11/ontap_logical_view.png)
 
 ### ONTAP Aggregates
 

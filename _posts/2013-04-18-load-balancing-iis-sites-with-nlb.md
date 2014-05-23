@@ -15,7 +15,7 @@ tags:
 ---
 Here is quick diagram of what I was trying to achieve:
 
-![NLB IIS Load Balancing IIS Sites with NLB](http://virtuallyhyper.com/wp-content/uploads/2013/04/NLB_IIS.jpg)
+![NLB IIS Load Balancing IIS Sites with NLB](https://github.com/elatov/uploads/raw/master/2013/04/NLB_IIS.jpg)
 
 **IIS-1**
 
@@ -105,7 +105,7 @@ On the first IIS Server start the Server Manager by running:
 
 Then go to "Features" -> "Add Features". From the list select "Network Load Balancing":
 
-![server manager NLB selected Load Balancing IIS Sites with NLB](http://virtuallyhyper.com/wp-content/uploads/2013/04/server_manager_NLB_selected.png)
+![server manager NLB selected Load Balancing IIS Sites with NLB](https://github.com/elatov/uploads/raw/master/2013/04/server_manager_NLB_selected.png)
 
 Click "Next", "Install", and let the install go through.
 
@@ -118,27 +118,27 @@ Once NLB is installed on both IIS Servers, go to first IIS server (iis-1) and ru
 
 That will launch the "Network Load Balancing Manager":
 
-![nlbmgr started Load Balancing IIS Sites with NLB](http://virtuallyhyper.com/wp-content/uploads/2013/04/nlbmgr-started.png)
+![nlbmgr started Load Balancing IIS Sites with NLB](https://github.com/elatov/uploads/raw/master/2013/04/nlbmgr-started.png)
 
 Then from the Menu Bar go to "Cluster" -> "New":
 
-![nlb mgr cluster new g Load Balancing IIS Sites with NLB](http://virtuallyhyper.com/wp-content/uploads/2013/04/nlb_mgr_cluster_new_g.png)
+![nlb mgr cluster new g Load Balancing IIS Sites with NLB](https://github.com/elatov/uploads/raw/master/2013/04/nlb_mgr_cluster_new_g.png)
 
 In the "New Cluster" wizard enter the first IIS Server's hostname (in my case it was 'iis-1') for the host field and click on "Connect". After you hit connect it will connect to the IIS server and provide a list of available interfaces on the Web Server. Choose the primary interface (192.168.250.47):
 
-![nlbmgr ints from host Load Balancing IIS Sites with NLB](http://virtuallyhyper.com/wp-content/uploads/2013/04/nlbmgr-ints-from-host.png)
+![nlbmgr ints from host Load Balancing IIS Sites with NLB](https://github.com/elatov/uploads/raw/master/2013/04/nlbmgr-ints-from-host.png)
 
 After you click "Next" you will see the "Host Parameters" window, you can leave all the default options here:
 
-![nlbmgr host params Load Balancing IIS Sites with NLB](http://virtuallyhyper.com/wp-content/uploads/2013/04/nlbmgr_host_params.png)
+![nlbmgr host params Load Balancing IIS Sites with NLB](https://github.com/elatov/uploads/raw/master/2013/04/nlbmgr_host_params.png)
 
 Click "Next" and it will take you to the "Cluster IP Addresses" screen:
 
-![nlbmgr cluster ips Load Balancing IIS Sites with NLB](http://virtuallyhyper.com/wp-content/uploads/2013/04/nlbmgr-cluster-ips.png)
+![nlbmgr cluster ips Load Balancing IIS Sites with NLB](https://github.com/elatov/uploads/raw/master/2013/04/nlbmgr-cluster-ips.png)
 
 From here click "Add" and enter the IP that will be used as the "Cluster" IP address. In my case it was 192.168.250.51:
 
-![nlbmgr add ip ad Load Balancing IIS Sites with NLB](http://virtuallyhyper.com/wp-content/uploads/2013/04/nlbmgr_add_ip-ad.png)
+![nlbmgr add ip ad Load Balancing IIS Sites with NLB](https://github.com/elatov/uploads/raw/master/2013/04/nlbmgr_add_ip-ad.png)
 
 Click "OK", then click "Next", and you will get to the "Cluster Parameters" page. On this screen fill in the "Full Internet Name" of the cluster (cluster.elatov.local) and leave the Operation Mode in **Unicast** (any mode will work as long as the cluster can converge).
 
@@ -148,15 +148,15 @@ If you select *Multicast* mode your upstream switch will have to support multica
 
 Here is how my "Cluster Parameters" screen looked like:
 
-![nlbmgr clus params filled out Load Balancing IIS Sites with NLB](http://virtuallyhyper.com/wp-content/uploads/2013/04/nlbmgr_clus_params_filled_out.png)
+![nlbmgr clus params filled out Load Balancing IIS Sites with NLB](https://github.com/elatov/uploads/raw/master/2013/04/nlbmgr_clus_params_filled_out.png)
 
 After you click "Next" you will see the "Port Rules" screen:
 
-![nlbmgr port rules Load Balancing IIS Sites with NLB](http://virtuallyhyper.com/wp-content/uploads/2013/04/nlbmgr_port_rules.png)
+![nlbmgr port rules Load Balancing IIS Sites with NLB](https://github.com/elatov/uploads/raw/master/2013/04/nlbmgr_port_rules.png)
 
 If you click "Edit" it will show you the default rule set:
 
-![nlbmgr edit port rule Load Balancing IIS Sites with NLB](http://virtuallyhyper.com/wp-content/uploads/2013/04/nlbmgr_edit_port_rule.png)
+![nlbmgr edit port rule Load Balancing IIS Sites with NLB](https://github.com/elatov/uploads/raw/master/2013/04/nlbmgr_edit_port_rule.png)
 
 By default it's setup to load balance all the ports "0-65535" and that will work for our setup. If you wanted to be pedantic you could create one rule to only balance port 80, but the default is okay. Now the *Affinity* setting is noteworthy, cause it basically decides how the load balancing occurs. [This](http://technet.microsoft.com/en-us/library/cc778263%28v=ws.10%29.aspx) Microsoft article explains the different modes, here are the important excerpts:
 
@@ -166,27 +166,27 @@ By default it's setup to load balance all the ports "0-65535" and that will work
 
 Both of the IIS Servers weren't using any sessions so the *Affinity* didn't really matter in my setup, so I left the default "Single" option. At this point we are ready to click "Finish" and as soon as we do we will see the first Node getting added to the cluster. If it's successful we will see the following:
 
-![nlbmgr node1 added Load Balancing IIS Sites with NLB](http://virtuallyhyper.com/wp-content/uploads/2013/04/nlbmgr_node1_added.png)
+![nlbmgr node1 added Load Balancing IIS Sites with NLB](https://github.com/elatov/uploads/raw/master/2013/04/nlbmgr_node1_added.png)
 
 Now to add the second node. Right click on the cluster and select "Add Host To Cluster":
 
-![nlbmgr add host to cluster g Load Balancing IIS Sites with NLB](http://virtuallyhyper.com/wp-content/uploads/2013/04/nlbmgr_add_host_to_cluster_g.png)
+![nlbmgr add host to cluster g Load Balancing IIS Sites with NLB](https://github.com/elatov/uploads/raw/master/2013/04/nlbmgr_add_host_to_cluster_g.png)
 
 In the host field enter the hostname of the second IIS server (iis-2) and click connect. If the connection is successful you will see a list of Interfaces on that Web Server:
 
-![nlbmgr interface second node Load Balancing IIS Sites with NLB](http://virtuallyhyper.com/wp-content/uploads/2013/04/nlbmgr_interface_second_node.png)
+![nlbmgr interface second node Load Balancing IIS Sites with NLB](https://github.com/elatov/uploads/raw/master/2013/04/nlbmgr_interface_second_node.png)
 
 Select the Primary Interface and click "Next" and you will be taken to the "Host Parameters" screen:
 
-![nlbmgr host params2 Load Balancing IIS Sites with NLB](http://virtuallyhyper.com/wp-content/uploads/2013/04/nlbmgr_host_params2.png)
+![nlbmgr host params2 Load Balancing IIS Sites with NLB](https://github.com/elatov/uploads/raw/master/2013/04/nlbmgr_host_params2.png)
 
 Leave the defaults and click "Next". You will then be taken to the same "Port Rules" screen. Click Edit and make sure "Single" mode is selected for the *Affinity* setting:
 
-![nlbmgr edit rule node2 Load Balancing IIS Sites with NLB](http://virtuallyhyper.com/wp-content/uploads/2013/04/nlbmgr_edit_rule_node2.png)
+![nlbmgr edit rule node2 Load Balancing IIS Sites with NLB](https://github.com/elatov/uploads/raw/master/2013/04/nlbmgr_edit_rule_node2.png)
 
 All of the above looks correct and we can hit "OK" to go to the previous window and then click "Finish" to add the Node to the cluster. You will see the node converging and if all goes well you will see both nodes converged:
 
-![nlbmgr converged node2 Load Balancing IIS Sites with NLB](http://virtuallyhyper.com/wp-content/uploads/2013/04/nlbmgr_converged_node2.png)
+![nlbmgr converged node2 Load Balancing IIS Sites with NLB](https://github.com/elatov/uploads/raw/master/2013/04/nlbmgr_converged_node2.png)
 
 ### Windows 2003 Weak Host Receive and Send Models(Optional)
 
@@ -220,7 +220,7 @@ On the IIS-2 create the same file (**c:\inetpub\wwwroot\test.html**) with the fo
 
 Now from the client machine in the Browser go to **http://cluster/test.html**. At this point one of the nodes will be picked and you will see this:
 
-![chrome test IIS 1 Load Balancing IIS Sites with NLB](http://virtuallyhyper.com/wp-content/uploads/2013/04/chrome_test_IIS-1.png)
+![chrome test IIS 1 Load Balancing IIS Sites with NLB](https://github.com/elatov/uploads/raw/master/2013/04/chrome_test_IIS-1.png)
 
 Since we chose "Single" for our Affinity mode, if you go to page again, it will take you to the same IIS server. So let's go ahead and stop the node that we are currently going to. As you can see in my case that is IIS-2. So from IIS-1, launch the "Network Load Balancing Manager" by running:
 
@@ -229,15 +229,15 @@ Since we chose "Single" for our Affinity mode, if you go to page again, it will 
 
 From the NLB Manager right click on our node and go to "Control Host" -> "Stop":
 
-![nlbmgr stop host Load Balancing IIS Sites with NLB](http://virtuallyhyper.com/wp-content/uploads/2013/04/nlbmgr_stop_host.png)
+![nlbmgr stop host Load Balancing IIS Sites with NLB](https://github.com/elatov/uploads/raw/master/2013/04/nlbmgr_stop_host.png)
 
 If the process is successful you will see the node in a "Red" state:
 
-![nlbmgr 2nd node stopped Load Balancing IIS Sites with NLB](http://virtuallyhyper.com/wp-content/uploads/2013/04/nlbmgr_2nd_node_stopped.png)
+![nlbmgr 2nd node stopped Load Balancing IIS Sites with NLB](https://github.com/elatov/uploads/raw/master/2013/04/nlbmgr_2nd_node_stopped.png)
 
 Now from the client go to the same page (**http://cluster/test.html**) and you should see the following:
 
-![chrome test IIS2 Load Balancing IIS Sites with NLB](http://virtuallyhyper.com/wp-content/uploads/2013/04/chrome_test_IIS2.png)
+![chrome test IIS2 Load Balancing IIS Sites with NLB](https://github.com/elatov/uploads/raw/master/2013/04/chrome_test_IIS2.png)
 
 Now we know NLB is working properly, go back to the NLB Manager and start the node back up.
 

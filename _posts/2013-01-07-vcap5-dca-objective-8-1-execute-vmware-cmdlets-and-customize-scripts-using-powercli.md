@@ -76,23 +76,23 @@ Here are some examples.
 
 Download the package from My VMware:
 
-![my vmware powercli VCAP5 DCA Objective 8.1 – Execute VMware Cmdlets and Customize Scripts Using PowerCLI ](http://virtuallyhyper.com/wp-content/uploads/2012/12/my_vmware_powercli.png)
+![my vmware powercli VCAP5 DCA Objective 8.1 – Execute VMware Cmdlets and Customize Scripts Using PowerCLI ](https://github.com/elatov/uploads/raw/master/2012/12/my_vmware_powercli.png)
 
 Once downloaded you will see the following in your downloads folder:
 
-![powercli install package VCAP5 DCA Objective 8.1 – Execute VMware Cmdlets and Customize Scripts Using PowerCLI ](http://virtuallyhyper.com/wp-content/uploads/2012/12/powercli_install_package.png)
+![powercli install package VCAP5 DCA Objective 8.1 – Execute VMware Cmdlets and Customize Scripts Using PowerCLI ](https://github.com/elatov/uploads/raw/master/2012/12/powercli_install_package.png)
 
 Double Click on the install executable and follow the on-screen instructions:
 
-![powercli install screen VCAP5 DCA Objective 8.1 – Execute VMware Cmdlets and Customize Scripts Using PowerCLI ](http://virtuallyhyper.com/wp-content/uploads/2012/12/powercli_install_screen.png)
+![powercli install screen VCAP5 DCA Objective 8.1 – Execute VMware Cmdlets and Customize Scripts Using PowerCLI ](https://github.com/elatov/uploads/raw/master/2012/12/powercli_install_screen.png)
 
 After the install is finished, you will see the following on your Desktop:
 
-![powercli icon VCAP5 DCA Objective 8.1 – Execute VMware Cmdlets and Customize Scripts Using PowerCLI ](http://virtuallyhyper.com/wp-content/uploads/2012/12/powercli_icon.png)
+![powercli icon VCAP5 DCA Objective 8.1 – Execute VMware Cmdlets and Customize Scripts Using PowerCLI ](https://github.com/elatov/uploads/raw/master/2012/12/powercli_icon.png)
 
 Double Clicking on the "PowerCLi" Icon will start PowerCLI:
 
-![powercli started VCAP5 DCA Objective 8.1 – Execute VMware Cmdlets and Customize Scripts Using PowerCLI ](http://virtuallyhyper.com/wp-content/uploads/2012/12/powercli_started.png)
+![powercli started VCAP5 DCA Objective 8.1 – Execute VMware Cmdlets and Customize Scripts Using PowerCLI ](https://github.com/elatov/uploads/raw/master/2012/12/powercli_started.png)
 
 Notice that I also enabled 'remotesigned' execution of scripts.
 
@@ -111,7 +111,7 @@ From "[vSphere PowerCLI User’s Guide PowerCLI 5.0](http://pubs.vmware.com/vsph
 
 After enabling the appropriate Execution policy, the powercli console will look like this when started:
 
-![powercli without issues VCAP5 DCA Objective 8.1 – Execute VMware Cmdlets and Customize Scripts Using PowerCLI ](http://virtuallyhyper.com/wp-content/uploads/2012/12/powercli_without_issues.png)
+![powercli without issues VCAP5 DCA Objective 8.1 – Execute VMware Cmdlets and Customize Scripts Using PowerCLI ](https://github.com/elatov/uploads/raw/master/2012/12/powercli_without_issues.png)
 
 ### Install and configure Update Manager PowerShell Library
 

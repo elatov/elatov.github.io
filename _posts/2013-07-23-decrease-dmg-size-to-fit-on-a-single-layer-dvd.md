@@ -248,11 +248,11 @@ Luckily, I had iDefrag :). Mount your Sparse image:
 
 then start up iDefrag and you will see you drive there. Click "Go" and it will start defragmenting:
 
-![iDefrag started Decrease DMG Size to Fit on a Single Layer DVD](http://virtuallyhyper.com/wp-content/uploads/2013/07/iDefrag_started.png)
+![iDefrag started Decrease DMG Size to Fit on a Single Layer DVD](https://github.com/elatov/uploads/raw/master/2013/07/iDefrag_started.png)
 
 after it's done you will the following message:
 
-![iDefrag finished Decrease DMG Size to Fit on a Single Layer DVD](http://virtuallyhyper.com/wp-content/uploads/2013/07/iDefrag_finished.png)
+![iDefrag finished Decrease DMG Size to Fit on a Single Layer DVD](https://github.com/elatov/uploads/raw/master/2013/07/iDefrag_finished.png)
 
 at this point you can quit iDefrag and unmount the Sparse Image:
 
@@ -456,24 +456,24 @@ From the bottom link (Mac OS X hints), here is a snippet of the code that can ac
 
 	#!/bin/bash
 	rm -f /private/tmp/Mountain\ Lion\ DVD\ Image\ read-write.dmg # Remove any old copies of the DVD image before we begin.
-	
+
 	echo "Creating DVD Image..."
 	hdiutil create -size 4.2g -volname "Mac OS X Install ESD" /private/tmp/Mountain\ Lion\ DVD\ Image\ read-write.dmg -fs HFS+ -layout SPUD
-	
+
 	hdiutil attach -nobrowse ~/Desktop/InstallESD.dmg
 	hdiutil attach -nobrowse /private/tmp/Mountain\ Lion\ DVD\ Image\ read-write.dmg
-	
+
 	echo "Copying Mountain Lion to new image..."
 	cp -pRv /Volumes/Mac\ OS\ X\ Install\ ESD/* /Volumes/Mac\ OS\ X\ Install\ ESD\ 1/
-	
+
 	hdiutil detach /Volumes/Mac\ OS\ X\ Install\ ESD\ 1
 	hdiutil detach /Volumes/Mac\ OS\ X\ Install\ ESD
-	
+
 	echo "Converting to read-only..."
 	hdiutil convert /private/tmp/Mountain\ Lion\ DVD\ Image\ read-write.dmg -format UDZO -o ~/Desktop/Mountain\ Lion\ DVD\ Image.dmg
-	
+
 	rm -f /private/tmp/Mountain\ Lion\ DVD\ Image\ read-write.dmg
-	
+
 	echo "Image Creation Complete. Please burn '~/Desktop/Mountain Lion DVD Image.dmg' to a DVD using Disk Utility."
 	open ~/Desktop/
 

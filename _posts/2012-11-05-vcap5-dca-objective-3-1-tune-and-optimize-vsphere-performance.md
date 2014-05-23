@@ -181,7 +181,7 @@ From "[vSphere Resource Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/t
 
 Here is how it looks in the vCenter:
 
-![host_advanced_settings](http://virtuallyhyper.com/wp-content/uploads/2012/10/host_advanced_settings.png)
+![host_advanced_settings](https://github.com/elatov/uploads/raw/master/2012/10/host_advanced_settings.png)
 
 ### Configure and apply advanced Virtual Machine attributes
 
@@ -197,7 +197,7 @@ From "[vSphere Resource Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/t
 
 Here is how it looks like in vCenter:
 
-![advanced_settings_VM](http://virtuallyhyper.com/wp-content/uploads/2012/10/advanced_settings_VM.png)
+![advanced_settings_VM](https://github.com/elatov/uploads/raw/master/2012/10/advanced_settings_VM.png)
 
 ### Configure advanced cluster attributes
 
@@ -212,9 +212,9 @@ From "[vSphere Availability ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/co
 
 Here is how it looks like from vCenter:
 
-![advanced_settings_HA](http://virtuallyhyper.com/wp-content/uploads/2012/10/advanced_settings_HA.png)
+![advanced_settings_HA](https://github.com/elatov/uploads/raw/master/2012/10/advanced_settings_HA.png)
 
 In the same Cluster Settings Window you can edit DRS options as well. Here is how it looks like from vCenter:
 
-![DRS_Advanced_options](http://virtuallyhyper.com/wp-content/uploads/2012/10/DRS_Advanced_options.png)
+![DRS_Advanced_options](https://github.com/elatov/uploads/raw/master/2012/10/DRS_Advanced_options.png)
 

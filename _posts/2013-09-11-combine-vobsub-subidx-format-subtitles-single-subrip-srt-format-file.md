@@ -49,7 +49,7 @@ There is a lot more information regarding SubRip available here:
 
 So SubRip Format is a text file with the subtitles and timing included (again, overly simplified). There are actually a bunch of other formats. Here is a table from the wikipedia page:
 
-![different format of subtitles Combine VobSub (sub/idx) Format Subtitles into a Single SubRip (srt) Format File](http://virtuallyhyper.com/wp-content/uploads/2013/09/different_format_of_subtitles.png)
+![different format of subtitles Combine VobSub (sub/idx) Format Subtitles into a Single SubRip (srt) Format File](https://github.com/elatov/uploads/raw/master/2013/09/different_format_of_subtitles.png)
 
 But I will just be working with **vobsub** and **srt**.
 
@@ -178,7 +178,7 @@ You can take a look and see how the image looks like with the following command:
 
 and it will look something like this:
 
-![feh after subtittle2pgm Combine VobSub (sub/idx) Format Subtitles into a Single SubRip (srt) Format File](http://virtuallyhyper.com/wp-content/uploads/2013/09/feh_after_subtittle2pgm.png)
+![feh after subtittle2pgm Combine VobSub (sub/idx) Format Subtitles into a Single SubRip (srt) Format File](https://github.com/elatov/uploads/raw/master/2013/09/feh_after_subtittle2pgm.png)
 
 You will also see a **.srtx** file, this is a description file of the converted images. Here is a snippet from that file:
 
@@ -254,7 +254,7 @@ or this
 
 Both will ask you to fix words along the way. Here is how it will look like from the terminal:
 
-![aspell fix spelling Combine VobSub (sub/idx) Format Subtitles into a Single SubRip (srt) Format File](http://virtuallyhyper.com/wp-content/uploads/2013/09/aspell_fix_spelling.png)
+![aspell fix spelling Combine VobSub (sub/idx) Format Subtitles into a Single SubRip (srt) Format File](https://github.com/elatov/uploads/raw/master/2013/09/aspell_fix_spelling.png)
 
 **subtitleripper** actually provides a **sed** file to do this for us. So we can run this:
 
@@ -343,7 +343,7 @@ the **-s** specifies the subtitle ID (so I am picking the first english subtitle
 
 Here is how an example image looked like:
 
-![feh after subp2pgm Combine VobSub (sub/idx) Format Subtitles into a Single SubRip (srt) Format File](http://virtuallyhyper.com/wp-content/uploads/2013/09/feh_after_subp2pgm.png)
+![feh after subp2pgm Combine VobSub (sub/idx) Format Subtitles into a Single SubRip (srt) Format File](https://github.com/elatov/uploads/raw/master/2013/09/feh_after_subp2pgm.png)
 
 You can see that the images generated from **subtitle2pgm** (from the **subtitleripper** package) didn't have a grey outline around the characters, where the images generated from **subp2pgm** do. Actually the **subtitle2p2gm** utility is a little more flexible and allows you to choose the font and background colors. From the **subtitle2pgm** read-me page (**/usr/share/doc/subtitleripper-0.3/README.subtitle2pgm**):
 

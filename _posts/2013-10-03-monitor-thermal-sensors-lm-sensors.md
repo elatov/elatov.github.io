@@ -82,7 +82,7 @@ It looks like it found the **asb100** chip. This was a very old P4 machine, here
 
 Checking the supported devices from the lm-sensors [page](http://lm-sensors.org/wiki/Devices). I saw the following:
 
-![lm sensors devices asus Monitor Thermal Sensors With lm sensors](http://virtuallyhyper.com/wp-content/uploads/2013/09/lm-sensors-devices-asus.png)
+![lm sensors devices asus Monitor Thermal Sensors With lm sensors](https://github.com/elatov/uploads/raw/master/2013/09/lm-sensors-devices-asus.png)
 
 It looks like *Asus* is supported by the selected chip. Then running **sensors** again, I saw the following:
 
@@ -269,7 +269,7 @@ At first I thought the ISA adapters were for the CPUs, but I remembered that it'
               capabilities: cpufreq
 
 
-I wanted to check out the **exynos5250** manual to see what the thermal sensors were on the board and I found [this](http://virtuallyhyper.com/wp-content/uploads/2013/09/Exynos_5_Dual_User_Manaul_Public_REV100-0.pdf) manual, but it didn't shed much light. It just said this:
+I wanted to check out the **exynos5250** manual to see what the thermal sensors were on the board and I found [this](https://github.com/elatov/uploads/raw/master/2013/09/Exynos_5_Dual_User_Manaul_Public_REV100-0.pdf) manual, but it didn't shed much light. It just said this:
 
 > 24-bit Thermal Sensor
 
@@ -277,7 +277,7 @@ That was the extent of it.
 
 ## Thermal Framework on System-On-Chip (SOC) Systems
 
-I then ran into this presentation: [A simplified thermal framework for ARM platforms](http://virtuallyhyper.com/wp-content/uploads/2013/09/A_New_Simplified_Thermal_Framework_For_ARM_Platforms.pdf). Here are some interesting concepts:
+I then ran into this presentation: [A simplified thermal framework for ARM platforms](https://github.com/elatov/uploads/raw/master/2013/09/A_New_Simplified_Thermal_Framework_For_ARM_Platforms.pdf). Here are some interesting concepts:
 
 > *   Modern System-on-Chips (SOCs) have considerable higher thermal levels than prior generations.
 >     *   System Integration → more transistors, dense gates in the same area and more leakage.
@@ -291,15 +291,15 @@ I then ran into this presentation: [A simplified thermal framework for ARM platf
 > *   Framework to register thermal zone and cooling devices.
 > *   Performs a routing function of generic cooling devices to generic thermal zones with the help of very simple thermal management logic.
 
-It seems that thermal monitoring is a little different on the SOC systems. I then ran into this interesting presentation: [PDF](http://virtuallyhyper.com/wp-content/uploads/2013/09/Thermal_Mgmt_using_Generic_thermal_fw.pdf) (thermal zones, cooling devices, and other aspects). Here is a high level overview of the concepts:
+It seems that thermal monitoring is a little different on the SOC systems. I then ran into this interesting presentation: [PDF](https://github.com/elatov/uploads/raw/master/2013/09/Thermal_Mgmt_using_Generic_thermal_fw.pdf) (thermal zones, cooling devices, and other aspects). Here is a high level overview of the concepts:
 
-![kernel thermal overview Monitor Thermal Sensors With lm sensors](http://virtuallyhyper.com/wp-content/uploads/2013/09/kernel_thermal_overview.png)
+![kernel thermal overview Monitor Thermal Sensors With lm sensors](https://github.com/elatov/uploads/raw/master/2013/09/kernel_thermal_overview.png)
 
 ### Linux Thermal Zones
 
-From the same [PDF](http://virtuallyhyper.com/wp-content/uploads/2013/09/Thermal_Mgmt_using_Generic_thermal_fw.pdf), here is an example of a thermal zone:
+From the same [PDF](https://github.com/elatov/uploads/raw/master/2013/09/Thermal_Mgmt_using_Generic_thermal_fw.pdf), here is an example of a thermal zone:
 
-![Thermal zone Monitor Thermal Sensors With lm sensors](http://virtuallyhyper.com/wp-content/uploads/2013/09/Thermal_zone.png)
+![Thermal zone Monitor Thermal Sensors With lm sensors](https://github.com/elatov/uploads/raw/master/2013/09/Thermal_zone.png)
 
 Here is some information regarding the thermal zones:
 
@@ -315,7 +315,7 @@ Here is some information regarding the cooling devices:
 >         *   Hardware : Fans, various physical cooler
 >         *   Software : CPU frequency control
 
-For the above concepts there are corresponding **sysfs** nodes. From the same [PDF](http://virtuallyhyper.com/wp-content/uploads/2013/09/Thermal_Mgmt_using_Generic_thermal_fw.pdf):
+For the above concepts there are corresponding **sysfs** nodes. From the same [PDF](https://github.com/elatov/uploads/raw/master/2013/09/Thermal_Mgmt_using_Generic_thermal_fw.pdf):
 
 > *   Nodes under ‘/sys/class/thermal/thermal_zone’
 >     *   Get basic information(name, enabling, cooling devices)
@@ -327,13 +327,13 @@ For the above concepts there are corresponding **sysfs** nodes. From the same [P
 
 ### Thermal Sensors On SOC Systems
 
-I then ran into this: [Inducing Thermal-Awareness in Multicore Systems Using Networks-on-Chip](http://virtuallyhyper.com/wp-content/uploads/2013/09/Inducing_thermal_awareness-InSOC.pdf). From that article:
+I then ran into this: [Inducing Thermal-Awareness in Multicore Systems Using Networks-on-Chip](https://github.com/elatov/uploads/raw/master/2013/09/Inducing_thermal_awareness-InSOC.pdf). From that article:
 
 > Technology scaling imposes an ever increasing temperature stress on digital circuit design due to transistor density, especially on highly integrated systems, such as Multi-Processor Systems-on-Chip (MPSoCs). Therefore, temperature-aware design is mandatory and should be performed at the early design stages. In this paper we present a novel hardware infrastructure to provide thermal control of MPSoC architectures, which is based on exploiting the NoC interconnects of the baseline system as an active component to communicate and coordinate between temperature sensors scattered around the chip, in order to globally monitor the actual temperature. Then, a thermal management unit and clock frequency controllers adjust the frequency and voltage of the processing elements according to the temperature requirements at run-time
 
 And they have a pretty good picture as well:
 
-![thermal sensors on soc Monitor Thermal Sensors With lm sensors](http://virtuallyhyper.com/wp-content/uploads/2013/09/thermal_sensors_on_soc.png)
+![thermal sensors on soc Monitor Thermal Sensors With lm sensors](https://github.com/elatov/uploads/raw/master/2013/09/thermal_sensors_on_soc.png)
 
 So using multiple sensors on the board, the system can determine what the best course of action to take (ie Scale down the frequency of the CPU).
 
@@ -457,7 +457,7 @@ Checking out my cooling devices I saw the following:
     thermal-cpufreq-1
 
 
-So my cooling devices are CPU frequency regulators for each of my CPUs (this was a Dual Core). So the higher the temperature of the thermal zone is, the lower the frequency of the CPUs are set (to slow down the CPUs, so they don't heat up). Here is a similar note from this [PDF](http://virtuallyhyper.com/wp-content/uploads/2013/09/Thermal_Mgmt_using_Generic_thermal_fw.pdf):
+So my cooling devices are CPU frequency regulators for each of my CPUs (this was a Dual Core). So the higher the temperature of the thermal zone is, the lower the frequency of the CPUs are set (to slow down the CPUs, so they don't heat up). Here is a similar note from this [PDF](https://github.com/elatov/uploads/raw/master/2013/09/Thermal_Mgmt_using_Generic_thermal_fw.pdf):
 
 > *   CPU cooling device
 >     *   Controls CPU frequency according to cooling state.
@@ -480,7 +480,7 @@ Later on the same PDF talks about the specific Exynos Thermal Driver:
 
 So the Exynos thermal driver throttles the CPU determined by the ACTIVE trips that are created. Here is a pretty good diagram of the process:
 
-![exynos thermal driver Monitor Thermal Sensors With lm sensors](http://virtuallyhyper.com/wp-content/uploads/2013/09/exynos_thermal_driver.png)
+![exynos thermal driver Monitor Thermal Sensors With lm sensors](https://github.com/elatov/uploads/raw/master/2013/09/exynos_thermal_driver.png)
 
 Depending on which one it tripped we throttle the CPU accordingly. Here are the trip values on the laptop:
 
@@ -636,7 +636,7 @@ Now all that I had to do was plot those values in zabbix :)
 
 While in Mac OS X you can install **iStat** and then from the dashboard you can see all the temperature information. Here is how mine looked like:
 
-![i stat dashboard Monitor Thermal Sensors With lm sensors](http://virtuallyhyper.com/wp-content/uploads/2013/09/i_stat_dashboard.png)
+![i stat dashboard Monitor Thermal Sensors With lm sensors](https://github.com/elatov/uploads/raw/master/2013/09/i_stat_dashboard.png)
 
 You can also download the temperature Monitor from [here](http://www.bresink.com/osx/0TemperatureMonitor/download.php5). After you install, it you can run it manually. Here is what I saw when I ran it on my system:
 
@@ -709,9 +709,9 @@ There were a lot of sensors :). I looked around and I found a couple of sites th
 
 I also tried to find the manual for the motherboard, but I was only able to find the following:
 
-*   [Service Source MacBook Pro](http://virtuallyhyper.com/wp-content/uploads/2013/09/macbook-pro-service-manual.pdf)
-*   [MacBook Pro 15-inch Repair Guide](http://virtuallyhyper.com/wp-content/uploads/2013/09/15-inch-macbook-pro-manual.pdf)
-*   [Apple Technician Guide MacBook Pro 15](http://virtuallyhyper.com/wp-content/uploads/2013/09/mbp15_mid10.pdf)
+*   [Service Source MacBook Pro](https://github.com/elatov/uploads/raw/master/2013/09/macbook-pro-service-manual.pdf)
+*   [MacBook Pro 15-inch Repair Guide](https://github.com/elatov/uploads/raw/master/2013/09/15-inch-macbook-pro-manual.pdf)
+*   [Apple Technician Guide MacBook Pro 15](https://github.com/elatov/uploads/raw/master/2013/09/mbp15_mid10.pdf)
 
 They had instructions on how to replace all the sensors but they didn't have a concise list of all the sensors. The best sources were actually the source code for the *iStat* Program (which I used while in MacOS X) and another program called *HwMonitor*. [here](https://github.com/marioestrada/istat-widgets/blob/master/iStat%20nano/iStatNano.bundle/Contents/s/intel/iStatIntelControlleriStatPro.m) is the source for *hwMonitor*. Here are some examples from each program:
 
@@ -907,11 +907,11 @@ I realized that my **Memory_Module Bank B** wasn't showing anything (and the **A
 
 I decided to use the label **CPU_Package** cause it was the most appropriate. Imagine the CPU chip looking like this:
 
-![cpu chip1 Monitor Thermal Sensors With lm sensors](http://virtuallyhyper.com/wp-content/uploads/2013/09/cpu_chip1.png)
+![cpu chip1 Monitor Thermal Sensors With lm sensors](https://github.com/elatov/uploads/raw/master/2013/09/cpu_chip1.png)
 
 In my case there are 4 Cores, but the idea is the same. The whole CPU (confusing term) is the Processor Package (check out [this](http://superuser.com/questions/324284/what-is-meant-by-the-terms-cpu-core-die-and-package) page for definitions of CPU,Core, and Processor Package). The easiest tool that helps the representation of the CPUs is **powertop**. When I ran that tool, here is what I saw:
 
-![powertop1 Monitor Thermal Sensors With lm sensors](http://virtuallyhyper.com/wp-content/uploads/2013/09/powertop1.png)
+![powertop1 Monitor Thermal Sensors With lm sensors](https://github.com/elatov/uploads/raw/master/2013/09/powertop1.png)
 
 So my laptop has **1** Process Package, which consists of **4** Cores and (since hyper-threading is enabled) we have 2 "virtual cores" per core. I could've just made the label **CPU** and that would make sense as well. What I saw in **powertop**, matched the laptop description:
 
@@ -931,7 +931,7 @@ Also regarding hyper-threading, from [here](http://store.apple.com/sg/learnmore/
 
 ### Platform Environment Control Interface (PECI) and Platform Controller Hub (PCH)
 
-As I was labeling the sensors I came across some interesting acronyms. The first one, PECI, is described in ["Intel Celeron Mobile Processor P4000 and U3000 Series Datasheet"](http://virtuallyhyper.com/wp-content/uploads/2013/09/celeron-mobile-p4000-u3000-datasheet.pdf). From that PDF:
+As I was labeling the sensors I came across some interesting acronyms. The first one, PECI, is described in ["Intel Celeron Mobile Processor P4000 and U3000 Series Datasheet"](https://github.com/elatov/uploads/raw/master/2013/09/celeron-mobile-p4000-u3000-datasheet.pdf). From that PDF:
 
 > Each processor execution core has an on-die Digital Thermal Sensor (DTS) which detects the cores instantaneous temperature. The DTS is the preferred method of monitoring processor die temperature because:
 >
@@ -945,9 +945,9 @@ As I was labeling the sensors I came across some interesting acronyms. The first
 >
 > When temperature is retrieved by processor MSR, it is the instantaneous temperature of the given core. When temperature is retrieved via PECI, it is the average temperature of each execution cores DTS over a programmable window (default window of 256 ms.) Intel recommends using the PECI output reading for fan speed or other platform thermal control.
 
-So PECI is another interface that grabs the average temperature across multiple CPUs (or any thermal sensors) and it's supposed to be more accurate. There was also a **PECI_SA** sensor, that actually corresponds to the *System Agent*. Looking over ["Power management architecture of the 2nd generation Intel Core"](http://virtuallyhyper.com/wp-content/uploads/2013/09/HC23.19.921.SandyBridge_Power_10-Rotem-Intel.pdf), we see this:
+So PECI is another interface that grabs the average temperature across multiple CPUs (or any thermal sensors) and it's supposed to be more accurate. There was also a **PECI_SA** sensor, that actually corresponds to the *System Agent*. Looking over ["Power management architecture of the 2nd generation Intel Core"](https://github.com/elatov/uploads/raw/master/2013/09/HC23.19.921.SandyBridge_Power_10-Rotem-Intel.pdf), we see this:
 
-![intel peci sa Monitor Thermal Sensors With lm sensors](http://virtuallyhyper.com/wp-content/uploads/2013/09/intel_peci_sa.png)
+![intel peci sa Monitor Thermal Sensors With lm sensors](https://github.com/elatov/uploads/raw/master/2013/09/intel_peci_sa.png)
 
 So we have two PECI capable sensors, GPU and SA. The GPU (Graphical Processing Unit.. self explanatory) and SA (the system agent, basically representing the Thermal Environment.. so I am guessing all the CPUs).
 
@@ -957,13 +957,13 @@ The other term is PCH. Here is a pretty good definition from [wikipedia](http://
 >
 > The PCH controls certain data paths and support functions used in conjunction with Intel CPUs. These include clocking (the system clock), Flexible Display Interface (FDI) and Direct Media Interface (DMI), although FDI is only used when the chipset is required to support a processor with integrated graphics. As such, I/O Functions are reassigned between this new central hub and the CPU compared to the previous architecture: some northbridge functions, the memory controller and PCI-e lanes, were integrated into the CPU while the PCH took over the remaining functions in addition to the traditional roles of the southbridge.
 
-From the [Apple Technician Guide MacBook Pro 15](http://virtuallyhyper.com/wp-content/uploads/2013/09/mbp15_mid10.pdf), here is a good diagram:
+From the [Apple Technician Guide MacBook Pro 15](https://github.com/elatov/uploads/raw/master/2013/09/mbp15_mid10.pdf), here is a good diagram:
 
-![macbookpro 15 PCH Monitor Thermal Sensors With lm sensors](http://virtuallyhyper.com/wp-content/uploads/2013/09/macbookpro_15_PCH.png)
+![macbookpro 15 PCH Monitor Thermal Sensors With lm sensors](https://github.com/elatov/uploads/raw/master/2013/09/macbookpro_15_PCH.png)
 
-So we can see that most of the components go through the PCH. Also from ["Intel 7 Series / C216 Chipset Platform Controller Hub (PCH)"](http://virtuallyhyper.com/wp-content/uploads/2013/09/7-series-chipset-pch-thermal-design-guide.pdf) here is a table of all the components that connect to the PCH:
+So we can see that most of the components go through the PCH. Also from ["Intel 7 Series / C216 Chipset Platform Controller Hub (PCH)"](https://github.com/elatov/uploads/raw/master/2013/09/7-series-chipset-pch-thermal-design-guide.pdf) here is a table of all the components that connect to the PCH:
 
-![PCH Components core I7 Monitor Thermal Sensors With lm sensors](http://virtuallyhyper.com/wp-content/uploads/2013/09/PCH_Components_core_I7.png)
+![PCH Components core I7 Monitor Thermal Sensors With lm sensors](https://github.com/elatov/uploads/raw/master/2013/09/PCH_Components_core_I7.png)
 
 I would say the PCH Temperature basically represents the Temperature of the motherboard.
 

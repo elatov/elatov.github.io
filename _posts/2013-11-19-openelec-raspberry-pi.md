@@ -64,7 +64,7 @@ From the top link, here is a quick summary for each:
 
 At first, I decided to try Xbian since it seems pretty much in between. The install is fairly simple. Download their image from [here](http://www.xbian.org/download/):
 
-![xbian download OpenELEC on Raspberry Pi](http://virtuallyhyper.com/wp-content/uploads/2013/11/xbian-download.png)
+![xbian download OpenELEC on Raspberry Pi](https://github.com/elatov/uploads/raw/master/2013/11/xbian-download.png)
 
 I just grabbed the latest version at the time. After the download was finished, I had the following file on my laptop:
 
@@ -116,11 +116,11 @@ So my device showed up as **/dev/mmcblk0**. Now for the actual install:
 
 After the install finished, I eject the SD Card from my laptop and then plugged into the RPi. BTW here is how the final RPi looked like:
 
-![Rpi great OpenELEC on Raspberry Pi](http://virtuallyhyper.com/wp-content/uploads/2013/11/Rpi-great.jpg)
+![Rpi great OpenELEC on Raspberry Pi](https://github.com/elatov/uploads/raw/master/2013/11/Rpi-great.jpg)
 
 As soon as you plug in the power cord, the RPi will start to boot. As promised, the configuration was really easy. You can even SSH into xbian, run **xbian-config**, and it will give you an **ncurses** terminal UI to make some of the configuration changes:
 
-![xbian config OpenELEC on Raspberry Pi](http://virtuallyhyper.com/wp-content/uploads/2013/11/xbian-config.png)
+![xbian config OpenELEC on Raspberry Pi](https://github.com/elatov/uploads/raw/master/2013/11/xbian-config.png)
 
 More information on configuring **Xbian** can be found [here](http://wiki.xbian.org/Main_Page)
 
@@ -130,7 +130,7 @@ I definitely liked the ease of use of **XBian**. I then configured XBMC to play 
 
 The install is very similar for OpenELEC as it was for Xbian. Go the OpenELEC download page:
 
-![openelec downloads page OpenELEC on Raspberry Pi](http://virtuallyhyper.com/wp-content/uploads/2013/11/openelec-downloads-page.png)
+![openelec downloads page OpenELEC on Raspberry Pi](https://github.com/elatov/uploads/raw/master/2013/11/openelec-downloads-page.png)
 
 After the download is finished, you should have the following file:
 
@@ -161,7 +161,7 @@ If you have all of the above tools already installed, then run the following:
 
 That will finish the install. After it's done, unplug the SD Card from the laptop and then plug it into the RPi. Plug in the power and it will start to boot. After the boot up process is finished you will see the setup wizard:
 
-![openelec wizard OpenELEC on Raspberry Pi](http://virtuallyhyper.com/wp-content/uploads/2013/11/openelec-wizard.png)
+![openelec wizard OpenELEC on Raspberry Pi](https://github.com/elatov/uploads/raw/master/2013/11/openelec-wizard.png)
 
 Just follow the wizard and configure it to your fit your needs. Playing media via UPNP was smooth. Also watching internet streams was not choppy. So I was pretty happy with the OpenELEC install. After that, I customized the install with little tweaks.
 
@@ -169,7 +169,7 @@ Just follow the wizard and configure it to your fit your needs. Playing media vi
 
 From XBMC go to **System** -> **Appearance** -> **Skin** -> **Get More** and install the **xTV-SAF** skin/theme. After it's installed, it will look like this:
 
-![xtv saf skin enabled OpenELEC on Raspberry Pi](http://virtuallyhyper.com/wp-content/uploads/2013/11/xtv-saf-skin-enabled.png)
+![xtv saf skin enabled OpenELEC on Raspberry Pi](https://github.com/elatov/uploads/raw/master/2013/11/xtv-saf-skin-enabled.png)
 
 I use that skin since my TV has a pretty low resolution and it'a hard to see some of the options.
 
@@ -292,7 +292,7 @@ Restart OpenELEC to apply the above changes.
 
 If you didn't select Automatic update during the configuration wizard you can enable it later. Go to **Add-Ons** -> **Programs** -> **OpenELEC Settings** -> **System** and make sure "**Automatic Update**" is set to **auto**:
 
-![openelec settings OpenELEC on Raspberry Pi](http://virtuallyhyper.com/wp-content/uploads/2013/11/openelec-settings.png)
+![openelec settings OpenELEC on Raspberry Pi](https://github.com/elatov/uploads/raw/master/2013/11/openelec-settings.png)
 
 #### Install optware on OpenELEC
 
@@ -413,11 +413,11 @@ Also do a quick test query:
 
 Then when adding the machine to Zabbix for monitoring just select SNMP as the protocol. After some time you will be able to see CPU usage and network usage:
 
-![pi cpu usage OpenELEC on Raspberry Pi](http://virtuallyhyper.com/wp-content/uploads/2013/11/pi-cpu-usage.png)
+![pi cpu usage OpenELEC on Raspberry Pi](https://github.com/elatov/uploads/raw/master/2013/11/pi-cpu-usage.png)
 
 and here is the network:
 
-![pi eth0 usage OpenELEC on Raspberry Pi](http://virtuallyhyper.com/wp-content/uploads/2013/11/pi-eth0-usage.png)
+![pi eth0 usage OpenELEC on Raspberry Pi](https://github.com/elatov/uploads/raw/master/2013/11/pi-eth0-usage.png)
 
 If you want **snmpd** to be started automatically, make sure your **.config/autostart.sh** looks likes this:
 
@@ -442,31 +442,31 @@ If you want to back up XBMC (which is what OpenELEC basically consists of), then
 
 After it's installed go to Add-ons section:
 
-![addons enabled addons OpenELEC on Raspberry Pi](http://virtuallyhyper.com/wp-content/uploads/2013/11/addons-enabled-addons.png)
+![addons enabled addons OpenELEC on Raspberry Pi](https://github.com/elatov/uploads/raw/master/2013/11/addons-enabled-addons.png)
 
 Then click on **Enabled-Addons**, scroll down to the **XBMC Backup** Addon, select it, and you should see this:
 
-![xbmc backup configure OpenELEC on Raspberry Pi](http://virtuallyhyper.com/wp-content/uploads/2013/11/xbmc-backup-configure.png)
+![xbmc backup configure OpenELEC on Raspberry Pi](https://github.com/elatov/uploads/raw/master/2013/11/xbmc-backup-configure.png)
 
 Then click on **configure** and you will see the following:
 
-![xbmc backup general OpenELEC on Raspberry Pi](http://virtuallyhyper.com/wp-content/uploads/2013/11/xbmc-backup_general.png)
+![xbmc backup general OpenELEC on Raspberry Pi](https://github.com/elatov/uploads/raw/master/2013/11/xbmc-backup_general.png)
 
 Notice I configured it to do local backups to the **/storage/backups** directory. If you have a remote NFS or Samba server (you can even back up to dropbox) then you can do that:
 
-![xbmc backup browse directory OpenELEC on Raspberry Pi](http://virtuallyhyper.com/wp-content/uploads/2013/11/xbmc-backup-browse-directory.png)
+![xbmc backup browse directory OpenELEC on Raspberry Pi](https://github.com/elatov/uploads/raw/master/2013/11/xbmc-backup-browse-directory.png)
 
 You can also choose what to back up and setup a schedule for your backups. After we are done with the configuration we can do a manual back up. From the main screen go to **Add-Ons** -> **Programs**:
 
-![xbmc program OpenELEC on Raspberry Pi](http://virtuallyhyper.com/wp-content/uploads/2013/11/xbmc-program.png)
+![xbmc program OpenELEC on Raspberry Pi](https://github.com/elatov/uploads/raw/master/2013/11/xbmc-program.png)
 
 Select **XBMC Backup**:
 
-![xbmc backup manual backup OpenELEC on Raspberry Pi](http://virtuallyhyper.com/wp-content/uploads/2013/11/xbmc-backup-manual-backup.png)
+![xbmc backup manual backup OpenELEC on Raspberry Pi](https://github.com/elatov/uploads/raw/master/2013/11/xbmc-backup-manual-backup.png)
 
 Then select **Backup** and you should see the backup start:
 
-![xbmc backup manual backup going OpenELEC on Raspberry Pi](http://virtuallyhyper.com/wp-content/uploads/2013/11/xbmc-backup-manual-backup_going.png)
+![xbmc backup manual backup going OpenELEC on Raspberry Pi](https://github.com/elatov/uploads/raw/master/2013/11/xbmc-backup-manual-backup_going.png)
 
 After the backup is finished you should see the backup in the folder that we set:
 
@@ -482,7 +482,7 @@ That looks good. Now we can setup a **cron job** to **rsync** the data off to ou
 
 and a **nano** window will pop up, at which point you can enter the following:
 
-![crontab openelec OpenELEC on Raspberry Pi](http://virtuallyhyper.com/wp-content/uploads/2013/11/crontab-openelec.png)
+![crontab openelec OpenELEC on Raspberry Pi](https://github.com/elatov/uploads/raw/master/2013/11/crontab-openelec.png)
 
 After you done with you configurations, save and close the file. So I will backup to the remote server every month on the 2nd day of the month. You can confirm your **crontab** is in place by running the following:
 
@@ -494,7 +494,7 @@ After you done with you configurations, save and close the file. So I will backu
 
 If you won't want to mess with **optware** but still want **rsync** on OpenELEC you can use the unofficial repository to install the **rsync** add-on (which basically installs the rsync binary in a weird location). First download the zip for the repository from [here](http://unofficial.addon.pro/):
 
-![openelec unoff repo OpenELEC on Raspberry Pi](http://virtuallyhyper.com/wp-content/uploads/2013/11/openelec-unoff-repo.png)
+![openelec unoff repo OpenELEC on Raspberry Pi](https://github.com/elatov/uploads/raw/master/2013/11/openelec-unoff-repo.png)
 
 After you have the zip, **scp** it over to the RPi:
 
@@ -503,35 +503,35 @@ After you have the zip, **scp** it over to the RPi:
 
 Now to install zip, go to **Add-ons** -> **Install from Zip**:
 
-![xbmc addon install from zip OpenELEC on Raspberry Pi](http://virtuallyhyper.com/wp-content/uploads/2013/11/xbmc-addon-install-from-zip.png)
+![xbmc addon install from zip OpenELEC on Raspberry Pi](https://github.com/elatov/uploads/raw/master/2013/11/xbmc-addon-install-from-zip.png)
 
 Then browse to your home directory and select the zip archive:
 
-![select unof repo zip OpenELEC on Raspberry Pi](http://virtuallyhyper.com/wp-content/uploads/2013/11/select-unof-repo-zip.png)
+![select unof repo zip OpenELEC on Raspberry Pi](https://github.com/elatov/uploads/raw/master/2013/11/select-unof-repo-zip.png)
 
 After it's installed you should see the following:
 
-![unof repo enabled OpenELEC on Raspberry Pi](http://virtuallyhyper.com/wp-content/uploads/2013/11/unof-repo-enabled.png)
+![unof repo enabled OpenELEC on Raspberry Pi](https://github.com/elatov/uploads/raw/master/2013/11/unof-repo-enabled.png)
 
 That should enable the Unofficial OpenELEC Repository. Next let's install **rsync** from that repository. Go to **Add-ons** -> **Get Add-ons**:
 
-![addon screen get addons OpenELEC on Raspberry Pi](http://virtuallyhyper.com/wp-content/uploads/2013/11/addon-screen-get-addons.png)
+![addon screen get addons OpenELEC on Raspberry Pi](https://github.com/elatov/uploads/raw/master/2013/11/addon-screen-get-addons.png)
 
 Then select the **Unofficial OpenELEC Repository**:
 
-![select unof repo for addons OpenELEC on Raspberry Pi](http://virtuallyhyper.com/wp-content/uploads/2013/11/select-unof-repo-for-addons.png)
+![select unof repo for addons OpenELEC on Raspberry Pi](https://github.com/elatov/uploads/raw/master/2013/11/select-unof-repo-for-addons.png)
 
 Then select **Program Add-ons**:
 
-![program addons from unof repo OpenELEC on Raspberry Pi](http://virtuallyhyper.com/wp-content/uploads/2013/11/program-addons-from-unof-repo.png)
+![program addons from unof repo OpenELEC on Raspberry Pi](https://github.com/elatov/uploads/raw/master/2013/11/program-addons-from-unof-repo.png)
 
 and then select **rsync**:
 
-![select rsync plugin from unof repo OpenELEC on Raspberry Pi](http://virtuallyhyper.com/wp-content/uploads/2013/11/select-rsync-plugin-from-unof-repo.png)
+![select rsync plugin from unof repo OpenELEC on Raspberry Pi](https://github.com/elatov/uploads/raw/master/2013/11/select-rsync-plugin-from-unof-repo.png)
 
 After it's installed you should see the following:
 
-![rsync plugin installed OpenELEC on Raspberry Pi](http://virtuallyhyper.com/wp-content/uploads/2013/11/rsync-plugin-installed.png)
+![rsync plugin installed OpenELEC on Raspberry Pi](https://github.com/elatov/uploads/raw/master/2013/11/rsync-plugin-installed.png)
 
 For some reason initially the rsync binary was not executable for me:
 
@@ -556,11 +556,11 @@ After that I was able to use **rsync**. In your **crontab** entry use the above 
 
 The GUI has most of the information. If you go to **System** -> **System Info**, here is what is seen under the **General** section:
 
-![xbmc general settings OpenELEC on Raspberry Pi](http://virtuallyhyper.com/wp-content/uploads/2013/11/xbmc-general-settings.png)
+![xbmc general settings OpenELEC on Raspberry Pi](https://github.com/elatov/uploads/raw/master/2013/11/xbmc-general-settings.png)
 
 Here is the **Hardware** information:
 
-![xbmc hardware info OpenELEC on Raspberry Pi](http://virtuallyhyper.com/wp-content/uploads/2013/11/xbmc-hardware-info.png)
+![xbmc hardware info OpenELEC on Raspberry Pi](https://github.com/elatov/uploads/raw/master/2013/11/xbmc-hardware-info.png)
 
 You can get most of the information from the command line as well. Here are two commands that can show you the temperature:
 

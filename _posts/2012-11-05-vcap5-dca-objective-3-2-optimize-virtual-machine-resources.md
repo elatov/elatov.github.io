@@ -92,11 +92,11 @@ Also from the same page:
 
 Similar settings for the hot-add of the memory. Here is how the option looks like in vCenter:
 
-![cpu_memory_hot-add](http://virtuallyhyper.com/wp-content/uploads/2012/10/cpu_memory_hot-add.png)
+![cpu_memory_hot-add](https://github.com/elatov/uploads/raw/master/2012/10/cpu_memory_hot-add.png)
 
 There are also a lot of OS'es that support it and that don't. From the blog "[VMware vSphere Hot Add and Hot Plug](http://www.petenetlive.com/KB/Article/0000527.htm)":
 
-![hot-add_matrix](http://virtuallyhyper.com/wp-content/uploads/2012/10/hot-add_matrix.png)
+![hot-add_matrix](https://github.com/elatov/uploads/raw/master/2012/10/hot-add_matrix.png)
 
 Also check out "[VMware Hot-Add Memory/CPU Support](http://www.petri.co.il/vsphere-hot-add-memory-and-cpu.htm#)"
 
@@ -224,11 +224,11 @@ From the [vSphere Documenation](http://pubs.vmware.com/vsphere-50/index.jsp?topi
 
 Under "Hosts and Cluster" View you can select the Cluster and then select the "Hosts" Tab. The tab looks like this:
 
-![cluster_resources](http://virtuallyhyper.com/wp-content/uploads/2012/10/cluster_resources.png)
+![cluster_resources](https://github.com/elatov/uploads/raw/master/2012/10/cluster_resources.png)
 
 Also under the Summary Tab you can select "View Resource Distribution Chart", here is that option in vCenter:
 
-![cluster_view_distribution_chart](http://virtuallyhyper.com/wp-content/uploads/2012/10/cluster_view_distribution_chart.png)
+![cluster_view_distribution_chart](https://github.com/elatov/uploads/raw/master/2012/10/cluster_view_distribution_chart.png)
 
 It will show you a similar output of the CPU and Memory usage. You can also check out esxtop on the host. More on esxtop in later objectives.
 
@@ -241,15 +241,15 @@ I actually covered this in [DCD Objective 3.5](http://virtuallyhyper.com/2012/09
 From the [vSphere Documenation](http://pubs.vmware.com/vsphere-50/index.jsp?topic=%2Fcom.vmware.vsphere.resmgmt.doc_50%2FGUID-D98E6EC9-3730-4BC0-A9FC-93B9079E1AEE.html):
 
 > **Advanced Memory Attributes**
-> You can use the advanced memory attributes to customize memory resource usage. ![Large_Page_Options](http://virtuallyhyper.com/wp-content/uploads/2012/10/Large_Page_Options.png)
+> You can use the advanced memory attributes to customize memory resource usage. ![Large_Page_Options](https://github.com/elatov/uploads/raw/master/2012/10/Large_Page_Options.png)
 
 and here are some more options:
 
-![more_lp_options](http://virtuallyhyper.com/wp-content/uploads/2012/10/more_lp_options.png)
+![more_lp_options](https://github.com/elatov/uploads/raw/master/2012/10/more_lp_options.png)
 
 All of the above options can be modified by going to the "Host and Clusters" View -> Select a Host -> Click the "Configuration" Tab -> Select "Advanced Setting" under the Software Section. Here is how it looks like in vCenter:
 
-![large_page_settings_on_host](http://virtuallyhyper.com/wp-content/uploads/2012/10/large_page_settings_on_host.png)
+![large_page_settings_on_host](https://github.com/elatov/uploads/raw/master/2012/10/large_page_settings_on_host.png)
 
 ### Understand appropriate use cases for CPU affinity
 
@@ -320,7 +320,7 @@ From the same document:
 
 Here is how the setup looks in the vCenter:
 
-![cluster_swap_settings](http://virtuallyhyper.com/wp-content/uploads/2012/10/cluster_swap_settings.png)
+![cluster_swap_settings](https://github.com/elatov/uploads/raw/master/2012/10/cluster_swap_settings.png)
 
 Also from the same document:
 
@@ -337,9 +337,9 @@ Also from the same document:
 >
 > Host-local swap is now enabled for the standalone host. Here is how it looks like in vCenter:
 
-![host_swap_settings](http://virtuallyhyper.com/wp-content/uploads/2012/10/host_swap_settings.png)
+![host_swap_settings](https://github.com/elatov/uploads/raw/master/2012/10/host_swap_settings.png)
 
 For the VM it self, you can go "Edit Settings" of the VM and then go to "Options" and then select "Swapfile Location". Here is how it looks like in vCenter:
 
-![vm_swap_setting](http://virtuallyhyper.com/wp-content/uploads/2012/10/vm_swap_setting.png)
+![vm_swap_setting](https://github.com/elatov/uploads/raw/master/2012/10/vm_swap_setting.png)
 

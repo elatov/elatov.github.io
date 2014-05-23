@@ -107,7 +107,7 @@ Similar patches can be found [here](http://mysticalzero.blogspot.com/2013/07/vmb
 
 At this point I ran **vmware** from the command line and workstation started up fine. I wanted to enter my license key since the trial only runs for 30 days. I went to Help -> "Enter License Key.." and I saw the following:
 
-![vmware ws enter license key Installing VMware Workstation 9.0.2 on Fedora 19](http://virtuallyhyper.com/wp-content/uploads/2013/08/vmware-ws-enter-license-key.png)
+![vmware ws enter license key Installing VMware Workstation 9.0.2 on Fedora 19](https://github.com/elatov/uploads/raw/master/2013/08/vmware-ws-enter-license-key.png)
 
 I would click on "Enter License Key.." but nothing would happen. I found two sites that ran into the same issue:
 
@@ -156,7 +156,7 @@ It saw showing the same issue, **vmware-gksu** was having issues. From the *segf
 
 and then I saw the following:
 
-![network editor started Installing VMware Workstation 9.0.2 on Fedora 19](http://virtuallyhyper.com/wp-content/uploads/2013/08/network-editor-started.png)
+![network editor started Installing VMware Workstation 9.0.2 on Fedora 19](https://github.com/elatov/uploads/raw/master/2013/08/network-editor-started.png)
 
 I was able to make all the changes that I needed.
 

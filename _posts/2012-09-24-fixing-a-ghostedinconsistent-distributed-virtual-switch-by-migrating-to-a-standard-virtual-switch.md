@@ -32,7 +32,7 @@ This is discussed in VMware KB [vSphere DvSwitch caveats and best practices!](ht
 
 You will see something like this:
 
-![dvs_no_uplinks](http://virtuallyhyper.com/wp-content/uploads/2012/09/dvs_no_uplinks.png)
+![dvs_no_uplinks](https://github.com/elatov/uploads/raw/master/2012/09/dvs_no_uplinks.png)
 
 But when you login directly to the host via ssh and run 'esxcfg-vswitch -l' you will see uplinks attached to the DVS. It will look something like this:
 
@@ -56,17 +56,17 @@ But when you login directly to the host via ssh and run 'esxcfg-vswitch -l' you 
 
 Taken from [this](http://communities.vmware.com/thread/323439) VMware Communities page. Here is how it looks like:
 
-![VM_Missing_BackingDevice](http://virtuallyhyper.com/wp-content/uploads/2012/09/VM_Missing_BackingDevice.png)
+![VM_Missing_BackingDevice](https://github.com/elatov/uploads/raw/master/2012/09/VM_Missing_BackingDevice.png)
 
 **4.** Don't confuse this as an 'out-of-sync' scenario
 
 The blog post "[vDS out of sync](http://sostech.wordpress.com/2011/06/06/vds-out-of-sync/)" talks about how it looks like. Basically you might see something like this:
 
-![out-of-sync-dvs](http://virtuallyhyper.com/wp-content/uploads/2012/09/out-of-sync-dvs.jpg)
+![out-of-sync-dvs](https://github.com/elatov/uploads/raw/master/2012/09/out-of-sync-dvs.jpg)
 
 If the host is up, it should synchronize in 5 minutes, or you can manually synchronize, by right clicking on the host and selecting "Rectify vNetwork Distributed Switch Host", it looks something like this:
 
-![rectify_out_of_sync_dvs](http://virtuallyhyper.com/wp-content/uploads/2012/09/rectify_out_of_sync_dvs.jpg)
+![rectify_out_of_sync_dvs](https://github.com/elatov/uploads/raw/master/2012/09/rectify_out_of_sync_dvs.jpg)
 
 Also one more note, don't confuse the dvs synchronization with the locked ports time out. The default for that is 24 hours and that can be changed. To change the default time out for locked ports follow the instructions laid out in VMware KB [1010913](http://kb.vmware.com/kb/1010913)
 
@@ -321,11 +321,11 @@ Notice that your "Used Ports" should be '0'.
 
 When you are in vCenter and you go to "Host and Clusters" -> Select ESXi Host -> Configuration -> Networking -> "vNetwork Distributed Switch" it looks like this:
 
-![vcenter_dvs_view](http://virtuallyhyper.com/wp-content/uploads/2012/09/vcenter_dvs_view.png)
+![vcenter_dvs_view](https://github.com/elatov/uploads/raw/master/2012/09/vcenter_dvs_view.png)
 
 But when you go directly to the host and you go to "Inventory" -> Select ESXi Host -> Configuration -> Networking -> "vNetwork Distributed Switch", you will see this:
 
-![host_view_dvs](http://virtuallyhyper.com/wp-content/uploads/2012/09/host_view_dvs.png)
+![host_view_dvs](https://github.com/elatov/uploads/raw/master/2012/09/host_view_dvs.png)
 
 Notice that there is a "Remove" button available. Go ahead and click "Remove", that will remove the Ghosted DVS from the host. If it gives you an error saying that it's in use ( and your esxcfg-vswitch -l output showed 0 "Used Ports") then you might have a locked/shadow port. As I mentioned above you can:
 

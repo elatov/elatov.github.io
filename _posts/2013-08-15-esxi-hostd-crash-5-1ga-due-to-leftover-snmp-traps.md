@@ -19,7 +19,7 @@ tags:
 
 One day I tried to open console on a VM and I got the **MKS** error:
 
-![mks error ESXi hostd Crash (5.1GA) Due to Leftover SNMP Traps](http://virtuallyhyper.com/wp-content/uploads/2013/08/mks_error.png)
+![mks error ESXi hostd Crash (5.1GA) Due to Leftover SNMP Traps](https://github.com/elatov/uploads/raw/master/2013/08/mks_error.png)
 
 I logged into the host and I tried to run an **esxcli** command and I saw the following:
 

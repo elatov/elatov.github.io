@@ -53,27 +53,27 @@ If you want to allow multiple VLANs through a single physical switch port then s
 
 To configure VST on the SVS (Standard Virtual Switch), click properties on the vSwitch, then select a port-group and then click edit. Then Under the "General" tab assign a VLAN under "VLAN ID". The window looks like this:
 
-![vst_svs](http://virtuallyhyper.com/wp-content/uploads/2012/09/vst_svs.png)
+![vst_svs](https://github.com/elatov/uploads/raw/master/2012/09/vst_svs.png)
 
 To do the same thing on the DVS (Distributed Virtual Switch). Go To "Networking" View -> Right Click on your DVPortGroup and Select "Edit Settings -> Click on VLAN -> Change the "VLAN type" to VLAN and assign a VLAN ID. It will look like this:
 
-![vst_dvs](http://virtuallyhyper.com/wp-content/uploads/2012/09/vst_dvs.png)
+![vst_dvs](https://github.com/elatov/uploads/raw/master/2012/09/vst_dvs.png)
 
 To configure VGT on the SVS under the same properties window where you set the VLAN above, just set it to 4095. It looks like this:
 
-![vgt_svs](http://virtuallyhyper.com/wp-content/uploads/2012/09/vgt_svs.png)
+![vgt_svs](https://github.com/elatov/uploads/raw/master/2012/09/vgt_svs.png)
 
 After this is done you will need to setup the GOS (Guest Operating System) to tag the vlan.
 
 To do VGT with DVS. Go To "Networking" View -> Right Click on your DVPortGroup and Select "Edit Settings -> Click on VLAN -> Change the "VLAN type" to "VLAN Trunking" and under the "VLAN trunk range" enter vlans that will be tagged within the GOS. It will look like this:
 
-![vgt_dvs](http://virtuallyhyper.com/wp-content/uploads/2012/09/vgt_dvs.png)
+![vgt_dvs](https://github.com/elatov/uploads/raw/master/2012/09/vgt_dvs.png)
 
 ### Determine use cases for and configure PVLANs
 
 From VMware KB [1010691](http://kb.vmware.com/kb/1010691) here is a pretty good diagram:
 
-![pvlans_vmware](http://virtuallyhyper.com/wp-content/uploads/2012/09/pvlans_vmware.png)
+![pvlans_vmware](https://github.com/elatov/uploads/raw/master/2012/09/pvlans_vmware.png)
 
 Basically if you want to add an extra layer of security for your environment and you have a use case for the PVLANs types (isolated, community, and promiscuous) then setup VLANs. As a side note physical switch configuration is required. More information on the physical switch setup can be seen in "[VLANs and Trunking](http://www.ciscopress.com/articles/article.asp?p=29803&#038;seqNum=6)"
 
@@ -93,13 +93,13 @@ To configure it on the DVS, from "[vSphere Networking ESXi 5.0](http://pubs.vmwa
 
 Here is how the screen looks like:
 
-![pvlans_dvs](http://virtuallyhyper.com/wp-content/uploads/2012/09/pvlans_dvs.png)
+![pvlans_dvs](https://github.com/elatov/uploads/raw/master/2012/09/pvlans_dvs.png)
 
 **NOTE** Make sure your primary VLAN is not used for anything else, or the above setup will fail (ie, if you had a portgroup set to use VLAN 100 as regular vlan, the private VLAN setup will fail).
 
 After that is done, for your DVPortGroup set the "VLAN type" to Private VLAN and select the appropriate PVLAN. The screen will look like this:
 
-![pvlans_dvpg](http://virtuallyhyper.com/wp-content/uploads/2012/09/pvlans_dvpg.png)
+![pvlans_dvpg](https://github.com/elatov/uploads/raw/master/2012/09/pvlans_dvpg.png)
 
 ### Use command line tools to troubleshoot and identify VLAN configurations
 
@@ -111,7 +111,7 @@ Check VLAN assignments on SVS:
 
 Check VLAN assignments on DVS. "Networking" View -> Select DVS -> Select the "Networks" Tab. It will look something like this:
 
-![dvs_vlans_view](http://virtuallyhyper.com/wp-content/uploads/2012/09/dvs_vlans_view.png)
+![dvs_vlans_view](https://github.com/elatov/uploads/raw/master/2012/09/dvs_vlans_view.png)
 
 or run the following:
 

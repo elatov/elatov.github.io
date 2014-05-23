@@ -18,7 +18,7 @@ tags:
 ---
 I wanted to check the status of the local LSI controller in the vSphere Client. Going to the **Health Status** Tab and checking the **Sensor** information, I didn't see any Storage Sensors:
 
-![cim sensors esxi Installing LSI CIM Providers for MegaRaid 8704ELP Local Controller on ESXi 5.0](http://virtuallyhyper.com/wp-content/uploads/2014/01/cim-sensors-esxi.png)
+![cim sensors esxi Installing LSI CIM Providers for MegaRaid 8704ELP Local Controller on ESXi 5.0](https://github.com/elatov/uploads/raw/master/2014/01/cim-sensors-esxi.png)
 
 ### LSI Local Controller
 
@@ -62,7 +62,7 @@ So the **LSI MegaRAID SAS 1078 Controller** is basically the same thing as the *
 
 Checking out the LSI site for that card, there was no CIM providers:
 
-![lsi mgmt tools Installing LSI CIM Providers for MegaRaid 8704ELP Local Controller on ESXi 5.0](http://virtuallyhyper.com/wp-content/uploads/2014/01/lsi-mgmt-tools.png)
+![lsi mgmt tools Installing LSI CIM Providers for MegaRaid 8704ELP Local Controller on ESXi 5.0](https://github.com/elatov/uploads/raw/master/2014/01/lsi-mgmt-tools.png)
 
 It only had the MegaCLI tool for VMware. I ran into a couple of site and they actually used older CIM providers which worked out:
 
@@ -108,7 +108,7 @@ Then **ssh** into the ESXi machine and run the following:
 
 I then reboot the ESXi host. After the reboot I went back to the **Health Status** tab and saw the LSI Storage Controller information:
 
-![lsi seen sensors Installing LSI CIM Providers for MegaRaid 8704ELP Local Controller on ESXi 5.0](http://virtuallyhyper.com/wp-content/uploads/2014/01/lsi-seen-sensors.png)
+![lsi seen sensors Installing LSI CIM Providers for MegaRaid 8704ELP Local Controller on ESXi 5.0](https://github.com/elatov/uploads/raw/master/2014/01/lsi-seen-sensors.png)
 
 The Hard Drive information seems wrong (*Unconfigured Good*) but the rest of the information is good. I came across [ESXi 5.1 Dell PERC 6i Health Status Monitoring](http://blog.rebelit.net/432) and the issue is similar in the post. The issue can be fixed by downgrading to lower versions of the LSI CIM Providers.
 
@@ -141,7 +141,7 @@ After it's removed, I rebooted and installed v24 providers:
 
 Another reboot and I saw the following under the **Health Status** tab:
 
-![cim health status lsi 24 Installing LSI CIM Providers for MegaRaid 8704ELP Local Controller on ESXi 5.0](http://virtuallyhyper.com/wp-content/uploads/2014/01/cim-health-status-lsi-24.png)
+![cim health status lsi 24 Installing LSI CIM Providers for MegaRaid 8704ELP Local Controller on ESXi 5.0](https://github.com/elatov/uploads/raw/master/2014/01/cim-health-status-lsi-24.png)
 
 Since the controller didn't have a battery (and the status was **unknown**), CIM was throwing an alert. I then ran across [v30](http://www.thomas-krenn.com/en/wiki/Monitoring_LSI_RAID_Controllers_in_VMware) of the LSI CIM Providers (after I removed v24):
 
@@ -157,7 +157,7 @@ Since the controller didn't have a battery (and the status was **unknown**), CIM
 
 and then my sensors looked like this:
 
-![health status lsi 30 Installing LSI CIM Providers for MegaRaid 8704ELP Local Controller on ESXi 5.0](http://virtuallyhyper.com/wp-content/uploads/2014/01/health-status-lsi-30.png)
+![health status lsi 30 Installing LSI CIM Providers for MegaRaid 8704ELP Local Controller on ESXi 5.0](https://github.com/elatov/uploads/raw/master/2014/01/health-status-lsi-30.png)
 
 That looked better, so I stuck with **v30 LSI CIM Providers** for the **MegaRAID 8704ELP** controller.
 
@@ -268,7 +268,7 @@ I came across [Veeam Backup](http://www.veeam.com/virtual-server-management-one-
 
 After I had setup *Veeam*, I saw the same Hardware Sensors as I did in the vSphere Client:
 
-![veeam hw monitor Installing LSI CIM Providers for MegaRaid 8704ELP Local Controller on ESXi 5.0](http://virtuallyhyper.com/wp-content/uploads/2014/01/veeam-hw-monitor.png)
+![veeam hw monitor Installing LSI CIM Providers for MegaRaid 8704ELP Local Controller on ESXi 5.0](https://github.com/elatov/uploads/raw/master/2014/01/veeam-hw-monitor.png)
 
 #### Test Out Drive Failure
 
@@ -432,11 +432,11 @@ Now, as expected, the status of the Raid is **Degraded**:
 
 Checking out vSphere client, I now saw *warnings*:
 
-![offlined disk cim Installing LSI CIM Providers for MegaRaid 8704ELP Local Controller on ESXi 5.0](http://virtuallyhyper.com/wp-content/uploads/2014/01/offlined-disk-cim.png)
+![offlined disk cim Installing LSI CIM Providers for MegaRaid 8704ELP Local Controller on ESXi 5.0](https://github.com/elatov/uploads/raw/master/2014/01/offlined-disk-cim.png)
 
 And checking out *Veeam One*, an alarm was fired for that:
 
-![veeam on hardware alarm Installing LSI CIM Providers for MegaRaid 8704ELP Local Controller on ESXi 5.0](http://virtuallyhyper.com/wp-content/uploads/2014/01/veeam-on-hardware-alarm.png)
+![veeam on hardware alarm Installing LSI CIM Providers for MegaRaid 8704ELP Local Controller on ESXi 5.0](https://github.com/elatov/uploads/raw/master/2014/01/veeam-on-hardware-alarm.png)
 
 and if an SMTP server is configurde then an email is sent for the corresponding alarm. Then I went ahead and brought the drive back **online**:
 
@@ -514,7 +514,7 @@ Also checking out the events, I saw the following:
 
 And the alarm was automatically resolved on the *Veeam* side (and an email sent as well):
 
-![veeam alarms back Installing LSI CIM Providers for MegaRaid 8704ELP Local Controller on ESXi 5.0](http://virtuallyhyper.com/wp-content/uploads/2014/01/veeam-alarms-back.png)
+![veeam alarms back Installing LSI CIM Providers for MegaRaid 8704ELP Local Controller on ESXi 5.0](https://github.com/elatov/uploads/raw/master/2014/01/veeam-alarms-back.png)
 
 and of course the warning was cleared on the vSphere Client side as well. Checking out the logs on the ESXi host, I saw the following:
 
@@ -539,5 +539,5 @@ and of course the warning was cleared on the vSphere Client side as well. Checki
     2014-01-04T18:23:05.022Z cpu3:2660)<6>megasas_hotplug_work[0]: aen event code 0x00f9
 
 
-We can see that last event code is **0x00f9**, from the above MegaCLI events, we can see that corresponds to *VirtualDisk is Optimal*. BTW a full list of *megasas* events can be seen in [this PDF](http://virtuallyhyper.com/wp-content/uploads/2014/01/A_Event_Info.pdf).
+We can see that last event code is **0x00f9**, from the above MegaCLI events, we can see that corresponds to *VirtualDisk is Optimal*. BTW a full list of *megasas* events can be seen in [this PDF](https://github.com/elatov/uploads/raw/master/2014/01/A_Event_Info.pdf).
 

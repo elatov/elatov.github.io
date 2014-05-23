@@ -44,7 +44,7 @@ From "[The Roadmap to Virtual Infrastructure: Practical Implementation Strategie
 > *   Early ROI: Choose first phase candidate workloads that are low risk, high visibility and generate early ROI.
 > *   Low Risk: Scope initial projects appropriately to mitigate any inherent risks in deployment
 >
-> ![deployment_phase](http://virtuallyhyper.com/wp-content/uploads/2012/09/deployment_phase.png)
+> ![deployment_phase](https://github.com/elatov/uploads/raw/master/2012/09/deployment_phase.png)
 
 ### Match customer skills and abilities to implementation resource requirements
 

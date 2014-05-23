@@ -1239,13 +1239,13 @@ on our DHCP server we can see that our IP was leased:
 
 You will see the machine contact the DHCP Server and then go to the TFTP Server:
 
-![tftp boot succesful RHCSA and RHCE Chapter 8 Network Installs](http://virtuallyhyper.com/wp-content/uploads/2013/03/tftp_boot_succesful.png)
+![tftp boot succesful RHCSA and RHCE Chapter 8 Network Installs](https://github.com/elatov/uploads/raw/master/2013/03/tftp_boot_succesful.png)
 
 If that is successful then you will see the PXE-Menu that you created, like so:
 
-![pxeboot menu g RHCSA and RHCE Chapter 8 Network Installs](http://virtuallyhyper.com/wp-content/uploads/2013/03/pxeboot_menu_g.png)
+![pxeboot menu g RHCSA and RHCE Chapter 8 Network Installs](https://github.com/elatov/uploads/raw/master/2013/03/pxeboot_menu_g.png)
 
 And then finally we will see the package starting to install:
 
-![package installation g RHCSA and RHCE Chapter 8 Network Installs](http://virtuallyhyper.com/wp-content/uploads/2013/03/package_installation_g.png)
+![package installation g RHCSA and RHCE Chapter 8 Network Installs](https://github.com/elatov/uploads/raw/master/2013/03/package_installation_g.png)
 

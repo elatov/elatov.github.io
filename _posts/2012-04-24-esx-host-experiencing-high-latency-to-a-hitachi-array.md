@@ -15,9 +15,9 @@ tags:
 ---
 Recently I received a call from a European customer saying that they were having performance issues with their VMs. Whenever I hear performance issues, I automatically think esxtop. To check out some good articles regarding esxtop and troubleshooting performance issues, check out my previous post ([vReference pdf](http://virtuallyhyper.com/2012/04/ubuntu-11-10-vms-experience-high-storage-latency-on-esxi-5-0/). Here are a couple of pictures from that pdf:
 
-![esxtop_threshold_1](http://virtuallyhyper.com/wp-content/uploads/2012/04/esxtop_threshold_1.png)
+![esxtop_threshold_1](https://github.com/elatov/uploads/raw/master/2012/04/esxtop_threshold_1.png)
 
-![esxtop_threshold_2](http://virtuallyhyper.com/wp-content/uploads/2012/04/esxtop_threshold_2.png)
+![esxtop_threshold_2](https://github.com/elatov/uploads/raw/master/2012/04/esxtop_threshold_2.png)
 
 **Note:** Some good ones to note are DAVG (25ms) and KAVG (2ms)
 
@@ -27,11 +27,11 @@ I asked the customer if they had made any recent changes to the environment. The
 
 Having heard that something with the SAN environment had changed, I fired up **esxtop** and went to the disk device view (by typing 'u'). Here is what I saw:
 
-![high_davg_to_hitachi_array_1](http://virtuallyhyper.com/wp-content/uploads/2012/04/high_davg_to_hitachi_array_1.png)
+![high_davg_to_hitachi_array_1](https://github.com/elatov/uploads/raw/master/2012/04/high_davg_to_hitachi_array_1.png)
 
 Multiple LUNs are seeing a value above 1000ms for the DAVG/cmd value. The DAVG values stayed that way the whole time (these weren't just spikes) and it was the same thing across multiple hosts. So we are definitely above the recommended threshold value for DAVG of 25ms. I asked them what was the model of the array that they were utilizing and they told me it was the HDS (Hitachi Data Systems) USP 1100. The first thing I checked out was, if it was on the HCL and it was ([HDS USP 1100](http://www.vmware.com/resources/compatibility/detail.php?deviceCategory=san&productid=1445&deviceCategory=san&partner=39&keyword=USP%201100&isSVA=1&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc)). The next thing to check is to make sure that the PSP (Pathing Selection Policy) was set correctly. I checked the setting and all the hosts was using a FIXED pathing policy. I also checked out the logs under **/var/log/vmkernel** and I saw the following:
 
-![sync_CR_messages_to_hitachi_array_1](http://virtuallyhyper.com/wp-content/uploads/2012/04/sync_CR_messages_to_hitachi_array_1.png)
+![sync_CR_messages_to_hitachi_array_1](https://github.com/elatov/uploads/raw/master/2012/04/sync_CR_messages_to_hitachi_array_1.png)
 
 So we were seeing SCSI Reservation Conflict Messages. There is a great KB on Analyzing the 'Sync CR' messages, VMware KB [1030381](http://kb.vmware.com/kb/1005009) this is what SYNC CR messages mean:
 

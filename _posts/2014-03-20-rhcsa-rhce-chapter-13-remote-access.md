@@ -73,11 +73,11 @@ From the same guide:
 >
 > System-wide SSH configuration information is stored in the **/etc/ssh/** directory. User-specific SSH configuration information is stored in **~/.ssh/** within the user's home directory.
 >
-> ![etc ssh contents RHCSA and RHCE Chapter 13 – Remote Access](http://virtuallyhyper.com/wp-content/uploads/2014/03/etc_ssh-contents.png)
+> ![etc ssh contents RHCSA and RHCE Chapter 13 – Remote Access](https://github.com/elatov/uploads/raw/master/2014/03/etc_ssh-contents.png)
 
 And here are the user specific files:
 
-> ![user ssh content RHCSA and RHCE Chapter 13 – Remote Access](http://virtuallyhyper.com/wp-content/uploads/2014/03/user_ssh-content.png)
+> ![user ssh content RHCSA and RHCE Chapter 13 – Remote Access](https://github.com/elatov/uploads/raw/master/2014/03/user_ssh-content.png)
 
 ### OpenSSH Service
 
@@ -357,7 +357,7 @@ Then running the following:
 
 Produced a local window on my laptop from the remote host:
 
-![ssh forward system config print RHCSA and RHCE Chapter 13 – Remote Access](http://virtuallyhyper.com/wp-content/uploads/2014/03/ssh-forward-system-config-print.png)
+![ssh forward system config print RHCSA and RHCE Chapter 13 – Remote Access](https://github.com/elatov/uploads/raw/master/2014/03/ssh-forward-system-config-print.png)
 
 ### SSH Port Forwarding
 
@@ -463,7 +463,7 @@ Then I connected to the rhel6 machine:
 
 I did have to install **twm** just for testing and I saw the following:
 
-![vncviewer direct RHCSA and RHCE Chapter 13 – Remote Access](http://virtuallyhyper.com/wp-content/uploads/2014/03/vncviewer-direct.png)
+![vncviewer direct RHCSA and RHCE Chapter 13 – Remote Access](https://github.com/elatov/uploads/raw/master/2014/03/vncviewer-direct.png)
 
 Since VNC is unsecure usually SSH forwarding is used to connect to a VNC server. First we can force to only accept VNC connections from localhost on the VNC Server. This is done by editing **/etc/sysconfig/vncservers** file and making the following adjusting:
 

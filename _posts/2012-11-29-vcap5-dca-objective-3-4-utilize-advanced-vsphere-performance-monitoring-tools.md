@@ -16,7 +16,7 @@ tags:
 
 If you launch Esxtop and type '**h**' it will show you the following:
 
-![esxtop_shortcuts](http://virtuallyhyper.com/wp-content/uploads/2012/11/esxtop_shortcuts.png)
+![esxtop_shortcuts](https://github.com/elatov/uploads/raw/master/2012/11/esxtop_shortcuts.png)
 
 The most important ones are:
 
@@ -31,7 +31,7 @@ The most important ones are:
 
 For the fields, I would check out [vSphere Monitoring and Performance vSphere 5.0](http://communities.vmware.com/docs/DOC-9279)' documentation. It covers all the fields in great detail. You can also go to each panel from above (cpu, memory... etc) and then type in '**f**' and it will show you the available fields. Here is how the LUN fields look like:
 
-![esxtop_lun_fields](http://virtuallyhyper.com/wp-content/uploads/2012/11/esxtop_lun_fields.png)
+![esxtop_lun_fields](https://github.com/elatov/uploads/raw/master/2012/11/esxtop_lun_fields.png)
 
 ### Identify fields used with vscsiStats
 
@@ -48,11 +48,11 @@ From "[Storage Workload Characterization and Consolidation in Virtualized Enviro
 
 From '[vSphere Monitoring and Performance vSphere 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf)':
 
-![esxtop_save_profile](http://virtuallyhyper.com/wp-content/uploads/2012/11/esxtop_save_profile.png)
+![esxtop_save_profile](https://github.com/elatov/uploads/raw/master/2012/11/esxtop_save_profile.png)
 
 So launch *esxtop* and configure the fields that you would like to see and then save the configuration by typing "**W**", here is how it looks like:
 
-![esxtop_W](http://virtuallyhyper.com/wp-content/uploads/2012/11/esxtop_W.png)
+![esxtop_W](https://github.com/elatov/uploads/raw/master/2012/11/esxtop_W.png)
 
 Select the default file name and now the next time you launch *esxtop* it will start with your custom fields.
 

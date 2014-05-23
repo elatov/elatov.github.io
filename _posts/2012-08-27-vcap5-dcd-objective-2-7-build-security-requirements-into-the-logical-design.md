@@ -14,7 +14,7 @@ tags:
 ### Understand what security services are provided by VMware solutions
 
 vShield is the most popular service. If you need PCI compliance you can check out "[this](http://www.vmware.com/cloud-security-compliance/protect-critical-applications) VMware blog:
-![compliance](http://virtuallyhyper.com/wp-content/uploads/2012/08/compliance.png)
+![compliance](https://github.com/elatov/uploads/raw/master/2012/08/compliance.png)
 
 VMware also provides hardening guides for each version of ESX, and here a [link](https://www.vmware.com/support/support-resources/hardening-guides.html) to all the different versions.
 
@@ -54,17 +54,17 @@ And Regarding Trust Zones, from "[Network Segmentation in Virtualized Environmen
 
 From the [APAC BrownBag Session 5](http://vimeo.com/38646355) slide deck:
 
-![separation_of_duties](http://virtuallyhyper.com/wp-content/uploads/2012/08/separation_of_duties.png)
+![separation_of_duties](https://github.com/elatov/uploads/raw/master/2012/08/separation_of_duties.png)
 
 ### Create a security policy based on existing security requirements and IT governance practices
 
 From this [great](http://communities.vmware.com/servlet/JiveServlet/download/1633024-44565/VMUG%20Presentation.pptx) VMUG presentation by Rob Randell:
 
-![secure_and_compliant](http://virtuallyhyper.com/wp-content/uploads/2012/08/secure_and_compliant.png)
+![secure_and_compliant](https://github.com/elatov/uploads/raw/master/2012/08/secure_and_compliant.png)
 
 and here is another slide from the above deck:
 
-![securing-examples](http://virtuallyhyper.com/wp-content/uploads/2012/08/securing-examples.png)
+![securing-examples](https://github.com/elatov/uploads/raw/master/2012/08/securing-examples.png)
 
 ### Incorporate customer risk tolerance into the security policy
 
@@ -109,7 +109,7 @@ From the [VMware Compliance site](http://www.vmware.com/cloud-security-complianc
 > With proper technology based solutions such as VMware vShield and VMware vCenter Configuration Manager, achieving and demonstrating compliance on VMware vSphere based infrastructures is not only possible, but can often be easier than achieving the same on non virtualized environments.
 
 The above mentioned Compliance checker has been integrated into VMware vCenter Configuration Manager, so you can use that to see if you are compliant or not. Here is what the application looks like:
-![vcm-compliance](http://virtuallyhyper.com/wp-content/uploads/2012/08/vcm-compliance.png)
+![vcm-compliance](https://github.com/elatov/uploads/raw/master/2012/08/vcm-compliance.png)
 
 ### Explain how compliance requirements will impact the logical security design
 

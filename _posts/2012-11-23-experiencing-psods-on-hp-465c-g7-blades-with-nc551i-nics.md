@@ -17,7 +17,7 @@ tags:
 ---
 After updating our HP Virtual Connect firmware to version 3.60, our ESXi host we would see the following PSOD after a certain amount of time:
 
-![psod_be2net_manu_c](http://virtuallyhyper.com/wp-content/uploads/2012/11/psod_be2net_manu_c.png)
+![psod_be2net_manu_c](https://github.com/elatov/uploads/raw/master/2012/11/psod_be2net_manu_c.png)
 
 Here is the actual backtrace:
 
@@ -82,7 +82,7 @@ Whenever you see a *be* in the backtrace, that is the *be2net* driver causing th
 
 Here is the link to the [October 2012 VMware FW and Software Recipe](http://www.vmware.com/resources/compatibility/detail.php?deviceCategory=io&productid=19068&deviceCategory=io&VID=19a2&DID=0700&SVID=103c&SSID=3314&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc)" page and I saw the following recommendation:
 
-![hp_reciopes_nc551i](http://virtuallyhyper.com/wp-content/uploads/2012/11/hp_reciopes_nc551i.png)
+![hp_reciopes_nc551i](https://github.com/elatov/uploads/raw/master/2012/11/hp_reciopes_nc551i.png)
 
 So I decided to install be2net driver 4.1.334.48, here is a [link](https://my.vmware.com/web/vmware/details?downloadGroup=DT-ESX50-EMULEX-be2net-4133448&productId=285) to that. I didn't want to go to the latest firmware just yet. So after all was said and done, I had the following driver/firmware combination:
 

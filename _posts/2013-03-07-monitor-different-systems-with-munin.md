@@ -64,7 +64,7 @@ That looks good, as a quick test we can **telnet** to the daemon locally and fet
     load.value 0.31
 
 
-That looks good, then going to ****, I saw the following page: [munin-node.conf](http://virtuallyhyper.com/wp-content/uploads/2013/02/munin-first-page.png) page we see this directive:
+That looks good, then going to ****, I saw the following page: [munin-node.conf](https://github.com/elatov/uploads/raw/master/2013/02/munin-first-page.png) page we see this directive:
 
     ignore_file Files to ignore when locating plugins. Directive may be repeated.
 
@@ -196,9 +196,9 @@ We can see that both nodes have been updated. You can also check under **/var/li
     /var/lib/munin/state-dnsd.me-kerch.dnsd.me.storable
 
 
-Lastly vising the site, I saw both nodes like so: ![munin two nodes Monitor Different Systems with Munin](http://virtuallyhyper.com/wp-content/uploads/2013/02/munin-two-nodes.png)
+Lastly vising the site, I saw both nodes like so: ![munin two nodes Monitor Different Systems with Munin](https://github.com/elatov/uploads/raw/master/2013/02/munin-two-nodes.png)
 
-Also clicking 'system' for the day, will show the CPU usage side by side for both nodes, it looks like this: ![munin warning Monitor Different Systems with Munin](http://virtuallyhyper.com/wp-content/uploads/2013/02/munin-warning.png) As I did with the Ubuntu machine, we can do the same thing and disable plugins under **/usr/local/etc/munin/plugins** on the FreeBSD machine as well. Now let's set up the Fedora node.
+Also clicking 'system' for the day, will show the CPU usage side by side for both nodes, it looks like this: ![munin warning Monitor Different Systems with Munin](https://github.com/elatov/uploads/raw/master/2013/02/munin-warning.png) As I did with the Ubuntu machine, we can do the same thing and disable plugins under **/usr/local/etc/munin/plugins** on the FreeBSD machine as well. Now let's set up the Fedora node.
 
 ### 3. Install Munin-node on Fedora
 
@@ -285,7 +285,7 @@ Look like the node was added without issues. Checking out the management page (*
 
 Instructions on how to write a plug-in for *Munin* are [here](http://munin-monitoring.org/wiki/HowToWritePlugins). Following the instuctions from the site, I wrote this script:
 
-	#!/bin/sh 
+	#!/bin/sh
 	case $1 in
 	   config)
 	        cat < <'EOM'
@@ -377,7 +377,7 @@ Also checking out the values of the RRD file, I saw the following:
     1361403600: nan
 
 
-Looks like our average value is 2, which is perfect. Going to the site and zooming in on the graph, I saw the following. ![munin raid status Monitor Different Systems with Munin](http://virtuallyhyper.com/wp-content/uploads/2013/02/munin-raid_status.png) It just started to gather data and it looked okay. Now for the comparison
+Looks like our average value is 2, which is perfect. Going to the site and zooming in on the graph, I saw the following. ![munin raid status Monitor Different Systems with Munin](https://github.com/elatov/uploads/raw/master/2013/02/munin-raid_status.png) It just started to gather data and it looked okay. Now for the comparison
 
 ### 5. Collectd Vs. Munin
 
@@ -393,8 +393,8 @@ Looks like our average value is 2, which is perfect. Going to the site and zoomi
 1.  The Management Page loads all the graphs at once and it takes a while to process
 2.  *Munin* runs on *Perl*, therefore many dependencies had to be installed
 3.  Higher CPU Utilization
-    *   Checking out **top**, I saw **munin-html** take 90% of the CPU, while *Collectd* is around 1%. Check it out: ![munin cpu usage g Monitor Different Systems with Munin](http://virtuallyhyper.com/wp-content/uploads/2013/02/munin-cpu-usage_g.png)
-    *   Lastly I don't know if you want to call this irony, but I checked *Collectd* graphs and here is what I saw: ![collectd cpu usage after munin Monitor Different Systems with Munin](http://virtuallyhyper.com/wp-content/uploads/2013/02/collectd_cpu_usage_after_munin.png) At about 20:30 I installed *Munin* on the system, and right after that we see a spike in CPU usage every 5 minutes.
+    *   Checking out **top**, I saw **munin-html** take 90% of the CPU, while *Collectd* is around 1%. Check it out: ![munin cpu usage g Monitor Different Systems with Munin](https://github.com/elatov/uploads/raw/master/2013/02/munin-cpu-usage_g.png)
+    *   Lastly I don't know if you want to call this irony, but I checked *Collectd* graphs and here is what I saw: ![collectd cpu usage after munin Monitor Different Systems with Munin](https://github.com/elatov/uploads/raw/master/2013/02/collectd_cpu_usage_after_munin.png) At about 20:30 I installed *Munin* on the system, and right after that we see a spike in CPU usage every 5 minutes.
 4.  The setup depends on *cron*, if you made a change, you need to wait 5 minutes for the changes to occur, with *Collectd* you can just restart the agent
 5.  Traffic is TCP, more overhead. *Collectd* uses udp.
 

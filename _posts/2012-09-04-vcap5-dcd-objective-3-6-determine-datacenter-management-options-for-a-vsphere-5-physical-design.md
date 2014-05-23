@@ -25,7 +25,7 @@ From "[vCenter Server and Host Management ESXi 5.0](http://pubs.vmware.com/vsphe
 
 From [APAC BrownBag Session 11](http://professionalvmware.com/2012/04/apac-vbrownbag-follow-up-management-design/):
 
-![vmware-mgmg-tools](http://virtuallyhyper.com/wp-content/uploads/2012/09/vmware-mgmg-tools.png)
+![vmware-mgmg-tools](https://github.com/elatov/uploads/raw/master/2012/09/vmware-mgmg-tools.png)
 
 If the skill set is available from the company and one of the above tools can used with ease then definitely offer the option and see how the customer reacts. PowerCLI is a very advanced tool and can be utilized very efficiently to produce reports of usage and performance. It just depends on the willingness of the customer to program the necessary components. Also, the PowerCLI community is huge, so you can find most of the tools already pre-made.
 
@@ -159,14 +159,14 @@ From "[What’s New in VMware vSphere 5.0 - Availability](http://www.vmware.com/
 
 From the same document:
 
-![vc-heartbeat](http://virtuallyhyper.com/wp-content/uploads/2012/09/vc-heartbeat.png)
+![vc-heartbeat](https://github.com/elatov/uploads/raw/master/2012/09/vc-heartbeat.png)
 
 > **Application Support**
 > In addition to providing availability for VMware vCenter Server 5.0, VMware vCenter Server Heartbeat now also provides availability of VMware View Composer and Microsoft SQL Server 2008 R2. This support increases the platform support to match common customer deployment preferences.
 
 It's basically a clustering software that allows vCenter to be fault tolerant. It does require two vCenter Installs and it will synchronize between the two instances. Not only does it allow you to synchronize the vCenter Service but since vCenter can use a MSQL, you can also synchronize that as well. If you have the resources and you need 100% availability of the vCenter then vCenter Heartbeat will be your best bet.
 
-From [this](http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.pdf) PDF:
+From [this](https://github.com/elatov/uploads/raw/master/2013/04/vcap-dcd_notes.pdf) PDF:
 
 > **vCenter Protection**
 >
@@ -238,7 +238,9 @@ From the same document:
 > You can create roles and set permissions through a direct connection to the ESXi host.
 >
 > **Hierarchical Inheritance of Permissions**
-> When you assign a permission to an object, you can choose whether the permission propagates down the object hierarchy. You set propagation for each permission. Propagation is not universally applied. Permissions defined for a child object always override the permissions that are propagated from parent objects. The figure illustrates inventory hierarchy and the paths by which permissions can propagate. ![hierarchy-perms](http://virtuallyhyper.com/wp-content/uploads/2012/09/hierarchy-perms.png)
+> When you assign a permission to an object, you can choose whether the permission propagates down the object hierarchy. You set propagation for each permission. Propagation is not universally applied. Permissions defined for a child object always override the permissions that are propagated from parent objects. The figure illustrates inventory hierarchy and the paths by which permissions can propagate. 
+>
+> ![hierarchy-perms](https://github.com/elatov/uploads/raw/master/2012/09/hierarchy-perms.png)
 >
 > Most inventory objects inherit permissions from a single parent object in the hierarchy. For example, a datastore inherits permissions from either its parent datastore folder or parent datacenter. Virtual machines inherit permissions from both the parent virtual machine folder and the parent host, cluster, or resource pool simultaneously. To restrict a user’s privileges on a virtual machine, you must set permissions on both the parent folder and the parent host, cluster, or resource pool for that virtual machine.
 >
@@ -261,7 +263,7 @@ I think the next part from the same document is the best part:
 Then comes a pretty good example for necessary permission for certain tasks:
 
 > **Required Privileges for Common Tasks**
-> Many tasks require permissions on more than one object in the inventory. You can review the privileges required to perform the tasks and, where applicable, the appropriate sample roles. The following table lists common tasks that require more than one privilege. You can use the Applicable Roles on the inventory objects to grant permission to perform these tasks, or you can create your own roles with the equivalent required privileges. ![pemissions-to-create-vms](http://virtuallyhyper.com/wp-content/uploads/2012/09/pemissions-to-create-vms.png)
+> Many tasks require permissions on more than one object in the inventory. You can review the privileges required to perform the tasks and, where applicable, the appropriate sample roles. The following table lists common tasks that require more than one privilege. You can use the Applicable Roles on the inventory objects to grant permission to perform these tasks, or you can create your own roles with the equivalent required privileges. ![pemissions-to-create-vms](https://github.com/elatov/uploads/raw/master/2012/09/pemissions-to-create-vms.png)
 
 Lastly here are roles from the same document:
 
@@ -305,7 +307,7 @@ There are a couple of application that can do asset management. The first one is
 
 [VMworld 2012: Introducing the New VMware Go Pro for SMBs!](http://blogs.vmware.com/smb/2012/08/goprosmb.html#more-558)":
 
-> ![vmware-go](http://virtuallyhyper.com/wp-content/uploads/2012/09/vmware-go.png)
+> ![vmware-go](https://github.com/elatov/uploads/raw/master/2012/09/vmware-go.png)
 > **Comprehensive Infrastructure Protection**
 > VMware Go Pro offers automated patch management across physical and virtual machines for both Microsoft and third-party applications to ensure that organizations are up-to-date with all of the latest software upgrades, thus mitigating the organization’s vulnerability to the latest IT threats. An integrated Help Desk with built-in analytics also helps improve IT productivity and service, automatically prioritizing issues by level of severity. Go Pro also offers a rich asset management capability, which provides control over all software and hardware assets.
 
@@ -343,7 +345,7 @@ And for the [features](http://www.vmware.com/products/datacenter-virtualization/
 
 [VMware Service Manager 9 - Asset Management](http://www.slideshare.net/khanyasmin/vmware-service-manager-9-asset-management)":
 
-![vm-serv-mana-sub-request](http://virtuallyhyper.com/wp-content/uploads/2012/09/vm-serv-mana-sub-request.png)
+![vm-serv-mana-sub-request](https://github.com/elatov/uploads/raw/master/2012/09/vm-serv-mana-sub-request.png)
 
 Lastly you can use the 'Asset Tag' option for a VM to keep track of VMs manually. You can also use PowerCLI to look for VMs with certain tag as well. VMware Blog "[Objective 2.4](http://blogs.vmware.com/vsphere/2012/03/acessing-virtual-machine-advanced-settings.html)
 
@@ -401,7 +403,7 @@ You can also use PowerCLI to automate testing and download of patches. Check out
 
 If you don't want to use VUM because you don't have a big environment there are alternatives. First you can create your own custom image with Image Builder. For more information check out the VMware blog "[VMware vSphere 5.0 Evaluation Guide Volume One](http://blogs.vmware.com/vsphere/2012/04/using-the-vsphere-esxi-image-builder-cli.html)". From that document, here is a good image that depicts Image Builder:
 
-![image_builder](http://virtuallyhyper.com/wp-content/uploads/2012/09/image_builder.png).
+![image_builder](https://github.com/elatov/uploads/raw/master/2012/09/image_builder.png).
 
 You can also just use powerCLI, vCLI, vMA, or esxcli to install patches manually. All of the examples are listed in VMware blog "[Quickest Way to Patch an ESX/ESXi Using the Command-line](http://blogs.vmware.com/vsphere/2012/02/quickest-way-to-patch-an-esxesxi-using-the-command-line.html)". From the blog:
 
@@ -450,7 +452,7 @@ From "vSphere Installation and Setup vSphere 5.0":
 > ...
 > ...
 >
-> ![pxe-boot-esxi](http://virtuallyhyper.com/wp-content/uploads/2012/09/pxe-boot-esxi.png)
+> ![pxe-boot-esxi](https://github.com/elatov/uploads/raw/master/2012/09/pxe-boot-esxi.png)
 
 After that the paper goes into a step by step process on how to set that. From the same document, regarding scripted installs:
 
@@ -493,15 +495,15 @@ Now for Auto Deploy, from the same document:
 > ...
 > ...
 >
-> ![auto-deploy-architecture](http://virtuallyhyper.com/wp-content/uploads/2012/09/auto-deploy-architecture.png)
+> ![auto-deploy-architecture](https://github.com/elatov/uploads/raw/master/2012/09/auto-deploy-architecture.png)
 
 Also here is boot process of Auto Deploy for first time and then the subsequent boots:
 
-> ![auto-deploy-fb](http://virtuallyhyper.com/wp-content/uploads/2012/09/auto-deploy-fb.png)
+> ![auto-deploy-fb](https://github.com/elatov/uploads/raw/master/2012/09/auto-deploy-fb.png)
 >
 > and
 >
-> ![auto-deploy-sb](http://virtuallyhyper.com/wp-content/uploads/2012/09/auto-deploy-sb.png)
+> ![auto-deploy-sb](https://github.com/elatov/uploads/raw/master/2012/09/auto-deploy-sb.png)
 
 Now for Image builder, from the same document:
 

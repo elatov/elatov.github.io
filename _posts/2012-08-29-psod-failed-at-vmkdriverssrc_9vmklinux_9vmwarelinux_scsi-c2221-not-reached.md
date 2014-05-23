@@ -16,7 +16,7 @@ tags:
 ---
 I recently ran into the following PSOD:
 
-![psod-lsi-](http://virtuallyhyper.com/wp-content/uploads/2012/08/psod-lsi-.png)
+![psod-lsi-](https://github.com/elatov/uploads/raw/master/2012/08/psod-lsi-.png)
 
 Some other people in the VMware communities have seen the same PSOD. Here is a [link](http://communities.vmware.com/message/2102510) to the communities page. We are crashing at:
 
@@ -62,11 +62,11 @@ So we are using the mpt2sas and megaraid_sas drivers for our local drives. Here 
 
 For vmhba1:
 
-![hcl-vmhba1](http://virtuallyhyper.com/wp-content/uploads/2012/08/hcl-vmhba1.png)
+![hcl-vmhba1](https://github.com/elatov/uploads/raw/master/2012/08/hcl-vmhba1.png)
 
 and for vmhba2:
 
-![hcl-vmhba2](http://virtuallyhyper.com/wp-content/uploads/2012/08/hcl-vmhba2.png)
+![hcl-vmhba2](https://github.com/elatov/uploads/raw/master/2012/08/hcl-vmhba2.png)
 
 Here is our hardware and VMware versions:
 
@@ -110,7 +110,7 @@ Checking the current version, I saw the following:
 
 So we were at the latest version for both. Searching for the available mpt2sas drivers from the VMware downloads page, I saw the following:
 
-![mp2sas-drivers](http://virtuallyhyper.com/wp-content/uploads/2012/08/mp2sas-drivers.png)
+![mp2sas-drivers](https://github.com/elatov/uploads/raw/master/2012/08/mp2sas-drivers.png)
 
 So these version of the drivers are available:
 

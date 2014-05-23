@@ -38,10 +38,10 @@ Instructions on how to make a bootable USB Disk from a VMware Installer ISO are 
 >         /sbin/fdisk /dev/sdb
 >
 >
->     1. Type **d** to delete partitions until they are all deleted. 
->     2. Type **n** to create primary partition 1 that extends over the entire disk. 
->     3. Type **t** to set the type to an appropriate setting for the FAT32 file system, such as **c**. 
->     4. Type **a** to set the active flag on partition 1. 
+>     1. Type **d** to delete partitions until they are all deleted.
+>     2. Type **n** to create primary partition 1 that extends over the entire disk.
+>     3. Type **t** to set the type to an appropriate setting for the FAT32 file system, such as **c**.
+>     4. Type **a** to set the active flag on partition 1.
 >     5. Type **p** to print the partition table. The result should be similar to the following text:
 >
 > 			Disk /dev/sdb: 2004 MB, 2004877312 bytes
@@ -233,11 +233,11 @@ Then run the following to start the install:
 
 After you type that you will see a UI pop up, click install and you should see the following:
 
-![installing unetbootin ESXi on MacMini 6,2](http://virtuallyhyper.com/wp-content/uploads/2014/04/installing-unetbootin.png)
+![installing unetbootin ESXi on MacMini 6,2](https://github.com/elatov/uploads/raw/master/2014/04/installing-unetbootin.png)
 
 You can see it takes care of most of the setup. After it's finished you will see the following:
 
-![unetbootin finished ESXi on MacMini 6,2](http://virtuallyhyper.com/wp-content/uploads/2014/04/unetbootin-finished.png)
+![unetbootin finished ESXi on MacMini 6,2](https://github.com/elatov/uploads/raw/master/2014/04/unetbootin-finished.png)
 
 You don't have reboot, just click **exit** and eject the USB disk.
 
@@ -245,27 +245,27 @@ You don't have reboot, just click **exit** and eject the USB disk.
 
 After you have plugged in the USB drive into the Mac Mini, power it on and as soon as you hear the boot chime click and hold the **Alt/Option** button until you see the boot selection screen:
 
-![mac mini boot screen 1024x577 ESXi on MacMini 6,2](http://virtuallyhyper.com/wp-content/uploads/2014/04/mac-mini-boot-screen-1024x577.jpg)
+![mac mini boot screen 1024x577 ESXi on MacMini 6,2](https://github.com/elatov/uploads/raw/master/2014/04/mac-mini-boot-screen.jpg)
 
 Select the "**EFI Boot**" option and the installer will start:
 
-![esxi installer started 1024x305 ESXi on MacMini 6,2](http://virtuallyhyper.com/wp-content/uploads/2014/04/esxi-installer-started-1024x305.jpg)
+![esxi installer started 1024x305 ESXi on MacMini 6,2](https://github.com/elatov/uploads/raw/master/2014/04/esxi-installer-started.jpg)
 
 It will ask you which drive to install ESXi, I chose the local SSD drive:
 
-![esxi select disk g 1024x513 ESXi on MacMini 6,2](http://virtuallyhyper.com/wp-content/uploads/2014/04/esxi-select-disk_g-1024x513.jpg)
+![esxi select disk g 1024x513 ESXi on MacMini 6,2](https://github.com/elatov/uploads/raw/master/2014/04/esxi-select-disk_g.jpg)
 
 After that the installer will start:
 
-![esxi installing g 1024x261 ESXi on MacMini 6,2](http://virtuallyhyper.com/wp-content/uploads/2014/04/esxi-installing_g-1024x261.jpg)
+![esxi installing g 1024x261 ESXi on MacMini 6,2](https://github.com/elatov/uploads/raw/master/2014/04/esxi-installing_g.jpg)
 
 And after the install is successful, you should see the following:
 
-![esxi installed g 1024x517 ESXi on MacMini 6,2](http://virtuallyhyper.com/wp-content/uploads/2014/04/esxi-installed_g-1024x517.jpg)
+![esxi installed g 1024x517 ESXi on MacMini 6,2](https://github.com/elatov/uploads/raw/master/2014/04/esxi-installed_g.jpg)
 
 Click Enter to reboot and after it reboots you should see the default ESXi console:
 
-![esxi reboot loca gl 720x1024 ESXi on MacMini 6,2](http://virtuallyhyper.com/wp-content/uploads/2014/04/esxi-reboot-loca_gl-720x1024.jpg)
+![esxi reboot loca gl 720x1024 ESXi on MacMini 6,2](https://github.com/elatov/uploads/raw/master/2014/04/esxi-reboot-loca_gl.jpg)
 
 Now your ESXi host is ready.
 
@@ -619,7 +619,7 @@ Here is an example of a 15GB VM:
 
 So it took about 15 minutes. Checking out esxtop, I saw that it was transferring at about 100Mb/s:
 
-![esxtop nfc copy ESXi on MacMini 6,2](http://virtuallyhyper.com/wp-content/uploads/2014/04/esxtop-nfc-copy.png)
+![esxtop nfc copy ESXi on MacMini 6,2](https://github.com/elatov/uploads/raw/master/2014/04/esxtop-nfc-copy.png)
 
 I found a couple of links that talked about NFC (which is used for the transfer) and they talked about NFC (in converter) having slowed down because of enabling SSL:
 
@@ -663,11 +663,11 @@ There are a lot of cool cmdlets (like [Set-HardDisk](https://www.vmware.com/supp
 
 Unfortunately all of those required vCenter to work. So I decided to copy the hard disk. So let's get started. Here is the version of PowerCLI that I downloaded:
 
-![powercli ESXi on MacMini 6,2](http://virtuallyhyper.com/wp-content/uploads/2014/04/powercli.png)
+![powercli ESXi on MacMini 6,2](https://github.com/elatov/uploads/raw/master/2014/04/powercli.png)
 
 After installing PowerCLI and launching it, I saw the following warning:
 
-![powercli warning policy ESXi on MacMini 6,2](http://virtuallyhyper.com/wp-content/uploads/2014/04/powercli-warning-policy.png)
+![powercli warning policy ESXi on MacMini 6,2](https://github.com/elatov/uploads/raw/master/2014/04/powercli-warning-policy.png)
 
 I then ran the following to set the appropriate Policy:
 
@@ -682,7 +682,7 @@ I then ran the following to set the appropriate Policy:
 
 Then after relaunching PowerCli and you will see the following:
 
-![powercli started ESXi on MacMini 6,2](http://virtuallyhyper.com/wp-content/uploads/2014/04/powercli-started.png)
+![powercli started ESXi on MacMini 6,2](https://github.com/elatov/uploads/raw/master/2014/04/powercli-started.png)
 
 Now let's connect to our original ESXi host:
 
@@ -752,7 +752,7 @@ Then copy the harddisk
 
 I also checked out **esxtop** and it was copying fast (in comparison with NFC), we were transferring at 100MB/s (800Mb/s):
 
-![copy disk esxtop g ESXi on MacMini 6,2](http://virtuallyhyper.com/wp-content/uploads/2014/04/copy-disk-esxtop_g.png)
+![copy disk esxtop g ESXi on MacMini 6,2](https://github.com/elatov/uploads/raw/master/2014/04/copy-disk-esxtop_g.png)
 
 Next we are going to copy the VMX file. To copy a file, we need to know the **datacenter** name, here is that:
 
@@ -810,11 +810,11 @@ Let's copy the harddisk to the local datastore of the new host:
 
 You will see the following when you execute the copy:
 
-![powecli copy command ESXi on MacMini 6,2](http://virtuallyhyper.com/wp-content/uploads/2014/04/powecli-copy-command.png)
+![powecli copy command ESXi on MacMini 6,2](https://github.com/elatov/uploads/raw/master/2014/04/powecli-copy-command.png)
 
 Also checked out **esxtop** on the new host and the speeds were similar:
 
-![copy disk macm esxtop g 1024x67 ESXi on MacMini 6,2](http://virtuallyhyper.com/wp-content/uploads/2014/04/copy-disk-macm-esxtop_g-1024x67.png)
+![copy disk macm esxtop g 1024x67 ESXi on MacMini 6,2](https://github.com/elatov/uploads/raw/master/2014/04/copy-disk-macm-esxtop_g.png)
 
 And let's go ahead and copy the VMX over:
 

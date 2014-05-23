@@ -23,7 +23,7 @@ From "[Best Practices for Microsoft SQL Server on Hitachi Universal Storage Plat
 >
 > The overhead of RAID-5 is equivalent to one disk drive, regardless of the size of the array group. RAID-5 is best suited to applications using mostly sequential reads.
 
-And from "[VDI & Storage: Deep Impact](http://virtuallyhyper.com/wp-content/uploads/2014/02/VDI_Storage.pdf)":
+And from "[VDI & Storage: Deep Impact](https://github.com/elatov/uploads/raw/master/2014/02/VDI_Storage.pdf)":
 
 > RAID5 - With 15,000 RPM disks the amount of read IOPS are somewhere in the 150-160 range while write IOPS are closer to the 35-45 range.
 >
@@ -33,11 +33,11 @@ And from "[VDI & Storage: Deep Impact](http://virtuallyhyper.com/wp-content/uplo
 
 Here is a diagram from the above pdf:
 
-![raid-with-iops](http://virtuallyhyper.com/wp-content/uploads/2012/08/raid-with-iops.png)
+![raid-with-iops](https://github.com/elatov/uploads/raw/master/2012/08/raid-with-iops.png)
 
 and also here is similar diagram from [this](http://blogs.vmware.com/vsphere/2012/06/troubleshooting-storage-performance-in-vsphere-part-2.html) VMware blog:
 
-![sizing-storage](http://virtuallyhyper.com/wp-content/uploads/2012/08/sizing-storage.png)
+![sizing-storage](https://github.com/elatov/uploads/raw/master/2012/08/sizing-storage.png)
 
 If you want information on how each RAID works, I would suggest reading "[IOps?](http://vmtoday.com/2010/01/storage-basics-part-iii-raid/)".
 
@@ -45,23 +45,23 @@ If you want information on how each RAID works, I would suggest reading "[IOps?]
 
 I would check out the VMware blog "[Storage Protocol Comparison – A vSphere Perspective](http://blogs.vmware.com/vsphere/2012/02/storage-protocol-comparison-a-vsphere-perspective.html)". Here is a snippet from that page:
 
-![prot-comp](http://virtuallyhyper.com/wp-content/uploads/2012/08/prot-comp.png)
+![prot-comp](https://github.com/elatov/uploads/raw/master/2012/08/prot-comp.png)
 
-And also from "[Storage Considerations for VMware View](http://virtuallyhyper.com/wp-content/uploads/2012/09/view_storage_considerations.pdf)":
+And also from "[Storage Considerations for VMware View](https://github.com/elatov/uploads/raw/master/2012/09/view_storage_considerations.pdf)":
 
-![no_of_vm_on_prot](http://virtuallyhyper.com/wp-content/uploads/2012/08/no_of_vm_on_prot.png)
+![no_of_vm_on_prot](https://github.com/elatov/uploads/raw/master/2012/08/no_of_vm_on_prot.png)
 
 From "[Storage Protocol Choices & Storage Best Practices for VMware ESX](http://communities.vmware.com/servlet/JiveServlet/download/1362588-28209/Storage%20Best%20Practices.pdf)" here is an example setup using all the protocols:
 
-![vmware-multi-protocol-storage](http://virtuallyhyper.com/wp-content/uploads/2012/08/vmware-multi-protocol-storage.png)
+![vmware-multi-protocol-storage](https://github.com/elatov/uploads/raw/master/2012/08/vmware-multi-protocol-storage.png)
 
 Also depending on what application needs to be run, check some requirements. Here is an example from "[Design and Sizing Examples: Microsoft Exchange Solutions on VMware](http://www.vmware.com/files/pdf/solutions/design_size_examples_exchange.pdf)":
 
-![exchange_storage_setup](http://virtuallyhyper.com/wp-content/uploads/2012/08/exchange_storage_setup.png)
+![exchange_storage_setup](https://github.com/elatov/uploads/raw/master/2012/08/exchange_storage_setup.png)
 
 Lastly the array vendor also provide their capabilities as well, from "[Using EMC VNX Storage with VMware vSphere](http://www.emc.com/collateral/hardware/technical-documentation/h8229-vnx-vmware-tb.pdf)":
 
-![vnx-tiers](http://virtuallyhyper.com/wp-content/uploads/2012/08/vnx-tiers.png)
+![vnx-tiers](https://github.com/elatov/uploads/raw/master/2012/08/vnx-tiers.png)
 
 Depending on the environment choose the storage protocol that will best fill the needs. Also be realistic, if the customer wants too much performance but can't afford a Fiber Channel Switch or a Fiber Channel Array then set the expectation accordingly.
 
@@ -78,20 +78,20 @@ Each Array has their best practices, I would suggest following those. Let's say 
 
 Here is a diagram from that pdf:
 
-![dmx-vmware-bp](http://virtuallyhyper.com/wp-content/uploads/2012/08/dmx-vmware-bp.png)
+![dmx-vmware-bp](https://github.com/elatov/uploads/raw/master/2012/08/dmx-vmware-bp.png)
 
 Also from the same pdf:
 
 > **Symmetrix V-Max connectivity**
 > Similar to the Symmetrix DMX, each ESX host system attached to a Symmetrix V-Max should have at least two physical HBAs, and each HBA should be connected to at least two different directors. If the Symmetrix V-Max in use has only one V-Max Engine then each HBA should be connected to the odd and even directors within it. Connectivity to the Symmetrix front-end ports should consist of first connecting unique hosts to port 0 of the front-end directors before connecting additional hosts to port 1 of the same director and processor (Figure 6). And here is diagram for the above setup:
 
-![vmax-vmware-bp](http://virtuallyhyper.com/wp-content/uploads/2012/08/vmax-vmware-bp.png)
+![vmax-vmware-bp](https://github.com/elatov/uploads/raw/master/2012/08/vmax-vmware-bp.png)
 
 The recommended PSP for A/A Arrays is fixed. A typical A/P array is an HP EVA. From "[HP Enterprise Virtual Array Family with VMware vSphere 4.0 , 4.1 and 5.0 Configuration Best Practices](http://www.vmware.com/files/pdf/techpaper/hp-enterprise-virtual-array-family-vsphere-configuration.pdf)":
 
 > All I/Os to Vdisks 1 – 4 are routed through one or more ports on Controller 1 and through Paths 1and/or 3, regardless of the HBA that originates the I/O. Similarly, all I/Os to Vdisks 5 – 7 are routed to Controller 2 through Paths 3 and 4, regardless of the originating HBA.The vSphere 4.x/5 implementation yields much higher system resource utilization and throughput and, most importantly, delivers a balanced system out of the box, with no intricate configuration required. Here is the diagram they are discussing:
 
-![A-P-EVA_and_VMware_BP](http://virtuallyhyper.com/wp-content/uploads/2012/08/A-P-EVA_and_VMware_BP.png).
+![A-P-EVA_and_VMware_BP](https://github.com/elatov/uploads/raw/master/2012/08/A-P-EVA_and_VMware_BP.png).
 
 The recommended PSP for A/P Arrays is MRU.
 
@@ -108,7 +108,7 @@ ALUA is a protocol that makes an A/P Array psuedo A/A. If you more information o
 
 Here is the mentioned diagram from that article:
 
-![vnx-vmware-iscsi-bp](http://virtuallyhyper.com/wp-content/uploads/2012/08/vnx-vmware-iscsi-bp.png)
+![vnx-vmware-iscsi-bp](https://github.com/elatov/uploads/raw/master/2012/08/vnx-vmware-iscsi-bp.png)
 
 For ALUA the PSP is usually MRU or Round Robin, depends on what the array vendor recommends. In vSphere 4.1 there a new PSP called Fixed_AP and that was used. If you want more information regarding Fixed_AP check out [this](http://virtuallyhyper.com/2012/04/vmw_psp_fixed-vs-vmw_psp_fixed_ap/) post by Jarret.
 
@@ -170,7 +170,7 @@ Lastly if the array support VASA, then use it as well. VASA allows you to get ar
 
 The blog "[Configuring VASA with EMC arrays – CLARiiON, VNX and VMAX](http://www.virtualpro.co.uk/2011/12/20/configuring-vasa-with-emc-arrays-%E2%80%93-clariion-vnx-and-vmax/)" has great examples of how to set it up. Here are the capabilities that can be setup:
 
-![vasa-cap-emc](http://virtuallyhyper.com/wp-content/uploads/2012/08/vasa-cap-emc.png)
+![vasa-cap-emc](https://github.com/elatov/uploads/raw/master/2012/08/vasa-cap-emc.png)
 
 ### Identify proper combination of media and port criteria for given end-to-end performance requirements.
 
@@ -203,7 +203,7 @@ Also From "[Secure SAN Zoning Best Practices](http://www.brocade.com/downloads/d
 >
 > There are two types of Zoning identification: port World Wide Name (pWWN) and Domain,Port (D,P). You can assign aliases to both pWWN and D,P identifiers for easier management. The pWWN, the D,P, or a combination of both can be used in a zone configuration or even in a single zone. pWWN identification uses a globally unique identifier built into storage and host interfaces. Interfaces also have node World Wide Names (nWWNs). As their names imply, pWWN refers to the port on the device, while nWWN refers to the overall device. For example, a dual-port HBA has one nWWN and two pWWNs. Always use pWWN identification instead of nWWN, since a pWWN precisely identifies the host or storage that needs to be zoned.
 
-Lastly from [this](http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.pdf) PDF:
+Lastly from [this](https://github.com/elatov/uploads/raw/master/2013/04/vcap-dcd_notes.pdf) PDF:
 
 > Use WWN zoning rather than port Zoning , allows you to move cables to different ports without affecting zoning
 
@@ -260,15 +260,15 @@ If you don't plan on getting a SAN and you are an SMB (small and medium-sized bu
 
 There is a good cost-comparison [here](http://www.vmware.com/products/datacenter-virtualization/vsphere/vsphere-storage-appliance/cost-comparison.html):
 
-![cost-comparison-vsa](http://virtuallyhyper.com/wp-content/uploads/2012/08/cost-comparison-vsa.png)
+![cost-comparison-vsa](https://github.com/elatov/uploads/raw/master/2012/08/cost-comparison-vsa.png)
 
 By combining all the local storage and replicating between the local disks, it allows for shared storage and has redundancy built into it. From the same cost-comparison page, here is how the traditional SAN setup looks like:
 
-![trad-san](http://virtuallyhyper.com/wp-content/uploads/2012/08/trad-san.png)
+![trad-san](https://github.com/elatov/uploads/raw/master/2012/08/trad-san.png)
 
 And here is how the VSA works:
 
-![vsa-san](http://virtuallyhyper.com/wp-content/uploads/2012/08/vsa-san.png)
+![vsa-san](https://github.com/elatov/uploads/raw/master/2012/08/vsa-san.png)
 
 If you want more information on how the VSA works, please read "[VMware vSphere Storage Appliance Technical Deep Dive](http://communities.vmware.com/servlet/JiveServlet/previewBody/17932-102-1-23101/VM-vSphere-Storage-Appliance-Deep-Dive-WP.pdf)"
 
@@ -290,7 +290,7 @@ From the same document:
 
 Here is the diagram they are referring to:
 
-![iso_vs_cons](http://virtuallyhyper.com/wp-content/uploads/2012/08/iso_vs_cons.png)
+![iso_vs_cons](https://github.com/elatov/uploads/raw/master/2012/08/iso_vs_cons.png)
 
 And more information from the document:
 
@@ -344,62 +344,22 @@ From "[Scalable Storage Performance](http://www.vmware.com/files/pdf/scalable_st
 
 Here is the table from that document:
 
-![iops_per_vmfs](http://virtuallyhyper.com/wp-content/uploads/2012/08/iops_per_vmfs.png)
+![iops_per_vmfs](https://github.com/elatov/uploads/raw/master/2012/08/iops_per_vmfs.png)
 
-There is a pretty good example from [this](http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.pdf) PDF:
+There is a pretty good example from [this](https://github.com/elatov/uploads/raw/master/2013/04/vcap-dcd_notes.pdf) PDF:
 
 > Tiering Example:
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
-> | |
-> | | | | | | |
+> 
+> |Tier| Disk_Type |Disk_RPM | Raid_Level| #_of_Disks | #_of_VMs_per_Datastore 1|
+> |:---|:---------:|:-------:|:----------:|:---------:|:-----------------------:|
+> | FC| 15K        |10       | 8          | 10        | 2         |
+> | SAS|10K        | 5       | 6          | 15        | 3         |
+> | SATA | 7.2K    | 6       | 6          | 6         | 15        |
+
 
 ### Based on the logical design, select and incorporate an appropriate storage network into the physical design: iSCSI, NFS, FC, FCoE
 
-From "[Fibre Channel SAN Topologies](http://virtuallyhyper.com/wp-content/uploads/2013/01/h8074-fibre-channel-san-tb.pdf)"
+From "[Fibre Channel SAN Topologies](https://github.com/elatov/uploads/raw/master/2013/01/h8074-fibre-channel-san-tb.pdf)"
 
 > Consider the following best practices:
 >
@@ -417,7 +377,7 @@ From "[Optimizing the Performance and Management of 2 GBIT/SEC SAN Fabrics with 
 
 From "[SAN Conceptual and Design Basics](http://www.vmware.com/pdf/esx_san_cfg_technote.pdf)":
 
-![san-redundancy](http://virtuallyhyper.com/wp-content/uploads/2012/08/san-redundancy.png)
+![san-redundancy](https://github.com/elatov/uploads/raw/master/2012/08/san-redundancy.png)
 
 So with FC use multipathing to plan for redundancy and for performance, and try to have a similar setup as the diagram above. To get rid of congestion, utilize ISL Trunking where possible. Try not to have two different vendors of HBAs. Either have all Qlogic or all Emulex. Also instead of getting 1 dual port HBA, get 2 single port HBA, this will help if a failure occurs.
 
@@ -436,7 +396,7 @@ From "[vSphere Storage Guide](http://pubs.vmware.com/vsphere-50/topic/com.vmware
 
 Here is a diagram from the above article:
 
-![multiple_links_over_iscsi](http://virtuallyhyper.com/wp-content/uploads/2012/08/multiple_links_over_iscsi.png).
+![multiple_links_over_iscsi](https://github.com/elatov/uploads/raw/master/2012/08/multiple_links_over_iscsi.png).
 
 If using Software iSCSI use port binding to enable multipathing. From "[Multipathing Configuration for Software iSCSI Using Port Binding](http://www.vmware.com/files/pdf/techpaper/vmware-multipathing-configuration-software-iSCSI-port-binding.pdf)":
 
@@ -468,7 +428,7 @@ From "[NetApp and VMware vSphere Storage Best Practices](http://media.netapp.com
 
 Here is a diagram for flow control from the above paper:
 
-![flow-control-nfs](http://virtuallyhyper.com/wp-content/uploads/2012/08/flow-control-nfs.png)
+![flow-control-nfs](https://github.com/elatov/uploads/raw/master/2012/08/flow-control-nfs.png)
 
 More from the same paper:
 
@@ -483,7 +443,7 @@ More from the same paper:
 
 Another diagram from the same paper:
 
-![jumbo_frames](http://virtuallyhyper.com/wp-content/uploads/2012/08/jumbo_frames.png)
+![jumbo_frames](https://github.com/elatov/uploads/raw/master/2012/08/jumbo_frames.png)
 
 More information, from the same article:
 
@@ -497,17 +457,17 @@ More information, from the same article:
 
 Here is a couple pictures of how to use etherchannel with a NetApp Array.
 
-![etherchannel_netapp](http://virtuallyhyper.com/wp-content/uploads/2012/08/etherchannel_netapp.png)
+![etherchannel_netapp](https://github.com/elatov/uploads/raw/master/2012/08/etherchannel_netapp.png)
 
 and this:
 
-![ip_hash_with_netapp](http://virtuallyhyper.com/wp-content/uploads/2012/08/ip_hash_with_netapp.png)
+![ip_hash_with_netapp](https://github.com/elatov/uploads/raw/master/2012/08/ip_hash_with_netapp.png)
 
 So for NFS try to use etherchannel to allow load balancing. Use jumbo frames, with 10Gb preferrebly. If using old switches, use flow control to control congestion. Make sure you have a dedicated network for your NFS traffic and don't route your NFS traffic. More information on NAS and VMware can be seen in "[Best Practices for running VMware vSphere on Network Attached Storage](http://www.vmware.com/files/pdf/VMware_NFS_BestPractices_WP_EN.pdf)".
 
 From "Introduction to Fibre Channel over Ethernet (FCoE)", here is a good picture of how FCoE is setup in an environment:
 
-![fcoe-env](http://virtuallyhyper.com/wp-content/uploads/2012/08/fcoe-env.png)
+![fcoe-env](https://github.com/elatov/uploads/raw/master/2012/08/fcoe-env.png)
 
 The technology is kind of new and has it's issues. It does allow you to have all of your traffic going down one technology. The CNA can be your NIC and your HBA, the switch that we are connected to will have to encapsulate your Fibre Channel Protocol over Ethernet. These switches are really expensive but are around the same prices as SAN switches. Since FCoE is lossless, pause frames are utilized heavily during congestion, if the switch can't handle that then you will run into issues. You are also putting all of your eggs in one basket, if the FCoE switch dies then your networking and your storage are down. If you want to know more information regarding FCoE, I would suggest reading:
 

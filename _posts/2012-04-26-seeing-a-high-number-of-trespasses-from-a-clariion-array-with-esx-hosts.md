@@ -69,12 +69,12 @@ Now how does the array actually do this, from the article "[EMC CLARiiON Asymmet
 
 Inside that same document there is an excellent picture that depicts how ALUA works. Check it out:
 
-![ALUA](http://virtuallyhyper.com/wp-content/uploads/2012/04/ALUA.png)
+![ALUA](https://github.com/elatov/uploads/raw/master/2012/04/ALUA.png)
 
 ALUA uses Target Port Groups (TGP) for multiple aspects, so it's very important to understand
 what those are. There is a great picture of TGP in this article, [It All Started With This Question…](http://deinoscloud.wordpress.com/2011/07/04/it-all-started-with-this-question/):
 
-![asymmetricaccessstate](http://virtuallyhyper.com/wp-content/uploads/2012/04/asymmetricaccessstate.png)
+![asymmetricaccessstate](https://github.com/elatov/uploads/raw/master/2012/04/asymmetricaccessstate.png)
 
 Also from [EMC CLARiiON Asymmetric Active/Active Feature](http://www.emc.com/collateral/hardware/white-papers/h2890-emc-clariion-asymm-active-wp.pdf):
 

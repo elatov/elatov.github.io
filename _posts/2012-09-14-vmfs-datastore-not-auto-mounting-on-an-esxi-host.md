@@ -115,11 +115,11 @@ So the partition was of type SFS, I then hexdumped the volume to see what data t
 
 So yeah, that is Windows NTFS :(. As soon we mentioned that, another administrator said, oh yeah I presented this LUN to a windows machine yesterday... Oops :) We then wanted to check how the mounted vmfs looked like. There is actually a good blog about this "[Understanding VMFS volumes](http://blog.laspina.ca/ubiquitous/understanding-vmfs-volumes)", from that blog:
 
-![vmfs-hd-header](http://virtuallyhyper.com/wp-content/uploads/2012/09/vmfs-hd-header.png)
+![vmfs-hd-header](https://github.com/elatov/uploads/raw/master/2012/09/vmfs-hd-header.png)
 
 and also this:
 
-![vmfs-hd-vol_name](http://virtuallyhyper.com/wp-content/uploads/2012/09/vmfs-hd-vol_name.png)
+![vmfs-hd-vol_name](https://github.com/elatov/uploads/raw/master/2012/09/vmfs-hd-vol_name.png)
 
 Checking out our good vmfs volume:
 

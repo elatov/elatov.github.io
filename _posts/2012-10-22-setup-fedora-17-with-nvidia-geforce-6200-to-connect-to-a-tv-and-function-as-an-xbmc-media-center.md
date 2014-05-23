@@ -493,7 +493,7 @@ But it still gave me the same error. I then ran across [Change tty font size wit
 
 There is also a pretty good table of the desired resolutions:
 
-![console_resolution_tab](http://virtuallyhyper.com/wp-content/uploads/2012/10/console_resolution_tab.png)
+![console_resolution_tab](https://github.com/elatov/uploads/raw/master/2012/10/console_resolution_tab.png)
 
 So I made the following change to my */etc/default/grub* file:
 
@@ -632,7 +632,7 @@ After everything was setup I went ahead and installed an app on my android phone
 
 After I installed "XBMC Remote" on my phone, I enabled the "XBMC Media Center" to be controlled remotely. To do that, you have to go to "System" -> "Settings" -> "Network" -> "Services" -> and check "Allow Control of XBMC via HTTP". Also set a password for authentication purposes. Here is a screenshot of how the config looks like:
 
-![xbmc_remote_control](http://virtuallyhyper.com/wp-content/uploads/2012/10/xbmc_remote_control.png)
+![xbmc_remote_control](https://github.com/elatov/uploads/raw/master/2012/10/xbmc_remote_control.png)
 
 Then I opened up port 8080 on the server so my android phone can connect to it over the wireless network at my home. Here is the command I used to allow access to the port:
 

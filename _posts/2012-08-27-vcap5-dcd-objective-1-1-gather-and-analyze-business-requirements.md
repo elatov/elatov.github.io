@@ -13,7 +13,7 @@ tags:
 ---
 ### Associate a stakeholder with the information that needs to be collected.
 
-From the ![stake-holders](http://virtuallyhyper.com/wp-content/uploads/2012/08/stake-holders.png)
+From the ![stake-holders](https://github.com/elatov/uploads/raw/master/2012/08/stake-holders.png)
 
 From [this](http://www.virten.net/2012/05/vdcd510-objective-1-1-gather-and-analyze-business-requirements/) blog:
 
@@ -48,11 +48,11 @@ From [this](http://www.virten.net/2012/05/vdcd510-objective-1-1-gather-and-analy
 
 From the [US BrownBag for Objective 1](http://www.slideshare.net/ProfessionalVMware/professionalvmware-brownbag-jason-boche-vcapdcd-objective-1) slide deck:
 
-![5-step-design-process](http://virtuallyhyper.com/wp-content/uploads/2012/08/5-step-design-process.png)
+![5-step-design-process](https://github.com/elatov/uploads/raw/master/2012/08/5-step-design-process.png)
 
 ### Analyze customer interview data to explicitly define customer objectives for a conceptual design.
 
-From this [blog's notes](http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.pdf), I decided to write them out just to make it easier to read:
+From this [blog's notes](https://github.com/elatov/uploads/raw/master/2013/04/vcap-dcd_notes.pdf), I decided to write them out just to make it easier to read:
 
 > **Conceptual Design: Focus on achieving goals and requirements**
 >
@@ -62,9 +62,9 @@ From this [blog's notes](http://virtuallyhyper.com/wp-content/uploads/2013/04/vc
 > *   Design infrastructure that achieves each entity's goal and requirements but stay within constraints (i.e. where do you need availability, scalability, performance,security and manageability
 > *   Document with diagrams, tables, and text
 
-From the same [pdf](http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.pdf), here is an example of a conceptual diagram:
+From the same [pdf](https://github.com/elatov/uploads/raw/master/2013/04/vcap-dcd_notes.pdf), here is an example of a conceptual diagram:
 
-![conceptual_diag1](http://virtuallyhyper.com/wp-content/uploads/2012/08/conceptual_diag1.png)
+![conceptual_diag1](https://github.com/elatov/uploads/raw/master/2012/08/conceptual_diag1.png)
 
 ### Identify the need for and apply requirements tracking.
 
@@ -88,11 +88,11 @@ From the above pdf again:
 
 Generate a similar conceptual diagram as above. Here is a conceptual diagram from [this](http://www.virten.net/2012/05/vdcd510-objective-1-1-gather-and-analyze-business-requirements/) blog:
 
-![another-conceptual-diag](http://virtuallyhyper.com/wp-content/uploads/2012/08/another-conceptual-diag.png)
+![another-conceptual-diag](https://github.com/elatov/uploads/raw/master/2012/08/another-conceptual-diag.png)
 
 ### Categorize requirements by infrastructure qualities to prepare for logical design requirements.
 
-From the [PDF](http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.pdf) again:
+From the [PDF](https://github.com/elatov/uploads/raw/master/2013/04/vcap-dcd_notes.pdf) again:
 
 > **Logical Design**
 >
@@ -108,7 +108,7 @@ From the [PDF](http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_not
 
 Here is an example of a logical diagram taken from the pdf:
 
-![logical-diagram](http://virtuallyhyper.com/wp-content/uploads/2012/08/logical-diagram.png)
+![logical-diagram](https://github.com/elatov/uploads/raw/master/2012/08/logical-diagram.png)
 
 I would also suggest to watch the following recordings as well:
 

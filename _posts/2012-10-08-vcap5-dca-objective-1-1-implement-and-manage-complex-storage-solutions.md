@@ -18,19 +18,19 @@ From the [wikipedia](http://en.wikipedia.org/wiki/RAID) page
 
 > **RAID 0** (block-level striping without parity or mirroring) has no (or zero) redundancy. It provides improved performance and additional storage but no fault tolerance. Hence simple stripe sets are normally referred to as RAID 0. Any drive failure destroys the array, and the likelihood of failure increases with more drives in the array (at a minimum, catastrophic data loss is almost twice as likely compared to single drives without RAID). A single drive failure destroys the entire array because when data is written to a RAID 0 volume, the data is broken into fragments called blocks. The number of blocks is dictated by the stripe size, which is a configuration parameter of the array. The blocks are written to their respective drives simultaneously on the same sector. This allows smaller sections of the entire chunk of data to be read off each drive in parallel, increasing bandwidth. RAID 0 does not implement error checking, so any error is uncorrectable. More drives in the array means higher bandwidth, but greater risk of data loss.
 >
-> ![raid0 wiki VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](http://virtuallyhyper.com/wp-content/uploads/2012/09/raid0-wiki.png)
+> ![raid0 wiki VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/raid0-wiki.png)
 
 RAID 1, from the same wikipedia page:
 
 > In **RAID 1** (mirroring without parity or striping), data is written identically to two drives, thereby producing a "mirrored set"; the read request is serviced by either of the two drives containing the requested data, whichever one involves least seek time plus rotational latency. Similarly, a write request updates the strips of both drives. The write performance depends on the slower of the two writes (i.e., the one that involves larger seek time and rotational latency); at least two drives are required to constitute such an array. While more constituent drives may be employed, many implementations deal with a maximum of only two; of course, it might be possible to use such a limited level 1 RAID itself as a constituent of a level 1 RAID, effectively masking the limitation.The array continues to operate as long as at least one drive is functioning. With appropriate operating system support, there can be increased read performance, and only a minimal write performance reduction; implementing RAID 1 with a separate controller for each drive in order to perform simultaneous reads (and writes) is sometimes called "multiplexing" (or "duplexing" when there are only two drives).
 >
-> ![raid 1 wiki VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](http://virtuallyhyper.com/wp-content/uploads/2012/09/raid-1-wiki.png)
+> ![raid 1 wiki VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/raid-1-wiki.png)
 
 RAID 5, from the wiki page:
 
 > **RAID 5** (block-level striping with distributed parity) distributes parity along with the data and requires all drives but one to be present to operate; the array is not destroyed by a single drive failure. Upon drive failure, any subsequent reads can be calculated from the distributed parity such that the drive failure is masked from the end user. However, a single drive failure results in reduced performance of the entire array until the failed drive has been replaced and the associated data rebuilt. Additionally, there is the potentially disastrous RAID 5 write hole. RAID 5 requires at least three disks.
 >
-> ![raid 5 wiki VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](http://virtuallyhyper.com/wp-content/uploads/2012/09/raid-5-wiki.png)
+> ![raid 5 wiki VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/raid-5-wiki.png)
 
 And finally Raid 10, from the wiki page:
 
@@ -38,11 +38,11 @@ And finally Raid 10, from the wiki page:
 
 And from [this](http://en.wikipedia.org/wiki/Nested_RAID_levels) wiki page:
 
-![raid10 wiki VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](http://virtuallyhyper.com/wp-content/uploads/2012/09/raid10-wiki.png)
+![raid10 wiki VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/raid10-wiki.png)
 
 If you want to know about read and write penalties, I would check out "[Calculate IOPS in a storage array](http://vmtoday.com/2010/01/storage-basics-part-iii-raid/)". From the last link:
 
-![raid io impact VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](http://virtuallyhyper.com/wp-content/uploads/2012/09/raid_io_impact.png)
+![raid io impact VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/raid_io_impact.png)
 
 ### Identify supported HBA types
 
@@ -65,7 +65,7 @@ Check out [VCAP5-DCD Objective 3.5](http://virtuallyhyper.com/2012/09/vcap5-dcd-
 
 Also check out [this](http://twitter.yfrog.com/h6klabj) picture:
 
-![vmdk types VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](http://virtuallyhyper.com/wp-content/uploads/2012/09/vmdk-types.png)
+![vmdk types VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/vmdk-types.png)
 
 ### Determine use cases for and configure VMware DirectPath I/O
 
@@ -75,7 +75,7 @@ From "[Configuration Examples and Troubleshooting for VMDirectPath](http://www.v
 
 From "[How to access USB and Other PCI Devices in VMware ESXi4 VMs with VMDirectPath](http://www.petri.co.il/vmware-esxi4-vmdirectpath.htm)", here is a good diagram:
 
-![vm direct path io VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](http://virtuallyhyper.com/wp-content/uploads/2012/09/vm-direct_path_io.png)
+![vm direct path io VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/vm-direct_path_io.png)
 
 The above page has good example of how to set it up. Also check out VMware KB [VMware VMDirectPath I/O](http://kb.vmware.com/kb/1010789) for a list of supported hardware.
 
@@ -83,7 +83,7 @@ The above page has good example of how to set it up. Also check out VMware KB [V
 
 To start off here is a good diagram of how it works from "[N-Port Virtualization in the Data Center](http://www.cisco.com/en/US/prod/collateral/ps4159/ps6409/ps5989/ps9898/white_paper_c11-459263.html)"
 
-![npiv cisco VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](http://virtuallyhyper.com/wp-content/uploads/2012/09/npiv_cisco.png)
+![npiv cisco VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/npiv_cisco.png)
 
 From the VMware Blog "[NPIV: N-Port ID Virtualization](http://blogs.vmware.com/vsphere/2011/11/npiv-n-port-id-virtualization.html)"
 
@@ -91,7 +91,7 @@ From the VMware Blog "[NPIV: N-Port ID Virtualization](http://blogs.vmware.com/v
 
 The above blog, has a step by step process on how to set it up as well. Another good article that has a step by step process is "[NPIV support in VMware ESX4](http://www.brocade.com/forms/getFile?p=documents/white_papers/white_papers_partners/NPIV_ESX4_0_GA-TB-145-01.pdf)":
 
-![npiv slog VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](http://virtuallyhyper.com/wp-content/uploads/2012/09/npiv_slog.png)
+![npiv slog VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/npiv_slog.png)
 
 The above page also has snapshots of how to set it. Most of the links are reffering to vSphere 4.x but that is okay, not much has changed since 3.x days. From the above VMware blog:
 
@@ -101,11 +101,11 @@ The above page also has snapshots of how to set it. Most of the links are reffer
 
 From the Microsoft Article "[Planning the Layout and RAID Level of Volumes](http://technet.microsoft.com/en-us/library/cc786889(WS.10).aspx)":
 
-![data type with characteristics VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](http://virtuallyhyper.com/wp-content/uploads/2012/09/data_type_with_characteristics.png)
+![data type with characteristics VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/data_type_with_characteristics.png)
 
 and from the same site:
 
-![raid type with factors VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](http://virtuallyhyper.com/wp-content/uploads/2012/09/raid_type_with_factors.png)
+![raid type with factors VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/raid_type_with_factors.png)
 
 Also check out [VCAP5-DCD Objective 3.3](http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-3-3-create-a-vsphere-5-physical-storage-design-from-an-existing-logical-design/)
 
@@ -132,7 +132,7 @@ From [vSphere Storage ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmwa
 
 Also from the same article:
 
-![storage filters VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](http://virtuallyhyper.com/wp-content/uploads/2012/09/storage-filters.png)
+![storage filters VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/storage-filters.png)
 
 And more:
 
@@ -140,7 +140,7 @@ And more:
 > 1 In the vSphere Client, select Administration > vCenter Server Settings.
 > 2.In the settings list, select Advanced Settings.
 > 3 In the Key text box, type a key
-> ![key filter name VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](http://virtuallyhyper.com/wp-content/uploads/2012/09/key-filter-name.png)
+> ![key filter name VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/key-filter-name.png)
 > 4 In the Value text box, type False for the specified key.
 > 5 Click Add.
 > 6 Click OK
@@ -350,7 +350,7 @@ From [vSphere Storage ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmwa
 
 Determine what kind of workload your application requires. From "[EMC CLARiiON Fibre Channel Storage Fundamentals](https://education.emc.com/academicalliance/student/EMC%20Clariion%20Fibre%20Channel%20WP.pdf)":
 
-![application io workloads VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](http://virtuallyhyper.com/wp-content/uploads/2012/09/application_io_workloads.png)
+![application io workloads VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/application_io_workloads.png)
 
 Then use IOmeter or IOBlazer here are links to their corresponding flings:
 
@@ -545,27 +545,27 @@ From the same article:
 > The Manage Storage Capabilities dialog box appears.
 > 2 Click Add.
 > 3 Provide a name and a description for the storage capability
-> ![storage profiles user defined VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](http://virtuallyhyper.com/wp-content/uploads/2012/09/storage_profiles_user_defined.png)
+> ![storage profiles user defined VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/storage_profiles_user_defined.png)
 > 4 Click OK.
 
 First go to the Home Screen:
 
-![home vmstorage profiles VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](http://virtuallyhyper.com/wp-content/uploads/2012/09/home_vmstorage_profiles.png)
+![home vmstorage profiles VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/home_vmstorage_profiles.png)
 
 Then click on VM Storage Profiles:
 
-![vm storage profiles VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](http://virtuallyhyper.com/wp-content/uploads/2012/09/vm_storage_profiles.png)
+![vm storage profiles VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/vm_storage_profiles.png)
 
 Then Click "Manage Storage Capabilities":
 
-![manage storage capabilities VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](http://virtuallyhyper.com/wp-content/uploads/2012/09/manage_storage_capabilities.png)
+![manage storage capabilities VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/manage_storage_capabilities.png)
 
 Fill out all the necessary fields and click ok:
 
-![add storage capability VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](http://virtuallyhyper.com/wp-content/uploads/2012/09/add_storage_capability.png)
+![add storage capability VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/add_storage_capability.png)
 
 and finally you should see this:
-![added storage capability VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](http://virtuallyhyper.com/wp-content/uploads/2012/09/added_storage_capability.png)
+![added storage capability VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/added_storage_capability.png)
 
 Next section from the guide:
 
@@ -584,19 +584,19 @@ Next section from the guide:
 > 2 Right-click a datastore from the inventory and select Assign User-Defined Storage Capability.
 > 3 Select a storage capability from the list of storage capabilities and click OK.
 >
-> ![associate st profile with ds VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](http://virtuallyhyper.com/wp-content/uploads/2012/09/associate_st_profile_with_ds.png)
+> ![associate st profile with ds VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/associate_st_profile_with_ds.png)
 >
 > The user-defined storage capability appears in the Storage Capabilities pane of the Summary tab of the datastore or its datastore cluster.
 
 From the Home Screen select the Datastores view, then Right on a Datastore and Select "Assign User-Defined Storage Capability":
-![right click datastore VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](http://virtuallyhyper.com/wp-content/uploads/2012/09/right_click_datastore.png)
+![right click datastore VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/right_click_datastore.png)
 
 Then select your capability to be assigned to this datastore:
 
-![assign storage capability to datastore VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](http://virtuallyhyper.com/wp-content/uploads/2012/09/assign_storage_capability_to_datastore.png)
+![assign storage capability to datastore VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/assign_storage_capability_to_datastore.png)
 
 Then under Summary of the Datastore you will see your capability assigned:
-![check assigned capability VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](http://virtuallyhyper.com/wp-content/uploads/2012/09/check_assigned_capability.png)
+![check assigned capability VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/check_assigned_capability.png)
 
 ### Prepare storage for maintenance
 
@@ -634,11 +634,11 @@ From [vSphere Storage ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmwa
 
 Right click on a datastore:
 
-![right click on datastore to umount VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](http://virtuallyhyper.com/wp-content/uploads/2012/09/right_click_on_datastore_to_umount.png)
+![right click on datastore to umount VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/right_click_on_datastore_to_umount.png)
 
 Click on "Unmount" and you will see the following screen:
 
-![unmount datastore VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](http://virtuallyhyper.com/wp-content/uploads/2012/09/unmount_datastore.png)
+![unmount datastore VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/unmount_datastore.png)
 
 Then click OK.
 
@@ -667,7 +667,7 @@ From the same guide:
 
 Click on an ESX Host -> Configuration Tab -> Storage Adapters -> Select your HBA (vmhba33) -> Select Devices -> Right Click on a path -> Select "Detach". Here is how it looks like:
 
-![detach path VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](http://virtuallyhyper.com/wp-content/uploads/2012/09/detach_path.png)
+![detach path VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/detach_path.png)
 
 Also from the same guide:
 

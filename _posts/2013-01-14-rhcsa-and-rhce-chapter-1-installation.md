@@ -21,7 +21,7 @@ There is a lot of good information in "[Red Hat Enterprise Linux 6 Installation 
 >
 > The Welcome screen does not prompt you for any input.
 >
-> ![rhel6 welcome screen RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_welcome_screen.png)
+> ![rhel6 welcome screen RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/rhel6_welcome_screen.png)
 >
 > Click on the **Next** button to continue.
 >
@@ -31,7 +31,7 @@ There is a lot of good information in "[Red Hat Enterprise Linux 6 Installation 
 >
 > Once you have made your selection, click **Next** to continue.
 >
-> ![rhel6 language selection RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_language_selection.png)
+> ![rhel6 language selection RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/rhel6_language_selection.png)
 >
 > **9.5. Keyboard Configuration**
 >
@@ -39,13 +39,13 @@ There is a lot of good information in "[Red Hat Enterprise Linux 6 Installation 
 >
 > Once you have made your selection, click **Next** to continue.
 >
-> ![rhel6 keyboard configuration RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_keyboard_configuration.png)
+> ![rhel6 keyboard configuration RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/rhel6_keyboard_configuration.png)
 >
 > **9.6. Storage Devices**
 >
 > You can install Red Hat Enterprise Linux on a large variety of storage devices. This screen allows you to select either basic or specialized storage devices.
 >
-> ![rhel6 storage devices RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_storage_devices.png)
+> ![rhel6 storage devices RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/rhel6_storage_devices.png)
 >
 > **Basic Storage Devices**
 >
@@ -66,7 +66,7 @@ There is a lot of good information in "[Red Hat Enterprise Linux 6 Installation 
 >
 > Setup prompts you to supply a host name for this computer, either as a fully-qualified domain name (FQDN) in the format **hostname.domainname** or as a short host name in the format **hostname**. Many networks have a Dynamic Host Configuration Protocol (DHCP) service that automatically supplies connected systems with a domain name. To allow the DHCP service to assign the domain name to this machine, specify the short host name only
 >
-> ![rhel6 set hostname RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_set_hostname.png)
+> ![rhel6 set hostname RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/rhel6_set_hostname.png)
 >
 > **9.8. Time Zone Configuration**
 >
@@ -75,7 +75,7 @@ There is a lot of good information in "[Red Hat Enterprise Linux 6 Installation 
 > *   Using your mouse, click on the interactive map to select a specific city (represented by a yellow dot).A red X appears indicating your selection.
 > *   You can also scroll through the list at the bottom of the screen to select your time zone. Using your mouse, click on a location to highlight your selection
 >
-> ![rhel6 timezone RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_timezone.png)
+> ![rhel6 timezone RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/rhel6_timezone.png)
 >
 > If Red Hat Enterprise Linux is the only operating system on your computer, select **System clock uses UTC**. The system clock is a piece of hardware on your computer system. Red Hat Enterprise Linux uses the timezone setting to determine the offset between the local time and UTC on the system clock. This behavior is standard for systems that use UNIX, Linux, and similar operating systems. Click **Next** to proceed.
 >
@@ -83,7 +83,7 @@ There is a lot of good information in "[Red Hat Enterprise Linux 6 Installation 
 >
 > Setting up a root account and password is one of the most important steps during your installation. The root account is used to install packages, upgrade RPMs, and perform most system maintenance. Logging in as root gives you complete control over your system.
 >
-> ![rhel6 install root password RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_install_root_password.png)
+> ![rhel6 install root password RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/rhel6_install_root_password.png)
 >
 > **9.11. Initializing the Hard Disk**
 >
@@ -91,7 +91,7 @@ There is a lot of good information in "[Red Hat Enterprise Linux 6 Installation 
 >
 > The installation program presents you with a separate dialog for each disk on which it cannot read a valid partition table. Click the **Ignore all** button or **Re-initialize all** button to apply the same answer to all devices.
 >
-> ![rhel6 install re initialize disk RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_install_re-initialize_disk.png)
+> ![rhel6 install re initialize disk RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/rhel6_install_re-initialize_disk.png)
 >
 > **9.12. Upgrading an Existing System**
 >
@@ -103,13 +103,13 @@ There is a lot of good information in "[Red Hat Enterprise Linux 6 Installation 
 >
 > If your system contains a Red Hat Enterprise Linux installation, a dialog appears asking whether you want to upgrade that installation. To perform an upgrade of an existing system, choose the appropriate installation from the drop-down list and select **Next**.
 >
-> ![rhel6 install upgrade dialog RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_install_upgrade_dialog.png)
+> ![rhel6 install upgrade dialog RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/rhel6_install_upgrade_dialog.png)
 >
 > **9.12.3. Upgrading Boot Loader Configuration**
 >
 > Your completed Red Hat Enterprise Linux installation must be registered in the boot loader to boot properly. A boot loader is software on your machine that locates and starts the operating system.
 >
-> ![rhel6 install grub upgrade RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_install_grub_upgrade.png)
+> ![rhel6 install grub upgrade RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/rhel6_install_grub_upgrade.png)
 >
 > If the existing boot loader was installed by a Linux distribution, the installation system can modify it to load the new Red Hat Enterprise Linux system. To update the existing Linux boot loader, select Update boot loader configuration. This is the default behavior when you upgrade an existing Red Hat Enterprise Linux installation.
 >
@@ -125,7 +125,7 @@ The next section goes into the partitioning schema and it's a lot of information
 >
 > Partitioning allows you to divide your hard drive into isolated sections, where each section behaves as its own hard drive. Partitioning is particularly useful if you run multiple operating systems.
 >
-> ![rhel6 install disk partitioning RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_install_disk_partitioning.png)
+> ![rhel6 install disk partitioning RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/rhel6_install_disk_partitioning.png)
 >
 > On this screen you can choose to create the default partition layout in one of four different ways, or choose to partition storage devices manually to create a custom layout.
 >
@@ -141,7 +141,7 @@ The next section goes into the partitioning schema and it's a lot of information
 >
 > If you selected the **Encrypt System** option, the installer prompts you for a passphrase with which to encrypt the partitions on the system. Partitions are encrypted using the Linux Unified Key Setup
 >
-> ![rhel6 install encrypted install RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_install_encrypted_install.png)
+> ![rhel6 install encrypted install RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/rhel6_install_encrypted_install.png)
 >
 > Choose a passphrase and type it into each of the two fields in the dialog box. You must provide this passphrase every time that the system boots.
 >
@@ -153,7 +153,7 @@ The next section goes into the partitioning schema and it's a lot of information
 >
 > Anaconda can handle the partitioning requirements for a typical installation.
 >
-> ![rhel6 install partitioning example RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_install_partitioning_example.png)
+> ![rhel6 install partitioning example RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/rhel6_install_partitioning_example.png)
 >
 > The partitioning screen contains two panes. The top pane contains a graphical representation of the hard drive, logical volume, or RAID device selected in the lower pane.
 >
@@ -184,7 +184,7 @@ The next section goes into the partitioning schema and it's a lot of information
 >
 > The Create Storage dialog allows you to create new storage partitions, logical volumes, and software RAIDs. Anaconda presents options as available or unavailable depending on the storage already present on the system or configured to transfer to the system.
 >
-> ![rhel6 install create storage RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_install_create_storage.png)
+> ![rhel6 install create storage RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/rhel6_install_create_storage.png)
 >
 > Options are grouped under Create Partition, Create Software RAID and Create LVM as follows:
 >
@@ -207,7 +207,7 @@ The next section goes into the partitioning schema and it's a lot of information
 >
 > To add a new partition, select the Create button. A dialog box appears
 >
-> ![rhel6 install add partition RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_install_add_partition.png)
+> ![rhel6 install add partition RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/rhel6_install_add_partition.png)
 >
 > *   **Mount Point:** Enter the partition's mount point. For example, if this partition should be the root partition, enter /; enter /boot for the /boot partition, and so on. You can also use the pull-down menu to choose the correct mount point for your partition. For a swap partition the mount point should not be set — setting the filesystem type to swap is sufficient.
 > *   **File System Type**: Using the pull-down menu, select the appropriate file system type for this partition
@@ -254,7 +254,7 @@ The next section is about recommendations for partitioning. From the same guide:
 >
 > In years past, the recommended amount of swap space increased linearly with the amount of RAM in the system. But because the amount of memory in modern systems has increased into the hundreds of gigabytes, it is now recognized that the amount of swap space that a system needs is a function of the memory workload running on that system. The following table provides the recommended size of a swap partition depending on the amount of RAM in your system and whether you want sufficient memory for your system to hibernate. The recommended swap space is established automatically during installation, but to also allow for hibernation you will need to edit the swap space in the custom partitioning stage.
 >
-> ![ram recommendations RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/ram_recommendations.png)
+> ![ram recommendations RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/ram_recommendations.png)
 >
 > Note that you can obtain better performance by distributing swap space over multiple storage devices, particularly on systems with fast drives, controllers, and interfaces.
 >
@@ -276,7 +276,7 @@ The next section is about recommendations for partitioning. From the same guide:
 >
 > The following table summarizes minimum partition sizes for the partitions containing the listed directories.
 >
-> ![rhel6 minimum partition size RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_minimum_partition_size.png)
+> ![rhel6 minimum partition size RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/rhel6_minimum_partition_size.png)
 
 Now to the GRUB section of the installation. From the same guide:
 
@@ -284,7 +284,7 @@ Now to the GRUB section of the installation. From the same guide:
 >
 > The installer prompts you to confirm the partitioning options that you selected. Click Write changes to disk to allow the installer to partition your hard drive and install Red Hat Enterprise Linux.
 >
-> ![rhel6 install write changes RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_install_write_changes.png)
+> ![rhel6 install write changes RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/rhel6_install_write_changes.png)
 >
 > If you are certain that you want to proceed, click **Write changes to disk**.
 >
@@ -294,7 +294,7 @@ Now to the GRUB section of the installation. From the same guide:
 >
 > GRUB (GRand Unified Bootloader), which is installed by default, is a very powerful boot loader. GRUB can load a variety of free operating systems, as well as proprietary operating systems with chain-loading (the mechanism for loading unsupported operating systems, such as Windows, by loading another boot loader). Note that the version of GRUB in Red Hat Enterprise Linux 6 is an old and stable version now known as "GRUB Legacy" since upstream development moved to GRUB 2. Red Hat remains committed to maintaining the version of GRUB that we ship with Red Hat Enterprise Linux 6, just as we do with all packages that we ship.
 >
-> ![rhel6 install grub installer RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_install_grub_installer.png)
+> ![rhel6 install grub installer RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/rhel6_install_grub_installer.png)
 >
 > **9.17.1. Advanced Boot Loader Configuration**
 >
@@ -304,7 +304,7 @@ Now to the GRUB section of the installation. From the same guide:
 >
 > **The first sector of your boot partition** — This is recommended if you are already using another boot loader on your system. In this case, your other boot loader takes control first. You can then configure that boot loader to start GRUB, which then boots Red Hat Enterprise Linux.
 >
-> ![rhel6 install advanced boot loader options RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_install_advanced_boot_loader_options.png)
+> ![rhel6 install advanced boot loader options RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/rhel6_install_advanced_boot_loader_options.png)
 
 Now onto the Packaging:
 
@@ -314,7 +314,7 @@ Now onto the Packaging:
 >
 > The **Package Installation Defaults** screen appears and details the default package set for your Red Hat Enterprise Linux installation. This screen varies depending on the version of Red Hat Enterprise Linux you are installing.
 >
-> ![rhel6 install package selection RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_install_package_selection.png)
+> ![rhel6 install package selection RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/rhel6_install_package_selection.png)
 >
 > By default, the Red Hat Enterprise Linux installation process loads a selection of software that is suitable for a system deployed as a basic server. Note that this installation does not include a graphical environment. To include a selection of software suitable for other roles, click the radio button that corresponds to one of the following options:
 >
@@ -333,7 +333,7 @@ Now onto the Packaging:
 >
 > Select** Customize now** to specify the software packages for your final system in more detail. This option causes the installation process to display an additional customization screen when you select **Next**
 >
-> ![rhel6 install package customize now RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_install_package_customize_now.png)
+> ![rhel6 install package customize now RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/rhel6_install_package_customize_now.png)
 >
 > Now to the final section of the install:
 >
@@ -343,7 +343,7 @@ Now onto the Packaging:
 >
 > Depending on the available resources, you might see the following progress bar while the installer resolves dependencies of the packages you selected for installation:
 >
-> ![rhel6 install packages installing RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_install_packages_installing.png)
+> ![rhel6 install packages installing RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/rhel6_install_packages_installing.png)
 >
 > **9.20. Installation Complete**
 >
@@ -357,53 +357,53 @@ Now onto the Packaging:
 
 Here is how my install process looked like. First I booted from the DVD, and I saw the following:
 
-![rhel6 boot install RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/rhel6_boot_install.png)
+![rhel6 boot install RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/rhel6_boot_install.png)
 
 Then skipping the media check, I saw the welcome screen:
 
-![welcome screen rhel5 install RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/welcome_screen_rhel5_install.png)
+![welcome screen rhel5 install RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/welcome_screen_rhel5_install.png)
 
 Here is how my language selection page looked like:
 
-![lang selection rhel6 install RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/lang_selection_rhel6_install.png)
+![lang selection rhel6 install RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/lang_selection_rhel6_install.png)
 
-And here is how my Keyboard Selection screen looked like: ![key selection rhel6 install RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/key_selection_rhel6_install.png)
+And here is how my Keyboard Selection screen looked like: ![key selection rhel6 install RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/key_selection_rhel6_install.png)
 
 Then I re-initialized my disks:
 
-![reinitialized disk rhel6 install RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/reinitialized_disk_rhel6_install.png)
+![reinitialized disk rhel6 install RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/reinitialized_disk_rhel6_install.png)
 
 I then set my timezone:
 
-![tz sel rhel6 install RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/tz_sel_rhel6_install.png)
+![tz sel rhel6 install RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/tz_sel_rhel6_install.png)
 
 I then set the root password:
 
-![root passwd rhel6 install RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/root_passwd_rhel6_install.png)
+![root passwd rhel6 install RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/root_passwd_rhel6_install.png)
 
 I then selected to use the whole driver and only selected the 20GB drive:
 
-![partition type rhel6 install RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/partition_type_rhel6_install.png)
+![partition type rhel6 install RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/partition_type_rhel6_install.png)
 
 I then wrote the changes to disk:
 
-![write changes to disk rhel6 install RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/write_changes_to_disk_rhel6_install.png)
+![write changes to disk rhel6 install RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/write_changes_to_disk_rhel6_install.png)
 
 After all the formatting and partition setup the installation process started:
 
-![starting installation rhel6 install RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/starting_installation_rhel6_install.png)
+![starting installation rhel6 install RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/starting_installation_rhel6_install.png)
 
 and then the packages started to install:
 
-![package installing rhel6 install RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/package_installing_rhel6_install.png)
+![package installing rhel6 install RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/package_installing_rhel6_install.png)
 
 After the packages finished installing I saw the following:
 
-![installation finished rhel6 install RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/installation_finished_rhel6_install.png)
+![installation finished rhel6 install RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/installation_finished_rhel6_install.png)
 
 When the OS rebooted, I saw the following:
 
-![reboot after rhel6 install RHCSA and RHCE Chapter 1   Installation](http://virtuallyhyper.com/wp-content/uploads/2012/12/reboot_after_rhel6_install.png)
+![reboot after rhel6 install RHCSA and RHCE Chapter 1   Installation](https://github.com/elatov/uploads/raw/master/2012/12/reboot_after_rhel6_install.png)
 
 I then logged and started to setup network.
 

@@ -83,7 +83,7 @@ To setup an OpenVPN server here is a pretty good summary of the configuration:
 
 After it's all done, we should have the following certificates:
 
-![openvpn certs Connecting to an OpenVPN Server with Various Clients](http://virtuallyhyper.com/wp-content/uploads/2013/09/openvpn_certs.png)
+![openvpn certs Connecting to an OpenVPN Server with Various Clients](https://github.com/elatov/uploads/raw/master/2013/09/openvpn_certs.png)
 
 If you need more specifics on the OpenVPN Server configuration, check out the following sites (there is a lot of other functionality included):
 
@@ -93,7 +93,7 @@ If you need more specifics on the OpenVPN Server configuration, check out the fo
 
 BTW there is a very interesting article on the differences between **IPsec** and **OpenVPN**: It's called "[Networking with OpenVPN](http://www.packtpub.com/article/networking-with-openvpn)". From that article here is an intriguing comparison:
 
-![ipsec vs openvpn Connecting to an OpenVPN Server with Various Clients](http://virtuallyhyper.com/wp-content/uploads/2013/09/ipsec-vs-openvpn.png)
+![ipsec vs openvpn Connecting to an OpenVPN Server with Various Clients](https://github.com/elatov/uploads/raw/master/2013/09/ipsec-vs-openvpn.png)
 
 ### OpenVPN Client
 
@@ -287,35 +287,35 @@ You can then launch the nm-connection-editor, like so:
 
 you should see the following window show up:
 
-![nm editor Connecting to an OpenVPN Server with Various Clients](http://virtuallyhyper.com/wp-content/uploads/2013/09/nm-editor.png)
+![nm editor Connecting to an OpenVPN Server with Various Clients](https://github.com/elatov/uploads/raw/master/2013/09/nm-editor.png)
 
 Then click "Add" and you should see the following:
 
-![add connection nm Connecting to an OpenVPN Server with Various Clients](http://virtuallyhyper.com/wp-content/uploads/2013/09/add-connection-nm.png)
+![add connection nm Connecting to an OpenVPN Server with Various Clients](https://github.com/elatov/uploads/raw/master/2013/09/add-connection-nm.png)
 
 From the Connection Type list, select "Import a Saved VPN Configuration":
 
-![choose import saved Connecting to an OpenVPN Server with Various Clients](http://virtuallyhyper.com/wp-content/uploads/2013/09/choose_import_saved.png)
+![choose import saved Connecting to an OpenVPN Server with Various Clients](https://github.com/elatov/uploads/raw/master/2013/09/choose_import_saved.png)
 
 After it's selected, click on "Create":
 
-![import saved Connecting to an OpenVPN Server with Various Clients](http://virtuallyhyper.com/wp-content/uploads/2013/09/import_saved.png)
+![import saved Connecting to an OpenVPN Server with Various Clients](https://github.com/elatov/uploads/raw/master/2013/09/import_saved.png)
 
 and it will ask you to point to the configuration file. Let's point to the **client1.conf** file from our OpenVPN configurations:
 
-![file to import nm Connecting to an OpenVPN Server with Various Clients](http://virtuallyhyper.com/wp-content/uploads/2013/09/file_to_import_nm.png)
+![file to import nm Connecting to an OpenVPN Server with Various Clients](https://github.com/elatov/uploads/raw/master/2013/09/file_to_import_nm.png)
 
 After it's imported you should see something like this:
 
-![client1 imported nm Connecting to an OpenVPN Server with Various Clients](http://virtuallyhyper.com/wp-content/uploads/2013/09/client1_imported-nm.png)
+![client1 imported nm Connecting to an OpenVPN Server with Various Clients](https://github.com/elatov/uploads/raw/master/2013/09/client1_imported-nm.png)
 
 For some reason, my Network Manager didn't import the multiple OpenVPN servers, so let's change the Name of the VPN connection and add the other OpenVPN server to the list:
 
-![vpn settings two servers Connecting to an OpenVPN Server with Various Clients](http://virtuallyhyper.com/wp-content/uploads/2013/09/vpn_settings_two_servers.png)
+![vpn settings two servers Connecting to an OpenVPN Server with Various Clients](https://github.com/elatov/uploads/raw/master/2013/09/vpn_settings_two_servers.png)
 
 Lastly click on Advanced and enable the "Randomize Random Hosts" option:
 
-![openvpn advanced Connecting to an OpenVPN Server with Various Clients](http://virtuallyhyper.com/wp-content/uploads/2013/09/openvpn_advanced.png)
+![openvpn advanced Connecting to an OpenVPN Server with Various Clients](https://github.com/elatov/uploads/raw/master/2013/09/openvpn_advanced.png)
 
 Click "Save" and you should be all set.
 
@@ -323,7 +323,7 @@ Click "Save" and you should be all set.
 
 If you are using Gnome, the Network Manager Applet should be automatically running. It looks something like this:
 
-![nm applet running Connecting to an OpenVPN Server with Various Clients](http://virtuallyhyper.com/wp-content/uploads/2013/09/nm-applet_running.png)
+![nm applet running Connecting to an OpenVPN Server with Various Clients](https://github.com/elatov/uploads/raw/master/2013/09/nm-applet_running.png)
 
 If you don't see that in your notification bar, then you can launch the Network Manager applet, by running the following from the command line:
 
@@ -332,15 +332,15 @@ If you don't see that in your notification bar, then you can launch the Network 
 
 Once you have located the Network Manager Applet, click on it and select your VPN tunnel:
 
-![select vpn connection nm applet Connecting to an OpenVPN Server with Various Clients](http://virtuallyhyper.com/wp-content/uploads/2013/09/select_vpn_connection_nm-applet.png)
+![select vpn connection nm applet Connecting to an OpenVPN Server with Various Clients](https://github.com/elatov/uploads/raw/master/2013/09/select_vpn_connection_nm-applet.png)
 
 After the VPN is established you will see the following message on your screen:
 
-![vpn connection successful Connecting to an OpenVPN Server with Various Clients](http://virtuallyhyper.com/wp-content/uploads/2013/09/vpn_connection_successful.png)
+![vpn connection successful Connecting to an OpenVPN Server with Various Clients](https://github.com/elatov/uploads/raw/master/2013/09/vpn_connection_successful.png)
 
 You will also see a small lock next to your connection in the Network Manager applet:
 
-![vpn conn successful nm applet Connecting to an OpenVPN Server with Various Clients](http://virtuallyhyper.com/wp-content/uploads/2013/09/vpn_conn_successful_nm-applet.png)
+![vpn conn successful nm applet Connecting to an OpenVPN Server with Various Clients](https://github.com/elatov/uploads/raw/master/2013/09/vpn_conn_successful_nm-applet.png)
 
 You can actually do the same thing via the command line. Network Manager provides a cli tool, it's called **nmcli**. After we have added the VPN Connection we can check that it exists:
 
@@ -452,65 +452,65 @@ We can see the static routes getting added and the DNS information was added as 
 
 For Mac OS there is a client called Tunnelblick and it can be downloaded from [here](https://code.google.com/p/tunnelblick/). After you have downloaded and install it, it should be in your Applications folder. Go to your Applications folder (Command-Shift-A) and locate the App:
 
-![tunnelblick icon Connecting to an OpenVPN Server with Various Clients](http://virtuallyhyper.com/wp-content/uploads/2013/09/tunnelblick-icon.png)
+![tunnelblick icon Connecting to an OpenVPN Server with Various Clients](https://github.com/elatov/uploads/raw/master/2013/09/tunnelblick-icon.png)
 
 Launch the App by double clicking on it or pressing *Command-O*. When it launches you will see the following:
 
-![tunnelblick starting Connecting to an OpenVPN Server with Various Clients](http://virtuallyhyper.com/wp-content/uploads/2013/09/tunnelblick-starting.png)
+![tunnelblick starting Connecting to an OpenVPN Server with Various Clients](https://github.com/elatov/uploads/raw/master/2013/09/tunnelblick-starting.png)
 
 After it's finished with the initialization process, you will see the welcome screen:
 
-![tnblk welcome screen Connecting to an OpenVPN Server with Various Clients](http://virtuallyhyper.com/wp-content/uploads/2013/09/tnblk-welcome_screen.png)
+![tnblk welcome screen Connecting to an OpenVPN Server with Various Clients](https://github.com/elatov/uploads/raw/master/2013/09/tnblk-welcome_screen.png)
 
 From here we can click on "I have Configuration Files" and then you will see the following:
 
-![tnblk what type of configs Connecting to an OpenVPN Server with Various Clients](http://virtuallyhyper.com/wp-content/uploads/2013/09/tnblk-what-type-of-configs.png)
+![tnblk what type of configs Connecting to an OpenVPN Server with Various Clients](https://github.com/elatov/uploads/raw/master/2013/09/tnblk-what-type-of-configs.png)
 
 Here we can choose "OpenVPN Configurations". Then we will see the following instructions:
 
-![tnblk instructions Connecting to an OpenVPN Server with Various Clients](http://virtuallyhyper.com/wp-content/uploads/2013/09/tnblk-instructions.png)
+![tnblk instructions Connecting to an OpenVPN Server with Various Clients](https://github.com/elatov/uploads/raw/master/2013/09/tnblk-instructions.png)
 
 and back in Finder you will see the Empty Folder. So go ahead and place the certificate and configuration files into that folder:
 
-![openvpn config in folder Connecting to an OpenVPN Server with Various Clients](http://virtuallyhyper.com/wp-content/uploads/2013/09/openvpn-config-in-folder.png)
+![openvpn config in folder Connecting to an OpenVPN Server with Various Clients](https://github.com/elatov/uploads/raw/master/2013/09/openvpn-config-in-folder.png)
 
 Then close the folder,click on the folder, and press "Command-I" or right click on the folder to select "Get Info". At which point you will see the information regarding that folder:
 
-![folder information Connecting to an OpenVPN Server with Various Clients](http://virtuallyhyper.com/wp-content/uploads/2013/09/folder_information.png)
+![folder information Connecting to an OpenVPN Server with Various Clients](https://github.com/elatov/uploads/raw/master/2013/09/folder_information.png)
 
 Rename the folder with a **.tblk** extension (in my case I called it VPN.tblk). Upon saving the configuration, you will see the following dialogue:
 
-![change extension of folder Connecting to an OpenVPN Server with Various Clients](http://virtuallyhyper.com/wp-content/uploads/2013/09/change-extension_of_folder.png)
+![change extension of folder Connecting to an OpenVPN Server with Various Clients](https://github.com/elatov/uploads/raw/master/2013/09/change-extension_of_folder.png)
 
 Click "add" and you should see the following on your desktop:
 
-![vpn tblk icon Connecting to an OpenVPN Server with Various Clients](http://virtuallyhyper.com/wp-content/uploads/2013/09/vpn-tblk-icon.png)
+![vpn tblk icon Connecting to an OpenVPN Server with Various Clients](https://github.com/elatov/uploads/raw/master/2013/09/vpn-tblk-icon.png)
 
 Double click on icon and the import process should start and you should see the following:
 
-![tlblk only for user Connecting to an OpenVPN Server with Various Clients](http://virtuallyhyper.com/wp-content/uploads/2013/09/tlblk-only_for-user.png)
+![tlblk only for user Connecting to an OpenVPN Server with Various Clients](https://github.com/elatov/uploads/raw/master/2013/09/tlblk-only_for-user.png)
 
 Since the certificates are specific to me, I selected "Only me" and then I saw the following:
 
-![tb config installed Connecting to an OpenVPN Server with Various Clients](http://virtuallyhyper.com/wp-content/uploads/2013/09/tb-config_installed.png)
+![tb config installed Connecting to an OpenVPN Server with Various Clients](https://github.com/elatov/uploads/raw/master/2013/09/tb-config_installed.png)
 
 At this point you can connect on the OpenVPN Tunnel by click on the TunnelBlick Icon from the notification area and selecting the VPN that you want to connect to:
 
-![tnblk connection to tunnel Connecting to an OpenVPN Server with Various Clients](http://virtuallyhyper.com/wp-content/uploads/2013/09/tnblk-connection-to-tunnel.png)
+![tnblk connection to tunnel Connecting to an OpenVPN Server with Various Clients](https://github.com/elatov/uploads/raw/master/2013/09/tnblk-connection-to-tunnel.png)
 
 After clicking on that you will see the following:
 
-![tnlk authorizing Connecting to an OpenVPN Server with Various Clients](http://virtuallyhyper.com/wp-content/uploads/2013/09/tnlk-authorizing.png)
+![tnlk authorizing Connecting to an OpenVPN Server with Various Clients](https://github.com/elatov/uploads/raw/master/2013/09/tnlk-authorizing.png)
 
 and then after the connection is successful you will see the following:
 
-![tunblk connected Connecting to an OpenVPN Server with Various Clients](http://virtuallyhyper.com/wp-content/uploads/2013/09/tunblk-connected.png)
+![tunblk connected Connecting to an OpenVPN Server with Various Clients](https://github.com/elatov/uploads/raw/master/2013/09/tunblk-connected.png)
 
 To disconnect you can go back to the TunnelBlick icon and select the VPN to disconnect:
 
-![tunblik disconnect Connecting to an OpenVPN Server with Various Clients](http://virtuallyhyper.com/wp-content/uploads/2013/09/tunblik-disconnect.png)
+![tunblik disconnect Connecting to an OpenVPN Server with Various Clients](https://github.com/elatov/uploads/raw/master/2013/09/tunblik-disconnect.png)
 
 and you will see the following:
 
-![tunblk disconnected Connecting to an OpenVPN Server with Various Clients](http://virtuallyhyper.com/wp-content/uploads/2013/09/tunblk-disconnected.png)
+![tunblk disconnected Connecting to an OpenVPN Server with Various Clients](https://github.com/elatov/uploads/raw/master/2013/09/tunblk-disconnected.png)
 

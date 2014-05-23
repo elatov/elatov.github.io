@@ -139,7 +139,7 @@ This is provided by running some additional testing. Here is an example from "[V
 > This section describes the workload used, the load driver technology, and the specific functional transactions included.
 >
 > The workload is based on. The workload consists of the following transaction scripts (provide relevant workload operations below):
-> ![app-bench](http://virtuallyhyper.com/wp-content/uploads/2012/09/app-bench.png)
+> ![app-bench](https://github.com/elatov/uploads/raw/master/2012/09/app-bench.png)
 
 ### Demonstrate an ability to track results in an organized fashion
 
@@ -153,7 +153,7 @@ Create test cases for your testing and keep track of each in a table. Here is an
 >
 > The medium configuration consists of several virtual machines: two Web servers, two application servers, a report server, and the database. The test cases to be run and the data to be collected are as follows:
 >
-> ![test-case-example](http://virtuallyhyper.com/wp-content/uploads/2012/09/test-case-example.png)
+> ![test-case-example](https://github.com/elatov/uploads/raw/master/2012/09/test-case-example.png)
 
 There are also tools to make sure check the health of an environment. Check out Epping's Blog "Health Check tools I use", from that post:
 
@@ -173,7 +173,7 @@ Some times the expected results are obtained from white papers and vendors. Alwa
 
 I think this table from "[Validation Test Plan](http://www.vmware.com/files/pdf/partners/09Q1_VM_Test_Plan.doc)":
 
-![app-bench](http://virtuallyhyper.com/wp-content/uploads/2012/09/app-bench1.png)
+![app-bench](https://github.com/elatov/uploads/raw/master/2012/09/app-bench1.png)
 
 Shows very good example of tracing the business requirement. You can follow the flow and performance of a business workload. The frequency of execution can be compared to the metrics to make sure they meet the goals set.
 

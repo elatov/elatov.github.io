@@ -16,7 +16,7 @@ tags:
 
 From "[Installing and Administering VMware vSphere Update Manager](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf)", here is table of ports used by update manager:
 
-![vum_net_ports](http://virtuallyhyper.com/wp-content/uploads/2012/12/vum_net_ports.png)
+![vum_net_ports](https://github.com/elatov/uploads/raw/master/2012/12/vum_net_ports.png)
 
 ### Install and configure Update Manager Download Service
 
@@ -135,7 +135,7 @@ From "[Installing and Administering VMware vSphere Update Manager](http://pubs.v
 
 Taken from "[VMware vSphere 4 Evaluator's Guide](http://www.vmware.com/files/pdf/vsphere-evaluators-guide.pdf)", here is how it looks like from vCenter:
 
-![shared_repository_vum](http://virtuallyhyper.com/wp-content/uploads/2012/12/shared_repository_vum.png)
+![shared_repository_vum](https://github.com/elatov/uploads/raw/master/2012/12/shared_repository_vum.png)
 
 ### Configure smart rebooting
 
@@ -156,7 +156,7 @@ Taken from "[VMware vSphere 4 Evaluator's Guide](http://www.vmware.com/files/pdf
 
 Here is how it looks like from vCenter:
 
-![vum_smart-booting](http://virtuallyhyper.com/wp-content/uploads/2012/12/vum_smart-booting.png)
+![vum_smart-booting](https://github.com/elatov/uploads/raw/master/2012/12/vum_smart-booting.png)
 
 ### Manually download updates to a repository
 
@@ -189,15 +189,15 @@ From "[Installing and Administering VMware vSphere Update Manager](http://pubs.v
 
 Here is an example of importing the 5.0u1 update into update manager. First go to Home-> 'Solution and Application' -> 'Update Manager' -> Select 'Patch Repository' tab -> click on 'Import Patches'. You will see the following screen:
 
-![vum-import-patch](http://virtuallyhyper.com/wp-content/uploads/2012/12/vum-import-patch.png)
+![vum-import-patch](https://github.com/elatov/uploads/raw/master/2012/12/vum-import-patch.png)
 
 Click Next to upload the patch, during the upload you will see the progress like so:
 
-![progress_import_patch_vum](http://virtuallyhyper.com/wp-content/uploads/2012/12/progress_import_patch_vum.png)
+![progress_import_patch_vum](https://github.com/elatov/uploads/raw/master/2012/12/progress_import_patch_vum.png)
 
 When the upload is done you will see a list of patches, including yours:
 
-![finished_import_of_patch_vum](http://virtuallyhyper.com/wp-content/uploads/2012/12/finished_import_of_patch_vum.png)
+![finished_import_of_patch_vum](https://github.com/elatov/uploads/raw/master/2012/12/finished_import_of_patch_vum.png)
 
 ### Perform orchestrated vSphere upgrades
 
@@ -244,31 +244,31 @@ and from "[VMware vSphere 5.0 Upgrade Best Practices](http://www.vmware.com/file
 > **Uploading the ESXi Installation ISO**
 > Start the upgrade by uploading the ESXi 5.0 installation image into Update Manager. From the Update Manager screen, choose the ESXi Images tab and click the link to Import ESXi Image… . Follow the wizard to import the ESXi 5.0 Image.
 >
-> ![import_esxi_image_vum](http://virtuallyhyper.com/wp-content/uploads/2012/12/import_esxi_image_vum.png)
+> ![import_esxi_image_vum](https://github.com/elatov/uploads/raw/master/2012/12/import_esxi_image_vum.png)
 >
 > **Creating an Upgrade Baseline**
 > Create an upgrade baseline using the uploaded ESXi 5.0 image. From the Update Manager screen, choose the Baselines and Groups tab. From the Baselines section on the left, choose Create… to create a new baseline. Follow the wizard to create a new baseline.
 >
-> ![create_new_baseline_vum](http://virtuallyhyper.com/wp-content/uploads/2012/12/create_new_baseline_vum.png)
+> ![create_new_baseline_vum](https://github.com/elatov/uploads/raw/master/2012/12/create_new_baseline_vum.png)
 >
-> ![esxi_image_vum](http://virtuallyhyper.com/wp-content/uploads/2012/12/esxi_image_vum.png)
+> ![esxi_image_vum](https://github.com/elatov/uploads/raw/master/2012/12/esxi_image_vum.png)
 >
 > **Attaching the Baseline to Your Cluster/Host**
 > Attach the upgrade baseline to your host or cluster. From the vCenter Hosts and Clusters view, select the Update Manager tab and choose Attach… . Select the upgrade baseline created previously. If you have any other upgrade baselines attached, remove them.
 >
-> ![host_update_vum_p4](http://virtuallyhyper.com/wp-content/uploads/2012/12/host_update_vum_p4.png)
+> ![host_update_vum_p4](https://github.com/elatov/uploads/raw/master/2012/12/host_update_vum_p4.png)
 >
 > **Scanning the Cluster/Host**
 > Scan your hosts to ensure that the host requirements are met and you are ready to upgrade. From the vCenter Hosts and Clusters view, select the host/cluster, select the Update Manager tab and select Scan... . Wait for the scan to complete.
 >
 > If the hosts return a status of Non-Compliant, you are ready to proceed with upgrading the host.
 >
-> ![host_update_vum_p3_1](http://virtuallyhyper.com/wp-content/uploads/2012/12/host_update_vum_p3_1.png)
+> ![host_update_vum_p3_1](https://github.com/elatov/uploads/raw/master/2012/12/host_update_vum_p3_1.png)
 >
 > **Remediating Your Host**
 > After the scan completes and your host is flagged as Non-Compliant, you are ready to perform the upgrade. From the Hosts and Clusters view, select the host/cluster, select the Update Manager tab and select Remediate. You will get a pop-up asking if you want to install patches, upgrade, or do both. Choose the upgrade option and follow the wizard to complete the remediation.
 >
-> ![host_update_vum_p5](http://virtuallyhyper.com/wp-content/uploads/2012/12/host_update_vum_p5.png)
+> ![host_update_vum_p5](https://github.com/elatov/uploads/raw/master/2012/12/host_update_vum_p5.png)
 >
 > Assuming that DRS is enabled and running in fully automated mode, Update Manager will proceed to place the host into maintenance mode (if not already in maintenance mode) and perform the upgrade. If DRS is not enabled, you must evacuate the virtual machines off the host and put it into maintenance mode before remediating.
 >
@@ -297,9 +297,9 @@ From "[Installing and Administering VMware vSphere Update Manager](http://pubs.v
 >
 > Update Manager provides upgrade, patch, and extension baselines.
 >
-> ![vum_upgrade_baselines](http://virtuallyhyper.com/wp-content/uploads/2012/12/vum_upgrade_baselines.png)
+> ![vum_upgrade_baselines](https://github.com/elatov/uploads/raw/master/2012/12/vum_upgrade_baselines.png)
 >
-> ![vum_extension_baselines](http://virtuallyhyper.com/wp-content/uploads/2012/12/vum_extension_baselines.png)
+> ![vum_extension_baselines](https://github.com/elatov/uploads/raw/master/2012/12/vum_extension_baselines.png)
 
 More from the same document:
 
@@ -370,7 +370,7 @@ From "[Installing and Administering VMware vSphere Update Manager](http://pubs.v
 > 4.  In the Choose Data Source window, select VMware Update Manager and click OK.
 >     If necessary, in the database query wizard, select the ODBC DSN name and enter the user name and password for the ODBC database connection.
 > 5.  In the Query Wizard - Choose Columns window, select the columns of data to include in your query and click Next
->     ![options_for_excel_for_vum](http://virtuallyhyper.com/wp-content/uploads/2012/12/options_for_excel_for_vum.png)
+>     ![options_for_excel_for_vum](https://github.com/elatov/uploads/raw/master/2012/12/options_for_excel_for_vum.png)
 >     For example, if you want to get the latest scan results for all objects in the inventory and all patches for an inventory object, select the following database views and their corresponding columns from the Available tables and columns pane:</p>
 >     *   VUMV_UPDATES
 >     *   VUMV_ENTITY_SCAN_RESULTS
@@ -428,27 +428,27 @@ From "[Installing and Administering VMware vSphere Update Manager](http://pubs.v
 
 Here is an example of updating the vMA appliance. First Create a new Baseline for the Virtual Appliance:
 
-![create_new_baseline_for_va_update](http://virtuallyhyper.com/wp-content/uploads/2012/12/create_new_baseline_for_va_update.png)
+![create_new_baseline_for_va_update](https://github.com/elatov/uploads/raw/master/2012/12/create_new_baseline_for_va_update.png)
 
 Next Create a Vendor Rule:
 
-![create_vendor_rule_for_va_update](http://virtuallyhyper.com/wp-content/uploads/2012/12/create_vendor_rule_for_va_update.png)
+![create_vendor_rule_for_va_update](https://github.com/elatov/uploads/raw/master/2012/12/create_vendor_rule_for_va_update.png)
 
 Here are the options for the Vendor Rules:
 
-![vendor_rules_options_va_update](http://virtuallyhyper.com/wp-content/uploads/2012/12/vendor_rules_options_va_update.png)
+![vendor_rules_options_va_update](https://github.com/elatov/uploads/raw/master/2012/12/vendor_rules_options_va_update.png)
 
 After completion, go the "VMs and Templates" View and select the Appliance and attach your baseline to it. Here is how it will look:
 
-![non-compliant_va_for_update](http://virtuallyhyper.com/wp-content/uploads/2012/12/non-compliant_va_for_update.png)
+![non-compliant_va_for_update](https://github.com/elatov/uploads/raw/master/2012/12/non-compliant_va_for_update.png)
 
 Click "Scan" from the same screen and select the type of scan:
 
-![va_vum_scan](http://virtuallyhyper.com/wp-content/uploads/2012/12/va_vum_scan.png)
+![va_vum_scan](https://github.com/elatov/uploads/raw/master/2012/12/va_vum_scan.png)
 
 Then click on "Remediate" to actually perform the upgrade:
 
-![remediate_va_update](http://virtuallyhyper.com/wp-content/uploads/2012/12/remediate_va_update.png)
+![remediate_va_update](https://github.com/elatov/uploads/raw/master/2012/12/remediate_va_update.png)
 
 That should be it.
 
@@ -598,6 +598,6 @@ You will be presented with the utility, from here you can edit the following:
 
 Here is a couple of screenshots of some of the available settings:
 
-![1st_window_vum_utility](http://virtuallyhyper.com/wp-content/uploads/2012/12/1st_window_vum_utility.png)
+![1st_window_vum_utility](https://github.com/elatov/uploads/raw/master/2012/12/1st_window_vum_utility.png)
 
-![vum_utility](http://virtuallyhyper.com/wp-content/uploads/2012/12/vum_utility.png)
+![vum_utility](https://github.com/elatov/uploads/raw/master/2012/12/vum_utility.png)

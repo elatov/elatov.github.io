@@ -40,9 +40,9 @@ To install an ESXi host
 
 1.  Configure the host server disk boot order to enable boot from CD.
 2.  Boot the ESXi Installer from CD to install ESXi.
-    ![install-esxi-1st](http://virtuallyhyper.com/wp-content/uploads/2012/09/install-esxi-1st.png)
+    ![install-esxi-1st](https://github.com/elatov/uploads/raw/master/2012/09/install-esxi-1st.png)
 3.  Press Enter to start the installer.
-    ![esxi-install-2nd](http://virtuallyhyper.com/wp-content/uploads/2012/09/esxi-install-2nd.png)
+    ![esxi-install-2nd](https://github.com/elatov/uploads/raw/master/2012/09/esxi-install-2nd.png)
 
 And the instructions keep going :)
 

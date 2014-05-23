@@ -876,7 +876,7 @@ I will have to revisit this later on (this is just for home anyways).
 
 At this point we should be able to login to beltane. So go **http://moxz/php** and you should see the following:
 
-![beltane login page Install Samhain with Beltane on FreeBSD](http://virtuallyhyper.com/wp-content/uploads/2014/03/beltane-login-page.png)
+![beltane login page Install Samhain with Beltane on FreeBSD](https://github.com/elatov/uploads/raw/master/2014/03/beltane-login-page.png)
 
 You can login with:
 
@@ -885,15 +885,15 @@ You can login with:
 
 At first it won't show anything, since it can't connect to the MySQL database, so click **configure** on the top left corner and update the settings:
 
-![samhain configure mysql db 1024x751 Install Samhain with Beltane on FreeBSD](http://virtuallyhyper.com/wp-content/uploads/2014/03/samhain-configure-mysql-db-1024x751.png)
+![samhain configure mysql db 1024x751 Install Samhain with Beltane on FreeBSD](https://github.com/elatov/uploads/raw/master/2014/03/samhain-configure-mysql-db.png)
 
 After that you should see some of the logs:
 
-![beltane alert 1024x336 Install Samhain with Beltane on FreeBSD](http://virtuallyhyper.com/wp-content/uploads/2014/03/beltane-alert-1024x336.png)
+![beltane alert 1024x336 Install Samhain with Beltane on FreeBSD](https://github.com/elatov/uploads/raw/master/2014/03/beltane-alert.png)
 
 As a test I created a new file and made sure the event was in Beltane:
 
-![test create file 1024x615 Install Samhain with Beltane on FreeBSD](http://virtuallyhyper.com/wp-content/uploads/2014/03/test-create-file-1024x615.png)
+![test create file 1024x615 Install Samhain with Beltane on FreeBSD](https://github.com/elatov/uploads/raw/master/2014/03/test-create-file.png)
 
 Notice you can either **acknowledge** the alarm (this is why beltane needs **update** permission to the MySQL DB) or you can **update** the signature of the file (appropriate permissions for **/usr/local/beltane/bin/beltane_update** are necessary).
 

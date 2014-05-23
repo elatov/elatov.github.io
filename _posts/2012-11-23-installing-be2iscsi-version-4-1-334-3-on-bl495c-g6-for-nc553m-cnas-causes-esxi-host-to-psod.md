@@ -21,13 +21,13 @@ tags:
 ---
 We were looking at the [September 2012 VMware FW and Software Recipe](http://vibsdepot.hp.com/hpq/recipes/September2012VMwareRecipe2.0.pdf) page and we wanted to install the latest be2iscsi driver. From the page here is the recommended version:
 
-![iscsi_hp_recipes](http://virtuallyhyper.com/wp-content/uploads/2012/11/iscsi_hp_recipes.png)
+![iscsi_hp_recipes](https://github.com/elatov/uploads/raw/master/2012/11/iscsi_hp_recipes.png)
 
 Here is VMware HCL [link](http://www.vmware.com/resources/compatibility/detail.php?deviceCategory=io&#038;productid=19645&#038;deviceCategory=io&#038;keyword=nc553m&#038;page=1&#038;display_interval=10&#038;sortColumn=Partner&#038;sortOrder=Asc) for the CNA.
 
 After we installed the driver and rebooted the host, we saw the following PSOD:
 
-![psod_be2iscsi](http://virtuallyhyper.com/wp-content/uploads/2012/11/psod_be2iscsi.png)
+![psod_be2iscsi](https://github.com/elatov/uploads/raw/master/2012/11/psod_be2iscsi.png)
 
 here is the backtrace:
 

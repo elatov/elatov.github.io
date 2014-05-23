@@ -43,12 +43,14 @@ From same blog as above:
 ### Analyze current performance, identify and address gaps when building the logical design
 
 From the [APAC BrownBag Session 14](http://professionalvmware.com/2012/05/apac-vbrownbag-follow-up-vcap-dcd-performance/) Slide deck:
-![slide7of13-1](http://virtuallyhyper.com/wp-content/uploads/2012/08/slide7of13-1.png)
+
+![slide7of13-1](https://github.com/elatov/uploads/raw/master/2012/08/slide7of13-1.png)
 
 ### Using a conceptual design, create a logical design that meets performance requirements.
 
 Let's say we say that we will have production VMs and development VMs. From the Conceptual design we will just have two different containers that represent each type of a VM. For the Logical Design we will have DRS Resource Pools and Tiered Storage. Here is an example take from a VMware article called "[Storage Considerations for VMware vCloud Director](http://www.vmware.com/files/pdf/techpaper/VMW_10Q3_WP_vCloud_Director_Storage.pdf)":
-![RP-tiered_storage](http://virtuallyhyper.com/wp-content/uploads/2012/08/RP-tiered_storage.png)
+
+![RP-tiered_storage](https://github.com/elatov/uploads/raw/master/2012/08/RP-tiered_storage.png)
 
 ### Identify performance-related functional requirements based on given non-functional requirements and service dependencies
 

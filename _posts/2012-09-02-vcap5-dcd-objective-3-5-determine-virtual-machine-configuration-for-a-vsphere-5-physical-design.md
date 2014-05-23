@@ -15,11 +15,11 @@ tags:
 
 This was covered in [APAC BrownBag Session 12](http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-3-3-create-a-vsphere-5-physical-storage-design-from-an-existing-logical-design/):
 
-![rdm_for_vms](http://virtuallyhyper.com/wp-content/uploads/2012/09/rdm_for_vms.png)
+![rdm_for_vms](https://github.com/elatov/uploads/raw/master/2012/09/rdm_for_vms.png)
 
 ### Based on the service catalog and given functional requirements, for each service: Determine the most appropriate virtual machine configuration for the design
 
-From [this](http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.pdf) PDF:
+From [this](https://github.com/elatov/uploads/raw/master/2013/04/vcap-dcd_notes.pdf) PDF:
 
 > **Virtual Machine CPUs:**
 >
@@ -73,7 +73,7 @@ From the same document:
 > *   MSCS clusters are not supported.
 > *   PVSCSI controllers do not support boot disks, the disk that contains the system software, on Red Hat Linux 5 virtual machines. Attach the boot disk to the virtual machine by using any of the other supported controller types.
 
-From [this](http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.pdf) PDF:
+From [this](https://github.com/elatov/uploads/raw/master/2013/04/vcap-dcd_notes.pdf) PDF:
 
 > VM Disks:
 >
@@ -147,11 +147,11 @@ Now for memory from the same document:
 
 And lastly from [APAC BrownBag Session 12](http://professionalvmware.com/2012/04/apac-vbrownbag-follow-up-vm-design/):
 
-![super-size-vm](http://virtuallyhyper.com/wp-content/uploads/2012/09/super-size-vm.png)
+![super-size-vm](https://github.com/elatov/uploads/raw/master/2012/09/super-size-vm.png)
 
 ### Determine appropriate reservations, shares, and limits
 
-From [this](http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.pdf) PDF:
+From [this](https://github.com/elatov/uploads/raw/master/2013/04/vcap-dcd_notes.pdf) PDF:
 
 > **Shares,Reservations, and Limits:**
 >
@@ -159,7 +159,7 @@ From [this](http://virtuallyhyper.com/wp-content/uploads/2013/04/vcap-dcd_notes.
 > *   Are there Apps that need resources even during contention? Then use Reservations
 > *   This adds complexity and administration overhead and from
 
-![reser-share-limits](http://virtuallyhyper.com/wp-content/uploads/2012/09/reser-share-limits.png)
+![reser-share-limits](https://github.com/elatov/uploads/raw/master/2012/09/reser-share-limits.png)
 
 This was also discussed in [Objective 3.4](http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-3-4-determine-appropriate-compute-resources-for-a-vsphere-5-physical-design/)
 
@@ -177,53 +177,19 @@ From "[vSphere Virtual Machine Administration ESXi 5.0](http://pubs.vmware.com/v
 
 > **Virtual Machine Hardware**
 > You can add or configure some virtual machine hardware, only if the virtual machine uses the latest available hardware version. The PCI and SIO virtual hardware devices are part of the virtual motherboard, but cannot be configured or removed.
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
-> | |
-> | | | | |
+> 
+> | CPU | IDE 0 | PCI Controller | SCSI Device | Chipset | 
+> |Keyboard| PCI Device| SIO Controller | DVD/CD ROM    | Memory  | 
+> | Pointing Device | USB Controller | Floppy Drive | Network Adapter | Serial Port |
+> | USB Device| Hard Disk | Parallel Port | SCSI Controller | VMCI |
 
 from [APAC BrownBag Session 12](http://professionalvmware.com/2012/04/apac-vbrownbag-follow-up-vm-design/):
 
-![vHw](http://virtuallyhyper.com/wp-content/uploads/2012/09/vHw.png)
+![vHw](https://github.com/elatov/uploads/raw/master/2012/09/vHw.png)
 
 ### Design a vApp catalog of appropriate VM offerings (e.g., templates, OVFs, vCO)
 
-from ![self_provisioning](http://virtuallyhyper.com/wp-content/uploads/2012/09/self_provisioning.png)
+from ![self_provisioning](https://github.com/elatov/uploads/raw/master/2012/09/self_provisioning.png)
 
 If you have a service with multiple dependecies, then create a vApp with appropriate VMs in it and set the appropriate boot order respectively of the dependencies. Next if this vApp will used across multiple Datacenters, export this vApp as an OVF and put it on a file share where people can download it from. Or even put it on your USB drive and deploy the vApp as necessary. You can even use export vApps during your upgrade process.
 
@@ -231,11 +197,11 @@ If you have a service with multiple dependecies, then create a vApp with appropr
 
 from [APAC BrownBag Session 12](http://professionalvmware.com/2012/04/apac-vbrownbag-follow-up-vm-design/):
 
-![vapps](http://virtuallyhyper.com/wp-content/uploads/2012/09/vapps.png)
+![vapps](https://github.com/elatov/uploads/raw/master/2012/09/vapps.png)
 
 and
 
-![vapp_use-cases](http://virtuallyhyper.com/wp-content/uploads/2012/09/vapp_use-cases.png)
+![vapp_use-cases](https://github.com/elatov/uploads/raw/master/2012/09/vapp_use-cases.png)
 
 This was also discussed in [Objective 3.4](http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-3-4-determine-appropriate-compute-resources-for-a-vsphere-5-physical-design/)
 
@@ -271,15 +237,15 @@ From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/
 
 From [APAC BrownBag Session 12](http://professionalvmware.com/2012/04/apac-vbrownbag-follow-up-vm-design/):
 
-![vm-ft](http://virtuallyhyper.com/wp-content/uploads/2012/09/vm-ft.png)
+![vm-ft](https://github.com/elatov/uploads/raw/master/2012/09/vm-ft.png)
 
 From "[Virtualizing Business-Critical Applications on VMware](http://www.vmware.com/files/pdf/solutions/VMware-Virtualizing-Business-Critical-Apps-on-VMware_en-wp.pdf)"
 
-> The siloed example of availability methods shown in Figure 11 requires expensive licenses, dedicated standby infrastructure, and highly skilled staff to configure and manage. The alternative to this expensive approach is a standardized approach using vSphere technology, though some companies choose to implement both appspecific and VMware solutions running in tandem. ![3rd-party-availability_apps](http://virtuallyhyper.com/wp-content/uploads/2012/09/3rd-party-availability_apps.png)
+> The siloed example of availability methods shown in Figure 11 requires expensive licenses, dedicated standby infrastructure, and highly skilled staff to configure and manage. The alternative to this expensive approach is a standardized approach using vSphere technology, though some companies choose to implement both appspecific and VMware solutions running in tandem. ![3rd-party-availability_apps](https://github.com/elatov/uploads/raw/master/2012/09/3rd-party-availability_apps.png)
 
 Also from "[Virtualizing Business-Critical Applications on VMware vSphere](http://www.vmware.com/files/pdf/VMW_10Q1_WP_vSPHERE_USLET_EN_R6_proof.pdf)":
 
-![percent-of-coverage_for-availability](http://virtuallyhyper.com/wp-content/uploads/2012/09/percent-of-coverage_for-availability.png)
+![percent-of-coverage_for-availability](https://github.com/elatov/uploads/raw/master/2012/09/percent-of-coverage_for-availability.png)
 
 Here are examples of each 3rd party clustering products:
 
@@ -290,13 +256,13 @@ Here are examples of each 3rd party clustering products:
 
 and from [APAC BrownBag Session 12](http://professionalvmware.com/2012/04/apac-vbrownbag-follow-up-vm-design/):
 
-![3rd_party-clusters](http://virtuallyhyper.com/wp-content/uploads/2012/09/3rd_party-clusters.png)
+![3rd_party-clusters](https://github.com/elatov/uploads/raw/master/2012/09/3rd_party-clusters.png)
 
 So if you have a specific application like SQL, Oracle, or Exchange that cannot be limited to 1 vCPU(FT) or just 2 nodes (MSCS), then use application level clustering/availability described in the above papers. But if you have application that requires 100% uptime and it's low resource then VMware FT will be perfect for that.
 
 ### Determine and implement an anti-virus solution
 
-![AV-for-VMs](http://virtuallyhyper.com/wp-content/uploads/2012/09/AV-for-VMs.png)
+![AV-for-VMs](https://github.com/elatov/uploads/raw/master/2012/09/AV-for-VMs.png)
 
 So if you want a centralized Anti-Virus application, setup vShield End-Point. This does add on some complexity and management over head. If you end up setting up an Anti-Virus instance per VM try to schedule the AV Scans at different times. You can over load the system when all 100 of your VMs are doing an AV Scan at the same time. If you want more information on vShield check out "[Antivirus Practices for VMware View 5](http://www.vmware.com/products/vsphere/features-endpoint)". It talks about vShield End Point and some other best practices for VMware View. Here are some excerpts from that paper:
 

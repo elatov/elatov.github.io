@@ -214,7 +214,7 @@ Now let's see what happens with **curl**:
 
 After visiting the site a couple of times, I saw the following statistic page:
 
-![haproxy stats Configure HAProxy to Load Balance Sites With SSL](http://virtuallyhyper.com/wp-content/uploads/2013/05/haproxy_stats.png)
+![haproxy stats Configure HAProxy to Load Balance Sites With SSL](https://github.com/elatov/uploads/raw/master/2013/05/haproxy_stats.png)
 
 We can see that the round robin is working pretty well. I ended up using **Session Cookies** for persistence (we can see the **Set-Cookie** header set). Other load-balancing examples can be seen at "[NLB](http://blog.exceliance.fr/2012/03/29/load-balancing-affinity-persistence-sticky-sessions-what-you-need-to-know/) post. So when I visited the **test.html** page, I saw the following:
 
@@ -363,7 +363,7 @@ In the logs, I just saw the following:
 
 Again since this is encrypted, we won't see as much information. Here are how the headers looked like in *Google Chrome* with *Developer Tools* under the *Network* tab:
 
-![chrome with haproxy headers Configure HAProxy to Load Balance Sites With SSL](http://virtuallyhyper.com/wp-content/uploads/2013/05/chrome-with-haproxy-headers.png)
+![chrome with haproxy headers Configure HAProxy to Load Balance Sites With SSL](https://github.com/elatov/uploads/raw/master/2013/05/chrome-with-haproxy-headers.png)
 
 Lastly, after I connected a couple of times, I saw the following stats:
 

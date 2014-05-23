@@ -151,7 +151,7 @@ A *VNC* window popped up without any issues, and I saw the RHEL CD boot up. Now 
 
 Here is a good diagram of how it works:
 
-![qemu user networking Running VMs On FreeBSD using QEMU with VDE](http://virtuallyhyper.com/wp-content/uploads/2013/02/qemu_user_networking.png)
+![qemu user networking Running VMs On FreeBSD using QEMU with VDE](https://github.com/elatov/uploads/raw/master/2013/02/qemu_user_networking.png)
 
 Second we can use "**TUN/TAP Network Interface**". From [this](http://bsdwiki.reedmedia.net/wiki/networking_qemu_virtual_bsd_systems.html) page:
 

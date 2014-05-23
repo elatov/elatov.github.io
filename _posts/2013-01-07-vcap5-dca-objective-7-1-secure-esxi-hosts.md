@@ -95,9 +95,9 @@ From "[vSphere Security ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vm
 > 7.  Click OK.
 
 Here is how it looks like from the vSphere Client:
-![users groups vscl VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](http://virtuallyhyper.com/wp-content/uploads/2012/12/users_groups-vscl.png)
+![users groups vscl VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](https://github.com/elatov/uploads/raw/master/2012/12/users_groups-vscl.png)
 
-![add new user VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](http://virtuallyhyper.com/wp-content/uploads/2012/12/add_new_user.png)
+![add new user VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](https://github.com/elatov/uploads/raw/master/2012/12/add_new_user.png)
 
 From "[vSphere Security ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf)":
 
@@ -115,9 +115,9 @@ From "[vSphere Security ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vm
 
 Here is how it looks like from the vSphere Client:
 
-![esx groups VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](http://virtuallyhyper.com/wp-content/uploads/2012/12/esx_groups.png)
+![esx groups VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](https://github.com/elatov/uploads/raw/master/2012/12/esx_groups.png)
 
-![add group VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](http://virtuallyhyper.com/wp-content/uploads/2012/12/add_group.png)
+![add group VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](https://github.com/elatov/uploads/raw/master/2012/12/add_group.png)
 
 ### Customize SSH settings for increased security
 
@@ -138,7 +138,7 @@ From "[Command-Line Management in vSphere 5.0 for Service Console Users](http://
 
 Here is how it looks like from the Direct Console:
 
-![dcui ssh enabled VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](http://virtuallyhyper.com/wp-content/uploads/2012/12/dcui_ssh_enabled.png)
+![dcui ssh enabled VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](https://github.com/elatov/uploads/raw/master/2012/12/dcui_ssh_enabled.png)
 
 From the same document:
 
@@ -159,7 +159,7 @@ From the same document:
 
 Here is how it looks like from vCenter:
 
-![enabled ssh vscl VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](http://virtuallyhyper.com/wp-content/uploads/2012/12/enabled_ssh_vscl.png)
+![enabled ssh vscl VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](https://github.com/elatov/uploads/raw/master/2012/12/enabled_ssh_vscl.png)
 
 You can also set a timeout for the shell with the following advanced option:
 
@@ -188,7 +188,7 @@ From "[vSphere Security ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vm
 
 Here is how the setting looks like from vCenter:
 
-![vcenter verify ssl certs VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](http://virtuallyhyper.com/wp-content/uploads/2012/12/vcenter_verify_ssl_certs.png)
+![vcenter verify ssl certs VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](https://github.com/elatov/uploads/raw/master/2012/12/vcenter_verify_ssl_certs.png)
 
 ### Generate ESXi host certificates
 
@@ -225,14 +225,14 @@ From "[vSphere Security ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vm
 >
 > Different services are available to different types of users when the host is running in lockdown mode,compared to when the host is running in normal mode. Non-root users cannot run system commands in the ESXi Shell.
 >
-> ![lockdown behavior VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](http://virtuallyhyper.com/wp-content/uploads/2012/12/lockdown_behavior.png)
+> ![lockdown behavior VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](https://github.com/elatov/uploads/raw/master/2012/12/lockdown_behavior.png)
 >
 > **Lockdown Mode Configurations**
 > You can enable or disable remote and local access to the ESXi Shell to create different lockdown mode configurations. The following table lists which services are enabled for three typical configurations.
 >
 > **CAUTION**: If you lose access to vCenter Server while running in Total Lockdown Mode, you must reinstall ESXi to gain access to the host
 >
-> ![lockdown conf VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](http://virtuallyhyper.com/wp-content/uploads/2012/12/lockdown_conf.png)
+> ![lockdown conf VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](https://github.com/elatov/uploads/raw/master/2012/12/lockdown_conf.png)
 
 And now how to actually enable lockdown mode:
 
@@ -248,9 +248,9 @@ And now how to actually enable lockdown mode:
 
 Here is how it looks like from vCenter:
 
-![lockdown from host VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](http://virtuallyhyper.com/wp-content/uploads/2012/12/lockdown_from_host.png)
+![lockdown from host VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](https://github.com/elatov/uploads/raw/master/2012/12/lockdown_from_host.png)
 
-![enable lock down mode VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](http://virtuallyhyper.com/wp-content/uploads/2012/12/enable_lock_down_mode.png)
+![enable lock down mode VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](https://github.com/elatov/uploads/raw/master/2012/12/enable_lock_down_mode.png)
 
 And here are the instructions from the DCUI:
 
@@ -267,9 +267,9 @@ And here are the instructions from the DCUI:
 
 Here is how it looks like from the Console:
 
-![lockdown mode dcui VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](http://virtuallyhyper.com/wp-content/uploads/2012/12/lockdown_mode_dcui.png)
+![lockdown mode dcui VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](https://github.com/elatov/uploads/raw/master/2012/12/lockdown_mode_dcui.png)
 
-![conf lock down mode VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](http://virtuallyhyper.com/wp-content/uploads/2012/12/conf_lock_down_mode.png)
+![conf lock down mode VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](https://github.com/elatov/uploads/raw/master/2012/12/conf_lock_down_mode.png)
 
 ### Replace default certificate with CA-signed certificate
 
@@ -369,9 +369,9 @@ And more from the same document:
 > **Procedure**
 >
 > 1.  Use the IIS manager on the host to set up the DHCP range. Setting the range allows hosts that are using DHCP in the management network to use the authentication proxy service.
->     ![iis for cam service VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](http://virtuallyhyper.com/wp-content/uploads/2012/12/iis_for_cam_service.png)
+>     ![iis for cam service VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](https://github.com/elatov/uploads/raw/master/2012/12/iis_for_cam_service.png)
 > 2.  If a host is not provisioned by Auto Deploy, change the default SSL certificate to a self-signed certificate or to a certificate signed by a commercial certificate authority (CA)
->     ![cam certificate option VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](http://virtuallyhyper.com/wp-content/uploads/2012/12/cam_certificate_option.png)
+>     ![cam certificate option VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](https://github.com/elatov/uploads/raw/master/2012/12/cam_certificate_option.png)
 
 Now we need to export the certificates from the CAM service and upload it to our ESXi host:
 
@@ -380,7 +380,7 @@ Now we need to export the certificates from the CAM service and upload it to our
 >
 > **Procedure**
 >
-> 1.  On the authentication proxy server system, use the IIS Manager to export the certificate. ![export cam cert with iis VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](http://virtuallyhyper.com/wp-content/uploads/2012/12/export_cam_cert_with_iis.png)
+> 1.  On the authentication proxy server system, use the IIS Manager to export the certificate. ![export cam cert with iis VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](https://github.com/elatov/uploads/raw/master/2012/12/export_cam_cert_with_iis.png)
 > 2.  Select Details > Copy to File.
 > 3.  Select the options **Do Not Export the Private Key** and **Base-64 encoded X.509 (CER)**.
 >
@@ -509,7 +509,7 @@ There are a lot more in the guide. To edit any of the above options do the follo
 
 Here is how it looks like in vCenter:
 
-![VM advanced parameters VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](http://virtuallyhyper.com/wp-content/uploads/2012/12/VM_advanced_parameters.png)
+![VM advanced parameters VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](https://github.com/elatov/uploads/raw/master/2012/12/VM_advanced_parameters.png)
 
 ### Analyze logs for security-related messages
 
@@ -558,5 +558,5 @@ From "[vSphere Security ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vm
 >     *   Click OK to close the Directory Services Configuration dialog box
 >     Here is how it looks like from vCenter:
 >
->     ![ad integration VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](http://virtuallyhyper.com/wp-content/uploads/2012/12/ad_integration.png)
+>     ![ad integration VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](https://github.com/elatov/uploads/raw/master/2012/12/ad_integration.png)
 >

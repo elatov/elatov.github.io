@@ -16,7 +16,7 @@ tags:
 ---
 ## PogoPlug Series 4
 
-Someone had given me a PogoPlug Series 4 ([PogoPlug_Series4](http://virtuallyhyper.com/wp-content/uploads/2013/09/PogoPlug_Series4.pdf)) and I wanted to utilize it to it's full potential. PogoPlug is a small computer (running an embedded ARM compatible processor) that you can connect USB or SATA Devices to and you will be able to share the contents of those hard drive via the remote **pogoplug.com** site. Some people refer to this as the private cloud. Here is a snippet from their site that might explain it better:
+Someone had given me a PogoPlug Series 4 ([PogoPlug_Series4](https://github.com/elatov/uploads/raw/master/2013/09/PogoPlug_Series4.pdf)) and I wanted to utilize it to it's full potential. PogoPlug is a small computer (running an embedded ARM compatible processor) that you can connect USB or SATA Devices to and you will be able to share the contents of those hard drive via the remote **pogoplug.com** site. Some people refer to this as the private cloud. Here is a snippet from their site that might explain it better:
 
 > **How is Pogoplug different from other cloud storage services?**
 > Pogoplug provides a Personal Cloud you can touch. When you buy a Pogoplug device, your files stay safe at home or the office while you access them from any browser, smartphone or tablet. Your private cloud has unlimited storage, with the option to grow as you go by adding more or larger hard drives. Pogoplug's secure and private cloud storage solutions include Pogoplug devices, Pogoplug Family, Pogoplug Team and Pogoplug PC.
@@ -25,13 +25,13 @@ Someone had given me a PogoPlug Series 4 ([PogoPlug_Series4](http://virtuallyhyp
 
 Go to **pogoplug.com** and login with with the credential that you created during your registration process. After you are logged in you will see the following:
 
-![pogoplug loggedin Backing Up with Rsync to Pogoplug](http://virtuallyhyper.com/wp-content/uploads/2013/09/pogoplug_loggedin.png)
+![pogoplug loggedin Backing Up with Rsync to Pogoplug](https://github.com/elatov/uploads/raw/master/2013/09/pogoplug_loggedin.png)
 
 Notice there are two section: the Seagate drive (which is the 60GB 2.5 SATA Drive that I plugged into the pogoplug) and then there is "*Pogoplug Cloud*" section. By default you get 5GB of cloud storage (you can pay to get unlimited storage space, but I was planning on utilizing the 60GB drive for all of my setup).
 
 From the top right corner click on **Settings** and then click on **Security**. Then go ahead and "**Enable SSH access for this Pogoplug Device**":
 
-![pogoplug com security Backing Up with Rsync to Pogoplug](http://virtuallyhyper.com/wp-content/uploads/2013/09/pogoplug_com_security.png)
+![pogoplug com security Backing Up with Rsync to Pogoplug](https://github.com/elatov/uploads/raw/master/2013/09/pogoplug_com_security.png)
 
 After you enable SSH, it will ask you to set your password.
 
@@ -53,11 +53,11 @@ Here is the PCI information from the pogoplug device (I ran this command after I
 
 Looking up the device on the PCI database, I saw the following:
 
-![pci database Backing Up with Rsync to Pogoplug](http://virtuallyhyper.com/wp-content/uploads/2013/09/pci_database.png)
+![pci database Backing Up with Rsync to Pogoplug](https://github.com/elatov/uploads/raw/master/2013/09/pci_database.png)
 
 Then clicking on that device:
 
-![vendor ID pcie Backing Up with Rsync to Pogoplug](http://virtuallyhyper.com/wp-content/uploads/2013/09/vendor_ID_pcie.png)
+![vendor ID pcie Backing Up with Rsync to Pogoplug](https://github.com/elatov/uploads/raw/master/2013/09/vendor_ID_pcie.png)
 
 So as advertised, there is an internal PCIe controller for the USB 3.0 ports.
 
@@ -937,7 +937,7 @@ That looks perfect. If you want OpenSSH start automatically, add the following t
 
 Download the app and configure it like so:
 
-![botsync config Backing Up with Rsync to Pogoplug](http://virtuallyhyper.com/wp-content/uploads/2013/09/botsync_config.png)
+![botsync config Backing Up with Rsync to Pogoplug](https://github.com/elatov/uploads/raw/master/2013/09/botsync_config.png)
 
 The reason why I chose **/sdcard/TitaniumBackup** is because I use *TitaniumBackup* to create a compressed backup of my desired Apps and configurations to that location. If you didn't use *TitaniumBackup* then you can back up the whole **/sdcard** directory. After you are done with the configuration of the App, you can click **start** and it will start the synchronization process.
 

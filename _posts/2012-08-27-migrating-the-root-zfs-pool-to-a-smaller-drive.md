@@ -215,23 +215,23 @@ The first thing I need to do is to create an "fdisk partition", so let's do that
 
 It then goes through an interactive menu, here is how it looked like. First select to "create a partition":
 
-![create_new_partition](http://virtuallyhyper.com/wp-content/uploads/2012/08/create_new_partition.png)
+![create_new_partition](https://github.com/elatov/uploads/raw/master/2012/08/create_new_partition.png)
 
 and then select the partition type:
 
-![select_partition_type](http://virtuallyhyper.com/wp-content/uploads/2012/08/select_partition_type.png)
+![select_partition_type](https://github.com/elatov/uploads/raw/master/2012/08/select_partition_type.png)
 
 then select to use the whole partition (100%):
 
-![select_to_use_100](http://virtuallyhyper.com/wp-content/uploads/2012/08/select_to_use_100.png)
+![select_to_use_100](https://github.com/elatov/uploads/raw/master/2012/08/select_to_use_100.png)
 
 Then let's go ahead and activate the partition:
 
-![activate_the_partition](http://virtuallyhyper.com/wp-content/uploads/2012/08/activate_the_partition.png)
+![activate_the_partition](https://github.com/elatov/uploads/raw/master/2012/08/activate_the_partition.png)
 
 and finally let's write the changes to disk:
 
-![commit_changes](http://virtuallyhyper.com/wp-content/uploads/2012/08/commit_changes.png)
+![commit_changes](https://github.com/elatov/uploads/raw/master/2012/08/commit_changes.png)
 
 If you didn't want to go through the interactive menu you could've run this command to create a partition using 100% of the space, like so:
 
@@ -856,11 +856,11 @@ The easiest way to accomplish this would be to make the fdisk partition not acti
 
 Then select '0'; to not have any bootable partitions:
 
-![select_none_to_boot_from](http://virtuallyhyper.com/wp-content/uploads/2012/08/select_none_to_boot_from.png)
+![select_none_to_boot_from](https://github.com/elatov/uploads/raw/master/2012/08/select_none_to_boot_from.png)
 
 then exit and commit the changes:
 
-![deactivate-bootable-parition](http://virtuallyhyper.com/wp-content/uploads/2012/08/deactivate-bootable-parition1.png)
+![deactivate-bootable-parition](https://github.com/elatov/uploads/raw/master/2012/08/deactivate-bootable-parition1.png)
 
 So checking the partition prior to the change, I saw the following:
 

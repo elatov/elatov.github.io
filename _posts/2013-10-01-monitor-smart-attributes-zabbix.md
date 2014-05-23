@@ -96,7 +96,7 @@ The last thing to do is to setup an *init* script. I just copied the **dropbear*
     $ vi /opt/etc/init.d/zabbix-agentd
 
 
-I really didn't change much, but just for reference [here](http://virtuallyhyper.com/wp-content/uploads/2013/09/zabbix-agentd.sh) is the script. Lastly to make sure it starts automatically on boot up, add it to the **/etc/init.d/rcS** file:
+I really didn't change much, but just for reference [here](https://github.com/elatov/uploads/raw/master/2013/09/zabbix-agentd.sh) is the script. Lastly to make sure it starts automatically on boot up, add it to the **/etc/init.d/rcS** file:
 
     /opt/etc/init.d/zabbix-agentd start
 
@@ -258,7 +258,7 @@ If the value is returned then it's all good. At this point you can follow my pre
 
 The only new thing that I added was the trigger prototype. The **Reallocated_Sector_Ct** attribute should be zero all the time unless the drive is failing. So rather than plotting a graph full of zeroes, I decided to add a trigger which will send a warning message if the value is bigger than 0. To do this from the Zabbix Front End go to "Templates" -> Select the Template you had created -> "Discovery Rules" -> Click on the Discovery Rule you had created -> "Trigger prototypes" -> "Create trigger prototype" and then configure it like so:
 
-![zabbix trigger prototype Monitor SMART Attributes with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/09/zabbix_trigger_prototype.png)
+![zabbix trigger prototype Monitor SMART Attributes with Zabbix](https://github.com/elatov/uploads/raw/master/2013/09/zabbix_trigger_prototype.png)
 
 Now we will get notified if that value is above zero.
 
@@ -399,5 +399,5 @@ And that was it, I then restart the *agentd* process:
 
 and after some time, I saw the following graph in zabbix:
 
-![zabbix pogo hd temp Monitor SMART Attributes with Zabbix](http://virtuallyhyper.com/wp-content/uploads/2013/09/zabbix_pogo_hd_temp.png)
+![zabbix pogo hd temp Monitor SMART Attributes with Zabbix](https://github.com/elatov/uploads/raw/master/2013/09/zabbix_pogo_hd_temp.png)
 
