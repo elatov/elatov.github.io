@@ -42,7 +42,5 @@ Personally, I would recommend to separate all of your traffic by subnets: NFS, F
 
 VMware KB [2010877](http://kb.vmware.com/kb/2010877) talks about the same thing. It also mentions the difference between ESX vs. ESXi, but that is another topic for another post :).
 
-**Update**: If you ABSOLUTELY MUST go against best practices, Joe posted about a "workaround" here: <a title="Against Best Practices: vMotion and Management on the Same Network" href="http://virtuallyhyper.com/2012/04/against-best-practices-vmotion-and-management-on-the-same-network/">Against Best Practices: vMotion and Management on the Same Network</a>.
-
-&nbsp;
+**Update**: If you ABSOLUTELY MUST go against best practices, Joe posted about a "workaround" here: [Against Best Practices: vMotion and Management on the Same Network](http://virtuallyhyper.com/2012/04/against-best-practices-vmotion-and-management-on-the-same-network/)
 

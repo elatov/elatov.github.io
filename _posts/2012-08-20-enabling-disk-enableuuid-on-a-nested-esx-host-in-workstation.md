@@ -52,7 +52,7 @@ Finally querying the device for any VPD Pages, I would see the following:
 	fetching VPD page failed
 
 
-When I was writing the <a title="Missing links to devices on Linux VMs under /dev/disk/by-id/" href="http://virtuallyhyper.com/2012/03/missing-links-to-devices-on-linux-vms-under-devdiskby-id/">post</a> about missing links under /dev/disks/by-id for linux VMs, I remember running into this. The fix is to add the following to the vmx file:
+When I was writing the [post](http://virtuallyhyper.com/2012/03/missing-links-to-devices-on-linux-vms-under-devdiskby-id/) about missing links under **/dev/disks/by-id** for linux VMs, I remember running into this. The fix is to add the following to the vmx file:
 
 
 	disk.EnableUUID = "TRUE"

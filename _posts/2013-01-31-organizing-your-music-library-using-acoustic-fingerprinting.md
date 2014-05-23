@@ -53,10 +53,10 @@ For example *hello* in Russian is *привет*, the transliteration of that wo
 
 At first I ran across an article entitled "[Auto-tagging MP3s](http://superuser.com/questions/95425/auto-tagging-mp3s)". It has a list of application that do auto tagging by querying the *id3* tags of the file and then showing the correct artist or title name (some even do a search against an online database). Some of the applications listed in that page are:
 
-- <a style="line-height: 22px; font-size: 13px;" href="http://musicbrainz.org/doc/MusicBrainz_Picard">picard</a>
-- <a style="line-height: 22px; font-size: 13px;" href="http://projects.gnome.org/easytag/">EasyTAG</a>
-- <a style="line-height: 22px; font-size: 13px;" href="http://beets.radbox.org/">beets</a>
-- <a style="line-height: 22px; font-size: 13px;" href="http://www.jthink.net/jaikoz/">Jaikoz</a>
+- [picard](http://musicbrainz.org/doc/MusicBrainz_Picard)
+- [EasyTAG](http://projects.gnome.org/easytag/)
+- [beets](http://beets.radbox.org/)
+- [Jaikoz](http://www.jthink.net/jaikoz/)
 
 I tried some of the applications, but they couldn't find any information on my songs. Here is a screenshot of  *picard* for my 3 songs:
 
