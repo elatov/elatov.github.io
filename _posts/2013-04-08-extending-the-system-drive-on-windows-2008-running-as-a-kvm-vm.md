@@ -13,7 +13,7 @@ tags:
   - qemu-img resize
   - WIN2k8
 ---
-While I was writing [this](http://virtuallyhyper.com/2013/04/deploying-a-test-windows-environment-in-a-kvm-infrastucture) post I first allocated 15GB for my Windows install. I quickly realized that after a plethora of updates that is not enough space. Luckily it's pretty easy to remedy that with a two step process.
+While I was writing [this](/2013/04/deploying-a-test-windows-environment-in-a-kvm-infrastucture) post I first allocated 15GB for my Windows install. I quickly realized that after a plethora of updates that is not enough space. Luckily it's pretty easy to remedy that with a two step process.
 
 ### 1. Increase the Underlying Hard Disk IMG file Used in KVM
 

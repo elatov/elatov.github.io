@@ -117,5 +117,5 @@ Hope this helps someone out.
 
 ### Related Posts
 
-- [Determine Disk VPD Information from ESX Classic](http://virtuallyhyper.com/2012/08/determine-disk-vpd-information-from-esx-classic/)
+- [Determine Disk VPD Information from ESX Classic](/2012/08/determine-disk-vpd-information-from-esx-classic/)
 

@@ -27,5 +27,5 @@ So now each beacon can and will be seen across both of the ports on the switch (
 
 ### Related Posts
 
-- [Possible reasons for RARP storms from an ESX host](http://virtuallyhyper.com/2012/03/possible-reasons-for-rarp-storms-from-an-esx-host/)
+- [Possible reasons for RARP storms from an ESX host](/2012/03/possible-reasons-for-rarp-storms-from-an-esx-host/)
 

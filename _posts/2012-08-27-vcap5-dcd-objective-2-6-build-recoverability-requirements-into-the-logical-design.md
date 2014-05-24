@@ -28,7 +28,7 @@ Defined in previous objectives
 
 ### Differentiate Business Continuity and Disaster Recovery concepts.
 
-Defined in [Objective 2.3](http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-2-3-build-availability-requirements-into-the-logical-design/)
+Defined in [Objective 2.3](/2012/08/vcap5-dcd-objective-2-3-build-availability-requirements-into-the-logical-design/)
 
 ### Describe and differentiate between RTO and RPO
 

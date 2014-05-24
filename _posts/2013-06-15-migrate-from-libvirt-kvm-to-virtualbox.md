@@ -496,7 +496,7 @@ and fix the location to be relative to the current directory:
     ide0:0.fileName = "kelatov_win2k8r2.vmdk"
 
 
-That looks good, now let's create the OVF. More information regarding installing and using **ovftool** is seen at "[Migrating a VM from VMware Workstation to Oracle VirtualBox](http://virtuallyhyper.com/2013/04/migrating-a-vm-from-vmware-workstation-to-oracle-virtualbox/)". Here is the command I ran to create our OVF:
+That looks good, now let's create the OVF. More information regarding installing and using **ovftool** is seen at "[Migrating a VM from VMware Workstation to Oracle VirtualBox](/2013/04/migrating-a-vm-from-vmware-workstation-to-oracle-virtualbox/)". Here is the command I ran to create our OVF:
 
     [elatov@klaptop vm1]$ ovftool kelatov_Win2k8-DC2.vmx kelatov_Win2k8-DC2.ovf
     Opening VMX source: kelatov_Win2k8-DC2.vmx

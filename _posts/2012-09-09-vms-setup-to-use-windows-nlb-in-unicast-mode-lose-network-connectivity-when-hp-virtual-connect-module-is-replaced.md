@@ -304,5 +304,5 @@ So lesson learned, VMs that participate in NLB in unicast mode will be down if t
 
 ### Related Posts
 
-- [Load Balancing IIS Sites with NLB](http://virtuallyhyper.com/2013/04/load-balancing-iis-sites-with-nlb/)
+- [Load Balancing IIS Sites with NLB](/2013/04/load-balancing-iis-sites-with-nlb/)
 

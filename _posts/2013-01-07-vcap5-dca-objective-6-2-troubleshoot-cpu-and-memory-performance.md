@@ -92,5 +92,5 @@ and here is another flow chart for VM memory issues:
 
 ### Use Hot-Add functionality to resolve identified Virtual Machine CPU and memory performance issues
 
-If you discover then the VM needs more resources, then follow the instruction laid out in [VCAP5-DCA Objective 3.2](http://virtuallyhyper.com/2012/11/vcap5-dca-objective-3-2-optimize-virtual-machine-resources/) to hot add memory or CPU
+If you discover then the VM needs more resources, then follow the instruction laid out in [VCAP5-DCA Objective 3.2](/2012/11/vcap5-dca-objective-3-2-optimize-virtual-machine-resources/) to hot add memory or CPU
 

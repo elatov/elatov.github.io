@@ -95,7 +95,7 @@ The recommended PSP for A/A Arrays is fixed. A typical A/P array is an HP EVA. F
 
 The recommended PSP for A/P Arrays is MRU.
 
-ALUA is a protocol that makes an A/P Array psuedo A/A. If you more information on ALUA, I would suggest reading my [Using EMC VNX Storage with VMware vSphere](http://virtuallyhyper.com/2012/04/seeing-a-high-number-of-trespasses-from-a-clariion-array-with-esx-hosts/)" :
+ALUA is a protocol that makes an A/P Array psuedo A/A. If you more information on ALUA, I would suggest reading my [Using EMC VNX Storage with VMware vSphere](/2012/04/seeing-a-high-number-of-trespasses-from-a-clariion-array-with-esx-hosts/)" :
 
 > vSphere 4.1 and later include an auto-registration feature that registers each SCSI initiator with the VNX storage system. When the host adapters login to the SP, a new server record is created with the ESXi host name. Each record is configured based on the storage array type the host discovers. NMP sets the storage array type for VNX to VMW_SATP_ALUA. This sets the host port to ALUA mode and sets the PSP for each LUN to VMW_PSP_FIXED.
 >
@@ -111,6 +111,7 @@ Here is the mentioned diagram from that article:
 ![vnx-vmware-iscsi-bp](https://github.com/elatov/uploads/raw/master/2012/08/vnx-vmware-iscsi-bp.png)
 
 For ALUA the PSP is usually MRU or Round Robin, depends on what the array vendor recommends. In vSphere 4.1 there a new PSP called Fixed_AP and that was used. If you want more information regarding Fixed_AP check out [this](http://virtuallyhyper.com/2012/04/vmw_psp_fixed-vs-vmw_psp_fixed_ap/) post by Jarret.
+
 
 Each of the array types are described in "[vSphere Storage Guide](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-storage-guide.pdf)". Here is a snippet from that guide:
 
@@ -312,7 +313,7 @@ And more:
 Here are some more reasons to use RDMs:
 
 *   If you install a SAN Management Software inside a VM
-*   Certain backup software requires to use RDMs (more information can be found in my [previous](http://virtuallyhyper.com/2012/03/netapp-snapmanagersnapdrivesme-causes-esx-host-to-hang/) post)
+*   Certain backup software requires to use RDMs (more information can be found in my [previous](/2012/03/netapp-snapmanagersnapdrivesme-causes-esx-host-to-hang/) post)
 
 Duncan Epping also has a formula for this, from "[VMFS/LUN size?](http://www.yellow-bricks.com/2009/06/23/vmfslun-size/)":
 
@@ -349,7 +350,7 @@ Here is the table from that document:
 There is a pretty good example from [this](https://github.com/elatov/uploads/raw/master/2013/04/vcap-dcd_notes.pdf) PDF:
 
 > Tiering Example:
-> 
+>
 > |Tier| Disk_Type |Disk_RPM | Raid_Level| #_of_Disks | #_of_VMs_per_Datastore 1|
 > |:---|:---------:|:-------:|:----------:|:---------:|:-----------------------:|
 > | FC| 15K        |10       | 8          | 10        | 2         |

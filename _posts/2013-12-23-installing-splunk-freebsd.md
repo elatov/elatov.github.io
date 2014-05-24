@@ -147,7 +147,7 @@ It did give me a warning about my **ulimit** settings but that's okay since I on
     splunkweb is running (PID: 1193).
 
 
-That looked good. I went to the Splunk Web Portal and I saw the same thing as in my [previous](http://virtuallyhyper.com/2013/06/install-splunk-and-send-logs-to-splunk-with-rsyslog-over-tcp-with-ssl/) post.
+That looked good. I went to the Splunk Web Portal and I saw the same thing as in my [previous](/2013/06/install-splunk-and-send-logs-to-splunk-with-rsyslog-over-tcp-with-ssl/) post.
 
 #### Setup Splunk to Receive Syslog Logs over UDP 514
 

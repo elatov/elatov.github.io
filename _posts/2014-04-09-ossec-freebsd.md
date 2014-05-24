@@ -15,7 +15,7 @@ tags:
   - OSSEC
   - Splunk
 ---
-After trying out Samhain and Beltane (check out the [previous](http://virtuallyhyper.com/2014/03/install-samhain-beltane-freebsd) post on that setup), I decided to try out another HIDS. This time around I went with OSSEC.
+After trying out Samhain and Beltane (check out the [previous](/2014/03/install-samhain-beltane-freebsd) post on that setup), I decided to try out another HIDS. This time around I went with OSSEC.
 
 ### OSSEC
 
@@ -58,7 +58,7 @@ Let's go ahead with the centralized server approach. I checked out ports and I d
     WWW:    http://www.ossec.net/
 
 
-The port actually needs **gcc** to compile the software. I already had *gcc47* installed from the [Samhain](http://virtuallyhyper.com/2014/03/install-samhain-beltane-freebsd) install, so I was all ready. To install the software, I ran the following:
+The port actually needs **gcc** to compile the software. I already had *gcc47* installed from the [Samhain](/2014/03/install-samhain-beltane-freebsd) install, so I was all ready. To install the software, I ran the following:
 
     moxz:~>cd /usr/ports/security/ossec-hids-server/
     moxz:/usr/ports/security/ossec-hids-server>sudo make install
@@ -406,7 +406,7 @@ Most of the instructions are [here](http://www.ossec.net/wiki/index.php/OSSECWUI
     ossec-wui-0.8.tar.gz                          100% of  158 kB  497 kBps 00m00s
 
 
-I already had an apache/php server running (I setup it up for the [beltane/samhain](http://virtuallyhyper.com/2014/03/install-samhain-beltane-freebsd) configuration), so I just copied the file to the document root:
+I already had an apache/php server running (I setup it up for the [beltane/samhain](/2014/03/install-samhain-beltane-freebsd) configuration), so I just copied the file to the document root:
 
     moxz:/opt/work>sudo mv ossec-wui-0.8 /usr/local/www/apache22/data/os
 
@@ -451,7 +451,7 @@ It will have all the alerts on that page. You can also check out any files that 
 
 #### Install OSSEC App for Splunk
 
-I was already running **splunk** on my FreeBSD host (check out the instruction on that setup from [here](http://virtuallyhyper.com/2013/12/installing-splunk-freebsd/), extract it and move it to the *splunk* install:
+I was already running **splunk** on my FreeBSD host (check out the instruction on that setup from [here](/2013/12/installing-splunk-freebsd/), extract it and move it to the *splunk* install:
 
     moxz:~> tar xvzf reporting-and-management-for-ossec_1189.tgz
     moxz:~> sudo mv ossec/ /opt/splunk/etc/apps/.

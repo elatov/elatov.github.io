@@ -33,7 +33,7 @@ That looks good, next let's confirm the hardware that we are running on:
        IPMI Supported: true
 
 
-Now let's login to the UCS Manager via SSH and confirm our blade information as well. I actually wrote a [post](http://virtuallyhyper.com/2012/08/confirming-ucs-settings-using-command-line/) about this not too while ago. I knew that the name of my blade was 'p1-b200-64', so I searched for that.
+Now let's login to the UCS Manager via SSH and confirm our blade information as well. I actually wrote a [post](/2012/08/confirming-ucs-settings-using-command-line/) about this not too while ago. I knew that the name of my blade was 'p1-b200-64', so I searched for that.
 
     p1-ucsm-A# show service-profile inventory | grep p1-b200-64
     p1-b200-64           Instance          9/1     Assigned   Associated

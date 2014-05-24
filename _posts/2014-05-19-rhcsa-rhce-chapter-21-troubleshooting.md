@@ -751,7 +751,7 @@ Try the following to make sure your networking is copacetic:
 There are many more things to try if you are trying a specific application. You can try to get a packet capture with **tcpdump** (covered in [Chapter 5][24]) and check to see what is happening at layer 7 of the OSI stack.
 
  [1]: https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf
- [2]: http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-2-system-initialization/
+ [2]: /2013/01/rhcsa-and-rhce-chapter-2-system-initialization/
  [3]: https://github.com/elatov/uploads/raw/master/2014/05/grub-menu.png
  [4]: https://github.com/elatov/uploads/raw/master/2014/05/grub-menu-after-e.png
  [5]: https://github.com/elatov/uploads/raw/master/2014/05/kernel-line-menu.png
@@ -773,4 +773,4 @@ There are many more things to try if you are trying a specific application. You 
  [21]: https://github.com/elatov/uploads/raw/master/2014/05/mbr-reinstall-p2.png
  [22]: https://github.com/elatov/uploads/raw/master/2014/05/grub-install.png
  [23]: https://github.com/elatov/uploads/raw/master/2014/05/fsck-lvm.png
- [24]: http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-5-networking/
+ [24]: /2013/01/rhcsa-and-rhce-chapter-5-networking/

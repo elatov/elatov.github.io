@@ -181,4 +181,4 @@ That time around it actually applied the update. I logged into splunk and all of
 
  [1]: http://docs.splunk.com/Documentation/Splunk/6.0.3/ReleaseNotes/6.0.3
  [2]: http://docs.splunk.com/Documentation/Splunk/6.0.3/installation/Upgradeto6.0onUNIX
- [3]: http://virtuallyhyper.com/2013/12/installing-splunk-freebsd/
+ [3]: /2013/12/installing-splunk-freebsd/

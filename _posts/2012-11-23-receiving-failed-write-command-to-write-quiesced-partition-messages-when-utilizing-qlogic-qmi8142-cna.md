@@ -66,5 +66,5 @@ We were on 5.0, so we ran the top command. After running the above command the m
 
 ### Related Posts
 
-- [ESX(i) Host with Emulex NC553i CNA Disconnects from Strorage](http://virtuallyhyper.com/2012/11/host-with-emulex-nc553i-cna-disconnects-from-strorage/)
+- [ESX(i) Host with Emulex NC553i CNA Disconnects from Strorage](/2012/11/host-with-emulex-nc553i-cna-disconnects-from-strorage/)
 

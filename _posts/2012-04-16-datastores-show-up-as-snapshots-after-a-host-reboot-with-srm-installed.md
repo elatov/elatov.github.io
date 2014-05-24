@@ -68,5 +68,5 @@ All in all, we ran into 3 issues:
 
 ### Related Posts
 
-- [Enabling disk.EnableUUID on a Nested ESX Host in Workstation](http://virtuallyhyper.com/2012/08/enabling-disk-enableuuid-on-a-nested-esx-host-in-workstation/)
+- [Enabling disk.EnableUUID on a Nested ESX Host in Workstation](/2012/08/enabling-disk-enableuuid-on-a-nested-esx-host-in-workstation/)
 

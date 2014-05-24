@@ -264,5 +264,5 @@ Reboot the machine and make sure it's auto mounted.
 
 ### Related Posts
 
-- [Mounting an NTFS Volume in FreeBSD 9 with the /etc/fstab File](http://virtuallyhyper.com/2012/10/mounting-an-ntfs-volume-on-freebsd-9-with-etcfstab-file/)
+- [Mounting an NTFS Volume in FreeBSD 9 with the /etc/fstab File](/2012/10/mounting-an-ntfs-volume-on-freebsd-9-with-etcfstab-file/)
 

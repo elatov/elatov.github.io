@@ -13,7 +13,7 @@ tags:
 ---
 ### Describe the applicability of using an RDM or a virtual disk for a given VM
 
-This was covered in [APAC BrownBag Session 12](http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-3-3-create-a-vsphere-5-physical-storage-design-from-an-existing-logical-design/):
+This was covered in [APAC BrownBag Session 12](/2012/08/vcap5-dcd-objective-3-3-create-a-vsphere-5-physical-storage-design-from-an-existing-logical-design/):
 
 ![rdm_for_vms](https://github.com/elatov/uploads/raw/master/2012/09/rdm_for_vms.png)
 
@@ -161,7 +161,7 @@ From [this](https://github.com/elatov/uploads/raw/master/2013/04/vcap-dcd_notes.
 
 ![reser-share-limits](https://github.com/elatov/uploads/raw/master/2012/09/reser-share-limits.png)
 
-This was also discussed in [Objective 3.4](http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-3-4-determine-appropriate-compute-resources-for-a-vsphere-5-physical-design/)
+This was also discussed in [Objective 3.4](/2012/09/vcap5-dcd-objective-3-4-determine-appropriate-compute-resources-for-a-vsphere-5-physical-design/)
 
 ### Based on an existing logical design, determine virtual hardware options
 
@@ -177,9 +177,9 @@ From "[vSphere Virtual Machine Administration ESXi 5.0](http://pubs.vmware.com/v
 
 > **Virtual Machine Hardware**
 > You can add or configure some virtual machine hardware, only if the virtual machine uses the latest available hardware version. The PCI and SIO virtual hardware devices are part of the virtual motherboard, but cannot be configured or removed.
-> 
-> | CPU | IDE 0 | PCI Controller | SCSI Device | Chipset | 
-> |Keyboard| PCI Device| SIO Controller | DVD/CD ROM    | Memory  | 
+>
+> | CPU | IDE 0 | PCI Controller | SCSI Device | Chipset |
+> |Keyboard| PCI Device| SIO Controller | DVD/CD ROM    | Memory  |
 > | Pointing Device | USB Controller | Floppy Drive | Network Adapter | Serial Port |
 > | USB Device| Hard Disk | Parallel Port | SCSI Controller | VMCI |
 
@@ -203,7 +203,7 @@ and
 
 ![vapp_use-cases](https://github.com/elatov/uploads/raw/master/2012/09/vapp_use-cases.png)
 
-This was also discussed in [Objective 3.4](http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-3-4-determine-appropriate-compute-resources-for-a-vsphere-5-physical-design/)
+This was also discussed in [Objective 3.4](/2012/09/vcap5-dcd-objective-3-4-determine-appropriate-compute-resources-for-a-vsphere-5-physical-design/)
 
 ### Decide on the suitability of using FT or 3rd party clustering products based on application requirements.
 

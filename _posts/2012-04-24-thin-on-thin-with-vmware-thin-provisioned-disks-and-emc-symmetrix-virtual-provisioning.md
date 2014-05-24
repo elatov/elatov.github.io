@@ -133,5 +133,5 @@ Along the same topic, sometimes performance between thick and thin VMDKs comes u
 
 ### Related Posts
 
-- [VMFS Datastore not Auto-Mounting on an ESX(i) Host because the VMFS Partition is Overwritten](http://virtuallyhyper.com/2012/09/vmfs-datastore-not-auto-mounting-on-an-esxi-host/)
+- [VMFS Datastore not Auto-Mounting on an ESX(i) Host because the VMFS Partition is Overwritten](/2012/09/vmfs-datastore-not-auto-mounting-on-an-esxi-host/)
 

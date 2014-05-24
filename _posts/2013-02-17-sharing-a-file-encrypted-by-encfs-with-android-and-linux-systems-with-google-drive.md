@@ -404,5 +404,5 @@ You can always script something to automate the encrypting, decrypting, and sync
 
 ### Related Posts
 
-- [Installing VMware Workstation 9.0.2 on Fedora 19](http://virtuallyhyper.com/2013/08/installing-vmware-workstation-9-0-2-on-fedora-19/)
+- [Installing VMware Workstation 9.0.2 on Fedora 19](/2013/08/installing-vmware-workstation-9-0-2-on-fedora-19/)
 

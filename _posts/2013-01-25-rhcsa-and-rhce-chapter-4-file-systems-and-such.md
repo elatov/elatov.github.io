@@ -1409,7 +1409,7 @@ That looked good. Now to create the user quota files:
     quotacheck: Cannot initialize IO on new quotafile: Permission denied
 
 
-Initially it gave me an error. This was due to SELinux, and will be covered in [Chapter 11](http://virtuallyhyper.com/2014/03/rhcsa-rhce-chapter-11-selinux/). To fix the issue we can make the context of our **/mnt/** directory the same as of **/var**. Like so:
+Initially it gave me an error. This was due to SELinux, and will be covered in [Chapter 11](/2014/03/rhcsa-rhce-chapter-11-selinux/). To fix the issue we can make the context of our **/mnt/** directory the same as of **/var**. Like so:
 
     [root@rhel01 log]# chcon --reference=/var /mnt
 

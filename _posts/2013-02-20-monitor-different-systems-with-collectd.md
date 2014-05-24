@@ -541,8 +541,8 @@ After some time the graph started to populate with data. Here is a very small sa
 
 ### Related Posts
 
-- [Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/2013/06/monitor-disk-io-stats-with-zabbix/)
-- [Monitor Different Systems with Zabbix](http://virtuallyhyper.com/2013/03/monitor-different-systems-with-zabbix/)
-- [Monitor Different Systems with Zenoss](http://virtuallyhyper.com/2013/03/monitor-different-systems-with-zenoss/)
-- [Monitor Different Systems with Munin](http://virtuallyhyper.com/2013/03/monitor-different-systems-with-munin/)
+- [Monitor Disk IO Stats with Zabbix](/2013/06/monitor-disk-io-stats-with-zabbix/)
+- [Monitor Different Systems with Zabbix](/2013/03/monitor-different-systems-with-zabbix/)
+- [Monitor Different Systems with Zenoss](/2013/03/monitor-different-systems-with-zenoss/)
+- [Monitor Different Systems with Munin](/2013/03/monitor-different-systems-with-munin/)
 

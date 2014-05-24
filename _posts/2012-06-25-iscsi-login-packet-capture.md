@@ -707,5 +707,5 @@ For anyone that is interested, here is a [link](https://github.com/elatov/upload
 
 ### Related Posts
 
-- [HTTP Based Data Transfers from Windows 8 VM to Linux Physical Machine are Corrupted](http://virtuallyhyper.com/2013/01/http-based-data-transfer-from-windows-8-vm-to-linux-physical-machine-gets-corrupted/)
+- [HTTP Based Data Transfers from Windows 8 VM to Linux Physical Machine are Corrupted](/2013/01/http-based-data-transfer-from-windows-8-vm-to-linux-physical-machine-gets-corrupted/)
 

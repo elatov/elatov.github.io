@@ -553,5 +553,5 @@ I will try to add commands that I find useful later on.
 
 ### Related Posts
 
-- [Quick Step by Step Guide on how to Setup the Nexus1000v Distributed Switch](http://virtuallyhyper.com/2012/08/quick-step-by-step-guide-on-how-to-setup-the-nexus1000v-distributed-switch/)
+- [Quick Step by Step Guide on how to Setup the Nexus1000v Distributed Switch](/2012/08/quick-step-by-step-guide-on-how-to-setup-the-nexus1000v-distributed-switch/)
 

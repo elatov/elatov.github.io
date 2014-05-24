@@ -278,6 +278,7 @@ That looks good, I then re-enabled the services and checked for my LUNs:
 Since the LUNs depend on the ZFS Volume full path, I will have to re-add them using the same guid. Jarret actually ran into this recently in his lab, check out his [post](http://virtuallyhyper.com/2012/08/restoring-from-backup-in-my-home-lab/). Here is what I did to re-add my ZFS volumes back to sdbadm, so they can be seen as LUNs again:
 
 
+
 	root@openindiana:~# stmfadm create-lu -p guid=600144f0928c010000004fc511ec0001 /dev/zvol/rdsk/data/iscsi_share
 	Logical unit created: 600144F0928C010000004FC511EC0001
 
@@ -382,4 +383,4 @@ All was back to normal.
 This was kind of hindsight, so I didn't have a chance to plan accordingly and try it out.
 
 
- [1]: http://virtuallyhyper.com/2012/08/migrating-the-root-zfs-pool-to-a-smaller-drive
+ [1]: /2012/08/migrating-the-root-zfs-pool-to-a-smaller-drive

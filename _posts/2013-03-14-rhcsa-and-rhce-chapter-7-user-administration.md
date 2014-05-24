@@ -725,7 +725,7 @@ Similar steps can be taken to setup **LDAP** authentication. From the same guide
 
 ### Related Posts
 
-- [RHCSA and RHCE Chapter 10 - The Kernel](http://virtuallyhyper.com/2013/07/rhcsa-and-rhce-chapter-10-the-kernel/)
-- [RHCSA and RHCE Chapter 9 - System Logging, Monitoring, and Automation](http://virtuallyhyper.com/2013/06/rhcsa-and-rhce-chapter-9-system-logging-monitoring-and-automation/)
-- [RHCSA and RHCE Chapter 8 Network Installs](http://virtuallyhyper.com/2013/03/rhcsa-and-rhce-chapter-8-network-installs/)
+- [RHCSA and RHCE Chapter 10 - The Kernel](/2013/07/rhcsa-and-rhce-chapter-10-the-kernel/)
+- [RHCSA and RHCE Chapter 9 - System Logging, Monitoring, and Automation](/2013/06/rhcsa-and-rhce-chapter-9-system-logging-monitoring-and-automation/)
+- [RHCSA and RHCE Chapter 8 Network Installs](/2013/03/rhcsa-and-rhce-chapter-8-network-installs/)
 

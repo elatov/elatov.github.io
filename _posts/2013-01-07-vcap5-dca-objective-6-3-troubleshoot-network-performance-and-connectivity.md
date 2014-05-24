@@ -14,7 +14,7 @@ tags:
 ---
 ### Identify vCLI commands and tools used to troubleshoot vSphere networking configurations
 
-This was covered in "[VCAP5-DCA Objective 2.1](http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/)"
+This was covered in "[VCAP5-DCA Objective 2.1](/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/)"
 
 ### Identify logs used to troubleshoot network issues
 
@@ -27,11 +27,11 @@ DVS and virtual port assignment issues - /var/log/hostd.log
 
 ### Utilize net-dvs to troubleshoot vNetwork Distributed Switch configurations
 
-This command is to be used for querying only and an example of the output is seen in "[VCAP5-DCA Objective 2.1](http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/)"
+This command is to be used for querying only and an example of the output is seen in "[VCAP5-DCA Objective 2.1](/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/)"
 
 ### Utilize vSphere CLI commands to troubleshoot ESXi network configurations
 
-Run through the command described in "[VCAP5-DCA Objective 2.1](http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/)" and if you catch any issue then fix it. For example if the Subnet of a vmkernel interface is wrong then fix it, or if the wrong VLAN is assigned to a port group then fix that as well.
+Run through the command described in "[VCAP5-DCA Objective 2.1](/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/)" and if you catch any issue then fix it. For example if the Subnet of a vmkernel interface is wrong then fix it, or if the wrong VLAN is assigned to a port group then fix that as well.
 
 ### Troubleshoot Private VLANs
 

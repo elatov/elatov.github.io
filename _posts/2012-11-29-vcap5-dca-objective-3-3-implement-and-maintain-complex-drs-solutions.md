@@ -367,7 +367,7 @@ For DRS there are options when you create an Alarm. Here are the available alarm
 
 ### Properly size virtual machines and clusters for optimal DRS efficiency
 
-This was covered in [DCD Objective 3.4](http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-3-4-determine-appropriate-compute-resources-for-a-vsphere-5-physical-design/)
+This was covered in [DCD Objective 3.4](/2012/09/vcap5-dcd-objective-3-4-determine-appropriate-compute-resources-for-a-vsphere-5-physical-design/)
 
 ### Properly apply virtual machine automation levels based upon application requirements
 

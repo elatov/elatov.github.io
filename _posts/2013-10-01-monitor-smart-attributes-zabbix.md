@@ -233,7 +233,7 @@ That looks good. Now let' add the corresponding **UserParameter** scripts to the
     UserParameter=custom.disks.discovery_perl2,/usr/local/bin/discover_disk.pl
 
 
-I will follow my previous post ([Monitor Disk IO Stats with Zabbix](http://virtuallyhyper.com/2013/06/monitor-disk-io-stats-with-zabbix/)) to setup auto-discovery of the disks and then plot the values from the discovered values. To apply the above **UserParameters**, restart the **zabbix** agentd process and try the query the above values from the Zabbix Server. So on the client run the following:
+I will follow my previous post ([Monitor Disk IO Stats with Zabbix](/2013/06/monitor-disk-io-stats-with-zabbix/)) to setup auto-discovery of the disks and then plot the values from the discovered values. To apply the above **UserParameters**, restart the **zabbix** agentd process and try the query the above values from the Zabbix Server. So on the client run the following:
 
     $ sudo service zabbix-agent restart
     Redirecting to /bin/systemctl restart  zabbix-agent.service
@@ -245,7 +245,7 @@ Then on the Zabbix server run the following:
     44
 
 
-If the value is returned then it's all good. At this point you can follow my previous [post](http://virtuallyhyper.com/2013/06/monitor-disk-io-stats-with-zabbix/) to add the following to the zabbix front end:
+If the value is returned then it's all good. At this point you can follow my previous [post](/2013/06/monitor-disk-io-stats-with-zabbix/) to add the following to the zabbix front end:
 
 *   Regular Expression (we only want /dev/sd* or /dev/hd*, in my previous post I also grabbed sd-cards /dev/mmcblk1)
 *   Template

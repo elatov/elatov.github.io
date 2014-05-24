@@ -45,7 +45,7 @@ tags:
 ---
 ### RHEL DVD as a Software Repository
 
-Before we keep going with disk and partitioning, I want to setup the RHEL Install DVD as a Software Repository (I will cover this in more detail in [chapter 6](http://virtuallyhyper.com/2013/03/rhcsa-and-rhce-chapter-6-package-management/)) since I will need to install **parted** and I currently don't have that installed:
+Before we keep going with disk and partitioning, I want to setup the RHEL Install DVD as a Software Repository (I will cover this in more detail in [chapter 6](/2013/03/rhcsa-and-rhce-chapter-6-package-management/)) since I will need to install **parted** and I currently don't have that installed:
 
     [root@rhel01 ~]# which parted
     /usr/bin/which: no parted in (/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin)

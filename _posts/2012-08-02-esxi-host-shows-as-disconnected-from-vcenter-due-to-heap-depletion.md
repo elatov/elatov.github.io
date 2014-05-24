@@ -173,5 +173,5 @@ We contacted TrendMicro and it turned out that the customer had re-installed ESX
 
 ### Related Posts
 
-- [ESXi hostd Crash (5.1GA) Due to Leftover SNMP Traps](http://virtuallyhyper.com/2013/08/esxi-hostd-crash-5-1ga-due-to-leftover-snmp-traps/)
+- [ESXi hostd Crash (5.1GA) Due to Leftover SNMP Traps](/2013/08/esxi-hostd-crash-5-1ga-due-to-leftover-snmp-traps/)
 

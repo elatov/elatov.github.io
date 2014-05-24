@@ -1319,5 +1319,5 @@ Also on the rhel2 machine, we will see the following in the logs:
     Mar  2 09:35:24 rhel2 sshd[9506]: fatal: Access denied for user user2 by PAM account configuration
 
 
-Lastly don't forget that you can change default password age and length using the **/etc/login.defs** file. This was covered in [RHCSA and RHCE Chapter 7](http://virtuallyhyper.com/2013/03/rhcsa-and-rhce-chapter-7-user-administration/)
+Lastly don't forget that you can change default password age and length using the **/etc/login.defs** file. This was covered in [RHCSA and RHCE Chapter 7](/2013/03/rhcsa-and-rhce-chapter-7-user-administration/)
 

@@ -232,7 +232,7 @@ It turned out that the SAN Admin was doing some maintenance on the array and was
 
 ### Related Posts
 
-- [ESX(i) Host Experiencing a lot of Active Path Changes and Disconnects to/from VNX 5300 over iSCSI](http://virtuallyhyper.com/2012/08/esxi-host-experiencing-a-lot-of-active-path-changes-and-disconnects-to-vnx-5300-over-iscsi/)
+- [ESX(i) Host Experiencing a lot of Active Path Changes and Disconnects to/from VNX 5300 over iSCSI](/2012/08/esxi-host-experiencing-a-lot-of-active-path-changes-and-disconnects-to-vnx-5300-over-iscsi/)
 
 
  [1]: http://blogs.vmware.com/vsphere/2012/02/configuration-settings-for-alua-devices.html

@@ -761,5 +761,5 @@ So the snapshot did happen and the unstun took 4 seconds, which was much better 
 
 ### Related Posts
 
-- [Check if Snapshot Consolidation is Occurring in the Background on an ESX(i) Host](http://virtuallyhyper.com/2012/09/check-if-snapshot-consolidation-is-occurring-in-the-background/)
+- [Check if Snapshot Consolidation is Occurring in the Background on an ESX(i) Host](/2012/09/check-if-snapshot-consolidation-is-occurring-in-the-background/)
 

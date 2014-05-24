@@ -60,9 +60,9 @@ The default should be enough for most cases. It depends on how many people are a
 
 ### Related Posts
 
-- [VCAP5-DCD Objective 4.3 – Create an Installation Guide](http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-4-3-create-an-installation-guide/)
-- [VCAP5-DCD Objective 4.2 – Create an Implementation Plan](http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-4-2-create-an-implementation-plan/)
-- [VCAP5-DCD Objective 4.1 – Create an Execute a Validation Plan](http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-4-1-create-an-execute-a-validation-plan/)
-- [VCAP5-DCD Objective 3.6 – Determine Datacenter Management Options for a vSphere 5 Physical Design](http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-3-6-determine-datacenter-management-options-for-a-vsphere-5-physical-design/)
-- [VCAP5-DCD Objective 3.4 – Determine Appropriate Compute Resources for a vSphere 5 Physical Design](http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-3-4-determine-appropriate-compute-resources-for-a-vsphere-5-physical-design/)
+- [VCAP5-DCD Objective 4.3 – Create an Installation Guide](/2012/09/vcap5-dcd-objective-4-3-create-an-installation-guide/)
+- [VCAP5-DCD Objective 4.2 – Create an Implementation Plan](/2012/09/vcap5-dcd-objective-4-2-create-an-implementation-plan/)
+- [VCAP5-DCD Objective 4.1 – Create an Execute a Validation Plan](/2012/09/vcap5-dcd-objective-4-1-create-an-execute-a-validation-plan/)
+- [VCAP5-DCD Objective 3.6 – Determine Datacenter Management Options for a vSphere 5 Physical Design](/2012/09/vcap5-dcd-objective-3-6-determine-datacenter-management-options-for-a-vsphere-5-physical-design/)
+- [VCAP5-DCD Objective 3.4 – Determine Appropriate Compute Resources for a vSphere 5 Physical Design](/2012/09/vcap5-dcd-objective-3-4-determine-appropriate-compute-resources-for-a-vsphere-5-physical-design/)
 

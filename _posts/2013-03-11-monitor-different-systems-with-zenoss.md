@@ -12,7 +12,7 @@ tags:
   - Monitoring
   - Zenoss
 ---
-This is the third part and continuation of the 'Network Monitoring Software Comparison' series. Here is the link to the [wiki](http://virtuallyhyper.com/2013/02/monitor-different-systems-with-collectd) page, we see the followin
+This is the third part and continuation of the 'Network Monitoring Software Comparison' series. Here is the link to the [wiki](/2013/02/monitor-different-systems-with-collectd) page, we see the followin
 
 > What is Zenoss?
 >

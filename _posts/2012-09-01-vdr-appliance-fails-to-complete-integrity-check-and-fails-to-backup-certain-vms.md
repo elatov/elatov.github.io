@@ -32,9 +32,9 @@ I recently ran into an issue with the VMware VDR appliance. The Integrity Check 
 > *   1 TB on VMDKs and RDMs
 >
 > ...
-> 
+>
 > **Special Data Recovery Compatibility Considerations**
-> 
+>
 > ...
 >
 > *   Up to two deduplication stores per backup appliance.

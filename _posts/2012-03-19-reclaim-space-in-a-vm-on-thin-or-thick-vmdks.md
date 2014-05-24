@@ -135,7 +135,11 @@ Use VMware Converter and P2V the VM. Ensure you use the thin disk.
 ### Related Posts
 
 - [What is the difference between a Redo log and a Snapshot?](http://virtuallyhyper.com/2012/09/what-is-the-difference-between-a-redo-log-and-a-snapshot/)
+
 - [Advanced Snapshot Troubleshooting: Missing VMDK Descriptors](http://virtuallyhyper.com/2012/04/advanced-snapshot-troubleshooting-missing-vmdk-descriptors/)
-- ["Thin on Thin" With VMware Thin Provisioned Disks and EMC Symmetrix Virtual Provisioning](http://virtuallyhyper.com/2012/04/thin-on-thin-with-vmware-thin-provisioned-disks-and-emc-symmetrix-virtual-provisioning/)
+
+- ["Thin on Thin" With VMware Thin Provisioned Disks and EMC Symmetrix Virtual Provisioning](/2012/04/thin-on-thin-with-vmware-thin-provisioned-disks-and-emc-symmetrix-virtual-provisioning/)
 - [Accidently Changed the Disk Size when the VM was Running on Snapshots](http://virtuallyhyper.com/2012/04/accidently-changed-the-disk-size-when-the-vm-was-running-on-snapshots/)
+
 - [Advanced Snapshot Troubleshooting: Incorrect VMDK Geometry](http://virtuallyhyper.com/2012/04/advanced-snapshot-troubleshooting-incorrect-vmdk-geometry/)
+

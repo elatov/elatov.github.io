@@ -492,9 +492,11 @@ If you run out of partitions (4 primary or 3 primary and 1 extended with 11 logi
 
 ### Related Posts
 
-- [RHCSA and RHCE Chapter 4 File Systems and Such](http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-4-file-systems-and-such/)
-- [RHCSA and RHCE Chapter 3 Disks and Partitioning](http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-3-disks-and-partitioning/)
-- [Creating an LVM Logical Volume From Two Used Partitions](http://virtuallyhyper.com/2012/10/creating-an-lvm-volume-from-two-used-partitions/)
+- [RHCSA and RHCE Chapter 4 File Systems and Such](/2013/01/rhcsa-and-rhce-chapter-4-file-systems-and-such/)
+- [RHCSA and RHCE Chapter 3 Disks and Partitioning](/2013/01/rhcsa-and-rhce-chapter-3-disks-and-partitioning/)
+- [Creating an LVM Logical Volume From Two Used Partitions](/2012/10/creating-an-lvm-volume-from-two-used-partitions/)
 - [WordPress - Error establishing a database connection, but able to connect via command line - SELinux and httpd](http://virtuallyhyper.com/2012/09/selinux-and-httpd/)
+
 - [Recreating VMFS Partitions using Hexdump](http://virtuallyhyper.com/2012/09/recreating-vmfs-partitions-using-hexdump/)
+
 

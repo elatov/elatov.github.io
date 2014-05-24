@@ -26,7 +26,7 @@ tags:
   - ping
   - route
 ---
-The basics of this were covered in [Chapter 1](http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-1-installation/). Here is quick look at my **ifconfig** output:
+The basics of this were covered in [Chapter 1](/2013/01/rhcsa-and-rhce-chapter-1-installation/). Here is quick look at my **ifconfig** output:
 
     [root@rhel01 ~]# ifconfig
     eth0 Link encap:Ethernet HWaddr 00:50:56:17:1B:A4
@@ -59,7 +59,7 @@ The basics of this were covered in [Chapter 1](http://virtuallyhyper.com/2013/01
     RX bytes:0 (0.0 b) TX bytes:0 (0.0 b)
 
 
-We can see that **eth0** has **IP** 10.131.65.22 with a **subnet mask** of 255.255.240.0. **eth1** has **IP** of 192.168.2.100 with a **subnet mask** of 255.255.255.0. The last one (**lo**) is the loopback interface. Check out [Chapter 1](http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-1-installation/) to see how to set up those interfaces.
+We can see that **eth0** has **IP** 10.131.65.22 with a **subnet mask** of 255.255.240.0. **eth1** has **IP** of 192.168.2.100 with a **subnet mask** of 255.255.255.0. The last one (**lo**) is the loopback interface. Check out [Chapter 1](/2013/01/rhcsa-and-rhce-chapter-1-installation/) to see how to set up those interfaces.
 
 ### Network Interface Actions
 

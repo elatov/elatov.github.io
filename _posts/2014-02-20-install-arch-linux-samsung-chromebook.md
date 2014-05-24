@@ -15,9 +15,9 @@ tags:
 ---
 I decided to try out [Arch Linux](https://www.archlinux.org/) on the Samsung Chromebook. Before I was running Ubuntu, to check out the install process for Chrubuntu check out my previous posts:
 
-*   [Install ChrUbuntu 12.04 on Samsung Chromebook](http://virtuallyhyper.com/2013/03/install-chrubuntu-12-04-on-samsung-chromebook/)
-*   [Update ChrUbuntu 12.04 to 13.04 on the Samsung Chromebook](http://virtuallyhyper.com/2013/03/update-chrubuntu-12-04-to-13-04-on-the-samsung-chromebook/)
-*   [Update ChrUbuntu 13.04 to 13.10 on the Samsung Chromebook](http://virtuallyhyper.com/2013/11/update-chrubuntu-13-04-13-10-samsung-chromebook/)
+*   [Install ChrUbuntu 12.04 on Samsung Chromebook](/2013/03/install-chrubuntu-12-04-on-samsung-chromebook/)
+*   [Update ChrUbuntu 12.04 to 13.04 on the Samsung Chromebook](/2013/03/update-chrubuntu-12-04-to-13-04-on-the-samsung-chromebook/)
+*   [Update ChrUbuntu 13.04 to 13.10 on the Samsung Chromebook](/2013/11/update-chrubuntu-13-04-13-10-samsung-chromebook/)
 
 The Ubuntu install was working out well but I just kept hearing good things about Arch Linux, so I decided to give it a try.
 

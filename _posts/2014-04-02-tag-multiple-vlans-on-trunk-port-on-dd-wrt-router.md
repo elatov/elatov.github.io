@@ -75,7 +75,7 @@ Since I was enabling DHCP and defining the network range, I just did that in the
 
 #### Enabling Trunk VLANs on port 4
 
-These commands have to be run from the command line. To enable SSH on the dd-wrt, follow the instruction laid out [here](http://virtuallyhyper.com/2013/04/use-fwbuilder-to-deploy-an-iptables-firewall-to-a-dd-wrt-router/). Before making any changes, I checked out my vlan configuration and here is what I saw:
+These commands have to be run from the command line. To enable SSH on the dd-wrt, follow the instruction laid out [here](/2013/04/use-fwbuilder-to-deploy-an-iptables-firewall-to-a-dd-wrt-router/). Before making any changes, I checked out my vlan configuration and here is what I saw:
 
     root@DD-WRT:~# nvram show | grep "vlan.ports"
     vlan2ports=0 8
@@ -137,7 +137,7 @@ The following commands will allow access to the WAN for vlan3:
     iptables -I INPUT -i vlan3 -j ACCEPT
 
 
-I was using [fwbuilder](http://virtuallyhyper.com/2013/04/use-fwbuilder-to-deploy-an-iptables-firewall-to-a-dd-wrt-router/), so I had to add the vlan3 interface to the configuration and allow access to and from it.
+I was using [fwbuilder](/2013/04/use-fwbuilder-to-deploy-an-iptables-firewall-to-a-dd-wrt-router/), so I had to add the vlan3 interface to the configuration and allow access to and from it.
 
 Now I can configure two Virtual PortGroups on my Virtual Switch and tag vlans 1 and 3 on them. Then I can put any VM on any of those networks just by assigning their nics to the appropriate port group.
 

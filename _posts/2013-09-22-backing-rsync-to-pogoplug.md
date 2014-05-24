@@ -639,7 +639,7 @@ Debian based distros have a **backups** directory (under /var) with **dpkg** inf
     - src/
 
 
-The first one (**backup**) is the backup "package", which contains all the configuration files and the script which puts it all together. I was using **grive** (check out [this](http://virtuallyhyper.com/2013/02/sharing-a-file-encrypted-by-encfs-with-android-and-linux-systems-with-google-drive/) post for more information) to synchronize that between all the hosts, so there is no need to back it up. The rest are folders created by the OS which I never use. So I drop everything that I don't need and if I install software under that directory later on, it will be included in the backup. Lastly here is how my *fed* (media server) configuration looked like for the **/home/elatov** folder:
+The first one (**backup**) is the backup "package", which contains all the configuration files and the script which puts it all together. I was using **grive** (check out [this](/2013/02/sharing-a-file-encrypted-by-encfs-with-android-and-linux-systems-with-google-drive/) post for more information) to synchronize that between all the hosts, so there is no need to back it up. The rest are folders created by the OS which I never use. So I drop everything that I don't need and if I install software under that directory later on, it will be included in the backup. Lastly here is how my *fed* (media server) configuration looked like for the **/home/elatov** folder:
 
     $ cat fed-home_elatov
     - .gstreamer-0.10/

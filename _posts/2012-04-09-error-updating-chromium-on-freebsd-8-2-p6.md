@@ -88,9 +88,10 @@ And that would forcefully recompile all of your packages.
 
 ### Related Posts
 
-- [OSSEC on FreeBSD](http://virtuallyhyper.com/2014/04/ossec-freebsd/)
-- [Install Samhain with Beltane on FreeBSD](http://virtuallyhyper.com/2014/03/install-samhain-beltane-freebsd/)
-- [Installing Splunk on FreeBSD](http://virtuallyhyper.com/2013/12/installing-splunk-freebsd/)
+- [OSSEC on FreeBSD](/2014/04/ossec-freebsd/)
+- [Install Samhain with Beltane on FreeBSD](/2014/03/install-samhain-beltane-freebsd/)
+- [Installing Splunk on FreeBSD](/2013/12/installing-splunk-freebsd/)
 - [Setting up a FreeBSD 9 WordPress Server on 128MB of RAM](http://virtuallyhyper.com/2013/04/setting-up-freebsd-9-wordpress-server-on-128mb-of-ram/)
-- [Running VMs On FreeBSD using QEMU with VDE](http://virtuallyhyper.com/2013/02/running-vms-on-freebsd-using-qemu-with-vde/)
+
+- [Running VMs On FreeBSD using QEMU with VDE](/2013/02/running-vms-on-freebsd-using-qemu-with-vde/)
 

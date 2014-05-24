@@ -152,5 +152,5 @@ So for security reasons VMware workstation is not allowing to send traffic with 
 
 ### Related Posts
 
-- [Use FWBuilder to Deploy an IPtables Firewall to a DD-WRT Router](http://virtuallyhyper.com/2013/04/use-fwbuilder-to-deploy-an-iptables-firewall-to-a-dd-wrt-router/)
+- [Use FWBuilder to Deploy an IPtables Firewall to a DD-WRT Router](/2013/04/use-fwbuilder-to-deploy-an-iptables-firewall-to-a-dd-wrt-router/)
 

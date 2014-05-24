@@ -210,7 +210,7 @@ From the above guide:
 
 ### Telnet Example with Xinetd
 
-In [Chapter 8](http://virtuallyhyper.com/2013/03/rhcsa-and-rhce-chapter-8-network-installs/), I covered the **tftp** install with **xinetd**, now let's try **telnet** (this is just for demonstration purposes, use **ssh** over **telnet**). First install **xinetd**:
+In [Chapter 8](/2013/03/rhcsa-and-rhce-chapter-8-network-installs/), I covered the **tftp** install with **xinetd**, now let's try **telnet** (this is just for demonstration purposes, use **ssh** over **telnet**). First install **xinetd**:
 
     [root@rhel1 ~]# yum install xinetd
 

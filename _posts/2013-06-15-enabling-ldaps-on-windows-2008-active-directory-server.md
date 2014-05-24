@@ -13,7 +13,7 @@ tags:
   - MozLDAP
   - OpenLDAP
 ---
-I installed Active Directory by selecting the "Active Directory Domain Services" Role from the Server Manager Dialogue. Step by step instructions can be seen in [Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/2013/04/deploying-a-test-windows-environment-in-a-kvm-infrastucture/).
+I installed Active Directory by selecting the "Active Directory Domain Services" Role from the Server Manager Dialogue. Step by step instructions can be seen in [Deploying a Test Windows Environment in a KVM Infrastucture](/2013/04/deploying-a-test-windows-environment-in-a-kvm-infrastucture/).
 
 ## Running an *ldapsearch* against a Windows AD Server
 
@@ -288,7 +288,7 @@ The list is available at [Event ID 1220 — LDAP over SSL](http://technet.micros
 
 3.  The host machine account must have access to the private key.
 
-I had recently created my own certificate with my own CA. Check out "[certificate_properties.c](http://virtuallyhyper.com/2013/04/setup-your-own-certificate-authority-ca-on-linux-and-use-it-in-a-windows-environment/) source file here are the different OIDs defined:
+I had recently created my own certificate with my own CA. Check out "[certificate_properties.c](/2013/04/setup-your-own-certificate-authority-ca-on-linux-and-use-it-in-a-windows-environment/) source file here are the different OIDs defined:
 
     {"1.3.6.1.5.5.7.3.1", "TLS WWW Server"},
     {"1.3.6.1.5.5.7.3.2", "TLS WWW Client"},
@@ -369,7 +369,7 @@ After the certificate is imported you will see the following in the Snap-In:
 
 ![ldaps cert imported Enabling LDAPS on Windows 2008 Active Directory Server](https://github.com/elatov/uploads/raw/master/2013/05/ldaps_cert_imported.png)
 
-Since this a self-signed certificate make sure you follow the instructions laid out in "[Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](http://virtuallyhyper.com/2013/04/setup-your-own-certificate-authority-ca-on-linux-and-use-it-in-a-windows-environment/)" to import your own CA Certificate under the regular Certificate store. Just launch:
+Since this a self-signed certificate make sure you follow the instructions laid out in "[Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](/2013/04/setup-your-own-certificate-authority-ca-on-linux-and-use-it-in-a-windows-environment/)" to import your own CA Certificate under the regular Certificate store. Just launch:
 
     certmgr.msc
 

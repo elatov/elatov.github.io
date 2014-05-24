@@ -15,7 +15,7 @@ tags:
   - seacloud
   - seafile
 ---
-A while ago I wrote [this](http://virtuallyhyper.com/2013/02/sharing-a-file-encrypted-by-encfs-with-android-and-linux-systems-with-google-drive/) post on how to use Grive. Grive is a cross platform/architecture client that allowed me to sync files with Google Drive. I really liked the setup, but now I wanted another cloud storage solution, where I could store the not-so-important files and not take up space on my google drive account.
+A while ago I wrote [this](/2013/02/sharing-a-file-encrypted-by-encfs-with-android-and-linux-systems-with-google-drive/) post on how to use Grive. Grive is a cross platform/architecture client that allowed me to sync files with Google Drive. I really liked the setup, but now I wanted another cloud storage solution, where I could store the not-so-important files and not take up space on my google drive account.
 
 ### Desired Cloud Storage Capabilities
 

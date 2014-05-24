@@ -68,11 +68,11 @@ If you run out of space. You could've discovered this by an alarm, storage view,
 
 ### Provision and manage storage resources according to Virtual Machine requirements
 
-Check out VCAP5-DCD Objectives [3.5](http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-3-3-create-a-vsphere-5-physical-storage-design-from-an-existing-logical-design/). Just plan for Space, I/O Workload, and Redundancy.
+Check out VCAP5-DCD Objectives [3.5](/2012/08/vcap5-dcd-objective-3-3-create-a-vsphere-5-physical-storage-design-from-an-existing-logical-design/). Just plan for Space, I/O Workload, and Redundancy.
 
 ### Understand interactions between virtual storage provisioning and physical storage provisioning
 
-I actually discussed this in "[vSphere Storage ESXi 5.0](http://virtuallyhyper.com/2012/04/thin-on-thin-with-vmware-thin-provisioned-disks-and-emc-symmetrix-virtual-provisioning/):
+I actually discussed this in "[vSphere Storage ESXi 5.0](/2012/04/thin-on-thin-with-vmware-thin-provisioned-disks-and-emc-symmetrix-virtual-provisioning/):
 
 > **Array Thin Provisioning and VMFS Datastores**
 >
@@ -83,7 +83,7 @@ I actually discussed this in "[vSphere Storage ESXi 5.0](http://virtuallyhyper.c
 
 ### Apply VMware storage best practices
 
-Same as [Objective 1.1](http://virtuallyhyper.com/2012/10/vcap5-dca-objective-1-1-implement-and-manage-complex-storage-solutions/)
+Same as [Objective 1.1](/2012/10/vcap5-dca-objective-1-1-implement-and-manage-complex-storage-solutions/)
 
 ### Configure Datastore Alarms
 
@@ -210,8 +210,8 @@ After that, whatever Storage DRS settings you setup will be applied.
 
 ### Related Posts
 
-- [VCAP5-DCA Objective 2.3 – Deploy and Maintain Scalable Virtual Networking](http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-3-deploy-and-maintain-scalable-virtual-networking/)
-- [VCAP5-DCA Objective 2.2 – Configure and Maintain VLANs, PVLANs and VLAN Settings](http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-2-configure-and-maintain-vlans-pvlans-and-vlan-settings/)
-- [VCAP5-DCA Objective 2.1 – Implement and Manage Complex Virtual Networks](http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/)
-- [VCAP5-DCA Objective 1.3 – Configure and Manage Complex Multipathing and PSA Plug-ins](http://virtuallyhyper.com/2012/10/vcap5-dca-objective-1-3-configure-and-manage-complex-multipathing-and-psa-plug-ins/)
+- [VCAP5-DCA Objective 2.3 – Deploy and Maintain Scalable Virtual Networking](/2012/10/vcap5-dca-objective-2-3-deploy-and-maintain-scalable-virtual-networking/)
+- [VCAP5-DCA Objective 2.2 – Configure and Maintain VLANs, PVLANs and VLAN Settings](/2012/10/vcap5-dca-objective-2-2-configure-and-maintain-vlans-pvlans-and-vlan-settings/)
+- [VCAP5-DCA Objective 2.1 – Implement and Manage Complex Virtual Networks](/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/)
+- [VCAP5-DCA Objective 1.3 – Configure and Manage Complex Multipathing and PSA Plug-ins](/2012/10/vcap5-dca-objective-1-3-configure-and-manage-complex-multipathing-and-psa-plug-ins/)
 

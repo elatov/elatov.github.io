@@ -364,7 +364,7 @@ And add the following :
     serverCert = /opt/splunk/certs/elatov-local-wild-key-cert.pem
 
 
-The certificates were generated using the instructions laid out [here](http://virtuallyhyper.com/2013/04/setup-your-own-certificate-authority-ca-on-linux-and-use-it-in-a-windows-environment). I had to concatenate my password less private key and certificate into one file:
+The certificates were generated using the instructions laid out [here](/2013/04/setup-your-own-certificate-authority-ca-on-linux-and-use-it-in-a-windows-environment). I had to concatenate my password less private key and certificate into one file:
 
     [root@splunk certs]# cat elatov-local-wild.pem elatov-local-wild-priv-pw.pem > elatov-local-wild-key-cert.pem
 

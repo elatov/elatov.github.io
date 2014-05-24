@@ -160,5 +160,5 @@ If you connect to the vCenter using the vSphere client, you will only see the lo
 
 ### Related Posts
 
-- [ESX(i) Host  Randomly Disconnects from vCenter Server due to Hostd Backtracing](http://virtuallyhyper.com/2012/10/esxi-host-randomly-disconnects-from-vcenter-server-due-to-hostd-back-tracing/)
+- [ESX(i) Host  Randomly Disconnects from vCenter Server due to Hostd Backtracing](/2012/10/esxi-host-randomly-disconnects-from-vcenter-server-due-to-hostd-back-tracing/)
 

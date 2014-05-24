@@ -13,7 +13,7 @@ tags:
   - gnomint
   - Group_Policies
 ---
-In [this](http://virtuallyhyper.com/2013/04/deploying-a-test-windows-environment-in-a-kvm-infrastucture/) previous post, I deployed a test IIS Server and used a self signed SSL Certificate to encrypt the HTTP traffic. I am sure everyone have seen this page in Internet Explorer:
+In [this](/2013/04/deploying-a-test-windows-environment-in-a-kvm-infrastucture/) previous post, I deployed a test IIS Server and used a self signed SSL Certificate to encrypt the HTTP traffic. I am sure everyone have seen this page in Internet Explorer:
 
 ![IE cert error Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](https://github.com/elatov/uploads/raw/master/2013/04/IE_cert_error.png)
 

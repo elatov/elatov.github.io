@@ -12,7 +12,7 @@ tags:
   - Monitoring
   - Zabbix
 ---
-This is the last post from the "Network Monitoring Software Comparison" series. As I mentioned in the [main](http://virtuallyhyper.com/2013/03/monitor-different-systems-with-zenoss) page here is what Zabbix is about:
+This is the last post from the "Network Monitoring Software Comparison" series. As I mentioned in the [main](/2013/03/monitor-different-systems-with-zenoss) page here is what Zabbix is about:
 
 > Zabbix is an enterprise-class open source distributed monitoring solution.
 >
@@ -428,6 +428,6 @@ and then fixing the script to return the correct value, allowed the trigger to b
 
 ### Related Posts
 
-- [Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix](http://virtuallyhyper.com/2013/12/configure-ipmi-supermicro-server-monitor-ipmi-sensors-zabbix/)
-- [Monitor SMART Attributes with Zabbix](http://virtuallyhyper.com/2013/10/monitor-smart-attributes-zabbix/)
+- [Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix](/2013/12/configure-ipmi-supermicro-server-monitor-ipmi-sensors-zabbix/)
+- [Monitor SMART Attributes with Zabbix](/2013/10/monitor-smart-attributes-zabbix/)
 

@@ -74,6 +74,7 @@ Nothing crazy or expensive.
 
 Before we present an iSCSI LUN to our ESXi host let's see what speeds we get locally. I actually installed **napp-it** on my **omnios** install (if you need help with that, check out [Jarret's post here](http://virtuallyhyper.com/2013/04/installing-and-configuring-omnios/)). In the *napp-it* web-gui there are a bunch of available tests:
 
+
 ![napp it benchmarks g ZFS iSCSI Benchmark Tests on ESX](https://github.com/elatov/uploads/raw/master/2013/12/napp-it-benchmarks_g.png)
 
 Doing a quick **DD** test yielded the following:

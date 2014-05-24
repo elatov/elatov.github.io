@@ -431,4 +431,4 @@ You will see disconnects there.
 
 ### Utilize Direct Console User Interface (DCUI) and ESXi Shell to troubleshoot, configure, and monitor an environment
 
-This was covered in "[VCAP5-DCA Objective 6.3](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-3-troubleshoot-network-performance-and-connectivity/)"
+This was covered in "[VCAP5-DCA Objective 6.3](/2013/01/vcap5-dca-objective-6-3-troubleshoot-network-performance-and-connectivity/)"

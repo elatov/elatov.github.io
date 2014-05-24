@@ -31,7 +31,7 @@ If the skill set is available from the company and one of the above tools can us
 
 ### Analyze cluster availability requirements for HA and FT Check out
 
-[this](http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-3-4-determine-appropriate-compute-resources-for-a-vsphere-5-physical-design/) PDF:
+[this](/2012/09/vcap5-dcd-objective-3-4-determine-appropriate-compute-resources-for-a-vsphere-5-physical-design/) PDF:
 
 > **HA Network Redundancy:**
 >
@@ -100,7 +100,7 @@ From the same document:
 
 ### Analyze cluster storage performance requirements for SDRS and Storage vMotion
 
-Check out [Performance Best Practices for VMware vSphere 5.0](http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-3-3-create-a-vsphere-5-physical-storage-design-from-an-existing-logical-design/)":
+Check out [Performance Best Practices for VMware vSphere 5.0](/2012/08/vcap5-dcd-objective-3-3-create-a-vsphere-5-physical-storage-design-from-an-existing-logical-design/)":
 
 > **VMware Storage vMotion**
 >
@@ -238,7 +238,7 @@ From the same document:
 > You can create roles and set permissions through a direct connection to the ESXi host.
 >
 > **Hierarchical Inheritance of Permissions**
-> When you assign a permission to an object, you can choose whether the permission propagates down the object hierarchy. You set propagation for each permission. Propagation is not universally applied. Permissions defined for a child object always override the permissions that are propagated from parent objects. The figure illustrates inventory hierarchy and the paths by which permissions can propagate. 
+> When you assign a permission to an object, you can choose whether the permission propagates down the object hierarchy. You set propagation for each permission. Propagation is not universally applied. Permissions defined for a child object always override the permissions that are propagated from parent objects. The figure illustrates inventory hierarchy and the paths by which permissions can propagate.
 >
 > ![hierarchy-perms](https://github.com/elatov/uploads/raw/master/2012/09/hierarchy-perms.png)
 >
@@ -299,7 +299,7 @@ Lastly here are roles from the same document:
 >
 > **NOTE** Changes to permissions and roles take effect immediately, even if the users involved are logged in. The exception is searches, where permission changes take effect after the user has logged out and logged back in.
 
-This was also discussed in [Objective 3.1](http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-3-1-transition-from-a-logical-design-to-a-vsphere-5-physical-design/)
+This was also discussed in [Objective 3.1](/2012/08/vcap5-dcd-objective-3-1-transition-from-a-logical-design-to-a-vsphere-5-physical-design/)
 
 ### Based on the logical design, identify and implement asset and configuration management technologies.
 
@@ -586,7 +586,7 @@ There is a great white paper on this, "[Proactive Incident and Problem Managemen
 >
 > Migrating to a proactive system requires a carefully orchestrated plan that includes a pilot program and phased cut over. There are organizational considerations involved in proactivity, including the establishment of a Cloud Infrastructure Operations Center of Excellence and changes to individual job functions. These changes must be carefully planned and effectively communicated across the organization to ensure a successful transition to a proactive system.
 
-The paper talks about being pro-active, defining roles for different layers, and having integrated management. All of these thing are true and there are a lot of third party application that already do this. I talked about these in [VMware Service Manager: Implementing Incident Problem Management](http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-2-4-build-manageability-requirements-into-the-logical-design/)" class data sheet:
+The paper talks about being pro-active, defining roles for different layers, and having integrated management. All of these thing are true and there are a lot of third party application that already do this. I talked about these in [VMware Service Manager: Implementing Incident Problem Management](/2012/08/vcap5-dcd-objective-2-4-build-manageability-requirements-into-the-logical-design/)" class data sheet:
 
 > **Course Overview**
 > VMware® Service Manager (VSM) is a service management tool for managing and controlling customer calls received through a service desk.

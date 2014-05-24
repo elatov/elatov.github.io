@@ -233,5 +233,5 @@ There is also a very good example in the VMware blog "[vSphere 5 New Networking 
 
 ### Use command line tools to troubleshoot and identify configuration items from an existing vDS
 
-This was covered in [VCAP5-DCA Objective 2.1](http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/)
+This was covered in [VCAP5-DCA Objective 2.1](/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/)
 

@@ -137,6 +137,6 @@ The version in the command matches of what we found in the info file above. That
 
 ### Related Posts
 
-- [Update ChrUbuntu 13.04 to 13.10 on the Samsung Chromebook](http://virtuallyhyper.com/2013/11/update-chrubuntu-13-04-13-10-samsung-chromebook/)
-- [Update ChrUbuntu 12.04 to 13.04 on the Samsung Chromebook](http://virtuallyhyper.com/2013/03/update-chrubuntu-12-04-to-13-04-on-the-samsung-chromebook/)
+- [Update ChrUbuntu 13.04 to 13.10 on the Samsung Chromebook](/2013/11/update-chrubuntu-13-04-13-10-samsung-chromebook/)
+- [Update ChrUbuntu 12.04 to 13.04 on the Samsung Chromebook](/2013/03/update-chrubuntu-12-04-to-13-04-on-the-samsung-chromebook/)
 

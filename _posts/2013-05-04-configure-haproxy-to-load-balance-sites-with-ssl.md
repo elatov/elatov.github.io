@@ -152,7 +152,7 @@ Here is a very simple configuration that I ended up using:
       server s2 192.168.250.49:80 check cookie s2
 
 
-**Note:** The SSL CRT file is a combination of the public certificate and the private key. I used the same SSL files that I generated in this blog [post](http://virtuallyhyper.com/2013/04/setup-your-own-certificate-authority-ca-on-linux-and-use-it-in-a-windows-environment/). Here is the command I ran to concatenate the files together:
+**Note:** The SSL CRT file is a combination of the public certificate and the private key. I used the same SSL files that I generated in this blog [post](/2013/04/setup-your-own-certificate-authority-ca-on-linux-and-use-it-in-a-windows-environment/). Here is the command I ran to concatenate the files together:
 
 *   `$ cat wild-elatov-local-cert.pem wild-elatov-local-priv-key.pem > elatov-local-cert-key.pem`
 

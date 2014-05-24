@@ -654,5 +654,5 @@ As mentioned above, by default SELinux allows NFS to share directories. I didn't
     xen_use_nfs --> off
 
 
-On top of SELinux, we can also use TCP wrappers and IPtables (which we did) to limit access to the NFS Shares (both of these topics were covered in [Chapter 12](http://virtuallyhyper.com/2014/03/rhcsa-rhce-chapter-12-system-security/))
+On top of SELinux, we can also use TCP wrappers and IPtables (which we did) to limit access to the NFS Shares (both of these topics were covered in [Chapter 12](/2014/03/rhcsa-rhce-chapter-12-system-security/))
 

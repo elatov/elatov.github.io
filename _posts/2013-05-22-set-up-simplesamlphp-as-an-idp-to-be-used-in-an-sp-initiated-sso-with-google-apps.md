@@ -579,5 +579,5 @@ This is steps 7 and 8 from the diagram. Using Cookies and **RelayState** we are 
 
 ### Related Posts
 
-- [LemonLDAP-NG With LDAP and SAML Google Apps](http://virtuallyhyper.com/2014/02/lemonldap-ng-ldap-saml-google-apps/)
+- [LemonLDAP-NG With LDAP and SAML Google Apps](/2014/02/lemonldap-ng-ldap-saml-google-apps/)
 

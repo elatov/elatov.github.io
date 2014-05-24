@@ -88,7 +88,7 @@ Now you can basically replace **apt-get** with **apt-fast**. Here is what I did 
 
 ## PulseAudio Issues
 
-After I finished the update, I realized that my sound wasn't working. I started **alsamixer** to check the configuration and all the channels that I enabled during the 13.04 [install](http://virtuallyhyper.com/2013/03/update-chrubuntu-12-04-to-13-04-on-the-samsung-chromebook/) were still enabled. It was actually a little weird, I would run the following:
+After I finished the update, I realized that my sound wasn't working. I started **alsamixer** to check the configuration and all the channels that I enabled during the 13.04 [install](/2013/03/update-chrubuntu-12-04-to-13-04-on-the-samsung-chromebook/) were still enabled. It was actually a little weird, I would run the following:
 
     $ aplay /usr/share/sounds/alsa/Front_Center.wav
 

@@ -674,5 +674,5 @@ Now I have completely replaced the default **iptables** firewall on the DD-WRT R
 
 ### Related Posts
 
-- [Snort On Debian](http://virtuallyhyper.com/2014/04/snort-debian/)
+- [Snort On Debian](/2014/04/snort-debian/)
 

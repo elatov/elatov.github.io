@@ -27,7 +27,7 @@ tags:
   - wget
   - \password postgres
 ---
-A while back I posted about installing subsonic. While I was using the application, I noticed that the search feature is very limited and I wanted to expand it. So I ran across [MusicCabinet](http://virtuallyhyper.com/2012/10/installing-subsonic-on-fedora-17/), from their webpage:
+A while back I posted about installing subsonic. While I was using the application, I noticed that the search feature is very limited and I wanted to expand it. So I ran across [MusicCabinet](/2012/10/installing-subsonic-on-fedora-17/), from their webpage:
 
 > Subsonic is a streaming music server, providing instant access to your personal music library. It is written by Sindre Mehus and released under the GPL.
 >
@@ -65,7 +65,7 @@ You have also need to java version 7 installed. I already had that installed:
 	OpenJDK Client VM (build 23.2-b09, mixed mode)
 
 
-I covered the install of java in the initial post [here](http://virtuallyhyper.com/2012/10/installing-subsonic-on-fedora-17/), check it out if necessary. Now let's get started on the *MusicCabinet* install.
+I covered the install of java in the initial post [here](/2012/10/installing-subsonic-on-fedora-17/), check it out if necessary. Now let's get started on the *MusicCabinet* install.
 
 ### 1. Install and Setup PostgreSQL
 

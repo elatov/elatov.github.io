@@ -528,4 +528,4 @@ From "[vSphere Installation and Setup vSphere 5.0](http://pubs.vmware.com/vspher
 
 ### Given a scenario, determine when to customize a configuration
 
-This was discussed in "[VCAP5-DCD Objective 3.6](http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-3-6-determine-datacenter-management-options-for-a-vsphere-5-physical-design/)"
+This was discussed in "[VCAP5-DCD Objective 3.6](/2012/09/vcap5-dcd-objective-3-6-determine-datacenter-management-options-for-a-vsphere-5-physical-design/)"

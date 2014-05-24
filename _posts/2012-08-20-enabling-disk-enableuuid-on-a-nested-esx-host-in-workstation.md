@@ -20,7 +20,7 @@ tags:
   - VPD Pages
   - vsd-mount
 ---
-As I was writing this [blog post](http://virtuallyhyper.com/2012/08/determine-disk-vpd-information-from-esx-classic) about VPD (Vital Product Data) Pages, I ended up breaking my test ESX host for a little bit. By default virtual disks presented to a VM don't have VPD Pages and therefore don't have NAA IDs. For example here is how my disk looks like from the ESX host without any changes:
+As I was writing this [blog post](/2012/08/determine-disk-vpd-information-from-esx-classic) about VPD (Vital Product Data) Pages, I ended up breaking my test ESX host for a little bit. By default virtual disks presented to a VM don't have VPD Pages and therefore don't have NAA IDs. For example here is how my disk looks like from the ESX host without any changes:
 
 
 	# esxcfg-scsidevs -m
@@ -52,7 +52,7 @@ Finally querying the device for any VPD Pages, I would see the following:
 	fetching VPD page failed
 
 
-When I was writing the [post](http://virtuallyhyper.com/2012/03/missing-links-to-devices-on-linux-vms-under-devdiskby-id/) about missing links under **/dev/disks/by-id** for linux VMs, I remember running into this. The fix is to add the following to the vmx file:
+When I was writing the [post](/2012/03/missing-links-to-devices-on-linux-vms-under-devdiskby-id/) about missing links under **/dev/disks/by-id** for linux VMs, I remember running into this. The fix is to add the following to the vmx file:
 
 
 	disk.EnableUUID = "TRUE"

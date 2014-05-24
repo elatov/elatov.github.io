@@ -11,7 +11,7 @@ tags:
   - ChromeBook
   - ChrUbuntu
 ---
-The update process is not as smooth as the install process which I blogged about [here](http://virtuallyhyper.com/2013/03/install-chrubuntu-12-04-on-samsung-chromebook). Most of the instructions are laid at the following two sites:
+The update process is not as smooth as the install process which I blogged about [here](/2013/03/install-chrubuntu-12-04-on-samsung-chromebook). Most of the instructions are laid at the following two sites:
 
 *   [How to update Chrubuntu 12.04 to Ubuntu 13.04](http://marcin.juszkiewicz.com.pl/2013/02/16/how-to-update-chrubuntu-12-04-to-ubuntu-13-04/)
 *   [Ubuntu Install on ARM Chromebook](http://www.relurori.com/blog/p/ubuntu-install-on-arm-chromebook.html)

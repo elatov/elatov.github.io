@@ -156,7 +156,7 @@ they decided to separate each port from each SP by subnet. Checking out the path
 	vmhba39:C0:T0:L12 LUN:12 state:active iscsi Adapter: iqn.1998-01.com.vmware:host2-55c15df4 Target: IQN=iqn.1992-04.com.emc:cx.xxx3301534.a5 Alias= Session=00023d000001 PortalTag=1
 
 
-We had two active paths, one from each SP (T4 is SPB_B5 and T0 is SPA_A5). Since this was an Active/Passive array the customer enabled ALUA on the array (check out this [post](http://virtuallyhyper.com/2012/04/seeing-a-high-number-of-trespasses-from-a-clariion-array-with-esx-hosts/) if you want to know more about ALUA). From the EMC article:
+We had two active paths, one from each SP (T4 is SPB_B5 and T0 is SPA_A5). Since this was an Active/Passive array the customer enabled ALUA on the array (check out this [post](/2012/04/seeing-a-high-number-of-trespasses-from-a-clariion-array-with-esx-hosts/) if you want to know more about ALUA). From the EMC article:
 
 > Active-Active mode (failover mode 4) — When the host initiators are configured for ALUA mode, I/Os can be serviced from either SP in the VNX. The LUN is still owned by the SP where it was created. The default SP LUN also provides the optimal I/O path for the LUN.
 

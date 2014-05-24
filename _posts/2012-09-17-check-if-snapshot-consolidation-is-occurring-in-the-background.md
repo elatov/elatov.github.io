@@ -52,6 +52,7 @@ Each task has an identifier as well. From the above output we see that out task 
 
 This is a pretty quick test to see if there is a snapshot commit in progress. Another thing you can do is check if there is actual changes going on with the vmdk files. When you commit a snapshot you basically take the delta files and merge them into the base disk. If you want to know more about the snapshots, I would suggest reading "[Troubleshooting Virtual Machine snapshot problems](http://virtuallyhyper.com/2012/04/vmware-snapshot-troubleshooting/)" written by Ruben Gargia. To see if there are changes happening with the vmdks you can run the following command:
 
+
 For ESX:
 
 
@@ -123,3 +124,4 @@ In conclusion there are many ways on how to check if VM is still going through s
 ### Related Posts
 
 - [Snapshots Take a Long Time When "Keep Memory" is Enabled](http://virtuallyhyper.com/2013/04/snapshots-take-a-long-time-when-keep-memory-is-checked/)
+

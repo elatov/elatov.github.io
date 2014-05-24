@@ -1126,7 +1126,7 @@ And that looks perfect.
 
 ### Createrepo
 
-Now let's get to creating a custom repository, I had an example of how to create one from the Install DVD in [Chapter 3](http://virtuallyhyper.com/2013/01/rhcsa-and-rhce-chapter-3-disks-and-partitioning/). But what if we wanted to create one with custom packages. From the Deployment guide:
+Now let's get to creating a custom repository, I had an example of how to create one from the Install DVD in [Chapter 3](/2013/01/rhcsa-and-rhce-chapter-3-disks-and-partitioning/). But what if we wanted to create one with custom packages. From the Deployment guide:
 
 > **5.3.6. Creating a Yum Repository**
 > To set up a Yum repository, follow these steps:

@@ -35,7 +35,7 @@ tags:
   - tag2utf.py
   - transliterate
 ---
-I wrote a [Now, That's What I Call Music](http://virtuallyhyper.com/2012/10/installing-subsonic-on-fedora-17/)" CDs in the US).
+I wrote a [Now, That's What I Call Music](/2012/10/installing-subsonic-on-fedora-17/)" CDs in the US).
 
 I used to have an *iPod* and I used to use *Songbird* as my music player and this ended up messing up my file names and even the *id3* tags of the audio files. For example here is a sample folder with my songs:
 

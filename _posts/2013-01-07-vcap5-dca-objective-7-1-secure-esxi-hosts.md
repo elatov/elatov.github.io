@@ -69,7 +69,7 @@ Here is a list of supported functions that use pam for authentication:
 
 ### Identify virtual switch security characteristics
 
-These were covered in "[VCAP5-DCA Objective 2.1](http://virtuallyhyper.com/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/)" Here is a concise list:
+These were covered in "[VCAP5-DCA Objective 2.1](/2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/)" Here is a concise list:
 
 1.  Promiscuous mode
 2.  MAC address change

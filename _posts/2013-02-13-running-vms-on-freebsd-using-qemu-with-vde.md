@@ -171,6 +171,7 @@ Lastly we can use the "**VDE**" (Virtual Distributed Ethernet) method:
 
 Since Jarret already did a [post](http://virtuallyhyper.com/2012/07/installing-kvm-as-a-virtual-machine-on-esxi5-with-bridged-networking/) on the bridged/*tap* networking with *KVM*, I decided to try out the *VDE* setup. First let's install the *VDE* Package:
 
+
     elatov@freebsd:~> cd /usr/ports/net/vde2
     elatov@freebsd:/usr/ports/net/vde2> sudo make install clean
 
@@ -419,6 +420,7 @@ And lastly I wanted to make sure the kernel modules were loaded:
 
 Everything looked good. As Jarret mentioned in his [web-page](http://virtuallyhyper.com/2012/07/installing-kvm-as-a-virtual-machine-on-esxi5-with-bridged-networking/) with all the different tools. Checking over the FreeBSD ports, I only found the following:
 
+
 *   virt-manager
 *   virtinst
 *   aqemu
@@ -437,4 +439,4 @@ I was planning on only running 2 VMs, so this wasn't a big deal for me. Running 
 
 ###Related Posts
 
-- [Migrating a VM from VMware Workstation to Oracle VirtualBox](http://virtuallyhyper.com/2013/04/migrating-a-vm-from-vmware-workstation-to-oracle-virtualbox/)
+- [Migrating a VM from VMware Workstation to Oracle VirtualBox](/2013/04/migrating-a-vm-from-vmware-workstation-to-oracle-virtualbox/)

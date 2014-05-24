@@ -61,7 +61,7 @@ If you want to make sure your make and model of the HBA is supported, check the 
 
 ### Identify virtual disk format types
 
-Check out [VCAP5-DCD Objective 3.5](http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-3-5-determine-virtual-machine-configuration-for-a-vsphere-5-physical-design/)
+Check out [VCAP5-DCD Objective 3.5](/2012/09/vcap5-dcd-objective-3-5-determine-virtual-machine-configuration-for-a-vsphere-5-physical-design/)
 
 Also check out [this](http://twitter.yfrog.com/h6klabj) picture:
 
@@ -107,7 +107,7 @@ and from the same site:
 
 ![raid type with factors VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/raid_type_with_factors.png)
 
-Also check out [VCAP5-DCD Objective 3.3](http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-3-3-create-a-vsphere-5-physical-storage-design-from-an-existing-logical-design/)
+Also check out [VCAP5-DCD Objective 3.3](/2012/08/vcap5-dcd-objective-3-3-create-a-vsphere-5-physical-storage-design-from-an-existing-logical-design/)
 
 ### Apply VMware storage best practices
 
@@ -118,11 +118,11 @@ Each vendor has their own best practices. Check out the following pages for a co
 *   [Using EMC VNX Storage with VMware vSphere](http://www.emc.com/collateral/hardware/technical-documentation/h8229-vnx-vmware-tb.pdf)
 *   [NetApp and VMware vSphere Storage Best Practices](http://media.netapp.com/documents/tr-3749.pdf)
 
-Check out [VCAP5-DCD Objective 3.3](http://virtuallyhyper.com/2012/08/vcap5-dcd-objective-3-3-create-a-vsphere-5-physical-storage-design-from-an-existing-logical-design/) for more information.
+Check out [VCAP5-DCD Objective 3.3](/2012/08/vcap5-dcd-objective-3-3-create-a-vsphere-5-physical-storage-design-from-an-existing-logical-design/) for more information.
 
 ### Understand use cases for Raw Device Mapping
 
-Check out [VCAP5-DCD Objective 3.5](http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-3-5-determine-virtual-machine-configuration-for-a-vsphere-5-physical-design/)
+Check out [VCAP5-DCD Objective 3.5](/2012/09/vcap5-dcd-objective-3-5-determine-virtual-machine-configuration-for-a-vsphere-5-physical-design/)
 
 ### Configure vCenter Server storage filters
 
@@ -227,7 +227,7 @@ Another option is the following:
 > *   If the resignatured datastore contains virtual machines, update references to the original VMFS datastore in the virtual machine files, including .vmx, .vmdk, .vmsd, and .vmsn.
 > *   To power on virtual machines, register them with vCenter Server.
 
-Check out one of my [1011387](http://virtuallyhyper.com/2012/08/enabling-disk-enableuuid-on-a-nested-esx-host-in-workstation/) for more info. From that KB, here are a couple of commands:
+Check out one of my [1011387](/2012/08/enabling-disk-enableuuid-on-a-nested-esx-host-in-workstation/) for more info. From that KB, here are a couple of commands:
 
 > To list the volumes detected as snapshots, run this command:
 >
@@ -880,9 +880,9 @@ Also from the same guide:
 
 ### Related Posts
 
-- [VCAP5-DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files](http://virtuallyhyper.com/2013/01/vcap5-dca-objective-6-1-configure-manage-and-analyze-vsphere-log-files/)
-- [VCAP5-DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments](http://virtuallyhyper.com/2012/12/vcap5-dca-objective-5-2-deploy-and-manage-complex-update-manager-environments/)
-- [VCAP5-DCA Objective 5.1 – Implement and Maintain Host Profiles](http://virtuallyhyper.com/2012/11/vcap5-dca-objective-5-1-implement-and-maintain-host-profiles/)
-- [VCAP5-DCA Objective 4.2 – Deploy and Test VMware FT](http://virtuallyhyper.com/2012/11/vcap5-dca-objective-4-2-deploy-and-test-vmware-ft/)
-- [VCAP5-DCA Objective 4.1 – Implement and Maintain Complex VMware HA Solutions](http://virtuallyhyper.com/2012/11/vcap5-dca-objective-4-1-implement-and-maintain-complex-vmware-ha-solutions/)
+- [VCAP5-DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files](/2013/01/vcap5-dca-objective-6-1-configure-manage-and-analyze-vsphere-log-files/)
+- [VCAP5-DCA Objective 5.2 – Deploy and Manage Complex Update Manager Environments](/2012/12/vcap5-dca-objective-5-2-deploy-and-manage-complex-update-manager-environments/)
+- [VCAP5-DCA Objective 5.1 – Implement and Maintain Host Profiles](/2012/11/vcap5-dca-objective-5-1-implement-and-maintain-host-profiles/)
+- [VCAP5-DCA Objective 4.2 – Deploy and Test VMware FT](/2012/11/vcap5-dca-objective-4-2-deploy-and-test-vmware-ft/)
+- [VCAP5-DCA Objective 4.1 – Implement and Maintain Complex VMware HA Solutions](/2012/11/vcap5-dca-objective-4-1-implement-and-maintain-complex-vmware-ha-solutions/)
 

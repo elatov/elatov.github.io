@@ -52,7 +52,7 @@ So you can see that the Mac address 00:50:56:9b:4f:0d (the mac address of the VM
 
 ### Related Posts
 
-- [VMs Setup to Use Windows NLB in Unicast Mode Lose Network Connectivity When HP Virtual Connect Module is Replaced](http://virtuallyhyper.com/2012/09/vms-setup-to-use-windows-nlb-in-unicast-mode-lose-network-connectivity-when-hp-virtual-connect-module-is-replaced/)
-- [Corosync Pacemaker running on RHEL 6 VMs Receiving "Failed To Receive" Messages](http://virtuallyhyper.com/2012/08/corosync-pacemaker-running-on-rhel-6-vms-receiving-failed-to-receive-messages/)
-- [VCD-NI Network Pools with the Cisco Nexus1000v Distributed Switch](http://virtuallyhyper.com/2012/08/vcd-ni-network-pools-with-the-cisco-nexus1000v/)
+- [VMs Setup to Use Windows NLB in Unicast Mode Lose Network Connectivity When HP Virtual Connect Module is Replaced](/2012/09/vms-setup-to-use-windows-nlb-in-unicast-mode-lose-network-connectivity-when-hp-virtual-connect-module-is-replaced/)
+- [Corosync Pacemaker running on RHEL 6 VMs Receiving "Failed To Receive" Messages](/2012/08/corosync-pacemaker-running-on-rhel-6-vms-receiving-failed-to-receive-messages/)
+- [VCD-NI Network Pools with the Cisco Nexus1000v Distributed Switch](/2012/08/vcd-ni-network-pools-with-the-cisco-nexus1000v/)
 

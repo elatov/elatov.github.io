@@ -217,7 +217,7 @@ Now we are ready to provision/deploy a host:
 
 ### Configure an Auto Deploy reference host
 
-From [VMware vSphere 5.0 Evaluation Guide Volume Four – Auto Deploy](http://virtuallyhyper.com/2012/11/vcap5-dca-objective-5-1-implement-and-maintain-host-profiles/)":
+From [VMware vSphere 5.0 Evaluation Guide Volume Four – Auto Deploy](/2012/11/vcap5-dca-objective-5-1-implement-and-maintain-host-profiles/)":
 
 > **Create a Host Profile Rule**
 > By default, when a new host is provisioned using Auto Deploy, the host will be put into maintenance mode. This requires that the administrator connect to the vCenter to finish the host’s configuration. Auto Deploy can optionally perform the host configuration by applying a predefined host profile. Follow these steps to create a rule to apply a host profile to a newly deployed host.

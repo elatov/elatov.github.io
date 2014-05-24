@@ -13,7 +13,7 @@ tags:
   - ESX
   - Hitachi HDS
 ---
-Recently I received a call from a European customer saying that they were having performance issues with their VMs. Whenever I hear performance issues, I automatically think esxtop. To check out some good articles regarding esxtop and troubleshooting performance issues, check out my previous post ([vReference pdf](http://virtuallyhyper.com/2012/04/ubuntu-11-10-vms-experience-high-storage-latency-on-esxi-5-0/). Here are a couple of pictures from that pdf:
+Recently I received a call from a European customer saying that they were having performance issues with their VMs. Whenever I hear performance issues, I automatically think esxtop. To check out some good articles regarding esxtop and troubleshooting performance issues, check out my previous post ([vReference pdf](/2012/04/ubuntu-11-10-vms-experience-high-storage-latency-on-esxi-5-0/). Here are a couple of pictures from that pdf:
 
 ![esxtop_threshold_1](https://github.com/elatov/uploads/raw/master/2012/04/esxtop_threshold_1.png)
 
@@ -91,6 +91,7 @@ And from the [HCL](http://www.vmware.com/resources/compatibility/detail.php?devi
 > **Attention:** Storage partners using ESX 4.0 or later may recommend VMW_PSP_RR for path failover policy for certain storage array models. If desired, contact the storage array manufacturer for recommendation and instruction to set VMW_PSP_RR appropriately.
 
 We were actually using ESX 4.0, so I decided to change the pathing policy from FIXED to Round Robin. I followed the instructions from Jarret's post [Changing the Path Selection Policy to Round Robin](http://virtuallyhyper.com/2012/03/changing-the-path-selection-policy-to-round-robin/). The syntax of my command was a little different, since the customer was not running ESXi 5.0 but ESX 4.0. I ran the following:
+
 
     ~ # esxcfg-scsidevs -c | egrep -o "^naa.[0-9a-f]+" | grep naa.60060e800 | xargs -n 1 esxcli nmp device setpolicy --psp VWM_PSP_RR --device
 

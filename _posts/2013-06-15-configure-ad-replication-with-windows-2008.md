@@ -144,7 +144,7 @@ And now let's check out our DNS Records:
 
 ### Install a 2nd AD Server and Replicate Data
 
-I installed a second Active Directory Server by selecting the “Active Directory Domain Services” Role from the Server Manager Dialogue. Step by step instructions can be seen in [Deploying a Test Windows Environment in a KVM Infrastucture](http://virtuallyhyper.com/2013/04/deploying-a-test-windows-environment-in-a-kvm-infrastucture/). After that was installed I ran the following from the run dialogue:
+I installed a second Active Directory Server by selecting the “Active Directory Domain Services” Role from the Server Manager Dialogue. Step by step instructions can be seen in [Deploying a Test Windows Environment in a KVM Infrastucture](/2013/04/deploying-a-test-windows-environment-in-a-kvm-infrastucture/). After that was installed I ran the following from the run dialogue:
 
     dcpromo.exe
 

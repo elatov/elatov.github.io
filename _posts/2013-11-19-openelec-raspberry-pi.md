@@ -24,9 +24,9 @@ I received a free Raspberry Pi from [Simplivity](http://www.simplivity.com/) doe
 
 I did some research and I came across [this](http://elinux.org/RPi_SD_cards#SD_card_performance) site for a supported list of Flash Cards for the RPi. Pick one from the list that suits your needs :) I wasn't planning to put movies on the SD Card, it was going to be used for the OS. Here is a list of all the parts (and links) that I ordered for the RPi:
 
-*   [SanDisk 32 GB SDHC Class 10](http://www.amazon.com/dp/B007NDL56A/?tag=virtuallyhyper.com-20" rel="nofollow) (probably went over board with 32GB, but will be useful for something else... maybe)
-*   [Motorola USB Charger](http://www.amazon.com/dp/B005LFXBJG/?tag=virtuallyhyper.com-20" rel="nofollow)
-*   [3.5mm Stereo to 2 RCA Stereo](http://www.amazon.com/dp/B00CEVNWM6/?tag=virtuallyhyper.com-20" rel="nofollow)
+*   [SanDisk 32 GB SDHC Class 10](http://www.amazon.com/dp/B007NDL56A/?tag=virtuallyhyper.com-20") (probably went over board with 32GB, but will be useful for something else... maybe)
+*   [Motorola USB Charger](http://www.amazon.com/dp/B005LFXBJG/?tag=virtuallyhyper.com-20")
+*   [3.5mm Stereo to 2 RCA Stereo](http://www.amazon.com/dp/B00CEVNWM6/?tag=virtuallyhyper.com-20")
 
 If you are using HDMI or just regular speakers, the last part is probably unnecessary.
 
@@ -296,7 +296,7 @@ If you didn't select Automatic update during the configuration wizard you can en
 
 #### Install optware on OpenELEC
 
-I did this on the **pogoplug** device [before](http://virtuallyhyper.com/2013/09/backing-rsync-to-pogoplug/), so I decided to try it out on OpenELEC. The process is very similar. First download the main **ipkg** package
+I did this on the **pogoplug** device [before](/2013/09/backing-rsync-to-pogoplug/), so I decided to try it out on OpenELEC. The process is very similar. First download the main **ipkg** package
 
     pi:~ # mkdir -p opt/tmp
     pi:~ # cd opt/tmp

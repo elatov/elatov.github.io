@@ -18,7 +18,7 @@ tags:
 ---
 ## OpenVAS
 
-I wanted to run a vulnerability scan against my home lab to see if snort catches the event (snort setup [OpenVAS](http://virtuallyhyper.com/2014/04/snort-debian/). From their site:
+I wanted to run a vulnerability scan against my home lab to see if snort catches the event (snort setup [OpenVAS](/2014/04/snort-debian/). From their site:
 
 > OpenVAS is a framework of several services and tools offering a comprehensive and powerful vulnerability scanning and vulnerability management solution.
 
@@ -36,7 +36,7 @@ Most of the instructions are laid out in [OpenVAS for CentOS via Atomic](http://
     wget -q -O - http://www.atomicorp.com/installers/atomic | sudo sh
 
 
-Get the installer first to see what it does (for those who don't just want to run an unknown script from the web). When I was installing **ossec** (check out the post on that [here](http://virtuallyhyper.com/2014/04/ossec-freebsd/)), I ended up doing that (so I already that had YUM repository enabled). Then to install the software, run the following:
+Get the installer first to see what it does (for those who don't just want to run an unknown script from the web). When I was installing **ossec** (check out the post on that [here](/2014/04/ossec-freebsd/)), I ended up doing that (so I already that had YUM repository enabled). Then to install the software, run the following:
 
     elatov@ccl:~$sudo yum install openvas
 

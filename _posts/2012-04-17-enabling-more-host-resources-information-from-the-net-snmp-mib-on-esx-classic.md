@@ -94,7 +94,8 @@ The output was much larger. This only works for ESX and not for ESXi and as the 
 
 ### Related Posts
 
-- [ESXi on MacMini 6,2](http://virtuallyhyper.com/2014/04/esxi-macmini-62/)
+- [ESXi on MacMini 6,2](/2014/04/esxi-macmini-62/)
 - [A Few Words on VOMA](http://virtuallyhyper.com/2012/09/a-few-words-on-voma/)
-- [ESX Host Experiencing High Latency to a Hitachi HDS Array](http://virtuallyhyper.com/2012/04/esx-host-experiencing-high-latency-to-a-hitachi-array/)
+
+- [ESX Host Experiencing High Latency to a Hitachi HDS Array](/2012/04/esx-host-experiencing-high-latency-to-a-hitachi-array/)
 

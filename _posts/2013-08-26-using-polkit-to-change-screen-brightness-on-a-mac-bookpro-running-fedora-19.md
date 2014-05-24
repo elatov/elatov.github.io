@@ -15,7 +15,7 @@ tags:
   - PolicyKit
   - sudo
 ---
-I wanted to create some keyboard short cuts to change the brightness of my screen (similar to what I did [here](http://virtuallyhyper.com/2013/03/update-chrubuntu-12-04-to-13-04-on-the-samsung-chromebook/)). On my Fedora install I didn't have any gnome components installed, I was just using **lightdm** with **icewm**.
+I wanted to create some keyboard short cuts to change the brightness of my screen (similar to what I did [here](/2013/03/update-chrubuntu-12-04-to-13-04-on-the-samsung-chromebook/)). On my Fedora install I didn't have any gnome components installed, I was just using **lightdm** with **icewm**.
 
 ## Change Screen Brightness with Sysfs
 

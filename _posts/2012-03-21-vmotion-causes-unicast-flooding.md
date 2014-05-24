@@ -44,3 +44,4 @@ VMware KB [2010877](http://kb.vmware.com/kb/2010877) talks about the same thin
 
 **Update**: If you ABSOLUTELY MUST go against best practices, Joe posted about a "workaround" here: [Against Best Practices: vMotion and Management on the Same Network](http://virtuallyhyper.com/2012/04/against-best-practices-vmotion-and-management-on-the-same-network/)
 
+

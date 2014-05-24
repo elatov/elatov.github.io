@@ -395,7 +395,7 @@ Then after a restart, you should see two network adapters:
 
 ### Configure iSCSI Initiator
 
-I was running an iSCSI target on my OmniOS (I covered the setup [iSCSI Storage Setup with ESXCLI](http://virtuallyhyper.com/2014/01/zfs-iscsi-benchmarks-tests/). Let's enable the initiator and confirm it's on:
+I was running an iSCSI target on my OmniOS (I covered the setup [iSCSI Storage Setup with ESXCLI](/2014/01/zfs-iscsi-benchmarks-tests/). Let's enable the initiator and confirm it's on:
 
     ~ # esxcli iscsi software set -e true
     Software iSCSI Enabled
@@ -526,6 +526,7 @@ I didn't have a vCenter running so I had to do some manual steps. There are a co
 
 *   You can use VMware Converter, [here](http://www.youtube.com/watch?v=Jf4_4sTNBg8) is a pretty cool video on the process
 *   You can use **vmkfstools** and cp, like Jarret described [here](http://virtuallyhyper.com/2012/04/cloning-a-vm-from-the-command-line/):
+
 *   Some people have also used Veeam Fast Copy, as described [here](http://www.vmwarevideos.com/video-using-free-fast-veeam-fastscp-transfer-vm-iso-vsphere):
 *   Another cool one, that I wanted to try was using ovftool, that process is described [here](http://www.virtuallyghetto.com/2012/06/how-to-copy-vms-directly-between-esxi.html).
 

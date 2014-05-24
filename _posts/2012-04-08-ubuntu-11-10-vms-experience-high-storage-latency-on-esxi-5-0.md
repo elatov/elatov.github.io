@@ -197,8 +197,8 @@ Since the apt-xapian-index just indexes all the aptitude packages, I didn't real
 
 ### Related Posts
 
-- [Sharing a File Encrypted by EncFS with Android and Linux Systems with Google Drive](http://virtuallyhyper.com/2013/02/sharing-a-file-encrypted-by-encfs-with-android-and-linux-systems-with-google-drive/)
-- [Plot Esxtop Data With gnuplot](http://virtuallyhyper.com/2013/01/plot-esxtop-data-with-gnuplot/)
-- [VMs are Slow to Boot from an HP MSA 2000 Array](http://virtuallyhyper.com/2012/11/vms-are-slow-to-boot-from-an-hp-msa-2000-array/)
-- [Seeing High KAVG with Microsoft Cluster Services  (MSCS) RDMs](http://virtuallyhyper.com/2012/08/seeing-high-kavg-with-microsoft-cluster-services-mscs-rdms/)
+- [Sharing a File Encrypted by EncFS with Android and Linux Systems with Google Drive](/2013/02/sharing-a-file-encrypted-by-encfs-with-android-and-linux-systems-with-google-drive/)
+- [Plot Esxtop Data With gnuplot](/2013/01/plot-esxtop-data-with-gnuplot/)
+- [VMs are Slow to Boot from an HP MSA 2000 Array](/2012/11/vms-are-slow-to-boot-from-an-hp-msa-2000-array/)
+- [Seeing High KAVG with Microsoft Cluster Services  (MSCS) RDMs](/2012/08/seeing-high-kavg-with-microsoft-cluster-services-mscs-rdms/)
 

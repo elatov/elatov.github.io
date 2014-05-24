@@ -83,5 +83,5 @@ So now it was kind of setup as EST (External Switch Tagging). More information r
 
 ### Related Posts
 
-- [Tag Multiple VLANs on Trunk Port on DD-WRT Router](http://virtuallyhyper.com/2014/04/tag-multiple-vlans-on-trunk-port-on-dd-wrt-router/)
+- [Tag Multiple VLANs on Trunk Port on DD-WRT Router](/2014/04/tag-multiple-vlans-on-trunk-port-on-dd-wrt-router/)
 

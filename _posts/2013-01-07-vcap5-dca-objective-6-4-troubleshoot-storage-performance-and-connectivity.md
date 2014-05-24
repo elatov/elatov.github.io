@@ -58,7 +58,7 @@ Also from "[VMware vSphere VMFS-5 Upgrade Considerations](http://www.vmware.com/
 
 ### Use esxcli to troubleshoot multipathing and PSA-related issues
 
-This was covered in "[VCAP5-DCA Objective 1.1](http://virtuallyhyper.com/2012/10/vcap5-dca-objective-1-3-configure-and-manage-complex-multipathing-and-psa-plug-ins/)"
+This was covered in "[VCAP5-DCA Objective 1.1](/2012/10/vcap5-dca-objective-1-3-configure-and-manage-complex-multipathing-and-psa-plug-ins/)"
 
 ### Use esxcli to troubleshoot VMkernel storage module configurations
 
@@ -390,7 +390,7 @@ Here is a good summary of some issues from the above document:
 
 ### Use esxtop/resxtop and vscsiStats to identify storage performance issues
 
-The vscsiStats were covered in "[VCAP5-DCA Objective 3.4](http://virtuallyhyper.com/2012/11/vcap5-dca-objective-3-4-utilize-advanced-vsphere-performance-monitoring-tools/)"
+The vscsiStats were covered in "[VCAP5-DCA Objective 3.4](/2012/11/vcap5-dca-objective-3-4-utilize-advanced-vsphere-performance-monitoring-tools/)"
 
 As for esxtop, from [this](http://www.vmworld.net/wp-content/uploads/2012/05/Esxtop_Troubleshooting_eng.pdf) pdf:
 
@@ -531,7 +531,7 @@ From the "[vSphere Storage ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com
 
 ### Troubleshoot snapshot and re-signaturing issues
 
-This was covered in "[VCAP5-DCA Objective 1.1](http://virtuallyhyper.com/2012/10/vcap5-dca-objective-1-1-implement-and-manage-complex-storage-solutions/)"
+This was covered in "[VCAP5-DCA Objective 1.1](/2012/10/vcap5-dca-objective-1-1-implement-and-manage-complex-storage-solutions/)"
 
 ### Analyze log files to identify storage and multipathing problems
 

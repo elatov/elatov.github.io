@@ -34,8 +34,8 @@ We contacted Cisco and they had identified a known bug on the N1K. If you have c
 
 ### Related Posts
 
-- [ESXi Hosts Show Up as a VEM Module with All Zeros for UUIDs on the Nexus 1000v](http://virtuallyhyper.com/2013/01/esxi-hosts-show-up-as-a-vem-module-with-all-zeros-for-uuids-on-the-nexus-1000v/)
-- [Nexus 1000v Disconnects from vCenter](http://virtuallyhyper.com/2012/09/nexus-1000v-disconnects-from-vcenter/)
-- [Common Commands for Nexus 1000v VSM](http://virtuallyhyper.com/2012/08/common-commands-for-nexus-1000v-vsm/)
-- [Receiving "No Free Ports" Available when Connecting a VM to the Nexus 1000v](http://virtuallyhyper.com/2012/07/receiving-no-free-ports-available-connecting-vm-nexus-1000v/)
+- [ESXi Hosts Show Up as a VEM Module with All Zeros for UUIDs on the Nexus 1000v](/2013/01/esxi-hosts-show-up-as-a-vem-module-with-all-zeros-for-uuids-on-the-nexus-1000v/)
+- [Nexus 1000v Disconnects from vCenter](/2012/09/nexus-1000v-disconnects-from-vcenter/)
+- [Common Commands for Nexus 1000v VSM](/2012/08/common-commands-for-nexus-1000v-vsm/)
+- [Receiving "No Free Ports" Available when Connecting a VM to the Nexus 1000v](/2012/07/receiving-no-free-ports-available-connecting-vm-nexus-1000v/)
 

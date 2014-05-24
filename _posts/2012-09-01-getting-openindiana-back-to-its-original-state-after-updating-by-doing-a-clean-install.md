@@ -385,7 +385,7 @@ Let's make sure they are added properly:
     Member: iqn.1998-01.com.vmware:localhost-428367f3
 
 
-Now we can re-add our ZFS volumes to Comstar using the old GUID. I actually had to do this in this [previous](http://virtuallyhyper.com/2012/08/migrating-a-zfs-pool-with-zfs-volumes-used-for-nfs-shares-and-iscsi-comstar-volumes/) post of mine. So here is what I did to add my LUNs:
+Now we can re-add our ZFS volumes to Comstar using the old GUID. I actually had to do this in this [previous](/2012/08/migrating-a-zfs-pool-with-zfs-volumes-used-for-nfs-shares-and-iscsi-comstar-volumes/) post of mine. So here is what I did to add my LUNs:
 
     root@openindiana:~# stmfadm create-lu -p guid=600144f0928c010000004fc511ec0001 /dev/zvol/rdsk/data/iscsi_share
     Logical unit created: 600144F0928C010000004FC511EC0001

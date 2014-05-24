@@ -15,7 +15,7 @@ tags:
   - systemctl
   - update-alternatives
 ---
-I recently posted on [List of streaming media systems](http://virtuallyhyper.com/2012/10/installing-mediatomb-on-freebsd-9-and-connecting-to-it-with-xbmc-from-a-fedora-17-os/)". Here are the ones that stood out:
+I recently posted on [List of streaming media systems](/2012/10/installing-mediatomb-on-freebsd-9-and-connecting-to-it-with-xbmc-from-a-fedora-17-os/)". Here are the ones that stood out:
 
 *   [Firefly Media Server](http://en.wikipedia.org/wiki/Firefly_Media_Server)
 *   [Squeezebox Server](http://en.wikipedia.org/wiki/Squeezebox_Server)
@@ -147,7 +147,7 @@ The cool thing about SubSonic is the variety of applications that can be used to
 
 ### Related Posts
 
-- [RHCSA and RHCE Chapter 6 Package Management](http://virtuallyhyper.com/2013/03/rhcsa-and-rhce-chapter-6-package-management/)
-- [Fixing Android Phone Device Permissions on Fedora 17](http://virtuallyhyper.com/2013/02/fixing-android-phone-device-permissions-on-fedora-17/)
-- [Installing MusicCabinet on Top of SubSonic](http://virtuallyhyper.com/2013/02/installing-musiccabinet-on-top-of-subsonic/)
+- [RHCSA and RHCE Chapter 6 Package Management](/2013/03/rhcsa-and-rhce-chapter-6-package-management/)
+- [Fixing Android Phone Device Permissions on Fedora 17](/2013/02/fixing-android-phone-device-permissions-on-fedora-17/)
+- [Installing MusicCabinet on Top of SubSonic](/2013/02/installing-musiccabinet-on-top-of-subsonic/)
 

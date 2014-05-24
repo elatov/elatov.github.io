@@ -43,6 +43,6 @@ This is by design and makes perfect sense. We want all our resources dedicated t
 
 ### Related Posts
 
-- [Recover Files from an SD Card Using Linux Utilities](http://virtuallyhyper.com/2012/11/recover-files-from-an-sd-card-using-linux-utilities/)
-- [Can't Set X520 10GbE Intel NIC to Auto Negotiate on ESX(i)](http://virtuallyhyper.com/2012/10/cant-set-x520-10gbe-intel-nic-to-auto-negotiate-on-esxi/)
+- [Recover Files from an SD Card Using Linux Utilities](/2012/11/recover-files-from-an-sd-card-using-linux-utilities/)
+- [Can't Set X520 10GbE Intel NIC to Auto Negotiate on ESX(i)](/2012/10/cant-set-x520-10gbe-intel-nic-to-auto-negotiate-on-esxi/)
 

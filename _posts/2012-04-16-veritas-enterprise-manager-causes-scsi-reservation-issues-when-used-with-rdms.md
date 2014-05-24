@@ -84,5 +84,5 @@ I asked the customer what that RDM was used for, and to check if there is any sp
 
 ### Related Posts
 
-- [Seeing SCSI Command Aborts on an ESX 3.5 Host](http://virtuallyhyper.com/2012/05/seeing-scsi-command-aborts-esx-3-5-host/)
+- [Seeing SCSI Command Aborts on an ESX 3.5 Host](/2012/05/seeing-scsi-command-aborts-esx-3-5-host/)
 

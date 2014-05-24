@@ -31,7 +31,7 @@ Here is quick diagram of what I was trying to achieve:
 
 *   Virtual IP: 192.168.250.51
 
-I setup both of the IIS Servers in same manner as I described in [this](http://virtuallyhyper.com/2013/04/deploying-a-test-windows-environment-in-a-kvm-infrastucture) post. Since both of the IIS Servers were VMs running on KVM, I was able to easily add a secondary network interfaces to both VMs and ensure that they are on the same network. I will be using NLB in *Unicast* mode and that is why two interfaces is necessary (I will talk more about that later).
+I setup both of the IIS Servers in same manner as I described in [this](/2013/04/deploying-a-test-windows-environment-in-a-kvm-infrastucture) post. Since both of the IIS Servers were VMs running on KVM, I was able to easily add a secondary network interfaces to both VMs and ensure that they are on the same network. I will be using NLB in *Unicast* mode and that is why two interfaces is necessary (I will talk more about that later).
 
 Just for reference here is the IP configuration for IIS-1 :
 

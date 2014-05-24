@@ -234,7 +234,7 @@ It will show you a similar output of the CPU and Memory usage. You can also chec
 
 ### Properly size a Virtual Machine based on application workload
 
-I actually covered this in [DCD Objective 3.5](http://virtuallyhyper.com/2012/09/vcap5-dcd-objective-3-5-determine-virtual-machine-configuration-for-a-vsphere-5-physical-design/).
+I actually covered this in [DCD Objective 3.5](/2012/09/vcap5-dcd-objective-3-5-determine-virtual-machine-configuration-for-a-vsphere-5-physical-design/).
 
 ### Modify large memory page settings
 
