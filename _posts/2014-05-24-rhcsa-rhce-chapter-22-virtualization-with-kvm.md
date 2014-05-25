@@ -12,6 +12,7 @@ tags:
   - KVM
   - RHEL
   - libvirt
+  - rhcsa_and_rhce
 ---
 
 ### KVM
@@ -23,7 +24,7 @@ From the [Virtualization Getting Started Guide](https://access.redhat.com/site/d
 
 and from the [Virtualization Tuning and Optimization Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Virtualization_Tuning_and_Optimization_Guide/Red_Hat_Enterprise_Linux-6-Virtualization_Tuning_and_Optimization_Guide-en-US.pdf) here is a quick overview:
 
-![kvm-overview.png](https://github.com/elatov/2014/05/kvm-overview.png)
+![kvm-overview.png](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/08a87c899c6725514eebce8c98aeb7a7b6bbbf9b/?file_name=kvm-overview.png&op=download&t=3af623c609)
 
 ### Installing The Hypervisor
 
@@ -42,7 +43,7 @@ From the [Virtualization Host Configuration and Guest Installation Guide](https:
 > 
 > 	Complete the other steps up to the package selection step.
 > 	
-> 	![virt-host-select-rhel-install](/2014/04/virt-host-select-rhel-install.png)
+> 	![virt-host-select-rhel-install](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/6388c819c7f2f3d2eca22b76736285cfba6c092b/?file_name=virt-host-select-rhel-install.png&op=download&t=3af623c609)
 > 	
 > 	Select the **Virtualization Host** server role to install a platform for guest virtual machines. 
 > 
@@ -50,28 +51,31 @@ From the [Virtualization Host Configuration and Guest Installation Guide](https:
 > 
 > To use virtualization on Red Hat Enterprise Linux you require at least the **qemu-kvm** and **qemu-img** packages. These packages provide the user-level KVM emulator and disk image manager on the host Red Hat Enterprise Linux system.
 > 
-> To install the qemu-kvm and qemu-img packages, run the following command:
-> 	# yum install qemu-kvm qemu-img
+> To install the **qemu-kvm** and **qemu-img** packages, run the following command:
+>
+>	# yum install qemu-kvm qemu-img
+>
 > Several additional virtualization management packages are also available:
+>
 > Recommended virtualization packages
 > 
-> - python-virtinst - Provides the virt-install command for creating virtual machines.
-> - libvirt - The libvirt package provides the server and host side libraries for interacting with hypervisors and host systems. The libvirt package provides the libvirtd daemon that handles the library calls, manages virtual machines and controls the hypervisor.
-> - libvirt-python - The libvirt-python package contains a module that permits applications written in the Python programming language to use the interface supplied by the libvirt API.
-> - virt-manager - virt-manager, also known as Virtual Machine Manager, provides a graphical tool for administering virtual machines. It uses libvirt-client library as the management API.
-> - libvirt-client - The libvirt-client package provides the client-side APIs and libraries for accessing libvirt servers. The libvirt-client package includes the virsh command line tool to manage and control virtual machines and hypervisors from the command line or a special virtualization shell.
+> - **python-virtinst** - Provides the virt-install command for creating virtual machines.
+> - **libvirt** - The libvirt package provides the server and host side libraries for interacting with hypervisors and host systems. The libvirt package provides the libvirtd daemon that handles the library calls, manages virtual machines and controls the hypervisor.
+> - **libvirt-python** - The libvirt-python package contains a module that permits applications written in the Python programming language to use the interface supplied by the libvirt API.
+> - **virt-manager** - virt-manager, also known as Virtual Machine Manager, provides a graphical tool for administering virtual machines. It uses libvirt-client library as the management API.
+> - **libvirt-client** - The libvirt-client package provides the client-side APIs and libraries for accessing libvirt servers. The libvirt-client package includes the virsh command line tool to manage and control virtual machines and hypervisors from the command line or a special virtualization shell.
 > 
 > Install all of these recommended virtualization packages with the following command:
 >
 > 	# yum install virt-manager libvirt libvirt-python python-virtinst libvirt-client
 >
-> Installing Virtualization package groups
+> ####Installing Virtualization package groups
 >
 > The virtualization packages can also be installed from package groups. The following table describes the virtualization package groups and what they provide.
 > 
 > Virtualization Package Groups
 > 
-> ![virt-group-pkgs](http://github/2014/05/virt-group-pkgs.png)
+> ![virt-group-pkgs](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/694c22f17540ccb5f43e7bdc7773691a47c7863b/?file_name=virt-group-pkgs.png&op=download&t=3af623c609)
 > 
 > To install a package group, run the `yum groupinstall <groupname>` command. For instance, to install the Virtualization Tools package group, run the **yum groupinstall "Virtualization Tools"** command.
 
@@ -110,7 +114,7 @@ Also from the Virtualization Host Configuration and Guest Installation Guide:
 > 
 > 		# lsmod | grep kvm
 > 
-> 	If the output includes kvm_intel or kvm_amd then the kvm hardware virtualization modules are loaded and your system meets requirements.
+> 	If the output includes **kvm_intel** or **kvm_amd** then the kvm hardware virtualization modules are loaded and your system meets requirements.
 
 ### Install KVM Hypervisor Example
 
@@ -145,24 +149,24 @@ From the [Virtualization Administration Guide](https://access.redhat.com/site/do
 > 	# chkconfig libvirtd on
 > 	# service libvirtd start
 > 	
-> After libvirtd and SSH are configured you should be able to remotely access and manage your virtual machines. You should also be able to access your guests with VNC at this point.
+> After **libvirtd** and SSH are configured you should be able to remotely access and manage your virtual machines. You should also be able to access your guests with VNC at this point.
 
 ###  Libvirt and libvirt tools
 From the Virtualization Getting Started Guide:
 
-> The libvirt package is a hypervisor-independent virtualization API that is able to interact with the virtualization capabilities of a range of operating systems.
+> The **libvirt** package is a hypervisor-independent virtualization API that is able to interact with the virtualization capabilities of a range of operating systems.
 > 
-> The libvirt package provides:
+> The **libvirt** package provides:
 > 
 > - A common, generic, and stable layer to securely manage virtual machines on a host.
 > - A common interface for managing local systems and networked hosts.
 > - All of the APIs required to provision, create, modify, monitor, control, migrate, and stop virtual machines, but only if the hypervisor supports these operations. Although multiple hosts may be accessed with libvirt simultaneously, the APIs are limited to single node operations.
 > 
-> The libvirt package is designed as a building block for higher level management tools and applications, for example,**virt-manager** and the **virsh** command-line management tools. With the exception of migration capabilities, libvirt focuses on managing single hosts and provides APIs to enumerate, monitor and use the resources available on the managed node, including CPUs, memory, storage, networking and Non-Uniform Memory Access (NUMA) partitions. The management tools can be located on separate physical machines from the host using secure protocols.
+> The **libvirt** package is designed as a building block for higher level management tools and applications, for example,**virt-manager** and the **virsh** command-line management tools. With the exception of migration capabilities, libvirt focuses on managing single hosts and provides APIs to enumerate, monitor and use the resources available on the managed node, including CPUs, memory, storage, networking and Non-Uniform Memory Access (NUMA) partitions. The management tools can be located on separate physical machines from the host using secure protocols.
 > 
-> Red Hat Enterprise Linux 6 supports libvirt and included libvirt-based tools as its default method for virtualization management (as in Red Hat Enterprise Virtualization Management).
+> Red Hat Enterprise Linux 6 supports **libvirt** and included **libvirt**-based tools as its default method for virtualization management (as in Red Hat Enterprise Virtualization Management).
 > 
-> The libvirt package is available as free software under the GNU Lesser General Public License. The libvirt project aims to provide a long term stable C API to virtualization management tools, running on top of varying hypervisor technologies. The libvirt package supports Xen on Red Hat Enterprise Linux 5, and it supports KVM on both Red Hat Enterprise Linux 5 and Red Hat Enterprise Linux 6.
+> The **libvirt** package is available as free software under the GNU Lesser General Public License. The libvirt project aims to provide a long term stable C API to virtualization management tools, running on top of varying hypervisor technologies. The libvirt package supports Xen on Red Hat Enterprise Linux 5, and it supports KVM on both Red Hat Enterprise Linux 5 and Red Hat Enterprise Linux 6.
 > 
 > - **virsh** - The virsh command-line tool is built on the libvirt management API and operates as an alternative to the graphical virt-manager application. The virsh command can be used in read-only mode by unprivileged users or, with root access, full administration functionality. The virsh command is ideal for scripting virtualization administration.
 > - **virt-manager** - virt-manager is a graphical desktop tool for managing virtual machines. It allows access to graphical guest consoles and can be used to perform virtualization administration, virtual machine creation, migration, and configuration tasks. The ability to view virtual machines, host statistics, device information and performance graphs is also provided. The local hypervisor and remote hypervisors can be managed through a single interface.
@@ -172,10 +176,10 @@ From the Virtualization Getting Started Guide:
 
 From the Virtualization Administration Guide:
 
-> **virsh** is a command line interface tool for managing guest virtual machines and the hypervisor. The virsh command-line tool is built on the libvirt management API and operates as an alternative to the qemu-kvm command and the graphical virt-manager application. The virsh command can be used in read-only mode by unprivileged users or, with root access, full administration functionality. The virsh command is ideal for scripting virtualization administration.
+> **virsh** is a command line interface tool for managing guest virtual machines and the hypervisor. The **virsh** command-line tool is built on the **libvirt** management API and operates as an alternative to the **qemu-kvm** command and the graphical **virt-manager** application. The **virsh** command can be used in read-only mode by unprivileged users or, with root access, full administration functionality. The **virsh** command is ideal for scripting virtualization administration.
 > 
 > #### virsh command quick reference
-> The following tables provide a quick reference for all virsh command line options.
+> The following tables provide a quick reference for all **virsh** command line options.
 > 
 > ####guest virtual machine management options
 > 
@@ -217,7 +221,7 @@ From the Virtualization Administration Guide:
 > |undefine|	 Deletes all files associated with a guest virtual machine.|
 > |migrate|	 Migrates a guest virtual machine to another host physical machine.|
 > 
-> The following virsh command options manage guest virtual machine and hypervisor resources:
+> The following **virsh** command options manage guest virtual machine and hypervisor resources:
 > 
 > #### Resource management options
 > 
@@ -238,7 +242,7 @@ From the Virtualization Administration Guide:
 > |detach-disk	| Detaches a disk device from a guest virtual machine.|
 > |detach-interface	| Detach a network interface from a guest virtual machine.|
 > 
-> The virsh commands for managing and creating storage pools and volumes.
+> The **virsh** commands for managing and creating storage pools and volumes.
 > 
 > ####Storage Pool options
 > 
@@ -303,7 +307,7 @@ From the Virtualization Administration Guide:
 > |nwfilter-list	| List network filters.|
 > |nwfilter-edit	| Edit XML configuration for a network filter.|
 > 
-> This table contains virsh command options for snapshots:
+> This table contains **virsh** command options for snapshots:
 > 
 > #### Snapshot options
 > 
@@ -316,7 +320,7 @@ From the Virtualization Administration Guide:
 > |snapshot-list	| List snapshots for a domain.|
 > |snapshot-revert|	 Revert a domain to a snapshot.|
 > 
-> This table contains miscellaneous virsh commands:
+> This table contains miscellaneous **virsh** commands:
 > 
 > #### Miscellaneous options
 > 
@@ -358,6 +362,7 @@ From the same guide:
 > 		pool-start                     start a (previously defined) inactive pool
 > 		pool-undefine                  undefine an inactive pool
 > 		pool-uuid                      convert a pool name to pool UUID
+>
 > Using the same command with a command option, gives the help information on that one specific command. For example:
 > 
 > 	$virsh help vol-path
@@ -390,7 +395,7 @@ From the same guide:
 > 
 > **connect**
 > 
-> Connects to a hypervisor session. When the shell is first started this command runs automatically when the URI parameter is requested by the -c command. The URI specifies how to connect to the hypervisor. The most commonly used URIs are:
+> Connects to a hypervisor session. When the shell is first started this command runs automatically when the URI parameter is requested by the **-c** command. The URI specifies how to connect to the hypervisor. The most commonly used URIs are:
 > 
 > - **xen:///**- connects to the local XEN hypervisor
 > - **qemu:///system** - connects locally as root to the daemon supervising QEMU and KVM domains.
@@ -408,10 +413,9 @@ From the same guide:
 
 ### Libvirt and virsh Example
 
-So let's go ahead and install libvirtd and ensure that it's running:
+So let's go ahead and install **libvirtd** and ensure that it's running:
 
 	[root@rhel3 ~]# yum install libvirt
-
 	[root@rhel3 ~]# chkconfig --list libvirtd
 	libvirtd       	0:off	1:off	2:off	3:on	4:on	5:on	6:off
 	[root@rhel3 ~]# service libvirtd status
@@ -606,13 +610,13 @@ From the Virtualization Host Configuration and Guest Installation Guide:
 > 	bridge name     bridge id               STP enabled     interfaces
 > 	virbr0          8000.000000000000       yes
 > 
-> **libvirt** adds **iptables** rules which allow traffic to and from guest virtual machines attached to the **virbr0** device in the **INPUT**, **FORWARD**, **OUTPUT** and **POSTROUTING** chains. libvirt then attempts to enable the **ip_forward** parameter. Some other applications may disable ip_forward, so the best option is to add the following to **/etc/sysctl.conf**.
+> **libvirt** adds **iptables** rules which allow traffic to and from guest virtual machines attached to the **virbr0** device in the **INPUT**, **FORWARD**, **OUTPUT** and **POSTROUTING** chains. **libvirt** then attempts to enable the **ip_forward** parameter. Some other applications may disable **ip_forward**, so the best option is to add the following to **/etc/sysctl.conf**.
 > 
 > 	net.ipv4.ip_forward = 1
 > 
 > **Guest virtual machine configuration**
 > 
-> Once the host configuration is complete, a guest virtual machine can be connected to the virtual network based on its name. To connect a guest to the 'default' virtual network, the following could be used in the XML configuration file (such as **/etc/libvirtd/qemu/myguest.xml**) for the guest:
+> Once the host configuration is complete, a guest virtual machine can be connected to the virtual network based on its name. To connect a guest to the '**default**' virtual network, the following could be used in the XML configuration file (such as **/etc/libvirtd/qemu/myguest.xml**) for the guest:
 > 
 > 	<interface type='network'>
 > 	   <source network='default'/>
@@ -640,11 +644,11 @@ From the Virtualization Host Configuration and Guest Installation Guide:
 
 ### VM Images and Installation Locations
 
-From Virtualization_Administration_Guide:
+From the Virtualization_Administration_Guide:
 
 > Use a central location for virtual machine installations and images. Virtual machine images should be stored under **/var/lib/libvirt/images/**. If you are using a different directory for your virtual machine images make sure you add the directory to your SELinux policy and relabel it before starting the installation. Use of shareable, network storage in a central location is highly recommended.
 
-and from /Virtualization_Host_Configuration_and_Guest_Installation_Guide:
+and from the Virtualization_Host_Configuration_and_Guest_Installation_Guide:
 
 > For ISO image files and guest storage images, the recommended location to use is **/var/lib/libvirt/images**/. Any other location may require additional configuration by SELinux.
 
@@ -667,14 +671,14 @@ Now let's make sure it's assigned to a bridge:
 	Autostart:      yes
 	Bridge:         virbr0
 
-Then install bridge-utils and check the bridge:
+Then install **bridge-utils** and check the bridge:
 
 	[root@rhel3 ~]# yum install bridge-utils
 	[root@rhel3 ~]# brctl show
 	bridge name	bridge id		STP enabled	interfaces
 	virbr0		8000.525400e08ccf	yes		virbr0-nic
 	
-Here are the firewall rules that were added by the libvirt package:
+Here are the firewall rules that were added by the **libvirt** package:
 
 	[root@rhel3 ~]# iptables -L -n -v
 	Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
@@ -716,7 +720,7 @@ And here is the **nat** table:
 	Chain OUTPUT (policy ACCEPT 12 packets, 699 bytes)
 	 pkts bytes target     prot opt in     out     source               destination         
 
-I was okay with the NAT approach for now. I also wanted to make sure the ip_forward flag was applied:
+I was okay with the NAT approach for now. I also wanted to make sure the **ip_forward** flag was applied:
 
 	[root@rhel3 ~]# cat /proc/sys/net/ipv4/ip_forward 
 	0
@@ -791,9 +795,9 @@ From the Virtualization_Administration_Guide:
 > |vnc|	 Starts a VNC server. The port attribute specifies the TCP port number (with -1 as legacy syntax indicating that it should be auto-allocated). The autoport attribute is the new preferred syntax for indicating autoallocation of the TCP port to use. The listen attribute is an IP address for the server to listen on. The passwd attribute provides a VNC password in clear text. The keymap attribute specifies the keymap to use. It is possible to set a limit on the validity of the password be giving an timestamp **passwdValidTo='2010-04-09T15:51:00'** assumed to be in UTC. The **connected** attribute allows control of connected client during password changes. VNC accepts keep value only and note that it may not be supported by all hypervisors. Rather than using listen/port, QEMU supports a socket attribute for listening on a unix domain socket path.|
 > |spice|	 Starts a SPICE server. The port attribute specifies the TCP port number (with -1 as legacy syntax indicating that it should be auto-allocated), while tlsPort gives an alternative secure port number. The autoport attribute is the new preferred syntax for indicating auto-allocation of both port numbers. The listen attribute is an IP address for the server to listen on. The passwd attribute provides a SPICE password in clear text. The keymap attribute specifies the keymap to use. It is possible to set a limit on the validity of the password be giving an timestamp passwdValidTo='2010-04-09T15:51:00' assumed to be in UTC. The connected attribute allows control of connected client during password changes. SPICE accepts keep to keep client connected, disconnect to disconnect client and fail to fail changing password. Note it is not be supported by all hypervisors. The defaultMode attribute sets the default channel security policy, valid values are secure, insecure and the default any (which is secure if possible, but falls back to insecure rather than erroring out if no secure path is available).|
 
-#### Prepare firewall for VNC Example
+### Prepare firewall for VNC Example
 
-I will just use VNC to connect to the VM's console. If I am going to do that, I will need to open up the firewall to allow 5900-5910 at least for testing. We actually covered this in [Chapter 13](/2014/03/rhcsa-rhce-chapter-13-remote-access/). Here is the command to do that:
+I will just use VNC to connect to the VM's console. If I am going to do that, I will need to open up the firewall to allow **5900-5910** at least for testing. We actually covered this in [Chapter 13](/2014/03/rhcsa-rhce-chapter-13-remote-access/). Here is the command to do that:
 
 	[root@rhel3 ~]# iptables -I INPUT 8 -m state --state NEW -m tcp -p tcp --dport 5900:5910 -j ACCEPT
 	[root@rhel3 ~]# service iptables save
@@ -842,7 +846,7 @@ First let's install the utility:
 	
 Here is a command that will create the VM:
 
-	virt-install --name=centos --ram=512 --vcpus=1 --cdrom=/var/lib/libvirt/images/CentOS-6.5-x86_64-minimal.iso --os-type=linux --os-variant=rhel6 --disk=/var/lib/libvirt/images/centos.img,size=5 --network network=default --graphics=vnc,listen=0.0.0.0,keymap=en-us --noautoconsole
+	[root@rhel3 ~]# virt-install --name=centos --ram=512 --vcpus=1 --cdrom=/var/lib/libvirt/images/CentOS-6.5-x86_64-minimal.iso --os-type=linux --os-variant=rhel6 --disk=/var/lib/libvirt/images/centos.img,size=5 --network network=default --graphics=vnc,listen=0.0.0.0,keymap=en-us --noautoconsole
 
 	Starting install...
 	Allocating 'centos.img'                                                                                         | 5.0 GB     00:00     
@@ -865,7 +869,7 @@ Now find the *vncdisplay* assigned to the VM:
 	[root@rhel3 ~]# netstat -ant | grep 590
 	tcp        0      0 0.0.0.0:5900                0.0.0.0:*                   LISTEN 
 
-Looks like it's just 5900.  Now let's install virt-viewer:
+Looks like it's just **5900**.  Now let's install **virt-viewer**:
 
 	[root@rhel3 ~]# yum install virt-viewer xauth xorg-x11-fonts-Type1
 
@@ -879,9 +883,9 @@ and reconnect to our host with X-forwarding:
 
 and you should see the following:
 
-![virt-viewer-launched-x-forward](virt-viewer-launched-x-forward.png)
+![virt-viewer-launched-x-forward](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/12991076fc992c0c559a92e281ec80413d36e6ff/?file_name=virt-viewer-launched-x-forward.png&op=download&t=3af623c609)
 
-From there we can just finish the install. Let's stop there, shutdown the VM and delete it:
+From there we can just finish the install. Let's stop there, shutdown the VM, and delete it:
 
 	[root@rhel3 ~]# virsh
 	Welcome to virsh, the virtualization interactive terminal.
@@ -910,7 +914,7 @@ Lastly remove the disk image file that was created for the VM:
 	[root@rhel3 ~]# rm /var/lib/libvirt/images/centos.img 
 	rm: remove regular file '/var/lib/libvirt/images/centos.img'? y
 
-Since I started the VNC server for the VM on 0.0.0.0, I could connect to the VM from a remote machine using a regular vnc client:
+Since I started the VNC server for the VM on **0.0.0.0** (remote and not just local), I could connect to the VM from a remote machine using a regular vnc client:
 
 	elatov@fed:~$vncviewer rhel3:0
 
@@ -930,9 +934,9 @@ Since I started the VNC server for the VM on 0.0.0.0, I could connect to the VM 
 
 and you will again see the same window:
 
-![vncviewer-connected-to-kvm-vm](vncviewer-connected-to-kvm-vm.png)
+![vncviewer-connected-to-kvm-vm](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/f62f32190fd1fa7fc05e5e13264fe93e1d8e3198/?file_name=vncviewer-connected-to-kvm-vm.png&op=download&t=3af623c609)
 
-If you always able to SSH forward then might as do that for security reasons, and then you can close the 5900 ports. This was just for demostration purposes. 
+If you are always able to SSH forward then might as well do that for security reasons, and then you can close the **5900** ports in the firewall. This was just for demostration purposes. 
 
 ### Creating guests with virt-manager
 
@@ -954,7 +958,7 @@ From the Virtualization_Host_Configuration_and_Guest_Installation_Guide:
 > 
 > 	The **virt-manager** window allows you to create a new virtual machine. Click the **Create a new virtual** machine button to open the New VM wizard.
 > 
-> 	![virt-man-p1](virt-man-p1.png)
+> 	![virt-man-p1](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/28d166ffefc45242b9ef13bbf931e7c344bfc922/?file_name=virt-man-p1.png&op=download&t=3af623c609)
 > 
 > 	The New VM wizard breaks down the virtual machine creation process into five steps:
 > 
@@ -970,14 +974,14 @@ From the Virtualization_Host_Configuration_and_Guest_Installation_Guide:
 > 
 > 	The guest virtual machine creation process starts with the selection of a name and installation type. Virtual machine names can have underscores (_), periods (.), and hyphens (-).
 > 
-> 	![virt-man-p2](virt-man-p2.png)
+> 	![virt-man-p2](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/65b5f9e3b3fb722b42f151ae5a49055a8a5603f5/?file_name=virt-man-p2.png&op=download&t=3af623c609)
 > 
 > 	Type in a virtual machine name and choose an installation type:
 > 
-> 	- Local install media (ISO image or CDROM)- This method uses a CD-ROM, DVD, or image of an installation disk (for example, .iso).
-> 	- Network Install (HTTP, FTP, or NFS) - This method involves the use of a mirrored Red Hat Enterprise Linux or Fedora installation tree to install a guest. The installation tree must be accessible through either HTTP, FTP, or NFS.
-> 	- Network Boot (PXE) - This method uses a Preboot eXecution Environment (PXE) server to install the guest virtual machine. To install via network boot, the guest must have a routable IP address or shared network device.
-> 	- Import existing disk image - This method allows you to create a new guest virtual machine and import a disk image (containing a pre-installed, bootable operating system) to it.
+> 	- **Local install media** (ISO image or CDROM) - This method uses a CD-ROM, DVD, or image of an installation disk (for example, .iso).
+> 	- **Network Install** (HTTP, FTP, or NFS) - This method involves the use of a mirrored Red Hat Enterprise Linux or Fedora installation tree to install a guest. The installation tree must be accessible through either HTTP, FTP, or NFS.
+> 	- **Network Boot** (PXE) - This method uses a Preboot eXecution Environment (PXE) server to install the guest virtual machine. To install via network boot, the guest must have a routable IP address or shared network device.
+> 	- **Import existing disk image** - This method allows you to create a new guest virtual machine and import a disk image (containing a pre-installed, bootable operating system) to it.
 > 
 > 	Click Forward to continue.
 > 
@@ -985,21 +989,21 @@ From the Virtualization_Host_Configuration_and_Guest_Installation_Guide:
 > 
 > 	Next, configure the **OS type** and **Version** of the installation. Ensure that you select the appropriate OS type for your virtual machine. Depending on the method of installation, provide the install URL or existing storage path.
 > 
-> 	![virt-man-p3](virt-man-p3.png)
+> 	![virt-man-p3](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/2a8242a3ae49a04432a95ac1e281c58a5875b254/?file_name=virt-man-p3.png&op=download&t=3af623c609)
 > 
-> 	![virt-man-p4](virt-man-p4.png)
+> 	![virt-man-p4](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/03c15bb24a5c278769483e8b02690833fcec17b8/?file_name=virt-man-p4.png&op=download&t=3af623c609)
 > 
 > 6. Configure CPU and memory
 > 
 > 	The next step involves configuring the number of CPUs and amount of memory to allocate to the virtual machine. The wizard shows the number of CPUs and amount of memory you can allocate; configure these settings and click **Forward**.
 > 
-> 	![virt-man-p4](virt-man-p4.png)
+> 	![virt-man-p5](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/a7e96f689c60b8497e4d4b15a9cac324778990ff/?file_name=virt-man-p5.png&op=download&t=3af623c609)
 > 
 > 7. Configure storage
 > 
 > 	Assign storage to the guest virtual machine.
 > 
-> 	![virt-man-p5.png](virt-man-p5.png)
+> 	![virt-man-p5-5.png](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/caeee3431eb3be3701c464fc282608df2fc6dab1/?file_name=virt-man-p5-5.png&op=download&t=3af623c609)
 > 
 > 	If you chose to import an existing disk image during the first step, virt-manager will skip this step.
 > 
@@ -1009,7 +1013,7 @@ From the Virtualization_Host_Configuration_and_Guest_Installation_Guide:
 > 
 > 	Verify the settings of the virtual machine and click Finish when you are satisfied; doing so will create the virtual machine with default networking settings, virtualization type, and architecture.
 > 
-> 	![virt-man-p6](virt-man-p6.png)
+> 	![virt-man-p6](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/394bf15665dc2a5e99c3b96d45b6400237572e9f/?file_name=virt-man-p6.png&op=download&t=3af623c609)
 > 
 > 
 > 	If you prefer to further configure the virtual machine's hardware first, check the **Customize configuration before install** box first before clicking **Finish**. Doing so will open another wizard that will allow you to add, remove, and configure the virtual machine's hardware settings.
@@ -1022,7 +1026,7 @@ First let's install the utlility:
 
 	[root@rhel3 ~]# yum install virt-manager
 	
-Then launch the application if you are already using SSH X-Forwaring, if not relogin with ssh enabling X-Forwaring (**ssh -X**). 
+Then launch the application if you are already using SSH X-Forwaring, if not, relogin with ssh enabling X-Forwaring (**ssh -X**). 
 
 	[root@rhel3 ~]# virt-manager 
 	process 11006: D-Bus library appears to be incorrectly set up; failed to read machine uuid: Failed to open "/var/lib/dbus/machine-id": No such file or directory
@@ -1030,67 +1034,72 @@ Then launch the application if you are already using SSH X-Forwaring, if not rel
 	  D-Bus not built with -rdynamic so unable to print a backtrace
 	Aborted
 
-Initially I ran into issue launching that. It turns out there is bug with the dbus rpm. Here is [link](https://bugzilla.redhat.com/show_bug.cgi?id=598200) to the bug, to fix the issue, just run the following:
+Initially I ran into issue launching that. It turns out this is a know issue and there was a bug filed on it. Here is [link](https://bugzilla.redhat.com/show_bug.cgi?id=598200) to the bug, to fix the issue, just run the following:
 
 	[root@rhel3 ~]# dbus-uuidgen > /var/lib/dbus/machine-id
+	
+or the following:
 
-After that it started up without issues:
+	[root@rhel3 ~]# service messagebus start
+	Starting system message bus:                               [  OK  ]
+
+After that, it started up without issues:
 
 	[root@rhel3 ~]# virt-manager 
 	[root@rhel3 ~]# 
 
 And I saw the following window:
 
-![virt-man-launched](virt-man-launched.png)
+![virt-man-launched](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/f390b8f5687643c0adf5c6cc7f3ba10ef4e012bb/?file_name=virt-man-launched.png&op=download&t=3af623c609)
 
 We can see that is already connected to the qemu system, which is great. Now let's click "New" and you should see the following pop up:
 
-![virt-man-new-vm-p1](virt-man-new-vm-p1.png)
+![virt-man-new-vm-p1](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/6169d7da3a967f8b6b7d0d38b91ec6a539c0966f/?file_name=virt-man-new-vm-p1.png&op=download&t=3af623c609)
 
 **Name** the VM, select **Local install media**, and click **Forward**. On the next page, choose to point to an ISO and upon clicking on that you will see the default volume (**/var/lib/libvirt/images**). From there you can select the ISO:
 
-![virt-man-select-centos-iso](virt-man-select-centos-iso.png)
+![virt-man-select-centos-iso](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/2e526ed071e1f561447b31b22d12428d04f6dd56/?file_name=virt-man-select-centos-iso.png&op=download&t=3af623c609)
 
 Then select the **OS Type** and **Version**. After done, it should look like this:
 
-![virt-man-os-selected](virt-man-os-selected.png)
+![virt-man-os-selected](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/4f2686340d6ec6539e5b0e7a6131433d9db1ebe4/?file_name=virt-man-os-selected.png&op=download&t=3af623c609)
 
 Click **Forward**, select **RAM** and **CPU** settings, it should look like this:
 
-![virt-man-ram-cpu-settings](virt-man-ram-cpu-settings.png)
+![virt-man-ram-cpu-settings](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/d5e48b8a842c143b5f3687a782ffe4c7394fff26/?file_name=virt-man-ram-cpu-settings.png&op=download&t=3af623c609)
 
 Click Forward and select the disk size:
 
-![virt-man-vm-disk-size](virt-man-vm-disk-size.png)
+![virt-man-vm-disk-size](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/4db1f07049078b721282d12e6d617d29ec4d63b9/?file_name=virt-man-vm-disk-size.png&op=download&t=3af623c609)
 
 Click Forward and you should see the final page:
 
-![virt-man-final-page](virt-man-final-page.png)
+![virt-man-final-page](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/f3d53597becf0817ca59ccf75e7c836025117afd/?file_name=virt-man-final-page.png&op=download&t=3af623c609)
 
-Upon clicking Finish you will see the console of the VM:
+Upon clicking **Finish** you will see the console of the VM:
 
-![virt-man-console-open-after-install](virt-man-console-open-after-install.png)
+![virt-man-console-open-after-install](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/6cdc70849897e6274c0d92c924f09b99c02cd7b9/?file_name=virt-man-console-open-after-install.png&op=download&t=3af623c609)
 
 You will also see the VM in the Virt-Manager's Inventory:
 
-![virt-man-centos-running](virt-man-centos-running.png)
+![virt-man-centos-running](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/5709816a477a91e430d3cd72cbaf26301ba77e0d/?file_name=virt-man-centos-running.png&op=download&t=3af623c609)
 
 If you proceed with the VM install, here is how the disk setup page will look like:
 
-![virt-man-centos-install-disk-page](virt-man-centos-install-disk-page.png)
+![virt-man-centos-install-disk-page](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/99d94739716b0ce5acd0d17ad89a6394286cf729/?file_name=virt-man-centos-install-disk-page.png&op=download&t=3af623c609)
 
 After the install is finished, you will see the OS booted up:
 
-![virt-man-os-booted](virt-man-os-booted.png)
+![virt-man-os-booted](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/f4284a7ffe4877979fb00ea122394445bf9f647a/?file_name=virt-man-os-booted.png&op=download&t=3af623c609)
 
-You can also check on the KVM host it self to see all the parameters passed to the **qemu-kvm** binary when it start up the VM, by checking out the VM specific logs that **libvirt** has:
+You can also check on the KVM host it self to see all the parameters passed to the **qemu-kvm** binary when it starts up the VM, by checking out the VM specific logs that **libvirt** generates:
 
 	[root@rhel3 ~]# tail -3 /var/log/libvirt/qemu/centos.log 
 	2014-05-25 01:12:47.827+0000: starting up
 	LC_ALL=C PATH=/sbin:/usr/sbin:/bin:/usr/bin QEMU_AUDIO_DRV=none /usr/libexec/qemu-kvm -name centos -S -M rhel6.4.0 -enable-kvm -m 512 -smp 1,sockets=1,cores=1,threads=1 -uuid 6eeb6219-97d4-7209-b422-b622494a12aa -nodefconfig -nodefaults -chardev socket,id=charmonitor,path=/var/lib/libvirt/qemu/centos.monitor,server,nowait -mon chardev=charmonitor,id=monitor,mode=control -rtc base=utc -no-shutdown -device piix3-usb-uhci,id=usb,bus=pci.0,addr=0x1.0x2 -drive file=/var/lib/libvirt/images/centos.img,if=none,id=drive-virtio-disk0,format=raw,cache=none -device virtio-blk-pci,scsi=off,bus=pci.0,addr=0x5,drive=drive-virtio-disk0,id=virtio-disk0,bootindex=1 -drive if=none,media=cdrom,id=drive-ide0-1-0,readonly=on,format=raw -device ide-drive,bus=ide.1,unit=0,drive=drive-ide0-1-0,id=ide0-1-0 -netdev tap,fd=22,id=hostnet0,vhost=on,vhostfd=23 -device virtio-net-pci,netdev=hostnet0,id=net0,mac=52:54:00:69:0c:ab,bus=pci.0,addr=0x3 -chardev pty,id=charserial0 -device isa-serial,chardev=charserial0,id=serial0 -device usb-tablet,id=input0 -vnc 127.0.0.1:0 -vga cirrus -device intel-hda,id=sound0,bus=pci.0,addr=0x4 -device hda-duplex,id=sound0-codec0,bus=sound0.0,cad=0 -device virtio-balloon-pci,id=balloon0,bus=pci.0,addr=0x6
 	char device redirected to /dev/pts/3
 
-To find out what the IP of the VM is you can do a couple of things. First you can find the MAC address of the VM, with the following command:
+To find out the IP of the VM you can do a couple of things. First you can find the MAC address of the VM, with the following command:
 
 	[root@rhel3 ~]# virsh list
 	 Id    Name                           State
@@ -1103,20 +1112,33 @@ To find out what the IP of the VM is you can do a couple of things. First you ca
 	vnet0      network    default    virtio      52:54:00:69:0c:ab
 
 
-**libvirt** used **dnsmasq** for it's DHCP services, and all the leases are found here:
+**libvirt** uses **dnsmasq** for it's DHCP services, and all the leases are under **/var/lib/libvirt/dnsmasq/default.leases**. You can check the process table to see how dnsmasq was started:
+
+	[root@rhel3 ~]# ps -eaf | grep dnsma
+	nobody    2096     1  0 May24 ?        00:00:00 /usr/sbin/dnsmasq --strict-order --local=// --domain-needed --pid-file=/var/run/libvirt/network/default.pid --conf-file= --except-interface lo --bind-interfaces --listen-address 192.168.122.1 --dhcp-range 192.168.122.2,192.168.122.254 --dhcp-leasefile=/var/lib/libvirt/dnsmasq/default.leases --dhcp-lease-max=253 --dhcp-no-override --dhcp-hostsfile=/var/lib/libvirt/dnsmasq/default.hostsfile --addn-hosts=/var/lib/libvirt/dnsmasq/default.addnhosts
+
+And **/var/log/messages**, will show all the DHCP leases as well:
+
+	[root@rhel3 log]# tail -4 messages
+	May 25 11:18:16 rhel3 dnsmasq-dhcp[2096]: DHCPREQUEST(virbr0) 192.168.122.85 52:54:00:69:0c:ab 
+	May 25 11:18:16 rhel3 dnsmasq-dhcp[2096]: DHCPACK(virbr0) 192.168.122.85 52:54:00:69:0c:ab 
+	May 25 11:40:38 rhel3 dnsmasq-dhcp[2096]: DHCPREQUEST(virbr0) 192.168.122.85 52:54:00:69:0c:ab 
+	May 25 11:40:38 rhel3 dnsmasq-dhcp[2096]: DHCPACK(virbr0) 192.168.122.85 52:54:00:69:0c:ab 
+
+But we can just check out the file to see what our current DHCP leases are:
 
 	[root@rhel3 ~]# cat /var/lib/libvirt/dnsmasq/default.leases
 	1400985508 52:54:00:69:0c:ab 192.168.122.85 * *
 
-We only have now, but if you had multiple address, you could run the following little **bash** command:
+We only one have now, but if you had multiple address, you could run the following little **bash** command to track down your VM:
 
 	[root@rhel3 ~]# for mac in `virsh domiflist centos |grep -o -E "([0-9a-f]{2}:){5}([0-9a-f]{2})"`; do grep $mac /var/lib/libvirt/dnsmasq/default.leases; done | awk '{print $3}'
 	192.168.122.85
 	[root@rhel3 ~]# 
 	
-We can confirm but checking out the console:
+We can confirm by checking out the console:
 
-![ip-command-within-the-vm-virt-man](ip-command-within-the-vm-virt-man.png)
+![ip-command-within-the-vm-virt-man](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/3e24598d1433b318d84aaca9c14189355008eee1/?file_name=ip-command-within-the-vm-virt-man.png&op=download&t=3af623c609)
 
 Or logging in via SSH from the host it self:
 
@@ -1132,3 +1154,17 @@ Or logging in via SSH from the host it self:
 		inet 127.0.0.1/8 scope host lo
 	2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP qlen 1000
 		inet 192.168.122.85/24 brd 192.168.122.255 scope global eth0
+
+Lastly to make sure the NAT is working properly, check to see that you can reach the outside network from the VM itself:
+
+	[root@localhost ~]# ping google.com -c 3
+	PING google.com (74.125.239.100) 56(84) bytes of data.
+	64 bytes from nuq05s01-in-f4.1e100.net (74.125.239.100): icmp_seq=1 ttl=53 time=41.1 ms
+	64 bytes from nuq05s01-in-f4.1e100.net (74.125.239.100): icmp_seq=2 ttl=53 time=39.1 ms
+	64 bytes from nuq05s01-in-f4.1e100.net (74.125.239.100): icmp_seq=3 ttl=53 time=41.2 ms
+
+	--- google.com ping statistics ---
+	3 packets transmitted, 3 received, 0% packet loss, time 2045ms
+	rtt min/avg/max/mdev = 39.183/40.519/41.234/0.945 ms
+
+Everything looks good.
