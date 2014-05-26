@@ -24,7 +24,7 @@ From the [Virtualization Getting Started Guide](https://access.redhat.com/site/d
 
 and from the [Virtualization Tuning and Optimization Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Virtualization_Tuning_and_Optimization_Guide/Red_Hat_Enterprise_Linux-6-Virtualization_Tuning_and_Optimization_Guide-en-US.pdf) here is a quick overview:
 
-![kvm-overview.png](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/08a87c899c6725514eebce8c98aeb7a7b6bbbf9b/?file_name=kvm-overview.png&op=download&t=3af623c609)
+![kvm-overview.png](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/kvm-overview.png)
 
 ### Installing The Hypervisor
 
@@ -43,7 +43,7 @@ From the [Virtualization Host Configuration and Guest Installation Guide](https:
 > 
 > 	Complete the other steps up to the package selection step.
 > 	
-> 	![virt-host-select-rhel-install](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/6388c819c7f2f3d2eca22b76736285cfba6c092b/?file_name=virt-host-select-rhel-install.png&op=download&t=3af623c609)
+> 	![virt-host-select-rhel-install](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-host-select-rhel-install.png)
 > 	
 > 	Select the **Virtualization Host** server role to install a platform for guest virtual machines. 
 > 
@@ -75,7 +75,7 @@ From the [Virtualization Host Configuration and Guest Installation Guide](https:
 > 
 > Virtualization Package Groups
 > 
-> ![virt-group-pkgs](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/694c22f17540ccb5f43e7bdc7773691a47c7863b/?file_name=virt-group-pkgs.png&op=download&t=3af623c609)
+> ![virt-group-pkgs](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-group-pkgs.png)
 > 
 > To install a package group, run the `yum groupinstall <groupname>` command. For instance, to install the Virtualization Tools package group, run the **yum groupinstall "Virtualization Tools"** command.
 
@@ -883,7 +883,7 @@ and reconnect to our host with X-forwarding:
 
 and you should see the following:
 
-![virt-viewer-launched-x-forward](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/12991076fc992c0c559a92e281ec80413d36e6ff/?file_name=virt-viewer-launched-x-forward.png&op=download&t=3af623c609)
+![virt-viewer-launched-x-forward](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-viewer-launched-x-forward.png)
 
 From there we can just finish the install. Let's stop there, shutdown the VM, and delete it:
 
@@ -934,7 +934,7 @@ Since I started the VNC server for the VM on **0.0.0.0** (remote and not just lo
 
 and you will again see the same window:
 
-![vncviewer-connected-to-kvm-vm](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/f62f32190fd1fa7fc05e5e13264fe93e1d8e3198/?file_name=vncviewer-connected-to-kvm-vm.png&op=download&t=3af623c609)
+![vncviewer-connected-to-kvm-vm](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/vncviewer-connected-to-kvm-vm.png)
 
 If you are always able to SSH forward then might as well do that for security reasons, and then you can close the **5900** ports in the firewall. This was just for demostration purposes. 
 
@@ -958,7 +958,7 @@ From the Virtualization_Host_Configuration_and_Guest_Installation_Guide:
 > 
 > 	The **virt-manager** window allows you to create a new virtual machine. Click the **Create a new virtual** machine button to open the New VM wizard.
 > 
-> 	![virt-man-p1](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/28d166ffefc45242b9ef13bbf931e7c344bfc922/?file_name=virt-man-p1.png&op=download&t=3af623c609)
+> 	![virt-man-p1](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-p1.png)
 > 
 > 	The New VM wizard breaks down the virtual machine creation process into five steps:
 > 
@@ -974,7 +974,7 @@ From the Virtualization_Host_Configuration_and_Guest_Installation_Guide:
 > 
 > 	The guest virtual machine creation process starts with the selection of a name and installation type. Virtual machine names can have underscores (_), periods (.), and hyphens (-).
 > 
-> 	![virt-man-p2](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/65b5f9e3b3fb722b42f151ae5a49055a8a5603f5/?file_name=virt-man-p2.png&op=download&t=3af623c609)
+> 	![virt-man-p2](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-p2.png)
 > 
 > 	Type in a virtual machine name and choose an installation type:
 > 
@@ -989,21 +989,21 @@ From the Virtualization_Host_Configuration_and_Guest_Installation_Guide:
 > 
 > 	Next, configure the **OS type** and **Version** of the installation. Ensure that you select the appropriate OS type for your virtual machine. Depending on the method of installation, provide the install URL or existing storage path.
 > 
-> 	![virt-man-p3](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/2a8242a3ae49a04432a95ac1e281c58a5875b254/?file_name=virt-man-p3.png&op=download&t=3af623c609)
+> 	![virt-man-p3](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-p3.png)
 > 
-> 	![virt-man-p4](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/03c15bb24a5c278769483e8b02690833fcec17b8/?file_name=virt-man-p4.png&op=download&t=3af623c609)
+> 	![virt-man-p4](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-p4.png)
 > 
 > 6. Configure CPU and memory
 > 
 > 	The next step involves configuring the number of CPUs and amount of memory to allocate to the virtual machine. The wizard shows the number of CPUs and amount of memory you can allocate; configure these settings and click **Forward**.
 > 
-> 	![virt-man-p5](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/a7e96f689c60b8497e4d4b15a9cac324778990ff/?file_name=virt-man-p5.png&op=download&t=3af623c609)
+> 	![virt-man-p5](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-p5.png)
 > 
 > 7. Configure storage
 > 
 > 	Assign storage to the guest virtual machine.
 > 
-> 	![virt-man-p5-5.png](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/caeee3431eb3be3701c464fc282608df2fc6dab1/?file_name=virt-man-p5-5.png&op=download&t=3af623c609)
+> 	![virt-man-p5-5.png](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-p5-5.png)
 > 
 > 	If you chose to import an existing disk image during the first step, virt-manager will skip this step.
 > 
@@ -1013,7 +1013,7 @@ From the Virtualization_Host_Configuration_and_Guest_Installation_Guide:
 > 
 > 	Verify the settings of the virtual machine and click Finish when you are satisfied; doing so will create the virtual machine with default networking settings, virtualization type, and architecture.
 > 
-> 	![virt-man-p6](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/394bf15665dc2a5e99c3b96d45b6400237572e9f/?file_name=virt-man-p6.png&op=download&t=3af623c609)
+> 	![virt-man-p6](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-p6.png)
 > 
 > 
 > 	If you prefer to further configure the virtual machine's hardware first, check the **Customize configuration before install** box first before clicking **Finish**. Doing so will open another wizard that will allow you to add, remove, and configure the virtual machine's hardware settings.
@@ -1050,47 +1050,47 @@ After that, it started up without issues:
 
 And I saw the following window:
 
-![virt-man-launched](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/f390b8f5687643c0adf5c6cc7f3ba10ef4e012bb/?file_name=virt-man-launched.png&op=download&t=3af623c609)
+![virt-man-launched](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-launched.png)
 
 We can see that is already connected to the qemu system, which is great. Now let's click "New" and you should see the following pop up:
 
-![virt-man-new-vm-p1](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/6169d7da3a967f8b6b7d0d38b91ec6a539c0966f/?file_name=virt-man-new-vm-p1.png&op=download&t=3af623c609)
+![virt-man-new-vm-p1](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-new-vm-p1.png)
 
 **Name** the VM, select **Local install media**, and click **Forward**. On the next page, choose to point to an ISO and upon clicking on that you will see the default volume (**/var/lib/libvirt/images**). From there you can select the ISO:
 
-![virt-man-select-centos-iso](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/2e526ed071e1f561447b31b22d12428d04f6dd56/?file_name=virt-man-select-centos-iso.png&op=download&t=3af623c609)
+![virt-man-select-centos-iso](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-select-centos-iso.png)
 
 Then select the **OS Type** and **Version**. After done, it should look like this:
 
-![virt-man-os-selected](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/4f2686340d6ec6539e5b0e7a6131433d9db1ebe4/?file_name=virt-man-os-selected.png&op=download&t=3af623c609)
+![virt-man-os-selected](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-os-selected.png)
 
 Click **Forward**, select **RAM** and **CPU** settings, it should look like this:
 
-![virt-man-ram-cpu-settings](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/d5e48b8a842c143b5f3687a782ffe4c7394fff26/?file_name=virt-man-ram-cpu-settings.png&op=download&t=3af623c609)
+![virt-man-ram-cpu-settings](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-ram-cpu-settings.png)
 
 Click Forward and select the disk size:
 
-![virt-man-vm-disk-size](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/4db1f07049078b721282d12e6d617d29ec4d63b9/?file_name=virt-man-vm-disk-size.png&op=download&t=3af623c609)
+![virt-man-vm-disk-size](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-vm-disk-size.png)
 
 Click Forward and you should see the final page:
 
-![virt-man-final-page](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/f3d53597becf0817ca59ccf75e7c836025117afd/?file_name=virt-man-final-page.png&op=download&t=3af623c609)
+![virt-man-final-page](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-final-page.png)
 
 Upon clicking **Finish** you will see the console of the VM:
 
-![virt-man-console-open-after-install](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/6cdc70849897e6274c0d92c924f09b99c02cd7b9/?file_name=virt-man-console-open-after-install.png&op=download&t=3af623c609)
+![virt-man-console-open-after-install](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-console-open-after-install.png)
 
 You will also see the VM in the Virt-Manager's Inventory:
 
-![virt-man-centos-running](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/5709816a477a91e430d3cd72cbaf26301ba77e0d/?file_name=virt-man-centos-running.png&op=download&t=3af623c609)
+![virt-man-centos-running](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-centos-running.png)
 
 If you proceed with the VM install, here is how the disk setup page will look like:
 
-![virt-man-centos-install-disk-page](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/99d94739716b0ce5acd0d17ad89a6394286cf729/?file_name=virt-man-centos-install-disk-page.png&op=download&t=3af623c609)
+![virt-man-centos-install-disk-page](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-centos-install-disk-page.png)
 
 After the install is finished, you will see the OS booted up:
 
-![virt-man-os-booted](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/f4284a7ffe4877979fb00ea122394445bf9f647a/?file_name=virt-man-os-booted.png&op=download&t=3af623c609)
+![virt-man-os-booted](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-os-booted.png)
 
 You can also check on the KVM host it self to see all the parameters passed to the **qemu-kvm** binary when it starts up the VM, by checking out the VM specific logs that **libvirt** generates:
 
@@ -1138,7 +1138,7 @@ We only one have now, but if you had multiple address, you could run the followi
 	
 We can confirm by checking out the console:
 
-![ip-command-within-the-vm-virt-man](https://seacloud.cc/repo/30070853-17fe-4fd5-bc8e-2c3350c5aae1/3e24598d1433b318d84aaca9c14189355008eee1/?file_name=ip-command-within-the-vm-virt-man.png&op=download&t=3af623c609)
+![ip-command-within-the-vm-virt-man](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/ip-command-within-the-vm-virt-man.png)
 
 Or logging in via SSH from the host it self:
 
