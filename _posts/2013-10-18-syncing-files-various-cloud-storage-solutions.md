@@ -38,11 +38,11 @@ You can register for the free 7GB SkyDrive account [here](https://skydrive.live.
 
 ![skydrive logged in Syncing Files with Various Cloud Storage Solutions](https://github.com/elatov/uploads/raw/master/2013/10/skydrive-logged-in.png)
 
-There is a python client available for SkyDrive that uses the SkyDrive API. It's called **python-skydrive**, here is a link to the [client](https://pypi.python.org/pypi/python-skydrive/).
+There is a python client available for SkyDrive that uses the SkyDrive API. It's called **python-skydrive**, here is a link to the [client](https://github.com/mk-fg/python-onedrive).
 
 #### Python-Skydrive
 
-To use the **python-skypdrive** client, you have to register the SkyDrive application with the "Live Connect Developer Center". First visit the Dev Center, [here](http://msdn.microsoft.com/en-us/live/). Login with the same credentials that you created when you registered for SkyDrive and you should be inside the Dev Center:
+To use the **python-skypdrive** (now called **python-onedrive**) client, you have to register the SkyDrive application with the "Live Connect Developer Center". First visit the Dev Center, [here](http://msdn.microsoft.com/en-us/live/). Login with the same credentials that you created when you registered for SkyDrive and you should be inside the Dev Center:
 
 ![Live connect dev center Syncing Files with Various Cloud Storage Solutions](https://github.com/elatov/uploads/raw/master/2013/10/Live_connect_dev_center.png)
 
