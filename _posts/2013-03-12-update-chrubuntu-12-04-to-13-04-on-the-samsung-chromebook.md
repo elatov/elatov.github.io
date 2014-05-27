@@ -14,7 +14,7 @@ tags:
 The update process is not as smooth as the install process which I blogged about [here](/2013/03/install-chrubuntu-12-04-on-samsung-chromebook). Most of the instructions are laid at the following two sites:
 
 *   [How to update Chrubuntu 12.04 to Ubuntu 13.04](http://marcin.juszkiewicz.com.pl/2013/02/16/how-to-update-chrubuntu-12-04-to-ubuntu-13-04/)
-*   [Ubuntu Install on ARM Chromebook](http://www.relurori.com/blog/p/ubuntu-install-on-arm-chromebook.html)
+*   [Installing Ubuntu 13.04 on the Samsung Chromebook](http://floss.zoomquiet.io/data/20130524230746/index.html)
 
 ### 1. Update Using the Aptitude Repositories
 
