@@ -17,7 +17,7 @@ From the [US BrownBag Objective 1](http://www.slideshare.net/ProfessionalVMware/
 
 ![arch-vision](https://github.com/elatov/uploads/raw/master/2012/08/arch-vision.png)
 
-and from the [APAC BrownBag Session 1 Slide Deck](http://portal.sliderocket.com/BLIHZ/VCAP5-DCD-BrownBag---Session-1):
+and from the [APAC BrownBag Session 1 Slide Deck](http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap-dcd-study-group/):
 
 ![rcar](https://github.com/elatov/uploads/raw/master/2012/08/rcar.png)
 

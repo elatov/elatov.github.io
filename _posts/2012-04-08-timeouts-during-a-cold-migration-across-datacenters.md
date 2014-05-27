@@ -40,9 +40,9 @@ After further investigation it turned out that the network provider switches wer
 
 If you are unable to get into the network provider switches or it's too much of a hassle, some temporary workarounds could be:
 
-1.  <span style="line-height: 22px;">VMware Converter (VMware communities [1247172](http://communities.vmware.com/message/1247172))</span>
-2.  <span style="line-height: 22px;">Veeam FastSCP (Veeam Communites [9500](http://forums.veeam.com/viewtopic.php?f=4&t=9500))</span>
-3.  <span style="line-height: 22px;">SSH with gunzip ([VMworld presentation](http://download3.vmware.com/vmworld/2006/mdc9586.pdf))</span>
+1.  VMware Converter - VMware communities [1247172](http://communities.vmware.com/message/1247172)
+2.  [Veeam FastSCP](http://www.veeam.com/vmware-esxi-fastscp.html)
+3.  SSH with gunzip - [VMworld presentation](http://download3.vmware.com/vmworld/2006/mdc9586.pdf)
 
 I would, of course, recommend fixing the issue upstream, because moving VMDKs manually (workarounds #2 and #3) could possibly cause other issues, but the above workarounds will get the files across without any time-out issues.
 
