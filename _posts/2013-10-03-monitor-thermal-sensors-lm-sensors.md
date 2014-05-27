@@ -497,7 +497,7 @@ Those are the temperature limits (85C, 103C, and 108C), at which point the CPU f
 
 #### Samsung TMU
 
-Here was another Kernel Patch that I ran into: "[thermal: exynos: Register the tmu sensor with the kernel thermal layer](http://patches.linaro.org/8567/)". From that patch:
+Here was another Kernel Patch that I ran into: "[thermal: exynos: Register the tmu sensor with the kernel thermal layer](http://lwn.net/Articles/473170/)". From that patch:
 
 > This code added creates a link between temperature sensors, linux thermal framework and cooling devices for samsung Exynos platform. This layer monitors the temperature from the sensor and informs the generic thermal layer to take the necessary cooling action.
 
