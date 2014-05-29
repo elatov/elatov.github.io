@@ -46,9 +46,42 @@ After it's created, you will see quick instructions on how to initialize the git
 
 ![github-initialization-instruct](github-initialization-instruct.png)
 
+After it's done, go to settings of the repository and check the box that says "Restrict editing to collabolators only":
+
+![github-restrict-editting](github-restrict-editting.png)
+
 So let's clone the repository and add a test home page:
 
-
-
-
+	elatov@ccl:~$git clone https://moxz1@github.com/moxz1/moxz1.github.io.git
+	Initialized empty Git repository in /home/elatov/moxz1.github.io/.git/
+	Password:
+	warning: You appear to have cloned an empty repository.
+	elatov@ccl:~$cd moxz1.github.io/
+	elatov@ccl:~/moxz1.github.io$echo "Test Page" > index.html
+	elatov@ccl:~/moxz1.github.io$git add --all
+	elatov@ccl:~/moxz1.github.io$git commit -m "Initial Commit"
+	[master (root-commit) 197ba87] Initial Commit
+	 Committer: elatov <elatov@ccl.local.com>
+	Your name and email address were configured automatically based
+	on your username and hostname. Please check that they are accurate.
+	You can suppress this message by setting them explicitly:
+	
+	    git config --global user.name "Your Name"
+	    git config --global user.email you@example.com
+	
+	If the identity used for this commit is wrong, you can fix it with:
+	
+	    git commit --amend --author='Your Name <you@example.com>'
+	
+	 1 files changed, 1 insertions(+), 0 deletions(-)
+	 create mode 100644 index.html
+	elatov@ccl:~/moxz1.github.io$git push origin master
+	Password:
+	Counting objects: 3, done.
+	Writing objects: 100% (3/3), 219 bytes, done.
+	Total 3 (delta 0), reused 0 (delta 0)
+	To https://moxz1@github.com/moxz1/moxz1.github.io.git
+	 * [new branch]      master -> master
+	 
+Now if you look back on the setting page of the repository, it will let you know that your changes have been published:
 
