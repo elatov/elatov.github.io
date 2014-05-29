@@ -73,7 +73,7 @@ h1{font-size:30px;line-height:36px;}h1 small{font-size:18px;}
 h2{font-size:24px;line-height:36px;}h2 small{font-size:18px;}
 h3{line-height:27px;font-size:18px;}h3 small{font-size:14px;}
 h4,h5,h6{line-height:18px;}
-h4{font-size:14px;}h4 small{font-size:12px;}
+h4{font-size:14px; margin-top: 2px; margin-bottom: 5px;}h4 small{font-size:12px;}
 h5{font-size:12px;}
 h6{font-size:11px;color:#999999;text-transform:uppercase;}
 .page-header{padding-bottom:17px;margin:18px 0;border-bottom:1px solid #eeeeee;}
