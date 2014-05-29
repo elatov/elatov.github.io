@@ -16,7 +16,7 @@ We decided to move away from Wordpress to Jekyll. There are many guides on the p
 Here are the steps to the process.
 
 ### 1. Prepare Github
-First go and create your self an account on github.com:
+Most of the steps are covered in [GitHub Pages](https://pages.github.com/). First go and create your self an account on github.com:
 
 ![github-account-creation](github-account-creation.png)
 
@@ -45,6 +45,10 @@ Then name it appropriately:
 After it's created, you will see quick instructions on how to initialize the git repository:
 
 ![github-initialization-instruct](github-initialization-instruct.png)
+
+So let's clone the repository and add a test home page:
+
+
 
 
 
