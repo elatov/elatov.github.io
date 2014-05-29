@@ -5,7 +5,6 @@ description: ""
 category: 
 tags: []
 ---
-{% include JB/setup %}
 We decided to move away from Wordpress to Jekyll. There are many guides on the process and also a lot of reasons as well. Check out some posts on the process already:
 
 - [Migrating from WordPress.com to Jekyll](http://hadihariri.com/2013/12/24/migrating-from-wordpress-to-jekyll/)
@@ -15,7 +14,7 @@ We decided to move away from Wordpress to Jekyll. There are many guides on the p
 
 Here are the steps to the process.
 
-### 1. Prepare Github
+### Prepare Github
 Most of the steps are covered in [GitHub Pages](https://pages.github.com/). First go and create your self an account on github.com:
 
 ![github-account-creation](github-account-creation.png)
@@ -169,7 +168,7 @@ From [Directory structure](http://jekyllrb.com/docs/structure/):
 > |:----------------|:-----------|
 > | _config.yml     | Stores **configuration** data. Many of these options can be specified from the command line executable but it’s easier to specify them here so you don’t have to remember them.|
 > | _drafts         | Drafts are unpublished posts. The format of these files is without a date: **title.MARKUP**. Learn how to work with drafts.
-> | _includes       | These are the partials that can be mixed and matched by your layouts and posts to facilitate reuse. The liquid tag  `{% include file.ext %}` can be used to include the partial in  **_includes/file.ext**.
+> | _includes       | These are the partials that can be mixed and matched by your layouts and posts to facilitate reuse. The liquid tag  `{\% include file.ext %}` can be used to include the partial in  **_includes/file.ext**.
 > | _layouts        | These are the templates that wrap posts. Layouts are chosen on a post- by-post basis in the YAML front matter, which is described in the next section. The liquid tag  `{{ content }}` is used to inject content into the web page.
 > | _posts          | Your dynamic content, so to speak. The naming convention of these files is important, and must follow the format: **YEAR-MONTH-DAY-title.MARKUP**. The permalinks can be customized for each post, but the date and markup language are determined solely by the file name.|
 > | _data           | Well-formatted site data should be placed here. The jekyll engine will autoload all yaml files (ends with **.yml** or **.yaml**) in this directory. If there's a file members.yml under the directory, then you can access contents of the file through **site.data.members**.|
@@ -180,3 +179,200 @@ From [Directory structure](http://jekyllrb.com/docs/structure/):
 #### Jekyll Bootstrap
 Most people just take a copy of an existing blog and go from there, since you don't really want to create the above layout by hand. A lot of jekyll powered sites are listed in [Jekyll Sites](https://github.com/jekyll/jekyll/wiki/Sites). If you like one just clone it. To get started with a Jekyll site, there is a a project called [JekyllBootstrap](http://jekyllbootstrap.com/). It basically eases the process of managing a Jekyll site. To create the first jekyll site, check out the instructions laid out in [Jekyll QuickStart](http://jekyllbootstrap.com/usage/jekyll-quick-start.html). So let's try it out, first let's clone their github repo:
 
+	elatov@kmac:~$git clone https://github.com/plusjade/jekyll-bootstrap.git
+	Cloning into 'jekyll-bootstrap'...
+	remote: Reusing existing pack: 2062, done.
+	remote: Total 2062 (delta 0), reused 0 (delta 0)
+	Receiving objects: 100% (2062/2062), 811.25 KiB | 0 bytes/s, done.
+	Resolving deltas: 100% (790/790), done.
+	Checking connectivity... done.
+
+Now let's build and serve that jekyll-bootstrap template locally:
+
+	elatov@kmac:~$cd jekyll-bootstrap/
+	elatov@kmac:~/jekyll-bootstrap$jekyll serve -w
+	Configuration file: /Users/elatov/jekyll-bootstrap/_config.yml
+	       Deprecation: The 'pygments' configuration option has been renamed to 'highlighter'. Please update your config file accordingly. The allowed values are 'rouge', 'pygments' or null.
+	            Source: /Users/elatov/jekyll-bootstrap
+	       Destination: /Users/elatov/jekyll-bootstrap/_site
+	      Generating...
+	                    done.
+	 Auto-regeneration: enabled
+	    Server address: http://0.0.0.0:4000/
+	  Server running... press ctrl-c to stop.
+  
+  
+Now if you point your browser to http://localhost:4000 you should see the template:
+
+![jekyll-running-example-bootstrap](jekyll-running-example-bootstrap.png)
+
+#### Jekyll Themes
+There are a bunch of themes out there. Here are a couple of pages that have themes:
+
+- [JekyllBootstrap Theme Explorer](http://themes.jekyllbootstrap.com/)
+- [Jekyll Themes](http://jekyllthemes.org/)
+
+Like I mentioned before, you can either clone the whole project or you can actually use JekyllBootstrap to install a theme. For example here is an easy way to install the twitter-bootstrap based theme with JekyllBootstrap:
+
+	elatov@kmac:~/jekyll-bootstrap$rake theme:install git="https://github.com/jekybootstrap/theme-twitter.git"
+	Cloning into './_theme_packages/_tmp'...
+	remote: Reusing existing pack: 26, done.
+	remote: Total 26 (delta 0), reused 0 (delta 0)
+	Unpacking objects: 100% (26/26), done.
+	Checking connectivity... done.
+	mv ./_theme_packages/_tmp ./_theme_packages/twitter
+	./_includes/themes/twitter/default.html already exists. Do you want to overwrite? [y/n] y
+	mkdir -p ./_includes/themes/twitter
+	cp -r ./_theme_packages/twitter/_includes/themes/twitter/default.html ./_includes/themes/twitter/default.html
+	./_includes/themes/twitter/page.html already exists. Do you want to overwrite? [y/n] y
+	mkdir -p ./_includes/themes/twitter
+	cp -r ./_theme_packages/twitter/_includes/themes/twitter/page.html ./_includes/themes/twitter/page.html
+	./_includes/themes/twitter/post.html already exists. Do you want to overwrite? [y/n] y
+	mkdir -p ./_includes/themes/twitter
+	cp -r ./_theme_packages/twitter/_includes/themes/twitter/post.html ./_includes/themes/twitter/post.html
+	./_includes/themes/twitter/settings.yml already exists. Do you want to overwrite? [y/n] y
+	mkdir -p ./_includes/themes/twitter
+	cp -r ./_theme_packages/twitter/_includes/themes/twitter/settings.yml ./_includes/themes/twitter/settings.yml
+	mkdir -p ./assets/themes/twitter/css/1.4.0
+	cp -r ./_theme_packages/twitter/assets/themes/twitter/css/1.4.0/bootstrap.css ./assets/themes/twitter/css/1.4.0/bootstrap.css
+	./assets/themes/twitter/css/style.css already exists. Do you want to overwrite? [y/n] y
+	mkdir -p ./assets/themes/twitter/css
+	cp -r ./_theme_packages/twitter/assets/themes/twitter/css/style.css ./assets/themes/twitter/css/style.css
+	=> twitter theme has been installed!
+	=> ---
+	=> Want to switch themes now? [y/n] y
+	Generating 'twitter' layout: default.html
+	Generating 'twitter' layout: page.html
+	Generating 'twitter' layout: post.html
+	=> Theme successfully switched!
+	=> Reload your web-page to check it out =)
+	
+Now if you re-run jekyll you should see the following after you visit **http://localhost:4000** :
+
+![jekyll-with-twitter-theme-running](jekyll-with-twitter-theme-running.png)
+
+#### Customize Jekyll Configurations
+Let's add the information regarding the site. I ended up modifying the following lines in the **_config.yml** file:
+
+	elatov@kmac:~/jekyll-bootstrap$git diff
+	diff --git a/_config.yml b/_config.yml
+	index 17bd3e2..7f185e3 100644
+	--- a/_config.yml
+	+++ b/_config.yml
+	@@ -1,21 +1,19 @@
+	 # This is the default format.
+	 # For more see: http://jekyllrb.com/docs/permalinks/
+	-permalink: /:categories/:year/:month/:day/:title
+	+permalink: /:year/:month/:title
+	
+	 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
+	-pygments: true
+	+highligher: pygments
+	
+	 # Themes are encouraged to use these universal variables
+	 # so be sure to set them if your theme uses them.
+	 #
+	-title : Jekyll Bootstrap
+	-tagline: Site Tagline
+	+title : My Blog
+	+tagline: Just a Blog
+	 author :
+	-  name : Name Lastname
+	-  email : blah@email.test
+	-  github : username
+	-  twitter : username
+	-  feedburner : feedname
+	+  name : Me Moxz
+	+  email : moxz@me.com
+	+  github : moxz1
+	
+	 # The production_url is only used when full-domain names are needed
+	 # such as sitemap.txt
+	@@ -25,7 +23,7 @@ author :
+	 # Else if you are pushing to username.github.io, replace with your username.
+	 # Finally if you are pushing to a GitHub project page, include the project name at the end.
+	 #
+	-production_url : http://username.github.io
+	+production_url : http://moxz1.github.io
+	
+On the main page, I decided to just list posts and nothing else. Here is what I ended up with in the **index.md** file:
+
+	elatov@kmac:~/jekyll-bootstrap$cat index.md
+	---
+	layout: page
+	title: Posts
+	---
+	{% include JB/setup %}
+	
+	<ul class="posts">
+	{% for post in site.posts  limit:10 %}
+	    <a href="{{ BASE_PATH }}{{ post.url }}"><h3> {{ post.title }}<br /></h3></a>
+		<i>{{ post.date | date_to_string }}<br /></i>
+	        {{ post.content | strip_html | truncatewords:75}}
+	            <a href="{{ post.url }}">Read more...</a>
+	    {% endfor %}
+	</ul>
+
+After a reload of **jekyll**, saw the following on the local site:
+
+![jekyll-personal-info-added](jekyll-personal-info-added.png)
+
+If you like how it looks you can push it to the github pages:
+
+	elatov@kmac:~/jekyll-bootstrap$git remote set-url origin https://moxz1@github.com/moxz1/moxz1.github.io.git
+	elatov@kmac:~/jekyll-bootstrap$git add --all
+	elatov@kmac:~/jekyll-bootstrap$git commit -m "updates"
+	[master f692c6f] updates
+	10 files changed, 482 insertions(+), 197 deletions(-)
+	create mode 100644 assets/themes/twitter/css/1.4.0/bootstrap.css
+	rewrite assets/themes/twitter/css/style.css (91%)
+	rewrite index.md (94%)
+	elatov@kmac:~/jekyll-bootstrap$git push origin master --force
+	Counting objects: 38, done.
+	Delta compression using up to 8 threads.
+	Compressing objects: 100% (19/19), done.
+	Writing objects: 100% (21/21), 11.15 KiB | 0 bytes/s, done.
+	Total 21 (delta 5), reused 8 (delta 0)
+	To https://moxz1@github.com/moxz1/moxz1.github.io.git
+	 1f3596c..f692c6f  master -> master
+	 
+Then after some time, if you visit the github user pages, you will see the same site:
+
+![github-updates-pushed-and-live](github-updates-pushed-and-live.png)
+
+### Migrate Wordpress Posts to Jekyll
+There are a couple of methods to the approach. Here are a few:
+
+- [jekyll-importer](http://import.jekyllrb.com/docs/wordpressdotcom/)
+- [exit-wp](https://github.com/thomasf/exitwp)
+- [wordpress-to-jekyll-exporter](https://github.com/benbalter/wordpress-to-jekyll-exporter)
+
+I ended up using the bottom one. After you install the plugin in your wordpress install, you can either go to the Wordpress Managament Page and you will see the  **Export to Jekyll** button there:
+
+![export-to-jekyl-plugin-wp](export-to-jekyl-plugin-wp.png)
+
+Upon clicking that, it will start the export and you should get a zip of the export. Mine kept timing out, so I did it manually on the host it self:
+
+	$ cd /var/www/wp-content/plugins/wordpress-to-jekyll-exporter
+	$ php jekyll-export-cli.php > ~/jekyll-export.zip
+
+I copied the zip from the host and here were the contents of the zip extracted:
+
+	elatov@web1:~/jek$ tree -L 1 jekyll-export
+	jekyll-export
+	├── about
+	├── _config.yml
+	├── contact
+	├── _posts
+	└── wp-content
+	
+	4 directories, 1 file
+
+
+#### Clean up Converted Markdown
+None of the above converters are perfect, and after the migration you will definitely end up with some left over HTML. Here are a couple of sites that help with clean up:
+
+- [Migrating From Wordpress To Jekyll](http://www.carlboettiger.info/2012/09/19/migrating-from-wordpress-to-jekyll.html)
+- [How To Migrate Your Blog From Wordpress To Jekyll](https://devblog.supportbee.com/2012/08/27/how-to-migrate-your-blog-from-wordpress-to-jekyll/)
+
+The first one has an R Script which clean up a bunch of HTML tags and the second one has a ruby script to clean up UTF-8 encoded characters.
