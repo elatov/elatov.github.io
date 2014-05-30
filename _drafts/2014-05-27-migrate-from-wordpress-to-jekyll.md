@@ -297,6 +297,7 @@ Let's add the information regarding the site. I ended up modifying the following
 	
 On the main page, I decided to just list posts and nothing else. Here is what I ended up with in the **index.md** file:
 
+{% raw  %}
 	elatov@kmac:~/jekyll-bootstrap$cat index.md
 	---
 	layout: page
@@ -312,6 +313,7 @@ On the main page, I decided to just list posts and nothing else. Here is what I 
 	            <a href="{{ post.url }}">Read more...</a>
 	    {% endfor %}
 	</ul>
+{% endraw %}
 
 After a reload of **jekyll**, saw the following on the local site:
 
@@ -358,7 +360,7 @@ Upon clicking that, it will start the export and you should get a zip of the exp
 
 I copied the zip from the host and here were the contents of the zip extracted:
 
-	elatov@web1:~/jek$ tree -L 1 jekyll-export
+	elatov@kmac:~/jek$ tree -L 1 jekyll-export
 	jekyll-export
 	├── about
 	├── _config.yml
@@ -368,6 +370,52 @@ I copied the zip from the host and here were the contents of the zip extracted:
 	
 	4 directories, 1 file
 
+wp-contents contained all the uploads from wordpress:
+
+	elatov@kmac:~/jek$ls -l jekyll-export/wp-content/
+	total 0
+	drwxr-xr-x  10 elatov  staff  340 May 30 09:57 uploads
+
+and _posts, is a directory with all the converted posts:
+
+	elatov@kmac:~/jek$ls -l jekyll-export/_posts
+	total 376
+	-rw-r--r--  1 elatov  staff  71062 May 30 09:59 2014-04-22-post1.md
+	-rw-r--r--  1 elatov  staff  26118 May 30 09:59 2014-05-05-post2.md
+	-rw-r--r--  1 elatov  staff  87552 May 30 09:59 2014-05-06-post3.md
+	
+You can just copy those over to your jekyll setup:
+
+	elatov@kmac:~$rsync -avzP jek/jekyll-export/_posts/. moxz1.github.io/_posts/.
+	building file list ...
+	4 files to consider
+	./
+	2014-04-22-post1.md
+	       71062 100%   18.26MB/s    0:00:00 (xfer#1, to-check=2/4)
+	2014-05-05-post2.md
+	       26118 100%    8.30MB/s    0:00:00 (xfer#2, to-check=1/4)
+	2014-05-06-post3.md
+	       87552 100%    8.35MB/s    0:00:00 (xfer#3, to-check=0/4)
+	
+	sent 49675 bytes  received 92 bytes  99534.00 bytes/sec
+	total size is 184732  speedup is 3.71
+
+Now launching your local jekyll instance:
+
+	elatov@kmac:~/moxz1.github.io$jekyll serve -w
+	Configuration file: /Users/elatov/moxz1.github.io/_config.yml
+	            Source: /Users/elatov/moxz1.github.io
+	       Destination: /Users/elatov/moxz1.github.io/_site
+	      Generating...
+	                    done.
+	 Auto-regeneration: enabled
+	Configuration file: /Users/elatov/moxz1.github.io/_config.yml
+	    Server address: http://0.0.0.0:4000/
+	  Server running... press ctrl-c to stop.
+
+You can visit the local site (**http://localhost:4000**), and you will see your posts included in the main page:
+
+![posts_migrated_tojekyll-local-view](posts_migrated_tojekyll-local-view.png)
 
 #### Clean up Converted Markdown
 None of the above converters are perfect, and after the migration you will definitely end up with some left over HTML. Here are a couple of sites that help with clean up:
@@ -375,4 +423,294 @@ None of the above converters are perfect, and after the migration you will defin
 - [Migrating From Wordpress To Jekyll](http://www.carlboettiger.info/2012/09/19/migrating-from-wordpress-to-jekyll.html)
 - [How To Migrate Your Blog From Wordpress To Jekyll](https://devblog.supportbee.com/2012/08/27/how-to-migrate-your-blog-from-wordpress-to-jekyll/)
 
-The first one has an R Script which clean up a bunch of HTML tags and the second one has a ruby script to clean up UTF-8 encoded characters.
+The first one has an R Script which clean up a bunch of HTML tags and the second one has a ruby script to clean up UTF-8 encoded characters. I ended playing with sed (**gsed** from *macports*) for some conversions. Here are a couple of that I ran:
+
+	### clean up code snippets
+	for file in $(grep -E '\[code|\[shell|\[bash|\[powershell|\[xml' * | cut -d : -f 1 | uniq); do echo $file; gsed -ri '/\[code|\[shell|\[bash|\[powershell|\[xml/,/\[\/code|\[\/shell|\[\/bash|\[\/powershell|\[\/xml\]/{s/^/\t/g}' $file; done
+	for file in $(grep -E '\[code|\[shell|\[bash|\[powershell|\[xml' * | cut -d : -f 1 | uniq); do echo $file; gsed -ri 's/\[[code|bash|powershell|xml|shell].*\]//g' $file; done
+	for file in $(grep -E '\[\/code\]|\[\/shell\]|\[\/bash\]|\[\/powershell\]|\[\/xml\]' *| cut -d : -f 1 | uniq); do echo $file; gsed -ri 's/\[\/[code|bash|powershell|xml|shell]*\]//g' $file; done
+	
+	### Replace single quote
+	for i in $(grep '&#8217;' * | awk -F : '{print $1}'  | uniq); do echo $i;gsed -i "s/&#8217;/'/g" $i;  done
+	
+	### replace _\ with _
+	for i in $(grep '\_' * | awk -F : '{print $1}'  | uniq); do echo $i; done
+	
+	### replace the &gt; with >
+	for i in $(grep '&gt;' * | awk -F : '{print $1}'  | uniq); do echo $i; gsed -i 's%\&gt;%>%g' $i; done
+	
+	### Replace Smiley images with characters
+	for i in $(grep '<img src="http://site.com/wp-includes/images/smilies/icon_smile.gif"' * | awk -F : '{print $1}'  | uniq); do echo $i; gsed -i 's%<img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif".*/>%:\)%g' $i; done
+	
+There were a bunch more and you get the point. The reason why I did it by hand was to make sure everything was converted as I expected. This was tedious, but it was better than re-writing all the posts and at the end I knew the markdown files were clean.
+
+#### Fixing HTML links and Image links
+Most of the **href** links looked like this in the new files:
+
+	<a href="https://communities.vmware.com/thread/423099" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/thread/423099']);">ESXi 5.x on new Apple Mac Mini 6,2 Late 2012</a>
+	
+To fix those, I wrote a little python script:
+
+	elatov@kmac:~$cat conv-html-url-to-md.py
+	import fileinput
+	import re
+	
+	for line in fileinput.input(inplace=1):
+	    line = re.sub(r'<a href="(.*)" onclick="(.*)">(.*)</a>', r'[\3](\1)', line.rstrip())
+	    print(line)
+
+Then I just ran the following to clean up all the links:
+
+	elatov@kmac:~/moxz1.github.io$ for i in $(ls | grep -v py); do echo $i; python conv-html-url-to-md.py $i; done
+	
+The image links were in the following format in the converted files:
+
+	<a href="http://site.com/wp-content/uploads/2014/04/installing-unetbootin.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/04/installing-unetbootin.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/installing-unetbootin.png" alt="installing unetbootin ESXi on MacMini 6,2" width="520" height="369" class="alignnone size-full wp-image-10454" title="ESXi on MacMini 6,2" /></a>
+
+Now with another python script we can fix the links for the images:
+
+	elatov@kmac:~$cat conv-html-url-to-md.py
+	import fileinput
+	import re
+	
+	for line in fileinput.input(inplace=1):
+	    line = re.sub(r'<a href="(.*)" onclick=(.*) title="(.*)" \/></a>', r'![\3](\1)', line.rstrip())
+	    print(line)
+
+Then with another for loop, we can run that through all the posts:
+
+	elatov@kmac:~/moxz1.github.io$ for i in $(ls | grep -v py); do echo $i; python conv-html-url-to-md.py $i; done
+	
+### Moving Images and Uploads
+The first thing you will notice in the uploads directory is that there are multiple versions of the same image:
+
+	elatov@kmac:~$ls jek/jekyll-export/wp-content/uploads/2012/03/ | tail -9
+	Ubuntu_11_10_top-150x150.png
+	Ubuntu_11_10_top-300x55.png
+	Ubuntu_11_10_top-620x163.png
+	Ubuntu_11_10_top.png
+	esxtop_latency-150x150.png
+	esxtop_latency-300x222.png
+	esxtop_latency-620x200.png
+	esxtop_latency-927x180.png
+	esxtop_latency.png
+	
+To clean those up we can use **find**, here the command to list them:
+
+	elatov@kmac:~/jek/jekyll-export/wp-content/uploads/2012/03$find . -name "*-[0-9]*x[0-9]*.png"
+	./esxtop_latency-150x150.png
+	./esxtop_latency-300x222.png
+	./esxtop_latency-620x200.png
+	./esxtop_latency-927x180.png
+	./Ubuntu_11_10_top-150x150.png
+	./Ubuntu_11_10_top-300x55.png
+	./Ubuntu_11_10_top-620x163.png
+
+Then to clean them up, just run the following:
+
+	elatov@kmac:~/jek/jekyll-export/wp-content/uploads/2012/03$find . -name "*-[0-9]*x[0-9]*.png" -delete
+	elatov@kmac:~/jek/jekyll-export/wp-content/uploads/2012/03$find . -name "*-[0-9]*x[0-9]*.png"
+
+For an easy example I will use github to host my images, but I would recommend using some cloud storage alternative. [Here](http://en.wikipedia.org/wiki/Comparison_of_file_hosting_services) is a pretty good list of options. After you create a new repository(I just called mine *uploads* and I put the whole **uploads** directory from the jekyll export), you can access your files with the raw links. This was discussed at:
+
+- [Embedding images inside a GitHub wiki](http://stackoverflow.com/questions/10045517/embedding-images-inside-a-github-wiki-gollum-repository)
+- [Adding images to wikis](https://help.github.com/articles/adding-images-to-wikis)
+
+So for example the above image which was located at:
+
+	wp-content/uploads/2012/03/esxtop_latency.png
+
+From the Jekyll Export, will be accessible in the github repository with the following URL:
+
+	https://github.com/moxz1/uploads/raw/master/2012/03/esxtop_latency.png
+	
+Now we can use the followig to point all the image links to the github repository:
+
+	elatov@kmac:~$cat conv-html-url-to-md.py
+	import fileinput
+	import re
+	
+	for line in fileinput.input(inplace=1):
+	    line = re.sub(r'http\:\/\/site.com\/wp-content\/uploads/(.*)', r'https://github.com/moxz1/uploads/raw/master/\1', line.rstrip())
+
+After the image links were updated, I actually ended up running a python-based [linkchecker](https://github.com/auto123/pylinkchecker) on the jekyll site just to make sure nothing came up broken. To do that I first install **pip** for **python**:
+
+	elatov@kmac:~$sudo port install py27-pip
+
+Then I made the 2.7 version be the default one:
+
+	elatov@kmac:~$sudo port select --set pip pip27
+
+Lastly I searched for the python package:
+
+	elatov@kmac:~$pip search pylink
+	pylinkgrammar             - Python bindings for Link Grammar system
+	PyLink                    - Universal communication interface using File-Like API
+	pylinkmobile              - Link Mobile Solutions API wrapper
+	pylinkchecker             - Simple crawler that detects link errors such as 404 and 500.
+	PyLinkedIn                - Client for LinkedIn API
+	pylinktester              - a link tester written in python
+
+Then to install it:
+
+	elatov@kmac:~$sudo pip install pylinkchecker
+	
+Then I ran the following to check for broken links:
+
+	elatov@kmac:~$pylinkcheck.py http://localhost:4000 -O -o pylink.txt
+
+It look about 15 minutes to finish, but then I was able to see if any of my links to images on github were broken:
+
+	elatov@kmac:~$grep github pylink.txt
+	  not found (404): https://github.com/elatov/uploads/raw/master/2013/02/zenoss-ssh-linux-device.png
+	  not found (404): https://github.com/elatov/uploads/raw/master/2013/04/vm_details_change_video_to_glx.png
+	  
+I had a very small amount and I fixed them really quick. Just as a side note another good linkchecker can be found [here](http://wummel.github.io/linkchecker/), it's also based on python. That one can be setup to run from cron to check for any broken links on your site.
+
+### Writing new Posts
+With jekyllbootstrap, we use the prebuilt Rakefile to create new posts. Most of the instructions are laid out in [Jekyll QuickStart](http://jekyllbootstrap.com/usage/jekyll-quick-start.html). For example here is a quick shortcut to create a new post:
+
+	elatov@kmac:~/moxz1.github.io$rake post title="New Post"
+	Creating new post: ./_posts/2014-05-30-new-post.md
+	
+You will see a template generated for the new post:
+
+{% raw  %}
+
+	elatov@kmac:~/moxz1.github.io$cat _posts/2014-05-30-new-post.md
+	---
+	layout: post
+	title: "New Post"
+	description: ""
+	category:
+	tags: []
+	---
+	{% include JB/setup %}
+
+{% endraw %}
+
+The top section is the metadata of the post and you can define tags and categories of the post if you want. Here is a list of available variables from [Jekyll Front-matter](http://jekyllrb.com/docs/frontmatter/):
+
+| VARIABLE	| DESCRIPTION |
+|:----------|:------------|
+| layout   |If set, this specifies the layout file to use. Use the layout file name without the file extension. Layout files must be placed in the  **_layouts** directory.|
+| permalink | If you need your processed blog post URLs to be something other than the default **/year/month/day/title.html** then you can set this variable and it will be used as the final URL.|
+| published | Set to false if you don’t want a specific post to show up when the site is generated. |
+| category categories | Instead of placing posts inside of folders, you can specify one or more categories that the post belongs to. When the site is generated the post will act as though it had been set with these categories normally. Categories (plural key) can be specified as a YAML list or a space-separated string.|
+| tags | Similar to categories, one or multiple tags can be added to a post. Also like categories, tags can be specified as a YAML list or a space- separated string. |
+
+
+After you define the metadata of the post, you can use your favorite markdown editor to write the content:
+
+- [Mou](http://mouapp.com/) for MacOSX
+- [Haroopad](http://pad.haroopress.com/) for Linux
+- [Sublime Text with plugins](http://www.macstories.net/roundups/sublime-text-2-and-markdown-tips-tricks-and-links/)
+
+Here is a screenshot of Mou:
+
+![Mou-Example](Mou-Example.png)
+
+Here is Haroopad:
+
+![haroopad-example](haroopad-example.png)
+
+I like Mou and Haroopad for their shortcuts, here are some shortcuts from haroopad:
+
+![haroopad-keyboard-shortcuts.png](haroopad-keyboard-shortcuts.png)
+
+You can see the full list under the help section of haroopad or Mou. Here is Sublime Text 3:
+
+
+Sublime Text Plugins don't have the variety of shortcuts by default, but you can definitely customize it to your need. While you are editing the file, upon saving the file to check your changes, you will see **jekyll** letting you know if a file has changed:
+
+	elatov@kmac:~/moxz1.github.io$jekyll serve -w
+	Configuration file: /Users/elatov/moxz1.github.io/_config.yml
+	            Source: /Users/elatov/moxz1.github.io
+	       Destination: /Users/elatov/moxz1.github.io/_site
+	      Generating...
+	                    done.
+	 Auto-regeneration: enabled
+	Configuration file: /Users/elatov/moxz1.github.io/_config.yml
+	    Server address: http://0.0.0.0:4000/
+	  Server running... press ctrl-c to stop.
+	      Regenerating: 1 files at 2014-05-30 14:43:43 ...done.
+	      Regenerating: 2 files at 2014-05-30 14:43:48 ...done.
+
+
+After you are done editing your post and you confirmed the local copy looks good, I would run the following to commit the changes to your github pages:
+
+	elatov@kmac:~/moxz1.github.io$jekyll build --safe
+	Configuration file: /Users/elatov/moxz1.github.io/_config.yml
+	            Source: /Users/elatov/moxz1.github.io
+	       Destination: /Users/elatov/moxz1.github.io/_site
+	      Generating...
+	                    done.
+	elatov@kmac:~/moxz1.github.io$git add --all
+	elatov@kmac:~/moxz1.github.io$git commit -m 'new post'
+	[master 24ea8b1] new post
+	 1 file changed, 1 insertion(+), 2 deletions(-)
+	elatov@kmac:~/moxz1.github.io$git push origin master
+	Counting objects: 7, done.
+	Delta compression using up to 8 threads.
+	Compressing objects: 100% (4/4), done.
+	Writing objects: 100% (4/4), 368 bytes | 0 bytes/s, done.
+	Total 4 (delta 3), reused 0 (delta 0)
+	To https://moxz1@github.com/moxz1/moxz1.github.io.git
+	   d254dae..24ea8b1  master -> master
+
+After that you should see your new post on your github pages:
+
+![github-user-pages-with-new-post](github-user-pages-with-new-post.png)
+
+
+I did a test build just in case with the **--safe** flag, because that is how github runs **jekyll**. From [Jekyll Plugins](http://jekyllrb.com/docs/plugins/):
+
+> Plugins on GitHub Pages
+> 
+> GitHub Pages is powered by Jekyll, however all Pages sites are generated using the `--safe `option to disable custom plugins for security reasons. Unfortunately, this means your plugins won’t work if you’re deploying to GitHub Pages.
+
+and from [Troubleshooting GitHub Pages build failures](https://help.github.com/articles/troubleshooting-github-pages-build-failures):
+
+> To view Jekyll build errors locally, install Jekyll on your computer and run the `jekyll build --safe` command in the root of your GitHub Pages repository.
+
+This way we can check for any errors before pushing anything to the github pages.
+
+#### Create New Post with prose.io
+There is also an online tool that allows you to create posts [prose.io](http://prose.io/). After visiting the above page and authorizing **prose.io** to access your github pages, you will see the following:
+
+![prose-io-first-page](prose-io-first-page.png)
+
+Click on the project will show you the contents:
+
+![prose-io-inside-project](prose-io-inside-project.png)
+
+After clicking going inside the _posts directory and clicking New File", you can give the post a title and enter markdown code:
+
+![prose-io-new-file.png](prose-io-new-file.png)
+
+You can also get a preview of the page after the markdown is parsed:
+
+![prose-io-preview-post](prose-io-preview-post.png)
+
+You can also edit the metadata of the post from here (by default, it's blank):
+
+![prose-io-edit-metadata](prose-io-edit-metadata.png)
+
+You can also click on "Submit Changes" to push the change to github:
+
+![prose-io-save-changes](prose-io-save-changes.png)
+
+To publish the post, click on the "**Unpublish**" button:
+
+![prose-io-publish-post](prose-io-publish-post.png)
+
+and then click Submit Changes one more time. After that if you go back to your github pages you will see the new post:
+
+![post-with-prose-published](post-with-prose-published.png)
+
+### Jekyll in summary
+
+I liked the transition to the new setup. Being a persion who loves the command-line, it's perfect. I think the only downside to this, is the fact that you have to check out the whole site from github before making any changes (and that means that you have to have a local copy on multiple machines). Also running Jekyll locally can be process consuming, depending on how many posts it has go through to generate the site. It will definitely give you more control over your content, and it's up to you to stay organized. There are definitely a lot pros to the setup as well. You don't have to manage your own jekyll server, github hosts the pages for you. Also since github is a version control system, you basically have backups of each commit that you make to github. This way of managing a site is definitely not for everyone. Here are some examples of people that switch back to wordpress after they tried out Jekyll:
+
+- [Moving back from to Jekyll to WordPress](http://www.multunus.com/blog/2014/02/migrated-back-wordpress-jekyll/)
+- 
