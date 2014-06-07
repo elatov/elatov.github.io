@@ -34,7 +34,7 @@ I recently ran into this great study guide for RHCSA and RHCE entitled "[here](h
 *   [Chapter 19 Network Services](/2014/05/rhcsa-rhce-chapter-19-network-services)
 *   [Chapter 20 Email Services](/2014/05/rhcsa-rhce-chapter-20-email-services)
 *   [Chapter 21 Troubleshooting](/2014/05/rhcsa-rhce-chapter-21-troubleshooting)
-*   Chapter 22 Virtualization with KVM
+*   [Chapter 22 Virtualization with KVM](/2014/05/rhcsa-rhce-chapter-22-virtualization-with-kvm/)
 
 Each chapter has hands on examples and they depend on this setup:
 
