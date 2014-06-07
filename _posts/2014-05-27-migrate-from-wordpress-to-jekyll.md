@@ -1,9 +1,10 @@
 ---
 layout: post
 title: "Migrate From Wordpress to Jekyll With Github Pages"
+author: Karim Elatov
 description: ""
-category: 
-tags: []
+category: OS
+tags: [wordpress, jeckyll, markdown]
 ---
 We decided to move away from Wordpress to Jekyll. There are many guides on the process and also a lot of reasons as well. Check out some posts on the process already:
 
@@ -15,17 +16,17 @@ We decided to move away from Wordpress to Jekyll. There are many guides on the p
 Here are the steps to the process.
 
 ### Prepare Github
-Most of the steps are covered in [GitHub Pages](https://pages.github.com/). First go and create your self an account on github.com:
+Most of the steps are covered in [GitHub Pages](https://pages.github.com/). First go and create your self an account on *github.com*:
 
-![github-account-creation](github-account-creation.png)
+![github-account-creation](https://googledrive.com/host/0B4vYKT_-8g4ITEdmOTNIams4Nkk/github-account-creation.png)
 
 For the plan you can choose free:
 
-![github-plan-free](github-plan-free.png)
+![github-plan-free](https://googledrive.com/host/0B4vYKT_-8g4ITEdmOTNIams4Nkk/github-plan-free.png)
 
 After you done with the creation it will take you to your github account:
 
-![github-account-created-login-page](github-account-created-login-page.png)
+![github-account-created-login-page](https://googledrive.com/host/0B4vYKT_-8g4ITEdmOTNIams4Nkk/github-account-created-login-page.png)
 
 After the account we have to create a repository with a special name. From [Using Jekyll with Pages](https://help.github.com/articles/using-jekyll-with-pages):
 
@@ -33,21 +34,21 @@ After the account we have to create a repository with a special name. From [Usin
 > 
 > Every GitHub Page is run through Jekyll when you push content to a specially named branch within your repository. For User Pages, use the master branch in your **username.github.io** repository. For Project Pages, use the **gh-pages** branch in your project's repository. Because a normal HTML site is also a valid Jekyll site, you don't have to do anything special to keep your standard HTML files unchanged. Jekyll has thorough documentation that covers its features and usage. Simply start committing Jekyll formatted files and you'll be using Jekyll in no time.
 
-So let's go ahead and create a repository with name of **username**.github.io. First select "Create New Repository" from the top:
+So let's go ahead and create a repository with name of **username**.github.io. First select **Create New Repository** from the top:
 
-![create-new-repo-github](create-new-repo-github.png)
+![create-new-repo-github](https://googledrive.com/host/0B4vYKT_-8g4ITEdmOTNIams4Nkk/create-new-repo-github.png)
 
 Then name it appropriately:
 
-![github-new-repo-name](github-new-repo-name.png)
+![github-new-repo-name](https://googledrive.com/host/0B4vYKT_-8g4ITEdmOTNIams4Nkk/github-new-repo-name.png)
 
 After it's created, you will see quick instructions on how to initialize the git repository:
 
-![github-initialization-instruct](github-initialization-instruct.png)
+![github-initialization-instruct](https://googledrive.com/host/0B4vYKT_-8g4ITEdmOTNIams4Nkk/github-initialization-instruct.png)
 
-After it's done, go to settings of the repository and check the box that says "Restrict editing to collabolators only":
+After it's done, go to settings of the repository and check the box that says **Restrict editing to collabolators only**:
 
-![github-restrict-editting](github-restrict-editting.png)
+![github-restrict-editting](https://googledrive.com/host/0B4vYKT_-8g4ITEdmOTNIams4Nkk/github-restrict-editting.png)
 
 So let's clone the repository and add a test home page:
 
@@ -84,13 +85,13 @@ So let's clone the repository and add a test home page:
 	 
 Now if you look back on the **settings** page of the repository, it will let you know that your changes have been published:
 
-![site-is-published-github-settings](site-is-published-github-settings.png)
+![site-is-published-github-settings](https://googledrive.com/host/0B4vYKT_-8g4ITEdmOTNIams4Nkk/site-is-published-github-settings.png)
 
 If you want you can update your git user configuration to reflect your username. And you can also use SSH keys instead regular password over https to do commits to the github repository. More information on how to configure the SSH keys are seen in [Generating SSH Keys](https://help.github.com/articles/generating-ssh-keys). 
 
-After sometime if you visit your user github page you will see the contents of the index.html file that you uploaded:
+After sometime if you visit your user github page you will see the contents of the **index.html** file that you uploaded:
 
-![test-page-seen-from-github](test-page-seen-from-github.png)
+![test-page-seen-from-github](https://googledrive.com/host/0B4vYKT_-8g4ITEdmOTNIams4Nkk/test-page-seen-from-github.png)
 
 ### Running Jekyll Locally
 I was using a mac for my testing, so I decided to run **jekyll** locally. MacOSX comes with a ruby version but I didn't want to mess with the system version. I already had **macports** setup on the mac ([here](/2013/07/mount-various-file-system-with-autofs-on-mac-os-x-mountain-lion/) is a post for the macports setup). Once you have macports, you can run the following to install the **ruby** version from macports:
@@ -202,9 +203,9 @@ Now let's build and serve that jekyll-bootstrap template locally:
 	  Server running... press ctrl-c to stop.
   
   
-Now if you point your browser to http://localhost:4000 you should see the template:
+Now if you point your browser to **http://localhost:4000** you should see the template:
 
-![jekyll-running-example-bootstrap](jekyll-running-example-bootstrap.png)
+![jekyll-running-example-bootstrap](https://googledrive.com/host/0B4vYKT_-8g4ITEdmOTNIams4Nkk/jekyll-running-example-bootstrap.png)
 
 #### Jekyll Themes
 There are a bunch of themes out there. Here are a couple of pages that have themes:
@@ -212,7 +213,7 @@ There are a bunch of themes out there. Here are a couple of pages that have them
 - [JekyllBootstrap Theme Explorer](http://themes.jekyllbootstrap.com/)
 - [Jekyll Themes](http://jekyllthemes.org/)
 
-Like I mentioned before, you can either clone the whole project or you can actually use JekyllBootstrap to install a theme. For example here is an easy way to install the twitter-bootstrap based theme with JekyllBootstrap:
+Like I mentioned before, you can either clone the whole project or you can actually use JekyllBootstrap to install a theme. For example here is an easy way to install the **twitter-bootstrap** based theme with **JekyllBootstrap**:
 
 	elatov@kmac:~/jekyll-bootstrap$rake theme:install git="https://github.com/jekybootstrap/theme-twitter.git"
 	Cloning into './_theme_packages/_tmp'...
@@ -249,7 +250,7 @@ Like I mentioned before, you can either clone the whole project or you can actua
 	
 Now if you re-run jekyll you should see the following after you visit **http://localhost:4000** :
 
-![jekyll-with-twitter-theme-running](jekyll-with-twitter-theme-running.png)
+![jekyll-with-twitter-theme-running](https://googledrive.com/host/0B4vYKT_-8g4ITEdmOTNIams4Nkk/jekyll-with-twitter-theme-running.png)
 
 #### Customize Jekyll Configurations
 Let's add the information regarding the site. I ended up modifying the following lines in the **_config.yml** file:
@@ -315,11 +316,11 @@ On the main page, I decided to just list posts and nothing else. Here is what I 
 	</ul>
 {% endraw %}
 
-After a reload of **jekyll**, saw the following on the local site:
+After a reload of **jekyll**, I saw the following on the local site:
 
-![jekyll-personal-info-added](jekyll-personal-info-added.png)
+![jekyll-personal-info-added](https://googledrive.com/host/0B4vYKT_-8g4ITEdmOTNIams4Nkk/jekyll-personal-info-added.png)
 
-If you like how it looks you can push it to the github pages:
+If you like how it looks, you can push it to the github pages:
 
 	elatov@kmac:~/jekyll-bootstrap$git remote set-url origin https://moxz1@github.com/moxz1/moxz1.github.io.git
 	elatov@kmac:~/jekyll-bootstrap$git add --all
@@ -340,7 +341,7 @@ If you like how it looks you can push it to the github pages:
 	 
 Then after some time, if you visit the github user pages, you will see the same site:
 
-![github-updates-pushed-and-live](github-updates-pushed-and-live.png)
+![github-updates-pushed-and-live](https://googledrive.com/host/0B4vYKT_-8g4ITEdmOTNIams4Nkk/github-updates-pushed-and-live.png)
 
 ### Migrate Wordpress Posts to Jekyll
 There are a couple of methods to the approach. Here are a few:
@@ -351,7 +352,7 @@ There are a couple of methods to the approach. Here are a few:
 
 I ended up using the bottom one. After you install the plugin in your wordpress install, you can either go to the Wordpress Managament Page and you will see the  **Export to Jekyll** button there:
 
-![export-to-jekyl-plugin-wp](export-to-jekyl-plugin-wp.png)
+![export-to-jekyl-plugin-wp](https://googledrive.com/host/0B4vYKT_-8g4ITEdmOTNIams4Nkk/export-to-jekyl-plugin-wp.png)
 
 Upon clicking that, it will start the export and you should get a zip of the export. Mine kept timing out, so I did it manually on the host it self:
 
@@ -370,13 +371,13 @@ I copied the zip from the host and here were the contents of the zip extracted:
 	
 	4 directories, 1 file
 
-wp-contents contained all the uploads from wordpress:
+**wp-contents** contained all the uploads from wordpress:
 
 	elatov@kmac:~/jek$ls -l jekyll-export/wp-content/
 	total 0
 	drwxr-xr-x  10 elatov  staff  340 May 30 09:57 uploads
 
-and _posts, is a directory with all the converted posts:
+and **_posts**, is a directory with all the converted posts:
 
 	elatov@kmac:~/jek$ls -l jekyll-export/_posts
 	total 376
@@ -415,7 +416,7 @@ Now launching your local jekyll instance:
 
 You can visit the local site (**http://localhost:4000**), and you will see your posts included in the main page:
 
-![posts_migrated_tojekyll-local-view](posts_migrated_tojekyll-local-view.png)
+![posts_migrated_tojekyll-local-view](https://googledrive.com/host/0B4vYKT_-8g4ITEdmOTNIams4Nkk/posts_migrated_tojekyll-local-view.png)
 
 #### Clean up Converted Markdown
 None of the above converters are perfect, and after the migration you will definitely end up with some left over HTML. Here are a couple of sites that help with clean up:
@@ -442,7 +443,7 @@ The first one has an R Script which clean up a bunch of HTML tags and the second
 	### Replace Smiley images with characters
 	for i in $(grep '<img src="http://site.com/wp-includes/images/smilies/icon_smile.gif"' * | awk -F : '{print $1}'  | uniq); do echo $i; gsed -i 's%<img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif".*/>%:\)%g' $i; done
 	
-There were a bunch more and you get the point. The reason why I did it by hand was to make sure everything was converted as I expected. This was tedious, but it was better than re-writing all the posts and at the end I knew the markdown files were clean.
+There were a bunch more but you get the point. The reason why I did it by hand was to make sure everything was converted as I expected. This was tedious, but it was better than re-writing all the posts and at the end I knew the markdown files were clean.
 
 #### Fixing HTML links and Image links
 Most of the **href** links looked like this in the new files:
@@ -524,7 +525,7 @@ From the Jekyll Export, will be accessible in the github repository with the fol
 
 	https://github.com/moxz1/uploads/raw/master/2012/03/esxtop_latency.png
 	
-Now we can use the followig to point all the image links to the github repository:
+Now we can use the following to point all the image links to the github repository:
 
 	elatov@kmac:~$cat conv-html-url-to-md.py
 	import fileinput
@@ -562,13 +563,13 @@ Then I ran the following to check for broken links:
 It look about 15 minutes to finish, but then I was able to see if any of my links to images on github were broken:
 
 	elatov@kmac:~$grep github pylink.txt
-	  not found (404): https://github.com/elatov/uploads/raw/master/2013/02/zenoss-ssh-linux-device.png
-	  not found (404): https://github.com/elatov/uploads/raw/master/2013/04/vm_details_change_video_to_glx.png
+	  not found (404): https://github.com/moxz1/uploads/raw/master/2013/02/zenoss-ssh-linux-device.png
+	  not found (404): https://github.com/moxz1/uploads/raw/master/2013/04/vm_details_change_video_to_glx.png
 	  
 I had a very small amount and I fixed them really quick. Just as a side note another good linkchecker can be found [here](http://wummel.github.io/linkchecker/), it's also based on python. That one can be setup to run from cron to check for any broken links on your site.
 
 ### Writing new Posts
-With jekyllbootstrap, we use the prebuilt Rakefile to create new posts. Most of the instructions are laid out in [Jekyll QuickStart](http://jekyllbootstrap.com/usage/jekyll-quick-start.html). For example here is a quick shortcut to create a new post:
+With **jekyllbootstrap**, we can use the prebuilt **Rakefile** to create new posts. Most of the instructions are laid out in [Jekyll QuickStart](http://jekyllbootstrap.com/usage/jekyll-quick-start.html). For example here is a quick shortcut to create a new post:
 
 	elatov@kmac:~/moxz1.github.io$rake post title="New Post"
 	Creating new post: ./_posts/2014-05-30-new-post.md
@@ -606,20 +607,21 @@ After you define the metadata of the post, you can use your favorite markdown ed
 - [Haroopad](http://pad.haroopress.com/) for Linux
 - [Sublime Text with plugins](http://www.macstories.net/roundups/sublime-text-2-and-markdown-tips-tricks-and-links/)
 
-Here is a screenshot of Mou:
+Here is a screenshot of **Mou**:
 
-![Mou-Example](Mou-Example.png)
+![Mou-Example](https://googledrive.com/host/0B4vYKT_-8g4ITEdmOTNIams4Nkk/Mou-Example.png)
 
-Here is Haroopad:
+Here is **Haroopad**:
 
-![haroopad-example](haroopad-example.png)
+![haroopad-example](https://googledrive.com/host/0B4vYKT_-8g4ITEdmOTNIams4Nkk/haroopad-example.png)
 
-I like Mou and Haroopad for their shortcuts, here are some shortcuts from haroopad:
+I like Mou and Haroopad for their shortcuts, here are some shortcuts from **haroopad**:
 
-![haroopad-keyboard-shortcuts.png](haroopad-keyboard-shortcuts.png)
+![haroopad-keyboard-shortcuts.png](https://googledrive.com/host/0B4vYKT_-8g4ITEdmOTNIams4Nkk/haroopad-keyboard-shortcuts.png)
 
-You can see the full list under the help section of haroopad or Mou. Here is Sublime Text 3:
+You can see the full list under the help section of **haroopad** or **Mou**. Here is **Sublime Text 3**:
 
+![sublime-text-preview.png](https://googledrive.com/host/0B4vYKT_-8g4ITEdmOTNIams4Nkk/sublime-text-preview.png)
 
 Sublime Text Plugins don't have the variety of shortcuts by default, but you can definitely customize it to your need. While you are editing the file, upon saving the file to check your changes, you will see **jekyll** letting you know if a file has changed:
 
@@ -660,7 +662,7 @@ After you are done editing your post and you confirmed the local copy looks good
 
 After that you should see your new post on your github pages:
 
-![github-user-pages-with-new-post](github-user-pages-with-new-post.png)
+![github-user-pages-with-new-post](https://googledrive.com/host/0B4vYKT_-8g4ITEdmOTNIams4Nkk/github-user-pages-with-new-post.png)
 
 
 I did a test build just in case with the **--safe** flag, because that is how github runs **jekyll**. From [Jekyll Plugins](http://jekyllrb.com/docs/plugins/):
@@ -678,39 +680,39 @@ This way we can check for any errors before pushing anything to the github pages
 #### Create New Post with prose.io
 There is also an online tool that allows you to create posts [prose.io](http://prose.io/). After visiting the above page and authorizing **prose.io** to access your github pages, you will see the following:
 
-![prose-io-first-page](prose-io-first-page.png)
+![prose-io-first-page](https://googledrive.com/host/0B4vYKT_-8g4ITEdmOTNIams4Nkk/prose-io-first-page.png)
 
 Click on the project will show you the contents:
 
-![prose-io-inside-project](prose-io-inside-project.png)
+![prose-io-inside-project](https://googledrive.com/host/0B4vYKT_-8g4ITEdmOTNIams4Nkk/prose-io-inside-project.png)
 
-After clicking going inside the _posts directory and clicking New File", you can give the post a title and enter markdown code:
+After clicking going inside the **_posts** directory and clicking **New File**, you can give the post a title and enter markdown code:
 
-![prose-io-new-file.png](prose-io-new-file.png)
+![prose-io-new-file.png](https://googledrive.com/host/0B4vYKT_-8g4ITEdmOTNIams4Nkk/prose-io-new-file.png)
 
 You can also get a preview of the page after the markdown is parsed:
 
-![prose-io-preview-post](prose-io-preview-post.png)
+![prose-io-preview-post](https://googledrive.com/host/0B4vYKT_-8g4ITEdmOTNIams4Nkk/prose-io-preview-post.png)
 
 You can also edit the metadata of the post from here (by default, it's blank):
 
-![prose-io-edit-metadata](prose-io-edit-metadata.png)
+![prose-io-edit-metadata](https://googledrive.com/host/0B4vYKT_-8g4ITEdmOTNIams4Nkk/prose-io-edit-metadata.png)
 
-You can also click on "Submit Changes" to push the change to github:
+You can also click on **Submit Changes** to push the change to github:
 
-![prose-io-save-changes](prose-io-save-changes.png)
+![prose-io-save-changes](https://googledrive.com/host/0B4vYKT_-8g4ITEdmOTNIams4Nkk/prose-io-save-changes.png)
 
 To publish the post, click on the "**Unpublish**" button:
 
-![prose-io-publish-post](prose-io-publish-post.png)
+![prose-io-publish-post](https://googledrive.com/host/0B4vYKT_-8g4ITEdmOTNIams4Nkk/prose-io-publish-post.png)
 
-and then click Submit Changes one more time. After that if you go back to your github pages you will see the new post:
+and then click **Submit Changes** one more time. After that if you go back to your github pages you will see the new post:
 
-![post-with-prose-published](post-with-prose-published.png)
+![post-with-prose-published](https://googledrive.com/host/0B4vYKT_-8g4ITEdmOTNIams4Nkk/post-with-prose-published.png)
 
-### Jekyll in summary
+### Jekyll Summary
 
 I liked the transition to the new setup. Being a persion who loves the command-line, it's perfect. I think the only downside to this, is the fact that you have to check out the whole site from github before making any changes (and that means that you have to have a local copy on multiple machines). Also running Jekyll locally can be process consuming, depending on how many posts it has go through to generate the site. It will definitely give you more control over your content, and it's up to you to stay organized. There are definitely a lot pros to the setup as well. You don't have to manage your own jekyll server, github hosts the pages for you. Also since github is a version control system, you basically have backups of each commit that you make to github. This way of managing a site is definitely not for everyone. Here are some examples of people that switch back to wordpress after they tried out Jekyll:
 
 - [Moving back from to Jekyll to WordPress](http://www.multunus.com/blog/2014/02/migrated-back-wordpress-jekyll/)
-- 
+- [Jekyll vs WordPress, Why I prefer wordpress](http://stevenyue.com/2012/08/12/jekyll-vs-wordpress-why-i-prefer-wordpress/)
