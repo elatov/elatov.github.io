@@ -9,13 +9,13 @@ highlighter: pygments
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : VirtuallyHyper
+title : Blog
 tagline: The Virtualization Blog
 author :
   name : Karim Elatov
-  email : ela.tov.gmail.com
-  github : elatov@gmail.com
-  twitter : username
+  email : elatov@users.noreply.github.com
+  github : elatov
+  twitter : elatov
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
