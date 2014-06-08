@@ -4,9 +4,6 @@
 - name: "Categories"
   url: "/categories.html"
 
-- name: "Search"
-  url: "/search.html"
-
 - name: "Certifications"
   child_links:
     - name: "VCAP_DCD"
