@@ -3,7 +3,7 @@ layout: post
 title: "Monitor ESXi S.M.A.R.T Attributes with Zabbix over SSH"
 author: Karim Elatov
 description: ""
-category: vmware,os
+categories: [vmware, os]
 tags: zabbix, smart, esxi
 ---
 
