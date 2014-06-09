@@ -141,7 +141,7 @@ Upon initial import I received the following error:
 
 > Cannot find value map "VMware VirtualMachinePowerState" used for item "Power state" on "Template Virt VMware Guest".
 
-Looks like another person ran into a similar issue [here][3] (it's in Russian, but you can always translate it) and the fix is to add a couple of values to the MySQL Database as described in [this][4] forum. [Here][5] are the commands that need to be run on the MySQL DB. When I ran the commands they failed, because I was using those values for something else, so I just incremented my **valuemapid** and it worked. Here are the commands I ended up running:
+Looks like another person ran into a similar issue [here][3] (it's in German, but you can always translate it) and the fix is to add a couple of values to the MySQL Database as described in [this][4] forum. [Here][5] are the commands that need to be run on the MySQL DB. When I ran the commands they failed, because I was using those values for something else, so I just incremented my **valuemapid** and it worked. Here are the commands I ended up running:
 
     INSERT INTO `valuemaps` (`valuemapid`,`name`) values ('13','VMware status');
     INSERT INTO `valuemaps` (`valuemapid`,`name`) values ('14','VMware VirtualMachinePowerState');
@@ -263,7 +263,7 @@ It's not much but it's a good start. There are already a couple of feature reque
 
  [1]: https://www.zabbix.com/documentation/2.2/manual/introduction/whatsnew220
  [2]: https://www.zabbix.org/wiki/Zabbix_Templates/Official_Templates#Zabbix_2.2.0
- [3]: http://blog.volobuev.su/zabbix-cannot-find-value-map-vmware-virtualmachinepowerstate/
+ [3]: https://netzdeponie.de/2014/01/08/import-von-vmware-templates-in-zabbix-schlaegt-fehl/
  [4]: https://www.zabbix.com/forum/showthread.php?p=142941#post142941
  [5]: https://www.zabbix.com/forum/showpost.php?p=142098
  [6]: https://www.zabbix.com/documentation/2.2/manual/vm_monitoring
