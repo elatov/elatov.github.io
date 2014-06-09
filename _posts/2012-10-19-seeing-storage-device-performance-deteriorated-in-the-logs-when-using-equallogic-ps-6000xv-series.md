@@ -155,7 +155,7 @@ So the configuration looked good. I then decided to figure out if a certain load
 | 32K_50%Read  |   1,184   |   37    |   1,180    |    36    |    23    |        12 |
 | 32K_0%Read   |           |         |   1,351    |    42    |          |        23 |
 
-I read over the article ' [EqualLogic PS Series Usability and Performance](http://www.equallogic.com/WorkArea/downloadasset.aspx?id=6617)'. They had multiple test cases, I was mostly interested in this on:
+I read over the article ' [EqualLogic PS Series Usability and Performance](http://www.dell.com/us/business/p/equallogic-ps-series)'. They had multiple test cases, I was mostly interested in this on:
 
 > For test case #2, we wanted to measure the sustained throughput IOPS over a longer period of time. Therefore, we created a 100GB volume, left it unformatted, and ran IOMeter with the settings identified in Table 2. In addition, we ran the Windows Performance Monitor utility to measure the Physical Disk Transfers/sec (see Graph 1) over the course of 60 minutes, taking a sampling every 10 seconds. What we observed was a very consistently sustained IOPS throughput rate over the entire test period, with an average IOPS of 12043.
 
