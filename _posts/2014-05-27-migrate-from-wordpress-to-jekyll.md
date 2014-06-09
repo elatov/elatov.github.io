@@ -3,7 +3,7 @@ layout: post
 title: "Migrate From Wordpress to Jekyll With Github Pages"
 author: Karim Elatov
 description: ""
-category: OS
+categories: [OS]
 tags: [wordpress, jekyll, markdown]
 ---
 We decided to move away from Wordpress to Jekyll. There are many guides on the process and also a lot of reasons as well. Check out some posts on the process already:
