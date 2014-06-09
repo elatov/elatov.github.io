@@ -37,6 +37,7 @@ After that, we can create a new item for that host with the following configurat
 
 If you want you can also specify an SSH key for the connection as well, but for that to work, the zabbix user must have an existing home directory (check out  [Zabbix SSH checks](https://www.zabbix.com/documentation/2.0/manual/config/items/itemtypes/ssh_checks) for more information). Looking over some of the SSDs, for example from [Samsung SSD 840 PRO Series Data Sheet](http://www.samsung.com/global/business/semiconductor/Downloads/DataSheet-Samsung_SSD_840_PRO_Rev12.pdf) :
 
+> {:.kt}
 > | Temperature | |
 > |:-----|:--|
 > |Operating:|  0°C to 70°C |

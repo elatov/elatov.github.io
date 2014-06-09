@@ -351,6 +351,7 @@ There is a pretty good example from [this](https://github.com/elatov/uploads/raw
 
 > Tiering Example:
 >
+> {:.kt}
 > |Tier| Disk_Type |Disk_RPM | Raid_Level| #_of_Disks | #_of_VMs_per_Datastore 1|
 > |:---|:---------:|:-------:|:----------:|:---------:|:-----------------------:|
 > | FC| 15K        |10       | 8          | 10        | 2         |

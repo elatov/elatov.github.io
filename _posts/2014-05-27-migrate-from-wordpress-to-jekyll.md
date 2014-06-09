@@ -165,6 +165,7 @@ From [Directory structure](http://jekyllrb.com/docs/structure/):
 >
 > An overview of what each of these does:
 >
+> {:.kt}
 > | FILE / DIRECTORY|	DESCRIPTION|
 > |:----------------|:-----------|
 > | _config.yml     | Stores **configuration** data. Many of these options can be specified from the command line executable but it’s easier to specify them here so you don’t have to remember them.|
@@ -592,6 +593,7 @@ You will see a template generated for the new post:
 
 The top section is the metadata of the post and you can define tags and categories of the post if you want. Here is a list of available variables from [Jekyll Front-matter](http://jekyllrb.com/docs/frontmatter/):
 
+{:.kt}
 | VARIABLE	| DESCRIPTION |
 |:----------|:------------|
 | layout   |If set, this specifies the layout file to use. Use the layout file name without the file extension. Layout files must be placed in the  **_layouts** directory.|

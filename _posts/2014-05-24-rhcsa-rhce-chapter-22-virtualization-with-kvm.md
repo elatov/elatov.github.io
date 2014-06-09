@@ -182,7 +182,8 @@ From the Virtualization Administration Guide:
 > The following tables provide a quick reference for all **virsh** command line options.
 > 
 > ####guest virtual machine management options
-> 
+>
+> {:.kt} 
 > | Command	|  Shortcut (if available)| 	 Description|
 > |:------------------|:------------------------------|:----------------------|
 > |--help	          | -h	         |Prints basic help information.|
@@ -198,6 +199,7 @@ From the Virtualization Administration Guide:
 > 
 > ####guest virtual machine management commands
 > 
+> {:.kt}
 > | Command| 	 Description|
 > |:--------------|:-------------------|
 > |list	| Lists all guest virtual machines.|
@@ -225,6 +227,7 @@ From the Virtualization Administration Guide:
 > 
 > #### Resource management options
 > 
+> {:.kt}
 > |Command	| Description|
 > |:---------------|:---------------|
 > |setmem|	 Sets the allocated memory for a guest virtual machine. Refer to the virsh manpage for more details.|
@@ -246,6 +249,7 @@ From the Virtualization Administration Guide:
 > 
 > ####Storage Pool options
 > 
+> {:.kt}
 > |Command	| Description|
 > |:---------------------|:---------------|
 > |find-storage-pool-sources|	 Returns the XML definition for all storage pools of a given type that could be found.|
@@ -270,6 +274,7 @@ From the Virtualization Administration Guide:
 > 
 > #### Volume options
 > 
+> {:.kt}
 > |Command	| Description|
 > |:-----------------|:-----------------|
 > |vol-create	| Create a volume from an XML file.|
@@ -288,6 +293,7 @@ From the Virtualization Administration Guide:
 > 
 > #### Secret options
 > 
+> {:.kt}
 > |Command	| Description|
 > |:-----------------|:----------------|
 > |secret-define	| Define or modify a secret from an XML file.|
@@ -299,6 +305,7 @@ From the Virtualization Administration Guide:
 > 
 > #### Network filter options
 > 
+> {:.kt}
 > |Command	| Description|
 > |:-----------------|:----------------|
 > |nwfilter-define| Define or update a network filter from an XML file.|
@@ -311,6 +318,7 @@ From the Virtualization Administration Guide:
 > 
 > #### Snapshot options
 > 
+> {:.kt}
 > |Command|	 Description|
 > |:----------------|:-----------------|
 > |snapshot-create	| Create a snapshot.|
@@ -324,6 +332,7 @@ From the Virtualization Administration Guide:
 > 
 > #### Miscellaneous options
 > 
+> {:.kt}
 > |Command|	 Description|
 > |:-------------|:--------------------|
 > |version|	 Displays the version of virsh.|

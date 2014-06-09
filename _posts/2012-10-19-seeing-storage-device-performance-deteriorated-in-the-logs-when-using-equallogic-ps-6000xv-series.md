@@ -142,6 +142,7 @@ And it was. The customer was also using the Round Robin Pathing Policy for this 
 
 So the configuration looked good. I then decided to figure out if a certain load was causing the latency. Following the instructions laid out in VMware KB [2019131](http://kb.vmware.com/kb/2019131) we ran IOmeter and here were the results:
 
+{:.kt}
 | Test         | Read_IOPs | Read_MB | Write_IOPs | Write_MB | Read_Lat | Write_Lat |
 | ------------ |:---------:|:-------:|:----------:|:--------:|:--------:| ---------:|
 | 4K_100%Read  |  12,898   |   50    |            |          |   2.48   |           |
@@ -171,6 +172,7 @@ The windows copy had random spikes of different block sizes and sometimes went a
 >
 > The base volumes were mounted on one Windows host, and the snapshot volumes on the other. A workload was simultaneously run against the base volumes while running the backup workload on the snapshot volumes to simulate an application. The test started with two volumes and then incremented the volumes and associated snapshots by two until there were 12 total volumes and the latency approached 20 ms. The IOmeter workloads used to simulate the backup application and application workload are shown in the following table.
 >
+> {:.kt}
 > | Workload type | # workers |  I/O type  | Read/Write  mix | Block Size |  Volume  | Volume Access |
 > | ---------|:----------:|:----------:|:------------------:|:----------:|:--------:| -------------:|
 > | Backup            |     1      | sequential |       100/0        |    128K    | Snapshot |       100.00% |

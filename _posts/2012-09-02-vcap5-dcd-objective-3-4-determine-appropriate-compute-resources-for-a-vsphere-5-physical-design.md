@@ -158,6 +158,7 @@ From [this](https://github.com/elatov/uploads/raw/master/2013/04/vcap-dcd_notes.
 >
 > **Blades**
 
+{:.kt}
 | Good                        |                             Bad                              |
 | --------------------------- |:------------------------------------------------------------:|
 | Flexible                    |                      Locks into Vendor                       |
