@@ -241,14 +241,7 @@ There are a couple of things we need to do on the VM to prep it for Vagrant.
 
 #### Add Directories with system binaries to Vagrant's User Path
 
-This will ease the pain of typing out the full path of the command. So let's add **/usr/sbin** and **/sbin** to the *vagrant*'s user PATH:
-
-	vagrant@linux-nkez:~> echo "export PATH=/usr/sbin:/sbin:$PATH" >> .profile
-	vagrant@linux-nkez:~> . .profile
-
-#### Configure sudo for the vagrant user
-
-First we have to make sure the vagrant use can run **sudo** without a password. During the install I made the vagrant user an *admin* so he already had **sudo** privileges, just not passwordless. SSH into the template VM:
+This will ease the pain of typing out the full path of the command. So let's add **/usr/sbin** and **/sbin** to the *vagrant*'s user PATH. SSH into the template VM:
 
 	elatov@kmac:~$ssh vagrant@127.0.0.1 -p 2223
 	Password:
@@ -256,11 +249,18 @@ First we have to make sure the vagrant use can run **sudo** without a password. 
 	Have a lot of fun...
 	vagrant@linux-nkez:~>
 
-Then edit the **/etc/sudoers** file to allow passwordless **sudo** commands:
+And run the following to add those directories to the PATH:
+
+	vagrant@linux-nkez:~> echo "export PATH=/usr/sbin:/sbin:$PATH" >> .profile
+	vagrant@linux-nkez:~> . .profile
+
+#### Configure sudo for the vagrant user
+
+First we have to make sure the vagrant use can run **sudo** without a password. During the install I made the vagrant user an *admin* so he already had **sudo** privileges, just not passwordless. So let's edit the **/etc/sudoers** file to allow passwordless **sudo** commands:
 
 	vagrant@linux-nkez:~> sudo /usr/sbin/visudo
 
-add the following into the file:
+And add the following into the file:
 
 	Defaults !requiretty
 	vagrant ALL=(ALL) NOPASSWD: ALL
