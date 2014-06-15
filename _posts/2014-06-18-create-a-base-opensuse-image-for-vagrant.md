@@ -239,6 +239,13 @@ At this point you can ssh to the VM like so:
 ### Configure the Guest OS
 There are a couple of things we need to do on the VM to prep it for Vagrant. 
 
+### Add Directories with system binaries to Vagrant's User Path
+
+This will ease the pain of typing out the full path of the command. So let's add **/usr/sbin** and **/sbin** to the *vagrant*'s user PATH:
+
+	vagrant@linux-nkez:~> echo "export PATH=/usr/sbin:/sbin:$PATH" >> .profile
+	vagrant@linux-nkez:~> . .profile
+
 #### Configure sudo for the vagrant user
 
 First we have to make sure the vagrant use can run **sudo** without a password. During the install I made the vagrant user an *admin* so he already had **sudo** privileges, just not passwordless. SSH into the template VM:
@@ -441,7 +448,7 @@ Then modify **/etc/fstab** to use the label:
 
 	LABEL=boot           /boot                ext4       acl,user_xattr        1 2
 
-#### Fix the ""SMBus base address uninitialized" message
+#### Fix the "SMBus base address uninitialized" message
 
 To get rid of the following message during boot:
 
