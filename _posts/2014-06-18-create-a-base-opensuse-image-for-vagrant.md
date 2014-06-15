@@ -239,7 +239,7 @@ At this point you can ssh to the VM like so:
 ### Configure the Guest OS
 There are a couple of things we need to do on the VM to prep it for Vagrant. 
 
-### Add Directories with system binaries to Vagrant's User Path
+#### Add Directories with system binaries to Vagrant's User Path
 
 This will ease the pain of typing out the full path of the command. So let's add **/usr/sbin** and **/sbin** to the *vagrant*'s user PATH:
 
