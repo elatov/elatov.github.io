@@ -66,7 +66,7 @@ When it gets to the hard-drive page, select "Use an existing virtual hard drive 
 
 ![vb-select-vmdk](https://googledrive.com/host/0B4vYKT_-8g4IWWdONkR4RUdqWTg/vb-select-vmdk.png)
 
-After the VM is created, disable the USB ports, audio device and the floppy device in the boot menu. Start the VM and follow the instructions laid out [here](2014/06/create-a-base-opensuse-image-for-vagrant/) to finish the customization of the VM. As a side note, it won't bring up the first interface by default so login as root to the appliance and run the following to get an IP via DHCP (then you can SSH to the VM using port forwarding like before):
+After the VM is created, disable the USB ports, audio device and the floppy device in the boot menu. Start the VM and follow the instructions laid out [here](/2014/06/create-a-base-opensuse-image-for-vagrant/) to finish the customization of the VM. As a side note, it won't bring up the first interface by default so login as root to the appliance and run the following to get an IP via DHCP (then you can SSH to the VM using port forwarding like before):
 
 	linux-mjbf:~ # dhcpd enp0s3
 
