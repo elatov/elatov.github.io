@@ -235,7 +235,7 @@ the values are in 512 sized sectors. So our minimum possible size is (13158272 *
         Total Empty Bytes: 2098135040
 
 
-Notice the size has changed, but it didn't go as low as 4.3GiB (as shown by Total Non-Empty Bytes). The reason for this is because the sparse image is not defragmented. This is discussed in "[Defragmentation and disk images](http://www.eonlinegratis.com/2013/how-to-reclaim-allmost-free-space-from-a-sparsebundle-on-os-x/)".
+Notice the size has changed, but it didn't go as low as 4.3GiB (as shown by Total Non-Empty Bytes). The reason for this is because the sparse image is not defragmented. This is discussed in "[Defragmentation and disk images](http://newartisans.com/2008/03/defragmentation-and-disk-images/)".
 
 From here we have two options. If you have access to iDefrag then you can use that to defragment the Sparse Image to reclaim more space, or we can create a smaller Sparse Image and copy the contents manually.
 
