@@ -65,8 +65,8 @@ And more from the same document:
 > Relies solely on the link status provided by the network adapter. This detects failures, such as cable pulls and physical switch power failures, but it cannot detect configuration errors, such as a physical switch port being blocked by spanning tree or misconfigured to the wrong VLAN or cable pulls on the other side of a physical switch.
 >
 > **Beacon Probing**
-> Sends out and listens for beacon probes — Ethernet broadcast frames sent by physical adapters to detect upstream network connection failures — on all physical Ethernet adapters in the team, as shown in Figure . It uses this information, in addition to link status, to determine link failure. This detects many of the failures mentioned above that are not detected by link status alone, however beacon
-> probing should not be used as a substitute for a robust redundant Layer  network design. Beacon probing is most useful to detect failures in the closest switch to the ESX Server hosts, where the failure does not cause a link-down event for the host.
+> Sends out and listens for beacon probes — Ethernet broadcast frames sent by physical adapters to detect upstream network connection failures — on all physical Ethernet adapters in the team, as shown in Figure 4. It uses this information, in addition to link status, to determine link failure. This detects many of the failures mentioned above that are not detected by link status alone, however beacon
+> probing should not be used as a substitute for a robust redundant Layer 1 network design. Beacon probing is most useful to detect failures in the closest switch to the ESX Server hosts, where the failure does not cause a link-down event for the host.
 >
 > ![beacon_probes](https://github.com/elatov/uploads/raw/master/2012/09/beacon_probes.png)
 
@@ -205,7 +205,7 @@ This was covered in the previous section
 
 ### Migrate a vSS network to a Hybrid or Full vDS solution
 
-From [VMware vNetwork Distributed Switch: Migration and Configuration](http://www.vmware.com/files/pdf/vsphere-vnetwork-ds-migration-configuration-wp.pdf)
+From [VMware vNetwork Distributed Switch: Migration and Configuration](http://www.vmware.com/files/pdf/vsphere-vnetwork-ds-migration-configuration-wp.pdf)
 
 ![vss_to_dvs_migration](https://github.com/elatov/uploads/raw/master/2012/09/vss_to_dvs_migration.png)
 

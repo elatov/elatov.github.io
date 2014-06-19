@@ -74,7 +74,7 @@ Now, once you have identified an "Inconsistent" DVS, let's start fixing it.
 
 ### Create a Standard Virtual Switch and Migrate an uplink to it
 
-Most of these steps are laid out in "[VMware vNetwork Distributed Switch: Migration and Configuration](http://www.vmware.com/files/pdf/vsphere-vnetwork-ds-migration-configuration-wp.pdf)"
+Most of these steps are laid out in "[VMware vNetwork Distributed Switch: Migration and Configuration](http://www.vmware.com/files/pdf/vsphere-vnetwork-ds-migration-configuration-wp.pdf)"
 
 **1.** Create a new Stardard Virtual Switch
 
@@ -333,4 +333,4 @@ Notice that there is a "Remove" button available. Go ahead and click "Remove", t
 *   edit vpxd.cfg and change the default time out and restart vCenter (if it's up)
 *   reboot the host
 
-Usually the last one fixes the shadow ports issue. Now you are completely off the Ghosted DVS. If you want to re-create the DVS or re-add the host back to the DVS and migrate everything back then you can follow the instructions laid out in "[VMware vNetwork Distributed Switch: Migration and Configuration](http://www.vmware.com/files/pdf/vsphere-vnetwork-ds-migration-configuration-wp.pdf)"
+Usually the last one fixes the shadow ports issue. Now you are completely off the Ghosted DVS. If you want to re-create the DVS or re-add the host back to the DVS and migrate everything back then you can follow the instructions laid out in "[VMware vNetwork Distributed Switch: Migration and Configuration](http://www.vmware.com/files/pdf/vsphere-vnetwork-ds-migration-configuration-wp.pdf)"
