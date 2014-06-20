@@ -5,7 +5,7 @@ author: Karim Elatov
 description: ""
 categories: [OS]
 tags: [openvas,centos]
-published: false
+published: true
 ---
 After updating OpenVAS from the atomic YUM repository, I realized I wasn't able to lunch Greenbone Security Assistant (**gsad**). The issue is discussed [here](http://osdir.com/ml/openvas-security-network/2014-06/msg00078.html). Upon starting the service I saw the following error:
 
@@ -20,9 +20,9 @@ But then that caused another issue, so I decided to compile my own version.
 
 ### OpenVAS 7 Architecture
 
-I talked about the architecture for OpenVAS 6 in my [previous post](/2014/05/openvas-centos/), but it seems that it has changed, from [this](http://www.openvas.org/about.html) openvas page:
+I talked about the architecture for OpenVAS 6 in my [previous post](/2014/05/openvas-centos/), but it seems that it has changed, from [this](http://www.openvas.org/about.html) OpenVAS page:
 
-![openvas7-arch](openvas7-arch.png)
+![openvas7-arch](https://googledrive.com/host/0B4vYKT_-8g4IdkJqZjFjN3NyX2c/openvas7-arch.png)
 
 Notice that the *administrator* is no longer part of the deployment, that got merged into the *manager*. From "[Install OpenVAS from Source Code](http://www.openvas.org/install-source.html)":
 
