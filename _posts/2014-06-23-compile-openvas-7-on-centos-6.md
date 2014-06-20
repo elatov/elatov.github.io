@@ -1355,6 +1355,39 @@ If you are planning on modifying the default setting for the scanner, first gene
 
 	elatov@m2:~$sudo /usr/local/openvas/sbin/openvassd -s > /usr/local/openvas/etc/openvas/openvassd.conf
 
+Just for reference here are the defaults:
+
+	elatov@m2:~$/usr/local/openvas/sbin/openvassd -s
+	plugins_folder = /usr/local/openvas/var/lib/openvas/plugins
+	cache_folder = /usr/local/openvas/var/cache/openvas
+	include_folders = /usr/local/openvas/var/lib/openvas/plugins
+	max_hosts = 30
+	max_checks = 10
+	be_nice = no
+	logfile = /usr/local/openvas/var/log/openvas/openvassd.messages
+	log_whole_attack = no
+	log_plugins_name_at_load = no
+	dumpfile = /usr/local/openvas/var/log/openvas/openvassd.dump
+	cgi_path = /cgi-bin:/scripts
+	optimize_test = yes
+	checks_read_timeout = 5
+	network_scan = no
+	non_simult_ports = 139, 445
+	plugins_timeout = 320
+	safe_checks = yes
+	auto_enable_dependencies = yes
+	use_mac_addr = no
+	nasl_no_signature_check = yes
+	drop_privileges = no
+	unscanned_closed = yes
+	vhosts = 
+	vhosts_ip = 
+	report_host_details = yes
+	cert_file = /usr/local/openvas/var/lib/openvas/CA/servercert.pem
+	key_file = /usr/local/openvas/var/lib/openvas/private/CA/serverkey.pem
+	ca_file = /usr/local/openvas/var/lib/openvas/CA/cacert.pem
+	config_file = /usr/local/openvas/etc/openvas/openvassd.conf
+
 Then modify as necessary. You should be done, at this point make sure all the services are running:
 
 	elatov@m2:~$sudo service openvas-scanner status
