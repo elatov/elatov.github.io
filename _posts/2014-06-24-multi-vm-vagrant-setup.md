@@ -108,9 +108,7 @@ Going into the VM, I saw that our second interface is called **enp0s8**:
 	3: enp0s8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT qlen 1000
 	    link/ether 08:00:27:66:36:06 brd ff:ff:ff:ff:ff:ff
 	    
-I saw an update on [github](https://github.com/mitchellh/vagrant/issues/1997) for vagrant to fix that:
-
-It's supposed to be fixed, but we would have to compile the vagrant software. I also ran into the [following](http://unix.stackexchange.com/questions/81834/how-can-i-change-the-default-ens33-network-device-to-old-eth0-on-fedora-19). From that page, we can pass a couple of parameters to the kernel to revert the old network interface names (**eth\***). From that site:
+I saw an update on [github](https://github.com/mitchellh/vagrant/issues/1997) for vagrant to fix that. It's supposed to be fixed, but we would have to compile the vagrant software. I also ran into the [following](http://unix.stackexchange.com/questions/81834/how-can-i-change-the-default-ens33-network-device-to-old-eth0-on-fedora-19). From that page, we can pass a couple of parameters to the kernel to revert the old network interface names (**eth\***). From that site:
 
 > The easiest way to restore the old way Kernel/modules/udev rename your ethernet interfaces is supplying these kernel parameters to Fedora 19:
 > 
