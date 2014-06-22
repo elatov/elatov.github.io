@@ -6,7 +6,7 @@ description: ""
 categories: [OS]
 tags: [vagrant,opensuse]
 ---
-I initialized my vagrant environment with the following:
+I initialized my *vagrant* environment with the following:
 
 	elatov@kmac:~$mkdir test
 	elatov@kmac:~$cd test
@@ -39,7 +39,7 @@ Then I modified the **Vagrantfile** to configure multiple VMs:
 	    	    config.vm.hostname = "%s.vagrant" % opts[:name].to_s
 	    	    config.vm.synced_folder "~/stuff", "/vagrant"
 		    config.vm.provider "virtualbox" do |vb|
-	  	    # Use VBoxManage to customize the VM. For example to change memory:
+	  	    # Use VBoxManage to customize the VM
 	    	        vb.customize ["modifyvm", :id, "--cpus", opts[:cpus] ] if opts[:cpus]
 	    	        vb.customize ["modifyvm", :id, "--memory", opts[:mem] ] if opts[:mem]
 		    end
@@ -82,8 +82,6 @@ Upon starting up the environment, I saw the following:
 	    web: Warning: Remote connection disconnect. Retrying...
 	==> web: Machine booted and ready!
 	==> web: Checking for guest additions in VM...
-	
-	▽
 	==> web: Setting hostname...
 	==> web: Configuring and enabling network interfaces...
 	The following SSH command responded with a non-zero exit status.
