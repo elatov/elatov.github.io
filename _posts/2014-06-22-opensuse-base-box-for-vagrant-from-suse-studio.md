@@ -70,6 +70,19 @@ After the VM is created, disable the USB ports, audio device and the floppy devi
 
 	linux-mjbf:~ # dhcpd enp0s3
 
+To enable the interface to automatically us DHCP, copy the template:
+
+	linux-mjbf:~ # cp /etc/sysconfig/network/ifcfg.template /etc/sysconfig/network/ifcfg-enp0s3
+
+And then enable DHCP:
+
+	linux-mjbf:~ #vi /etc/sysconfig/network-enp0s3
+
+Modify the following lines:
+
+	STARTMODE=auto
+	BOOTPROTO=dhcp4
+	
 Also the boot partition is already labeled:
 
 	vagrant@linux-mjbf:~> sudo e2label /dev/sda1
