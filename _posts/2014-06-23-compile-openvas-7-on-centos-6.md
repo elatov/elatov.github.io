@@ -7,7 +7,7 @@ categories: [OS]
 tags: [openvas,centos]
 published: true
 ---
-After updating OpenVAS from the atomic YUM repository, I realized I wasn't able to lunch Greenbone Security Assistant (**gsad**). The issue is discussed [here](http://osdir.com/ml/openvas-security-network/2014-06/msg00078.html). Upon starting the service I saw the following error:
+After updating OpenVAS from the atomic YUM repository, I realized I wasn't able to launch Greenbone Security Assistant (**gsad**). The issue is discussed [here](http://osdir.com/ml/openvas-security-network/2014-06/msg00078.html). Upon starting the service I saw the following error:
 
     Starting greenbone-security-assistant: /usr/sbin/gsad: error while loading shared libraries: libgnutls.so.28:
     cannot open shared object file: No such file or directory
