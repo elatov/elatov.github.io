@@ -70,7 +70,7 @@ After the VM is created, disable the USB ports, audio device and the floppy devi
 
 	linux-mjbf:~ # dhcpd enp0s3
 
-To enable the interface to automatically us DHCP, copy the template:
+To enable the interface to automatically use DHCP, copy the template:
 
 	linux-mjbf:~ # cp /etc/sysconfig/network/ifcfg.template /etc/sysconfig/network/ifcfg-enp0s3
 
