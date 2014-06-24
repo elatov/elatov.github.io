@@ -91,7 +91,19 @@ Also the boot partition is already labeled:
 	vagrant@linux-mjbf:~> sudo e2label /dev/sda1
 	BOOT
 
-so you don't have to re-label it, just use that label in **/etc/fstab**. On top of what's in the previous post, to clean up the Grub Menu, edit the **/etc/default/grub** file and modify these lines:
+so you don't have to re-label it, just use that label in **/etc/fstab**. While you are in the **/etc/fstab** file, fix the swap partition. Change this line:
+
+	/dev/mapper/systemVG-LVSwap /swap ext3 default 1 2
+
+to this:
+
+	/dev/mapper/systemVG-LVSwap swap swap default 0 0
+
+And format that partition as **swap**:
+
+	vagrant@linux-mjbf:~> sudo mkswap /dev/mapper/systemVG-LVSwap
+
+On top of what's in the previous post, to clean up the Grub Menu, edit the **/etc/default/grub** file and modify these lines:
 
 	GRUB_DISTRIBUTOR=openSUSE_13.1\ \[\ VMX\ \]
 	GRUB_CMDLINE_LINUX_DEFAULT=" root=/dev/systemVG/LVRoot disk=/dev/disk/by-id/ata-VBOX_HARDDISK_VBf1d999b3-c951ba39 resume=swap quiet splash=silent"
@@ -130,5 +142,3 @@ To build the virtualbox guest additions, install these packages prior:
 	-rw-r--r--  1 elatov  staff   376M Jun 15 16:42 vagrant-stu-min-opensuse13-64.box
 
 It was less than 400MB, I started out with **823MB** and ended up with **376MB** (I even used the net-install iso... that was the 532MB image).
- 
- 
