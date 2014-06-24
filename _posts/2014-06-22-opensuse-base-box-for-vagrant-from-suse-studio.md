@@ -82,6 +82,9 @@ Modify the following lines:
 
 	STARTMODE=auto
 	BOOTPROTO=dhcp4
+	DHCLIENT_SET_DEFAULT_ROUTE=yes
+	
+**NOTE** Ran into a bug [Bug 802970 - Default gateway not set up after first user logs in](https://bugzilla.novell.com/show_bug.cgi?id=802970), that's why the **DHCLIENT_SET** option was used.
 	
 Also the boot partition is already labeled:
 
