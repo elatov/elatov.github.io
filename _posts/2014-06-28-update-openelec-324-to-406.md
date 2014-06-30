@@ -142,7 +142,7 @@ Here are the steps for that:
 		arm_freq=800
 		core_freq=300
 	
-For a mode in depth guide, check out [How to overclock Raspberry Pi running OpenELEC?](http://www.htpcbeginner.com/overclock-raspberry-pi-openelec/). After I rebooted I saw the following under the Hardware section:
+For a more in depth guide, check out [How to overclock Raspberry Pi running OpenELEC?](http://www.htpcbeginner.com/overclock-raspberry-pi-openelec/). After I rebooted I saw the following under the **Hardware** section:
 
 ![openelec-new-hardware](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/openelec-update-4/2014-06-openelec-new-hardware_g.png)
 
