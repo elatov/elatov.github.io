@@ -344,7 +344,7 @@ I tweaked different things, and the only parameter that was worth changing was t
 
 The results were very close, and I saved 24MB of memory, it was worth it. This saved a bunch of memory, **nginx** is way smaller and liked mentioned in the above pages it's *event-driven* and not process driven like *Apache*. In my opinion if are using a VPS with less than a 1GB of RAM then definitely go for **nginx**, if you have more than that, then go with *Apache*. Even though your *Apache* process will take up more RAM, the performance gain with MPM **worker** will be worth it . Now if you still want to increase how many hits your site can handle, you can setup caching:
 
-*   [Install Nginx With APC, Varnish, WordPress And W3 Cache On A 128MB VPS](http://www.axelsegebrecht.com/how-to/install-nginx-apc-varnish-wordpress-and-w3-cache-128mb-vps/)
+*   [Install Nginx With APC, Varnish, WordPress And W3 Cache On A 128MB VPS](http://axelsegebrecht.com/how-to/install-nginx-apc-varnish-wordpress-and-w3-cache-128mb-vps/)
 *   [10 Million hits a day with WordPress using a $15 server](http://www.ewanleith.com/blog/900/10-million-hits-a-day-with-wordpress-using-a-15-server)
 *   [How a little varnish changed my life](http://ariejan.net/2010/03/24/how-a-little-varnish-changed-my-life/)
 
