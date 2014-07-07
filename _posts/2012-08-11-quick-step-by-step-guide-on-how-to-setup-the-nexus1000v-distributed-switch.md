@@ -5,23 +5,10 @@ layout: post
 permalink: /2012/08/quick-step-by-step-guide-on-how-to-setup-the-nexus1000v-distributed-switch/
 dsq_thread_id:
   - 1407622444
-categories:
-  - Networking
-  - VMware
-tags:
-  - Control VLAN
-  - Management VLAN
-  - Nexus1000v
-  - Packet VLAN
-  - Port-Profiles
-  - vCenter Plugin-Manager
-  - VEM
-  - vemcmd
-  - vethernet
-  - Virtual Ethernet Module
-  - Virtual Supervisor Module
-  - VSM
+categories: ['networking', 'vmware']
+tags: ['control_vlan', 'management_vlan', 'nexus1000v', 'packet_vlan', 'port_profiles', 'vcenter_plugin-manager', 'vem', 'vemcmd', 'vethernet', 'virtual_ethernet_module', 'virtual_supervisor_module', 'vsm']
 ---
+
 In this example I used version 4.2(1)SV1(5.1) of the Nexus. First and foremost download the Nexus1000v software. Once you logged in to your Cisco account and found the download, it will look like this:![download_n1k](https://github.com/elatov/uploads/raw/master/2012/08/download_n1k.png)
 
 After you have downloaded the software to your desktop and extracted it, the contents will look something like this:

@@ -1,23 +1,15 @@
 ---
+published: true
 title: Checking UCS Settings from the UCS Manager CLI
 author: Karim Elatov
 layout: post
 permalink: /2012/08/confirming-ucs-settings-using-command-line/
 dsq_thread_id:
   - 1404672898
-categories:
-  - Home Lab
-  - VMware
-tags:
-  - UCS
-  - UCS Polices
-  - UCS Pools
-  - UCS Service Profiles
-  - UCSM
-  - Unified Cisco Systems
-  - vHBA
-  - vNIC
+categories: ['home_lab', 'vmware', 'storage', 'networking']
+tags: ['ucs', 'ucs_polices', 'ucs_pools', 'ucs_service_profiles', 'ucsm', 'unified_cisco_systems', 'vhba', 'vnic']
 ---
+
 I was recently using the UCS Manager CLI and I wanted to share my findings. You can SSH to the UCSM (UCS Manager) and then run commands to figure out information about your hardware configuration. Whenever working with Cisco UCS Servers, the first thing we need to figure out is how Service Profiles are used in a UCS Environment. Cisco has an excellent article about this entitled "[Cisco UCS Manager CLI Configuration Guide, Release 2.0](http://www.cisco.com/en/US/prod/collateral/ps10265/ps10281/white_paper_c11-590518.pdf)", I like their definition:
 
 > Service profiles are the central concept of Cisco UCS. Each service profile serves a specific purpose: ensuring that the associated server hardware has the configuration required to support the applications it will host.

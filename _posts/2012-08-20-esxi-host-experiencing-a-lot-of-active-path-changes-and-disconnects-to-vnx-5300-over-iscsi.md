@@ -1,26 +1,15 @@
 ---
+published: true
 title: ESX(i) Host Experiencing a lot of Active Path Changes and Disconnects to/from VNX 5300 over iSCSI
 author: Karim Elatov
 layout: post
 permalink: /2012/08/esxi-host-experiencing-a-lot-of-active-path-changes-and-disconnects-to-vnx-5300-over-iscsi/
 dsq_thread_id:
   - 1406553682
-categories:
-  - Networking
-  - Storage
-  - VMware
-tags:
-  - ALUA
-  - path thrashing
-  - QOS
-  - software iSCSI binding
-  - Stack Switches
-  - Storage Processor
-  - Trespass
-  - useANO
-  - vmkiscsid
-  - VNX 5300
+categories: ['networking', 'storage', 'vmware']
+tags: ['alua', 'path_thrashing', 'qos', 'software_iscsi_binding', 'storage_processor', 'trespass', 'useano', 'vmkiscsid', 'vnx_5300']
 ---
+
 I was recently working on case which had the following setup:
 
 ![ESX-To-VNX](https://github.com/elatov/uploads/raw/master/2012/08/ESX-To-VNX.jpg)

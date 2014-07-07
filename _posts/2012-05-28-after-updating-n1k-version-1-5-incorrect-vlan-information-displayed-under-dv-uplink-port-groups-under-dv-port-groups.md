@@ -1,21 +1,15 @@
 ---
+published: true
 title: After Updating N1K to Version 1.5, Incorrect VLAN Information Displayed Under DV Uplink Port Groups but not Under DV Port Groups
 author: Karim Elatov
 layout: post
 permalink: /2012/05/after-updating-n1k-version-1-5-incorrect-vlan-information-displayed-under-dv-uplink-port-groups-under-dv-port-groups/
 dsq_thread_id:
   - 1415995332
-categories:
-  - Networking
-  - VMware
-tags:
-  - DV Port Group
-  - DV Uplink Port Group
-  - N1K
-  - Nexus 1000v
-  - show tech-support svs
-  - VLAN ID
+categories: ['networking', 'vmware']
+tags: ['dv_port_group', 'dv_uplink_port_group', 'nexus_1000v', 'show_tech-support_svs', 'vlan']
 ---
+
 I had recently ran into an interesting issue with the nexus 1000v switch. After upgrading from 4.2(1)SV1(4a) to 4.2(1)SV1(5.1). Uplink ports are not reporting VLAN IDs correctly when viewed from the VSM->Uplink->Ports tab->VLAN-ID Column. However, the VLAN IDs ARE reporting correctly on the individual VM Distributed PortGroups (VSM->DV-PortGroup->Ports tab->VLAN-ID Column). Here is how the DV Uplink Port Group looked like:
 ![uplink_1](https://github.com/elatov/uploads/raw/master/2012/04/uplink_1.jpg)
 And here is how the DV Port Group looked like:

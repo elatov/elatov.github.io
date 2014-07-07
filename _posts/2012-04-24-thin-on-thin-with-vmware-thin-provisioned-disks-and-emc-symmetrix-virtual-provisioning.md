@@ -1,22 +1,15 @@
 ---
+published: true
 title: '"Thin on Thin" With VMware Thin Provisioned Disks and EMC Symmetrix Virtual Provisioning'
 author: Karim Elatov
 layout: post
 permalink: /2012/04/thin-on-thin-with-vmware-thin-provisioned-disks-and-emc-symmetrix-virtual-provisioning/
 dsq_thread_id:
   - 1405567150
-categories:
-  - Storage
-  - VMware
-tags:
-  - eagerzeroed thick
-  - EMC Symmetrix
-  - lazyzeroed thick
-  - thick
-  - thin
-  - thin provisioning
-  - vmfs
+categories: ['storage', 'vmware']
+tags: ['eagerzeroed_thick', 'emc_symmetrix', 'lazyzeroed_thick', 'thin_provisioning', 'vmfs', 'vmdk']
 ---
+
 Recently, someone me asked with the following question.
 
 > I added a VM and didn't specify an option for thin or thick, which should result in zeroedthick rather than eagerzerothick. I added a new VM w/250GB disk. It takes no space on the Symmetrix LUN, but takes 250GB from the 500 GB LUN on VMware. One more 250GB disk like this and there would be no free space to VMWare, but 500 GB still free on Symmetrix. What am I missing?
@@ -97,7 +90,7 @@ This VMware article [Dynamic Storage Provisioning](http://www.vmware.com/files/p
 >   </tr>
 > </table>
 
-The most confusing one might the thin vmdk and this article [Implementing EMC Symmetrix Virtual Provisioning with VMware vShpere](http://www.vmware.com/files/pdf/VMware-vStorage-Thin-Provisioning-DS-EN.pdf). The article has good description why the above is expected:
+The most confusing one might be the thin vmdk and this article [Implementing EMC Symmetrix Virtual Provisioning with VMware vShpere](http://www.vmware.com/files/pdf/VMware-vStorage-Thin-Provisioning-DS-EN.pdf). The article has good description why the above is expected:
 
 > The "Thick Provision Lazy Zeroed" or “Thick” selection is actually the "zeroedthick" format. In this allocation scheme, the storage required for the virtual disks is reserved in the datastore but the VMware kernel does not initialize all the blocks. The blocks are initialized by the guest operating system as write activities to
 > previously uninitialized blocks are performed. The VMFS will return zeros to the guest operating system if it attempts to read blocks of data that it has not previously written to.

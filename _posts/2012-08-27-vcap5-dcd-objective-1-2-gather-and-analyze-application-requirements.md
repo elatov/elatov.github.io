@@ -5,12 +5,10 @@ layout: post
 permalink: /2012/08/vcap5-dcd-objective-1-2-gather-and-analyze-application-requirements/
 dsq_thread_id:
   - 1410480912
-categories:
-  - VCAP5-DCD
-  - VMware
-tags:
-  - VCAP5-DCD
+categories: ['certifications', 'vcap5_dcd', 'vmware']
+tags: ['application_requirements']
 ---
+
 ### Given a scenario, gather and analyze application requirements From the
 
 [US BrownBag Objective 1 slide deck](http://www.slideshare.net/ProfessionalVMware/professionalvmware-brownbag-jason-boche-vcapdcd-objective-1):

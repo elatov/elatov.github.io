@@ -5,12 +5,10 @@ layout: post
 permalink: /2012/08/vcap5-dcd-objective-3-1-transition-from-a-logical-design-to-a-vsphere-5-physical-design/
 dsq_thread_id:
   - 1406227705
-categories:
-  - VCAP5-DCD
-  - VMware
-tags:
-  - VCAP5-DCD
+categories: ['vcap5_dcd', 'vmware', 'certifications']
+tags: ['logical_design', 'physical_design']
 ---
+
 ### Determine and explain design decisions and options selected from the logical design
 
 From [this](https://github.com/elatov/uploads/raw/master/2013/04/vcap-dcd_notes.pdf) PDF:

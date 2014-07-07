@@ -5,21 +5,10 @@ layout: post
 permalink: /2012/07/seeing-lun-queue-depth-filling-up-with-ucs-b300s-and-emc-vmax/
 dsq_thread_id:
   - 1404673321
-categories:
-  - Storage
-  - VMware
-tags:
-  - Adapter Queue Length
-  - Adaptive Queue Depth Algorithm
-  - AQLEN
-  - Disk.SchedNumReqOutstanding
-  - DQLEN
-  - DSNRO
-  - LUN/Device Queue Length
-  - Queue Depth
-  - SIOC
-  - Storage Queues
+categories: ['storage', 'vmware']
+tags: ['adapter_queue_length', 'adaptive_queue_depth_algorithm', 'aqlen', 'disk.schednumreqoutstanding', 'dqlen', 'dsnro', 'lun_device_queue_length', 'queue_depth', 'sioc', 'storage_queues']
 ---
+
 Recently I ran into an issue where the device queue length was filling up. Looking at esxtop here is how it looked like:
 
 ![full_queue_depth_s](https://github.com/elatov/uploads/raw/master/2012/07/full_queue_depth_s.png)

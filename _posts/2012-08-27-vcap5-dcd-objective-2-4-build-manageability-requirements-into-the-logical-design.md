@@ -1,16 +1,15 @@
 ---
+published: true
 title: VCAP5-DCD Objective 2.4 – Build Manageability Requirements into the Logical Design
 author: Karim Elatov
 layout: post
 permalink: /2012/08/vcap5-dcd-objective-2-4-build-manageability-requirements-into-the-logical-design/
 dsq_thread_id:
   - 1408078212
-categories:
-  - VCAP5-DCD
-  - VMware
-tags:
-  - VCAP5-DCD
+categories: ['certifications', 'vcap5_dcd', 'vmware']
+tags: ['logical_design']
 ---
+
 ### Understand what management services are provided by VMware solutions
 
 The [APAC BrownBag Session 11](http://professionalvmware.com/2012/04/apac-vbrownbag-follow-up-management-design/) Slide Deck, covers these, here is a list from the slide deck:

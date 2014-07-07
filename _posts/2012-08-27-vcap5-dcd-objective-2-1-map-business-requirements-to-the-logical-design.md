@@ -1,16 +1,15 @@
 ---
+published: true
 title: VCAP5-DCD Objective 2.1 –Map Business Requirements to the Logical Design
 author: Karim Elatov
 layout: post
 permalink: /2012/08/vcap5-dcd-objective-2-1-map-business-requirements-to-the-logical-design/
 dsq_thread_id:
   - 1405451582
-categories:
-  - VCAP5-DCD
-  - VMware
-tags:
-  - VCAP5-DCD
+categories: ['certifications', 'vcap5_dcd', 'vmware']
+tags: ['business_requirements', 'logical_design']
 ---
+
 ### Explain the common components of logical design
 
 I covered this in the previous objective, but I will use the same material:

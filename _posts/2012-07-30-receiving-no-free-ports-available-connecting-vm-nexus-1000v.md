@@ -1,22 +1,15 @@
 ---
+published: true
 title: 'Receiving "No Free Ports" Available when Connecting a VM to the Nexus 1000v'
 author: Karim Elatov
 layout: post
 permalink: /2012/07/receiving-no-free-ports-available-connecting-vm-nexus-1000v/
 dsq_thread_id:
   - 1404673070
-categories:
-  - Networking
-  - VMware
-tags:
-  - Ephemeral Port Binding
-  - Limit Exceeded
-  - max ports dvs
-  - Nexus 1000v
-  - powercli dvs
-  - ProxySwitch
-  - Static Port Binding
+categories: ['networking', 'vmware']
+tags: ['ephemeral_port_binding', 'max_ports_dvs', 'nexus_1000v', 'powercli_dvs', 'static_port_binding']
 ---
+
 I was trying to get a VM up on the network and I getting getting an error message saying that I don't have any free ports on my Nexus 1000v Distributed Switch. Looking at the vCenter logs
 
 > Windows Server 2003 - C:\Documents and Settings\All Users\Application Data\VMware\VMware VirtualCenter\Logs
@@ -98,7 +91,7 @@ This makes sense, other ports are used for internal communication and we are def
 > n1000v(config-port-prof)# port-binding ephemeral
 > n1000v(config-port-prof)#
 
-One note regarding this, you have migrate all the VMs off the port-profile before making this change. This can be accomplished by creating a new port-profile and then using the "Migrate Virtual Machines" function from vCenter.
+One note regarding this, you have to migrate all the VMs off the port-profile before making this change. This can be accomplished by creating a new port-profile and then using the "Migrate Virtual Machines" function from vCenter.
 I was actually in a critical situation and didn't want to make that many changes. Another way to get around the "Limit Exceeded" error is to increase the "Num Ports" or the "Max Ports" on the ProxySwitch. Don't confuse this with the Max ports for the whole DVS. From the [Maximums Guide for 4.1](http://www.vmware.com/pdf/vsphere4/r41/vsp_41_config_max.pdf):
 
 > **vNetwork Standard and Distributed Switch**

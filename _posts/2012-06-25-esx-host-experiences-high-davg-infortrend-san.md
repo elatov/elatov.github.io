@@ -1,20 +1,15 @@
 ---
+published: true
 title: ESX Host Experiences High DAVG to an Infortrend SAN
 author: Karim Elatov
 layout: post
 permalink: /2012/06/esx-host-experiences-high-davg-infortrend-san/
 dsq_thread_id:
   - 1407480485
-categories:
-  - Storage
-  - VMware
-tags:
-  - ALUA
-  - claimrules
-  - davg
-  - Infortrend
-  - SATP
+categories: ['storage', 'vmware']
+tags: ['alua', 'claimrules', 'davg', 'infortrend', 'satp']
 ---
+
 I ran into an interesting issue the other day. We were seeing high DAVG to the SAN. I first wanted to find out if the SAN was on the HCL and I found the SAN [here](http://www.vmware.com/resources/compatibility/detail.php?deviceCategory=san&productid=18911&deviceCategory=san&partner=121&keyword=S16&isSVA=1&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc). Next I checked the SATP and PSP settings, I saw the following:
 
 

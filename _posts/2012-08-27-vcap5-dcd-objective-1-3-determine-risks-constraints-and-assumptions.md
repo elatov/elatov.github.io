@@ -5,12 +5,10 @@ layout: post
 permalink: /2012/08/vcap5-dcd-objective-1-3-determine-risks-constraints-and-assumptions/
 dsq_thread_id:
   - 1406850360
-categories:
-  - VCAP5-DCD
-  - VMware
-tags:
-  - VCAP5-DCD
+categories: ['certifications', 'vcap5_dcd', 'vmware']
+tags: ['risk_analysis']
 ---
+
 ### Differentiate between the general concepts of a risk, a requirement, a constraint, and an assumption.
 
 From the [US BrownBag Objective 1](http://www.slideshare.net/ProfessionalVMware/professionalvmware-brownbag-jason-boche-vcapdcd-objective-1) Slide Deck:

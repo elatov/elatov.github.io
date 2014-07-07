@@ -1,28 +1,19 @@
 ---
+published: true
 title: Getting Permission Denied Using NetApp NAS on ESX(i)
 author: Karim Elatov
 layout: post
 permalink: /2012/04/getting-permission-denied-using-netapp-nas-on-esxi/
 dsq_thread_id:
   - 1404673168
-categories:
-  - Storage
-  - VMware
-tags:
-  - /etc/exports
-  - exportfs
-  - NAS
-  - netapp
-  - nfs
-  - nfsnobody
-  - nosuid
-  - no_root_squash
-  - root_squash
-  - setuid
+categories: ['storage', 'vmware']
+tags: ['/etc/exports', 'netapp', 'nfs', 'nfsnobody', 'nosuid', 'root_squash']
 ---
+
 A couple of days ago I had an issue with powering on VMs that resided on a NetApp NAS datastore. I logged into the host and tried to see if I had access to the datastore and it was really strange. I could not touch any existing files:
 
 ![touch_perm_denied_2](https://github.com/elatov/uploads/raw/master/2012/04/touch_perm_denied_2.png)
+
 however I was able to create new files but the owner of the newly created files was *nfsnobody*. Running 'ls', after I created a new file, looked like this:
 
 ![ls_nfsnobody_2](https://github.com/elatov/uploads/raw/master/2012/04/ls_nfsnobody_2.png)
@@ -68,10 +59,10 @@ While I was on the NAS array I decided to double check the qtree settings. I was
 
 The export that I was working with was appropriately set to unix, so that definitely was not causing any issues. Looking at the exportfs output I realized a couple of things:
 
-1.  <span style="line-height: 22px;">The volume NA_NFS1 allowed any host to read/write to it (rw)</span>
-2.  <span style="line-height: 22px;">The volume NA_NFS1 only allowed root access from one host (root=10.2.1.131)</span>
-3.  <span style="line-height: 22px;">The nosuid flag was set on volume NA_NFS1</span>
-4.  <span style="line-height: 22px;">The volume NA_NFS1 didn't have no_root_squash enabled (anon=0)</span>
+1. The volume NA_NFS1 allowed any host to read/write to it (rw)
+2. The volume NA_NFS1 only allowed root access from one host (root=10.2.1.131)
+3. The nosuid flag was set on volume NA_NFS1
+4. The volume NA_NFS1 didn't have no_root_squash enabled (anon=0)
 
 To understand what the *nosuid* flag is, we first need to know what *setuid* is. This is commonly used on Unix, from the man page of [setuid(2)](http://linux.die.net/man/2/setuid):
 

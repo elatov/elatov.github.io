@@ -5,16 +5,10 @@ layout: post
 permalink: /2012/04/enabling-more-host-resources-information-from-the-net-snmp-mib-on-esx-classic/
 dsq_thread_id:
   - 1405199797
-categories:
-  - Networking
-  - VMware
-tags:
-  - ESX
-  - ESXi
-  - Host_Resources_MIB
-  - net-snmp
-  - snmpwalk
+categories: ['networking', 'vmware']
+tags: ['esx', 'host_resources_mib', 'snmp']
 ---
+
 I wanted to get more host information from an ESX host when querying the host with snmp. Specifically, I was interested in the Host_Resources MIB ([Configuring the Net-SNMP Agent on ESX Hosts](http://www.net-snmp.org/docs/mibs/host.html)" article, I ran the following to enable snmpd:
 
 
@@ -37,7 +31,7 @@ This is actually expected since net-snmp on ESX is not supported as per KB [1020
 	view systemview included .1.3.6.1.2.1.25.1.1
 
 
-That MIB is limited, the root OID of the Host-Resources MIB is .1.3.6.1.2.1.25, but we are limiting the OID to be a subset of the OID (.1.3.6.1.2.1.25<span style="text-decoration: underline;">**.1.1**</span>). More information regarding how OIDs work can be found [here](http://en.wikipedia.org/wiki/Object_identifier). So let's go ahead and allow the whole MIB to be queried. Edit the file with vi:
+That MIB is limited, the root OID of the Host-Resources MIB is .1.3.6.1.2.1.25, but we are limiting the OID to be a subset of the OID (.1.3.6.1.2.1.25**.1.1**). More information regarding how OIDs work can be found [here](http://en.wikipedia.org/wiki/Object_identifier). So let's go ahead and allow the whole MIB to be queried. Edit the file with vi:
 
 
 	# vi /etc/snmp/snmpd.conf

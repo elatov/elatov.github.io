@@ -1,21 +1,15 @@
 ---
+published: true
 title: Running out of VMFS Heap on an ESX Host
 author: Karim Elatov
 layout: post
 permalink: /2012/08/running-out-of-vmfs-heap-on-an-esx-host/
 dsq_thread_id:
   - 1406386850
-categories:
-  - Storage
-  - VMware
-tags:
-  - MaxHeapSizeMB
-  - Unified VMFS Block Size
-  - VAAI
-  - VMFS Heap
-  - VMFS5
-  - vmware-vimdump.txt
+categories: ['storage', 'vmware']
+tags: ['maxheapsizemb', 'unified_vmfs_block_size', 'vaai', 'vmfs_heap', 'vmfs']
 ---
+
 Recently I ran into an issue where we were running out of VMFS3 Heap. We would see the following in the logs:
 
 

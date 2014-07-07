@@ -1,23 +1,15 @@
 ---
+published: true
 title: Quick Troubleshooting Step for Pathing Issues
 author: Karim Elatov
 layout: post
 permalink: /2012/08/quick-troubleshooting-step-for-pathing-issues/
 dsq_thread_id:
   - 1405582137
-categories:
-  - Home Lab
-  - Storage
-  - VMware
-  - vTip
-tags:
-  - disable path
-  - Disk.PathEvalTime
-  - esxcfg-mpath
-  - esxcfg-rescan
-  - H:0x8
-  - TUR
+categories: ['home_lab', 'storage', 'vmware']
+tags: ['disable_path', 'disk.pathevaltime', 'esxcfg-mpath', 'esxcfg-rescan', 'h0x8', 'tur']
 ---
+
 I was having weird issues in our lab. When IO was going down one HBA, all was well, but when it went down the other path, it was very intermittent. Here is how the pathing looked like for one of the LUNs:
 
 

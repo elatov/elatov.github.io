@@ -1,20 +1,15 @@
 ---
+published: true
 title: Seeing SCSI Command Aborts on an ESX 3.5 Host
 author: Karim Elatov
 layout: post
 permalink: /2012/05/seeing-scsi-command-aborts-esx-3-5-host/
 dsq_thread_id:
   - 1409590662
-categories:
-  - Storage
-  - VMware
-tags:
-  - HBA Firmware
-  - lpfc
-  - SCSI Aborts
-  - SCSI Reservation Conflicts
-  - SCSI Reservations
+categories: ['storage', 'vmware']
+tags: ['hba_firmware', 'lpfc', 'scsi_aborts', 'scsi_reservations']
 ---
+
 I recently ran into an interesting issue with an ESX 3.5 host. We were seeing SCSI aborts on multiple hosts. Looking at the logs of one of the hosts we saw the following:
 
 
@@ -47,11 +42,11 @@ commands. I found VMware KB [1004157](http://kb.vmware.com/kb/1004157) that matc
 
 The KB talks about some possibilities as to why this could happen and some possible fixes as well:
 
-> 1.  <span style="line-height: 22px;">Exceeding ESX LUN and/or Path Maximum Limits.<br /> </span>
-> 2.  <span style="line-height: 22px;">Update the HBA Emulex HBA firmware.</span>
-> 3.  <span style="line-height: 22px;">Consider reseating the HBAs on the server and trying different PCI slots. Some PCI-X slots operate at different bus speeds (for example, 100Mhz vs. 133MHz). It is possible that the HBA is not able to issue commands through the PCI bridge to the device. As a result, I/O commands are aborted then retried.</span>
-> 4.  <span style="line-height: 22px;">On SUN's X4200 servers that use re-branded Emulex HBAs and running ESX server 3.01/3.02, install patches ESX-1003355 (ESX 3.01) and patch ESX-1003177 (ESX 3.02).  </span>
-> 5.  <span style="line-height: 22px;">If this is seen on multiple ESX servers, it is likely that there is a problem at the FC fabric level or at the storage array level. Looking at the switch logs and/or the array logs, you may find some additional clues. </span>
+> 1. Exceeding ESX LUN and/or Path Maximum Limits.
+> 2. Update the HBA Emulex HBA firmware.
+> 3. Consider reseating the HBAs on the server and trying different PCI slots. Some PCI-X slots operate at different bus speeds (for example, 100Mhz vs. 133MHz). It is possible that the HBA is not able to issue commands through the PCI bridge to the device. As a result, I/O commands are aborted then retried.
+> 4. On SUN's X4200 servers that use re-branded Emulex HBAs and running ESX server 3.01/3.02, install patches ESX-1003355 (ESX 3.01) and patch ESX-1003177 (ESX 3.02).
+> 5. If this is seen on multiple ESX servers, it is likely that there is a problem at the FC fabric level or at the storage array level. Looking at the switch logs and/or the array logs, you may find some additional clues.
 
 On another host, I saw the following:
 
@@ -141,13 +136,8 @@ Now checking for that message and looking at which LUNs exhibited the issue, I s
 
 That is a lot of LUNS from the same HBA. Those messages are described in VMware KB [1029456](http://kb.vmware.com/kb/1029456), and the suggestion is to update the firmware:
 
-> <div>
 >   There is no Sense Key or Addition Sense Code/ASC Qualifier information for this status as this is a host side condition.
 >
-> <div>
->
->
-> <div>
 >   This issue can occur if the affected hosts are using Emulex 2Gb, 4Gb and 8Gb HBA's with old or outdated firmware. For example, 4GB HBA Firmware Versions 2.10*, 2.5*, 2.7*, and 2.80* and 2GB HBA Firmware Versions: 1.8*, 1.90*, and 1.91* are outdated.
 
 We updated the firmware on the HBAs and the issues stopped.

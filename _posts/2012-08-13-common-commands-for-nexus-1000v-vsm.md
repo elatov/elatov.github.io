@@ -1,27 +1,24 @@
 ---
+published: true
 title: Common Commands for Nexus 1000v VSM
 author: Karim Elatov
 layout: post
 permalink: /2012/08/common-commands-for-nexus-1000v-vsm/
 dsq_thread_id:
   - 1406849469
-categories:
-  - Networking
-  - VMware
-tags:
-  - show tech-support svs
-  - Virtual Supervisor Module
-  - VSM
+categories: ['networking', 'vmware']
+tags: ['nexus1000v', 'show_tech_support_svs', 'virtual_supervisor_module', 'vsm']
 ---
-Most of these command can be seen by executing 'show tech-suppport svs' on the VSM (Virtual Supervisor Module)
 
-Show local time of the N1K
+Most of these command can be seen by executing 'show tech-suppport svs' on the VSM (Virtual Supervisor Module).
+
+Show local time of the N1K:
 
 	switch# show clock
 	Wed Aug 8 20:42:35 UTC 2012
 
 
-Show the name of the N1K
+Show the name of the N1K:
 
 	switch# show switchname
 	switch

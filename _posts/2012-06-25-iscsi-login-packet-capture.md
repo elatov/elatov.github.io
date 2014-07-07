@@ -1,21 +1,15 @@
 ---
+published: true
 title: iSCSI Login in a Packet Capture
 author: Karim Elatov
 layout: post
 permalink: /2012/06/iscsi-login-packet-capture/
 dsq_thread_id:
   - 1406849705
-categories:
-  - Networking
-  - VMware
-tags:
-  - iSCSI
-  - iSCSI Initiator
-  - iSCSI Target
-  - packet capture
-  - tshark
-  - wireshark
+categories: ['networking', 'vmware']
+tags: ['iscsi', 'iscsi_initiator', 'iscsi_target', 'packet_capture', 'tshark', 'wireshark']
 ---
+
 What is seen in a packet capture when an ESX iSCSI initiator success fully logs into the iSCSI target? Since iSCSI uses TCP, the first thing that we are going to see is a *3-way TCP hand shake* (More information on 3-way TCP handshake can be found [here](http://www.inetdaemon.com/tutorials/internet/tcp/3-way_handshake.shtml)). Now let's follow the packets:
 
 
@@ -153,15 +147,15 @@ So we sent a *Login Request* and we are ready to send more data, now looking at 
 
 We are now sending the login parameters, from the above packet we can see that we sent the following:
 
-1.  <span style="line-height: 22px;">InitiatorName<br /> </span>
-2.  <span style="line-height: 22px;">SessionType</span>
-3.  <span style="line-height: 22px;">HeaderDigest</span>
-4.  <span style="line-height: 22px;">DataDigest</span>
-5.  <span style="line-height: 22px;">DefaultTime2Wait</span>
-6.  <span style="line-height: 22px;">IFMarker</span>
-7.  <span style="line-height: 22px;">OFMarker</span>
-8.  <span style="line-height: 22px;">ErrorRecovery</span>
-9.  <span style="line-height: 22px;">MaxRecvDataSegmentLength</span>
+1. InitiatorName </span>
+2. SessionType
+3. HeaderDigest
+4. DataDigest
+5. DefaultTime2Wait
+6. IFMarker
+7. OFMarker
+8. ErrorRecovery
+9. MaxRecvDataSegmentLength
 
 More information regarding each parameter can be seen in the RFC:
 

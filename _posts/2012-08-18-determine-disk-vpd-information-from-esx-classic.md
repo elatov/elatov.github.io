@@ -1,25 +1,16 @@
 ---
+published: true
 title: Determine Disk VPD Information from ESX Classic
 author: Karim Elatov
 layout: post
 permalink: /2012/08/determine-disk-vpd-information-from-esx-classic/
 dsq_thread_id:
   - 1406778244
-categories:
-  - Storage
-  - VMware
-  - vTip
-tags:
-  - NAA_ID
-  - page 0x80
-  - page 0x83
-  - SCSI Inquiry
-  - sg_vpd
-  - Unit Serial Number
-  - Vital Product Data
-  - VPD Pages
+categories: ['storage', 'vmware' ]
+tags: ['naa_id', 'page_0x80', 'page_0x83', 'scsi_inquiry', 'sg_vpd', 'unit_serial_number', 'vital_product_data', 'vpd_pages']
 ---
-ESX issues an [1010244](https://github.com/elatov/uploads/raw/master/2014/01/spc3r23.pdf):
+
+ESX issues a SCSI_Inquiry, from [VMware KB 1010244](https://github.com/elatov/uploads/raw/master/2014/01/spc3r23.pdf):
 
 > During a re-enumeration of storage devices, the VMware ESX/ESXi VMkernel sends SCSI Report LUNs command (0xa0) to the target to retrieve a list of LUNs, and SCSI Inquiry commands (0x12) to each LUN to determine the type of device (disk, CD-ROM, USB, etc), the make and model of the device, and the features the device supports.
 >

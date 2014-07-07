@@ -5,12 +5,10 @@ layout: post
 permalink: /2012/08/vcap5-dcd-objective-2-3-build-availability-requirements-into-the-logical-design/
 dsq_thread_id:
   - 1404673450
-categories:
-  - VCAP5-DCD
-  - VMware
-tags:
-  - VCAP5-DCD
+categories: ['certifications', 'vcap5_dcd', 'vmware']
+tags: ['logical_design']
 ---
+
 ### Understand what logical availability services are provided by VMware solutions
 
 From [this](http://www.virten.net/2012/06/vdcd510-objective-2-3-build-availability-requirements-into-the-logical-design/) blog:

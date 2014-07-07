@@ -1,30 +1,15 @@
 ---
+published: true
 title: Seeing a High Number of Trespasses from a CLARiiON Array with ESX Hosts
 author: Karim Elatov
 layout: post
 permalink: /2012/04/seeing-a-high-number-of-trespasses-from-a-clariion-array-with-esx-hosts/
 dsq_thread_id:
   - 1404673236
-categories:
-  - Storage
-  - VMware
-tags:
-  - Active/Non-Optimal Path
-  - Active/Optimal Path
-  - Active/Passive
-  - ALUA
-  - Assymetric Logical Unit Access
-  - CLARiiON
-  - Explicit/Implicit Failover
-  - failover mode 4
-  - NDU
-  - Preferred Path
-  - Storage Processor
-  - TGP
-  - TGPS
-  - Trespass
-  - useANO
+categories: ['storage', 'vmware']
+tags: ['active_non-optimal_path', 'active_optimal_path', 'active_passive', 'alua', 'assymetric_logical_unit_access', 'clariion', 'explicit_implicit_failover', 'failover_mode_4', 'ndu', 'preferred_path', 'storage_processor', 'tgp', 'tgps', 'trespass', 'useano']
 ---
+
 I was recently working with a customer who was experiencing a high number of Trespasses on his CLARiiON Array with 3 ESX 4.0 hosts. While this was happening I saw the following in the logs across all the hosts:
 
 
@@ -103,8 +88,7 @@ the state of the Group, and the result is called Target Port Group Support (TGPS
 > Target port group commands are implemented in the ALUA layer of the storage system. However, host-
 > based path management software executes the commands and manages the paths. The explicit ALUA approach is similar to the traditional path management mechanisms except that ALUA has standardized the previously vendor-specific mechanisms
 
-In short, you define a port group that SPs are part of and these port groups can return status of LUNs
-depending the owner and preference.
+In short, you define a port group that SPs are part of and these port groups can return status of LUNs depending the owner and preference.
 
 Now that we got that out of the way let's back to logs, so we saw
 the following sense code returned: *H:0x0 D:0x2 0x6 0x2a 0x6*. Translating that we get the following:
@@ -118,8 +102,7 @@ the following sense code returned: *H:0x0 D:0x2 0x6 0x2a 0x6*. Translating that 
 	Sensekey MSG: UNIT ATTENTION
 
 
-We are getting an *Access State Changed*, and that is expected since this was a trespass. Now looking at
-the output of the 'nmp device' we saw the following
+We are getting an *Access State Changed*, and that is expected since this was a trespass. Now looking at the output of the 'nmp device' we saw the following
 
 
 	# esxcli nmp device list -d naa.600601604670290026cca5f7836fe111
@@ -161,8 +144,7 @@ Definitions of all the settings can be found at VMware KB [1022030](http://kb.vm
 > which prevents path thrashing in multi-host setups. This option is turned on using the esxcli command
 > enable_alua_followover and turned off using the esxcli command disable_alua_followover.
 
-Just to elaborate, the article '[EMC CLARiiON Asymmetric Active/Active Feature](http://www.emc.com/collateral/hardware/white-papers/h2890-emc-clariion-asymm-active-wp.pdf)', has a good paragraph
-about implicit and explicit failover:
+Just to elaborate, the article '[EMC CLARiiON Asymmetric Active/Active Feature](http://www.emc.com/collateral/hardware/white-papers/h2890-emc-clariion-asymm-active-wp.pdf)', has a good paragraph about implicit and explicit failover:
 
 > Explicit and implicit failover software
 > Explicit and implicit failover software should not be confused with the explicit and implicit trespass
@@ -178,9 +160,7 @@ Devices][1]' .
 
 Lastly we also see the following from the *nmp device* command that we haven't defined yet:
 
-
 	{TPG_id=1,TPG_state=AO}{TPG_id=2,TPG_state=ANO}
-
 
 and from the above blog:
 
@@ -207,21 +187,17 @@ Now running the *nmp path* commands, we saw the following:
 	Path Selection Policy Path Config: {current: no; preferred: no}
 
 
-So the top path is going through TGP2 and the state of that TPG is AO (active/optimal) and that is the
-preferred path. The bottom path is going through TPG1 and the state is ANO (Active/non-optimal) and
-that is not the preffered path. I checked the other hosts and they looked the same, so no user preffered
-paths have been set and all the host are going through the AO path.
+So the top path is going through TGP2 and the state of that TPG is AO (active/optimal) and that is the preferred path. The bottom path is going through TPG1 and the state is ANO (Active/non-optimal) and that is not the preffered path. I checked the other hosts and they looked the same, so no user preffered paths have been set and all the host are going through the AO path.
+
 I also found VMware KB [2005369](http://kb.vmware.com/kb/2005369)  and it talks about how with Round Robin you can allow the ESX host to use Active Non-Optimized paths:
 
 
 	#esxcli nmp psp setconfig --config useANO=1 --device <device uid>
 
 
-But we weren't using Round Robin and all the hosts were consistent in their preffered path to be the Active
-Optimized Path. The article [EMC CLARiiON Integration with VMware ESX](http://www.emc.com/collateral/hardware/white-papers/h1416-emc-clariion-intgtn-vmware-wp.pdf), talks about some pros and cons of Round Robin Vs. FIXED:
+But we weren't using Round Robin and all the hosts were consistent in their preffered path to be the Active Optimized Path. The article [EMC CLARiiON Integration with VMware ESX](http://www.emc.com/collateral/hardware/white-papers/h1416-emc-clariion-intgtn-vmware-wp.pdf), talks about some pros and cons of Round Robin Vs. FIXED:
 
-> When using the FIXED policy, the auto-restore or failback capability distributes the LUNs to their
-> respective default storage processors (SPs) after an NDU operation. This prevents the LUNs from all being on a single storage processor after an NDU (Non-Disruptive Upgrade). When using the FIXED policy, ensure the preferred path setting is configured to be on the same storage processor for all ESX hosts accessing a given LUN.
+> When using the FIXED policy, the auto-restore or failback capability distributes the LUNs to their respective default storage processors (SPs) after an NDU operation. This prevents the LUNs from all being on a single storage processor after an NDU (Non-Disruptive Upgrade). When using the FIXED policy, ensure the preferred path setting is configured to be on the same storage processor for all ESX hosts accessing a given LUN.
 >
 > With the FIXED policy, there is some initial setup that is required to select the preferred path; the preferred path should also be the optimal path when using the ALUA mode. If set up properly, there should not be any performance impact when using failovermode 4 (ALUA). Note that FIXED sends I/O down only a single path. However, if you have multiple LUNs in your environment, you could very well choose a preferred path for a given LUN that is different for other LUNs and achieve static I/O load balancing FIXED performs an automatic restore, hence LUNs won't end up on a single SP after an NDU.
 >

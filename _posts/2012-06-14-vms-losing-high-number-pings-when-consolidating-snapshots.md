@@ -5,18 +5,10 @@ layout: post
 permalink: /2012/06/vms-losing-high-number-pings-when-consolidating-snapshots/
 dsq_thread_id:
   - 1407445607
-categories:
-  - Storage
-  - VMware
-tags:
-  - CBT
-  - Change Block Tracking
-  - EqualLogic PS4100X
-  - IOMeter
-  - Snapshot Consolidation
-  - snapshots
-  - Unstun Time
+categories: ['storage', 'vmware']
+tags: [ 'change_block_tracking', 'equallogic_ps4100x', 'iometer', 'snapshots', 'unstun_time']
 ---
+
 I had an interesting issue that took a while to solve. Whenever we consolidated snapshots it would take a while and the VM would lose a high number of pings. Some ping loss is okay and is expected since we are stunning the VM during the commit of the snapshot. More information on snapshot consolidation can be found in VMware KB [1002836](http://kb.vmware.com/kb/1002836).  However an excessive amount of ping loss should not be seen. Looking over the vmware.log file of the VM we saw the following messages:
 
 

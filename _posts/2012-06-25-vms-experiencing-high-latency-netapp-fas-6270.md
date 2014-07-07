@@ -5,18 +5,10 @@ layout: post
 permalink: /2012/06/vms-experiencing-high-latency-netapp-fas-6270/
 dsq_thread_id:
   - 1406371674
-categories:
-  - Networking
-  - Storage
-  - VMware
-tags:
-  - ESX 5.0U1
-  - GAVG
-  - L3 NFS
-  - Latency
-  - NetApp 6240
-  - nfs
+categories: ['networking', 'storage', 'vmware']
+tags: ['esx_5.0u1', 'gavg', 'io_latency', 'netapp_6240', 'nfs']
 ---
+
 I was recently presented with the following environment:
 
 <table border="0">

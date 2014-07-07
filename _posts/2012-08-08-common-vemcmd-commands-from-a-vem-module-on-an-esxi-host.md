@@ -5,15 +5,10 @@ layout: post
 permalink: /2012/08/common-vemcmd-commands-from-a-vem-module-on-an-esxi-host/
 dsq_thread_id:
   - 1404673320
-categories:
-  - Networking
-  - VMware
-tags:
-  - DR (Designated Receiver)
-  - VEM
-  - vemcmd
-  - Virtual Ethernet Module
+categories: ['networking', 'vmware']
+tags: ['nexus1000v', 'vem', 'vemcmd', 'virtual_ethernet_module']
 ---
+
 Most of these can be seen from running a 'vem-support all' on a host, but I wanted to have a good reference point for my self.
 
 

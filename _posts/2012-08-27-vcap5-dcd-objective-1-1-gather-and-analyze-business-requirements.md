@@ -5,12 +5,10 @@ layout: post
 permalink: /2012/08/vcap5-dcd-objective-1-1-gather-and-analyze-business-requirements/
 dsq_thread_id:
   - 1406205090
-categories:
-  - VCAP5-DCD
-  - VMware
-tags:
-  - VCAP5-DCD
+categories: ['certifications', 'vcap5_dcd', 'vmware']
+tags: ['business_requirements']
 ---
+
 ### Associate a stakeholder with the information that needs to be collected.
 
 From the ![stake-holders](https://github.com/elatov/uploads/raw/master/2012/08/stake-holders.png)
