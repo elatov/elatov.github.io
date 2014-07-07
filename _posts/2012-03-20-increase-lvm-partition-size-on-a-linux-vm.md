@@ -1,20 +1,10 @@
 ---
+published:true
 title: Increase LVM Partition Size on a Linux VM
 author: Karim Elatov
 layout: post
-permalink: /2012/03/increase-lvm-partition-size-on-a-linux-vm/
-dsq_thread_id:
-  - 1404672895
-categories:
-  - Home Lab
-  - OS
-  - Storage
-  - VMware
-tags:
-  - ext3
-  - linux
-  - lvm
-  - partition
+categories: [home_lab, os, storage, vmware]
+tags: [ ext3, linux, lvm, partition]
 ---
 I am running out of space on two Linux Servers that are on an ESX host and are utilizing LVMs ([What is LVM?](http://content.hccfl.edu/pollock/AUnix1/LVM.htm)). I will extend the Logical Volume partition using two different methods. The first method is not very safe but will save partition numbers, and the second method is safer but will waste partitions.
 

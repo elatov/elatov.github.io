@@ -1,10 +1,10 @@
 ---
+published: true
 title: Samba Installation and Configuration Guide
 author: Karim Elatov
 layout: post
-categories: [OS]
-tags: [samba]
-published: true
+categories: [os]
+tags: [linux, samba]
 ---
 Samba is an Open Source/Free Software suite that provides seamless file and print services to SMB/CIFS clients. In laymen speak, it allows windows machines to connect to a Linux samba share. I will break this guide down into 3 parts: Compile/Install, Setup, and Actually Running the Service.
 

@@ -1,10 +1,10 @@
 ---
+published: true
 title: ProcMail Installation and Configuration Guide
 author: Karim Elatov
 layout: post
-categories: [OS]
-tags: [ProcMail,SpamAssassin]
-published: true
+categories: [os]
+tags: [linux,procmail,spamassassin]
 ---
 
 ProcMail stands for Mail Processing, it allows you to process your incoming mail and then sort it into separate folders/file. ProcMail can be used to setup a vacation message or to forward your mail to another email address. All in all, it can be used for many things and I don't even know them all :) I will break this guide into two parts: install and setup.

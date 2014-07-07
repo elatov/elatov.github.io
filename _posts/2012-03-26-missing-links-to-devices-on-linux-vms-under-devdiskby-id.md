@@ -2,15 +2,8 @@
 title: Missing links to devices on Linux VMs under /dev/disk/by-id/
 author: Karim Elatov
 layout: post
-permalink: /2012/03/missing-links-to-devices-on-linux-vms-under-devdiskby-id/
-dsq_thread_id:
-  - 1405116090
-categories:
-  - OS
-  - Storage
-  - VMware
-tags:
-  - vpd scsi_0x83 disk.enableuuid scsi_id
+categories: [ os, storage, vmware]
+tags: [ vpd, scsi_0x83, disk.enableuuid, scsi_id, linux ]
 ---
 Recently, I ran into an issue where all links under **/dev/disk/by-id** were missing. The way that devices show up under **/dev/disk/by-id** is when the **scsi_id** command queries the devices for VPD (SCSI inquiry Vital Product Data) and when the disk returns the information it can create the appropriate link. There are two ways of checking for that data, to do so run the following:
 

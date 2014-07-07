@@ -1,21 +1,10 @@
 ---
+published: true
 title: NetApp SnapManager/SnapDrive/SME Causes ESX Host to Hang
 author: Karim Elatov
 layout: post
-permalink: /2012/03/netapp-snapmanagersnapdrivesme-causes-esx-host-to-hang/
-dsq_thread_id:
-  - 1406333752
-categories:
-  - Storage
-  - VMware
-tags:
-  - SnapManager
-  - SMVI
-  - Exchange
-  - VSS
-  - SME
-  - SnapDrive
-  - NetApp
+categories: [ storage, vmware ]
+tags: [ SnapManager, SMVI, Exchange, VSS, SME, SnapDrive, NetApp]
 ---
 I had a customer use the following setup/versioning:
 

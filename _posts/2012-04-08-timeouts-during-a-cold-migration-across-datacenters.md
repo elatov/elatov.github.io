@@ -1,19 +1,10 @@
 ---
+published: true
 title: Timeouts During a Cold Migration Across Datacenters
 author: Karim Elatov
 layout: post
-permalink: /2012/04/timeouts-during-a-cold-migration-across-datacenters/
-dsq_thread_id:
-  - 1406848402
-categories:
-  - Networking
-  - VMware
-tags:
-  - NFC
-  - ROBO
-  - VEEAM FastSCP
-  - VMware Converter
-  - WAN
+categories: [ networking, vmware]
+tags: [ nfc, robo, veeam_fastscp, vmware_converter, wan]
 ---
 I had a customer trying to cold migrate a VM across datacenters (across a WAN connection). Probably not the best setup, but it should work. Here is good white paper that talks about vCenter in WAN environments: ![Two_ESX_Connected_With_WAN](https://github.com/elatov/uploads/raw/master/2012/03/Two_ESX_Connected_With_WAN.jpg)
 Both of the hosts are managed by the same vCenter server. So we are trying to move the VM from ESX_1 to ESX_2. I definitely agree that there are much better solutions and here is a great tech paper that talks about some of the alternatives: [Data Migrations Techniques for VMware vSphere](http://www.emc.com/collateral/software/white-papers/h8063-data-migration-vsphere-wp.pdf), but we were just stuck with this setup for now.

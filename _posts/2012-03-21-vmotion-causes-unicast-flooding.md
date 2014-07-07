@@ -1,16 +1,10 @@
 ---
+published: true
 title: vMotion Causes Unicast Flooding
 author: Karim Elatov
 layout: post
-permalink: /2012/03/vmotion-causes-unicast-flooding/
-dsq_thread_id:
-  - 1409163855
-categories:
-  - Networking
-  - VMware
-tags:
-  - unicast flooding
-  - vmotion
+categories: [ networking, vmware ]
+tags: [ unicast_flooding, vmotion]
 ---
 I recently ran into an issue where a live migration from one host to another cause the physical switch to experience unicast flooding. After much investigation, the solution was quite simple: Don't setup your management and your vMotion network traffic to be on the same subnet. Now let's take a look as to why this is a bad idea. Another person from the VMware communities ran into the same issue ([vMotion Causing Unicast Flooding](http://communities.vmware.com/thread/306862)). He described his discoveries in the following manner. He initially saw the mgmt mac-address initiate the connection but after the connection has been established another mac-address is seen transferring the data. Now why is that? Well, let's take a closer look. Let's say we have the following setup on our ESXi host:
 

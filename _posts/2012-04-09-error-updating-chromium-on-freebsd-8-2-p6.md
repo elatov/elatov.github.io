@@ -1,19 +1,12 @@
 ---
+published: true
 title: Error updating Chromium on FreeBSD 8.2-p6
 author: Karim Elatov
 layout: post
-permalink: /2012/04/error-updating-chromium-on-freebsd-8-2-p6/
-dsq_thread_id:
-  - 1416096625
-categories:
-  - OS
-tags:
-  - chromium
-  - freebsd
-  - gcc
-  - ports
-  - portupgrade
+categories: ['os']
+tags: ['chromium', 'freebsd', 'gcc', 'ports', 'portupgrade']
 ---
+
 Recently I ran into an issue with updating chromium on my FreeBSD machine. I was running the following version:
 
 	moxz:~>sudo cat /var/db/freebsd-update/tag | awk -F '|' '{print $3,"patch-"$4}'

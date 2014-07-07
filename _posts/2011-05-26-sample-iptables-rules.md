@@ -2,8 +2,8 @@
 title: Sample IPtables rules
 author: Karim Elatov
 layout: post
-categories: [OS,networking]
-tags: [iptables]
+categories: [os, networking]
+tags: [linux, iptables]
 published: true
 
 ---

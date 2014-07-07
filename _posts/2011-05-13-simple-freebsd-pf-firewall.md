@@ -2,8 +2,8 @@
 title: Simple FreeBSD PF firewall
 author: Karim Elatov
 layout: post
-categories: [OS,networking]
-tags: [pf,freebsd]
+categories: [os, networking]
+tags: [pf, freebsd]
 ---
 
 I wanted to have a very simple example of how to setup **pf** on your freebsd machine and here it it. 

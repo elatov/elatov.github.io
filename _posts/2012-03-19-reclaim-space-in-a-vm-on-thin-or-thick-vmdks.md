@@ -1,21 +1,10 @@
 ---
+published: true
 title: Reclaim Space in a VM on Thin or Thick VMDKs
 author: Karim Elatov
 layout: post
-permalink: /2012/03/reclaim-space-in-a-vm-on-thin-or-thick-vmdks/
-dsq_thread_id:
-  - 1404703834
-categories:
-  - OS
-  - Storage
-  - VMware
-tags:
-  - sdelete
-  - space reclam
-  - thick provisioning
-  - thin provisioning
-  - vmdk
-  - zerofree
+categories: [os, storage, vmware]
+tags: [sdelete, space_reclam, thick_provisioning, thin_provisioning, vmdk, zerofree]
 ---
 # Reclaim Space in a VM on thin or thick VMDKs
 

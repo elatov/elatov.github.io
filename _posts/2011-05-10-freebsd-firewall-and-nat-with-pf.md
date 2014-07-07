@@ -1,10 +1,10 @@
 ---
+published: true
 title: FreeBSD Firewall and NAT with PF
 author: Karim Elatov
 layout: post
-categories: [OS,networking]
-tags: [freebsd,pf,nat]
-published: true
+categories: [os, networking]
+tags: [freebsd, pf, nat]
 ---
 **PF** (Packet Filter) is a BSD licensed stateful packet filter, a central piece of software for firewalling. It is comparable to **iptables**, **ipfw** and **ipfilter**.
 
