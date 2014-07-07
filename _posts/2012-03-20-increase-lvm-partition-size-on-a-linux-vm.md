@@ -1,5 +1,5 @@
 ---
-published:true
+published: true
 title: Increase LVM Partition Size on a Linux VM
 author: Karim Elatov
 layout: post
