@@ -14,7 +14,7 @@ There are many different scenarios where this comes into play, and there many di
 
 **Solution 1:**
 
-Storage vMotion the VM to another datastore and convert it to thin. See the following link on how to do that: [Blocksize Impact](http://www.thelowercasew.com/reclaiming-disk-space-with-storage-vmotion-and-thin-provisioning).
+Storage vMotion the VM to another datastore and convert it to thin. See the following link on how to do that: [Blocksize Impact](http://www.yellow-bricks.com/2011/02/18/blocksize-impact/).
 
 **Solution 2:**
 Use VMware Converter and do a V2V of the VM and choose Thin for the destination disk type.

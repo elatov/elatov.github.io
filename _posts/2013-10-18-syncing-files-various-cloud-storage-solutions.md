@@ -537,7 +537,7 @@ So you would actually need an XMPP server to make it work (or use gtalk). The id
 
 #### OwnCloud
 
-This application could almost do anything. It runs on PHP and allows you to upload files to it and also connect to other storage cloud providers (like SME) and supports WebDAV. It's basically your own private Box.net and then some. From [their](http://owncloud.org/about/) site:
+This application could almost do anything. It runs on PHP and allows you to upload files to it and also connect to other storage cloud providers (like SME) and supports WebDAV. It's basically your own private Box.net and then some. From [their](http://demo.owncloud.org/) site:
 
 > ownCloud gives you universal access to your files through a web interface or WebDAV. It also provides a platform to easily view & sync your contacts, calendars and bookmarks across all your devices and enables basic editing right on the web. Installation has minimal server requirements, doesn’t need special permissions and is quick. ownCloud is extendable via a simple but powerful API for applications and plugins.
 
