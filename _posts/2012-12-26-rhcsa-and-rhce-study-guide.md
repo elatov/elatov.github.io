@@ -5,12 +5,10 @@ layout: post
 permalink: /2012/12/rhcsa-and-rhce-study-guide/
 dsq_thread_id:
   - 1406262301
-categories:
-  - Certifications
-  - RHCSA and RHCE
-tags:
-  - rhcsa_and_rhce
+categories: ['certifications', 'rhcsa_rhce']
+tags: ['study_guide']
 ---
+
 I recently ran into this great study guide for RHCSA and RHCE entitled [Hands-on Guide to the Red Hat Exams: RHCSA and RHCE Cert Guide and Lab Manual](http://www.pearsonhighered.com/bookseller/product/Handson-Guide-to-the-Red-Hat-Exams-RHCSA-and-RHCE-Cert-Guide-and-Lab-Manual/9780321767950.page) and as I was going through the guide I wanted to write down my notes for each chapter. You can actually get a sneak peek into the guide here. Here are the Chapters from the Guide:
 
 *   [Chapter 1 Installation](/2013/01/rhcsa-and-rhce-chapter-1-installation/)

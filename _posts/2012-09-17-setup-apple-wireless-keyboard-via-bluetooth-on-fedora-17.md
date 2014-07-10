@@ -5,22 +5,10 @@ layout: post
 permalink: /2012/09/setup-apple-wireless-keyboard-via-bluetooth-on-fedora-17/
 dsq_thread_id:
   - 1404673613
-categories:
-  - OS
-tags:
-  - Apple Wireless Keyboard
-  - Bluetooth
-  - Bluetooth Pairing
-  - Bluez
-  - DBUS
-  - hciconfig
-  - hcitool
-  - HID2HCI
-  - l2ping
-  - rfkill
-  - sdbtool
-  - simple-agent
+categories: ['os']
+tags: ['linux', 'apple_wireless_keyboard', 'bluetooth', 'bluez', 'dbus', 'hciconfig', 'l2ping', 'rfkill', 'simple_agent']
 ---
+
 There are a couple of steps to the setup.
 
 ### Step 1: Install and Enable the Bluetooth Service
@@ -250,4 +238,3 @@ You can also use '**sdbtool**' to confirm the connection as well:
 
 
 I actually used the bluetooth keyboard to write this post :)
-

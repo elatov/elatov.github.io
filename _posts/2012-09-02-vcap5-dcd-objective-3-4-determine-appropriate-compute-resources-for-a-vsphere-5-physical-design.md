@@ -5,12 +5,10 @@ layout: post
 permalink: /2012/09/vcap5-dcd-objective-3-4-determine-appropriate-compute-resources-for-a-vsphere-5-physical-design/
 dsq_thread_id:
   - 1410463732
-categories:
-  - VCAP5-DCD
-  - VMware
-tags:
-  - VCAP5-DCD
+categories: ['certifications', 'vcap5_dcd', 'vmware']
+tags: ['physical_design']
 ---
+
 ### Describe best practices with respect to CPU family choices
 
 From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf)":

@@ -5,13 +5,10 @@ layout: post
 permalink: /2012/10/esx-host-receives-warning-host-is-running-in-audit-mode-your-configuration-will-not-be-persistent-across-reboots-error-message/
 dsq_thread_id:
   - 1409146534
-categories:
-  - VMware
-tags:
-  - /bootbank/boot.cfg
-  - ESX Audit Mode
-  - kernelopt=auditMode=TRUE
+categories: ['vmware']
+tags: ['boot.cfg', 'esx_audit_mode', 'kernelopt']
 ---
+
 Recently saw the message outlined in the title from an ESXi host. Logged into the host via ssh and checked out the logs. Here is what I saw:
 
 

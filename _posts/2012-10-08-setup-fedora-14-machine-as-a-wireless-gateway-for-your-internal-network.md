@@ -1,19 +1,15 @@
 ---
+published: true
 title: Setup Fedora 14 Machine as a Wireless Gateway for an Internal Network
 author: Karim Elatov
 layout: post
 permalink: /2012/10/setup-fedora-14-machine-as-a-wireless-gateway-for-your-internal-network/
 dsq_thread_id:
   - 1407265485
-categories:
-  - Home Lab
-  - Networking
-  - OS
-tags:
-  - BCM4321
-  - DNAT
-  - MASQUERADE NAT
+categories: ['home_lab', 'networking', 'os']
+tags: ['linux','bcm4321', 'nat']
 ---
+
 First of all, let me explain why I did this. I used to have a basement and in the basement I had a couple of physical machines. I wanted to use these machines as an internal lab, just for some testing. One machine had a wireless card and no physical cable could go down to the basement. So I decided to connect the machine with the wireless card to the wireless router and then connect it's physical ethernet NIC to a switch and have it act a gateway for my internal lab. Here is a good diagram of what the setup looked like:
 
 ![wireless_gateway](https://github.com/elatov/uploads/raw/master/2012/09/wireless_gateway.png)

@@ -5,18 +5,10 @@ layout: post
 permalink: /2012/11/receiving-failed-write-command-to-write-quiesced-partition-messages-when-utilizing-qlogic-qmi8142-cna/
 dsq_thread_id:
   - 1404672902
-categories:
-  - Storage
-  - VMware
-tags:
-  - FCoE
-  - HS22V
-  - ibm
-  - interrupt remmaping
-  - MSI-X
-  - qlogic
-  - QMI8142
+categories: ['storage', 'vmware']
+tags: ['cna', 'fcoe', 'ibm', 'interrupt_remmaping', 'msi_x', 'qlogic']
 ---
+
 I was seeing the following in the logs:
 
     2012-11-12T13:23:50.765Z cpu2:5000)ALERT: ScsiDeviceIO: 3081: Failed write command to write-quiesced partition naa.xxx:1 2012-11-12T13:23:50.765Z cpu2:5000)ScsiDeviceIO: 2291: Cmd(0x4124011f9b40) 0x28, CmdSN 0x405e from world 5000 to dev "naa.xxx" failed H:0x8 D:0x0 P:0x0

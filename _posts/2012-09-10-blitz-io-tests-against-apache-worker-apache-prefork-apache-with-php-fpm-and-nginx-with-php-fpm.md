@@ -5,21 +5,10 @@ layout: post
 permalink: /2012/09/blitz-io-tests-against-apache-worker-apache-prefork-apache-with-php-fpm-and-nginx-with-php-fpm/
 dsq_thread_id:
   - 1404672934
-categories:
-  - Home Lab
-  - OS
-tags:
-  - Apache MPM prefork
-  - Apache MPM worker
-  - blitz.io
-  - mod_fastcgi
-  - MPM MaxClients
-  - MPM ThreadsPerChild
-  - nginx
-  - php-fpm
-  - php-fpm pm.max_children
-  - VPS
+categories: ['home_lab', 'os']
+tags: ['linux', 'apache_mpm_prefork', 'apache_mpm_worker', 'blitz.io', 'mod_fastcgi', 'mpm_maxclients', 'mpm_threadsperchild', 'nginx', 'php-fpm', 'php-fpm_pm.max_children', 'vps']
 ---
+
 We were setting up a VPS with 256MB of RAM and we were trying to figure out which Web Server to use for our limited VPS. You will see many posts out there mentioning that Apache uses a lot more memory than any other Web Server:
 
 *   [Apache vs nginx](http://www.wikivs.com/wiki/Apache_vs_nginx)

@@ -5,13 +5,10 @@ layout: post
 permalink: /2012/10/vcap5-dca-objective-2-3-deploy-and-maintain-scalable-virtual-networking/
 dsq_thread_id:
   - 1404673378
-categories:
-  - Certifications
-  - VCAP5-DCA
-  - VMware
-tags:
-  - VCAP5-DCA
+categories: ['networking', 'certifications', 'vcap5_dca', 'vmware']
+tags: ['spanning_tree']
 ---
+
 ### Identify VMware NIC Teaming policies
 
 From "[vSphere Networking ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-networking-guide.pdf)"

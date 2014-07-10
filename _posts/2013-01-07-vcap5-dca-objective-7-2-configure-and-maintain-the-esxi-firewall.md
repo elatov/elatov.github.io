@@ -5,13 +5,10 @@ layout: post
 permalink: /2013/01/vcap5-dca-objective-7-2-configure-and-maintain-the-esxi-firewall/
 dsq_thread_id:
   - 1407767425
-categories:
-  - Certifications
-  - VCAP5-DCA
-  - VMware
-tags:
-  - VCAP5-DCA
+categories: ['certifications', 'vcap5_dca', 'vmware']
+tags: ['esx_firewall']
 ---
+
 ### Identify esxcli firewall configuration commands
 
 From "[vSphere Security ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf)":

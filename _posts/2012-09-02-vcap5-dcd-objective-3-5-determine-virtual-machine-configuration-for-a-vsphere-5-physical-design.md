@@ -5,12 +5,10 @@ layout: post
 permalink: /2012/09/vcap5-dcd-objective-3-5-determine-virtual-machine-configuration-for-a-vsphere-5-physical-design/
 dsq_thread_id:
   - 1404687360
-categories:
-  - VCAP5-DCD
-  - VMware
-tags:
-  - VCAP5-DCD
+categories: ['certifications', 'vcap5_dcd', 'vmware']
+tags: ['physical_design', 'rdm','thin_provisioning', 'fault_tolerance']
 ---
+
 ### Describe the applicability of using an RDM or a virtual disk for a given VM
 
 This was covered in [APAC BrownBag Session 12](/2012/08/vcap5-dcd-objective-3-3-create-a-vsphere-5-physical-storage-design-from-an-existing-logical-design/):
@@ -116,17 +114,17 @@ From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/
 > *   In most environments ESXi allows significant levels of CPU over commitment (that is, running more vCPUs on a host than the total number of physical processor cores in that host) without impacting virtual machine performance.
 > *   Configuring a virtual machine with more virtual CPUs (vCPUs) than its workload can use might cause slightly increased resource usage, potentially impacting performance on very heavily loaded systems. Common examples of this include a single-threaded workload running in a multiple-vCPU virtual machine or a multi-threaded workload in a virtual machine with more vCPUs than the workload can effectively use.
 > *   Even if the guest operating system doesn’t use some of its vCPUs, configuring virtual machines with those vCPUs still imposes some small resource requirements on ESXi that translate to real CPU consumption on the host. For example:
->     *   Unused vCPUs still consume timer interrupts in some guest operating systems.
+>     *   Unused vCPUs still consume timer interrupts in some guest operating systems.
 >     *   Maintaining a consistent memory view among multiple vCPUs can consume additional resources,both in the guest operating system and in ESXi. (Though hardware-assisted MMU virtualization significantly reduces this cost.)
 >     *   Most guest operating systems execute an idle loop during periods of inactivity. Within this loop, most of these guest operating systems halt by executing the HLT or MWAIT instructions. Some older guest operating systems (including Windows 2000 (with certain HALs), Solaris 8 and 9, and MS-DOS), however, use busy-waiting within their idle loops. This results in the consumption of resources that might otherwise be available for other uses (other virtual machines, the VMkernel, and so on).
 >     *   ESXi automatically detects these loops and de-schedules the idle vCPU. Though this reduces the CPU overhead, it can also reduce the performance of some I/O-heavy workloads. For additional information see VMware KB articles 1077 and 2231.
->     *   The guest operating system’s scheduler might migrate a single-threaded workload amongst multiple vCPUs, thereby losing cache locality
+>     *   The guest operating system’s scheduler might migrate a single-threaded workload amongst multiple vCPUs, thereby losing cache locality
 > *   Size your virtual machines so they align with physical NUMA boundaries. For example, if you have a host system with six cores per NUMA node, size your virtual machines with a multiple of six vCPUs (i.e., 6 vCPUs, 12 vCPUs, 18 vCPUs, 24 vCPUs, and so on).
 
 From the same document:
 
 > **UP vs. SMP HALs/Kernels**
-> There are two types of hardware abstraction layers (HALs) and kernels: UP and SMP. UP historically stood for “uniprocessor,” but should now be read as “single-core.” SMP historically stood for “symmetric multi-processor,” but should now be read as multi-core. Although some recent operating systems (including Windows Vista, Windows Server 2008, and Windows 7) use the same HAL or kernel for both UP and SMP installations, many operating systems can be configured to use either a UP HAL/kernel or an SMP HAL/kernel. To obtain the best performance on a single-vCPU virtual machine running an operating system that offers both UP and SMP HALs/kernels, configure the operating system with a UP HAL or kernel.
+> There are two types of hardware abstraction layers (HALs) and kernels: UP and SMP. UP historically stood for “uniprocessor,” but should now be read as “single-core.” SMP historically stood for “symmetric multi-processor,” but should now be read as multi-core. Although some recent operating systems (including Windows Vista, Windows Server 2008, and Windows 7) use the same HAL or kernel for both UP and SMP installations, many operating systems can be configured to use either a UP HAL/kernel or an SMP HAL/kernel. To obtain the best performance on a single-vCPU virtual machine running an operating system that offers both UP and SMP HALs/kernels, configure the operating system with a UP HAL or kernel.
 >
 > The UP operating system versions are for single-core machines. If used on a multi-core machine, a UP operating system version will recognize and use only one of the cores. The SMP versions, while required in order to fully utilize multi-core machines, can also be used on single-core machines. Due to their extra synchronization code, however, SMP operating system versions used on single-core machines are slightly slower than UP operating system versions used on the same machines.
 
@@ -169,7 +167,7 @@ From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/
 
 > Allocate to each virtual machine only as much virtual hardware as that virtual machine requires. Provisioning a virtual machine with more resources than it requires can, in some cases, reduce the performance of that virtual machine as well as other virtual machines sharing the same host.
 >
-> Unused or unnecessary virtual hardware devices can impact performance and should be disabled. For example, Windows guest operating systems poll optical drives (that is, CD or DVD drives) quite frequently. When virtual machines are configured to use a physical drive, and multiple guest operating systems simultaneously try to access that drive, performance could suffer. This can be reduced by configuring the virtual machines to use ISO images instead of physical drives, and can be avoided entirely by disabling optical drives in virtual machines when the devices are not needed. 
+> Unused or unnecessary virtual hardware devices can impact performance and should be disabled. For example, Windows guest operating systems poll optical drives (that is, CD or DVD drives) quite frequently. When virtual machines are configured to use a physical drive, and multiple guest operating systems simultaneously try to access that drive, performance could suffer. This can be reduced by configuring the virtual machines to use ISO images instead of physical drives, and can be avoided entirely by disabling optical drives in virtual machines when the devices are not needed. 
 >
 > ESXi 5.0 introduces virtual hardware version 8. By creating virtual machines using this hardware version, or upgrading existing virtual machines to this version, a number of additional capabilities become available. Some of these, such as support for virtual machines with up to 1TB of RAM and up to 32 vCPUs, support for virtual NUMA, and support for 3D graphics, can improve performance for some workloads.
 
@@ -226,14 +224,14 @@ From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/
 >     *   If the vMotion network link is also being used for other operation, such as FT logging (transmission of all the primary virtual machine’s inputs (incoming network traffic, disk reads, etc.) to the secondary host), the performance of those other operations can be impacted. For this reason it is best to have separate and dedicated NICs (or use Network I/O Control, described in “Network I/O Control (NetIOC)” on page 34) for FT logging traffic and vMotion, especially when multiple FTvirtual machines reside on the same host.
 >     *   Because this potentially resource-intensive live migration takes place each time FT is enabled, we recommend that FT not be frequently enabled and disabled.
 >     *   FT-enabled virtual machines must use eager-zeroed thick-provisioned virtual disks. Thus when FT is enabled for a virtual machine with thin-provisioned virtual disks or lazy-zeroed thick-provisioned virtual disks these disks need to be converted. This one-time conversion process uses fewer resources when the virtual machine is on storage hardware that supports VAAI (described in “Hardware Storage Considerations” on page 11).
-> *   Because FT logging traffic is asymmetric (the majority of the traffic flows from primary to secondary), congestion on the logging NIC can be reduced by distributing primaries onto multiple hosts. For example on a cluster with two ESXi hosts and two virtual machines with FT enabled, placing one of the primary virtual machines on each of the hosts allows the network bandwidth to be utilized bidirectionally.
+> *   Because FT logging traffic is asymmetric (the majority of the traffic flows from primary to secondary), congestion on the logging NIC can be reduced by distributing primaries onto multiple hosts. For example on a cluster with two ESXi hosts and two virtual machines with FT enabled, placing one of the primary virtual machines on each of the hosts allows the network bandwidth to be utilized bidirectionally.
 > *   FT virtual machines that receive large amounts of network traffic or perform lots of disk reads can create significant bandwidth on the NIC specified for the logging traffic. This is true of machines that routinely do these things as well as machines doing them only intermittently, such as during a backup operation. To avoid saturating the network link used for logging traffic limit the number of FT virtual machines on each host or limit disk read bandwidth and network receive bandwidth of those virtual machines.
-> *   Make sure the FT logging traffic is carried by at least a Gigabit-rated NIC (which should in turn be connected to at least Gigabit-rated network infrastructure)
+> *   Make sure the FT logging traffic is carried by at least a Gigabit-rated NIC (which should in turn be connected to at least Gigabit-rated network infrastructure)
 > *   Avoid placing more than four FT-enabled virtual machines on a single host. In addition to reducing the possibility of saturating the network link used for logging traffic, this also limits the number of simultaneous live-migrations needed to create new secondary virtual machines in the event of a host failure.
 > *   If the secondary virtual machine lags too far behind the primary (which usually happens when the primary virtual machine is CPU bound and the secondary virtual machine is not getting enough CPU cycles), the hypervisor might slow the primary to allow the secondary to catch up. The following recommendations help avoid this situation:
 >     *   Make sure the hosts on which the primary and secondary virtual machines run are relatively closely matched, with similar CPU make, model, and frequency.
 >     *   Make sure that power management scheme settings (both in the BIOS and in ESXi) that cause CPU frequency scaling are consistent between the hosts on which the primary and secondary virtual machines run.
->     *   Enable CPU reservations for the primary virtual machine (which will be duplicated for the secondary virtual machine) to ensure that the secondary gets CPU cycles when it requires them.
+>     *   Enable CPU reservations for the primary virtual machine (which will be duplicated for the secondary virtual machine) to ensure that the secondary gets CPU cycles when it requires them.
 
 From [APAC BrownBag Session 12](http://professionalvmware.com/2012/04/apac-vbrownbag-follow-up-vm-design/):
 

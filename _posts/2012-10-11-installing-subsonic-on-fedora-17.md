@@ -5,16 +5,10 @@ layout: post
 permalink: /2012/10/installing-subsonic-on-fedora-17/
 dsq_thread_id:
   - 1415422076
-categories:
-  - Home Lab
-tags:
-  - iptables
-  - java-openjdk
-  - rpm
-  - subsonic
-  - systemctl
-  - update-alternatives
+categories: ['os']
+tags: ['linux','iptables', 'java_openjdk', 'subsonic', 'update_alternatives']
 ---
+
 I recently posted on [List of streaming media systems](/2012/10/installing-mediatomb-on-freebsd-9-and-connecting-to-it-with-xbmc-from-a-fedora-17-os/)". Here are the ones that stood out:
 
 *   [Firefly Media Server](http://en.wikipedia.org/wiki/Firefly_Media_Server)
@@ -150,4 +144,3 @@ The cool thing about SubSonic is the variety of applications that can be used to
 - [RHCSA and RHCE Chapter 6 Package Management](/2013/03/rhcsa-and-rhce-chapter-6-package-management/)
 - [Fixing Android Phone Device Permissions on Fedora 17](/2013/02/fixing-android-phone-device-permissions-on-fedora-17/)
 - [Installing MusicCabinet on Top of SubSonic](/2013/02/installing-musiccabinet-on-top-of-subsonic/)
-

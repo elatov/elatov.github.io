@@ -5,15 +5,10 @@ layout: post
 permalink: /2013/01/connecting-to-a-vm-using-serial-port-over-the-network-with-moxa-device-server/
 dsq_thread_id:
   - 1405544653
-categories:
-  - Networking
-  - OS
-  - VMware
-tags:
-  - Moxa
-  - netcat
-  - Virtual Serial Port
+categories: ['networking', 'os', 'vmware']
+tags: ['esx_firewall', 'moxa', 'netcat', 'virtual_serial_port']
 ---
+
 Before we get into how to set this up, let's get a good diagram going to better understand how all the components work. Here is what I came up with:
 
 ![VM Serial Connection Over Network Connecting to a VM using Serial Port Over the Network With a Moxa Device Server](https://github.com/elatov/uploads/raw/master/2012/12/VM_Serial_Connection_Over_Network.jpg)

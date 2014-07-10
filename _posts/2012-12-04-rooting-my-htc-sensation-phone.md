@@ -5,20 +5,10 @@ layout: post
 permalink: /2012/12/rooting-my-htc-sensation-phone/
 dsq_thread_id:
   - 1405469582
-categories:
-  - Home Lab
-  - OS
-tags:
-  - adb backup
-  - bootloader
-  - ClockWorkMod Recovery
-  - ControlBear
-  - fastboot
-  - HTC CID
-  - HTC Sensation
-  - S-OFF
-  - Wire Trick
+categories: ['os']
+tags: ['android', 'cyanogenmod', 'htc_sensation', 'adb', 'root_phone']
 ---
+
 I wanted to root my HTC Sensation phone, since I have been putting it off for a while. I read some good guides on how to do it, here is a list:
 
 1.  "[How to Root Your HTC Sensation](http://www.androidauthority.com/how-to-root-htc-sensation-21697/)"

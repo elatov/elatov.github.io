@@ -5,19 +5,10 @@ layout: post
 permalink: /2012/09/fixing-a-ghostedinconsistent-distributed-virtual-switch-by-migrating-to-a-standard-virtual-switch/
 dsq_thread_id:
   - 1404761763
-categories:
-  - Networking
-  - VMware
-tags:
-  - Distributed Virtual Switch
-  - esxcfg-vmknic
-  - esxcfg-vswitch
-  - Inconsistent DVS
-  - Invalid Backing
-  - locked port time out
-  - out-of-sync DVS
-  - Standard Virtual Switch
+categories: ['networking', 'vmware']
+tags: ['distributed_virtual_switch', 'esxcfg-vmknic', 'esxcfg-vswitch', 'inconsistent_dvs', 'invalid_backing', 'locked_port_time_out', 'out_of_sync_dvs', 'standard_virtual_switch']
 ---
+
 There are a couple of steps to this process. First you need to determine if you have an inconsistent/broken/ghosted DVS.
 
 ### Determine if you have a ghosted DVS

@@ -5,13 +5,10 @@ layout: post
 permalink: /2012/10/vcap5-dca-objective-1-2-manage-storage-capacity-in-a-vsphere-environment/
 dsq_thread_id:
   - 1406610580
-categories:
-  - Certifications
-  - VCAP5-DCA
-  - VMware
-tags:
-  - VCAP5-DCA
+categories: ['storage','certifications', 'vcap5_dca', 'vmware']
+tags: ['thick_provisioning', 'thin_provisioning', 'storage_drs']
 ---
+
 ### Identify storage provisioning methods
 
 For protocols we have Fibre Channel, iSCSI, NFS, FCoE. Check out "[Storage Protocol Comparison – A vSphere Perspective](http://blogs.vmware.com/vsphere/2012/02/storage-protocol-comparison-a-vsphere-perspective.html)" to find out what the differences are. Here is a snippet from that page:

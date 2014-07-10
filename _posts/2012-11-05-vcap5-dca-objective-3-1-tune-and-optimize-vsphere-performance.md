@@ -5,13 +5,10 @@ layout: post
 permalink: /2012/11/vcap5-dca-objective-3-1-tune-and-optimize-vsphere-performance/
 dsq_thread_id:
   - 1409019313
-categories:
-  - Certifications
-  - VCAP5-DCA
-  - VMware
-tags:
-  - VCAP5-DCA
+categories: ['certifications', 'vcap5_dca', 'vmware']
+tags: ['performance']
 ---
+
 ### Identify appropriate BIOS and firmware setting requirements for optimal ESXi host performance
 
 From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf)":
@@ -48,12 +45,12 @@ From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/
 
 > **Memory Overcommit Techniques**
 >
-> *    ESXi uses five memory management mechanisms—page sharing, ballooning, memory compression, swap to host cache, and regular swapping—to dynamically reduce the amount of machine physical memory required for each virtual machine.
+> *    ESXi uses five memory management mechanisms—page sharing, ballooning, memory compression, swap to host cache, and regular swapping—to dynamically reduce the amount of machine physical memory required for each virtual machine.
 >     *   Page Sharing: ESXi uses a proprietary technique to transparently and securely share memory pages between virtual machines, thus eliminating redundant copies of memory pages. In most cases, page sharing is used by default regardless of the memory demands on the host system. (The exception is when using large pages, as discussed in “Large Memory Pages for Hypervisor and Guest Operating System” on page 28.)
 >     *   Ballooning: If the virtual machine’s memory usage approaches its memory target, ESXi will use ballooning to reduce that virtual machine’s memory demands. Using a VMware-supplied vmmemctl module installed in the guest operating system as part of VMware Tools suite, ESXi can cause the guest operating system to relinquish the memory pages it considers least valuable. Ballooning provides performance closely matching that of a native system under similar memory constraints. To use ballooning, the guest operating system must be configured with sufficient swap space.
->     *    Memory Compression: If the virtual machine’s memory usage approaches the level at which host-level swapping will be required, ESXi will use memory compression to reduce the number of memory pages it will need to swap out. Because the decompression latency is much smaller than the swap-in latency, compressing memory pages has significantly less impact on performance than swapping out those pages.
->     *    Swap to Host Cache: If memory compression doesn’t keep the virtual machine’s memory usage low enough, ESXi will next forcibly reclaim memory using host-level swapping to a host cache (if one has been configured). Swap to host cache is a new feature in ESXi 5.0 that allows users to configure a special swap cache on SSD storage. In most cases this host cache (being on SSD) will be much faster than the regular swap files (typically on hard disk storage), significantly reducing access latency. Thus, although some of the pages ESXi swaps out might be active, swap to host cache has a far lower performance impact than regular host-level swapping.
->     *    Regular Swapping: If the host cache becomes full, or if a host cache has not been configured, ESXi will next reclaim memory from the virtual machine by swapping out pages to a regular swap file. Like swap to host cache, some of the pages ESXi swaps out might be active. Unlike swap to host cache, however, this mechanism can cause virtual machine performance to degrade significantly due to its high access latency.
+>     *    Memory Compression: If the virtual machine’s memory usage approaches the level at which host-level swapping will be required, ESXi will use memory compression to reduce the number of memory pages it will need to swap out. Because the decompression latency is much smaller than the swap-in latency, compressing memory pages has significantly less impact on performance than swapping out those pages.
+>     *    Swap to Host Cache: If memory compression doesn’t keep the virtual machine’s memory usage low enough, ESXi will next forcibly reclaim memory using host-level swapping to a host cache (if one has been configured). Swap to host cache is a new feature in ESXi 5.0 that allows users to configure a special swap cache on SSD storage. In most cases this host cache (being on SSD) will be much faster than the regular swap files (typically on hard disk storage), significantly reducing access latency. Thus, although some of the pages ESXi swaps out might be active, swap to host cache has a far lower performance impact than regular host-level swapping.
+>     *    Regular Swapping: If the host cache becomes full, or if a host cache has not been configured, ESXi will next reclaim memory from the virtual machine by swapping out pages to a regular swap file. Like swap to host cache, some of the pages ESXi swaps out might be active. Unlike swap to host cache, however, this mechanism can cause virtual machine performance to degrade significantly due to its high access latency.
 > *   While ESXi uses page sharing, ballooning, memory compression, and swap to host cache to allow significant memory overcommitment, usually with little or no impact on performance, you should avoid overcommitting memory to the point that active memory pages are swapped out with regular host-level swapping.
 > *   If you suspect that memory overcommitment is beginning to affect the performance of a virtual machine you can:
 >     1.  In the vSphere Client, select the virtual machine in question, select the Performance tab, then look at the value of Memory Balloon (Average). An absence of ballooning suggests that ESXi is not under heavy memory pressure and thus memory overcommitment is not affecting the performance of that virtual machine.
@@ -68,18 +65,18 @@ And more from the same paper:
 >
 > This subsection describes ways to avoid or reduce host-level swapping, and presents techniques to reduce its impact on performance when it is unavoidable.
 >
-> *    Because ESXi uses page sharing, ballooning, and memory compression to reduce the need for host-level memory swapping, don’t disable these techniques.
-> *    If you choose to overcommit memory with ESXi, be sure you have sufficient swap space on your ESXi system. At the time a virtual machine is first powered on, ESXi creates a swap file for that virtual machine equal in size to the difference between the virtual machine's configured memory size and its memory reservation. The available disk space must therefore be at least this large (plus the space required for VMX swap).
-> *    You can optionally configure a special host cache on an SSD (if one is installed) to be used for the new swap to host cache feature. This swap cache will be shared by all the virtual machines running on the host, and host-level swapping of their most active pages will benefit from the low latency of SSD. This allows a relatively small amount of SSD storage to have a potentially significant performance impact
-> *    Even if an overcommitted host uses swap to host cache, it still needs to create regular swap files. Swap to host cache, however, makes much less important the speed of the storage on which the regular swap files are placed.
+> *    Because ESXi uses page sharing, ballooning, and memory compression to reduce the need for host-level memory swapping, don’t disable these techniques.
+> *    If you choose to overcommit memory with ESXi, be sure you have sufficient swap space on your ESXi system. At the time a virtual machine is first powered on, ESXi creates a swap file for that virtual machine equal in size to the difference between the virtual machine's configured memory size and its memory reservation. The available disk space must therefore be at least this large (plus the space required for VMX swap).
+> *    You can optionally configure a special host cache on an SSD (if one is installed) to be used for the new swap to host cache feature. This swap cache will be shared by all the virtual machines running on the host, and host-level swapping of their most active pages will benefit from the low latency of SSD. This allows a relatively small amount of SSD storage to have a potentially significant performance impact
+> *    Even if an overcommitted host uses swap to host cache, it still needs to create regular swap files. Swap to host cache, however, makes much less important the speed of the storage on which the regular swap files are placed.
 > *   If a host does not use swap to host cache, and memory is overcommitted to the point of thrashing, placing the virtual machine swap files on low latency, high bandwidth storage systems will result in the smallest performance impact from swapping.
->     *    The best choice will usually be local SSD.
->     *    If the host doesn’t have local SSD, the second choice would be remote SSD. This would still provide the low-latencies of SSD, though with the added latency of remote access.
->     *    If you can’t use SSD storage, place the regular swap file on the fastest available storage. This might be a Fibre Channel SAN array or a fast local disk.
->     *    Placing swap files on local storage (whether SSD or hard drive) could potentially reduce vMotion performance. This is because if a virtual machine has memory pages in a local swap file, they must be swapped in to memory before a vMotion operation on that virtual machine can proceed.
->     *    Regardless of the storage type or location used for the regular swap file, for the best performance, and to avoid the possibility of running out of space, swap files should not be placed on thin-provisioned storage.
+>     *    The best choice will usually be local SSD.
+>     *    If the host doesn’t have local SSD, the second choice would be remote SSD. This would still provide the low-latencies of SSD, though with the added latency of remote access.
+>     *    If you can’t use SSD storage, place the regular swap file on the fastest available storage. This might be a Fibre Channel SAN array or a fast local disk.
+>     *    Placing swap files on local storage (whether SSD or hard drive) could potentially reduce vMotion performance. This is because if a virtual machine has memory pages in a local swap file, they must be swapped in to memory before a vMotion operation on that virtual machine can proceed.
+>     *    Regardless of the storage type or location used for the regular swap file, for the best performance, and to avoid the possibility of running out of space, swap files should not be placed on thin-provisioned storage.
 > *   The regular swap file location for a specific virtual machine can be set in the vSphere Client (select Edit virtual machine settings, choose the Options tab, and under Advanced select Swapfile location). If this option is not set, the swap file will be created in the virtual machine’s working directory: either the directory specified by workingDir in the virtual machine’s .vmx file, or, if this variable is not set, in the directory where the .vmx file is located. The latter is the default behavior.
-> *    Host-level memory swapping can be avoided for a specific virtual machine by using the vSphere Client to reserve memory for that virtual machine at least equal in size to the machine’s active working set. Be aware, however, that configuring resource reservations will reduce the number of virtual machines that can be run on a system. This is because ESXi will keep available enough host memory to fulfill all reservations and won't power-on a virtual machine if doing so would reduce the available memory to less than the reserved amount
+> *    Host-level memory swapping can be avoided for a specific virtual machine by using the vSphere Client to reserve memory for that virtual machine at least equal in size to the machine’s active working set. Be aware, however, that configuring resource reservations will reduce the number of virtual machines that can be run on a system. This is because ESXi will keep available enough host memory to fulfill all reservations and won't power-on a virtual machine if doing so would reduce the available memory to less than the reserved amount
 
 ### Tune ESXi host networking configuration
 
@@ -97,7 +94,7 @@ From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/
 >     *   Ability to handle multiple Scatter Gather elements per Tx frame
 >     *   Jumbo frames (JF)
 >     *   Large receive offload (LRO)
-> *   On some 10 Gigabit Ethernet hardware network adapters, ESXi supports NetQueue, a technology that significantly improves performance of 10 Gigabit Ethernet network adapters in virtualized environments.
+> *   On some 10 Gigabit Ethernet hardware network adapters, ESXi supports NetQueue, a technology that significantly improves performance of 10 Gigabit Ethernet network adapters in virtualized environments.
 > *   In addition to the PCI and PCI-X bus architectures, we now have the PCI Express (PCIe) architecture. Ideally single-port 10 Gigabit Ethernet network adapters should use PCIe x8 (or higher) or PCI-X 266 and dual-port 10 Gigabit Ethernet network adapters should use PCIe x16 (or higher). There should preferably be no “bridge chip” (e.g., PCI-X to PCIe or PCIe to PCI-X) in the path to the actual Ethernet device (including any embedded bridge chip on the device itself), as these chips can reduce performance.
 > *   Multiple physical network adapters between a single virtual switch (vSwitch) and the physical network constitute a NIC team. NIC teams can provide passive failover in the event of hardware failure or network outage and, in some configurations, can increase performance by distributing the traffic across those physical network adapters.
 
@@ -107,13 +104,13 @@ From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/
 
 > **General CPU Considerations**
 >
-> *    When selecting hardware, it is a good idea to consider CPU compatibility for VMware vMotion™ (which in turn affects DRS) and VMware Fault Tolerance.
+> *    When selecting hardware, it is a good idea to consider CPU compatibility for VMware vMotion™ (which in turn affects DRS) and VMware Fault Tolerance.
 >
 > **Hardware-Assisted Virtualization**
 > Most recent processors from both Intel and AMD include hardware features to assist virtualization. These features were released in two generations:
 >
-> *    the first generation introduced CPU virtualization;
-> *    the second generation added memory management unit (MMU) virtualization;
+> *    the first generation introduced CPU virtualization;
+> *    the second generation added memory management unit (MMU) virtualization;
 >
 > For the best performance, make sure your system uses processors with second-generation hardware-assist features.
 >

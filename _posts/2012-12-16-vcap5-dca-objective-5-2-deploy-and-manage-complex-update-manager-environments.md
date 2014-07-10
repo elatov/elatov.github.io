@@ -5,13 +5,10 @@ layout: post
 permalink: /2012/12/vcap5-dca-objective-5-2-deploy-and-manage-complex-update-manager-environments/
 dsq_thread_id:
   - 1412406951
-categories:
-  - Certifications
-  - VCAP5-DCA
-  - VMware
-tags:
-  - VCAP5-DCA
+categories: ['certifications', 'vcap5_dca', 'vmware']
+tags: ['vum']
 ---
+
 ### Identify firewall access rules for Update Manager
 
 From "[Installing and Administering VMware vSphere Update Manager](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf)", here is table of ports used by update manager:

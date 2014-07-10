@@ -5,12 +5,10 @@ layout: post
 permalink: /2012/08/vcap5-dcd-objective-2-7-build-security-requirements-into-the-logical-design/
 dsq_thread_id:
   - 1405747874
-categories:
-  - VCAP5-DCD
-  - VMware
-tags:
-  - VCAP5-DCD
+categories: ['certifications', 'vcap5_dcd', 'vmware']
+tags: ['logical_design']
 ---
+
 ### Understand what security services are provided by VMware solutions
 
 vShield is the most popular service. If you need PCI compliance you can check out "[this](http://www.vmware.com/cloud-security-compliance/protect-critical-applications) VMware blog:

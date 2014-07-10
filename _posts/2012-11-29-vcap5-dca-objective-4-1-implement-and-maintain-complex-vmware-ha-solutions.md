@@ -5,13 +5,10 @@ layout: post
 permalink: /2012/11/vcap5-dca-objective-4-1-implement-and-maintain-complex-vmware-ha-solutions/
 dsq_thread_id:
   - 1406786602
-categories:
-  - Certifications
-  - VCAP5-DCA
-  - VMware
-tags:
-  - VCAP5-DCA
+categories: ['certifications', 'vcap5_dca', 'vmware']
+tags: ['ha']
 ---
+
 ### Identify the three admission control policies for HA
 
 From [vSphere Availability ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf):

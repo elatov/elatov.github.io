@@ -5,15 +5,10 @@ layout: post
 permalink: /2012/08/psod-failed-at-vmkdriverssrc_9vmklinux_9vmwarelinux_scsi-c2221-not-reached/
 dsq_thread_id:
   - 1404673225
-categories:
-  - VMware
-tags:
-  - esxcfg-info
-  - IBM x3690 X5
-  - LSI2008
-  - mpt2sas
-  - PSOD
+categories: ['storage', 'vmware']
+tags: ['esxcfg-info', 'ibm_x3690_x5', 'lsi2008', 'mpt2sas', 'psod']
 ---
+
 I recently ran into the following PSOD:
 
 ![psod-lsi-](https://github.com/elatov/uploads/raw/master/2012/08/psod-lsi-.png)

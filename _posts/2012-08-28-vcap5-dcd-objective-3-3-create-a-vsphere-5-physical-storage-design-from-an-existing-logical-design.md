@@ -5,12 +5,10 @@ layout: post
 permalink: /2012/08/vcap5-dcd-objective-3-3-create-a-vsphere-5-physical-storage-design-from-an-existing-logical-design/
 dsq_thread_id:
   - 1404673214
-categories:
-  - VCAP5-DCD
-  - VMware
-tags:
-  - VCAP5-DCD
+categories: ['storage', 'certifications', 'vcap5_dcd', 'vmware']
+tags: ['physical_design', 'logical_design']
 ---
+
 ### Describe selection criteria for commonly used RAID types
 
 From "[Best Practices for Microsoft SQL Server on Hitachi Universal Storage Platform VM](http://www.hds.com/assets/pdf/best-practices-for-microsoft-sql-server-on-hitachi-universal-storage-platform-vm.pdf)":

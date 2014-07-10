@@ -5,28 +5,10 @@ layout: post
 permalink: /2012/09/getting-openindiana-back-to-its-original-state-after-updating-by-doing-a-clean-install/
 dsq_thread_id:
   - 1409507247
-categories:
-  - Home Lab
-  - Storage
-  - VMware
-  - ZFS
-tags:
-  - COMSTAR HostGroup
-  - COMSTAR View
-  - dladm
-  - OpenIndiana 151a5
-  - pkg install
-  - pkg publisher
-  - sbdadm
-  - stmfadm
-  - svcadm
-  - svcs
-  - vmkiscsi-tool
-  - ZFS
-  - ZFS sharenfs
-  - zpool
-  - zpool upgrade
+categories: ['home_lab', 'storage', 'vmware', 'zfs']
+tags: [ 'comstar', 'openindiana', 'opensolaris_pkg', 'svcadm', 'iscsi'] 
 ---
+
 I decided to update from **oi_151a4** to **oi_151a5**. I tried using **pkg**:
 
     ~# pkg image-update

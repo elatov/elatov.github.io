@@ -5,12 +5,10 @@ layout: post
 permalink: /2012/09/vcap5-dcd-objective-4-1-create-an-execute-a-validation-plan/
 dsq_thread_id:
   - 1404902593
-categories:
-  - VCAP5-DCD
-  - VMware
-tags:
-  - VCAP5-DCD
+categories: ['certifications', 'vcap5_dcd', 'vmware']
+tags: ['technical_documentation']
 ---
+
 ### Recall standard functional test areas for design and operational verification
 
 From "[Functional versus Non-functional Requirements](http://communities.vmware.com/docs/DOC-17409)":

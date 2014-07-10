@@ -5,44 +5,10 @@ layout: post
 permalink: /2013/01/rhcsa-and-rhce-chapter-3-disks-and-partitioning/
 dsq_thread_id:
   - 1405851243
-categories:
-  - Certifications
-  - RHCSA and RHCE
-tags:
-  - /proc/mdstat
-  - /proc/partitions
-  - extended partition
-  - fdisk
-  - logical partition
-  - Logical Volume
-  - lvcreate
-  - lvdisplay
-  - lvextend
-  - lvm
-  - lvreduce
-  - lvremove
-  - lvs
-  - lvscan
-  - mdadm
-  - parted
-  - partprobe
-  - Physical Volume
-  - primary partition
-  - pvcreate
-  - pvdisplay
-  - pvs
-  - pvscan
-  - raid
-  - rhcsa_and_rhce
-  - vgcreate
-  - vgdisplay
-  - vgextend
-  - vgreduce
-  - vgs
-  - vgscan
-  - Volume Group
-  - yum.repos.d
+categories: ['storage','os','home_lab', 'certifications', 'rhcsa_rhce']
+tags: ['linux', 'fdisk', 'lvm', 'mdadm', 'raid', 'yum']
 ---
+
 ### RHEL DVD as a Software Repository
 
 Before we keep going with disk and partitioning, I want to setup the RHEL Install DVD as a Software Repository (I will cover this in more detail in [chapter 6](/2013/03/rhcsa-and-rhce-chapter-6-package-management/)) since I will need to install **parted** and I currently don't have that installed:

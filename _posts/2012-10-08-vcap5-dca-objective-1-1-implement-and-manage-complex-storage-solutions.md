@@ -5,13 +5,10 @@ layout: post
 permalink: /2012/10/vcap5-dca-objective-1-1-implement-and-manage-complex-storage-solutions/
 dsq_thread_id:
   - 1406673405
-categories:
-  - Certifications
-  - VCAP5-DCA
-  - VMware
-tags:
-  - VCAP5-DCA
+categories: ['storage','certifications', 'vcap5_dca', 'vmware']
+tags: ['raid','npiv','vmfs']
 ---
+
 ### Identify RAID levels
 
 From the [wikipedia](http://en.wikipedia.org/wiki/RAID) page

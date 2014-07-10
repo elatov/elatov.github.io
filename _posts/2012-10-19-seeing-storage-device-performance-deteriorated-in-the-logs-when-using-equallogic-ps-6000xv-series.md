@@ -5,18 +5,10 @@ layout: post
 permalink: /2012/10/seeing-storage-device-performance-deteriorated-in-the-logs-when-using-equallogic-ps-6000xv-series/
 dsq_thread_id:
   - 1407033214
-categories:
-  - Storage
-  - VMware
-tags:
-  - Backups
-  - Block Size
-  - DiskMaxIOSize
-  - EqualLoggic PS6100XV
-  - EqualLogic PS6000XV
-  - IOMeter
-  - Round Robin
+categories: ['storage', 'vmware']
+tags: ['block_size', 'diskmaxiosize', 'equalloggic','iometer', 'round_robin','iscsi']
 ---
+
 A customer was seeing 'Storage Device Performance Deteriorated" message in the logs during their backup operation. More information regarding this message can be seen in VMware KB [Configuring VMware vSphere Software iSCSI With Dell EqualLogic PS Series Storage](http://kb.vmware.com/kb/2007236)". Here are a few things that stood out from the document:
 
 > the iSCSI switch environment can be on a different subnet than the public environment or existing service console. Each VMkernel Port will need its own IP Address and they must all be on the same subnet and be on the same subnet as the PS Series Group IP Address.

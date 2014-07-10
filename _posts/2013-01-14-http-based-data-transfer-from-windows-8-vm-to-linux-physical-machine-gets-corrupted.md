@@ -5,22 +5,14 @@ layout: post
 permalink: /2013/01/http-based-data-transfer-from-windows-8-vm-to-linux-physical-machine-gets-corrupted/
 dsq_thread_id:
   - 1410724718
-categories:
-  - Networking
-  - OS
-  - VMware
-tags:
-  - HTTP
-  - md5sum
-  - netsh int tcp set global autotuninglevel=disabled
-  - netsh int tcp show global
-  - TSO
-  - wireshark
+categories: ['networking', 'os', 'vmware']
+tags: ['md5sum', 'netsh', 'tso', 'wireshark']
 ---
+
 We have an application running on a Windows 8 virtual machine which provides a file using HTTP when requested. When accessed from a Linux physical machine, the file is often slightly corrupted. To check the data integrity, I ran the following prior to the download and then after. Here is the md5sum prior to any downloads:
 
-    [elatov@klaptop ~]$ md5sum
-    test 25e317773f308e446cc84c503a6d1f85 test
+    [elatov@klaptop ~]$ md5sum test
+    25e317773f308e446cc84c503a6d1f85 test
 
 
 After I uploaded the file to the Windows server and then back to my Linux host, I would see the following:

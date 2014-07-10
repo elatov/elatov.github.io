@@ -5,16 +5,10 @@ layout: post
 permalink: /2013/01/rhcsa-and-rhce-chapter-1-installation/
 dsq_thread_id:
   - 1407142439
-categories:
-  - Certifications
-  - Home Lab
-  - RHCSA and RHCE
-tags:
-  - /etc/sysconfig/network
-  - /etc/sysconfig/network-scripts/ifcfg-eth0
-  - MBR
-  - rhcsa_and_rhce
+categories: ['storage', 'networking', 'certifications', 'home_lab', 'rhcsa_rhce']
+tags: ['linux', 'ifcfg-eth0', 'mbr']
 ---
+
 There is a lot of good information in "[Red Hat Enterprise Linux 6 Installation Guide](https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf)". From that Guide:
 
 > **9.3. Welcome to Red Hat Enterprise Linux**

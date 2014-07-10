@@ -5,22 +5,11 @@ layout: post
 permalink: /2012/08/migrating-a-zfs-pool-with-zfs-volumes-used-for-nfs-shares-and-iscsi-comstar-volumes/
 dsq_thread_id:
   - 1406675076
-categories:
-  - Home Lab
-  - VMware
-  - ZFS
-tags:
-  - COMSTAR
-  - comstar iscsi-target
-  - esxcfg-nas
-  - sbdadm
-  - STMF
-  - ZFS
-  - ZFS Export
-  - ZFS Import
-  - ZFS sharenfs
+categories: ['storage', 'home_lab', 'vmware', 'zfs']
+tags: ['iscsi',  'nfs', 'comstar' ]
 ---
-If you had a chance to read my previous  regarding migrating the root ZFS pool to a smaller drive, first of all I wanted to apologize for the longevity of that blog, secondly I decided to do some additional steps after the migration. I wanted to rename my zpool from 'rpool1' to 'data'. Usually you can do this with just a zpool export and import, but I was using some of the ZFS volumes as NFS shares and some of them for Comstar iSCSI Volumes, so there were some additional steps necessary to make the migration complete appropriately. First of all here are my zpools:
+
+If you had a chance to read my previous regarding migrating the root ZFS pool to a smaller drive, first of all I wanted to apologize for the longevity of that blog, secondly I decided to do some additional steps after the migration. I wanted to rename my zpool from 'rpool1' to 'data'. Usually you can do this with just a zpool export and import, but I was using some of the ZFS volumes as NFS shares and some of them for Comstar iSCSI Volumes, so there were some additional steps necessary to make the migration complete appropriately. First of all here are my zpools:
 
 
 	root@openindiana:~# zpool status

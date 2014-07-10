@@ -5,17 +5,10 @@ layout: post
 permalink: /2012/11/host-with-emulex-nc553i-cna-disconnects-from-strorage/
 dsq_thread_id:
   - 1409197142
-categories:
-  - Storage
-  - VMware
-tags:
-  - 4.1.402.20
-  - CNA
-  - DID_REQUEUE
-  - FCoE
-  - H:0xb
-  - NC553i
+categories: ['storage', 'vmware']
+tags: ['cna', 'did_requeue', 'fcoe', 'nc553i']
 ---
+
 I was experiencing a lot of disconnects from my storage over FCoE when using HP Blades with a NC553i CNA card. During the issue, I would see the following in the logs:
 
 

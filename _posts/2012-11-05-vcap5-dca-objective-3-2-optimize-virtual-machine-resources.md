@@ -5,13 +5,10 @@ layout: post
 permalink: /2012/11/vcap5-dca-objective-3-2-optimize-virtual-machine-resources/
 dsq_thread_id:
   - 1412263375
-categories:
-  - Certifications
-  - VCAP5-DCA
-  - VMware
-tags:
-  - VCAP5-DCA
+categories: ['certifications', 'vcap5_dca', 'vmware']
+tags: ['performance']
 ---
+
 ### Compare and contrast virtual and physical hardware resources
 
 From "[Transform your Business with Virtualization](http://www.vmware.com/files/pdf/VMware-Server-2-DS-EN.pdf)":
@@ -54,7 +51,7 @@ From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/
 >
 > The rest of this subsection lists practices and configurations recommended by VMware for optimal CPU performance.
 >
-> *   In most environments ESXi allows significant levels of CPU overcommitment (that is, running more vCPUs on a host than the total number of physical processor cores in that host) without impacting virtual machine performance.
+> *   In most environments ESXi allows significant levels of CPU overcommitment (that is, running more vCPUs on a host than the total number of physical processor cores in that host) without impacting virtual machine performance.
 > *   If an ESXi host becomes CPU saturated (that is, the virtual machines and other loads on the host demand all the CPU resources the host has), latency-sensitive workloads might not perform well. In this case you might want to reduce the CPU load, for example by powering off some virtual machines or migrating them to a different host (or allowing DRS to migrate them automatically).
 > *   It is a good idea to periodically monitor the CPU usage of the host. This can be done through the vSphere Client or by using esxtop or resxtop. Below we describe how to interpret esxtop data:
 > *   If the load average on the first line of the esxtop CPU panel is equal to or greater than 1, this indicates that the system is overloaded.
@@ -107,10 +104,10 @@ From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/
 > **Memory Overhead**
 >
 > 1.   An additional memory space overhead for each virtual machine. The per-virtual-machine memory space overhead can be further divided into the following categories:
->     *    Memory reserved for the virtual machine executable (VMX) process.This is used for data structures needed to bootstrap and support the guest (i.e., thread stacks, text, and heap).
->     *    Memory reserved for the virtual machine monitor (VMM).This is used for data structures required by the virtual hardware (i.e., TLB, memory mappings, and CPU state).
->     *    Memory reserved for various virtual devices (i.e., mouse, keyboard, SVGA, USB, etc.)
->     *    Memory reserved for other subsystems, such as the kernel, management agents, etc.
+>     *    Memory reserved for the virtual machine executable (VMX) process.This is used for data structures needed to bootstrap and support the guest (i.e., thread stacks, text, and heap).
+>     *    Memory reserved for the virtual machine monitor (VMM).This is used for data structures required by the virtual hardware (i.e., TLB, memory mappings, and CPU state).
+>     *    Memory reserved for various virtual devices (i.e., mouse, keyboard, SVGA, USB, etc.)
+>     *    Memory reserved for other subsystems, such as the kernel, management agents, etc.
 > 2.  The amounts of memory reserved for these purposes depend on a variety of factors, including the number of vCPUs, the configured memory for the guest operating system, whether the guest operating system is 32-bit or 64-bit, and which features are enabled for the virtual machine
 
 And more from the same document:
@@ -118,7 +115,7 @@ And more from the same document:
 > **Memory Sizing**
 > Carefully select the amount of memory you allocate to your virtual machines.
 >
-> *   You should allocate enough memory to hold the working set of applications you will run in the virtual machine, thus minimizing thrashing.
+> *   You should allocate enough memory to hold the working set of applications you will run in the virtual machine, thus minimizing thrashing.
 > *   You should also avoid over-allocating memory. Allocating more memory than needed unnecessarily increases the virtual machine memory overhead, thus consuming memory that could be used to support more virtual machines.
 
 And some more information:
@@ -139,7 +136,7 @@ From the [vSphere Documenation](http://pubs.vmware.com/vsphere-50/index.jsp?topi
 >
 > DirectPath I/O is not compatible with certain core virtualization features, however. This list varies with the hardware on which ESXi is running:
 >
-> *   New for vSphere 5.0, when ESXi is running on certain configurations of the Cisco Unified Computing System (UCS) platform, DirectPath I/O for networking is compatible with vMotion, physical NIC sharing, snapshots, and suspend/resume. It is not compatible with Fault Tolerance, NetIOC, memory overcommit, VMCI, or VMSafe.
+> *   New for vSphere 5.0, when ESXi is running on certain configurations of the Cisco Unified Computing System (UCS) platform, DirectPath I/O for networking is compatible with vMotion, physical NIC sharing, snapshots, and suspend/resume. It is not compatible with Fault Tolerance, NetIOC, memory overcommit, VMCI, or VMSafe.
 > *   For server hardware other than the Cisco UCS platform, DirectPath I/O is not compatible with vMotion, physical NIC sharing, snapshots, suspend/resume, Fault Tolerance, NetIOC, memory overcommit, or VMSafe.
 >
 > Typical virtual machines and their workloads don't require the use of DirectPath I/O. For workloads that are very networking intensive and don't need the core virtualization features mentioned above, however, DirectPath I/O might be useful to reduce CPU usage.
@@ -189,14 +186,14 @@ From the [vSphere Documenation](http://pubs.vmware.com/vsphere-50/index.jsp?topi
 >
 > *   In SMP virtual machines the guest operating system can migrate processes from one vCPU to another. This migration can incur a small CPU overhead. If the migration is very frequent it might be helpful to pin guest threads or processes to specific vCPUs. (Note that this is another reason not to configure virtual machines with more vCPUs than they need.)
 > *   Many operating systems keep time by counting timer interrupts. The timer interrupt rates vary between different operating systems and versions. For example:
->     *    Unpatched 2.4 and earlier Linux kernels typically request timer interrupts at 100 Hz (that is, 100 interrupts per second), though this can vary with version and distribution.
->     *    2.6 Linux kernels have used a variety of timer interrupt rates, including 100 Hz, 250 Hz, and 1000 Hz, again varying with version and distribution.
->     *    The most recent 2.6 Linux kernels introduce the NO_HZ kernel configuration option (sometimes called “tickless timer”) that uses a variable timer interrupt rate.
->     *    Microsoft Windows operating system timer interrupt rates are specific to the version of Microsoft Windows and the Windows HAL that is installed. Windows systems typically use a base timer interrupt rate of 64 Hz or 100 Hz.
->     *    Running applications that make use of the Microsoft Windows multimedia timer functionality can increase the timer interrupt rate. For example, some multimedia applications or Java applications increase the timer interrupt rate to approximately 1000 Hz.
+>     *    Unpatched 2.4 and earlier Linux kernels typically request timer interrupts at 100 Hz (that is, 100 interrupts per second), though this can vary with version and distribution.
+>     *    2.6 Linux kernels have used a variety of timer interrupt rates, including 100 Hz, 250 Hz, and 1000 Hz, again varying with version and distribution.
+>     *    The most recent 2.6 Linux kernels introduce the NO_HZ kernel configuration option (sometimes called “tickless timer”) that uses a variable timer interrupt rate.
+>     *    Microsoft Windows operating system timer interrupt rates are specific to the version of Microsoft Windows and the Windows HAL that is installed. Windows systems typically use a base timer interrupt rate of 64 Hz or 100 Hz.
+>     *    Running applications that make use of the Microsoft Windows multimedia timer functionality can increase the timer interrupt rate. For example, some multimedia applications or Java applications increase the timer interrupt rate to approximately 1000 Hz.
 > *   Delivering many virtual timer interrupts negatively impacts virtual machine performance and increases host CPU consumption. If you have a choice, use guest operating systems that require fewer timer interrupts. For example:
->     *    If you have a UP virtual machine use a UP HAL/kernel.
->     *    In some Linux versions, such as RHEL 5.1 and later, the “divider=10” kernel boot parameter reduces the timer interrupt rate to one tenth its default rate
+>     *    If you have a UP virtual machine use a UP HAL/kernel.
+>     *    In some Linux versions, such as RHEL 5.1 and later, the “divider=10” kernel boot parameter reduces the timer interrupt rate to one tenth its default rate
 >
 > **Virtual NUMA (vNUMA)**
 > Virtual NUMA (vNUMA), a new feature in ESXi 5.0, exposes NUMA topology to the guest operating system, allowing NUMA-aware guest operating systems and applications to make the most efficient use of the underlying hardware’s NUMA architecture.
@@ -205,7 +202,7 @@ From the [vSphere Documenation](http://pubs.vmware.com/vsphere-50/index.jsp?topi
 >
 > *   You can obtain the maximum performance benefits from vNUMA if your clusters are composed entirely of hosts with matching NUMA architecture.
 > *   This is because the very first time a vNUMA-enabled virtual machine is powered on, its vNUMA topology is set based in part on the NUMA topology of the underlying physical host on which it is running. Once a virtual machine’s vNUMA topology is initialized it doesn’t change unless the number of vCPUs in that virtual machine is changed. This means that if a vNUMA virtual machine is moved to a host with a different NUMA topology, the virtual machine’s vNUMA topology might no longer be optimal for the underlying physical NUMA topology, potentially resulting in reduced performance.
-> *    Size your virtual machines so they align with physical NUMA boundaries. For example, if you have a host system with six cores per NUMA node, size your virtual machines with a multiple of six vCPUs (i.e., 6 vCPUs, 12 vCPUs, 18 vCPUs, 24 vCPUs, and so on).
+> *    Size your virtual machines so they align with physical NUMA boundaries. For example, if you have a host system with six cores per NUMA node, size your virtual machines with a multiple of six vCPUs (i.e., 6 vCPUs, 12 vCPUs, 18 vCPUs, 24 vCPUs, and so on).
 > *   By default, vNUMA is enabled only for virtual machines with more than eight vCPUs. This feature can be enabled for smaller virtual machines, however, by adding to the .vmx file the line:numa.vcpu.maxPerVirtualNode = X
 
 ### Tune Virtual Machine storage configurations From the

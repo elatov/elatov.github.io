@@ -5,13 +5,10 @@ layout: post
 permalink: /2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/
 dsq_thread_id:
   - 1409816398
-categories:
-  - Certifications
-  - VCAP5-DCA
-  - VMware
-tags:
-  - VCAP5-DCA
+categories: ['networking','certifications', 'vcap5_dca', 'vmware']
+tags: ['beacon_probing','snmp','dvs']
 ---
+
 ### Identify common virtual switch configurations
 
 From [VMware Virtual Networking Concepts](http://www.vmware.com/files/pdf/virtual_networking_concepts.pdf)

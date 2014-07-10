@@ -5,13 +5,10 @@ layout: post
 permalink: /2013/01/vcap5-dca-objective-6-1-configure-manage-and-analyze-vsphere-log-files/
 dsq_thread_id:
   - 1406891938
-categories:
-  - Certifications
-  - VCAP5-DCA
-  - VMware
-tags:
-  - VCAP5-DCA
+categories: ['certifications', 'vcap5_dca', 'vmware']
+tags: ['esx_firewall', 'syslog']
 ---
+
 ### Identify vCenter Server log file names and locations
 
 From VMware KB [1021804](http://kb.vmware.com/kb/1021804):

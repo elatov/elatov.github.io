@@ -5,13 +5,10 @@ layout: post
 permalink: /2012/11/vcap5-dca-objective-3-3-implement-and-maintain-complex-drs-solutions/
 dsq_thread_id:
   - 1408918922
-categories:
-  - Certifications
-  - VCAP5-DCA
-  - VMware
-tags:
-  - VCAP5-DCA
+categories: ['certifications', 'vcap5_dca', 'vmware']
+tags: ['drs']
 ---
+
 ### Explain DRS / storage DRS affinity and anti-affinity rules
 
 From "[vSphere Resource Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)":

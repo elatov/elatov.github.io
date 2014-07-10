@@ -5,24 +5,10 @@ layout: post
 permalink: /2013/01/plot-esxtop-data-with-gnuplot/
 dsq_thread_id:
   - 1406205899
-categories:
-  - Networking
-  - Storage
-  - VMware
-tags:
-  - Average Guest MilliSec/Read
-  - awk
-  - CSV
-  - esxtop
-  - esxtop batch mode
-  - gnuplot
-  - head
-  - headers
-  - Reads/sec
-  - set format x
-  - set timefmt
-  - tail
+categories: ['networking', 'storage', 'vmware']
+tags: ['linux', 'csv', 'esxtop', 'gnuplot']
 ---
+
 Let's say you collected esxtop batch data per the instructions laid out in VMware KB [1004953](http://kb.vmware.com/kb/1004953). So in the end you just had a huge CSV (Comma Separated Values) file, with a lot of data. In my example I was seeing some latency on my NFS datastore and I wanted to find out what is going on. I downloaded the file to my linux machine and here is resulted file:
 
 

@@ -5,13 +5,10 @@ layout: post
 permalink: /2013/01/vcap5-dca-objective-6-5-troubleshoot-vcenter-server-and-esxi-host-management/
 dsq_thread_id:
   - 1405000988
-categories:
-  - Certifications
-  - VCAP5-DCA
-  - VMware
-tags:
-  - VCAP5-DCA
+categories: ['certifications', 'vcap5-dca', 'vmware']
+tags: ['esx_firewall', 'hostd']
 ---
+
 ### Identify CLI commands and tools used to troubleshoot management issues
 
 The easiest thing to try is to restart the management agents. Here is how that looks like:

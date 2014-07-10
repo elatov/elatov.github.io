@@ -5,12 +5,10 @@ layout: post
 permalink: /2012/09/vcap5-dcd-objective-4-3-create-an-installation-guide/
 dsq_thread_id:
   - 1404931043
-categories:
-  - VCAP5-DCD
-  - VMware
-tags:
-  - VCAP5-DCD
+categories: ['certifications','vcap5_dcd', 'vmware']
+tags: ['technical_documentation']
 ---
+
 ### Identify standard resources required to construct an installation guide
 
 If you are within an organization which has pre-made templates for this, then definitely check them out. Other than that, VMware provides a lot of evaluation guides which has a step by step process of how to install certain VMware products. Here are a few:

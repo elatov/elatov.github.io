@@ -5,13 +5,10 @@ layout: post
 permalink: /2013/01/vcap5-dca-objective-7-1-secure-esxi-hosts/
 dsq_thread_id:
   - 1404744981
-categories:
-  - Certifications
-  - VCAP5-DCA
-  - VMware
-tags:
-  - VCAP5-DCA
+categories: ['certifications', 'vcap5_dca', 'vmware']
+tags: ['esx_firewall','ssl','esx_conf']
 ---
+
 ### Identify configuration files related to network security
 
 Here are the config files for SSH:

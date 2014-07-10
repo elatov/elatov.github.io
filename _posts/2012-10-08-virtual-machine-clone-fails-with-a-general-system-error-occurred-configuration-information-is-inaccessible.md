@@ -5,16 +5,10 @@ layout: post
 permalink: /2012/10/virtual-machine-clone-fails-with-a-general-system-error-occurred-configuration-information-is-inaccessible/
 dsq_thread_id:
   - 1405927143
-categories:
-  - Storage
-  - VMware
-tags:
-  - Change Block Tracking
-  - clone
-  - CTK
-  - IDE Hard Disk
-  - ide0:0.ctkEnabled
+categories: ['storage', 'vmware']
+tags: ['cbt', 'clone', 'ctk']
 ---
+
 Recently ran into an issue when cloning a VM. The clone would start and would run and at about 99% it would fail with the following error:
 
 ![clone_fail_1](https://github.com/elatov/uploads/raw/master/2012/10/clone_fail_1.png)

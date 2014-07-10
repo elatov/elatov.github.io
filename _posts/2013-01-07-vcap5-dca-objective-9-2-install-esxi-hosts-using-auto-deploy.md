@@ -5,13 +5,10 @@ layout: post
 permalink: /2013/01/vcap5-dca-objective-9-2-install-esxi-hosts-using-auto-deploy/
 dsq_thread_id:
   - 1408719630
-categories:
-  - Certifications
-  - VCAP5-DCA
-  - VMware
-tags:
-  - VCAP5-DCA
+categories: ['certifications', 'vcap5_dca', 'vmware']
+tags: ['powercli','pxe_boot', 'auto_deploy']
 ---
+
 ### Identify Auto Deploy requirements
 
 From "[VMware vSphere 5.0 Evaluation Guide Volume Four – Auto Deploy](http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-4-Auto-Deploy.pdf)":

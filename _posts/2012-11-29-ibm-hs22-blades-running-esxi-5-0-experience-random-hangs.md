@@ -5,17 +5,10 @@ layout: post
 permalink: /2012/11/ibm-hs22-blades-running-esxi-5-0-experience-random-hangs/
 dsq_thread_id:
   - 1404673715
-categories:
-  - Storage
-  - VMware
-tags:
-  - esxcli storage core
-  - IBM HS22
-  - interrupt remapping
-  - iovDisableIR
-  - performance has deteriorated
-  - Transient file system condition
+categories: ['storage', 'vmware']
+tags: ['interrupt_remapping', 'iovdisableir', 'ibm']
 ---
+
 Every couple of days we would see one of our ESXi host disconnect from vCenter and it would stay disconnected until we rebooted the host. Checking out the logs, prior to the reboot we would see the following:
 
 

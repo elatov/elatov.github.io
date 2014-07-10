@@ -5,13 +5,10 @@ layout: post
 permalink: /2012/11/vcap5-dca-objective-4-2-deploy-and-test-vmware-ft/
 dsq_thread_id:
   - 1407393735
-categories:
-  - Certifications
-  - VCAP5-DCA
-  - VMware
-tags:
-  - VCAP5-DCA
+categories: ['certifications', 'vcap5_dca', 'vmware']
+tags: ['ft']
 ---
+
 ### Identify VMware FT hardware requirements
 
 From "[vSphere Availability ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf)":

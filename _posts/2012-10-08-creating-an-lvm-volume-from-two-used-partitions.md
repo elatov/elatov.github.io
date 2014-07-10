@@ -5,16 +5,10 @@ layout: post
 permalink: /2012/10/creating-an-lvm-volume-from-two-used-partitions/
 dsq_thread_id:
   - 1421075055
-categories:
-  - OS
-tags:
-  - /etc/fstab
-  - fdisk
-  - Logical Group
-  - Logical Volume
-  - lvm
-  - Physical Volume
+categories: ['storage', 'os']
+tags: ['linux', 'fstab', 'fdisk', 'lvm' ]
 ---
+
 I have a machine that I have been using for years, it was before I started getting into Linux. So it started out as a Windows machine, then I installed Linux on it and Dual booted it. I then updated my hard drive in size and used Acronis to transfer all the data. It was actually pretty cool, it allowed me to increase the partitions as I was cloning the data over. Since I was using Windows with Linux, I decided to use FAT32 partitions to share data between them (this was before Linux included ntfs support by default). Regardless to say I made a lot of changes to my partitioning schema and it was all over the place. Here is how my 'df' output looked like.
 
 

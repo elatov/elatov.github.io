@@ -5,16 +5,10 @@ layout: post
 permalink: /2012/12/find-out-battery-status-of-rooted-andoid-phone-using-adb/
 dsq_thread_id:
   - 1405779178
-categories:
-  - Home Lab
-tags:
-  - /sys/class/power_supply/battery/batt_attr_text
-  - adb
-  - Android
-  - battery status
-  - cat
-  - dumpsys
+categories: ['os']
+tags: [ 'adb', 'android']
 ---
+
 There are two ways to go about finding out battery status of a rooted Android phone. One is simple and uses *cat*, the other is android specific. Here is how the output of the first one looks like:
 
 

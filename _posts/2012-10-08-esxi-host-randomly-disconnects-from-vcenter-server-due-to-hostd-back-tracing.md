@@ -5,15 +5,10 @@ layout: post
 permalink: /2012/10/esxi-host-randomly-disconnects-from-vcenter-server-due-to-hostd-back-tracing/
 dsq_thread_id:
   - 1406826243
-categories:
-  - Networking
-  - VMware
-tags:
-  - /var/log/vmware/hostd.log
-  - ESXi 4.1U3
-  - Hostd Core Dump
-  - vix-async-pipe-zdump.000
+categories: ['networking', 'vmware']
+tags: ['hostd_log', 'esxi_4.1u3', 'hostd_core_dump', 'vix-async-pipe-zdump.000']
 ---
+
 At random times, I would see the following messages from my SNMP Server regarding my ESX(i) hosts:
 
 > Time of Event: 10/4/2012 3:05:37 AM

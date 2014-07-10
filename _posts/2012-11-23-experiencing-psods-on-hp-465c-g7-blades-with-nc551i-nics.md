@@ -5,16 +5,10 @@ layout: post
 permalink: /2012/11/experiencing-psods-on-hp-465c-g7-blades-with-nc551i-nics/
 dsq_thread_id:
   - 1404673710
-categories:
-  - Networking
-  - VMware
-tags:
-  - 465C
-  - be2net
-  - be_mcc_mailbox_notify_and_wait
-  - NC551i
-  - PSOD
+categories: ['networking', 'vmware']
+tags: ['be2net', 'emulex', 'psod']
 ---
+
 After updating our HP Virtual Connect firmware to version 3.60, our ESXi host we would see the following PSOD after a certain amount of time:
 
 ![psod_be2net_manu_c](https://github.com/elatov/uploads/raw/master/2012/11/psod_be2net_manu_c.png)

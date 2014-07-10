@@ -5,24 +5,10 @@ layout: post
 permalink: /2013/01/rhcsa-and-rhce-chapter-2-system-initialization/
 dsq_thread_id:
   - 1404673723
-categories:
-  - Certifications
-  - RHCSA and RHCE
-tags:
-  - /boot/grub/grub.conf
-  - /etc/inittab
-  - /etc/rc.d/init.d/
-  - /etc/rc.d/init.d/functions
-  - /etc/rc.d/rc.local
-  - /etc/rc.d/rc.sysinit
-  - /etc/rc.d/rcX.d/
-  - /etc/sysconfig/clock
-  - /etc/sysconfig/desktop
-  - /sbin/init
-  - initctl
-  - linux rescue
-  - SysV
+categories: ['home_lab', 'os','certifications', 'rhcsa_rhce']
+tags: ['linux','grub', 'inittab', 'rc_local', 'linux_rescue', 'sysv']
 ---
+
 ### Red Hat Boot Process
 
 The process is described in "[Red Hat Enterprise Linux 6 Installation Guide](https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf)":

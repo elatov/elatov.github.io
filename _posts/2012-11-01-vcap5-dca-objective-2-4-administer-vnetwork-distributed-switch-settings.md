@@ -5,14 +5,10 @@ layout: post
 permalink: /2012/11/vcap5-dca-objective-2-4-administer-vnetwork-distributed-switch-settings/
 dsq_thread_id:
   - 1411255996
-categories:
-  - Certifications
-  - Networking
-  - VCAP5-DCA
-  - VMware
-tags:
-  - VCAP5-DCA
+categories: ['certifications', 'networking', 'vcap5_dca', 'vmware']
+tags: ['dvs']
 ---
+
 ### Describe the relationship between vDS and the vSS
 
 vSS (virtual Standard Switch) is just a regular vswitch and is configured on a per host basis. Most of the configurations are stored under /etc/vmware/esx.conf

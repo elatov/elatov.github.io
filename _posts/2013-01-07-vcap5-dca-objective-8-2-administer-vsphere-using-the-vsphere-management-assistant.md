@@ -5,13 +5,10 @@ layout: post
 permalink: /2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/
 dsq_thread_id:
   - 1411740703
-categories:
-  - Certifications
-  - VCAP5-DCA
-  - VMware
-tags:
-  - VCAP5-DCA
+categories: ['storage', 'certifications', 'vcap5_dca', 'vmware']
+tags: ['vma']
 ---
+
 ### Identify vMA prerequisites
 
 From "[vSphere Management Assistant Guide vSphere 5.1](http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf)":

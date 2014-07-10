@@ -5,13 +5,10 @@ layout: post
 permalink: /2013/01/vcap5-dca-objective-6-2-troubleshoot-cpu-and-memory-performance/
 dsq_thread_id:
   - 1405551371
-categories:
-  - Certifications
-  - VCAP5-DCA
-  - VMware
-tags:
-  - VCAP5-DCA
+categories: ['certifications', 'vcap5_dca', 'vmware']
+tags: ['performance']
 ---
+
 ### Identify resxtop/esxtop metrics related to memory and CPU
 
 From "[vSphere Monitoring and Performance](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-monitoring-performance-guide.pdf)", here are the CPU counters:

@@ -5,13 +5,10 @@ layout: post
 permalink: /2012/11/vcap5-dca-objective-3-4-utilize-advanced-vsphere-performance-monitoring-tools/
 dsq_thread_id:
   - 1406889220
-categories:
-  - Certifications
-  - VCAP5-DCA
-  - VMware
-tags:
-  - VCAP5-DCA
+categories: ['certifications', 'vcap5_dca', 'vmware']
+tags: ['esxtop','performance','vscsistats']
 ---
+
 ### Identify hot keys and fields used with resxtop/esxtop
 
 If you launch Esxtop and type '**h**' it will show you the following:

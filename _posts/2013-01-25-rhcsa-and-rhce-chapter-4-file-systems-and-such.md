@@ -5,39 +5,10 @@ layout: post
 permalink: /2013/01/rhcsa-and-rhce-chapter-4-file-systems-and-such/
 dsq_thread_id:
   - 1410720052
-categories:
-  - Certifications
-  - Home Lab
-  - RHCSA and RHCE
-tags:
-  - /dev/urandom
-  - /etc/fstab
-  - /etc/mtab
-  - /proc/mounts
-  - badblocks
-  - blkid
-  - cryptsetup
-  - dd
-  - df
-  - dumpe2fs
-  - e2label
-  - edquota
-  - ext2
-  - ext3
-  - filesystem
-  - findmnt
-  - getfacl
-  - luks
-  - mkfs
-  - mount
-  - quota
-  - quotacheck
-  - quotaoff
-  - quotaon
-  - repquota
-  - setfacl
-  - usrquota
+categories: ['storage', 'os', 'certifications', 'home_lab', 'rhcsa_rhce']
+tags: [ 'linux', 'fstab', 'badblocks', 'dd', 'ext3', 'luks']
 ---
+
 ### File Systems
 
 After we have partitioned our drives to our heart's desire, we should actually start using them. The first thing that we need to do is put a file system on our partitions so we can later mount them. From "[Red Hat Enterprise Linux 6 Storage Administration Guide](https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Storage_Administration_Guide/Red_Hat_Enterprise_Linux-6-Storage_Administration_Guide-en-US.pdf)", here are some file systems that are supported my RHEL:

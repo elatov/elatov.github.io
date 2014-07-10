@@ -5,21 +5,10 @@ layout: post
 permalink: /2013/01/esxi-hosts-show-up-as-a-vem-module-with-all-zeros-for-uuids-on-the-nexus-1000v/
 dsq_thread_id:
   - 1406332841
-categories:
-  - Networking
-  - VMware
-tags:
-  - /hardware/bios/dmiInfo
-  - Bios UUID
-  - esxcfg-info
-  - hostsvc/hosthardware
-  - Nexus 1000v
-  - show mod
-  - System UUID
-  - vemcmd show card
-  - vim-cmd
-  - vsish
+categories: ['networking', 'vmware']
+tags: ['bios_uuid', 'nexus_1000v', 'system_uuid', 'vemcmd', 'vsish']
 ---
+
 We were troubleshooting an issue with the N1K, where random VMs would lose network connectivity. Upon running a "show mod" on the N1K we saw the following:
 
 

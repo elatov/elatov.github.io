@@ -1,16 +1,15 @@
 ---
+published: true
 title: VCAP5-DCD Objective 4.2 – Create an Implementation Plan
 author: Karim Elatov
 layout: post
 permalink: /2012/09/vcap5-dcd-objective-4-2-create-an-implementation-plan/
 dsq_thread_id:
   - 1404915081
-categories:
-  - VCAP5-DCD
-  - VMware
-tags:
-  - VCAP5-DCD
+categories: ['certifications', 'vcap5_dcd', 'vmware']
+tags: ['technical_documentation']
 ---
+
 ### Based on key phases of enterprise vSphere 5 implementations, map customer development needs to a standard implementation plan template.
 
 Most organizations have a pre-built template for these designs. Actually Duncan Epping blogged about it in "[Using the vSphere Plan & Design Kit](http://www.yellow-bricks.com/2011/02/02/using-the-vsphere-plan-design-kit/)". Here is an example from from the blog:

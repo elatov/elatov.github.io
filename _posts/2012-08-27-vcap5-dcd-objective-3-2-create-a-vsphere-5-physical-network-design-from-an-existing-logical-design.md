@@ -5,12 +5,10 @@ layout: post
 permalink: /2012/08/vcap5-dcd-objective-3-2-create-a-vsphere-5-physical-network-design-from-an-existing-logical-design/
 dsq_thread_id:
   - 1404722683
-categories:
-  - VCAP5-DCD
-  - VMware
-tags:
-  - VCAP5-DCD
+categories: ['certifications', 'vcap5_dcd', 'vmware']
+tags: ['logical_design']
 ---
+
 ### Describe VLAN options, including Private VLANs, with respect to virtual and physical switches
 
 From VMware KB [1003806](http://kb.vmware.com/kb/1003806):

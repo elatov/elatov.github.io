@@ -5,13 +5,10 @@ layout: post
 permalink: /2013/01/vcap5-dca-objective-9-1-install-esxi-hosts-with-custom-settings/
 dsq_thread_id:
   - 1416325118
-categories:
-  - Certifications
-  - VCAP5-DCA
-  - VMware
-tags:
-  - VCAP5-DCA
+categories: ['certifications', 'vcap5_dca', 'vmware']
+tags: ['kickstart','powercli', 'auto_deploy']
 ---
+
 ### Identify custom installation options
 
 From "[vSphere Installation and Setup vSphere 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf)":

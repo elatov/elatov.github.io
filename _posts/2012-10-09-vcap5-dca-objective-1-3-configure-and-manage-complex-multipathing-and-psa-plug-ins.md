@@ -5,13 +5,10 @@ layout: post
 permalink: /2012/10/vcap5-dca-objective-1-3-configure-and-manage-complex-multipathing-and-psa-plug-ins/
 dsq_thread_id:
   - 1409147731
-categories:
-  - Certifications
-  - VCAP5-DCA
-  - VMware
-tags:
-  - VCAP5-DCA
+categories: ['storage','certifications', 'vcap5_dca', 'vmware']
+tags: ['psa','satp','psp']
 ---
+
 ### Explain the Pluggable Storage Architecture (PSA) layout
 
 From this VMware KB [1011375](http://kb.vmware.com/kb/1011375):

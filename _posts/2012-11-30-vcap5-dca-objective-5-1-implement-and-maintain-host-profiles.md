@@ -5,13 +5,10 @@ layout: post
 permalink: /2012/11/vcap5-dca-objective-5-1-implement-and-maintain-host-profiles/
 dsq_thread_id:
   - 1409208979
-categories:
-  - Certifications
-  - VCAP5-DCA
-  - VMware
-tags:
-  - VCAP5-DCA
+categories: ['certifications', 'vcap5_dca', 'vmware']
+tags: ['host_profile']
 ---
+
 ### Use Profile Editor to edit and/or disable policies
 
 From "[vSphere Host Profiles ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-host-profiles-guide.pdf)":

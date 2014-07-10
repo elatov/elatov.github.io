@@ -5,18 +5,10 @@ layout: post
 permalink: /2012/09/vmfs-datastore-not-auto-mounting-on-an-esxi-host/
 dsq_thread_id:
   - 1408613877
-categories:
-  - Storage
-  - VMware
-tags:
-  - Dynamic Disks
-  - FileSystem ID 42
-  - hexdump
-  - NTFS
-  - partitions
-  - SFS
-  - vmfs
+categories: ['storage', 'vmware']
+tags: ['dynamic_disks', 'filesystem_id_42', 'hexdump', 'ntfs', 'sfs', 'vmfs']
 ---
+
 We had two LUNs presented to a host:
 
 

@@ -2,17 +2,10 @@
 title: Presenting a LUN over Fibre Channel from a NetApp FAS 3240 Array to an ESXi 5.0 Host Running on a Cisco UCS B200 Blade
 author: Karim Elatov
 layout: post
-permalink: /2012/11/presenting-a-lun-from-a-netapp-fas-3240-arrya-to-an-esxi-5-0-host-running-on-a-cisco-ucs-b200-blade/
-dsq_thread_id:
-  - 1404939505
-categories:
-  - Storage
-  - VMware
-tags:
-  - Cisco UCS B200
-  - NetApp FAS3240
-  - VMware ESX
+categories: ['storage', 'vmware']
+tags: ['cisco_ucs', 'netapp']
 ---
+
 ## Confirming UCS Hardware on ESX(i)
 
 First, let's SSH over to the host and confirm the version of ESXi:

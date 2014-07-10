@@ -5,13 +5,10 @@ layout: post
 permalink: /2013/01/vcap5-dca-objective-6-4-troubleshoot-storage-performance-and-connectivity/
 dsq_thread_id:
   - 1406630602
-categories:
-  - Certifications
-  - VCAP5-DCA
-  - VMware
-tags:
-  - VCAP5-DCA
+categories: ['storage', 'certifications', 'vcap5-dca', 'vmware']
+tags: ['iscsi', 'performance','esxtop','vmfs']
 ---
+
 ### Identify logs used to troubleshoot storage issues
 
 - **/var/log/vmkernel.log** - generic NMP messages, iSCSI and fibre channel messages, drivers and so on

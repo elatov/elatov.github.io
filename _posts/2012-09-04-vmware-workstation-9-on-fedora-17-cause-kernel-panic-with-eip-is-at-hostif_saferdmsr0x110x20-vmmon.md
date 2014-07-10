@@ -5,14 +5,10 @@ layout: post
 permalink: /2012/09/vmware-workstation-9-on-fedora-17-cause-kernel-panic-with-eip-is-at-hostif_saferdmsr0x110x20-vmmon/
 dsq_thread_id:
   - 1404673417
-categories:
-  - Home Lab
-  - OS
-  - VMware
-tags:
-  - fedora 17
-  - vmware workstation
+categories: ['home_lab', 'os', 'vmware']
+tags: ['linux', 'fedora_17', 'vmware_workstation']
 ---
+
 I recently updated my VMware Workstation from version 8 to version 9. The install went well and the compile of the modules didn't fail either. But as soon as I would try to power on a VM, I would get this message:
 
 

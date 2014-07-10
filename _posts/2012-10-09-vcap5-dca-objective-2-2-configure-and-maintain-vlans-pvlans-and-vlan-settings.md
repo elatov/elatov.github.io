@@ -5,13 +5,10 @@ layout: post
 permalink: /2012/10/vcap5-dca-objective-2-2-configure-and-maintain-vlans-pvlans-and-vlan-settings/
 dsq_thread_id:
   - 1413715339
-categories:
-  - Certifications
-  - VCAP5-DCA
-  - VMware
-tags:
-  - VCAP5-DCA
+categories: ['networking', 'certifications', 'vcap5_dca', 'vmware']
+tags: ['pvlan','dvs']
 ---
+
 ### Identify types of VLANs and PVLANs
 
 From [vSphere Networkin ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-networking-guide.pdf):

@@ -5,13 +5,10 @@ layout: post
 permalink: /2013/01/vcap5-dca-objective-8-1-execute-vmware-cmdlets-and-customize-scripts-using-powercli/
 dsq_thread_id:
   - 1404673550
-categories:
-  - Certifications
-  - VCAP5-DCA
-  - VMware
-tags:
-  - VCAP5-DCA
+categories: ['certifications', 'vcap5_dca', 'vmware']
+tags: ['powercli']
 ---
+
 ### Identify vSphere PowerCLI requirements
 
 From "[vSphere PowerCLI User’s Guide PowerCLI 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp_powercli_50_usg.pdf)":

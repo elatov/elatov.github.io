@@ -5,24 +5,10 @@ layout: post
 permalink: /2012/08/corosync-pacemaker-running-on-rhel-6-vms-receiving-failed-to-receive-messages/
 dsq_thread_id:
   - 1408246501
-categories:
-  - Networking
-  - OS
-  - VMware
-tags:
-  - Corosync
-  - IGMP
-  - IGMPv3 Snooping
-  - iperf
-  - MSI
-  - multicast
-  - net.core.rmem_max
-  - OS UDP Buffer
-  - Pacemaker
-  - Rx ring size
-  - TCP
-  - UDP
+categories: ['networking', 'os', 'vmware']
+tags: ['linux', 'corosync', 'igmp', 'igmpv3_snooping', 'iperf', 'msi', 'multicast', 'net.core.rmem_max', 'os_udp_buffer', 'pacemaker', 'rx_ring_size']
 ---
+
 I ran into in an interesting issue with Corosync Pacemaker. Before we get down to the trouble shooting let's figure out what Corosync Pacemaker is, from the [Corosync FAQ](https://github.com/corosync/corosync/wiki/why-was-corosync-created):
 
 > **Why was Corosync created?**
@@ -69,7 +55,7 @@ So it's not that the VMware Virtual Switch doesn't support IGMPv3 Snooping, it's
 > you have some virtual machines with V2 and some with V3, set this parameter to the lowest common
 > denominator of V2. Otherwise, leave this at V3.
 >
-> **IGMP Queries** - Default is 2. This specifies how many IGMP V2 or V3 membership queries are sent to the virtual machine immediately after it is moved with VMotion to solicit the IGMP membership reports. Two queries are sent by default to reduce impact of any isolated packet drops.
+> **IGMP Queries** - Default is 2. This specifies how many IGMP V2 or V3 membership queries are sent to the virtual machine immediately after it is moved with VMotion to solicit the IGMP membership reports. Two queries are sent by default to reduce impact of any isolated packet drops.
 
 So from the ESX side of things, there is nothing to be done when working with multicast traffic. For testing we set the "*IGMP Version*" setting on the ESX to '2' and changed the RHEL VMs to also use IGMP version 2, you can check the setting from the VM like this:
 

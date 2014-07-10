@@ -5,18 +5,10 @@ layout: post
 permalink: /2012/11/lost-nfs-connectivity-from-esxi-host-when-nas-is-another-subnet/
 dsq_thread_id:
   - 1406624842
-categories:
-  - Networking
-  - Storage
-  - VMware
-tags:
-  - esxcfg-nas
-  - esxcfg-route
-  - nfs
-  - NFS Disconnect
-  - RPC error 13
-  - static route
+categories: ['networking', 'storage', 'vmware']
+tags: [ 'nfs', 'static_route']
 ---
+
 All of a sudden on my ESXi host we saw a disconnect from our NAS. I saw the following in the logs:
 
 

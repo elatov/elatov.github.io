@@ -5,17 +5,10 @@ layout: post
 permalink: /2012/10/pkgng-and-freebsd-9/
 dsq_thread_id:
   - 1406559376
-categories:
-  - OS
-tags:
-  - freebsd
-  - make config
-  - make showconfig
-  - pkg
-  - pkg2ng
-  - pkgng
-  - portmaster
+categories: ['os']
+tags: ['freebsd', 'freebsd_pkg', 'pkgng', 'portmaster']
 ---
+
 I updated my *portmaster* package the other day and I saw the following message:
 
 
@@ -106,4 +99,3 @@ and lastly recompile your port management tool to do the same. I use *portmaster
 
 
 Now every time you install a new port with *portmaster* it will be registered with the new *pkgng* database and you can use the above commands to query all the information you need.
-

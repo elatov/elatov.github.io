@@ -5,28 +5,10 @@ layout: post
 permalink: /2012/10/cant-set-x520-10gbe-intel-nic-to-auto-negotiate-on-esxi/
 dsq_thread_id:
   - 1410006010
-categories:
-  - Networking
-  - VMware
-tags:
-  - auto-negotiate
-  - DID
-  - esxcfg-nics
-  - ethtool -i
-  - ixgbe
-  - mount ISO
-  - scp
-  - SDID
-  - SVID
-  - tree
-  - VID
-  - vim-cmd hostsvc/maintenance_mode_enter
-  - vim-cmd hostsvc/runtimeinfo
-  - vmkchdev
-  - vmkload_mod
-  - VMware HCL
-  - X520 10GbE
+categories: ['networking', 'vmware']
+tags: ['auto_negotiate',  'ixgbe', 'x520_10gbe']
 ---
+
 We were following the instructions laid out in VMware KB [1004089](http://kb.vmware.com/kb/1004089) to set a NIC to auto negotiate with the upstream switch. Upon running the command, we would see the following message:
 
 

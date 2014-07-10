@@ -5,42 +5,10 @@ layout: post
 permalink: /2012/10/setup-fedora-17-with-nvidia-geforce-6200-to-connect-to-a-tv-and-function-as-an-xbmc-media-center/
 dsq_thread_id:
   - 1404673670
-categories:
-  - Home Lab
-  - OS
-tags:
-  - .xinitrc
-  - /etc/default/grub
-  - /etc/gdm/custom.conf
-  - /etc/sysconfig/desktop
-  - /etc/systemd/system/default.target
-  - /lib/kbd/consolefonts
-  - akmod-nvidia
-  - akmods
-  - console font
-  - 'CPU0: Core temperature above threshold'
-  - dracut
-  - GDM
-  - gfxpayload
-  - GRUB_CMDLINE_LINUX
-  - GRUB_GFXPAYLOAD_LINUX
-  - iptables
-  - nouveau
-  - Nvidia GeForce 6200
-  - nvidia-xconfig
-  - RPMFusion
-  - setfont
-  - setsysfont
-  - startx
-  - systemd runlevel
-  - thermal paste
-  - tv-out
-  - vga=789
-  - XBMC Remote
-  - Xorg-Server
-  - xorg-x11-drv-nvidia
-  - xorg.conf
+categories: ['os']
+tags: ['linux', 'xbmc','xinitrc', 'grub', 'gdm', 'nvidia', 'akmods', 'dracut', 'xbmc', 'xorg_conf']
 ---
+
 I was getting the following messages on the my Fedora machine:
 
     [10500.000015] [Hardware Error]: Machine check events logged

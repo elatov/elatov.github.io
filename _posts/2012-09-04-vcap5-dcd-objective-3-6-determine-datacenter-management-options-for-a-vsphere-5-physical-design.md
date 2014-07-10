@@ -5,12 +5,10 @@ layout: post
 permalink: /2012/09/vcap5-dcd-objective-3-6-determine-datacenter-management-options-for-a-vsphere-5-physical-design/
 dsq_thread_id:
   - 1404738838
-categories:
-  - VCAP5-DCD
-  - VMware
-tags:
-  - VCAP5-DCD
+categories: ['certifications', 'vcap5_dcd', 'vmware']
+tags: ['physical_design','ha','drs']
 ---
+
 ### Differentiate and describe client access options
 
 From "[vCenter Server and Host Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-host-management-guide.pdf)":
@@ -70,7 +68,7 @@ From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/
 > *   Multiple vMotion vmknics, a new feature in ESXi 5.0, can provide a further increase in network bandwidth available to vMotion.
 > *   All vMotion vmknics on a host should share a single vSwitch. Each vmknic's portgroup should be configured to leverage a different physical NIC as its active vmnic. In addition, all vMotion vmknics should be on the same vMotion network.
 > *   While a vMotion operation is in progress, ESXi opportunistically reserves CPU resources on both the source and destination hosts in order to ensure the ability to fully utilize the network bandwidth. ESXi will attempt to use the full available network bandwidth regardless of the number of vMotion operations being performed. The amount of CPU reservation thus depends on the number of vMotion NICs and their speeds; 10% of a processor core for each 1Gb network interface, 100% of a processor core for each 10Gb network interface, and a minimum total reservation of 30% of a processor core. Therefore leaving some unreserved CPU capacity in a cluster can help ensure that vMotion tasks get the resources required in order to fully utilize available network bandwidth.
-> *    vMotion performance could be reduced if host-level swap files are placed on local storage
+> *    vMotion performance could be reduced if host-level swap files are placed on local storage
 
 From the same document:
 
