@@ -5,7 +5,7 @@ title: "Mac OS X Mount NTFS"
 author: Karim Elatov
 description: ""
 categories: [os,storage]
-tags: [fdisk,gdisk,diskutil,gpt,mbr]
+tags: [ntfs,mac,fdisk,gdisk,diskutil,gpt,mbr]
 ---
 I had a USB stick laying around and I had to put **HFS+** on it to do some Mac OS X specific activities. Initially I had NTFS on it (just so I could use the usb stick across all OSes), and I wanted to format it back to NTFS using Mac OS X. As I was reading up on the process, I realized there are a couple of different ways to the approach.
 
