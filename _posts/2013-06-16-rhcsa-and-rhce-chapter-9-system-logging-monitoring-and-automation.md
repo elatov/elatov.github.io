@@ -5,14 +5,10 @@ layout: post
 permalink: /2013/06/rhcsa-and-rhce-chapter-9-system-logging-monitoring-and-automation/
 dsq_thread_id:
   - 1482618967
-categories:
-  - Certifications
-  - RHCSA and RHCE
-tags:
-  - RHCE
-  - RHCSA
-  - RHEL
+categories: ['os','certifications', 'rhcsa_rhce']
+tags: ['linux', 'rsyslog', 'performance']
 ---
+
 ## Syslog
 
 From [Red Hat Enterprise Linux 6 Deployment Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf):

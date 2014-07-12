@@ -1,10 +1,10 @@
 ---
+published: true
 layout: post
 title: "Create a Base OpenSUSE Image for Vagrant"
 author: Karim Elatov
-description: ""
-categories: [OS]
-tags: [vagrant,opensuse]
+categories: [os]
+tags: [vagrant,opensuse,virtualbox]
 ---
 There are a bunch of examples on the process. Here are a few sites:
 

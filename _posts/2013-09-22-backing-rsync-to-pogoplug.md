@@ -3,17 +3,10 @@ title: Backing Up with Rsync to Pogoplug
 author: Karim Elatov
 layout: post
 permalink: /2013/09/backing-rsync-to-pogoplug/
-sharing_disabled:
-  - 1
-dsq_thread_id:
-  - 1766382400
-categories:
-  - OS
-tags:
-  - optware
-  - pogoplug
-  - rsync
+categories: ['storage','networking', 'os']
+tags: ['linux', 'optware', 'pogoplug', 'rsync','performance']
 ---
+
 ## PogoPlug Series 4
 
 Someone had given me a PogoPlug Series 4 ([PogoPlug_Series4](https://github.com/elatov/uploads/raw/master/2013/09/PogoPlug_Series4.pdf)) and I wanted to utilize it to it's full potential. PogoPlug is a small computer (running an embedded ARM compatible processor) that you can connect USB or SATA Devices to and you will be able to share the contents of those hard drive via the remote **pogoplug.com** site. Some people refer to this as the private cloud. Here is a snippet from their site that might explain it better:

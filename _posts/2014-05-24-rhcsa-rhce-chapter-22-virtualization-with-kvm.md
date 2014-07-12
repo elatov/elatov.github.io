@@ -3,17 +3,10 @@ title: "RHCSA and RHCE Chapter 22 - Virtualization with KVM"
 author: Karim Elatov
 layout: post
 permalink: "/2014/05/rhcsa-rhce-chapter-22-virtualization-with-kvm/"
-categories:
-  - Certifications
-  - Home Lab
-  - RHCSA and RHCE
-  - VMware
-tags:
-  - KVM
-  - RHEL
-  - libvirt
-  - rhcsa_and_rhce
+categories: ['os', 'certifications', 'home_lab', 'rhcsa_rhce', 'vmware']
+tags: ['kvm', 'rhel', 'libvirt', 'linux']
 ---
+
 
 ### KVM
 From the [Virtualization Getting Started Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Virtualization_Getting_Started_Guide/Red_Hat_Enterprise_Linux-6-Virtualization_Getting_Started_Guide-en-US.pdf):

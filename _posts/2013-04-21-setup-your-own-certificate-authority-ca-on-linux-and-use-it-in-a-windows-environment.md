@@ -5,14 +5,10 @@ layout: post
 permalink: /2013/04/setup-your-own-certificate-authority-ca-on-linux-and-use-it-in-a-windows-environment/
 dsq_thread_id:
   - 1404673780
-categories:
-  - Home Lab
-  - OS
-tags:
-  - Cert_Authority
-  - gnomint
-  - Group_Policies
+categories: ['home_lab', 'os']
+tags: ['linux','win2k8r2','ssl', 'gnomint', 'windows_group_policies']
 ---
+
 In [this](/2013/04/deploying-a-test-windows-environment-in-a-kvm-infrastucture/) previous post, I deployed a test IIS Server and used a self signed SSL Certificate to encrypt the HTTP traffic. I am sure everyone have seen this page in Internet Explorer:
 
 ![IE cert error Setup Your Own Certificate Authority (CA) on Linux and Use it in a Windows Environment](https://github.com/elatov/uploads/raw/master/2013/04/IE_cert_error.png)

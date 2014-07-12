@@ -3,18 +3,10 @@ title: ESXi hostd Crash (5.1GA) Due to Leftover SNMP Traps
 author: Karim Elatov
 layout: post
 permalink: /2013/08/esxi-hostd-crash-5-1ga-due-to-leftover-snmp-traps/
-sharing_disabled:
-  - 1
-dsq_thread_id:
-  - 1609435444
-categories:
-  - Networking
-  - VMware
-tags:
-  - hostd
-  - snmp
-  - VMware
+categories: ['networking', 'vmware']
+tags: ['hostd', 'snmp']
 ---
+
 ## ESXi hostd Crash (5.1GA) Due to Leftover SNMP Traps
 
 One day I tried to open console on a VM and I got the **MKS** error:

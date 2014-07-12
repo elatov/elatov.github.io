@@ -3,18 +3,10 @@ title: RHCSA and RHCE Chapter 15 – NFS
 author: Karim Elatov
 layout: post
 permalink: /2014/04/rhcsa-rhce-chapter-15-nfs/
-sharing_disabled:
-  - 1
-dsq_thread_id:
-  - 2583778687
-categories:
-  - Certifications
-  - RHCSA and RHCE
-  - Storage
-tags:
-  - nfs
-  - rhcsa_and_rhce
+categories: ['os', 'certifications', 'rhcsa_rhce', 'storage']
+tags: ['linux', 'nfs', 'rhel','selinux','iptables']
 ---
+
 ## NFS
 
 From the [Storage Administration Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Storage_Administration_Guide/Red_Hat_Enterprise_Linux-6-Storage_Administration_Guide-en-US.pdf):

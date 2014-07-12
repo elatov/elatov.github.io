@@ -3,21 +3,10 @@ title: 'RHCSA and RHCE Chapter 18 - DNS'
 author: Karim Elatov
 layout: post
 permalink: /2014/04/rhcsa-rhce-chapter-18-dns/
-sharing_disabled:
-  - 1
-dsq_thread_id:
-  - 2631271385
-categories:
-  - Certifications
-  - Home Lab
-  - Networking
-  - OS
-  - RHCSA and RHCE
-tags:
-  - BIND
-  - DNS
-  - rhcsa_and_rhce
+categories: ['certifications', 'home_lab', 'networking', 'os', 'rhcsa_rhce']
+tags: ['bind', 'dns', 'linux','rhel']
 ---
+
 ## DNS
 
 From the [Deployment Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf):

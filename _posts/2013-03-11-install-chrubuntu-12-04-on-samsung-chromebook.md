@@ -5,12 +5,10 @@ layout: post
 permalink: /2013/03/install-chrubuntu-12-04-on-samsung-chromebook/
 dsq_thread_id:
   - 1404673776
-categories:
-  - OS
-tags:
-  - ChromeBook
-  - ChrUbuntu
+categories: ['os']
+tags: ['linux', 'chromebook', 'chrubuntu']
 ---
+
 There are a bunch of the steps to the process, here are some good links that have most of the instructions:
 
 *   [So You Want ChrUbuntu on a USB / SD Card?](http://chromeos-cr48.blogspot.com/2012/12/so-you-want-chrubuntu-on-external-drive.html)

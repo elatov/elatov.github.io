@@ -5,14 +5,10 @@ layout: post
 permalink: /2013/03/rhcsa-and-rhce-chapter-7-user-administration/
 dsq_thread_id:
   - 1404673528
-categories:
-  - Certifications
-  - RHCSA and RHCE
-tags:
-  - RHCE
-  - RHCSA
-  - User Management
+categories: ['os', 'certifications', 'rhcsa_rhce']
+tags: ['linux', 'user_management']
 ---
+
 Let's get straight to it, from the "[Red Hat Enterprise Linux 6 Deployment Guide](https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf)":
 
 > **Chapter 3. Managing Users and Groups** The control of users and groups is a core element of Red Hat Enterprise Linux system administration. This chapter explains how to add, manage, and delete users and groups in the graphical user interface and on the command line, and covers advanced topics, such as enabling password aging or creating group directories.
@@ -348,7 +344,7 @@ To get into permissions more, let's check out this old "[Red Hat Enterprise Linu
 > Beyond the first item, in each of the following three sets, you may see one of the following:
 >
 > *   **r** file can be read
-> *   **w** file can be written to
+> *   **w** file can be written to
 > *   **x** file can be executed (if it is a program)
 > *   **-** specific permission has not been assigned When you see a dash in **owner**, **group**, or **others**, it means that particular permission has not been granted.
 >

@@ -5,15 +5,10 @@ layout: post
 permalink: /2013/06/migrate-from-libvirt-kvm-to-virtualbox/
 dsq_thread_id:
   - 1405505875
-categories:
-  - Home Lab
-  - OS
-  - VMware
-tags:
-  - KVM
-  - libvirt
-  - xml
+categories: ['home_lab', 'os', 'vmware']
+tags: ['linux', 'virtualbox', 'kvm', 'libvirt']
 ---
+
 I was recently trying to migrate some VM from our KVM server to my laptop to run in my VirtualBox install locally. As I was going through the process I realized it's not a very easy process, so I decided to jot down my process. It's probably not perfect, but it worked for me.
 
 ### Locate Your KVM VM Managed by *libvirt*

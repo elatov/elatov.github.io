@@ -3,18 +3,10 @@ title: LemonLDAP-NG With LDAP and SAML Google Apps
 author: Karim Elatov
 layout: post
 permalink: /2014/02/lemonldap-ng-ldap-saml-google-apps/
-sharing_disabled:
-  - 1
-dsq_thread_id:
-  - 2261261949
-categories:
-  - Home Lab
-  - OS
-tags:
-  - 389-Directory-Server
-  - LemonLDAP-NG
-  - SAML
+categories: ['home_lab', 'os']
+tags: ['linux','centos','389_directory_server', 'lemonldap_ng', 'saml','sso']
 ---
+
 I wanted to try out a WebSSO program and I ran into [LemonLDAP-NG](http://lemonldap-ng.org/welcome/)
 
 ## Install LemonLDAP::NG on CentOS

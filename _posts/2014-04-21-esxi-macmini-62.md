@@ -3,20 +3,10 @@ title: ESXi on MacMini 6,2
 author: Karim Elatov
 layout: post
 permalink: /2014/04/esxi-macmini-62/
-sharing_disabled:
-  - 1
-dsq_thread_id:
-  - 2604229783
-categories:
-  - Home Lab
-  - VMware
-  - ZFS
-tags:
-  - ESXi
-  - MacMini
-  - ovftool
-  - powercli
+categories: ['storage', 'home_lab', 'vmware', 'zfs']
+tags: ['opensolaris', 'macmini', 'ovftool', 'powercli']
 ---
+
 I decided to install ESXi on MacMini 6,2 ([Late 201](http://support.apple.com/kb/SP659)2). I am definitely not the first one to try this. Check out some notes on other people trying this out:
 
 *   [ESXi 5.x on new Apple Mac Mini 6,2 Late 2012](https://communities.vmware.com/thread/423099)

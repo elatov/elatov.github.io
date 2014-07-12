@@ -5,13 +5,10 @@ layout: post
 permalink: /2013/07/mount-various-file-system-with-autofs-on-mac-os-x-mountain-lion/
 dsq_thread_id:
   - 1500640460
-categories:
-  - Home Lab
-tags:
-  - autofs
-  - mac-ports
-  - sshfs
+categories: ['storage', 'os']
+tags: ['autofs', 'mac_ports', 'sshfs','mac_os_x']
 ---
+
 I recently go a new Mac and I wanted to setup **autofs** on it, just like I did on my previous Linux Laptops. I am running Mac OS X Mountain Lion (10.8):
 
     kelatov@kmac:~$sw_vers

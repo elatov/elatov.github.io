@@ -3,18 +3,10 @@ title: Using PolKit to Change Screen Brightness on a Mac BookPro Running Fedora 
 author: Karim Elatov
 layout: post
 permalink: /2013/08/using-polkit-to-change-screen-brightness-on-a-mac-bookpro-running-fedora-19/
-sharing_disabled:
-  - 1
-dsq_thread_id:
-  - 1650332528
-categories:
-  - Home Lab
-  - OS
-tags:
-  - MacBookPro
-  - PolicyKit
-  - sudo
+categories: ['os']
+tags: ['linux','fedora', 'macbookpro', 'policykit', 'sudo']
 ---
+
 I wanted to create some keyboard short cuts to change the brightness of my screen (similar to what I did [here](/2013/03/update-chrubuntu-12-04-to-13-04-on-the-samsung-chromebook/)). On my Fedora install I didn't have any gnome components installed, I was just using **lightdm** with **icewm**.
 
 ## Change Screen Brightness with Sysfs

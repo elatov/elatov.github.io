@@ -3,18 +3,10 @@ title: RHCSA and RHCE Chapter 14 – Web Services
 author: Karim Elatov
 layout: post
 permalink: /2014/03/rhcsa-rhce-chapter-14-web-services/
-sharing_disabled:
-  - 1
-dsq_thread_id:
-  - 2530750030
-categories:
-  - Certifications
-  - RHCSA and RHCE
-tags:
-  - apache
-  - rhcsa_and_rhce
-  - Squid
+categories: ['certifications', 'rhcsa_rhce']
+tags: ['linux','apache', 'rhel', 'squid']
 ---
+
 ## Apache
 
 From the [Deployment Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf):

@@ -3,20 +3,10 @@ title: 'RHCSA and RHCE Chapter 19 - Network Services'
 author: Karim Elatov
 layout: post
 permalink: /2014/05/rhcsa-rhce-chapter-19-network-services/
-dsq_thread_id:
-  - 2665139650
-categories:
-  - Certifications
-  - Home Lab
-  - Networking
-  - RHCSA and RHCE
-tags:
-  - DHCP
-  - NTP
-  - rhcsa_and_rhce
-  - telnet
-  - xinetd
+categories: ['os', 'certifications', 'home_lab', 'networking', 'rhcsa_rhce']
+tags: ['linux', 'dhcp', 'ntp', 'rhel', 'telnet', 'xinetd']
 ---
+
 ## Xinetd
 
 From the [Security Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Security_Guide/Red_Hat_Enterprise_Linux-6-Security_Guide-en-US.pdf):

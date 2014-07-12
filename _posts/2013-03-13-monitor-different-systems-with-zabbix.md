@@ -5,13 +5,10 @@ layout: post
 permalink: /2013/03/monitor-different-systems-with-zabbix/
 dsq_thread_id:
   - 1406357258
-categories:
-  - Home Lab
-  - OS
-tags:
-  - Monitoring
-  - Zabbix
+categories: ['home_lab', 'os']
+tags: ['linux', 'freebsd', 'raid', 'monitoring', 'zabbix']
 ---
+
 This is the last post from the "Network Monitoring Software Comparison" series. As I mentioned in the [main](/2013/03/monitor-different-systems-with-zenoss) page here is what Zabbix is about:
 
 > Zabbix is an enterprise-class open source distributed monitoring solution.

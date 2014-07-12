@@ -1,11 +1,11 @@
 ---
+published: true
 layout: post
 title: "Update OpenELEC 3.2.4 to 4.0.6"
 author: Karim Elatov
 description: ""
-categories: [OS]
-tags: [OpenELEC,Raspberry_Pi,xbmc]
-published: true
+categories: [os]
+tags: [linux,openelec,raspberry_pi,xbmc]
 ---
 
 I noticed that there was a new version of OpenELEC, so I decided to give it a try. From their [release](http://openelec.tv/news/22-releases/125-openelec-4-0-released) page, it doesn't look you can do an automatic update and it's recommended to do a manual update:

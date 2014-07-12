@@ -5,14 +5,10 @@ layout: post
 permalink: /2013/06/configure-ad-replication-with-windows-2008/
 dsq_thread_id:
   - 1405505844
-categories:
-  - Home Lab
-  - OS
-tags:
-  - Active Directory
-  - AD Replication
-  - repadmin
+categories: ['home_lab', 'os']
+tags: ['dns', 'active_directory', 'win2k8r2']
 ---
+
 ## Types of AD replication
 
 With Active Directory (AD) there are multiple types of replication. From "[What Is Active Directory Replication Topology?](http://technet.microsoft.com/en-us/library/cc775549%28WS.10%29.aspx)":

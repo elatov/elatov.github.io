@@ -3,18 +3,10 @@ title: RHCSA and RHCE Chapter 17 – FTP
 author: Karim Elatov
 layout: post
 permalink: /2014/04/rhcsa-rhce-chapter-17-ftp/
-sharing_disabled:
-  - 1
-dsq_thread_id:
-  - 2614357088
-categories:
-  - Certifications
-  - RHCSA and RHCE
-tags:
-  - FTP
-  - rhcsa_and_rhce
-  - vsftpd
+categories: ['os', 'certifications', 'rhcsa_rhce']
+tags: ['selinux', 'ftp', 'rhel', 'linux']
 ---
+
 ## FTP
 
 From the [Deployment Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf):

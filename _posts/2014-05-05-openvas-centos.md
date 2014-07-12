@@ -3,19 +3,10 @@ title: OpenVAS on CentOS
 author: Karim Elatov
 layout: post
 permalink: /2014/05/openvas-centos/
-sharing_disabled:
-  - 1
-dsq_thread_id:
-  - 2614800897
-categories:
-  - Home Lab
-  - OS
-tags:
-  - Arachni
-  - CentOs
-  - OpenVAS
-  - Wapiti
+categories: ['home_lab', 'os']
+tags: ['arachni', 'linux', 'centos', 'openvas', 'wapiti']
 ---
+
 ## OpenVAS
 
 I wanted to run a vulnerability scan against my home lab to see if snort catches the event (snort setup [OpenVAS](/2014/04/snort-debian/). From their site:

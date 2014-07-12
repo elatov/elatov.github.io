@@ -3,7 +3,6 @@ published: true
 layout: post
 title: "Mac OS X Mount NTFS"
 author: Karim Elatov
-description: ""
 categories: [os,storage]
 tags: [ntfs,mac_os_x,fdisk,gdisk,diskutil,gpt,mbr]
 ---

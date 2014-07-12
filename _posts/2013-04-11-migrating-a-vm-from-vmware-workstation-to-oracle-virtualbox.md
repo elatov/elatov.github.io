@@ -5,15 +5,10 @@ layout: post
 permalink: /2013/04/migrating-a-vm-from-vmware-workstation-to-oracle-virtualbox/
 dsq_thread_id:
   - 1405474938
-categories:
-  - Home Lab
-  - OS
-  - VMware
-tags:
-  - ovftool
-  - VDDK
-  - VirtualBox
+categories: ['home_lab', 'os', 'vmware']
+tags: ['vmware_workstation', 'linux', 'ovftool', 'vmdk', 'virtualbox']
 ---
+
 Recently I had migrated laptops and I wanted to move my VMware workstation VMs to VirtualBox. All of my VMs were in the **.vmware** folder so I just copied that to my laptop. Here are the contents of that folder:
 
     [elatov@klaptop ~]$ ls -1 .vmware/

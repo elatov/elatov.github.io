@@ -5,14 +5,10 @@ layout: post
 permalink: /2013/04/extending-the-system-drive-on-windows-2008-running-as-a-kvm-vm/
 dsq_thread_id:
   - 1405296261
-categories:
-  - Home Lab
-  - OS
-tags:
-  - diskmgmt.msc
-  - qemu-img resize
-  - WIN2k8
+categories: ['home_lab', 'os']
+tags: ['linux', 'qemu', 'win2k8', 'kvm']
 ---
+
 While I was writing [this](/2013/04/deploying-a-test-windows-environment-in-a-kvm-infrastucture) post I first allocated 15GB for my Windows install. I quickly realized that after a plethora of updates that is not enough space. Luckily it's pretty easy to remedy that with a two step process.
 
 ### 1. Increase the Underlying Hard Disk IMG file Used in KVM

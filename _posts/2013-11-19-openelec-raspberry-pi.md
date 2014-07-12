@@ -3,17 +3,10 @@ title: OpenELEC on Raspberry Pi
 author: Karim Elatov
 layout: post
 permalink: /2013/11/openelec-raspberry-pi/
-sharing_disabled:
-  - 1
-dsq_thread_id:
-  - 1973971648
-categories:
-  - OS
-tags:
-  - OpenELEC
-  - Raspberry_Pi
-  - xbmc
+categories: ['os']
+tags: ['linux', 'openelec', 'raspberry_pi', 'xbmc']
 ---
+
 ## Raspberry Pi
 
 I received a free Raspberry Pi from [Simplivity](http://www.simplivity.com/) doesn't mess around :) After receiving the Raspberry Pi (RPi), I realized that I needed to order the following accessories to be able to use it:

@@ -1,10 +1,10 @@
 ---
+published: true
 layout: post
 title: "Multi VM Vagrant Setup"
 author: Karim Elatov
-description: ""
-categories: [OS]
-tags: [vagrant,opensuse]
+categories: [os,networking]
+tags: [vagrant,opensuse,virtualbox]
 ---
 I initialized my *vagrant* environment with the following:
 

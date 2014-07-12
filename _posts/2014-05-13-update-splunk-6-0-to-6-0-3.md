@@ -3,13 +3,10 @@ title: 'Update Splunk 6.0 to 6.0.3 on FreeBSD'
 author: Karim Elatov
 layout: post
 permalink: /2014/05/update-splunk-6-0-to-6-0-3/
-categories:
-  - Home Lab
-  - OS
-tags:
-  - freebsd
-  - Splunk
+categories: ['home_lab', 'os']
+tags: ['freebsd', 'splunk']
 ---
+
 
 A new version of splunk came out and I decided to apply it (here are the [release notes][1], it mostly fixes the heartbleed vulnerability). The update process is covered in detail [here][2]. I was using a FreeBSD machine to host Splunk (check out a previous post on that [here][3]) and I first needed to install the **pkg_install** port in order to install the old style package.
 

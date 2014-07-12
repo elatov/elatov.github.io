@@ -1,41 +1,17 @@
 ---
+published: true
 title: Organizing Your Music Library Using Acoustic Fingerprinting
 author: Karim Elatov
 layout: post
 permalink: /2013/01/organizing-your-music-library-using-acoustic-fingerprinting/
 dsq_thread_id:
   - 1406365792
-categories:
-  - Home Lab
-  - OS
-tags:
-  - acoustic fingerprinting
-  - acoustid
-  - beets
-  - character set
-  - chromaprint
-  - cyrillic
-  - EasyTag
-  - echoprint
-  - echoprint-codegen
-  - exiftool
-  - id3-tags
-  - id3v1
-  - id3v2
-  - lastfm
-  - lastfm-fpclientG
-  - lastmatch.py
-  - MusicBrainz
-  - picard
-  - pylastfp
-  - python
-  - romanization
-  - songbird
-  - subsonic
-  - tag2utf.py
-  - transliterate
+categories: ['home_lab', 'os']
+tags: ['acoustic_fingerprinting', 'easytag', 'echoprint', 'id3_tags', 'lastfm', 'musicbrainz']
 ---
-I wrote a [Now, That's What I Call Music](/2012/10/installing-subsonic-on-fedora-17/)" CDs in the US).
+
+I wrote a [previous](/2012/10/installing-subsonic-on-fedora-17/) post about running **subsonic**. I really liked the software cause it uses the file system directory structure as your music library. I have a lot of custom playlists and they don't belong to any album, therefore I organize my playlists by folders. Some of these songs are from Russian CDs which are combinations of songs for that year (this is pretty typical in Russia, it's equivalent of the [Now, That's What I Call Music](http://www.nowthatsmusic.com/home) CDs in the US)
+
 
 I used to have an *iPod* and I used to use *Songbird* as my music player and this ended up messing up my file names and even the *id3* tags of the audio files. For example here is a sample folder with my songs:
 

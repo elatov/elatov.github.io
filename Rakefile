@@ -67,7 +67,6 @@ task :post do
     post.puts "layout: post"
     post.puts "title: \"#{title.gsub(/-/,' ')}\""
     post.puts "author: Karim Elatov"
-    post.puts 'description: ""'
     post.puts "categories: [#{category}]"
     post.puts "tags: #{tags}"
     post.puts "---"

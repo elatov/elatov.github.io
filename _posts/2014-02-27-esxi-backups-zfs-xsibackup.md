@@ -3,20 +3,10 @@ title: ESXi Backups with ZFS and XSIBackup
 author: Karim Elatov
 layout: post
 permalink: /2014/02/esxi-backups-zfs-xsibackup/
-sharing_disabled:
-  - 1
-dsq_thread_id:
-  - 2215089363
-categories:
-  - Home Lab
-  - Storage
-  - VMware
-  - ZFS
-tags:
-  - iSCSI
-  - XSIBackup
-  - ZFS
+categories: ['os', 'home_lab', 'storage', 'vmware', 'zfs']
+tags: ['smtp', 'opensolaris', 'iscsi', 'xsibackup']
 ---
+
 ## ZFS Setup
 
 I had two **zpools** in my setup:

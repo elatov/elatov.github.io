@@ -5,14 +5,10 @@ layout: post
 permalink: /2013/02/monitor-different-systems-with-collectd/
 dsq_thread_id:
   - 1405507582
-categories:
-  - Home Lab
-  - Networking
-  - Storage
-tags:
-  - Collectd
-  - Monitoring
+categories: ['home_lab', 'networking', 'storage']
+tags: ['linux','freebsd','collectd', 'monitoring']
 ---
+
 In my home environment I only have 3 machines. I wanted to monitor them just for my own sake. At my previous job we used **Nagios** for such a task, but we also had thousands of machines and services to monitor. At home that is not the case. I just wanted a simple setup to show me CPU, memory, and network usage and that is about it.
 
 ### *nix Systems

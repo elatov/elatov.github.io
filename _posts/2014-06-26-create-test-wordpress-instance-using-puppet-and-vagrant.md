@@ -1,11 +1,10 @@
 ---
+published: true
 layout: post
 title: "Create a Test Wordpress Instance using Puppet and Vagrant"
 author: Karim Elatov
-description: ""
-categories: [OS]
-tags: [wordpress,puppet,vagrant]
-published: true
+categories: [os]
+tags: [mysql, wordpress,puppet,vagrant,virtualbox]
 ---
 
 As I was playing around with **Vagrant**:

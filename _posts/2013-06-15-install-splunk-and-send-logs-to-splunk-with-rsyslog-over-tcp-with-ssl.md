@@ -5,14 +5,10 @@ layout: post
 permalink: /2013/06/install-splunk-and-send-logs-to-splunk-with-rsyslog-over-tcp-with-ssl/
 dsq_thread_id:
   - 1405505941
-categories:
-  - Home Lab
-  - VMware
-tags:
-  - Rsyslog
-  - Splunk
-  - SSL
+categories: ['os','home_lab', 'vmware']
+tags: ['linux', 'rsyslog', 'splunk', 'ssl']
 ---
+
 ## Splunk
 
 There are a couple of components of Splunk. From [Components of a Splunk deployment](http://docs.splunk.com/Documentation/Splunk/latest/Installation/ComponentsofaSplunkdeployment):

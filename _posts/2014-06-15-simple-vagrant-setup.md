@@ -1,10 +1,11 @@
 ---
+published: true
 layout: post
 title: "Simple Vagrant Setup"
 author: Karim Elatov
 description: ""
-categories: [OS]
-tags: [vagrant, virtualbox]
+categories: [os]
+tags: [mac_os_x, vagrant, virtualbox]
 ---
 I kept hearing good things about **vagrant**. Vagrant, from [their](http://www.vagrantup.com/) site, allows you to:
 

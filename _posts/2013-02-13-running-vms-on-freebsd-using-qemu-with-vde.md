@@ -1,42 +1,15 @@
 ---
+published: true
 title: Running VMs On FreeBSD using QEMU with VDE
 author: Karim Elatov
 layout: post
 permalink: /2013/02/running-vms-on-freebsd-using-qemu-with-vde/
 dsq_thread_id:
   - 1406836724
-categories:
-  - Home Lab
-  - Networking
-  - OS
-tags:
-  - /dev/tap0
-  - /etc/devfs.conf
-  - /etc/rc.conf
-  - /etc/rc.local
-  - /etc/sysctl.conf
-  - aio
-  - BHyve
-  - freebsd
-  - ifconfig bridge
-  - kldload
-  - kldstat
-  - KQemu
-  - KVM
-  - net.link.tap.up_on_open
-  - net.link.tap.user_open
-  - Qemu
-  - qemu-img
-  - sysctl
-  - tcpdump
-  - tigervnc
-  - TUN/TAP
-  - unixterm
-  - VDE
-  - vdeqemu
-  - vde_switch
-  - VirtualBox
+categories: ['home_lab', 'networking', 'os']
+tags: [ 'bhyve', 'freebsd', 'kvm', 'qemu', 'tun_tap', 'vde', 'virtualbox']
 ---
+
 I decided to run some VMs on my FreeBSD server. Checking over [BHyve](http://en.wikipedia.org/wiki/Comparison_of_platform_virtual_machines), apparently it's being developed in collaboration with *NetAPP*. The project is currently supported in FreeBSD 10 and I was running FreeBSD 9. So after all of my research, I decided to give *Qemu*/*KQemu* a try.
 
 Now what exactly is the difference between *Qemu* and *KVM*? from the *KVM* [FAQ](http://www.linux-kvm.org/page/FAQ#What_is_the_difference_between_KVM_and_QEMU.3F):

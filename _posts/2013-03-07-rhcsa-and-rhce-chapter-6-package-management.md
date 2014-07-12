@@ -5,15 +5,10 @@ layout: post
 permalink: /2013/03/rhcsa-and-rhce-chapter-6-package-management/
 dsq_thread_id:
   - 1406654434
-categories:
-  - Certifications
-  - RHCSA and RHCE
-tags:
-  - createrepo
-  - rpm
-  - rpmbuild
-  - yum
+categories: ['os','certifications', 'rhcsa_rhce']
+tags: ['linux', 'createrepo', 'rpm', 'rpmbuild', 'yum']
 ---
+
 The easiest way to install software on RHEL is to use RPM.
 
 ## RPM

@@ -5,23 +5,10 @@ layout: post
 permalink: /2013/02/fixing-android-phone-device-permissions-on-fedora-17/
 dsq_thread_id:
   - 1404673484
-categories:
-  - Home Lab
-  - OS
-tags:
-  - /dev/bus/usb/001/019
-  - /dev/sdb
-  - /etc/udev/rules.d/
-  - /lib/udev/rules.d/50-udev-default.rules
-  - adb
-  - dmesg
-  - HTC
-  - lsusb
-  - systemctl
-  - udev
-  - udevadm
-  - udevadm control --reload-rules
+categories: ['os']
+tags: ['fedora', 'linux', 'adb',  'htc',  'udev', 'android' ]
 ---
+
 I was connecting my *HTC* phone to another *Fedora* computer and I realized I didn't have appropriate permissions to the device. After I plugged in the device, **adb** gave me the following error:
 
     moxz:~>/usr/local/android/platform-tools/adb devices -l

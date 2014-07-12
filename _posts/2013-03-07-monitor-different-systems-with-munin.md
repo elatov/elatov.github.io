@@ -5,16 +5,13 @@ layout: post
 permalink: /2013/03/monitor-different-systems-with-munin/
 dsq_thread_id:
   - 1406863023
-categories:
-  - Home Lab
-  - OS
-tags:
-  - Monitoring
-  - Munin
+categories: ['home_lab', 'os']
+tags: ['freebsd', 'linux', 'monitoring', 'munin']
 ---
+
 This is the second part and continuation of the 'Network Monitoring Software Comparison' series. Here is the link to the [first][1] part. Let's go ahead and check out our software: **Munin**. From their [main][2] page, here is a quick snippet:
 
-> Munin uses the excellent ​RRDTool (written by Tobi Oetiker) and the framework is written in Perl, while plugins may be written in any language. Munin has a master/node architecture in which the master connects to all the nodes at regular intervals and asks them for data. It then stores the data in RRD files, and (if needed) updates the graphs.
+> Munin uses the excellent RRDTool (written by Tobi Oetiker) and the framework is written in Perl, while plugins may be written in any language. Munin has a master/node architecture in which the master connects to all the nodes at regular intervals and asks them for data. It then stores the data in RRD files, and (if needed) updates the graphs.
 
 So Munin uses Master/node terminology, but let's get to it.
 

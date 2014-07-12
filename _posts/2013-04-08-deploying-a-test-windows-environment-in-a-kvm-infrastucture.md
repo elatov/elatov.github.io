@@ -5,14 +5,10 @@ layout: post
 permalink: /2013/04/deploying-a-test-windows-environment-in-a-kvm-infrastucture/
 dsq_thread_id:
   - 1404673767
-categories:
-  - Home Lab
-  - OS
-tags:
-  - Active Directory
-  - KVM
-  - SPICE
+categories: ['home_lab', 'os']
+tags: ['linux', 'windows_2008r2' 'libvirt', 'active_directory', 'kvm', 'spice']
 ---
+
 I was recently playing with KVM and needed to setup a domain controller for testing reasons. A great introduction to KVM can be seen in Jarret's "[Installing KVM as a Virtual Machine on ESXi 5 with Bridged Networking](http://virtuallyhyper.com/2012/07/installing-kvm-as-a-virtual-machine-on-esxi5-with-bridged-networking/)" post. It has all the steps on how to set deploy and configure it. All of the below instructions are assuming that you already have a KVM server up and running.
 
 

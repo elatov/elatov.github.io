@@ -3,18 +3,10 @@ title: Monitor Thermal Sensors With lm-sensors
 author: Karim Elatov
 layout: post
 permalink: /2013/10/monitor-thermal-sensors-lm-sensors/
-sharing_disabled:
-  - 1
-dsq_thread_id:
-  - 1815218044
-categories:
-  - Home Lab
-  - OS
-tags:
-  - Exynos5250
-  - lm-sensors
-  - Thermal_Management_Framework
+categories: ['os']
+tags: ['linux','fedora','ubuntu', 'mac_os_x','monitoring','zabbix','lm_sensors','chromebook']
 ---
+
 After setting up zabbix to plot hard drive temperatures, I wanted to go further and monitor CPU and MotherBoard (M/B) temperatures as well.
 
 ## Install and Configure lm-sensors
@@ -933,17 +925,17 @@ Also regarding hyper-threading, from [here](http://store.apple.com/sg/learnmore/
 
 As I was labeling the sensors I came across some interesting acronyms. The first one, PECI, is described in ["Intel Celeron Mobile Processor P4000 and U3000 Series Datasheet"](https://github.com/elatov/uploads/raw/master/2013/09/celeron-mobile-p4000-u3000-datasheet.pdf). From that PDF:
 
-> Each processor execution core has an on-die Digital Thermal Sensor (DTS) which detects the cores instantaneous temperature. The DTS is the preferred method of monitoring processor die temperature because:
+> Each processor execution core has an on-die Digital Thermal Sensor (DTS) which detects the cores instantaneous temperature. The DTS is the preferred method of monitoring processor die temperature because:
 >
 > *   It is located near the hottest portions of the die.
 > *   It can accurately track the die temperature and ensure that the Adaptive Thermal Monitor is not excessively activated.
 >
-> Temperature values from the DTS can be retrieved through 
+> Temperature values from the DTS can be retrieved through 
 >
-> *   A software interface via processor Model Specific Register (MSR). 
-> *   A processor hardware interface as described in Platform Environment Control Interface (PECI)
+> *   A software interface via processor Model Specific Register (MSR). 
+> *   A processor hardware interface as described in Platform Environment Control Interface (PECI)
 >
-> When temperature is retrieved by processor MSR, it is the instantaneous temperature of the given core. When temperature is retrieved via PECI, it is the average temperature of each execution cores DTS over a programmable window (default window of 256 ms.) Intel recommends using the PECI output reading for fan speed or other platform thermal control.
+> When temperature is retrieved by processor MSR, it is the instantaneous temperature of the given core. When temperature is retrieved via PECI, it is the average temperature of each execution cores DTS over a programmable window (default window of 256 ms.) Intel recommends using the PECI output reading for fan speed or other platform thermal control.
 
 So PECI is another interface that grabs the average temperature across multiple CPUs (or any thermal sensors) and it's supposed to be more accurate. There was also a **PECI_SA** sensor, that actually corresponds to the *System Agent*. Looking over ["Power management architecture of the 2nd generation Intel Core"](https://github.com/elatov/uploads/raw/master/2013/09/HC23.19.921.SandyBridge_Power_10-Rotem-Intel.pdf), we see this:
 

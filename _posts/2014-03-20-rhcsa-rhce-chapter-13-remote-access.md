@@ -3,18 +3,10 @@ title: RHCSA and RHCE Chapter 13 – Remote Access
 author: Karim Elatov
 layout: post
 permalink: /2014/03/rhcsa-rhce-chapter-13-remote-access/
-sharing_disabled:
-  - 1
-dsq_thread_id:
-  - 2469523699
-categories:
-  - Certifications
-  - RHCSA and RHCE
-tags:
-  - OpenSSH
-  - rhcsa_and_rhce
-  - VNC
+categories: ['os', 'certifications', 'rhcsa_rhce']
+tags: ['linux', 'openssh', 'rhel', 'vnc']
 ---
+
 ## OpenSSH
 
 There are a couple of ways to manage RHEL machines. The primary one is over SSH. SSH is described in the [Deployment Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf). From the Deployment Guide:

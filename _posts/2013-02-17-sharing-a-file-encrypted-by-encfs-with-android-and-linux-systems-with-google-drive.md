@@ -5,19 +5,10 @@ layout: post
 permalink: /2013/02/sharing-a-file-encrypted-by-encfs-with-android-and-linux-systems-with-google-drive/
 dsq_thread_id:
   - 1405469623
-categories:
-  - Home Lab
-  - OS
-  - Storage
-tags:
-  - Android
-  - BoxCryptor
-  - EncFS
-  - fedora
-  - Google Drive
-  - Grive
-  - ubuntu
+categories: ['os', 'storage']
+tags: ['linux', 'android', 'boxcryptor', 'encfs', 'fedora', 'grive', 'ubuntu']
 ---
+
 I wanted to share an encrypted file between my Linux workstations and my Android phone. There are a couple of ways to go about this, here is small list:
 
 *   DropBox with TrueCrypt

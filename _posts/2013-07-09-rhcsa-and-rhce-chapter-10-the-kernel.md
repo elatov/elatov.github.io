@@ -3,19 +3,10 @@ title: 'RHCSA and RHCE Chapter 10 - The Kernel'
 author: Karim Elatov
 layout: post
 permalink: /2013/07/rhcsa-and-rhce-chapter-10-the-kernel/
-sharing_disabled:
-  - 1
-dsq_thread_id:
-  - 1482888063
-categories:
-  - Certifications
-  - OS
-  - RHCSA and RHCE
-tags:
-  - RHCE
-  - RHCSA
-  - RHEL
+categories: ['networking', 'certifications', 'os', 'rhcsa_rhce']
+tags: ['linux', 'performance', 'kernel']
 ---
+
 ## Kernel
 
 The kernel is a very complex concept, I will try to use some references to put it all together. From [Important parts of the kernel](http://www.tldp.org/LDP/sag/html/kernel-parts.html):

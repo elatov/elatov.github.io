@@ -3,20 +3,10 @@ title: RHCSA and RHCE Chapter 12 – System Security
 author: Karim Elatov
 layout: post
 permalink: /2014/03/rhcsa-rhce-chapter-12-system-security/
-sharing_disabled:
-  - 1
-dsq_thread_id:
-  - 2425396195
-categories:
-  - Certifications
-  - RHCSA and RHCE
-tags:
-  - iptables
-  - PAM
-  - RHCE
-  - RHCSA
-  - TCP_Wrappers
+categories: ['os', 'certifications', 'rhcsa_rhce']
+tags: ['linux', 'iptables', 'pam', 'rhel', 'tcp_wrappers', 'nat']
 ---
+
 ## TCP Wrappers
 
 From the [Security Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Security_Guide/Red_Hat_Enterprise_Linux-6-Security_Guide-en-US.pdf):

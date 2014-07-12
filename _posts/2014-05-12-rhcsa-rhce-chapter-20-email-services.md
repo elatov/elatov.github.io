@@ -3,18 +3,10 @@ title: "RHCSA and RHCE Chapter 20 - Email Services"
 author: Karim Elatov
 layout: post
 permalink: "/2014/05/rhcsa-rhce-chapter-20-email-services/"
-categories:
-  - Certifications
-  - Home Lab
-  - Networking
-  - RHCSA and RHCE
-tags:
-  - Dovecot
-  - Postfix
-  - rhcsa_and_rhce
-  - SMTP
-published: true
+categories: ['os', 'certifications', 'home_lab', 'networking', 'rhcsa_rhce']
+tags: ['dovecot', 'postfix', 'linux', 'rhel', 'smtp']
 ---
+
 
 ## Email
 

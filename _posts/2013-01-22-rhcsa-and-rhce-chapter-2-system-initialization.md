@@ -6,7 +6,7 @@ permalink: /2013/01/rhcsa-and-rhce-chapter-2-system-initialization/
 dsq_thread_id:
   - 1404673723
 categories: ['home_lab', 'os','certifications', 'rhcsa_rhce']
-tags: ['linux','grub', 'inittab', 'rc_local', 'linux_rescue', 'sysv']
+tags: ['mbr', 'linux','grub', 'inittab', 'rc_local', 'linux_rescue', 'sysv']
 ---
 
 ### Red Hat Boot Process

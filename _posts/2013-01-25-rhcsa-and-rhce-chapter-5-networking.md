@@ -5,27 +5,10 @@ layout: post
 permalink: /2013/01/rhcsa-and-rhce-chapter-5-networking/
 dsq_thread_id:
   - 1406334271
-categories:
-  - Certifications
-  - Networking
-  - RHCSA and RHCE
-  - VMware
-tags:
-  - /etc/hosts
-  - /etc/sysconfig/network-scripts/route-eth
-  - getent hosts
-  - host
-  - ICMP
-  - ifconfig
-  - ifdown
-  - ifup
-  - ip route
-  - lsof -i
-  - netstat
-  - nsswitch.conf
-  - ping
-  - route
+categories: ['os', 'certifications', 'networking', 'rhcsa_rhce', 'vmware']
+tags: ['linux', 'dns', 'ip_route', 'lsof', 'route']
 ---
+
 The basics of this were covered in [Chapter 1](/2013/01/rhcsa-and-rhce-chapter-1-installation/). Here is quick look at my **ifconfig** output:
 
     [root@rhel01 ~]# ifconfig

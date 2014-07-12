@@ -3,17 +3,12 @@ title: Combine VobSub (sub/idx) Format Subtitles into a Single SubRip (srt) Form
 author: Karim Elatov
 layout: post
 permalink: /2013/09/combine-vobsub-subidx-format-subtitles-single-subrip-srt-format-file/
-sharing_disabled:
-  - 1
 dsq_thread_id:
   - 1751052072
-categories:
-  - OS
-tags:
-  - SubRip
-  - tesseract
-  - VobSub
+categories: ['os']
+tags: ['linux', 'subrip', 'tesseract', 'vobsub']
 ---
+
 I recently had a situation where I had 2 *Avi* files and 2 *Sub/Idx* files, and I just wanted to combine them into one *Avi* file and one *srt* file. Here are the files that I started out with:
 
     $ ls

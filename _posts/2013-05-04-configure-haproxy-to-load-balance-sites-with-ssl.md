@@ -5,13 +5,10 @@ layout: post
 permalink: /2013/05/configure-haproxy-to-load-balance-sites-with-ssl/
 dsq_thread_id:
   - 1405283642
-categories:
-  - Home Lab
-tags:
-  - HAproxy
-  - Load Balancing
-  - SSL Termination
+categories: ['os','home_lab']
+tags: ['linux', 'haproxy', 'load_balancing', 'ssl','iis']
 ---
+
 Starting with **HAproxy** version 1.5, SSL is supported. From the main [Haproxy](http://haproxy.1wt.eu/) site:
 
 > Update [2012/09/11] : native SSL support was implemented in 1.5-dev12.

@@ -3,15 +3,10 @@ title: Installing Splunk on FreeBSD
 author: Karim Elatov
 layout: post
 permalink: /2013/12/installing-splunk-freebsd/
-dsq_thread_id:
-  - 2050379030
-categories:
-  - OS
-tags:
-  - freebsd
-  - mod_proxy
-  - Splunk
+categories: ['os']
+tags: ['freebsd', 'linux','apache', 'splunk']
 ---
+
 I had an old box laying around that wasn't really doing anything. It only had 1GB of RAM, but that is good enough for a splunk install.
 
 ### Splunk

@@ -3,18 +3,10 @@ title: 'RHCSA and RHCE Chapter 16 - Samba'
 author: Karim Elatov
 layout: post
 permalink: /2014/04/rhcsa-rhce-chapter-16-samba/
-sharing_disabled:
-  - 1
-dsq_thread_id:
-  - 2601621922
-categories:
-  - Certifications
-  - OS
-  - RHCSA and RHCE
-tags:
-  - rhcsa_and_rhce
-  - samba
+categories: ['certifications', 'os', 'rhcsa_rhce']
+tags: ['rhel','linux', 'samba','selinux']
 ---
+
 ## Samba
 
 From the [Deployment Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf):

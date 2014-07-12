@@ -3,18 +3,10 @@ title: Monitor SMART Attributes with Zabbix
 author: Karim Elatov
 layout: post
 permalink: /2013/10/monitor-smart-attributes-zabbix/
-sharing_disabled:
-  - 1
-dsq_thread_id:
-  - 1815259739
-categories:
-  - OS
-  - VMware
-tags:
-  - pogoplug
-  - smartmontools
-  - Zabbix
+categories: ['storage', 'os']
+tags: ['monitoring', 'linux', 'pogoplug', 'smartmontools', 'zabbix']
 ---
+
 In my previous post I setup my pogoplug device as a backup server. Since it was holding somewhat important information, I wanted to monitor the disk that I plugged into the pogoplug device to make sure it't not failing. This is where the **smartmontools** software comes into play. With the **smartmontools** package there comes a utility called **smartctl**, which allows you to query the SMART attributes of the hard drive (if the drive supports it).
 
 ### Compile Zabbix Agentd on Pogoplug

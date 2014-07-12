@@ -1,10 +1,11 @@
 ---
+published: true
 layout: post
 title: "Arch Linux Systemd on ARM Architecture Issue"
 author: Karim Elatov
 description: ""
-categories: [OS]
-tags: [Arch Linux, systemd, chromeos]
+categories: [os]
+tags: [linux, arch_linux, systemd, chromeos]
 ---
 So I was doing my regular updates on my Arch Linux machine (`pacman -Syu`). The update incuded a new version of **systemd** and that wasn't anything new. After I rebooted I recieved the following error:
 

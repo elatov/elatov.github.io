@@ -5,13 +5,10 @@ layout: post
 permalink: /2013/05/set-up-simplesamlphp-as-an-idp-to-be-used-in-an-sp-initiated-sso-with-google-apps/
 dsq_thread_id:
   - 1405434307
-categories:
-  - Home Lab
-tags:
-  - SAML
-  - SimpleSAMLPHP
-  - SSO
+categories: ['os','home_lab']
+tags: ['linux', 'saml', 'simplesamlphp', 'sso']
 ---
+
 ## SP-Initiated SAML SSO
 
 Hopefully the title of the post isn't too confusing. To clear up what I am trying to achieve let's check out "[SP-initiated Single Sign-On POST/Artifact Bindings](http://saml.xml.org/wiki/sp-initiated-single-sign-on-postartifact-bindings)". Here is a pretty concise description of what SP (Service Provider) Initiated SSO (Single Sign On) means:

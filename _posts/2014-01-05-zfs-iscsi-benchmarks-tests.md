@@ -3,18 +3,10 @@ title: ZFS iSCSI Benchmark Tests on ESX
 author: Karim Elatov
 layout: post
 permalink: /2014/01/zfs-iscsi-benchmarks-tests/
-dsq_thread_id:
-  - 2094449741
-categories:
-  - Networking
-  - Storage
-  - VMware
-  - ZFS
-tags:
-  - iSCSI
-  - OmniOS
-  - ZFS
+categories: ['os', 'networking', 'storage', 'vmware', 'zfs']
+tags: ['opensolaris', 'performance', 'iscsi', 'omnios']
 ---
+
 Let me just start out by saying that my setup is not perfect, I would actually call it bad. All I have is a 1 1TB SATA disk and 4GB of RAM. There is no redundancy in the setup or a dedicated SSD for ZIL. It's just a regular machine that I had laying around and I wanted to see how OpenSolaris with Comstar would turn out.
 
 ### The Hardware

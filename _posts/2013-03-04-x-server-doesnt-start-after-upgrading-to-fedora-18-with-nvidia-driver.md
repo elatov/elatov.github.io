@@ -5,13 +5,10 @@ layout: post
 permalink: /2013/03/x-server-doesnt-start-after-upgrading-to-fedora-18-with-nvidia-driver/
 dsq_thread_id:
   - 1407305461
-categories:
-  - Home Lab
-  - OS
-tags:
-  - Fedora 18
-  - nVidia
+categories: ['os']
+tags: ['linux', 'fedora', 'nvidia']
 ---
+
 I updated my machine to Fedora 18 and I had the Nvidia driver installed (check out [this](/2012/10/setup-fedora-17-with-nvidia-geforce-6200-to-connect-to-a-tv-and-function-as-an-xbmc-media-center/) previous post for the Nvidia setup), but after I rebooted, X wouldn't start. Checking out the **/var/log/Xorg.0.log** file, I saw the following:
 
     [ 44.607] (EE) NVIDIA: Failed to load the NVIDIA kernel module. Please check your

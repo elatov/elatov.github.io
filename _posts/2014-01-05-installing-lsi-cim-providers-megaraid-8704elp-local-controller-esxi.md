@@ -3,19 +3,10 @@ title: Installing LSI CIM Providers for MegaRaid 8704ELP Local Controller on ESX
 author: Karim Elatov
 layout: post
 permalink: /2014/01/installing-lsi-cim-providers-megaraid-8704elp-local-controller-esxi/
-sharing_disabled:
-  - 1
-dsq_thread_id:
-  - 2094574279
-categories:
-  - Home Lab
-  - Storage
-  - VMware
-tags:
-  - LSI
-  - veeam
-  - VMware
+categories: ['home_lab', 'storage', 'vmware']
+tags: ['cim', 'lsi', 'veeam', 'raid']
 ---
+
 I wanted to check the status of the local LSI controller in the vSphere Client. Going to the **Health Status** Tab and checking the **Sensor** information, I didn't see any Storage Sensors:
 
 ![cim sensors esxi Installing LSI CIM Providers for MegaRaid 8704ELP Local Controller on ESXi 5.0](https://github.com/elatov/uploads/raw/master/2014/01/cim-sensors-esxi.png)

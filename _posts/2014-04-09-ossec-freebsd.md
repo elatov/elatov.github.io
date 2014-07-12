@@ -3,18 +3,10 @@ title: OSSEC on FreeBSD
 author: Karim Elatov
 layout: post
 permalink: /2014/04/ossec-freebsd/
-sharing_disabled:
-  - 1
-dsq_thread_id:
-  - 2598880222
-categories:
-  - Home Lab
-  - OS
-tags:
-  - freebsd
-  - OSSEC
-  - Splunk
+categories: ['home_lab', 'os']
+tags: ['freebsd', 'ossec', 'splunk']
 ---
+
 After trying out Samhain and Beltane (check out the [previous](/2014/03/install-samhain-beltane-freebsd) post on that setup), I decided to try out another HIDS. This time around I went with OSSEC.
 
 ### OSSEC

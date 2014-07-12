@@ -5,14 +5,10 @@ layout: post
 permalink: /2013/04/load-balancing-iis-sites-with-nlb/
 dsq_thread_id:
   - 1405433067
-categories:
-  - Home Lab
-  - Networking
-tags:
-  - nlbmgr
-  - Windows IIS
-  - Windows NLB
+categories: ['os', 'home_lab', 'networking']
+tags: ['win2k8r2','windows_nlb', 'iis']
 ---
+
 Here is quick diagram of what I was trying to achieve:
 
 ![NLB IIS Load Balancing IIS Sites with NLB](https://github.com/elatov/uploads/raw/master/2013/04/NLB_IIS.jpg)

@@ -3,20 +3,10 @@ title: Snort On Debian
 author: Karim Elatov
 layout: post
 permalink: /2014/04/snort-debian/
-sharing_disabled:
-  - 1
-dsq_thread_id:
-  - 2611304790
-categories:
-  - Home Lab
-  - Networking
-  - OS
-tags:
-  - barnyard2
-  - DD-WRT
-  - snorby
-  - snort
+categories: ['home_lab', 'networking', 'os']
+tags: ['linux','debian','barnyard2', 'dd_wrt', 'snorby', 'snort']
 ---
+
 I decided to install Snort on Debian. By default the debian apt sources do have a snort package but it's out of date.
 
 ### Snort Version on Debian

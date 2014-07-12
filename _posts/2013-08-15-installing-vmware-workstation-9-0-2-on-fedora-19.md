@@ -3,17 +3,10 @@ title: Installing VMware Workstation 9.0.2 on Fedora 19
 author: Karim Elatov
 layout: post
 permalink: /2013/08/installing-vmware-workstation-9-0-2-on-fedora-19/
-dsq_thread_id:
-  - 1609432349
-categories:
-  - Home Lab
-  - OS
-  - VMware
-tags:
-  - fedora
-  - vmware-gksu
-  - VMware_Workstation
+categories: ['os', 'vmware']
+tags: ['linux', 'fedora', 'vmware_workstation']
 ---
+
 I ran into some issues setting up my VMware Workstation on my Fedora 19 install, so I decided to put together all the notes on how I got around them.
 
 ## VMware WorkStation Installer

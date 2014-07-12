@@ -5,14 +5,10 @@ layout: post
 permalink: /2013/06/enabling-ldaps-on-windows-2008-active-directory-server/
 dsq_thread_id:
   - 1405434219
-categories:
-  - Home Lab
-  - OS
-tags:
-  - Active Directory
-  - MozLDAP
-  - OpenLDAP
+categories: ['home_lab', 'os']
+tags: ['win2k8r2', 'active_directory', 'ldap','ssl']
 ---
+
 I installed Active Directory by selecting the "Active Directory Domain Services" Role from the Server Manager Dialogue. Step by step instructions can be seen in [Deploying a Test Windows Environment in a KVM Infrastucture](/2013/04/deploying-a-test-windows-environment-in-a-kvm-infrastucture/).
 
 ## Running an *ldapsearch* against a Windows AD Server
@@ -102,7 +98,7 @@ We can see that the DN (Distinguished Name) of the test user is:
     CN=Karim Elatov,CN=Users,DC=elatov,DC=local
 
 
-From now one since we know all the users are under "CN=Users,DC=elatov,DC=local" we will use that as our BaseDN, this way we don't have to query the whole AD structure.
+From now on since we know all the users are under "CN=Users,DC=elatov,DC=local" we will use that as our BaseDN, this way we don't have to query the whole AD structure.
 
 ### Use *dsquery* to find DNs of Users
 

@@ -3,8 +3,8 @@ layout: post
 title: "Upload Vagrant Box to the Vagrant Cloud"
 author: Karim Elatov
 description: ""
-categories: [OS]
-tags: [vagrant]
+categories: [os]
+tags: [vagrant,virtualbox]
 ---
 In order for your Vagrant Box to support versioning, you have to use the vagrant cloud (create an account on **https://vagrantcloud.com**). From [Creating A Base Box](http://docs.vagrantup.com/v2/boxes/base.html):
 

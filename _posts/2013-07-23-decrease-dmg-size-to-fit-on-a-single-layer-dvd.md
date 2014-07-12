@@ -5,14 +5,10 @@ layout: post
 permalink: /2013/07/decrease-dmg-size-to-fit-on-a-single-layer-dvd/
 dsq_thread_id:
   - 1523376242
-categories:
-  - Home Lab
-  - OS
-tags:
-  - hdiutil
-  - Mac OS X
-  - Sparse Image
+categories: ['storage', 'os']
+tags: ['hdiutil', 'mac_os_x', 'sparse_image']
 ---
+
 I wanted to create a recovery DVD for my Mac OS X install and all I had was an old DMG of Mac OS X version 10.6.
 
 ### hdiutil Image Information

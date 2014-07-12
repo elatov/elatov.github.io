@@ -3,18 +3,10 @@ title: 'RHCSA and RHCE Chapter 11 - SELinux'
 author: Karim Elatov
 layout: post
 permalink: /2014/03/rhcsa-rhce-chapter-11-selinux/
-sharing_disabled:
-  - 1
-dsq_thread_id:
-  - 2375041786
-categories:
-  - Certifications
-  - RHCSA and RHCE
-tags:
-  - RHCE
-  - RHCSA
-  - selinux
+categories: ['os', 'certifications', 'rhcsa_rhce']
+tags: ['linux', 'rhel', 'selinux']
 ---
+
 Most of the information is covered in [Security-Enhanced Linux](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Security-Enhanced_Linux/Red_Hat_Enterprise_Linux-6-Security-Enhanced_Linux-en-US.pdf) Guide. From the guide here is what SELinux is:
 
 > Security-Enhanced Linux (SELinux) is an implementation of a mandatory access control mechanism in the Linux kernel, checking for allowed operations after standard discretionary access controls are checked. It was created by the National Security Agency and can enforce rules on files and processes in a Linux system, and on their actions, based on defined policies.

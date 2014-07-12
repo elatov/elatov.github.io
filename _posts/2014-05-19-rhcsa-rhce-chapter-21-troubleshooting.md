@@ -3,18 +3,10 @@ title: "RHCSA and RHCE Chapter 21 - Troubleshooting"
 author: Karim Elatov
 layout: post
 permalink: "/2014/05/rhcsa-rhce-chapter-21-troubleshooting/"
-categories:
-  - Certifications
-  - Home Lab
-  - Networking
-  - RHCSA and RHCE
-tags:
-  - fsck
-  - ip_routing
-  - rhcsa_and_rhce
-  - linux_rescue
-published: true
+categories: ['os', 'certifications', 'home_lab', 'networking', 'rhcsa_rhce']
+tags: ['linux', 'ip_routing', 'rhel', 'linux_rescue']
 ---
+
 
 We covered a lot of these over the course of all the chapters. But here is a quick review.
 

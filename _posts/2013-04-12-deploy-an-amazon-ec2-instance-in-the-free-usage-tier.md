@@ -5,13 +5,10 @@ layout: post
 permalink: /2013/04/deploy-an-amazon-ec2-instance-in-the-free-usage-tier/
 dsq_thread_id:
   - 1406616989
-categories:
-  - AWS
-tags:
-  - Amazon Cloud Watch
-  - aws
-  - ec2
+categories: ['aws']
+tags: ['amazon_cloud_watch', 'ec2']
 ---
+
 If you want to try out AWS (Amazon Web Services), there is a 12 month (1 year) free trial (Free Usage Tier). Most of the information regarding the Free Usage Tier is outlined in the "[Getting Started Guide AWS Free Usage Tier](http://s3.amazonaws.com/awsdocs/gettingstarted/latest/awsgsg-freetier.pdf)". From the Guide here is a table of all the available services:
 
 ![FUT AWS Deploy an Amazon EC2 instance in the Free Usage Tier](https://github.com/elatov/uploads/raw/master/2013/03/FUT_AWS.png)
