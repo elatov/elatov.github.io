@@ -3,10 +3,8 @@ title: VDR Appliance Fails to Complete Integrity Check and Fails to Backup Certa
 author: Karim Elatov
 layout: post
 permalink: /2012/09/vdr-appliance-fails-to-complete-integrity-check-and-fails-to-backup-certain-vms/
-dsq_thread_id:
-  - 1404673359
 categories: ['storage', 'vmware']
-tags: [ 'cbt', 'datarecovery.ini', 'dedupefullignoredatacheck', 'dedupeincrementaldodatacheck', 'integrity_check', 'quiesced_snapshots', 'rdm', 'recatalog', 'snapshots', 'vami', 'vdr', 'virtual_hardware']
+tags: [ 'cbt', 'rdm', 'vm_snapshot', 'vdr', 'virtual_hardware']
 ---
 
 I recently ran into an issue with the VMware VDR appliance. The Integrity Check was failing and a VM (the Email Server VM) was failing to successfully back up. First I wanted to figure out why the Integrity Check was failing. Luckily we had two backup jobs and two Dedupe stores. The Backup Jobs were called "Email_Server_Backup_Job" (this backed up to Dedupe_Store_1) and "All_Other_VMs_Backup_Job" (this backed up to Dedupe_Store_2). We disabled both jobs to narrow down the issue. Each Dedup store was a 1TB RDM, which is a supported configuration. From the '[VMware Data Recovery Administration Guide 2.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vmware-data-recovery-administrators-guide-20.pdf)'

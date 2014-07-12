@@ -4,10 +4,8 @@ title: '"Thin on Thin" With VMware Thin Provisioned Disks and EMC Symmetrix Virt
 author: Karim Elatov
 layout: post
 permalink: /2012/04/thin-on-thin-with-vmware-thin-provisioned-disks-and-emc-symmetrix-virtual-provisioning/
-dsq_thread_id:
-  - 1405567150
 categories: ['storage', 'vmware']
-tags: ['eagerzeroed_thick', 'emc_symmetrix', 'lazyzeroed_thick', 'thin_provisioning', 'vmfs', 'vmdk']
+tags: ['thick_provisioning', 'thin_provisioning', 'vmfs', 'vmdk']
 ---
 
 Recently, someone me asked with the following question.

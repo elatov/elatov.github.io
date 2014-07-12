@@ -7,7 +7,7 @@ permalink: /2012/05/seeing-scsi-command-aborts-esx-3-5-host/
 dsq_thread_id:
   - 1409590662
 categories: ['storage', 'vmware']
-tags: ['hba_firmware', 'lpfc', 'scsi_aborts', 'scsi_reservations']
+tags: [ 'lpfc', 'scsi_aborts', 'scsi_reservations']
 ---
 
 I recently ran into an interesting issue with an ESX 3.5 host. We were seeing SCSI aborts on multiple hosts. Looking at the logs of one of the hosts we saw the following:

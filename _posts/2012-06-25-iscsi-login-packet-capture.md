@@ -4,10 +4,8 @@ title: iSCSI Login in a Packet Capture
 author: Karim Elatov
 layout: post
 permalink: /2012/06/iscsi-login-packet-capture/
-dsq_thread_id:
-  - 1406849705
 categories: ['networking', 'vmware']
-tags: ['iscsi', 'iscsi_initiator', 'iscsi_target', 'packet_capture', 'tshark', 'wireshark']
+tags: ['iscsi', 'packet_capture', 'tshark', 'wireshark']
 ---
 
 What is seen in a packet capture when an ESX iSCSI initiator success fully logs into the iSCSI target? Since iSCSI uses TCP, the first thing that we are going to see is a *3-way TCP hand shake* (More information on 3-way TCP handshake can be found [here](http://www.inetdaemon.com/tutorials/internet/tcp/3-way_handshake.shtml)). Now let's follow the packets:

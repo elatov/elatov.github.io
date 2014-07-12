@@ -4,10 +4,8 @@ title: PowerCLI Script to Identify Which VM is using an RDM LUN Identified by th
 author: Karim Elatov
 layout: post
 permalink: /2012/06/powercli-script-identify-which-vm-using-rdm-lun-identified-naa-id-lun/
-dsq_thread_id:
-  - 1404673258
 categories: ['vmware', 'storage']
-tags: ['naa_id', 'physical_rdm', 'powercli', 'rdm', 'virtual_rdm', 'vmkfstools', 'vml_id']
+tags: ['naa_id', 'powercli', 'rdm', 'vmkfstools', 'vml_id']
 ---
 
 I recently had a interesting query: "Given the naa_id of a LUN which is an RDM, how do you find which VM that LUN is connected to?" Doing some quick searching in the VMware KB, I found VMware articles [1005937](http://kb.vmware.com/kb/1005937) had a powercli script which showed the size of the RDM and the full path of the RDM:

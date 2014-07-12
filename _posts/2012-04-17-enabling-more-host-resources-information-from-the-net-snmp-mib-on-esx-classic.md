@@ -6,7 +6,7 @@ permalink: /2012/04/enabling-more-host-resources-information-from-the-net-snmp-m
 dsq_thread_id:
   - 1405199797
 categories: ['networking', 'vmware']
-tags: ['esx', 'host_resources_mib', 'snmp']
+tags: ['host_resources_mib', 'snmp']
 ---
 
 I wanted to get more host information from an ESX host when querying the host with snmp. Specifically, I was interested in the Host_Resources MIB ([Configuring the Net-SNMP Agent on ESX Hosts](http://www.net-snmp.org/docs/mibs/host.html)" article, I ran the following to enable snmpd:

@@ -4,7 +4,7 @@ title: Error updating Chromium on FreeBSD 8.2-p6
 author: Karim Elatov
 layout: post
 categories: ['os']
-tags: ['chromium', 'freebsd', 'gcc', 'ports', 'portupgrade']
+tags: ['chromium', 'freebsd', 'freebsd_ports', 'portupgrade']
 ---
 
 Recently I ran into an issue with updating chromium on my FreeBSD machine. I was running the following version:

@@ -3,35 +3,16 @@ title: VMs are Experiencing High Latency to NetApp FAS 6240
 author: Karim Elatov
 layout: post
 permalink: /2012/06/vms-experiencing-high-latency-netapp-fas-6270/
-dsq_thread_id:
-  - 1406371674
 categories: ['networking', 'storage', 'vmware']
-tags: ['esx_5.0u1', 'gavg', 'io_latency', 'netapp_6240', 'nfs']
+tags: ['performance', 'gavg', 'io_latency', 'netapp', 'nfs']
 ---
 
 I was recently presented with the following environment:
 
-<table border="0">
-  <tr>
-    <td>
-      VMware ESX
-    </td>
-
-    <td>
-      NetAPP
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      ESX 4.1P03
-    </td>
-
-    <td>
-      FAS 6240
-    </td>
-  </tr>
-</table>
+{:.kt}
+|VMware_ESX|NetApp  |
+|----------|--------|
+|ESX 4.1P03|FAS 6240|
 
 With this setup all the VMs from the ESX that resided on the NFS Datastores exported from the NetApp Array were experiencing high GAVG. Since this is NFS we don't have DAVG or KAVG statistics. Looking at esxtop, this is what we saw:
 

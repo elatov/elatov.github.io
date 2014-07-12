@@ -4,10 +4,9 @@ title: "Microsoft Cluster Servers Don't Work on Equalogic Array Using the DELL_P
 author: Karim Elatov
 layout: post
 permalink: /2012/04/microsoft-cluster-servers-dont-work-on-equalogic-array-using-the-dell_psp_eql_routed-plugin/
-dsq_thread_id:
   - 1408177985
 categories: ['storage', 'vmware']
-tags: ['dell_psp_eql_routed', 'equallogic', 'exscli', 'mscs', 'psp', 'rdm', 'vmw_satp_eql', 'vmw_satp_fixed']
+tags: ['equallogic', 'exscli', 'mscs', 'psp', 'rdm', 'satp']
 ---
 
 Recently I ran into an issue with Microsoft Cluster Servers (MSCS) on two VMware VMs. The first VM would boot up just fine, but the second VM would take a long time to boot up and sometimes it wouldn't boot at all. I tracked down the naa of the RDM that was used for MSCS VM and I took a look at the settings of that LUN:

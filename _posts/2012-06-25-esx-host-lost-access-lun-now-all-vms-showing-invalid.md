@@ -4,10 +4,8 @@ title: ESX Host Lost Access to a LUN and Now All the VMs are Showing up as Inval
 author: Karim Elatov
 layout: post
 permalink: /2012/06/esx-host-lost-access-lun-now-all-vms-showing-invalid/
-dsq_thread_id:
-  - 1404791985
 categories: ['storage', 'vmware']
-tags: ['fcalias', 'mds_9020', 'qla2xxx', 'zonesets', 'zoning']
+tags: ['cisco_mds', 'qlogic', 'san_zoning']
 ---
 
 I had recently received a call saying that all of the VMs are grayed out in a customer's inventory when we logged into the vCenter and checked the storage view we didn't see any LUNS. When I logged into the system, I saw the following:

@@ -3,10 +3,8 @@ title: Quiesced Snapshots Failing in Windows 2008 R2 VMs
 author: Karim Elatov
 layout: post
 permalink: /2012/05/quiesced-snapshots-failing-windows-2008-r2-vms/
-dsq_thread_id:
-  - 1408341399
 categories: ['vmware', 'os']
-tags: [ 'quiesced_snapshots', 'vmware_tools', 'windows_2008_r2']
+tags: [ 'quiesced_snapshots', 'vmware_tools', 'win2k8r2']
 ---
 
 I ran into a very interesting issue. Whenever we took a quiesced snapshot of Windows 2008 R2 VMs running on an ESX 4.1U2 host we saw the following error in the event viewer and the snapshot would fail:

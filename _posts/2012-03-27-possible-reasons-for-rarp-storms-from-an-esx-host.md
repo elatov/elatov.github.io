@@ -4,7 +4,7 @@ title: Possible reasons for RARP storms from an ESX host
 author: Karim Elatov
 layout: post
 categories: [ networking, vmware]
-tags: [ beacon_probing, garp, multicast, pxe_boot, rarp_flood]
+tags: [ beacon_probing, garp, multicast, pxe_boot, rarp]
 ---
 I see a lot of different reasons for a RARP storms from an ESX host. The biggest one that I ran into is a PXE boot environment (ie: Citrix Provisioning Server). During the PXE boot process the unicast mac-address changes and the ESX host sends a GARP to notify the switch (sometimes these GARPs show up as RARPs in Wireshark). If you see thousands of RARPs, then you may have run into some known issues that have been fixed with the following patch. For ESX 4.1 [2009143](http://kb.vmware.com/kb/2009136), for both patches we see the following:
 
