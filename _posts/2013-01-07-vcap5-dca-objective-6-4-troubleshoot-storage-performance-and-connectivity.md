@@ -3,9 +3,7 @@ title: VCAP5-DCA Objective 6.4 – Troubleshoot Storage Performance and Connecti
 author: Karim Elatov
 layout: post
 permalink: /2013/01/vcap5-dca-objective-6-4-troubleshoot-storage-performance-and-connectivity/
-dsq_thread_id:
-  - 1406630602
-categories: ['storage', 'certifications', 'vcap5-dca', 'vmware']
+categories: ['storage', 'certifications', 'vcap5_dca', 'vmware']
 tags: ['iscsi', 'performance','esxtop','vmfs']
 ---
 

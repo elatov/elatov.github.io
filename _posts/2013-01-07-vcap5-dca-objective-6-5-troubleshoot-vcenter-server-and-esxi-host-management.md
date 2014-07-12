@@ -3,9 +3,7 @@ title: VCAP5-DCA Objective 6.5 – Troubleshoot vCenter Server and ESXi Host Man
 author: Karim Elatov
 layout: post
 permalink: /2013/01/vcap5-dca-objective-6-5-troubleshoot-vcenter-server-and-esxi-host-management/
-dsq_thread_id:
-  - 1405000988
-categories: ['certifications', 'vcap5-dca', 'vmware']
+categories: ['certifications', 'vcap5_dca', 'vmware']
 tags: ['esx_firewall', 'hostd']
 ---
 
