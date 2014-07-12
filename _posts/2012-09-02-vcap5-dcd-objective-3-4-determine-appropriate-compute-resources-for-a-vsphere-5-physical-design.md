@@ -3,10 +3,8 @@ title: VCAP5-DCD Objective 3.4 – Determine Appropriate Compute Resources for a
 author: Karim Elatov
 layout: post
 permalink: /2012/09/vcap5-dcd-objective-3-4-determine-appropriate-compute-resources-for-a-vsphere-5-physical-design/
-dsq_thread_id:
-  - 1410463732
 categories: ['certifications', 'vcap5_dcd', 'vmware']
-tags: ['physical_design']
+tags: ['cisco_ucs', 'physical_design']
 ---
 
 ### Describe best practices with respect to CPU family choices

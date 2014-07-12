@@ -3,10 +3,8 @@ title: ESXi Host Shows as Disconnected from vCenter due to Heap Depletion
 author: Karim Elatov
 layout: post
 permalink: /2012/08/esxi-host-shows-as-disconnected-from-vcenter-due-to-heap-depletion/
-dsq_thread_id:
-  - 1406279066
 categories: ['networking' , 'vmware']
-tags: ['deep_security_virtual_appliance', 'hostd', 'netgpheap', 'vpxa', 'vshield_endpoint']
+tags: ['deep_security_virtual_appliance', 'hostd', 'netgpheap', 'vpxa']
 ---
 
 I recently had a very interesting issue. An ESXi host was showing up as disconnected in vCenter, however going directly to the host worked fine. Trying to reconnect the host back in vCenter would fail. Just from the previous discoveries we knew that something was wrong with the vpxa service on the host. On ESX(i) there are two processes that run. First is the hostd agent, it's best described in VMware KB [1002849](http://kb.vmware.com/kb/1002849):

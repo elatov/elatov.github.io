@@ -7,7 +7,7 @@ permalink: /2012/08/common-commands-for-nexus-1000v-vsm/
 dsq_thread_id:
   - 1406849469
 categories: ['networking', 'vmware']
-tags: ['nexus1000v', 'show_tech_support_svs', 'virtual_supervisor_module', 'vsm']
+tags: ['nexus1000v', 'virtual_supervisor_module', 'vsm']
 ---
 
 Most of these command can be seen by executing 'show tech-suppport svs' on the VSM (Virtual Supervisor Module).

@@ -7,7 +7,7 @@ permalink: /2012/07/receiving-no-free-ports-available-connecting-vm-nexus-1000v/
 dsq_thread_id:
   - 1404673070
 categories: ['networking', 'vmware']
-tags: ['ephemeral_port_binding', 'max_ports_dvs', 'nexus_1000v', 'powercli_dvs', 'static_port_binding']
+tags: ['dvs_port_binding', 'dvs', 'nexus_1000v', 'powercli']
 ---
 
 I was trying to get a VM up on the network and I getting getting an error message saying that I don't have any free ports on my Nexus 1000v Distributed Switch. Looking at the vCenter logs

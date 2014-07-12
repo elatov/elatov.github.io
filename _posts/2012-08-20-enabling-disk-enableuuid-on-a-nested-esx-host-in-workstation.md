@@ -4,10 +4,8 @@ title: Enabling disk.EnableUUID on a Nested ESX Host in Workstation
 author: Karim Elatov
 layout: post
 permalink: /2012/08/enabling-disk-enableuuid-on-a-nested-esx-host-in-workstation/
-dsq_thread_id:
-  - 1404673163
 categories: ['home_lab', 'storage', 'vmware']
-tags: ['disk.enableuuid', 'esxcfg-volume', 'forcemount_vmfs', 'vmware_workstation', 'persistent_mount_vmfs', 'resignature', 'snapshot_lun', 'vmfs', 'vpd_pages' ]
+tags: ['disk_enableuuid',  'vmware_workstation',  'snapshot_lun', 'vmfs', 'vpd_pages' ]
 ---
 
 As I was writing this [blog post](/2012/08/determine-disk-vpd-information-from-esx-classic) about VPD (Vital Product Data) Pages, I ended up breaking my test ESX host for a little bit. By default virtual disks presented to a VM don't have VPD Pages and therefore don't have NAA IDs. For example here is how my disk looks like from the ESX host without any changes:

@@ -4,10 +4,8 @@ title: VCD-NI Network Pools with the Cisco Nexus1000v Distributed Switch
 author: Karim Elatov
 layout: post
 permalink: /2012/08/vcd-ni-network-pools-with-the-cisco-nexus1000v/
-dsq_thread_id:
-  - 1404673369
 categories: ['networking', 'vmware']
-tags: [ 'nexus1000v', 'bridge-domains', 'mac-in-mac_encapsulation', 'multicast', 'network_pool', 'network_segmentation_manager', 'network_segments', 'organization_network', 'vapp_network', 'vcd-ni', 'vcloud', 'vcloud_director_network_isolation_networks', 'vshield_manager']
+tags: [ 'nexus1000v', 'mac_in_mac_encapsulation', 'multicast', 'vapp_network', 'vcd_ni', 'vcloud', 'vshield_manager']
 ---
 
 I was recently messing around with my vCloud Lab and I decided to see how the Nexus 1000v integrates with vCloud Director. After figuring out how it works, I decided to post my findings. Most of the instructions can be seen in the article "[Configuring Network Segmentation Manager](http://www.cisco.com/en/US/docs/switches/datacenter/nexus1000/sw/4_2_1_s_v_1_5_1/nsm/configuration/guide/n1000v_nsm_2configuring_nsm.html)". First thing to note is that this works on vCloud Director 1.5 and N1K version 4.2(1)SV1(5.1). Now for the fun stuff.

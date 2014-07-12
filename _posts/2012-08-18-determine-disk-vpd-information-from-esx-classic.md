@@ -4,10 +4,8 @@ title: Determine Disk VPD Information from ESX Classic
 author: Karim Elatov
 layout: post
 permalink: /2012/08/determine-disk-vpd-information-from-esx-classic/
-dsq_thread_id:
-  - 1406778244
 categories: ['storage', 'vmware' ]
-tags: ['naa_id', 'page_0x80', 'page_0x83', 'scsi_inquiry', 'sg_vpd', 'unit_serial_number', 'vital_product_data', 'vpd_pages']
+tags: ['naa_id', 'scsi_0x83', 'scsi_inquiry', 'unit_serial_number','vpd_pages']
 ---
 
 ESX issues a SCSI_Inquiry, from [VMware KB 1010244](https://github.com/elatov/uploads/raw/master/2014/01/spc3r23.pdf):
