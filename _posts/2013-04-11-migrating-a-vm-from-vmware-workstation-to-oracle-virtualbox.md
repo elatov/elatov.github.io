@@ -5,7 +5,7 @@ layout: post
 permalink: /2013/04/migrating-a-vm-from-vmware-workstation-to-oracle-virtualbox/
 dsq_thread_id:
   - 1405474938
-categories: ['home_lab', 'os', 'vmware']
+categories: ['os', 'vmware']
 tags: ['vmware_workstation', 'linux', 'ovftool', 'vmdk', 'virtualbox']
 ---
 

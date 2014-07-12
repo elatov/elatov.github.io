@@ -3,9 +3,7 @@ title: Migrate from Libvirt KVM to Virtualbox
 author: Karim Elatov
 layout: post
 permalink: /2013/06/migrate-from-libvirt-kvm-to-virtualbox/
-dsq_thread_id:
-  - 1405505875
-categories: ['home_lab', 'os', 'vmware']
+categories: ['os', 'vmware']
 tags: ['linux', 'virtualbox', 'kvm', 'libvirt']
 ---
 

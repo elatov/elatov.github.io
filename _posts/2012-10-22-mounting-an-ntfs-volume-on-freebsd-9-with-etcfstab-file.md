@@ -3,9 +3,7 @@ title: Mounting an NTFS Volume in FreeBSD 9 with the /etc/fstab File
 author: Karim Elatov
 layout: post
 permalink: /2012/10/mounting-an-ntfs-volume-on-freebsd-9-with-etcfstab-file/
-dsq_thread_id:
-  - 1406703090
-categories: ['home_lab', 'os']
+categories: ['os']
 tags: ['freebsd', 'ntfs', 'fstab', 'camcontrol', 'glabel', 'gpart']
 ---
 

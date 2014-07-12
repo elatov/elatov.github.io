@@ -3,10 +3,8 @@ title: Installing Mediatomb on FreeBSD 9 and Connecting to it with XBMC from a F
 author: Karim Elatov
 layout: post
 permalink: /2012/10/installing-mediatomb-on-freebsd-9-and-connecting-to-it-with-xbmc-from-a-fedora-17-os/
-dsq_thread_id:
-  - 1404673594
-categories: ['home_lab', 'networking']
-tags: ['freebsd', 'dlna', 'mediatomb', 'upnp']
+categories: ['os', 'networking']
+tags: ['xbmc', 'linux', 'fedora','freebsd', 'dlna', 'mediatomb', 'upnp']
 ---
 
 I recently got some new hardware and wanted to setup a video streaming server in my home. There are a lot of choices out there, for example check out the wiki page "[How to Select a Proper Technology for HD Video Streaming in Home Networking Environments](http://en.wikipedia.org/wiki/List_of_streaming_media_systems)". From that article:
