@@ -3,10 +3,8 @@ title: "Can't Set X520 10GbE Intel NIC to Auto Negotiate on ESX(i)"
 author: Karim Elatov
 layout: post
 permalink: /2012/10/cant-set-x520-10gbe-intel-nic-to-auto-negotiate-on-esxi/
-dsq_thread_id:
-  - 1410006010
 categories: ['networking', 'vmware']
-tags: ['auto_negotiate',  'ixgbe', 'x520_10gbe']
+tags: ['auto_negotiate',  'ixgbe']
 ---
 
 We were following the instructions laid out in VMware KB [1004089](http://kb.vmware.com/kb/1004089) to set a NIC to auto negotiate with the upstream switch. Upon running the command, we would see the following message:

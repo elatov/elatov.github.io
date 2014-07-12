@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2012/10/mounting-an-ntfs-volume-on-freebsd-9-with-etcfstab-file/
 categories: ['os']
-tags: ['freebsd', 'ntfs', 'fstab', 'camcontrol', 'glabel', 'gpart']
+tags: ['freebsd', 'ntfs', 'fstab', 'gpart']
 ---
 
 In my previous [post](/2012/10/mounting-an-ntfs-disk-in-write-mode-in-freebsd-9/), I blogged about mounting an NTFS volume in FreeBSD. Now I decided to make the process easier by using the */etc/fstab* file. I thought this would be a pretty straightforward process, but it took a while to figure out so I decided to put my notes here. First figure out what is the device identifier of your NTFS disk. For example:

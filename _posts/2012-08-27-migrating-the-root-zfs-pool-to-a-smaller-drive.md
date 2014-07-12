@@ -4,10 +4,8 @@ title: Migrating the Root ZFS Pool to a Smaller Drive
 author: Karim Elatov
 layout: post
 permalink: /2012/08/migrating-the-root-zfs-pool-to-a-smaller-drive/
-dsq_thread_id:
-  - 1404673099
-categories: ['home_lab', 'storage', 'vmware', 'zfs']
-tags: ['beadm', 'boot-sign', 'bootadm', 'disk_labels', 'dumpadm', 'efi', 'fast_reboot', 'fdisk_partitions', 'findroot', 'format_utility', 'menu.lst', 'prtvtoc', 'root_zpool', 'smi', 'solaris_slices', 'sparc', 'vtoc', 'zfs_recieve', 'zfs_send', 'zfs_snapshot', 'zpool', 'zvol']
+categories: ['os','home_lab', 'storage', 'vmware', 'zfs']
+tags: ['grub', 'mbr', 'opensolaris', 'efi', 'vtoc', 'smi', 'fdisk']
 ---
 
 I made a mistake of showing the co-author of this post, Jarret, my test lab, so he rediculed me and made fun of me. I am pretty new to ZFS and I just deployed an OpenIndiana VM for it's Comstar/iSCSI capabilities but using ZFS was definitely a plus. Just as an FYI here is the version of OpenIndiana that I was using:

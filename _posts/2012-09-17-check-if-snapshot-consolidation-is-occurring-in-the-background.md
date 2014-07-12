@@ -3,10 +3,8 @@ title: Check if Snapshot Consolidation is Occurring in the Background on an ESX(
 author: Karim Elatov
 layout: post
 permalink: /2012/09/check-if-snapshot-consolidation-is-occurring-in-the-background/
-dsq_thread_id:
-  - 1406068742
 categories: ['storage', 'vmware']
-tags: ['powercli', 'rvtools', 'snapshot_consolidation', 'vcenter_task_time_out', 'vcheck', 'vm_task', 'vmware_snapshots', 'watch']
+tags: ['powercli', 'rvtools', 'vcheck', 'vm_snapshots']
 ---
 
 Someone had asked me recently: What happens if the snapshot consolidation process take a long time and the task is no longer seen in the vShpere client? First I would recommend to login directly to the host and check if the VM has a running task. An example can be seen in VMware KB [1013003](http://kb.vmware.com/kb/1013003). From the KB, first find the VM_ID of your VM:

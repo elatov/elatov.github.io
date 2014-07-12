@@ -3,10 +3,8 @@ title: 'ESX(i) Host  Randomly Disconnects from vCenter Server due to Hostd Backt
 author: Karim Elatov
 layout: post
 permalink: /2012/10/esxi-host-randomly-disconnects-from-vcenter-server-due-to-hostd-back-tracing/
-dsq_thread_id:
-  - 1406826243
 categories: ['networking', 'vmware']
-tags: ['hostd_log', 'esxi_4.1u3', 'hostd_core_dump', 'vix-async-pipe-zdump.000']
+tags: ['hostd_log', 'hostd']
 ---
 
 At random times, I would see the following messages from my SNMP Server regarding my ESX(i) hosts:

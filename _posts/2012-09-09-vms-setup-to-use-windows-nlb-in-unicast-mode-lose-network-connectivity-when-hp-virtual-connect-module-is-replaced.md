@@ -3,10 +3,8 @@ title: VMs Setup to Use Windows NLB in Unicast Mode Lose Network Connectivity Wh
 author: Karim Elatov
 layout: post
 permalink: /2012/09/vms-setup-to-use-windows-nlb-in-unicast-mode-lose-network-connectivity-when-hp-virtual-connect-module-is-replaced/
-dsq_thread_id:
-  - 1407710243
 categories: ['networking', 'vmware']
-tags: ['garp', 'nlb_unicast_mode', 'notify_switch', 'virtual_connect_flex_fabric', 'windows_nlb']
+tags: ['garp', 'notify_switch', 'hp_virtualconnect', 'windows_nlb']
 ---
 
 A VirtualConnect Module was being replaced on an HP Enclosure and only the VMs used for Windows NLB lost network connectivity.  If you are not too familiar with the HP VirtualConnect I would suggest reading "[HP Virtual Connect traffic flow](http://h20000.www2.hp.com/bc/docs/support/SupportManual/c01990371/c01990371.pdf)", here is a good picture:

@@ -3,10 +3,8 @@ title: VCAP5-DCA Objective 4.2 – Deploy and Test VMware FT
 author: Karim Elatov
 layout: post
 permalink: /2012/11/vcap5-dca-objective-4-2-deploy-and-test-vmware-ft/
-dsq_thread_id:
-  - 1407393735
 categories: ['certifications', 'vcap5_dca', 'vmware']
-tags: ['ft']
+tags: ['fault_tolerance']
 ---
 
 ### Identify VMware FT hardware requirements

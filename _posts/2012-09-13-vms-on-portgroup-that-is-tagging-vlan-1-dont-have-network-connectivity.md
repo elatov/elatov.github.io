@@ -3,10 +3,8 @@ title: "VMs on PortGroup with VLAN Tag 1, Don't Have Network Connectivity"
 author: Karim Elatov
 layout: post
 permalink: /2012/09/vms-on-portgroup-that-is-tagging-vlan-1-dont-have-network-connectivity/
-dsq_thread_id:
-  - 1407803686
 categories: ['networking', 'vmware']
-tags: ['802.1q_trunk', 'cdp', 'est', 'vlan', 'vst']
+tags: ['trunk_port', 'cdp', 'vlan']
 ---
 
 Recently ran into an issue where some of the VMs on an ESX host didn't have network connectivity. Checking out the virtual switch settings I saw the following:

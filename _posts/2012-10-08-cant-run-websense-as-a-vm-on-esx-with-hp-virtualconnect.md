@@ -3,10 +3,8 @@ title: "Can't Run WebSense as a VM on ESX(i) Host with HP VirtualConnect"
 author: Karim Elatov
 layout: post
 permalink: /2012/10/cant-run-websense-as-a-vm-on-esx-with-hp-virtualconnect/
-dsq_thread_id:
-  - 1407535578
 categories: ['networking', 'vmware']
-tags: ['hp_virtualconnect', 'mirrored_traffic', 'promiscuous_mode', 'span_port', 'vlan_4095', 'websense']
+tags: ['hp_virtualconnect', 'span_port', 'vlan', 'websense']
 ---
 
 We were trying to setup a VM to run WebSense on it, but we couldn't get all the traffic to reach the VM. Websense is a content filtering software, but for it to filter the content it needs to see all the traffic. When Websense runs on a physical machine it would sit in an area where it could see all the traffic. [Here](https://learningnetwork.cisco.com/thread/4250) is a good picture of the setup from cisco community page:

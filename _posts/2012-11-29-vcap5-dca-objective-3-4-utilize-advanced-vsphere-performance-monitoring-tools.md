@@ -3,9 +3,7 @@ title: VCAP5-DCA Objective 3.4 – Utilize Advanced vSphere Performance Monitori
 author: Karim Elatov
 layout: post
 permalink: /2012/11/vcap5-dca-objective-3-4-utilize-advanced-vsphere-performance-monitoring-tools/
-dsq_thread_id:
-  - 1406889220
-categories: ['certifications', 'vcap5_dca', 'vmware']
+categories: ['storage', 'certifications', 'vcap5_dca', 'vmware']
 tags: ['esxtop','performance','vscsistats']
 ---
 

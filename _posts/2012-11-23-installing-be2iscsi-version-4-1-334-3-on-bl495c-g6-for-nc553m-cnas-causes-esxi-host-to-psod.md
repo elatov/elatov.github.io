@@ -3,10 +3,8 @@ title: Installing be2iscsi Driver Version 4.1.334.3 on HP BL495c G6 with NC553m 
 author: Karim Elatov
 layout: post
 permalink: /2012/11/installing-be2iscsi-version-4-1-334-3-on-bl495c-g6-for-nc553m-cnas-causes-esxi-host-to-psod/
-dsq_thread_id:
-  - 1407612394
 categories: ['networking', 'storage', 'vmware']
-tags: ['be2iscsi', 'be2net', 'nc553m', 'psod', 'vmkload_mod']
+tags: ['iscsi', 'emulex', 'psod' ]
 ---
 
 We were looking at the* September 2012 VMware FW and Software Recipe* page and we wanted to install the latest be2iscsi driver. From the page here is the recommended version:

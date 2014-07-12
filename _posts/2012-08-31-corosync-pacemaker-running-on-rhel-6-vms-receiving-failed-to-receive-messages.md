@@ -3,10 +3,8 @@ title: 'Corosync Pacemaker running on RHEL 6 VMs Receiving "Failed To Receive" M
 author: Karim Elatov
 layout: post
 permalink: /2012/08/corosync-pacemaker-running-on-rhel-6-vms-receiving-failed-to-receive-messages/
-dsq_thread_id:
-  - 1408246501
 categories: ['networking', 'os', 'vmware']
-tags: ['linux', 'corosync', 'igmp', 'igmpv3_snooping', 'iperf', 'msi', 'multicast', 'net.core.rmem_max', 'os_udp_buffer', 'pacemaker', 'rx_ring_size']
+tags: ['rhel', 'linux', 'corosync', 'igmp', 'msi', 'multicast', 'pacemaker','performance']
 ---
 
 I ran into in an interesting issue with Corosync Pacemaker. Before we get down to the trouble shooting let's figure out what Corosync Pacemaker is, from the [Corosync FAQ](https://github.com/corosync/corosync/wiki/why-was-corosync-created):

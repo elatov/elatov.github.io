@@ -3,10 +3,8 @@ title: Extending the System Drive on Windows 2008 Running Under KVM
 author: Karim Elatov
 layout: post
 permalink: /2013/04/extending-the-system-drive-on-windows-2008-running-as-a-kvm-vm/
-dsq_thread_id:
-  - 1405296261
 categories: ['home_lab', 'os']
-tags: ['linux', 'qemu', 'win2k8', 'kvm']
+tags: ['linux', 'qemu', 'win2k8r2', 'kvm']
 ---
 
 While I was writing [this](/2013/04/deploying-a-test-windows-environment-in-a-kvm-infrastucture) post I first allocated 15GB for my Windows install. I quickly realized that after a plethora of updates that is not enough space. Luckily it's pretty easy to remedy that with a two step process.

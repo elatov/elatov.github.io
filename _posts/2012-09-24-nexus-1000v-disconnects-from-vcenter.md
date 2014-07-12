@@ -3,10 +3,8 @@ title: Nexus 1000v Disconnects from vCenter
 author: Karim Elatov
 layout: post
 permalink: /2012/09/nexus-1000v-disconnects-from-vcenter/
-dsq_thread_id:
-  - 1407505965
 categories: ['networking', 'vmware']
-tags: ['vm_to_vm_affinity', 'nexus_1000v', 'vsm']
+tags: ['drs', 'nexus_1000v', 'vsm']
 ---
 
 Looking over the VSM logs (show tech svs), I saw the following:

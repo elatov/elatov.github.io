@@ -1,13 +1,11 @@
 ---
 published: true
-title: 'Seeing High KAVG with Microsoft Cluster Services  (MSCS) RDMs'
+title: 'Seeing High KAVG with Microsoft Cluster Services (MSCS) RDMs'
 author: Karim Elatov
 layout: post
 permalink: /2012/08/seeing-high-kavg-with-microsoft-cluster-services-mscs-rdms/
-dsq_thread_id:
-  - 1404673480
 categories: ['storage', 'vmware']
-tags: ['cons_s_field', 'esxtop', 'mscs', 'perennially_reserved', 'rdm', 'scsi_reservations', 'scsi.crtimeoutduringboot']
+tags: [ 'esxtop', 'mscs', 'rdm', 'scsi_reservations','performance']
 ---
 
 I came across an interesting issue the other day. I would randomly see high KAVG and QAVG on my ESX hosts. It would look something like this:

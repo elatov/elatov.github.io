@@ -3,10 +3,8 @@ title: Installing Subsonic on Fedora 17
 author: Karim Elatov
 layout: post
 permalink: /2012/10/installing-subsonic-on-fedora-17/
-dsq_thread_id:
-  - 1415422076
 categories: ['os']
-tags: ['linux','iptables', 'java_openjdk', 'subsonic', 'update_alternatives']
+tags: ['fedora', 'linux','iptables', 'subsonic']
 ---
 
 I recently posted on [List of streaming media systems](/2012/10/installing-mediatomb-on-freebsd-9-and-connecting-to-it-with-xbmc-from-a-fedora-17-os/)". Here are the ones that stood out:

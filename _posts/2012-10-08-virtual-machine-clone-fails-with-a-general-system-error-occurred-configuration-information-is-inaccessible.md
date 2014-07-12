@@ -3,10 +3,8 @@ title: "Virtual Machine Clone Fails with 'A general system error occurred: Confi
 author: Karim Elatov
 layout: post
 permalink: /2012/10/virtual-machine-clone-fails-with-a-general-system-error-occurred-configuration-information-is-inaccessible/
-dsq_thread_id:
-  - 1405927143
 categories: ['storage', 'vmware']
-tags: ['cbt', 'clone', 'ctk']
+tags: ['cbt', 'vm_clone', 'ctk']
 ---
 
 Recently ran into an issue when cloning a VM. The clone would start and would run and at about 99% it would fail with the following error:

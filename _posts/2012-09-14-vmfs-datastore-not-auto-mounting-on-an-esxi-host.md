@@ -3,10 +3,8 @@ title: VMFS Datastore not Auto-Mounting on an ESX(i) Host because the VMFS Parti
 author: Karim Elatov
 layout: post
 permalink: /2012/09/vmfs-datastore-not-auto-mounting-on-an-esxi-host/
-dsq_thread_id:
-  - 1408613877
 categories: ['storage', 'vmware']
-tags: ['dynamic_disks', 'filesystem_id_42', 'hexdump', 'ntfs', 'sfs', 'vmfs']
+tags: ['hexdump', 'ntfs', 'sfs', 'vmfs']
 ---
 
 We had two LUNs presented to a host:
