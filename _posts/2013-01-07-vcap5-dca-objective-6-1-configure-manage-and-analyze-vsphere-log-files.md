@@ -3,10 +3,8 @@ title: VCAP5-DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Fi
 author: Karim Elatov
 layout: post
 permalink: /2013/01/vcap5-dca-objective-6-1-configure-manage-and-analyze-vsphere-log-files/
-dsq_thread_id:
-  - 1406891938
 categories: ['certifications', 'vcap5_dca', 'vmware']
-tags: ['esx_firewall', 'syslog']
+tags: ['iscsi', 'netcat', 'dcui', 'esx_firewall', 'syslog']
 ---
 
 ### Identify vCenter Server log file names and locations

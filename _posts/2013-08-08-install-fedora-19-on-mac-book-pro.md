@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2013/08/install-fedora-19-on-mac-book-pro/
 categories: ['os']
-tags: ['grub', 'linux', 'fedora', 'mac_os_x', 'uefi','mbr']
+tags: ['grub', 'linux', 'fedora', 'mac_os_x', 'efi','mbr']
 ---
 
 I was using my new Mac and there are just something that I missed from my previous Linux Laptops. So I decided to install Fedora on my new MacBook Pro :). The biggest challenge is getting around the EUFI interface.

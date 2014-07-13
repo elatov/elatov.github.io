@@ -3,10 +3,8 @@ title: RHCSA and RHCE Chapter 7 User Administration
 author: Karim Elatov
 layout: post
 permalink: /2013/03/rhcsa-and-rhce-chapter-7-user-administration/
-dsq_thread_id:
-  - 1404673528
 categories: ['os', 'certifications', 'rhcsa_rhce']
-tags: ['linux', 'user_management']
+tags: ['rhel', 'linux', 'user_management']
 ---
 
 Let's get straight to it, from the "[Red Hat Enterprise Linux 6 Deployment Guide](https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf)":

@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2014/05/update-splunk-6-0-to-6-0-3/
 categories: ['home_lab', 'os']
-tags: ['freebsd', 'splunk']
+tags: ['heartbleed', 'freebsd', 'splunk']
 ---
 
 

@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2012/06/vms-experiencing-high-latency-netapp-fas-6270/
 categories: ['networking', 'storage', 'vmware']
-tags: ['performance', 'gavg', 'io_latency', 'netapp', 'nfs']
+tags: ['ip_routing', 'performance', 'gavg', 'netapp', 'nfs']
 ---
 
 I was recently presented with the following environment:

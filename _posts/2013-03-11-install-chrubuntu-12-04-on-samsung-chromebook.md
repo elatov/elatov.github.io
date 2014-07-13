@@ -3,10 +3,8 @@ title: Install ChrUbuntu 12.04 on Samsung Chromebook
 author: Karim Elatov
 layout: post
 permalink: /2013/03/install-chrubuntu-12-04-on-samsung-chromebook/
-dsq_thread_id:
-  - 1404673776
 categories: ['os']
-tags: ['linux', 'chromebook', 'chrubuntu']
+tags: ['xorg', 'linux', 'chromebook', 'ubuntu']
 ---
 
 There are a bunch of the steps to the process, here are some good links that have most of the instructions:

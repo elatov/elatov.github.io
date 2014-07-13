@@ -3,10 +3,8 @@ title: RHCSA and RHCE Chapter 8 Network Installs
 author: Karim Elatov
 layout: post
 permalink: /2013/03/rhcsa-and-rhce-chapter-8-network-installs/
-dsq_thread_id:
-  - 1406650535
 categories: ['networking', 'os', 'certifications', 'rhcsa_rhce']
-tags: ['dhcp', 'kickstart', 'pxe_boot']
+tags: ['iptables', 'rhel', 'dhcp', 'kickstart', 'pxe_boot']
 ---
 
 The easiest way to do a network install with any Linux Distribution is to use **Kickstart**. From the "[Red Hat Enterprise Linux 6 Installation Guide](https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf)":

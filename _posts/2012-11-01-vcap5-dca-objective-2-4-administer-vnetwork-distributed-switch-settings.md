@@ -3,10 +3,8 @@ title: VCAP5-DCA Objective 2.4 – Administer vNetwork Distributed Switch Settin
 author: Karim Elatov
 layout: post
 permalink: /2012/11/vcap5-dca-objective-2-4-administer-vnetwork-distributed-switch-settings/
-dsq_thread_id:
-  - 1411255996
 categories: ['certifications', 'networking', 'vcap5_dca', 'vmware']
-tags: ['dvs']
+tags: ['dvs','dvs_port_binding']
 ---
 
 ### Describe the relationship between vDS and the vSS

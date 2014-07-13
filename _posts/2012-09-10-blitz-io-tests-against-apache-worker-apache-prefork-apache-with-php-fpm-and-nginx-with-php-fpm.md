@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2012/09/blitz-io-tests-against-apache-worker-apache-prefork-apache-with-php-fpm-and-nginx-with-php-fpm/
 categories: ['os']
-tags: ['performance', 'linux', 'apache', 'blitz_io', 'fastcgi', 'nginx', 'php', 'vps']
+tags: ['performance', 'freebsd', 'apache', 'blitz_io', 'fastcgi', 'nginx', 'php', 'vps']
 ---
 
 We were setting up a VPS with 256MB of RAM and we were trying to figure out which Web Server to use for our limited VPS. You will see many posts out there mentioning that Apache uses a lot more memory than any other Web Server:

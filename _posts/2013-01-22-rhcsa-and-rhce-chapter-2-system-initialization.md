@@ -3,10 +3,8 @@ title: RHCSA and RHCE Chapter 2 System Initialization
 author: Karim Elatov
 layout: post
 permalink: /2013/01/rhcsa-and-rhce-chapter-2-system-initialization/
-dsq_thread_id:
-  - 1404673723
 categories: ['home_lab', 'os','certifications', 'rhcsa_rhce']
-tags: ['mbr', 'linux','grub', 'inittab', 'rc_local', 'linux_rescue', 'sysv']
+tags: ['efi','rhel','mbr', 'linux','grub', 'inittab', 'rc_local', 'linux_rescue', 'sysv']
 ---
 
 ### Red Hat Boot Process

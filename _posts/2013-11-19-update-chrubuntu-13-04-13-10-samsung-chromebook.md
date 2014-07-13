@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2013/11/update-chrubuntu-13-04-13-10-samsung-chromebook/
 categories: ['os']
-tags: ['linux', 'chromebook', 'chrubuntu', 'pulseaudio']
+tags: ['xorg', 'linux', 'chromebook', 'ubuntu', 'pulseaudio']
 ---
 
 I logged into my Chromebook with SSH and it displayed a message saying that I can update to Ubuntu 13.10:

@@ -3,7 +3,7 @@ title: Sample IPtables rules
 author: Karim Elatov
 layout: post
 categories: [os, networking]
-tags: [linux, iptables]
+tags: [rhel,linux, iptables]
 published: true
 
 ---

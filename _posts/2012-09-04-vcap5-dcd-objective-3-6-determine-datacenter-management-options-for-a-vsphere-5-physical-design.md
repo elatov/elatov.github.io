@@ -3,10 +3,8 @@ title: VCAP5-DCD Objective 3.6 – Determine Datacenter Management Options for a
 author: Karim Elatov
 layout: post
 permalink: /2012/09/vcap5-dcd-objective-3-6-determine-datacenter-management-options-for-a-vsphere-5-physical-design/
-dsq_thread_id:
-  - 1404738838
 categories: ['certifications', 'vcap5_dcd', 'vmware']
-tags: ['physical_design','ha','drs']
+tags: ['kickstart', 'vum', 'vmotion', 'physical_design','ha','drs']
 ---
 
 ### Differentiate and describe client access options

@@ -3,10 +3,8 @@ title: VCAP5-DCD Objective 2.3 – Build Availability Requirements into the Logi
 author: Karim Elatov
 layout: post
 permalink: /2012/08/vcap5-dcd-objective-2-3-build-availability-requirements-into-the-logical-design/
-dsq_thread_id:
-  - 1404673450
 categories: ['certifications', 'vcap5_dcd', 'vmware']
-tags: ['logical_design']
+tags: ['fault_tolerance', 'vmotion','logical_design']
 ---
 
 ### Understand what logical availability services are provided by VMware solutions

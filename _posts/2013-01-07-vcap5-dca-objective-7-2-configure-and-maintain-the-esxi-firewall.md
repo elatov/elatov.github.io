@@ -3,8 +3,6 @@ title: VCAP5-DCA Objective 7.2 – Configure and Maintain the ESXi Firewall
 author: Karim Elatov
 layout: post
 permalink: /2013/01/vcap5-dca-objective-7-2-configure-and-maintain-the-esxi-firewall/
-dsq_thread_id:
-  - 1407767425
 categories: ['certifications', 'vcap5_dca', 'vmware']
 tags: ['esx_firewall']
 ---

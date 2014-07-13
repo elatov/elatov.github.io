@@ -3,10 +3,8 @@ title: HTTP Based Data Transfers from Windows 8 VM to Linux Physical Machine are
 author: Karim Elatov
 layout: post
 permalink: /2013/01/http-based-data-transfer-from-windows-8-vm-to-linux-physical-machine-gets-corrupted/
-dsq_thread_id:
-  - 1410724718
 categories: ['networking', 'os', 'vmware']
-tags: ['md5sum', 'netsh', 'tso', 'wireshark']
+tags: ['performance', 'win8', 'md5sum', 'netsh', 'tso', 'wireshark']
 ---
 
 We have an application running on a Windows 8 virtual machine which provides a file using HTTP when requested. When accessed from a Linux physical machine, the file is often slightly corrupted. To check the data integrity, I ran the following prior to the download and then after. Here is the md5sum prior to any downloads:

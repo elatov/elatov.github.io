@@ -3,10 +3,8 @@ title: Monitor Different Systems with Zabbix
 author: Karim Elatov
 layout: post
 permalink: /2013/03/monitor-different-systems-with-zabbix/
-dsq_thread_id:
-  - 1406357258
 categories: ['home_lab', 'os']
-tags: ['linux', 'freebsd', 'raid', 'monitoring', 'zabbix']
+tags: ['mysql', 'php', 'linux', 'freebsd', 'raid', 'monitoring', 'zabbix']
 ---
 
 This is the last post from the "Network Monitoring Software Comparison" series. As I mentioned in the [main](/2013/03/monitor-different-systems-with-zenoss) page here is what Zabbix is about:

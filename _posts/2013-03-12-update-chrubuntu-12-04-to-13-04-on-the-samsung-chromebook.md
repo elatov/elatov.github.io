@@ -3,10 +3,8 @@ title: Update ChrUbuntu 12.04 to 13.04 on the Samsung Chromebook
 author: Karim Elatov
 layout: post
 permalink: /2013/03/update-chrubuntu-12-04-to-13-04-on-the-samsung-chromebook/
-dsq_thread_id:
-  - 1404672973
 categories: ['os']
-tags: ['linux', 'chromebook', 'chrubuntu']
+tags: ['pulseaudio', 'xorg', 'linux', 'chromebook', 'ubuntu']
 ---
 
 The update process is not as smooth as the install process which I blogged about [here](/2013/03/install-chrubuntu-12-04-on-samsung-chromebook). Most of the instructions are laid at the following two sites:

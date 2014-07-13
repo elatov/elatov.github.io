@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2012/09/vmfs-datastore-not-auto-mounting-on-an-esxi-host/
 categories: ['storage', 'vmware']
-tags: ['hexdump', 'ntfs', 'sfs', 'vmfs']
+tags: ['vmware_converter', 'ntfs', 'sfs', 'vmfs']
 ---
 
 We had two LUNs presented to a host:

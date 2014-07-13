@@ -3,8 +3,6 @@ title: VCAP5-DCA Objective 5.1 – Implement and Maintain Host Profiles
 author: Karim Elatov
 layout: post
 permalink: /2012/11/vcap5-dca-objective-5-1-implement-and-maintain-host-profiles/
-dsq_thread_id:
-  - 1409208979
 categories: ['certifications', 'vcap5_dca', 'vmware']
 tags: ['host_profile']
 ---

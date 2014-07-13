@@ -2,9 +2,8 @@
 layout: post
 title: "Monitor ESXi S.M.A.R.T Attributes with Zabbix over SSH"
 author: Karim Elatov
-description: ""
 categories: [storage,vmware, os]
-tags: [zabbix, smart, monitoring]
+tags: [debian,zabbix, smart, monitoring]
 ---
 
 From [VMware KB 2040405](http://kb.vmware.com/kb/2040405) I saw that we can now get SMART attributes from local disks on an ESXi host. For example here is what I saw on the Mac Mini with the SSD:

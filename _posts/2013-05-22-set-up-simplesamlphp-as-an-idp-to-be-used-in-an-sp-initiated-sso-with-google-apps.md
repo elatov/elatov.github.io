@@ -3,10 +3,8 @@ title: Set up simpleSAMLphp as an IdP to be Used in an SP-Initiated SSO with Goo
 author: Karim Elatov
 layout: post
 permalink: /2013/05/set-up-simplesamlphp-as-an-idp-to-be-used-in-an-sp-initiated-sso-with-google-apps/
-dsq_thread_id:
-  - 1405434307
 categories: ['os','home_lab']
-tags: ['linux', 'saml', 'simplesamlphp', 'sso']
+tags: ['ubuntu', 'linux', 'saml', 'simplesamlphp', 'sso']
 ---
 
 ## SP-Initiated SAML SSO

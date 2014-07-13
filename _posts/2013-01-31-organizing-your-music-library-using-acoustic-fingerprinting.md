@@ -5,7 +5,7 @@ author: Karim Elatov
 layout: post
 permalink: /2013/01/organizing-your-music-library-using-acoustic-fingerprinting/
 categories: ['os']
-tags: ['linux', 'acoustic_fingerprinting', 'easytag', 'echoprint', 'id3_tags', 'lastfm', 'musicbrainz']
+tags: ['fedora', 'linux', 'acoustic_fingerprinting', 'easytag', 'echoprint', 'id3_tags', 'lastfm', 'musicbrainz']
 ---
 
 I wrote a [previous](/2012/10/installing-subsonic-on-fedora-17/) post about running **subsonic**. I really liked the software cause it uses the file system directory structure as your music library. I have a lot of custom playlists and they don't belong to any album, therefore I organize my playlists by folders. Some of these songs are from Russian CDs which are combinations of songs for that year (this is pretty typical in Russia, it's equivalent of the [Now, That's What I Call Music](http://www.nowthatsmusic.com/home) CDs in the US)

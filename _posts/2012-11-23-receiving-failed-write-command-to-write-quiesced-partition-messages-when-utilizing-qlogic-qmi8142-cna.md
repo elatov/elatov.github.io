@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2012/11/receiving-failed-write-command-to-write-quiesced-partition-messages-when-utilizing-qlogic-qmi8142-cna/
 categories: ['storage', 'vmware']
-tags: ['cna', 'fcoe', 'ibm', 'interrupt_remaping', 'msi_x', 'qlogic']
+tags: ['cna', 'fcoe', 'ibm', 'interrupt_remapping', 'msi', 'qlogic']
 ---
 
 I was seeing the following in the logs:

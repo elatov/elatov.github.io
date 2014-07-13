@@ -3,7 +3,7 @@ title: Presenting a LUN over Fibre Channel from a NetApp FAS 3240 Array to an ES
 author: Karim Elatov
 layout: post
 categories: ['storage', 'vmware']
-tags: ['cisco_ucs', 'netapp']
+tags: ['fcoe', 'fiber_channel', 'cisco_ucs', 'netapp']
 ---
 
 ## Confirming UCS Hardware on ESX(i)

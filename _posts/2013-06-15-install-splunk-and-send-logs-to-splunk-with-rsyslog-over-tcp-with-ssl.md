@@ -3,10 +3,8 @@ title: Install Splunk and Send Logs to Splunk with Rsyslog over TCP with SSL
 author: Karim Elatov
 layout: post
 permalink: /2013/06/install-splunk-and-send-logs-to-splunk-with-rsyslog-over-tcp-with-ssl/
-dsq_thread_id:
-  - 1405505941
 categories: ['os','home_lab', 'vmware']
-tags: ['linux', 'rsyslog', 'splunk', 'ssl']
+tags: ['centos', 'linux', 'rsyslog', 'splunk', 'ssl']
 ---
 
 ## Splunk

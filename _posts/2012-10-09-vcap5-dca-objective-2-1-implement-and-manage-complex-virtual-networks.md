@@ -3,10 +3,8 @@ title: VCAP5-DCA Objective 2.1 – Implement and Manage Complex Virtual Networks
 author: Karim Elatov
 layout: post
 permalink: /2012/10/vcap5-dca-objective-2-1-implement-and-manage-complex-virtual-networks/
-dsq_thread_id:
-  - 1409816398
 categories: ['networking','certifications', 'vcap5_dca', 'vmware']
-tags: ['beacon_probing','snmp','dvs']
+tags: ['cdp', 'port_channel', 'beacon_probing','snmp','dvs']
 ---
 
 ### Identify common virtual switch configurations

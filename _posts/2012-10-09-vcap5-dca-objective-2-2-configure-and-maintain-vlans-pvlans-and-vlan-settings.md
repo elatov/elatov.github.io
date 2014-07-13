@@ -3,10 +3,8 @@ title: VCAP5-DCA Objective 2.2 – Configure and Maintain VLANs, PVLANs and VLAN
 author: Karim Elatov
 layout: post
 permalink: /2012/10/vcap5-dca-objective-2-2-configure-and-maintain-vlans-pvlans-and-vlan-settings/
-dsq_thread_id:
-  - 1413715339
 categories: ['networking', 'certifications', 'vcap5_dca', 'vmware']
-tags: ['pvlan','dvs']
+tags: ['trunk_port', 'pvlan','dvs']
 ---
 
 ### Identify types of VLANs and PVLANs

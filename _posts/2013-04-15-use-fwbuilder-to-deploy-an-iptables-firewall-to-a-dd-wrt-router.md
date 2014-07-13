@@ -3,10 +3,8 @@ title: Use FWBuilder to Deploy an IPtables Firewall to a DD-WRT Router
 author: Karim Elatov
 layout: post
 permalink: /2013/04/use-fwbuilder-to-deploy-an-iptables-firewall-to-a-dd-wrt-router/
-dsq_thread_id:
-  - 1405531416
 categories: ['os', 'home_lab', 'networking']
-tags: ['linux', 'iptables', 'dd_wrt', 'fwbuilder', 'nat']
+tags: ['fedora', 'upnp', 'linux', 'iptables', 'dd_wrt', 'fwbuilder', 'nat']
 ---
 
 I decided to learn how [FWBuilder](http://www.fwbuilder.org/) works and what is better than deploying in a home environment and making sure nothing breaks in the process? At home I have a router that is running [DD-WRT](http://www.dd-wrt.com) and FWBuilder works with that. So I decided to use that as my test, a good starting point is the [how-to](http://www.dd-wrt.com/wiki/index.php/Firewall_Builder) from DD-WRT.

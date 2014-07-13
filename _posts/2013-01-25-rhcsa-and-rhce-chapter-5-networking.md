@@ -3,10 +3,8 @@ title: RHCSA and RHCE Chapter 5 Networking
 author: Karim Elatov
 layout: post
 permalink: /2013/01/rhcsa-and-rhce-chapter-5-networking/
-dsq_thread_id:
-  - 1406334271
 categories: ['os', 'certifications', 'networking', 'rhcsa_rhce', 'vmware']
-tags: ['linux', 'dns', 'ip_route', 'lsof', 'route']
+tags: ['port_channel', 'rhel', 'linux', 'dns', 'ip_routing']
 ---
 
 The basics of this were covered in [Chapter 1](/2013/01/rhcsa-and-rhce-chapter-1-installation/). Here is quick look at my **ifconfig** output:

@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2012/10/virtual-machine-clone-fails-with-a-general-system-error-occurred-configuration-information-is-inaccessible/
 categories: ['storage', 'vmware']
-tags: ['cbt', 'vm_clone', 'ctk']
+tags: ['cbt', 'vm_clone']
 ---
 
 Recently ran into an issue when cloning a VM. The clone would start and would run and at about 99% it would fail with the following error:

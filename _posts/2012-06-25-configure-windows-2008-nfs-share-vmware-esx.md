@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2012/06/configure-windows-2008-nfs-share-vmware-esx/
 categories: ['home_lab', 'storage', 'vmware']
-tags: [ 'nfs', 'server_roles', 'win2k8r2']
+tags: [ 'nfs', 'win2k8r2']
 ---
 
 I decided to expand on the following VMware blog: [How to Enable NFS on Windows 2008 and Present to ESX](http://blogs.vmware.com/kb/2011/05/how-to-enable-nfs-on-windows-2008-and-present-to-esx.html). The same warning applies to this post as well:

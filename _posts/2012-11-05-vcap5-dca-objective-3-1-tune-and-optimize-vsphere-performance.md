@@ -3,10 +3,8 @@ title: VCAP5-DCA Objective 3.1 – Tune and Optimize vSphere Performance
 author: Karim Elatov
 layout: post
 permalink: /2012/11/vcap5-dca-objective-3-1-tune-and-optimize-vsphere-performance/
-dsq_thread_id:
-  - 1409019313
 categories: ['certifications', 'vcap5_dca', 'vmware']
-tags: ['performance']
+tags: ['tso', 'vaai', 'thick_provisioning','performance']
 ---
 
 ### Identify appropriate BIOS and firmware setting requirements for optimal ESXi host performance

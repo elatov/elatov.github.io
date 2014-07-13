@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2012/10/mounting-an-ntfs-disk-in-write-mode-in-freebsd-9/
 categories: ['os']
-tags: ['rc_conf', 'fdisk', 'freebsd', 'fusefs', 'gpart', 'ntfs']
+tags: ['fdisk', 'freebsd', 'gpart', 'ntfs']
 ---
 
 I was trying to share data between a Windows Machine and FreeBSD machine. They were not connected over the network so I decided to use my USB drive to transfer the data. I formatted the drive NTFS from the Windows side and then tried to transfer the data onto the disk from the FreeBSD machine. When I plugged in the drive into the FreeBSD machine I saw the following:

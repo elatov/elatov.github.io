@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2012/09/fixing-a-ghostedinconsistent-distributed-virtual-switch-by-migrating-to-a-standard-virtual-switch/
 categories: ['networking', 'vmware']
-tags: ['dvs', 'standard_virtual_switch']
+tags: ['dvs']
 ---
 
 There are a couple of steps to this process. First you need to determine if you have an inconsistent/broken/ghosted DVS.

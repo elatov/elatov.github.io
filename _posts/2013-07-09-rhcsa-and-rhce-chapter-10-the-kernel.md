@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2013/07/rhcsa-and-rhce-chapter-10-the-kernel/
 categories: ['networking', 'certifications', 'os', 'rhcsa_rhce']
-tags: ['linux', 'performance', 'kernel']
+tags: ['rhel', 'linux', 'performance', 'kernel']
 ---
 
 ## Kernel

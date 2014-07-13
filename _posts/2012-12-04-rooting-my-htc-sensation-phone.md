@@ -3,10 +3,8 @@ title: Rooting my HTC Sensation Phone
 author: Karim Elatov
 layout: post
 permalink: /2012/12/rooting-my-htc-sensation-phone/
-dsq_thread_id:
-  - 1405469582
 categories: ['os']
-tags: ['android', 'cyanogenmod', 'htc_sensation', 'adb', 'root_phone']
+tags: ['mmcblk0', 'android', 'cyanogenmod', 'adb']
 ---
 
 I wanted to root my HTC Sensation phone, since I have been putting it off for a while. I read some good guides on how to do it, here is a list:

@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2014/02/esxi-backups-zfs-xsibackup/
 categories: ['os', 'home_lab', 'storage', 'vmware', 'zfs']
-tags: ['smtp', 'opensolaris', 'iscsi', 'xsibackup']
+tags: ['comstar', 'smtp', 'opensolaris', 'iscsi', 'xsibackup']
 ---
 
 ## ZFS Setup

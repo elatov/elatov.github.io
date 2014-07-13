@@ -3,8 +3,6 @@ title: VCAP5-DCA Objective 4.1 – Implement and Maintain Complex VMware HA Solu
 author: Karim Elatov
 layout: post
 permalink: /2012/11/vcap5-dca-objective-4-1-implement-and-maintain-complex-vmware-ha-solutions/
-dsq_thread_id:
-  - 1406786602
 categories: ['certifications', 'vcap5_dca', 'vmware']
 tags: ['ha']
 ---

@@ -3,10 +3,8 @@ title: VCAP5-DCA Objective 1.2 – Manage Storage Capacity in a vSphere Environm
 author: Karim Elatov
 layout: post
 permalink: /2012/10/vcap5-dca-objective-1-2-manage-storage-capacity-in-a-vsphere-environment/
-dsq_thread_id:
-  - 1406610580
 categories: ['storage','certifications', 'vcap5_dca', 'vmware']
-tags: ['thick_provisioning', 'thin_provisioning', 'storage_drs']
+tags: ['thick_provisioning', 'thin_provisioning', 'drs']
 ---
 
 ### Identify storage provisioning methods

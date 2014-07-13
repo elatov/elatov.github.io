@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2013/01/rhcsa-and-rhce-chapter-3-disks-and-partitioning/
 categories: ['storage','os','home_lab', 'certifications', 'rhcsa_rhce']
-tags: ['ext3', 'linux', 'fdisk', 'lvm', 'mdadm', 'raid', 'yum']
+tags: ['rhel', 'ext3', 'linux', 'fdisk', 'lvm', 'raid']
 ---
 
 ### RHEL DVD as a Software Repository

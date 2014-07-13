@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2014/01/updating-esxi-5-0u2-esxi-5-1u1/
 categories: ['home_lab', 'vmware']
-tags: ['esxcli', 'hostd']
+tags: ['macmini', 'esxcli', 'hostd']
 ---
 
 I decided to update my ESXi host to 5.1 just cause it was time to catch up on updates.

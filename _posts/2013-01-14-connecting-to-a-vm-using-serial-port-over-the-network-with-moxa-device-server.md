@@ -3,9 +3,7 @@ title: 'Connecting to a VM using "Serial Port Over the Network" With a Moxa Devi
 author: Karim Elatov
 layout: post
 permalink: /2013/01/connecting-to-a-vm-using-serial-port-over-the-network-with-moxa-device-server/
-dsq_thread_id:
-  - 1405544653
-categories: ['networking', 'os', 'vmware']
+categories: ['networking', 'vmware']
 tags: ['esx_firewall', 'moxa', 'netcat', 'virtual_serial_port']
 ---
 

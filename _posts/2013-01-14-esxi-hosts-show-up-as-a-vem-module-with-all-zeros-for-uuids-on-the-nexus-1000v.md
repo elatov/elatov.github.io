@@ -3,10 +3,8 @@ title: ESXi Hosts Show Up as a VEM Module with All Zeros for UUIDs on the Nexus 
 author: Karim Elatov
 layout: post
 permalink: /2013/01/esxi-hosts-show-up-as-a-vem-module-with-all-zeros-for-uuids-on-the-nexus-1000v/
-dsq_thread_id:
-  - 1406332841
 categories: ['networking', 'vmware']
-tags: ['bios_uuid', 'nexus_1000v', 'system_uuid', 'vemcmd', 'vsish']
+tags: ['bios_uuid', 'nexus_1000v', 'system_uuid', 'vemcmd']
 ---
 
 We were troubleshooting an issue with the N1K, where random VMs would lose network connectivity. Upon running a "show mod" on the N1K we saw the following:

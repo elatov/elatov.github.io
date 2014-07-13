@@ -3,10 +3,8 @@ title: 'RHCSA and RHCE Chapter 9 - System Logging, Monitoring, and Automation'
 author: Karim Elatov
 layout: post
 permalink: /2013/06/rhcsa-and-rhce-chapter-9-system-logging-monitoring-and-automation/
-dsq_thread_id:
-  - 1482618967
 categories: ['os','certifications', 'rhcsa_rhce']
-tags: ['linux', 'rsyslog', 'performance']
+tags: ['rhel', 'linux', 'rsyslog', 'performance']
 ---
 
 ## Syslog

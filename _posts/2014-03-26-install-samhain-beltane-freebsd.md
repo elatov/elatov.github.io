@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2014/03/install-samhain-beltane-freebsd/
 categories: ['home_lab', 'os']
-tags: ['beltane', 'freebsd', 'hids', 'samhain']
+tags: ['mysql', 'php', 'beltane', 'freebsd', 'hids', 'samhain']
 ---
 
 I wanted to add extra security to my home lab and I heard good things about the HIDS (Host-based Intrusion Detection System) software called [Samhain](http://www.la-samhna.de/samhain/).

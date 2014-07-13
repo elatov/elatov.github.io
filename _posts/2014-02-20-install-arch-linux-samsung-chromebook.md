@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2014/02/install-arch-linux-samsung-chromebook/
 categories: ['os']
-tags: ['linux', 'arch_linux', 'chromebook']
+tags: ['pulseaudio', 'gpt', 'linux', 'arch_linux', 'chromebook']
 ---
 
 I decided to try out [Arch Linux](https://www.archlinux.org/) on the Samsung Chromebook. Before I was running Ubuntu, to check out the install process for Chrubuntu check out my previous posts:

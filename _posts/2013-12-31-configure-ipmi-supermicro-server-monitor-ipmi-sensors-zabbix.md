@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2013/12/configure-ipmi-supermicro-server-monitor-ipmi-sensors-zabbix/
 categories: ['os','home_lab', 'vmware']
-tags: ['linux', 'ipmi', 'monitoring', 'zabbix']
+tags: ['debian', 'linux', 'ipmi', 'monitoring', 'zabbix']
 ---
 
 At home I have a SuperMicro [X8DTU-F](http://www.supermicro.com/products/motherboard/qpi/5500/x8dtu-f.cfm) server and I noticed that it has a dedicated NIC for *IPMI* (Intelligent Platform Management Interface).

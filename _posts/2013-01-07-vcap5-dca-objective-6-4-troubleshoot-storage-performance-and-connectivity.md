@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2013/01/vcap5-dca-objective-6-4-troubleshoot-storage-performance-and-connectivity/
 categories: ['storage', 'certifications', 'vcap5_dca', 'vmware']
-tags: ['psp','nmp', 'tur', 'iscsi', 'performance','esxtop','vmfs']
+tags: ['queue_depth', 'davg', 'psp','nmp', 'tur', 'iscsi', 'performance','esxtop','vmfs','gpt']
 ---
 
 ### Identify logs used to troubleshoot storage issues

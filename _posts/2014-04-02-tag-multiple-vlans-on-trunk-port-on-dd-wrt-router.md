@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2014/04/tag-multiple-vlans-on-trunk-port-on-dd-wrt-router/
 categories: ['home_lab', 'networking', 'vmware']
-tags: ['dd_wrt', 'trunk_port']
+tags: ['iptables', 'dd_wrt', 'trunk_port']
 ---
 
 I was running an ESXi host in my home network and I wanted to dedicate on NIC of the ESXi for VM traffic. Since I was planning on having different networks, I decide to plug this NIC into a trunk port of the dd-wrt router. This way, I can just assign the VM to an appropriate virtual network and it will have access to it's corresponding network.

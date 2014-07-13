@@ -4,7 +4,7 @@ layout: post
 title: "Create a Test Wordpress Instance using Puppet and Vagrant"
 author: Karim Elatov
 categories: [os]
-tags: [mysql, wordpress,puppet,vagrant,virtualbox]
+tags: [opensuse, apache, mysql, wordpress,puppet,vagrant,virtualbox]
 ---
 
 As I was playing around with **Vagrant**:

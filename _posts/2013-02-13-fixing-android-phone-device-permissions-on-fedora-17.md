@@ -3,10 +3,8 @@ title: Fixing Android Phone Device Permissions on Fedora 17
 author: Karim Elatov
 layout: post
 permalink: /2013/02/fixing-android-phone-device-permissions-on-fedora-17/
-dsq_thread_id:
-  - 1404673484
 categories: ['os']
-tags: ['fedora', 'linux', 'adb',  'htc',  'udev', 'android' ]
+tags: ['fedora', 'linux', 'adb', 'udev', 'android' ]
 ---
 
 I was connecting my *HTC* phone to another *Fedora* computer and I realized I didn't have appropriate permissions to the device. After I plugged in the device, **adb** gave me the following error:

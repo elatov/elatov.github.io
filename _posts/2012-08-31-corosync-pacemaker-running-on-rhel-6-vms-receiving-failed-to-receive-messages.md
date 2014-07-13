@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2012/08/corosync-pacemaker-running-on-rhel-6-vms-receiving-failed-to-receive-messages/
 categories: ['networking', 'os', 'vmware']
-tags: ['rhel', 'linux', 'corosync', 'igmp', 'msi', 'multicast', 'pacemaker','performance']
+tags: ['rhel', 'linux', 'corosync', 'igmp', 'msi', 'multicast', 'performance']
 ---
 
 I ran into in an interesting issue with Corosync Pacemaker. Before we get down to the trouble shooting let's figure out what Corosync Pacemaker is, from the [Corosync FAQ](https://github.com/corosync/corosync/wiki/why-was-corosync-created):

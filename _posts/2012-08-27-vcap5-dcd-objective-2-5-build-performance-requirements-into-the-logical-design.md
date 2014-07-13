@@ -4,10 +4,8 @@ title: VCAP5-DCD Objective 2.5 – Build Performance Requirements into the Logic
 author: Karim Elatov
 layout: post
 permalink: /2012/08/vcap5-dcd-objective-2-5-build-performance-requirements-into-the-logical-design/
-dsq_thread_id:
-  - 1405626520
 categories: ['certifications', 'vcap5_dcd', 'vmware']
-tags: ['logical_design']
+tags: ['sioc', 'logical_design']
 ---
 
 ### Understand what logical performance services are provided by VMware solutions

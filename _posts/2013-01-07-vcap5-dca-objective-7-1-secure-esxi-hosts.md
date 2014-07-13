@@ -3,10 +3,8 @@ title: VCAP5-DCA Objective 7.1 – Secure ESXi Hosts
 author: Karim Elatov
 layout: post
 permalink: /2013/01/vcap5-dca-objective-7-1-secure-esxi-hosts/
-dsq_thread_id:
-  - 1404744981
 categories: ['certifications', 'vcap5_dca', 'vmware']
-tags: ['esx_firewall','ssl','esx_conf']
+tags: ['dcui', 'esx_firewall','ssl','esx_conf']
 ---
 
 ### Identify configuration files related to network security

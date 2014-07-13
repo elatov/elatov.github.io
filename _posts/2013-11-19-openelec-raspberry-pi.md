@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2013/11/openelec-raspberry-pi/
 categories: ['os']
-tags: ['linux', 'openelec', 'raspberry_pi', 'xbmc']
+tags: ['mmcblk0', 'optware', 'upnp', 'linux', 'openelec', 'raspberry_pi', 'xbmc']
 ---
 
 ## Raspberry Pi

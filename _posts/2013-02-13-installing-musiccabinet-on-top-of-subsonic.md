@@ -4,10 +4,8 @@ title: Installing MusicCabinet on Top of SubSonic
 author: Karim Elatov
 layout: post
 permalink: /2013/02/installing-musiccabinet-on-top-of-subsonic/
-dsq_thread_id:
-  - 1406034084
 categories: ['os']
-tags: [ 'linux', 'fedora', 'lastfm', 'musiccabinet', 'postgresql', 'scrobbling', 'subsonic']
+tags: [ 'linux', 'fedora', 'lastfm', 'musiccabinet', 'postgresql', 'subsonic']
 ---
 
 A while back I posted about installing subsonic. While I was using the application, I noticed that the search feature is very limited and I wanted to expand it. So I ran across [MusicCabinet](/2012/10/installing-subsonic-on-fedora-17/), from their webpage:

@@ -4,10 +4,8 @@ title: Monitor Different Systems with Zenoss
 author: Karim Elatov
 layout: post
 permalink: /2013/03/monitor-different-systems-with-zenoss/
-dsq_thread_id:
-  - 1404672919
 categories: ['home_lab', 'networking']
-tags: ['linux','freebsd','monitoring', 'zenoss', 'snmp']
+tags: ['mysql', 'linux','freebsd','monitoring', 'zenoss', 'snmp']
 ---
 
 This is the third part and continuation of the 'Network Monitoring Software Comparison' series. Here is the link to the [wiki](/2013/02/monitor-different-systems-with-collectd) page, we see the followin

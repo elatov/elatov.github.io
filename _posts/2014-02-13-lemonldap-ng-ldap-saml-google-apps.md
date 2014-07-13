@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2014/02/lemonldap-ng-ldap-saml-google-apps/
 categories: ['home_lab', 'os']
-tags: ['linux','centos','389_directory_server', 'lemonldap_ng', 'saml','sso']
+tags: ['ldap', 'linux','centos','389_directory_server', 'lemonldap_ng', 'saml','sso']
 ---
 
 I wanted to try out a WebSSO program and I ran into [LemonLDAP-NG](http://lemonldap-ng.org/welcome/)

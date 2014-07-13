@@ -3,10 +3,8 @@ title: Configure HAProxy to Load Balance Sites With SSL
 author: Karim Elatov
 layout: post
 permalink: /2013/05/configure-haproxy-to-load-balance-sites-with-ssl/
-dsq_thread_id:
-  - 1405283642
 categories: ['os','home_lab']
-tags: ['linux', 'haproxy', 'load_balancing', 'ssl','iis']
+tags: ['centos', 'linux', 'haproxy', 'load_balancing', 'ssl','iis']
 ---
 
 Starting with **HAproxy** version 1.5, SSL is supported. From the main [Haproxy](http://haproxy.1wt.eu/) site:

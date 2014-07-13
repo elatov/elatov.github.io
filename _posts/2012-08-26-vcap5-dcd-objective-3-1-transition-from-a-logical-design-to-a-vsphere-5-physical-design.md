@@ -3,8 +3,6 @@ title: VCAP5-DCD Objective 3.1 – Transition from a Logical Design to a vSphere
 author: Karim Elatov
 layout: post
 permalink: /2012/08/vcap5-dcd-objective-3-1-transition-from-a-logical-design-to-a-vsphere-5-physical-design/
-dsq_thread_id:
-  - 1406227705
 categories: ['vcap5_dcd', 'vmware', 'certifications']
 tags: ['logical_design', 'physical_design']
 ---

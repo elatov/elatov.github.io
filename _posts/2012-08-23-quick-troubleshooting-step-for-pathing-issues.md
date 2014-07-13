@@ -5,7 +5,7 @@ author: Karim Elatov
 layout: post
 permalink: /2012/08/quick-troubleshooting-step-for-pathing-issues/
 categories: ['storage', 'vmware']
-tags: ['nmp', 'tur']
+tags: ['fiber_channel', 'nmp', 'tur']
 ---
 
 I was having weird issues in our lab. When IO was going down one HBA, all was well, but when it went down the other path, it was very intermittent. Here is how the pathing looked like for one of the LUNs:

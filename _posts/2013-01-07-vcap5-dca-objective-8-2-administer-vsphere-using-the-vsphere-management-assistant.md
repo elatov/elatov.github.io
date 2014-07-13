@@ -3,10 +3,8 @@ title: VCAP5-DCA Objective 8.2 – Administer vSphere Using the vSphere Manageme
 author: Karim Elatov
 layout: post
 permalink: /2013/01/vcap5-dca-objective-8-2-administer-vsphere-using-the-vsphere-management-assistant/
-dsq_thread_id:
-  - 1411740703
 categories: ['storage', 'certifications', 'vcap5_dca', 'vmware']
-tags: ['vma']
+tags: ['vma','gpt']
 ---
 
 ### Identify vMA prerequisites

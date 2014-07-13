@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2014/04/rhcsa-rhce-chapter-16-samba/
 categories: ['certifications', 'os', 'rhcsa_rhce']
-tags: ['rhel','linux', 'samba','selinux']
+tags: ['iptables', 'rhel','linux', 'samba','selinux']
 ---
 
 ## Samba

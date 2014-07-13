@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2012/04/esx-host-experiencing-high-latency-to-a-hitachi-array/
 categories: ['storage', 'vmware']
-tags: ['performance', 'nmp','psp', 'davg', 'hitachi_hds', 'scsi_reservations']
+tags: ['fiber_channel', 'performance', 'nmp','psp', 'davg', 'hitachi_hds', 'scsi_reservations']
 ---
 
 Recently I received a call from a European customer saying that they were having performance issues with their VMs. Whenever I hear performance issues, I automatically think esxtop. To check out some good articles regarding esxtop and troubleshooting performance issues, check out my previous post ([vReference pdf](/2012/04/ubuntu-11-10-vms-experience-high-storage-latency-on-esxi-5-0/). Here are a couple of pictures from that pdf:

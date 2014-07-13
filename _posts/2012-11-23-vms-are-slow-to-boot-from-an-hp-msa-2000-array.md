@@ -3,10 +3,8 @@ title: VMs are Slow to Boot from an HP MSA 2000 Array
 author: Karim Elatov
 layout: post
 permalink: /2012/11/vms-are-slow-to-boot-from-an-hp-msa-2000-array/
-dsq_thread_id:
-  - 1404673734
 categories: ['storage', 'vmware']
-tags: ['davg', 'esxtop', 'hp_msa', 'qlogic']
+tags: ['performance', 'davg', 'esxtop', 'hp_msa', 'qlogic']
 ---
 
 We were trying to power on a couple of VMs on an ESX 3.5 host and they would take forever to boot. Opening esxtop and checking the latency to the array we saw the following:

@@ -4,10 +4,8 @@ title: Getting an ESX Host Up on the Network, Running on VMware Workstation
 author: Karim Elatov
 layout: post
 permalink: /2012/08/getting-an-esx-host-up-on-the-network-running-on-vmware-workstation/
-dsq_thread_id:
-  - 1409908927
 categories: ['home_lab', 'networking', 'vmware']
-tags: ['nat', 'nested_esx', 'vswif', 'vmware_workstation']
+tags: ['nat', 'nested_esx', 'vmware_workstation']
 ---
 
 I was recently setting up an ESX and ESXi host on my local VMware Workstation, however whatever I tried I couldn't get the ESX host to reply to pings. I setup the ESX and ESXi host to use the NAT network from the VMware Workstation. Here is how the NAT settings looked like from the Virtual Network Editor:

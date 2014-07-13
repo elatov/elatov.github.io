@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2012/09/vcap5-dcd-objective-3-4-determine-appropriate-compute-resources-for-a-vsphere-5-physical-design/
 categories: ['certifications', 'vcap5_dcd', 'vmware']
-tags: ['cisco_ucs', 'physical_design']
+tags: ['performance', 'cisco_ucs', 'physical_design']
 ---
 
 ### Describe best practices with respect to CPU family choices
@@ -471,16 +471,16 @@ from "[Sizing server hardware for virtual machines](http://searchservervirtualiz
 From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf)":
 
 > *   Make sure that end-to-end Fibre Channel speeds are consistent to help avoid performance problems.
-> *   Configure maximum queue depth for Fibre Channel HBA cards.
+> *   Configure maximum queue depth for Fibre Channel HBA cards.
 > *   For the best networking performance, we recommend the use of network adapters that support the following hardware features:
->     *    Checksum offload
->     *    TCP segmentation offload (TSO)
->     *    Ability to handle high-memory DMA (that is, 64-bit DMA addresses)
->     *    Ability to handle multiple Scatter Gather elements per Tx frame
->     *    Jumbo frames (JF)
->     *    Large receive offload (LRO)
+>     *    Checksum offload
+>     *    TCP segmentation offload (TSO)
+>     *    Ability to handle high-memory DMA (that is, 64-bit DMA addresses)
+>     *    Ability to handle multiple Scatter Gather elements per Tx frame
+>     *    Jumbo frames (JF)
+>     *    Large receive offload (LRO)
 > *   On some 10 Gigabit Ethernet hardware network adapters, ESXi supports NetQueue, a technology that significantly improves performance of 10 Gigabit Ethernet network adapters in virtualized environments.
-> *   In addition to the PCI and PCI-X bus architectures, we now have the PCI Express (PCIe) architecture. Ideally single-port 10 Gigabit Ethernet network adapters should use PCIe x8 (or higher) or PCI-X 266 and dual-port 10 Gigabit Ethernet network adapters should use PCIe x16 (or higher). There should preferably be no “bridge chip” (e.g., PCI-X to PCIe or PCIe to PCI-X) in the path to the actual Ethernet device (including any embedded bridge chip on the device itself), as these chips can reduce performance.
+> *   In addition to the PCI and PCI-X bus architectures, we now have the PCI Express (PCIe) architecture. Ideally single-port 10 Gigabit Ethernet network adapters should use PCIe x8 (or higher) or PCI-X 266 and dual-port 10 Gigabit Ethernet network adapters should use PCIe x16 (or higher). There should preferably be no “bridge chip” (e.g., PCI-X to PCIe or PCIe to PCI-X) in the path to the actual Ethernet device (including any embedded bridge chip on the device itself), as these chips can reduce performance.
 
 For Internal storage, from "[vSphere Installation and Setup vSphere 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf)":
 

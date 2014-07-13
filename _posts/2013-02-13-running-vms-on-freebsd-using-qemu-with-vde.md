@@ -4,10 +4,8 @@ title: Running VMs On FreeBSD using QEMU with VDE
 author: Karim Elatov
 layout: post
 permalink: /2013/02/running-vms-on-freebsd-using-qemu-with-vde/
-dsq_thread_id:
-  - 1406836724
 categories: ['home_lab', 'networking', 'os']
-tags: [ 'bhyve', 'freebsd', 'kvm', 'qemu', 'tun_tap', 'vde', 'virtualbox']
+tags: ['vnc', 'bhyve', 'freebsd', 'kvm', 'qemu', 'tun_tap', 'vde', 'virtualbox']
 ---
 
 I decided to run some VMs on my FreeBSD server. Checking over [BHyve](http://en.wikipedia.org/wiki/Comparison_of_platform_virtual_machines), apparently it's being developed in collaboration with *NetAPP*. The project is currently supported in FreeBSD 10 and I was running FreeBSD 9. So after all of my research, I decided to give *Qemu*/*KQemu* a try.

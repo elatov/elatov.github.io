@@ -3,10 +3,8 @@ title: IBM HS22 Blades Running ESXi 5.0 Experience Random Hangs
 author: Karim Elatov
 layout: post
 permalink: /2012/11/ibm-hs22-blades-running-esxi-5-0-experience-random-hangs/
-dsq_thread_id:
-  - 1404673715
 categories: ['storage', 'vmware']
-tags: ['interrupt_remapping', 'iovdisableir', 'ibm']
+tags: ['interrupt_remapping', 'ibm']
 ---
 
 Every couple of days we would see one of our ESXi host disconnect from vCenter and it would stay disconnected until we rebooted the host. Checking out the logs, prior to the reboot we would see the following:

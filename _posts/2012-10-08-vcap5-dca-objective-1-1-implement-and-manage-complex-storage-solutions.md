@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2012/10/vcap5-dca-objective-1-1-implement-and-manage-complex-storage-solutions/
 categories: ['storage','certifications', 'vcap5_dca', 'vmware']
-tags: ['vaai', 'lun_snapshot', 'raid','npiv','vmfs']
+tags: ['performance', 'fiber_channel', 'iscsi', 'psa', 'vaai', 'snapshot_lun', 'raid','npiv','vmfs']
 ---
 
 ### Identify RAID levels

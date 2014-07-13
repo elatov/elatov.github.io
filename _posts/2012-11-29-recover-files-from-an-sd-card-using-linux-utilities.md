@@ -3,10 +3,8 @@ title: Recover Files from an SD Card Using Linux Utilities
 author: Karim Elatov
 layout: post
 permalink: /2012/11/recover-files-from-an-sd-card-using-linux-utilities/
-dsq_thread_id:
-  - 1406057191
 categories: ['os']
-tags: ['linux', 'mmcblk0', 'dd', 'foremost', 'magicrescue', 'photorec', 'sleuth_kit', 'testdisk']
+tags: ['fedora', 'linux', 'mmcblk0', 'dd', 'foremost', 'magicrescue', 'photorec', 'sleuth_kit', 'testdisk']
 ---
 
 I recently dropped my phone and right after I picked it back up the Android OS has been unable to see the contents of the SD Card. I had a couple of photos on there that I really wanted to keep. Luckily my laptop had an SD Card Reader and I had a Micro-SD to SD Converter from my previous efforts to transfer data to my phone. I plugged the SD card into my laptop and I saw the device without issues:

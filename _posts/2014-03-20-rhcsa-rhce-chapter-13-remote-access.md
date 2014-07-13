@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2014/03/rhcsa-rhce-chapter-13-remote-access/
 categories: ['os', 'certifications', 'rhcsa_rhce']
-tags: ['linux', 'openssh', 'rhel', 'vnc']
+tags: ['linux', 'rhel', 'vnc']
 ---
 
 ## OpenSSH

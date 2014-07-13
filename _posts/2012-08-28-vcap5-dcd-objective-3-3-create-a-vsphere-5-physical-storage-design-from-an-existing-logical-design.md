@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2012/08/vcap5-dcd-objective-3-3-create-a-vsphere-5-physical-storage-design-from-an-existing-logical-design/
 categories: ['storage', 'certifications', 'vcap5_dcd', 'vmware']
-tags: ['alua', 'psp','raid', 'vaai', 'physical_design', 'logical_design']
+tags: ['fcoe', 'fiber_channel', 'san_zoning', 'sioc', 'vmotion', 'iscsi', 'port_channel', 'alua', 'psp','raid', 'vaai', 'physical_design', 'logical_design']
 ---
 
 ### Describe selection criteria for commonly used RAID types
@@ -213,9 +213,9 @@ From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/
 > **Storage I/O Resource Allocation**
 > VMware vSphere provides mechanisms to dynamically allocate storage I/O resources, allowing critical workloads to maintain their performance even during peak load periods when there is contention for I/O resources. This allocation can be performed at the level of the individual host or for an entire datastore. Both methods are described below.
 >
-> *   The storage I/O resources available to an ESXi host can be proportionally allocated to the virtual machines running on that host by using the vSphere Client to set disk shares for the virtual machines (select Edit virtual machine settings, choose the Resources tab, select Disk, then change the Shares field).
-> *   The maximum storage I/O resources available to each virtual machine can be set using limits. These limits, set in I/O operations per second (IOPS), can be used to provide strict isolation and control on certain workloads. By default, these are set to unlimited. When set to any other value, ESXi enforces the limits even if the underlying datastores are not fully utilized.
-> *   An entire datastore’s I/O resources can be proportionally allocated to the virtual machines accessing that datastore using Storage I/O Control (SIOC). When enabled, SIOC evaluates the disk share values set for all virtual machines accessing a datastore and allocates that datastore’s resources accordingly. SIOC can be enabled using the vSphere Client (select a datastore, choose the Configuration tab, click Properties...(at the far right), then under Storage I/O Control add a checkmark to the Enabled box).
+> *   The storage I/O resources available to an ESXi host can be proportionally allocated to the virtual machines running on that host by using the vSphere Client to set disk shares for the virtual machines (select Edit virtual machine settings, choose the Resources tab, select Disk, then change the Shares field).
+> *   The maximum storage I/O resources available to each virtual machine can be set using limits. These limits, set in I/O operations per second (IOPS), can be used to provide strict isolation and control on certain workloads. By default, these are set to unlimited. When set to any other value, ESXi enforces the limits even if the underlying datastores are not fully utilized.
+> *   An entire datastore’s I/O resources can be proportionally allocated to the virtual machines accessing that datastore using Storage I/O Control (SIOC). When enabled, SIOC evaluates the disk share values set for all virtual machines accessing a datastore and allocates that datastore’s resources accordingly. SIOC can be enabled using the vSphere Client (select a datastore, choose the Configuration tab, click Properties...(at the far right), then under Storage I/O Control add a checkmark to the Enabled box).
 >
 > With SIOC disabled (the default), all hosts accessing a datastore get an equal portion of that datastore’s resources. Any shares values determine only how each host’s portion is divided amongst its virtual machines.
 >
@@ -303,8 +303,8 @@ And more:
 > **Why Use RDMs?**
 > Even with all the advantages of VMFS, there are still some cases where it makes more sense to use RDM storage access. Two scenarios that call for raw disk mapping are:
 >
-> *    Migrating an existing application from a physical environment to virtualization
-> *    Using Microsoft Cluster Services (MSCS) for clustering in a virtual environment
+> *    Migrating an existing application from a physical environment to virtualization
+> *    Using Microsoft Cluster Services (MSCS) for clustering in a virtual environment
 
 Here are some more reasons to use RDMs:
 

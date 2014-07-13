@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2012/09/getting-openindiana-back-to-its-original-state-after-updating-by-doing-a-clean-install/
 categories: ['home_lab', 'storage', 'vmware', 'zfs']
-tags: [ 'comstar', 'opensolaris', 'svcadm', 'iscsi'] 
+tags: [ 'comstar', 'opensolaris', 'smf', 'iscsi'] 
 ---
 
 I decided to update from **oi_151a4** to **oi_151a5**. I tried using **pkg**:

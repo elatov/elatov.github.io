@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: "/2014/05/rhcsa-rhce-chapter-22-virtualization-with-kvm/"
 categories: ['os', 'certifications', 'home_lab', 'rhcsa_rhce', 'vmware']
-tags: ['kvm', 'rhel', 'libvirt', 'linux']
+tags: ['nat','iptables', 'vnc', 'kvm', 'rhel', 'libvirt', 'linux']
 ---
 
 

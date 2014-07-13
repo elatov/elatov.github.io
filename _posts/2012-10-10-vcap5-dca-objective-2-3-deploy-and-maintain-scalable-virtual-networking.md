@@ -3,10 +3,8 @@ title: VCAP5-DCA Objective 2.3 – Deploy and Maintain Scalable Virtual Networki
 author: Karim Elatov
 layout: post
 permalink: /2012/10/vcap5-dca-objective-2-3-deploy-and-maintain-scalable-virtual-networking/
-dsq_thread_id:
-  - 1404673378
 categories: ['networking', 'certifications', 'vcap5_dca', 'vmware']
-tags: ['spanning_tree']
+tags: ['iscsi', 'stp','beacon_probing']
 ---
 
 ### Identify VMware NIC Teaming policies

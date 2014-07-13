@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2012/09/vcap5-dcd-objective-3-5-determine-virtual-machine-configuration-for-a-vsphere-5-physical-design/
 categories: ['certifications', 'vcap5_dcd', 'vmware']
-tags: ['vapp', 'physical_design', 'rdm','thin_provisioning', 'fault_tolerance']
+tags: ['performance', 'vhw', 'thick_provisioning', 'vapp', 'physical_design', 'rdm','thin_provisioning', 'fault_tolerance']
 ---
 
 ### Describe the applicability of using an RDM or a virtual disk for a given VM

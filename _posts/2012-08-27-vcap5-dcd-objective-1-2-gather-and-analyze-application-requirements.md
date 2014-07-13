@@ -3,8 +3,6 @@ title: VCAP5-DCD Objective 1.2 – Gather and analyze application requirements
 author: Karim Elatov
 layout: post
 permalink: /2012/08/vcap5-dcd-objective-1-2-gather-and-analyze-application-requirements/
-dsq_thread_id:
-  - 1410480912
 categories: ['certifications', 'vcap5_dcd', 'vmware']
 tags: ['application_requirements']
 ---

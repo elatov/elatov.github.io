@@ -2,9 +2,9 @@
 title: Connecting to an OpenVPN Server with Various Clients
 author: Karim Elatov
 layout: post
-permalink: /2013/09/onnecting-to-an-openvpn-server-with-various-clients/
+permalink: /2013/09/connecting-to-an-openvpn-server-with-various-clients/
 categories: ['os','home_lab', 'networking']
-tags: ['linux','fedora', 'mac_os_x', 'network_manager', 'openvpn', 'tunnelblick']
+tags: ['ubuntu', 'linux','fedora', 'mac_os_x', 'network_manager', 'openvpn', 'tunnelblick']
 ---
 
 ## OpenVPN

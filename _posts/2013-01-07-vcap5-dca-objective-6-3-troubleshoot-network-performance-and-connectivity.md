@@ -3,10 +3,8 @@ title: VCAP5-DCA Objective 6.3 – Troubleshoot Network Performance and Connecti
 author: Karim Elatov
 layout: post
 permalink: /2013/01/vcap5-dca-objective-6-3-troubleshoot-network-performance-and-connectivity/
-dsq_thread_id:
-  - 1409138249
 categories: ['networking','certifications', 'vcap5_dca', 'vmware']
-tags: ['performance','pvlan','esxtop']
+tags: ['ip_routing', 'span_port', 'performance','pvlan','esxtop']
 ---
 
 ### Identify vCLI commands and tools used to troubleshoot vSphere networking configurations
