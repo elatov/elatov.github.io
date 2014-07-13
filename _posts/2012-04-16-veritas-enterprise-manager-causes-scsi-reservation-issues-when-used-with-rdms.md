@@ -4,10 +4,8 @@ title: Veritas Enterprise Manager Causes SCSI Reservation issues when used with 
 author: Karim Elatov
 layout: post
 permalink: /2012/04/veritas-enterprise-manager-causes-scsi-reservation-issues-when-used-with-rdms/
-dsq_thread_id:
-  - 1407019876
 categories: ['os', 'storage', 'vmware']
-tags: ['fdisk', 'rdm', 'scsi_reservations', 'veritas_enterprise_administrator']
+tags: ['nmp', 'fdisk', 'rdm', 'scsi_reservations', 'veritas_enterprise_administrator']
 ---
 
 I recently ran into an issue where a customer was seeing "SCSI Reservation" messages on one of their hosts. I asked for a log bundle (KB [653](http://kb.vmware.com/kb/653)), and they had sent me one. I was looking over the vmkernel logs (/var/log/vmkernel) and I saw the following:

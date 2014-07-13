@@ -3,10 +3,8 @@ title: RHCSA and RHCE Chapter 4 File Systems and Such
 author: Karim Elatov
 layout: post
 permalink: /2013/01/rhcsa-and-rhce-chapter-4-file-systems-and-such/
-dsq_thread_id:
-  - 1410720052
 categories: ['storage', 'os', 'certifications', 'home_lab', 'rhcsa_rhce']
-tags: [ 'linux', 'fstab', 'badblocks', 'dd', 'ext3', 'luks']
+tags: [ 'exports', 'rhel', 'linux', 'fstab', 'dd', 'ext3', 'luks']
 ---
 
 ### File Systems

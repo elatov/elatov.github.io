@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2014/04/rhcsa-rhce-chapter-15-nfs/
 categories: ['os', 'certifications', 'rhcsa_rhce', 'storage']
-tags: ['linux', 'nfs', 'rhel','selinux','iptables']
+tags: ['exports', 'linux', 'nfs', 'rhel','selinux','iptables']
 ---
 
 ## NFS

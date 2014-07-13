@@ -3,7 +3,7 @@ title: Ubuntu 11.10 VMs Experience High Storage Latency on ESXi 5.0
 author: Karim Elatov
 layout: post
 categories: [ home_lab, os, storage, vmware]
-tags: [ apt-xapian-index, esxtop, io_latency, iostat, ubuntu]
+tags: [ linux, esxtop, io_latency, ubuntu,performance]
 ---
 I have a lab environment where I deploy about 30 VMs on one physical server and run Linux (Ubuntu 11.10) on all the VMs. Here are the specs of the physical machine:
 

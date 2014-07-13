@@ -4,7 +4,7 @@ title: "OpenSUSE Base Box for Vagrant From SUSE Studio"
 author: Karim Elatov
 description: ""
 categories: [os]
-tags: [vagrant,opensuse, suse_studio]
+tags: [grub,vagrant,opensuse, suse_studio]
 ---
 As I was creating an [OpenSUSE base box](/2014/06/create-a-base-opensuse-image-for-vagrant/) for vagrant, I realized that it was still kind of big in size. I wanted to create a minimal base OS of the OpenSUSE Linux Distribution. That is when I ran into [SUSE Studio](https://susestudio.com/). From [SUSE's site](https://www.suse.com/products/susestudio/technical-information/):
 

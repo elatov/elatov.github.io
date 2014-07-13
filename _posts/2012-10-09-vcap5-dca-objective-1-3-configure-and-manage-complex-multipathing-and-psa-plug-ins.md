@@ -3,10 +3,8 @@ title: VCAP5-DCA Objective 1.3 – Configure and Manage Complex Multipathing and
 author: Karim Elatov
 layout: post
 permalink: /2012/10/vcap5-dca-objective-1-3-configure-and-manage-complex-multipathing-and-psa-plug-ins/
-dsq_thread_id:
-  - 1409147731
 categories: ['storage','certifications', 'vcap5_dca', 'vmware']
-tags: ['psa','satp','psp']
+tags: ['nmp', 'psa','satp','psp']
 ---
 
 ### Explain the Pluggable Storage Architecture (PSA) layout

@@ -3,10 +3,8 @@ title: VCAP5-DCD Objective 3.3 – Create a vSphere 5 Physical Storage Design fr
 author: Karim Elatov
 layout: post
 permalink: /2012/08/vcap5-dcd-objective-3-3-create-a-vsphere-5-physical-storage-design-from-an-existing-logical-design/
-dsq_thread_id:
-  - 1404673214
 categories: ['storage', 'certifications', 'vcap5_dcd', 'vmware']
-tags: ['physical_design', 'logical_design']
+tags: ['alua', 'psp','raid', 'vaai', 'physical_design', 'logical_design']
 ---
 
 ### Describe selection criteria for commonly used RAID types

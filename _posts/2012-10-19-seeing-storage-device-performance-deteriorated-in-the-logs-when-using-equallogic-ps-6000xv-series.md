@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2012/10/seeing-storage-device-performance-deteriorated-in-the-logs-when-using-equallogic-ps-6000xv-series/
 categories: ['storage', 'vmware']
-tags: ['disk_max_io_size', 'equallogic','iometer', 'performance','iscsi']
+tags: ['nmp', 'disk_max_io_size', 'equallogic','iometer', 'performance','iscsi']
 ---
 
 A customer was seeing 'Storage Device Performance Deteriorated" message in the logs during their backup operation. More information regarding this message can be seen in VMware KB [Configuring VMware vSphere Software iSCSI With Dell EqualLogic PS Series Storage](http://kb.vmware.com/kb/2007236)". Here are a few things that stood out from the document:

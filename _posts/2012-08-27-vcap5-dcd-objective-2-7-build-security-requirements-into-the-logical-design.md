@@ -3,10 +3,8 @@ title: VCAP5-DCD Objective 2.7 – Build Security Requirements into the Logical 
 author: Karim Elatov
 layout: post
 permalink: /2012/08/vcap5-dcd-objective-2-7-build-security-requirements-into-the-logical-design/
-dsq_thread_id:
-  - 1405747874
 categories: ['certifications', 'vcap5_dcd', 'vmware']
-tags: ['logical_design']
+tags: ['vshield', 'logical_design']
 ---
 
 ### Understand what security services are provided by VMware solutions

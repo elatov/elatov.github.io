@@ -3,10 +3,8 @@ title: 'RHCSA and RHCE Chapter 1 - Installation'
 author: Karim Elatov
 layout: post
 permalink: /2013/01/rhcsa-and-rhce-chapter-1-installation/
-dsq_thread_id:
-  - 1407142439
 categories: ['storage', 'networking', 'certifications', 'home_lab', 'rhcsa_rhce']
-tags: ['linux', 'ifcfg-eth0', 'mbr']
+tags: ['grub', 'rhel', 'linux', 'mbr']
 ---
 
 There is a lot of good information in "[Red Hat Enterprise Linux 6 Installation Guide](https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf)". From that Guide:

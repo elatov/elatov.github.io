@@ -3,7 +3,7 @@ title: Beacon Probes with Port-Channel Causing Mac-Flapping
 author: Karim Elatov
 layout: post
 categories: [networking, vmware]
-tags: [beacon_probing, link_flapping, port_channel]
+tags: [beacon_probing, port_channel]
 ---
 Recently, someone asked me why when using VMware ESX with port-channel and beacon probes causes mac-flapping. This is actually a known cause and effect and I would even say that is the expected behavior. You can read more about it at VMware KB article [Beaconing Demystified: Using Beaconing to Detect Link Failures](http://kb.vmware.com/kb/1012819).  If we don't have any port-channel (port aggregation) setup on the upstream switch then we just send a beacon out of each physical NIC that is part of the port-group which has beacon probing enabled (each beacon has its own MAC address). The beacon is reached across the broadcast domain (so if it hits a router, it would stop there). It would kind of look like this with two uplinks (three uplinks are necessary for beacon to work properly, but this image is just for an example):
 

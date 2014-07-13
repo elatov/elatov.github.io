@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: "/2014/05/rhcsa-rhce-chapter-21-troubleshooting/"
 categories: ['os', 'certifications', 'home_lab', 'networking', 'rhcsa_rhce']
-tags: ['linux', 'ip_routing', 'rhel', 'linux_rescue']
+tags: ['mbr', 'grub', 'linux', 'ip_routing', 'rhel', 'linux_rescue']
 ---
 
 

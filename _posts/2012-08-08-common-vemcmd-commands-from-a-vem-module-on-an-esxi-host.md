@@ -3,10 +3,8 @@ title: "Common 'vemcmd' Commands from a VEM Module on an ESX(i) Host"
 author: Karim Elatov
 layout: post
 permalink: /2012/08/common-vemcmd-commands-from-a-vem-module-on-an-esxi-host/
-dsq_thread_id:
-  - 1404673320
 categories: ['networking', 'vmware']
-tags: ['nexus1000v', 'vem', 'vemcmd', 'virtual_ethernet_module']
+tags: ['nexus_1000v', 'vem']
 ---
 
 Most of these can be seen from running a 'vem-support all' on a host, but I wanted to have a good reference point for my self.

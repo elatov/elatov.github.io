@@ -4,7 +4,7 @@ title: Why SCP and DD from an ESX(i) Host are not Good Performance Tools
 author: Karim Elatov
 layout: post
 categories: ['networking', 'storage', 'vmware']
-tags: ['dd', 'io_analyzer', 'netperf', 'performance', 'scp']
+tags: ['dd', 'io_analyzer', 'performance']
 ---
 
 I am sure many have noticed that whenever you try to scp a file to or from an ESX(i) host the performance is a little slow. Let's take the following example, here is an scp between two hosts on the same switch utilizing links that are 1GB.

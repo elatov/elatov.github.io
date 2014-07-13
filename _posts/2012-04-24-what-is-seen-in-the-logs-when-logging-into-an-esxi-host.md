@@ -5,7 +5,7 @@ author: Karim Elatov
 layout: post
 permalink: /2012/04/what-is-seen-in-the-logs-when-logging-into-an-esxi-host/
 categories: ['vmware']
-tags: [ 'hostd_log', 'dcui', 'dropbear', 'logs']
+tags: [ 'hostd_log', 'dcui', 'dropbear']
 ---
 
 I was recently contacted by a company to determine if a certain user had accessed their ESX host. It was a secure environment so no logs were able to be shared. All they wanted to find out was how he logged in and at what time, the rest they could figure out. I decided to run through a couple of scenarios and send them a log snippet of what I saw.

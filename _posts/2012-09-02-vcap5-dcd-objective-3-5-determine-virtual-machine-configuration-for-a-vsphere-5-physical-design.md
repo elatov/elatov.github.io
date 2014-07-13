@@ -3,10 +3,8 @@ title: VCAP5-DCD Objective 3.5 – Determine Virtual Machine Configuration for a
 author: Karim Elatov
 layout: post
 permalink: /2012/09/vcap5-dcd-objective-3-5-determine-virtual-machine-configuration-for-a-vsphere-5-physical-design/
-dsq_thread_id:
-  - 1404687360
 categories: ['certifications', 'vcap5_dcd', 'vmware']
-tags: ['physical_design', 'rdm','thin_provisioning', 'fault_tolerance']
+tags: ['vapp', 'physical_design', 'rdm','thin_provisioning', 'fault_tolerance']
 ---
 
 ### Describe the applicability of using an RDM or a virtual disk for a given VM

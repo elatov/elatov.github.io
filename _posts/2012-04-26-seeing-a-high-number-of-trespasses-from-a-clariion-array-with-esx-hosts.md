@@ -4,9 +4,8 @@ title: Seeing a High Number of Trespasses from a CLARiiON Array with ESX Hosts
 author: Karim Elatov
 layout: post
 permalink: /2012/04/seeing-a-high-number-of-trespasses-from-a-clariion-array-with-esx-hosts/
-  - 1404673236
 categories: ['storage', 'vmware']
-tags: [ 'alua', 'tgp', 'lun_trespass', 'useano']
+tags: ['nmp', 'alua', 'tgp', 'lun_trespass', 'useano']
 ---
 
 I was recently working with a customer who was experiencing a high number of Trespasses on his CLARiiON Array with 3 ESX 4.0 hosts. While this was happening I saw the following in the logs across all the hosts:

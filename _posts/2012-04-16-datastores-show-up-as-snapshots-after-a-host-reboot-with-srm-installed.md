@@ -4,10 +4,8 @@ title: Datastores show up as Snapshots after a host reboot with SRM installed
 author: Karim Elatov
 layout: post
 permalink: /2012/04/datastores-show-up-as-snapshots-after-a-host-reboot-with-srm-installed/
-dsq_thread_id:
-  - 1406568646
 categories: ['storage', 'vmware']
-tags: ['resignature', 'snapshot_lun', 'srm']
+tags: ['vmfs', 'snapshot_lun', 'srm']
 ---
 
 Today I ran into an interesting issue. A customer called in saying that his VMs are down and some of his Datastores are showing up as snapshots. Looking at the Datastore View from vCenter, we saw the following:

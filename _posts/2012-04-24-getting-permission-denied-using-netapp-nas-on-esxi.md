@@ -4,10 +4,8 @@ title: Getting Permission Denied Using NetApp NAS on ESX(i)
 author: Karim Elatov
 layout: post
 permalink: /2012/04/getting-permission-denied-using-netapp-nas-on-esxi/
-dsq_thread_id:
-  - 1404673168
 categories: ['storage', 'vmware']
-tags: ['exports', 'netapp', 'nfs', 'nfsnobody', 'nosuid', 'root_squash']
+tags: ['exports', 'netapp', 'nfs', 'nosuid']
 ---
 
 A couple of days ago I had an issue with powering on VMs that resided on a NetApp NAS datastore. I logged into the host and tried to see if I had access to the datastore and it was really strange. I could not touch any existing files:

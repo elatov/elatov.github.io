@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2014/01/zfs-iscsi-benchmarks-tests/
 categories: ['os', 'networking', 'storage', 'vmware', 'zfs']
-tags: ['opensolaris', 'performance', 'iscsi', 'omnios']
+tags: ['disk_max_io_size', 'opensolaris', 'performance', 'iscsi', 'omnios']
 ---
 
 Let me just start out by saying that my setup is not perfect, I would actually call it bad. All I have is a 1 1TB SATA disk and 4GB of RAM. There is no redundancy in the setup or a dedicated SSD for ZIL. It's just a regular machine that I had laying around and I wanted to see how OpenSolaris with Comstar would turn out.
