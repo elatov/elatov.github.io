@@ -14,79 +14,12 @@ Recently, someone me asked with the following question.
 
 This VMware article [Dynamic Storage Provisioning](http://www.vmware.com/files/pdf/VMware-DynamicStorageProv-WP-EN.pdf) has a good table of what some differences between the VMware disk provisioning types are:
 
-> <table summary="" border="1" cellspacing="1" cellpadding="1">
->   <tr>
->     <td>
->       **VMDK Format**
->     </td>
->
->     <td>
->       **Space Dedicated**
->     </td>
->
->     <td>
->       **Zeroed Out Blocks**
->     </td>
->
->     <td>
->       **Incremental Growth**
->     </td>
->   </tr>
->
->   <tr>
->     <td>
->       Thin
->     </td>
->
->     <td>
->       Reservation only
->     </td>
->
->     <td>
->       As it is Grows
->     </td>
->
->     <td>
->       1 VMFS block at a time
->     </td>
->   </tr>
->
->   <tr>
->     <td>
->       Zeroed Thick
->     </td>
->
->     <td>
->       Full Amount
->     </td>
->
->     <td>
->       As It Grows
->     </td>
->
->     <td>
->       No
->     </td>
->   </tr>
->
->   <tr>
->     <td>
->       Eager Zeroed Thick
->     </td>
->
->     <td>
->       Zeroed Thick
->     </td>
->
->     <td>
->       At Creation Time
->     </td>
->
->     <td>
->       No
->     </td>
->   </tr>
-> </table>
+> {:.kt}
+> |VMDK Format| Space Dedicated| Zeroed Out Blocks|Incremental Growth|
+> |-----------|----------------|------------------|------------------|
+> | Thin      | Reservation only| As it Grows     |1 VMFS block at a time|
+> |Zeroed Thick| Full Amount   | As It Grows      | No               |
+> |Eager Zeroed Thick| Zeroed Thick| At Creation Time| No            |
 
 The most confusing one might be the thin vmdk and this article [Implementing EMC Symmetrix Virtual Provisioning with VMware vShpere](http://www.vmware.com/files/pdf/VMware-vStorage-Thin-Provisioning-DS-EN.pdf). The article has good description why the above is expected:
 

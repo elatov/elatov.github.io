@@ -4,8 +4,6 @@ title: 'Receiving "No Free Ports" Available when Connecting a VM to the Nexus 10
 author: Karim Elatov
 layout: post
 permalink: /2012/07/receiving-no-free-ports-available-connecting-vm-nexus-1000v/
-dsq_thread_id:
-  - 1404673070
 categories: ['networking', 'vmware']
 tags: ['dvs_port_binding', 'dvs', 'nexus_1000v', 'powercli']
 ---
@@ -139,33 +137,8 @@ It looks like this:
 
 A reboot of each host is required if done after the creation of the DVS. [VMware KB 2004075](http://kb.vmware.com/kb/2004075) has more instructions on changing the Max ProxySwitch Ports when using vCenter 5.0. Here is a Table of the versions that I was on:
 
-<table border="0">
-  <tr>
-    <td>
-      ESX
-    </td>
-
-    <td>
-      vCenter
-    </td>
-
-    <td>
-      Nexus 1000v
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      build 721871 ESXi4.1EP3
-    </td>
-
-    <td>
-      build 491557 VC 4.1U2
-    </td>
-
-    <td>
-       VSM 4.2(1)SV1(4b)
-    </td>
-  </tr>
-</table>
+{:.kt}
+|ESX| vCenter| Nexus 1000v|
+|---|--------|------------|
+|build 721871 ESXi4.1EP3| build 491557 VC 4.1U2| VSM 4.2(1)SV1(4b)|
 

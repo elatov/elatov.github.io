@@ -3,8 +3,6 @@ title: Experiencing PSODs on HP 465C G7 Blades with NC551i NICs
 author: Karim Elatov
 layout: post
 permalink: /2012/11/experiencing-psods-on-hp-465c-g7-blades-with-nc551i-nics/
-dsq_thread_id:
-  - 1404673710
 categories: ['networking', 'vmware']
 tags: ['be2net', 'emulex', 'psod']
 ---
@@ -36,43 +34,11 @@ Here is the actual backtrace:
 
 Whenever you see a *be* in the backtrace, that is the *be2net* driver causing the issue. We had the following versions of the NIC and OS:
 
-<table border="0">
-  <tr>
-    <td>
-      ESX_Version
-    </td>
+{:.kt}
+|ESX_Version| NIC_Model| NIC_Driver| NIC_Firmware|
+|-----------|----------|-----------|-------------|
+|5.0U1 Build 623860| NC551i| be2net 4.0.88| 4.0.0150|
 
-    <td>
-      NIC_Model
-    </td>
-
-    <td>
-      NIC_Driver
-    </td>
-
-    <td>
-      NIC_Firmware
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      5.0U1 Build 623860
-    </td>
-
-    <td>
-      NC551i
-    </td>
-
-    <td>
-      be2net 4.0.88
-    </td>
-
-    <td>
-      4.0.0150
-    </td>
-  </tr>
-</table>
 
 Here is the link to the [October 2012 VMware FW and Software Recipe](http://www.vmware.com/resources/compatibility/detail.php?deviceCategory=io&productid=19068&deviceCategory=io&VID=19a2&DID=0700&SVID=103c&SSID=3314&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc)" page and I saw the following recommendation:
 
@@ -80,43 +46,10 @@ Here is the link to the [October 2012 VMware FW and Software Recipe](http://www.
 
 So I decided to install be2net driver 4.1.334.48, here is a [link](https://my.vmware.com/web/vmware/details?downloadGroup=DT-ESX50-EMULEX-be2net-4133448&productId=285) to that. I didn't want to go to the latest firmware just yet. So after all was said and done, I had the following driver/firmware combination:
 
-<table border="0">
-  <tr>
-    <td>
-      ESX_Version
-    </td>
-
-    <td>
-      NIC_Model
-    </td>
-
-    <td>
-      NIC_Driver
-    </td>
-
-    <td>
-      NIC_Firmware
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      5.0U1 Build 623860
-    </td>
-
-    <td>
-      NC551i
-    </td>
-
-    <td>
-      be2net 4.1.334.48
-    </td>
-
-    <td>
-      4.1.402.20
-    </td>
-  </tr>
-</table>
+{:.kt}
+|ESX_Version| NIC_Model| NIC_Driver| NIC_Firmware|
+|-----------|----------|-----------|-------------|
+|5.0U1 Build 623860| NC551i| be2net 4.1.334.48| 4.1.402.20|
 
 After that, the ESXi hosts stopped experiencing the PSODs.
 
