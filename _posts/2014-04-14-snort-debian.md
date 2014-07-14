@@ -161,7 +161,7 @@ Now edit the configuration to fit your needs. Here is what I ended up with:
     version=0.7.0
 
 
-The xxxx at the end some of the lines corresponds to your oinkcode. Register at [Emerging Threats](https://www.snort.org/login). The configuration to download rules from *EmergingThreats* is already in the default **pulledpork** configuration file (you just have to enable them, if you want to use them). I initially left them out, just to get used to the current rules first.
+The xxxx at the end some of the lines corresponds to your oinkcode. Register at [snort](https://www.snort.org/users/sign_in) to get a oinkcode. There are other rules available as well, for example there is [Emerging Threats](http://www.emergingthreats.net/). The configuration to download rules from *Emerging Threats* is already in the default **pulledpork** configuration file (you just have to enable them, if you want to use them). I initially left them out, just to get used to the current rules first.
 
 Now run the following to get the rules:
 

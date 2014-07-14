@@ -184,7 +184,7 @@ I finally ran into **dropboxuploader.sh**. Here are a couple of guides on using 
 
 *   [Dropbox Uploader](https://github.com/andreafabrizi/Dropbox-Uploader)
 *   [DropBox Uploader Bash Script: Useful for Servers, Raspberry PI, and More](http://www.webupd8.org/2013/01/dropbox-uploader-bash-script-useful-for.html)
-*   [Dropbox Command Line Interface [ CLI ] client](http://www.jobnix.in/dropbox-command-line-interface-cli-client/)
+*   [Manage Dropbox in Terminal With Dropbox Uploader](http://www.maketecheasier.com/manage-dropbox-in-terminal/)
 
 The script was really good, but it also felt like an FTP client for DropBox. Here are the available actions:
 
