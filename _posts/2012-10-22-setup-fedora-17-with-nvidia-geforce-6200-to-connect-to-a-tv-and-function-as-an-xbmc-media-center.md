@@ -4,7 +4,7 @@ author: Karim Elatov
 layout: post
 permalink: /2012/10/setup-fedora-17-with-nvidia-geforce-6200-to-connect-to-a-tv-and-function-as-an-xbmc-media-center/
 categories: ['os']
-tags: ['systemd', 'fedora', 'linux', 'xbmc', 'grub', 'nvidia', 'akmods', 'xorg']
+tags: ['dracut', 'systemd', 'fedora', 'linux', 'xbmc', 'grub', 'nvidia', 'akmods', 'xorg']
 ---
 
 I was getting the following messages on the my Fedora machine:
