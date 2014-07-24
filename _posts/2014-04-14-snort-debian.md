@@ -450,7 +450,7 @@ You won't see any alerts in there yet. Lastly let's make everything owned by the
     elatov@kerch:~$sudo chown -R snort:snort /usr/local/by
 
 
-If you want [here](https://groups.google.com/forum/#!topic/snorby/eEDy-FrwHB0).
+If you want [here](http://groups.google.com/forum/#!topic/snorby/eEDy-FrwHB0) is a link to a start-up script for snorby, but it looks like the recommended approach is to proxy snorby with apache using the passenger plugin. Check out the setup for that [here](http://www.aldeid.com/wiki/Snorby#Recommended_install_of_Passenger).
 
 ### Configure Snort Service
 
@@ -698,5 +698,5 @@ After a couple of days, I saw the following alert:
 
 ![php vulnerability Snort On Debian](https://github.com/elatov/uploads/raw/master/2014/04/php-vulnerability.png)
 
-[Here](http://humbug.me.uk/linux/trojan.htm) is a little more information about the attack and here is a [link](http://wiki.vpslink.com/Defend_Against_Web_Application_Exploits:_Remote_File_Inclusion_and_Local_Filesystem_Access) that talks about disabling PHP Remote File Inclusion.
+[Here](http://thembits.blogspot.com/2014/02/php-cgi-exploitation-never-dies.html) is a little more information about the attack and here is a [link](http://wiki.vpslink.com/Defend_Against_Web_Application_Exploits:_Remote_File_Inclusion_and_Local_Filesystem_Access) that talks about disabling PHP Remote File Inclusion.
 
