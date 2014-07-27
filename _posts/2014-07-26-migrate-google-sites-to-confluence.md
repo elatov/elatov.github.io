@@ -10,7 +10,7 @@ tags: [markdown,google-sites,confluence]
 The first thing we have to do is export the google sites content. 
 
 ### Use Google Sites Liberation to Export Google Sites
-There is a tool called google-sites-liberation which takes care of that for us. [Here](https://code.google.com/p/google-sites-liberation/) is the link to the program and here is a snippet from the site on what the tool does:
+There is a tool called **google-sites-liberation** which takes care of that for us. [Here](https://code.google.com/p/google-sites-liberation/) is the link to the program and here is a snippet from the site on what the tool does:
 
 > This is an import/export tool for Google Sites. Using HTML Microformats it generates an XHTML version of Sites content suitable for offline browsing and simple HTTP hosting, which is also able to be losslessly imported back into sites.
 
@@ -28,7 +28,7 @@ So let's go ahead and download the program:
 
 	2014-07-26 09:49:10 (407 KB/s) - ‘google-sites-liberation-1.0.4.jar’ saved [4799363/4799363]
 
-I already had java installed:
+I already had **java** installed:
 
 	elatov@fed:/opt/work/mig$java -version
 	java version "1.7.0_65"
@@ -70,7 +70,7 @@ There are a couple of prereqs for this software, from the main page:
 > - java 1.7
 > - maven
 
-I already had java, so let's install **maven**:
+I already had **java**, so let's install **maven**:
 
 	elatov@fed:~$sudo yum install maven
 	
@@ -145,7 +145,7 @@ After a lot of dependencies, it failed with the following message:
 	[ERROR] For more information about the errors and possible solutions, please read the following articles:
 	[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
 
-It looks like it's a know issue, and [here](https://github.com/foursquare/sites-to-markdown/issues/1) is link that talks about the fix. To fix it, just run `mvn install` and then it works fine:
+It looks like it's a known issue, and [here](https://github.com/foursquare/sites-to-markdown/issues/1) is link that talks about the fix. To fix it, just run `mvn install` and then it works fine:
 
 	elatov@fed:/opt/work/mig/sites-to-markdown$mvn install
 	[INFO] Scanning for projects...
@@ -212,7 +212,7 @@ And here is just a regular link:
 
 	[link-title](http://url-to-link.com)
 
-And it was also pointing to the original image link which was in google sites. I already had the local version of the images downloaded so let's fix all the links to point to the local images. I wrote a quick python script to search for a regular expression and substitute the matched expession, here is the script:
+And it was also pointing to the original image link which was in google sites. I already had the local version of the images downloaded, so let's fix all the links to point to the local images. I wrote a quick python script to search for a regular expression and substitute the matched expession, here is the script:
 
 	elatov@fed:~/g-sites-md$cat md-img-fix.py 
 	#!/usr/bin/env python
@@ -262,7 +262,7 @@ To convert all the pages, we can just run the python script through a **for** lo
 	elatov@fed:~/g-sites-md$for file in $(ls *.md); do echo $file; python md-img-fix.py $file; done
 	
 ### Convert *Markdown* to Word Doc Format
-There is a cool tool called **pandoc**, from [their](http://johnmacfarlane.net/pandoc/index.html) main page:
+There is a cool tool called **pandoc** which can convert *markdown* to **.docx** format, from [their](http://johnmacfarlane.net/pandoc/index.html) main page:
 
 > If you need to convert files from one markup format into another, pandoc is your swiss-army knife. Pandoc can convert documents in markdown, reStructuredText, textile, HTML, DocBook, LaTeX, MediaWiki markup, OPML, Emacs Org-Mode, or Haddock markup to
 > 
@@ -298,7 +298,7 @@ From the **Tools** menu you can select the **Import Word Document** option:
 
 ![confluence-import-word-doc](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/migrate-gsites-to-confluence/confluence-import-word-doc.png)
 
-Upon initial import I received the following error:
+Upon initial import, I received the following error:
 
 ![confluence-error-upload-docx](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/migrate-gsites-to-confluence/confluence-error-upload-docx.png)
 
@@ -364,7 +364,7 @@ It has a couple of dependencies, here is what I did to install them:
 	elatov@fed:~$sudo pip install python-magic
 	elatov@fed:~$sudo yum install python-pillow
 	
-Be careful with the *magic* module cause there are two different ones with the same name. Check out the differences [here](http://www.zak.co.il/tddpirate/2013/03/03/the-python-module-for-file-type-identification-called-magic-is-not-standardized/). Then I just ran the script on the whole home (this was the root of the google sites export) directory:
+Be careful with the *magic* module cause there are two different ones with the same name. Check out the differences [here](http://www.zak.co.il/tddpirate/2013/03/03/the-python-module-for-file-type-identification-called-magic-is-not-standardized/). Then I just ran the script on the whole **home** (this was the root of the google sites export) directory:
 
 	elatov@fed:~/g-sites$./resize-img.py home/
 
@@ -388,8 +388,8 @@ and then from **.docx** to **.doc**:
 
 Now re-uploading the same document, I got an error message saying that the size of the biggest image was **1187 x 1126**, so the size changed but it didn't reflect the actual size (cause I converted them to **899 x original height**). 
 
-I then modifed the script and the set the width to be **799** pixels and then *Confluence* told me that the biggest size is **1055 x 1084**. It went down but still not enough. After I set the width to be **699** pixels all the documents went throught without any issues. Not sure if *Confluence* is reading the size wrong (maybe it's not using pixels to check the size) or if the Python PIL module is not converting the images correctly. I only had 6 pages out of 50 that had that issue and going to a lower size didn't bother me. 
+I then modifed the script and the set the width to be **799** pixels and then *Confluence* told me that the biggest size is **1055 x 1084**. It went down but still not enough. After I set the width to be **699** pixels all the documents went throught without any issues. Not sure if *Confluence* is reading the size wrong (maybe it's not using pixels to check the size) or if the Python **PIL** module is not converting the images correctly. I only had 6 pages out of 50 that had that issue and going to a lower size didn't bother me. 
 
-In summery, I would say %85 of the import went well with regards to images. The code blocks didn't really convert over (so I will fix those manually), but the rest of the formating (headings, links, images, bold and italic text) was there. Here is snippet of the converted page that I had originally shown with Word:
+In summary, I would say 85% of the import went well with regards to images (This depends if you have big images in your google sites). The code blocks didn't really convert over (so I will fix those manually), but the rest of the formating (headings, links, images, bold and italic text) was there. Here is snippet of the converted page that I had originally shown with Word:
 
 ![splunk-page-converted-in-confluence](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/migrate-gsites-to-confluence/splunk-page-converted-in-confluence.png)
