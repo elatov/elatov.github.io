@@ -115,7 +115,7 @@ The new disk is **c4t0d0**. Now we need to label the disk with a VTOC label and 
 >
 > If you fail to label a disk after you create slices, the slices will be unavailable because the OS has no way of “knowing” about the slices.
 
-If you are getting confused with all the terms, I would recommend reading [this page](http://content.hccfl.edu/pollock/AUnix1/DiskTech.htm). I really like how the author describes all the different OSes and how they differ, here are a couple of experts from the above page that allowed me to stay sane:
+If you are getting confused with all the terms, I would recommend reading [this page](http://wpollock.com/AUnix1/DiskTech.htm). I really like how the author describes all the different OSes and how they differ, here are a couple of experts from the above page that allowed me to stay sane:
 
 > **Partitions and Slices**
 >
