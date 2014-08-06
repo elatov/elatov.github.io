@@ -30,7 +30,7 @@ From the [Virtualization Host Configuration and Guest Installation Guide](https:
 > 
 > 1. Launch the Red Hat Enterprise Linux 6 installation program
 >
->    Start an interactive Red Hat Enterprise Linux 6 installation from the Red Hat Enterprise Linux Installation CD-ROM, DVD or PXE.
+>  Start an interactive Red Hat Enterprise Linux 6 installation from the Red Hat Enterprise Linux Installation CD-ROM, DVD or PXE.
 > 
 > 2. Continue installation up to package selection
 > 
@@ -60,7 +60,7 @@ From the [Virtualization Host Configuration and Guest Installation Guide](https:
 > 
 > Install all of these recommended virtualization packages with the following command:
 >
-> 	# yum install virt-manager libvirt libvirt-python python-virtinst libvirt-client
+> 	 # yum install virt-manager libvirt libvirt-python python-virtinst libvirt-client
 >
 > ####Installing Virtualization package groups
 >
