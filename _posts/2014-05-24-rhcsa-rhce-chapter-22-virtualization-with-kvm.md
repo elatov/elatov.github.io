@@ -28,15 +28,12 @@ From the [Virtualization Host Configuration and Guest Installation Guide](https:
 > 
 > #### Installing the virtualization package group
 > 
-> 1. Launch the Red Hat Enterprise Linux 6 installation program
->
->	 Start an interactive Red Hat Enterprise Linux 6 installation from the Red Hat Enterprise Linux Installation CD-ROM, DVD or PXE.
+> 1. Launch the Red Hat Enterprise Linux 6 installation program <br>
+>   Start an interactive Red Hat Enterprise Linux 6 installation from the Red Hat Enterprise Linux Installation CD-ROM, DVD or PXE.
 > 
-> 2. Continue installation up to package selection
-> 
->    Complete the other steps up to the package selection step.
-> 	
-> 	![virt-host-select-rhel-install](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-host-select-rhel-install.png)
+> 2. Continue installation up to package selection <br>
+>   Complete the other steps up to the package selection step.<br>
+>   ![virt-host-select-rhel-install](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-host-select-rhel-install.png)
 > 	
 > 	Select the **Virtualization Host** server role to install a platform for guest virtual machines. 
 > 
