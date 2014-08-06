@@ -29,12 +29,12 @@ From the [Virtualization Host Configuration and Guest Installation Guide](https:
 > #### Installing the virtualization package group
 > 
 > 1. Launch the Red Hat Enterprise Linux 6 installation program
-> 
-> 	Start an interactive Red Hat Enterprise Linux 6 installation from the Red Hat Enterprise Linux Installation CD-ROM, DVD or PXE.
+>
+>    Start an interactive Red Hat Enterprise Linux 6 installation from the Red Hat Enterprise Linux Installation CD-ROM, DVD or PXE.
 > 
 > 2. Continue installation up to package selection
 > 
-> 	Complete the other steps up to the package selection step.
+>    Complete the other steps up to the package selection step.
 > 	
 > 	![virt-host-select-rhel-install](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-host-select-rhel-install.png)
 > 	
@@ -46,7 +46,7 @@ From the [Virtualization Host Configuration and Guest Installation Guide](https:
 > 
 > To install the **qemu-kvm** and **qemu-img** packages, run the following command:
 >
->	# yum install qemu-kvm qemu-img
+>     # yum install qemu-kvm qemu-img
 >
 > Several additional virtualization management packages are also available:
 >
@@ -942,6 +942,15 @@ If you are always able to SSH forward then might as well do that for security re
 
 ### Creating guests with virt-manager
 
+> 1. test
+>
+>  another test
+>
+>    1. cool peaci
+>    2. cool
+>     
+> 2. test 3
+
 From the Virtualization_Host_Configuration_and_Guest_Installation_Guide:
 
 > **virt-manager**, also known as Virtual Machine Manager, is a graphical tool for creating and managing guest virtual machines.
@@ -950,77 +959,77 @@ From the Virtualization_Host_Configuration_and_Guest_Installation_Guide:
 > 
 > 1. Open virt-manager
 > 
-> 	Start **virt-manager**. Launch the **Virtual Machine Manager** application from the **Applications** menu and **System Tools** submenu. Alternatively, run the **virt-manager** command as root.
+>    Start **virt-manager**. Launch the **Virtual Machine Manager** application from the **Applications** menu and **System Tools** submenu. Alternatively, run the **virt-manager** command as root.
 > 
 > 2. Optional: Open a remote hypervisor
 > 
-> 	Select the hypervisor and click the **Connect** button to connect to the remote hypervisor.
+>    Select the hypervisor and click the **Connect** button to connect to the remote hypervisor.
 > 
 > 3. Create a new virtual machine
 > 
-> 	The **virt-manager** window allows you to create a new virtual machine. Click the **Create a new virtual** machine button to open the New VM wizard.
+>    The **virt-manager** window allows you to create a new virtual machine. Click the **Create a new virtual** machine button to open the New VM wizard.
 > 
-> 	![virt-man-p1](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-p1.png)
+>    ![virt-man-p1](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-p1.png)
 > 
-> 	The New VM wizard breaks down the virtual machine creation process into five steps:
+>    The New VM wizard breaks down the virtual machine creation process into five steps:
 > 
-> 	1. Naming the guest virtual machine and choosing the installation type
-> 	2. Locating and configuring the installation media
-> 	3. Configuring memory and CPU options
-> 	4. Configuring the virtual machine's storage
-> 	5. Configuring networking, architecture, and other hardware settings
+>    1. Naming the guest virtual machine and choosing the installation type
+>    2. Locating and configuring the installation media
+>    3. Configuring memory and CPU options
+>    4. Configuring the virtual machine's storage
+>    5. Configuring networking, architecture, and other hardware settings
 > 	
-> 	Ensure that virt-manager can access the installation media (whether locally or over the network) before you continue.
+>    Ensure that virt-manager can access the installation media (whether locally or over the network) before you continue.
 > 
 > 4. Specify name and installation type
 > 
-> 	The guest virtual machine creation process starts with the selection of a name and installation type. Virtual machine names can have underscores (_), periods (.), and hyphens (-).
+>    The guest virtual machine creation process starts with the selection of a name and installation type. Virtual machine names can have underscores (_), periods (.), and hyphens (-).
 > 
-> 	![virt-man-p2](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-p2.png)
+>    ![virt-man-p2](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-p2.png)
 > 
-> 	Type in a virtual machine name and choose an installation type:
+>     Type in a virtual machine name and choose an installation type:
 > 
-> 	- **Local install media** (ISO image or CDROM) - This method uses a CD-ROM, DVD, or image of an installation disk (for example, .iso).
-> 	- **Network Install** (HTTP, FTP, or NFS) - This method involves the use of a mirrored Red Hat Enterprise Linux or Fedora installation tree to install a guest. The installation tree must be accessible through either HTTP, FTP, or NFS.
-> 	- **Network Boot** (PXE) - This method uses a Preboot eXecution Environment (PXE) server to install the guest virtual machine. To install via network boot, the guest must have a routable IP address or shared network device.
-> 	- **Import existing disk image** - This method allows you to create a new guest virtual machine and import a disk image (containing a pre-installed, bootable operating system) to it.
+>    - **Local install media** (ISO image or CDROM) - This method uses a CD-ROM, DVD, or image of an installation disk (for example, .iso).
+>    - **Network Install** (HTTP, FTP, or NFS) - This method involves the use of a mirrored Red Hat Enterprise Linux or Fedora installation tree to install a guest. The installation tree must be accessible through either HTTP, FTP, or NFS.
+>    - **Network Boot** (PXE) - This method uses a Preboot eXecution Environment (PXE) server to install the guest virtual machine. To install via network boot, the guest must have a routable IP address or shared network device.
+>    - **Import existing disk image** - This method allows you to create a new guest virtual machine and import a disk image (containing a pre-installed, bootable operating system) to it.
 > 
-> 	Click Forward to continue.
+>    Click Forward to continue.
 > 
 > 5. Configure installation
 > 
-> 	Next, configure the **OS type** and **Version** of the installation. Ensure that you select the appropriate OS type for your virtual machine. Depending on the method of installation, provide the install URL or existing storage path.
+>    Next, configure the **OS type** and **Version** of the installation. Ensure that you select the appropriate OS type for your virtual machine. Depending on the method of installation, provide the install URL or existing storage path.
 > 
-> 	![virt-man-p3](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-p3.png)
+>    ![virt-man-p3](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-p3.png)
 > 
-> 	![virt-man-p4](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-p4.png)
+>    ![virt-man-p4](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-p4.png)
 > 
 > 6. Configure CPU and memory
 > 
-> 	The next step involves configuring the number of CPUs and amount of memory to allocate to the virtual machine. The wizard shows the number of CPUs and amount of memory you can allocate; configure these settings and click **Forward**.
+>    The next step involves configuring the number of CPUs and amount of memory to allocate to the virtual machine. The wizard shows the number of CPUs and amount of memory you can allocate; configure these settings and click **Forward**.
 > 
-> 	![virt-man-p5](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-p5.png)
+>    ![virt-man-p5](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-p5.png)
 > 
 > 7. Configure storage
 > 
-> 	Assign storage to the guest virtual machine.
+>    Assign storage to the guest virtual machine.
 > 
-> 	![virt-man-p5-5.png](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-p5-5.png)
+>    ![virt-man-p5-5.png](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-p5-5.png)
 > 
-> 	If you chose to import an existing disk image during the first step, virt-manager will skip this step.
+>    If you chose to import an existing disk image during the first step, virt-manager will skip this step.
 > 
-> 	Assign sufficient space for your virtual machine and any applications it requires, then click Forward to continue.
+>    Assign sufficient space for your virtual machine and any applications it requires, then click Forward to continue.
 > 
 > 8. Final configuration
 > 
-> 	Verify the settings of the virtual machine and click Finish when you are satisfied; doing so will create the virtual machine with default networking settings, virtualization type, and architecture.
+>    Verify the settings of the virtual machine and click Finish when you are satisfied; doing so will create the virtual machine with default networking settings, virtualization type, and architecture.
 > 
-> 	![virt-man-p6](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-p6.png)
+>    ![virt-man-p6](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-p6.png)
 > 
 > 
-> 	If you prefer to further configure the virtual machine's hardware first, check the **Customize configuration before install** box first before clicking **Finish**. Doing so will open another wizard that will allow you to add, remove, and configure the virtual machine's hardware settings.
+>    If you prefer to further configure the virtual machine's hardware first, check the **Customize configuration before install** box first before clicking **Finish**. Doing so will open another wizard that will allow you to add, remove, and configure the virtual machine's hardware settings.
 > 	
-> 	After configuring the virtual machine's hardware, click **Apply**. **virt-manager** will then create the virtual machine with your specified hardware settings.
+>    After configuring the virtual machine's hardware, click **Apply**. **virt-manager** will then create the virtual machine with your specified hardware settings.
 
 ### Creating VM with virt-manager Example
 
