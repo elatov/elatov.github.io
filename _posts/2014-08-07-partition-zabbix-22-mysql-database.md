@@ -1,10 +1,10 @@
 ---
-published: false
+published: true
 layout: post
 title: "Partition Zabbix 2.2 MySQL Database"
 author: Karim Elatov
-categories: []
-tags: []
+categories: [os,vmware]
+tags: [mysql,lvm,zabbix]
 ---
 So I ran out of space on my debian box which was hosting the zabbix DB.
 
@@ -102,7 +102,10 @@ and of course **fdisk** can see it as well:
 
 That's our 10GB disk. Just for reference here is the **lsscsi** output after the device is descovered:
 
-
+	root@kerch:~$lsscsi 
+	[0:0:0:0]    disk    VMware   Virtual disk     1.0   /dev/sda 
+	[0:0:1:0]    disk    VMware   Virtual disk     1.0   /dev/sdb 
+	[2:0:0:0]    cd/dvd  NECVMWar VMware IDE CDR10 1.00  /dev/sr0 
 
 ### Add Disk Space to the Root LV
 So now that we have a disk (**/dev/sdb**), let's add it to the root LV. Checking over the LVM settings, I see the following:
@@ -529,11 +532,55 @@ And I also went into the Zabbix Web Management and under the **Administration** 
 ![zab-house-keeping-disabled](zab-house-keeping-disabled.png)
 
 ### Remove Disk Space from LV
-So now that I am in a good place, I can remove the disk that I initially added to get out of this situation. First let's figure out the segments of the LV:
+So now that I am in a good place, I can remove the disk that I initially added to get out of this situation. We first have to resize the filesystem and then we can resize the Logical Volume. I was  using ext4 as my file system and unfortunately ext4 shrinking is not supported. If you try to shrink the filesystem on the fly, you will get the following warning:
 
-	root@kerch:~# lvdisplay -m /dev/kerch/root
+	root@kerch:~# resize2fs /dev/mapper/vg1-root
+	resize2fs 1.42.5 (29-Jul-2012)
+	Filesystem at /dev/mapper/kerch-root is mounted on /; on-line resizing required
+	resize2fs: On-line shrinking not supported
+	
+So I booted from a Debian Live CD and then I installed the LVM utilities:
+
+	user@debian:~$ sudo su -
+	root@debian:~$ apt-get update
+	root@debian:~$ apt-get install lvm2
+
+Then I initialized the LVM volumes:
+
+	root@debian:~# pvscan
+	  PV /dev/sda5   VG vg1   lvm2 [15.76 GiB / 0  Free]
+	  PV /dev/sdb    VG vg1    lvm2 [10.00 GiB / 0   Free]
+	  Total: 2 [25.75 GiB] / in use: 2 [25.75 GiB] / in no VG: 0 [0   ]
+
+Now let's do a file system check before making any changes:
+
+	root@debian:~# e2fsck -f /dev/mapper/vg1-root
+	e2fsck 1.42.5 (29-Jul-2012)
+	Pass 1: Checking inodes, blocks, and sizes
+	Pass 2: Checking directory structure
+	Pass 3: Checking directory connectivity
+	Pass 4: Checking reference counts
+	Pass 5: Checking group summary information
+	/dev/mapper/vg1-root: 147284/1643376 Files (0.2% non-contiguous), 2562503/6569984 blocks
+
+Then let's resize the file system (My original filesystem was 15GB so I shrank it to 14GB just to make sure I don't overlap with the Logical volumes.... after I remove the other disk, I will rerun **resize2fs** to put it back to 15GB):
+
+	root@debian:~# resize2fs -p /dev/mapper/vg1-root 14G
+	resize2fs 1.42.5 (29-Jul-2012)
+	Resizing the filesystem on /dev/mapper/vg1-root to 3670016 (4k) blocks.
+	Begin pass 2 (max = 1178051)
+	Relocating blocks             XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+	Begin pass 3 (max = 201)
+	Scanning inode table          XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+	Begin pass 4 (max = 15156)
+	Updating inode references     XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+	The filesystem on /dev/mapper/vg1-root is now 3670016 blocks long.
+
+Now let's figure out the segments of the LV:
+
+	root@kerch:~# lvdisplay -m /dev/mapper/vg1-root
 	  --- Logical volume ---
-	  LV Path                /dev/kerch/root
+	  LV Path                /dev/vg1/root
 	  LV Name                root
 	  VG Name                kerch
 	  LV UUID                7zpqxO-VOvK-U96N-Gxe4-TwEO-NQ4K-FVROFp
@@ -560,20 +607,111 @@ So now that I am in a good place, I can remove the disk that I initially added t
 	    Physical volume	/dev/sdb
 	    Physical extents	0 to 2558
 	    
-We can see that **/dev/sda5** is **0** to **3856** and **/dev/sdb** is **3857** to **6415** and the size of the 2nd segment is 2558 so let's reduce our LV by the *size_of_segment* -1 (2558 - 1 = 2557).
+We can see that **/dev/sda5** is **0** to **3856** and **/dev/sdb** is **3857** to **6415** and the size of the 2nd segment is **2558** so let's reduce our LV by the *size_of_segment* + 1 (2558 - 1 = **2559**).
 
-	root@kerch:~# lvreduce -l -2557 /dev/kerch/root
+	root@debian:~# lvreduce -l -2559 /dev/mapper/vg1-root
 	  WARNING: Reducing active and open logical volume to 15.07 GiB
 	  THIS MAY DESTROY YOUR DATA (filesystem etc.)
 	Do you really want to reduce root? [y/n]: y
 	  Reducing logical volume root to 15.07 GiB
-	  Logical volume root successfully resized)). 
+	  Logical volume root successfully resized. 
 	  
-I tried to shrink the Filesystem but it didn't go through:
+Now let's make sure the file system is still okay:
 
-	root@kerch:~# resize2fs /dev/mapper/kerch-root
+	root@debian:~# e2fsck -f /dev/mapper/vg1-root
+	e2fsck 1.42.5 (29-Jul-2012)
+	Pass 1: Checking inodes, blocks, and sizes
+	Pass 2: Checking directory structure
+	Pass 3: Checking directory connectivity
+	Pass 4: Checking reference counts
+	Pass 5: Checking group summary in_ormation
+	/dev/mapper/vg1-root: 147284/915712 files (0.2% non-contiguous), 2515899/3670016 blocks
+
+Now let's check if the disk is still in use:
+
+	root@debian:~# pvs -o+pv_used
+	  PV         VG    Fmt  Attr PSize  PFree  Used
+	  /dev/sda5  vg1 lvm2 a--  15.76g     0      15.76g
+	  /dev/sdb   vg1  lvm2 a--  10.00g 10.00g     0
+
+And it's not. Now let's remove the disk from the volume group:
+
+	root@debian:~# vgreduce vg1 /dev/sdb
+	  Removed "/dev/sdb" from volume group "vg1"
+	  
+And finally let's remove the disk from LVM completely:
+
+	root@debian:~# pvremove /dev/sdb
+	  Labels on physical volume "/dev/sdb" successfully wiped
+
+Now let's resize the filesystem to it's maximum size (and one last **fsck**):
+
+	root@debian:~# resize2fs -p /dev/mapper/vg1-root
 	resize2fs 1.42.5 (29-Jul-2012)
-	Filesystem at /dev/mapper/kerch-root is mounted on /; on-line resizing required
-	resize2fs: On-line shrinking not supported
+	Resizing the filesystem on /dev/mapper/vg1-root to 3949568 (4k) blocks.
+	Begin pass 1 (max = 9)
+	Extending the inode table     XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+	The filesystem on /dev/mapper/vg1-root is now 3949568 blocks long.
+
+	root@debian:~# e2fsck -f /dev/mapper/vg1-root
+	e2fsck 1.42.5 (29-Jul-2012)
+	Pass 1: Checking inodes, blocks, and sizes
+	Pass 2: Checking directory structure
+	Pass 3: Checking directory connectivity
+	Pass 4: Checking reference counts
+	Pass 5: Checking group summary in_ormation
+	/dev/mapper/vg1-root: 147284/989296 files (0.2% non-contiguous), 2520516/3949578 blocks
+
+And let's make sure we can mount it:
+
+	root@debian:~# mkdir /a
+	root@debian:~# mount /dev/mapper/vg1-root /a
+	[ 1655.981943] EXT4-fs (dm-0): mounted filesystem with ordered data mode. Opts: (null)
+	root@debian:~# df -h -t ext4
+	Filesystem              Size       Used Avail    Use%    Mounted on
+	/dev/mapper/vg1-root   15G  9.4G  4.7G   67%      /a
+
+That should be it. Reboot from the live cd and the OS should boot back up without issues (and you should be back to the original state but using less space).
+
+### Remove the VMDK from the VM
+If you want to remove the disk live, uust run the following:
+
+	~ # vim-cmd vmsvc/device.diskremove 6 0 1 n
+
+I would suggest to power off the VM first and then remove the disk, just to make the OS happy. After it's removed from the VM and you are sure you don't need it, you can run the following to completely delete the VMDK:
+
+	~ # vmkfstools -U /vmfs/volumes/datastore1/Kerch/Kerch-1.vmdk
+
+### Schedule Auto Partitioning of the Zabbix Database
+The maintenance stored procedures create enough parititions for the duration that you specify. So if you set yours for 14 days then after 2 weeks you will run out of partitions and zabbix won't be able to store new data. So we need to automatically run the maintenance store procedure. There are two options for scheduling the execution of the store procedures:
+
+1. MySQL event scheduler
+2. Cron
+
+Checking the status of my MySQL instance, I didn't see the event scheduler turned on:
+
+	mysql> SHOW VARIABLES LIKE 'event_scheduler';
+	+-----------------+-------+
+	| Variable_name   | Value |
+	+-----------------+-------+
+	| event_scheduler | OFF   |
+	+-----------------+-------+
+	1 row in set (0.00 sec)
+
+So I decided to go with the **cron** option (check out [this](http://unixadm.info/content/разбиение-секционирование-в-бд-zabbix-mysql) site for an *event-scheduler* example), we just need to run the following from **cron**:
+
+	mysql -h localhost -u zabbix -ppassword zabbix -e "CALL partition_maintenance_all('zabbix');
+
+Since I was creating 2 weeks worth of partitions, I decided to run the above command weekly. This is done by just adding a file into the **/etc/cron.weekly** directory:
+
+	elatov@kerch:~$cat /etc/cron.weekly/zab-part 
+	#!/bin/sh
+	/usr/bin/mysql -h localhost -u zabbix -ppassword zabbix -e "CALL partition_maintenance_all('zabbix');"
 	
-	
+This will actually send an email with any output from the script (I wanted to see the output to make sure the partitions are getting cleared out appropriately), if you don't want the output of the command, just make the file look like this:
+
+	elatov@kerch:~$cat /etc/cron.weekly/zab-part 
+	#!/bin/sh
+	/usr/bin/mysql -h localhost -u zabbix -ppassword zabbix -e "CALL partition_maintenance_all('zabbix');" >/dev/null 2>&1
+
+That should be it.
