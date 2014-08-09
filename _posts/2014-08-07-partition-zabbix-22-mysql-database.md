@@ -674,11 +674,18 @@ And let's make sure we can mount it:
 That should be it. Reboot from the live cd and the OS should boot back up without issues (and you should be back to the original state but using less space).
 
 ### Remove the VMDK from the VM
-If you want to remove the disk live, uust run the following:
+If you want to remove the disk live, just run the following command within the VM:
+
+	root@kerch:~# blockdev --flushbufs /dev/sdb
+	root@kerch:~# echo 1 > /sys/block/sdb/device/delete
+
+**NOTE** you can also use this path if you want: `/sys/class/scsi_device/0\:0\:1\:0/device/delete`
+
+Then detach the VMDK from the VM from the ESXi side:
 
 	~ # vim-cmd vmsvc/device.diskremove 6 0 1 n
 
-I would suggest to power off the VM first and then remove the disk, just to make the OS happy. After it's removed from the VM and you are sure you don't need it, you can run the following to completely delete the VMDK:
+To be a 100% safe you can power off the VM first and then remove the disk. After it's removed from the VM and you are sure you don't need it, you can run the following to completely delete the VMDK:
 
 	~ # vmkfstools -U /vmfs/volumes/datastore1/Kerch/Kerch-1.vmdk
 
