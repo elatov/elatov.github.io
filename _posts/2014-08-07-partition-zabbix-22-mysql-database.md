@@ -674,7 +674,7 @@ And let's make sure we can mount it:
 That should be it. Reboot from the live cd and the OS should boot back up without issues (and you should be back to the original state but using less space).
 
 ### Remove the VMDK from the VM
-If you want to remove the disk live, just run the following command within the VM:
+If you want to remove the disk live, just run the following commands within the VM:
 
 	root@kerch:~# blockdev --flushbufs /dev/sdb
 	root@kerch:~# echo 1 > /sys/block/sdb/device/delete
