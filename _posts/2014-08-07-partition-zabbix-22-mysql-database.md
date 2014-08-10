@@ -536,7 +536,7 @@ So now that I am in a good place, I can remove the disk that I initially added t
 
 	root@kerch:~# resize2fs /dev/mapper/vg1-root
 	resize2fs 1.42.5 (29-Jul-2012)
-	Filesystem at /dev/mapper/kerch-root is mounted on /; on-line resizing required
+	Filesystem at /dev/mapper/vg1-root is mounted on /; on-line resizing required
 	resize2fs: On-line shrinking not supported
 	
 So I booted from a Debian Live CD and then I installed the LVM utilities:
@@ -582,7 +582,7 @@ Now let's figure out the segments of the LV:
 	  --- Logical volume ---
 	  LV Path                /dev/vg1/root
 	  LV Name                root
-	  VG Name                kerch
+	  VG Name                vg1
 	  LV UUID                7zpqxO-VOvK-U96N-Gxe4-TwEO-NQ4K-FVROFp
 	  LV Write Access        read/write
 	  LV Creation host, time kerch, 2013-12-08 08:54:43 -0700
@@ -687,7 +687,7 @@ Then detach the VMDK from the VM from the ESXi side:
 
 To be a 100% safe you can power off the VM first and then remove the disk. After it's removed from the VM and you are sure you don't need it, you can run the following to completely delete the VMDK:
 
-	~ # vmkfstools -U /vmfs/volumes/datastore1/Kerch/Kerch-1.vmdk
+	~ # vmkfstools -U /vmfs/volumes/datastore1/VM1/VM1-1.vmdk
 
 ### Schedule Auto Partitioning of the Zabbix Database
 The maintenance stored procedures create enough parititions for the duration that you specify. So if you set yours for 14 days then after 2 weeks you will run out of partitions and zabbix won't be able to store new data. So we need to automatically run the maintenance store procedure. There are two options for scheduling the execution of the store procedures:
