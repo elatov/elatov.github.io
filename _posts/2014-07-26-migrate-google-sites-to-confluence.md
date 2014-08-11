@@ -4,7 +4,7 @@ layout: post
 title: "Migrate Google Sites to Confluence"
 author: Karim Elatov
 categories: [os]
-tags: [markdown,google-sites,confluence]
+tags: [linux,markdown,google-sites,confluence]
 ---
 
 The first thing we have to do is export the google sites content. 

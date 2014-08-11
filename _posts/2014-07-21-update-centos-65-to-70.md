@@ -4,7 +4,7 @@ layout: post
 title: "Update CentOS 6.5 to 7.0"
 author: Karim Elatov
 categories: [os]
-tags: [centos,grub,dracut,systemd]
+tags: [linux,centos,grub,dracut,systemd]
 ---
 A couple of sites talked about using pre-upgrade to perform the update:
 

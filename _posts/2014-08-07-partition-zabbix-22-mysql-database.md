@@ -4,7 +4,7 @@ layout: post
 title: "Partition Zabbix 2.2 MySQL Database"
 author: Karim Elatov
 categories: [os,vmware]
-tags: [mysql,lvm,zabbix]
+tags: [linux,debian,mysql,lvm,zabbix]
 ---
 So I ran out of space on my debian box which was hosting the zabbix DB.
 
@@ -529,7 +529,7 @@ I ended up doing two things, I set the engine of the table to be BlackHole:
 	
 And I also went into the Zabbix Web Management and under the **Administration** -> **General** -> **Housekeeping**, I made sure all of the options were unchecked:
 
-![zab-house-keeping-disabled](zab-house-keeping-disabled.png)
+![zab-house-keeping-disabled](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/zabbix-partition-mysql-db/zab-house-keeping-disabled.png)
 
 ### Remove Disk Space from LV
 So now that I am in a good place, I can remove the disk that I initially added to get out of this situation. We first have to resize the filesystem and then we can resize the Logical Volume. I was  using ext4 as my file system and unfortunately ext4 shrinking is not supported. If you try to shrink the filesystem on the fly, you will get the following warning:

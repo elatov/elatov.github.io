@@ -4,7 +4,7 @@ layout: post
 title: "Revert LVM Changes Using LVM Metadata Backups"
 author: Karim Elatov
 categories: [os,storage]
-tags: [lvm,fdisk]
+tags: [linux,debian,lvm,fdisk]
 ---
 As I was shrinking the filesystem during my [last](/2014/08/partition-zabbix-22-mysql-database/) post, I wondered if there is an easier way to undo LVM changes. I then ran into **vgcfgrestore**/**vgcfgbackup** and I decided to give it a try.
 
