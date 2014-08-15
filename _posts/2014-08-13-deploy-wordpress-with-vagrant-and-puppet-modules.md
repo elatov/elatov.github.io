@@ -6,7 +6,7 @@ author: Karim Elatov
 categories: [os]
 tags: [vagrant,puppet,mac_os_x,virtualbox]
 ---
-In my [previous](/2014/06/create-test-wordpress-instance-using-puppet-and-vagrant/) post I deployed a wordpress instance (DB and Web VMs) using pure commands and no puppet modules. I decided to give it a shot with modules to see if it's easier.
+In my [previous](/2014/06/create-test-wordpress-instance-using-puppet-and-vagrant/) post I deployed a wordpress instance (DB and Web VMs) using almost only commands and only one puppet modules (**stdlib**). I decided to give it a shot with more modules to see if it's easier.
 
 ### Install Puppet MySQL module
 
