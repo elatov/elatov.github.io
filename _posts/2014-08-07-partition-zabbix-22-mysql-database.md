@@ -721,6 +721,10 @@ This will actually send an email with any output from the script (I wanted to se
 	#!/bin/sh
 	/usr/bin/mysql -h localhost -u zabbix -ppassword zabbix -e "CALL partition_maintenance_all('zabbix');" >/dev/null 2>&1
 
+And make it executable:
+
+	elatov@kerch:~$ sudo chmod +x /etc/cron.weekly/zab-part
+
 Also make sure **anacron** is installed:
 
 	elatov@kerch:~$dpkg -l | grep anacron
