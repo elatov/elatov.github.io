@@ -721,4 +721,9 @@ This will actually send an email with any output from the script (I wanted to se
 	#!/bin/sh
 	/usr/bin/mysql -h localhost -u zabbix -ppassword zabbix -e "CALL partition_maintenance_all('zabbix');" >/dev/null 2>&1
 
+Also make sure **anacron** is installed:
+
+	elatov@kerch:~$dpkg -l | grep anacron
+	ii  anacron     2.3-19   amd64  cron-like program that doesn't go by time
+
 That should be it.
