@@ -880,7 +880,7 @@ and then re-check in with the master:
 If you want you can include the puppet cert in the vagrant box that way you won't have to do this, but then if any one gets a hold of the box they will be able to check in with the master since that cert will be already registered on the host. 
 
 ### Agent and Master Communication
-From [Learning Puppet — Basic Agent/Master Puppet](https://docs.puppetlabs.com/learning/agent_master_basic.htmlhttps://docs.puppetlabs.com/learning/agent_master_basic.html):
+From [Learning Puppet — Basic Agent/Master Puppet](https://docs.puppetlabs.com/learning/agent_master_basic.html):
 
 > Puppet’s agent/master mode is **pull-based**. Usually, agents are configured to periodically fetch a catalog and apply it, and the master controls what goes into that catalog.
 > 
