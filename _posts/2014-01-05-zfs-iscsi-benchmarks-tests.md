@@ -502,7 +502,7 @@ After reading a couple of sites:
 
 ![zfs ds examples ZFS iSCSI Benchmark Tests on ESX](https://github.com/elatov/uploads/raw/master/2013/12/zfs-ds-examples.png)
 
-[ZFS Zvol blocksize and ESXi](http://n4f.siftusystems.com/index.php/2013/07/14/zfs-zvol-blocksize-and-esxi/)
+ZFS Zvol blocksize and ESXi
 
 *   To my surprise it seems that the 64k vzol block size won out in nearly every case with a few minor exceptions of specific operations.
 
