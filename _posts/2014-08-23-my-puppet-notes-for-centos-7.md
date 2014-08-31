@@ -9,7 +9,7 @@ tags: []
 I usually have a couple of standard steps that I do on my Linux machines. Since CentOS 7 just released came out, instead of do an upgrade I decide to see if I can just use puppet to apply the necessary configurations to a brand new install. Here are all the steps I end up doing.
 
 ### Remove *rhgb* from the GRUB config
-Luckily there is a module to handle this,  [herculesteam/augeasproviders_grub](https://forge.puppetlabs.com/herculesteam/augeasproviders_grub). The module is a provider for [augeas](http://augeas.net/index.html) to make sure you have that installed prior to using it:
+Luckily there is a module to handle this,  [herculesteam/augeasproviders_grub](https://forge.puppetlabs.com/herculesteam/augeasproviders_grub). The module is a provider for [augeas](http://augeas.net/index.html) so make sure you have that installed prior to using it:
 
 	[elatov@puppet ~]$ rpm -qa | grep augeas
 	ruby-augeas-0.4.1-3.el7.x86_64
@@ -25,7 +25,7 @@ After that I just added the following to my node:
 			ensure => absent,
 	   }
 
-I decided to make a backup of /etc/sysconfig/grub (which is a symlink to /etc/default/grub) before making any changes and here is what I saw:
+I decided to make a backup of **/etc/sysconfig/grub** (which is a symlink to **/etc/default/grub**) before making any changes and here is what I saw:
 
 	[root@pup-node1 ~]# cp /etc/sysconfig/grub /etc/sysconfig/grub.orig
 	[root@pup-node1 ~]# puppet agent -t
@@ -50,12 +50,12 @@ That was perfect. There was a warning about having two providers. I ended up rem
 
 	[elatov@puppet ~]$ sudo mv /etc/puppet/modules/augeasproviders_grub/lib/puppet/provider/kernel_parameter/grub.rb /tmp/.
 
-And after that the warning went away. There was also a description on *serverfault* on how to do it manually, check out [this](http://serverfault.com/questions/554092/how-to-update-grub-with-puppet) page for more information. 
+And after that the warning went away. There was also a description on *serverfault* on how to remove any kernel parameter from the grub configuration manually, check out [this](http://serverfault.com/questions/554092/how-to-update-grub-with-puppet) page for more information (there is also the augeas method, for more information check out [Using augeas and puppet to modify grub.conf](https://www.ghostar.org/2014/07/using-augeas-and-puppet-to-modify-grub-conf/)). 
 
-### Remove Estraneous Packages
+### Remove Extraneous Packages
 This one was pretty easy, we can just pass in an array to the package resource and it will take care of the rest:
 
-	$pack_remove = [ "NetworkManager-glib", "NetworkManager", "avahi", "firewalld","ModemManager-glib", "teamd","xfsprogs","wpa_supplicant", "alsa-lib"]
+	$pack_remove = [ "NetworkManager-glib", "NetworkManager", "avahi", "firewalld","ModemManager-gliqb", "teamd","xfsprogs","wpa_supplicant", "alsa-lib"]
 
 	package { "$pack_remove":
 		ensure => "absent",
@@ -258,6 +258,8 @@ The defined type allows the exec to go through like a forloop. Check out the hin
 
 	1 directory, 0 files
 
+If you don't care about the contents, you could always just **exec** "rm -rf", but that would too easy.
+
 ### Add the *wheel* group to be part of *sudoers*
 Luckily there is a puppet module for that: it's [saz/sudo](https://forge.puppetlabs.com/saz/sudo). So on the puppet master let's go ahead and install it:
 
@@ -321,7 +323,7 @@ It just creates a new config under **/etc/sudoers.d/** with the appropriate conf
 and it doesn't change the configuration file under **/etc/sudoers**.
 
 ### Apply an *iptables* Firewall
-There are a couple of modules out there, but at home I have a pretty standard approach to iptables so I decided to have the puppet master host the iptables rules per node and also a default iptables ruleset as well. Here is the class that I put together:
+There are a couple of modules out there, but at home I have a pretty standard approach to **iptables** so I decided to have the puppet master host the iptables rules per node and also a default iptables ruleset as well. Here is the class that I put together:
 
 	[elatov@puppet ~]$ cat /etc/puppet/modules/my_iptables/manifests/init.pp 
 	class my_iptables ($host) {
@@ -386,7 +388,7 @@ There are a couple of modules out there, but at home I have a pretty standard ap
 		group => root,
 	  }
 
-Then in the site.pp manifest file, I added the following to my node:
+Then in the **site.pp** manifest file, I added the following to my node:
 
 	class { 'my_iptables': 
 			host => 'm2',
@@ -447,3 +449,342 @@ Double checking and my new rule was in place:
 
 	[root@pup-node1 ~]# iptables -L -n -v | grep 10050
 		0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpt:10050
+
+### Disable Selinux
+There is actually a module for this as well. So let's go ahead and install it on the puppet master:
+
+	[elatov@puppet ~]$ sudo puppet module install spiette-selinux
+	Notice: Preparing to install into /etc/puppet/modules ...
+	Notice: Downloading from https://forgeapi.puppetlabs.com ...
+	Notice: Installing -- do not interrupt ...
+	/etc/puppet/modules
+	└── spiette-selinux (v0.5.4)
+
+To disable selinux for the node, we just have to add the following to the node definition:
+
+	class { 'selinux':
+	   mode => 'permissive'
+	}
+
+Here is the apply from the node:
+
+	[vagrant@pup-node1 ~]$ sudo puppet agent -t
+	Info: Retrieving pluginfacts
+	Info: Retrieving plugin
+	Info: Loading facts in /etc/puppet/modules/stdlib/lib/facter/facter_dot_d.rb
+	Info: Loading facts in /etc/puppet/modules/stdlib/lib/facter/pe_version.rb
+	Info: Loading facts in /etc/puppet/modules/stdlib/lib/facter/puppet_vardir.rb
+	Info: Loading facts in /etc/puppet/modules/stdlib/lib/facter/root_home.rb
+	Info: Loading facts in /var/lib/puppet/lib/facter/facter_dot_d.rb
+	Info: Loading facts in /var/lib/puppet/lib/facter/root_home.rb
+	Info: Loading facts in /var/lib/puppet/lib/facter/puppet_vardir.rb
+	Info: Loading facts in /var/lib/puppet/lib/facter/pe_version.rb
+	Error: Could not retrieve catalog from remote server: Error 400 on SERVER: comparison of String with 7 failed at /etc/puppet/modules/selinux/manifests/params.pp:16 on node pup-node1.dnsd.me
+	Warning: Not using cache on failed catalog
+	Error: Could not retrieve catalog; skipping run
+	
+It looks like line 16 is having an issue, let's check out that line:
+
+	[elatov@puppet ~]$ sed -n '16 p' /etc/puppet/modules/selinux/manifests/params.pp
+		  if $::operatingsystemrelease < '7' {
+		  
+Checking out the **facts** on the node, I saw the following:
+
+	[vagrant@pup-node1 ~]$ sudo facter | grep -i release
+	bios_release_date => 12/01/2006
+	kernelrelease => 3.10.0-123.6.3.el7.x86_64
+	operatingsystemmajrelease => 7
+	operatingsystemrelease => 7.0.1406
+	
+It looks like the **operatingsystemrelease** *fact* is seen as a string since it contains periods, so let's just use the **operatingsystemmajrelease** *fact* instead. After fixing that line, I saw the following:
+
+	[vagrant@pup-node1 ~]$ sudo puppet agent -t
+	Info: Retrieving pluginfacts
+	Info: Retrieving plugin
+	Info: Loading facts in /etc/puppet/modules/stdlib/lib/facter/facter_dot_d.rb
+	Info: Loading facts in /etc/puppet/modules/stdlib/lib/facter/pe_version.rb
+	Info: Loading facts in /etc/puppet/modules/stdlib/lib/facter/puppet_vardir.rb
+	Info: Loading facts in /etc/puppet/modules/stdlib/lib/facter/root_home.rb
+	Info: Loading facts in /var/lib/puppet/lib/facter/facter_dot_d.rb
+	Info: Loading facts in /var/lib/puppet/lib/facter/root_home.rb
+	Info: Loading facts in /var/lib/puppet/lib/facter/puppet_vardir.rb
+	Info: Loading facts in /var/lib/puppet/lib/facter/pe_version.rb
+	Info: Caching catalog for pup-node1.dnsd.me
+	Info: Applying configuration version '1409333297'
+	Notice: /Stage[main]/Selinux/File[/var/lib/puppet/selinux]/ensure: created
+	Notice: /Stage[main]/Selinux::Config/File[/etc/selinux/config]/content: 
+	--- /etc/selinux/config	2014-08-29 10:59:02.220037885 -0600
+	+++ /tmp/puppet-file20140829-2251-1r9d6ci	2014-08-29 11:28:22.285064483 -0600
+	@@ -4,11 +4,9 @@
+	 #     enforcing - SELinux security policy is enforced.
+	 #     permissive - SELinux prints warnings instead of enforcing.
+	 #     disabled - No SELinux policy is loaded.
+	-SELINUX=permissive
+	+SELINUX=disabled
+	 # SELINUXTYPE= can take one of these two values:
+	 #     targeted - Targeted processes are protected,
+	 #     minimum - Modification of targeted policy. Only selected processes are protected. 
+	 #     mls - Multi Level Security protection.
+	 SELINUXTYPE=targeted 
+	-
+	-
+
+	Info: /Stage[main]/Selinux::Config/File[/etc/selinux/config]: Filebucketed /etc/selinux/config to puppet with sum 9743cfd3d26e1f5ff815213185103e0e
+	Notice: /Stage[main]/Selinux::Config/File[/etc/selinux/config]/content: content changed '{md5}9743cfd3d26e1f5ff815213185103e0e' to '{md5}028229ec717ba63a39f2f4233ba3626c'
+	Notice: /Stage[main]/Selinux::Config/File[/etc/selinux/config]/mode: mode changed '0644' to '0444'
+	Notice: Finished catalog run in 5.06 seconds
+	
+That looks good.
+
+### Disable IPv6
+We can just drop a file under **/etc/sysctl.d** with all the necessary configuration. There is another module that uses augeas ([domcleal-augeasproviders](https://forge.puppetlabs.com/domcleal/augeasproviders)) that can handle **sysctl** configurations as well. So let's grab the module:
+
+	[elatov@puppet ~]$ sudo puppet module install domcleal/augeasproviders
+	Notice: Preparing to install into /etc/puppet/modules ...
+	Notice: Downloading from https://forgeapi.puppetlabs.com ...
+	Notice: Installing -- do not interrupt ...
+	/etc/puppet/modules
+	└─┬ domcleal-augeasproviders (v1.2.0)
+	  └── puppetlabs-stdlib (v4.3.2)
+
+
+Using that module I used the following to apply the configuration:
+
+	class { 'augeasproviders::instances':
+		sysctl_hash => { 'net.ipv6.conf.all.disable_ipv6' => { 
+			'value' => '1',
+			'target' => "/etc/sysctl.d/90-dis_ipv6.conf",
+			},
+		'net.ipv6.conf.default.disable_ipv6' => { 
+			'value' => '1',
+			'target' => "/etc/sysctl.d/90-dis_ipv6.conf",  
+			},
+		},
+	}
+
+And the apply from the node:
+
+	[vagrant@pup-node1 ~]$ sudo puppet agent -t
+	Info: Retrieving pluginfacts
+	Info: Retrieving plugin
+	Info: Loading facts in /etc/puppet/modules/stdlib/lib/facter/facter_dot_d.rb
+	Info: Loading facts in /etc/puppet/modules/stdlib/lib/facter/pe_version.rb
+	Info: Loading facts in /etc/puppet/modules/stdlib/lib/facter/puppet_vardir.rb
+	Info: Loading facts in /etc/puppet/modules/stdlib/lib/facter/root_home.rb
+	Info: Loading facts in /var/lib/puppet/lib/facter/facter_dot_d.rb
+	Info: Loading facts in /var/lib/puppet/lib/facter/root_home.rb
+	Info: Loading facts in /var/lib/puppet/lib/facter/puppet_vardir.rb
+	Info: Loading facts in /var/lib/puppet/lib/facter/pe_version.rb
+	Info: Caching catalog for pup-node1.dnsd.me
+	Info: Applying configuration version '1409337780'
+	Notice: /Stage[main]/Augeasproviders::Instances/Sysctl[net.ipv6.conf.default.disable_ipv6]/ensure: created
+	Notice: /Stage[main]/Augeasproviders::Instances/Sysctl[net.ipv6.conf.all.disable_ipv6]/ensure: created
+	Notice: Finished catalog run in 5.20 seconds
+
+We can also confirm the settings are in place:
+
+	[vagrant@pup-node1 ~]$ cat /etc/sysctl.d/90-dis_ipv6.conf 
+	net.ipv6.conf.default.disable_ipv6 = 1
+	net.ipv6.conf.all.disable_ipv6 = 1
+
+we can also confirm the settings were applied on the system:
+
+	[vagrant@pup-node1 ~]$ sudo sysctl -a | grep -i disable_ipv6
+	net.ipv6.conf.all.disable_ipv6 = 1
+	net.ipv6.conf.default.disable_ipv6 = 1
+
+After that I needed to modify the **sshd_config** file to only use IPv4. On the node to see how the configuration looks like we can install **augeas** and use **augtool** on the config file. First for the install:
+
+	[vagrant@pup-node1 ~]$ sudo yum install augeas
+
+Now check the address option in the **sshd_config** file:
+
+	[vagrant@pup-node1 ~]$ sudo augtool print /files/etc/ssh/sshd_config | grep -i address
+	/files/etc/ssh/sshd_config/#comment[13] = "AddressFamily any"
+	
+We can see that it's currently commented out. So let's set **AddressFamily** to **inet** with augeas provider. Here is the puppet config I used:
+
+	class { 'augeasproviders::instances':
+				  sshd_config_hash => { 'AddressFamily' => { 
+								  'ensure' => 'present',
+								   'value' => "inet",
+								   },
+			   },
+				 notify => Service["sshd"],
+			  }
+	}
+	service { "sshd":
+			name => $operatingsystem ? {
+				/(?i:Debian|Ubuntu)/ => "ssh",
+				default => "sshd",
+		},
+		require => Class["augeasproviders::instances"],
+			enable => true,
+			ensure => running,
+	}
+
+Now let's back up the configuration and then apply the puppet changes:
+
+	[vagrant@pup-node1 ~]$ sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.orig
+	[vagrant@pup-node1 ~]$ sudo puppet agent -t
+	Info: Retrieving pluginfacts
+	Info: Retrieving plugin
+	Info: Loading facts in /etc/puppet/modules/stdlib/lib/facter/facter_dot_d.rb
+	Info: Loading facts in /etc/puppet/modules/stdlib/lib/facter/pe_version.rb
+	Info: Loading facts in /etc/puppet/modules/stdlib/lib/facter/puppet_vardir.rb
+	Info: Loading facts in /etc/puppet/modules/stdlib/lib/facter/root_home.rb
+	Info: Loading facts in /var/lib/puppet/lib/facter/facter_dot_d.rb
+	Info: Loading facts in /var/lib/puppet/lib/facter/root_home.rb
+	Info: Loading facts in /var/lib/puppet/lib/facter/puppet_vardir.rb
+	Info: Loading facts in /var/lib/puppet/lib/facter/pe_version.rb
+	Info: Caching catalog for pup-node1.dnsd.me
+	Info: Applying configuration version '1409341068'
+	Notice: /Stage[main]/Augeasproviders::Instances/Sshd_config[AddressFamily]/ensure: created
+	Info: Class[Augeasproviders::Instances]: Scheduling refresh of Service[sshd]
+	Notice: /Stage[main]/Dis_ipv6/Service[sshd]: Triggered 'refresh' from 1 events
+	Notice: Finished catalog run in 6.98 seconds
+	[vagrant@pup-node1 ~]$ sudo diff /etc/ssh/sshd_config /etc/ssh/sshd_config.orig
+	19d18
+	< AddressFamily inet
+
+That looks correct, so now let's modify the postfix configuration to not use IPv6, here is the setting we have to modify:
+
+	[vagrant@pup-node1 ~]$ sudo augtool print /files/etc/postfix/main.cf | grep -i protocols
+	/files/etc/postfix/main.cf/inet_protocols = "all"
+	
+I didn't see an agueas provider for postfix so I decided to use the **augeas** resource from puppet directly. Here is what ended up using in puppet:
+
+	augeas { "main_cf_config":
+		context => "/files/etc/postfix/main.cf",
+		changes => ["set inet_protocols ipv4",],
+		notify => Service["postfix"],
+	}
+
+and here is the result on the node:
+
+	[vagrant@pup-node1 ~]$ sudo puppet agent -t
+	Info: Retrieving pluginfacts
+	Info: Retrieving plugin
+	Info: Loading facts in /etc/puppet/modules/stdlib/lib/facter/facter_dot_d.rb
+	Info: Loading facts in /etc/puppet/modules/stdlib/lib/facter/pe_version.rb
+	Info: Loading facts in /etc/puppet/modules/stdlib/lib/facter/puppet_vardir.rb
+	Info: Loading facts in /etc/puppet/modules/stdlib/lib/facter/root_home.rb
+	Info: Loading facts in /var/lib/puppet/lib/facter/facter_dot_d.rb
+	Info: Loading facts in /var/lib/puppet/lib/facter/root_home.rb
+	Info: Loading facts in /var/lib/puppet/lib/facter/puppet_vardir.rb
+	Info: Loading facts in /var/lib/puppet/lib/facter/pe_version.rb
+	Info: Caching catalog for pup-node1.dnsd.me
+	Info: Applying configuration version '1409347854'
+	Notice: Augeas[main_cf_config](provider=augeas): 
+	--- /etc/postfix/main.cf	2014-06-09 19:39:24.000000000 -0600
+	+++ /etc/postfix/main.cf.augnew	2014-08-29 15:31:36.942338834 -0600
+	@@ -116,7 +116,7 @@
+	 inet_interfaces = localhost
+
+	 # Enable IPv4, and IPv6 if supported
+	-inet_protocols = all
+	+inet_protocols = ipv4
+
+	 # The proxy_interfaces parameter specifies the network interface
+	 # addresses that this mail system receives mail on by way of a
+
+	Notice: /Stage[main]/Dis_ipv6/Augeas[main_cf_config]/returns: executed successfully
+	Info: /Stage[main]/Dis_ipv6/Augeas[main_cf_config]: Scheduling refresh of Service[postfix]
+	Notice: /Stage[main]/Dis_ipv6/Service[postfix]: Triggered 'refresh' from 1 events
+	Notice: Finished catalog run in 11.06 seconds
+
+### Setup a cronjob
+This was pretty easy, there is already a cron resource. So just needed the following:
+
+	package { "ntpdate":
+		ensure => "present",
+	}
+
+	cron {"ntp":
+		command => "/usr/sbin/ntpdate -s 0.north-america.pool.ntp.org",
+		user => "root",
+		minute => "05",
+	}
+	
+Then the puppet test:
+
+	[vagrant@pup-node1 ~]$ sudo puppet agent -t
+	Info: Retrieving pluginfacts
+	Info: Retrieving plugin
+	Info: Loading facts in /etc/puppet/modules/stdlib/lib/facter/facter_dot_d.rb
+	Info: Loading facts in /etc/puppet/modules/stdlib/lib/facter/pe_version.rb
+	Info: Loading facts in /etc/puppet/modules/stdlib/lib/facter/puppet_vardir.rb
+	Info: Loading facts in /etc/puppet/modules/stdlib/lib/facter/root_home.rb
+	Info: Loading facts in /var/lib/puppet/lib/facter/facter_dot_d.rb
+	Info: Loading facts in /var/lib/puppet/lib/facter/root_home.rb
+	Info: Loading facts in /var/lib/puppet/lib/facter/puppet_vardir.rb
+	Info: Loading facts in /var/lib/puppet/lib/facter/pe_version.rb
+	Info: Caching catalog for pup-node1.dnsd.me
+	Info: Applying configuration version '1409352753'
+	Notice: /Stage[main]/Cronjobs/Package[ntpdate]/ensure: created
+	Notice: /Stage[main]/Cronjobs/Cron[ntp]/ensure: created
+	Notice: Finished catalog run in 17.35 seconds
+
+and finally to confirm:
+
+	[vagrant@pup-node1 ~]$ sudo crontab -l
+	# HEADER: This file was autogenerated at 2014-08-29 16:52:49 -0600 by puppet.
+	# HEADER: While it can still be managed manually, it is definitely not recommended.
+	# HEADER: Note particularly that the comments starting with 'Puppet Name' should
+	# HEADER: not be deleted, as doing so could cause duplicate cron jobs.
+	# Puppet Name: ntp
+	5 * * * * /usr/sbin/ntpdate -s 0.north-america.pool.ntp.org
+
+### Add the EPEL YUM repository
+There is a module for this:
+
+	[elatov@puppet ~]$ sudo puppet module install stahnma-epel
+	Notice: Preparing to install into /etc/puppet/modules ...
+	Notice: Downloading from https://forgeapi.puppetlabs.com ...
+	Notice: Installing -- do not interrupt ...
+	/etc/puppet/modules
+	└── stahnma-epel (v0.1.1)
+
+I wasn't overriding any parameters so I just included the class and then the puppet test did the rest:
+
+	[vagrant@pup-node1 ~]$ sudo puppet agent -t
+	Info: Retrieving pluginfacts
+	Info: Retrieving plugin
+	Info: Loading facts in /etc/puppet/modules/stdlib/lib/facter/facter_dot_d.rb
+	Info: Loading facts in /etc/puppet/modules/stdlib/lib/facter/pe_version.rb
+	Info: Loading facts in /etc/puppet/modules/stdlib/lib/facter/puppet_vardir.rb
+	Info: Loading facts in /etc/puppet/modules/stdlib/lib/facter/root_home.rb
+	Info: Loading facts in /var/lib/puppet/lib/facter/facter_dot_d.rb
+	Info: Loading facts in /var/lib/puppet/lib/facter/root_home.rb
+	Info: Loading facts in /var/lib/puppet/lib/facter/puppet_vardir.rb
+	Info: Loading facts in /var/lib/puppet/lib/facter/pe_version.rb
+	Info: Loading facts in /var/lib/puppet/lib/facter/os_maj_version.rb
+	Info: Caching catalog for pup-node1.dnsd.me
+	Info: Applying configuration version '1409353773'
+	Notice: /Stage[main]/Epel/File[/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7]/ensure: defined content as '{md5}58fa8ae27c89f37b08429f04fd4a88cc'
+	Notice: /Stage[main]/Epel/Epel::Rpm_gpg_key[EPEL-7]/Exec[import-EPEL-7]/returns: executed successfully
+	Notice: /Stage[main]/Epel/Yumrepo[epel-testing-debuginfo]/ensure: created
+	Info: changing mode of /etc/yum.repos.d/epel-testing-debuginfo.repo from 600 to 644
+	Notice: /Stage[main]/Epel/Yumrepo[epel-source]/ensure: created
+	Info: changing mode of /etc/yum.repos.d/epel-source.repo from 600 to 644
+	Notice: /Stage[main]/Epel/Yumrepo[epel]/ensure: created
+	Info: changing mode of /etc/yum.repos.d/epel.repo from 600 to 644
+	Notice: /Stage[main]/Epel/Yumrepo[epel-testing-source]/ensure: created
+	Info: changing mode of /etc/yum.repos.d/epel-testing-source.repo from 600 to 644
+	Notice: /Stage[main]/Epel/Yumrepo[epel-debuginfo]/ensure: created
+	Info: changing mode of /etc/yum.repos.d/epel-debuginfo.repo from 600 to 644
+	Notice: /Stage[main]/Epel/Yumrepo[epel-testing]/ensure: created
+	Info: changing mode of /etc/yum.repos.d/epel-testing.repo from 600 to 644
+	Notice: Finished catalog run in 8.04 seconds
+	
+Lastly to make sure I can install from the EPEL Repository:
+
+	[vagrant@pup-node1 ~]$ sudo yum list cdpr
+	Loaded plugins: fastestmirror
+	Loading mirror speeds from cached hostfile
+	 * base: centos.mirror.constant.com
+	 * epel: mirrors.tummy.com
+	 * extras: mirrors.unifiedlayer.com
+	 * updates: repos.dfw.quadranet.com
+	Available Packages
+	cdpr.x86_64                            2.4-6.el7                            epel
