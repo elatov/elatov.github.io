@@ -373,7 +373,7 @@ We can see that 0 volumes are active. If you do a restore, it will be reverted:
 	  VG    #PV #LV #SN Attr   VSize  VFree
 	  test    2   1   0 wz--n-  9.99g    0 
 
-I found a [forum](http://www.iamlinux.com/2014/06/inconsistent-metadata-found-running-vgcfgrestore-lvm-volume-groups-red-hat-enterprise-linux-4/) on this, here is a description of the issue:
+I found a forum (which is now unavailable, but the same content should be seen [here](https://access.redhat.com/solutions/144803) on this, here is a description of the issue:
 
 > Root Cause
 > 
