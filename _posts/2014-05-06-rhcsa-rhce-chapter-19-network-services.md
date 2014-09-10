@@ -1357,7 +1357,7 @@ That actually installs both **ntpdate** and **ntpd**:
     ntpdate-4.2.4p8-2.el6.i686
 
 
-Here is how the default configuration looks like for ntpd:
+Here is how the default configuration looks like for **ntpd**:
 
     [root@rhel1 ~]# grep -vE '^$|^#' /etc/ntp.conf
     driftfile /var/lib/ntp/drift
@@ -1371,6 +1371,16 @@ Here is how the default configuration looks like for ntpd:
     includefile /etc/ntp/crypto/pw
     keys /etc/ntp/keys
 
+Let's allow local machine to query this server, we just have to modify the **restrict** options. In the end I had the following:
+
+	[root@rhel1 ~]# grep -vE '^$|^#' /etc/ntp.conf
+	driftfile /var/lib/ntp/drift
+	restrict 192.168.2.0 mask 255.255.255.0 nomodify notrap
+	server 0.rhel.pool.ntp.org
+	server 1.rhel.pool.ntp.org
+	server 2.rhel.pool.ntp.org
+	includefile /etc/ntp/crypto/pw
+	keys /etc/ntp/keys
 
 That looks pretty good, so let's start it:
 
