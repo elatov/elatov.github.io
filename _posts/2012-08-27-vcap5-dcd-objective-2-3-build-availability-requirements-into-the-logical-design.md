@@ -67,7 +67,7 @@ From the same blog again:
 
 > **Redundancy and Single Point of Failure** A single point of failure is a component of a system that, if it fails, will cause the entire system to fail. Systems can be made robust by adding redundancy. A server usually attains internal component redundancy by having multiple hard drives, network connections or power supplies. By having multiple servers attached to a cluster you can achieve server hardware redundancy.
 
-Also from this VMware article "[vSphere High Availability Deployment Best Practices](http://blogs.vmware.com/tp/files/vsphere-ha-5-best-practices-guide.pdf)", linked in the blue print:
+Also from this VMware article "[vSphere High Availability Deployment Best Practices](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcap-dcd/2-3/vmw-vsphere-high-availability.pdf)", linked in the blue print:
 
 > **Design Principles for High Availability**
 > The key to architecting a highly available computing environment is to eliminate single points of failure. With the potential of occurring anywhere in the environment, failures can affect both hardware and software. Building redundancy at vulnerable points helps reduce or eliminate downtime caused by [implied] hardware failures. These include redundancies at the following layers:
@@ -114,7 +114,7 @@ Depending on what type of failure you are defining a plan for, do it properly. F
 
 ### Prioritize each service in the Service Catalog according to availability requirements
 
-Using VMware HA set the reboot priority depending on the availability requirements. Most important Services/VMs can have the highest priority during an HA failover. From the "[vSphere Availability](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf)" PDF, liked in the blue print:
+Using VMware HA set the reboot priority depending on the availability requirements. Most important Services/VMs can have the highest priority during an HA failover. From the "[vSphere Availability](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf)" PDF, linked in the blue print:
 
 > **VM Restart Priority Setting**
 > VM restart priority determines the relative order in which virtual machines are restarted after a host failure.Such virtual machines are restarted sequentially on new hosts, with the highest priority virtual machines first and continuing to those with lower priority until all virtual machines are restarted or no more cluster resources are available.

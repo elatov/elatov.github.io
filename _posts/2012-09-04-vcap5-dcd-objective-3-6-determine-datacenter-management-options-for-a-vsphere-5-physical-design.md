@@ -395,7 +395,7 @@ This helps out if you have a secure environment and your VUM service and(or) hos
 >
 > If your deployment system is connected to the Internet, you can use the default settings and links for downloading upgrades, patches, and extensions to the Update Manager repository. You can also add URL addresses to download virtual appliance upgrades or third-party patches and extensions. Third-party patches and extensions are applicable only to hosts that are running ESX/ESXi 4.0 and later.
 
-You can also use PowerCLI to automate testing and download of patches. Check out the VMware Blog "[Now Available: PowerCLI cmdlets for vCenter Update Manager!](http://blogs.vmware.com/vipowershell/2010/03/now-available-powercli-cmdlets-for-vcenter-update-manager.html)".
+You can also use PowerCLI to automate testing and download of patches. Check out the VMware Blog "[Now Available: PowerCLI cmdlets for vCenter Update Manager!](http://blogs.vmware.com/PowerCLI/2010/03/now-available-powercli-cmdlets-for-vcenter-update-manager.html)".
 
 If you don't want to use VUM because you don't have a big environment there are alternatives. First you can create your own custom image with Image Builder. For more information check out the VMware blog "[VMware vSphere 5.0 Evaluation Guide Volume One](http://blogs.vmware.com/vsphere/2012/04/using-the-vsphere-esxi-image-builder-cli.html)". From that document, here is a good image that depicts Image Builder:
 

@@ -116,7 +116,7 @@ So you can have a total of 20000 ports on the DVS (BTW VMware [link](http://kb.v
 	$dvs.ReconfigureDvs_Task($cfg)
 
 
-I tested that on a regular VMware DVS and it worked fine. To use the above PowerCLI script you have to use version 4.1.1, that version has enhanced support for Distributed Switches (you can read more about it at the VMware Blog entitled "[Enhanced Support for Distributed Switches in PowerCLI 4.1.1](http://blogs.vmware.com/vipowershell/2010/12/enhanced-support-for-distributed-switches-in-powercli-411.html)").  It did require a restart but it worked. After the script the 'esxcfg-vswitch -l', looked like this:
+I tested that on a regular VMware DVS and it worked fine. To use the above PowerCLI script you have to use version 4.1.1, that version has enhanced support for Distributed Switches (you can read more about it at the VMware Blog entitled "[Enhanced Support for Distributed Switches in PowerCLI 4.1.1](http://blogs.vmware.com/PowerCLI/2010/12/enhanced-support-for-distributed-switches-in-powercli-411.html)").  It did require a restart but it worked. After the script the 'esxcfg-vswitch -l', looked like this:
 
 
 	DVS Name Num Ports Used Ports Configured Ports MTU Uplinks
