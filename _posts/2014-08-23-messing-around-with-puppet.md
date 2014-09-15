@@ -1,12 +1,12 @@
 ---
-published: false
+published: true
 layout: post
-title: "My Puppet Notes For CentOS 7"
+title: "Messing Around with Puppet"
 author: Karim Elatov
-categories: []
-tags: []
+categories: [os]
+tags: [puppet,linux,centos,augeas]
 ---
-I usually have a couple of standard steps that I do on my Linux machines. Since CentOS 7 just released came out, instead of do an upgrade I decide to see if I can just use puppet to apply the necessary configurations to a brand new install. Here are all the steps I end up doing.
+I usually have a couple of standard steps that I do on my Linux machines. Since CentOS 7 just released came out, instead of do an upgrade I decide to see if I can just use **puppet** to apply the necessary configurations to a brand new install. Here are all the steps I end up doing. This was just to play with the functionality of puppet. My modules are poorly written and I will cover how to write better puppet modules later. For now let's see what I was able to accomplish.
 
 ### Remove *rhgb* from the GRUB config
 Luckily there is a module to handle this,  [herculesteam/augeasproviders_grub](https://forge.puppetlabs.com/herculesteam/augeasproviders_grub). The module is a provider for [augeas](http://augeas.net/index.html) so make sure you have that installed prior to using it:
@@ -133,7 +133,7 @@ You could easily pass in another variable called  **state** and remove or add pa
 	Notice: /Stage[main]/Rmpkg/Package[teamd]/ensure: removed
 	Notice: Finished catalog run in 1.35 seconds
 
-And the warning is gone. 
+And the warning is gone. The best way to do this would be with the **ensure_packages** function from the [stdlib](https://forge.puppetlabs.com/puppetlabs/stdlib) module. 
 
 ### Clean up */usr/local*
 
@@ -186,7 +186,6 @@ They are all empty directories. I want to remove every directory except **bin** 
 		  path => "/bin:/usr/bin",
 		  provider => "shell",
 		  command => "rmdir ${dir}",
-		  #onlyif => "[ -d ${dir} -a -z `ls -A ${dir}`]", 
 		  onlyif => "test -d ${dir} && test -z \"\$(ls -A ${dir})\"", 
 		}
 	 }
@@ -219,38 +218,12 @@ Then a simple `include clean_usr_local` in the **site.pp** for my node would tak
 	Info: Caching catalog for pup-node1.dnsd.me
 	Info: Applying configuration version '1408835700'
 	Notice: /Stage[main]/Clean_usr_local/Clean_usr_local::Rm_dir[/usr/local/share/man/man4x]/Exec[rm_/usr/local/share/man/man4x]/returns: executed successfully
-	Notice: /Stage[main]/Clean_usr_local/Clean_usr_local::Rm_dir[/usr/local/share/man/man4]/Exec[rm_/usr/local/share/man/man4]/returns: executed successfully
-	Notice: /Stage[main]/Clean_usr_local/Clean_usr_local::Rm_dir[/usr/local/share/man/man7]/Exec[rm_/usr/local/share/man/man7]/returns: executed successfully
-	Notice: /Stage[main]/Clean_usr_local/Clean_usr_local::Rm_dir[/usr/local/share/man/man2]/Exec[rm_/usr/local/share/man/man2]/returns: executed successfully
-	Notice: /Stage[main]/Clean_usr_local/Clean_usr_local::Rm_dir[/usr/local/share/man/man6x]/Exec[rm_/usr/local/share/man/man6x]/returns: executed successfully
-	Notice: /Stage[main]/Clean_usr_local/Clean_usr_local::Rm_dir[/usr/local/share/man/man3]/Exec[rm_/usr/local/share/man/man3]/returns: executed successfully
-	Notice: /Stage[main]/Clean_usr_local/Clean_usr_local::Rm_dir[/usr/local/share/man/man3x]/Exec[rm_/usr/local/share/man/man3x]/returns: executed successfully
-	Notice: /Stage[main]/Clean_usr_local/Clean_usr_local::Rm_dir[/usr/local/share/man/man5x]/Exec[rm_/usr/local/share/man/man5x]/returns: executed successfully
-	Notice: /Stage[main]/Clean_usr_local/Clean_usr_local::Rm_dir[/usr/local/share/man/man2x]/Exec[rm_/usr/local/share/man/man2x]/returns: executed successfully
-	Notice: /Stage[main]/Clean_usr_local/Clean_usr_local::Rm_dir[/usr/local/share/man/man8]/Exec[rm_/usr/local/share/man/man8]/returns: executed successfully
-	Notice: /Stage[main]/Clean_usr_local/Clean_usr_local::Rm_dir[/usr/local/share/man/man9x]/Exec[rm_/usr/local/share/man/man9x]/returns: executed successfully
-	Notice: /Stage[main]/Clean_usr_local/Clean_usr_local::Rm_dir[/usr/local/share/man/man5]/Exec[rm_/usr/local/share/man/man5]/returns: executed successfully
-	Notice: /Stage[main]/Clean_usr_local/Clean_usr_local::Rm_dir[/usr/local/share/man/man1x]/Exec[rm_/usr/local/share/man/man1x]/returns: executed successfully
-	Notice: /Stage[main]/Clean_usr_local/Clean_usr_local::Rm_dir[/usr/local/share/man/man6]/Exec[rm_/usr/local/share/man/man6]/returns: executed successfully
-	Notice: /Stage[main]/Clean_usr_local/Clean_usr_local::Rm_dir[/usr/local/share/man/man1]/Exec[rm_/usr/local/share/man/man1]/returns: executed successfully
-	Notice: /Stage[main]/Clean_usr_local/Clean_usr_local::Rm_dir[/usr/local/share/man/man8x]/Exec[rm_/usr/local/share/man/man8x]/returns: executed successfully
-	Notice: /Stage[main]/Clean_usr_local/Clean_usr_local::Rm_dir[/usr/local/share/man/man9]/Exec[rm_/usr/local/share/man/man9]/returns: executed successfully
-	Notice: /Stage[main]/Clean_usr_local/Clean_usr_local::Rm_dir[/usr/local/share/man/mann]/Exec[rm_/usr/local/share/man/mann]/returns: executed successfully
-	Notice: /Stage[main]/Clean_usr_local/Clean_usr_local::Rm_dir[/usr/local/share/man/man7x]/Exec[rm_/usr/local/share/man/man7x]/returns: executed successfully
 	Notice: /Stage[main]/Clean_usr_local/Clean_usr_local::Rm_dir[/usr/local/share/applications]/Exec[rm_/usr/local/share/applications]/returns: executed successfully
-	Notice: /Stage[main]/Clean_usr_local/Clean_usr_local::Rm_dir[/usr/local/share/man]/Exec[rm_/usr/local/share/man]/returns: executed successfully
-	Notice: /Stage[main]/Clean_usr_local/Clean_usr_local::Rm_dir[/usr/local/share/info]/Exec[rm_/usr/local/share/info]/returns: executed successfully
-	Notice: /Stage[main]/Clean_usr_local/Clean_usr_local::Rm_dir[/usr/local/src]/Exec[rm_/usr/local/src]/returns: executed successfully
-	Notice: /Stage[main]/Clean_usr_local/Clean_usr_local::Rm_dir[/usr/local/lib64]/Exec[rm_/usr/local/lib64]/returns: executed successfully
-	Notice: /Stage[main]/Clean_usr_local/Clean_usr_local::Rm_dir[/usr/local/etc]/Exec[rm_/usr/local/etc]/returns: executed successfully
-	Notice: /Stage[main]/Clean_usr_local/Clean_usr_local::Rm_dir[/usr/local/sbin]/Exec[rm_/usr/local/sbin]/returns: executed successfully
-	Notice: /Stage[main]/Clean_usr_local/Clean_usr_local::Rm_dir[/usr/local/include]/Exec[rm_/usr/local/include]/returns: executed successfully
-	Notice: /Stage[main]/Clean_usr_local/Clean_usr_local::Rm_dir[/usr/local/games]/Exec[rm_/usr/local/games]/returns: executed successfully
 	Notice: /Stage[main]/Clean_usr_local/Clean_usr_local::Rm_dir[/usr/local/lib]/Exec[rm_/usr/local/lib]/returns: executed successfully
 	Notice: /Stage[main]/Clean_usr_local/Clean_usr_local::Rm_dir[/usr/local/libexec]/Exec[rm_/usr/local/libexec]/returns: executed successfully
 	Notice: Finished catalog run in 8.97 seconds
 
-The defined type allows the exec to go through like a forloop. Check out the hint from [here](http://backdrift.org/puppet-foreach-for-loop-workaround). After it was applied here is how the directory looked like:
+The **defined** type allows the **exec** to go through like a *for* loop. Check out the hint from [here](http://backdrift.org/puppet-foreach-for-loop-workaround). After it was applied here is how the directory looked like:
 
 	[root@pup-node1 ~]# tree /usr/local
 	/usr/local
@@ -261,7 +234,7 @@ The defined type allows the exec to go through like a forloop. Check out the hin
 If you don't care about the contents, you could always just **exec** "rm -rf", but that would too easy.
 
 ### Add the *wheel* group to be part of *sudoers*
-Luckily there is a puppet module for that: it's [saz/sudo](https://forge.puppetlabs.com/saz/sudo). So on the puppet master let's go ahead and install it:
+Luckily there is a **puppet** module for that: it's [saz/sudo](https://forge.puppetlabs.com/saz/sudo). So on the puppet master let's go ahead and install it:
 
 	[root@puppet ~]# puppet module install saz/sudo
 	Notice: Preparing to install into /etc/puppet/modules ...
@@ -302,7 +275,7 @@ Here is the pull from the master:
 	Notice: /Stage[main]/Main/Node[pup-node1.dnsd.me]/Sudo::Conf[admins]/Exec[sudo-syntax-check for file /etc/sudoers.d/10_admins]: Triggered 'refresh' from 1 events
 	Notice: Finished catalog run in 5.27 seconds
 
-Then making sure the user that is part of the **wheel** group can run sudo:
+Then making sure the user that is part of the **wheel** group can run **sudo**:
 
 	[root@pup-node1 ~]# sudo su - elatov
 	Last login: Sat Aug 23 18:24:39 MDT 2014 on pts/1
@@ -323,7 +296,7 @@ It just creates a new config under **/etc/sudoers.d/** with the appropriate conf
 and it doesn't change the configuration file under **/etc/sudoers**.
 
 ### Apply an *iptables* Firewall
-There are a couple of modules out there, but at home I have a pretty standard approach to **iptables** so I decided to have the puppet master host the iptables rules per node and also a default iptables ruleset as well. Here is the class that I put together:
+There are a couple of modules out there, but at home I have a pretty standard approach to **iptables** so I decided to have the puppet master host the **iptables** rules per node and also a default iptables ruleset as well. Here is the class that I put together:
 
 	[elatov@puppet ~]$ cat /etc/puppet/modules/my_iptables/manifests/init.pp 
 	class my_iptables ($host) {
@@ -483,7 +456,7 @@ Here is the apply from the node:
 	Warning: Not using cache on failed catalog
 	Error: Could not retrieve catalog; skipping run
 	
-It looks like line 16 is having an issue, let's check out that line:
+It looks like **line 16** is having an issue, let's check out that line:
 
 	[elatov@puppet ~]$ sed -n '16 p' /etc/puppet/modules/selinux/manifests/params.pp
 		  if $::operatingsystemrelease < '7' {
@@ -605,22 +578,15 @@ Now check the address option in the **sshd_config** file:
 We can see that it's currently commented out. So let's set **AddressFamily** to **inet** with augeas provider. Here is the puppet config I used:
 
 	class { 'augeasproviders::instances':
-				  sshd_config_hash => { 'AddressFamily' => { 
-								  'ensure' => 'present',
-								   'value' => "inet",
-								   },
-			   },
-				 notify => Service["sshd"],
-			  }
+		sshd_config_hash => { 'AddressFamily' => { 'ensure' => 'present','value'  => "inet",},},
+		notify 		 => Service["sshd"],
+		}
 	}
 	service { "sshd":
-			name => $operatingsystem ? {
-				/(?i:Debian|Ubuntu)/ => "ssh",
-				default => "sshd",
-		},
+		name 	=> $operatingsystem ? {/(?i:Debian|Ubuntu)/ => "ssh",default => "sshd",},
 		require => Class["augeasproviders::instances"],
-			enable => true,
-			ensure => running,
+		enable 	=> true,
+		ensure 	=> running,
 	}
 
 Now let's back up the configuration and then apply the puppet changes:
@@ -647,7 +613,7 @@ Now let's back up the configuration and then apply the puppet changes:
 	19d18
 	< AddressFamily inet
 
-That looks correct, so now let's modify the postfix configuration to not use IPv6, here is the setting we have to modify:
+That looks correct, so now let's modify the **postfix** configuration to not use IPv6, here is the setting we have to modify:
 
 	[vagrant@pup-node1 ~]$ sudo augtool print /files/etc/postfix/main.cf | grep -i protocols
 	/files/etc/postfix/main.cf/inet_protocols = "all"
@@ -693,14 +659,16 @@ and here is the result on the node:
 	Notice: /Stage[main]/Dis_ipv6/Service[postfix]: Triggered 'refresh' from 1 events
 	Notice: Finished catalog run in 11.06 seconds
 
+If you are planning to manage the postfix service with puppet it would be better to modify the ipv6 config there. This way you won't end up with duplicate declarations.
+
 ### Setup a cronjob
-This was pretty easy, there is already a cron resource. So just needed the following:
+This was pretty easy, there is already a **cron** *type*. So just needed the following:
 
 	package { "ntpdate":
 		ensure => "present",
 	}
 
-	cron {"ntp":
+	cron { "ntp":
 		command => "/usr/sbin/ntpdate -s 0.north-america.pool.ntp.org",
 		user => "root",
 		minute => "05",
@@ -787,130 +755,6 @@ Lastly to make sure I can install from the EPEL Repository:
 	 * extras: mirrors.unifiedlayer.com
 	 * updates: repos.dfw.quadranet.com
 	Available Packages
-	cdpr.x86_64                            2.4-6.el7                            epel
+	cdpr.x86_64                            2.4-6.el7      epel
 
-# By this point you will realize that it's inevitable that you will have to write a puppet module. To get started check out [this](https://docs.puppetlabs.com/guides/module_guides/bgtm.html) page (there is good 3 part blog series [here](http://puppetlabs.com/blog/best-practices-building-puppet-modules) as well. The module should break down into 5 files:
-
-1. init.pp
-2. params.pp
-3. install.pp
-4. config.pp
-5. service.pp
-
-There are also tools out there to create templates of a module [puppet module skeletons](http://www.puppetbestpractices.com/modules/style/module-skeleton.html).
-
-You will also notice that there are different methods to do ordering of the class execution. For example from [here](http://www.devco.net/archives/2012/12/13/simple-puppet-module-structure-redux.php):
-
-class ntp(
-   $version = "present",
-   $ntpservers = ["1.pool.ntp.org", "2.pool.ntp.org"],
-   $enable = true,
-   $start = true
-) {
-   class{'ntp::install': } ->
-   class{'ntp::config': } ~>
-   class{'ntp::service': } ->
-   Class["ntp"]
-}
-
-Or even the [first guide](https://docs.puppetlabs.com/guides/module_guides/bgtm.html) that I mentioned has the following:
-
-Best practices recommend basing your requires, befores, and other ordering-related dependencies on classes rather than resources. Class-based ordering allows you to shield the implementation details of each class from the other classes. You can do things like:
-
-    file { 'configuration':
-      ensure  => present,
-      require => Class['module::install'],
-    }
-
-and from the same guide, you can use containment and anchoring. Here is anchoring:
-
-    Anchor['module::begin'] ->
-      Class['module::install'] ->
-      Class['module::config']  ->
-      Class['module::service'] ->
-    Anchor['module::end']
-
-and here is containement:
-
-class { 'ssh::server::install': } ->
-  class { 'ssh::server::config': } ~>
-  class { 'ssh::server::service': }
-
-  contain ssh::server::install
-  contain ssh::server::config
-  contain ssh::server::service
-
-If you decide to use the [first one](https://github.com/garethr/puppet-module-skeleton), you can just install it with the following commands:
-
-git clone https://github.com/garethr/puppet-module-skeleton
-cd puppet-module-skeleton
-find skeleton -type f | git checkout-index --stdin --force --prefix="$HOME/.puppet/var/puppet-module/" --
-
-Then creating a module template will look like this:
-
-elatov@fed:~$puppet module generate test-test
-Notice: Generating module at /home/elatov/test-test
-test-test
-test-test/.fixtures.yml
-test-test/.gitignore
-test-test/.rspec
-test-test/.travis.yml
-test-test/CHANGELOG
-test-test/CONTRIBUTING.md
-test-test/CONTRIBUTORS
-test-test/Gemfile
-test-test/Guardfile
-test-test/LICENSE
-test-test/Modulefile
-test-test/README.markdown
-test-test/Rakefile
-test-test/files
-test-test/files/.gitkeep
-test-test/lib
-test-test/lib/puppet
-test-test/lib/puppet/provider
-test-test/lib/puppet/provider/.gitkeep
-test-test/lib/puppet/type
-test-test/lib/puppet/type/.gitkeep
-test-test/manifests
-test-test/manifests/config.pp
-test-test/manifests/init.pp
-test-test/manifests/install.pp
-test-test/manifests/params.pp
-test-test/manifests/service.pp
-test-test/metadata.json
-test-test/spec
-test-test/spec/acceptance
-test-test/spec/acceptance/class_spec.rb
-test-test/spec/acceptance/nodesets
-test-test/spec/acceptance/nodesets/centos-64-x64.yml
-test-test/spec/acceptance/nodesets/default.yml
-test-test/spec/acceptance/nodesets/ubuntu-server-12042-x64.yml
-test-test/spec/classes
-test-test/spec/classes/coverage_spec.rb
-test-test/spec/classes/example_spec.rb
-test-test/spec/spec_helper.rb
-test-test/spec/spec_helper_acceptance.rb
-test-test/templates
-test-test/templates/.gitkeep
-test-test/tests
-test-test/tests/init.pp
-
-Now you can import that directory into geppetto and modify the 5 files that we menetinoed before.
-
-### augeas notes
-http://www.slideshare.net/PuppetLabs/configuration-with-augeas
-http://serverfault.com/questions/314847/appending-a-line-to-a-file-if-it-doesnt-exist-using-puppet
-http://projects.puppetlabs.com/projects/1/wiki/puppet_augeas
-https://github.com/hercules-team/augeas/wiki/Loading-specific-files
-
-# sometimes using a generic ini module is helpful
-https://www.redhat.com/archives/augeas-devel/2012-March/msg00013.html
-
-# all the stock lenses
-http://augeas.net/stock_lenses.html
-##
-##
-
-## Bloated params
-http://garylarizza.com/blog/2013/12/08/when-to-hiera/
+That's all that I needed to to. Let me reiterate that this is not the perfect setup and this is just what I did to start playing with puppet. Onto the next adventures.
