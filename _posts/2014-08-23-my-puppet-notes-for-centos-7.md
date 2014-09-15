@@ -909,6 +909,9 @@ https://www.redhat.com/archives/augeas-devel/2012-March/msg00013.html
 
 # all the stock lenses
 http://augeas.net/stock_lenses.html
+
+# why is editing per line better
+http://stackoverflow.com/questions/14885267/why-config-files-shouldt-be-changed-line-by-line-with-chef-puppet
 ##
 ##
 
