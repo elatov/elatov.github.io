@@ -755,6 +755,139 @@ Lastly to make sure I can install from the EPEL Repository:
 	 * extras: mirrors.unifiedlayer.com
 	 * updates: repos.dfw.quadranet.com
 	Available Packages
+<<<<<<< HEAD:_posts/2014-08-23-messing-around-with-puppet.md
 	cdpr.x86_64                            2.4-6.el7      epel
 
 That's all that I needed to to. Let me reiterate that this is not the perfect setup and this is just what I did to start playing with puppet. Onto the next adventures.
+=======
+	cdpr.x86_64                            2.4-6.el7                            epel
+
+# By this point you will realize that it's inevitable that you will have to write a puppet module. To get started check out [this](https://docs.puppetlabs.com/guides/module_guides/bgtm.html) page (there is good 3 part blog series [here](http://puppetlabs.com/blog/best-practices-building-puppet-modules) as well. The module should break down into 5 files:
+
+1. init.pp
+2. params.pp
+3. install.pp
+4. config.pp
+5. service.pp
+
+There are also tools out there to create templates of a module [puppet module skeletons](http://www.puppetbestpractices.com/modules/style/module-skeleton.html).
+
+You will also notice that there are different methods to do ordering of the class execution. For example from [here](http://www.devco.net/archives/2012/12/13/simple-puppet-module-structure-redux.php):
+
+class ntp(
+   $version = "present",
+   $ntpservers = ["1.pool.ntp.org", "2.pool.ntp.org"],
+   $enable = true,
+   $start = true
+) {
+   class{'ntp::install': } ->
+   class{'ntp::config': } ~>
+   class{'ntp::service': } ->
+   Class["ntp"]
+}
+
+Or even the [first guide](https://docs.puppetlabs.com/guides/module_guides/bgtm.html) that I mentioned has the following:
+
+Best practices recommend basing your requires, befores, and other ordering-related dependencies on classes rather than resources. Class-based ordering allows you to shield the implementation details of each class from the other classes. You can do things like:
+
+    file { 'configuration':
+      ensure  => present,
+      require => Class['module::install'],
+    }
+
+and from the same guide, you can use containment and anchoring. Here is anchoring:
+
+    Anchor['module::begin'] ->
+      Class['module::install'] ->
+      Class['module::config']  ->
+      Class['module::service'] ->
+    Anchor['module::end']
+
+and here is containement:
+
+class { 'ssh::server::install': } ->
+  class { 'ssh::server::config': } ~>
+  class { 'ssh::server::service': }
+
+  contain ssh::server::install
+  contain ssh::server::config
+  contain ssh::server::service
+
+If you decide to use the [first one](https://github.com/garethr/puppet-module-skeleton), you can just install it with the following commands:
+
+git clone https://github.com/garethr/puppet-module-skeleton
+cd puppet-module-skeleton
+find skeleton -type f | git checkout-index --stdin --force --prefix="$HOME/.puppet/var/puppet-module/" --
+
+Then creating a module template will look like this:
+
+elatov@fed:~$puppet module generate test-test
+Notice: Generating module at /home/elatov/test-test
+test-test
+test-test/.fixtures.yml
+test-test/.gitignore
+test-test/.rspec
+test-test/.travis.yml
+test-test/CHANGELOG
+test-test/CONTRIBUTING.md
+test-test/CONTRIBUTORS
+test-test/Gemfile
+test-test/Guardfile
+test-test/LICENSE
+test-test/Modulefile
+test-test/README.markdown
+test-test/Rakefile
+test-test/files
+test-test/files/.gitkeep
+test-test/lib
+test-test/lib/puppet
+test-test/lib/puppet/provider
+test-test/lib/puppet/provider/.gitkeep
+test-test/lib/puppet/type
+test-test/lib/puppet/type/.gitkeep
+test-test/manifests
+test-test/manifests/config.pp
+test-test/manifests/init.pp
+test-test/manifests/install.pp
+test-test/manifests/params.pp
+test-test/manifests/service.pp
+test-test/metadata.json
+test-test/spec
+test-test/spec/acceptance
+test-test/spec/acceptance/class_spec.rb
+test-test/spec/acceptance/nodesets
+test-test/spec/acceptance/nodesets/centos-64-x64.yml
+test-test/spec/acceptance/nodesets/default.yml
+test-test/spec/acceptance/nodesets/ubuntu-server-12042-x64.yml
+test-test/spec/classes
+test-test/spec/classes/coverage_spec.rb
+test-test/spec/classes/example_spec.rb
+test-test/spec/spec_helper.rb
+test-test/spec/spec_helper_acceptance.rb
+test-test/templates
+test-test/templates/.gitkeep
+test-test/tests
+test-test/tests/init.pp
+
+Now you can import that directory into geppetto and modify the 5 files that we menetinoed before.
+
+### augeas notes
+http://www.slideshare.net/PuppetLabs/configuration-with-augeas
+http://serverfault.com/questions/314847/appending-a-line-to-a-file-if-it-doesnt-exist-using-puppet
+http://projects.puppetlabs.com/projects/1/wiki/puppet_augeas
+https://github.com/hercules-team/augeas/wiki/Loading-specific-files
+
+# sometimes using a generic ini module is helpful
+https://www.redhat.com/archives/augeas-devel/2012-March/msg00013.html
+
+# all the stock lenses
+http://augeas.net/stock_lenses.html
+
+# why is editing per line better
+http://stackoverflow.com/questions/14885267/why-config-files-shouldt-be-changed-line-by-line-with-chef-puppet
+##
+##
+
+## Bloated params
+http://garylarizza.com/blog/2013/12/08/when-to-hiera/
+>>>>>>> 39cc5e8c905bf2993e22d8736f5ee30a90dbed68:_posts/2014-08-23-my-puppet-notes-for-centos-7.md
