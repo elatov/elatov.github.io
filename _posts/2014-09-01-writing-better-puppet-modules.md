@@ -316,7 +316,7 @@ From the puppet page:
 
 > The resources related to configuring the installed software should be placed in a config class. The config class must be named **module::config** and must be located in the **config.pp** file.
 
-It checks what config file is assigned and puts it in the correct location. This is mostly cause I have machines using **systemd** and **init.d**.
+It checks what config file is assigned and puts it in the correct location. This is mostly cause I have machines using **systemd** and **SysV init**.
 
 ### Puppet service.pp Manifest
 
