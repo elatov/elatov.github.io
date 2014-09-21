@@ -7,7 +7,7 @@ categories: [OS]
 tags: [mac_os_x,linux,debian,efi,bless]
 ---
 
-A very old Mac Mini came into my hands, in fact it was old that the latest version of Mac OS X that it could run was 10.6 and I couldn't even update it to 10.9. So I decided to install Debian on the machine in the hopes of using it as a media server later on. Here are the steps I took to install Debian 7.6 on the MacMini1,1.
+A very old Mac Mini came into my hands, in fact it was so old that the latest version of Mac OS X that it could run was 10.6 and I couldn't even update it to 10.9. So I decided to install Debian on the machine in the hopes of using it as a media server later on. Here are the steps I took to install Debian 7.6 on the MacMini1,1.
 
 ### Reset Local Mac OS X User's Password
 I didn't even have the login information for the local admin user. To reset the password on Mac OS X 10.6 we can do the following. Power on the MacMini and as soon as you hear the boot chime hold **Apple+S** (or some refer to it as **Command+S**), this will force the machine to boot into *single-user* mode. It will ask you to run a file system check and to remount the file system with read/write permission. The commands for that are as follows:
