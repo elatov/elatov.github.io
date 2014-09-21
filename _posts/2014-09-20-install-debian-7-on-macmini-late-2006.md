@@ -4,7 +4,7 @@ layout: post
 title: "Install Debian 7 On MacMini Late 2006"
 author: Karim Elatov
 categories: [OS]
-tags: [mac,linux,debian,refit,bless]
+tags: [mac_os_x,linux,debian,refit,bless]
 ---
 
 A very old Mac Mini came into my hands, in fact it was old that the latest version of Mac OS X that it could run was 10.6 and I couldn't even update it to 10.9. So I decided to install Debian on the machine in the hopes of using it as a media server later on. Here are the steps I took to install Debian 7.6 on the MacMini1,1.
