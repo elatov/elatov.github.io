@@ -7,7 +7,7 @@ categories: [OS]
 tags: [mac,linux,debian,refit,bless]
 ---
 
-A very old Mac Mini came into my hands, in fact it was old that the latest version of Mac OS X that is could run was 10.6 and I couldn't even update it to 10.9. So I decided to install Debian on the machine in the hopes of using it as a media server later on. Here are the steps I took to install Debian 7.6 on the MacMini1,1.
+A very old Mac Mini came into my hands, in fact it was old that the latest version of Mac OS X that it could run was 10.6 and I couldn't even update it to 10.9. So I decided to install Debian on the machine in the hopes of using it as a media server later on. Here are the steps I took to install Debian 7.6 on the MacMini1,1.
 
 ### Reset Local Mac OS X User's Password
 I didn't even have the login information for the local admin user. To reset the password on Mac OS X 10.6 we can do the following. Power on the MacMini and as soon as you hear the boot chime hold **Apple+S** (or some refer to it as **Command+S**), this will force the machine to boot into *single-user* mode. It will ask you to run a file system check and to remount the file system with read/write permission. The commands for that are as follows:
@@ -54,7 +54,7 @@ So my **/dev/sr0** drive will be able to handle the burning of a blank CD. Now f
 	elatov@fed:~$wodim -v dev=/dev/sr0 speed=4 -eject downloads/debian-7.6.0-i386-netinst.iso 
 
 ### Download and Copy rEFIt ISO Disk Image onto a USB drive
-While the CD was burning I went to Mac and first made sure the password was reset and then I installed the **rEFIt** image on my USB Drive, so I can boot from it later. I could've probably used the **diskutility** to complete this, but I decided to go with the command line. I just grabbed the ISO disk image and ran the following:
+While the CD was burning I went to the Mac and first made sure the password was reset. Then I installed the **rEFIt** image on my USB Drive, so I can boot from it later. I could've probably used the **diskutility** to complete this, but I decided to go with the command line. I just grabbed the ISO disk image and ran the following:
 
 	gunzip -d rEFIt-0.14.cdr.gz
 	hdiutil convert -format UDRW -o refit.dmg rEFIt-0.14.cdr
@@ -63,7 +63,7 @@ While the CD was burning I went to Mac and first made sure the password was rese
 As soon as the **dd** finished the volume auto mounted and I saw the **rEFIt** icon.
 
 ### Mute the Boot Chime from OS X
-While I was in the OS X, I took the chance to silence the boot chime, here is the command for that:
+While I was in OS X, I took the chance to silence the boot chime, here is the command for that:
 
 	$ sudo nvram SystemAudioVolume=%80
 
@@ -71,16 +71,18 @@ You can confirm the setting by running the following:
 
 	$ sudo nvram -p | grep Audio
 	SystemAudioVolume	%80
+
+After that I rebooted and I didn't hear the boot chime.
 	
-### Use Disk Utility to Create a Partition for Debian
+### Use DiskUtility to Create a Partition for Debian
 Just fire up **DiskUtility** and resize the partition (I covered this in a [previous](/2013/08/install-fedora-19-on-mac-book-pro/) post)
 	
 ### Boot from the Debian CD and Install Debian on the Free Space
-I decided to dual boot just in case I ever needed to reboot into Mac OS for updates or firmware updates. So reboot from Mac OS X and holt down the **Alt** key and it will show you the boot manager. On the boot manager the Debian CD will show up with a title of **Windows**:
+I decided to dual boot just in case I ever needed to reboot into Mac OS for updates or firmware updates. So reboot from Mac OS X and hold down the **Alt** key and it will show you the boot manager. On the boot manager the Debian CD will show up with a title of **Windows**:
 
 ![mac-osx-boot-man-cd-selected2](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/mac-mini-2006-debian/mac-osx-boot-man-cd-selected2_gc.jpg)
 
-If you select the CD it will start the Debian Installer. Just fill out everything as you normally would. I selected the "**Guided - use the largest continuous free space**":
+If you select the CD, it will start the Debian Installer. Just fill out everything as you normally would. I selected the "**Guided - use the largest continuous free space**":
 
 ![deb-in-part-guided_g](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/mac-mini-2006-debian/deb-in-part-guided_g.jpg)
 
@@ -88,7 +90,7 @@ After selecting that it created the following partitions:
 
 ![deb-in-part-guided2](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/mac-mini-2006-debian/deb-in-part-guided2_gc.jpg)
 
-It will also ask you where to install GRUB and I selected the fourth partition:
+It will also ask you where to install GRUB and I selected the fourth partition (**/dev/sda4**):
 
 ![deb-in-grub-spec-disk_g](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/mac-mini-2006-debian/deb-in-grub-spec-disk_g.jpg)
 
@@ -99,7 +101,7 @@ When the Mac is rebooting keep pressing the **Alt** key until you see the boot m
 
 ![osx-boot-man-refit_g](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/mac-mini-2006-debian/osx-boot-man-refit_g.jpg)
 
-After booting from **rEFIt** you will see both your OS X and Linux Boot Disks:
+After booting from the **rEFIt** USB stick, you will see both your OS X and Linux Boot Disks:
 
 ![refit-linux-selected_g](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/mac-mini-2006-debian/refit-linux-selected_g.jpg)
 
@@ -129,7 +131,7 @@ Here is the full output, just for reference:
 
 	 Status: MRB Table must be updated
 
-	Proposed new MBR partition table"
+	Proposed new MBR partition table:
 	 # Ą   Start LBA     End LBA 	 Type
 	 1             1       409639 	EE EFI Protective
 	 2        409640     78490383 	AF Mac OS X HFS+
@@ -150,14 +152,14 @@ Reboot from the **rEFIt** USB disk and eject the USB disk, then hold down the **
 
 ![mac-osx-boot-man-deb-selected_g](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/mac-mini-2006-debian/mac-osx-boot-man-deb-selected_g.jpg)
 
-Upon selecting the **Windows** boot disk you will see the GRUB menu with the Debian entry:
+Upon selecting the **Windows** boot disk, you will see the GRUB menu with the Debian entry:
 
 ![deb-grub_g](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/mac-mini-2006-debian/deb-grub_g.jpg)
 
 After that Debian will boot up normally.
 
 ### Set Debian as the default boot disk
-If you don't want to keep pushing the **Alt** key to keep booting into Debian we can **bless** our Debian paritition from Mac OS X. First list all the partitions to figure out which partition we need to **bless**:
+If you don't want to keep pushing the **Alt** key to boot into Debian, we can **bless** our Debian paritition from Mac OS X. First list all the partitions to figure out which partition we need to **bless**:
 
 	$ diskutil list
 	/dev/disk0
