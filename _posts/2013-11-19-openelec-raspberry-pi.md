@@ -55,7 +55,7 @@ From the top link, here is a quick summary for each:
 
 ### XBian
 
-At first, I decided to try Xbian since it seems pretty much in between. The install is fairly simple. Download their image from [here](http://www.xbian.org/download/):
+At first, I decided to try Xbian since it seems pretty much in between. The install is fairly simple. Download their image from [here](http://www.xbian.org/getxbian/):
 
 ![xbian download OpenELEC on Raspberry Pi](https://github.com/elatov/uploads/raw/master/2013/11/xbian-download.png)
 
