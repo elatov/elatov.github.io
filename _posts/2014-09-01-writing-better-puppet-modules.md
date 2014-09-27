@@ -147,27 +147,27 @@ Here is how the default **init.pp** looks like for me:
 	#
 	class module (
 	  ## Packages
-	  $module_package_name		= $module::params::module_package_name,
+	  $package_name		= $module::params::module_package_name,
 	
 	  ## Services
-	  $module_service_name		= $module::params::module_service_name,
+	  $service_name		= $module::params::module_service_name,
 	
 	  ## Dirs
-	  $module_config_dir		= $module::params::module_config_dir,
-	  $module_service_dir		= $module::params::module_service_dir,
-	  $module_home			= $module::params::module_home,
+	  $config_dir		= $module::params::module_config_dir,
+	  $service_dir		= $module::params::module_service_dir,
+	  $home			= $module::params::module_home,
 	
 	  ## Conf Files
-	  $module_config_file		= $module::params::module_config_file,
-	  $module_service_file		= $module::params::module_service_file,
+	  $config_file		= $module::params::module_config_file,
+	  $service_file		= $module::params::module_service_file,
 	
 	  ## settings
-	  $module_settings		= $module::params::module_settings,
+	  $module_settings	= $module::params::module_settings,
 	) inherits module::params {
 	
 	  # validate parameters here
-	  validate_hash($module_settings)
-	  validate_string($module_package_name)
+	  validate_hash($settings)
+	  validate_string($package_name)
 	
 	  class { 'module::install': } ->
 	  class { 'module::config': } ~>
@@ -255,9 +255,9 @@ Here is how the default one looks like for me:
 	elatov@fed:~$cat module/manifests/install.pp
 	# == Class module::install
 	#
-	class module::install inherits module::params {
+	class module::install  {
 	
-	  ensure_packages ($module_package_name,{ 'ensure'=> 'latest' })
+	  ensure_packages ($module::package_name,{ 'ensure'=> 'present' })
 	}
 	
 Depends on the **stdlib** module (in my case any ways). From the puppet page:
@@ -272,16 +272,16 @@ Here is my default one that I use:
 	#
 	# This class is called from module
 	#
-	class module::config inherits module::params {
+	class module::config {
 	
-	  ensure_resource ('user',$module_settings['user'],{ 'ensure'=> 'present' })
+	  ensure_resource ('user',$module::settings['user'],{ 'ensure'=> 'present' })
 	
-	  if $module_service_file =~ /(?i:service)/ {
-	    file { $module_service_file:
+	  if $module::service_file =~ /(?i:service)/ {
+	    file { $module::service_file:
 	      ensure  => "present",
-	      path    => "${module_service_dir}/${module_service_file}",
+	      path    => "${module::service_dir}/${module::service_file}",
 	      mode    => '0644',
-	      content => template("module/${module_service_file}.erb"),
+	      content => template("module/${module::service_file}.erb"),
 	    }~>
 	    exec { "${module_name}-reload-systemd":
 	      path    		=> ["/bin","/usr/bin"],
@@ -290,25 +290,25 @@ Here is my default one that I use:
 	    }
 	  }
 	
-	  if $module_service_file =~ /(?i:init)/ {
-	    file { $module_service_file:
+	  if $module::service_file =~ /(?i:init)/ {
+	    file { $module::service_file:
 	      ensure  => 'present',
-	      path    => "${module_service_dir}/module",
+	      path    => "${module::service_dir}/module",
 	      mode    => '0755',
-	      content => "puppet:///modules/module/${module_service_file}",
+	      content => "puppet:///modules/module/${module::service_file}",
 	    }
 	  }
 	
 	
-	  file { $module_config_dir:
+	  file { $module::config_dir:
 	    ensure  => 'directory',
 	  }
 	
-	  file { $module_config_file:
+	  file { $module::config_file:
 	    ensure  => 'present',
-	    path    => "${module_config_dir}/module",
-	    content => template("module/${module_config_file}.erb"),
-	    require => File [$module_config_dir],
+	    path    => "${module::config_dir}/module",
+	    content => template("module/${module::config_file}.erb"),
+	    require => File [$module::config_dir],
 	  }
 	}
 
@@ -328,9 +328,9 @@ Another easy one:
 	# This class is meant to be called from module
 	# It ensure the service is running
 	#
-	class module::service inherits module::params{
+	class module::service {
 	
-	  service { $module_service_name:
+	  service { $module::service_name:
 	    ensure     => running,
 	    enable     => true,
 	    hasstatus  => true,
@@ -354,5 +354,5 @@ After filling out the necessary information ,and you will probably have to chang
 Or you can override some settings by passing in some parameters:
 
 	class {'module':
-		module_package_name => 'other_module_name',
+		package_name => 'other_package_name',
 	}
