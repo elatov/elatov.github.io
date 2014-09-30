@@ -24,7 +24,7 @@ Most of the instructions can be found in this [Zabbix](https://www.zabbix.com/do
     kerch:~>sudo apt-get install zabbix-server-mysql zabbix-frontend-php
 
 
-Now we need to setup the MySQL database. Instructions for the setup can be found online [here](https://www.zabbix.com/documentation/doku.php?id=2.0/manual/appendix/install/db_scripts), or in the **/usr/share/doc/zabbix-server-mysql/README.Debian** file (after the **zabbix-server** package has been installed). Here are the commands I ran to setup the MySQL database for Zabbix:
+Now we need to setup the MySQL database. Instructions for the setup can be found online [here](https://www.zabbix.com/documentation/2.0/manual/appendix/install/db_scripts), or in the **/usr/share/doc/zabbix-server-mysql/README.Debian** file (after the **zabbix-server** package has been installed). Here are the commands I ran to setup the MySQL database for Zabbix:
 
     kerch:~>mysql -u root -p -e "create database zabbix character set utf8"
     kerch:~>mysql -u root -p -e "grant all on zabbix.* to 'zabbix'@'localhost' identified by 'password'"
