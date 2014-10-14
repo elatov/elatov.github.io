@@ -12,12 +12,12 @@ A couple of sites talked about using pre-upgrade to perform the update:
 - [Upgrading headless hetzner server from CentOS 6.5 to CentOS 7: Success](http://tud0r.com/?p=238) 
 - [Upgrade to CentOS 7](http://linuxsysconfig.com/2014/07/upgrade-to-centos-7/)
 - [In Place Upgrade CentOS 6.5 to 7.0 using preupg](http://abi.io/blogs/in-place-upgrade-centos-6-5-to-7-0-using-preupg.html) 
-- [A Very Quick Look At Upgrading CentOS 6.5 To 7.0](http://www.cs.in.th/?p=145) 
+- [A Very Quick Look At Upgrading CentOS 6.5 To 7.0](http://damianzaremba.co.uk/2014/08/quick-look-at-upgrading-to-centos-7/) 
 
 ### Upgrade CentOS 6.5 to 7.0 with PreUpg
 First download all the necessary packages:
 
-	elatov@ccl:~$mkdir up; up/
+	elatov@ccl:~$mkdir up; cd up/
 	elatov@ccl:~/up$ wget http://dev.centos.org/centos/6/upg/x86_64/Packages/preupgrade-assistant-1.0.2-33.el6.x86_64.rpm
 	elatov@ccl:~/up$wget http://dev.centos.org/centos/6/upg/x86_64/Packages/preupgrade-assistant-contents-0.5.13-1.el6.noarch.rpm
 	elatov@ccl:~/up$wget http://dev.centos.org/centos/6/upg/x86_64/Packages/preupgrade-assistant-ui-1.0.2-33.el6.x86_64.rpm

@@ -253,7 +253,7 @@ The last command created the following *xorg.conf* file:
     EndSection
 
 
-I then rebooted and the boot up process looked better but GDM didn't even start. I then ran across this article "[Fedora 17 nVidia Drivers Install Guide (disable nouveau driver)](http://www.if-not-true-then-false.com/2012/fedora-17-nvidia-guide/)". From that article:
+I then rebooted and the boot up process looked better but GDM didn't even start. I then ran across this article "[HOWTO: Install NVIDIA driver on Fedora – replacing Nouveau](http://kaischroed.wordpress.com/howto-install-nvidia-driver-on-fedora-replacing-nouveau/)". From that article:
 
 > 1.  Remove/disable nouveau drivers from kernel initramfs `## Backup old initramfs nouveau image`
 >     `mv /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r)-nouveau.img`
