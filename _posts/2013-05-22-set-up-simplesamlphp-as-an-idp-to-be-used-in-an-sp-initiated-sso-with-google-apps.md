@@ -323,7 +323,7 @@ There are many tools out there that can help with this:
 *   [HTTPFox](https://addons.mozilla.org/en-us/firefox/addon/httpfox/)
 *   [Charles Proxy](http://www.charlesproxy.com/)
 *   [Chrome Developer Tools](https://developers.google.com/chrome-developer-tools/)
-*   [Diddler](http://fiddler2.com/)
+*   [Fiddler](http://fiddler2.com/)
 *   [Live HTTP Headers](https://addons.mozilla.org/en-us/firefox/addon/live-http-headers/)
 
 I prefer Charles Proxy because it's a stand alone application. You point your browser to proxy all of it's traffic through Charles and you can see everything. While the other tools, attach themselves to the Browser and show you the traffic. For ease of use, I will use *Live HTTP Headers* cause it easy to copy Header information from it :)
