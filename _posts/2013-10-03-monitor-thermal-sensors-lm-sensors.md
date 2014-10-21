@@ -914,7 +914,7 @@ From the top link:
 
 > The MacBook Pro "Core i7" 2.2 15-Inch (Late 2011) features a 32 nm "Sandy Bridge" 2.2 GHz Intel "Core i7" processor (2675QM), with four independent processor "cores" on a single silicon chip
 
-Also regarding hyper-threading, from [here](http://store.apple.com/sg/learnmore/MD389ZP/A?group=processor_z0nq):
+Also regarding hyper-threading, from [here](https://www.apple.com/imac/performance/):
 
 > The Intel Core i7 processors are based on new 22-nanometer process technology with an advanced Core micro-architecture that features an integrated memory controller and level 3 cache, giving the Mac faster, more direct access to memory. In addition, these processors feature:
 >
