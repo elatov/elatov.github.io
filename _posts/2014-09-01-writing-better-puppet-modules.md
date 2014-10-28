@@ -229,7 +229,7 @@ Here is how mine looks like by default:
 		}
 	}
 	
-This figures out all the necessary configurations and where all the files will go depending on the OS. I also use a hash for all the settings, so if you ened to override the settings for the software you are installing, you can pass in a hash and the template will parse them appropriately. There is a move to use hiera and ENC ([External Node Classifiers](https://docs.puppetlabs.com/guides/external_nodes.html)) for these, but I am still just learning and I don't use those yet. There is actually a pretty good discuss in [When to Hiera (Aka: How Do I Module?)](http://garylarizza.com/blog/2013/12/08/when-to-hiera/). From that post here are some pros and cons of using the **params class pattern**:
+This figures out all the necessary configurations and where all the files will go depending on the OS. I also use a hash for all the settings, so if you ened to override the settings for the software you are installing, you can pass in a hash and the template will parse them appropriately. There is a move to use hiera and ENC ([External Node Classifiers](https://docs.puppetlabs.com/guides/external_nodes.html)) for these, but I am still just learning and I don't use those yet. There is actually a pretty good discuss in [When to Hiera (Aka: How Do I Module?)](http://garylarizza.com/blog/2013/12/09/when-to-hiera/). From that post here are some pros and cons of using the **params class pattern**:
 
 > **Pros:**
 > 

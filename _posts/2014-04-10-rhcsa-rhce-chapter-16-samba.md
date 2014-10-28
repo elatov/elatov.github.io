@@ -1549,5 +1549,5 @@ That looks good. And here are my Samba SELinux booleans:
     virt_use_samba --> off
 
 
-Just for reference here is another pretty good guide: [Deploying a Red Hat Enterprise Linux 6 based Samba Server in a Windows Active Directory Domain](http://www.redhat.com/rhecm/rest-rhecm/jcr/repository/collaboration/jcr:system/jcr:versionStorage/361057860a0526010a1da39b0d2743fc/1/jcr:frozenNode/rh:resourceFile)
+Just for reference here is another pretty good guide: [Integrating Red Hat Enterprise Linux 6 with Active Directory](https://access.redhat.com/sites/default/files/attachments/rhel-ad-integration-deployment-guidelines-v1.5.pdf)
 
