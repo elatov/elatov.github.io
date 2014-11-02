@@ -132,11 +132,11 @@ Now let's modify the files to point to the correct locations, in the **/var/svc/
 	+ exec='/lib/svc/method/svc-puppetd start'
 	+ exec='/lib/svc/method/svc-puppetd reload'
 
-In the /lib/svc/method/svc-puppetd I made the following changes:
+In the **/lib/svc/method/svc-puppetd** I made the following changes:
 
 	- pidfile=/var/lib/puppet/run/agent.pid
 	+ pidfile=/var/run/puppet/agent.pid
-	-  /opt/csw/sbin/puppetd
+	- /opt/csw/sbin/puppetd
 	+ /opt/omni/bin/i386/puppet agent
 
 After that I created my **puppet.conf** and it looked like this:
@@ -194,14 +194,19 @@ Same thing for the stop:
 	
 Lastly we need to add the path of the puppet script to service, so when the puppet master calls the service it will know how to execute it. To do this we can run the following:
 
-	vagrant@omnios-vagrant:~$ sudo svccfg -s puppetd setenv PATH /opt/local/bin/i386:/opt/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+	vagrant@omnios-vagrant:~$ sudo svccfg -s puppetd setenv PATH /opt/local/bin/i386:/opt/local/sbin:/opt/local/bin:/bin:/sbin:/usr/bin:/usr/sbin
 	
-Restart the service and you can use **pargs** to confirm that the process has the right environment variable (PATH) configured:
+Restart the service:
+
+	vagrant@omnios-vagrant:~$ sudo svcadm refresh puppetd
+	vagrant@omnios-vagrant:~$ sudo svcadm restart puppetd
+
+And you can use **pargs** to confirm that the process has the right environment variable (**PATH**) configured:
 
 	vagrant@omnios-vagrant:~$ pargs -e `pgrep -f /opt/omni/bin/i386/ruby`
 	2901:   /opt/omni/bin/i386/ruby /opt/omni/bin/i386/puppet agent
 	envp[0]: _=*2892*/opt/omni/bin/i386/puppet
-	envp[1]: PATH=/opt/local/bin/i386:/opt/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin
+	envp[1]: PATH=/opt/local/bin/i386:/opt/local/sbin:/opt/local/bin:/bin:/sbin:/usr/bin:/usr/sbin
 	envp[2]: PWD=/
 	envp[3]: SHLVL=1
 	envp[4]: SMF_FMRI=svc:/network/puppetd:default
