@@ -166,7 +166,7 @@ From [Performance Tuning Guide](https://access.redhat.com/site/documentation/en-
 >
 > *   **SCHED_OTHER, or SCHED_NORMAL** The default scheduling policy. This policy uses the Completely Fair Scheduler (CFS) to provide fair access periods for all threads using this policy. CFS establishes a dynamic priority list partly based on the niceness value of each process thread. This gives users some indirect level of control over process priority, but the dynamic priority list can only be directly changed by the CFS.
 
-There was actually a little bit more info from [Part V. Kernel Tuning](http://doc.opensuse.org/documentation/html/openSUSE/opensuse-tuning/part.tuning.kernel.html):
+There was actually a little bit more info from [Part V. Kernel Tuning](https://www.suse.com/documentation/sles11/singlehtml/book_sle_tuning/book_sle_tuning.html#part.tuning.kernel):
 
 > **14.4.5. Changing Real-time Attributes of Processes with chrt**
 > The **chrt** command sets or retrieves the real-time scheduling attributes of a running process, or runs a command with the specified attributes. You can get or retrieve both the scheduling policy and priority of a process.
