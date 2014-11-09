@@ -343,7 +343,7 @@ And then **fwbuilder** pushed the same settings without any issues.
 
 ### VLAN configs
 
-For some reason I had some issues with this one. In [my previous post](2014/04/tag-multiple-vlans-on-trunk-port-on-dd-wrt-router/) I ended using the **t** flag to signify that a VLAN will be tagged on a specific port (I basically ran this):
+For some reason I had some issues with this one. In [my previous post](/2014/04/tag-multiple-vlans-on-trunk-port-on-dd-wrt-router/) I ended using the **t** flag to signify that a VLAN will be tagged on a specific port (I basically ran this):
 
 	nvram set vlan1ports="4t 3 2 1 8*"
 	nvram set vlan3ports="4t 8"
