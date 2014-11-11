@@ -174,7 +174,7 @@ The setup is getting less perfect as we keep going :). The **iperf** binary come
 
 Not too shabby.
 
-Next I wanted to try a similar test between the **omnios** machine and the **ESXi** machine. Back in the day I compiled a static **netperf** binary on a **CentOS 4.8** Linux distribution and it actually worked on an ESXi host (another person did a similar compile with **ipmitool** as described [this](http://johnsofteng.wordpress.com/2013/09/17/make-ipmitool-working-for-esxi-5-1/) blog on how to compile **netperf** for solaris. After I compiled **netperf-2.4.5**, I started the server on the *omnios* machine:
+Next I wanted to try a similar test between the **omnios** machine and the **ESXi** machine. Back in the day I compiled a static **netperf** binary on a **CentOS 4.8** Linux distribution and it actually worked on an ESXi host (another person did a similar compile with **ipmitool** as described [here](http://johnsofteng.wordpress.com/2013/09/17/make-ipmitool-working-for-esxi-5-1/)). So first I followed the instructions laid out in [this](https://blogs.oracle.com/observatory/entry/netperf) blog on how to compile **netperf** for solaris. After I compiled **netperf-2.4.5**, I started the server on the *omnios* machine:
 
     root@zfs:~# netserver
     Starting netserver at port 12865
