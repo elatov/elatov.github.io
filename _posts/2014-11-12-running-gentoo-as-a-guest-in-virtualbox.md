@@ -609,9 +609,9 @@ At this point we can probably reboot and it will should boot up. But before we d
 We need to tell our system where swap is and other partitions as well, here is how my **/etc/fstab** file looked like in the end:
 
 	livecd linux # grep /dev /etc/fstab
-	/dev/sda1		/boot		ext2		noauto,noatime	1 2
-	/dev/mapper/vg-root	/		ext3		noatime		0 1
-	/dev/mapper/vg-swap	none		swap		sw		0 0
+	/dev/sda1			/boot		ext2		noatime		1 2
+	/dev/mapper/vg-root	/			ext3		noatime		0 1
+	/dev/mapper/vg-swap	none		swap		sw			0 0
 
 #### Configure Networking
 I was using DHCP so just the bare minimum worked out:
