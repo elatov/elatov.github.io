@@ -558,7 +558,7 @@ After I put a file system on the disk and tried the same **dd** test, I saw the 
     3221225472 bytes (3.2 GB) copied, 31.1195 s, 104 MB/s
 
 
-Looking over [this](http://blog.smartlogicsolutions.com/2009/06/04/mount-options-to-improve-ext4-file-system-performance/) site, I decided to try out some mount options:
+Looking over [this](http://blog.nkadesign.com/2010/admin-linux-file-server-performance-boost-ext4-version/) site, I decided to try out some mount options:
 
     # mount /dev/sdb1 /mnt/test -o noatime,data=writeback
 
