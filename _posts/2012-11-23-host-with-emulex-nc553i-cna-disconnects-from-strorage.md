@@ -65,5 +65,4 @@ The firmware fixes another issue as well:
 > ...
 > DMA conflicts with the Emulex Light Pulse Fibre Channel (LPFC) driver on Proliant Gen8 series servers that may cause the adapter to stop responding.
 
-Here is the [link](http://h20000.www2.hp.com/bizsupport/TechSupport/SoftwareDescription.jsp?lang=en&#038;cc=lamerica_nsc_carib&#038;prodTypeId=329290&#038;prodSeriesId=4324629&#038;swItem=co-106538-1&#038;prodNameId=4324630&#038;swEnvOID=54&#038;swLang=8&#038;taskId=135&#038;mode=4&#038;idx=1&#038;adid=10428184&#038;affpid=3662453&#038;aoid=35252) to the firmware. After installing the firmware, the disconnects stopped occurring.
-
+Just download the Firmware from the advisory page and install it. After installing the firmware, the disconnects stopped occurring.
