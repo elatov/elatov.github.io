@@ -975,7 +975,7 @@ and then after logging in as a regular user I saw icewm loaded:
 
 After that you can run the following to keep your system up-to-date
 
-	emerge --sync or emerge webrsync
+	emerge --sync or emerge-webrsync
 	emerge -avuDN --with-bdeps y --keep-going world
 	emerge --depclean
 	dispatch-conf or etc-update
