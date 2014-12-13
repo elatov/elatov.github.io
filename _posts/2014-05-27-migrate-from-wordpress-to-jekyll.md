@@ -10,7 +10,7 @@ We decided to move away from Wordpress to Jekyll. There are many guides on the p
 
 - [Migrating from WordPress.com to Jekyll](http://hadihariri.com/2013/12/24/migrating-from-wordpress-to-jekyll/)
 - [How-to: Migrating Blog from WordPress to Jekyll, and Host on Github](http://girliemac.com/blog/2013/12/27/wordpress-to-jekyll/)
-- [Migrating My Blog from WordPress to Jekyll](http://juliemao.com/blog/2013/07/migrating-from-wordpress-to-jekyll/)
+- [From Wordpress to Jekyll](http://blog.8thcolor.com/en/2014/05/migrate-from-wordpress/)
 - [How to Migrate from WordPress to Jekyll Running on Github](http://johnnycode.com/2012/07/10/how-to-migrate-from-wordpress-to-jekyll-running-on-github/)
 
 Here are the steps to the process.

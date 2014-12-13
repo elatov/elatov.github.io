@@ -204,7 +204,7 @@ and here are the settings that I ended up with:
 		<subsdelayrange>240</subsdelayrange>
 	</video>
 	
-I decided to leave the logging just to see what's going on. But if you want to completely disable logging set the **logvelel** option to **-1**. All of the setttings are covered in detail in [advancedsettings.xml](http://wiki.xbmc.org/?title=advancedsettings.xml)
+I decided to leave the logging just to see what's going on. But if you want to completely disable logging set the **logvelel** option to **-1**. All of the setttings are covered in detail in [advancedsettings.xml](http://kodi.wiki/view/advancedsettings.xml)
 
 ### Other Tweaks
 I also ran into [10 Tweaks to improve XBMC performance on Raspberry Pi](http://www.htpcbeginner.com/10-tweaks-to-improve-xbmc-performance-on-raspberry-pi/). Here are some of the settings I applied from that page.
