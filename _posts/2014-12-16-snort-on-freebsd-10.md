@@ -255,6 +255,12 @@ And at this point you should see the **merged.log** under **/var/log/snort**:
 
 	elatov@moxz:~$ls -l /var/log/snort/merged.log 
 	-rw-------  1 root  wheel  181 Dec 14 13:23 /var/log/snort/merged.log.1418767402
+	
+We can setup a cronjob to pull the rules on a nightly basis:
+
+	elatov@moxz:~$sudo crontab -l
+	# get snort rules
+	0 6 * * * /usr/local/bin/pulledpork.pl -c /usr/local/etc/pulledpork/pulledpork.conf -l > /dev/null
 
 ### Setting up the MySQL DB
 
@@ -474,6 +480,34 @@ After sometime you should see the **event** table get populated in the **snorby*
 	|   1 |  12 |       129 |              NULL |           0 |    NULL |           0 |    1 |                0 | 2014-12-16 15:27:51 |  9 |
 	|   1 |  13 |       152 |              NULL |           0 |    NULL |           0 |    1 |                0 | 2014-12-16 15:27:51 | 10 |
 
+Lastly if you want to move the snort and barnyard2 logs to a specific file (so it doesn't clutter the **/var/log/messages** file) we can add the following to the top of the **/etc/syslog.conf** file:
+
+	elatov@moxz:~$head /etc/syslog.conf
+	# $FreeBSD: release/10.0.0/etc/syslog.conf 252481 2013-07-01 21:20:17Z asomers $
+	#
+	#	Spaces ARE valid field separators in this file. However,
+	#	other *nix-like systems still insist on using tabs as field
+	#	separators. If you are sharing this file between systems, you
+	#	may want to use only tabs as field separators here.
+	#	Consult the syslog.conf(5) manpage.
+	!snort,barnyard2
+	*.*						/var/log/snort/snort.log
+	!-snort,barnyard2
+
+And then restart the **syslogd** service:
+
+	elatov@moxz:~$sudo service syslogd restart
+
+Then add the following to automatically rotate the logs:
+
+	elatov@moxz:~$grep snort /etc/newsyslog.conf
+	/var/log/snort/snort.log  644 3 100 * JC
+	
+Also we can add the following cron job to clean up old archived **merge.log** files under **/var/log/snort/archive** (these are created by barnyard2), just to make sure it doesn't keep adding up:
+
+	elatov@moxz:~$sudo crontab -l
+	# clean up snort files
+	0 5 * * * /usr/bin/find /var/log/snort/archive -mtime +7 -type f -delete
 
 ### Installing Snorby
 
