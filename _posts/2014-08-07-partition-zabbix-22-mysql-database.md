@@ -707,7 +707,7 @@ Checking the status of my MySQL instance, I didn't see the event scheduler turne
 
 So I decided to go with the **cron** option (check out [this](http://unixadm.info/content/разбиение-секционирование-в-бд-zabbix-mysql) site for an *event-scheduler* example), we just need to run the following from **cron**:
 
-	mysql -h localhost -u zabbix -ppassword zabbix -e "CALL partition_maintenance_all('zabbix');
+	mysql -h localhost -u zabbix -ppassword zabbix -e "CALL partition_maintenance_all('zabbix');"
 
 Since I was creating 2 weeks worth of partitions, I decided to run the above command weekly. This is done by just adding a file into the **/etc/cron.weekly** directory:
 
