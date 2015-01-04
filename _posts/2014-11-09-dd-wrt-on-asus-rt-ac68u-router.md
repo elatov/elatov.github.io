@@ -3,7 +3,7 @@ published: true
 layout: post
 title: "DD-WRT on ASUS RT-AC68U Router"
 author: Karim Elatov
-categories: [network]
+categories: [networking]
 tags: [dd_wrt,vlan,iproute2,trunk_port]
 ---
 Got myself a new router, didn't really need one, but got one just for the heck of it. So of course the first thing I did is put DD-WRT on it.
