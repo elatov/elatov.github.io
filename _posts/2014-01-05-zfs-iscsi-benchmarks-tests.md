@@ -502,11 +502,11 @@ After reading a couple of sites:
 
 ![zfs ds examples ZFS iSCSI Benchmark Tests on ESX](https://github.com/elatov/uploads/raw/master/2013/12/zfs-ds-examples.png)
 
-ZFS Zvol blocksize and ESXi
+[ZFS Zvol blocksize and ESXi](http://n4f.siftusystems.com/index.php/2013/07/14/zfs-zvol-blocksize-and-esxi/)
 
 *   To my surprise it seems that the 64k vzol block size won out in nearly every case with a few minor exceptions of specific operations.
 
-[Running ZFS over iSCSI as a VMware vmfs store](http://blog.laspina.ca/ubiquitous/running-zfs-over-iscsi-as-a-vmware-vmfs-store)
+[Set I/O block size](http://myqtest.blogspot.com/2009/08/set-io-block-size.html)
 
 *   You must also consider I/O block size before creating a ZFS store this is not something that can be changed later so now is the time. It’s done by adding the –b 64K to the ZFS create command. I chose to use 64k for the block size which aligns with VMWare default allocation size thus optimizing performance.
 
