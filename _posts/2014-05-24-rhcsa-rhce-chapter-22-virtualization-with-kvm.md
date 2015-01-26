@@ -17,7 +17,7 @@ From the [Virtualization Getting Started Guide](https://access.redhat.com/site/d
 
 and from the [Virtualization Tuning and Optimization Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Virtualization_Tuning_and_Optimization_Guide/Red_Hat_Enterprise_Linux-6-Virtualization_Tuning_and_Optimization_Guide-en-US.pdf) here is a quick overview:
 
-![kvm-overview.png](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/kvm-overview.png)
+![kvm-overview.png](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/rhce_p22/kvm-overview.png)
 
 ### Installing The Hypervisor
 
@@ -33,7 +33,7 @@ From the [Virtualization Host Configuration and Guest Installation Guide](https:
 > 
 > 2. Continue installation up to package selection <br>
 >   Complete the other steps up to the package selection step.<br>
->   ![virt-host-select-rhel-install](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-host-select-rhel-install.png)
+>   ![virt-host-select-rhel-install](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/rhce_p22/virt-host-select-rhel-install.png)
 >   Select the **Virtualization Host** server role to install a platform for guest virtual machines. 
 > 
 > #### Installing the virtualization packages with yum
@@ -64,7 +64,7 @@ From the [Virtualization Host Configuration and Guest Installation Guide](https:
 > 
 > Virtualization Package Groups
 > 
-> ![virt-group-pkgs](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-group-pkgs.png)
+> ![virt-group-pkgs](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/rhce_p22/virt-group-pkgs.png)
 > 
 > To install a package group, run the `yum groupinstall <groupname>` command. For instance, to install the Virtualization Tools package group, run the **yum groupinstall "Virtualization Tools"** command.
 
@@ -883,7 +883,7 @@ and reconnect to our host with X-forwarding:
 
 and you should see the following:
 
-![virt-viewer-launched-x-forward](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-viewer-launched-x-forward.png)
+![virt-viewer-launched-x-forward](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/rhce_p22/virt-viewer-launched-x-forward.png)
 
 From there we can just finish the install. Let's stop there, shutdown the VM, and delete it:
 
@@ -934,7 +934,7 @@ Since I started the VNC server for the VM on **0.0.0.0** (remote and not just lo
 
 and you will again see the same window:
 
-![vncviewer-connected-to-kvm-vm](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/vncviewer-connected-to-kvm-vm.png)
+![vncviewer-connected-to-kvm-vm](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/rhce_p22/vncviewer-connected-to-kvm-vm.png)
 
 If you are always able to SSH forward then might as well do that for security reasons, and then you can close the **5900** ports in the firewall. This was just for demostration purposes. 
 
@@ -958,7 +958,7 @@ From the Virtualization_Host_Configuration_and_Guest_Installation_Guide:
 > 
 >	The **virt-manager** window allows you to create a new virtual machine. Click the **Create a new virtual** machine button to open the New VM wizard.
 > 
->	![virt-man-p1](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-p1.png)
+>	![virt-man-p1](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/rhce_p22/virt-man-p1.png)
 > 
 >	The New VM wizard breaks down the virtual machine creation process into five steps:
 > 
@@ -974,7 +974,7 @@ From the Virtualization_Host_Configuration_and_Guest_Installation_Guide:
 > 
 >	The guest virtual machine creation process starts with the selection of a name and installation type. Virtual machine names can have underscores (_), periods (.), and hyphens (-).
 > 
->	![virt-man-p2](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-p2.png)
+>	![virt-man-p2](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/rhce_p22/virt-man-p2.png)
 > 
 >	Type in a virtual machine name and choose an installation type:
 > 
@@ -989,21 +989,21 @@ From the Virtualization_Host_Configuration_and_Guest_Installation_Guide:
 > 
 >	Next, configure the **OS type** and **Version** of the installation. Ensure that you select the appropriate OS type for your virtual machine. Depending on the method of installation, provide the install URL or existing storage path.
 > 
->	![virt-man-p3](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-p3.png)
+>	![virt-man-p3](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/rhce_p22/virt-man-p3.png)
 > 
->	![virt-man-p4](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-p4.png)
+>	![virt-man-p4](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/rhce_p22/virt-man-p4.png)
 > 
 >  6. Configure CPU and memory
 > 
 >	The next step involves configuring the number of CPUs and amount of memory to allocate to the virtual machine. The wizard shows the number of CPUs and amount of memory you can allocate; configure these settings and click **Forward**.
 > 
->	![virt-man-p5](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-p5.png)
+>	![virt-man-p5](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/rhce_p22/virt-man-p5.png)
 > 
 >  7. Configure storage
 > 
 >	Assign storage to the guest virtual machine.
 > 
->	![virt-man-p5-5.png](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-p5-5.png)
+>	![virt-man-p5-5.png](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/rhce_p22/virt-man-p5-5.png)
 > 
 >	If you chose to import an existing disk image during the first step, virt-manager will skip this step.
 > 
@@ -1013,7 +1013,7 @@ From the Virtualization_Host_Configuration_and_Guest_Installation_Guide:
 > 
 >	Verify the settings of the virtual machine and click Finish when you are satisfied; doing so will create the virtual machine with default networking settings, virtualization type, and architecture.
 > 
->	![virt-man-p6](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-p6.png)
+>	![virt-man-p6](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/rhce_p22/virt-man-p6.png)
 > 
 > 	If you prefer to further configure the virtual machine's hardware first, check the **Customize configuration before install** box first before clicking **Finish**. Doing so will open another wizard that will allow you to add, remove, and configure the virtual machine's hardware settings.
 > 	
@@ -1049,47 +1049,47 @@ After that, it started up without issues:
 
 And I saw the following window:
 
-![virt-man-launched](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-launched.png)
+![virt-man-launched](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/rhce_p22/virt-man-launched.png)
 
 We can see that is already connected to the qemu system, which is great. Now let's click "New" and you should see the following pop up:
 
-![virt-man-new-vm-p1](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-new-vm-p1.png)
+![virt-man-new-vm-p1](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/rhce_p22/virt-man-new-vm-p1.png)
 
 **Name** the VM, select **Local install media**, and click **Forward**. On the next page, choose to point to an ISO and upon clicking on that you will see the default volume (**/var/lib/libvirt/images**). From there you can select the ISO:
 
-![virt-man-select-centos-iso](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-select-centos-iso.png)
+![virt-man-select-centos-iso](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/rhce_p22/virt-man-select-centos-iso.png)
 
 Then select the **OS Type** and **Version**. After done, it should look like this:
 
-![virt-man-os-selected](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-os-selected.png)
+![virt-man-os-selected](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/rhce_p22/virt-man-os-selected.png)
 
 Click **Forward**, select **RAM** and **CPU** settings, it should look like this:
 
-![virt-man-ram-cpu-settings](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-ram-cpu-settings.png)
+![virt-man-ram-cpu-settings](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/rhce_p22/virt-man-ram-cpu-settings.png)
 
 Click Forward and select the disk size:
 
-![virt-man-vm-disk-size](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-vm-disk-size.png)
+![virt-man-vm-disk-size](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/rhce_p22/virt-man-vm-disk-size.png)
 
 Click Forward and you should see the final page:
 
-![virt-man-final-page](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-final-page.png)
+![virt-man-final-page](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/rhce_p22/virt-man-final-page.png)
 
 Upon clicking **Finish** you will see the console of the VM:
 
-![virt-man-console-open-after-install](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-console-open-after-install.png)
+![virt-man-console-open-after-install](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/rhce_p22/virt-man-console-open-after-install.png)
 
 You will also see the VM in the Virt-Manager's Inventory:
 
-![virt-man-centos-running](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-centos-running.png)
+![virt-man-centos-running](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/rhce_p22/virt-man-centos-running.png)
 
 If you proceed with the VM install, here is how the disk setup page will look like:
 
-![virt-man-centos-install-disk-page](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-centos-install-disk-page.png)
+![virt-man-centos-install-disk-page](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/rhce_p22/virt-man-centos-install-disk-page.png)
 
 After the install is finished, you will see the OS booted up:
 
-![virt-man-os-booted](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/virt-man-os-booted.png)
+![virt-man-os-booted](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/rhce_p22/virt-man-os-booted.png)
 
 You can also check on the KVM host it self to see all the parameters passed to the **qemu-kvm** binary when it starts up the VM, by checking out the VM specific logs that **libvirt** generates:
 
@@ -1137,7 +1137,7 @@ We only one have now, but if you had multiple address, you could run the followi
 	
 We can confirm by checking out the console:
 
-![ip-command-within-the-vm-virt-man](https://my.cloudme.com/v1/ws/:elatov/:blog_pics/rhce_p22/ip-command-within-the-vm-virt-man.png)
+![ip-command-within-the-vm-virt-man](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/rhce_p22/ip-command-within-the-vm-virt-man.png)
 
 Or logging in via SSH from the host it self:
 

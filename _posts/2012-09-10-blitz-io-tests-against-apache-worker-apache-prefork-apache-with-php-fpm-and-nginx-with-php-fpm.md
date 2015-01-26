@@ -10,7 +10,7 @@ tags: ['performance', 'freebsd', 'apache', 'blitz_io', 'fastcgi', 'nginx', 'php'
 We were setting up a VPS with 256MB of RAM and we were trying to figure out which Web Server to use for our limited VPS. You will see many posts out there mentioning that Apache uses a lot more memory than any other Web Server:
 
 *   [Apache vs nginx](http://www.wikivs.com/wiki/Apache_vs_nginx)
-*   [Setup NginX Web Server (Not Apache!) on Ubuntu 10.04](http://www.codinglogs.com/blog/server-management/vps-setup-guide/setup-nginx-web-server-not-apache-on-ubuntu-10-04)
+*   [Setting Up Nginx & PHP-FPM on Ubuntu 10.04](http://www.justincarmony.com/blog/2011/10/24/setting-up-nginx-php-fpm-on-ubuntu-10-04/)
 *   [WordPress Hosting: Apache or Nginx?](http://wpforce.com/wordpress-hosting-apache-or-nginx/)
 *   [nginx vs cherokee vs apache vs lighttpd](http://www.whisperdale.net/11-nginx-vs-cherokee-vs-apache-vs-lighttpd.html)
 

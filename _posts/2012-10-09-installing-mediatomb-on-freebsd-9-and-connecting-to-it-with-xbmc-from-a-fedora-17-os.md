@@ -28,7 +28,7 @@ I then wanted to check out what other people were setting up, after doing some g
 
 *   [6 UPnP/DLNA Servers For Streaming Media To Your Devices [Cross-Platform]](http://www.makeuseof.com/tag/6-upnpdlna-servers-streaming-media-devices-crossplatform/) (+1 MediaTomb)
 *   [Setup a Home Server with FreeBSD and ZFS](http://www.thev.net/PaulLiu/bsd-home-server.html) (+1 MediaTomb +1 minidlna)
-*   [Recommended media server software for FreeBSD for UPnP/DLNA](http://superuser.com/questions/288639/recommended-media-server-software-for-freebsd-for-upnp-dlna) (+1 MediaTomb +1 minidlna)
+*   [DLNA for FreeBSD?](https://forums.freebsd.org/threads/dlna-for-freebsd.48497/) (+1 MediaTomb +1 minidlna)
 
 I also wanted the package to be included in ports (just for management's sake). I checked out ports:
 

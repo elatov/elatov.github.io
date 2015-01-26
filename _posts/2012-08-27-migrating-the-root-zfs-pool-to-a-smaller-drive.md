@@ -45,7 +45,7 @@ Just one drive and here are my ZFS volumes:
     rpool1/swap                 1.06G   7.41G   133M    -
 
 
-Nothing complicated. I did some research and I actually found a very good website which talked about best practices for ZFS, here is a [link](http://www.open-tech.com/2011/10/zfs-best-practices-guide-from-solaris-internals/) to that web page. And here are some points from that article:
+Nothing complicated. I did some research and I actually found a very good website which talked about best practices for ZFS, here is a [link](http://www.solarisinternals.com/wiki/index.php/ZFS_Best_Practices_Guide) to that web page. And here are some points from that article:
 
 > *   Run ZFS on a system that runs a 64-bit kernel
 > *   Set up one storage pool using whole disks per system, if possible.
@@ -484,7 +484,7 @@ Now we can start migrating the OS ZFS Volumes to the new smaller disk. There a c
 > *   Compression can be enabled on the root pool but only after the root pool is installed. No way exists to enable compression on a root pool during installation. The gzip compression algorithm is not supported on root pools.
 > *   Do not rename the root pool after it is created by an initial installation or after Solaris Live Upgrade migration to a ZFS root file system. Renaming the root pool might cause an unbootable system.
 
-There is also an extensive list in an 'Solaris Internals' page called "[ZFS Best Practices Guide](http://www.open-tech.com/2011/10/zfs-best-practices-guide-from-solaris-internals/)".
+There is also an extensive list in an 'Solaris Internals' page called "[ZFS Best Practices Guide](http://www.solarisinternals.com/wiki/index.php/ZFS_Best_Practices_Guide)".
 
 We covered all the prerequisites, so let's get started. First, let's create a new pool from the new slice that we created:
 
