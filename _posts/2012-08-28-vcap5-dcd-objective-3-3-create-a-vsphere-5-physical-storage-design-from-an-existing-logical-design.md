@@ -152,7 +152,7 @@ If you want more information on how VAAI I would suggest reading the VMware blog
 
 > For the best storage performance, consider using VAAI-capable storage hardware. The performance gains from VAAI can be especially noticeable in VDI environments (where VAAI can improve boot-storm and desktop workload performance), large data centers (where VAAI can improve the performance of mass virtual machine provisioning and of thin-provisioned virtual disks), and in other large-scale deployments.
 
-Lastly if the array support VASA, then use it as well. VASA allows you to get array specific capabilities and then you can create a storage profile depending on the capabilities. This can definitely help out with your SLAs. From "[Profile Driven Storage](http://www.vmware.com/eu/products/vsphere/features-profile-driven-storage)":
+Lastly if the array support VASA, then use it as well. VASA allows you to get array specific capabilities and then you can create a storage profile depending on the capabilities. This can definitely help out with your SLAs. From "[Profile Driven Storage](http://www.vmware.com/products/vsphere/features/storage-policy-based-management)":
 
 > Managing datastores and matching the SLA requirements of virtual machines with the appropriate datastore can be a challenging and a cumbersome task. VMware vSphere 5.0 introduces Profile Driven Storage, which will allow for rapid and intelligent provisioning of virtual machines based on SLA requirements and provided storage capabilities.
 >
