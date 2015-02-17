@@ -6,7 +6,7 @@ author: Karim Elatov
 categories: [OS]
 tags: [chromebook,linux,gentoo]
 ---
-So after trying out *chrubuntu* and *arhlinux* on my arm based chromebook I decided to try out *gentoo*. I already had my partitions setup so I didn't have to worry about that. You can check out my previous setups here:
+So after trying out *chrubuntu* and *arch-linux* on my arm based chromebook I decided to try out *gentoo*. I already had my partitions setup so I didn't have to worry about that. You can check out my previous setups here:
 
 - [Install Arch Linux on Samsung Chromebook](/2014/02/install-arch-linux-samsung-chromebook/)
 - [Install ChrUbuntu 12.04 on Samsung Chromebook](/2013/03/install-chrubuntu-12-04-on-samsung-chromebook/)
