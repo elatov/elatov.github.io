@@ -144,7 +144,7 @@ So let's grab **vim** (cause I can't edit files in any other way :) ):
 
 After installing **vim** I added the above into **/etc/portage/make.conf**.
 
-I built the chromeos kernel previously as descibed [here](2014/11/install-chromeos-kernel-38-on-samsung-chromebook/) and I noticed there is an [overlay for the chromiumos kernel](http://gpo.zugaina.org/sys-kernel/chromeos-kernel). So I decided to install **layman** and add that **overlay** (similar approach as [this](http://wiki.gentoo.org/wiki/Project:Hardened_musl)). Before we install the **layman** tools let's check out the available **USE** flags for that package (to get **equery** we need to install **gentoolkit**, so first install it with `emerge -av gentoolkit`):
+I built the chromeos kernel previously as descibed [here](/2014/11/install-chromeos-kernel-38-on-samsung-chromebook/) and I noticed there is an [overlay for the chromiumos kernel](http://gpo.zugaina.org/sys-kernel/chromeos-kernel). So I decided to install **layman** and add that **overlay** (similar approach as [this](http://wiki.gentoo.org/wiki/Project:Hardened_musl)). Before we install the **layman** tools let's check out the available **USE** flags for that package (to get **equery** we need to install **gentoolkit**, so first install it with `emerge -av gentoolkit`):
 
     localhost ~ # equery u layman
     [ Legend : U - final flag setting for installation]
