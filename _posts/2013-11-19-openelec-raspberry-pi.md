@@ -258,7 +258,7 @@ I also saw a couple of other posts that had similar goals:
 
 *   [OpenElec Raspberry PI – tweaks](http://lokir.wordpress.com/2013/01/12/openelec-raspberry-pi-tweaks/)
 *   [Setting up OpenELEC on the Raspberry Pi](http://mrpfister.com/journal/setting-up-openelec-on-the-raspberry-pi/)
-*   [Building and Installing OpenELEC for Raspberry Pi](http://wiki.openelec.tv/index.php?title=Building_and_Installing_OpenELEC_for_Raspberry_Pi#Enable_dirty_region_redraw_in_XBMC)
+*   [HOW-TO:Modify dirty regions](http://kodi.wiki/view/Dirty_regions)
 
 In the end, I added the following to my **.xbmc/userdata/advancedsettings.xml** file:
 
