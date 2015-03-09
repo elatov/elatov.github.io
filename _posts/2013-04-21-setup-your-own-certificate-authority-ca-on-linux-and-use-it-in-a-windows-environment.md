@@ -53,7 +53,7 @@ I have done that before and when you are managing a lot of different certificate
     Filename    : /usr/share/man/man1/CA.pl.1ssl.gz
 
 
-You can check out examples from "[Becoming a CA Authority](http://www.tipcache.com/tip/Setup_your_own_Certificate_Authority_%28CA%29_11.html) on how to use the Perl script; here is a very high level overview:
+You can check out examples from "[CA.pl - friendlier interface for OpenSSL certificate programs](https://www.openssl.org/docs/apps/CA.pl.html) on how to use the Perl script; here is a very high level overview:
 
     #Generate CA Certificate
     CA.pl -newca

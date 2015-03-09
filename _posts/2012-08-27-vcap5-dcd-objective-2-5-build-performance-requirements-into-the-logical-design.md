@@ -93,5 +93,5 @@ For Troubleshooting Performance issues, I would suggest to read the following:
 
 *   [vSphere Monitoring and Performance Guide](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf)
 *   [Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf)
-*   [Virtual Performance](http://www.vmware.com/products/vmmark/overview.html)
+*   [Virtual Performance](http://www.vmware.com/a/vmmark/)
 
