@@ -15,7 +15,7 @@ I noticed that there was a new version of OpenELEC, so I decided to give it a tr
 > 
 > 	mv /storage/.xbmc /storage/.xbmc-backup
 
-And from the [update](http://wiki.openelec.tv/index.php/HOW-TO:Updating_to_OpenELEC_4.0/Copying_the_Update_Files) page, here are the instructions for the actual update:
+And from the [update](http://wiki.openelec.tv/index.php/Updating_OpenELEC#Manually_Updating_OpenELEC) page, here are the instructions for the actual update:
 
 > #### Copying the Update Files
 > 
