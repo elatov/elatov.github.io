@@ -150,7 +150,7 @@ There has been a lot of changes between bluez version 3 and 4. Check out "[How U
 But I was on version 4 and it uses **dbus** to connect to the device. From what I've read you should be able to run '**bluez-simple-agent**', '**simple-agent**' , or '**bluetooth-agent**'. For more info check out:
 
 *   [Bluetooth paring from command line?](http://forums.fedoraforum.org/showthread.php?t=278226)
-*   [A Step By Step Guide To Setup A Bluetooth Keyboard And Mouse On The Raspberry PI](http://www.ctheroux.com/2012/08/a-step-by-step-guide-to-setup-a-bluetooth-keyboard-and-mouse-on-the-raspberry-pi/)
+*   [A Step By Step Guide To Setup A Bluetooth Keyboard And Mouse On The Raspberry PI](http://www.ctheroux.com/a-step-by-step-guide-to-setup-a-bluetooth-keyboard-and-mouse-on-the-raspberry-pi/)
 *   [Setting up BlueZ with a passkey/PIN](http://www.linuxquestions.org/questions/linux-wireless-networking-41/setting-up-bluez-with-a-passkey-pin-to-be-used-as-headset-for-iphone-816003/)
 
 But on my fedora install I couldn't find any of those tools. I then ran into [Manually using Bluetooth](http://wiki.openmoko.org/wiki/Manually_using_Bluetooth). From that article:
