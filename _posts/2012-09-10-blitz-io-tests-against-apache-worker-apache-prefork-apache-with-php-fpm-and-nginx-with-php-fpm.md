@@ -267,7 +267,7 @@ They all use a wrapper script to call PHP. I really don't like doing that, it's 
       Allow from all
 
 
-I had to allow the **/usr/local/bin** directory to allow CGI Execution from Apache, since that is where the **php-fpm** binary resided. Maybe I was doing it wrong, but I couldn't get it working any other way. For some reason, I didn't like that. There is a actually an excellent article on securing all of this: "[Apache httpd + suEXEC + chroot + FastCGI + PHP](http://e.metaclarity.org/268/httpdsuexecchrootfastcgiphp/)". But remember, I like simplicity :). Let me re-phrase that: I don't mind complex setups, as long as there is a pay off.
+I had to allow the **/usr/local/bin** directory to allow CGI Execution from Apache, since that is where the **php-fpm** binary resided. Maybe I was doing it wrong, but I couldn't get it working any other way. For some reason, I didn't like that. There is a actually an excellent article on securing all of this: "[Debian + Apache 2.2 + FastCGI + PHP 5 + suEXEC the easy way](https://x10hosting.com/community/threads/debian-apache-2-2-fastcgi-php-5-suexec-the-easy-way.148894/)". But remember, I like simplicity :). Let me re-phrase that: I don't mind complex setups, as long as there is a pay off.
 
 So I set up Apache with **mod_fastcgi** and forwarded that to **php-fpm**. The only thing I changed for **php-fpm** was the following:
 
