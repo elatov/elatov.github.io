@@ -43,7 +43,7 @@ I just started the **Disk Utility** and resized the OS (I gave the Linux OS only
 After downloading the Fedora ISO, I had the following file:
 
 	elatov@macair:~$ls -lh downloads/Fedora-Live-Workstation-x86_64-21-5.iso
-	-rw-r-----  1 elatov  elatov   1.4G Mar 25 17:14 usb_backup/Fedora-Live-Workstation-x86_64-21-5.iso
+	-rw-r-----  1 elatov  elatov   1.4G Mar 25 17:14 downloads/Fedora-Live-Workstation-x86_64-21-5.iso
 	
 First we have to convert the ISO into a DMG (I talked about different image formats [here](/2013/07/decrease-dmg-size-to-fit-on-a-single-layer-dvd/)):
 
