@@ -11,7 +11,7 @@ So I decided to do a test install of gentoo just to remind myself how fun it is 
 ### Installing Gentoo
 The process is definitely more involved then a regular Linux Distro install, but you get to learn a lot of things in the process. There are 3 good guides that helped me out:
 
-- [Gentoo Linux x86 with Software Raid and LVM2 Quick Install Guide](http://www.gentoo.org/doc/en/gentoo-x86+raid+lvm2-quickinstall.xml)
+- [Gentoo Linux x86 with Software Raid and LVM2 Quick Install Guide](https://wwwold.gentoo.org/doc/en/gentoo-x86+raid+lvm2-quickinstall.xml)
 - [Quick install guide](http://wiki.gentoo.org/wiki/Quick_install_guide)
 - [Virtualbox Guest](http://gentoo-en.vfose.ru/wiki/Virtualbox_Guest#Configuring_the_Kernel)
 

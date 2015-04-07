@@ -63,7 +63,7 @@ I was then able to run the following to update chromium with the following comma
 	moxz:~>sudo portupgrade -a
 
 
-If you want to you can setup gcc 4.6 to be your default compiler, you can do that by following the instructions at [Using newer version of GCC and binutils with the FreeBSD Ports Collection](http://www.freebsd.org/doc/en_US.ISO8859-1/articles/custom-gcc/article.html)
+If you want to you can setup gcc 4.6 to be your default compiler, you can do that by following the instructions at this [Commit](http://svnweb.freebsd.org/base/head/UPDATING?r1=255348&r2=255347&pathrev=255348)
 
 You would then then recompile all the ports just in case. This can be done by running the following:
 
