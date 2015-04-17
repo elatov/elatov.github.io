@@ -147,11 +147,75 @@ Selecting the top menu booted into Fedora without issues.
 ### Post Install Configuration
 It took about 6.6 seconds to boot into the OS:
 
-	systemd-analyze
+	[elatov@localhost ~]$ systemd-analyze
+	Startup finished in 845ms (kernel) + 2.434s (initrd) + 3.052s (userspace) = 6.332s
 
-#### Installing the Wireless Drive
+#### Installing the Wireless Driver
+I has a thunderbolt to ethernet adapter, after plugging it in the tg3 driver picked it up:
 
-#### Fixing the Fn-F* keys
+	[elatov@localhost ~]$ lspci -k
+	0a:00.0 Ethernet controller: Broadcom Corporation NetXtreme BCM57762 Gigabit Ethernet PCIe
+    Subsystem: Apple Inc. Device 00f6
+    Kernel driver in use: tg3
+    Kernel modules: tg3
+
+and the ethernet device showed up:
+
+	[elatov@localhost ~]$ ip -4 a
+	1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default
+	    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+	2: ens9: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN mode DEFAULT group default qlen 1000
+	    link/ether 0c:4d:e9:a0:c0:aa brd ff:ff:ff:ff:ff:ff
+	    
+After using Network Manager I got an ip via DHCP and then I updated all the packages:
+
+	[elatov@localhost ~]$ sudo yum update
+
+Then I installed the **kernel-devel** package along with the **kmod-wl** package:
+
+	[elatov@localhost ~]$ sudo yum install kmod-wl kernel-devel
+	
+Then after the reboot I was able to see the wireless device:
+
+	[elatov@localhost ~]$ iw dev
+	phy#0
+	    Interface wlp3s0
+	        ifindex 2
+	        wdev 0x1
+	        addr 34:36:3b:8a:7d:6c
+
+and **wl0** is the driver
+
+	[elatov@localhost ~]$ ethtool -i wlp3s0
+	driver: wl0
+	version: 6.30.223.248 (r487574)
+	firmware-version:
+	bus-info:
+	supports-statistics: no
+	supports-test: no
+	supports-eeprom-access: no
+	supports-register-dump: no
+	supports-priv-flags: no
+
+#### Fixing the Brightness Button
+
+I realized the Brightness Buttons *F1* and *F2* weren't working on Gnome-Shell. The the notification showed up but it didn't change anything. So I ran across [this](https://ask.fedoraproject.org/en/question/26364/cannot-adjust-brightness/) and the fix is to add the following to GRUB:
+
+	[elatov@localhost ~]$ grep LINUX /etc/default/grub
+	GRUB_CMDLINE_LINUX="rd.lvm.lv=fedora/swap rd.lvm.lv=fedora/root rhgb quiet acpi_backlight=vendor"
+
+and then to re-generate the grub menu:
+
+	[elatov@localhost ~]$ sudo grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
+
+#### Fix the ~ key
+
+Upon pushing the tilde key (~) I was seeing the greater than sign (>). The bug is described [here](https://bugzilla.redhat.com/show_bug.cgi?id=1025041) and to fix that issue I modified the GRUB config again to have the following:
+
+	[elatov@localhost ~]$ grep GRUB_CMDLINE_LINUX /etc/default/grub
+	GRUB_CMDLINE_LINUX="rd.lvm.lv=fedora/swap rd.lvm.lv=fedora/root rhgb quiet acpi_backlight=vendor hid_apple.iso_layout=0"
+
+And then after re-genenating the GRUB menu one more time and rebooting the issue was fixed.
 
 ### Booting back into Mac OS X
 To boot back into Mac OS X, just reboot and hold down the alt/option key and you will see the **Macintosh HD** and **Fedora** bootable devices:
@@ -166,3 +230,32 @@ Also by default the **EFI** partition from LInux will show up on your Desktop. T
 
 	elatov@macair:~$cd /Volumes
 	elatov@macair:/Volmes$sudo chflags hidden Linux\ HFS+\ ESP/
+
+### Booting into Mac OS X with GRUB
+By default the GRUB menu will contain entries for Mac OS X, but when you try to boot from one of the enries you will recieve the following errors:
+
+	error: can't find command 'xnu_uuid'
+	error: can't find command 'xnu_kernel64'
+	error: can't find command 'xnu_kextdir'
+
+The issue is described [here](https://bugzilla.redhat.com/show_bug.cgi?id=893179) and [here](http://comments.gmane.org/gmane.comp.boot-loaders.grub.devel/22598). It sounds like chainloading is a way to go, so I ended up adding the following config:
+
+	[elatov@localhost ~]$ $sudo cat /etc/grub.d/40_custom
+	#!/bin/sh
+	exec tail -n +3 $0
+	# This file provides an easy way to add custom menu entries.  Simply type the
+	# menu entries you want to add after this comment.  Be careful not to change
+	# the 'exec tail' line above.
+	menuentry "MacOS X Yosemite" {
+	        insmod hfsplus
+	        set root=(hd1,gpt3)
+	        chainloader /System/Library/CoreServices/boot.efi
+	        boot
+	}
+	
+I chose **gpt3** cause that's where the Apple Boot partition was
+
+	[elatov@localhost ~]$ sudo fdisk -l | grep boot
+	/dev/sda3  186509544 187779079   1269536 619.9M Apple boot
+	
+And I found a pretty good example of the config [here](http://forums.fedoraforum.org/archive/index.php/t-288002.html). Then I re-generated the GRUB menu, rebooted and chose the "Mac OS X Yosemite" entry and I saw Mac OS X boot up.
