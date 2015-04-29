@@ -151,7 +151,7 @@ It took about 6.6 seconds to boot into the OS:
 	Startup finished in 845ms (kernel) + 2.434s (initrd) + 3.052s (userspace) = 6.332s
 
 #### Installing the Wireless Driver
-I has a thunderbolt to ethernet adapter, after plugging it in the tg3 driver picked it up:
+I had a thunderbolt-to-ethernet adapter, after plugging it in, the *tg3* driver picked it up:
 
 	[elatov@localhost ~]$ lspci -k
 	0a:00.0 Ethernet controller: Broadcom Corporation NetXtreme BCM57762 Gigabit Ethernet PCIe
@@ -167,7 +167,7 @@ and the ethernet device showed up:
 	2: ens9: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN mode DEFAULT group default qlen 1000
 	    link/ether 0c:4d:e9:a0:c0:aa brd ff:ff:ff:ff:ff:ff
 	    
-After using Network Manager I got an ip via DHCP and then I updated all the packages:
+After using Network Manager I got an IP via DHCP and then I updated all the packages:
 
 	[elatov@localhost ~]$ sudo yum update
 
