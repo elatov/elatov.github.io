@@ -744,7 +744,7 @@ We can even see the message that was returned from the script.
 
 Other than being resource intensive, I actually liked the software. I also ran into other sites that mentioned **Zabbix** as being a good alternative and not as resource intensive:
 
-- [Nagios vs Cacti vs Zabbix vs Zenoss](http://www.serverfocus.org/nagios-vs-cacti-vs-zabbix-vs-zenoss)
+- [Nagios vs Cacti vs Zabbix vs Zenoss](http://community.spiceworks.com/topic/439134-zabbix-vs-nagios-vs-cacti-vs)
 - [Zabbix VS Zenoss](http://honglus.blogspot.com/2010/12/zabbix-vs-zenoss.html)
 
 So I will extend this series to one more post :)

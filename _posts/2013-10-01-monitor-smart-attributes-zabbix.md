@@ -140,7 +140,7 @@ Reboot the device to make sure swap is added upon boot up.
 
 ### Configure Zabbix Agent to Pull SMART Attributes from a Hard Drive
 
-There is a really good guide from **zabbix** on how to set it up: [S.M.A.R.T. HDD Monitoring with Zabbix](https://www.zabbix.com/wiki/howto/monitor/os/linux/smart). Here is the jist of the setup. First create a script that will grab values depending on the drive and attribute that you pass in to it. Here is the script:
+There is a really good guide from **zabbix** on how to set it up: [S.M.A.R.T. HDD Monitoring with Zabbix](http://wiki.enchtex.info/howto/zabbix/zabbix_smart_monitoring). Here is the gist of the setup. First create a script that will grab values depending on the drive and attribute that you pass in to it. Here is the script:
 
     $ cat /usr/local/bin/getsv
     #!/bin/bash

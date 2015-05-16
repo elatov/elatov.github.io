@@ -298,7 +298,7 @@ Lastly add the host using the Zabbix front-end and make sure "Template OS Linux"
 
 ## Monitor raid status on FreeBSD with Zabbix
 
-There are good examples in [this](https://www.zabbix.com/wiki/howto/monitor/os/linux/smart) post. We will have to use "User Parameters" to get this working. The first link from above describes the process pretty well. I will define two parameters
+There are good examples in [this](https://www.zabbix.com/documentation/2.0/manual/config/items/userparameters) post. We will have to use "User Parameters" to get this working. The first link from above describes the process pretty well. I will define two parameters
 
 *   raid.active_drives
 *   raid.controller_status

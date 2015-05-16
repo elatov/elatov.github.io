@@ -9,7 +9,7 @@ tags: ['vshield', 'logical_design']
 
 ### Understand what security services are provided by VMware solutions
 
-vShield is the most popular service. If you need PCI compliance you can check out "[this](http://www.vmware.com/cloud-security-compliance/protect-critical-applications) VMware blog:
+vShield is the most popular service. If you need PCI compliance you can check out "[this](http://www.vmware.com/products/pci-compliance-checker/overview) VMware blog:
 ![compliance](https://github.com/elatov/uploads/raw/master/2012/08/compliance.png)
 
 VMware also provides hardening guides for each version of ESX, and here a [link](https://www.vmware.com/support/support-resources/hardening-guides.html) to all the different versions.
