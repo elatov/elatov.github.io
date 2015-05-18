@@ -100,7 +100,7 @@ With vShield you can setup NATs, DMZs, Virus Checkers, and much more. There is e
 
 ### Based upon a specified security requirement, analyze the current state for areas of compliance/non-compliance.
 
-From the [VMware Compliance site](http://www.vmware.com/cloud-security-compliance/protect-critical-applications):
+From the [VMware Compliance site](http://www.vmware.com/products/pci-compliance-checker/overview):
 
 > With proper technology based solutions such as VMware vShield and VMware vCenter Configuration Manager, achieving and demonstrating compliance on VMware vSphere based infrastructures is not only possible, but can often be easier than achieving the same on non virtualized environments.
 
