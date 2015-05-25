@@ -322,7 +322,7 @@ There are many tools out there that can help with this:
 
 *   [HTTPFox](https://addons.mozilla.org/en-us/firefox/addon/httpfox/)
 *   [Charles Proxy](http://www.charlesproxy.com/)
-*   [Chrome Developer Tools](https://developers.google.com/chrome-developer-tools/)
+*   [Chrome Developer Tools](https://developer.chrome.com/devtools)
 *   [Fiddler](http://fiddler2.com/)
 *   [Live HTTP Headers](https://addons.mozilla.org/en-us/firefox/addon/live-http-headers/)
 
