@@ -46,6 +46,10 @@ I followed similar steps on my Gentoo Laptop:
 	$ go get github.com/odeke-em/drive/cmd/drive
 	$ sudo cp go/bin/drive /usr/local/bin/.
 
+For fedora or CentOS just run the following to install **go**:
+
+	$ sudo yum install golang
+
 ### Sync Google Drive files using *drive* CLI
 
 Most of the instructions are laid out [here](https://github.com/odeke-em/drive/blob/master/platform_packages.md), but first create the directory to which you want to sync to:
