@@ -402,9 +402,6 @@ Initially I had an issue with the OVA template, another user ran into the issues
 
     [elatov@klaptop ~]$ VBoxManage import test/Win_XP.ovf
 
-
-Another person had a similar issue when they renamed the ova file. You can read more about it [here](http://funnymonkey.com/do-not-rename-your-virtualbox-ova-file).
-
 After the import is finished, start VirtualBox and you will see you newly imported VM:
 
 ![VirtualBox with VM Imported Migrating a VM from VMware Workstation to Oracle VirtualBox](https://github.com/elatov/uploads/raw/master/2013/03/VirtualBox_with_VM_Imported.png)
