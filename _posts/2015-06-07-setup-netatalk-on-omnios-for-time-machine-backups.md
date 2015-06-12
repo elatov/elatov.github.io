@@ -73,14 +73,14 @@ and **netatalk** running as well:
 	    root 12394 12392   0 10:17:03 ?           0:00 /usr/local/sbin/i386/cnid_metad -d -F /etc/afp.conf
 	    root 12393 12392   0 10:17:03 ?           0:01 /usr/local/sbin/i386/afpd -d -F /etc/afp.conf
 
-and in the logs under **/var/adm/messages **you will see the following:
+and in the logs under **/var/adm/messages** you will see the following:
 
 	Jun  6 10:17:02 zf netatalk[12392]: [ID 702911 daemon.notice] Netatalk AFP server starting
 	Jun  6 10:17:02 zf netatalk[12392]: [ID 702911 daemon.notice] Registered with Zeroconf
 	Jun  6 10:17:02 zf cnid_metad[12394]: [ID 702911 daemon.notice] CNID Server listening on localhost:4700
 	Jun  6 10:17:03 zf afpd[12393]: [ID 702911 daemon.notice] Netatalk AFP/TCP listening on 192.168.1.103:548
 
-You will also notice **mdns** added to your /etc/nsswitch.conf file:
+You will also notice **mdns** added to your **/etc/nsswitch.conf** file:
 
 	root@zf:~#grep mdns /etc/nsswitch.conf
 	# server lookup.  See resolv.conf(4). For lookup via mdns
@@ -335,6 +335,6 @@ And in Finder you will your see device:
 
 If you are manually mouting the afp share, it probably won't matter that much.
 
-Also if you need to open up the firewall, the ports are covered here
+Also, if you need to open up the firewall, the ports are covered here
 [Arch Linux Netatalk](https://wiki.archlinux.org/index.php/Netatalk)
 
