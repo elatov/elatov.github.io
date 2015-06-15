@@ -144,7 +144,7 @@ So let's grab **vim** (cause I can't edit files in any other way :) ):
 
 After installing **vim** I added the above into **/etc/portage/make.conf**.
 
-I built the chromeos kernel previously as descibed [here](/2014/11/install-chromeos-kernel-38-on-samsung-chromebook/) and I noticed there is an [overlay for the chromiumos kernel](http://gpo.zugaina.org/sys-kernel/chromeos-kernel). So I decided to install **layman** and add that **overlay** (similar approach as [this](http://wiki.gentoo.org/wiki/Project:Hardened_musl)). Before we install the **layman** tools let's check out the available **USE** flags for that package (to get **equery** we need to install **gentoolkit**, so first install it with `emerge -av gentoolkit`):
+I built the chromeos kernel previously as descibed [here](/2014/11/install-chromeos-kernel-38-on-samsung-chromebook/) and I noticed there is an [overlay for the chromiumos kernel](http://gpo.zugaina.org/sys-kernel/chromeos-sources). So I decided to install **layman** and add that **overlay** (similar approach as [this](http://wiki.gentoo.org/wiki/Project:Hardened_musl)). Before we install the **layman** tools let's check out the available **USE** flags for that package (to get **equery** we need to install **gentoolkit**, so first install it with `emerge -av gentoolkit`):
 
     localhost ~ # equery u layman
     [ Legend : U - final flag setting for installation]
@@ -187,131 +187,120 @@ Then run the following to list the available overlays and to cache them:
 
 You will see our overlay in the list:
 
-    localhost ~ # layman -L | grep chromi
-    * chromiumos [Git ] (http://git.chromium.org/chromiumo...)
+    localhost ~ # layman -L | grep spike
+	* spike          [Git       ] (https://github.com/Spike-Pentesti...)
 
 Now let's add our overlay
 
-    localhost ~ # layman -a chromiumos
+    localhost ~ # layman -a spike
 
-    * Adding overlay,...
-    * Warning: an installed db file was not found at: ['/var/lib/layman/installed.xml']
-    * Running Git... # ( cd /var/lib/layman && /usr/bin/git clone http://git.chromium.org/chromiumos/overlays/chromiumos-overlay.git/ /var/lib/layman/chromiumos )
-    Cloning into '/var/lib/layman/chromiumos'...
-    remote: Counting objects: 836823, done.
-    remote: Compressing objects: 100% (232899/232899), done.
-    remote: Total 836823 (delta 603322), reused 828012 (delta 595801)
-    Receiving objects: 100% (836823/836823), 507.51 MiB | 347.00 KiB/s, done.
-    Resolving deltas: 100% (603322/603322), done.
-    Checking connectivity... done.
-    Checking out files: 100% (2933/2933), done.
-    * Running Git... # ( cd /var/lib/layman/chromiumos && /usr/bin/git config user.name "layman" )
-    * Running Git... # ( cd /var/lib/layman/chromiumos && /usr/bin/git config user.email "layman@localhost" )
-    Unavailable repository 'portage-stable' referenced by masters entry in '/var/lib/layman/chromiumos/metadata/layout.conf'
-    * Successfully added overlay(s) chromiumos.
+	* Adding overlay,...
+	* Running Git... # ( cd /var/lib/layman  && /usr/bin/git clone https://github.com/Spike-Pentesting/spike-overlay.git /var/lib/layman/spike )
+	Cloning into '/var/lib/layman/spike'...
+	remote: Counting objects: 11045, done.
+	remote: Total 11045 (delta 0), reused 0 (delta 0), pack-reused 11045
+	Receiving objects: 100% (11045/11045), 3.90 MiB | 304.00 KiB/s, done.
+	Resolving deltas: 100% (4945/4945), done.
+	Checking connectivity... done.
+	 * Running Git... # ( cd /var/lib/layman/spike  && /usr/bin/git config user.name "layman" )
+	 * Running Git... # ( cd /var/lib/layman/spike  && /usr/bin/git config user.email "layman@localhost" )
+	 * Successfully added overlay(s) spike.
 
 After that we should see the desired packages:
 
-    localhost ~ # emerge -s chromeos-kernel
-    Searching... 
-    [ Results for search key : chromeos-kernel ]
-    [ Applications found : 2 ]
+	localhost ~ # emerge -s chromeos-sources
+	*  sys-kernel/chromeos-sources [ Masked ]
+	      Latest version available: 9999
+	      Latest version installed: [ Not Installed ]
+	      Size of files: 0 KiB
+	      Homepage:      https://chromium.googlesource.com/chromiumos/third_party/kernel/+/chromeos-3.4
+	      Description:   Linux kernel source for the Samsung Chromebook
+	      License:       GPL-2 !deblob? ( freedist )
+	
+	[ Applications found : 1 ]
 
-    * sys-kernel/chromeos-kernel
-    Latest version available: 3.4-r2421
-    Latest version installed: [ Not Installed ]
-    Size of files: 0 kB
-    Homepage: http://www.chromium.org/
-    Description: Chrome OS Kernel
-    License: GPL-2
-
-    * sys-kernel/chromeos-kernel-next
-    Latest version available: 3.8.11-r735
-    Latest version installed: [ Not Installed ]
-    Size of files: 0 kB
-    Homepage: http://www.chromium.org/
-    Description: Chrome OS Kernel-next
-    License: GPL-2
-
-So then I created the following **USE** flags for the **chromeos-kernel-next** package:
-
-    localhost ~ # cat /etc/portage/package.use/chromeos-kernel-next
-    sys-kernel/chromeos-kernel-next board_use_daisy_snow device_tree nfs vfat 
-
-Also before we compile the kernel let's get the **mkimage** binary installed as well
+Before we compile the kernel let's get the **mkimage** binary installed as well
 
     localhost ~ # emerge -av u-boot-tools
 
 and for the kernel source install
 
-    localhost ~ # emerge -av chromeos-kernel-next
+    localhost ~ # emerge -av chromeos-sources
 
-    * IMPORTANT: 8 news items need reading for repository 'gentoo'.
-    * Use eselect news to read news items.
+	These are the packages that would be merged, in order:
+	
+	Calculating dependencies... done!
+	[ebuild  N    *] sys-kernel/chromeos-sources-9999:9999::spike  USE="-build -deblob -symlink" 0 KiB
+	
+	Total: 1 package (1 new), Size of downloads: 0 KiB
+	
+	Would you like to merge these packages? [Yes/No] y
+	
+	>>> Verifying ebuild manifests
+	
+	>>> Emerging (1 of 1) sys-kernel/chromeos-sources-9999::spike
+	>>> Preparing to unpack ...
+	>>> Unpacking source...
+	fatal: repository 'git' does not exist
+	fatal: repository 'clone' does not exist
+	Cloning into bare repository '/usr/portage/distfiles/egit-src/kernel'...
+	remote: Sending approximately 1.05 GiB ...
+	remote: Counting objects: 237538, done
+	remote: Finding sources: 100% (31453/31453)  
+	remote: Total 4173841 (delta 3451254), reused 4173436 (delta 3451254)
+	Receiving objects: 100% (4173841/4173841), 1.08 GiB | 230.00 KiB/s, done.
+	Resolving deltas: 100% (3451824/3451824), done.
+	Checking connectivity... done.
+	GIT NEW clone -->
+	   repository:               https://chromium.googlesource.com/chromiumos/third_party/kernel
+	   at the commit:            8a084bb91a783e55f146f19940b33af18aeab538
+	   branch:                   chromeos-3.4
+	   storage directory:        "/usr/portage/distfiles/egit-src/kernel"
+	   checkout type:            bare repository
+	Cloning into '/var/tmp/portage/sys-kernel/chromeos-sources-9999/work/linux-3.4.0-chromeos'...
+	done.
+	Checking out files: 100% (39093/39093), done.
+	Branch branch-chromeos-3.4 set up to track remote branch chromeos-3.4 from origin.
+	Switched to a new branch 'branch-chromeos-3.4'
+	>>> Unpacked to /var/tmp/portage/sys-kernel/chromeos-sources-9999/work/linux-3.4.0-chromeos
+	>>> Source unpacked in /var/tmp/portage/sys-kernel/chromeos-sources-9999/work
+	>>> Preparing source in /var/tmp/portage/sys-kernel/chromeos-sources-9999/work/linux-3.4.0-chromeos ...
+	>>> Source prepared.
+	>>> Configuring source in /var/tmp/portage/sys-kernel/chromeos-sources-9999/work/linux-3.4.0-chromeos ...
+	>>> Source configured.
+	>>> Compiling source in /var/tmp/portage/sys-kernel/chromeos-sources-9999/work/linux-3.4.0-chromeos ...
+	>>> Source compiled.
+	>>> Test phase [not enabled]: sys-kernel/chromeos-sources-9999
+	
+	>>> Install chromeos-sources-9999 into /var/tmp/portage/sys-kernel/chromeos-sources-9999/image/ category sys-kernel
+	>>> Copying sources ...
+	>>> Completed installing chromeos-sources-9999 into /var/tmp/portage/sys-kernel/chromeos-sources-9999/image/
+	
+	
+	>>> Installing (1 of 1) sys-kernel/chromeos-sources-9999::spike
+	 * checking 39117 files for package collisions
+	1000 files checked ...
+	39000 files checked ...
+	>>> Merging sys-kernel/chromeos-sources-9999 to /
+	--- /usr/
+	--- /usr/src/
+	>>> /usr/src/linux-3.4.0-chromeos/
+	>>> /usr/src/linux-3.4.0-chromeos/fs/adfs/map.c
+	 * if you want to get the default kernel config just run:
+	 * ./chromeos/scripts/prepareconfig chromeos-exynos5
+	>>> sys-kernel/chromeos-sources-9999 merged.
+	
+	>>> Recording sys-kernel/chromeos-sources in "world" favorites file...
+	>>> Auto-cleaning packages...
+	
+	>>> No outdated packages were found on your system.
+	
+	 * GNU info directory index is up-to-date.
 
 
-    These are the packages that would be merged, in order:
+So let's link that kernel source to **/usr/src/linux**:
 
-    Calculating dependencies... done!
-    [ebuild N ] sys-kernel/chromeos-kernel-next-3.8.11-r735::chromiumos USE="board_use_daisy_snow device_tree nfs vfat -blkdevram -board_use_amd64-corei7 -board_use_amd64-drm -board_use_amd64-generic -board_use_amd64-host -board_use_aries -board_use_arm-generic -board_use_bayleybay -board_use_beaglebone -board_use_beltino -board_use_blackwall -board_use_bolt -board_use_butterfly -board_use_cardhu -board_use_chronos -board_use_daisy -board_use_daisy-drm -board_use_daisy_spring -board_use_dalmore -board_use_emeraldlake2 -board_use_falco -board_use_fb1 -board_use_fox -board_use_fox_baskingridge -board_use_fox_wtm1 -board_use_fox_wtm2 -board_use_ironhide -board_use_kiev -board_use_klang -board_use_leon -board_use_link -board_use_lumpy -board_use_nyan -board_use_panda -board_use_parrot -board_use_parrot32 -board_use_parrot64 -board_use_peach -board_use_peach_kirby -board_use_peach_pit -board_use_peppy -board_use_puppy -board_use_raspberrypi -board_use_ricochet -board_use_slippy -board_use_sonic -board_use_stout -board_use_stout32 -board_use_stumpy -board_use_stumpy_pico -board_use_tegra2 -board_use_tegra2_aebl -board_use_tegra2_arthur -board_use_tegra2_asymptote -board_use_tegra2_dev-board -board_use_tegra2_dev-board-opengl -board_use_tegra2_kaen -board_use_tegra2_seaboard -board_use_tegra2_wario -board_use_tegra3-generic -board_use_waluigi -board_use_wolf -board_use_x32-generic -board_use_x86-agz -board_use_x86-alex -board_use_x86-alex32 -board_use_x86-alex32_he -board_use_x86-alex_he -board_use_x86-alex_hubble -board_use_x86-dogfood -board_use_x86-drm -board_use_x86-fruitloop -board_use_x86-generic -board_use_x86-mario -board_use_x86-mario64 -board_use_x86-pineview -board_use_x86-wayland -board_use_x86-zgb -board_use_x86-zgb32 -board_use_x86-zgb32_he -board_use_x86-zgb_he -ca0132 -cifs -cros_host -cros_workon_tree_7223ac70621a5e856d579090a6d196acea7e2e58 -dyndebug -fbconsole -gdmwimax -gobi -highmem -i2cdev -initramfs -kgdb -kvm -mbim -netboot_ramfs -pcserial -profiling -qmi -realtekpstor -samsung_serial -systemtap -tpm -wifi_testbed_ap -wireless34 -x32" 0 kB
-
-    Total: 1 package (1 new), Size of downloads: 0 kB
-
-    Would you like to merge these packages? [Yes/No] y
-
-    >>> Verifying ebuild manifests
-
-    >>> Emerging (1 of 1) sys-kernel/chromeos-kernel-next-3.8.11-r735 from chromiumos
-    * Determining the location of the kernel source code
-    * Unable to find kernel sources at /usr/src/linux
-    * Please make sure that /usr/src/linux points at your running kernel, 
-    * (or the kernel you wish to build against).
-    * Alternatively, set the KERNEL_DIR environment variable to the kernel sources location
-    * Unable to calculate Linux Kernel version for build, attempting to use running version
-    >>> Unpacking source...
-    Cloning into bare repository '/usr/portage/distfiles/egit-src/chromiumos/third_party/kernel-next'...
-    remote: Counting objects: 3180375, done.
-    remote: Compressing objects: 100% (484502/484502), done.
-    remote: Total 3180375 (delta 2669534), reused 3177004 (delta 2666534)
-    Receiving objects: 100% (3180375/3180375), 679.15 MiB | 433.00 KiB/s, done.
-    Resolving deltas: 100% (2669534/2669534), done.
-    Checking connectivity... done.
-    GIT NEW clone -->
-    repository: http://git.chromium.org/chromiumos/third_party/kernel-next.git
-    at the commit: 
-    commit: 98d6fa96d08dbb08a2150dcd48a6b2a8773172e0
-    branch: 
-    storage directory: "/usr/portage/distfiles/egit-src/chromiumos/third_party/kernel-next"
-    checkout type: bare repository
-    Cloning into '/var/tmp/portage/sys-kernel/chromeos-kernel-next-3.8.11-r735/work/chromeos-kernel-next-3.8.11'...
-    done.
-    Checking out files: 100% (43170/43170), done.
-    Switched to a new branch 'tree-98d6fa96d08dbb08a2150dcd48a6b2a8773172e0'
-    >>> Unpacked to /var/tmp/portage/sys-kernel/chromeos-kernel-next-3.8.11-r735/work/chromeos-kernel-next-3.8.11
-    >>> Source unpacked in /var/tmp/portage/sys-kernel/chromeos-kernel-next-3.8.11-r735/work
-    >>> Preparing source in /var/tmp/portage/sys-kernel/chromeos-kernel-next-3.8.11-r735/work/chromeos-kernel-next-3.8.11 ...
-    >>> Source prepared.
-    >>> Configuring source in /var/tmp/portage/sys-kernel/chromeos-kernel-next-3.8.11-r735/work/chromeos-kernel-next-3.8.11 ...
-    * Using kernel config: chromiumos-arm
-    chromeos/scripts/prepareconfig: line 17: /var/cache/portage/sys-kernel/chromeos-kernel-next/.config: Permission denied
-    * ERROR: sys-kernel/chromeos-kernel-next-3.8.11-r735::chromiumos failed (configure phase):
-    * (no error message)
-
-It might fail out on the prepare and that's okay, as long as we got the source. So let's link that kernel source to **/usr/src/linux**:
-
-    localhost ~ # ln -s /var/tmp/portage/sys-kernel/chromeos-kernel-next-3.8.11-r735/work/chromeos-kernel-next-3.8.11 /usr/src/linux
-
-If you want you can even copy the version over:
-
-    localhost work # pwd
-    /var/tmp/portage/sys-kernel/chromeos-kernel-next-3.8.11-r735/work
-    localhost work # rsync -avzP chromeos-kernel-next-3.8.11 /usr/src/.
-    localhost work # /usr/src
-    localhost src # ln -s chromeos-kernel-next-3.8.11 linux
-    localhost src # ls -l
-    total 4
-    drwxr-xr-x 25 portage portage 4096 Feb  4 12:07 chromeos-kernel-next-3.8.11
-    lrwxrwxrwx  1 root    root      27 Feb  5 11:21 linux -> chromeos-kernel-next-3.8.11
+    localhost ~ # ln -s /usr/src/linux-3.4.0-chromeos/ /usr/src/linux
 
 ### Compile the Kernel
 So let's prepare the kernel source (I just followed the same steps as I did [before](/2014/11/install-chromeos-kernel-38-on-samsung-chromebook/))
