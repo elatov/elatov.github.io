@@ -198,7 +198,7 @@ Prior to generating the RAM disk I ensured the **lvm** module is included:
 
 And now the **mkinicpio** command:
 
-    [root@archiso /] # mkinicpi -p linux
+    [root@archiso /] # mkinitcpio -p linux
     ==> Building image from preset: /etc/mkinitcpio.d/linux.preset: 'default'
       -> -k /boot/vmlinuz-linux -c /etc/mkinitcpio.conf -g /boot/initramsfs-linux.img
     ==> Starting build: 4.0.6-1-ARCH
