@@ -90,13 +90,12 @@ There are actually a couple approaches to Load balancing SSL. The most popular i
 
 *   [Using HAProxy to Build a More Featureful Elastic Load Balancer](https://tech.shareaholic.com/2012/10/26/haproxy-a-substitute-for-amazon-elb/)
 *   [Haproxy SSL configuration explained](http://blog.hintcafe.com/post/33851388857/haproxy-ssl-configuration-explained)
-*   [How to get SSL with HAProxy getting rid of stunnel, stud, nginx or pound](http://blog.exceliance.fr/2012/09/10/how-to-get-ssl-with-haproxy-getting-rid-of-stunnel-stud-nginx-or-pound/)
 *   [SSL Client certificate management at application level](http://blog.exceliance.fr/2012/10/03/ssl-client-certificate-management-at-application-level/)
 *   [Configure HAProxy to Scale Socket.io Node.js Apps With SSL](http://blog.davidmisshula.com/blog/2013/02/04/configure-haproxy-to-scale-multiple-nodes-with-stickiness-and-ssl/)
 
 Here are some links that explain why SSL termination can be advantageous:
 
-*   [Setting up SSL Offloading (Termination) on an F5 Big-IP Load Balancer](http://www.lullabot.com/blog/articles/setting-ssl-offloading-termination-f5-big-ip-load-balancer)
+*   [SSL Offloading](https://f5.com/glossary/ssl-offloading)
 *   [Improved HTTPS Performance with Early SSL Termination](http://blog.filepicker.io/post/29422604907/improved-https-performance-with-early-ssl-termination)
 
 Some excepts from the above links:
@@ -211,7 +210,7 @@ After visiting the site a couple of times, I saw the following statistic page:
 
 ![haproxy stats Configure HAProxy to Load Balance Sites With SSL](https://github.com/elatov/uploads/raw/master/2013/05/haproxy_stats.png)
 
-We can see that the round robin is working pretty well. I ended up using **Session Cookies** for persistence (we can see the **Set-Cookie** header set). Other load-balancing examples can be seen at "[NLB](http://blog.exceliance.fr/2012/03/29/load-balancing-affinity-persistence-sticky-sessions-what-you-need-to-know/) post. So when I visited the **test.html** page, I saw the following:
+We can see that the round robin is working pretty well. I ended up using **Session Cookies** for persistence (we can see the **Set-Cookie** header set). Other load-balancing examples can be seen at "[Load balancing, affinity, persistence, sticky sessions: what you need to know](http://blog.haproxy.com/2012/03/29/load-balancing-affinity-persistence-sticky-sessions-what-you-need-to-know/). This is a similar to the setup that I used in my [NLB](/2013/04/load-balancing-iis-sites-with-nlb) post. So when I visited the **test.html** page, I saw the following:
 
     [root@haproxy ~]# date; curl -k -L https://192.168.250.52
     Sat May  4 14:14:28 MDT 2013
@@ -255,8 +254,8 @@ The setup was pretty slick and really easy to configure.
 
 Another method of load balancing SSL is to just pass through the traffic. With this approach since everything is encrypted, you won't be able to monitor and tweak HTTP headers/traffic. Here are a couple of sample setups:
 
-*   [Send user to the same backend for both HTTP and HTTPS](http://blog.exceliance.fr/2011/07/12/send-user-to-the-same-backend-for-both-http-and-https/)
-*   [Maintain affinity based on SSL session ID](http://blog.exceliance.fr/2011/07/04/maintain-affinity-based-on-ssl-session-id/)
+*   [Send user to the same backend for both HTTP and HTTPS](http://blog.haproxy.com/2011/07/12/send-user-to-the-same-backend-for-both-http-and-https/)
+*   [Maintain affinity based on SSL session ID](http://blog.haproxy.com/2011/07/04/maintain-affinity-based-on-ssl-session-id/)
 *   [HAProxy Configuration Manual](http://cbonte.github.io/haproxy-dconv/configuration-1.5.html)
 
 Here is the config I chose:
