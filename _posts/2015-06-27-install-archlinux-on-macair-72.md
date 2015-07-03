@@ -450,7 +450,7 @@ Here is track pad setup that worked well for me:
       MatchIsTouchpad "on"
       MatchDevicePath "/dev/input/event*"
       Option "FingerHigh" "10"
-      Option "FingerHigh" "1"
+      Option "FingerLow" "1"
       Option "RTCornerButton" "0"
       Option "RBCornerButton" "0"
       Option "MinSpeed" "0.7"
