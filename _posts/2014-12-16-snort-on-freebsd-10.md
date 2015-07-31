@@ -3,7 +3,7 @@ published: true
 layout: post
 title: "Snort on FreeBSD 10"
 author: Karim Elatov
-categories: [os]
+categories: [os,security]
 tags: [freebsd,snort,pkgng]
 ---
 I decided to try out installing snort on FreeBSD since the **snort** package was part of the **pkgng** repos (and part of **ports** as well). The install was pretty easy:

@@ -4,7 +4,7 @@ layout: post
 title: "Compile iptables TEE Module for DD WRT"
 author: Karim Elatov
 categories: [networking]
-tags: [dd-wrt]
+tags: [dd_wrt]
 ---
 I was running the following version of dd-wrt:
 

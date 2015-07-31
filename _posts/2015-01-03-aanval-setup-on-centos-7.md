@@ -3,7 +3,7 @@ published: true
 layout: post
 title: "Aanval Setup on CentOS 7"
 author: Karim Elatov
-categories: [os]
+categories: [os,security]
 tags: [aanval, linux, centos]
 ---
 

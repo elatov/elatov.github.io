@@ -3,7 +3,7 @@ published: true
 layout: post
 title: "Suricata on FreeBSD 10"
 author: Karim Elatov
-categories: [os]
+categories: [os,security]
 tags: [freebsd,suricata]
 ---
 After playing around with **snort** I decided to try out **suricata** (which is the multi-threaded alternative to **snort**). From their [main](http://suricata-ids.org/) page:

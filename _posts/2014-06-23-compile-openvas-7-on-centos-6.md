@@ -3,7 +3,7 @@ published: true
 layout: post
 title: "Compile OpenVAS 7 on CentOS 6"
 author: Karim Elatov
-categories: [os]
+categories: [os,security]
 tags: [linux,openvas,centos]
 ---
 After updating OpenVAS from the atomic YUM repository, I realized I wasn't able to launch Greenbone Security Assistant (**gsad**). The issue is discussed [here](http://osdir.com/ml/openvas-security-network/2014-06/msg00078.html). Upon starting the service I saw the following error:

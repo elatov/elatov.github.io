@@ -3,7 +3,7 @@ published: true
 layout: post
 title: "Setup Netatalk on OmniOS for Time Machine Backups"
 author: Karim Elatov
-categories: [os,storage]
+categories: [os,storage,zfs]
 tags: [time_machine,macosx,omnios]
 ---
 ### Time Machine Backups
