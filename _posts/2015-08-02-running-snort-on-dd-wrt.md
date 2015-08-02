@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Running Snort on DD WRT"
 author: Karim Elatov
@@ -10,8 +10,9 @@ So after trying out the [TEE module with DD-WRT](/2015/07/compile-iptables-tee-m
 
 ### Add a USB Drive to the Router
 
-Plugin a USB stick into the router and enable USB support. To enable USB support login to the admin web interface and go to **Service** -> **USB** -> **enable Core USB Support** -> **Enable USB Storage Support**:
+Plugin a USB stick into the router and enable USB support. To enable USB support login to the admin web interface and go to **Services** -> **USB** -> **enable Core USB Support** -> **Enable USB Storage Support**:
 
+![sda-mounted-dd-wrt](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/snort-ddwrt/sda-mounted-dd-wrt_g.png)
 
 After you save and apply settings the disk will now show up in the OS:
 
