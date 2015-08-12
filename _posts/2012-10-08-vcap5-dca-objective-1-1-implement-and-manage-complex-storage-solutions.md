@@ -58,7 +58,7 @@ If you want to make sure your make and model of the HBA is supported, check the 
 
 Check out [VCAP5-DCD Objective 3.5](/2012/09/vcap5-dcd-objective-3-5-determine-virtual-machine-configuration-for-a-vsphere-5-physical-design/)
 
-Also check out [this](http://twitter.yfrog.com/h6klabj) picture:
+Also check out this picture:
 
 ![vmdk types VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/vmdk-types.png)
 

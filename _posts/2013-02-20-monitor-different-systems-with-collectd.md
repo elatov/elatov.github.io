@@ -295,7 +295,7 @@ That looks good, now let's install a web GUI for Collectd.
 
 There are multiple options, [this](https://collectd.org/wiki/index.php/List_of_front-ends) page has a list of available front ends for Collectd.
 
-I decided to go with **Collectd-Web** cause it seemed simple. Instructions on how to install the software can be found [here](http://collectdweb.appspot.com/documentation/). First download the necessary files:
+I decided to go with **Collectd-Web** cause it seemed simple. Instructions on how to install the software can be found [here](https://github.com/httpdss/collectd-web). First download the necessary files:
 
     kerch:~>git clone git://github.com/httpdss/collectd-web.git
 
