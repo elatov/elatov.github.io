@@ -169,7 +169,7 @@ From the [APAC Brownbag Session 8](http://professionalvmware.com/2012/03/apac-vb
 
 ![blades_racks](https://github.com/elatov/uploads/raw/master/2012/09/blades_racks.png)
 
-There is a also a great article from IBM "[VMware ESX Server: Scale Up or Scale Out?](http://www.redbooks.ibm.com/redpapers/pdfs/redp3953.pdf)", from that paper:
+There is a also a great article from IBM "[VMware ESX Server: Scale Up or Scale Out?](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/rhce_p10/redp3953.pdf)", from that paper:
 
 ![scale_out_example](https://github.com/elatov/uploads/raw/master/2012/09/scale_out_example.png)
 

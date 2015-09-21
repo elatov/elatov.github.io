@@ -48,7 +48,7 @@ From [Conceptual Architecture of the Linux Kernel](http://oss.org.cn/ossdocs/lin
 >
 > ![kernel subsystem RHCSA and RHCE Chapter 10   The Kernel](https://github.com/elatov/uploads/raw/master/2013/06/kernel_subsystem.png)
 
-Another view from [Anatomy of the Linux kernel](http://www.ibm.com/developerworks/library/l-linux-kernel/):
+Another view from [Anatomy of the Linux kernel](http://www.cyberciti.biz/tips/understanding-the-linux-kernel.html):
 
 > ![gnu linux RHCSA and RHCE Chapter 10   The Kernel](https://github.com/elatov/uploads/raw/master/2013/06/gnu_linux.png)
 
@@ -292,7 +292,7 @@ From this pretty old RHEL document entitled [Understanding Virtual Memory](http:
 >
 > ![vm page states RHCSA and RHCE Chapter 10   The Kernel](https://github.com/elatov/uploads/raw/master/2013/06/vm_page_states.png)
 
-Another concise summary is seen at [Linux Performance and Tuning Guidelines](http://www.redbooks.ibm.com/redpapers/pdfs/redp4285.pdf):
+Another concise summary is seen at [Linux Performance and Tuning Guidelines](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/rhce_p10/redp4285.pdf).
 
 > **1.2 Linux memory architecture**
 > To execute a process, the Linux kernel allocates a portion of the memory area to the requesting process. The process uses the memory area as workspace and performs the required work. It is similar to you having your own desk allocated and then using the desktop to scatter papers, documents and memos to perform your work. The difference is that the kernel has to allocate space in a more dynamic manner. The number of running processes sometimes comes to tens of thousands and amount of memory is usually limited. Therefore, Linux kernel must handle the memory efficiently. In this section, we describe the Linux memory architecture, address layout, and how Linux manages memory space efficiently.
