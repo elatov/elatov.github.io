@@ -505,7 +505,7 @@ BTW if you don't care for the *for* loop in the **VagrantFile**, here is a multi
 	end
 
 
-This example was taken from [Part 3: Bootstrapping Your Environment with Vagrant and Puppet](http://devops.me/2011/10/07/bootstrapping-vagrant-with-puppet/)
+This example was taken from [vagrant-tutorial](https://github.com/zsprackett/vagrant-tutorial/blob/master/web-cluster/Vagrantfile)
 
 ### Trying it out from scratch
 
