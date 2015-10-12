@@ -54,7 +54,7 @@ then eventually the IO times out
 	2012-11-01T04:12:47.553Z cpu16:4131)HBX: 231: Reclaimed heartbeat for volume 5009333b-b7a2d1f8-fc26-e4115bb4a813 (Datastore): [Timeout] [HB state abcdef02 offset 3964928 gen 33 stampUS 6827510529 uuid 5091de63-2683f5a0-1ea1-e4115baf243b jrnl <FB 51$
 
 
-There is a known issue with the Emulex firmware, I ran into [this](http://h20000.www2.hp.com/bizsupport/TechSupport/Document.jsp?objectID=c03400156&#038;lang=en&#038;cc=us&#038;taskId=101&#038;prodSeriesId=4132829&#038;prodTypeId=3709945) HP Advisory which had the following:
+There is a known issue with the Emulex firmware, I ran into [this](http://h20564.www2.hpe.com/hpsc/doc/public/display?sp4ts.oid=5215333&docId=emr_na-c03400156-1&lang=en-us&cc=us) HP Advisory which had the following:
 
 > HP Converged Network Adapters - Firmware update required for network adapters to avoid FCoE multipath recovery issues
 
