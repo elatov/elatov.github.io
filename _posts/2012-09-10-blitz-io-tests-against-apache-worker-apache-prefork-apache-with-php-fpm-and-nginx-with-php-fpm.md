@@ -301,7 +301,7 @@ I really didn't see that much of an increase. Now there are other *fast-cgi* mod
 > **Apache + mod_fastcgi + PHP-FPM**: PHP-FPM (A.K.A. PHP5-FPM) is a process manager for PHP. Confusingly, it was only recently bundled with PHP, so you might find some tutorials telling you to download the source and others to just use apt-get. I believe that if you’re using PHP >= 5.3, which you would be if you installed it in Maverick with apt-get, that you don’t need to download the source to get it working. I’ll talk more about this later.
 > From what I understand, PHP-FPM is like FastCGI, but with additional PHP-specific optimizations built in. Since it’s specially built for PHP, it should give you the best performance, and so is the best of these three alternatives
 
-There is actually another person that ran some tests with the different modules. Check out "[Benchmark: mod_php -vs- mod_fcgid for WordPress](http://mykospark.net/2010/03/benchmark-mod_php-vs-mod_fcgid-for-wordpress/)", his summary:
+There is actually another person that ran some tests with the different modules. It's an old post "Benchmark: mod_php -vs- mod_fcgid for WordPress", from his summary:
 
 > It seems that if you are running heavyweight code like WordPress, it doesn't make much difference which mode you use. If your code is lightweight though, mod_php is capable of cranking out a significant number of requests. I personally prefer worker mode as it will be a little lighter on the resources, and can probably serve static files faster. Also, Apache can take advantage of resource sharing when running in worker mode.
 
