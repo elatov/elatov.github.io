@@ -6,7 +6,7 @@ author: Karim Elatov
 categories: [networking,security,home_lab]
 tags: [dd_wrt,snort]
 ---
-So after trying out the [TEE module with DD-WRT](/2015/07/compile-iptables-tee-module-for-dd-wrt/), I decided to directly run **snort** on the dd-wrt router. My router is an ARM router and runs the KONG build. From the [opkg.ipk not found 404](https://www.dd-wrt.si/phpBB2/viewtopic.php?t=276631&postdays=0&postorder=asc&start=15&sid=8c16800e424702e41787afc5e824cfe8) thread, we can use **entware** instead of **optware** on this router. The direct page with all the instructions is at [how to install entware on ARM.md](https://gist.github.com/dreamcat4/6e58639288c1a1716b85).
+So after trying out the [TEE module with DD-WRT](/2015/07/compile-iptables-tee-module-for-dd-wrt/), I decided to directly run **snort** on the dd-wrt router. My router is an ARM router and runs the KONG build. From the [opkg.ipk not found 404](http://www.dd-wrt.com/phpBB2/viewtopic.php?t=276631&postdays=0&postorder=asc&start=15) thread, we can use **entware** instead of **optware** on this router. The direct page with all the instructions is at [how to install entware on ARM.md](https://gist.github.com/dreamcat4/6e58639288c1a1716b85).
 
 ### Add a USB Drive to the Router
 

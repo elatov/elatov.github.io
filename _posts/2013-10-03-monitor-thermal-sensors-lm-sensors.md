@@ -98,7 +98,7 @@ It looks like *Asus* is supported by the selected chip. Then running **sensors**
     cpu0_vid:    +1.525 V
 
 
-The fields were very generic. At this point we would need to check out the manual of the System Board to find out what each of those sensors correspond to. I got lucky and found an example (this was a pretty old board, so I knew someone had an example). From [this](http://lm-sensors.org/svn/lm-sensors/trunk/etc/sensors.conf.eg) site, I found the following example (you can see that it was tested on an Asus P4S333, which was close enough to my board):
+The fields were very generic. At this point we would need to check out the manual of the System Board to find out what each of those sensors correspond to. I got lucky and found an example (this was a pretty old board, so I knew someone had an example). From [this](https://github.com/groeck/lm-sensors/blob/master/etc/sensors.conf.eg) site, I found the following example (you can see that it was tested on an Asus P4S333, which was close enough to my board):
 
     #
     # This example was tested vs. Asus P4S333
