@@ -3,8 +3,6 @@ title: Monitor Different Systems with Munin
 author: Karim Elatov
 layout: post
 permalink: /2013/03/monitor-different-systems-with-munin/
-dsq_thread_id:
-  - 1406863023
 categories: ['home_lab', 'os']
 tags: ['freebsd', 'linux', 'monitoring', 'munin']
 ---
@@ -61,9 +59,17 @@ That looks good, as a quick test we can **telnet** to the daemon locally and fet
     load.value 0.31
 
 
-That looks good, then going to ****, I saw the following page: [munin-node.conf](https://github.com/elatov/uploads/raw/master/2013/02/munin-first-page.png) page we see this directive:
+That looks good, then going *http://localhost/munin*, I ended seeing the following page: 
 
-    ignore_file Files to ignore when locating plugins. Directive may be repeated.
+![munin-first-page](https://github.com/elatov/uploads/raw/master/2013/02/munin-first-page.png) 
+
+Then checking out the "Network Firewall" stats for the day, I saw the following.
+
+![munin-disk-usage](https://raw.githubusercontent.com/elatov/uploads/master/2013/02/munin-disk-usage.png)
+
+It looks like it started collecting data. Clicking on the host itself produces a page with all the graphs and it took a while to load 20+ graphs. I suppose I could disable some of the plugins :). From the [munin-node.conf](http://munin-monitoring.org/wiki/munin-node.conf) page we see this directive:
+
+> ignore_file Files to ignore when locating plugins. Directive may be repeated.
 
 
 Checking out that setting on my setup:
@@ -280,7 +286,7 @@ Look like the node was added without issues. Checking out the management page (*
 
 ### 4. Create a Custom Script for the FreeBSD Munin-node to Monitor Raid Status
 
-Instructions on how to write a plug-in for *Munin* are [here](http://munin-monitoring.org/wiki/HowToWritePlugins). Following the instuctions from the site, I wrote this script:
+Instructions on how to write a plug-in for *Munin* are [here](http://guide.munin-monitoring.org/en/latest/plugin/writing.html). Following the instuctions from the site, I wrote this script:
 
 	#!/bin/sh
 	case $1 in
