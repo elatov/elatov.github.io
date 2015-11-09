@@ -3,7 +3,7 @@ published: true
 layout: post
 title: "vCloud Air Testing"
 author: Karim Elatov
-categories: [vmware, network, os]
+categories: [vmware, networking, os]
 tags: [vcloud_air, vpn, syslog, ipsec, REST]
 ---
 I decided to play around with vCloud Air (VMware's solution for a public cloud).
