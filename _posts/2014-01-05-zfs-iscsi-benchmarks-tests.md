@@ -306,7 +306,7 @@ That is way better, now I am writing at **~80MB/s**.
 
 ### IOmeter Tests with iSCSI
 
-I then installed a windows VM and installed **IOmeter** on it. I then added a **VMDK** to the VM that resided on my test LUN. After that I followed the instructions laid out in [cool perl](http://kb.vmware.com/kb/2019131) script which grabs a couple of columns and generates an HTML file of those columns. I modified the script to grab latency stats as well. I also modified the *IOmeter* results to only include sequential tests (excluded the random tests). Here is the result of my initial test:
+I then installed a windows VM and installed **IOmeter** on it. I then added a **VMDK** to the VM that resided on my test LUN. After that I followed the instructions laid out in [this](http://kb.vmware.com/kb/2019131) VMware KB to do some performance testing. The KB provides a predefined set of *IOmeter* tests; they are mostly **4K-32K**, Read and Write tests. The output of *IOmeter* is in CSV format and you can use *Excel* to check out the results. There is also a pretty [cool perl](http://pvenezia.com/iw/iometer-parse-html.pl) script which grabs a couple of columns and generates an HTML file of those columns. I modified the script to grab latency stats as well. I also modified the *IOmeter* results to only include sequential tests (excluded the random tests). Here is the result of my initial test:
 
 ![iometer results reg test1 ZFS iSCSI Benchmark Tests on ESX](https://github.com/elatov/uploads/raw/master/2013/12/iometer-results-reg-test1.png)
 
