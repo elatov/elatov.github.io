@@ -28,7 +28,7 @@ In the above picture, Flex Fabric Interconnect is our Virtual Connect Interconne
 > HP Virtual Connect FlexFabric interconnect modules and FlexFabric adapters extend Flex 10
 > technology to include data and storage traffic within each 10 Gb server connection. This allows you to allocate LAN and SAN fabrics of a single 10 GbE data stream into four separate connections— one connection for each server port can be allocated to storage (FlexHBA) for either FCoE or iSCSI. You can adjust the bandwidth and routing information of each connection. A FlexFabric adapter functions as a standard NIC, a Flex-10 NIC, or a converged network adapter (CNA). To aggregate the LAN and SAN data, the FlexFabric adapter encapsulates Fibre Channel frames as FCoE or uses iSCSI along with the Ethernet LAN data. You can configure FlexFabric adapters to support either FCoE or iSCSI, but not concurrent streams of both. When the data stream enters the Virtual Connect FlexFabric interconnect module, the converged LAN and SAN traffic separate. Data streams leaving the BladeSystem enclosure use traditional Ethernet and storage (FC or SCSI) protocols. As a result, Flex-10 technology with FlexFabric adapters and VC FlexFabric modules provides a significant reduction in cabling, switches, and required ports at the server edge.
 
-Also from "[Overview of HP Virtual Connect technologies](http://h20000.www2.hp.com/bc/docs/support/SupportManual/c00814156/c00814156.pdf)":
+Also from "[Overview of HP Virtual Connect technologies](http://h20565.www2.hpe.com/hpsc/doc/public/display?docId=emr_na-c00814156&lang=en-us&cc=us)":
 
 > **FlexNIC capabilities**
 > Flex-10 and FlexFabric adapters allow you to partition a 10 Gb link into several smaller bandwidth FlexNICs. Virtual machine applications often require increased network connections per server, increasing network complexity while reducing the number of server resources. Virtual Connect addresses this issue by letting you divide a 10 Gb network connection into four independent FlexNIC server connections. A FlexNIC is a physical PCIe function (PF) that appears to the system ROM, OS, or hypervisor as a discrete physical NIC with its own driver instance. It is not a virtual NIC contained in a software layer.
@@ -39,7 +39,7 @@ Here is another picture of the HP Virtual Connect FlexFabric InterConnect Module
 
 ![flex-fabric2](https://github.com/elatov/uploads/raw/master/2012/09/flex-fabric2.png)
 
-Sometimes the Virtual Connect Module technology is just bundled as one technology, but in reality it consists of a couple of things. From "[HP Virtual Connect for the Cisco Network Administrator](http://h20000.www2.hp.com/bc/docs/support/SupportManual/c01386629/c01386629.pdf)":
+Sometimes the Virtual Connect Module technology is just bundled as one technology, but in reality it consists of a couple of things. From "[HP Virtual Connect for the Cisco Network Administrator](http://h20565.www2.hpe.com/hpsc/doc/public/display?docId=emr_na-c01386629&lang=en-us&cc=us)":
 
 > **Virtual Connect Components**
 > There are three key components that make up the Virtual Connect infrastructure. Two
@@ -55,7 +55,7 @@ There also many different types of Virtual Connect Modules:
 
 So with the Virtual Connect FlexFabric Module you pass-through both NICs and HBAs. This is actually exactly what we were replacing in our setup.
 
-Let's get back on track. Upon replacing the Virtual Connect Module (VCM), VMs that were using Windows NLB, lost network connectivity. We had two Virtual Connect Modules and they were setup in an Active/Active Manner. This picture from "[HP Virtual Connect Ethernet Cookbook: Single and Multi Enclosure Domain (Stacked) Scenarios](http://h20000.www2.hp.com/bc/docs/support/SupportManual/c01990371/c01990371.pdf)" depicts our setup pretty well:
+Let's get back on track. Upon replacing the Virtual Connect Module (VCM), VMs that were using Windows NLB, lost network connectivity. We had two Virtual Connect Modules and they were setup in an Active/Active Manner. This picture from "[HP Virtual Connect Ethernet Cookbook: Single and Multi Enclosure Domain (Stacked) Scenarios](http://h20565.www2.hpe.com/hpsc/doc/public/display?docId=emr_na-c01990371&lang=en-us&cc=us)" depicts our setup pretty well:
 
 ![flex-10-server-profile-a_a](https://github.com/elatov/uploads/raw/master/2012/09/flex-10-server-profile-a_a.png)
 
