@@ -6,96 +6,122 @@ author: Karim Elatov
 categories: [os,networking]
 tags: [wol,linux]
 ---
+I had a laptop at home that I didn't really use much. I realized that I could save some power if I only power it on only when I need it. 
 
-Luckily this laptop had this option available. So I enabled that:
+### Wake On LAN
 
+I remember that I can use Wake On LAN (WOL) to power on a machine over the network, only if the NIC supports that. I checked out the model of the old machine:
+
+	┌─[elatov@gen] - [/home/elatov] - [2015-11-27 11:56:36]
+	└─[1] <> sudo dmidecode -t system
+	# dmidecode 2.12
+	SMBIOS 2.4 present.
+	
+	Handle 0x0100, DMI type 1, 27 bytes
+	System Information
+		Manufacturer: Dell Inc.
+		Product Name: Latitude E6500
+		Version: Not Specified
+		Serial Number: XXXX
+		UUID: 4XX4C-XXX-XX-XX-XXXX
+		Wake-up Type: Power Switch
+		SKU Number: Not Specified
+		Family:
+	
+Then after checking out the specs of the laptop luckily it had this option available. So I enabled that in the BIOS:
+
+![dell-laptop-wol-enabled-bios](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/wol-dell-laptop/dell-laptop-wol-enabled-bios.jpg)
+
+### WOL NIC Support
 
 Then after I powered it on, I confirmed it's enabled on the NIC:
 
-elatov@gen ~ $ sudo ethtool enp0s25
-Settings for enp0s25:
-	Supported ports: [ TP ]
-	Supported link modes:   10baseT/Half 10baseT/Full
-	                        100baseT/Half 100baseT/Full
-	                        1000baseT/Full
-	Supported pause frame use: No
-	Supports auto-negotiation: Yes
-	Advertised link modes:  10baseT/Half 10baseT/Full
-	                        100baseT/Half 100baseT/Full
-	                        1000baseT/Full
-	Advertised pause frame use: No
-	Advertised auto-negotiation: Yes
-	Speed: 1000Mb/s
-	Duplex: Full
-	Port: Twisted Pair
-	PHYAD: 2
-	Transceiver: internal
-	Auto-negotiation: on
-	MDI-X: off (auto)
-	Supports Wake-on: pumbg
-	Wake-on: g
-	Current message level: 0x00000007 (7)
-			       drv probe link
-	Link detected: yes
+	elatov@gen ~ $ sudo ethtool enp0s25
+	Settings for enp0s25:
+		Supported ports: [ TP ]
+		Supported link modes:   10baseT/Half 10baseT/Full
+		                        100baseT/Half 100baseT/Full
+		                        1000baseT/Full
+		Supported pause frame use: No
+		Supports auto-negotiation: Yes
+		Advertised link modes:  10baseT/Half 10baseT/Full
+		                        100baseT/Half 100baseT/Full
+		                        1000baseT/Full
+		Advertised pause frame use: No
+		Advertised auto-negotiation: Yes
+		Speed: 1000Mb/s
+		Duplex: Full
+		Port: Twisted Pair
+		PHYAD: 2
+		Transceiver: internal
+		Auto-negotiation: on
+		MDI-X: off (auto)
+		Supports Wake-on: pumbg
+		Wake-on: g
+		Current message level: 0x00000007 (7)
+				       drv probe link
+		Link detected: yes
 
-Then I figure out what the MAC address is:
+We can see the **Supports Wake-on** and **Wake-on** options are set appropriately.
 
-elatov@gen ~ $ ip link
-1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-2: enp0s25: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
-    link/ether AA:AA:AA:AA:AA:AA brd ff:ff:ff:ff:ff:ff
+### Using a WOL Client to the Send Magic Packet
+
+I figure out what the MAC address is:
+
+	elatov@gen ~ $ ip link
+	1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default
+	    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+	2: enp0s25: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+	    link/ether AA:AA:AA:AA:AA:AA brd ff:ff:ff:ff:ff:ff
 
 Then I just powered off the machine:
 
-elatov@gen ~ $ sudo poweroff
-WARNING: could not determine runlevel - doing soft poweroff
-  (it's better to use shutdown instead of poweroff from the command line)
+	elatov@gen ~ $ sudo poweroff
+	WARNING: could not determine runlevel - doing soft poweroff
+	  (it's better to use shutdown instead of poweroff from the command line)
+	
+	Broadcast message from root@gen.dnsd.me (pts/0) (Wed Nov 11 20:37:02 2015):
+	The system is going down for system halt NOW!
 
-Broadcast message from root@gen.dnsd.me (pts/0) (Wed Nov 11 20:37:02 2015):
-The system is going down for system halt NOW!
+Then on my mac, I went ahead and installed the WOL client:
 
-Then on my mac, I went ahead and installed the wol client:
-
-elatov@macair:~$sudo port install wol
+	elatov@macair:~$sudo port install wol
 
 Then I went ahead and sent the magic packet:
 
-elatov@macair:~$wol -i gen AA:AA:AA:AA:AA:AA
-Waking up AA:AA:AA:AA:AA:AA...
+	elatov@macair:~$wol -i gen AA:AA:AA:AA:AA:AA
+	Waking up AA:AA:AA:AA:AA:AA...
 
-and I kept a ping going and after some time the machine booted up:
+and I kept a **ping** going and after some time the machine booted up:
 
-elatov@macair:~$ping gen
-PING gen.dnsd.me (192.168.1.114): 56 data bytes
-Request timeout for icmp_seq 0
-Request timeout for icmp_seq 1
-Request timeout for icmp_seq 2
-Request timeout for icmp_seq 3
-64 bytes from 192.168.1.114: icmp_seq=4 ttl=64 time=697.877 ms
-64 bytes from 192.168.1.114: icmp_seq=5 ttl=64 time=1.132 ms
-64 bytes from 192.168.1.114: icmp_seq=6 ttl=64 time=1.146 ms
-64 bytes from 192.168.1.114: icmp_seq=7 ttl=64 time=1.214 ms
-64 bytes from 192.168.1.114: icmp_seq=8 ttl=64 time=1.724 ms
-^C
---- gen.dnsd.me ping statistics ---
-9 packets transmitted, 5 packets received, 44.4% packet loss
-round-trip min/avg/max/stddev = 1.132/140.619/697.877/278.629 ms
+	elatov@macair:~$ping gen
+	PING gen.dnsd.me (192.168.1.114): 56 data bytes
+	Request timeout for icmp_seq 0
+	Request timeout for icmp_seq 1
+	Request timeout for icmp_seq 2
+	Request timeout for icmp_seq 3
+	64 bytes from 192.168.1.114: icmp_seq=4 ttl=64 time=697.877 ms
+	64 bytes from 192.168.1.114: icmp_seq=5 ttl=64 time=1.132 ms
+	64 bytes from 192.168.1.114: icmp_seq=6 ttl=64 time=1.146 ms
+	64 bytes from 192.168.1.114: icmp_seq=7 ttl=64 time=1.214 ms
+	64 bytes from 192.168.1.114: icmp_seq=8 ttl=64 time=1.724 ms
+	^C
+	--- gen.dnsd.me ping statistics ---
+	9 packets transmitted, 5 packets received, 44.4% packet loss
+	round-trip min/avg/max/stddev = 1.132/140.619/697.877/278.629 ms
 
-On my CentOS machine I just ended using ether-wake which is part of the
-net-tools rpm:
+On my *CentOS* machine I just ended using **ether-wake** which is part of the
+**net-tools** rpm:
 
-elatov@m2:~$rpm -qf /sbin/ether-wake
-net-tools-2.0-0.17.20131004git.el7.x86_64
+	elatov@m2:~$rpm -qf /sbin/ether-wake
+	net-tools-2.0-0.17.20131004git.el7.x86_64
 
 And executing the following accomplished the same thing:
 
-elatov@m2:~$sudo ether-wake AA:AA:AA:AA:AA:AA
+	elatov@m2:~$sudo ether-wake AA:AA:AA:AA:AA:AA
 
+### WOL Over a Router
 I was running the command from machines that were on the same subnet as the
-destination host. If you
-are traversing a switch or a router make sure those devices support passing
-the magic packet across and allow directed broadcasts.
+destination host. If you are traversing a switch or a router make sure those devices support passing the magic packet across and allow directed broadcasts.
 [Here](http://www.dd-wrt.com/wiki/index.php/WOL)  are some nice steps laid out
 for dd-wrt. I will stick with local subnets :)
-
