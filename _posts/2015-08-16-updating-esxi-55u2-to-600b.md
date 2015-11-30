@@ -3,7 +3,7 @@ published: true
 layout: post
 title: "Updating ESXi 5.5u2 to 6.0.0b"
 author: Karim Elatov
-categories: [vmware,homelab]
+categories: [vmware,home_lab]
 tags: [esxcli,macmini]
 ---
 So I decided it was time to update my *MacMini 6,2* that was running ESXi. It was running at the following version:
