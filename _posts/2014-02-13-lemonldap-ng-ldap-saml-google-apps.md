@@ -195,7 +195,7 @@ The install is pretty simple, here are the steps I took:
     sudo setup-ds-admin.pl
 
 
-The setup script has a couple of options. For a step by step guide for the *Directory Server* check out this [this](http://ostechnix.wordpress.com/2013/02/05/setup-ldap-server-389ds-in-centosrhelscientific-linux-6-3-step-by-step/) one.
+The setup script has a couple of options. For a step by step guide for the *Directory Server* check out this [this](http://www.ostechnix.com/setup-ldap-server-389ds-in-centosrhelscientific-linux-6-3-step-by-step/) one.
 
 After the install is finished we can now create users.
 

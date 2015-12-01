@@ -148,11 +148,10 @@ There have been other people wondering how to convert libvirt domain XML file in
 *   [virt-convert from libvirt to vmware](http://www.redhat.com/archives/virt-tools-list/2010-April/msg00023.html)
 *   [[libvirt] Intend to add OVA installation API](http://www.redhat.com/archives/libvir-list/2012-June/msg01012.html)
 *   [[libvirt-users] using virsh (or something) to convert from KVM domain XML to vmx...](https://www.redhat.com/archives/libvirt-users/2011-September/msg00042.html)
-*   [[fedora-virt] exporting a vm image](http://lists.fedoraproject.org/pipermail/virt/2010-August/002220.html)
 
 but none of the above have been resolved yet.
 
-There is a script that goes from **vmx** to *libvirt* domain XML format: [Virtualization Preview Repository](http://bazaar.launchpad.net/~ubuntu-virt/virt-goodies/trunk/files)". After you install the new **libvirt-client** tools you can then run commands against an ESX host:
+There is a script that goes from **vmx** to *libvirt* domain XML format: [vmware2libvirt](http://bazaar.launchpad.net/~ubuntu-virt/virt-goodies/trunk/files). There is also a way to go from XML to VMX, and the process is described [here](http://libvirt.org/drvesx.html#xmlexport). But that only works if you already had converted a VMX to XML and then converted it back. It never has instructions on how to start from XML and go to VMX. On Fedora, I had to enable another repository to enable **libvirt-client** tools to have *VMware*/**ESX** support built it. Instructions on that can be seen at   [Virtualization Preview Repository](https://fedoraproject.org/wiki/Virtualization_Preview_Repository). After you install the new **libvirt-client** tools you can then run commands against an ESX host:
 
     [elatov@klaptop ~]$ virsh -c esx://vmware01/?no_verify=1 dumpxml kelatov-2
     Enter username for vmware01 [root]:
