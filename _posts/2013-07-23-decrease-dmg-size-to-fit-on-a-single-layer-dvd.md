@@ -444,7 +444,6 @@ Since I was on Mac OS 10.8 there are a couple of other options for recovery medi
 The 10.8 Installer is downloadable via App Store and even though it's doesn't fit on a regular DVD you just have to copy the contents into a smaller image. No deletion of any files is necessary. The instructions on how to accomplish that are here:
 
 *   [Resize OS X Mountain Lion installer to fit on a single layer 4.7 GB DVD](https://raymii.org/s/tutorials/OS-X-Mountain_Lion_iso_resize_to_fit_on_a_single_layer_dvd.html)
-*   [How to Install OS X Mountain Lion from a Single-Layer DVD](http://alexcline.net/2012/07/28/how-to-install-os-x-mountain-lion-from-a-single-layer-dvd/)
 *   [How To Create a Bootable Mountain Lion (OS X 10.8) Installation DVD](http://www.hightechdad.com/2012/07/25/how-to-create-a-bootable-mountain-lion-os-x-10-8-installation-dvd-or-usb-drive/)
 *   [Burn OS X Mountain Lion installer to single-layer DVD](http://hints.macworld.com/article.php?story=20120727121953498)
 

@@ -696,7 +696,6 @@ There were a lot of sensors :). I looked around and I found a couple of sites th
 *   [MacBookPro5-1_5-2/Lucid](https://help.ubuntu.com/community/MacBookPro5-1_5-2/Lucid)
 *   [Sensors (applesmc module)](https://wiki.debian.org/iMacIntel#Sensors_.28applesmc_module.29)
 *   [[Mactel-linux-devel] AppleSMC names](http://www.mail-archive.com/mactel-linux-devel@lists.sourceforge.net/msg00526.html)
-*   [where is the palm rest temperature sensor located?](http://forums.appleinsider.com/t/114028/where-is-the-palm-rest-temperature-sensor-located)
 *   [Logic board temperature sensor?](http://www.ifixit.com/Answers/View/44153/Logic+board+temperature+sensor)
 
 I also tried to find the manual for the motherboard, but I was only able to find the following:
