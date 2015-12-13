@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Use WOL to Power On Dell Laptop"
 author: Karim Elatov
