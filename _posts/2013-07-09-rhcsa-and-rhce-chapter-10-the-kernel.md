@@ -19,7 +19,7 @@ The kernel is a very complex concept, I will try to use some references to put i
 >
 > At the lowest level, the kernel contains a hardware device driver for each kind of hardware it supports.
 
-From [Conceptual Architecture of the Linux Kernel](http://oss.org.cn/ossdocs/linux/kernel/a1/index.html):
+From [Conceptual Architecture of the Linux Kernel](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/rhce_p10/Conceptual_Architecture_of_the_Linux_Kernel.pdf):
 
 > The Linux kernel is useless in isolation; it participates as one part in a larger system that, as a whole, is useful.
 >

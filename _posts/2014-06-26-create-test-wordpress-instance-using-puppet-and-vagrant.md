@@ -249,7 +249,7 @@ The command basically provides OS information. You can get a full list of availa
 	uptime_seconds => 1310
 	virtual => virtualbox
 	
-So you can use this if you need to check some variable prior to running a command or make some OS dependent choice, when I was going through the [puppet tutorial](http://docs.puppetlabs.com/learning/), this was the example they provided:
+So you can use this if you need to check some variable prior to running a command or make some OS dependent choice, when I was going through the [puppet tutorial](https://puppetlabs.com/download-learning-vm), this was the example they provided:
 
 	case $::operatingsystem {
 	  'CentOS': { $apache_pkg = 'httpd' }
