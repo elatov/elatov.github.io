@@ -323,7 +323,7 @@ After the update I noticed a network lag everyone once in a while and I saw the 
 We can see that our network driver is doing something every two minutes. I found a couple of forums that talked about the issue:
 
 *   [NetworkManager disconnects/reconnects every 2 minutes and sometimes gets "mad"](https://bugzilla.redhat.com/show_bug.cgi?id=490493)
-*   [Disable scanning in NetworkManager when connected](http://nilvec.com/disable-scanning-in-networkmanager-when-connected.html)
+*   [Disable / Enable Periodic Wireless Scans](http://ubuntuforums.org/showthread.php?t=2163994)
 *   [network-manager fails periodically , on backgound networks scan?](https://bugs.launchpad.net/ubuntu/+source/network-manager/+bug/373680)
 
 In summary, this is by design. NetworkManager does a scan every two minutes so it can show you access points as they show up (or if you move to another area). There are two ways around this:

@@ -286,7 +286,7 @@ After the reboot I saw the GRUB menu and Arch Linux was the only available optio
 ### Post Install Setup
 
 #### Install Yaourt
-I was still using the usb tethering after I rebooted. Let's install the **yaourt** utitility which will allow us to install packages from AUR. We can just enable their repo and then install the necessary packages as per [this](https://archlinux.fr/yaourt-en) page:
+I was still using the usb tethering after I rebooted. Let's install the **yaourt** utitility which will allow us to install packages from AUR. We can just enable their repo and then install the necessary packages as per [this](https://wiki.archlinux.org/index.php/Unofficial_user_repositories#archlinuxfr) page:
 
     [elatov@macair ~]$ tail -3 /etc/pacman.conf 
     [archlinuxfr]
