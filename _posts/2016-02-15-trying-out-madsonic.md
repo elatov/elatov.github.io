@@ -3,7 +3,7 @@ published: false
 layout: post
 title: "Trying out MadSonic"
 author: Karim Elatov
-categories: [network]
+categories: [network,os]
 tags: [linux,centos,madsonic,subsonic]
 ---
 I have been using [Subsonic](/2012/10/installing-subsonic-on-fedora-17/) and [MusicCabinet](/2013/02/installing-musiccabinet-on-top-of-subsonic/) for a while and I decided to try out **MadSonic**. Looking over the [comparison page](http://beta.madsonic.org/pages/compare.jsp) it definitely looks like it has the most features.
@@ -52,7 +52,15 @@ And finally let's start **madsonic**:
 	
 After that you can go to **http://\<MADSONIC_IP\>:4040** and you will see the admin web ui:
 
+![madsonic-init-page](madsonic-init-page.png)
 
+After logging into madsonic as:
+
+> admin/admin
+
+I had initial steps to complete:
+
+![madsonic-steps-to-complete](madsonic-steps-to-complete.png)
 	
 ### Bind MadSonic to a Dedicated IP
 I was running **madsonic** and **plex** on the same server and for some reason my Smart TV wasn't able to see **madsonic** via UPnP. So I decided to bind my **madsonic** instance to a specific IP. 
