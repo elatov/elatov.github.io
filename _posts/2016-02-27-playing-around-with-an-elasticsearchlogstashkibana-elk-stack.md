@@ -295,3 +295,18 @@ and I saved that:
 
 I tried adding that saved search to the dashboard, but I quickly realized that a dashboard can only have one time period. There is actually an [enhancement request](https://github.com/elastic/kibana/issues/3578) to allow to configure time per visualization rather than globally.
 
+### Fix Kibana Flapping
+I was seeing random time outs between **kibana** and **elasticsearch**:
+
+	Dec 29 08:22:08 puppet kibana4[7121]: {"type":"log","@timestamp":"2015-12-29T15:22:08+00:00","tags":["status","plugin:elasticsearch","error"],"pid":7121,"name":"plugin:elasticsearch","state":"red","message":"Status changed from green to red - Request Timeout after 1500ms","prevState":"green","prevMsg":"Kibana index ready"}
+
+So I ran into the forum: [Kibana flapping between red and green](https://discuss.elastic.co/t/kibana-flapping-between-red-and-green/36328) which pointed to an known [issue](https://github.com/elastic/kibana/issues/5170). I ended up trying the fix, which was to limit the memory for the **kibana** node:
+
+	┌─[elatov@puppet] - [/home/elatov] - [2016-01-03 05:56:17]
+	└─[0] <> tail -2 /opt/kibana/bin/kibana
+	NODE_OPTIONS="${NODE_OPTIONS:=--max-old-space-size=250}"
+	exec "${NODE}" $NODE_OPTIONS "${DIR}/src/cli" ${@}
+
+Then after restarting kibana the issue went away (and I could even search for it in **kibana**):
+
+![kibana-timeout](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/kibana/kibana-timeout.png)
