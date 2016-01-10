@@ -1,10 +1,10 @@
 ---
-published: false
+published: true
 layout: post
 title: "Playing Around with Conky on Gentoo"
 author: Karim Elatov
 categories: [os]
-tags: [linux,gentoo]
+tags: [linux,gentoo,conky]
 ---
 I wanted to try out conky on my gentoo machine, just too see how it looks like. There is a nice tool called [Conky Manager](https://launchpad.net/conky-manager) which allows you to try out different Conky themes with ease, so let's install it.
 
@@ -24,7 +24,7 @@ Now let's install it:
 
 	sudo emerge -av vala
 
-Lastly let' create a symlink
+Lastly let's create a symlink
 
 	sudo ln -s /usr/bin/valac-0.24 /usr/bin/valac
 
