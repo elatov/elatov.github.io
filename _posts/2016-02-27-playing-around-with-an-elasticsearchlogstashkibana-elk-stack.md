@@ -4,7 +4,7 @@ layout: post
 title: "Playing Around with an Elasticsearch/Logstash/Kibana (ELK) Stack"
 author: Karim Elatov
 categories: [security,os]
-tags: [linux,centos,syslog,logstash,elasticsearch,kibana]
+tags: [linux,centos,syslog,logstash,elasticsearch,kibana,elk]
 ---
 So I decided to try out ELK since I kept hearing so much about it. Currently I use [splunk](/2013/12/installing-splunk-freebsd/) at home and I like, I am not planning on switching over but I did want to see how it compares.
 
