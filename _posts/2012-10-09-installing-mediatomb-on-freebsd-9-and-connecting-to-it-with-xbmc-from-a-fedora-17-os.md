@@ -374,7 +374,7 @@ Next, enable the built-in UPnP client from XBMC. Go to System -> Settings -> Net
 
 ![screenshot001](https://github.com/elatov/uploads/raw/master/2012/10/screenshot001.png)
 
-The settings are described in "[Settings/Network](http://wiki.xbmc.org/index.php?title=Settings/Network)" of the XMBC web site. From the site:
+The settings are described in "[Settings/Network](http://kodi.wiki/view/Settings/Network)" of the XMBC web site. From the site:
 
 > **Share video and music libraries through UPnP**
 > Enables the UPnP server; this will enable you to steam media to any UPnP client.
