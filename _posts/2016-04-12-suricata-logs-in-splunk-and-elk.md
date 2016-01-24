@@ -242,4 +242,10 @@ Then I was checking out the **/var/log/logstash/logstash.stdout** file and I saw
 	    }
 	}
 
-Pretty cool. In the Suricata guide there are a bunch of Kibana Templates but they were created for Kibana version 3 and I was running Kibana 4, so I couldn't use them as per this [discussion](https://discuss.elastic.co/t/migrate-dashboards-from-kibana3-to-kibana4/837).
+Pretty cool. In the Suricata guide there are a bunch of Kibana Templates but they were created for Kibana version 3 and I was running Kibana 4, so I couldn't use them as per this [discussion](https://discuss.elastic.co/t/migrate-dashboards-from-kibana3-to-kibana4/837). I created my own, it wasn't as extensive but it was good enough for me:
+
+![kib-suricata-dashboard](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/suricata-elk-splunk/kib-suricata-dashboard.png)
+
+Here is another view after moving some stuff around:
+
+![suricata-dashboard-kibana](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/suricata-elk-splunk/suricata-dashboard-kibana.png)
