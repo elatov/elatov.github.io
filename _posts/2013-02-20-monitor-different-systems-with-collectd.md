@@ -44,7 +44,7 @@ My Ubuntu Machine:
 As I kept researching, I discovered that there are many different monitoring applications out there. Most are included in the wikipedia page "[Comparison of network monitoring systems](http://en.wikipedia.org/wiki/Comparison_of_network_monitoring_systems)". Checking out other sites, I saw many different comparisons:
 
 *   [Best Monitoring tools in Linux](http://gajendrak.wordpress.com/2012/04/08/best-monitoring-tools-in-linux/)
-*   [Open Source Server Monitoring Tools – Cacti, Zabbix, Nagios](Open Source Server Monitoring Tools – Cacti, Zabbix, Nagios)
+*   [Open Source Server Monitoring Tools – Cacti, Zabbix, Nagios](https://cloudstats.me/2015/08/08/open-source-server-monitoring-tools-cacti-zabbix-nagios/)
 *   [10 Free Server & Network Monitoring Tools that Kick Ass](http://sixrevisions.com/tools/10-free-server-network-monitoring-tools-that-kick-ass/)
 *   [6 More of the Best Free Linux Monitoring Tools](http://www.linuxlinks.com/article/20101118163040955/Monitoring-Extra.html)
 
