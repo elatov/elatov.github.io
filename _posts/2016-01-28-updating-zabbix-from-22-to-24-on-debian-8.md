@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Updating Zabbix from 2.2 to 2.4 on Debian 8"
 author: Karim Elatov
