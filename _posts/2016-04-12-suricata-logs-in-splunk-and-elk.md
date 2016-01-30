@@ -1,4 +1,4 @@
----
+--
 published: false
 layout: post
 title: "Suricata Logs in Splunk and ELK"
@@ -120,6 +120,55 @@ To start it up I just had to run the following (this was after I configured logs
 
 	┌─[elatov@moxz] - [/home/elatov] - [2016-01-16 10:56:45]
 	└─[2] <> nohup /usr/local/filebeat/bin/filebeat -c /usr/local/filebeat/etc/filebeat.yml &
+
+I also ended up creating a service file for filebeat:
+
+	┌─[elatov@moxz] - [/home/elatov] - [2016-01-30 09:31:20]
+	└─[0] <> cat /usr/local/etc/rc.d/filebeat
+	#!/bin/sh
+	#
+	
+	# PROVIDE: filebeat
+	# REQUIRE: LOGIN
+	# KEYWORD: shutdown
+	
+	#
+	# Add the following lines to /etc/rc.conf to enable the filebeat agent:
+	#
+	# filebeat_enable="YES"
+	
+	. /etc/rc.subr
+	
+	name="filebeat"
+	rcvar=filebeat_enable
+	
+	load_rc_config "$name"
+	
+	: ${filebeat_enable="NO"}
+	
+	command="/usr/local/filebeat/bin/filebeat"
+	command_args="-e -c /usr/local/filebeat/etc/filebeat.yml"
+	start_cmd=filebeat_start
+	pidfile="/var/run/${name}.pid"
+	
+	filebeat_start() {
+		echo "Starting filebeat."
+		/usr/sbin/daemon -c -f -p $pidfile ${command} ${command_args}
+	}
+	
+	run_rc_command "$1"
+
+Then I enabled it to start on boot:
+
+	┌─[elatov@moxz] - [/home/elatov] - [2016-01-30 09:31:31]
+	└─[0] <> grep filebeat /etc/rc.conf
+	filebeat_enable="YES"
+
+And then I could use the regular service commands to start/stop/check status of the filebeat service:
+
+	┌─[elatov@moxz] - [/home/elatov] - [2016-01-30 09:32:04]
+	└─[0] <> sudo service filebeat status
+	filebeat is running as pid 19908.
 	
 ### Configure LogStash to Receive JSON from FileBeat
 On the ELK server I added the following configuration:

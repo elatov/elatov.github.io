@@ -77,12 +77,12 @@ First let's enable **logstash** to accept logs from the ossec server (the exampl
 	# stdin{}
 	  udp {
 	     port => 5001
-	     type => "syslog"
+	     type => "ossec"
 	  }
 	}
 	
 	filter {
-	  if [type] == "syslog" {
+	  if [type] == "ossec" {
 	    grok {
 	      match => { "message" => "%{SYSLOGTIMESTAMP:syslog_timestamp} %{SYSLOGHOST:syslog_host} %{DATA:syslog_program}: Alert Level: %{NONNEGINT:Alert_Level}; Rule: %{NONNEGINT:Rule} - %{DATA:Description}; Location: %{DATA:Location}; (user: %{USER:User};%{SPACE})?(srcip: %{IP:Src_IP};%{SPACE})?(user: %{USER:User};%{SPACE})?(dstip: %{IP:Dst_IP};%{SPACE})?(src_port: %{NONNEGINT:Src_Port};%{SPACE})?(dst_port: %{NONNEGINT:Dst_Port};%{SPACE})?%{GREEDYDATA:Details}" }
 	      add_field => [ "ossec_server", "%{host}" ]
