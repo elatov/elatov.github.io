@@ -1,5 +1,5 @@
---
-published: true
+---
+published: false
 layout: post
 title: "Suricata Logs in Splunk and ELK"
 author: Karim Elatov
