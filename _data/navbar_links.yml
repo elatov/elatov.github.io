@@ -1,8 +1,8 @@
 - name: "Archive"
-  url: "/archive.html"
+  url: "/archive"
 
 - name: "Categories"
-  url: "/categories.html"
+  url: "/categories"
 
 - name: "Certifications"
   child_links:
