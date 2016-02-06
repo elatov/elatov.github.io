@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Updating to Snorby 2.6.3"
 author: Karim Elatov
