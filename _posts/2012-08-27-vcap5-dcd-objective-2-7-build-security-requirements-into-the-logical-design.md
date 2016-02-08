@@ -20,7 +20,7 @@ Described in previous objectives
 
 ### Describe layered security considerations, including but not limited to Trust Zones
 
-There is actually a [great](http://www.techrepublic.com/blog/security/understanding-layered-security-and-defense-in-depth/703) blog on this. From that blog:
+There is actually a [great](http://www.techrepublic.com/blog/it-security/understanding-layered-security-and-defense-in-depth/) blog on this. From that blog:
 
 > **Layered Security**
 > A layered approach to security can be implemented at any level of a complete information security strategy. Whether you are the administrator of only a single computer, accessing the Internet from home or a coffee shop, or the go-to guy for a thirty thousand user enterprise WAN, a layered approach to security tools deployment can help improve your security profile.

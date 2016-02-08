@@ -16,7 +16,7 @@ The process is definitely more involved then a regular Linux Distro install, but
 - [Virtualbox Guest](http://gentoo-en.vfose.ru/wiki/Virtualbox_Guest#Configuring_the_Kernel)
 
 #### Getting the Right Media
-I was using a 64bit version so I grabbed the following [ISO](http://mirror.usu.edu/mirrors/gentoo/releases/amd64/current-iso/install-amd64-minimal-20141106.iso). After that I created a VM called **gentoo** in Virtualbox and Virtualbox autodetected the OS to be **gentoo** and took care of the rest. I gave the VM 1GB of ram and 20GB of disk space (VirtualBox set the Disk controller to be SATA and that worked out okay). I then attached the downloaded ISO to the IDE Controller:
+I was using a 64bit version so I grabbed the [ISO](https://www.gentoo.org/downloads/). After that I created a VM called **gentoo** in Virtualbox and Virtualbox autodetected the OS to be **gentoo** and took care of the rest. I gave the VM 1GB of ram and 20GB of disk space (VirtualBox set the Disk controller to be SATA and that worked out okay). I then attached the downloaded ISO to the IDE Controller:
 
 ![iso-attached-gentoo-vm](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/gentoo-in-virtualbox/iso-attached-gentoo-vm.png)
 
