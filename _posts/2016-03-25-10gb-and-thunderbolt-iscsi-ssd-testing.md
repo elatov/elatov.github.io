@@ -273,16 +273,27 @@ I then gave it a try to see if I can get some results from the mac-mini. After I
 
 I also found out that **iperf** is now part of the install, so I ran a quick test:
 
-	[root@macm:~] /usr/lib/vmware/vsan/bin/iperf -c 10.1.0.3 -m -w 2m
+	[root@macm:~] /usr/lib/vmware/vsan/bin/iperf -c 10.1.0.3 -m -w 2m -P 4
 	------------------------------------------------------------
 	Client connecting to 10.1.0.3, TCP port 5001
 	TCP window size: 2.01 MByte (WARNING: requested 2.00 MByte)
 	------------------------------------------------------------
-	[  3] local 10.1.0.10 port 59960 connected with 10.1.0.3 port 5001
+	[  6] local 10.1.0.10 port 14778 connected with 10.1.0.3 port 5001
+	[  4] local 10.1.0.10 port 40464 connected with 10.1.0.3 port 5001
+	[  5] local 10.1.0.10 port 41775 connected with 10.1.0.3 port 5001
+	[  3] local 10.1.0.10 port 51394 connected with 10.1.0.3 port 5001
 	[ ID] Interval       Transfer     Bandwidth
-	[  3]  0.0-10.0 sec  8.31 GBytes  7.14 Gbits/sec
+	[  6]  0.0-10.0 sec  2.10 GBytes  1.81 Gbits/sec
+	[  6] MSS size 8948 bytes (MTU 8988 bytes, unknown interface)
+	[  4]  0.0-10.0 sec  2.10 GBytes  1.81 Gbits/sec
+	[  4] MSS size 8948 bytes (MTU 8988 bytes, unknown interface)
+	[  5]  0.0-10.0 sec  2.11 GBytes  1.81 Gbits/sec
+	[  5] MSS size 8948 bytes (MTU 8988 bytes, unknown interface)
+	[  3]  0.0-10.0 sec  2.11 GBytes  1.81 Gbits/sec
 	[  3] MSS size 8948 bytes (MTU 8988 bytes, unknown interface)
-	
+	[SUM]  0.0-10.0 sec  8.43 GBytes  7.24 Gbits/sec
+
+It about at 7.2Gb/s	.
 ##### Installing External Iperf Binary on ESXi 6
 If you don't have **iperf** on your ESXi install you can grab it from [here](https://vibsdepot.v-front.de/wiki/index.php/Iperf). The install instructions are [here](http://nilic.github.io/2015/01/15/downloading-files-with-wget-on-esxi/), you can just run the following (after you copied the VIB to the ESXi machine):
 
