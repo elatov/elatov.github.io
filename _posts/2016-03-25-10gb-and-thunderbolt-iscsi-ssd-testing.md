@@ -278,9 +278,9 @@ I also found out that **iperf** is now part of the install, so I ran a quick tes
 	Client connecting to 10.1.0.3, TCP port 5001
 	TCP window size: 2.01 MByte (WARNING: requested 2.00 MByte)
 	------------------------------------------------------------
-	[  3] local 10.1.0.10 port 47647 connected with 10.1.0.3 port 5001
+	[  3] local 10.1.0.10 port 59960 connected with 10.1.0.3 port 5001
 	[ ID] Interval       Transfer     Bandwidth
-	[  3]  0.0-10.0 sec  8.20 GBytes  7.04 Gbits/sec
+	[  3]  0.0-10.0 sec  8.31 GBytes  7.14 Gbits/sec
 	[  3] MSS size 8948 bytes (MTU 8988 bytes, unknown interface)
 	
 ##### Installing External Iperf Binary on ESXi 6
