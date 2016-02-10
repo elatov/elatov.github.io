@@ -144,7 +144,7 @@ Also check to make sure you can "ping" the device:
 There has been a lot of changes between bluez version 3 and 4. Check out "[How Ubuntu’s broken bluetooth support came to be](http://blog.projectnibble.org/2010/08/08/how-ubuntus-broken-bluetooth-support-came-to-be/)". With version 3 you could use the instructions laid out in the following articles:
 
 *   [Using Bluetooth in a Debian system](http://wiki.debian.org/BluetoothUser)
-*   [Set up a bluetooth keyboard and mouse in Fedora 10](http://www.techrepublic.com/blog/opensource/set-up-a-bluetooth-keyboard-and-mouse-in-fedora-10/398)
+*   [Set up a bluetooth keyboard and mouse in Fedora 10](http://www.techrepublic.com/blog/linux-and-open-source/set-up-a-bluetooth-keyboard-and-mouse-in-fedora-10/)
 *   [BluetoothSetup](https://help.ubuntu.com/community/BluetoothSetup)
 
 But I was on version 4 and it uses **dbus** to connect to the device. From what I've read you should be able to run '**bluez-simple-agent**', '**simple-agent**' , or '**bluetooth-agent**'. For more info check out:
