@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Trying out MadSonic"
 author: Karim Elatov
