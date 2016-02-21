@@ -8,15 +8,15 @@ categories: ['home_lab', 'networking']
 tags: ['mysql', 'linux','freebsd','monitoring', 'zenoss', 'snmp']
 ---
 
-This is the third part and continuation of the 'Network Monitoring Software Comparison' series. Here is the link to the [wiki](/2013/02/monitor-different-systems-with-collectd) page, we see the followin
+This is the third part and continuation of the 'Network Monitoring Software Comparison' series. Here is the link to the [first](/2013/02/monitor-different-systems-with-collectd) part and here is the [second](/2013/03/monitor-different-systems-with-munin) one. Let's check out what **Zenoss** is about. From their [wiki](http://wiki.zenoss.org/Main_Page) page, we see the following:
 
 > What is Zenoss?
 >
 > Zenoss Core is award-winning Open Source IT monitoring software that offers visibility over the entire IT stack, from network devices to applications. Features include automatic discovery, inventory via CMDB, availability monitoring, easy-to-read performance graphs, sophisticated alerting, an easy-to-use web portal, and much, much more. It is Free Software, released under the GNU General Public License version 2. Zenoss has a very active community.
 
-Now to start the install. Reading over the [Installation Guide](http://community.zenoss.org/community/documentation/official_documentation/installation-guide), I saw that there is section on how to compile the software from source. This sparked an interest to install the software on my FreeBSD system.
+Now to start the install. Reading over the [Zenoss Core 4 Installation Guide](http://www.zenoss.com/documentation/Core_Docs/Zenoss_Core_Installation_Upgrade_01-062014-4.2-v20.pdf), I saw that there is section on how to compile the software from source. This sparked an interest to install the software on my FreeBSD system.
 
-###1. Setup a MySQL Database for the Zenoss Install
+### 1. Setup a MySQL Database for the Zenoss Install
 I decided to setup Zenoss on my FreeBSD machine, since my Ubuntu box was already running the other monitoring applications and I knew that the source for Zenoss was available. Zenoss uses MySQL for it's database, I actually had a MySQL instance running on the Ubuntu machine, hence I decided to allow remote access for root to MySQL. I would rarely do this, but since this was a test setup, I decided to just go all out :)Before any changes, I was able to login as **root** locally:
 
 	kerch:~>mysql -u root -p
@@ -121,7 +121,7 @@ I was even able to connect from another machine:
 
 There are better ways to go about this. Like to create a dedicated user for the Zenoss setup. But since this was a test setup, this was okay for me. Now on the FreeBSD machine, let’s install Zenoss.
 
-###2. Install Zenoss on FreeBSD
+### 2. Install Zenoss on FreeBSD
 
 	freebsd:~>cd /usr/ports/net-mgmt/zenoss
 	freebsd:/usr/ports/net-mgmt/zenoss>sudo make install clean
@@ -258,7 +258,7 @@ And then I skipped adding devices and went to the dashboard:
 
 ![zenoss dashboard Monitor Different Systems with Zenoss](https://github.com/elatov/uploads/raw/master/2013/02/zenoss_dashboard.png)
 
-Looking over the [Administration Guide](http://community.zenoss.org/community/documentation/official_documentation/zenoss-guide), I saw this:
+Looking over the [Administration Guide](https://sourceforge.net/projects/zenoss/files/Documentation/zenoss-4.2.x-docs/zendocs-4.2.4/Zenoss_Core_Administration_02-102013-4.2-v07.pdf/download), I saw this:
 
 > Servers are organized by operating system. If the system discovers Windows devices, for example, you might choose to relocate them to /Server/Windows. Similarly, you might choose to classify discovered Linux devices in /Server/Linux (if you want to monitor and model using SNMP), or /Server/SSH/Linux (if you want to monitor and model using SSH)
 
@@ -272,8 +272,8 @@ I decided to use SNMP for the FreeBSD and Fedora Machines, and SSH for the Ubunt
 
 Now let’s start monitoring our nodes.
 
-###3. Monitor our Ubuntu Machine with Zenoss via SSH
-To get any useful information from SSH it’s recommended to install the *LinuxMonitor ZenPack*, more information is seen in [Admin Guide](http://community.zenoss.org/docs/DOC-3435). Here is a description of ZenPacks from that guide:
+### 3. Monitor our Ubuntu Machine with Zenoss via SSH
+To get any useful information from SSH it’s recommended to install the *LinuxMonitor ZenPack*, more information is seen in [Zenoss_Core_Extended_Monitoring](https://sourceforge.net/projects/zenoss/files/Documentation/zenoss-4.2.x-docs/zendocs-4.2.4/Zenoss_Core_Extended_Monitoring_03-062013-4.2-v05.pdf/download). Here is a description of ZenPacks from that guide:
 
 > **13.1. About ZenPacks**
 >
@@ -405,8 +405,8 @@ After everything have been configured, you should be able to see the device on t
 
 Now let's move to our FreeBSD machine.
 
-###4. Monitor FreeBSD with Zenoss via SNMP
-Install instructions are found in [this](http://community.zenoss.org/docs/DOC-9132) Zenoss community page. First let's install the desired **snmpd** server:
+### 4. Monitor FreeBSD with Zenoss via SNMP
+Install instructions are found in [this](http://www.lissyara.su/articles/freebsd/programms/zenoss/) Zenoss community page. First let's install the desired **snmpd** server:
 
 	freebsd:~>cd /usr/ports/net-mgmt/bsnmp-ucd
 	freebsd:/usr/ports/net-mgmt/bsnmp-ucd>sudo make install clean
@@ -485,7 +485,7 @@ After the device is added, we can see new components from the host:
 
 Not as many as for Linux Host but still enough. Now let's monitor the Fedora Machine.
 
-###5. Monitor the Fedora Machine with Zenoss via SNMP
+### 5. Monitor the Fedora Machine with Zenoss via SNMP
 For regular Linux machines we can just use the **net-snmp** package, so let's go ahead and install that:
 
 	moxz:~>sudo yum install net-snmp
@@ -497,7 +497,7 @@ For regular Linux machines we can just use the **net-snmp** package, so let's go
 	  net-snmp-agent-libs.i686 1:5.7.2-5.fc18
 	Complete!
 
-Then let's set configure the service by editing the **/etc/snmp/snmpd.conf** file and adding/modifying the following lines (Most of these instructions are described in [this](http://community.zenoss.org/docs/DOC-2502) Zenoss community page):
+Then let's set configure the service by editing the **/etc/snmp/snmpd.conf** file and adding/modifying the following lines (Most of these instructions are described in [this](http://wiki.zenoss.org/Prepare_Remote_Device#Linux_SNMP-based_Monitoring) Zenoss community page):
 
 	view    systemview    included   .1
 	rocommunity public
@@ -593,8 +593,8 @@ After the device was added and 'modeled', I saw similar information under the co
 
 Now let's monitor our RAID on the FreebSD Machine.
 
-###5. Add a Raid Check in Zenoss for the FreeBSD machine.
-Instructions on how to run commands and gather information from the output are in the [Perl](http://community.zenoss.org/community/documentation/official_documentation/zenoss-guide). I downloaded the Perl script, made some changes to it (path changes and such), copied it to the Zenoss install, and ran a test:
+### 6. Add a Raid Check in Zenoss for the FreeBSD machine.
+Instructions on how to run commands and gather information from the output are in the [Admin Guide](https://sourceforge.net/projects/zenoss/files/Documentation/zenoss-4.2.x-docs/zendocs-4.2.4/Zenoss_Core_Administration_02-062013-4.2-v06.pdf/download) (in the Chapter Entitled "Monitoring Using ZenCommand"). I knew that Zenoss could use Nagios plugins, so I found two scripts online: one written in [Python](http://exchange.nagios.org/directory/Plugins/Hardware/Storage-Systems/RAID-Controllers/Adaptec-RAID-Check-by-Anchor-Systems/details) and the other in [Perl](http://exchange.nagios.org/directory/Plugins/Hardware/Storage-Systems/RAID-Controllers/check_aacraid-Adaptec-and-ICP-Controller-Monitoring/details). I downloaded the Perl script, made some changes to it (path changes and such), copied it to the Zenoss install, and ran a test:
 
 	freebsd:~>sudo cp check_aacraid.pl /usr/local/zenoss/libexec/check_aacraid
 	freebsd:~>sudo su - zenoss
@@ -705,11 +705,11 @@ Clicking on the warning showed me this:
 
 We can even see the message that was returned from the script.
 
-###6. Zenoss Vs. Collectd and Munin
+### 7. Zenoss Vs. Collectd and Munin
 
-####Pros
+#### Pros
 
-- There is a command line tool to check status of the Zenoss system, it's called **zendmd**. More information can be seen in the [Development Guide](http://community.zenoss.org/community/documentation/official_documentation/zenoss-dev-guide). Here is a quick example:
+- There is a command line tool to check status of the Zenoss system, it's called **zendmd**. More information can be seen in the [ZenDMD Tips](http://wiki.zenoss.org/ZenDMD_Tips). Here is a quick example:
 
 		$ zendmd
 		Welcome to the Zenoss dmd command shell!
@@ -731,7 +731,7 @@ We can even see the message that was returned from the script.
 - Does it all: monitor, graph, notify, and much more
 - Doesn't depend on Apache, uses a Zope Instance for it's web management portal
 
-####Cons
+#### Cons
 
 - It's a beast, the install comes with so many daemons installed
 

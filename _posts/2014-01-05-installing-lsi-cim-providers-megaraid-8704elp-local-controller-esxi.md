@@ -101,7 +101,7 @@ I then reboot the ESXi host. After the reboot I went back to the **Health Status
 
 ![lsi seen sensors Installing LSI CIM Providers for MegaRaid 8704ELP Local Controller on ESXi 5.0](https://github.com/elatov/uploads/raw/master/2014/01/lsi-seen-sensors.png)
 
-The Hard Drive information seems wrong (*Unconfigured Good*) but the rest of the information is good. I came across [ESXi 5.1 Dell PERC 6i Health Status Monitoring](http://blog.rebelit.net/432) and the issue is similar in the post. The issue can be fixed by downgrading to lower versions of the LSI CIM Providers.
+The Hard Drive information seems wrong (*Unconfigured Good*) but the rest of the information is good. I came across and old post: ESXi 5.1 Dell PERC 6i Health Status Monitoring and the issue is similar in the post. The issue can be fixed by downgrading to lower versions of the LSI CIM Providers.
 
 ### Uninstall VIB on ESXi 5.0
 
