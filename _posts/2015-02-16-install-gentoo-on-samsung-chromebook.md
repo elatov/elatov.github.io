@@ -3,7 +3,7 @@ published: true
 layout: post
 title: "Install Gentoo on Samsung Chromebook"
 author: Karim Elatov
-categories: [OS]
+categories: [os]
 tags: [chromebook,linux,gentoo]
 ---
 So after trying out *chrubuntu* and *arch-linux* on my arm based chromebook I decided to try out *gentoo*. I already had my partitions setup so I didn't have to worry about that. You can check out my previous setups here:

@@ -3,7 +3,7 @@ published: true
 layout: post
 title: "Trying out MadSonic"
 author: Karim Elatov
-categories: [network,os]
+categories: [networkink,os]
 tags: [linux,centos,madsonic,subsonic]
 ---
 I have been using [Subsonic](/2012/10/installing-subsonic-on-fedora-17/) and [MusicCabinet](/2013/02/installing-musiccabinet-on-top-of-subsonic/) for a while and I decided to try out **MadSonic**. Looking over the [comparison page](http://beta.madsonic.org/pages/compare.jsp) it definitely looks like it has the most features.

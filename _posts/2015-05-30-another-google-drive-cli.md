@@ -3,7 +3,7 @@ published: true
 layout: post
 title: "Another Google Drive CLI"
 author: Karim Elatov
-categories: [OS]
+categories: [os]
 tags: [linux,macosx]
 ---
 I started getting an error message using the old **grive** CLI (setup instructions for **grive** can be found [here](/2013/02/sharing-a-file-encrypted-by-encfs-with-android-and-linux-systems-with-google-drive/):

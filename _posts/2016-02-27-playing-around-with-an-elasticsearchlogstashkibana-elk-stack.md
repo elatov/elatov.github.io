@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Playing Around with an Elasticsearch/Logstash/Kibana (ELK) Stack"
 author: Karim Elatov

@@ -3,7 +3,7 @@ published: true
 layout: post
 title: "Install Debian 7 On MacMini Late 2006"
 author: Karim Elatov
-categories: [OS]
+categories: [os]
 tags: [mac_os_x,linux,debian,efi,bless]
 ---
 

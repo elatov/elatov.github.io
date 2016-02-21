@@ -1,10 +1,10 @@
 ---
-published: false
+published: true
 layout: post
 title: "Testing Out Plex with Docker"
 author: Karim Elatov
 categories: [docker,os,networking]
-tags: [plex]
+tags: [plex,linux,centos]
 ---
 In my [previous post](/2016/02/trying-out-madsonic) I realized that you can't bind a Plex instance to a specific IP. Some people have had luck accomplishing that with **docker**. I have heard many things about **docker** so I decided to give it a try.
 
