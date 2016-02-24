@@ -77,7 +77,7 @@ Also from [here](http://www.thegeekstuff.com/2009/09/top-5-best-network-monitori
 
 Lastly I wanted to compare it to a large application just to see it's Pro's and Con's. Since Nagios and Cacti were out of the picture, I decided to try **Zenoss**. There are a couple of sites that talk about the differences between Nagios and Zenoss, here are a few:
 
-*   [Zennos VS. Nagios](http://community.zenoss.org/docs/DOC-5858)
+*   [A Comparison of Nagios, Zenoss and Zabbix](http://community.scmgalaxy.com/blog/view/41160/a-comparison-of-nagios-zenoss-and-zabbix)
 *   [Zenoss: We Can Ditch Nagios Now](http://www.longitudetech.com/linux-unix/zenoss-we-can-ditch-nagios-now/)
 
 Zenoss seemed comparable :)
