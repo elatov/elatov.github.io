@@ -6,7 +6,7 @@ author: Karim Elatov
 categories: [networking,storage,vmware,zfs]
 tags: [opensolaris,thunderbolt,macmini,comstar,iscsi,omnios]
 ---
-I wanted to test out some 10Gb benchmarks just cause I thought I my home lab was getting old. I had a mac-mini machine and it doesn't have a 10Gb Nic, but it does have a thunderbolt port which has a theoritical thoughput of 10Gb. So I decided to buy a 10Gb Nic for my storage machine, a 10GB switch, and a thunderbolt to 10Gb converter for the mac-mini.
+I wanted to test out some 10Gb benchmarks just because I thought my home lab was getting old. I had a mac-mini machine and it doesn't have a 10Gb Nic, but it does have a thunderbolt port which has a theoritical thoughput of 10Gb. So I decided to buy a 10Gb Nic for my storage machine, a 10GB switch, and a thunderbolt to 10Gb converter for the mac-mini.
 
 ### The Hardware
 I ended up getting the following:
