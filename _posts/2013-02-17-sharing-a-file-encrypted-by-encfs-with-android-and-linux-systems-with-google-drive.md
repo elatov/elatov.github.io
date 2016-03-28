@@ -301,7 +301,7 @@ That looks perfect. Now let's un-mount the volume and sync the data with Google 
     Finished!
 
 
-Notice the **.encfs6.xml** file, this is the configuration file for EncFS and is very important to this setup. Don't worry, without the password this file is useless. From [this](https://boxcryptor.desk.com/customer/portal/articles/565947) BoxCryptor forum:
+Notice the **.encfs6.xml** file, this is the configuration file for EncFS and is very important to this setup. Don't worry, without the password this file is useless. From [this](https://forums.boxcryptor.com/topic/strength-of-encryption-security) BoxCryptor forum:
 
 > BoxCryptor uses two keys for file encryption: a master key which is derived from a user supplied password and a volume key. All files are encrypted with a volume key which is generated when a new encrypted directory is created. The volume key is stored encrypted by the master key in a configuration file (.encfs6.xml) at the top level of the source directory. When BoxCryptor mounts an encrypted directory you have to enter the password. The password is used to derive the master key and the master key is used to decrypt the volume key which is then used for file encryption.
 

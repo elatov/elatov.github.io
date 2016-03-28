@@ -40,7 +40,7 @@ There is actually one more that I ran into, it's called [tinyCA](http://www.ghac
 *   [Be your own Certificate Authority (CA)](http://www.g-loaded.eu/2005/11/10/be-your-own-ca/)
 *   [Creating a Certificate Authority and signing the SSL certificates using openssl](http://www.ulduzsoft.com/2012/01/creating-a-certificate-authority-and-signing-the-ssl-certificates-using-openssl/)
 *   [Be your own CA](http://archive09.linux.com/feature/38315)
-*   [Becoming a X.509 Certificate Authority](http://www.davidpashley.com/articles/cert-authority.html)
+*   [Becoming a X.509 Certificate Authority](http://www.davidpashley.com/articles/becoming-a-x-509-certificate-authority/)
 
 I have done that before and when you are managing a lot of different certificates the process is not very scalable. Also, if you don't keep doing it, you have to re-trace your steps to remember how the setup works. There is also a **Perl** script that is included to ease the CA setup, that script is called **CA.pl**. Depending on your Linux distribution you have find the right package that contains that script. Here is where I found it on my Fedora install:
 

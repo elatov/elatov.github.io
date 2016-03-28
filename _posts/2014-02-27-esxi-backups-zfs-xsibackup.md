@@ -38,7 +38,7 @@ I found a couple of sites that had instructions on how to copy ZFS Volumes acros
 
 *   [Transferring ZFS filesystems in ICTS environment.](https://www.icts.uiowa.edu/confluence/pages/viewpage.action?pageId=59411469)
 *   [ZFS incremental replication](http://www.headdesk.me/index.php?title=ZFS_incremental_replication)
-*   [Automated ZFS Incremental Backups Over SSH](http://www.aisecure.net/2012/01/11/automated-zfs-incremental-backups-over-ssh/)
+*   [ZFS snapshots and clones](http://kbdone.com/zfs-snapshots-clones/)
 
 The gist of the commands would be like this:
 

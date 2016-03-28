@@ -74,7 +74,7 @@ Now let's install **logstash**:
 	$ sudo yum install logstash
 
 ### Test logstash
-Let's create an example of where **logstash** parses syslog info. There are a bunch of examples at the [Logstash Configuration Examples](ttps://www.elastic.co/guide/en/logstash/current/config-examples.html) page. I ended up with this:
+Let's create an example of where **logstash** parses syslog info. There are a bunch of examples at the [Logstash Configuration Examples](https://www.elastic.co/guide/en/logstash/current/config-examples.html) page. I ended up with this:
 
 
 	$ cat /etc/logstash/conf.d/logstash-syslog.conf

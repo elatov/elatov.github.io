@@ -299,9 +299,7 @@ This was also discussed in [Objective 3.1](/2012/08/vcap5-dcd-objective-3-1-tran
 
 ### Based on the logical design, identify and implement asset and configuration management technologies.
 
-There are a couple of application that can do asset management. The first one is VWare GO. From "
-
-[VMworld 2012: Introducing the New VMware Go Pro for SMBs!](http://blogs.vmware.com/smb/2012/08/goprosmb.html#more-558)":
+There are a couple of application that can do asset management. The first one is VWare GO. From [VMworld 2012: Introducing the New VMware Go Pro for SMBs!](https://blogs.vmware.com/go/2012/08/vmworld-2012-introducing-the-new-vmware-go-pro-for-smbs.html):
 
 > ![vmware-go](https://github.com/elatov/uploads/raw/master/2012/09/vmware-go.png)
 > **Comprehensive Infrastructure Protection**

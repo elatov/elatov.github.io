@@ -481,7 +481,7 @@ And you can also check the status but using the CLI:
 There are also instructions on how to get authenticated on a headless Linux server. The instructions are laid out [here](http://askubuntu.com/questions/95591/how-do-i-configure-ubuntu-one-on-a-server). You just have to use a python script to get authenticated. I ran into some forums on how to set it up for Fedora and Debian, which were my two other machines (UbuntuOne had clients for MacOS and Windows as well):
 
 *   [UbuntuOne Packages for Fedora](http://www.maxiberta.com.ar/blog/ubuntuone-packages-fedora)
-*   [Ubuntu One on Debian Wheezy](http://blog.pinguinplanet.de/2012/05/ubuntu-one-on-debian-wheezy.html)
+*   [Ubuntu One on Debian Wheezy](https://conalambre.wordpress.com/2012/10/15/ubuntu-one-en-debian-wheezy/)
 *   [Howto: Ubuntu One in Debian Wheezy](http://forums.debian.net/viewtopic.php?f=16&t=63310)
 
 The Fedora one seemed okay, just had to add a repository but the Debian setup seemed surprisingly complicated. As I started to configuration on Fedora, I ran into an issue where the **NetworkManager** had to be running ([link](http://askubuntu.com/questions/95591/how-do-i-configure-ubuntu-one-on-a-server)). Some of these had static IPs and had no need to run that. Rather then installing NetworkingManager on all of my machines, I decided to move one. So far, I really liked UbuntuOne, if you are using Ubuntu Laptops, I would definitely recommend it, but if you are using another distribution, it might be a little difficult to setup.
