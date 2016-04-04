@@ -194,7 +194,7 @@ From the vSphere Storage Guide":
 >
 > With ESXi hosts, use a single-initiator zoning or a single-initiator-single-target zoning. The latter is a preferred zoning practice. Using the more restrictive zoning prevents problems and misconfigurations that can occur on the SAN.
 
-Also From "[Secure SAN Zoning Best Practices](http://www.brocade.com/downloads/documents/white_papers/Zoning_Best_Practices_WP-00.pdf)":
+Also From "[Secure SAN Zoning Best Practices](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcap-dcd/3-3/Zoning_Best_Practices_WP-00.pdf)":
 
 > Zoning not only prevents a host from unauthorized access of storage assets, but it also stops undesired host-to-host communication and fabric-wide Registered State Change Notification (RSCN) disruptions. RSCNs are managed by the fabric Name Server and notify end devices of events in the fabric, such as a storage node or a switch going offline. Brocade isolates these notifications to only the zones that require the update, so nodes that are unaffected by the fabric change do not receive the RSCN. This is important for non-disruptive fabric operations, because RSCNs have the potential to disrupt storage traffic.
 >

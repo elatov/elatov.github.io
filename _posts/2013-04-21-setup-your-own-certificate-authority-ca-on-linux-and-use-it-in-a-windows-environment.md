@@ -26,7 +26,7 @@ If we take a look at this [wikipedia](http://en.wikipedia.org/wiki/Certificate_a
 > *   [DogTag](http://pki.fedoraproject.org/wiki/PKI_Main_Page)
 > *   [EJBCA](http://www.ejbca.org/)
 > *   [gnoMint](http://gnomint.sourceforge.net/)
-> *   [OpenCA](https://pki.openca.org:4443/)
+> *   [OpenCA](https://www.openca.org/projects/openca/)
 > *   [OpenSSL](http://www.openssl.org/), which is really an SSL/TLS library, but comes with tools allowing its use as a simple certificate authority.
 > *   [r509](https://github.com/reaperhulk/r509)
 > *   [XCA](http://xca.sourceforge.net/)
