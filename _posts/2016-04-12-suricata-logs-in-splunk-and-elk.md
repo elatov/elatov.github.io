@@ -6,7 +6,7 @@ author: Karim Elatov
 categories: [security]
 tags: [splunk,elk,suricata,logstash]
 ---
-I decided to use another tool to visualize the **suricata** events. Recently I started using **ELK** but I still kept my **Splunk** install just for comparison.
+I decided to use another tool to visualize the **suricata** events. Recently I started using **ELK** but I still kept my **Splunk** setup just for comparison.
 
 ### Enable JSON output for Suricata
 This is covered in [Eve JSON Output](https://redmine.openinfosecfoundation.org/projects/suricata/wiki/EveJSONOutput), we just have to enable it in the config:
