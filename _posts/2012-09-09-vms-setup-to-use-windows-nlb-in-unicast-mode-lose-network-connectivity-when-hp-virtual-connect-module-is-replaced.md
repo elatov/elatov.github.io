@@ -11,7 +11,7 @@ A VirtualConnect Module was being replaced on an HP Enclosure and only the VMs u
 
 ![flex-fabric](https://github.com/elatov/uploads/raw/master/2012/09/flex-fabric.png)
 
-In the above picture, Flex Fabric Interconnect is our Virtual Connect Interconnect Module. Flex Fabric is an extension of the Virtual Connect Module. From "[HP BladeSystem c-Class architecture](http://h20000.www2.hp.com/bc/docs/support/SupportManual/c00810839/c00810839.pdf)":
+In the above picture, Flex Fabric Interconnect is our Virtual Connect Interconnect Module. Flex Fabric is an extension of the Virtual Connect Module. From "[HP BladeSystem c-Class architecture](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/hp_virtual_connect_nlb_disconnect/HP_BladeSystem_c-Class_architecture.pdf)":
 
 > **Virtual Connect**
 > Virtual Connect includes a set of interconnect modules and embedded software that implements server-edge virtualization. It puts an abstraction layer between the servers and the external networks

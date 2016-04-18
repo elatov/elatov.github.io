@@ -143,7 +143,7 @@ As I ran into that issue I started to think; what would happen if I installed a 
 2.  Install the necessary nVidia libraries
 3.  Install the kernel nNidia module
 
-I did some more digging around and I discovered that for step #3 there are two options. From "[How To Install Nvidia Drivers In Fedora 17 Beefy Miracle](http://www.unixmen.com/how-to-install-nvidia-drivers-in-fedora-13-and-14/)":
+I did some more digging around and I discovered that for step #3 there are two options. From "[Fedora 23/22/21 nVidia Drivers Install Guide](https://www.if-not-true-then-false.com/2015/fedora-nvidia-guide/)":
 
 > Now install Nvidia drivers:
 >

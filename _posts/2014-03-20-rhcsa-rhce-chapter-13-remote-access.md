@@ -384,7 +384,7 @@ There are a lot of examples of this. We are going to cover VNC next, at the end 
 
 ## VNC
 
-There is a good Red Hat Magazine Article that covers the process: [Taking your desktop virtual with VNC](http://www.redhat.com/magazine/006apr05/features/vnc/). The article is for an older version of RHEL but the process is very similar. First let's install the vnc server:
+There is a good Red Hat Magazine Article that covers the process: [Configuring VNC Server Access on a Redhat Linux](https://linuxconfig.org/configuring-vnc-server-access-on-a-redhat-linux). The article is for an older version of RHEL but the process is very similar. First let's install the vnc server:
 
     [root@rhel1 ~]# yum install tigervnc-server.i686
     ...

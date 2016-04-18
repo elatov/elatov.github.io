@@ -14,7 +14,7 @@ After [playing around with **puppet**](/2014/08/messing-around-with-puppet/) I r
 4. config.pp 	(configures the software)
 5. service.pp 	(ensures the service is started)
 
-There are also tools out there to create templates of a puppet module, check out the list in [puppet module skeletons](http://www.puppetbestpractices.com/modules/style/module-skeleton.html). From the first link here is a pretty good diagram of the way all the files interact with each other:
+From the first link here is a pretty good diagram of the way all the files interact with each other:
 
 ![puppet-module-class-design](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/puppet-better-modules/puppet-module-class-design.png)
 
