@@ -115,7 +115,7 @@ As soon as you plug in the power cord, the RPi will start to boot. As promised, 
 
 ![xbian config OpenELEC on Raspberry Pi](https://github.com/elatov/uploads/raw/master/2013/11/xbian-config.png)
 
-More information on configuring **Xbian** can be found [here](http://wiki.xbian.org/Main_Page)
+More information on configuring **Xbian** can be found [here](http://wiki.xbian.org/doku.php)
 
 I definitely liked the ease of use of **XBian**. I then configured XBMC to play files from my Plex Media Server using UPNP and the playback was pretty smooth. However playing internet streams was a little choppy. When I was using my old XBMC machine, it wasn't like that. Since I haven't invested too much time with Xbian, I decided to try out OpenELEC.
 
