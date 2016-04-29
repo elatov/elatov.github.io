@@ -8,7 +8,7 @@ tags: [linux,gentoo,conky]
 ---
 I wanted to try out conky on my gentoo machine, just too see how it looks like. There is a nice tool called [Conky Manager](https://launchpad.net/conky-manager) which allows you to try out different Conky themes with ease, so let's install it.
 
-###Conky Manager Prerequisites
+### Conky Manager Prerequisites
 
 First we need to install **valac**, we can use a utility called **e-file** to find out which package a file belongs to:
 
