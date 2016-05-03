@@ -9,7 +9,7 @@ tags: ['fcoe', 'fiber_channel', 'san_zoning', 'sioc', 'vmotion', 'iscsi', 'port_
 
 ### Describe selection criteria for commonly used RAID types
 
-From "[Best Practices for Microsoft SQL Server on Hitachi Universal Storage Platform VM](http://www.hds.com/assets/pdf/best-practices-for-microsoft-sql-server-on-hitachi-universal-storage-platform-vm.pdf)":
+From "[Best Practices for Microsoft SQL Server on Hitachi Universal Storage Platform VM](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcap-dcd/3-3/best-practices-for-microsoft-sql-server-on-hitachi-universal-storage-platform-vm.pdf)":
 
 > RAID-1+ is best suited to applications with low cache-hit ratios, such as random I/O activity, and with high write-to-read ratios.
 >
