@@ -269,7 +269,7 @@ For some reason it took a while for me to get the concept that *containers* are 
 
 ### Creating a Docker Image
 
-Let's create our own image from the centos one with Plex pre-installed (sample setup can be seen at [Creating a Docker Image from an Existing Container](https://docs.oracle.com/cd/E52668_01/E54669/html/section_c5q_n2z_fp.html)). First let's launch the image and connect to it:
+Let's create our own image from the centos one with Plex pre-installed (sample setup can be seen at [Build your own images](Build your own images)). First let's launch the image and connect to it:
 
 	┌─[elatov@m2] - [/home/elatov] - [2015-12-31 08:29:40]
 	└─[0] <> docker run -it docker.io/centos /bin/bash
