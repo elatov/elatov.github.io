@@ -6,7 +6,7 @@ author: Karim Elatov
 categories: [security,os]
 tags: [snorby,linux,debian]
 ---
-So I decided to update Snorby. Snce my [last update](/2015/06/upgrade-debian-wheezy7-to-jessie8/) I ensured that ruby 1.9 was used and I wanted to get rid of that hack.
+So I decided to update Snorby. During the [last update](/2015/06/upgrade-debian-wheezy7-to-jessie8/) I ensured that ruby 1.9 was used and I wanted to get rid of that hack.
 
 ### Update Snorby
 The instuctions are laid out in the [Updating Snorby](https://github.com/Snorby/snorby/wiki/Updating-Snorby) git page. Here is what I ended up running, first let's update the git repo:
