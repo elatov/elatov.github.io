@@ -4,7 +4,7 @@ layout: post
 title: "Ossec Monitoring with Splunk and ELK"
 author: Karim Elatov
 categories: [security,os]
-tags: [splunk,ossec,logstash,kibaba,elk]
+tags: [splunk,ossec,logstash,kibana,elk]
 ---
 I decided to send my ossec alerts from my ossec server over syslog to visualize the alerts usage. As before, I will try using **Splunk** and **ELK** to see the difference.
 
