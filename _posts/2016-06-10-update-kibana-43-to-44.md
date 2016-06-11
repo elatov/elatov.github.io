@@ -6,7 +6,7 @@ author: Karim Elatov
 categories: [os,security]
 tags: [kibana,linux,centos]
 ---
-I noticed that a [new update](https://www.elastic.co/guide/en/kibana/current/releasenotes.html) for **kibana** came out, so I decided to update to it.
+I noticed that a [new update](https://www.elastic.co/guide/en/kibana/current/releasenotes.html) for **kibana** came out, so I decided to update my version.
 
 ### Preparing for the Kibana Update
 If you remember [my previous](/2016/02/playing-around-with-an-elasticsearchlogstashkibana-elk-stack/) post I ended up getting the **tar.gz** archive and installing it manually under **/opt**. This time around I decided to add a *YUM* repository and install from there. First I exported all of my objects just in case. This is done in **kibana** under **Settings** -> **Objects** -> **Export Everything**:
