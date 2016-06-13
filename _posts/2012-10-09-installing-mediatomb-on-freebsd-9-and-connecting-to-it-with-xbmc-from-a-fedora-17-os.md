@@ -40,7 +40,7 @@ I also wanted the package to be included in ports (just for management's sake). 
     ./net/minidlna
 
 
-I couldn't find *ps3mediaserver*. I did find this 'how to': [Plex on FreeBSD?](http://www.homemultimedianetwork.com/Guides/Installing-PS3-Media-Server-on-FreeNAS.php)", it doesn't looks there is support for that yet. So I was thinking either MediaTomb or miniDLNA and since MediaTomb had better transcoding capabilities, I decided to go with that. Here are the steps I took to install MediaTomb on my FreeBSD machine.
+I couldn't find *ps3mediaserver*. I did find this how-to: [Plex on FreeBSD?](http://www.homemultimedianetwork.com/Guides/Installing-PS3-Media-Server-on-FreeNAS.php)", it doesn't looks there is support for that yet. So I was thinking either MediaTomb or miniDLNA and since MediaTomb had better transcoding capabilities, I decided to go with that. Here are the steps I took to install MediaTomb on my FreeBSD machine.
 
 ### 1. Install MediaTomb from ports
 
@@ -223,7 +223,7 @@ Also from the MediaTomb [FAQ](http://mediatomb.cc/dokuwiki/faq:faq) page:
 
 > make sure that your firewall is not blocking the server, port 1900 has to be open as well as the port on which the server is running (i.e. web UI port), both TCP and UDP
 
-Again here is an example for iptables from "[HOWTO_Setup_UPnP_with_IPTables](http://www.gentoo-wiki.info/HOWTO_Setup_UPnP_with_IPTables)"
+And here is an example for iptables from "[Configure IPTables for DLNA with Plex](https://forums.plex.tv/discussion/65634/configure-iptables-for-dlna-with-plex)"
 
     iptables -t filter -A INPUT -i eth0 -d 239.0.0.0/8 -j ACCEPT
     iptables -t filter -A INPUT -i eth0 -p tcp --dport 49152 -j ACCEPT

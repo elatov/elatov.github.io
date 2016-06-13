@@ -884,7 +884,7 @@ Then I just ran **startx** on the terminal and I saw the following:
 ![xorg-start-gentoo-vm](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/gentoo-in-virtualbox/xorg-start-gentoo-vm.png)
 
 #### Installing icewm
-There are pretty good instructions on the setup at [IceWM Gentoo Wiki Archives](http://www.gentoo-wiki.info/IceWM). The install itself is pretty easy:
+There are pretty good instructions on the setup at [IceWM Gentoo Wiki Archives](http://gentoo-en.vfose.ru/wiki/IceWM). The install itself is pretty easy:
 
 
 	gen ~ # time emerge icewm
