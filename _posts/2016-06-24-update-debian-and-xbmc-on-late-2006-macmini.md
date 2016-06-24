@@ -6,7 +6,7 @@ author: Karim Elatov
 categories: [os,networking]
 tags: [debian,kodi,xbmc,systemd]
 ---
-A while ago I ended up installing Debian 7 on an old MacMini (check out [this](/2014/09/install-debian-7-on-macmini-late-2006/) post on the Debian Install and [this](/2014/11/running-xbmc-11-on-mac-mini-late-2006/) one for the XMBC setup), and I decided to updated it.
+A while ago I ended up installing Debian 7 on an old MacMini (check out [this](/2014/09/install-debian-7-on-macmini-late-2006/) post on the Debian Install and [this](/2014/11/running-xbmc-11-on-mac-mini-late-2006/) one for the XMBC setup), and I decided to updated the OS and XBMC to Kodi.
 
 ### Update to Debian 8
 I ended following similar instructions as I did in the past (the steps are covered in [this](/2015/06/upgrade-debian-wheezy7-to-jessie8/) post). Create backups:
