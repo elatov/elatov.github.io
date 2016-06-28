@@ -362,7 +362,7 @@ They are listed in the site above as well.
 
 ### The Logadm Puppet Type
 
-There is a pretty old [puppet page](http://projects.puppetlabs.com/projects/1/wiki/logadm_patterns) which has the provider, but it's one huge file (it's not broken down by **type** and **provider**... but it still works). There is a backup function in the file and removing it allowed me to use the provider. The slimmed down version is available in my github [here](https://raw.githubusercontent.com/elatov/puppet/master/logadm/lib/puppet/type/logadm.rb). Here is what I did to use that *type*:
+There is a pretty old puppet page which has the provider, but it's one huge file (it's not broken down by **type** and **provider**... but it still works). There is a backup function in the file and removing it allowed me to use the provider. The slimmed down version is available in my github [here](https://raw.githubusercontent.com/elatov/puppet/master/logadm/lib/puppet/type/logadm.rb). Here is what I did to use that *type*:
 
 	~/omnios$ mkdir -p modules/logadm/lib/puppet/type
 	~/omnios$ cd modules/logadm/lib/puppet/type
