@@ -6,7 +6,7 @@ author: Karim Elatov
 categories: [os]
 tags: [puppet]
 ---
-I setup puppet a while back and I just let it do it's thing. Honestly I wasn't having any issues, I just decided to update to the latest version.
+I setup **puppet** a while back and I just let it do it's thing. Honestly I wasn't having any issues, I just decided to update to the latest version.
 
 ### Upgrading Puppet Server
 There is a pretty good overview at [Puppet 3.x to 4.x Server Upgrades](http://docs.puppetlabs.com/puppet/4.1/reference/upgrade_server.html#). Here is a snippet from the page:
