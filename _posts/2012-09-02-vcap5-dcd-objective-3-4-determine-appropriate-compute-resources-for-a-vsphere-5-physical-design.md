@@ -31,7 +31,7 @@ From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/
 > **Hardware-Assisted I/O MMU Virtualization (VT-d and AMD-Vi)**
 > An even newer processor feature is an I/O memory management unit that remaps I/O DMA transfers and device interrupts. This can allow virtual machines to have direct access to hardware I/O devices, such as network cards, storage controllers (HBAs) and GPUs. In AMD processors this feature is called AMD I/O Virtualization (AMD-Vi or IOMMU) and in Intel processors the feature is called Intel Virtualization Technology for Directed I/O (VT-d).
 
-If you want more information on the different technologies, I would suggest reading "[VMware VMmark 2.0](http://www.vmware.com/files/pdf/software_hardware_tech_x86_virt.pdf)" to see how your server performed in the benchmark.
+If you want more information on the different technologies, I would suggest reading "[VMware VMmark 2.0](https://www.vmware.com/products/vmmark.html)" to see how your server performed in the benchmark.
 
 ### Based on the service catalog and given functional requirements, for each service: Determine the most appropriate compute technologies for the design
 

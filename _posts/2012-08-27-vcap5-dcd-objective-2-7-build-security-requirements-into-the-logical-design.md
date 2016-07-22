@@ -35,7 +35,7 @@ There is actually a [great](http://www.techrepublic.com/blog/it-security/underst
 > 4.  parental controls
 > 5.  privacy controls
 
-And Regarding Trust Zones, from "[Network Segmentation in Virtualized Environments](http://www.vmware.com/files/pdf/network_segmentation.pdf)":
+And Regarding Trust Zones, from "[Network Segmentation in Virtualized Environments](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/network_segmentation.pdf)":
 
 > As virtualization becomes the standard infrastructure for server deployments, a growing number of organizations want to consolidate servers that belong to different trust zones. A trust
 > zone is loosely defined as a network segment within which data flows relatively freely, whereas data flowing in and out of the trust zone is subject to stronger restrictions. Examples of trust

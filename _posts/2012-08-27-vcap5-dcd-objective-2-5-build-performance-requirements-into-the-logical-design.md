@@ -74,7 +74,7 @@ Make sure to define what the capacity is of the current environment.
 
 ### Incorporate scalability requirements into the logical design.
 
-Use [vCops](http://www.vmware.com/products/capacity-planner/overview.html)
+Use [vCops](https://www.vmware.com/support/pubs/vcops-pubs.html)
 
 ### Determine performance component of SLAs and service level management processes
 

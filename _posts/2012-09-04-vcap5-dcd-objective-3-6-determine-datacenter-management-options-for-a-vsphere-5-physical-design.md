@@ -305,7 +305,7 @@ There are a couple of application that can do asset management. The first one is
 > **Comprehensive Infrastructure Protection**
 > VMware Go Pro offers automated patch management across physical and virtual machines for both Microsoft and third-party applications to ensure that organizations are up-to-date with all of the latest software upgrades, thus mitigating the organization’s vulnerability to the latest IT threats. An integrated Help Desk with built-in analytics also helps improve IT productivity and service, automatically prioritizing issues by level of severity. Go Pro also offers a rich asset management capability, which provides control over all software and hardware assets.
 
-There is also VMware Service Manager. From "[VMware Service Manager Cloud Provisioning Data Sheet](http://www.vmware.com/files/pdf/products/service-manager/vmware-service-manager-cloud-provisioning-data-sheet.pdf)":
+There is also VMware Service Manager. From "[VMware Service Manager Cloud Provisioning](https://www.vmware.com/products/service-manager.html)":
 
 > How Does VMware Service Manager Work with vCloud Director?
 > The VMware Service Manager connector to vCloud Director provides additional functionality to vCloud Director:
@@ -345,7 +345,7 @@ Lastly you can use the 'Asset Tag' option for a VM to keep track of VMs manually
 
 ### Based on the logical design, identify and implement release management technologies, such as Update Manager.
 
-From "[VMware vCenter Update Manager 5.0 Performance and Best Practices](http://www.vmware.com/files/pdf/vum-perf-vsphere5.pdf)":
+From "[VMware vCenter Update Manager 5.0 Performance and Best Practices](http://www.vmware.com/techpapers/2011/vmware-vcenter-update-manager-50-performance-and-10208.html)":
 
 > VMware vCenter™ Update Manager (also known as VUM) provides a patch management framework for VMware vSphere®. IT administrators can use it to patch and upgrade:
 >

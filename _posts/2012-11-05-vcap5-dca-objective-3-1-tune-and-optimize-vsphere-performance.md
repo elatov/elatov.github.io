@@ -23,7 +23,7 @@ From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/
 > *   Cache prefetching mechanisms (sometimes called DPL Prefetch, Hardware Prefetcher, L2 Streaming Prefetch, or Adjacent Cache Line Prefetch) usually help performance, especially when memory access patterns are regular. When running applications that access memory randomly, however, disabling these mechanisms might result in improved performance.
 > *   If the BIOS allows the memory scrubbing rate to be configured, we recommend leaving it at the manufacturer’s default setting.
 
-From "[Host Power Management in VMware vSphere 5](http://www.vmware.com/files/pdf/hpm-perf-vsphere5.pdf)":
+From "[Host Power Management in VMware vSphere 5](http://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/hpm-performance-vsphere55-white-paper.pdf)":
 
 > **Power Management BIOS Settings**
 > VMware ESXi™ includes a full range of host power management capabilities in the software. These can save power when an ESXi host is not fully utilized. You should configure your BIOS settings to allow ESXi the most flexibility in using the power management features offered by your hardware and then make your power management choices within ESXi. The following are a few important points to keep in mind:

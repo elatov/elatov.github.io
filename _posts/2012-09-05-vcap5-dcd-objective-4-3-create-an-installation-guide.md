@@ -18,7 +18,7 @@ If you are within an organization which has pre-made templates for this, then de
 *   [VMware vSphere 5.0 Evaluation Guide Volume Three – Advanced Networking Features](http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-3-Advanced-Networking.pdf)
 *   [VMware vSphere 5.0 Evaluation Guide Volume Four – Auto Deploy](http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-4-Auto-Deploy.pdf)
 *   [VMware vCloud Director 1.5 Evaluation Guide](http://www.vmware.com/files/pdf/techpaper/VMW-vCloud-Director1_5-EvalGuide.pdf)
-*   [VMware Data Recovery 2.0 Evaluation Guide](http://www.vmware.com/files/pdf/products/DR/VMware-Data-Recovery-Evaluation-Guide.pdf)
+*   [VMware Data Protection Evaluation Guide](http://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/whitepaper/products/vsphere/vmware-vsphere-data-protection-eval-guide-white-paper.pdf)
 *   [VMware vCenter Site Recovery Manager  5.0 Evaluation Guide](http://www.vmware.com/files/pdf/products/SRM/VMware-vCenter-Site-Recovery-Manager-Evaluation-Guide.pdf)
 
 ### Consider multiple product installation dependencies to create a validated configuration

@@ -30,7 +30,7 @@ The way that Corosync keeps track of nodes is by using Multicast Traffic. As a r
 > A virtual switch (vSwitch) does not need to perform IGMP snooping to learn which virtual machines have
 > enabled IP multicast. ESX dynamically learns multicast membership because it has authoritative knowledge of the attached virtual NICs (vNIC). When a vNIC attached to a virtual machine is configured for multicast, the vSwitch learns the multicast Ethernet group addresses associated with the virtual machine. When the virtual machine joins an IP multicast group, the virtual machine first converts the group to an Ethernet multicast group based on the IP address. The virtual machine then programs its own NIC filter on the vNIC to subscribe to the multicast traffic. The vNIC passes the multicast registration information down to the vSwitch through the hypervisorto update the multicast tables on the vSwitch and enable forwarding of frames for that IP multicast group to that virtual machine.
 
-We were using IGMPv3 Snooping on the upstream switch and per "[Cisco VMware Virtualizing the Datacenter](http://www.vmware.com/files/pdf/technology/cisco_vmware_virtualizing_the_datacenter.pdf)", we see the following:
+We were using IGMPv3 Snooping on the upstream switch and per "[Cisco VMware Virtualizing the Datacenter](http://www.cisco.com/c/en/us/td/docs/solutions/Enterprise/Data_Center/vmware/vmware/VMware.pdf)", we see the following:
 
 ![igmp_snooping_vswitch](https://github.com/elatov/uploads/raw/master/2012/08/igmp_snooping_vswitch.png)
 

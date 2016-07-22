@@ -13,7 +13,7 @@ tags: ['service_dependencies']
 
 This should be done during the Current-State Analysis process. If you want to automate this process you can use an application called VMware vCenter Application Discovery Manager. More information regarding the product can be found in link that is provided in the blue print.
 
-*   [Datacenter Operational Excellence Through Automated Application Discovery & Dependency Mapping](http://www.vmware.com/files/pdf/vmware-vcenter-app-discovery-mgr-datacenter-ops-WP-EN.pdf)
+*   [Datacenter Operational Excellence Through Automated Application Discovery & Dependency Mapping](http://www.emc.com/collateral/emc-perspective/h4199-adm-op-ex-ep.pdf)
 
 From that PDF:
 

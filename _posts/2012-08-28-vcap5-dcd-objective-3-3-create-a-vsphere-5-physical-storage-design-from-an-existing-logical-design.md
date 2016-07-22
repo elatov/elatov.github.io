@@ -51,7 +51,7 @@ From "[Storage Protocol Choices & Storage Best Practices for VMware ESX](http://
 
 ![vmware-multi-protocol-storage](https://github.com/elatov/uploads/raw/master/2012/08/vmware-multi-protocol-storage.png)
 
-Also depending on what application needs to be run, check some requirements. Here is an example from "[Design and Sizing Examples: Microsoft Exchange Solutions on VMware](http://www.vmware.com/files/pdf/solutions/design_size_examples_exchange.pdf)":
+Also depending on what application needs to be run, check some requirements. Here is an example from "[Design and Sizing Examples: Microsoft Exchange Solutions on VMware](http://www.vmware.com/pdf/exchange_best_practices.pdf)":
 
 ![exchange_storage_setup](https://github.com/elatov/uploads/raw/master/2012/08/exchange_storage_setup.png)
 
@@ -221,9 +221,9 @@ From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/
 >
 > With SIOC enabled, the disk shares are evaluated globally and the portion of the datastore’s resources each host receives depends on the sum of the shares of the virtual machines running on that host relative to the sum of the shares of all the virtual machines accessing that datastore.
 
-If you want more information on how SIOC works, I would suggest reading "[Performance Implications of Storage I/O Control– Enabled NFS Datastores in VMware vSphere 5.0](http://www.vmware.com/files/pdf/sioc-nfs-perf-vsphere5.pdf)".
+If you want more information on how SIOC works, I would suggest reading "[Performance Implications of Storage I/O Control– Enabled NFS Datastores in VMware vSphere 5.0](http://blogs.vmware.com/performance/2011/08/sioc-nfs.html)".
 
-From "[VMware Storage VMotion](http://www.vmware.com/files/pdf/VMware-Storage-VMotion-DS-EN.pdf)":
+From "[VMware Storage VMotion](http://blogs.vmware.com/vsphere/2011/03/under-the-covers-with-storage-vmotion.html)":
 
 > **How is VMware Storage VMotion Used in the Enterprise?**
 > Customers use VMware Storage VMotion to:
@@ -333,7 +333,7 @@ As mentioned some array vendors provide recommendations as well, from "[Scale Co
 
 > For best performance, create LUNs of 500 GB or less. Note that Scale Computing’s recommendations regarding maximum LUN size coincide with VMware’s informal rule-of-thumb suggestions regarding LUN size
 
-From "[Scalable Storage Performance](http://www.vmware.com/files/pdf/scalable_storage_performance.pdf)":
+From "[Scalable Storage Performance](http://www.vmware.com/techpapers/2008/scalable-storage-performance-1059.html)":
 
 > A maximum number of outstanding I/O commands to the shared LUN (or VMFS volume) that depends on the storage array. This number must be determined for a particular storage array configuration supporting multiple ESX hosts. If the storage array has a per‐LUN queue depth, exceeding this value causes high latencies. If the storage array does not have a per‐LUN queue depth, the bottleneck is shiftedto the disks, and latencies increase. In either case, it is important to ensure that there are enough disks tosupport the influx of commands. It is hard to recommend an upper threshold for latency because it depends on individual applications. However, a 50 millisecond latency is high enough for most applications, and you should add more physical resources if you reach that point.
 >
@@ -461,7 +461,7 @@ and this:
 
 ![ip_hash_with_netapp](https://github.com/elatov/uploads/raw/master/2012/08/ip_hash_with_netapp.png)
 
-So for NFS try to use etherchannel to allow load balancing. Use jumbo frames, with 10Gb preferrebly. If using old switches, use flow control to control congestion. Make sure you have a dedicated network for your NFS traffic and don't route your NFS traffic. More information on NAS and VMware can be seen in "[Best Practices for running VMware vSphere on Network Attached Storage](http://www.vmware.com/files/pdf/VMware_NFS_BestPractices_WP_EN.pdf)".
+So for NFS try to use etherchannel to allow load balancing. Use jumbo frames, with 10Gb preferrebly. If using old switches, use flow control to control congestion. Make sure you have a dedicated network for your NFS traffic and don't route your NFS traffic. More information on NAS and VMware can be seen in "[Best Practices for running VMware vSphere on Network Attached Storage](http://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/vmware-nfs-bestpractices-white-paper-en.pdf)".
 
 From "Introduction to Fibre Channel over Ethernet (FCoE)", here is a good picture of how FCoE is setup in an environment:
 

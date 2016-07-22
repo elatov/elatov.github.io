@@ -156,7 +156,7 @@ Each of these can be edited by going to "Host and Cluster" View -> Right click o
 > **Network Redundancy Using a Secondary Network**
 > As an alternative to NIC teaming for providing redundancy for heartbeats, you can create a secondary management network connection, which is attached to a separate virtual switch. The primary management network connection is used for network and management purposes. When the secondary management network connection is created, vSphere HA sends heartbeats over both the primary and secondary management network connections. If one path fails, vSphere HA can still send and receive heartbeats over the other path.
 
-From this old white paper "[VMware HA Concepts, Implementation and Best Practices](http://www.vmware.com/files/pdf/VMwareHA_twp.pdf)", either do this:
+From this old white paper "[VMware HA Concepts, Implementation and Best Practices](http://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/vmw-vsphere-high-availability-whitepaper.pdf)", either do this:
 
 ![redundancy_with_nic_teaming](https://github.com/elatov/uploads/raw/master/2012/11/redundancy_with_nic_teaming.png)
 

@@ -23,7 +23,7 @@ ESXi 5.0 U1 fixes similar issues, from the [ESXi 5.0 U1 Release Notes](https://w
 
 And lastly, I have seen a lot of RARPs when you have Beacon probes enabled. Another person actually blogged about it already: [Beacon probing resulting in excessive broadcasts](http://virtualrj.wordpress.com/2009/01/14/beacon-probing-resulting-in-excessive-broadcasts/).
 
-Like I mentioned, some RARPs are actually okay. Whenever you have 'notify switch' set to yes on your virtual switch or your network port groups then you will send GARPs (which are seen as RARPs). A VMware document describes what the 'notify switch' option does, [VMware Virtual Networking Concepts](http://www.vmware.com/files/pdf/virtual_networking_concepts.pdf):
+Like I mentioned, some RARPs are actually okay. Whenever you have 'notify switch' set to yes on your virtual switch or your network port groups then you will send GARPs (which are seen as RARPs). A VMware document describes what the 'notify switch' option does, [VMware Virtual Networking Concepts](http://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/virtual_networking_concepts.pdf):
 
 > Using the Notify Switches policy setting, you determine how ESX Server communicates with the physical switch in the event of a failover. If you select Yes, whenever a virtual Ethernet  adapter is connected to the virtual switch or whenever that virtual Ethernet adapter’s traffic would be routed over a different physical Ethernet adapter in the team due to a failover event, a notification is sent out over the network to update the lookup tables on physical switches. In almost all cases, this is desirable for the lowest latency when a failover occurs
 

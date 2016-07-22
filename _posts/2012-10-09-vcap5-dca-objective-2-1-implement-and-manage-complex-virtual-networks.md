@@ -200,7 +200,7 @@ This was covered in the previous section
 
 ### Migrate a vSS network to a Hybrid or Full vDS solution
 
-From [VMware vNetwork Distributed Switch: Migration and Configuration](http://www.vmware.com/files/pdf/vsphere-vnetwork-ds-migration-configuration-wp.pdf)
+From [VMware vNetwork Distributed Switch: Migration and Configuration](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/vsphere-vnetwork-ds-migration-configuration-wp.pdf)
 
 ![vss_to_dvs_migration](https://github.com/elatov/uploads/raw/master/2012/09/vss_to_dvs_migration.png)
 

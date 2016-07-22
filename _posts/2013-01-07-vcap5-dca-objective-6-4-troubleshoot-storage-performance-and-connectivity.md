@@ -15,7 +15,7 @@ tags: ['queue_depth', 'davg', 'psp','nmp', 'tur', 'iscsi', 'performance','esxtop
 
 ### Describe the attributes of the VMFS-5 file system
 
-From "[VMware vSphere VMFS](http://www.vmware.com/files/pdf/vmfs-best-practices-wp.pdf)":
+From "[VMware vSphere VMFS](https://www.vmware.com/files/pdf/vmfs-best-practices-wp.pdf)":
 
 > **Features of VMFS **
 > The following technical features of VMFS are among those that make it suitable for use in a virtual environment:
@@ -355,7 +355,7 @@ From the same guide here are the available options:
 
 ### Troubleshoot NFS mounting and permission issues
 
-From "[Best Practices for running VMware vSphere on Network Attached Storage](http://www.vmware.com/files/pdf/VMware_NFS_BestPractices_WP_EN.pdf)"
+From "[Best Practices for running VMware vSphere on Network Attached Storage](http://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/vmware-nfs-bestpractices-white-paper-en.pdf)"
 
 > VMware vSphere implementation of NFS supports NFS version 3 in TCP. There is currently no support for NFS version 2, UDP, or CIFS/SMB
 

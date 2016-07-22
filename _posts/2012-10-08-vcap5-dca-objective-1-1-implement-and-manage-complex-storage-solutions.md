@@ -354,8 +354,8 @@ Then use IOmeter or IOBlazer here are links to their corresponding flings:
 
 There are also application specific tools:
 
-*   [Microsoft Exchange Server 2010 Performance on VMware vSphere 5](http://www.vmware.com/files/pdf/exchange-perf-vsphere5.pdf) (LoadGen)
-*   [Performance and Scalability of Microsoft SQL Server on VMware vSphere 4](http://www.vmware.com/files/pdf/perf_vsphere_sql_scalability.pdf) (TPC-E benchmark)
+*   [Microsoft Exchange Server 2010 Performance on VMware vSphere 5](http://www.vmware.com/techpapers/2011/microsoft-exchange-server-2010-performance-on-vsph-10204.html) (LoadGen)
+*   [Performance and Scalability of Microsoft SQL Server on VMware vSphere (http://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/vmware-sql-server-vsphere55-performance-white-paper.pdf) (TPC-E benchmark)
 *   [Oracle Databases on VMware VMware vSphere 5 RAC Workload Characterization Study (VMware VMFS)](http://www.vmware.com/files/pdf/partners/oracle/Oracle_Databases_on_VMware_-_Workload_Characterization_Study.pdf) (SwingBench)
 
 Use any of the tools above to get a good baseline and then plan accordingly with your SAN Array.

@@ -203,7 +203,7 @@ This was also discussed in [Objective 3.4](/2012/09/vcap5-dcd-objective-3-4-dete
 
 ### Decide on the suitability of using FT or 3rd party clustering products based on application requirements.
 
-From "[VMware Fault Tolerance Data Sheet](http://www.vmware.com/files/pdf/VMware-Fault-Tolerance-FT-DS-EN.pdf)":
+From "[VMware Fault Tolerance](http://www.vmware.com/files/pdf/techpaper/VMware-vSphere6-FT-arch-perf.pdf)":
 
 > **How Does VMware Fault Tolerance Work?**
 >
@@ -235,19 +235,19 @@ From [APAC BrownBag Session 12](http://professionalvmware.com/2012/04/apac-vbrow
 
 ![vm-ft](https://github.com/elatov/uploads/raw/master/2012/09/vm-ft.png)
 
-From "[Virtualizing Business-Critical Applications on VMware](http://www.vmware.com/files/pdf/solutions/VMware-Virtualizing-Business-Critical-Apps-on-VMware_en-wp.pdf)"
+From "[Virtualizing Business-Critical Applications on VMware](http://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/whitepaper/solutions/vmware-virtualizing-business-critical-apps-on-vmware_en-white-paper.pdf)"
 
 > The siloed example of availability methods shown in Figure 11 requires expensive licenses, dedicated standby infrastructure, and highly skilled staff to configure and manage. The alternative to this expensive approach is a standardized approach using vSphere technology, though some companies choose to implement both appspecific and VMware solutions running in tandem. ![3rd-party-availability_apps](https://github.com/elatov/uploads/raw/master/2012/09/3rd-party-availability_apps.png)
 
-Also from "[Virtualizing Business-Critical Applications on VMware vSphere](http://www.vmware.com/files/pdf/VMW_10Q1_WP_vSPHERE_USLET_EN_R6_proof.pdf)":
+Also from "[Virtualizing Business-Critical Applications on VMware vSphere](https://www.vmware.com/solutions/business-critical-apps.html)":
 
 ![percent-of-coverage_for-availability](https://github.com/elatov/uploads/raw/master/2012/09/percent-of-coverage_for-availability.png)
 
 Here are examples of each 3rd party clustering products:
 
 *   [Oracle Databases on VMware High Availability](http://www.vmware.com/files/pdf/partners/oracle/Oracle_Databases_on_VMware_-_High_Availability_Guidelines.pdf)
-*   [Microsoft SQL Server on VMware Best Practices Guide](http://www.vmware.com/files/pdf/sql_server_best_practices_guide.pdf)
-*   [Microsoft Exchange 2010 on VMware Availability and Recovery Options](http://www.vmware.com/files/pdf/exchange-2010-on-vmware-availability-and-recovery-options.pdf)
+*   [Microsoft SQL Server on VMware Best Practices Guide](http://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/sql-server-on-vmware-best-practices-guide.pdf)
+*   [Microsoft Exchange 2013 on VMware Availability and Recovery Options](http://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/business-critical-apps/exchange/exchange-2013-on-vmware-availability-and-recovery-options.pdf)
 *   [Setup for Failover Clustering and Microsoft Cluster Service ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-mscs-guide.pdf)
 
 and from [APAC BrownBag Session 12](http://professionalvmware.com/2012/04/apac-vbrownbag-follow-up-vm-design/):
@@ -260,7 +260,7 @@ So if you have a specific application like SQL, Oracle, or Exchange that canno
 
 ![AV-for-VMs](https://github.com/elatov/uploads/raw/master/2012/09/AV-for-VMs.png)
 
-So if you want a centralized Anti-Virus application, setup vShield End-Point. This does add on some complexity and management over head. If you end up setting up an Anti-Virus instance per VM try to schedule the AV Scans at different times. You can over load the system when all 100 of your VMs are doing an AV Scan at the same time. If you want more information on vShield check out "[Antivirus Practices for VMware View 5](http://www.vmware.com/products/vsphere/features-endpoint)". It talks about vShield End Point and some other best practices for VMware View. Here are some excerpts from that paper:
+So if you want a centralized Anti-Virus application, setup vShield End-Point. This does add on some complexity and management over head. If you end up setting up an Anti-Virus instance per VM try to schedule the AV Scans at different times. You can over load the system when all 100 of your VMs are doing an AV Scan at the same time. If you want more information on vShield check out "[Antivirus Practices for VMware View 5](http://www.vmware.com/techpapers/2013/antivirus-best-practices-for-horizon-view-5x-10258.html)". It talks about vShield End Point and some other best practices for VMware View. Here are some excerpts from that paper:
 
 > **Problems with Standard Antivirus Protection**
 > The typical top-down virus scanning model involves desktop antivirus scanning and signature file updates, with access to an auto-update server. During these operations, it is not uncommon for system resource usage to spike or become overly committed. Performance in the desktop environment is severely impacted by these “antivirus storms.”

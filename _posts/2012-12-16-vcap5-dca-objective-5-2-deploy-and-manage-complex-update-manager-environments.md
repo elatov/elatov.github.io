@@ -130,7 +130,7 @@ From "[Installing and Administering VMware vSphere Update Manager](http://pubs.v
 >
 > The shared repository is used as a source for downloading upgrades, patches, and notifications.
 
-Taken from "[VMware vSphere 4 Evaluator's Guide](http://www.vmware.com/files/pdf/vsphere-evaluators-guide.pdf)", here is how it looks like from vCenter:
+Taken from "[VMware vSphere 5 Evaluator's Guide](http://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/whitepaper/vsphere/vmware-vsphere-evaluation-guide-1-white-paper.pdf)", here is how it looks like from vCenter:
 
 ![shared_repository_vum](https://github.com/elatov/uploads/raw/master/2012/12/shared_repository_vum.png)
 

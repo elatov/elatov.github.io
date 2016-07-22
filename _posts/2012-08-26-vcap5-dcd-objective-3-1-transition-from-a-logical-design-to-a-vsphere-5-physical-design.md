@@ -17,7 +17,7 @@ From [this](https://github.com/elatov/uploads/raw/master/2013/04/vcap-dcd_notes.
 > *   Uses Specific Hardware detains and implementation information
 > *   Includes port assignments, pci slots, etc...
 
-Here is an example of a physical diagram, taken from "[VMware vCloud Implementation Example](http://www.vmware.com/files/pdf/VMware-vCloud-Implementation-Example-ServiceProvider.pdf)":
+Here is an example of a physical diagram, taken from "[VMware vCloud Implementation Example](http://www.vmware.com/solutions/cloud-computing/vcat-toolkit.html":
 
 ![physical-design-diag](https://github.com/elatov/uploads/raw/master/2012/08/physical-design-diag.png)
 
