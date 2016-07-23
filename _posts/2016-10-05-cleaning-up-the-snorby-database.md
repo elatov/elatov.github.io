@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 layout: post
 title: "Cleaning up the Snorby Database"
 author: Karim Elatov

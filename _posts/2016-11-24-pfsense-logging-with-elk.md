@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 layout: post
 title: "pfSense Logging with ELK"
 author: Karim Elatov

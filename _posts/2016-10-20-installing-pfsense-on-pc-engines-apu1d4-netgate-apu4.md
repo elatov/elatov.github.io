@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 layout: post
 title: "Installing pfSense on PC Engines APU 1D4 / Netgate APU4"
 author: Karim Elatov

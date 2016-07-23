@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 layout: post
 title: "Upgrade Zabbix 2.4 to 3.0"
 author: Karim Elatov

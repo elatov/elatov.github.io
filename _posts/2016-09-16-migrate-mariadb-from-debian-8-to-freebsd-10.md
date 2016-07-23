@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 layout: post
 title: "Migrate MariaDB from Debian 8 to FreeBSD 10"
 author: Karim Elatov

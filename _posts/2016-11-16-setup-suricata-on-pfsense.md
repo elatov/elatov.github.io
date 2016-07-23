@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 layout: post
 title: "Setup Suricata on pfSense"
 author: Karim Elatov
