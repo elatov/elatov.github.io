@@ -15,7 +15,7 @@ tags: ['queue_depth', 'davg', 'psp','nmp', 'tur', 'iscsi', 'performance','esxtop
 
 ### Describe the attributes of the VMFS-5 file system
 
-From "[VMware vSphere VMFS](https://www.vmware.com/files/pdf/vmfs-best-practices-wp.pdf)":
+From "[VMware vSphere VMFS](https://www.vmware.com/pdf/vmfs-best-practices-wp.pdf)":
 
 > **Features of VMFS **
 > The following technical features of VMFS are among those that make it suitable for use in a virtual environment:
