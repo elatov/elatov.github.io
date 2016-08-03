@@ -238,7 +238,7 @@ By default the GRUB menu will contain entries for Mac OS X, but when you try to 
 	error: can't find command 'xnu_kernel64'
 	error: can't find command 'xnu_kextdir'
 
-The issue is described [here](https://bugzilla.redhat.com/show_bug.cgi?id=893179) and [here](http://comments.gmane.org/gmane.comp.boot-loaders.grub.devel/22598). It sounds like chainloading is a way to go, so I ended up adding the following config:
+The issue is described [here](https://bugzilla.redhat.com/show_bug.cgi?id=893179). It sounds like chainloading is a way to go, so I ended up adding the following config:
 
 	[elatov@localhost ~]$ $sudo cat /etc/grub.d/40_custom
 	#!/bin/sh

@@ -510,7 +510,7 @@ After reading a couple of sites:
 
 *   You must also consider I/O block size before creating a ZFS store this is not something that can be changed later so now is the time. It’s done by adding the –b 64K to the ZFS create command. I chose to use 64k for the block size which aligns with VMWare default allocation size thus optimizing performance.
 
-It seems that the default value of 64K is better. I also ran into this forum: [Block alignment and sizing in ZFS volumes for iSCSI to vSphere 5](http://comments.gmane.org/gmane.os.illumos.zfs/1165). From that forum:
+It seems that the default value of 64K is better. I also ran into this forum: [Block alignment and sizing in ZFS volumes for iSCSI to vSphere 5](http://zfs.illumos.narkive.com/BNfldguT/block-alignment-and-sizing-in-zfs-volumes-for-iscsi-to-vsphere-5). From that forum:
 
 > Latest best practice documents suggest 8k block size with iscsi. At least the ones I know with latest VMware file systems in vsphere5.
 >

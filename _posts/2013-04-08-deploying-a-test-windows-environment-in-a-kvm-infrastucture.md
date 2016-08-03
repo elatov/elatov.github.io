@@ -27,7 +27,7 @@ It's possible but all the ISOs would have to be in one big directory without sub
 >
 > In order to be able to access CD/DVD iso images on the VM Host Server from remote, they also need to be placed in a storage pool.
 
-There was an NFS export shared to the KVM server and the ISOs were organized by folders, so adding that directory/export as a storage pool didn't help out since all the ISOs need to be in one big directory. We could add each subdirectory as a storage pool but that would be a lot work. This was discussed in [this](http://comments.gmane.org/gmane.comp.emulators.libvirt.user/2603) forum. If the ISOs were local to the your machine, then you can just launch **virt-manager** locally and connect to the KVM server using SSH and then point to the local ISO.
+There was an NFS export shared to the KVM server and the ISOs were organized by folders, so adding that directory/export as a storage pool didn't help out since all the ISOs need to be in one big directory. We could add each subdirectory as a storage pool but that would be a lot work. This was discussed in [this](http://www.linuxquestions.org/questions/linux-virtualization-and-cloud-90/virt-manager-save-password-and-recursive-folders-for-storage-volumes-946063/) forum. If the ISOs were local to the your machine, then you can just launch **virt-manager** locally and connect to the KVM server using SSH and then point to the local ISO.
 
 So let's login to our KVM server with SSH with X-Forwarding enabled:
 
