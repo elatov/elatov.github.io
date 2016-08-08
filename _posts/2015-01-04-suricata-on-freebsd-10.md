@@ -600,4 +600,4 @@ I enabled the **fast.log** just for now so I could see what alerts are getting f
     01/04/2015-16:15:16.557229  [**] [1:2100366:8] GPL ICMP_INFO PING *NIX [**] [Classification: Misc activity] [Priority: 3] {ICMP} 192.168.1.114:8 -> 10.0.0.3:0
 
 
-Notice I have a ping test alert, you can easily set one up via [these](http://www.linux.org/threads/suricata-the-snort-replacer-part-2-configure-test.4348/) instructions.
+Notice I have a ping test alert.

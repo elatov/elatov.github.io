@@ -10,36 +10,34 @@ tags: [vmware_converter, sdelete, thick_provisioning, thin_provisioning, vmdk, z
 
 There are many different scenarios where this comes into play, and there many different ways to get the desired results.
 
-## Scenario 1: Reclaim unused space from a thick disk
+### Scenario 1: Reclaim unused space from a thick disk
 
-**Solution 1:**
+#### Solution 1:
 
 Storage vMotion the VM to another datastore and convert it to thin. See the following link on how to do that: [Blocksize Impact](http://www.yellow-bricks.com/2011/02/18/blocksize-impact/).
 
-**Solution 2:**
+#### Solution 2
 Use VMware Converter and do a V2V of the VM and choose Thin for the destination disk type.
 
-## Scenario 2: Reclaim previously used space from a thick disk
+### Scenario 2: Reclaim previously used space from a thick disk
+#### WINDOWS
+##### Solution 1:**
 
-### WINDOWS
+When this happens we need to reclaim the deleted space using sdelete, which will just zero out the deleted space. The page [Reclaim disk space from Thin Provisioned disks](https://community.hds.com/docs/DOC-1006003) talks about how to do that. So first zero out the deleted space with sdelete and then use storage vMotion to convert the disk to thin.
 
-**Solution 1:**
-
-When this happens we need to reclaim the deleted space using sdelete, which will just zero out the deleted space. The page '[Reclaim disk space from Thin Provisioned disks](http://rickardnobel.se/reclaim-disk-space-from-thin-provisioned-disks/)' talks about how to do that. So first zero out the deleted space with sdelete and then use storage vMotion to convert the disk to thin.
-
-**Solution 2:**
+##### Solution 2
 You can also use the shrink disk from vmware tools to reclaim the delete space. More information can be seen here '[Storage VMotion and moving to a Thin Provisioned disk](http://www.yellow-bricks.com/2009/07/31/storage-vmotion-and-moving-to-a-thin-provisioned-disk/)'.
 
-**Solution 3:**
+###### Solution 3
 Use VMware Converter and do a P2V of the VM. [The post 'P2V with VMware Converter Standalone 5 and sync feature](http://www.vi-tips.com/2011/11/p2v-with-vmware-converter-standalone-5.html)' has a good video on how to do that. Make sure you choose thin for the disk type.
 
-### LINUX
+#### LINUX
 
-**Solution 1:**
+##### Solution 1
 
 It's almost the same as the "Windows Scenario" but instead of using **sdelete** you can use **zerofree**. So install **zerofree**:
 
-##### Fedora/CentOs/RedHat
+*Fedora/CentOs/RedHat*
 
 	[root@rac1 ~]$ yum install zerofree
 	updates/metalink | 12 kB 00:00
@@ -79,7 +77,7 @@ It's almost the same as the "Windows Scenario" but instead of using **sdelete** 
 
 	Complete!
 
-##### For Debian/Ubuntu:
+*For Debian/Ubuntu*
 
 	[root@rac1 ~]$ apt-get install zerofree
 	Reading package lists... Done
@@ -108,17 +106,17 @@ Then Storage vMotion the VM to another datastore with another block size convert
 
 **NOTE:** Instead of using **rm** to delete files, you can use **shred** and then you wouldn't need to zero out deleted space.
 
-#### **Solution 2:**
+#### Solution 2
 
 Use VMware Converter and do a P2V of the VM. The post [P2V with VMware Converter Standalone 5 and sync feature](http://www.vi-tips.com/2011/11/p2v-with-vmware-converter-standalone-5.html) has a good video on how to do that. Make sure you choose thin for the disk type.
 
-## Scenario 3: Reclaim previously used space from thin disks
+### Scenario 3: Reclaim previously used space from thin disks
 
-**Solution 1:**
+#### Solution 1
 
 If you using windows, use sDelete to reclaim the space and then SvMotion to keep the disk format. If using Linux, use zerofree to reclaim the space and then SvMotion to another datastore with another block size keeping the disk format
 
-**Solution 2:**
+#### Solution 2
 Use VMware Converter and P2V the VM. Ensure you use the thin disk.
 
 ### Related Posts
