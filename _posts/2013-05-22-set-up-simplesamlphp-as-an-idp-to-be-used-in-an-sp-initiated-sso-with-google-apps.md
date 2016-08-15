@@ -367,7 +367,7 @@ and that redirects us to the IdP with the SAML request included:
     Location: http://awsub.dnsd.me/simplesamlphp/saml2/idp/SSOService.php?SAMLRequest=fVLJTsMwEL0j8Q%2BR71lBAllNUAEhKrFENHDg5iaTxJU9Dh6nBb4eNwUBB7g%2Bv3nLeGZnr1oFG7AkDeYsjRIWANamkdjl7LG6Ck%2FZWXF4MCOh1cDno%2BvxAV5GIBf4SSQ%2BPeRstMiNIEkchQbirubL%2Be0Nz6KED9Y4UxvFgsVlztZrIUWnBlC9ggZF1%2Fd6aA32K0SB637VaqNRefbTV6xsF2tBNMICyQl0HkrSozA5DrOTKkt5esSz5JkF5afTucR9g%2F9irfYk4tdVVYbl%2FbKaBDayAXvn2TnrjOkURLXRO%2FtSEMmNh1uhCFgwJwLrfMALgzRqsEuwG1nD48NNznrnBuJxvN1uo2%2BZWMTavL5HWiJEOMaiJlZMu%2BVTPftjqf%2BHF1%2FmrPiWn8U%2FpIrPP9tVWVyWRsn6LZgrZbYXFoTzPZwdfY0rY7Vwf7ulUTohsgnbicpHpAFq2UpoWBAXe9ffx%2BFP5gM%3D&RelayState=https%3A%2F%2Faccounts.google.com%2FCheckCookie%3Fcontinue%3Dhttp%253A%252F%252Fmail.google.com%252Fmail%252F%26service%3Dmail%26ltmpl%3Ddefault
 
 
-Decoding the SAML Request (using this [tool](https://rnd.feide.no/simplesaml/module.php/saml2debug/debug.php)) since it's base64 encoded, we get this:
+Decoding the SAML Request (using this [tool](https://rnd.feide.no/2012/08/29/announcing-new-sparkling-saml-2-0-debugger/)) since it's base64 encoded, we get this:
 
     < ?xml version="1.0" encoding="UTF-8"?>
     <samlp:authnrequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
