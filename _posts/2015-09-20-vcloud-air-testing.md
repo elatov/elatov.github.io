@@ -19,24 +19,24 @@ After signing up for that I decided to play around with different options.
 ### Basic Network Connectivity
 By default most of the traffic is blocked and no NAT is configured so you can't reach the external network. First let's get a public IP. In vCloud air go to **Gateways** -> **GATEWAY ON VDC1** -> **Public IPs** and initially it will look like this:
 
-![vca-no-pub-ips](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcloud_air_test/vca-no-pub-ips.png)
+![vca-no-pub-ips](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcloud_air_test/vca-no-pub-ips.png)
  
 Then click on **Add IP Address** and it will warn you about getting charged and after that it will allocate the IP and you will see the following:
 
-![vca-pub-ip-assigned](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcloud_air_test/vca-pub-ip-assigned.png)
+![vca-pub-ip-assigned](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcloud_air_test/vca-pub-ip-assigned.png)
 
 Now let's create the SNAT, so any machine can reach the internet. Go to **Gateways** -> **GATEWAY ON VDC1** -> **NAT Rules** -> **Add a NAT Rule** and fill out the following:
 
-![vca-snat-rule](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcloud_air_test/vca-snat-rule.png)
+![vca-snat-rule](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcloud_air_test/vca-snat-rule.png)
 
 This is also referred to as IP Masquerading. The firewall is pretty restrictive as well, so go to **Gateways** -> **GATEWAY ON VDC1** -> **Firewall Rules** and the following basic rules:
 
-![vca-basic-outbound-fw-rules](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcloud_air_test/vca-basic-outbound-fw-rules.png)
+![vca-basic-outbound-fw-rules](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcloud_air_test/vca-basic-outbound-fw-rules.png)
 
 
 I spun up a test VM and made sure everything was working as expected:
 
-![vca-vm-cons-test-net](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcloud_air_test/vca-vm-cons-test-net.png)
+![vca-vm-cons-test-net](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcloud_air_test/vca-vm-cons-test-net.png)
 
 ###Adding a second Organization Network
 
@@ -47,33 +47,33 @@ vCloud Director offers many different networking options, most of them are cover
 > 
 > **Figure 11. Direct Connection to a Routed External Organization Virtual Datacenter Network**
 > 
-> ![vca-vcloud-routed-net-diag](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcloud_air_test/vca-vcloud-routed-net-diag.png)
+> ![vca-vcloud-routed-net-diag](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcloud_air_test/vca-vcloud-routed-net-diag.png)
 
 
 And it looks like this in vCloud Director (Navigate to **Administration** -> **Virtual Datacenters** -> **VCD1** -> **Org VDC Networks**):
 
-![vca-vcloud-org-networks-def](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcloud_air_test/vca-vcloud-org-networks-def.png)
+![vca-vcloud-org-networks-def](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcloud_air_test/vca-vcloud-org-networks-def.png)
 
 So let's another routed network just to have two different subnets that we'll connect to each other. So click the **green +** and it will start the wizard. Choose the **routed** option:
 
-![vca-net-wiz-routed-net](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcloud_air_test/vca-net-wiz-routed-net.png)
+![vca-net-wiz-routed-net](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcloud_air_test/vca-net-wiz-routed-net.png)
 
 I then added the following network details on the next page:
 
-![vca-net-wiz-add-route-net-info](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcloud_air_test/vca-net-wiz-add-route-net-info.png)
+![vca-net-wiz-add-route-net-info](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcloud_air_test/vca-net-wiz-add-route-net-info.png)
 
 And after that you will have two networks:
 
-![vca-two-routed-org-nets](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcloud_air_test/vca-two-routed-org-nets.png)
+![vca-two-routed-org-nets](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcloud_air_test/vca-two-routed-org-nets.png)
 
 ###DNAT to an Internal Web Server
 Let's add a DNAT (or a port forward) from Public IP port 443 to the Internal portal IP port 443. So in vCloud Air navigate to **Gateways** -> **GATEWAY ON VDC1** -> **NAT Rules** -> **Add a NAT Rule** and add the following DNAT:
 
-![vca-dnat-rule-port-443](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcloud_air_test/vca-dnat-rule-port-443.png)
+![vca-dnat-rule-port-443](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcloud_air_test/vca-dnat-rule-port-443.png)
 
 On the next page if you are really organized you can also add a similar rule for 80. Also don't forget to allow the firewall to access port 80 and 443 on the public IP and the internal network. I ended up created the following rules to allow that traffic:
 
-![vca-dnat-firewall-rules](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcloud_air_test/vca-dnat-firewall-rules.png)
+![vca-dnat-firewall-rules](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcloud_air_test/vca-dnat-firewall-rules.png)
 
 A quick test with telnet showed that I can reach the internal machine. So from my laptop I ran the following:
 
@@ -83,25 +83,25 @@ A quick test with telnet showed that I can reach the internal machine. So from m
  
 And on my test VM running a **tcpdump** showed the following:
 
-![vca-vm-console-tcpdump-80](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcloud_air_test/vca-vm-console-tcpdump-80.png)
+![vca-vm-console-tcpdump-80](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcloud_air_test/vca-vm-console-tcpdump-80.png)
 
 ###Establishing the IPSec Tunnel To Local Environment
 
 There is a pretty good KB on the process from VMware: [Configuring IPsec VPN within VMware vCloud Air to a remote network](http://kb.vmware.com/kb/2051370) and there is a pretty good diagram that represents all the networks:
 
-![vca-ipsec-diag](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcloud_air_test/vca-ipsec-diag.png)
+![vca-ipsec-diag](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcloud_air_test/vca-ipsec-diag.png)
 
 My local networks is the second routed network which is the **10.10.10.0/24** network and my peer network is the **192.168.1.0/16** network which is the  internal network at home. So to start this configuration from vCloud Air go to  **Gateways** -> **GATEWAY ON VDC1**, then click on **Manage in vCloud director**:
 
-![vca-mgmt-gw-in-vcloud-dir](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcloud_air_test/vca-mgmt-gw-in-vcloud-dir.png)
+![vca-mgmt-gw-in-vcloud-dir](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcloud_air_test/vca-mgmt-gw-in-vcloud-dir.png)
 
 Once in vCloud Director go to **Administration** -> **Virtual Datacenters** -> **VCD1** -> **Edge Gateways** and right click on the default GW to choose **Edge Gateway Services**:
 
-![vca-edge-gw-ser-but](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcloud_air_test/vca-edge-gw-ser-but.png)
+![vca-edge-gw-ser-but](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcloud_air_test/vca-edge-gw-ser-but.png)
 
 Then go to the **VPN** tab and click **Enable VPN** and then **Add**:
 
-![vca-conf-gw-vpn-tab](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcloud_air_test/vca-conf-gw-vpn-tab.png)
+![vca-conf-gw-vpn-tab](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcloud_air_test/vca-conf-gw-vpn-tab.png)
 
 After clicking Add the wizard will start, here are the configurations I ended up using:
 
@@ -271,48 +271,48 @@ To allow traffic to traverse the CentOS machine make sure your **FORWARD** iptab
 
 After all the above is done, if you go back to vCloud Director you will see the VPN connection is good:
 
-![vca-ipsec-established_m](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcloud_air_test/vca-ipsec-established_m.png)
+![vca-ipsec-established_m](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcloud_air_test/vca-ipsec-established_m.png)
 
 ### vCloud Air Load Balancing
 
 I decided to try out the LB functionality of vCloud Air. So I created two VMs and installed Apache on both:
 
-![vca-two-vms-created](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcloud_air_test/vca-two-vms-created.png)
+![vca-two-vms-created](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcloud_air_test/vca-two-vms-created.png)
 
 #### Configure LB Pool Members
 
 Then in vCloud Director navigate to **Administration** -> **Virtual Datacenters** -> **VDC1** -> **Edge Gateways** right click on gateway and choose **Edge Gateway Services**:
 
-![vca-edge-gw-ser-but](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcloud_air_test/vca-edge-gw-ser-but.png)
+![vca-edge-gw-ser-but](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcloud_air_test/vca-edge-gw-ser-but.png)
 
 Then go to the **Load Balancer** tab and click **Add** under the Pool Servers subsection. For services I ended up using *IP Hash* for balancing:
 
-![vca-lb-ip-hash-pool](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcloud_air_test/vca-lb-ip-hash-pool.png)
+![vca-lb-ip-hash-pool](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcloud_air_test/vca-lb-ip-hash-pool.png)
 
 Then for monitoring I just used port monitoring of port 80:
 
-![vca-port-monitoring](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcloud_air_test/vca-port-monitoring.png)
+![vca-port-monitoring](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcloud_air_test/vca-port-monitoring.png)
 
 and I added both of the members to the pool:
 
-![vca-lb-members](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcloud_air_test/vca-lb-members.png)
+![vca-lb-members](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcloud_air_test/vca-lb-members.png)
 
 After it's done you will see the following under the **Pool** subsection:
 
-![lb-pool-mem-overview](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcloud_air_test/lb-pool-mem-overview.png)
+![lb-pool-mem-overview](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcloud_air_test/lb-pool-mem-overview.png)
 
 
 #### Configure LB Virtual Servers
 
 Now let's configure the Virtual VIP of the cluster. So go to the **Virtual Servers** subsection of the **Load Balancer** Tab, click **add** and configure the following:
 
-![vca-lb-vip-settings](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcloud_air_test/vca-lb-vip-settings.png)
+![vca-lb-vip-settings](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcloud_air_test/vca-lb-vip-settings.png)
 
 Looking over [Introduction to Gateway Services: Load Balancing](http://vcloud.vmware.com/using-vcloud-air/tutorials/introduction-to-gateway-services-load-balancing) and [Load Balancing a SharePoint Application](http://vcloud.vmware.com/using-vcloud-air/tutorials/load-balancing-a-sharepoint-application-step-guide) they use the Public IP for the VIP and that makes sense. If we really wanted we could assign a private IP to the VIP and then do a DNAT at the firewall to go from Public_IP:443 to Private_VIP:443 (but I think that would cause all the traffic to come from the Internal IP and the IP Hash balancing algorithm won't help).
 
 After it's done you will see the following under the **Virtual Servers** Subsection:
 
-![vca-lb-vip-set-overview](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcloud_air_test/vca-lb-vip-set-overview.png)
+![vca-lb-vip-set-overview](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcloud_air_test/vca-lb-vip-set-overview.png)
 
 #### Testing out Load Balancing
 
@@ -353,7 +353,7 @@ I also logged from two different machines and the persistence stuck. Another thi
 
 And in the logs (instructions on configuring remote syslog is below) pretty instantly you will see the LB take that guy out of rotation:
 
-![lb_syslog-lb-node-down](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcloud_air_test/lb_syslog-lb-node-down.png)
+![lb_syslog-lb-node-down](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcloud_air_test/lb_syslog-lb-node-down.png)
 
 And upon visiting the webserver I was forwarded to only live node. Then on the dead machine I started the service back up:
 
@@ -361,7 +361,7 @@ And upon visiting the webserver I was forwarded to only live node. Then on the d
 
 and in the logs I saw the following:
 
-![lb-syslog-node-back-up](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcloud_air_test/lb-syslog-node-back-up.png)
+![lb-syslog-node-back-up](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcloud_air_test/lb-syslog-node-back-up.png)
 
 And was well with the world.
 
@@ -369,7 +369,7 @@ And was well with the world.
 
 We can also check out the LB logs by enabling logs for the LB configuration and then configure a syslog server which can receive syslog messages. Here is the checkbox from the LB configuration:
 
-![lb-enable-loggins](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcloud_air_test/lb-enable-loggins.png)
+![lb-enable-loggins](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcloud_air_test/lb-enable-loggins.png)
 
 Since I had a Centos machine in my testing environment, I decided to make it a syslog server. So on the CentOS machine install **rsyslog**:
 
@@ -388,7 +388,7 @@ Then allow UDP 514 to the Syslog server on the machine it self:
  
 And also at the vCloud Air level as well:
 
-![vca-fw-allow-udp-syslog](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/vcloud_air_test/vca-fw-allow-udp-syslog.png)
+![vca-fw-allow-udp-syslog](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcloud_air_test/vca-fw-allow-udp-syslog.png)
 
  
 ### Enable Sending Syslog to a Remote Machine in vCloud Air

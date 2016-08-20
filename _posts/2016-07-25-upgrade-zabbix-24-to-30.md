@@ -222,7 +222,7 @@ Here is what I saw the logs (**/var/log/zabbix/zabbix_agentd.log**):
 	
 I also logged in and checked out the new UI:
 
-![zab-new-ui](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/upgrade-zabbix-3/zab-new-ui.png)
+![zab-new-ui](https://dl.dropboxusercontent.com/u/24136116/blog_pics/upgrade-zabbix-3/zab-new-ui.png)
 
 ### Update Zabbix Agent to 3.0 on FreeBSD
 For my FreeBSD servers, I saw the new package available for 3.0 agent, so I

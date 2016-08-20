@@ -339,9 +339,9 @@ If all is well you should see the following:
 	
 After I restarted the upgrade process started:
 
-![preupg-starting_1](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/update-to-centos7/preupg-starting_1.png)
+![preupg-starting_1](https://dl.dropboxusercontent.com/u/24136116/blog_pics/update-to-centos7/preupg-starting_1.png)
 
-![preupg-process](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/update-to-centos7/preupg-process.png)
+![preupg-process](https://dl.dropboxusercontent.com/u/24136116/blog_pics/update-to-centos7/preupg-process.png)
 
 
 
@@ -737,20 +737,20 @@ Finally let's generate the GRUB menu:
 
 After the reboot, I got the following kernel panic:
 
-![error-after-grub2-update](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/update-to-centos7/error-after-grub2-update.png)
+![error-after-grub2-update](https://dl.dropboxusercontent.com/u/24136116/blog_pics/update-to-centos7/error-after-grub2-update.png)
 
 
 I wanted to make sure GRUB was able to see the *initramfs* files. So I clicked **c** to open up the **grub-console** and I ran `ls (hd0,1)` to see a list of available files in the **/boot** partition:
 
-![grub-ls-first-partition](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/update-to-centos7/grub-ls-first-partition.png)
+![grub-ls-first-partition](https://dl.dropboxusercontent.com/u/24136116/blog_pics/update-to-centos7/grub-ls-first-partition.png)
 
 So GRUB is able to mount the **/boot** partition and see the necessary files. Then looking over the default grub menu, I realized the **initrd** line was missing for the default GRUB menu. After adding it:
 
-![finished-grub-menu](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/update-to-centos7/finished-grub-menu.png)
+![finished-grub-menu](https://dl.dropboxusercontent.com/u/24136116/blog_pics/update-to-centos7/finished-grub-menu.png)
 
 It kept booting up but then *initramfs* would fail to mount the root partition which was an LVM. So when I was in the **rdshell**, I just mounted it manually:
 
-![mounting-lv-root-from-rd-shell_g](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/update-to-centos7/mounting-lv-root-from-rd-shell_g.png)
+![mounting-lv-root-from-rd-shell_g](https://dl.dropboxusercontent.com/u/24136116/blog_pics/update-to-centos7/mounting-lv-root-from-rd-shell_g.png)
 
 I basically ran the following commands:
 
@@ -1191,4 +1191,4 @@ And checking out that file:
 
 	$ inkscape st.svg
 
-![systemd-analyze-plot](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/update-to-centos7/systemd-analyze-plot.png)
+![systemd-analyze-plot](https://dl.dropboxusercontent.com/u/24136116/blog_pics/update-to-centos7/systemd-analyze-plot.png)

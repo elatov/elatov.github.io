@@ -15,7 +15,7 @@ You can even buy a DIY kit: [APU1D4 DIY Kit](http://store.netgate.com/kit-APU1C4
 
 Here is the device when it's all ready:
 
-![apu-upside-down](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/apu-pfsense-install/apu-upside-down-s.png)
+![apu-upside-down](https://dl.dropboxusercontent.com/u/24136116/blog_pics/apu-pfsense-install/apu-upside-down-s.png)
 
 ### Support for APU 1D4
 
@@ -47,7 +47,7 @@ Next we can configure **minicom** to connnect to our serial port:
 	
 We can go to **Serial port setup**:
 
-![serial-port-setup](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/apu-pfsense-install/serial-port-setup.png)
+![serial-port-setup](https://dl.dropboxusercontent.com/u/24136116/blog_pics/apu-pfsense-install/serial-port-setup.png)
 
 And configure the options to be:
 
@@ -55,7 +55,7 @@ And configure the options to be:
 * Bps/Par/Bits: **115200 8N1**
 * Hardware Flow Control: **No**
 
-![minicom-settings](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/apu-pfsense-install/minicom-settings.png)
+![minicom-settings](https://dl.dropboxusercontent.com/u/24136116/blog_pics/apu-pfsense-install/minicom-settings.png)
 
 Then we can just **Save setup as dfl**, and it will create the config under **/etc/minirc.dfl**. Lastly add yourself to the **dialout** group so you can run **minicom** without **sudo**:
 
@@ -69,7 +69,7 @@ I went to the site and chose the following options:
 * Platform: **Memstick image with Installer**
 * Console: **Serial**
 
-![pfsen-down.png](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/apu-pfsense-install/pfsen-down.png)
+![pfsen-down.png](https://dl.dropboxusercontent.com/u/24136116/blog_pics/apu-pfsense-install/pfsen-down.png)
 
 After that we can go and extract the image:
 
@@ -140,31 +140,31 @@ After powering on the device I saw the following:
 
 And here is how the **minicom** looked like:
 
-![minicom-apu-botting-up](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/apu-pfsense-install/minicom-apu-botting-up.png)
+![minicom-apu-botting-up](https://dl.dropboxusercontent.com/u/24136116/blog_pics/apu-pfsense-install/minicom-apu-botting-up.png)
 
 I hit **F12** and it showed me the boot menu:
 
-![minicom-boot-menu-apu](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/apu-pfsense-install/minicom-boot-menu-apu.png)
+![minicom-boot-menu-apu](https://dl.dropboxusercontent.com/u/24136116/blog_pics/apu-pfsense-install/minicom-boot-menu-apu.png)
 
 I chose the second option, it booted from the usb stick, and here is what I saw:
 
-![minicom-pfsense-usb-boot.png](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/apu-pfsense-install/minicom-pfsense-usb-boot.png)
+![minicom-pfsense-usb-boot.png](https://dl.dropboxusercontent.com/u/24136116/blog_pics/apu-pfsense-install/minicom-pfsense-usb-boot.png)
 
 I left the default option and it started booting into the installer. I also chose the **easy install** and here is the progress of the install:
 
-![minicom-pf-einstall-p1](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/apu-pfsense-install/minicom-pf-einstall-p1.png)
+![minicom-pf-einstall-p1](https://dl.dropboxusercontent.com/u/24136116/blog_pics/apu-pfsense-install/minicom-pf-einstall-p1.png)
 
-![minicom-pf-einstall-p2](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/apu-pfsense-install/minicom-pf-einstall-p2.png)
+![minicom-pf-einstall-p2](https://dl.dropboxusercontent.com/u/24136116/blog_pics/apu-pfsense-install/minicom-pf-einstall-p2.png)
 
-![minicom-pf-einstall-p3](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/apu-pfsense-install/minicom-pf-einstall-p3.png)
+![minicom-pf-einstall-p3](https://dl.dropboxusercontent.com/u/24136116/blog_pics/apu-pfsense-install/minicom-pf-einstall-p3.png)
 
 After the reboot, I removed the USB stick and it started booting from the SD Card:
 
-![minicom-pfsense-reg-boot](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/apu-pfsense-install/minicom-pfsense-reg-boot.png)
+![minicom-pfsense-reg-boot](https://dl.dropboxusercontent.com/u/24136116/blog_pics/apu-pfsense-install/minicom-pfsense-reg-boot.png)
 
 And after it was done booting up I saw the **pfSense** Menu:
 
-![minicom-pfsense-booted-up](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/apu-pfsense-install/minicom-pfsense-booted-up.png)
+![minicom-pfsense-booted-up](https://dl.dropboxusercontent.com/u/24136116/blog_pics/apu-pfsense-install/minicom-pfsense-booted-up.png)
 
 To leave the **minicom** program you can type in **Ctrl+A X**
 
@@ -176,15 +176,15 @@ After it booted up I reassigned my interface accordingly:
 * re1: OPT1 (connected to the regular network)
 * re2: LAN (connected to my **dd-wrt** router)
 
-![minicom-pfsense-inter-assign](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/apu-pfsense-install/minicom-pfsense-inter-assign.png)
+![minicom-pfsense-inter-assign](https://dl.dropboxusercontent.com/u/24136116/blog_pics/apu-pfsense-install/minicom-pfsense-inter-assign.png)
 
 And I also changed the LAN network since my **dd-wrt** router already uses that subnet:
 
-![minicom-pfsense-change-lan-net](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/apu-pfsense-install/minicom-pfsense-change-lan-net.png)
+![minicom-pfsense-change-lan-net](https://dl.dropboxusercontent.com/u/24136116/blog_pics/apu-pfsense-install/minicom-pfsense-change-lan-net.png)
 
 Then I plugged my laptop into **re2** and I was able to get an address and also get to the admin page:
 
-![pfsense-admin-page](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/apu-pfsense-install/pfsense-admin-page.png)
+![pfsense-admin-page](https://dl.dropboxusercontent.com/u/24136116/blog_pics/apu-pfsense-install/pfsense-admin-page.png)
 
 Here is a list of things I ended up configuring before I placed it in front of my router:
 

@@ -17,7 +17,7 @@ From their [PDF](https://www.aanval.com/docs/aanval_sas_technology_brief.pdf):
 
 I already had snort running so I decided to integrate that with Aanval. From their site here is a comparison of the free vs not-free features:
 
-![aanval-comparison](https://www.googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/aanval-on-centos7/aanval-comparison.png)
+![aanval-comparison](https://dl.dropboxusercontent.com/u/24136116/blog_pics/aanval-on-centos7/aanval-comparison.png)
 
 I will just test out the community version.
 
@@ -96,23 +96,23 @@ Then from the CentOS machine we can confirm that we can connect to the database:
 #### Aanval Initial Configuration
 At this point you can browse to **http://IP/aanval** and you will see the EULA:
 
-![snort-uela](https://www.googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/aanval-on-centos7/snort-uela.png)
+![snort-uela](https://dl.dropboxusercontent.com/u/24136116/blog_pics/aanval-on-centos7/snort-uela.png)
 
 After accepting the License we can then check to make sure the install is ready for use. If all is well you will see the following (if anything is missing, install the necessary modules):
 
-![aanval-install-prereq-success](https://www.googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/aanval-on-centos7/aanval-install-prereq-success.png)
+![aanval-install-prereq-success](https://dl.dropboxusercontent.com/u/24136116/blog_pics/aanval-on-centos7/aanval-install-prereq-success.png)
 
 You can then fill out the Database information:
 
-![aanval-db-info-filled-out](https://www.googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/aanval-on-centos7/aanval-db-info-filled-out.png)
+![aanval-db-info-filled-out](https://dl.dropboxusercontent.com/u/24136116/blog_pics/aanval-on-centos7/aanval-db-info-filled-out.png)
 
 If all is well upon hitting **Submit** you will see the following:
 
-![aanval-config-successful](https://www.googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/aanval-on-centos7/aanval-config-successful.png)
+![aanval-config-successful](https://dl.dropboxusercontent.com/u/24136116/blog_pics/aanval-on-centos7/aanval-config-successful.png)
 
 Then you can click "**Continue**" and you will see the next steps:
 
-![aanval-setup-done-userlogin-info](https://www.googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/aanval-on-centos7/aanval-setup-done-userlogin-info.png)
+![aanval-setup-done-userlogin-info](https://dl.dropboxusercontent.com/u/24136116/blog_pics/aanval-on-centos7/aanval-setup-done-userlogin-info.png)
 
 I went back and started the BPUs:
 
@@ -149,23 +149,23 @@ There is a actually a pretty good produre [here](http://wiki.aanval.com/wiki/Com
 
 You can then click on the *gear* at the bottom right:
 
-![gear-configuration_g](https://www.googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/aanval-on-centos7/gear-configuration_g.png)
+![gear-configuration_g](https://dl.dropboxusercontent.com/u/24136116/blog_pics/aanval-on-centos7/gear-configuration_g.png)
 
 You will then see all the available sensors:
 
-![aanval-config-page](https://www.googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/aanval-on-centos7/aanval-config-page.png)
+![aanval-config-page](https://dl.dropboxusercontent.com/u/24136116/blog_pics/aanval-on-centos7/aanval-config-page.png)
 
 Click on **Settings** under the "Snort Module" section and fill everything out (I already had a snorby DB that barnyard2 was writing to):
 
-![snorby-db-configured-aanval](https://www.googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/aanval-on-centos7/snorby-db-configured-aanval.png)
+![snorby-db-configured-aanval](https://dl.dropboxusercontent.com/u/24136116/blog_pics/aanval-on-centos7/snorby-db-configured-aanval.png)
 
 Lastly go to the "Sensor Configuration" link for the Snort Module and make sure it's enabled:
 
-![snort-enabled-sensor-aanval](https://www.googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/aanval-on-centos7/snort-enabled-sensor-aanval.png)
+![snort-enabled-sensor-aanval](https://dl.dropboxusercontent.com/u/24136116/blog_pics/aanval-on-centos7/snort-enabled-sensor-aanval.png)
 
 After that if you go to the dashboard you will see the events that snort had captured:
 
 ![snort-events-in-aanval](
-https://www.googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/aanval-on-centos7/snort-events-in-aanval.png)
+https://dl.dropboxusercontent.com/u/24136116/blog_pics/aanval-on-centos7/snort-events-in-aanval.png)
 
 The cool thing is if you have syslog server then you can add that as a sensor and it will correlate any events snort with syslog logs.

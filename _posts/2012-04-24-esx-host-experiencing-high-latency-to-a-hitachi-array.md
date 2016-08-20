@@ -76,7 +76,7 @@ We went on the array confirmed the following:
 2.  Host Mode set to 0A for the VMware Host Groups (it was)
 3.  Microcode was above 50-07-66-00/00 ( we had Microcode 50-09-83/00)
 
-I asked the SAN admin to take a look at the performance and we noticed that all the traffic was going through just one Storage Processor while the other one was not utilized at all. I then looked over the Hitachi document [Optimizing the Hitachi Universal Storage Platform Family in VMware Environments](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/high_latency_hitachi_hds/us_optimizing-the-hitachi-universal-storage-platform-family-in-vmware-environments.pdf) and I saw the following:
+I asked the SAN admin to take a look at the performance and we noticed that all the traffic was going through just one Storage Processor while the other one was not utilized at all. I then looked over the Hitachi document [Optimizing the Hitachi Universal Storage Platform Family in VMware Environments](https://dl.dropboxusercontent.com/u/24136116/blog_pics/high_latency_hitachi_hds/us_optimizing-the-hitachi-universal-storage-platform-family-in-vmware-environments.pdf) and I saw the following:
 
 > For ESX 3.5 and earlier, Hitachi recommends using a fixed path policy for all of its storage systems. For ESX 4 and higher, Hitachi recommends using VMware’s round robin multipathing policy.
 

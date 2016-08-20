@@ -45,7 +45,7 @@ And also TLS v1.1 and v1.0. In the end here is what I had in my **mod_nss** conf
 	
 With that in place I got an A and it covered 99% of the browsers, I only missed old IE ones:
 
-![ssl-test-old-brow](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/mod_nss_qualys/ssl-test-old-brow.png)
+![ssl-test-old-brow](https://dl.dropboxusercontent.com/u/24136116/blog_pics/mod_nss_qualys/ssl-test-old-brow.png)
 
 Also if you want to quickly test what ciphers your server supports you can use **nmap**:
 
@@ -91,7 +91,7 @@ Then after one more apache restart
 
 I was able to get the A+:
 
-![ssl-test-a-pl](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/mod_nss_qualys/ssl-test-a-pl.png)
+![ssl-test-a-pl](https://dl.dropboxusercontent.com/u/24136116/blog_pics/mod_nss_qualys/ssl-test-a-pl.png)
 
 BTW there is good discussion about other results at [[Freeipa-users] let's encrypt integration and best practices for mod_nss/mod_ssl](https://www.redhat.com/archives/freeipa-users/2015-November/msg00114.html) here is an interesting comment about the **Session Resumption**:
 

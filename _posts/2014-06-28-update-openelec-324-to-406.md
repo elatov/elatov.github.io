@@ -117,7 +117,7 @@ I then went back to my [OpenELEC on Raspberry Pi](/2013/11/openelec-raspberry-pi
 4. Add my Plex Movies Libraty via UPNP. **Movies** -> **Add Movies** -> **Browse** -> **UPNP**
 5. Fix the Time Zone. **System** -> **Appearance** -> **International**
 
-   ![openelec-time-settings](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/openelec-update-4/2014-06-openelec-time-settings.png)
+   ![openelec-time-settings](https://dl.dropboxusercontent.com/u/24136116/blog_pics/openelec-update-4/2014-06-openelec-time-settings.png)
    
 The rest of the stuff was okay, like **optware** and **snmpd** (check out [this](/2013/11/openelec-raspberry-pi/) post on that setup). 
 
@@ -144,7 +144,7 @@ Here are the steps for that:
 	
 For a more in depth guide, check out [How to overclock Raspberry Pi running OpenELEC?](http://www.htpcbeginner.com/overclock-raspberry-pi-openelec/). After I rebooted I saw the following under the **Hardware** section:
 
-![openelec-new-hardware](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/openelec-update-4/2014-06-openelec-new-hardware_g.png)
+![openelec-new-hardware](https://dl.dropboxusercontent.com/u/24136116/blog_pics/openelec-update-4/2014-06-openelec-new-hardware_g.png)
 
 Notice the new **Speed**, you can also **ssh** into the RPi and check out **dmesg** output:
 
@@ -153,7 +153,7 @@ Notice the new **Speed**, you can also **ssh** into the RPi and check out **dmes
 
 To make sure I wasn't abusing the CPU, I played a movie and checked out **top**:
 
-![top-xbmc-playing-video](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/openelec-update-4/2014-06-top-xbmc-playing-video.png)
+![top-xbmc-playing-video](https://dl.dropboxusercontent.com/u/24136116/blog_pics/openelec-update-4/2014-06-top-xbmc-playing-video.png)
 
 I wasn't pegging the CPU to max or anything. So the overclocking wasn't abusing my CPU.
 
@@ -221,7 +221,7 @@ Go to **System** -> **Services** and disable anything you don't use. I disabled 
 
 This one is found under **System** -> **Videos** -> **Library**:
 
-![openelec-dont-get-actor-thumb](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/openelec-update-4/2014-06-openelec-dont-get-actor-thumb.png)
+![openelec-dont-get-actor-thumb](https://dl.dropboxusercontent.com/u/24136116/blog_pics/openelec-update-4/2014-06-openelec-dont-get-actor-thumb.png)
 
 If you are planning to play a lot of music you can uncheck the **Disable Tag Reading** option.
 

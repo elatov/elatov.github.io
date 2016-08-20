@@ -9,17 +9,17 @@ tags: [ttraff,dd_wrt,bash,gnuplot]
 ### Bandwidth Usage in DD-WRT
 I decided to keep an eye on my bandwidth usage. By default dd-wrt provides a pretty nice graph under **Status** -> **WAN** -> **Traffic by Month**:
 
-![dd-wrt-traf-mon](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/email-wrt-bw/dd-wrt-traf-mon.png)
+![dd-wrt-traf-mon](https://dl.dropboxusercontent.com/u/24136116/blog_pics/email-wrt-bw/dd-wrt-traf-mon.png)
 
 The graph has everything that I needed (per day break down and the total usage for the whole month). The data is collected by [ttraff](https://github.com/iamacarpet/ttraff) and by default it's enabled under **Services** -> **Services** -> **WAN Traffic Counter**:
 
-![dd-ttraff-en](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/email-wrt-bw/dd-ttraff-en.png)
+![dd-ttraff-en](https://dl.dropboxusercontent.com/u/24136116/blog_pics/email-wrt-bw/dd-ttraff-en.png)
 
 ### DD-WRT SSH Authorized Keys and ttraff
 I wanted to email such a graph on a monthly basis. So I decided to put
 together a script which will grab the **ttraff** data, plot it, and email it. The first thing we need to do is enable ssh keys for remote access. I created ssh keys and added them under **Services** -> **Services** -> **Secure Shell**:
 
-![wrt-ssh-keys](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/email-wrt-bw/wrt-ssh-keys.png)
+![wrt-ssh-keys](https://dl.dropboxusercontent.com/u/24136116/blog_pics/email-wrt-bw/wrt-ssh-keys.png)
 
 After that I could query **ttraff** data without any issue:
 
@@ -56,7 +56,7 @@ I ended up with the following:
 
 and I actually ended up with the following graph:
 
-![gnupl-GB](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/email-wrt-bw/gnupl-GB.png)
+![gnupl-GB](https://dl.dropboxusercontent.com/u/24136116/blog_pics/email-wrt-bw/gnupl-GB.png)
 
 Here is the data I was playing with initially:
 
@@ -104,7 +104,7 @@ So after that I ended up with this:
 
 And that produced the following graph:
 
-![gnupl-Gi](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/email-wrt-bw/gnupl-Gi.png)
+![gnupl-Gi](https://dl.dropboxusercontent.com/u/24136116/blog_pics/email-wrt-bw/gnupl-Gi.png)
 
 I also ended up multiplying the values by 1024 twice to convert from megabytes to bytes instead of just appending 6 zeros.
 

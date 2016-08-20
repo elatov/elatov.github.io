@@ -12,44 +12,44 @@ As I was creating an [OpenSUSE base box](/2014/06/create-a-base-opensuse-image-f
 
 You can basically create your own custom image of the SUSE Linux Distribution and customizing every aspect in the process. So let's give it a try, go to **https://susestudio.com/** and login, after you login you will see the available templates:
 
-![opensuse-templates](https://googledrive.com/host/0B4vYKT_-8g4IWWdONkR4RUdqWTg/opensuse-templates.png)
+![opensuse-templates](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_create_os_box_with_studio/opensuse-templates.png)
 
 Since we are trying to minimize the size, let's select "Just Enough OS" then scroll down, select the archicture, give this applicance name:
 
 
-![ss-arch-name-app](https://googledrive.com/host/0B4vYKT_-8g4IWWdONkR4RUdqWTg/ss-arch-name-app.png)
+![ss-arch-name-app](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_create_os_box_with_studio/ss-arch-name-app.png)
 
 After clicking on "Create Appliance", it will take you to the configuration:
 
-![ss-config-your-app](https://googledrive.com/host/0B4vYKT_-8g4IWWdONkR4RUdqWTg/ss-config-your-app.png)
+![ss-config-your-app](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_create_os_box_with_studio/ss-config-your-app.png)
 
 Then click on "Switch to the Software tab to continue", and it will take you to the software tab where you can customize what RPMs are included in your custom image:
 
-![ss-software-tab](https://googledrive.com/host/0B4vYKT_-8g4IWWdONkR4RUdqWTg/ss-software-tab.png)
+![ss-software-tab](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_create_os_box_with_studio/ss-software-tab.png)
 
 Let's add the **sudo** package, since vagrant uses that, (while we are at it let's add **zerofree** and **curl**):
 
-![ss-add-sudo](https://googledrive.com/host/0B4vYKT_-8g4IWWdONkR4RUdqWTg/ss-add-sudo.png)
+![ss-add-sudo](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_create_os_box_with_studio/ss-add-sudo.png)
 
 After that go to the **Configuration** tab, configure the timezone, enable the firewall (after enabling the firewall it will ask you to add the **SuSEfirewall2** package), and add the vagrant user:
 
-![ss-config-tab](https://googledrive.com/host/0B4vYKT_-8g4IWWdONkR4RUdqWTg/ss-config-tab.png)
+![ss-config-tab](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_create_os_box_with_studio/ss-config-tab.png)
 
 Then go to the Appliance subsection and configure LVM:
 
-![ss-configure-appliance-subtab](https://googledrive.com/host/0B4vYKT_-8g4IWWdONkR4RUdqWTg/ss-configure-appliance-subtab.png)
+![ss-configure-appliance-subtab](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_create_os_box_with_studio/ss-configure-appliance-subtab.png)
 
 Then go to the **Build** Tab and select the "VMware Workstation/Virtualbox Format":
 
-![ss-image-format-drop-down](https://googledrive.com/host/0B4vYKT_-8g4IWWdONkR4RUdqWTg/ss-image-format-drop-down.png)
+![ss-image-format-drop-down](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_create_os_box_with_studio/ss-image-format-drop-down.png)
 
 Then click on **Build** to start the creation of your custom image:
 
-![ss-creating-image](https://googledrive.com/host/0B4vYKT_-8g4IWWdONkR4RUdqWTg/ss-creating-image.png)
+![ss-creating-image](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_create_os_box_with_studio/ss-creating-image.png)
 
 After the build is done, you can download it:
 
-![ss-build-finished](https://googledrive.com/host/0B4vYKT_-8g4IWWdONkR4RUdqWTg/ss-build-finished.png)
+![ss-build-finished](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_create_os_box_with_studio/ss-build-finished.png)
 
 After you have the file, extract it:
 
@@ -60,11 +60,11 @@ After you have the file, extract it:
 
 Now let's add a new VM in VirtualBox and point the virtual disk to the extract vmdk file. So start VirtualBox, click on **New** VM, and give it a Name:
 
-![VirtualBox_Name-the_VM](https://googledrive.com/host/0B4vYKT_-8g4IWWdONkR4RUdqWTg/VirtualBox_Name-the_VM.png)
+![VirtualBox_Name-the_VM](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_create_os_box_with_studio/VirtualBox_Name-the_VM.png)
 
 When it gets to the hard-drive page, select "Use an existing virtual hard drive file" and point to the vmdk:
 
-![vb-select-vmdk](https://googledrive.com/host/0B4vYKT_-8g4IWWdONkR4RUdqWTg/vb-select-vmdk.png)
+![vb-select-vmdk](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_create_os_box_with_studio/vb-select-vmdk.png)
 
 After the VM is created, disable the USB ports, audio device and the floppy device in the boot menu. Start the VM and follow the instructions laid out [here](/2014/06/create-a-base-opensuse-image-for-vagrant/) to finish the customization of the VM. As a side note, it won't bring up the first interface by default so login as root to the appliance and run the following to get an IP via DHCP (then you can SSH to the VM using port forwarding like before):
 

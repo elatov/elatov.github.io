@@ -16,7 +16,7 @@ After [playing around with **puppet**](/2014/08/messing-around-with-puppet/) I r
 
 From the first link here is a pretty good diagram of the way all the files interact with each other:
 
-![puppet-module-class-design](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/puppet-better-modules/puppet-module-class-design.png)
+![puppet-module-class-design](https://dl.dropboxusercontent.com/u/24136116/blog_pics/puppet-better-modules/puppet-module-class-design.png)
 
 ### Puppet Class Ordering
 You will also notice that there are different methods to do ordering of the class execution. For example from [here](http://www.devco.net/archives/2012/12/13/simple-puppet-module-structure-redux.php):

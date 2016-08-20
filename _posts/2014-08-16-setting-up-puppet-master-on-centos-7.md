@@ -9,7 +9,7 @@ tags: [linux,centos,puppet,fedora,ssl,apache]
 
 After playing around with the Vagrant and Puppet configuration, I decided to stand up a puppet master/server to play with. There are two different versions: Open Source Puppet and Puppet Enterprise. Here is a comparison of the two:
 
-![puppet-os-vs-ent](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/os-puppet-master-setup/puppet-os-vs-ent.png)
+![puppet-os-vs-ent](https://dl.dropboxusercontent.com/u/24136116/blog_pics/os-puppet-master-setup/puppet-os-vs-ent.png)
 
 For now I will setup the Open Source one. Puppet has some awesome documentation so let's follow their recommendations. 
 
@@ -211,7 +211,7 @@ I wanted to find out what directory environments were and from the [Directory En
 
 Also from the same page here is a diagram that demonstrates how the directory structure would look like:
 
-![puppet-dir-env-diag](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/os-puppet-master-setup/puppet-dir-env-diag.png)
+![puppet-dir-env-diag](https://dl.dropboxusercontent.com/u/24136116/blog_pics/os-puppet-master-setup/puppet-dir-env-diag.png)
 
 That seems like a very cool feature, I was only planning on managing like 3 machines (just to play around with the setup). But in a big puppet deployment it would be sweet to setup Prod/DEV/QA environments and push configs accordningly. For now I will skip the environment configurations. 
 
@@ -888,7 +888,7 @@ From [Learning Puppet — Basic Agent/Master Puppet](https://docs.puppetlabs.com
 > 
 > Running Puppet in agent/master mode works much the same way — the main difference is that it moves the manifests and compilation to the puppet master server. Agents don’t have to see any manifest files at all, and have no access to configuration information that isn’t in their own catalog.
 > 
-> ![pup-ag-mas-interaction](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/os-puppet-master-setup/pup-ag-mas-interaction.png)
+> ![pup-ag-mas-interaction](https://dl.dropboxusercontent.com/u/24136116/blog_pics/os-puppet-master-setup/pup-ag-mas-interaction.png)
 > 
 > ..
 > 

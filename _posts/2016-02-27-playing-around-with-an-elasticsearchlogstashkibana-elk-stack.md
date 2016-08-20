@@ -242,7 +242,7 @@ To apply the above changes I restarted the service:
 
 Then I went to **kibana** (**http://\<KIBABA_IP\>:9200**) and it was showing messages from my local machine:
 
-![kibana-logs-seen](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/kibana/kibana-logs-seen.png)
+![kibana-logs-seen](https://dl.dropboxusercontent.com/u/24136116/blog_pics/kibana/kibana-logs-seen.png)
 
 ### Create a visualization
 
@@ -262,14 +262,14 @@ I wanted to create a simple bar chart that would just show me count of logs per 
 	
 And I ended up creating this graph:
 
-![kibana-bgraph-count-host](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/kibana/kibana-bgraph-count-host.png)
+![kibana-bgraph-count-host](https://dl.dropboxusercontent.com/u/24136116/blog_pics/kibana/kibana-bgraph-count-host.png)
 
 I then saved that.
 
 ### Create a Dashboard
 Under dashboards I just added my visualization from above and when I saved it I made sure I enabled the "**Store time with dashboard**" option (since I didn't want the count to show just what the time picker has selected):
 
-![kibana-dashboard-with-vis](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/kibana/kibana-dashboard-with-vis.png)
+![kibana-dashboard-with-vis](https://dl.dropboxusercontent.com/u/24136116/blog_pics/kibana/kibana-dashboard-with-vis.png)
 
 #### Set a Saved Dashboard as the Default
 If you want you can set a saved dashboard as the default application for kibaba. This way when any one logs into kibana they will see the dashboard and not the discover tab which allows you to search for logs. The instructions are laid out in this [kibana github issue](https://github.com/elastic/kibana/issues/3777). I called my dashboard "Main-Dashboard", so I set the following setting in the kibana config:
@@ -291,7 +291,7 @@ I wanted to create a search that would just show me failed or errors in the past
 
 and I saved that:
 
-![kibana-saved-search.png](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/kibana/kibana-saved-search.png)
+![kibana-saved-search.png](https://dl.dropboxusercontent.com/u/24136116/blog_pics/kibana/kibana-saved-search.png)
 
 I tried adding that saved search to the dashboard, but I quickly realized that a dashboard can only have one time period. There is actually an [enhancement request](https://github.com/elastic/kibana/issues/3578) to allow to configure time per visualization rather than globally.
 
@@ -309,4 +309,4 @@ So I ran into the forum: [Kibana flapping between red and green](https://discuss
 
 Then after restarting kibana the issue went away (and I could even search for it in **kibana**):
 
-![kibana-timeout](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/kibana/kibana-timeout.png)
+![kibana-timeout](https://dl.dropboxusercontent.com/u/24136116/blog_pics/kibana/kibana-timeout.png)

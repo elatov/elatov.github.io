@@ -137,7 +137,7 @@ Since MariaDB is a replacement for MySQL we can just install it on top of MySQL 
 
 During the install a prompt popped up asking if I wanted to migrate:
 
-![mariadb-upgrade-screen](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/mig-mysql-to-mariadb/mariadb-upgrade-screen.png)
+![mariadb-upgrade-screen](https://dl.dropboxusercontent.com/u/24136116/blog_pics/mig-mysql-to-mariadb/mariadb-upgrade-screen.png)
 
 I ended up choosing the **Migrate** option.
 

@@ -12,7 +12,7 @@ So after trying out the [TEE module with DD-WRT](/2015/07/compile-iptables-tee-m
 
 Plugin a USB stick into the router and enable USB support. To enable USB support login to the admin web interface and go to **Services** -> **USB** -> **enable Core USB Support** -> **Enable USB Storage Support**:
 
-![sda-mounted-dd-wrt](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/snort-ddwrt/sda-mounted-dd-wrt_g.png)
+![sda-mounted-dd-wrt](https://dl.dropboxusercontent.com/u/24136116/blog_pics/snort-ddwrt/sda-mounted-dd-wrt_g.png)
 
 After you save and apply settings the disk will now show up in the OS:
 

@@ -21,7 +21,7 @@ This VMware article [Dynamic Storage Provisioning](http://www.vmware.com/techpap
 > |Zeroed Thick| Full Amount   | As It Grows      | No               |
 > |Eager Zeroed Thick| Zeroed Thick| At Creation Time| No            |
 
-The most confusing one might be the thin vmdk and this article [Implementing EMC Symmetrix Virtual Provisioning with VMware vShpere](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/thin-thin-symm/h2529vmwareesxsvrwsymmetrixwp.pdf). The article has good description why the above is expected:
+The most confusing one might be the thin vmdk and this article [Implementing EMC Symmetrix Virtual Provisioning with VMware vShpere](https://dl.dropboxusercontent.com/u/24136116/blog_pics/thin-thin-symm/h2529vmwareesxsvrwsymmetrixwp.pdf). The article has good description why the above is expected:
 
 > The "Thick Provision Lazy Zeroed" or “Thick” selection is actually the "zeroedthick" format. In this allocation scheme, the storage required for the virtual disks is reserved in the datastore but the VMware kernel does not initialize all the blocks. The blocks are initialized by the guest operating system as write activities to
 > previously uninitialized blocks are performed. The VMFS will return zeros to the guest operating system if it attempts to read blocks of data that it has not previously written to.

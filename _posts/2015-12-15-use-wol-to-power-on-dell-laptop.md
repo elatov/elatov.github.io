@@ -30,7 +30,7 @@ I remember that I can use Wake On LAN (WOL) to power on a machine over the netwo
 	
 Then after checking out the specs of the laptop luckily it had this option available. So I enabled that in the BIOS:
 
-![dell-laptop-wol-enabled-bios](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/wol-dell-laptop/dell-laptop-wol-enabled-bios.jpg)
+![dell-laptop-wol-enabled-bios](https://dl.dropboxusercontent.com/u/24136116/blog_pics/wol-dell-laptop/dell-laptop-wol-enabled-bios.jpg)
 
 ### WOL NIC Support
 

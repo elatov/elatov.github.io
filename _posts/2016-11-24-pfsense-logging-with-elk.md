@@ -337,9 +337,9 @@ Not too shabby.
 
 On the **pfSense** side I just went to **Status** -> **System Logs** -> **Settings** and enabled the remote logging:
 
-![pf-rem-syslog](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg//pfsense-elk/pf-rem-syslog.png)
+![pf-rem-syslog](https://dl.dropboxusercontent.com/u/24136116/blog_pics/pfsense-elk/pf-rem-syslog.png)
 
 ### Kibana Dashboard
 The above sites have a bunch of examples. After some time playing around with different options I ended up with this one:
 
-![pfsense-elk-dashboard](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg//pfsense-elk/pfsense-elk-dashboard.png)
+![pfsense-elk-dashboard](https://dl.dropboxusercontent.com/u/24136116/blog_pics/pfsense-elk/pfsense-elk-dashboard.png)

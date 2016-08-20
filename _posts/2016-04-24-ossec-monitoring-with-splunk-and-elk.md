@@ -59,11 +59,11 @@ Then restarting splunk applied that
 
 Then going to the ossec dashboard:
 
-![ossec-dashboard](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/ossec-elk-splunk/ossec-dashboard-button.png)
+![ossec-dashboard](https://dl.dropboxusercontent.com/u/24136116/blog_pics/ossec-elk-splunk/ossec-dashboard-button.png)
 
 I saw all the summary:
 
-![ossec-dashboard-sum](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/ossec-elk-splunk/ossec-dashboard-sum.png)
+![ossec-dashboard-sum](https://dl.dropboxusercontent.com/u/24136116/blog_pics/ossec-elk-splunk/ossec-dashboard-sum.png)
 
 Pretty easy and nothing crazy.
 
@@ -133,28 +133,28 @@ Then fire off an ossec alert and you will see something similar to this in the l
 #### Create a Kibana 4 Dashboard For Ossec
 To create the dashboard we can follow the instructions laid out [here](http://vichargrave.com/create-an-ossec-log-management-console-with-kibana-4/). Here is what I added for my search:
 
-![kib-ossec-saved-search](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/ossec-elk-splunk/kib-ossec-saved-search.png)
+![kib-ossec-saved-search](https://dl.dropboxusercontent.com/u/24136116/blog_pics/ossec-elk-splunk/kib-ossec-saved-search.png)
 
 Before adding a visualization make sure you update your field list. There is a [request](https://github.com/elastic/kibana/issues/2236) to automatically do this, but I just did it manually. Go to **Settings** -> **Indices** -> **logstash-*** -> **Refresh Field List**:
 
-![kib-refresh-field-list](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/ossec-elk-splunk/kib-refresh-field-list.png)
+![kib-refresh-field-list](https://dl.dropboxusercontent.com/u/24136116/blog_pics/ossec-elk-splunk/kib-refresh-field-list.png)
 
 After that the fields will be available for visualizations and you can even search for the **ossec_server** one which is added by **logstash**:
 
-![ossec-server-field](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/ossec-elk-splunk/ossec-server-field.png)
+![ossec-server-field](https://dl.dropboxusercontent.com/u/24136116/blog_pics/ossec-elk-splunk/ossec-server-field.png)
 
 Here is the count vertical graph:
 
-![kib-ossec-vert-graph.png](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/ossec-elk-splunk/kib-ossec-vert-graph.png)
+![kib-ossec-vert-graph.png](https://dl.dropboxusercontent.com/u/24136116/blog_pics/ossec-elk-splunk/kib-ossec-vert-graph.png)
 
 Here is the pie chart visualization:
 
-![kib-ossec-pie-chard](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/ossec-elk-splunk/kib-ossec-pie-chard.png)
+![kib-ossec-pie-chard](https://dl.dropboxusercontent.com/u/24136116/blog_pics/ossec-elk-splunk/kib-ossec-pie-chard.png)
 
 I also added a stacked graph for fun the instuctions are laid out [here](https://www.digitalocean.com/community/tutorials/how-to-use-kibana-dashboards-and-visualizations):
 
-![kib-ossec-stacked-graph](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/ossec-elk-splunk/kib-ossec-stacked-graph.png)
+![kib-ossec-stacked-graph](https://dl.dropboxusercontent.com/u/24136116/blog_pics/ossec-elk-splunk/kib-ossec-stacked-graph.png)
 
 And in the end here is the dashboard I ended up with:
 
-![kib-ossec-dashboard](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/ossec-elk-splunk/kib-ossec-dashboard.png)
+![kib-ossec-dashboard](https://dl.dropboxusercontent.com/u/24136116/blog_pics/ossec-elk-splunk/kib-ossec-dashboard.png)

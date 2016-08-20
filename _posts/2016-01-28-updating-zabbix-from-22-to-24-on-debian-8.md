@@ -70,11 +70,11 @@ Or by doing the following in the Zabbix UI (as described in [here](https://www.z
 
 Then I logged into the ESXi host and noticed that VMs with **vmxnet3** NICs are not showing any performance data:
 
-![vm-missing-net-perf-data](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/zabbix-to-24/vm-missing-net-perf-data.png)
+![vm-missing-net-perf-data](https://dl.dropboxusercontent.com/u/24136116/blog_pics/zabbix-to-24/vm-missing-net-perf-data.png)
 
 While VMs with e1000 Nics had the performance data:
 
-![vm-contains-net-perf-data](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/zabbix-to-24/vm-contains-net-perf-data.png)
+![vm-contains-net-perf-data](https://dl.dropboxusercontent.com/u/24136116/blog_pics/zabbix-to-24/vm-contains-net-perf-data.png)
 
 Initially I ran into this old VMware KB: [Networking performance data is missing when the VMXNET3 adapter is used (1015402)](http://kb.vmware.com/kb/1015402), but I was on ESXi 6.0 not 4.x. Then by dumb luck I ran into the release notes for [ESXi 6.0 Update 1a](http://pubs.vmware.com/Release_Notes/en/vsphere/60/vsphere-esxi-60u1-release-notes.html#rnetworkingissues) and I saw the following:
 
@@ -103,7 +103,7 @@ Either download the offline bundle from here:
 
 > my.vmware.com/group/vmware/info?slug=datacenter_cloud_infrastructure/vmware_vsphere/6_0
 
-![vmware-download-6u1a](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/zabbix-to-24/vmware-download-6u1a.png)
+![vmware-download-6u1a](https://dl.dropboxusercontent.com/u/24136116/blog_pics/zabbix-to-24/vmware-download-6u1a.png)
 and then **scp** the bundle to the host:
 
 	┌─[elatov@macair] - [/Users/elatov/Downloads] - [2015-11-29 04:29:47]
@@ -136,7 +136,7 @@ After I rebooted the host and powered on the VM I did end up seeing the performa
 	VMware ESXi 6.0.0 build-3073146
 	VMware ESXi 6.0.0 Update 1
 
-![new-vm-perf-data.png](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/zabbix-to-24/new-vm-perf-data.png)
+![new-vm-perf-data.png](https://dl.dropboxusercontent.com/u/24136116/blog_pics/zabbix-to-24/new-vm-perf-data.png)
 
 
 After some time I saw the following in the logs of the zabbix server:
@@ -146,4 +146,4 @@ After some time I saw the following in the logs of the zabbix server:
 	
 And also from the Zabbix UI I saw new data come in:
 
-![zabbix-new-data](https://googledrive.com/host/0B4vYKT_-8g4IWE9kS2hMMmFuXzg/zabbix-to-24/zabbix-new-data.png)
+![zabbix-new-data](https://dl.dropboxusercontent.com/u/24136116/blog_pics/zabbix-to-24/zabbix-new-data.png)
