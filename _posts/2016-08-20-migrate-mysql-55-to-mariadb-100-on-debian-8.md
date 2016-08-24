@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Migrate MySQL 5.5 to MariaDB 10.0 on Debian 8"
 author: Karim Elatov
