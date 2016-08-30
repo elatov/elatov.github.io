@@ -4,7 +4,7 @@ layout: post
 title: "pfSense on Netgate APU4 1Gb Testing"
 author: Karim Elatov
 categories: [networking]
-tags: [pfsense,iperf,pmcstat]
+tags: [pfsense,iperf,pmcstat,powerd]
 ---
 I recently played around with AsusWRT and a 1Gb WAN connection and I was actually pretty happy with the results. Check out my [previous post](/2017/04/revert-to-asus-wrt-from-dd-wrt-on-asus-rt-ac68u-router/) on that. And I want to try the same thing on my pfSense firewall which was running on the Netgate APU4.
 
@@ -98,11 +98,12 @@ The following options didn't help:
 * Disabling RXSUM and TXSUM
 * Enabling Polling, rendered the nic down
 * Enabling LRO
+* Enabling PowerD
 
 ### Checking out the CPU Usage
 Running **top -aSH** showed that NIC interrupts are high but not completely taking over the CPU:
 
-![image](https://dl.dropboxusercontent.com/u/24136116/blog_pics/apu4-wan/pf-top-interrupts-up.png)
+![image](https://dl.dropboxusercontent.com/u/24136116/blog_pics/apu4-wan/pf-top-interr.png)
 
 Reading over the [FreeBSD forwarding Performance](https://bsdrp.net/documentation/technical_docs/performance), I tried using the **pmcstat** tool to see if **pf** is taking a lot of the kernel time, and when I ran the following:
 
@@ -134,8 +135,65 @@ and **pf** stayed pretty low.
 	  3.3 kernel     pf_test_state_tcp    pf_test
 	  3.0 kernel     __rw_rlock           bpf_mtap:0.9 in_localip:0.9
 
-But still nothing in the high 70s for the percentage.
+But still nothing in the high 70s for the percentage. 
 
+I was also reading over the [PCEngines APU board with pfsense setup](https://forum.pfsense.org/index.php?topic=77196.0) and decided to try out **powerd**. After enabling it, I couldn't run the **powerd** command, and it turned out to be a [known bug](https://redmine.pfsense.org/issues/5739). After adding the following to the **/boot/device.hints** file, it started working:
+
+	hint.acpi_throttle.0.disabled="0" 
+	hint.p4tcc.0.disabled="0"  
+
+After that you will also get more info from **sysctl**:
+
+	[2.3.2-RELEASE][root@pf.kar.int]/root: sysctl dev.cpu.0
+	dev.cpu.0.temperature: 57.0C
+	dev.cpu.0.cx_usage: 100.00% 0.00% last 240us
+	dev.cpu.0.cx_lowest: C1
+	dev.cpu.0.cx_supported: C1/1/0 C2/2/100
+	dev.cpu.0.freq_levels: 1000/-1 875/-1 750/-1 625/-1 500/-1 375/-1 250/-1 125/-1
+	dev.cpu.0.freq: 1000
+	dev.cpu.0.%parent: acpi0
+	dev.cpu.0.%pnpinfo: _HID=none _UID=0
+	dev.cpu.0.%location: handle=\_PR_.C000
+	dev.cpu.0.%driver: cpu
+	dev.cpu.0.%desc: ACPI CPU
+
+And it should be running in the background:
+
+	[2.3.2-RELEASE][root@pf.kar.int]/root: ps auwwx | grep power
+	root    86054   0.0  0.0  14408  1956  -  Ss    7:57PM  0:00.06 /usr/sbin/powerd -b hadp -a max -n hadp
+
+When I was running the speedtest I also ran **powerd** and here is what I saw:
+
+	[2.3.2-RELEASE][root@pf.kar.int]/root: powerd -v
+	load   4%, current freq  500 MHz ( 4), wanted freq  403 MHz
+	load   0%, current freq  500 MHz ( 4), wanted freq  390 MHz
+	load   7%, current freq  500 MHz ( 4), wanted freq  377 MHz
+	load   0%, current freq  500 MHz ( 4), wanted freq  365 MHz
+	changing clock speed from 500 MHz to 375 MHz
+	load   0%, current freq  375 MHz ( 5), wanted freq  353 MHz
+	load   3%, current freq  375 MHz ( 5), wanted freq  341 MHz
+	load 113%, current freq  375 MHz ( 5), wanted freq 1364 MHz
+	changing clock speed from 375 MHz to 1000 MHz
+	load 104%, current freq 1000 MHz ( 0), wanted freq 2000 MHz
+	load 135%, current freq 1000 MHz ( 0), wanted freq 2000 MHz
+	load 132%, current freq 1000 MHz ( 0), wanted freq 2000 MHz
+	load 132%, current freq 1000 MHz ( 0), wanted freq 2000 MHz
+	load 138%, current freq 1000 MHz ( 0), wanted freq 2000 MHz
+	load 138%, current freq 1000 MHz ( 0), wanted freq 2000 MHz
+	load 148%, current freq 1000 MHz ( 0), wanted freq 2000 MHz
+	load 142%, current freq 1000 MHz ( 0), wanted freq 2000 MHz
+	load 172%, current freq 1000 MHz ( 0), wanted freq 2000 MHz
+	load 154%, current freq 1000 MHz ( 0), wanted freq 2000 MHz
+	load 160%, current freq 1000 MHz ( 0), wanted freq 2000 MHz
+	...
+	...
+	load 148%, current freq 1000 MHz ( 0), wanted freq 2000 MHz
+	load 160%, current freq 1000 MHz ( 0), wanted freq 2000 MHz
+	load 154%, current freq 1000 MHz ( 0), wanted freq 2000 MHz
+	load 169%, current freq 1000 MHz ( 0), wanted freq 2000 MHz
+	load 154%, current freq 1000 MHz ( 0), wanted freq 2000 MHz
+
+And the speedtest results were the same, looks like I need more CPU power.
 ### Other Resources
 
 As I kept reading about the APU4 unit I ran into a bunch of folks that mentioned the same limitation:
@@ -179,3 +237,9 @@ Now that I know the limitation, next time I am upgrading my firewall, I will gra
 * [Gigabit WAN speeds with RCC-VE 2440?](https://www.reddit.com/r/PFSENSE/comments/3t184g/gigabit_wan_speeds_with_rccve_2440/)
 	
 	> Well, I am very happy to report that with 2.3 installed, and PowerD set to Maximum, I am now achieving expected speeds! My recent speed test shows 810.67Mbps down, and 936.71Mbps up.
+	
+* [Qotom J1900 4-core - 4 x Intel LAN build - 8GB RAM, 120GB mSATA- 10 watts - $260](https://forum.pfsense.org/index.php?topic=114202.15) and [pfSense, m-ITX quad-core, 1Gbit, <20w](https://www.reddit.com/r/homelab/comments/2fmt0t/pfsense_mitx_quadcore_1gbit_20w/)
+
+	> TCP tests ended up around ~990Mbit/s. TCP test was also performed with iperf, test was done from a server within LAN to a server outside WAN. Server on the Internet -> WAN -> NAT -> LAN -> server on the LAN.
+
+
