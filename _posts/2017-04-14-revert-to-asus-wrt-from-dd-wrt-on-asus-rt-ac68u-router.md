@@ -301,4 +301,4 @@ After the many changes that I made, I realized I couldn't make any changes in th
 
 	# ifconfig vlan3 down
 
-And then I was able to make changes without issue in the Admin UI.
+And then I was able to make changes without issue in the Admin UI. Also going to the page by IP vs hostname, helped out.
