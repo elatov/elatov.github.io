@@ -302,3 +302,26 @@ After the many changes that I made, I realized I couldn't make any changes in th
 	# ifconfig vlan3 down
 
 And then I was able to make changes without issue in the Admin UI. Also going to the page by IP vs hostname, helped out.
+
+### NAT Acceleration
+The reason for the amazing speed is because of NAT Acceleration. [This website](http://routerguide.net/nat-acceleration-on-or-off/) goes over the pros and cons of using NAT Acceleration. First, there are actually a couple of components to it, from that page:
+
+> Level 1: CTF (Cut Through Forwarding): Software optimization technique to accelerate NAT traffic.
+> You may need this option if your internet provider is offer you speed above 100 mb /sec. You generally need this option if you want to achieve peak speeds especially for speed above 200 mb/sec.
+> 
+> CTF or Cut-Through Forwarding is achieved by the router starting to send out transmission frames as soon as it receives its destination. However, the router relies on the end device to tell it whether the data is corrupted for resend. This restriction can cause problems with a few common home uses.
+> 
+> When you have CTF or level 1 NAT Acceleration disabled, the router will “store” the entire frame before sending it out to its destination. This holding period may require more router’s CPU use.
+> 
+> Level 2: Level 1 (CTF) + FA (Flow Accelerator): Hardware NAT acceleration mechanism design for accelerating wired DHCP and Static IP connections.
+> 
+> You will need Flow Accelerator option to fully take advantage of internet provider’s Gigabit service is offered.
+
+Unfortunately some network feature are not supported with NAT Acceleration. Here is a quick list:
+
+* QoS
+* Port Forwarding 
+* IP Traffic Monitoring
+* Streaming Services
+
+The Port Forwarding impacted me the most. Although I noticed that SSL enabled services actually worked quite well. So this forced me to enable SSL on some of my services and port forwarding still worked :)
