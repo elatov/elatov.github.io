@@ -61,9 +61,19 @@ If you extract the zip you see the **trx** file:
 #### Put the Router into Recovery Mode
 From the Router's Manual pdf:
 
-> To launch the rescue mode and use the Firmware Restoration utility:> > 1. Unplug the wireless router from the power source.> 2. Hold the Reset button at the rear panel and simultaneously replug the wireless router into the power source. Release the Reset button when the Power LED at the front panel flashes slowly, which indicates that the wireless router is in the rescue mode.
-#### Resetting the Router to Factory Settings (Optional)
-I noticed there are two procedures, from the Router's Manual pdf:> **Reset button**>> This button resets or restores the system to its factory default settings.
+> To launch the rescue mode and use the Firmware Restoration utility:
+> 
+> 1. Unplug the wireless router from the power source.
+> 2. Hold the Reset button at the rear panel and simultaneously replug the wireless router into the power source. Release the Reset button when the Power LED at the front panel flashes slowly, which indicates that the wireless router is in the rescue mode.
+
+
+#### Resetting the Router to Factory Settings (Optional)
+
+I noticed there are two procedures, from the Router's Manual pdf:
+
+> **Reset button**
+>
+> This button resets or restores the system to its factory default settings.
 
 If things get really bad you can use the following instructions which I found at the [asuswrt-merlin FAQ](https://github.com/RMerl/asuswrt-merlin/wiki/FAQ) page:
 
@@ -95,19 +105,31 @@ And then after you click **Upload**, it will start the upload:
 
 If all is well it will finish the upload and ask you to reboot your router. Then you can visit **http://192.168.1.1** to finish the configuration.
 
-### AsusWRT Speed TestAfter I installed and configured AsusWRT, I decided to run another speed test and here is what I saw:
-![asus-stock-only-ether-2](https://dl.dropboxusercontent.com/u/24136116/blog_pics/asuswrt-install/asus-stock-only-ether-2.png)
-That's a little bit better :) Here is the version I was on:
-	ASUSWRT RT-AC68U_3.0.0.4 Wed Jul  6 12:15:38 UTC 2016
+### AsusWRT Speed Test
+
+After I installed and configured AsusWRT, I decided to run another speed test and here is what I saw:
+
+![asus-stock-only-ether-2](https://dl.dropboxusercontent.com/u/24136116/blog_pics/asuswrt-install/asus-stock-only-ether-2.png)
+
+
+That's a little bit better :) Here is the version I was on:
+
+	ASUSWRT RT-AC68U_3.0.0.4 Wed Jul  6 12:15:38 UTC 2016
 	
 	admin@(none):/tmp/home/root# nvram get firmver
 	3.0.0.4
 	admin@(none):/tmp/home/root# nvram get model
-	RT-AC68U### Installing AsusWRT Merlin Firmware
-While I as at it, I decided to install the Merlin Firmware since it's pretty much the same as AsusWRT with just a couple of more options. First I went to [this](https://www.mediafire.com/folder/bkfq2a6aebq68/Asuswrt-Merlin#qc4e5xc252czd) page and downloaded the latest firmware. I ended up with the following file:
-	RT-AC68U_380.61_0.zip
-After extracting it, I just grabbed the **trx** file:
-	# unzip -l RT-AC68U_380.61_0.zip
+	RT-AC68U
+
+### Installing AsusWRT Merlin Firmware
+
+While I as at it, I decided to install the Merlin Firmware since it's pretty much the same as AsusWRT with just a couple of more options. First I went to [this](https://www.mediafire.com/folder/bkfq2a6aebq68/Asuswrt-Merlin#qc4e5xc252czd) page and downloaded the latest firmware. I ended up with the following file:
+
+	RT-AC68U_380.61_0.zip
+
+After extracting it, I just grabbed the **trx** file:
+
+	# unzip -l RT-AC68U_380.61_0.zip
 	Archive:  RT-AC68U_380.61_0.zip
 	  Length     Date   Time    Name
 	 --------    ----   ----    ----
@@ -117,20 +139,36 @@ If all is well it will finish the upload and ask you to reboot your router. Then
 	       89  08-04-16 20:37   sha256sum.txt
 	 --------                   -------
 	 33748686                   4 files
-So from the AsusWRT Admin UI, I went to **Administration** -> **Firmware Upgrade** and uploaded the new **trx** file and clicked **Upload**:
 
-![asus-update-ui](https://dl.dropboxusercontent.com/u/24136116/blog_pics/asuswrt-install/asus-update-ui.png)After the update was done, here is the version I was on:
-	admin@RT-AC68U-1F08:/tmp/home/root# nvram get firmver
+
+So from the AsusWRT Admin UI, I went to **Administration** -> **Firmware Upgrade** and uploaded the new **trx** file and clicked **Upload**:
+
+![asus-update-ui](https://dl.dropboxusercontent.com/u/24136116/blog_pics/asuswrt-install/asus-update-ui.png)
+
+After the update was done, here is the version I was on:
+
+
+	admin@RT-AC68U-1F08:/tmp/home/root# nvram get firmver
 	3.0.0.4
 	admin@RT-AC68U-1F08:/tmp/home/root# nvram get buildno
-	380.61### AsusWRT Merlin Speed Test
-After upgrading the stock Asus Firmware to the Merlin Firmware here were the results of the speed test:
-![asus-merlin-only-ether2](https://dl.dropboxusercontent.com/u/24136116/blog_pics/asuswrt-install/asus-merlin-only-ether2.png)
-Very similar results and I get cool features, like SNMP and traffic stats saved to a usb disk (full list is available [here](https://asuswrt.lostrealm.ca/features)). I also ran a test with wi-fi and it was pretty much the same accross both versions of AsusWRT:
-![asus-merlin-only-wifi](https://dl.dropboxusercontent.com/u/24136116/blog_pics/asuswrt-install/asus-merlin-only-wifi.png)
-### VLAN Config
-One thing that I missed from DD-WRT is the ease of the setup for VLANs, but luckily it's still possible with the command line. [This forum](http://www.snbforums.com/threads/force-lan-port-4-to-use-the-guest-network-for-asus-merlin-rt-ac68u.18969/) talks about the setup. Basically we can use the **robocfg** command to configure VLANs. Here is the default output from that command (before I made any changes):
-	admin@RT-AC68U-1F08:/tmp/home/root# robocfg show
+	380.61
+
+### AsusWRT Merlin Speed Test
+
+After upgrading the stock Asus Firmware to the Merlin Firmware here were the results of the speed test:
+
+![asus-merlin-only-ether2](https://dl.dropboxusercontent.com/u/24136116/blog_pics/asuswrt-install/asus-merlin-only-ether2.png)
+
+Very similar results and I get cool features, like SNMP and traffic stats saved to a usb disk (full list is available [here](https://asuswrt.lostrealm.ca/features)). I also ran a test with wi-fi and it was pretty much the same accross both versions of AsusWRT:
+
+
+![asus-merlin-only-wifi](https://dl.dropboxusercontent.com/u/24136116/blog_pics/asuswrt-install/asus-merlin-only-wifi.png)
+
+### VLAN Config
+
+One thing that I missed from DD-WRT is the ease of the setup for VLANs, but luckily it's still possible with the command line. [This forum](http://www.snbforums.com/threads/force-lan-port-4-to-use-the-guest-network-for-asus-merlin-rt-ac68u.18969/) talks about the setup. Basically we can use the **robocfg** command to configure VLANs. Here is the default output from that command (before I made any changes):
+
+	admin@RT-AC68U-1F08:/tmp/home/root# robocfg show
 	Switch: enabled
 	Port 0: 1000FD enabled stp: none vlan: 2 jumbo: off mac: 00:0d:b9:3c:c0:66
 	Port 1:   DOWN enabled stp: none vlan: 1 jumbo: off mac: 00:00:00:00:00:00
@@ -324,4 +362,12 @@ Unfortunately some network feature are not supported with NAT Acceleration. Here
 * IP Traffic Monitoring
 * Streaming Services
 
-The Port Forwarding impacted me the most. Although I noticed that SSL enabled services actually worked quite well. So this forced me to enable SSL on some of my services and port forwarding still worked :)
+The Port Forwarding impacted me the most. I noticed that some worked and some didn't, which described some of the behavior other folks saw. Luckily the one I cared about worked and the ones that kept failing, I disabled. If you end up disabling NAT Acceleration then the VLAN configuration will change from:
+
+	/usr/sbin/robocfg vlan 1 ports "1 2 3 4t 8t"
+	/usr/sbin/robocfg vlan 3 ports "4t 8t"
+    
+to this:
+
+	/usr/sbin/robocfg vlan 1 ports "1 2 3 4t 5t"
+	/usr/sbin/robocfg vlan 3 ports "4t 5t"
