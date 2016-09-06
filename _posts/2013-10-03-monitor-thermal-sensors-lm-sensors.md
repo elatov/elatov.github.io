@@ -72,7 +72,7 @@ It looks like it found the **asb100** chip. This was a very old P4 machine, here
         Serial Number: xxxxxxxxxxx
 
 
-Checking the supported devices from the lm-sensors [page](http://lm-sensors.org/wiki/Devices). I saw the following:
+Checking the supported devices from the **lm-sensors Devices** Page, I saw the following:
 
 ![lm sensors devices asus Monitor Thermal Sensors With lm sensors](https://github.com/elatov/uploads/raw/master/2013/09/lm-sensors-devices-asus.png)
 

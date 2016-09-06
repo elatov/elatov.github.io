@@ -238,9 +238,12 @@ During your initial capacity analysis figure out what the actual CPU and RAM usa
 > Cores per CPU:
 > The number of cores per host must match or exceed the number of vCPUs of the Largest VM
 
-Here is a real life example for the UCS blades, "[Cisco, VMware: Cisco UCS B200-M1 VMware Consolidation Ratio](http://blog.colovirt.com/2010/05/24/cisco-vmware-cisco-ucs-b6620-vmware-consolidation-ratio/)", from that page:
+Here is a real life example for the UCS blades from an old link that's no longer avavailable, from that page:
 
 > There are a total of 7 blades in our VMware environment, but only 5 of those are dedicated to our main HA/DRS cluster. That gives us ~240 gigs of RAM for the main cluster. Currently, I am seeing a VM consolidation ratio of about 24 VMs (virtual machines) per B200-M1 blade. The limitation here is definitely the RAM. The CPU itself is less than 25% utilized per blade.
+
+There is another good resource: Server [Consolidation Using Cisco
+Unified Computing System and EMC CLARiiON Storage](http://www.cisco.com/c/dam/en/us/solutions/collateral/data-center-virtualization/unified-computing/server_consolidation_white_paper.pdf)
 
 Also if you are using Capacity Planner you can check your consolidation ratio, by running different reports. For more information check out "[Twenty-to-One Consolidation on Intel Architecture](http://www.virtualizationteam.com/virtualization-vmware/capacity-planner/optimize-your-vmware-capacity-planning-report.html)":
 
