@@ -7,12 +7,12 @@ categories: ['os']
 tags: ['fedora', 'linux','iptables', 'subsonic']
 ---
 
-I recently posted on [List of streaming media systems](/2012/10/installing-mediatomb-on-freebsd-9-and-connecting-to-it-with-xbmc-from-a-fedora-17-os/)". Here are the ones that stood out:
+I recently posted on [how to setup MediaTomb on FreeBSD](/2012/10/installing-mediatomb-on-freebsd-9-and-connecting-to-it-with-xbmc-from-a-fedora-17-os/), and I had an extra box laying around which I wanted to dedicate for audio streaming. MediaTomb would take care of Videos but I wanted another dedicated machine to handle my Music streaming. As I was doing some research I found a list of some available audio streaming software from wikipedia: [List of streaming media systems](http://en.wikipedia.org/wiki/List_of_streaming_media_systems#Servers). Here are the ones that stood out:
 
 *   [Firefly Media Server](http://en.wikipedia.org/wiki/Firefly_Media_Server)
 *   [Squeezebox Server](http://en.wikipedia.org/wiki/Squeezebox_Server)
 *   [Ampache](http://en.wikipedia.org/wiki/Ampache)
-*   [Subsonic (media server)](http://en.wikipedia.org/wiki/Subsonic_(media_server))
+*   [Subsonic](http://www.subsonic.org/)
 *   [Jinzora](http://sourceforge.net/projects/jinzora/)
 
 I kept reading other forums and here is what I came across:
