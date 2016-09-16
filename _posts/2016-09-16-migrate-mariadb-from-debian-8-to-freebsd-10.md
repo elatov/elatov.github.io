@@ -1,12 +1,12 @@
 ---
-published: false
+published: true
 layout: post
 title: "Migrate MariaDB from Debian 8 to FreeBSD 10"
 author: Karim Elatov
 categories: [os]
 tags: [linux,debian,freebsd,mariadb]
 ---
-Recently I migrated my MySQL instance to MariaDB and everything was working as expected. I was moving some resources around and I decided to free up my Debian machine. So I decided to move the **mariadb** instance to my FreeBSD machine.
+Recently I migrated the MySQL instance to MariaDB and everything was working as expected. I was moving some resources around and I decided to free up my Debian machine. So I decided to move the **mariadb** instance to my FreeBSD machine.
 
 ### Install MariaDB on FreeBSD
 The Debian version of **mariadb** was the following (**10.0.23**):
