@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Migrating Splunk From FreeBSD to Debian"
 author: Karim Elatov
