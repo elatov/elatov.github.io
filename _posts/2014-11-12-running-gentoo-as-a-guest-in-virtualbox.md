@@ -13,7 +13,7 @@ The process is definitely more involved then a regular Linux Distro install, but
 
 - [Gentoo Linux amd64 Handbook: Installing Gentoo](https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/Installation)
 - [Quick install guide](http://wiki.gentoo.org/wiki/Quick_install_guide)
-- [Virtualbox Guest](http://gentoo-en.vfose.ru/wiki/Virtualbox_Guest#Configuring_the_Kernel)
+- [Virtualbox Guest](https://wiki.gentoo.org/wiki/VirtualBox)
 
 #### Getting the Right Media
 I was using a 64bit version so I grabbed the [ISO](https://www.gentoo.org/downloads/). After that I created a VM called **gentoo** in Virtualbox and Virtualbox autodetected the OS to be **gentoo** and took care of the rest. I gave the VM 1GB of ram and 20GB of disk space (VirtualBox set the Disk controller to be SATA and that worked out okay). I then attached the downloaded ISO to the IDE Controller:
@@ -884,7 +884,7 @@ Then I just ran **startx** on the terminal and I saw the following:
 ![xorg-start-gentoo-vm](https://dl.dropboxusercontent.com/u/24136116/blog_pics/gentoo-in-virtualbox/xorg-start-gentoo-vm.png)
 
 #### Installing icewm
-There are pretty good instructions on the setup at [IceWM Gentoo Wiki Archives](http://gentoo-en.vfose.ru/wiki/IceWM). The install itself is pretty easy:
+There are pretty good instructions on the setup at [IceWM Gentoo Package](https://packages.gentoo.org/packages/x11-wm/icewm). The install itself is pretty easy:
 
 
 	gen ~ # time emerge icewm

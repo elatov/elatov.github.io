@@ -96,7 +96,7 @@ There are actually a couple approaches to Load balancing SSL. The most popular i
 Here are some links that explain why SSL termination can be advantageous:
 
 *   [SSL Offloading](https://f5.com/glossary/ssl-offloading)
-*   [Improved HTTPS Performance with Early SSL Termination](https://www.filepicker.com/blog/thoughts-and-knowledge/improved-https-performance-with-early-ssl-termination/)
+*   [Why Early Termination Is Not A Bad Thing](https://blogs.akamai.com/2013/10/why-early-termination-is-not-a-bad-thing.html)
 
 Some excepts from the above links:
 

@@ -470,7 +470,7 @@ It had recovered less files than my script (380 vs 510), then checking out how m
 
 it was the same amount. It turned out that the *tsk_recover* doesn't recover zero sized files, cause they are basically empty files, but my script wasn't that smart and just recovered everything it sees. Regardless to say, I was pretty happy with the tool as well.
 
-After doing some research I found two more tools: [foremost](http://www.itu.dk/people/jobr/magicrescue/). MagicRescue is no longer maintained, but I decided to give it a try. MagicRescue uses "recipes", or file signatures as I would call them, to identify a certain file type that you are looking for. The application comes with some pre-installed recipes. For example, here is what I ran to recover all the jpeg files from my image:
+After doing some research I found two more tools: [MagicRescue](http://freecode.com/projects/magicrescue) and [foremost](http://foremost.sourceforge.net/). MagicRescue is no longer maintained, but I decided to give it a try. MagicRescue uses "recipes", or file signatures as I would call them, to identify a certain file type that you are looking for. The application comes with some pre-installed recipes. For example, here is what I ran to recover all the jpeg files from my image:
 
 
 	$ /usr/local/magicrescue/bin/magicrescue -r jpeg-jfif -r jpeg-exif -d ~/output sd.img
@@ -582,7 +582,7 @@ and that will recover all the files.
 
 Foremost recovered the most amount of jpeg files (7903), but most of them were unreadable. I would say it recovered maybe 1 or 2 more actual readable jpeg files than the rest.
 
-In conclusion, there are a lot of recovery tools out there, so pick your poison:) I personally liked Sleuth Kit for recovery in general, it provided a lot of granular tools. For recovering specific type of files, each (photorec, magicrescue, and foremost) program had their own quirks. Foremost recovered the most but it took a while to manually sit and figure out which one is a valid picture. MagicRescue was good, but it didn't have that many built in recipes. PhotoRec was the easiest to use but it recovered the least amount of pictures but a lot of mp3 files :) I ran all of them and I was pleased with each one in different ways. So if you are looking for pictures in a disk image just run them all and then sort out the pictures as necessary. I will end with a quote from the man page of [MagicRescue](http://www.itu.dk/people/jobr/magicrescue/manpage.html):
+In conclusion, there are a lot of recovery tools out there, so pick your poison:) I personally liked Sleuth Kit for recovery in general, it provided a lot of granular tools. For recovering specific type of files, each (photorec, magicrescue, and foremost) program had their own quirks. Foremost recovered the most but it took a while to manually sit and figure out which one is a valid picture. MagicRescue was good, but it didn't have that many built in recipes. PhotoRec was the easiest to use but it recovered the least amount of pictures but a lot of mp3 files :) I ran all of them and I was pleased with each one in different ways. So if you are looking for pictures in a disk image just run them all and then sort out the pictures as necessary. I will end with a quote from the man page of [MagicRescue](http://manpages.ubuntu.com/manpages/wily/man1/magicrescue.1.html):
 
 > **When not to use MagicRescue**
 >
