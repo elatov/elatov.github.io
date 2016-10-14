@@ -26,7 +26,7 @@ Another good site [Querying SNORT SQL database](http://sgros.blogspot.com/2012/0
 	select signature.sig_name,count(*) from signature,event,iphdr where (event.cid,event.sid)=(iphdr.cid,iphdr.sid) and inet_ntoa(ip_src)='10.61.34.152' and event.signature=signature.sig_id group by sig_id;
 	
 ### Clean the DB Manually
-There used to be a pretty good site that goes over the process: "How to clean up unwanted Snorby events by Signature name" (but it seems to be offline). I found old commands from that post [here](https://groups.google.com/forum/#!topic/security-onion/nrHt2lQit9c). First list the signatures that have the most counts:
+There used to be a pretty good site that went over the process: "How to clean up unwanted Snorby events by Signature name" (but it seems to be offline now). I found old commands from that post [here](https://groups.google.com/forum/#!topic/security-onion/nrHt2lQit9c). First list the signatures that have the most counts:
 
 	SELECT e.sid, e.signature, s.sig_name, count(s.sig_name) as sig_counts FROM event e JOIN signature s ON e.signature = s.sig_id GROUP BY s.sig_name ORDER BY sig_counts DESC;
 
