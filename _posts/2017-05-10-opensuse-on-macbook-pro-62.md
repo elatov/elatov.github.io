@@ -346,8 +346,84 @@ If you want the device to connect on boot we have to set the laptop's bluetooth 
 
 Then I rebooted the laptop and at the **lightdm** screen I typed a couple of keys and after about two times the keyboard started to work.
 
+### Lm_sensors Config
+Macs usually have a pretty complicated temperature sensor configurations (which can be good and bad). Check out [my previous post](/2013/10/monitor-thermal-sensors-lm-sensors/) on that. For this laptop I ran into the [Apple Technician Guide: MacBook Pro (17-inch, Mid 2010)](https://dl.dropboxusercontent.com/u/24136116/blog_pics/opensuse-mbp/us_apple-macbook-pro-service-manual.pdf) and that had a nice description of all the sensors:
+
+![mac-sensors-table](https://dl.dropboxusercontent.com/u/24136116/blog_pics/opensuse-mbp/mac-sensors-table.png)
+
+and also a nice diagram of where they are located:
+
+![mac-sensors-dia](https://dl.dropboxusercontent.com/u/24136116/blog_pics/opensuse-mbp/mac-sensors-dia.png)
+
+After looking through the guide, I ended up creating the following sensors config:
+
+	<> cat /etc/sensors.d/mbp.conf
+	chip "applesmc-*"
+		label temp1 "Bottom_Enclosure Temp"
+		label temp2 "Battery_Point_1 Temp"
+		label temp3 "Battery_Point_2 Temp"
+		label temp4 "CPU_CORE_0 Temp"
+		label temp5 "CPU_Package-Diode Temp"
+		label temp6 "CPU_Proximity Temp"
+		label temp7 "CPU_CORE_1 Temp"
+		label temp8 "GPU_Die Temp"
+		label temp9 "GPU_Proximity Temp"
+		label temp10 "GPU_Discrete_Thermal_Diode Temp"
+		label temp11 "Memory_Control_Hub Temp"
+		label temp12 "PCH_Proximity Temp"
+		label temp13 "PCH_Die Temp"
+		label temp14 "Right_Fin_Stack_Proximity Temp"
+		label temp15 "Left_Fin_Stack_Proximity Temp"
+		label temp16 "Mainboard_Proximity Temp"
+		label temp17 "Palmrest_Proximity Temp"
+		label temp18 "Memory_Proximity Temp"
+	
+	chip "coretemp-*"
+		label temp2 "CPU_Core0 Temp"
+		label temp4 "CPU_Core1 Temp"
+	
+	chip "BAT0-virtual-*"
+		label temp1 "Battery Temp"
+	
+And that produced the following output:
+
+	<> sensors
+	BAT0-virtual-0
+	Adapter: Virtual device
+	Battery Temp:  +38.3°C
+	
+	applesmc-isa-0300
+	Adapter: ISA adapter
+	Left side  :                     2306 RPM  (min = 2000 RPM, max = 6000 RPM)
+	Right side :                     2306 RPM  (min = 2000 RPM, max = 6000 RPM)
+	Bottom_Enclosure Temp:            +38.0°C
+	Battery_Point_1 Temp:             +38.0°C
+	Battery_Point_2 Temp:             +35.0°C
+	CPU_CORE_0 Temp:                  +58.5°C
+	CPU_Package-Diode Temp:           +62.5°C
+	CPU_Proximity Temp:               +60.2°C
+	CPU_CORE_1 Temp:                  +61.0°C
+	GPU_Die Temp:                     +61.5°C
+	GPU_Proximity Temp:               +57.8°C
+	GPU_Discrete_Thermal_Diode Temp:  +62.0°C
+	Memory_Control_Hub Temp:          +61.0°C
+	PCH_Proximity Temp:               +64.8°C
+	PCH_Die Temp:                     +76.0°C
+	Right_Fin_Stack_Proximity Temp:   +53.0°C
+	Left_Fin_Stack_Proximity Temp:    +52.2°C
+	Mainboard_Proximity Temp:         +57.2°C
+	Palmrest_Proximity Temp:          +35.0°C
+	Memory_Proximity Temp:            +47.0°C
+	
+	coretemp-isa-0000
+	Adapter: ISA adapter
+	CPU_Core0 Temp:  +63.0°C  (high = +95.0°C, crit = +105.0°C)
+	CPU_Core1 Temp:  +60.0°C  (high = +95.0°C, crit = +105.0°C)
+
+Not to shabby.
+
 #### Random kworker and Power Consumption issue
-I installed **zabbix** on the laptop, since it runs at home all the times and I kept getting a lot of "Too many processes running" and "High Load Avg" alerts from the laptop. 
+I installed **zabbix** on the laptop, since it runs at home all the time and I kept getting a lot of "Too many processes running" and "High Load Avg" alerts from the laptop. 
 
 ![os-top-la-kwor](https://dl.dropboxusercontent.com/u/24136116/blog_pics/opensuse-mbp/os-top-la-kwor.png)
 
@@ -482,3 +558,102 @@ So if I wanted to revert my file change I could just run the following:
 	<> sudo snapper -v undochange 122..123 /etc/X11/xorg.conf.d/50-device.conf
 	create:0 modify:1 delete:0
 	modifying /etc/X11/xorg.conf.d/50-device.conf
+	
+### Zypper
+SuSe is an RPM based distro but it uses it's own package manager called **zypper**. There are a couple of things I like about **zypper**. I like how after an update you can run **zypper ps** and it will tell you what running programs are using the old files:
+
+	<> sudo zypper up
+	The following 2 packages are going to be upgraded:
+	  moc mpv
+	
+	2 packages to upgrade.
+	Overall download size: 1.4 MiB. Already cached: 0 B. After the operation,
+	additional 48.0 B will be used.
+	Continue? [y/n/? shows all options] (y): y
+	Retrieving package moc-2.5.0-5.57.x86_64   (1/2), 249.1 KiB (672.4 KiB unpacked)
+	Retrieving: moc-2.5.0-5.57.x86_64.rpm ......................[done (100.0 KiB/s)]
+	Retrieving package mpv-0.20.0-61.21.x86_64 (2/2),   1.1 MiB (  2.4 MiB unpacked)
+	Retrieving: mpv-0.20.0-61.21.x86_64.rpm ....................[done (270.8 KiB/s)]
+	Checking for file conflicts: .............................................[done]
+	(1/2) Installing: moc-2.5.0-5.57.x86_64 ..................................[done]
+	(2/2) Installing: mpv-0.20.0-61.21.x86_64 ................................[done]
+	There are some running programs that might use files deleted by recent upgrade. You may wish to check and restart some of them. Run 'zypper ps -s' to list these programs.
+	<> sudo zypper ps
+	The following running processes use deleted files:
+	
+	PID   | PPID  | UID  | User   | Command        | Service | Files
+	------+-------+------+--------+----------------+---------+----------------------
+	24123 | 23020 | 1000 | elatov | mocp (deleted) |         | /usr/lib64/moc/deco->
+	      |       |      |        |                |         | /usr/lib64/moc/deco->
+	      |       |      |        |                |         | /usr/bin/mocp (dele->
+	      |       |      |        |                |         | /usr/lib64/moc/deco->
+
+I don't like that the inconsistent **search** option documentation. For example with **yum** you can run something like this: `yum provides "*/bin/binary_name"` and that will show you which package that you don't have installed will provide that file. It seems that you should be able to use the **what-provides** option for that (wp):
+
+	<> sudo zypper wp "*/bin/convert"
+	Command 'what-provides' is replaced by 'search --provides --match-exact'.
+	See 'help search' for all available options.
+	Loading repository data...
+	Reading installed packages...
+	No matching items found.
+	    
+Eventually I found that within the **search** (se) option there is a **--file-list** (-f) flag which can help out 
+
+	<> sudo zypper se -f "*/bin/convert"
+	Loading repository data...
+	Reading installed packages...
+	
+	S | Name        | Summary                         | Type
+	--+-------------+---------------------------------+--------
+	  | ImageMagick | Viewer and Converter for Images | package
+	  
+With OpenSuSe you can also use the **cnf** (command not found) utility but it doesn't work for libraries:
+
+	<> cnf convert
+	
+	The program 'convert' can be found in the following package:
+	  * ImageMagick [ path: /usr/bin/convert, repository: zypp (repo-oss) ]
+	
+	Try installing with:
+	    sudo zypper install ImageMagick
+
+	    
+The **zypper dup** (distribution update) vs **zypper up** (update) usage. I ran into this forum [Differnce between zypper up and zypper dup](https://forums.opensuse.org/showthread.php/517451-Differnce-between-zypper-up-and-zypper-dup) and there doesn't seem to be clear instructions on which one to use with Tumbleweed. I noticed that the **dup** option re-installs any packages that the distro is supposed to have for example if I remove the **yast*** packages, a **zypper dup** will update, downgrade, and reinstall any packages that it needs (it basically matches a list of packages that that distro version needs to have). A **zypper up** just updates the packages that you have installed. From a [reddit page](https://www.reddit.com/r/openSUSE/comments/3czbzt/regarding_updating_tumbleweed_what_is_the_best/) here is the best advice I saw:
+
+> The "best" update method is currently unknown. Every developer/maillist/forum has been saying "zypper dup" is the supported way. The official documentation for TW does not mention how to go about updating from snapshot to snapshot.
+> 
+> In another thread here, /u/rbrownsuse (chairman of openSUSE) said that it's better to do "zypper up" most of the time with only "zypper dup" occassionally.
+
+
+Listing **packages** (pa) from specific repos seems a little strange (it would always list the **@System** repo), so the best way I figured out how to list packages that are installed from a specific repo was like this:
+
+	<> sudo zypper pa -ir packman | grep -v '@System'
+	Loading repository data...
+	Reading installed packages...
+	S  | Repository | Name                                  | Version                          | Arch
+	---+------------+---------------------------------------+----------------------------------+-------
+	i  | packman    | dkms                                  | 2.2.0.3-16.4                     | noarch
+	i  | packman    | exfat-utils                           | 1.2.4-1.4                        | x86_64
+	v  | packman    | exfat-utils                           | 1.2.4-1.4                        | i586
+	i  | packman    | fdupes                                | 1.51-3.18                        | x86_64
+	v  | packman    | fdupes                                | 1.51-3.18                        | i586
+	i  | packman    | fuse-exfat                            | 1.2.4-1.4                        | x86_64
+	v  | packman    | fuse-exfat                            | 1.2.4-1.4                        | i586
+	i  | packman    | gstreamer-plugins-bad                 | 1.8.3-5.3                        | x86_64
+	v  | packman    | gstreamer-plugins-bad                 | 1.8.3-5.3                        | i586
+	
+Or you can use the **search** option but then I am not sure what the difference is between **search** (se) and **package** (pa):
+
+	<> sudo zypper se -ir packman
+	Loading repository data...
+	Reading installed packages...
+	
+	S | Name                         | Summary                                                                   | Type
+	--+------------------------------+---------------------------------------------------------------------------+--------
+	i | dkms                         | Dynamic Kernel Module Support Framework                                   | package
+	i | exfat-utils                  | Utilities for exFAT file system                                           | package
+	i | fdupes                       | Identifying and deleting, linking or modifying duplicate files            | package
+	i | fuse-exfat                   | Free exFAT file system implementation                                     | package
+	i | gstreamer-plugins-bad        | GStreamer Streaming-Media Framework Plug-Ins                              | package
+	i | k3b                          | A Universal CD and DVD Burning Application                                | package
+	i | k3b-codecs                   | Full Multimedia Codec Support for k3b                                     | package
