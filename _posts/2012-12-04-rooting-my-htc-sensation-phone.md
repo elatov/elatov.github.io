@@ -65,7 +65,7 @@ At the end of the backing up, I had the following files:
 I then realized that the "rooting" steps above are for anyone that has not updated to 4.0.3 ICS, and I unfortunately had already done that. So I found other links, cause the instructions are different. Here are some of the links:
 
 *   "[How to Root & S-OFF HTC Sensation - HBOOT 1.27.0000 & Firmware 3.33!](http://forum.xda-developers.com/showthread.php?t=1870233)"
-*   "[How To S-OFF, Root, Flash CWM Recovery On HTC Sensation With HBoot 1.27.0000](http://www.techsliver.com/how-to-s-off-root-flash-cwm-recovery-on-htc-sensation-with-hboot-1-27-0000/)"
+*   "[How To Root the HTC Sensation on HBoot Version 1.27.0000](https://theunlockr.com/2012/09/20/how-to-root-the-htc-sensation-on-hboot-version-1-27-0000/)"
 
 I followed mostly the last one.
 

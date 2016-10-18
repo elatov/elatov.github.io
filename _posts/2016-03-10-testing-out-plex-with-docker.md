@@ -63,7 +63,7 @@ To confirm the image is there we can use the "**docker images**" command:
 
 ### Creating a Custom Bridge Device for Docker
 
-By default **docker** creates an internal bridge (**docker0**, more information about docker networking is [here](https://docs.docker.com/v1.8/articles/networking/)) that doesn't have an uplink and uses NAT capabilities from iptables to NAT traffic out or create port forwards (DNAT) to *containers*. Since Plex uses multicast for DLNA I decided to create a custom bridge which will allow *containers* direct access to the network. There are a couple of cool posts that discuss **docker** networking:
+By default **docker** creates an internal bridge (**docker0**, more information about docker networking is [here](https://docs.docker.com/engine/userguide/networking/) that doesn't have an uplink and uses NAT capabilities from iptables to NAT traffic out or create port forwards (DNAT) to *containers*. Since Plex uses multicast for DLNA I decided to create a custom bridge which will allow *containers* direct access to the network. There are a couple of cool posts that discuss **docker** networking:
 
 * [Setting up a Docker Bridge](https://www.ibm.com/developerworks/community/blogs/powermeup/entry/Setting_up_a_Docker_Bridge?lang=en)
 * [Four ways to connect a docker container to a local network](http://blog.oddbit.com/2014/08/11/four-ways-to-connect-a-docker/)
@@ -77,7 +77,7 @@ If you want to assign static IPs to VMs there are a couple third party scripts w
 
 From the sound of it, the static IP feature will probably be part of docker soon though. I didn't need static IPs as I was just playing around with the setup.
 
-Instructions on how to create your own bridge are at [Building your own bridge](https://docs.docker.com/v1.8/articles/networking/#building-your-own-bridge). First let's install the **bridge-utils**:
+Instructions on how to create your own bridge are at [Building your own bridge](https://docs.docker.com/engine/userguide/networking/default_network/build-bridges/). First let's install the **bridge-utils**:
 
 	sudo yum install bridge-utils
 
@@ -156,7 +156,7 @@ then I modified the options to look like this
 	└─[0] <> grep OPTIONS /etc/sysconfig/docker
 	OPTIONS='-b=br0 --ip-masq=false --iptables=false'
 
-I disabled SNAT and DNAT settings since I didn't need them any more. The options are covered [here](https://docs.docker.com/v1.8/articles/networking/#quick-guide-to-the-options). And after starting up the **docker** daemon the other bridge was gone:
+I disabled SNAT and DNAT settings since I didn't need them any more. The options are covered [here](https://docs.docker.com/engine/reference/commandline/dockerd/). And after starting up the **docker** daemon the other bridge was gone:
 
 	┌─[elatov@m2] - [/home/elatov] - [2015-12-31 11:51:38]
 	└─[0] <> sudo systemctl start docker

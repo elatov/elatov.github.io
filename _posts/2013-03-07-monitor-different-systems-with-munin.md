@@ -42,7 +42,7 @@ Every 5 minutes it checks the configuration files and then generates or collects
     /etc/apache2/conf.d/munin
 
 
-I will be monitoring the Master machine as well, luckily the **munin-node** package was auto installed when we installed the **munin** package. The configuration for a munin node is under /**etc/munin/munin-node.conf**. Usually we need to setup the IP of the master in that file, but since it will just monitor the local system, we don't need to make any changes. Information on all the settings for that file are [here](http://munin-monitoring.org/wiki/munin-node.conf). Now that everything is configured, let's make sure **munin-node** is running:
+I will be monitoring the Master machine as well, luckily the **munin-node** package was auto installed when we installed the **munin** package. The configuration for a munin node is under /**etc/munin/munin-node.conf**. Usually we need to setup the IP of the master in that file, but since it will just monitor the local system, we don't need to make any changes. Information on all the settings for that file are [here](http://guide.munin-monitoring.org/en/latest/reference/munin-node.conf.html). Now that everything is configured, let's make sure **munin-node** is running:
 
     kerch:~>sudo service munin-node status
     munin-node start/running, process 3619
@@ -67,7 +67,7 @@ Then checking out the "Network Firewall" stats for the day, I saw the following.
 
 ![munin-disk-usage](https://raw.githubusercontent.com/elatov/uploads/master/2013/02/munin-disk-usage.png)
 
-It looks like it started collecting data. Clicking on the host itself produces a page with all the graphs and it took a while to load 20+ graphs. I suppose I could disable some of the plugins :). From the [munin-node.conf](http://munin-monitoring.org/wiki/munin-node.conf) page we see this directive:
+It looks like it started collecting data. Clicking on the host itself produces a page with all the graphs and it took a while to load 20+ graphs. I suppose I could disable some of the plugins :). From the [munin-node.conf](http://guide.munin-monitoring.org/en/latest/reference/munin-node.conf.html) page we see this directive:
 
 > ignore_file Files to ignore when locating plugins. Directive may be repeated.
 
