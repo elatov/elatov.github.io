@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Installing pfSense on PC Engines APU 1D4 / Netgate APU4"
 author: Karim Elatov
@@ -29,7 +29,7 @@ So I decided to try out **pfSense**.
 
 ### Prepare Serial Communication Client
 
-I was lucky and I had an old machine with a serial port. First we can fin ind the device name for the serial port:
+I was lucky and I had an old machine with a serial port. First we can find the device name for the serial port:
 
 	[elatov@localhost ~]$ dmesg | grep -E 'tty|Serial\:'
 	[    0.000000] console [tty0] enabled
