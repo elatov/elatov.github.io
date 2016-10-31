@@ -15,8 +15,7 @@ Let's install **docker**, I was using CentOS 7 and **docker** is part of the def
 
 If you want regular users to be able to run *containers* it's best to create a **docker** group and assign users to it. Here are some references:
 
-* [Quickstart containers](https://docs.docker.com/engine/userguide/basics/)
-* [Create a docker group](https://docs.docker.com/engine/installation/centos/#create-a-docker-group)
+* [Create a docker group](https://docs.docker.com/engine/installation/linux/centos/#create-a-docker-group)
 
 Let's add a group so users part of that group can run **docker** commands:
 
@@ -175,7 +174,7 @@ I disabled SNAT and DNAT settings since I didn't need them any more. The options
 
 ### Running (and Getting Used) to Containers
 
-Unlike VMs, *containers* don't keep running after the main process you started has stopped (some **docker** basics are covered in [Hello world in a container](https://docs.docker.com/engine/userguide/dockerizing/)). For example let's start a *container* from the centos image using interactive mode (this is the **-it** flags) and background it (that's the **-d** flag):
+Unlike VMs, *containers* don't keep running after the main process you started has stopped (some **docker** basics are covered in [Hello world in a container](https://docs.docker.com/engine/tutorials/dockerizing/)). For example let's start a *container* from the centos image using interactive mode (this is the **-it** flags) and background it (that's the **-d** flag):
 
 	┌─[elatov@m2] - [/home/elatov] - [2015-12-31 08:07:00]
 	└─[0] <> docker run -it -d docker.io/centos /bin/bash
@@ -269,7 +268,7 @@ For some reason it took a while for me to get the concept that *containers* are 
 
 ### Creating a Docker Image
 
-Let's create our own image from the centos one with Plex pre-installed (sample setup can be seen at [Build your own images](https://docs.docker.com/engine/userguide/containers/dockerimages/)). First let's launch the image and connect to it:
+Let's create our own image from the centos one with Plex pre-installed (sample setup can be seen at [Build your own images](https://docs.docker.com/engine/tutorials/dockerimages/)). First let's launch the image and connect to it:
 
 	┌─[elatov@m2] - [/home/elatov] - [2015-12-31 08:29:40]
 	└─[0] <> docker run -it docker.io/centos /bin/bash
@@ -619,7 +618,7 @@ And then doing a test run:
 
 When working with **DockerFiles** it's important to know the difference between **CMD** and **ENTRYPOINT** directives. Here are some good links that talk about that:
 
-* [Best practices for writing Dockerfiles](https://docs.docker.com/engine/articles/dockerfile_best-practices/#entrypoint)
+* [Best practices for writing Dockerfiles](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/)
 * [Dockerfile: ENTRYPOINT vs CMD](https://www.ctl.io/developers/blog/post/dockerfile-entrypoint-vs-cmd/)
 
 I ended up using **ENTRYPOINT** but I could've used **CMD** in my case as well. I will admit this is not the best way to run plex in a *container*, but there are great examples that cover appropriate use cases:

@@ -153,7 +153,7 @@ I then ran the following to apply the new **pf** settings:
 
 #### Install OSSEC Agent on Fedora
 
-The [Downloads](http://www.ossec.net/?page_id=19) page has instructions on how to add the **atomic** repository (which contains pre-compiled OSSEC packages). Run the following to add the repository:
+The [Downloads](http://ossec.github.io/downloads.html) page has instructions on how to add the **atomic** repository (which contains pre-compiled OSSEC packages). Run the following to add the repository:
 
     elatov@fed:~$wget -q -O - https://www.atomicorp.com/installers/atomic | sudo sh
     All atomic repository rpms are UNSUPPORTED.

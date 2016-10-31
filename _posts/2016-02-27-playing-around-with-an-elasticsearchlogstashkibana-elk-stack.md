@@ -14,7 +14,7 @@ Some of the components depend on Java so first let's install that. On my CentOS 
 
 	$ sudo yum install java-1.8.0-openjdk-headless
 
-After that we can follow the instructions laid out in the [Repositories](https://www.elastic.co/guide/en/elasticsearch/reference/current/setup-repositories.html) section of the documentation. First let's import the GPG key for the RPM packages:
+After that we can follow the instructions laid out in the [Repositories](https://www.elastic.co/guide/en/elasticsearch/reference/2.1/setup-repositories.html) section of the documentation. First let's import the GPG key for the RPM packages:
 
 
 	$ sudo rpm --import https://packages.elastic.co/GPG-KEY-elasticsearch
