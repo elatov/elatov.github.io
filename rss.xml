@@ -13,7 +13,7 @@ title : RSS Feed
         <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
         <ttl>1800</ttl>
 
-{% for post in site.posts %}
+{% for post in site.posts limit:10 %}
         <item>
                 <title>{{ post.title }}</title>
                 <description>{{ post.content | xml_escape }}</description>
