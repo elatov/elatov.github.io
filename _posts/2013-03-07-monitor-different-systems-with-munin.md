@@ -17,7 +17,7 @@ So Munin uses Master/node terminology, but let's get to it.
 
 Instructions on how to install
 
-Munin installation instructions are available from [this](http://munin-monitoring.org/wiki/LinuxInstallation) Munin page. To install it, just run this:
+Munin installation instructions are available from [this](http://guide.munin-monitoring.org/en/latest/installation/index.html) Munin page. To install it, just run this:
 
     kerch:~>sudo apt-get install munin
 
