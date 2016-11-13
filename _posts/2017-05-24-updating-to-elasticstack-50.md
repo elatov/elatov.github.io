@@ -17,13 +17,13 @@ I had the following versions installed of the ELK (**elasticsearch**,**logstash*
 
 I read over the [Upgrading the Elastic Stack](https://www.elastic.co/guide/en/elastic-stack/current/upgrading-elastic-stack.html), and here is the recommended update order:
 
-1. Elasticsearch Hadoop (can talk to Elasticsearch 5.0 and 2.x)
-2. Elasticsearch
-	* X-Pack for Elasticsearch (combines Marvel Agent, Shield, Watcher, and Graph)
-3. Kibana (now includes Timelion and Console, formerly known as Sense)
-	* X-Pack for Kibana (combines Marvel, Shield, Graph, and Reporting)
-4. Logstash
-5. Beats
+> 1. Elasticsearch Hadoop (can talk to Elasticsearch 5.0 and 2.x)
+> 2. Elasticsearch
+> 	* X-Pack for Elasticsearch (combines Marvel Agent, Shield, Watcher, and Graph)
+> 3. Kibana (now includes Timelion and Console, formerly known as Sense)
+> 	* X-Pack for Kibana (combines Marvel, Shield, Graph, and Reporting)
+> 4. Logstash
+> 5. Beats
 
 Let's try it out.
 
@@ -31,7 +31,7 @@ Let's try it out.
 
 Reading over [Upgrading Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/5.0/setup-upgrade.html) there is a table of suggested updates.
 
-![es-update-table](es-update-table.png)
+![es-update-table](https://dl.dropboxusercontent.com/u/24136116/blog_pics/update-es-50/es-update-table.png)
 
 I think the biggest concern is whether you need to reindex old indices. I was on **elasticsearch** 2.4 and I was using **logstash**'s time based indices so I didn't need to worry about that (I also used [curator](https://www.elastic.co/guide/en/elasticsearch/client/curator/current/examples.html) to delete old indices):
 
@@ -189,7 +189,7 @@ and then we can confirm the indices are okay as well:
 	...
 	yellow open   .kibana             m4qTcJx4TKi9zxZaWufOoA   1   1         46            1       63kb           63kb
 	...
-		yellow open   logstash-2016.09.30 9Ayf0BgRS6mvVtoW_f_oNw   5   1     143003            0       67mb           67mb
+	yellow open   logstash-2016.09.30 9Ayf0BgRS6mvVtoW_f_oNw   5   1     143003            0       67mb           67mb
 
 Now let's renabled allocation:
 
@@ -232,9 +232,9 @@ You can also confirm the version of **elasticsearch**:
 
 ### Updating Kibana from 4.5 to 5.0
 
-I read over [Upgrading Kibana](https://www.elastic.co/guide/en/kibana/5.0/upgrade.html) and checking out the table I can just do a **standard** upgrade without doing a re-index:
+I read over [Upgrading Kibana](https://www.elastic.co/guide/en/kibana/5.0/upgrade.html) and checking out the table, I can just do a **standard** upgrade without doing a re-index (since I was using **logstash**'s time based indices):
 
-![kib-update-table](kib-update-table.png)
+![kib-update-table](https://dl.dropboxusercontent.com/u/24136116/blog_pics/update-es-50/kib-update-table.png)
 
 I started using Kibana from 4.3 and above (you can check out the original setup that I did [here](/2016/02/playing-around-with-an-elasticsearchlogstashkibana-elk-stack/)) so I was good. The steps for the update are layed out
 in the [Standard Upgrade](https://www.elastic.co/guide/en/kibana/5.0/upgrade-standard.html) page. First you stop the **kibana** instance, which I did above. Then install the rpm, since **elasticsearch** and **kibana** share the repo, I didn't have to do anything special.  Then I performed the update:
@@ -302,7 +302,7 @@ I didn't have any plugins for **kibana** so I just started up the service:
 Then you can point your browser to the **kibana** dashboard and see the new
 version:
 
-![kib-50](kib-50.png)
+![kib-50](https://dl.dropboxusercontent.com/u/24136116/blog_pics/update-es-50/kib-50.png)
 
 ### Updating Logstash from 2.3 to 5.0
 
@@ -375,7 +375,7 @@ Now let's start the service:
 	Oct 29 15:27:54 puppet.kar.int logstash[551]: "rule" => "5",
 	Oct 29 15:27:54 puppet.kar.int logstash[551]: "type" => "pfsense",
 
-I used to use the **stdout** output module, but with 5.0 that ended up logging to **syslog** and **journalctl**, so I changed that to be file instead of **stdout**:
+I used to use the **stdout** output module, but with 5.0 that ended up logging to **syslog** and **journalctl**, so I changed that to be **file** instead of **stdout**:
 
 	<> tail -3 /etc/logstash/conf.d/logstash-syslog.conf
 	  file { path => "/var/log/logstash/logstash-syslog.log" codec => rubydebug }
@@ -386,7 +386,17 @@ Then one more restart:
 
 	<> sudo systemctl restart logstash
 
-and I saw the logs under **/var/log/logstash/logstash-syslog.log** and not under **/var/log/messages**. I had to re-add the **logrotate** config back since the rpm install removed it.
+and I saw the logs under **/var/log/logstash/logstash-syslog.log** and not under **/var/log/messages**. I had to re-add the **logrotate** config back since the rpm install removed it. Also with the new version there is an API now available on **logstash**, so you could check out the version like this:
+
+	<> curl "127.0.0.1:9600/?pretty"
+	{
+	  "host" : "puppet.kar.int",
+	  "version" : "5.0.0",
+	  "http_address" : "127.0.0.1:9600",
+	  "build_date" : "2016-10-26T04:09:44Z",
+	  "build_sha" : "6ffe6451db6a0157cc6dd23458a0342c3118a9b0",
+	  "build_snapshot" : false
+	}%
 
 ### Post Upgrade Changes
 I ended up lowering the memory usage for the **logstash** and **elasticsearch** java instances:
@@ -397,4 +407,4 @@ I ended up lowering the memory usage for the **logstash** and **elasticsearch** 
 	/etc/elasticsearch/jvm.options:-Xms768m
 	/etc/elasticsearch/jvm.options:-Xmx768m
 
-Also my **logstash** config kept failing to do geoip lookup on internal IPs. I had the setup that's covered [here](http://elatov.github.io/2016/04/suricata-logs-in-splunk-and-elk/) which didn't do geoip lookups on internal IPs. I had to move the *src_ip if** loop inside the first if statement that checked if it's a **SuricataIDPS** type. After that the geoip started working appropriately. I feels like the **filter** option is now globally applied to all the inputs not just within the config file.
+Also my **logstash** config kept failing to do geoip lookup on internal IPs. I had the setup that's covered [here](http://elatov.github.io/2016/04/suricata-logs-in-splunk-and-elk/) which didn't do geoip lookups on internal IPs. I had to move the *src_ip* **if** loop inside the first if statement that checked if it's a **SuricataIDPS** type. After that the geoip started working appropriately. I feels like the **filter** option is now globally applied to all the inputs not just within the config file.
