@@ -1,9 +1,9 @@
 ---
-published: false
+published: true
 layout: post
 title: "Setup Suricata on pfSense"
 author: Karim Elatov
-categories: [security]
+categories: [security,networking]
 tags: [pfsense,suricata,barnyard2]
 ---
 After installing [pfSense on the APU device](/2016/10/installing-pfsense-on-pc-engines-apu1d4netgate-apu4/) I decided to setup **suricata** on it as well.
