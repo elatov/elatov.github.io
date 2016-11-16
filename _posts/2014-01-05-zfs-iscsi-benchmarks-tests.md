@@ -502,9 +502,9 @@ After reading a couple of sites:
 
 ![zfs ds examples ZFS iSCSI Benchmark Tests on ESX](https://github.com/elatov/uploads/raw/master/2013/12/zfs-ds-examples.png)
 
-[ZFS Zvol blocksize and ESXi](http://n4f.siftusystems.com/index.php/2013/07/14/zfs-zvol-blocksize-and-esxi/)
+[FreeNAS 9.10 on VMware ESXi 6.0 Guide](https://b3n.org/freenas-9-3-on-vmware-esxi-6-0-guide/)
 
-*   To my surprise it seems that the 64k vzol block size won out in nearly every case with a few minor exceptions of specific operations.
+*   I use 64K block-size based on some benchmarks I’ve done comparing 16K (the default), 64K, and 128K.  64K blocks didn’t really hurt random I/O but helped some on sequential performance, and also gives a better compression ratio.  128K blocks had the best better compression ratio but random I/O started to suffer so I think 64K is a good middle-ground.  Various workloads will probably benefit from different block sizes.
 
 [Set I/O block size](http://myqtest.blogspot.com/2009/08/set-io-block-size.html)
 

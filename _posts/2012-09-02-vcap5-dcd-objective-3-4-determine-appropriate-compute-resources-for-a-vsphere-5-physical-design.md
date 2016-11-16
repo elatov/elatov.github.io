@@ -365,7 +365,7 @@ Limits are rarely used:
 
 *   [Memory Limits](http://www.yellow-bricks.com/2010/07/06/memory-limits/)
 *   [Limiting your vCPU](http://www.yellow-bricks.com/2010/05/18/limiting-your-vcpu/)
-*   [VMWare Resources: Reservations - Limits - Shares](http://www.warmetal.nl/vmwareresources)
+*   [VMWare Resources: Reservations - Limits - Shares](http://www.getshifting.com/wiki/vmwareresources)
 
 Reservations should be used for critical VMs that you want to ensure that they will have a certain amount of resources even if it's not currently using it (a guarantee). Reservations should be set slightly higher than the Avg. Active memory size (for overhead): [CPU/MEM Reservation Behavior](http://www.yellow-bricks.com/2010/07/08/reservations-primer/)
 
