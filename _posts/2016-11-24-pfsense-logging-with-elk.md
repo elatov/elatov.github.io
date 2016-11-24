@@ -1,15 +1,15 @@
 ---
-published: false
+published: true
 layout: post
 title: "pfSense Logging with ELK"
 author: Karim Elatov
 categories: [security]
 tags: [pfsense,elk,logstash,kibana]
 ---
-After [setting up pfsense](/2016/10/installing-pfsense-on-pc-engines-apu1d4netgate-apu4/) and [installing suricata](/2016/11/setup-suricata-on-pfsense/) on it, I decided to monitor the logging with ELK.
+After [setting up pfsense](/2016/10/installing-pfsense-on-pc-engines-apu1d4netgate-apu4/) and [installing suricata](/2016/11/setup-suricata-on-pfsense/) on it, I decided to monitor pfsense's logging with ELK.
 
 ### Configuring LogStash
-There actually a bunch of good example out there already. Here are few:
+There are actually a bunch of good example out there already. Here are few:
 
 * [Monitoring pfSense (2.1 & 2.2) logs using ELK (ElasticSearch, Logstash, Kibana)](https://elijahpaul.co.uk/monitoring-pfsense-2-1-logs-using-elk-logstash-kibana-elasticsearch/)
 * [pfsense & ELK](http://secretwafflelabs.com/2015/11/06/pfsense-elk/)
@@ -121,7 +121,7 @@ I ended up with the following config:
 		}
 	}
 	
-I added up adding a new type of **pfsense**, but other people used the below syntax to basically mark it syslog unless it's coming from the **pfsense** machine. That's probably a better setup, but since I created a dedicated port for my **pfsense** input I was okay with it. Here is relevant **logstash** config if you want to use one config:
+I ended up adding a new type of **pfsense**, but other people used the below syntax to basically mark it **syslog** unless it's coming from the **pfsense** machine. That's probably a better setup, but since I created a dedicated port for my **pfsense** input I was okay with it. Here is relevant **logstash** config if you want to use one config:
 
 	filter {
 	    if [type] == "syslog" {
@@ -213,7 +213,7 @@ You will notice that the above setup is pointing to a new patterns file. I ended
 	
 	DHCPRELEASE %{WORD:dhcp_action} of %{IPV4:dhcp_client_ip} from %{COMMONMAC:dhcp_client_mac}%{SPACE}(\(%{GREEDYDATA:dhcp_client_hostname}\))? via (?<dhcp_client_vlan>[0-9a-z_]*) %{GREEDYDATA:dhcp_release_message}
 	
-I had come issues parsing the ECN option, in my setup it was coming in as string and not an integer. From the [wikipedia](https://en.wikipedia.org/wiki/Explicit_Congestion_Notification) page here are the conversions:
+I ran into issues parsing the ECN option, in my setup it was coming in as **string** and not an **integer**. From the [wikipedia](https://en.wikipedia.org/wiki/Explicit_Congestion_Notification) page here are the conversions:
 
 > * 00 – Non ECN-Capable Transport, Non-ECT
 > * 10 – ECN Capable Transport, ECT(0)
