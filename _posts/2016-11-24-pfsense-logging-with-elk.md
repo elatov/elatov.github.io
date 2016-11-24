@@ -6,7 +6,7 @@ author: Karim Elatov
 categories: [security]
 tags: [pfsense,elk,logstash,kibana]
 ---
-After [setting up pfsense](/2016/10/installing-pfsense-on-pc-engines-apu1d4netgate-apu4/) and [installing suricata](/2016/11/setup-suricata-on-pfsense/) on it, I decided to monitor pfsense's logging with ELK.
+After [setting up pfsense](/2016/10/installing-pfsense-on-pc-engines-apu1d4-netgate-apu4/) and [installing suricata](/2016/11/setup-suricata-on-pfsense/) on it, I decided to monitor pfsense's logging with ELK.
 
 ### Configuring LogStash
 There are actually a bunch of good example out there already. Here are few:

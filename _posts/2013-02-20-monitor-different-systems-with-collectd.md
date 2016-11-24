@@ -45,10 +45,9 @@ As I kept researching, I discovered that there are many different monitoring app
 
 *   [Best Monitoring tools in Linux](http://gajendrak.wordpress.com/2012/04/08/best-monitoring-tools-in-linux/)
 *   [Open Source Server Monitoring Tools – Cacti, Zabbix, Nagios](https://cloudstats.me/2015/08/08/open-source-server-monitoring-tools-cacti-zabbix-nagios/)
-*   [10 Free Server & Network Monitoring Tools that Kick Ass](http://sixrevisions.com/tools/10-free-server-network-monitoring-tools-that-kick-ass/)
 *   [6 More of the Best Free Linux Monitoring Tools](http://www.linuxlinks.com/article/20101118163040955/Monitoring-Extra.html)
 
-As I mentioned, I have used Nagios before so I wanted to try something new. We also used **Cacti**, alongside with Nagios so I didn't want to use that either. I cared about two aspects: simplicity and performance. Having said that, I decided to try out **Collectd**, from [this](http://sixrevisions.com/tools/10-free-server-network-monitoring-tools-that-kick-ass/) site:
+As I mentioned, I have used Nagios before so I wanted to try something new. We also used **Cacti**, alongside with Nagios so I didn't want to use that either. I cared about two aspects: simplicity and performance. Having said that, I decided to try out **Collectd**, from the old "10 free server network monitoring tools that kick ass" site:
 
 > Collectd is similar to Munin and Cacti in that it focuses on graphing system metrics. Where it excels in is that it is designed specifically for performance and portability; this ultimately means it’s great on rugged systems, low-end systems, and embedded systems. Being designed for performance and low-system resource use means that Collectd can gather data every 10 seconds without interfering with your server processes, providing extremely high-resolution statistics.
 
@@ -67,7 +66,7 @@ But then checking out their [configuration](http://linux.die.net/man/5/monitorix
 
 I didn't want to run a webserver on each of my clients just so I could monitor them. So I decided to skip Monitorix.
 
-I also wanted to try out **Munin**, from [this](http://sixrevisions.com/tools/10-free-server-network-monitoring-tools-that-kick-ass/) site:
+I also wanted to try out **Munin**, from the old "10 free server network monitoring tools that kick ass" site:
 
 > One of Munin’s greatest strengths is how simple it is to extend. With just a few lines of code, you can write a plugin to monitor almost anything. Being so easy to extend means that Munin is also a good choice for graphing things unrelated to server performance, such as the number of user signups or website popularity.
 
