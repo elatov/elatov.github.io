@@ -20,6 +20,9 @@ title : RSS Feed
                 <link>{{ site.production_url }}{{ post.url }}</link>
                 <guid isPermaLink="true">{{ site.production_url }}{{ post.id }}</guid>
                 <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+				{% for tag in post.tags %}
+					<category>{{ tag  }}</category>
+				{% endfor %}
         </item>
 {% endfor %}
 
