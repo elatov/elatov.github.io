@@ -17,7 +17,7 @@ I followed the instruction laid out in "[Upgrading OpenIndiana](http://wiki.open
     ~# pkg rebuild-index
 
 
-But unfortunately it didn't help out. So I downloaded the [iso](https://www.openindiana.org/download/), and just did a clean install. Since I had two drives which I setup before (If you want more information regarding that, check out my [previous](/2012/08/migrating-the-root-zfs-pool-to-a-smaller-drive/)post), I setup up my system pool on the 8GB drive and my data pool to be on the other drive. So during the clean install I just selected the drive which had my system pool and the install just wiped that drive and setup a new pool on it. But my data pool was still in tact. After the install/update finished, I saw the following:
+But unfortunately it didn't help out. So I downloaded the [iso](https://www.openindiana.org/download/), and just did a clean install. Since I had two drives which I setup before (If you want more information regarding that, check out my [previous](/2012/08/migrating-the-root-zfs-pool-to-a-smaller-drive/) post), I setup up my system pool on the 8GB drive and my data pool to be on the other drive. So during the clean install I just selected the drive which had my system pool and the install just wiped that drive and setup a new pool on it. But my data pool was still in tact. After the install/update finished, I saw the following:
 
     root@openindiana:~# zpool status
     pool: rpool
