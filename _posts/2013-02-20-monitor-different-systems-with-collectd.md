@@ -44,7 +44,7 @@ My Ubuntu Machine:
 As I kept researching, I discovered that there are many different monitoring applications out there. Most are included in the wikipedia page "[Comparison of network monitoring systems](http://en.wikipedia.org/wiki/Comparison_of_network_monitoring_systems)". Checking out other sites, I saw many different comparisons:
 
 *   [Best Monitoring tools in Linux](http://gajendrak.wordpress.com/2012/04/08/best-monitoring-tools-in-linux/)
-*   [Open Source Server Monitoring Tools – Cacti, Zabbix, Nagios](https://cloudstats.me/2015/08/08/open-source-server-monitoring-tools-cacti-zabbix-nagios/)
+*   [Top 16 best network monitoring tools for](https://blog.pandorafms.org/network-monitoring-tools/)
 *   [6 More of the Best Free Linux Monitoring Tools](http://www.linuxlinks.com/article/20101118163040955/Monitoring-Extra.html)
 
 As I mentioned, I have used Nagios before so I wanted to try something new. We also used **Cacti**, alongside with Nagios so I didn't want to use that either. I cared about two aspects: simplicity and performance. Having said that, I decided to try out **Collectd**, from the old "10 free server network monitoring tools that kick ass" site:
