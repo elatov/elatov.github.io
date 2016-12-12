@@ -478,9 +478,8 @@ And you can also check the status but using the CLI:
         queues: IDLE
 
 
-There are also instructions on how to get authenticated on a headless Linux server. The instructions are laid out [here](http://askubuntu.com/questions/95591/how-do-i-configure-ubuntu-one-on-a-server). You just have to use a python script to get authenticated. I ran into some forums on how to set it up for Fedora and Debian, which were my two other machines (UbuntuOne had clients for MacOS and Windows as well):
+There are also instructions on how to get authenticated on a headless Linux server. The instructions are laid out [here](http://askubuntu.com/questions/95591/how-do-i-configure-ubuntu-one-on-a-server). You just have to use a python script to get authenticated. I ran into some forums on how to set it up for Debian, which were my two other machines (UbuntuOne had clients for MacOS and Windows as well):
 
-*   [UbuntuOne Packages for Fedora](http://www.maxiberta.com.ar/blog/ubuntuone-packages-fedora)
 *   [Ubuntu One on Debian Wheezy](https://conalambre.wordpress.com/2012/10/15/ubuntu-one-en-debian-wheezy/)
 *   [Howto: Ubuntu One in Debian Wheezy](http://forums.debian.net/viewtopic.php?f=16&t=63310)
 

@@ -11,7 +11,7 @@ A couple of sites talked about using pre-upgrade to perform the update:
 
 - [Upgrading headless hetzner server from CentOS 6.5 to CentOS 7: Success](http://tud0r.com/?p=238) 
 - [Upgrade to CentOS 7](http://linuxsysconfig.com/2014/07/upgrade-to-centos-7/)
-- [In Place Upgrade CentOS 6.5 to 7.0 using preupg](http://abi.io/blogs/in-place-upgrade-centos-6-5-to-7-0-using-preupg.html) 
+- [CentOS 7: Upgrading from CentOS 6.x In Place](https://linuxacademy.com/blog/linux/centos-7-upgrading-from-centos-6-x-in-place/) 
 - [A Very Quick Look At Upgrading CentOS 6.5 To 7.0](http://damianzaremba.co.uk/2014/08/quick-look-at-upgrading-to-centos-7/) 
 
 ### Upgrade CentOS 6.5 to 7.0 with PreUpg
