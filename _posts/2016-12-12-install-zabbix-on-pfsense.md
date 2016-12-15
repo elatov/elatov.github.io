@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Install Zabbix on pfSense"
 author: Karim Elatov
