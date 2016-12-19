@@ -6,7 +6,7 @@ author: Karim Elatov
 categories: [security,network]
 tags: [zabbix,pfsense]
 ---
-After I [installed pfSense](/2016/10/installing-pfsense-on-pc-engines-apu1d4netgate-apu4/), [setup Suricata on pfSense](/2016/11/setup-suricata-on-pfsense/), and [setup logging on pfSense](/2016/11/pfsense-logging-with-elk/) I decided to also monitor the machine it self. I use Zabbix to accomplish this at home.
+After I [installed pfSense](/2016/10/installing-pfsense-on-pc-engines-apu1d4-netgate-apu4/), [setup Suricata on pfSense](/2016/11/setup-suricata-on-pfsense/), and [setup logging on pfSense](/2016/11/pfsense-logging-with-elk/) I decided to also monitor the machine it self. I use Zabbix to accomplish this at home.
 
 ### Install Zabbix
 Currently **pfSense** allows you to install **Zabbix 2.2** (which is kind of old, but it will work). It looks like **Zabbix 3.0** is on it's way: [zabbix-3.0 for pfsense-2.3](https://forum.pfsense.org/index.php?topic=106181.0). While we wait for that let's install **Zabbix 2.2** and configure it. The install is pretty simple, just go to **System** -> **Package Manager** -> **Available Packages**, search for **Zabbix** and install it. After it's done installing you will see something like this:
