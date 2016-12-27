@@ -202,6 +202,8 @@ to this:
 	fi
 
 
+Do the same thing in the **/etc/bashrc** and **/etc/csh.cshrc** files.
+
 #### To decrease the impact of a full /tmp file system, place /tmp on a separated partition [FILE-6310]
 
 There is a pretty good site that talks about the setup for CentOS 7: [RHEL7: How to configure /tmp on tmpfs](https://www.certdepot.net/rhel7-how-to-configure-tmp-on-tmpfs/). All we have to do is just enable the right service:
@@ -592,3 +594,115 @@ Notice I also added **/var/ossec/bin/** to the **bindirs**, parameter since that
 ### Harden the system by installing at least one malware scanner, to perform periodic file system scans [HRDN-7230]
 
 I ended up installing **sophos** and here is [post](/2016/12/sophos-9-on-centos-7/) on the setup.
+
+### One or more sysctl values differ from the scan profile and could be tweaked [KRNL-6000]
+
+A lot of these are covered here:
+[Security Features in the Kernel from Security and Hardening Guide](https://www.suse.com/documentation/sles-12/singlehtml/book_hardening/book_hardening.html#sec.sec_prot.general.kernel). First get a backup of the default settings just in case:
+
+	<> sudo sysctl -a > /tmp/sysctl-defaults.conf
+
+Then create the config file:
+
+	<> sudo cat /etc/sysctl.d/80-lynis.conf
+	kernel.kptr_restrict = 2
+	kernel.sysrq = 0
+	net.ipv4.conf.all.accept_redirects = 0
+	net.ipv4.conf.all.log_martians = 1
+	net.ipv4.conf.all.send_redirects = 0
+	net.ipv4.conf.default.accept_redirects = 0
+	net.ipv4.conf.default.log_martians = 1
+	#net.ipv4.tcp_timestamps = 0
+	net.ipv6.conf.all.accept_redirects = 0
+	net.ipv6.conf.default.accept_redirects = 0
+
+And then apply the settings:
+
+	<> sudo sysctl --system
+	* Applying /usr/lib/sysctl.d/00-system.conf ...
+	* Applying /usr/lib/sysctl.d/50-default.conf ...
+	...
+	...
+	* Applying /etc/sysctl.d/80-lynis.conf ...
+	kernel.kptr_restrict = 2
+	kernel.sysrq = 0
+	net.ipv4.conf.all.accept_redirects = 0
+	net.ipv4.conf.all.log_martians = 1
+	net.ipv4.conf.all.send_redirects = 0
+	net.ipv4.conf.default.accept_redirects = 0
+	net.ipv4.conf.default.log_martians = 1
+	net.ipv6.conf.all.accept_redirects = 0
+	net.ipv6.conf.default.accept_redirects = 0
+	* Applying /etc/sysctl.d/99-sysctl.conf ...
+	* Applying /etc/sysctl.conf ...
+
+I decided to keep the tcp timestamps option as is after reading [this](http://stackoverflow.com/questions/7880383/what-benefit-is-conferred-by-tcp-timestamp) post. To disable that check, just comment out this line in your profile:
+
+	<> grep tcp_times /etc/lynis/default.prf
+	config-data=sysctl;net.ipv4.tcp_timestamps;0;1;Do not use TCP time stamps;-;category:security;
+
+### Harden compilers like restricting access to root user only [HRDN-7222]
+
+Let's disallow **other**s from using **/usr/bin/gcc**:
+
+	┌─[elatov@m2] - [/home/elatov] - [2016-12-27 12:15:29]
+	└─[0] <> which gcc
+	/usr/bin/gcc
+	┌─[elatov@m2] - [/home/elatov] - [2016-12-27 12:16:49]
+	└─[0] <> ls -l /usr/bin/gcc
+	-rwxr-xr-x 2 root root 768616 Nov  4 09:19 /usr/bin/gcc
+	┌─[elatov@m2] - [/home/elatov] - [2016-12-27 12:16:54]
+	└─[0] <> sudo chmod o-rx /usr/bin/gcc
+	┌─[elatov@m2] - [/home/elatov] - [2016-12-27 12:17:10]
+	└─[0] <> gcc
+	zsh: permission denied: gcc
+
+Let's do same thing for **/usr/bin/as**
+
+	<> sudo chmod o-rx /usr/bin/as
+
+You can get a list of discovered compilers in the log
+
+	<> grep compiler /var/log/lynis.log
+	2016-12-27 12:19:05   Found known binary: as (compiler) - /usr/bin/as
+	2016-12-27 12:19:05   Found known binary: gcc (compiler) - /usr/bin/gcc
+
+
+### End Results
+In the end got the following results:
+
+>  -[ Lynis 2.4.0 Results ]-
+> 
+>   Great, no warnings
+> 
+>   Suggestions (1):
+>   
+>   ----------------------------
+>   
+>   * Check iptables rules to see which rules are currently not used [FIRE-4513]
+>       https://cisofy.com/controls/FIRE-4513/
+> 
+>   Follow-up:
+>   
+>   ----------------------------
+>   
+>   - Show details of a test (lynis show details TEST-ID)
+>   - Check the logfile for all details (less /var/log/lynis.log)
+>   - Read security controls texts (https://cisofy.com)
+>   - Use --upload to upload data to central system (Lynis Enterprise users)
+> 
+> ================================================================================
+> 
+>   Lynis security scan details:
+> 
+>   Hardening index : 91 [##################  ]
+>   
+>   Tests performed : 201
+>   
+>   Plugins enabled : 0
+
+The firewall one suggests running **iptables -L -n -v** and checking for any rules that has **0 bytes** processed. But I had some rules that are valid, like block ICMP but they were just never triggered. But it's good reminder to check out your rules, cause some rules do get out of date. Also just for reference when you are testing out your configurations you can run one specific test like so:
+
+	<> sudo lynis audit system --tests ACCT-9622
+	
+That should be it, now my system is super secure and everyone knows about it :)
