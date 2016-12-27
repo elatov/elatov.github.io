@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 layout: post
 title: "Sophos 9 on CentOS 7"
 author: Karim Elatov
