@@ -7,7 +7,7 @@ categories: [os]
 tags: [linux,opensuse,nvidia,grub,udev]
 ---
 ### OpenSuSe Leap 42.2
-I had an old mac book pro laying around and I wanted to install linux on it. I have been reading good things about SUSE/OpenSUSE so I decided to give it a try. When I went to the download page the first download link was for the beta version, so I decided to try the Leap 42.2 Beta version. I downloaded the ISO and burned it to a DVD. After that I inserted the DVD into the drive and rebooted. Right after the boot chime, I held the "**C**" key and it booted from the DVD. If you look at the [SDB:Installation on a Mac](https://en.opensuse.org/SDB:Installation_on_a_Mac) page, they recommend leaving some of the Mac OS X partitions intact, but I decided to completely wipe everything and just use **rEFIt** (or **rEFInd**) to sync the **GPT** partition. 
+I had an old mac book pro laying around and I wanted to install linux on it. I have been reading good things about SUSE/OpenSUSE so I decided to give it a try. When I went to the download page the first download link was for the beta version, so I decided to try the Leap 42.2 Beta version. I downloaded the ISO and burned it to a DVD. After that I inserted the DVD into the drive and rebooted. Right after the boot chime, I held the "**C**" key and it booted from the DVD. If you look at the [SDB:Installation on a Mac](https://en.opensuse.org/SDB:Installation_on_a_Mac) page, they recommend leaving some of the Mac OS X partitions intact, but I decided to completely wipe everything and just use **rEFIt** (or **rEFInd**) to sync the **GPT** partition.
 
 #### OpenSuSe Install
 After the DVD boots you will see the GRUB menu for it:
@@ -39,7 +39,7 @@ I booted from the CD and chose the *Rescue Linux* option and it booted into a sh
 	$ lvm vgscan -v
 	$ lvm vgchange -a y
 	$ lvm lvs –all
-	
+
 	## mount all the partions
 	$ mount /dev/mapper/system-root /a
 	$ mount --bind /dev /a/dev
@@ -47,16 +47,16 @@ I booted from the CD and chose the *Rescue Linux* option and it booted into a sh
 	$ mount --bind /sys /a/sys
 	$ mount /dev/sda2 /a/boot
 	$ mount /dev/sda1 /a/boot/efi
-	
+
 	## chroot into the install
 	$ chroot /a
-	
+
 	## Install grub
 	$ grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=opensuse --recheck --debug
 	$ grub-mkconfig -o /boot/efi/EFI/opensuse/grub.cfg
 	$ cp /boot/efi/EFI/opensuse/grub.cfg /boot/grub/grub.cfg
 	$ cp /boot/efi/EFI/opensuse/grubx64.efi /boot/efi/EFI/boot/bootx64.efi
-	
+
 	## delete the Mac OS X option
 	$ efibootmgr -b 0000 -B
 
@@ -68,10 +68,10 @@ After the above commands are done, you can do the following to reboot:
 
 	## leave the chroot
 	$ exit
-	
+
 	## unmount the install
 	$ umount -R /a
-	
+
 	## and reboot
 	$ reboot
 
@@ -90,7 +90,7 @@ Then rebooting one more time, I was able to boot into the OpenSuSe install.
 First I installed all the necessary packages:
 
 	$ sudo zypper in xorg-x11-server xinit lightdm icewm
-	
+
 Then I enabled the **graphical** target for **systemd**:
 
 	$ sudo systemctl set-default graphical.target
@@ -105,7 +105,7 @@ In summary I created the following file:
 	<> cat /etc/grub.d/02_mbp
 	echo "setpci -s "00:01.0" 3e.b=8"
 	echo "setpci -s "01:00.0" 04.b=7"
-	
+
 And made it executable:
 
 	$ sudo chmod +x /etc/grub.d/02_mbp
@@ -125,16 +125,16 @@ Then we can run the following for it to install the correct driver:
 	Warning: Repository 'openSUSE-Leap-42.2-Update-Non-Oss' appears to be outdated. Consider using a different mirror or server.
 	Reading installed packages...
 	Resolving package dependencies...
-	
+
 	The following 5 NEW packages are going to be installed:
 	  nvidia-computeG03 nvidia-gfxG03-kmp-default nvidia-glG03
 	  nvidia-uvm-gfxG03-kmp-default x11-video-nvidiaG03
-	
+
 	5 new packages to install.
 	Overall download size: 70.1 MiB. Already cached: 0 B. After the operation,
 	additional 341.0 MiB will be used.
 	Continue? [y/n/? shows all options] (y):
-	
+
 After that **X** would finally start (it wouldn't be just a blank screen), but **lightdm** still failed to load. I checked out the logs under **/var/log/Xorg.0.log** and I saw the following:
 
 	[    34.450] (EE) NVIDIA(0): Failed to initialize the GLX module; please check in your X
@@ -142,7 +142,7 @@ After that **X** would finally start (it wouldn't be just a blank screen), but *
 	[    34.450] (EE) NVIDIA(0):     server, and that the module is the NVIDIA GLX module.  If
 	[    34.450] (EE) NVIDIA(0):     you continue to encounter problems, Please try
 	[    34.450] (EE) NVIDIA(0):     reinstalling the NVIDIA driver.
-	
+
 For whatever reason it was using the wrong **glx** module, luckily that file was managed with **alternatives** so I just updated the link. Here is the before:
 
 	~> sudo update-alternatives --display libglx.so
@@ -152,11 +152,11 @@ For whatever reason it was using the wrong **glx** module, luckily that file was
 	  link libglx.so is /usr/lib64/xorg/modules/extensions/libglx.so
 	/usr/lib64/xorg/modules/extensions/nvidia/nvidia-libglx.so - priority 100
 	/usr/lib64/xorg/modules/extensions/xorg/xorg-libglx.so - priority 50
-	
+
 Here is to update to the nVidia one:
 
 	~> sudo update-alternatives --set libglx.so /usr/lib64/xorg/modules/extensions/nvidia/nvidia-libglx.so
-	
+
 And here is the after:
 
 	~> sudo update-alternatives --display libglx.so
@@ -166,7 +166,7 @@ And here is the after:
 	  link libglx.so is /usr/lib64/xorg/modules/extensions/libglx.so
 	/usr/lib64/xorg/modules/extensions/nvidia/nvidia-libglx.so - priority 100
 	/usr/lib64/xorg/modules/extensions/xorg/xorg-libglx.so - priority 50
-	
+
 Then after one more reboot I finally saw **lightdm**:
 
 ![opensuse-leap-with-lightdm](https://dl.dropboxusercontent.com/u/24136116/blog_pics/opensuse-mbp/opensuse-leap-with-lightdm.png)
@@ -177,12 +177,12 @@ Initially I installed **mpv** and tried playing a video but it complained about 
 	sudo zypper addrepo -f http://packman.inode.at/suse/openSUSE_Leap_42.1/ packman
 	sudo zypper addrepo -f http://opensuse-guide.org/repo/openSUSE_Leap_42.1/ dvd
 	sudo zypper install k3b-codecs ffmpeg lame packman-gstreamer-meta-package libdvdcss2
-	
+
 I even tried the **vlc** repo which was available for Leap 42.2:
 
 	sudo zypper ar -f http://download.videolan.org/pub/videolan/vlc/SuSE/Leap_42.2/ vlc
 	sudo zypper in vlc
-	
+
 But that caused all sorts of dependency problems (and **vlc** still complained about the missing codecs)... that's what I get for trying a beta version :) At this point I decided to try out OpenSuSe Tumbleweed.
 
 ### OpenSUSE Tumbleweed
@@ -206,7 +206,7 @@ Tumbleweed has a dedicated **packman** repo, so I just ran the following to inst
 	$ sudo zypper ar -f http://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/ packman
 	$ sudo zypper ref
 	$ sudo zypper in mpv
-	
+
 And it worked out, I was able to play my videos without issues.
 
 #### Installing nVidia
@@ -216,12 +216,12 @@ I am still contemplating whether I want to use this setup. I went ahead and disa
 	# generated by nvidia-installer
 	blacklist nouveau
 	options nouveau modeset=0
-	
+
 And then adding the option `nouveau.blacklist=1` in the GRUB line as well:
 
 	<> grep nouveau /etc/default/grub
 	GRUB_CMDLINE_LINUX_DEFAULT="resume=/dev/system/swap splash=verbose nouveau.blacklist=1 audit=0 ipv6.disable=1 showopts"
-	
+
 Then I rebuilt **initrd** and the GRUB menu:
 
 	$ sudo mkinitrd
@@ -230,13 +230,13 @@ Then I rebuilt **initrd** and the GRUB menu:
 Then after a reboot the installer worked:
 
 	$ sudo ./NVIDIA-Linux-x86_64-340.98.run
-	
+
 I noticed that I ran into the same blank screen issues after I installed the **nvidia** module, so I did same thing as I did in Leap:
 
 	<> cat /etc/grub.d/02_mbp
 	echo "setpci -s "00:01.0" 3e.b=8"
 	echo "setpci -s "01:00.0" 04.b=7"
-	
+
 And made it executable:
 
 	$ sudo chmod +x /etc/grub.d/02_mbp
@@ -244,14 +244,14 @@ And made it executable:
 Then rebuilt the GRUB menu:
 
 	$ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
-	
+
 After that **Xorg** started with the **nVidia** driver.
-	
+
 I ran into a weird issue, where the GPU would just die at times and I would see the following in the logs (**dmesg**):
 
 	Oct 08 10:37:23 sus kernel: NVRM: GPU at 0000:01:00.0 has fallen off the bus.
 	Oct 08 10:37:23 sus kernel: NVRM: GPU at 0000:01:00.0 has fallen off the bus.
-	
+
 I ran into [this](https://devtalk.nvidia.com/default/topic/537302/reproducible-nvrm-gpu-at-0000-01-00-0-has-fallen-off-the-bus-both-screens-black-xorg-at-100-/) forum and I tried setting the **PowerMizer Option** as described:
 
 	$ tail -6 /etc/X11/xorg.conf.d/50-device.conf
@@ -261,7 +261,7 @@ I ran into [this](https://devtalk.nvidia.com/default/topic/537302/reproducible-n
 	    VendorName     "NVIDIA Corporation"
 	    Option "RegistryDwords" "PowerMizerEnable=0x1; PerfLevelSrc=0x3333; PowerMizerDefault=0x2; PowerMizerDefaultAC=0x2"
 	EndSection
-	    
+
 And after a reboot it seems to be okay. If I run into more issues, I might revert back to **nouveau** since I don't really do anything Video intensive.
 
 #### Bluetooth Config
@@ -280,7 +280,7 @@ Then install the necessary package and start up the service:
 	$ sudo zypper in bluez
 	$ sudo systemctl enable bluetooth
 	$ sudo systemctl start bluetooth.service
-	
+
 By default the device is down, bring it up
 
 	<> sudo hciconfig hci0 up
@@ -377,21 +377,21 @@ After looking through the guide, I ended up creating the following sensors confi
 		label temp16 "Mainboard_Proximity Temp"
 		label temp17 "Palmrest_Proximity Temp"
 		label temp18 "Memory_Proximity Temp"
-	
+
 	chip "coretemp-*"
 		label temp2 "CPU_Core0 Temp"
 		label temp4 "CPU_Core1 Temp"
-	
+
 	chip "BAT0-virtual-*"
 		label temp1 "Battery Temp"
-	
+
 And that produced the following output:
 
 	<> sensors
 	BAT0-virtual-0
 	Adapter: Virtual device
 	Battery Temp:  +38.3°C
-	
+
 	applesmc-isa-0300
 	Adapter: ISA adapter
 	Left side  :                     2306 RPM  (min = 2000 RPM, max = 6000 RPM)
@@ -414,7 +414,7 @@ And that produced the following output:
 	Mainboard_Proximity Temp:         +57.2°C
 	Palmrest_Proximity Temp:          +35.0°C
 	Memory_Proximity Temp:            +47.0°C
-	
+
 	coretemp-isa-0000
 	Adapter: ISA adapter
 	CPU_Core0 Temp:  +63.0°C  (high = +95.0°C, crit = +105.0°C)
@@ -422,8 +422,57 @@ And that produced the following output:
 
 Not to shabby.
 
+#### Using the Laptop with the Lid Closed
+
+I ended up wanting to close the lid and just use a single monitor with the laptop. I actually ran into some issues so I decided to jot them down. First disable the suspend on closing of the lid at the Window Manager Level. For example in **xfce4**, you can do the following
+
+	### query the setting
+	$ xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/lid-action-on-ac
+	### then set it 0 to do nothing
+	$ xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/lid-action-on-ac -t int -s 0
+
+The options are as follows:
+
+> 0=nothing
+>
+> 1=suspend
+>
+> 2=hibernate
+>
+> 3=lock screen
+
+Then let's configure **systemd-logind** to ignore the closed lid as well, set the following option:
+
+	<> grep Lid /etc/systemd/logind.conf
+	HandleLidSwitch=ignore
+
+And restart the service:
+
+	$ sudo systemctl restart systemd-logind
+
+I ran into an issue with a reboot, and the issue is descibed [here](https://github.com/Bumblebee-Project/Bumblebee/issues/542) and the fix is there as well. Xorg would fail to start and in the **/var/log/Xorg.0.log** file I saw the following:
+
+	[   159.042] (EE) NVIDIA(0): Failed to initialize the NVIDIA GPU at PCI:1:0:0.  Please
+	[   159.042] (EE) NVIDIA(0):     check your system's kernel log for additional error
+
+and **dmesg** showed the following:
+
+	[  158.976521] NVRM: RmInitAdapter failed! (0x25:0x28:1148)
+	[  158.976530] NVRM: rm_init_adapter(0) failed
+
+I added the following kernel option to fix it:
+
+	<> grep rcu /etc/default/grub
+	GRUB_CMDLINE_LINUX_DEFAULT="resume=/dev/system/swap splash=verbose ipv6.disable=1 showopts rcutree.rcu_idle_gp_delay=1"
+
+To apply that setting, I re-generated a new GRUB menu:
+
+	$ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+
+Then a reboot worked.
+
 #### Random kworker and Power Consumption issue
-I installed **zabbix** on the laptop, since it runs at home all the time and I kept getting a lot of "Too many processes running" and "High Load Avg" alerts from the laptop. 
+I installed **zabbix** on the laptop, since it runs at home all the time and I kept getting a lot of "Too many processes running" and "High Load Avg" alerts from the laptop.
 
 ![os-top-la-kwor](https://dl.dropboxusercontent.com/u/24136116/blog_pics/opensuse-mbp/os-top-la-kwor.png)
 
@@ -431,7 +480,7 @@ I realized I had a lot of **kworker** threads:
 
 	<> ps -ef | grep kwork | wc -l
 	1053
-	
+
 I ran into this page [High CPU usage due to kworker](http://sudoremember.blogspot.de/2013/05/high-cpu-usage-due-to-kworker.html), and I did see one of the **gpes** be high:
 
 	<> grep . -r /sys/firmware/acpi/interrupts
@@ -454,16 +503,16 @@ After trying the workaround, it didn't help:
 	$ sudo crontab -l
 	@reboot echo "disable" > /sys/firmware/acpi/interrupts/gpe17
 	$ reboot
-	
+
 Then I went on a rampage and tried a bunch of **grub**/**kernel** options:
 
 1. [Arch Macbook Stability Problems](https://wiki.archlinux.org/index.php/MacBook#Stability_problems)
-	* `libata.force=1:noncq` 
+	* `libata.force=1:noncq`
 2. [MacBookPro6-2/Precise](https://help.ubuntu.com/community/MacBookPro6-2/Precise)
 	* Confirmed the Controller using AHCI Mode and not IDE Mode
-	
+
 		`lspci | grep -i ahci`
-		
+
 		`00:1f.2 SATA controller: Intel Corporation 5 Series/3400 Series Chipset 4 port SATA AHCI Controller (rev 06)`
 3. [High load averages and interrupts with 2.6.36/2.6.37](https://bbs.archlinux.org/viewtopic.php?id=111111&p=2)
 	* `nohz=off highres=off`
@@ -478,7 +527,7 @@ After that I found this kernel bug: [SLAB: extreme load averages and over 2000 k
 
 	<> uname -r
 	4.7.5-1-default
-	
+
 I ran into an issue with SLAB, I did confirm that I did have **slab** enabled:
 
 	<> zgrep -iE 'slab|slub' /proc/config.gz
@@ -487,7 +536,7 @@ I ran into an issue with SLAB, I did confirm that I did have **slab** enabled:
 	CONFIG_SLAB_FREELIST_RANDOM=y
 	CONFIG_SLABINFO=y
 	# CONFIG_DEBUG_SLAB is not set
-	
+
 And that's what I get for using Tumbleweed :) I will keep an eye on it and confirm whether kernel 4.8 or later fixes the issue.
 
 #### Snapper
@@ -503,7 +552,7 @@ Since I was using OpenSuSe and **btrfs** I could take advantage of **snapper**. 
 	post   | 122 | 121   | Sat 08 Oct 2016 10:27:49 AM MDT | root | number  |                       | important=no
 	pre    | 123 |       | Sat 08 Oct 2016 12:00:25 PM MDT | root | number  | zypp(zypper)          | important=no
 	post   | 124 | 123   | Sat 08 Oct 2016 12:00:27 PM MDT | root | number  |                       | important=no
-	
+
 Now if I want to I checkout the difference between two snapshots in the following way:
 
 	<> sudo snapper status 122..123
@@ -519,7 +568,7 @@ Now if I want to I checkout the difference between two snapshots in the followin
 	c..... /var/lib/smartmontools/smartd.Hitachi_HTS545032B9SA02-100619PBT30016HTU9YY.ata.state~
 	c..... /var/lib/sudo/ts/elatov
 	c..... /var/lib/systemd/random-seed
-	
+
 You notice that there were a bunch of files created and that's when I was messing with the nVidia config. So now let's check out the difference between the top file:
 
 	<> sudo snapper diff 122..123 /etc/X11/xorg.conf.d/50-device.conf
@@ -536,36 +585,36 @@ You notice that there were a bunch of files created and that's when I was messin
 	+    VendorName     "NVIDIA Corporation"
 	+    Option "RegistryDwords" "PowerMizerEnable=0x1; PerfLevelSrc=0x3333; PowerMizerDefault=0x2; PowerMizerDefaultAC=0x2"
 	+EndSection
-	
+
 It's pretty cool. You can then undo changes if you want. The [Using Snapper to Undo Changes](https://www.suse.com/documentation/sled-12/book_sle_admin/data/sec_snapper_auto.html) has a good description of the process and it mentions that it's important to know the difference between **rollback** and **undoing changes**. From the page:
 
 > **IMPORTANT: Undoing Changes vs. Rollback**
-> 
+>
 > When working with snapshots to restore data, it is important to know that there are two fundamentally different scenarios Snapper can handle:
-> 
+>
 > **Undoing Changes**
-> 
+>
 > When undoing changes as described in the following, two snapshots are being compared and the changes between these two snapshots are made undone. Using this method also allows to explicitly select the files that should be restored.
-> 
+>
 > **Rollback**
-> 
+>
 > When doing rollbacks as described in Section 3.3, System Rollback by Booting from Snapshots, the system is reset to the state at which the snapshot was taken.
-> 
-> When undoing changes, it is also possible to compare a snapshot against the current system. When restoring all files from such a comparison, this will have the same result as doing a rollback. 
+>
+> When undoing changes, it is also possible to compare a snapshot against the current system. When restoring all files from such a comparison, this will have the same result as doing a rollback.
 
 So if I wanted to revert my file change I could just run the following:
 
 	<> sudo snapper -v undochange 122..123 /etc/X11/xorg.conf.d/50-device.conf
 	create:0 modify:1 delete:0
 	modifying /etc/X11/xorg.conf.d/50-device.conf
-	
+
 ### Zypper
 SuSe is an RPM based distro but it uses it's own package manager called **zypper**. There are a couple of things I like about **zypper**. I like how after an update you can run **zypper ps** and it will tell you what running programs are using the old files:
 
 	<> sudo zypper up
 	The following 2 packages are going to be upgraded:
 	  moc mpv
-	
+
 	2 packages to upgrade.
 	Overall download size: 1.4 MiB. Already cached: 0 B. After the operation,
 	additional 48.0 B will be used.
@@ -580,7 +629,7 @@ SuSe is an RPM based distro but it uses it's own package manager called **zypper
 	There are some running programs that might use files deleted by recent upgrade. You may wish to check and restart some of them. Run 'zypper ps -s' to list these programs.
 	<> sudo zypper ps
 	The following running processes use deleted files:
-	
+
 	PID   | PPID  | UID  | User   | Command        | Service | Files
 	------+-------+------+--------+----------------+---------+----------------------
 	24123 | 23020 | 1000 | elatov | mocp (deleted) |         | /usr/lib64/moc/deco->
@@ -596,32 +645,45 @@ I don't like that the inconsistent **search** option documentation. For example 
 	Loading repository data...
 	Reading installed packages...
 	No matching items found.
-	    
-Eventually I found that within the **search** (se) option there is a **--file-list** (-f) flag which can help out 
+
+Eventually I found that within the **search** (se) option there is a **--file-list** (-f) flag which can help out
 
 	<> sudo zypper se -f "*/bin/convert"
 	Loading repository data...
 	Reading installed packages...
-	
+
 	S | Name        | Summary                         | Type
 	--+-------------+---------------------------------+--------
 	  | ImageMagick | Viewer and Converter for Images | package
-	  
+
 With OpenSuSe you can also use the **cnf** (command not found) utility but it doesn't work for libraries:
 
 	<> cnf convert
-	
+
 	The program 'convert' can be found in the following package:
 	  * ImageMagick [ path: /usr/bin/convert, repository: zypp (repo-oss) ]
-	
+
 	Try installing with:
 	    sudo zypper install ImageMagick
 
-	    
+Another way of searching for files is to use [webpin](http://webpinstant.com/search/):
+
+![web-pin-sus](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/web-pin-sus.png&raw=1)
+
+Or you can use the cli, get the RPM from [here](https://software.opensuse.org/package/webpin?search_term=webpin). Then after installing, you can use it:
+
+	<> webpin wavpack.pc
+	... performing request on http://webpinstant.com/ws/searchservice/Search/Simple/   20 results (15 packages) found for "wavpack.pc" in openSUSE_Leap_422
+	* wavpack: Free Hybrid Lossless Audio Compression Format
+	   - 4.60.99.6.2 [suse-oss]
+	* wavpack-devel: Free Hybrid Lossless Audio Compression Format
+	   - 4.60.99.6.2 [suse-oss]
+
+
 The **zypper dup** (distribution update) vs **zypper up** (update) usage. I ran into this forum [Differnce between zypper up and zypper dup](https://forums.opensuse.org/showthread.php/517451-Differnce-between-zypper-up-and-zypper-dup) and there doesn't seem to be clear instructions on which one to use with Tumbleweed. I noticed that the **dup** option re-installs any packages that the distro is supposed to have for example if I remove the **yast*** packages, a **zypper dup** will update, downgrade, and reinstall any packages that it needs (it basically matches a list of packages that that distro version needs to have). A **zypper up** just updates the packages that you have installed. From a [reddit page](https://www.reddit.com/r/openSUSE/comments/3czbzt/regarding_updating_tumbleweed_what_is_the_best/) here is the best advice I saw:
 
 > The "best" update method is currently unknown. Every developer/maillist/forum has been saying "zypper dup" is the supported way. The official documentation for TW does not mention how to go about updating from snapshot to snapshot.
-> 
+>
 > In another thread here, /u/rbrownsuse (chairman of openSUSE) said that it's better to do "zypper up" most of the time with only "zypper dup" occassionally.
 
 
@@ -641,13 +703,13 @@ Listing **packages** (pa) from specific repos seems a little strange (it would a
 	v  | packman    | fuse-exfat                            | 1.2.4-1.4                        | i586
 	i  | packman    | gstreamer-plugins-bad                 | 1.8.3-5.3                        | x86_64
 	v  | packman    | gstreamer-plugins-bad                 | 1.8.3-5.3                        | i586
-	
+
 Or you can use the **search** option but then I am not sure what the difference is between **search** (se) and **package** (pa):
 
 	<> sudo zypper se -ir packman
 	Loading repository data...
 	Reading installed packages...
-	
+
 	S | Name                         | Summary                                                                   | Type
 	--+------------------------------+---------------------------------------------------------------------------+--------
 	i | dkms                         | Dynamic Kernel Module Support Framework                                   | package
