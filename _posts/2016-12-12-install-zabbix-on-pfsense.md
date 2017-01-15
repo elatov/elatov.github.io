@@ -3,7 +3,7 @@ published: true
 layout: post
 title: "Install Zabbix on pfSense"
 author: Karim Elatov
-categories: [security,network]
+categories: [security,networking]
 tags: [zabbix,pfsense]
 ---
 After I [installed pfSense](/2016/10/installing-pfsense-on-pc-engines-apu1d4-netgate-apu4/), [setup Suricata on pfSense](/2016/11/setup-suricata-on-pfsense/), and [setup logging on pfSense](/2016/11/pfsense-logging-with-elk/) I decided to also monitor the machine it self. I use Zabbix to accomplish this at home.
