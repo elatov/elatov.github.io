@@ -134,11 +134,7 @@ At this point, I had two choices: create an ISO with a bigger size and share it 
 
 ![custom size images rus Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix](https://github.com/elatov/uploads/raw/master/2013/12/custom-size-images-rus.png)
 
-All the images for CDs and I wanted to get one specific for a USB drive. It probably doesn't make a difference, but I later ran into FreeDOS and they provided an image specifically for a USB Drive. [Here](http://chtaube.eu/computers/freedos/bootable-usb/) is a link to the site and here is a list of images:
-
-![freedos boot usb Configure IPMI On SuperMicro Server and Monitor IPMI Sensors with Zabbix](https://github.com/elatov/uploads/raw/master/2013/12/freedos_boot-usb.png)
-
-So I backed up my USB drive and then I ran the following to put the FreeDOS image on it:
+All the images for CDs and I wanted to get one specific for a USB drive. It probably doesn't make a difference, but I later ran into FreeDOS and they provided an image specifically for a USB Drive. [Here](http://www.ibiblio.org/pub/micro/pc-stuff/freedos/files/distributions/1.2/) is a link to the site. So I backed up my USB drive and then I ran the following to put the FreeDOS image on it:
 
     $ wget http://ftp.chtaube.eu/pub/FreeDOS/bootable-usb/FreeDOS-1.1-memstick-3-30M.img.bz2
     $ bunzip2 FreeDOS-1.1-memstick-3-30M.img.bz2

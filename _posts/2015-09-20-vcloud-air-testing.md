@@ -393,7 +393,7 @@ And also at the vCloud Air level as well:
  
 ### Enable Sending Syslog to a Remote Machine in vCloud Air
 
-It looks like we need to use the Rest API to enable the syslog server. All of the instructions are laid out in [Capturing vCloud Air Edge Gateway Data with Syslog](https://blogs.vmware.com/vcloud/2015/03/capturing-vcloud-air-edge-gateway-data-with-syslog.html). I also ran into a cool cli ([vmware/vca-cli](https://github.com/vmware/vca-cli)), so I went ahead and installed it on my MAC:
+It looks like we need to use the Rest API to enable the syslog server. All of the instructions are laid out in [Manage the System Logs for an Edge Gateway](https://pubs.vmware.com/vca/index.jsp?topic=%2Fcom.vmware.vca.ans.api.doc%2FGUID-C22C0A41-CE0D-4A37-B0C4-ABC4454D5F19.html). I also ran into a cool cli ([vmware/vca-cli](https://github.com/vmware/vca-cli)), so I went ahead and installed it on my MAC:
 
 	elatov@macair:~$sudo port install py27-pip
 	
