@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Media Casting and Streaming Options"
 author: Karim Elatov
