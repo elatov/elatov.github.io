@@ -247,7 +247,7 @@ Throughout my testing, I saw *apache* use 60MB per process, but that was an extr
 
 So I decided to test apache with **fastcgi** and **php-fpm**. Every setup I checked out:
 
-*   [Multithreaded Apache In Small VPS](http://itkia.com/multithreaded-apache-in-small-vps/)
+*   [Multithreaded Apache In Small VPS](https://www.midnightfreddie.com/multithreaded-apache-in-small-vps.html)
 *   [Improve Php And Apache2 Performance With Apache2-Mpm-Worker + Mod_fcgid + Php5-Cgi](http://phphints.wordpress.com/2009/01/10/improving-php-performance-with-apache2-mpm-worker-mod_fcgid-2/)
 *   [PHP-FPM FastCGI Process Manager with Apache 2](https://blogs.oracle.com/opal/entry/php_fpm_fastcgi_process_manager)
 *   [FreeBSD Configure Apache 2.2 PHP with FastCGI mod_fcgi Module](http://www.cyberciti.biz/faq/freebsd-apache22-fastcgi-php-configuration/)

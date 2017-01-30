@@ -202,7 +202,7 @@ Then I ran into [Low latency networking](http://lists.omniti.com/pipermail/omnio
 
 	ndd -set /dev/ixgbe0 intr_throttling 1
 
-Then I also wanted to try out **netperf** instead of **iperf** (some good examples of commands are [here](https://www.myricom.com/solutions/10-gigabit-ethernet/performance.html#solaris_gldv3)). Luckily the latest version of OmniOS has **netperf** in the repository:
+Then I also wanted to try out **netperf** instead of **iperf**. Luckily the latest version of OmniOS has **netperf** in the repository:
 
 	┌─[root@zfs] - [/root] - [2016-01-10 12:54:05]
 	└─[0] <> pkg search netperf

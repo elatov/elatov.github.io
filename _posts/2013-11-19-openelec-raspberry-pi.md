@@ -27,7 +27,7 @@ If you are using HDMI or just regular speakers, the last part is probably unnece
 
 From the get-go I wanted to use the RPi for a media center. I have used XBMC in the past and I really like it. There are actually 3 primary OSes that support running XBMC on the RPi. [Here](http://lifehacker.com/raspberry-pi-xbmc-solutions-compared-raspbmc-vs-openel-1394239600) is a good site that talk about all three:
 
-*   [Raspbmc](http://www.raspbmc.com/)
+*   [Raspbmc -- now OSMC](https://osmc.tv/)
 *   [XBian](http://www.xbian.org/)
 *   [OpenELEC](http://openelec.tv/)
 
