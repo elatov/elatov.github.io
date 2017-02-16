@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Messing Around with Kubernetes"
 author: Karim Elatov
