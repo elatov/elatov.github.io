@@ -6,24 +6,20 @@ author: Karim Elatov
 categories: [containers]
 tags: [docker,shipyard,etcd2,coreos]
 ---
-I wanted to try out CoreOS, an OS that is optimized for Docker Containers.
+I wanted to try out **CoreOS**, an OS that is optimized for Docker Containers.
 
 ### Installing to disk
 Most of the setup is covered in [Installing CoreOS Container Linux to disk](https://coreos.com/os/docs/latest/installing-to-disk.html). Just download the ISO and then **dd** it to a USB stick:
 
 	$ sudo dd if=coreos_production_iso_image.iso of=/dev/sdc bs=1M status=progress
 
-After the machine boots, it automatically logs in as the core user. I set the user's password with the following command:
+After the machine boots from the USB stick, it automatically logs in as the **core** user. I set the user's password with the following command:
 
 	$ sudo passwd core
 
-Since the machine was able to get a DHCP addres, then I just ssh'ed into the machine:
+Since the machine was able to get a DHCP address, then I just **ssh**'ed into the machine:
 
     <> ssh core@192.168.1.230
-    The authenticity of host '192.168.1.230 (192.168.1.230)' can't be established.
-    ECDSA key fingerprint is SHA256:pAGQAOrtD66i/R4WlnTjja7d4k3QECGiMXHHWpynLH8.
-    Are you sure you want to continue connecting (yes/no)? yes
-    Warning: Permanently added '192.168.1.230' (ECDSA) to the list of known hosts.
     Password:
     Last login: Sun Jan 15 22:46:52 UTC 2017 on tty1
     Container Linux by CoreOS stable (1235.6.0)
@@ -32,7 +28,7 @@ Since the machine was able to get a DHCP addres, then I just ssh'ed into the mac
       tcsd.service
     core@localhost ~ $
 
-And did the rest from there. First find your disk (mine was **/dev/nvme0n1**):
+And I did the rest from there (I also became **root** `sudo su -`). First find your disk (mine was **/dev/nvme0n1**):
 
     $ sudo fdisk -l
     Disk /dev/loop0: 233.4 MiB, 244736000 bytes, 478000 sectors
@@ -53,7 +49,7 @@ And did the rest from there. First find your disk (mine was **/dev/nvme0n1**):
     /dev/nvme0n1p2      1050624 2099199 1048576  512M  b W95 FAT32
     /dev/nvme0n1p3      2099200 3147775 1048576  512M  b W95 FAT32
 
-Then you have to create a **cloud-config.yaml** file to do your install. Here is the cloud config I ended up creating
+Then you have to create a **cloud-config.yaml** file to configure your install. Here is the **cloud-config** I ended up creating:
 
     localhost ~ # cat ~core/cloud-config.yaml
     #cloud-config
@@ -135,10 +131,11 @@ Then you have to create a **cloud-config.yaml** file to do your install. Here is
     ssh_authorized_keys:
       - ssh-rsa TFnaJYPYKp elatov@me
 
-I had some help from these web sites:
+I had some help from these web sites for the **cloud-config** file parameters:
 
 - [Network configuration with networkd](https://coreos.com/os/docs/latest/network-config-with-networkd.html)
 - [Using Cloud-Config](https://coreos.com/os/docs/latest/cloud-config.html)
+- [Reboot strategies on updates](https://coreos.com/os/docs/latest/update-strategies.html)
 
 
 And now for the install:
@@ -160,24 +157,24 @@ And now for the install:
     gpg: Good signature from "CoreOS Buildbot (Offical Builds) <buildbot@coreos.com>" [ultimate]
     Installing cloud-config...
     Success! CoreOS stable 1235.6.0 is installed on /dev/nvme0n1
+    
+After a reboot, the machine will start up **CoreOS** and you can **ssh** using the keys that you defined in the **cloud-config** file.
 
 ### Installing Shipyard
-I then wanted to install Shipyard which can help with managing Docker Containers. Looking over the [Automated Deployment](https://shipyard-project.com/docs/deploy/automated/), it should be as easy as this:
+I then wanted to install **Shipyard** which can help with managing Docker Containers. Looking over the [Automated Deployment](https://shipyard-project.com/docs/deploy/automated/), it should be as easy as this:
 
 	curl -sSL https://shipyard-project.com/deploy | bash -s
 
-But running that yieled the followed error:
+But running that yieled the following error:
 
 > Error starting userland proxy: listen tcp 0.0.0.0:7001: bind: address already in use.
 
-Then following the instructions laid out in [Install on coreos issues (solved) #755](https://github.com/shipyard/shipyard/issues/755)
-
-Doing it manually worked:
+Then following the instructions laid out in [Install on coreos issues (solved) #755](https://github.com/shipyard/shipyard/issues/755) help out. I manually deployed the containers:
 
 	core ~ # docker run -ti -d --restart=always --name shipyard-swarm-manager swarm:latest manage --host tcp://0.0.0.0:3375 etcd://172.17.0.1:4001
 	cfc33357c008d94841e4470b580706203d6d54f6d7c8b3462370f18134587024
 
-To make sure it's able to connect to etc2, find it's id and check out the logs:
+To make sure **shipyard-swarm-manager** is  able to connect to **etcd2**, find it's **id**:
 
 	core ~ # docker ps
 	CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                            NAMES
@@ -190,7 +187,7 @@ Then check out the logs:
 	INFO[0000] Initializing discovery without TLS
 	INFO[0000] Listening for HTTP                            addr=0.0.0.0:3375 proto=tcp
 
-I figure out that I should use the IP that the docker0 interface is listening on:
+I figure out that I should use the IP that the **docker0** interface is listening on:
 
 	macm ~ # ip -4 a s dev docker0
 	5: docker0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
@@ -205,7 +202,7 @@ Also you can login to one of the containers and make sure you can reach those en
 	# curl -L http://172.17.0.1:4001/v2/keys
 	{"action":"get","node":{"dir":true,"nodes":[{"key":"/coreos.com","dir":true,"modifiedIndex":4,"createdIndex":4},{"key":"/docker","dir":true,"modifiedIndex":1409,"createdIndex":1409}]}}
 
-I had to change my **cloud-config.yaml** file and update it to change the config for etcd2 (more on that below). So keep going and deploy the rest of the containers:
+I had to change my **cloud-config.yaml** file and update it to change the config for **etcd2**, to listen on it's **docker0** interface (more on that below). So keep going and deploy the rest of the containers:
 
 	core ~ # docker run \
 	>     -ti \
@@ -237,7 +234,13 @@ And finally run the controller:
 	>     -d tcp://swarm:3375
 	73252834a961c267e8e54492086f1e2a2df235548b67543730f1f63b127f5263
 
-Now you can go to **http://IP:8080** and login with **admin/shipyard**
+Now you can go to **http://IP:8080** and login with **admin/shipyard** and you can see all the containers that are currently running:
+
+![sy-containers](https://seacloud.cc/d/480b5e8fcd/files/?p=/coreos-shipyard/sy-containers.png&raw=1) 
+
+And the available nodes (I only had one for now):
+
+![sy-nodes](https://seacloud.cc/d/480b5e8fcd/files/?p=/coreos-shipyard/sy-nodes.png&raw=1)
 
 ### Change the Cloud-Config And Update it
 
@@ -249,7 +252,7 @@ Then modify what you need:
 
 	core ~ # vi /tmp/cc.yml
 
-Then apply the confirm the config is okay:
+Then confirm the config is okay:
 
 	core ~ # coreos-cloudinit -validate --from-file /tmp/cc.yml
 	2017/01/16 00:46:05 Checking availability of "local-file"
@@ -314,14 +317,14 @@ And lastly go ahead and apply the config:
 After that make sure the services are listening on the right IPs:
 
 	macm ~ # ss -lnt
-	State      Recv-Q Send-Q                       Local Address:Port                                      Peer Address:Port
-	LISTEN     0      128                             172.17.0.1:2380                                                 *:*
-	LISTEN     0      128                             172.17.0.1:7001                                                 *:*
-	LISTEN     0      128                                     :::2375                                                :::*
-	LISTEN     0      128                                     :::2379                                                :::*
-	LISTEN     0      128                                     :::8080                                                :::*
-	LISTEN     0      128                                     :::22                                                  :::*
-	LISTEN     0      128                                     :::4001                                                :::*
+	State      Recv-Q Send-Q      Local Address:Port  Peer Address:Port
+	LISTEN     0      128         172.17.0.1:2380                *:*
+	LISTEN     0      128         172.17.0.1:7001                *:*
+	LISTEN     0      128                 :::2375               :::*
+	LISTEN     0      128                 :::2379               :::*
+	LISTEN     0      128                 :::8080               :::*
+	LISTEN     0      128                 :::22                 :::*
+	LISTEN     0      128                 :::4001               :::*
 
 Here are the config locations: [Cloud-Config Locations](https://coreos.com/os/docs/latest/cloud-config-locations.html). Since I was making changes to the **etc2** service, I could confirm it's running:
 
@@ -349,7 +352,7 @@ Here are the config locations: [Cloud-Config Locations](https://coreos.com/os/do
 	Feb 20 06:02:07 macm etcd2[2997]: raft.node: ce2a822cea30bfca elected leader ce2a822cea30bfca at term 11
 	Feb 20 06:02:07 macm etcd2[2997]: published {Name:0e7ed956df4d4f599f5038340d14867a ClientURLs:[http://192.168.1.109:2379]} to cluster 7e276521
 
-and also check the new service config:
+and also check the new **etcd2** service config that it generates:
 
 	macm ~ # cat /run/systemd/system/etcd2.service.d/20-cloudinit.conf
 	[Service]
@@ -359,9 +362,8 @@ and also check the new service config:
 	Environment="ETCD_LISTEN_PEER_URLS=http://172.17.0.1:2380,http://172.17.0.1:7001"
 
 
-
 ### Disable etcd2 Service on CoreOS
-If you want you could also disable the **etcd2** service and just install **shipyard** the automated way which installs it's own **etcd** version. This is discussed at [etcd keeps getting started in place of etcd2 #3211](https://github.com/coreos/etcd/issues/3211). Here is relevant config to just unmask the service:
+If you want, you could also disable the **etcd2** service and just install **shipyard** the automated way, which installs it's own **etcd** version. This is discussed at [etcd keeps getting started in place of etcd2 #3211](https://github.com/coreos/etcd/issues/3211). Here is relevant config to just **unmask** the service:
 
 	# cat /var/lib/coreos-install/user_data
 	#cloud-config
