@@ -3,7 +3,7 @@ published: true
 layout: post
 title: "Media Casting and Streaming Options"
 author: Karim Elatov
-categories: [network]
+categories: [networking]
 tags: [dial,upnp,airplay,ssdp,kodi,mdns,roap,miracast,wifi-direct,dlna,chromecast]
 ---
 ### ScreenCasting Options
