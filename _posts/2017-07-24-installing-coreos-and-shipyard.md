@@ -137,7 +137,6 @@ I had some help from these web sites for the **cloud-config** file parameters:
 - [Using Cloud-Config](https://coreos.com/os/docs/latest/cloud-config.html)
 - [Reboot strategies on updates](https://coreos.com/os/docs/latest/update-strategies.html)
 
-
 And now for the install:
 
     localhost ~ # coreos-install -d /dev/nvme0n1 -C stable -c ~core/cloud-config.yaml
@@ -385,3 +384,13 @@ You can then stop all the containers and reboot, to apply the config:
 	cfc33357c008
 	ca24bde9016b
 	core ~ # reboot
+	
+Also as an FYI, you can use the **update_engine_client** command to check for update:
+
+	macm ~ # update_engine_client -check_for_update --status
+	I0224 05:45:46.781448  8135 update_engine_client.cc:237] Querying Update Engine status...
+	LAST_CHECKED_TIME=1487915080
+	PROGRESS=0.000000
+	CURRENT_OP=UPDATE_STATUS_IDLE
+	NEW_VERSION=0.0.0
+	NEW_SIZE=0
