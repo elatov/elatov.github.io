@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Installing Splunk Forwarder on pfSense"
 author: Karim Elatov
