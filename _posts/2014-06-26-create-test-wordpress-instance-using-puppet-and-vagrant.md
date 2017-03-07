@@ -358,7 +358,7 @@ You can modify the puppet manifest file and re-run the provisioning like so:
 
 It will only apply the changes that are necessary (if you made necessary checks in your puppet manifest file). If you try to visit the wordpress instance (**http://localhost:8080/wp**), you will see the following:
 
-![wp-db-connection-error](https://dl.dropboxusercontent.com/u/24136116/blog_pics/puppet-vagrant-wordpress/wp-db-connection-error.png)
+![wp-db-connection-error](https://seacloud.cc/d/480b5e8fcd/files/?p=/puppet-vagrant-wordpress/wp-db-connection-error.png&raw=1)
 
 And that's expected since we haven't done our DB server yet, but at least we know **apache** is up and is parsing **PHP** appropriately.
 
@@ -461,7 +461,7 @@ I had an example in [this](/2014/06/multi-vm-vagrant-setup/) post, expanding on 
 	
 This basically defines two vagrant boxes on top and then runs through a *for* loop creating each box and configuring each VM with the options defined above. If you do a `vagrant up` with that **VagrantFile** you will see both VMs getting created and provisioned approriately. You will also notice that there are two interfaces, the NAT is the default one which **vagrant** uses to access the VM, and the private one is used for the communication between the VMs (Apache/WP/PHP to talk to MySQL). After they are deployed, if you visit **http://localhost:8080/wp**, you will see the wordpress instance:
 
-![wp-installed](https://dl.dropboxusercontent.com/u/24136116/blog_pics/puppet-vagrant-wordpress/wp-installed.png)
+![wp-installed](https://seacloud.cc/d/480b5e8fcd/files/?p=/puppet-vagrant-wordpress/wp-installed.png&raw=1)
 
 BTW if you don't care for the *for* loop in the **VagrantFile**, here is a multi VM **VagrantFile** that manually defines all the VMs:
 

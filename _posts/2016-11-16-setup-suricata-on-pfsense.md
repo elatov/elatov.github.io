@@ -11,64 +11,64 @@ After installing [pfSense on the APU device](/2016/10/installing-pfsense-on-pc-e
 ### Install the Suricata Package
 pfSense provides a UI for everything. So from the admin page go to **System** -> **Package Manager** -> **Available Packages** and search for suricata:
 
-![pf-install-suricata](https://dl.dropboxusercontent.com/u/24136116/blog_pics/pfsense-suricata/pf-install-suricata.png)
+![pf-install-suricata](https://seacloud.cc/d/480b5e8fcd/files/?p=/pfsense-suricata/pf-install-suricata.png&raw=1)
 
 Then go ahead and install it. After that you will see it under the **Services** tab:
 
-![pf-ser-sur.png](https://dl.dropboxusercontent.com/u/24136116/blog_pics/pfsense-suricata/pf-ser-sur.png)
+![pf-ser-sur.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/pfsense-suricata/pf-ser-sur.png&raw=1)
 
 ### Enable Rule Download
 Under **Services** -> **Suricata** -> **Global Settings** you can enter settings to download **Snort** and **ET** rules:
 
-![pf-enable-rule-download](https://dl.dropboxusercontent.com/u/24136116/blog_pics/pfsense-suricata/pf-enable-rule-download.png)
+![pf-enable-rule-download](https://seacloud.cc/d/480b5e8fcd/files/?p=/pfsense-suricata/pf-enable-rule-download.png&raw=1)
 
 After adding the rules you can manually download them under **Services** -> **Suricata** -> **Updates**:
 
-![pf-download-rules](https://dl.dropboxusercontent.com/u/24136116/blog_pics/pfsense-suricata/pf-download-rules.png)
+![pf-download-rules](https://seacloud.cc/d/480b5e8fcd/files/?p=/pfsense-suricata/pf-download-rules.png&raw=1)
 
 ### Create Lists
 First I created a list which represented my home network under **Services** -> **Suricata** -> **Pass List**:
 
-![ps-pass-list](https://dl.dropboxusercontent.com/u/24136116/blog_pics/pfsense-suricata/ps-pass-list.png)
+![ps-pass-list](https://seacloud.cc/d/480b5e8fcd/files/?p=/pfsense-suricata/ps-pass-list.png&raw=1)
 
 And I also created created a suppress list to suppress certain **snort** and **ET** signatures since initially there a bunch of False Positives. This is accomplished under **Services** -> **Suricata** -> **Suppress**:
 
-![pf-supp-list](https://dl.dropboxusercontent.com/u/24136116/blog_pics/pfsense-suricata/pf-supp-list.png)
+![pf-supp-list](https://seacloud.cc/d/480b5e8fcd/files/?p=/pfsense-suricata/pf-supp-list.png&raw=1)
 
 Here are some of the signatures that I suppressed:
 
-![pf-supp-list-config.png](https://dl.dropboxusercontent.com/u/24136116/blog_pics/pfsense-suricata/pf-supp-list-config.png)
+![pf-supp-list-config.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/pfsense-suricata/pf-supp-list-config.png&raw=1)
 
 On top of the suppress list you can also choose what rule categories to enable under **Services** -> **Suricata** -> **Interfaces** -> **WAN Categories**:
 
-![ps-enable-rules-per](https://dl.dropboxusercontent.com/u/24136116/blog_pics/pfsense-suricata/ps-enable-rules-per.png)
+![ps-enable-rules-per](https://seacloud.cc/d/480b5e8fcd/files/?p=/pfsense-suricata/ps-enable-rules-per.png&raw=1)
 
 ### Enable Barnyard2
 Since I already had a [snorby setup](/2014/04/snort-debian/) (and this [one](/2014/12/snort-on-freebsd-10/)), I decided to send the events to the **snorby** database. This is accomplished under **Services** -> **Suricata** -> **Interface** -> **WAN Barnyard2**:
 
-![pf-barnyard-setup](https://dl.dropboxusercontent.com/u/24136116/blog_pics/pfsense-suricata/pf-barnyard-setup.png)
+![pf-barnyard-setup](https://seacloud.cc/d/480b5e8fcd/files/?p=/pfsense-suricata/pf-barnyard-setup.png&raw=1)
 
 ### Configure Logging And Other Parameters
 Now under the main config for the interface let's enable it and setup logging. Under **Servces** -> **Suricata** -> **Interface** -> **WAN settings** I had the following:
 
-![pf-interface-sett-1.png](https://dl.dropboxusercontent.com/u/24136116/blog_pics/pfsense-suricata/pf-interface-sett-1.png)
+![pf-interface-sett-1.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/pfsense-suricata/pf-interface-sett-1.png&raw=1)
 
 And down below I enabled the lists that I had created before:
 
-![pf-int-assign-supp-pass-list](https://dl.dropboxusercontent.com/u/24136116/blog_pics/pfsense-suricata/pf-int-assign-supp-pass-list.png)
+![pf-int-assign-supp-pass-list](https://seacloud.cc/d/480b5e8fcd/files/?p=/pfsense-suricata/pf-int-assign-supp-pass-list.png&raw=1)
 
 I also disabled the **http extending** logging along with **tracked files** since I was sending the logs over syslog and the JSON was getting truncated (this will help out later for the ELK setup):
 
-![pf-suricat-log-options](https://dl.dropboxusercontent.com/u/24136116/blog_pics/pfsense-suricata/pf-suricat-log-options.png)
+![pf-suricat-log-options](https://seacloud.cc/d/480b5e8fcd/files/?p=/pfsense-suricata/pf-suricat-log-options.png&raw=1)
 
 ### Enable Watchdog
 Another optional thing you can do is install **Service Watchdog**:
 
-![pf-watchdog-installed](https://dl.dropboxusercontent.com/u/24136116/blog_pics/pfsense-suricata/pf-watchdog-installed.png)
+![pf-watchdog-installed](https://seacloud.cc/d/480b5e8fcd/files/?p=/pfsense-suricata/pf-watchdog-installed.png&raw=1)
 
 And under **Services** -> **Service Watchdog** enable it to monitor the **Suricata** Service:
 
-![pf-service-watchdog-suricata](https://dl.dropboxusercontent.com/u/24136116/blog_pics/pfsense-suricata/pf-service-watchdog-suricata.png)
+![pf-service-watchdog-suricata](https://seacloud.cc/d/480b5e8fcd/files/?p=/pfsense-suricata/pf-service-watchdog-suricata.png&raw=1)
 
 ### Check Out the Config
 You can ssh to the pfSense machine and check out all the settings. After it was initialized the machine was pretty idle:

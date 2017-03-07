@@ -529,7 +529,7 @@ I ended up doing two things, I set the engine of the table to be BlackHole:
 	
 And I also went into the Zabbix Web Management and under the **Administration** -> **General** -> **Housekeeping**, I made sure all of the options were unchecked:
 
-![zab-house-keeping-disabled](https://dl.dropboxusercontent.com/u/24136116/blog_pics/zabbix-partition-mysql-db/zab-house-keeping-disabled.png)
+![zab-house-keeping-disabled](https://seacloud.cc/d/480b5e8fcd/files/?p=/zabbix-partition-mysql-db/zab-house-keeping-disabled.png&raw=1)
 
 ### Remove Disk Space from LV
 So now that I am in a good place, I can remove the disk that I initially added to get out of this situation. We first have to resize the filesystem and then we can resize the Logical Volume. I was  using ext4 as my file system and unfortunately ext4 shrinking is not supported. If you try to shrink the filesystem on the fly, you will get the following warning:

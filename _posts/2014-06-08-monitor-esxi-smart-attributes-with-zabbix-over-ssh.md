@@ -32,7 +32,7 @@ Since I was already monitoring the ESXi host with Zabbix, I decided to modify th
 
 After that, we can create a new item for that host with the following configuration:
 
-![zabbix-ssh-check-smart_g](https://dl.dropboxusercontent.com/u/24136116/blog_pics/zabbix-ssh-command-esxi/zabbix-ssh-check-smart_g.png)
+![zabbix-ssh-check-smart_g](https://seacloud.cc/d/480b5e8fcd/files/?p=/zabbix-ssh-command-esxi/zabbix-ssh-check-smart_g.png&raw=1)
 
 If you want you can also specify an SSH key for the connection as well, but for that to work, the zabbix user must have an existing home directory (check out  [Zabbix SSH checks](https://www.zabbix.com/documentation/2.0/manual/config/items/itemtypes/ssh_checks) for more information). Looking over some of the SSDs, for example from [Samsung SSD 840 PRO Series Data Sheet](http://www.samsung.com/global/business/semiconductor/Downloads/DataSheet-Samsung_SSD_840_PRO_Rev12.pdf) :
 
@@ -44,10 +44,10 @@ If you want you can also specify an SSH key for the connection as well, but for 
 
 I decided to create a trigger for the temperature item to kick off if it ever reaches anything above 70:
 
-![zabbix-trigger-high-ssd-temp_g](https://dl.dropboxusercontent.com/u/24136116/blog_pics/zabbix-ssh-command-esxi/zabbix-trigger-high-ssd-temp_g.png)
+![zabbix-trigger-high-ssd-temp_g](https://seacloud.cc/d/480b5e8fcd/files/?p=/zabbix-ssh-command-esxi/zabbix-trigger-high-ssd-temp_g.png&raw=1)
 
 Assigning a graph to that item and I am able to see the history of the SSD temperature:
 
-![zabbix-graph-esxi-ssd-temp](https://dl.dropboxusercontent.com/u/24136116/blog_pics/zabbix-ssh-command-esxi/zabbix-graph-esxi-ssd-temp.png)
+![zabbix-graph-esxi-ssd-temp](https://seacloud.cc/d/480b5e8fcd/files/?p=/zabbix-ssh-command-esxi/zabbix-graph-esxi-ssd-temp.png&raw=1)
 
 If you want, you can obviously monitor other attributes as well.

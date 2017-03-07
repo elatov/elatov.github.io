@@ -10,7 +10,7 @@ tags: [freebsd, pf, nat]
 
 Let's say you have the following physical setup:
 
-![NAT](https://dl.dropboxusercontent.com/u/24136116/blog_pics/pf_nat/NAT.jpg)
+![NAT](https://seacloud.cc/d/480b5e8fcd/files/?p=/pf_nat/NAT.jpg&raw=1)
 
 And you want to use FreeBSD as your firewall and NAT'ing device, here is a small guide on how to set that up.
 

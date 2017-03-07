@@ -12,22 +12,22 @@ I initially install dd-wrt on the Asus RT-AC68U Router (the instructions for tha
 
 I recently got a fiber connection for my WAN and I wanted to see what speed I can reach. Plugging my laptop directly into the Modem, I saw the following:
 
-![direct-laptop](https://dl.dropboxusercontent.com/u/24136116/blog_pics/asuswrt-install/direct-laptop.png)
+![direct-laptop](https://seacloud.cc/d/480b5e8fcd/files/?p=/asuswrt-install/direct-laptop.png&raw=1)
 
 That's really good. Then plugging my laptop through the Router, I saw the following:
 
-![ddwrt-only-ethr-2](https://dl.dropboxusercontent.com/u/24136116/blog_pics/asuswrt-install/ddwrt-only-ethr-2.png)
+![ddwrt-only-ethr-2](https://seacloud.cc/d/480b5e8fcd/files/?p=/asuswrt-install/ddwrt-only-ethr-2.png&raw=1)
 
 And here are the results with wifi:
 
-![ddwrt-wifi](https://dl.dropboxusercontent.com/u/24136116/blog_pics/asuswrt-install/ddwrt-wifi.png)
+![ddwrt-wifi](https://seacloud.cc/d/480b5e8fcd/files/?p=/asuswrt-install/ddwrt-wifi.png&raw=1)
 
 It wasn't as good. So I decided to try out AsusWRT
 
 ### Create a backup of DD-WRT
 Before completing wiping my router, I decided to create a backup. First go to the admin UI and export the config. **Administration** -> **Backup** and select Backup:
 
-![wrt-backup-ui](https://dl.dropboxusercontent.com/u/24136116/blog_pics/asuswrt-install/wrt-backup-ui.png)
+![wrt-backup-ui](https://seacloud.cc/d/480b5e8fcd/files/?p=/asuswrt-install/wrt-backup-ui.png&raw=1)
 
 It will download a file called **nvrambak.bin** for the backup. I also grabbed the contents of the **/jffs** and **/opt** directories since I had a USB drive plugged in. First install a better version of **tar** (after **ssh**'ing into the router):
 
@@ -93,15 +93,15 @@ If things get really bad you can use the following instructions which I found at
 
 After the router is in the **Recovery/Rescue** mode, install the **Firmware Restoration Utility** and launch it. I was using a Mac, and I actually found it in the App Store:
 
-![as-asus-res-utility](https://dl.dropboxusercontent.com/u/24136116/blog_pics/asuswrt-install/as-asus-res-utility.png)
+![as-asus-res-utility](https://seacloud.cc/d/480b5e8fcd/files/?p=/asuswrt-install/as-asus-res-utility.png&raw=1)
 
 Then I configured my IP to be on the same network as the router (**192.168.1.X/24**) and I uploaded the **trx** file to the utility:
 
-![as-asus-res-fw-up](https://dl.dropboxusercontent.com/u/24136116/blog_pics/asuswrt-install/as-asus-res-fw-up.png)
+![as-asus-res-fw-up](https://seacloud.cc/d/480b5e8fcd/files/?p=/asuswrt-install/as-asus-res-fw-up.png&raw=1)
 
 And then after you click **Upload**, it will start the upload:
 
-![as-asus-res-fw-start](https://dl.dropboxusercontent.com/u/24136116/blog_pics/asuswrt-install/as-asus-res-fw-start.png)
+![as-asus-res-fw-start](https://seacloud.cc/d/480b5e8fcd/files/?p=/asuswrt-install/as-asus-res-fw-start.png&raw=1)
 
 If all is well it will finish the upload and ask you to reboot your router. Then you can visit **http://192.168.1.1** to finish the configuration.
 
@@ -109,7 +109,7 @@ If all is well it will finish the upload and ask you to reboot your router. Then
 
 After I installed and configured AsusWRT, I decided to run another speed test and here is what I saw:
 
-![asus-stock-only-ether-2](https://dl.dropboxusercontent.com/u/24136116/blog_pics/asuswrt-install/asus-stock-only-ether-2.png)
+![asus-stock-only-ether-2](https://seacloud.cc/d/480b5e8fcd/files/?p=/asuswrt-install/asus-stock-only-ether-2.png&raw=1)
 
 
 That's a little bit better :) Here is the version I was on:
@@ -143,7 +143,7 @@ After extracting it, I just grabbed the **trx** file:
 
 So from the AsusWRT Admin UI, I went to **Administration** -> **Firmware Upgrade** and uploaded the new **trx** file and clicked **Upload**:
 
-![asus-update-ui](https://dl.dropboxusercontent.com/u/24136116/blog_pics/asuswrt-install/asus-update-ui.png)
+![asus-update-ui](https://seacloud.cc/d/480b5e8fcd/files/?p=/asuswrt-install/asus-update-ui.png&raw=1)
 
 After the update was done, here is the version I was on:
 
@@ -157,12 +157,12 @@ After the update was done, here is the version I was on:
 
 After upgrading the stock Asus Firmware to the Merlin Firmware here were the results of the speed test:
 
-![asus-merlin-only-ether2](https://dl.dropboxusercontent.com/u/24136116/blog_pics/asuswrt-install/asus-merlin-only-ether2.png)
+![asus-merlin-only-ether2](https://seacloud.cc/d/480b5e8fcd/files/?p=/asuswrt-install/asus-merlin-only-ether2.png&raw=1)
 
 Very similar results and I get cool features, like SNMP and traffic stats saved to a usb disk (full list is available [here](https://asuswrt.lostrealm.ca/features)). I also ran a test with wi-fi and it was pretty much the same accross both versions of AsusWRT:
 
 
-![asus-merlin-only-wifi](https://dl.dropboxusercontent.com/u/24136116/blog_pics/asuswrt-install/asus-merlin-only-wifi.png)
+![asus-merlin-only-wifi](https://seacloud.cc/d/480b5e8fcd/files/?p=/asuswrt-install/asus-merlin-only-wifi.png&raw=1)
 
 ### VLAN Config
 
@@ -223,11 +223,11 @@ But the **ip link show** command would work:
 	    
 Luckily **ip addr** worked fine. So to integrate with **fwbuilder** I did a couple of things. On the **FWBuilder** side, I configured it to drop the script under **/jffs/scripts/nat-start**:
 
-![fw-builder-output-asus](https://dl.dropboxusercontent.com/u/24136116/blog_pics/asuswrt-install/fw-builder-output-asus.png)
+![fw-builder-output-asus](https://seacloud.cc/d/480b5e8fcd/files/?p=/asuswrt-install/fw-builder-output-asus.png&raw=1)
 
 and to run a custom install script (**/jffs/firewall/firewall.sh**):
 
-![fb-asus-inst](https://dl.dropboxusercontent.com/u/24136116/blog_pics/asuswrt-install/fb-asus-inst.png)
+![fb-asus-inst](https://seacloud.cc/d/480b5e8fcd/files/?p=/asuswrt-install/fb-asus-inst.png&raw=1)
 
 The install script removes the **ip link show dev** references and replaces them with **ifconfig** which still works and then it runs the script:
 
@@ -240,7 +240,7 @@ The install script removes the **ip link show dev** references and replaces them
 
 And lastly I unchecked the **Verify interfaces before loading firewall policy**, this got rid of the **ip link show** commands:
 
-![fb-un-verif](https://dl.dropboxusercontent.com/u/24136116/blog_pics/asuswrt-install/fb-un-verif.png)
+![fb-un-verif](https://seacloud.cc/d/480b5e8fcd/files/?p=/asuswrt-install/fb-un-verif.png&raw=1)
 
 After those changes, I was able to successfully push the firewall of type **dd-wrt with jffs** without issues.
 

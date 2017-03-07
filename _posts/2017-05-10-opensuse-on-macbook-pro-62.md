@@ -12,23 +12,23 @@ I had an old mac book pro laying around and I wanted to install linux on it. I h
 #### OpenSuSe Install
 After the DVD boots you will see the GRUB menu for it:
 
-![opensuse-booting](https://dl.dropboxusercontent.com/u/24136116/blog_pics/opensuse-mbp/opensuse-booting.jpg)
+![opensuse-booting](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/opensuse-booting.jpg&raw=1)
 
 You can boot into the installer and by default it will suggest a partition schema for you:
 
-![os-sug-part](https://dl.dropboxusercontent.com/u/24136116/blog_pics/opensuse-mbp/os-sug-part.jpg)
+![os-sug-part](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/os-sug-part.jpg&raw=1)
 
 I ended up clicking on the **Expert Partitioner** and creating the following partition layout:
 
-![os-new-part](https://dl.dropboxusercontent.com/u/24136116/blog_pics/opensuse-mbp/os-new-part.jpg)
+![os-new-part](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/os-new-part.jpg&raw=1)
 
 And for the *Desktop Setup*, I decided to leave it blank for now:
 
-![os-desktop-selection](https://dl.dropboxusercontent.com/u/24136116/blog_pics/opensuse-mbp/os-desktop-selection.jpg)
+![os-desktop-selection](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/os-desktop-selection.jpg&raw=1)
 
 And in the end here was the summary it provided before starting the install:
 
-![os-summary](https://dl.dropboxusercontent.com/u/24136116/blog_pics/opensuse-mbp/os-summary.jpg)
+![os-summary](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/os-summary.jpg&raw=1)
 
 After the install finished it rebooted and I booted from the CD one more time so I could install GRUB appropriately.
 
@@ -62,7 +62,7 @@ I booted from the CD and chose the *Rescue Linux* option and it booted into a sh
 
 Here is screenshot of the shell when I was just starting out the mount:
 
-![os-rescue-mount](https://dl.dropboxusercontent.com/u/24136116/blog_pics/opensuse-mbp/os-rescue-mount.jpg)
+![os-rescue-mount](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/os-rescue-mount.jpg&raw=1)
 
 After the above commands are done, you can do the following to reboot:
 
@@ -78,11 +78,11 @@ After the above commands are done, you can do the following to reboot:
 #### rEFIt GPT sync
 After that I put in the **rEFIt** CD and held the **Alt/Option** Key see the available boot options (you will notice the Linux Install is not available yet):
 
-![refit-boot-screen](https://dl.dropboxusercontent.com/u/24136116/blog_pics/opensuse-mbp/refit-boot-screen.jpg)
+![refit-boot-screen](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/refit-boot-screen.jpg&raw=1)
 
 Then I booted from the CD and opened up a shell and ran **gptsync.efi**:
 
-![gpt-sync-with-refit](https://dl.dropboxusercontent.com/u/24136116/blog_pics/opensuse-mbp/gpt-sync-with-refit.jpg)
+![gpt-sync-with-refit](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/gpt-sync-with-refit.jpg&raw=1)
 
 Then rebooting one more time, I was able to boot into the OpenSuSe install.
 
@@ -169,7 +169,7 @@ And here is the after:
 
 Then after one more reboot I finally saw **lightdm**:
 
-![opensuse-leap-with-lightdm](https://dl.dropboxusercontent.com/u/24136116/blog_pics/opensuse-mbp/opensuse-leap-with-lightdm.png)
+![opensuse-leap-with-lightdm](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/opensuse-leap-with-lightdm.png&raw=1)
 
 #### Media Codecs
 Initially I installed **mpv** and tried playing a video but it complained about not having the necessary codecs. There is nice page that talks about adding the right repos: [Multimedia Codecs](http://opensuse-guide.org/codecs.php), but I couldn't find the repo for Leap 42.2, I tried 42.1:
@@ -195,7 +195,7 @@ I think in summary **Tumbleweed** is supposed to be close to bleeding edge where
 #### OpenSuSE Tumbleweed Install
 I just booted into the new DVD and actually ended up wiping my root parition and formatting it **btrfs** (just to try it out), but the left the rest of the setup the same as in Leap 42.2. After installing **X**, **lightdm** started up without any issues:
 
-![os-tw-with-lightdm](https://dl.dropboxusercontent.com/u/24136116/blog_pics/opensuse-mbp/os-tw-with-lightdm.jpg)
+![os-tw-with-lightdm](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/os-tw-with-lightdm.jpg&raw=1)
 
 This was using the **Nouveau** drivers (and didn't have to make any GRUB changes).
 
@@ -347,13 +347,13 @@ If you want the device to connect on boot we have to set the laptop's bluetooth 
 Then I rebooted the laptop and at the **lightdm** screen I typed a couple of keys and after about two times the keyboard started to work.
 
 ### Lm_sensors Config
-Macs usually have a pretty complicated temperature sensor configurations (which can be good and bad). Check out [my previous post](/2013/10/monitor-thermal-sensors-lm-sensors/) on that. For this laptop I ran into the [Apple Technician Guide: MacBook Pro (17-inch, Mid 2010)](https://dl.dropboxusercontent.com/u/24136116/blog_pics/opensuse-mbp/us_apple-macbook-pro-service-manual.pdf) and that had a nice description of all the sensors:
+Macs usually have a pretty complicated temperature sensor configurations (which can be good and bad). Check out [my previous post](/2013/10/monitor-thermal-sensors-lm-sensors/) on that. For this laptop I ran into the [Apple Technician Guide: MacBook Pro (17-inch, Mid 2010)](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/us_apple-macbook-pro-service-manual.pdf&raw=1) and that had a nice description of all the sensors:
 
-![mac-sensors-table](https://dl.dropboxusercontent.com/u/24136116/blog_pics/opensuse-mbp/mac-sensors-table.png)
+![mac-sensors-table](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/mac-sensors-table.png&raw=1)
 
 and also a nice diagram of where they are located:
 
-![mac-sensors-dia](https://dl.dropboxusercontent.com/u/24136116/blog_pics/opensuse-mbp/mac-sensors-dia.png)
+![mac-sensors-dia](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/mac-sensors-dia.png&raw=1)
 
 After looking through the guide, I ended up creating the following sensors config:
 
@@ -474,7 +474,7 @@ Then a reboot worked.
 #### Random kworker and Power Consumption issue
 I installed **zabbix** on the laptop, since it runs at home all the time and I kept getting a lot of "Too many processes running" and "High Load Avg" alerts from the laptop.
 
-![os-top-la-kwor](https://dl.dropboxusercontent.com/u/24136116/blog_pics/opensuse-mbp/os-top-la-kwor.png)
+![os-top-la-kwor](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/os-top-la-kwor.png&raw=1)
 
 I realized I had a lot of **kworker** threads:
 
@@ -521,7 +521,7 @@ Then I went on a rampage and tried a bunch of **grub**/**kernel** options:
 
 There were a couple more (I didn't keep track), but none of those helped. Then by dumb luck I was running **powertop** and I saw it action:
 
-![suse-powertop-2.png](https://dl.dropboxusercontent.com/u/24136116/blog_pics/opensuse-mbp/suse-powertop-2.png)
+![suse-powertop-2.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/suse-powertop-2.png&raw=1)
 
 After that I found this kernel bug: [SLAB: extreme load averages and over 2000 kworker threads](https://bugzilla.kernel.org/show_bug.cgi?id=172981). Since tumbleweed was running the latest kernel at the time:
 

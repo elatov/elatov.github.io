@@ -14,7 +14,7 @@ I used MacPorts to install **adb**, most of the instructions are laid out in [Ma
 Then launch the **Android SDK Manager** and make sure to install **Android SDK Platform-tools**:
 
 
-![and-man](https://dl.dropboxusercontent.com/u/24136116/blog_pics/cm-nexus_5/and-man.png)
+![and-man](https://seacloud.cc/d/480b5e8fcd/files/?p=/cm-nexus_5/and-man.png&raw=1)
 
 After that the binaries will be here:
 
@@ -143,11 +143,11 @@ Now let's push the CyanogenMod and gapps onto the phone:
 
 My phone was already in recovery mode, while in recovery mode I created a backup and reset the phone to factory settings:
 
-![trec-backup-reset](https://dl.dropboxusercontent.com/u/24136116/blog_pics/cm-nexus_5/trec-backup-reset.jpg)
+![trec-backup-reset](https://seacloud.cc/d/480b5e8fcd/files/?p=/cm-nexus_5/trec-backup-reset.jpg&raw=1)
 
 Then I chose **Install** and first chose the **cm-13.0-20160316-SNAPSHOT-ZNH0EAO1QC-hammerhead.zip** file:
 
-![team-rec-install-cm](https://dl.dropboxusercontent.com/u/24136116/blog_pics/cm-nexus_5/team-rec-install-cm.jpg)
+![team-rec-install-cm](https://seacloud.cc/d/480b5e8fcd/files/?p=/cm-nexus_5/team-rec-install-cm.jpg&raw=1)
 
 And after that was complete I then installed did the same with the **open_gapps-arm-6.0-nano-20160402.zip** file.
 
@@ -185,7 +185,7 @@ At this point the pop up on the phone showed up and I accepted my Mac and then I
 ### Restoring from Backup
 As I was resetting up the the phone, I had the option to restore all the apps from The Play Store (and I could choose which ones to install), this is only if you enabled backup to google:
 
-![restore-phone-with-google](https://dl.dropboxusercontent.com/u/24136116/blog_pics/cm-nexus_5/restore-phone-with-google.png)
+![restore-phone-with-google](https://seacloud.cc/d/480b5e8fcd/files/?p=/cm-nexus_5/restore-phone-with-google.png&raw=1)
 
 That just installed the applications without any settings. Then I just restored from the adb backup for the actual data:
 

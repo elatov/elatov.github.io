@@ -11,7 +11,7 @@ I noticed that a [new update](https://www.elastic.co/guide/en/kibana/4.4/release
 ### Preparing for the Kibana Update
 If you remember [my previous](/2016/02/playing-around-with-an-elasticsearchlogstashkibana-elk-stack/) post I ended up getting the **tar.gz** archive and installing it manually under **/opt**. This time around I decided to add a *YUM* repository and install from there. First I exported all of my objects just in case. This is done in **kibana** under **Settings** -> **Objects** -> **Export Everything**:
 
-![kib-obj-export](https://dl.dropboxusercontent.com/u/24136116/blog_pics/kibana-update/kib-obj-export.png)
+![kib-obj-export](https://seacloud.cc/d/480b5e8fcd/files/?p=/kibana-update/kib-obj-export.png&raw=1)
 
 Now let's stop the **kibana** server:
 
@@ -71,4 +71,4 @@ And checking out the logs looked good:
 	
 After I logged into **kibana** I saw the new version:
 
-![kib-version](https://dl.dropboxusercontent.com/u/24136116/blog_pics/kibana-update/kib-version.png)
+![kib-version](https://seacloud.cc/d/480b5e8fcd/files/?p=/kibana-update/kib-version.png&raw=1)

@@ -11,7 +11,7 @@ tags: ['performance']
 
 ### Compare and contrast virtual and physical hardware resources
 
-From "[Transform your Business with Virtualization](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcap-dca/3-2/transform-business-virtualization_white_paper.pdf)":
+From "[Transform your Business with Virtualization](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcap-dca/3-2/transform-business-virtualization_white_paper.pdf&raw=1)":
 
 > **What is a Virtual Machine?**
 > A virtual machine is a tightly isolated software container that can run its own operating systems and applications as if it were a physical computer. A virtual machine behaves exactly like a physical computer and contains it own virtual (ie, software-based) CPU, RAM hard disk and network interface card (NIC).

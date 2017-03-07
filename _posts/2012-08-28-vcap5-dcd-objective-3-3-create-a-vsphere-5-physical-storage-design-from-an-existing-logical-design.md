@@ -9,7 +9,7 @@ tags: ['fcoe', 'fiber_channel', 'san_zoning', 'sioc', 'vmotion', 'iscsi', 'port_
 
 ### Describe selection criteria for commonly used RAID types
 
-From "[Best Practices for Microsoft SQL Server on Hitachi Universal Storage Platform VM](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcap-dcd/3-3/best-practices-for-microsoft-sql-server-on-hitachi-universal-storage-platform-vm.pdf)":
+From "[Best Practices for Microsoft SQL Server on Hitachi Universal Storage Platform VM](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcap-dcd/3-3/best-practices-for-microsoft-sql-server-on-hitachi-universal-storage-platform-vm.pdf&raw=1)":
 
 > RAID-1+ is best suited to applications with low cache-hit ratios, such as random I/O activity, and with high write-to-read ratios.
 >
@@ -194,7 +194,7 @@ From the vSphere Storage Guide":
 >
 > With ESXi hosts, use a single-initiator zoning or a single-initiator-single-target zoning. The latter is a preferred zoning practice. Using the more restrictive zoning prevents problems and misconfigurations that can occur on the SAN.
 
-Also From "[Secure SAN Zoning Best Practices](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcap-dcd/3-3/Zoning_Best_Practices_WP-00.pdf)":
+Also From "[Secure SAN Zoning Best Practices](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcap-dcd/3-3/Zoning_Best_Practices_WP-00.pdf&raw=1)":
 
 > Zoning not only prevents a host from unauthorized access of storage assets, but it also stops undesired host-to-host communication and fabric-wide Registered State Change Notification (RSCN) disruptions. RSCNs are managed by the fabric Name Server and notify end devices of events in the fabric, such as a storage node or a switch going offline. Brocade isolates these notifications to only the zones that require the update, so nodes that are unaffected by the fabric change do not receive the RSCN. This is important for non-disruptive fabric operations, because RSCNs have the potential to disrupt storage traffic.
 >

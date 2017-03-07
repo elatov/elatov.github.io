@@ -157,7 +157,7 @@ If all is well you should see the following in the logs:
 	
 And of course if you check out the **splunk** UI you will see the json alerts in there:
 
-![splunk-json-suricata](https://dl.dropboxusercontent.com/u/24136116/blog_pics/splunk-forward-pfsense/splunk-json-suricata.png)
+![splunk-json-suricata](https://seacloud.cc/d/480b5e8fcd/files/?p=/splunk-forward-pfsense/splunk-json-suricata.png&raw=1)
 
 ### Enable Auto Start of Splunk Forwarder
 
@@ -171,4 +171,4 @@ if you were on another **FreeBSD** system you can enable it to start on boot wit
 
 But with **pfSense** we can add the start command as a **shellcmd**, the process is covered [here](https://doc.pfsense.org/index.php/Executing_commands_at_boot_time), here is what I added:
 
-![splunk-shell-cmd](https://dl.dropboxusercontent.com/u/24136116/blog_pics/splunk-forward-pfsense/splunk-shell-cmd.png)
+![splunk-shell-cmd](https://seacloud.cc/d/480b5e8fcd/files/?p=/splunk-forward-pfsense/splunk-shell-cmd.png&raw=1)

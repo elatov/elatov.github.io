@@ -35,7 +35,7 @@ And here is the profile applied to the host
 
 So I located and downloaded patch **ESXi550-201404001**:
 
-![esxi-hb-patch](https://dl.dropboxusercontent.com/u/24136116/blog_pics/esxi-hb-patch/esxi-hb-patch.png)
+![esxi-hb-patch](https://seacloud.cc/d/480b5e8fcd/files/?p=/esxi-hb-patch/esxi-hb-patch.png&raw=1)
 
 Before applying the patch, I made sure no VMs are running on the Host:
 
@@ -157,5 +157,5 @@ After that you should be all set. Take the host out of maintenance mode and powe
 
 If you connect back to the ESXi host with the vSphere Client it will give you a warning about the SSL certificate for the ESXi host:
 
-![ssl-warning-while-connecting-to-esx-host_g](https://dl.dropboxusercontent.com/u/24136116/blog_pics/esxi-hb-patch/ssl-warning-while-connecting-to-esx-host_g.png)
+![ssl-warning-while-connecting-to-esx-host_g](https://seacloud.cc/d/480b5e8fcd/files/?p=/esxi-hb-patch/ssl-warning-while-connecting-to-esx-host_g.png&raw=1)
 

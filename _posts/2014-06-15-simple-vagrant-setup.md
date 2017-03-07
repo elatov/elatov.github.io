@@ -13,15 +13,15 @@ I kept hearing good things about **vagrant**. Vagrant, from [their](http://www.v
 
 Basically utilizing existing virtualization products (Virtualbox, VMware, AWS ... etc) you are able to spin up an environment from a template for your personal use. If you are in need of a quick test enrvironmet, which you can remove after you are done, then vagrant is for you. Let's try out vagrant, first go to the [download](https://www.vagrantup.com/downloads.html) page and download the software:
 
-![vagrant-download-page](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_create_environment/vagrant-download-page.png)
+![vagrant-download-page](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_environment/vagrant-download-page.png&raw=1)
 
 Then install the software:
 
-![vagrant-installer](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_create_environment/vagrant-installer.png)
+![vagrant-installer](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_environment/vagrant-installer.png&raw=1)
 
 Here is a successfull install:
 
-![vargrant-successfully-installed](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_create_environment/vargrant-successfully-installed.png)
+![vargrant-successfully-installed](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_environment/vargrant-successfully-installed.png&raw=1)
 
 After it's installed you can open a terminal and you should see the executable available in your path:
 

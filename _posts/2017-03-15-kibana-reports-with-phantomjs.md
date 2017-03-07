@@ -23,7 +23,7 @@ And there have been a couple of tools that were created to help out:
 
 And lastly it sounds like [X-Pack from Elastic](https://www.elastic.co/guide/en/x-pack/current/xpack-introduction.html) will allow for reporting, but it won't be free. You can use it for a 30 day trial but after that you have to purchase a license. Here is nice support table:
 
-![elk-lic](https://dl.dropboxusercontent.com/u/24136116/blog_pics/kibana-phantomjs/elk-lic.png)
+![elk-lic](https://seacloud.cc/d/480b5e8fcd/files/?p=/kibana-phantomjs/elk-lic.png&raw=1)
 
 ### Screenshot Solutions
 
@@ -76,7 +76,7 @@ Then running the following:
 
 Produced a file called **kibana.jpg** in the same directory and here is how it looked like:
 
-![ph-jpg-ex](https://dl.dropboxusercontent.com/u/24136116/blog_pics/kibana-phantomjs/ph-jpg-ex.png)
+![ph-jpg-ex](https://seacloud.cc/d/480b5e8fcd/files/?p=/kibana-phantomjs/ph-jpg-ex.png&raw=1)
 
 #### Snapshot - Report Generation for ElasticSearch Kibana / Grafana
 

@@ -31,7 +31,7 @@ Let's try it out.
 
 Reading over [Upgrading Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/5.0/setup-upgrade.html) there is a table of suggested updates.
 
-![es-update-table](https://dl.dropboxusercontent.com/u/24136116/blog_pics/update-es-50/es-update-table.png)
+![es-update-table](https://seacloud.cc/d/480b5e8fcd/files/?p=/update-es-50/es-update-table.png&raw=1)
 
 I think the biggest concern is whether you need to reindex old indices. I was on **elasticsearch** 2.4 and I was using **logstash**'s time based indices so I didn't need to worry about that (I also used [curator](https://www.elastic.co/guide/en/elasticsearch/client/curator/current/examples.html) to delete old indices):
 
@@ -234,7 +234,7 @@ You can also confirm the version of **elasticsearch**:
 
 I read over [Upgrading Kibana](https://www.elastic.co/guide/en/kibana/5.0/upgrade.html) and checking out the table, I can just do a **standard** upgrade without doing a re-index (since I was using **logstash**'s time based indices):
 
-![kib-update-table](https://dl.dropboxusercontent.com/u/24136116/blog_pics/update-es-50/kib-update-table.png)
+![kib-update-table](https://seacloud.cc/d/480b5e8fcd/files/?p=/update-es-50/kib-update-table.png&raw=1)
 
 I started using Kibana from 4.3 and above (you can check out the original setup that I did [here](/2016/02/playing-around-with-an-elasticsearchlogstashkibana-elk-stack/)) so I was good. The steps for the update are layed out
 in the [Standard Upgrade](https://www.elastic.co/guide/en/kibana/5.0/upgrade-standard.html) page. First you stop the **kibana** instance, which I did above. Then install the rpm, since **elasticsearch** and **kibana** share the repo, I didn't have to do anything special.  Then I performed the update:
@@ -302,7 +302,7 @@ I didn't have any plugins for **kibana** so I just started up the service:
 Then you can point your browser to the **kibana** dashboard and see the new
 version:
 
-![kib-50](https://dl.dropboxusercontent.com/u/24136116/blog_pics/update-es-50/kib-50.png)
+![kib-50](https://seacloud.cc/d/480b5e8fcd/files/?p=/update-es-50/kib-50.png&raw=1)
 
 ### Updating Logstash from 2.3 to 5.0
 

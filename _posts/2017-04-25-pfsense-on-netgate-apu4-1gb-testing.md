@@ -11,14 +11,14 @@ I recently played around with AsusWRT and a 1Gb WAN connection and I was actuall
 ### Direct Speed Test
 Plugging my laptop directly into the modem, I saw the following results:
 
-![direct-laptop](https://dl.dropboxusercontent.com/u/24136116/blog_pics/apu4-wan/direct-laptop.png)
+![direct-laptop](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu4-wan/direct-laptop.png&raw=1)
 
 Which I was pretty happy with.
 
 ### pfSense Speed Test
 Adding pfSense into mix yielded the following results:
 
-![pf-only-with-suricata](https://dl.dropboxusercontent.com/u/24136116/blog_pics/apu4-wan/pf-only-with-suricata.png)
+![pf-only-with-suricata](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu4-wan/pf-only-with-suricata.png&raw=1)
 
 I started trying different things to see if that would help.
 
@@ -91,7 +91,7 @@ Reading over [Tuning and Troubleshooting Network Cards](https://doc.pfsense.org/
 
 But that didn't help. I also tried disabling and enabling the different options available in pfSense under **System** -> **Advanced** -> **Networking**:
 
-![pf-net-options](https://dl.dropboxusercontent.com/u/24136116/blog_pics/apu4-wan/pf-net-options.png) 
+![pf-net-options](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu4-wan/pf-net-options.png&raw=1) 
 
 The following options didn't help:
 
@@ -103,7 +103,7 @@ The following options didn't help:
 ### Checking out the CPU Usage
 Running **top -aSH** showed that NIC interrupts are high but not completely taking over the CPU:
 
-![image](https://dl.dropboxusercontent.com/u/24136116/blog_pics/apu4-wan/pf-top-interr.png)
+![image](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu4-wan/pf-top-interr.png&raw=1)
 
 Reading over the [FreeBSD forwarding Performance](https://bsdrp.net/documentation/technical_docs/performance), I tried using the **pmcstat** tool to see if **pf** is taking a lot of the kernel time, and when I ran the following:
 
@@ -209,7 +209,7 @@ As I kept reading about the APU4 unit I ran into a bunch of folks that mentioned
 
 * [netbenches/AMD_G-T40E_2Cores_RTL8111E/fastforwarding-pf-ipfw/results/fbsd11-routing.r287531](https://github.com/ocochard/netbenches/blob/master/AMD_G-T40E_2Cores_RTL8111E/fastforwarding-pf-ipfw/results/fbsd11-routing.r287531/README.md)
 
-	> ![pf-graph-apu](https://dl.dropboxusercontent.com/u/24136116/blog_pics/apu4-wan/pf-graph-apu.png)
+	> ![pf-graph-apu](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu4-wan/pf-graph-apu.png&raw=1)
 
 * [pfSense home router using the PC Engines APU1D4](http://www.sgvulcan.com/2015/08/27/pfsense-home-router-using-the-pc-engines-apu1d4/)
 
@@ -217,7 +217,7 @@ As I kept reading about the APU4 unit I ran into a bunch of folks that mentioned
 
 So after all my testing and actually enabling TSO (it helped with **suricata** offloading) this the best I could get (about **~530Mb** down):
 
-![**image**](https://dl.dropboxusercontent.com/u/24136116/blog_pics/apu4-wan/pf-only-tso-2.png)
+![**image**](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu4-wan/pf-only-tso-2.png&raw=1)
 
 ### Other Hardware
 Now that I know the limitation, next time I am upgrading my firewall, I will grab one of these:
@@ -225,14 +225,14 @@ Now that I know the limitation, next time I am upgrading my firewall, I will gra
 * [netbenches/Atom_C2558_4Cores-Intel_i350/fastforwarding-pf-ipfw/results/fbsd11-routing.r287531](https://github.com/ocochard/netbenches/blob/master/Atom_C2558_4Cores-Intel_i350/fastforwarding-pf-ipfw/results/fbsd11-routing.r287531/README.md)
 	* Netgate RCC-VE 4860 
 	
-	> ![netgate-4860-graph](https://dl.dropboxusercontent.com/u/24136116/blog_pics/apu4-wan/netgate-4860-graph.png)
+	> ![netgate-4860-graph](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu4-wan/netgate-4860-graph.png&raw=1)
 	
 * [Playing with FreeBSD packet filter state table limits](http://blog.cochard.me/2016/05/playing-with-freebsd-packet-filter.html)
 	* Netgate RCC-VE 4860
 * [Thinking of switching to pfsense](https://www.reddit.com/r/PFSENSE/comments/3xqhqo/thinking_of_switching_to_pfsense/)
 	* Nice table from there (SG-2440):
 	
-	> ![ng-perf-table](https://dl.dropboxusercontent.com/u/24136116/blog_pics/apu4-wan/ng-perf-table.png)
+	> ![ng-perf-table](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu4-wan/ng-perf-table.png&raw=1)
 	
 * [Gigabit WAN speeds with RCC-VE 2440?](https://www.reddit.com/r/PFSENSE/comments/3t184g/gigabit_wan_speeds_with_rccve_2440/)
 	

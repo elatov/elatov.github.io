@@ -298,7 +298,7 @@ And on the omnios machine I did see the sparse bundle get created:
 
 On Napp-it you can enable the bojour services to auto start if you want. In the Napp-it UI it will show what sample commands you can enter:
 
-![napp-it-bonjour-instructions](https://dl.dropboxusercontent.com/u/24136116/blog_pics/afp-omnios/napp-it-bonjour-instructions.png)
+![napp-it-bonjour-instructions](https://seacloud.cc/d/480b5e8fcd/files/?p=/afp-omnios/napp-it-bonjour-instructions.png&raw=1)
 
 Basically run the following commands (also seen [here](https://forums.servethehome.com/index.php?threads/bonjour-mdns-stopped-working-after-updating-omnios.3964/))
 
@@ -331,7 +331,7 @@ and of course from the mac you can query that information:
 
 And in Finder you will your see device:
 
-![napp-it-bonjour-instructions](https://dl.dropboxusercontent.com/u/24136116/blog_pics/afp-omnios/zf-bonjour-info.png)
+![napp-it-bonjour-instructions](https://seacloud.cc/d/480b5e8fcd/files/?p=/afp-omnios/zf-bonjour-info.png&raw=1)
 
 If you are manually mouting the afp share, it probably won't matter that much.
 

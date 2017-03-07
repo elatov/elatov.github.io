@@ -17,7 +17,7 @@ I didn't even have the login information for the local admin user. To reset the 
 
 Here is how that looks like:
 
-![mac-os-x-sum-fsck-and-mount](https://dl.dropboxusercontent.com/u/24136116/blog_pics/mac-mini-2006-debian/mac-os-x-sum-fsck-and-mount.png)
+![mac-os-x-sum-fsck-and-mount](https://seacloud.cc/d/480b5e8fcd/files/?p=/mac-mini-2006-debian/mac-os-x-sum-fsck-and-mount.png&raw=1)
 
 After that, we can run the following to launch the user Directory service:
 
@@ -80,38 +80,38 @@ Just fire up **DiskUtility** and resize the partition (I covered this in a [prev
 ### Boot from the Debian CD and Install Debian on the Free Space
 I decided to dual boot just in case I ever needed to reboot into Mac OS for updates or firmware updates. So reboot from Mac OS X and hold down the **Alt** key and it will show you the boot manager. On the boot manager the Debian CD will show up with a title of **Windows**:
 
-![mac-osx-boot-man-cd-selected2](https://dl.dropboxusercontent.com/u/24136116/blog_pics/mac-mini-2006-debian/mac-osx-boot-man-cd-selected2_gc.jpg)
+![mac-osx-boot-man-cd-selected2](https://seacloud.cc/d/480b5e8fcd/files/?p=/mac-mini-2006-debian/mac-osx-boot-man-cd-selected2_gc.jpg&raw=1)
 
 If you select the CD, it will start the Debian Installer. Just fill out everything as you normally would. I selected the "**Guided - use the largest continuous free space**":
 
-![deb-in-part-guided_g](https://dl.dropboxusercontent.com/u/24136116/blog_pics/mac-mini-2006-debian/deb-in-part-guided_g.jpg)
+![deb-in-part-guided_g](https://seacloud.cc/d/480b5e8fcd/files/?p=/mac-mini-2006-debian/deb-in-part-guided_g.jpg&raw=1)
 
 After selecting that it created the following partitions:
 
-![deb-in-part-guided2](https://dl.dropboxusercontent.com/u/24136116/blog_pics/mac-mini-2006-debian/deb-in-part-guided2_gc.jpg)
+![deb-in-part-guided2](https://seacloud.cc/d/480b5e8fcd/files/?p=/mac-mini-2006-debian/deb-in-part-guided2_gc.jpg&raw=1)
 
 It will also ask you where to install GRUB and I selected the fourth partition (**/dev/sda4**):
 
-![deb-in-grub-spec-disk_g](https://dl.dropboxusercontent.com/u/24136116/blog_pics/mac-mini-2006-debian/deb-in-grub-spec-disk_g.jpg)
+![deb-in-grub-spec-disk_g](https://seacloud.cc/d/480b5e8fcd/files/?p=/mac-mini-2006-debian/deb-in-grub-spec-disk_g.jpg&raw=1)
 
 After the install is finished it will eject the CD and reboot. Before rebooting insert the USB drive that has **rEFIt** on it.
 
 ### Sync MBR with GPT
 When the Mac is rebooting keep pressing the **Alt** key until you see the boot manager, since you have the USB stick plugged in, you will see the **rEFIt** icon:
 
-![osx-boot-man-refit_g](https://dl.dropboxusercontent.com/u/24136116/blog_pics/mac-mini-2006-debian/osx-boot-man-refit_g.jpg)
+![osx-boot-man-refit_g](https://seacloud.cc/d/480b5e8fcd/files/?p=/mac-mini-2006-debian/osx-boot-man-refit_g.jpg&raw=1)
 
 After booting from the **rEFIt** USB stick, you will see both your OS X and Linux Boot Disks:
 
-![refit-linux-selected_g](https://dl.dropboxusercontent.com/u/24136116/blog_pics/mac-mini-2006-debian/refit-linux-selected_g.jpg)
+![refit-linux-selected_g](https://seacloud.cc/d/480b5e8fcd/files/?p=/mac-mini-2006-debian/refit-linux-selected_g.jpg&raw=1)
 
 Scroll down and select the **shell**:
 
-![refit-shell-selected_g](https://dl.dropboxusercontent.com/u/24136116/blog_pics/mac-mini-2006-debian/refit-shell-selected_g.jpg)
+![refit-shell-selected_g](https://seacloud.cc/d/480b5e8fcd/files/?p=/mac-mini-2006-debian/refit-shell-selected_g.jpg&raw=1)
 
 After the shell is started just run **gptsync.efi**, here is how it will look like:
 
-![refit-gptsync-change_g.jpg](https://dl.dropboxusercontent.com/u/24136116/blog_pics/mac-mini-2006-debian/refit-gptsync-change_g.jpg)
+![refit-gptsync-change_g.jpg](https://seacloud.cc/d/480b5e8fcd/files/?p=/mac-mini-2006-debian/refit-gptsync-change_g.jpg&raw=1)
 
 Here is the full output, just for reference:
 
@@ -150,11 +150,11 @@ Type **exit** to leave the **rEFIt** shell.
 ### Reboot into Debian
 Reboot from the **rEFIt** USB disk and eject the USB disk, then hold down the **Alt** key and now you will see the new **Windows** Disk which is the Debian GRUB Boot loader:
 
-![mac-osx-boot-man-deb-selected_g](https://dl.dropboxusercontent.com/u/24136116/blog_pics/mac-mini-2006-debian/mac-osx-boot-man-deb-selected_g.jpg)
+![mac-osx-boot-man-deb-selected_g](https://seacloud.cc/d/480b5e8fcd/files/?p=/mac-mini-2006-debian/mac-osx-boot-man-deb-selected_g.jpg&raw=1)
 
 Upon selecting the **Windows** boot disk, you will see the GRUB menu with the Debian entry:
 
-![deb-grub_g](https://dl.dropboxusercontent.com/u/24136116/blog_pics/mac-mini-2006-debian/deb-grub_g.jpg)
+![deb-grub_g](https://seacloud.cc/d/480b5e8fcd/files/?p=/mac-mini-2006-debian/deb-grub_g.jpg&raw=1)
 
 After that Debian will boot up normally.
 

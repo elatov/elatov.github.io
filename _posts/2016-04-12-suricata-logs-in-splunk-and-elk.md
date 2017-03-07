@@ -56,11 +56,11 @@ I ran into this guide about the setup: [A Suricata application for Splunk](https
 
 Then from the splunk UI just go to the application section (**App: Search and Reporting** -> **Manage Apps**):
 
-![splunk-manage-apps](https://dl.dropboxusercontent.com/u/24136116/blog_pics/suricata-elk-splunk/splunk-manage-apps.png)
+![splunk-manage-apps](https://seacloud.cc/d/480b5e8fcd/files/?p=/suricata-elk-splunk/splunk-manage-apps.png&raw=1)
 
 Then click on **Install App from File**:
 
-![splunk-install-app-button](https://dl.dropboxusercontent.com/u/24136116/blog_pics/suricata-elk-splunk/splunk-install-app-button.png)
+![splunk-install-app-button](https://seacloud.cc/d/480b5e8fcd/files/?p=/suricata-elk-splunk/splunk-install-app-button.png&raw=1)
 
 And point to the download file. After that's installed, let's create a **suricata** type to parse the JSON file (as described in [Suricata and Ulogd meet Logstash and Splunk](https://home.regit.org/2014/03/suricata-ulogd-splunk-logstash/)):
 
@@ -87,7 +87,7 @@ Then go ahead and restart **splunk** to apply the new settings:
 	
 Then after some time you will see a bunch of pretty graphs:
 
-![splunk-sur-dashboard](https://dl.dropboxusercontent.com/u/24136116/blog_pics/suricata-elk-splunk/splunk-sur-dashboard.png)
+![splunk-sur-dashboard](https://seacloud.cc/d/480b5e8fcd/files/?p=/suricata-elk-splunk/splunk-sur-dashboard.png&raw=1)
 
 ### ELK Configuration for Suricata
 There are a couple of configuration parts to the setup. There is actually a pretty good guide at [Logstash Kibana and Suricata JSON output](https://redmine.openinfosecfoundation.org/projects/suricata/wiki/_logstash_kibana_and_suricata_json_output).
@@ -293,8 +293,8 @@ Then I was checking out the **/var/log/logstash/logstash.stdout** file and I saw
 
 Pretty cool. In the Suricata guide there are a bunch of Kibana Templates but they were created for Kibana version 3 and I was running Kibana 4, so I couldn't use them as per this [discussion](https://discuss.elastic.co/t/migrate-dashboards-from-kibana3-to-kibana4/837). I created my own, it wasn't as extensive but it was good enough for me:
 
-![kib-suricata-dashboard](https://dl.dropboxusercontent.com/u/24136116/blog_pics/suricata-elk-splunk/kib-suricata-dashboard.png)
+![kib-suricata-dashboard](https://seacloud.cc/d/480b5e8fcd/files/?p=/suricata-elk-splunk/kib-suricata-dashboard.png&raw=1)
 
 Here is another view after moving some stuff around:
 
-![suricata-dashboard-kibana](https://dl.dropboxusercontent.com/u/24136116/blog_pics/suricata-elk-splunk/suricata-dashboard-kibana.png)
+![suricata-dashboard-kibana](https://seacloud.cc/d/480b5e8fcd/files/?p=/suricata-elk-splunk/suricata-dashboard-kibana.png&raw=1)

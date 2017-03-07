@@ -12,7 +12,7 @@ I was trying to upload an OVF into vCloud director and gave me some grief. Throu
 
 After waiting a whole hour of importing (now I know why) vCloud gave me the following error:
 
-![vcloud-upload-error](https://dl.dropboxusercontent.com/u/24136116/blog_pics/upload-ovf-to-vcloud/vcloud-upload-error.jpg)
+![vcloud-upload-error](https://seacloud.cc/d/480b5e8fcd/files/?p=/upload-ovf-to-vcloud/vcloud-upload-error.jpg&raw=1)
 
 The error was a little vauge and it was actually missing the most important part of the error. It just had this:
 
@@ -190,7 +190,7 @@ We can see that the error is similar ( **No manifest entry found for**) to the o
 
 So then I tried uploading that OVF to vCloud and now I received a different error:
 
-![vcloud-upload-error2](https://dl.dropboxusercontent.com/u/24136116/blog_pics/upload-ovf-to-vcloud/vcloud-upload-error2.png)
+![vcloud-upload-error2](https://seacloud.cc/d/480b5e8fcd/files/?p=/upload-ovf-to-vcloud/vcloud-upload-error2.png&raw=1)
 
 This time I saw:
 
@@ -393,4 +393,4 @@ The first two help out lowering the size of the Sparse disk, but they don't chan
 	
 The warning about running out of space is expected since I am **dd**'ing a 120GB disk onto a 20GB disk, but I ensured nothing is using anything above 20GB. I powered off the VM, removed the big 120GB disk and left just the 20GB (it became the primary) and the machine booted up just fine. I exported that VM as an OVF, ensured my manifest file was correct, and the import worked:
 
-![import-successful](https://dl.dropboxusercontent.com/u/24136116/blog_pics/upload-ovf-to-vcloud/import-successful.jpg)
+![import-successful](https://seacloud.cc/d/480b5e8fcd/files/?p=/upload-ovf-to-vcloud/import-successful.jpg&raw=1)

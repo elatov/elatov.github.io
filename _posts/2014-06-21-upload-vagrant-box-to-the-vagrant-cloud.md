@@ -18,31 +18,31 @@ Another note is that you have to use vagrant version 1.5 or above, from [Box Ver
 
 So login to the [vagrantcloud](https://vagrantcloud.com/) site and click on "Create One":
 
-![vagrant-cloud-create-one-button](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_box_versioning/vagrant-cloud-create-one-button.png)
+![vagrant-cloud-create-one-button](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_box_versioning/vagrant-cloud-create-one-button.png&raw=1)
 
 Fill out all the information (like name and description of box):
 
-![vagrant-cloud-name-box](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_box_versioning/vagrant-cloud-name-box.png)
+![vagrant-cloud-name-box](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_box_versioning/vagrant-cloud-name-box.png&raw=1)
 
 Give the Box a version and create a comment for the version:
 
-![vagrant-cloud-version-box](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_box_versioning/vagrant-cloud-version-box.png)
+![vagrant-cloud-version-box](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_box_versioning/vagrant-cloud-version-box.png&raw=1)
 
 Assign a provider to the box:
 
-![vagrant-cloud-vb-provider](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_box_versioning/vagrant-cloud-vb-provider.png)
+![vagrant-cloud-vb-provider](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_box_versioning/vagrant-cloud-vb-provider.png&raw=1)
 
 I created this one for VirtualBox. Then provide a URL of the box file, to upload to the vagrant cloud you need to have a paid account. I uploaded my vagrant box to my test google drive account:
 
-![vagrant-cloud-provider-url](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_box_versioning/vagrant-cloud-provider-url.png)
+![vagrant-cloud-provider-url](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_box_versioning/vagrant-cloud-provider-url.png&raw=1)
 
 After that you have to release that version of the vagrant box:
 
-![vagrant-release-box](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_box_versioning/vagrant-release-box.png)
+![vagrant-release-box](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_box_versioning/vagrant-release-box.png&raw=1)
 
 After it's successful, you will see the successful page:
 
-![vagrant-cloud-successfully-released](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_box_versioning/vagrant-cloud-successfully-released.png)
+![vagrant-cloud-successfully-released](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_box_versioning/vagrant-cloud-successfully-released.png&raw=1)
 
 At this point you can add that box to your local vagrant instance like so:
 
@@ -55,27 +55,27 @@ At this point you can add that box to your local vagrant instance like so:
 	
 Now if I go back to vagrant cloud, I can add a new version. Fist click on your box in vagrant cloud:
 
-![boxes-in-vc](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_box_versioning/boxes-in-vc.png)
+![boxes-in-vc](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_box_versioning/boxes-in-vc.png&raw=1)
 
 Then click on "create a version +":
 
-![vg-new-version-button](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_box_versioning/vg-new-version-button.png)
+![vg-new-version-button](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_box_versioning/vg-new-version-button.png&raw=1)
 
 Then name the version:
 
-![vc-new-version-box](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_box_versioning/vc-new-version-box.png)
+![vc-new-version-box](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_box_versioning/vc-new-version-box.png&raw=1)
 
 Then configure the provider for the new version:
 
-![vc-new-verion-provider](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_box_versioning/vc-new-verion-provider.png)
+![vc-new-verion-provider](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_box_versioning/vc-new-verion-provider.png&raw=1)
 
 The go ahead and release the new version:
 
-![vc-release-new-version](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_box_versioning/vc-release-new-version.png)
+![vc-release-new-version](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_box_versioning/vc-release-new-version.png&raw=1)
 
 If successful, you will see the following:
 
-![vc-new-version-released](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_box_versioning/vc-new-version-released.png)
+![vc-new-version-released](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_box_versioning/vc-new-version-released.png&raw=1)
 
 Now in your local vagrant instance you can check if any of your boxes are out of date:
 

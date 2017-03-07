@@ -37,7 +37,7 @@ The install was very similar to [this](/2013/08/install-fedora-19-on-mac-book-pr
 
 I just started the **Disk Utility** and resized the OS (I gave the Linux OS only 25GB):
 
-![diskutil-part-for-fed](https://dl.dropboxusercontent.com/u/24136116/blog_pics/macair_fed21/diskutil-part-for-fed.png)
+![diskutil-part-for-fed](https://seacloud.cc/d/480b5e8fcd/files/?p=/macair_fed21/diskutil-part-for-fed.png&raw=1)
 
 ### Create a Bootable USB from the Fedora Live DVD ISO
 After downloading the Fedora ISO, I had the following file:
@@ -132,15 +132,15 @@ If this is the same laptop where you are going to install Fedora then just reboo
 ### Installing Fedora
 Right as you reboot the Mac hold down the **alt/option** key and you will see a list of available bootable devices:
 
-![boot-menu-mac](https://dl.dropboxusercontent.com/u/24136116/blog_pics/macair_fed21/boot-menu-mac.png)
+![boot-menu-mac](https://seacloud.cc/d/480b5e8fcd/files/?p=/macair_fed21/boot-menu-mac.png&raw=1)
 
 Boot from the Fedora disk and the live CD will start booting. When then Live CD starts it will ask you if you want to install onto the hard disk or try the Live CD, I selected to install onto the Hard Disk. During the installation wizard I asked the install to use the free space and to create the partitions automatically and the following partitions were created:
 
-![fedora-installer-manual-partitions](https://dl.dropboxusercontent.com/u/24136116/blog_pics/macair_fed21/fedora-installer-manual-partitions.png)
+![fedora-installer-manual-partitions](https://seacloud.cc/d/480b5e8fcd/files/?p=/macair_fed21/fedora-installer-manual-partitions.png&raw=1)
 
 After the installed finished I rebooted and I saw the GRUB menu:
 
-![grub-menu-after-fedora-installer](https://dl.dropboxusercontent.com/u/24136116/blog_pics/macair_fed21/grub-menu-after-fedora-installer.png)
+![grub-menu-after-fedora-installer](https://seacloud.cc/d/480b5e8fcd/files/?p=/macair_fed21/grub-menu-after-fedora-installer.png&raw=1)
 
 Selecting the top menu booted into Fedora without issues.
 
@@ -220,11 +220,11 @@ And then after re-genenating the GRUB menu one more time and rebooting the issue
 ### Booting back into Mac OS X
 To boot back into Mac OS X, just reboot and hold down the alt/option key and you will see the **Macintosh HD** and **Fedora** bootable devices:
 
-![boot-menu-post-fedora-install](https://dl.dropboxusercontent.com/u/24136116/blog_pics/macair_fed21/boot-menu-post-fedora-install.png)
+![boot-menu-post-fedora-install](https://seacloud.cc/d/480b5e8fcd/files/?p=/macair_fed21/boot-menu-post-fedora-install.png&raw=1)
 
 Upon selecting Macintosh HD you will boot back into Mac OS X. Once booted you can go into System Preferences and change the Start Up Disks if you so desire:
 
-![mac-osx-startup-after-fed-install](https://dl.dropboxusercontent.com/u/24136116/blog_pics/macair_fed21/mac-osx-startup-after-fed-install.png)
+![mac-osx-startup-after-fed-install](https://seacloud.cc/d/480b5e8fcd/files/?p=/macair_fed21/mac-osx-startup-after-fed-install.png&raw=1)
 
 Also by default the **EFI** partition from LInux will show up on your Desktop. To hide it from **Finder** you can run the following:
 

@@ -18,25 +18,25 @@ The process is definitely more involved then a regular Linux Distro install, but
 #### Getting the Right Media
 I was using a 64bit version so I grabbed the [ISO](https://www.gentoo.org/downloads/). After that I created a VM called **gentoo** in Virtualbox and Virtualbox autodetected the OS to be **gentoo** and took care of the rest. I gave the VM 1GB of ram and 20GB of disk space (VirtualBox set the Disk controller to be SATA and that worked out okay). I then attached the downloaded ISO to the IDE Controller:
 
-![iso-attached-gentoo-vm](https://dl.dropboxusercontent.com/u/24136116/blog_pics/gentoo-in-virtualbox/iso-attached-gentoo-vm.png)
+![iso-attached-gentoo-vm](https://seacloud.cc/d/480b5e8fcd/files/?p=/gentoo-in-virtualbox/iso-attached-gentoo-vm.png&raw=1)
 
 Then powering on the vm and typing in `gentoo-nofb` booted from the livecd:
 
 
-![gentoo-nofb-vm](https://dl.dropboxusercontent.com/u/24136116/blog_pics/gentoo-in-virtualbox/gentoo-nofb-vm.png)
+![gentoo-nofb-vm](https://seacloud.cc/d/480b5e8fcd/files/?p=/gentoo-in-virtualbox/gentoo-nofb-vm.png&raw=1)
 
 After the VM is booted I saw the following:
 
-![gentoo-cd-booted](https://dl.dropboxusercontent.com/u/24136116/blog_pics/gentoo-in-virtualbox/gentoo-cd-booted.png)
+![gentoo-cd-booted](https://seacloud.cc/d/480b5e8fcd/files/?p=/gentoo-in-virtualbox/gentoo-cd-booted.png&raw=1)
 
 #### Enable SSH from the livecd
 From here we can enable **ssh** just to make the install easier. So let's enable **ssh** and set the password from the *livecd*:
 
-![ssh-enabled-live-cd](https://dl.dropboxusercontent.com/u/24136116/blog_pics/gentoo-in-virtualbox/ssh-enabled-live-cd.png)
+![ssh-enabled-live-cd](https://seacloud.cc/d/480b5e8fcd/files/?p=/gentoo-in-virtualbox/ssh-enabled-live-cd.png&raw=1)
 
 Now from virtualbox let's enable port forwarding so we can ssh from the host machine:
 
-![port-forward-gentoo-vm](https://dl.dropboxusercontent.com/u/24136116/blog_pics/gentoo-in-virtualbox/port-forward-gentoo-vm.png)
+![port-forward-gentoo-vm](https://seacloud.cc/d/480b5e8fcd/files/?p=/gentoo-in-virtualbox/port-forward-gentoo-vm.png&raw=1)
 
 And then ssh from the host machine:
 
@@ -431,7 +431,7 @@ Now to actually configure the kernel:
 
 All of the above options were already enabled except the audio card:
 
-![menu-config-audio-gentoo](https://dl.dropboxusercontent.com/u/24136116/blog_pics/gentoo-in-virtualbox/menu-config-audio-gentoo.png)
+![menu-config-audio-gentoo](https://seacloud.cc/d/480b5e8fcd/files/?p=/gentoo-in-virtualbox/menu-config-audio-gentoo.png&raw=1)
 
 As a side note, if you don't want to mess with the config, you can always just use the same config that the livecd is using. This can be accomplished with the following:
 
@@ -690,20 +690,20 @@ So first let's leave the **chroot** and then unmount everything:
 
 I shut it off so I can remove the CD prior to booting the system back up:
 
-![remove-iso-gentoo-vm](https://dl.dropboxusercontent.com/u/24136116/blog_pics/gentoo-in-virtualbox/remove-iso-gentoo-vm.png)
+![remove-iso-gentoo-vm](https://seacloud.cc/d/480b5e8fcd/files/?p=/gentoo-in-virtualbox/remove-iso-gentoo-vm.png&raw=1)
 
 ### Post Install Configuration:
 Upon booting up I saw the **grub2** menu:
 
-![grub2-menu-gentoo-vm](https://dl.dropboxusercontent.com/u/24136116/blog_pics/gentoo-in-virtualbox/grub2-menu-gentoo-vm.png)
+![grub2-menu-gentoo-vm](https://seacloud.cc/d/480b5e8fcd/files/?p=/gentoo-in-virtualbox/grub2-menu-gentoo-vm.png&raw=1)
 
 Upon selecting the default menu, I saw *initramfs* loaded and the machine kept booting:
 
-![gentoo-booting-up-lvm-loaded](https://dl.dropboxusercontent.com/u/24136116/blog_pics/gentoo-in-virtualbox/gentoo-booting-up-lvm-loaded.png)
+![gentoo-booting-up-lvm-loaded](https://seacloud.cc/d/480b5e8fcd/files/?p=/gentoo-in-virtualbox/gentoo-booting-up-lvm-loaded.png&raw=1)
 
 After it was done booting up, I saw the following:
 
-![gentoo-booted-up](https://dl.dropboxusercontent.com/u/24136116/blog_pics/gentoo-in-virtualbox/gentoo-booted-up.png)
+![gentoo-booted-up](https://seacloud.cc/d/480b5e8fcd/files/?p=/gentoo-in-virtualbox/gentoo-booted-up.png&raw=1)
 
 If you try to SSH you will receive an "*Identification*" warning:
 
@@ -881,7 +881,7 @@ Now that the changes are in place, let's compile the package:
 
 Then I just ran **startx** on the terminal and I saw the following:
 
-![xorg-start-gentoo-vm](https://dl.dropboxusercontent.com/u/24136116/blog_pics/gentoo-in-virtualbox/xorg-start-gentoo-vm.png)
+![xorg-start-gentoo-vm](https://seacloud.cc/d/480b5e8fcd/files/?p=/gentoo-in-virtualbox/xorg-start-gentoo-vm.png&raw=1)
 
 #### Installing icewm
 There are pretty good instructions on the setup at [IceWM Gentoo Package](https://packages.gentoo.org/packages/x11-wm/icewm). The install itself is pretty easy:
@@ -966,12 +966,12 @@ After it's installed and enabled, we can set it as the default display manager b
 
 into the **/etc/conf.d/xdm** file. Then restarting the machine auto loaded the lightdm login page:
 
-![lightdm-loaded-gentoo](https://dl.dropboxusercontent.com/u/24136116/blog_pics/gentoo-in-virtualbox/lightdm-loaded-gentoo.png)
+![lightdm-loaded-gentoo](https://seacloud.cc/d/480b5e8fcd/files/?p=/gentoo-in-virtualbox/lightdm-loaded-gentoo.png&raw=1)
 
 and then after logging in as a regular user I saw icewm loaded:
 
 
-![icevm-loaded-gentoo](https://dl.dropboxusercontent.com/u/24136116/blog_pics/gentoo-in-virtualbox/icevm-loaded-gentoo.png)
+![icevm-loaded-gentoo](https://seacloud.cc/d/480b5e8fcd/files/?p=/gentoo-in-virtualbox/icevm-loaded-gentoo.png&raw=1)
 
 After that you can run the following to keep your system up-to-date
 

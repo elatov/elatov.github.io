@@ -375,7 +375,7 @@ After that I configured the package to enable MySQL support:
 	elatov@moxz:~$cd /usr/ports/security/barnyard2
 	elatov@moxz:/usr/ports/security/barnyard2$sudo make config
 
-![make-config-by2-fb](https://dl.dropboxusercontent.com/u/24136116/blog_pics/snort_freebsd/make-config-by2-fb.png)
+![make-config-by2-fb](https://seacloud.cc/d/480b5e8fcd/files/?p=/snort_freebsd/make-config-by2-fb.png&raw=1)
 
 Then remove the old version install with **pkgng**:
 
@@ -722,6 +722,6 @@ With snorby ran into the issue described [here](https://github.com/Snorby/snorby
 
 After that the dashboard looked good and it didn't show me that the worker is not running:
 
-![snorby-dashboard](https://dl.dropboxusercontent.com/u/24136116/blog_pics/snort_freebsd/snorby-dashboard.png)
+![snorby-dashboard](https://seacloud.cc/d/480b5e8fcd/files/?p=/snort_freebsd/snorby-dashboard.png&raw=1)
 
 Lastly I ran into a pretty cool script which automates the above install, it's located [here](https://github.com/shirkdog/snorby-bsd/blob/master/snorbyInstall.sh). It's written for FreeBSD 9, but with minor tweaks I am sure it will work for FreeBSD 10.

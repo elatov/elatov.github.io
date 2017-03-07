@@ -41,15 +41,15 @@ So running the following started up the program:
 
 and I saw the following:
 
-![sites-liberation-launched](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-gsites-to-confluence/sites-liberation-launched.png)
+![sites-liberation-launched](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-gsites-to-confluence/sites-liberation-launched.png&raw=1)
 
 Then go ahead and fill out your sites information. Here is an example from the original site:
 
-![sites-liberation-filledout](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-gsites-to-confluence/sites-liberation-filledout.png)
+![sites-liberation-filledout](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-gsites-to-confluence/sites-liberation-filledout.png&raw=1)
 
 After everything is filled out click in **Export from Sites** and you will see the progress of the export:
 
-![sites-liberation-progress](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-gsites-to-confluence/sites-liberation-progress.png)
+![sites-liberation-progress](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-gsites-to-confluence/sites-liberation-progress.png&raw=1)
 
 After it's done you will have a folder with all of your google sites broken down by folders for each page (and if you had sub pages, those would broken down into sub folders).
 
@@ -287,7 +287,7 @@ Now let's try to convert one *markdown* page:
 	
 If you then open up the word document you will see your images in the document:
 
-![converted-word-doc-with-images](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-gsites-to-confluence/converted-word-doc-with-images.png)
+![converted-word-doc-with-images](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-gsites-to-confluence/converted-word-doc-with-images.png&raw=1)
 
 You can do the same thing and use a **for** loop to convert all the documents:
 
@@ -296,11 +296,11 @@ You can do the same thing and use a **for** loop to convert all the documents:
 ### Import Word Document into Confluence
 From the **Tools** menu you can select the **Import Word Document** option:
 
-![confluence-import-word-doc](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-gsites-to-confluence/confluence-import-word-doc.png)
+![confluence-import-word-doc](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-gsites-to-confluence/confluence-import-word-doc.png&raw=1)
 
 Upon initial import, I received the following error:
 
-![confluence-error-upload-docx](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-gsites-to-confluence/confluence-error-upload-docx.png)
+![confluence-error-upload-docx](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-gsites-to-confluence/confluence-error-upload-docx.png&raw=1)
 
 It looks like I need a **.doc** format and not **.docx** format. [Abiword](http://www.abisource.com/) can convert between the two formats:
 
@@ -312,7 +312,7 @@ Here is a for loop to convert all the **docx** files into **doc** files:
 	
 Then after it recognized the **.doc** format, I received yet another error:
 
-![confluence-image-size-limitation](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-gsites-to-confluence/confluence-image-size-limitation.png)
+![confluence-image-size-limitation](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-gsites-to-confluence/confluence-image-size-limitation.png&raw=1)
 
 Looks like I need to go through all my images and make sure the size is below **900x1200**. So let's get a feel of how many images I will have to convert. Here is command that will count all the images that have a width above **900** pixels:
 
@@ -392,4 +392,4 @@ I then modifed the script and the set the width to be **799** pixels and then *C
 
 In summary, I would say 85% of the import went well with regards to images (This depends if you have big images in your google sites). The code blocks didn't really convert over (so I will fix those manually), but the rest of the formating (headings, links, images, bold and italic text) was there. Here is snippet of the converted page that I had originally shown with Word:
 
-![splunk-page-converted-in-confluence](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-gsites-to-confluence/splunk-page-converted-in-confluence.png)
+![splunk-page-converted-in-confluence](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-gsites-to-confluence/splunk-page-converted-in-confluence.png&raw=1)

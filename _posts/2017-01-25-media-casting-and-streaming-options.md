@@ -14,15 +14,15 @@ It seems in this day and age we have so many options to cast or stream media to 
 
 Of course everyone is familiar with Apple's **Airplay** technology. The best way to get this working is with an Apple TV. As soon as you configure it on your local network all your Apple Devices will see a mirror capable device and you can cast your whole screen to it:
 
-![at-menu](https://dl.dropboxusercontent.com/u/24136116/blog_pics/screen-cast/at-menu.png)
+![at-menu](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/at-menu.png&raw=1)
 
 After you select you Apple TV device it will start casting to it and if you go back to the same menu you will see more options:
 
-![at-casting](https://dl.dropboxusercontent.com/u/24136116/blog_pics/screen-cast/at-casting.png)
+![at-casting](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/at-casting.png&raw=1)
 
 And in **iTunes** you will also see it as an audio casting device:
 
-![itunes-cast-menu](https://dl.dropboxusercontent.com/u/24136116/blog_pics/screen-cast/itunes-cast-menu.png)
+![itunes-cast-menu](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/itunes-cast-menu.png&raw=1)
 
 Airplay uses **mDNS**/**bonjour** for it's discovery capabilties, you can confirm by using **dns-sd** command:
 
@@ -74,19 +74,19 @@ There is actually an unofficial **airplay** guide available at [Unofficial AirPl
 
 I have a Raspberry Pi (with OpenELEC) and it supports old IOS devices but with the new devices **airplay** doesn't work. After enabling it in **Kodi**:
 
-![kodi-airplay-enabled](https://dl.dropboxusercontent.com/u/24136116/blog_pics/screen-cast/kodi-airplay-enabled.png)
+![kodi-airplay-enabled](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/kodi-airplay-enabled.png&raw=1)
 
 I wasn't able to use it for casting, the mirror option would show up but no devices would show up:
 
-![no-kodi-in-menu](https://dl.dropboxusercontent.com/u/24136116/blog_pics/screen-cast/no-kodi-in-menu.png)
+![no-kodi-in-menu](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/no-kodi-in-menu.png&raw=1)
 
 I also noticed that it only shows up as an audio device and not a video device. **iTunes** would see it:
 
-![itunes-kodi-menu](https://dl.dropboxusercontent.com/u/24136116/blog_pics/screen-cast/itunes-kodi-menu.png)
+![itunes-kodi-menu](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/itunes-kodi-menu.png&raw=1)
 
 And on my iPhone it showed up only for audio:
 
-![iphone-airplay-kodi](https://dl.dropboxusercontent.com/u/24136116/blog_pics/screen-cast/iphone-airplay-kodi.png)
+![iphone-airplay-kodi](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/iphone-airplay-kodi.png&raw=1)
 
 It looks like the latest version of kodi might work out. Check out [Kodi AirPlay working with iOS 9.x devices](http://www.weirynet.com/blog/2016/01/20/kodi-airplay-working-with-ios-9) for more information. For now OpenELEC 6.0.3 is stable with Kodi 15.2 and I will wait for OpenELEC 7.0 to become stable which will be Kodi 16 (some people are waiting for that as [well](http://openelec.tv/forum/90-miscellaneous/80144-jarvis-kodi-version-out-soon)). Doing **bonjour** queries **kodi** responded:
 
@@ -176,19 +176,19 @@ From the [How do I connect my smartphone or tablet to my TV using screen mirrori
 
 I just went to the screen mirroring source on the TV:
 
-![sam-tv-enable-sm](https://dl.dropboxusercontent.com/u/24136116/blog_pics/screen-cast/sam-tv-enable-sm.jpg)
+![sam-tv-enable-sm](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/sam-tv-enable-sm.jpg&raw=1)
 
 And it showed how to connect the phone to it:
 
-![sam-tv-screen-enabled](https://dl.dropboxusercontent.com/u/24136116/blog_pics/screen-cast/sam-tv-screen-enabled.jpg)
+![sam-tv-screen-enabled](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/sam-tv-screen-enabled.jpg&raw=1)
 
 Then from my android I went to the cast menu:
 
-![and-cast-button.png](https://dl.dropboxusercontent.com/u/24136116/blog_pics/screen-cast/and-cast-button.png)
+![and-cast-button.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/and-cast-button.png&raw=1)
 
 Then I enabled the wireless display and I saw my TV:
 
-![and-cast-enable-widi](https://dl.dropboxusercontent.com/u/24136116/blog_pics/screen-cast/and-cast-enable-widi.png)
+![and-cast-enable-widi](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/and-cast-enable-widi.png&raw=1)
 
 Unfortunately my iPhone wasn't able to use this feature.
 
@@ -230,15 +230,15 @@ From the Wi-Fi Direct wikipage it looks like **Miracast** is based on **Wi-Fi Di
 
 Just enable screen mirroring on the **Roku** side:
 
-![roku-enable-screenmirror](https://dl.dropboxusercontent.com/u/24136116/blog_pics/screen-cast/roku-enable-screenmirror.png)
+![roku-enable-screenmirror](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/roku-enable-screenmirror.png&raw=1)
 
 and you will see the device available for casting, like on my android Nexus 5 phone:
 
-![and-roku-seen](https://dl.dropboxusercontent.com/u/24136116/blog_pics/screen-cast/and-roku-seen.png)
+![and-roku-seen](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/and-roku-seen.png&raw=1)
 
 and I can cast to it:
 
-![and-roku-conn](https://dl.dropboxusercontent.com/u/24136116/blog_pics/screen-cast/and-roku-conn.png)
+![and-roku-conn](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/and-roku-conn.png&raw=1)
 
 There are also good guides here for **Roku** Screen Mirroring:
 
@@ -289,7 +289,7 @@ Since it uses **SSDP** we can query for it. Here is what I saw on my TV:
 
 Both my TV and the **Roku** can act as **DIAL** clients. To use **DIAL** just launch a **youtube** video in chrome and there will be an option to cast that video to a **DIAL** capable device:
 
-![youtu-dial-tv](https://dl.dropboxusercontent.com/u/24136116/blog_pics/screen-cast/youtu-dial-tv.png)
+![youtu-dial-tv](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/youtu-dial-tv.png&raw=1)
 
 #### DLNA
 
@@ -306,7 +306,7 @@ I have talked about **DLNA** in the [past post](/2012/10/installing-mediatomb-on
 
 On the **Kodi** side I went ahead and enabled it to be a **DLNA Renderer**:
 
-![kodi-enable-upnp-mr](https://dl.dropboxusercontent.com/u/24136116/blog_pics/screen-cast/kodi-enable-upnp-mr.png)
+![kodi-enable-upnp-mr](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/kodi-enable-upnp-mr.png&raw=1)
 
 and now both my TV and Raspberry Pi can accept media streams:
 
@@ -325,11 +325,11 @@ and now both my TV and Raspberry Pi can accept media streams:
 
 Now we can use mobile apps like **BubbleUPNP**, **mConnect Free**, and **TV Cast for DLNA** to stream files to either device. In **BubbleUPNP** I see all my **DLNA** devices (Renderers and Servers):
 
-![bu-ren-ser-seen](https://dl.dropboxusercontent.com/u/24136116/blog_pics/screen-cast/bu-ren-ser-seen.png)
+![bu-ren-ser-seen](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/bu-ren-ser-seen.png&raw=1)
 
 And on iPhone, I see both of my devices are Renderers:
 
-![iphone-co-dlna](https://dl.dropboxusercontent.com/u/24136116/blog_pics/screen-cast/iphone-co-dlna.png)
+![iphone-co-dlna](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/iphone-co-dlna.png&raw=1)
 
 After that I can pick a designated **Renderer** (Kodi or Sasmsung TV) and then I can stream movies from **Plex** to the **Renderer** with my phone as the middle man. This isn't true screencasting but it still helps out.
 
@@ -346,7 +346,7 @@ Computer](http://www.tomsguide.com/us/how-to-stream-to-tv,news-18335.html):
 
 And just for comparison, from [Swordfight! Streaming sticks from Google, Roku, and Amazon compared](http://www.digitaltrends.com/home-theater/chromecast-vs-roku-streaming-stick-vs-amazon-fire-tv-stick)
 
-![media-stick-comparison](https://dl.dropboxusercontent.com/u/24136116/blog_pics/screen-cast/media-stick-comparison.png)
+![media-stick-comparison](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/media-stick-comparison.png&raw=1)
 
 It looks like **chromecast** has the best support. The [Best Miracast and Screen-Mirroring Devices 2016](http://www.tomsguide.com/us/best-miracast-screen-mirroring,review-2286.html) provides recommendation per OS and it might be worth checking out, if you
 are a pure windows or apple shop. Most of my streaming needs are covered with **Plex** and **Kodi**, I just wanted to find out if any of my existing devices covers all the platforms and it doesn't look like it. 
@@ -389,24 +389,24 @@ And here is more information:
 
 Once in chrome you can cast any tab or the whole screen:
 
-![c-options-menu](https://dl.dropboxusercontent.com/u/24136116/blog_pics/screen-cast/c-options-menu.png)
+![c-options-menu](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/c-options-menu.png&raw=1)
 
 Then you can choose what screen to cast:
 
-![c-share-screen](https://dl.dropboxusercontent.com/u/24136116/blog_pics/screen-cast/c-share-screen.png)
+![c-share-screen](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/c-share-screen.png&raw=1)
 
 And after that the casting will start and you can see the status from the same location:
 
-![c-cast-going](https://dl.dropboxusercontent.com/u/24136116/blog_pics/screen-cast/c-cast-going.png)
+![c-cast-going](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/c-cast-going.png&raw=1)
 
 You can also download the **Google Cast** mobile app and cast your phone screen to it:
 
-![and-gca-cast](https://dl.dropboxusercontent.com/u/24136116/blog_pics/screen-cast/and-gca-cast.png)
+![and-gca-cast](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/and-gca-cast.png&raw=1)
 
 Now adays a lot of apps support chrome cast as well and you will see your casting icon within the app and it will list your **chromecast**. Here is the **plex** app:
 
-![plex-app-cc](https://dl.dropboxusercontent.com/u/24136116/blog_pics/screen-cast/plex-app-cc.png)
+![plex-app-cc](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/plex-app-cc.png&raw=1)
 
 and here is **pandora**:
 
-![pan-cast-cc](https://dl.dropboxusercontent.com/u/24136116/blog_pics/screen-cast/pan-cast-cc.png)
+![pan-cast-cc](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/pan-cast-cc.png&raw=1)

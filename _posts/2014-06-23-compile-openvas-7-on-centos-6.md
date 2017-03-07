@@ -21,7 +21,7 @@ But then that caused another issue, so I decided to compile my own version.
 
 I talked about the architecture for OpenVAS 6 in my [previous post](/2014/05/openvas-centos/), but it seems that it has changed, from [this](http://www.openvas.org/about.html) OpenVAS page:
 
-![openvas7-arch](https://dl.dropboxusercontent.com/u/24136116/blog_pics/openvas7-compile/openvas7-arch.png)
+![openvas7-arch](https://seacloud.cc/d/480b5e8fcd/files/?p=/openvas7-compile/openvas7-arch.png&raw=1)
 
 Notice that the *administrator* is no longer part of the deployment, that got merged into the *manager*. From "[Install OpenVAS from Source Code](http://www.openvas.org/install-source.html)":
 

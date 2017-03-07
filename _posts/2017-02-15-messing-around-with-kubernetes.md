@@ -49,15 +49,15 @@ The nodes are where the actual **container**s run on, they consist of the follow
 #### Kubernetes Architecture Diagrams
 I ran into a couple of nice diagrams that describe the above. From [Learn the Kubernetes Key Concepts in 10 Minutes](http://omerio.com/2015/12/18/learn-the-kubernetes-key-concepts-in-10-minutes/):
 
-![k8s-diag-1](https://dl.dropboxusercontent.com/u/24136116/blog_pics/messing-k8s/k8s-diag-1.png)
+![k8s-diag-1](https://seacloud.cc/d/480b5e8fcd/files/?p=/messing-k8s/k8s-diag-1.png&raw=1)
 
 And from [Kubernetes architecture](https://github.com/kubernetes/kubernetes/blob/release-1.3/docs/design/architecture.md):
 
-![k8s-diag-2](https://dl.dropboxusercontent.com/u/24136116/blog_pics/messing-k8s/k8s-diag-2.png)
+![k8s-diag-2](https://seacloud.cc/d/480b5e8fcd/files/?p=/messing-k8s/k8s-diag-2.png&raw=1)
 
 [Load Balancing in Kubernetes](http://www.devoperandi.com/load-balancing-in-kubernetes/) has a pretty nice overview of the kubernetes architecture:
 
-![k8s-diag-3](https://dl.dropboxusercontent.com/u/24136116/blog_pics/messing-k8s/k8s-diag-3.png)
+![k8s-diag-3](https://seacloud.cc/d/480b5e8fcd/files/?p=/messing-k8s/k8s-diag-3.png&raw=1)
 
 #### Kubernetes Components
 When deploying a **container** there are a couple of components, I will cover just the basics (taken from the [User Guide](http://kubernetes.io/docs/user-guide/)):
@@ -278,7 +278,7 @@ You can even check out the log contents:
 
 Now let's deploy a **pod** on the **kubernetes** cluster. [This setup](http://kubernetes.io/docs/user-guide/connecting-applications/) covers the basics. Here is nice diagram (from the udacity class that I watched) of a **pod**:
 
-![k8s-class-pod](https://dl.dropboxusercontent.com/u/24136116/blog_pics/messing-k8s/k8s-class-pod.png) 
+![k8s-class-pod](https://seacloud.cc/d/480b5e8fcd/files/?p=/messing-k8s/k8s-class-pod.png&raw=1) 
 
 I decided to just deploy an **nginx** server with a **replica**. Here is the config:
 
@@ -405,7 +405,7 @@ If you want more information you can use the **describe** arguement.
 ### Expose Nginx Pod with a Service
 At this point the machines are deployed, but you can't reach the machines externally, so we have to expose an IP for the this **pod**. This is accomplished by creating a **service** in **kubernetes** and associate it with our created **pod**. Here is another nice diagram (from the class) describing a **kubernetes service**:
 
-![k8s-class-svc](https://dl.dropboxusercontent.com/u/24136116/blog_pics/messing-k8s/k8s-class-svc.png)
+![k8s-class-svc](https://seacloud.cc/d/480b5e8fcd/files/?p=/messing-k8s/k8s-class-svc.png&raw=1)
 
 We can create another config file for that:
 
@@ -535,7 +535,7 @@ We can also setup a port-forward to our **Virtualbox** machine:
 
 And now I can reach my **container** on my local browser:
 
-![k8s-ngx-port-forward](https://dl.dropboxusercontent.com/u/24136116/blog_pics/messing-k8s/k8s-ngx-port-forward.png)
+![k8s-ngx-port-forward](https://seacloud.cc/d/480b5e8fcd/files/?p=/messing-k8s/k8s-ngx-port-forward.png&raw=1)
 
 ### Open Shell to Container with kubectl
 From our **Virtualbox** host let's run **kubectl** to get a shell into our **container** (this is assuming **bash** is available on the **container** image... the **nginx** one does):

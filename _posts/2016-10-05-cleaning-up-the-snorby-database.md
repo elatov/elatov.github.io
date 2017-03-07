@@ -11,7 +11,7 @@ I had an old **snorby** install get stale with a lot of data since the **cache_j
 ### Snorby Database
 I didn't find a good diagram of the database schema for snorby specifically but I did find a close one from **snort**. From [ACID: Database (v100-103) ER Diagram](http://www.andrew.cmu.edu/user/rdanyliw/snort/acid_db_er_v102.html):
 
-![snort-db.png](https://dl.dropboxusercontent.com/u/24136116/blog_pics/snorby-db-cleanup/snort-db.png)
+![snort-db.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/snorby-db-cleanup/snort-db.png&raw=1)
 
 Another good site [Querying SNORT SQL database](http://sgros.blogspot.com/2012/07/querying-snort-sql-database.html) has good examples of queries to show you the contents of the database. Some useful queries from that site:
 

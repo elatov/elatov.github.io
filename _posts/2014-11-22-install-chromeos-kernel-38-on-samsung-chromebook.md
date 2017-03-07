@@ -42,7 +42,7 @@ The latest link provides instructions on how to compile the latest kernel (3.13)
 
 After nv-uboot with FB enabled is installed you can use the steps from above sites to install the mainline kernel, but of course sounds won't work. I actually gave this a try just to see what happens and during boot you will see the Linux Tux:
 
-![chromebook-booting-main-kern](https://dl.dropboxusercontent.com/u/24136116/blog_pics/chromeos38_kernel_chromebook/chromebook-booting-main-kern.jpg)
+![chromebook-booting-main-kern](https://seacloud.cc/d/480b5e8fcd/files/?p=/chromeos38_kernel_chromebook/chromebook-booting-main-kern.jpg&raw=1)
 
 But it was pretty slow to boot and some of the components didn't work well.
 
@@ -291,11 +291,11 @@ Then after rebooting the new 3.8 kernel booted up.
 
 In my previous version of Arch Linux I was actually using NFS and AutoFS, but those modules are not automatically enabled for the Samsung Chromebook. So let's build those, go back to the source code and run `make menuconfig` and under **File Systems** Enable **AutoFS** and **Network File Systems**:
 
-![make-menuconfig-autofs-nfs](https://dl.dropboxusercontent.com/u/24136116/blog_pics/chromeos38_kernel_chromebook/make-menuconfig-autofs-nfs.png)
+![make-menuconfig-autofs-nfs](https://seacloud.cc/d/480b5e8fcd/files/?p=/chromeos38_kernel_chromebook/make-menuconfig-autofs-nfs.png&raw=1)
 
 Then go into Network File Systems and enable the desired versions:
 
-![make-menu-config-NFS-options](https://dl.dropboxusercontent.com/u/24136116/blog_pics/chromeos38_kernel_chromebook/make-menu-config-NFS-options.png)
+![make-menu-config-NFS-options](https://seacloud.cc/d/480b5e8fcd/files/?p=/chromeos38_kernel_chromebook/make-menu-config-NFS-options.png&raw=1)
 
 Then rebuild just the modules, by running `make -j 3 modules`, at first I receieved the following warning/error:
 
@@ -310,7 +310,7 @@ Then rebuild just the modules, by running `make -j 3 modules`, at first I receie
 
 So I went back into `make menuconfig` and under **Kernel Hacking**, I disabled the option to treat warning as errors:
 
-![make-menuconfig-compiler-warn-as-err](https://dl.dropboxusercontent.com/u/24136116/blog_pics/chromeos38_kernel_chromebook/make-menuconfig-compiler-warn-as-err.png)
+![make-menuconfig-compiler-warn-as-err](https://seacloud.cc/d/480b5e8fcd/files/?p=/chromeos38_kernel_chromebook/make-menuconfig-compiler-warn-as-err.png&raw=1)
 
 Then cleaning the source:
 

@@ -68,11 +68,11 @@ It looks pretty cool and a lot of people prefer to run that on the ASUS routers,
 
 After the router rebooted (after I flashed the NVRAM), I went back to the Management console (http://192.168.1.1) and navigated to  **Administration** -> **Firmware Upgrade** and uploaded the **asus_rt-ac68u-firmware.trx** file:
 
-![rtx-upload-asus](https://dl.dropboxusercontent.com/u/24136116/blog_pics/asus-dd-wrt/rtx-upload-asus.png)
+![rtx-upload-asus](https://seacloud.cc/d/480b5e8fcd/files/?p=/asus-dd-wrt/rtx-upload-asus.png&raw=1)
 
 Upon hitting **upload** the upgrade will start and after it's done you will see the following:
 
-![firmware-update-done](https://dl.dropboxusercontent.com/u/24136116/blog_pics/asus-dd-wrt/firmware-update-done.png)
+![firmware-update-done](https://seacloud.cc/d/480b5e8fcd/files/?p=/asus-dd-wrt/firmware-update-done.png&raw=1)
 
 As I saw the firmware upgrade is finished, I **telnet**'ed into the router and saw that dd-wrt is already installed (so I went ahead and **reboot**ed the router):
 
@@ -109,7 +109,7 @@ As I saw the firmware upgrade is finished, I **telnet**'ed into the router and s
 #### Clear the NVRAM in DD-WRT
 After it rebooted, I pointed my browser to 192.168.1.1 and saw the initial DD-WRT set password page:
 
-![ddwrt-installed](https://dl.dropboxusercontent.com/u/24136116/blog_pics/asus-dd-wrt/ddwrt-installed.png)
+![ddwrt-installed](https://seacloud.cc/d/480b5e8fcd/files/?p=/asus-dd-wrt/ddwrt-installed.png&raw=1)
 
 I set the password, **telnet**'ed again into the router, and cleared the NVRAM:
 
@@ -154,11 +154,11 @@ I set the password, **telnet**'ed again into the router, and cleared the NVRAM:
 #### Install the Kong DD-WRT Build
 After the rebooted finished, I went back to the Admin Console (**http://192.168.1.1**) and navigated to **Administration** -> **Firmware Upgrade** to apply the DD-WRT Kong Build. I uploaded the **dd-wrt.v24-K3_AC_ARM_STD.bin** file and I chose **Don't Reset**:
 
-![kong-firmware-dont-reset.png](https://dl.dropboxusercontent.com/u/24136116/blog_pics/asus-dd-wrt/kong-firmware-dont-reset.png)
+![kong-firmware-dont-reset.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/asus-dd-wrt/kong-firmware-dont-reset.png&raw=1)
 
 After I hit upgrade the uploaded started and after it finished I saw the "Upgrade Successful" message:
 
-![upgrade-successful-kong_g.png](https://dl.dropboxusercontent.com/u/24136116/blog_pics/asus-dd-wrt/upgrade-successful-kong_g.png)
+![upgrade-successful-kong_g.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/asus-dd-wrt/upgrade-successful-kong_g.png&raw=1)
 
 After it rebooted (after applying the new dd-wrt build), I logged into router one more time and reset the NVRAM just for good measure:
 
@@ -196,7 +196,7 @@ After it rebooted (after applying the new dd-wrt build), I logged into router on
 
 After it was done, here is what I saw on the system settings page of DD-WRT:
 
-![dd-wrt-finished.png](https://dl.dropboxusercontent.com/u/24136116/blog_pics/asus-dd-wrt/dd-wrt-finished.png)
+![dd-wrt-finished.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/asus-dd-wrt/dd-wrt-finished.png&raw=1)
 
 ### Install a Later Version of iproute2
 I was using **fwbuilder** to push my firewall to the DD-WRT router (check out [my previous post ](/2013/04/use-fwbuilder-to-deploy-an-iptables-firewall-to-a-dd-wrt-router/)on the setup) and I wanted to keep that. I realized the **ip** utility (which is part of **iproute2** software) is limited, I could only get routes from the utility and nothing else:
@@ -337,7 +337,7 @@ After installing a newer version of **iproute2**, here is the output of **ip**:
 
 Then on the **fwbuilder** side, I just pointed to the correct path of the **ip** utility:
 
-![update-ip-path](https://dl.dropboxusercontent.com/u/24136116/blog_pics/asus-dd-wrt/update-ip-path.png)
+![update-ip-path](https://seacloud.cc/d/480b5e8fcd/files/?p=/asus-dd-wrt/update-ip-path.png&raw=1)
 
 And then **fwbuilder** pushed the same settings without any issues.
 
@@ -376,7 +376,7 @@ I then read over the following pages:
 
 The last one has a nice picture to remind me how the networking worked on the dd-wrt Router:
 
-![dd-wrt-internals2](https://dl.dropboxusercontent.com/u/24136116/blog_pics/asus-dd-wrt/dd-wrt-internals2.png)
+![dd-wrt-internals2](https://seacloud.cc/d/480b5e8fcd/files/?p=/asus-dd-wrt/dd-wrt-internals2.png&raw=1)
 
 But the first two links used the **16** parameter on the (**portvlans** setttings), which is the equivilant of the **tagged** option checked on the GUI. So in the end, I ended up with the following config (notice I didn't even set the **vlan3ports**... but it still worked out):
 

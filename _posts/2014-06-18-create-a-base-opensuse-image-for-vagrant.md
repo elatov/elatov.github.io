@@ -198,31 +198,31 @@ Now let's create a VM in VirtualBox. Here is the command sequence for that.
     
     > VirtualBox 4.3.12 Oracle VM VirtualBox Extension Pack  All supported platforms Support for USB 2.0 devices, VirtualBox RDP and PXE boot for Intel cards.
     
-    ![remote-desktop-mac-os-x](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_create_base_box/remote-desktop-mac-os-x.png) 
+    ![remote-desktop-mac-os-x](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_base_box/remote-desktop-mac-os-x.png&raw=1) 
 
 11. Finish installing and configuring the VM from the Remote Desktop client, or the regular Non-headless Virtualbox application:
 
-    ![remote-desktop-connection](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_create_base_box/remote-desktop-connection.png)
+    ![remote-desktop-connection](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_base_box/remote-desktop-connection.png&raw=1)
     
 12. During the installation, create a vagrant user as an administrator user:
 
-    ![create-vagrant-user-during-creation-of-template](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_create_base_box/create-vagrant-user-during-creation-of-template.png)
+    ![create-vagrant-user-during-creation-of-template](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_base_box/create-vagrant-user-during-creation-of-template.png&raw=1)
 
 13. By default the firewall blocks port 22, so let's go ahead and open that:
 
-    ![opensuse-open-firewall](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_create_base_box/opensuse-open-firewall.png)
+    ![opensuse-open-firewall](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_base_box/opensuse-open-firewall.png&raw=1)
 
 14. After the install is finished, it will automatically reboot and will again boot from the CD. This time around choose to boot from the Hard Drive:
 
-     ![boot-from-hd-opensuse](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_create_base_box/boot-from-hd-opensuse.png)
+     ![boot-from-hd-opensuse](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_base_box/boot-from-hd-opensuse.png&raw=1)
      
      This time around it will use yast to install packages:
      
-     ![opensuse-yast-installing](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_create_base_box/opensuse-yast-installing.png)
+     ![opensuse-yast-installing](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_base_box/opensuse-yast-installing.png&raw=1)
      
      After that's done you will be able to login into the system as the vagrant user:
      
-     ![login-vagrant-user-after-install](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_create_base_box/login-vagrant-user-after-install.png)
+     ![login-vagrant-user-after-install](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_base_box/login-vagrant-user-after-install.png&raw=1)
 
 At this point you can ssh to the VM like so:
 
@@ -492,7 +492,7 @@ To be safe, you can also rebuild **grub** as well (**mkinitrd** already does thi
 
 Another thing you can do is clean up all the space to make the box image smaller. Boot the VM into single user mode (append **single** to the linux line in grub):
 
-![opensuse-grub-menu-add-single](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vagrant_create_base_box/opensuse-grub-menu-add-single.png)
+![opensuse-grub-menu-add-single](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_base_box/opensuse-grub-menu-add-single.png&raw=1)
 
 
 Then install **zerofree**:

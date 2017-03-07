@@ -67,7 +67,7 @@ From the same blog again:
 
 > **Redundancy and Single Point of Failure** A single point of failure is a component of a system that, if it fails, will cause the entire system to fail. Systems can be made robust by adding redundancy. A server usually attains internal component redundancy by having multiple hard drives, network connections or power supplies. By having multiple servers attached to a cluster you can achieve server hardware redundancy.
 
-Also from this VMware article "[vSphere High Availability Deployment Best Practices](https://dl.dropboxusercontent.com/u/24136116/blog_pics/vcap-dcd/2-3/vmw-vsphere-high-availability.pdf)", linked in the blue print:
+Also from this VMware article "[vSphere High Availability Deployment Best Practices](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcap-dcd/2-3/vmw-vsphere-high-availability.pdf&raw=1)", linked in the blue print:
 
 > **Design Principles for High Availability**
 > The key to architecting a highly available computing environment is to eliminate single points of failure. With the potential of occurring anywhere in the environment, failures can affect both hardware and software. Building redundancy at vulnerable points helps reduce or eliminate downtime caused by [implied] hardware failures. These include redundancies at the following layers:

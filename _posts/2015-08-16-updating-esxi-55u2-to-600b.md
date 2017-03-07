@@ -35,15 +35,15 @@ From the previous update posts [Updating ESXi 5.0U2 to ESXi5.1U1](/2014/01/updat
 
 Then looking over [this page](http://www.virten.net/vmware/esxi-release-build-number-history/#esxi6.0)
 
-![vshpere-6-versions](https://dl.dropboxusercontent.com/u/24136116/blog_pics/esxi-55u2-to-60b-update/vshpere-6-versions.png)
+![vshpere-6-versions](https://seacloud.cc/d/480b5e8fcd/files/?p=/esxi-55u2-to-60b-update/vshpere-6-versions.png&raw=1)
 
 it looks like **ESXi 6.0b** is latest version and is the way to go since it fixes a bunch of bugs. The release notes for **6.0.0b** can be seen [here](https://www.vmware.com/support/vsphere6/doc/vsphere-esxi-600b-release-notes.html). I did check out the [compatiliby page](http://www.vmware.com/resources/compatibility) and *MacMini 6,2* was not on the list, but I think it will work out (plus looking over [this](https://derflounder.wordpress.com/2015/03/24/setting-up-esxi-6-0-on-a-2012-mac-mini-server/) page and also [this](http://www.virtuallyghetto.com/2015/02/esxi-6-0-works-ootb-for-apple-mac-mini-mac-pro.html) page, gave me confidence as well):
 
-![compatibility-vsphere6-apple](https://dl.dropboxusercontent.com/u/24136116/blog_pics/esxi-55u2-to-60b-update/compatibility-vsphere6-apple.png)
+![compatibility-vsphere6-apple](https://seacloud.cc/d/480b5e8fcd/files/?p=/esxi-55u2-to-60b-update/compatibility-vsphere6-apple.png&raw=1)
 
 I found the patch at [my vmware](https://my.vmware.com/group/vmware/patch):
 
-![esxi-patches](https://dl.dropboxusercontent.com/u/24136116/blog_pics/esxi-55u2-to-60b-update/esxi-patches.png)
+![esxi-patches](https://seacloud.cc/d/480b5e8fcd/files/?p=/esxi-55u2-to-60b-update/esxi-patches.png&raw=1)
 
 After downloading the file, I **scp**'ed it to a datastore on the ESXi host (I know I could've used the public VUM repo, but I want to have the zip for later use if necessary):
 

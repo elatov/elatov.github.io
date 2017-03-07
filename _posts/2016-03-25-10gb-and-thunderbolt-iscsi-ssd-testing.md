@@ -392,7 +392,7 @@ Both drives are the same SSDs:
 
 Doing a **bonnie++** test from the netapp-it console, I saw the following results (it's the **ssd** zpool):
 
-![napp-it-bonnie](https://dl.dropboxusercontent.com/u/24136116/blog_pics/10gb-tests/napp-it-bonnie.png)
+![napp-it-bonnie](https://seacloud.cc/d/480b5e8fcd/files/?p=/10gb-tests/napp-it-bonnie.png&raw=1)
 
 I also did other benchmarks in my [previous](/2015/11/build-your-own-zfs-home-storage-server/) post. It looks like we can do *550MB/s Write* and *700MB/s Read* (both sequential).
 
@@ -400,11 +400,11 @@ I also did other benchmarks in my [previous](/2015/11/build-your-own-zfs-home-st
 I did the same thing that I did [here](/2014/01/zfs-iscsi-benchmarks-tests/) for my benchmark tests. 
 Initially the results looked like this:
 
-![iometer-raid0-ssd-small.png](https://dl.dropboxusercontent.com/u/24136116/blog_pics/10gb-tests/iometer-raid0-ssd-small.png)
+![iometer-raid0-ssd-small.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/10gb-tests/iometer-raid0-ssd-small.png&raw=1)
 
 And here is a similar test for bigger IO:
 
-![iometer-raid0-ssd-big](https://dl.dropboxusercontent.com/u/24136116/blog_pics/10gb-tests/iometer-raid0-ssd-big.png)
+![iometer-raid0-ssd-big](https://seacloud.cc/d/480b5e8fcd/files/?p=/10gb-tests/iometer-raid0-ssd-big.png&raw=1)
 
 While the test was going, I checked out the Nic Utilization on the OmniOS machine and I saw the following:
 
@@ -509,7 +509,7 @@ You will notice the default it's MRU (**Path Selection Policy: VMW_PSP_MRU**). I
 
 You will also notice that the Round Robin occurs after 1000 iops as per and it's recommended to change that to 1. Couple of Links:
 
-* [Best Practices for VMware vSphere with NexentaStor](https://dl.dropboxusercontent.com/u/24136116/blog_pics/10gb-tests/Best_Practices_for_VMware_vSphere_with_NexentaStor.pdf)
+* [Best Practices for VMware vSphere with NexentaStor](https://seacloud.cc/d/480b5e8fcd/files/?p=/10gb-tests/Best_Practices_for_VMware_vSphere_with_NexentaStor.pdf&raw=1)
 * [Adjusting Round Robin IOPS limit from default 1000 to 1](http://kb.vmware.com/kb/2069356) 
 
 From the VMware KB:
@@ -604,18 +604,18 @@ Then after the reboot make sure all the LUN options are set apppropriately:
 ### Final IOmeter Results
 After all of the above settings here were the results:
 
-![iometer-mpio-small](https://dl.dropboxusercontent.com/u/24136116/blog_pics/10gb-tests/iometer-mpio-small.png)
+![iometer-mpio-small](https://seacloud.cc/d/480b5e8fcd/files/?p=/10gb-tests/iometer-mpio-small.png&raw=1)
 
 16K and 32K output went way up. And the bigger IO one:
 
-![iometer-mpio-big.png](https://dl.dropboxusercontent.com/u/24136116/blog_pics/10gb-tests/iometer-mpio-big.png)
+![iometer-mpio-big.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/10gb-tests/iometer-mpio-big.png&raw=1)
 
 Most of the results increased except the 1M read. Getting 800MB/s (6.4Gb/s) write and read speed is pretty incredible.  While I was running the test I saw the following in esxtop:
 
-![esxtop-low-davg](https://dl.dropboxusercontent.com/u/24136116/blog_pics/10gb-tests/esxtop-low-davg.png)
+![esxtop-low-davg](https://seacloud.cc/d/480b5e8fcd/files/?p=/10gb-tests/esxtop-low-davg.png&raw=1)
 
 I love seeing high Write Speed and low DAVG :) And to confirm multipathing is working I saw the following on the Nics:
 
-![esxtop-both-nics-uses](https://dl.dropboxusercontent.com/u/24136116/blog_pics/10gb-tests/esxtop-both-nics-uses.png)
+![esxtop-both-nics-uses](https://seacloud.cc/d/480b5e8fcd/files/?p=/10gb-tests/esxtop-both-nics-uses.png&raw=1)
 
 We can see the same amount of traffic going down both Nics. My guess is that the SSD write and read speeds are slowing down the test a little bit, but other than that I am pretty happy with the results. I want to get the next generation mac mini or Mac Pro (they have thunderbolt 2 ports vs Thunderbolt 1 and are advertised to handle 20Gb/s throughput) and see if the results change.

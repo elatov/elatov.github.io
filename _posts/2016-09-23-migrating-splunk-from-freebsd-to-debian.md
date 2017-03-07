@@ -313,4 +313,4 @@ Ended up adding a new input for *ossec*, since the *ossec* server was running on
 	
 I also updated my hostname under **Settings** -> **Server Settings** -> **General Settings**:
 
-![update-hostname-splunk](https://dl.dropboxusercontent.com/u/24136116/blog_pics/splunk-mig-to-deb/update-hostname-splunk.png)
+![update-hostname-splunk](https://seacloud.cc/d/480b5e8fcd/files/?p=/splunk-mig-to-deb/update-hostname-splunk.png&raw=1)

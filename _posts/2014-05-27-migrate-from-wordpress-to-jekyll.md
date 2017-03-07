@@ -18,15 +18,15 @@ Here are the steps to the process.
 ### Prepare Github
 Most of the steps are covered in [GitHub Pages](https://pages.github.com/). First go and create your self an account on *github.com*:
 
-![github-account-creation](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-to-jekyll/github-account-creation.png)
+![github-account-creation](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/github-account-creation.png&raw=1)
 
 For the plan you can choose free:
 
-![github-plan-free](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-to-jekyll/github-plan-free.png)
+![github-plan-free](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/github-plan-free.png&raw=1)
 
 After you done with the creation it will take you to your github account:
 
-![github-account-created-login-page](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-to-jekyll/github-account-created-login-page.png)
+![github-account-created-login-page](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/github-account-created-login-page.png&raw=1)
 
 After the account we have to create a repository with a special name. From [Using Jekyll with Pages](https://help.github.com/articles/using-jekyll-with-pages):
 
@@ -36,19 +36,19 @@ After the account we have to create a repository with a special name. From [Usin
 
 So let's go ahead and create a repository with name of **username**.github.io. First select **Create New Repository** from the top:
 
-![create-new-repo-github](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-to-jekyll/create-new-repo-github.png)
+![create-new-repo-github](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/create-new-repo-github.png&raw=1)
 
 Then name it appropriately:
 
-![github-new-repo-name](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-to-jekyll/github-new-repo-name.png)
+![github-new-repo-name](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/github-new-repo-name.png&raw=1)
 
 After it's created, you will see quick instructions on how to initialize the git repository:
 
-![github-initialization-instruct](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-to-jekyll/github-initialization-instruct.png)
+![github-initialization-instruct](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/github-initialization-instruct.png&raw=1)
 
 After it's done, go to settings of the repository and check the box that says **Restrict editing to collabolators only**:
 
-![github-restrict-editting](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-to-jekyll/github-restrict-editting.png)
+![github-restrict-editting](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/github-restrict-editting.png&raw=1)
 
 So let's clone the repository and add a test home page:
 
@@ -85,13 +85,13 @@ So let's clone the repository and add a test home page:
 	 
 Now if you look back on the **settings** page of the repository, it will let you know that your changes have been published:
 
-![site-is-published-github-settings](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-to-jekyll/site-is-published-github-settings.png)
+![site-is-published-github-settings](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/site-is-published-github-settings.png&raw=1)
 
 If you want you can update your git user configuration to reflect your username. And you can also use SSH keys instead regular password over https to do commits to the github repository. More information on how to configure the SSH keys are seen in [Generating SSH Keys](https://help.github.com/articles/generating-ssh-keys). 
 
 After sometime if you visit your user github page you will see the contents of the **index.html** file that you uploaded:
 
-![test-page-seen-from-github](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-to-jekyll/test-page-seen-from-github.png)
+![test-page-seen-from-github](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/test-page-seen-from-github.png&raw=1)
 
 ### Running Jekyll Locally
 I was using a mac for my testing, so I decided to run **jekyll** locally. MacOSX comes with a ruby version but I didn't want to mess with the system version. I already had **macports** setup on the mac ([here](/2013/07/mount-various-file-system-with-autofs-on-mac-os-x-mountain-lion/) is a post for the macports setup). Once you have macports, you can run the following to install the **ruby** version from macports:
@@ -206,7 +206,7 @@ Now let's build and serve that jekyll-bootstrap template locally:
   
 Now if you point your browser to **http://localhost:4000** you should see the template:
 
-![jekyll-running-example-bootstrap](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-to-jekyll/jekyll-running-example-bootstrap.png)
+![jekyll-running-example-bootstrap](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/jekyll-running-example-bootstrap.png&raw=1)
 
 #### Jekyll Themes
 There are a bunch of themes out there. Here are a couple of pages that have themes:
@@ -251,7 +251,7 @@ Like I mentioned before, you can either clone the whole project or you can actua
 	
 Now if you re-run jekyll you should see the following after you visit **http://localhost:4000** :
 
-![jekyll-with-twitter-theme-running](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-to-jekyll/jekyll-with-twitter-theme-running.png)
+![jekyll-with-twitter-theme-running](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/jekyll-with-twitter-theme-running.png&raw=1)
 
 #### Customize Jekyll Configurations
 Let's add the information regarding the site. I ended up modifying the following lines in the **_config.yml** file:
@@ -319,7 +319,7 @@ On the main page, I decided to just list posts and nothing else. Here is what I 
 
 After a reload of **jekyll**, I saw the following on the local site:
 
-![jekyll-personal-info-added](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-to-jekyll/jekyll-personal-info-added.png)
+![jekyll-personal-info-added](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/jekyll-personal-info-added.png&raw=1)
 
 If you like how it looks, you can push it to the github pages:
 
@@ -342,7 +342,7 @@ If you like how it looks, you can push it to the github pages:
 	 
 Then after some time, if you visit the github user pages, you will see the same site:
 
-![github-updates-pushed-and-live](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-to-jekyll/github-updates-pushed-and-live.png)
+![github-updates-pushed-and-live](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/github-updates-pushed-and-live.png&raw=1)
 
 ### Migrate Wordpress Posts to Jekyll
 There are a couple of methods to the approach. Here are a few:
@@ -353,7 +353,7 @@ There are a couple of methods to the approach. Here are a few:
 
 I ended up using the bottom one. After you install the plugin in your wordpress install, you can either go to the Wordpress Managament Page and you will see the  **Export to Jekyll** button there:
 
-![export-to-jekyl-plugin-wp](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-to-jekyll/export-to-jekyl-plugin-wp.png)
+![export-to-jekyl-plugin-wp](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/export-to-jekyl-plugin-wp.png&raw=1)
 
 Upon clicking that, it will start the export and you should get a zip of the export. Mine kept timing out, so I did it manually on the host it self:
 
@@ -417,7 +417,7 @@ Now launching your local jekyll instance:
 
 You can visit the local site (**http://localhost:4000**), and you will see your posts included in the main page:
 
-![posts_migrated_tojekyll-local-view](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-to-jekyll/posts_migrated_tojekyll-local-view.png)
+![posts_migrated_tojekyll-local-view](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/posts_migrated_tojekyll-local-view.png&raw=1)
 
 #### Clean up Converted Markdown
 None of the above converters are perfect, and after the migration you will definitely end up with some left over HTML. Here are a couple of sites that help with clean up:
@@ -611,19 +611,19 @@ After you define the metadata of the post, you can use your favorite markdown ed
 
 Here is a screenshot of **Mou**:
 
-![Mou-Example](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-to-jekyll/Mou-Example.png)
+![Mou-Example](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/Mou-Example.png&raw=1)
 
 Here is **Haroopad**:
 
-![haroopad-example](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-to-jekyll/haroopad-example.png)
+![haroopad-example](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/haroopad-example.png&raw=1)
 
 I like Mou and Haroopad for their shortcuts, here are some shortcuts from **haroopad**:
 
-![haroopad-keyboard-shortcuts.png](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-to-jekyll/haroopad-keyboard-shortcuts.png)
+![haroopad-keyboard-shortcuts.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/haroopad-keyboard-shortcuts.png&raw=1)
 
 You can see the full list under the help section of **haroopad** or **Mou**. Here is **Sublime Text 3**:
 
-![sublime-text-preview.png](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-to-jekyll/sublime-text-preview.png)
+![sublime-text-preview.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/sublime-text-preview.png&raw=1)
 
 Sublime Text Plugins don't have the variety of shortcuts by default, but you can definitely customize it to your need. While you are editing the file, upon saving the file to check your changes, you will see **jekyll** letting you know if a file has changed:
 
@@ -664,7 +664,7 @@ After you are done editing your post and you confirmed the local copy looks good
 
 After that you should see your new post on your github pages:
 
-![github-user-pages-with-new-post](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-to-jekyll/github-user-pages-with-new-post.png)
+![github-user-pages-with-new-post](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/github-user-pages-with-new-post.png&raw=1)
 
 
 I did a test build just in case with the **--safe** flag, because that is how github runs **jekyll**. From [Jekyll Plugins](http://jekyllrb.com/docs/plugins/):
@@ -682,35 +682,35 @@ This way we can check for any errors before pushing anything to the github pages
 #### Create New Post with prose.io
 There is also an online tool that allows you to create posts [prose.io](http://prose.io/). After visiting the above page and authorizing **prose.io** to access your github pages, you will see the following:
 
-![prose-io-first-page](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-to-jekyll/prose-io-first-page.png)
+![prose-io-first-page](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/prose-io-first-page.png&raw=1)
 
 Click on the project will show you the contents:
 
-![prose-io-inside-project](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-to-jekyll/prose-io-inside-project.png)
+![prose-io-inside-project](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/prose-io-inside-project.png&raw=1)
 
 After clicking going inside the **_posts** directory and clicking **New File**, you can give the post a title and enter markdown code:
 
-![prose-io-new-file.png](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-to-jekyll/prose-io-new-file.png)
+![prose-io-new-file.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/prose-io-new-file.png&raw=1)
 
 You can also get a preview of the page after the markdown is parsed:
 
-![prose-io-preview-post](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-to-jekyll/prose-io-preview-post.png)
+![prose-io-preview-post](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/prose-io-preview-post.png&raw=1)
 
 You can also edit the metadata of the post from here (by default, it's blank):
 
-![prose-io-edit-metadata](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-to-jekyll/prose-io-edit-metadata.png)
+![prose-io-edit-metadata](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/prose-io-edit-metadata.png&raw=1)
 
 You can also click on **Submit Changes** to push the change to github:
 
-![prose-io-save-changes](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-to-jekyll/prose-io-save-changes.png)
+![prose-io-save-changes](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/prose-io-save-changes.png&raw=1)
 
 To publish the post, click on the "**Unpublish**" button:
 
-![prose-io-publish-post](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-to-jekyll/prose-io-publish-post.png)
+![prose-io-publish-post](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/prose-io-publish-post.png&raw=1)
 
 and then click **Submit Changes** one more time. After that if you go back to your github pages you will see the new post:
 
-![post-with-prose-published](https://dl.dropboxusercontent.com/u/24136116/blog_pics/migrate-to-jekyll/post-with-prose-published.png)
+![post-with-prose-published](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/post-with-prose-published.png&raw=1)
 
 ### Jekyll Summary
 

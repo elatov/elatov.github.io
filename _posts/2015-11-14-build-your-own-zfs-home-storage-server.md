@@ -30,7 +30,7 @@ After looking through various pages and comparing different specs, I ended up ge
 
 Here is a picture while I was putting everything together :)
 
-![storage-server-parts](https://dl.dropboxusercontent.com/u/24136116/blog_pics/zfs-perf-biy-san/storage-server-parts.jpg) 
+![storage-server-parts](https://seacloud.cc/d/480b5e8fcd/files/?p=/zfs-perf-biy-san/storage-server-parts.jpg&raw=1) 
 
 ### Local SSD Performance Tests
 Initially I wanted to see how my SSDs performed and here were some dd results:
@@ -126,18 +126,18 @@ Then here is the after test:
 
 We are definitely enjoying the SSDs cache here :) Here is the **DD** test from the *napp-it* interface with both ZIL and L2ARC (the read test is awesome):
 
-![dd-test-new-storage-box](https://dl.dropboxusercontent.com/u/24136116/blog_pics/zfs-perf-biy-san/dd-test-new-storage-box.png)
+![dd-test-new-storage-box](https://seacloud.cc/d/480b5e8fcd/files/?p=/zfs-perf-biy-san/dd-test-new-storage-box.png&raw=1)
 
 ### Remote iSCSI Performance Tests
 I ran the same tests that I ran in the original post and here were the results for small IO:
 
-![iom-small-res.png](https://dl.dropboxusercontent.com/u/24136116/blog_pics/zfs-perf-biy-san/iom-small-res.png)
+![iom-small-res.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/zfs-perf-biy-san/iom-small-res.png&raw=1)
 
 The results were very similar to the original test and that's because I am still getting stuck at my 1GB NIC and Switch limitation. I think in the future I will try get a hold of a Switch that can do port link aggregation and install a multiport NIC on the ZFS machine to setup link aggreation on that side as well ([Overview of Link Aggregations](https://docs.oracle.com/cd/E23824_01/html/821-1458/fpjvl.html))
 
 My backups were completing much faster now, here are the results after the storage upgrade:
 
-![backups-after-storage-upgrade](https://dl.dropboxusercontent.com/u/24136116/blog_pics/zfs-perf-biy-san/backups-after-storage-upgrade.png)
+![backups-after-storage-upgrade](https://seacloud.cc/d/480b5e8fcd/files/?p=/zfs-perf-biy-san/backups-after-storage-upgrade.png&raw=1)
 
 You can see the results before the upgrade in my [old post](/2014/02/esxi-backups-zfs-xsibackup/).
 

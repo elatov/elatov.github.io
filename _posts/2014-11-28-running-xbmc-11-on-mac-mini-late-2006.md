@@ -19,7 +19,7 @@ The Mac Mini has an *Intel Corporation Mobile 945GM/GMS* video card, nothing spe
 
 The only thing we need is to get the right Xorg driver for it. Looking over the [Debian HCL](http://kmuto.jp/debian/hcl/Intel/Mobile+945GM%EF%BC%8FGMS%EF%BC%8F940GML+Express+Integrated+Graphics+Controller), I saw the following:
 
-![debian-hcl-intel-card](https://dl.dropboxusercontent.com/u/24136116/blog_pics/xbmc-on-mac-mini/debian-hcl-intel-card.png)
+![debian-hcl-intel-card](https://seacloud.cc/d/480b5e8fcd/files/?p=/xbmc-on-mac-mini/debian-hcl-intel-card.png&raw=1)
 
 Checking the PCI ID of the device I saw the following:
 
@@ -143,7 +143,7 @@ Lastly to allow X to run from non-consoles I needed to run
 
 And to choose "Anyone":
 
-![deb-x11common-config.png](https://dl.dropboxusercontent.com/u/24136116/blog_pics/xbmc-on-mac-mini/deb-x11common-config.png)
+![deb-x11common-config.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/xbmc-on-mac-mini/deb-x11common-config.png&raw=1)
 
 After that we can enable the service to start on boot:
 
@@ -170,8 +170,8 @@ I just need to install also-utils and un-mute the speaker mixer. To install **al
 
 Then I ran alsamixer and scrolled to the speaker mixer and click "**m**" to un-mute:
 
-![deb-alsamixer.png](https://dl.dropboxusercontent.com/u/24136116/blog_pics/xbmc-on-mac-mini/deb-alsamixer.png)
+![deb-alsamixer.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/xbmc-on-mac-mini/deb-alsamixer.png&raw=1)
 
 After that I was able to play a video over UPNP with Audio:
 
-![xbmc-playing-with-info](https://dl.dropboxusercontent.com/u/24136116/blog_pics/xbmc-on-mac-mini/xbmc-playing-with-info.png)
+![xbmc-playing-with-info](https://seacloud.cc/d/480b5e8fcd/files/?p=/xbmc-on-mac-mini/xbmc-playing-with-info.png&raw=1)

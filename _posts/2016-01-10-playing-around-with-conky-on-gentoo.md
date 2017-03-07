@@ -137,11 +137,11 @@ Then start **conky-manager**:
 
 And import the themes:
 
-![import-themes-button-cm](https://dl.dropboxusercontent.com/u/24136116/blog_pics/conky-gentoo/import-butttom-cm2.png)
+![import-themes-button-cm](https://seacloud.cc/d/480b5e8fcd/files/?p=/conky-gentoo/import-butttom-cm2.png&raw=1)
 
 And then you can click on widget and get a preview of how they will look like:
 
-![cm-show-prev](https://dl.dropboxusercontent.com/u/24136116/blog_pics/conky-gentoo/conky-prev-2.png)
+![cm-show-prev](https://seacloud.cc/d/480b5e8fcd/files/?p=/conky-gentoo/conky-prev-2.png&raw=1)
 
 After you are done with choosing and previewing the themes or widgets the conky manager will create a startup script that can be launched at started up. For example here is what I had:
 
@@ -159,8 +159,8 @@ After you are done with choosing and previewing the themes or widgets the conky 
 
 I ended up using 3 different widgets, one on the right screen:
 
-![conky-1](https://dl.dropboxusercontent.com/u/24136116/blog_pics/conky-gentoo/conky-1.png)
+![conky-1](https://seacloud.cc/d/480b5e8fcd/files/?p=/conky-gentoo/conky-1.png&raw=1)
 
 And the two on the left screen:
 
-![conky-left-screen](https://dl.dropboxusercontent.com/u/24136116/blog_pics/conky-gentoo/conky-left-screen.png)
+![conky-left-screen](https://seacloud.cc/d/480b5e8fcd/files/?p=/conky-gentoo/conky-left-screen.png&raw=1)

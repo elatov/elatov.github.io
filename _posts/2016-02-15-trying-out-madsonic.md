@@ -52,7 +52,7 @@ And finally let's start **madsonic**:
 	
 After that you can go to **http://\<MADSONIC_IP\>:4040** and you will see the admin web ui:
 
-![madsonic-init-page](https://dl.dropboxusercontent.com/u/24136116/blog_pics/madsonic-setup/madsonic-init-page.png)
+![madsonic-init-page](https://seacloud.cc/d/480b5e8fcd/files/?p=/madsonic-setup/madsonic-init-page.png&raw=1)
 
 After logging into madsonic as:
 
@@ -60,7 +60,7 @@ After logging into madsonic as:
 
 I had initial steps to complete:
 
-![madsonic-steps-to-complete](https://dl.dropboxusercontent.com/u/24136116/blog_pics/madsonic-setup/madsonic-steps-to-complete.png)
+![madsonic-steps-to-complete](https://seacloud.cc/d/480b5e8fcd/files/?p=/madsonic-setup/madsonic-steps-to-complete.png&raw=1)
 	
 ### Bind MadSonic to a Dedicated IP
 I was running **madsonic** and **plex** on the same server and for some reason my Smart TV wasn't able to see **madsonic** via UPnP. So I decided to bind my **madsonic** instance to a specific IP. 

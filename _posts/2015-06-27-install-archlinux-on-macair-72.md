@@ -91,7 +91,7 @@ Now let's **dd** the iso onto the USB (notice **/dev/disk2** vs **/dev/rdisk2**)
 ### Prepare for the Arch Linux Install
 After I rebooted, I held the *Option* key and I saw the USB drive as a bootable device. After I booted from it, I saw the following menu:
 
-![ArchLinux_Boot_Menu](https://dl.dropboxusercontent.com/u/24136116/blog_pics/archlinux-macair/ArchLinux_Boot_Menu.jpg)
+![ArchLinux_Boot_Menu](https://seacloud.cc/d/480b5e8fcd/files/?p=/archlinux-macair/ArchLinux_Boot_Menu.jpg&raw=1)
 
 and after selecting the first menu I saw a shell:
 

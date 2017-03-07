@@ -173,17 +173,17 @@ Then restart the apache services:
 	
 Then upon visiting the site, I saw that it had a valid certificate:
 
-![www-ssl-cert-valid](https://dl.dropboxusercontent.com/u/24136116/blog_pics/debian-mod-nss/www-ssl-cert-valid.png)
+![www-ssl-cert-valid](https://seacloud.cc/d/480b5e8fcd/files/?p=/debian-mod-nss/www-ssl-cert-valid.png&raw=1)
 
 
 ### Confirming TLS Connection
 The TLS protocol has a lot of steps involved in the initial handshake. From [SSL Profiles Part 7: Server Name Indication](https://devcentral.f5.com/articles/ssl-profiles-part-7-server-name-indication) here is a pretty nice diagram:
 
-![tls-handshake](https://dl.dropboxusercontent.com/u/24136116/blog_pics/debian-mod-nss/tls-handshake.png)
+![tls-handshake](https://seacloud.cc/d/480b5e8fcd/files/?p=/debian-mod-nss/tls-handshake.png&raw=1)
 
 What's really interesting is the Server Name Indication (SNI). This is the way TLS handles **name-based** virtual hosts (multiple hostnames on the same IP), more information is [here](https://en.wikipedia.org/wiki/Server_Name_Indication) and from the same page here is a pretty nice diagram:
 
-![tls-sni](https://dl.dropboxusercontent.com/u/24136116/blog_pics/debian-mod-nss/tls-sni.png)
+![tls-sni](https://seacloud.cc/d/480b5e8fcd/files/?p=/debian-mod-nss/tls-sni.png&raw=1)
 
 We can confirm TLS is working appropriately by using a couple of tools, for example we can use **openssl**:
 
