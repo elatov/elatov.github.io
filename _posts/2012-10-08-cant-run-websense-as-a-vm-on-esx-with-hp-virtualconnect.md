@@ -7,7 +7,7 @@ categories: ['networking', 'vmware']
 tags: ['hp_virtualconnect', 'span_port', 'vlan', 'websense']
 ---
 
-We were trying to setup a VM to run WebSense on it, but we couldn't get all the traffic to reach the VM. Websense is a content filtering software, but for it to filter the content it needs to see all the traffic. When Websense runs on a physical machine it would sit in an area where it could see all the traffic. [Here](https://learningnetwork.cisco.com/thread/4250) is a good picture of the setup from cisco community page:
+We were trying to setup a VM to run WebSense on it, but we couldn't get all the traffic to reach the VM. Websense is a content filtering software, but for it to filter the content it needs to see all the traffic. When Websense runs on a physical machine it would sit in an area where it could see all the traffic. Here is a good picture of the setup from cisco community page:
 
 ![websense_in_a_routed-env](https://github.com/elatov/uploads/raw/master/2012/10/websense_in_a_routed-env.png)
 
@@ -44,5 +44,5 @@ With the above setup we couldn't see the traffic from the SPAN port. We put anot
 
 ![SPAN_to_virtual_connect](https://github.com/elatov/uploads/raw/master/2012/10/SPAN_to_virtual_connect.png)
 
-The Virtual Connect add an extra layer of network flow. As soon as I heard that we were using a Virtual Connect, we contacted HP support and they said that you can't mirror external ports to internal ones. You can mirror between internal ports but not external ports. [Here](http://h30499.www3.hp.com/t5/HP-BladeSystem-Virtual-Connect/Promiscuous-Mode-in-VC/td-p/5342417#.UG40pLTA991) is an HP communities page that talks about it. So lesson learned, you can't send mirror traffic through an HP Virtual Connect.
+The Virtual Connect adds an extra layer of network flow. As soon as I heard that we were using a Virtual Connect, we contacted HP support and they said that you can't mirror external ports to internal ones. You can mirror between internal ports but not external ports. [Here](http://h30499.www3.hp.com/t5/HP-BladeSystem-Virtual-Connect/Promiscuous-Mode-in-VC/td-p/5342417#.UG40pLTA991) is an HP communities page that talks about it. So lesson learned, you can't send mirror traffic through an HP Virtual Connect.
 
