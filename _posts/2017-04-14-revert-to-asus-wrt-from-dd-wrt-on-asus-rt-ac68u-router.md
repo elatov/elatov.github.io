@@ -362,7 +362,7 @@ Unfortunately some network feature are not supported with NAT Acceleration. Here
 * IP Traffic Monitoring
 * Streaming Services
 
-The Port Forwarding impacted me the most. I noticed that some worked and some didn't, which described some of the behavior other folks saw. Luckily the one I cared about worked and the ones that kept failing, I disabled. If you end up disabling NAT Acceleration then the VLAN configuration will change from:
+The Port Forwarding impacted me the most. I noticed that some ports worked and some didn't, which described some of the behavior other folks saw. But I also noticed that SSL enabled ports (80 vs 443 ... and other similart services) worked all the time. So this gave me a chance to SSL enable most of the services. If you end up disabling NAT Acceleration then the VLAN configuration will change from:
 
 	/usr/sbin/robocfg vlan 1 ports "1 2 3 4t 8t"
 	/usr/sbin/robocfg vlan 3 ports "4t 8t"
