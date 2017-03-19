@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Kibana Reports with Phantomjs"
 author: Karim Elatov
