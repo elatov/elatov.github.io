@@ -186,7 +186,7 @@ All of the above looks correct and we can hit "OK" to go to the previous window 
 
 ### Windows 2003 Weak Host Receive and Send Models(Optional)
 
-If the conversion fails we will need to enable weak host receive and send options on our secondary interface. Most of the information can be seen in [this](http://kb.vmware.com/kb/1006778) VMware KB. Basically we will have to run the following on both IIS Servers:
+If the conversion fails we will need to enable weak host receive and send options on our secondary interface. Most of the information can be seen in [this](https://kb.vmware.com/kb/1556) VMware KB. Basically we will have to run the following on both IIS Servers:
 
     netsh interface ipv4 set interface "Local Area Connection 2" weakhostreceive=enable
     netsh interface ipv4 set interface "Local Area Connection 2" weakhostsend=enable

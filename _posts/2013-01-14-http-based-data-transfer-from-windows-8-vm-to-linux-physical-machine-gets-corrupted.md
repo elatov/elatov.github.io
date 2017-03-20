@@ -31,7 +31,7 @@ I then ran into [this](http://support.microsoft.com/kb/947239) Windows article. 
 
 > When the Receive Window Auto-Tuning feature is enabled for HTTP traffic, older routers, older firewalls, and older operating systems that are incompatible with the Receive Window Auto-Tuning feature may sometimes cause slow data transfer or a loss of connectivity. When this occurs, users may experience slow performance. Or, the applications may crash. These older devices do not comply with the RFC 1323 standard
 
-I then ran into VMware KB [2039428](http://kb.vmware.com/kb/2039428), from that KB:
+I then ran into VMware KB [1009517](http://kb.vmware.com/kb/1009517), from that KB:
 
 > When using the VMXNET3 driver and Windows Server 2008 R2, you may experience these symptoms:
 >

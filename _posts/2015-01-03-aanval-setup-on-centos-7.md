@@ -165,7 +165,6 @@ Lastly go to the "Sensor Configuration" link for the Snort Module and make sure 
 
 After that if you go to the dashboard you will see the events that snort had captured:
 
-![snort-events-in-aanval](
-https://dl.dropboxusercontent.com/u/24136116/blog_pics/aanval-on-centos7/snort-events-in-aanval.png)
+![snort-events-in-aanval](https://seacloud.cc/d/480b5e8fcd/files/?p=//aanval-on-centos7/snort-events-in-aanval.png&raw=1)
 
 The cool thing is if you have syslog server then you can add that as a sensor and it will correlate any events snort with syslog logs.
