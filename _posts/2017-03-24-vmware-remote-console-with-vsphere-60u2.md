@@ -87,6 +87,21 @@ Or if you want you can just use the existing Service of **GDB Server**, that wil
 
 ![firewall-opened](https://seacloud.cc/d/480b5e8fcd/files/?p=/new-vmrc/firewall-opened.png&raw=1)
 
+Or run the following on the command line:
+
+    [root@hp:~] esxcli network firewall ruleset rule list -r gdbserver
+    Ruleset    Direction  Protocol  Port Type  Port Begin  Port End
+    ---------  ---------  --------  ---------  ----------  --------
+    gdbserver  Inbound    TCP       Dst              1000      9999
+    gdbserver  Inbound    TCP       Dst             50000     50999
+    [root@hp:~] esxcli network firewall ruleset set -e true -r gdbserver
+    [root@hp:~] esxcli network firewall ruleset list -r gdbserver
+    Name       Enabled
+    ---------  -------
+    gdbserver     true
+    [root@hp:~] esxcli network firewall refresh
+
+
 #### Enable VNC Access on VM
 Now that the firewall is open, we can shutdown the VM and we have to add the following to VMX file:
 
