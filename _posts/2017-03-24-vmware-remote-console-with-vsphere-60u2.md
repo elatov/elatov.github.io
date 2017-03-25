@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "VMware Remote Console with vSphere 6.0U2"
 author: Karim Elatov
