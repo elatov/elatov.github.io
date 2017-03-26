@@ -163,7 +163,7 @@ Now let's point to an SMTP server and try out sending an email:
 	Press ^] three times within 1s to kill container.
 	[root@core ~]# vi .mailrc
 	[root@core ~]# cat .mailrc
-	set smtp=smtp://kerch.kar.int
+	set smtp=smtp://mail.kar.int
 	[root@core ~]# mailx -s test elatov@me.com
 	cool
 	EOT
@@ -173,6 +173,18 @@ Now let's point to an SMTP server and try out sending an email:
 And I actually got the email. I then wrote a script within the **toolbox** container to send the email and just ran that (this is for later use):
 
 	elatov@core ~ $ toolbox -q /root/s.sh
+
+The whole filesystem for the toolbox container is under **/var/lib/toolbox/root-fedora-latest/**:
+
+    core ~ # ls /var/lib/toolbox/root-fedora-latest/
+    bin   dev  home  lib64       media  opt   root  sbin  sys  usr
+    boot  etc  lib   lost+found  mnt    proc  run   srv   tmp  var
+
+Here is the file that I edited inside the container:
+
+    core ~ # cat /var/lib/toolbox/root-fedora-latest/root/.mailrc 
+    set smtp=smtp://mail.kar.int
+
 
 ### Using systemd-timers in CoreOS
 
