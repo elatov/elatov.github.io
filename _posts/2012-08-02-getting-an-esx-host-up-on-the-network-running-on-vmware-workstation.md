@@ -5,7 +5,7 @@ author: Karim Elatov
 layout: post
 permalink: /2012/08/getting-an-esx-host-up-on-the-network-running-on-vmware-workstation/
 categories: ['home_lab', 'networking', 'vmware']
-tags: ['nat', 'nested_esx', 'vmware_workstation']
+tags: ['nat','nested_esx','vmware_workstation']
 ---
 
 I was recently setting up an ESX and ESXi host on my local VMware Workstation, however whatever I tried I couldn't get the ESX host to reply to pings. I setup the ESX and ESXi host to use the NAT network from the VMware Workstation. Here is how the NAT settings looked like from the Virtual Network Editor:
@@ -54,7 +54,7 @@ Here is how the network setup looked like inside the ESX host:
 	vswif0   Service Console     IPv4      10.0.1.130  255.255.255.0  10.0.1.255   true      STATIC
 
 
-So I just set a static IP of 10.0.1.130 with the default gateway of 10.0.1.1 and I am utilizing one uplink, which is the e1000 NIC (the 10.0.1.130 IP falls under the NAT network that I had defined). Doing a tcpdump on the vmnet1 interface during my ping test from above, I saw the following.
+So I just set a static IP of 10.0.1.130 with the default gateway of 10.0.1.1 and I am utilizing one uplink, which is the e1000 NIC (the 10.0.1.130 IP falls under the NAT network that I had defined). Doing a **tcpdump** on the **vmnet1** interface during my ping test from above, I saw the following.
 
 	[elatov@klaptop ~]$ sudo tcpdump -i vmnet1 -nne
 	tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
@@ -70,7 +70,7 @@ So I just set a static IP of 10.0.1.130 with the default gateway of 10.0.1.1 and
 	0 packets dropped by kernel
 
 
-So the vswif interface is ARP'ing out to find out the mac address of it's default gateway, and the vmnet1 interface is responding to the the request but the vswif0 interface is not getting it.
+So the vswif interface is ARP'ing out to find out the mac address of it's default gateway, and the **vmnet1** interface is responding to the the request but the **vswif0** interface is not getting it.
 
 Now my ESXi host worked without any issues. Here is how the network looks like for the ESXi host:
 
@@ -106,14 +106,14 @@ It worked just fine. Now looking at the packet capture as the pings were going, 
 	16:17:23.750079 00:50:56:c0:00:01 > 00:0c:29:2c:54:17, ethertype IPv4 (0x0800), length 98: 10.0.1.1 > 10.0.1.128: ICMP echo reply, id 52787, seq 1, length 64
 
 
-Looking at the packet captures I noticed that the ESXi host was using the following MAC address: 00:0c:29:2c:54:17 but looking at the ESX host it is using the following mac address: 00:50:56:4c:e5:09. You will notice the ESX host is using it's typical virtual MAC address starting with 00:50:56. Where the ESXi host is using the "physical" MAC address that was assigned to it. The physical mac address assigned to the ESX host can be seen from the esxcfg-nics output:
+Looking at the packet captures I noticed that the ESXi host was using the following MAC address: **00:0c:29**:2c:54:17 but looking at the ESX host it is using the following mac address: **00:50:56**:4c:e5:09. You will notice the ESX host is using it's typical virtual MAC address starting with **00:50:56**. Where the ESXi host is using the "physical" MAC address that was assigned to it. The physical mac address assigned to the ESX host can be seen from the **esxcfg-nics** output:
 
 	[root@localhost ~]# esxcfg-nics -l
 	Name   PCI   Driver Link Speed    Duplex MAC Address MTU Description
 	vmnic0 02:01 e1000  Up   1000Mbps Full **00:0c:29:d3:3d:34** 1500 Intel PRO/1000 MT Single Port Adapt.
 
 
-Now looking at the MAC Address of the vswif0 interface, we see the following:
+Now looking at the MAC Address of the **vswif0** interface, we see the following:
 
 	[root@localhost ~]# ifconfig vswif0
 	vswif0    Link encap:Ethernet  HWaddr **00:50:56:4C:E5:09**
@@ -129,21 +129,22 @@ Now looking at the ESXi host, we see the following:
 
 	~ # esxcfg-nics -l
 	Name   PCI    Driver Link Speed    Duplex MAC Address       MTU  Description
-	vmnic0 02:00  e1000  Up   1000Mbps Full   **00:0c:29:2c:54:17** 1500 Intel PRO/1000 MT Single Port Adapter
+	vmnic0 02:00  e1000  Up   1000Mbps Full   ->00:0c:29:2c:54:17<- 1500 Intel PRO/1000 MT Single Port Adapter
 
 
-In Bold is the physical MAC address assigned to the ESXi host. Now looking at the MAC address of the Vmk interface used for management I saw the following:
+The **vmnic0** MAC is the physical MAC address assigned to the ESXi host. Now looking at the MAC address of the **vmk** interface used for management I saw the following:
 
 	# esxcfg-vmknic -l
 	Interface Port_Group         IP_Address Netmask       Broadcast  MAC Address       MTU  Enabled Type
-	vmk0      Management Network 10.0.1.128 255.255.255.0 10.0.1.255 **00:0c:29:2c:54:17** 1500 true    STATIC
+	vmk0      Management Network 10.0.1.128 255.255.255.0 10.0.1.255 ->00:0c:29:2c:54:17<- 1500 true    STATIC
 
 
 So the management interface of the ESXi host uses the same MAC as the physical NIC. Where on the ESX host the management interface creates a virtual MAC address and uses that. This is actually expected and per KB [1031111](http://kb.vmware.com/kb/1031111) you can change the behavior with a setting.
 
-So for security reasons VMware workstation is not allowing to send traffic with a MAC address other than what is assigned to the VM. I found a couple web pages which described how to get around the issue: [sanbarrow](http://kb.vmware.com/kb/1042). Supposedly setting the option *ethernetX.noForgedSrcAddr* to *False* should allow for MAC Address changes. I tried setting that option and many others, but whatever I tried to put into the VMX file of the ESX host VM, it would not work. So I j
+So for security reasons VMware workstation is not allowing to send traffic with a MAC address other than what is assigned to the VM. I found a couple web pages which described how to get around the issue: 
 
-### Related Posts
+* [VMware KB 1008473](http://kb.vmware.com/kb/1008473)
+* [VMware Communities 184111](http://communities.vmware.com/thread/184111)
+* [sanbarrow](http://sanbarrow.com/vmx/vmx-network-advanced.html)
 
-- [Use FWBuilder to Deploy an IPtables Firewall to a DD-WRT Router](/2013/04/use-fwbuilder-to-deploy-an-iptables-firewall-to-a-dd-wrt-router/)
-
+Supposedly setting the option *ethernetX.noForgedSrcAddr* to *False* should allow for MAC Address changes. I tried setting that option and many others, but whatever I tried to put into the VMX file of the ESX host VM, it would not work. So I just enabled **Allow Forged Trasmits** on the virtual switch where **vswif0** was on and it worked out for me.

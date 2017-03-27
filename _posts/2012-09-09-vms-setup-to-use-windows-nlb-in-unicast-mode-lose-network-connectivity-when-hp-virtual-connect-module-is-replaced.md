@@ -177,7 +177,7 @@ So the uplink (vmnic2) that those two VMs were using went down. Now looking at t
 	2012-08-30T05:51:44.230Z cpu21:444905)vmnic4 : 02:00.6 Link Up - 10 Gbps Full Duplex
 
 
-So right as we replaced the VCM the NICs came up and the VMs regained network connectivity. Remember we were using NLB in Unicast mode, from this VMware KB [1006778](http://kb.vmware.com/kb/1006778):
+So right as we replaced the VCM the NICs came up and the VMs regained network connectivity. Remember we were using NLB in Unicast mode, from this VMware KB [1556](http://kb.vmware.com/kb/1556):
 
 > To configure NLB UNICAST mode:
 > ESX vSwitch properties Notify Switches = NO
