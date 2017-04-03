@@ -262,7 +262,7 @@ There is a prebuilt **smartmontools** package:
     smartmontools - 5.40-3 - Utility programs to control and monitor (SMART) built into most modern ATA and SCSI hard disks.
 
 
-But when I tried to run it, it would **seg fault**. I ran into a bug report [here](http://sourceforge.net/apps/trac/smartmontools/ticket/219). Following the instructions laid out in that report, I was able to compile **smartmontools** on pogoplug. Here are the commands I ran to accomplish that. First download the latest version:
+But when I tried to run it, it would **seg fault**. I ran into a bug report [here](https://www.smartmontools.org/ticket/219). Following the instructions laid out in that report, I was able to compile **smartmontools** on pogoplug. Here are the commands I ran to accomplish that. First download the latest version:
 
     $ cd /opt/tmp
     $ wget http://downloads.sourceforge.net/..../smartmontools-6.2.tar.gz
