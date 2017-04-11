@@ -57,7 +57,7 @@ or follow the instructions laid out in [this](https://github.com/jbdatko/chrubun
 
 ### 4. Fix the Sound
 
-You will also notice that the sound doesn't work. To fix it, we can follow the instructions laid out in [this](http://archive.rebeccablacktech.com/g/thread/30436935) site. Basically fire up '**alsamixer**' and unmute (by pressing 'm') the following fields:
+You will also notice that the sound doesn't work. To fix it, we can follow the instructions laid out in [this](http://memo4ge15h1.blogspot.com/2014/10/enable-audio-on-arch-linux.html) site. Basically fire up '**alsamixer**' and unmute (by pressing 'm') the following fields:
 
     Left Speaker Mixer Left DAC1
     Left Speaker Mixer Right DAC1
