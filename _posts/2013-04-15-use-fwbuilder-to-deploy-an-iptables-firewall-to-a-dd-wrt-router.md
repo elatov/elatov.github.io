@@ -496,18 +496,18 @@ If you chose the "DD-WRT (JFFS)" for the OS those should be the default. You can
 
 {% raw %}
 ```
-    elatov@crbook:/usr/share/fwbuilder-5.1.0.3599/configlets/dd-wrt-jffs$ pwd
-    /usr/share/fwbuilder-5.1.0.3599/configlets/dd-wrt-jffs
-    elatov@crbook:/usr/share/fwbuilder-5.1.0.3599/configlets/dd-wrt-jffs$ tail installer_commands_root
+elatov@crbook:/usr/share/fwbuilder-5.1.0.3599/configlets/dd-wrt-jffs$ pwd
+/usr/share/fwbuilder-5.1.0.3599/configlets/dd-wrt-jffs
+elatov@crbook:/usr/share/fwbuilder-5.1.0.3599/configlets/dd-wrt-jffs$ tail installer_commands_root
 
-    {{if run}}
-    echo '{{$fwbprompt}}';
-    chmod +x {{$fwdir}}/{{$fwscript}};
-    /usr/sbin/nvram unset rc_firewall;
-    /usr/sbin/nvram set rc_firewall="{{$fwdir}}/{{$fwscript}}";
-    /usr/sbin/nvram commit;
-    sh {{$fwdir}}/{{$fwscript}} && echo 'Policy activated'
-    {{endif}}
+{{if run}}
+echo '{{$fwbprompt}}';
+chmod +x {{$fwdir}}/{{$fwscript}};
+/usr/sbin/nvram unset rc_firewall;
+/usr/sbin/nvram set rc_firewall="{{$fwdir}}/{{$fwscript}}";
+/usr/sbin/nvram commit;
+sh {{$fwdir}}/{{$fwscript}} && echo 'Policy activated'
+{{endif}}
 ```
 {% endraw %}
 
