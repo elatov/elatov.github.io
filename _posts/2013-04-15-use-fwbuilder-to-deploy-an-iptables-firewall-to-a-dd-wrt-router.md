@@ -494,6 +494,8 @@ and the "Installer" Tab looks like this:
 
 If you chose the "DD-WRT (JFFS)" for the OS those should be the default. You can also check out the installer scripts for DD-WRT from the FWBuilder package:
 
+{% raw %}
+```
     elatov@crbook:/usr/share/fwbuilder-5.1.0.3599/configlets/dd-wrt-jffs$ pwd
     /usr/share/fwbuilder-5.1.0.3599/configlets/dd-wrt-jffs
     elatov@crbook:/usr/share/fwbuilder-5.1.0.3599/configlets/dd-wrt-jffs$ tail installer_commands_root
@@ -506,7 +508,8 @@ If you chose the "DD-WRT (JFFS)" for the OS those should be the default. You can
     /usr/sbin/nvram commit;
     sh {{$fwdir}}/{{$fwscript}} && echo 'Policy activated'
     {{endif}}
-
+```
+{% endraw %}
 
 Looks like we are going to set the appropriate settings on the DD-WRT Router. Then go ahead and click on the "Install" button:
 
