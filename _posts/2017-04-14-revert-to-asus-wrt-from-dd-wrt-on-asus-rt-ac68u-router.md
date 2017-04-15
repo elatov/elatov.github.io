@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Revert to ASUS-WRT from DD-WRT on the Asus RT-AC68U Router"
 author: Karim Elatov
