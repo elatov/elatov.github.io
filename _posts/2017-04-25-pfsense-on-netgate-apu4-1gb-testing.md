@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "pfSense on Netgate APU4 1Gb Testing"
 author: Karim Elatov
