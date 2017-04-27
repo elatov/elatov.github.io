@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Using Flannel with CoreOS"
 author: Karim Elatov
@@ -26,7 +26,7 @@ I recently updated from **1298.7.0** to **1353.6.0** and for some reason some of
 	    inet 172.19.0.1/16 scope global br-868395bd74c5
 	       valid_lft forever preferred_lft forever
 	8: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default
-	    inet 10.2.37.1/24 scope global docker0
+	    inet 172.17.0.1/16 scope global docker0
 	       valid_lft forever preferred_lft forever
 	9: br-44c028eed818: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
 	    inet 172.18.0.1/16 scope global br-44c028eed818
@@ -34,7 +34,7 @@ I recently updated from **1298.7.0** to **1353.6.0** and for some reason some of
 But before the update I had a lot more. Some interfaces just failed to come up.
 
 ### Dedicated Bridges with Docker Compose
-As I kept looking at the setup, I realized that for each container deployment that I did with a **docker-compose** , there was a dedicated **bridge** and **docker network** created:
+As I kept looking at the setup, I realized that for each container deployment that I did with a **docker-compose**, there was a dedicated **bridge** and **docker network** created:
 
 	core ~ # docker network ls
 	NETWORK ID          NAME                 DRIVER              SCOPE
@@ -48,16 +48,16 @@ As I kept looking at the setup, I realized that for each container deployment th
 	868395bd74c5        watchtower_default   bridge              local
 	f6a4ffcb974a        zabbix_default       bridge              local
 
-This is actually a know behavior and is described in [Compose network configuration not following docker0 network setup](https://github.com/docker/compose/issues/3899). You can specify the following in the **docker-compose.yml** config:
+This is actually known behavior and is described in [Compose network configuration not following docker0 network setup](https://github.com/docker/compose/issues/3899). You can specify the following in the **docker-compose.yml** config:
 
 	network_mode: bridge
 
 and it will connect to the **docker0** bridge if you like.
 
 ### Flannel with Docker
-Since I was already using CoreOS I knew that **flannel** comes pre installed with it. Flannel is an overlay network that allows containers to talk to each other across multiple Docker Hosts. There is actually a nice diagram from [their](https://github.com/coreos/flannel) documentation:
+Since I was already using CoreOS I knew that **flannel** comes pre-installed with it. **Flannel** is an overlay network that allows containers to talk to each other across multiple Docker Hosts. There is actually a nice diagram from [their](https://github.com/coreos/flannel) documentation:
 
-![flannel-packet-flow](flannel-packet-flow.png)
+![flannel-packet-flow](https://seacloud.cc/d/480b5e8fcd/files/?p=/flannel-coreos/flannel-packet-flow.png&raw=1)
 
 What I liked about **flannel** is that it sits in front of docker and the containers don't really need to know that they are using an overlay network. You can just configure the containers to use the **docker0** (bridge network) interface and it will work without issues. If you are not using CoreOS the **flannel** setup is covered in the following sites:
 
@@ -264,7 +264,7 @@ And now I just have one **bridge** with mulitple containers connected to it:
 	                                                        vethf78b563
 	                                                        vethfb91608
 
-One thing to note is that all the request will come in from the **docker0** interface or the default gateway. You can do another quick test:
+One thing to note is that all the requests will come in from the **docker0** interface or the default gateway. You can do another quick test to confirm:
 
 	core ~ # docker run --rm -it -e 12345 -p 12345:12345 alpine /bin/sh
 	/ # apk update
@@ -284,7 +284,7 @@ One thing to note is that all the request will come in from the **docker0** inte
 	22:31:56.539387 02:42:38:11:9f:bf > 02:42:0a:02:25:0d, ethertype IPv4 (0x0800), length 74: 10.2.37.1.54980 > 10.2.37.13.12345: Flags [S], seq 3436635296, win 29200, options [mss 1460,sackOK,TS val 7733117 ecr 0,nop,wscale 7], length 0
 	22:31:56.539425 02:42:0a:02:25:0d > 02:42:38:11:9f:bf, ethertype IPv4 (0x0800), length 54: 10.2.37.13.12345 > 10.2.37.1.54980: Flags [R.], seq 0, ack 3436635297, win 0, length 0
 	
-So if any converted containers was using the old bridge IPs they will have to be updated.
+So if any converted containers were using the old bridge IPs they will have to be updated.
 
 ### Converting docker-compose.yml to use the network bridge
 
@@ -296,7 +296,7 @@ Then deleted the old networks:
 
 	# docker network rm elk_default mariadb_default shipyard_default splunk_default
 
-Then added the following line to all the docker-compose.yml files:
+Then added the following line to all the **docker-compose.yml** files:
 
 	network_mode: bridge
 
@@ -305,7 +305,7 @@ and lastly started them up:
 	# docker-compose up -d
 	
 ### Iptables Configuration
-You will notice that for each port your **expose** an iptables rule is added to allow that port:
+You will notice that for each port your **expose** an **iptables** rule is added to allow that port to reach the host (in the **DOCKER** chain):
 
 	core ~ # iptables -L -n -v
 	Chain INPUT (policy ACCEPT 1185 packets, 207K bytes)
@@ -330,7 +330,7 @@ You will notice that for each port your **expose** an iptables rule is added to 
 	 pkts bytes target     prot opt in     out     source               destination
 	1154K  517M RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0
 
-And since I was also specifying external **ports** in my configuration, I saw **DNAT**s and **MASQUERADE**s added as well (to allow outbound and inbound traffic from the outside):
+And since I was also specifying external **ports** in my configuration, I saw **DNAT**s (in the **PREROUTING/DOCKER** chain) and **MASQUERADE**s (in the **POSTROUTING** chain) added as well (to allow outbound and inbound traffic from the outside):
 
 	core ~ # iptables -L -n -v -t nat
 	Chain PREROUTING (policy ACCEPT 96 packets, 11911 bytes)
@@ -358,11 +358,11 @@ And since I was also specifying external **ports** in my configuration, I saw **
 
 ### CoreOS issue with docker network bridges
 
-Later on as I was doing some research I ran into [this](https://github.com/coreos/bugs/issues/1936) coreos issue. And it looks like with the new CoreOS version (**1353.6.0**) there were some race condition with interface claiming between **docker** and the **systemd** network service. And the following modification:
+Later on as I was doing some research I ran into [this](https://github.com/coreos/bugs/issues/1936) CoreOS issue. And it looks like with the new CoreOS version (**1353.6.0**) there was a race condition with interface claiming between **docker** and the **systemd** network service. And the following modification:
 
 	[Match]
 	 Type=bridge
 	-Name=docker*
 	+Name=docker* br-*
 
-In the following file: **50-docker.network**, would've probably fixed my original issue, but I was still happy to move to **flannel** for future expansion.
+In the the **50-docker.network** file, would've probably fixed my original issue, but I was still happy to move my containers to **flannel** for future expansion.
