@@ -365,4 +365,4 @@ Later on as I was doing some research I ran into [this](https://github.com/coreo
 	-Name=docker*
 	+Name=docker* br-*
 
-In the the **50-docker.network** file, would've probably fixed my original issue, but I was still happy to move my containers to **flannel** for future expansion.
+In the the **50-docker.network** file, would've probably fixed my original issue, but I was still happy to move my containers to **flannel** for future expansion. And it looks like version [1353.7.0](https://coreos.com/releases/#1353.7.0) fixes that specific issue as well.
