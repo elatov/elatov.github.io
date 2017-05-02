@@ -250,7 +250,7 @@ Restart OpenELEC to apply the above changes.
 
 #### OpenELEC Performance Tweaks
 
-I read a couple of sites that talked about **dirty regions**. More information on dirty regions can be seen [here](http://wiki.xbmc.org/index.php?title=Dirty_regions). From that page:
+I read a couple of sites that talked about **dirty regions**. More information on dirty regions can be seen [here](http://kodi.wiki/view/HOW-TO:Modify_dirty_regions). From that page:
 
 > Enable dirty-region processing. Dirty regions are any parts of the screen that have changed since the last frame. By not re-rendering what hasn't changed, big speed gains can be seen. Because all GPUs work differently, only Mode 3, combined with nofliptimeout=0, is guaranteed to be safe for everyone.
 
