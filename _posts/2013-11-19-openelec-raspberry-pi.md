@@ -423,7 +423,7 @@ If you want **snmpd** to be started automatically, make sure your **.config/auto
 
 #### Backup XBMC
 
-If you want to back up XBMC (which is what OpenELEC basically consists of), then we can use the **XBMC Backup** add-on, it's part of the XBMC repository. [Here](http://wiki.xbmc.org/index.php?title=Add-on:XBMC_Backup) is a link to the add-on. From that link here are the instructions to install the add-on:
+If you want to back up XBMC (which is what OpenELEC basically consists of), then we can use the **XBMC Backup** add-on, it's part of the XBMC repository. [Here](http://kodi.wiki/view/Add-on:Backup) is a link to the add-on. From that link here are the instructions to install the add-on:
 
 1.  Settings
 2.  Add-ons
