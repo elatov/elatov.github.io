@@ -46,7 +46,7 @@ Before we go any further let's create a time machine zfs volume
 	zfs create data/tm
 	zfs set compression=gzip data/tm
 
-And as per [Fixing AFP access on OmniOS Solaris w/ napp-it](https://aseith.com/pages/viewpage.action?pageId=17727596) let enable the right acl settings:
+And as per [AFP/netatalk Installer](https://www.napp-it.org/extensions/afp_en.html) let enable the right acl settings:
 
 	zfs set aclinherit=passthrough data/tm
 	zfs set aclmode=passthrough data/tm
