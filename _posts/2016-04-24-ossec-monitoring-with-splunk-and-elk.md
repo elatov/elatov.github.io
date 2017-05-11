@@ -69,7 +69,7 @@ Pretty easy and nothing crazy.
 
 ### Setup ELK to Monitor Ossec Logs
 
-First let's enable **logstash** to accept logs from the ossec server (the example is covered [here](http://vichargrave.com/improved-ossec-log-parsing-with-logstash/)). Here is the config I ended up with:
+First let's enable **logstash** to accept logs from the ossec server (the example is covered [here](https://vichargrave.github.io/articles/2014-08/improved-ossec-log-parsing-with-logstash)). Here is the config I ended up with:
 
 	┌─[elatov@puppet] - [/home/elatov] - [2016-01-23 01:35:10]
 	└─[0] <> cat /etc/logstash/conf.d/ossec-syslog.conf
@@ -131,7 +131,7 @@ Then fire off an ossec alert and you will see something similar to this in the l
 	}
 
 #### Create a Kibana 4 Dashboard For Ossec
-To create the dashboard we can follow the instructions laid out [here](http://vichargrave.com/create-an-ossec-log-management-console-with-kibana-4/). Here is what I added for my search:
+To create the dashboard we can follow the instructions laid out [here](https://vichargrave.github.io/articles/2015-09/create-an-ossec-log-management-console-with-kibana-4). Here is what I added for my search:
 
 ![kib-ossec-saved-search](https://seacloud.cc/d/480b5e8fcd/files/?p=/ossec-elk-splunk/kib-ossec-saved-search.png&raw=1)
 
