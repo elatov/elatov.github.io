@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "OpenSuSe on MacBook Pro 6,2"
 author: Karim Elatov
