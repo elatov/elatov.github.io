@@ -298,7 +298,7 @@ and running `vagrant provision`, I saw the following:
 There is an open source Solaris puppet project which has a lot of Solaris specific providers. Currently it's specific for Oracle Solaris 11, but any OpenSolaris fork should be okay. Here are two pages that talk about the puppet providers:
 
 - [Getting Started with Puppet on Oracle Solaris 11](http://www.oracle.com/technetwork/articles/servers-storage-admin/howto-automate-config-datacenter-2212734.html)
-- [Solaris-specific Providers for Puppet](https://blogs.oracle.com/observatory/en_US/entry/solaris_specific_providers_for_puppet)
+- [Solaris-specific Providers for Puppet](https://blogs.oracle.com/observatory/solaris-specific-providers-for-puppet)
 
 These providers reside in a **mercurial** repository. I ran the following on my Mac OS X machine to grab those:
 

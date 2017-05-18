@@ -63,7 +63,7 @@ And from the second site:
 
 #### L2ARC
 
-I found a pretty good blog: [ZFS L2ARC](https://blogs.oracle.com/brendan/entry/test) and that describes what **L2ARC** is:
+I found a pretty good blog: [ZFS L2ARC](http://synccore.co.in/caching-technology/) and that describes what **L2ARC** is:
 
 > The "ARC" is the ZFS main memory cache (in DRAM), which can be accessed with sub microsecond latency. An ARC read miss would normally read from disk, at millisecond latency (especially random reads). The L2ARC sits in-between, extending the main memory cache using fast storage devices - such as flash memory based SSDs (solid state disks).
 > ..
