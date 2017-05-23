@@ -37,7 +37,6 @@ There is actually one more that I ran into, it's called [tinyCA](http://www.ghac
 
 *DogTag*, *EJBCA*, and *OpenCA* were full blown Public-Key Infrastructure (PKI) applications and I didn't need all of the extra functionally. There are a lot of examples on how to setup your own CA with **openssl**:
 
-*   [Be your own Certificate Authority (CA)](http://www.g-loaded.eu/2005/11/10/be-your-own-ca/)
 *   [Creating a Certificate Authority and signing the SSL certificates using openssl](http://www.ulduzsoft.com/2012/01/creating-a-certificate-authority-and-signing-the-ssl-certificates-using-openssl/)
 *   [Be your own CA](http://archive09.linux.com/feature/38315)
 *   [Become your own SSL Certificate Authority](https://github.com/midasplatform/infrastructure/wiki/Become-your-own-SSL-Certificate-Authority)
