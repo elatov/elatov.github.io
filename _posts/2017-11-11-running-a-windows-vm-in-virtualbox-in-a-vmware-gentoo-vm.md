@@ -240,6 +240,48 @@ While **phpVirtualBox** doesn't even show that option:
 
 ![php-virtualbox-no-clip](https://seacloud.cc/d/480b5e8fcd/files/?p=/vb-gentoo-esxi/php-virtualbox-no-clip.png&raw=1)
 
-And after that I was able to RDP into the VM and used the shared clipboard without issues (**rdesktop** or **xfreerdp**). 
+And after that I was able to RDP into the VM and used the shared clipboard without issues (**rdesktop** or **xfreerdp**).
+
+#### Increasing the Remote Resolution
+When I was initially connecting to the Windows Machine I was only able to get **1024x768** as the Max resolution. Which actually matched the **xrandr** output on the gentoo VM. After following the instructions laid our in [VMware KB 2092210](https://kb.vmware.com/kb/2092210), which was just to add this option into the VMX file:
+
+	mks.enable3d = TRUE
+
+and reloading the VMX:
+
+	vim-cmd vmsvc/reload <VMID>
+    
+I saw that the Gentoo VM had a lot more Resolution options:
+
+    <> xrandr -display :0.0 -q
+    Screen 0: minimum 1 x 1, current 1600 x 1200, maximum 8192 x 8192
+    Virtual1 connected primary 1600x1200+0+0 (normal left inverted right x axis y axis) 0mm x 0mm
+       1440x900      59.89 +
+       800x600       60.00 +  60.32  
+       2560x1600     59.99  
+       1920x1440     60.00  
+       1856x1392     60.00  
+       1792x1344     60.00  
+       1920x1200     59.88  
+       1600x1200     60.00* 
+       1680x1050     59.95  
+       1400x1050     59.98  
+       1280x1024     60.02  
+       1280x960      60.00  
+       1360x768      60.02  
+       1280x800      59.81  
+       1152x864      75.00  
+       1280x768      59.87  
+       1024x768      60.00  
+       640x480       59.94  
+    Virtual2 disconnected (normal left inverted right x axis y axis)
+    Virtual3 disconnected (normal left inverted right x axis y axis)
+    Virtual4 disconnected (normal left inverted right x axis y axis)
+    Virtual5 disconnected (normal left inverted right x axis y axis)
+    Virtual6 disconnected (normal left inverted right x axis y axis)
+    Virtual7 disconnected (normal left inverted right x axis y axis)
+    Virtual8 disconnected (normal left inverted right x axis y axis)
+
+So I would start the Gentoo VM with the Max resolution and then maximize the VirtualBox Screen of the Windows VM and that allowed me to utilize larger Resolutions over Remote Desktop.
 
 You could probably achieve the same thing with **Fedora** or **Ubuntu** if you prefer not to mess with **Gentoo**. I was just remiscing using **Gentoo** and I wanted to refresh my memory on the process.
