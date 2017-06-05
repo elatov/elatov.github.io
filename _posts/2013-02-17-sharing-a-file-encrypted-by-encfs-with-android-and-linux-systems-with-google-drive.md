@@ -197,7 +197,7 @@ I then followed similar instructions as I did for Ubuntu to sync up Google Drive
 
 ## 2. Install EncFS and Encrypt the Google Drive Folder
 
-First let's do this on our Fedora System. There are some good guides on that [here](http://www.danielhall.me/2010/04/using-encfs-to-encrypt-your-files/).
+First let's do this on our Fedora System. There are some good guides on that [here](https://www.howtoforge.com/encrypt-your-data-with-encfs-fedora-18).
 
 ### Install and Setup *EncFS* on Fedora
 
