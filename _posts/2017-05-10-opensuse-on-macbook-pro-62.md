@@ -1,15 +1,15 @@
 ---
 published: true
 layout: post
-title: "OpenSuSe on MacBook Pro 6,2"
+title: "openSUSE on MacBook Pro 6,2"
 author: Karim Elatov
 categories: [os]
 tags: [linux,opensuse,nvidia,grub,udev]
 ---
-### OpenSuSe Leap 42.2
-I had an old mac book pro laying around and I wanted to install linux on it. I have been reading good things about SUSE/OpenSUSE so I decided to give it a try. When I went to the download page the first download link was for the beta version, so I decided to try the Leap 42.2 Beta version. I downloaded the ISO and burned it to a DVD. After that I inserted the DVD into the drive and rebooted. Right after the boot chime, I held the "**C**" key and it booted from the DVD. If you look at the [SDB:Installation on a Mac](https://en.opensuse.org/SDB:Installation_on_a_Mac) page, they recommend leaving some of the Mac OS X partitions intact, but I decided to completely wipe everything and just use **rEFIt** (or **rEFInd**) to sync the **GPT** partition.
+### openSUSE Leap 42.2
+I had an old mac book pro laying around and I wanted to install linux on it. I have been reading good things about SUSE/openSUSE so I decided to give it a try. When I went to the download page the first download link was for the beta version, so I decided to try the Leap 42.2 Beta version. I downloaded the ISO and burned it to a DVD. After that I inserted the DVD into the drive and rebooted. Right after the boot chime, I held the "**C**" key and it booted from the DVD. If you look at the [SDB:Installation on a Mac](https://en.opensuse.org/SDB:Installation_on_a_Mac) page, they recommend leaving some of the Mac OS X partitions intact, but I decided to completely wipe everything and just use **rEFIt** (or **rEFInd**) to sync the **GPT** partition.
 
-#### OpenSuSe Install
+#### openSUSE Install
 After the DVD boots you will see the GRUB menu for it:
 
 ![opensuse-booting](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/opensuse-booting.jpg&raw=1)
@@ -84,7 +84,7 @@ Then I booted from the CD and opened up a shell and ran **gptsync.efi**:
 
 ![gpt-sync-with-refit](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/gpt-sync-with-refit.jpg&raw=1)
 
-Then rebooting one more time, I was able to boot into the OpenSuSe install.
+Then rebooting one more time, I was able to boot into the openSUSE install.
 
 ### Setting Up Xorg
 First I installed all the necessary packages:
@@ -183,16 +183,16 @@ I even tried the **vlc** repo which was available for Leap 42.2:
 	sudo zypper ar -f http://download.videolan.org/pub/videolan/vlc/SuSE/Leap_42.2/ vlc
 	sudo zypper in vlc
 
-But that caused all sorts of dependency problems (and **vlc** still complained about the missing codecs)... that's what I get for trying a beta version :) At this point I decided to try out OpenSuSe Tumbleweed.
+But that caused all sorts of dependency problems (and **vlc** still complained about the missing codecs)... that's what I get for trying a beta version :) At this point I decided to try out openSUSE Tumbleweed.
 
-### OpenSUSE Tumbleweed
+### openSUSE Tumbleweed
 There is a nice page that talks about the difference betwee two Distro Versions: [Side-by-side: openSuSE Tumbleweed and Leap](http://www.zdnet.com/article/side-by-side-opensuse-tumbleweed-and-leap/). From that page:
 
-> The openSuSE project offers two distributions: Tumbleweed, which is a rolling distribution that gets continuous updates, and Leap, which is a point distribution that gets periodic updates.
+> The openSUSE project offers two distributions: Tumbleweed, which is a rolling distribution that gets continuous updates, and Leap, which is a point distribution that gets periodic updates.
 
 I think in summary **Tumbleweed** is supposed to be close to bleeding edge where Leap is little bit more stable. Hind sight I should've probably just gone with Leap 42.1.
 
-#### OpenSuSE Tumbleweed Install
+#### openSUSE Tumbleweed Install
 I just booted into the new DVD and actually ended up wiping my root parition and formatting it **btrfs** (just to try it out), but the left the rest of the setup the same as in Leap 42.2. After installing **X**, **lightdm** started up without any issues:
 
 ![os-tw-with-lightdm](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/os-tw-with-lightdm.jpg&raw=1)
@@ -540,7 +540,7 @@ I ran into an issue with SLAB, I did confirm that I did have **slab** enabled:
 And that's what I get for using Tumbleweed :) I will keep an eye on it and confirm whether kernel 4.8 or later fixes the issue.
 
 #### Snapper
-Since I was using OpenSuSe and **btrfs** I could take advantage of **snapper**. **zypper** integrates nicely with **snapper** and it basically takes a filesystem level snapshot before and after a **zypper install/update** and then you can check out the difference between the snapshots and of course revert to an older snapshot if you desire. Here are the snapshots that I saw after doing a couple of **zypper install**s and **update**s:
+Since I was using openSUSE and **btrfs** I could take advantage of **snapper**. **zypper** integrates nicely with **snapper** and it basically takes a filesystem level snapshot before and after a **zypper install/update** and then you can check out the difference between the snapshots and of course revert to an older snapshot if you desire. Here are the snapshots that I saw after doing a couple of **zypper install**s and **update**s:
 
 	<> sudo snapper list
 	Type   | #   | Pre # | Date                            | User | Cleanup | Description           | Userdata
@@ -609,7 +609,7 @@ So if I wanted to revert my file change I could just run the following:
 	modifying /etc/X11/xorg.conf.d/50-device.conf
 
 ### Zypper
-SuSe is an RPM based distro but it uses it's own package manager called **zypper**. There are a couple of things I like about **zypper**. I like how after an update you can run **zypper ps** and it will tell you what running programs are using the old files:
+SUSE is an RPM based distro but it uses it's own package manager called **zypper**. There are a couple of things I like about **zypper**. I like how after an update you can run **zypper ps** and it will tell you what running programs are using the old files:
 
 	<> sudo zypper up
 	The following 2 packages are going to be upgraded:
@@ -656,7 +656,7 @@ Eventually I found that within the **search** (se) option there is a **--file-li
 	--+-------------+---------------------------------+--------
 	  | ImageMagick | Viewer and Converter for Images | package
 
-With OpenSuSe you can also use the **cnf** (command not found) utility but it doesn't work for libraries:
+With openSUSE you can also use the **cnf** (command not found) utility but it doesn't work for libraries:
 
 	<> cnf convert
 
