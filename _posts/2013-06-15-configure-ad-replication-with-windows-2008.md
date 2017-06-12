@@ -48,7 +48,7 @@ The article "[How the Active Directory Replication Model Works](http://technet.m
 
 ## AD Replication Interval
 
-The interval of the replication depends on your setup as well. From "[Replication within a site](http://technet.microsoft.com/en-us/library/cc728010%28v=ws.10%29.aspx)":
+The interval of the replication depends on your setup as well. From "[Replication within a site](https://technet.microsoft.com/en-us/library/cc961783.aspx)":
 
 > Directory updates made within a site are likely to have the most direct impact on local clients, so intrasite replication is optimized for speed. Replication within a site occurs automatically on the basis of change notification. Intrasite replication begins when you make a directory update on a domain controller. By default, the source domain controller waits 15 seconds and then sends an update notification to its closest replication partner. If the source domain controller has more than one replication partner, subsequent notifications go out by default at 3 second intervals to each partner. After receiving notification of a change, a partner domain controller sends a directory update request to the source domain controller. The source domain controller responds to the request with a replication operation. The 3 second notification interval prevents the source domain controller from being overwhelmed with simultaneous update requests from its replication partners.
 
