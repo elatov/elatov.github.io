@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Install Lynis and Fix Some Suggestions"
 author: Karim Elatov
