@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 layout: post
 title: "Manually Deploying OpenStack Ocata on Fedora 25"
 author: Karim Elatov
