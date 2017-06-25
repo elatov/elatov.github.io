@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Setup Paperwork on Debian 8 with Apache"
 author: Karim Elatov
