@@ -4,7 +4,7 @@ layout: post
 title: "Setup Paperwork on Debian 8 with Apache"
 author: Karim Elatov
 categories: [os]
-tags: [paperworkrocks,nodejs,apache]
+tags: [paperwork,nodejs,apache]
 ---
 ### Paperwork
 I wanted to find an application that helps with note taking and it wasn't cloud based. I just wanted my own app that I could manage myself. So I ran into [Paperwork](http://paperwork.rocks/) and I decided to give it a try.
