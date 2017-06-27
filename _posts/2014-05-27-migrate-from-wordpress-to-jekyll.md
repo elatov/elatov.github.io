@@ -179,7 +179,7 @@ From [Directory structure](http://jekyllrb.com/docs/structure/):
 > | Other Files/Folders   | Every other directory and file except for those listed above—such as **css** and **images** folders,  **favicon.ico** files, and so forth—will be copied verbatim to the generated site. There are plenty of sites already using Jekyll if you’re curious to see how they’re laid out.|
 
 #### Jekyll Bootstrap
-Most people just take a copy of an existing blog and go from there, since you don't really want to create the above layout by hand. A lot of jekyll powered sites are listed in [Jekyll Sites](https://github.com/jekyll/jekyll/wiki/Sites). If you like one just clone it. To get started with a Jekyll site, there is a a project called [JekyllBootstrap](http://jekyllbootstrap.com/). It basically eases the process of managing a Jekyll site. To create the first jekyll site, check out the instructions laid out in [Jekyll QuickStart](http://jekyllbootstrap.com/usage/jekyll-quick-start.html). So let's try it out, first let's clone their github repo:
+Most people just take a copy of an existing blog and go from there, since you don't really want to create the above layout by hand. A lot of jekyll powered sites are listed in [Jekyll Sites](https://github.com/jekyll/jekyll/wiki/Sites). If you like one just clone it. To get started with a Jekyll site, there is a a project called JekyllBootstrap. It basically eases the process of managing a Jekyll site. To create the first jekyll site, check out the instructions laid out in [Jekyll QuickStart](https://github.com/henrythemes/jekyll-bootstrap-theme). So let's try it out, first let's clone their github repo:
 
 	elatov@kmac:~$git clone https://github.com/plusjade/jekyll-bootstrap.git
 	Cloning into 'jekyll-bootstrap'...
