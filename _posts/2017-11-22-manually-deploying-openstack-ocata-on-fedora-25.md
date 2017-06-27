@@ -9,11 +9,11 @@ tags: [openstack,vxlan,network-namespace]
 ### OpenStack
 So I decided to try out OpenStack on Fedora 25. I was able to follow the [OpenStack Installation Tutorial for Red Hat Enterprise Linux and CentOS](https://docs.openstack.org/ocata/install-guide-rdo/). The guide is pretty long and I don't want to cover each step in great detail since it's covered in the guide. I also decided to follow the [Networking Option 2: Self-service networks](https://docs.openstack.org/ocata/install-guide-rdo/overview.html#networking-option-2-self-service-networks) (it uses VXLAN for overlay networking) setup. Here are the components that get deployed in that scenario:
 
-![networking-option-2-os](networking-option-2-os.png)
+![networking-option-2-os](https://seacloud.cc/d/480b5e8fcd/files/?p=/openstack-manual-fedora/networking-option-2-os.png&raw=1)
 
 And here is how the connectivity looks like (from [Self-service network](https://docs.openstack.org/ocata/install-guide-rdo/launch-instance-networks-selfservice.html) page):
 
-![selfservice-network-os-conn](selfservice-network-os-conn.png)
+![selfservice-network-os-conn](https://seacloud.cc/d/480b5e8fcd/files/?p=/openstack-manual-fedora/selfservice-network-os-conn.png&raw=1)
 
 ### OpenStack Controller Node
 On the *controller* node I configured the following setttings.
@@ -304,7 +304,7 @@ Prepare the DB:
 	MariaDB [(none)]> GRANT ALL PRIVILEGES ON nova_api.* TO 'nova'@'localhost'  IDENTIFIED BY 'secret';
 	MariaDB [(none)]> GRANT ALL PRIVILEGES ON nova_api.* TO 'nova'@'%' IDENTIFIED BY 'secret';
 	MariaDB [(none)]> GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'localhost'  IDENTIFIED BY 'secret';
-	MariaDB [(none)]> GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'%' IDENTIFIED BY 'NOVA_DBPASS';
+	MariaDB [(none)]> GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'%' IDENTIFIED BY 'secret';
 	MariaDB [(none)]> GRANT ALL PRIVILEGES ON nova_cell0.* TO 'nova'@'localhost' IDENTIFIED BY 'secret';
 	MariaDB [(none)]> GRANT ALL PRIVILEGES ON nova_cell0.* TO 'nova'@'%'  IDENTIFIED BY 'secret';
 	
@@ -641,7 +641,7 @@ Restart the necessary service to apply the settings:
 
 You can now login to the demo project and check out some settings:
 
-![image](http://)
+![openstack-dashboard](https://seacloud.cc/d/480b5e8fcd/files/?p=/openstack-manual-fedora/openstack-dashboard.png&raw=1)
 	
 And that should be it for the *controller* node. Now it has the following services configured on it:
 
@@ -1290,7 +1290,7 @@ Next we can figure out what the VNC URL is for that vm:
 
 And then point your browser to that URL and you will see the console of the VM:
 
-![image](http://)
+![vnc-to-vm](https://seacloud.cc/d/480b5e8fcd/files/?p=/openstack-manual-fedora/vnc-to-vm.png&raw=1)
 
 I noticed that I couldn't **ping** the default gw from the VM. Here is what I saw on the compute node:
 
@@ -1466,14 +1466,20 @@ Now login from a machine that has access to the **provider** network:
 	round-trip min/avg/max = 5.251/5.251/5.251 ms
 
 ### Troubleshooting Networking
-When my **ping** weren't working, I started looking into the flow of the traffic in openstack. These sites have good examples:
+When my **ping**s weren't working, I started looking into the flow of the traffic in OpenStack. These sites have good examples:
 
 * [Network Troubleshooting](https://docs.openstack.org/ops-guide/ops-network-troubleshooting.html)
 * [Linux bridge: Self-service networks](https://docs.openstack.org/ocata/networking-guide/deploy-lb-selfservice.html)
+* [Networking in too much detail](https://www.rdoproject.org/networking/networking-in-too-much-detail/)
+* [Scenario 2: Network host config](http://docs.ocselected.org/openstack-manuals/kilo/networking-guide/content/under_the_hood_linuxbridge_scenario2_network.html)
 
 Let's track down the flow from [their example](https://docs.openstack.org/ocata/networking-guide/deploy-lb-selfservice.html#north-south-scenario-1-instance-with-a-fixed-ip-address):
 
-![image](http://)
+![lb-vni-traffic-flow](https://seacloud.cc/d/480b5e8fcd/files/?p=/openstack-manual-fedora/lb-vni-traffic-flow.png&raw=1)
+
+Here is a nice overview of the components as well:
+
+![os-network-components](https://seacloud.cc/d/480b5e8fcd/files/?p=/openstack-manual-fedora/os-network-components.png&raw=1)
 
 ### On the Compute Node
 Here are the networking functions that occur on the *compute* node. 
@@ -1572,7 +1578,28 @@ From [Self-service networks](https://docs.openstack.org/ocata/networking-guide/d
 	12:10:51.121143 fa:16:3e:2e:bb:7b > 78:24:af:7b:1f:08, ethertype IPv4 (0x0800), length 98: 10.0.0.109 > 10.0.0.1: ICMP echo request, id 47361, seq 0, length 64
 	12:10:51.121318 78:24:af:7b:1f:08 > fa:16:3e:2e:bb:7b, ethertype IPv4 (0x0800), length 98: 10.0.0.1 > 10.0.0.109: ICMP echo reply, id 47361, seq 0, length 64
 	
-Notice the internal IP of the VM **172.16.1.10** isn't seen on the physical NIC.
+Notice the internal IP of the VM **172.16.1.10** isn't seen on the physical NIC. We can use the **Decode As** feature with wireshark. After you choose the UDP traffic and **decode** it as VXLAN, you will see the following:
+
+![vxlan-wireshark](https://seacloud.cc/d/480b5e8fcd/files/?p=/openstack-manual-fedora/vxlan-wireshark.png&raw=1)
+
+Or we can also use **tshark**, here is the frame without being decoded:
+
+    <> tshark  -r file.pcap "frame.number==17" 
+       17   0.348712    10.0.0.11 → 10.0.0.10    UDP 148 42053 → 8472 Len=106
+   
+And we can see that the actual traffic is ICMP traffic after we **Decode As** VXLAN:
+
+    <> tshark  -d udp.port==8472,vxlan -r file.pcap "frame.number==17"   
+       17   0.348712  172.16.1.10 → 10.0.0.1     ICMP 148 Echo (ping) request  id=0xdd01, seq=0/0, ttl=64
+
+We can also see in the wireshark that the **VNI** is set as **58**, which is the correct value. Lastly if we just check using **tcpdump**, we will see it as **OTV overlay**:
+
+    20:54:24.152996 00:0c:29:77:3b:df > 00:0c:29:50:e3:d3, ethertype IPv4 (0x0800), length 148: (tos 0x0, ttl 64, id 42979, offset 0, flags [none], proto UDP (17), length 134)
+        10.0.0.11.42053 > 10.0.0.10.8472: OTV, flags [I] (0x08), overlay 0, instance 58
+    fa:16:3e:37:74:b4 > fa:16:3e:f3:01:8e, ethertype IPv4 (0x0800), length 98: (tos 0x0, ttl 64, id 54278, offset 0, flags [DF], proto ICMP (1), length 84)
+        172.16.1.10 > 10.0.0.1: ICMP echo request, id 56577, seq 0, length 64
+
+And we can see that the **instance** is labeled as **58**.
 
 ### On the Network/Controller Node
 Next we can move on to the *controller* node (since my *controller* node is also acting as the *network* node).
