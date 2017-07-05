@@ -211,7 +211,7 @@ Now if you point your browser to **http://localhost:4000** you should see the te
 #### Jekyll Themes
 There are a bunch of themes out there. Here are a couple of pages that have themes:
 
-- [JekyllBootstrap Theme Explorer](http://themes.jekyllbootstrap.com/)
+- [JekyllBootstrap Theme Explorer](http://themes.jekyllrc.org/)
 - [Jekyll Themes](http://jekyllthemes.org/)
 
 Like I mentioned before, you can either clone the whole project or you can actually use JekyllBootstrap to install a theme. For example here is an easy way to install the **twitter-bootstrap** based theme with **JekyllBootstrap**:
@@ -570,7 +570,7 @@ It look about 15 minutes to finish, but then I was able to see if any of my link
 I had a very small amount and I fixed them really quick. Just as a side note another good linkchecker can be found [here](http://wummel.github.io/linkchecker/), it's also based on python. That one can be setup to run from cron to check for any broken links on your site.
 
 ### Writing new Posts
-With **jekyllbootstrap**, we can use the prebuilt **Rakefile** to create new posts. Most of the instructions are laid out in [Jekyll QuickStart](http://jekyllbootstrap.com/usage/jekyll-quick-start.html). For example here is a quick shortcut to create a new post:
+With **jekyllbootstrap**, we can use the prebuilt **Rakefile** to create new posts. Most of the instructions are laid out in [Jekyll QuickStart](http://jekyllthemes.org/themes/end2end/). For example here is a quick shortcut to create a new post:
 
 	elatov@kmac:~/moxz1.github.io$rake post title="New Post"
 	Creating new post: ./_posts/2014-05-30-new-post.md
