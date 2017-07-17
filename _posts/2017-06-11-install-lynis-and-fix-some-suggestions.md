@@ -593,7 +593,7 @@ Notice I also added **/var/ossec/bin/** to the **bindirs**, parameter since that
 
 ### Harden the system by installing at least one malware scanner, to perform periodic file system scans [HRDN-7230]
 
-I ended up installing **sophos** and here is [post](/2016/12/sophos-9-on-centos-7/) on the setup.
+I ended up installing **sophos** and here is [post](/2017/07/sophos-9-on-centos-7/) on the setup.
 
 ### One or more sysctl values differ from the scan profile and could be tweaked [KRNL-6000]
 

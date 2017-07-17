@@ -361,7 +361,7 @@ Now still in our *container* we can start the **plex** service:
 	plex       142    36 19 03:48 ?        00:00:00 Plex Plug-in [com.plexapp.agents.lastfm] /usr/lib/plexme
 	root       202     1  0 03:48 ?        00:00:00 ps -ef
 
-That looks good. As soon as I stop the **bash** shell the container will stop. So let's start the container and set the main process as the script we created (**/usr/bin/plex.sh**) to start the plex service. Using the init script with a **systemd** OS was problematic (there are some [workarounds](http://jperrin.github.io/centos/2014/09/25/centos-docker-and-systemd/) but I didn't go down that path). In the end running the following to start the **plex** *container* worked out:
+That looks good. As soon as I stop the **bash** shell, the container will stop. So let's start the container and set the main process as the script we created (**/usr/bin/plex.sh**) to start the plex service. Using the init script with a **systemd** OS was problematic (there are some [workarounds](https://developers.redhat.com/blog/2014/05/05/running-systemd-within-docker-container/) but I didn't go down that path). In the end running the following to start the **plex** *container* worked out:
 
 	docker run -v /usr/lib/plexmediaserver:/usr/lib/plexmediaserver -v /var/lib/plexmediaserver:/var/lib/plexmediaserver --ulimit memlock=3072000:3072000 --name=plex -it -h plex -d centos-plex /usr/bin/plex.sh
 

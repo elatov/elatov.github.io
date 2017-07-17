@@ -40,7 +40,7 @@ I also wanted the package to be included in ports (just for management's sake). 
     ./net/minidlna
 
 
-I couldn't find *ps3mediaserver*. I did find this how-to: [Plex on FreeBSD?](http://www.homemultimedianetwork.com/Guides/Installing-PS3-Media-Server-on-FreeNAS.php)", it doesn't looks there is support for that yet. So I was thinking either MediaTomb or miniDLNA and since MediaTomb had better transcoding capabilities, I decided to go with that. Here are the steps I took to install MediaTomb on my FreeBSD machine.
+I couldn't find *ps3mediaserver*. I did find this how-to: [Plex on FreeBSD?](https://www.nas4free.org/forums/viewtopic.php?t=248), it doesn't looks there is support for that yet. So I was thinking either MediaTomb or miniDLNA and since MediaTomb had better transcoding capabilities, I decided to go with that. Here are the steps I took to install MediaTomb on my FreeBSD machine.
 
 ### 1. Install MediaTomb from ports
 
