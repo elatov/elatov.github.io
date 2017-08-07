@@ -387,7 +387,7 @@ Here is a good summary of some issues from the above document:
 
 The vscsiStats were covered in "[VCAP5-DCA Objective 3.4](/2012/11/vcap5-dca-objective-3-4-utilize-advanced-vsphere-performance-monitoring-tools/)"
 
-As for esxtop, from [this](http://www.vmworld.net/wp-content/uploads/2012/05/Esxtop_Troubleshooting_eng.pdf) pdf:
+As for esxtop, from [this](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcap-dca/obj_62/Esxtop_Troubleshooting_eng.pdf&raw=1) pdf:
 
 > ![esxtop thresholds for disk VCAP5 DCA Objective 6.4 – Troubleshoot Storage Performance and Connectivity ](https://github.com/elatov/uploads/raw/master/2012/12/esxtop_thresholds_for_disk.png)
 

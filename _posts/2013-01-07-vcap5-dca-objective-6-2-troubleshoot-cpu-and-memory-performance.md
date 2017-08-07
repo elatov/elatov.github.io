@@ -45,7 +45,7 @@ You can also check out the full list [here](http://pubs.vmware.com/vsphere-50/in
 
 ### Troubleshoot ESXi host and Virtual Machine CPU performance issues using appropriate metrics
 
-From [this](http://www.vmworld.net/wp-content/uploads/2012/05/Esxtop_Troubleshooting_eng.pdf) pdf:
+From [this](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcap-dca/obj_62/Esxtop_Troubleshooting_eng.pdf&raw=1) pdf:
 
 ![esxtop cpu performance VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance ](https://github.com/elatov/uploads/raw/master/2012/12/esxtop_cpu_performance.png)
 
@@ -66,7 +66,7 @@ Here is a similar diagram for Guest CPU saturation:
 
 ### Troubleshoot ESXi host and Virtual Machine memory performance issues using appropriate metrics
 
-From [this](http://www.vmworld.net/wp-content/uploads/2012/05/Esxtop_Troubleshooting_eng.pdf) pdf:
+From [this](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcap-dca/obj_62/Esxtop_Troubleshooting_eng.pdf&raw=1) pdf:
 
 ![esxtop memory issues VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance ](https://github.com/elatov/uploads/raw/master/2012/12/esxtop_memory_issues.png)
 

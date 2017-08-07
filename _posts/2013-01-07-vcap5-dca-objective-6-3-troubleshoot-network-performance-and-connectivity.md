@@ -152,7 +152,7 @@ Remove a route from the routing table:
 
 ### Use esxtop/resxtop to identify network performance problems
 
-From [this](http://www.vmworld.net/wp-content/uploads/2012/05/Esxtop_Troubleshooting_eng.pdf) pdf:
+From [this](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcap-dca/obj_62/Esxtop_Troubleshooting_eng.pdf&raw=1) pdf:
 
 ![esxtop network problems VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](https://github.com/elatov/uploads/raw/master/2012/12/esxtop_network_problems.png)
 
