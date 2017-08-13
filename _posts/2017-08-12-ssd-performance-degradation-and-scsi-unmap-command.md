@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "SSD Performance Degradation and SCSI UNMAP Command"
 author: Karim Elatov
