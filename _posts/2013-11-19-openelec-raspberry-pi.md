@@ -485,7 +485,7 @@ After you done with you configurations, save and close the file. So I will backu
 
 #### Install the Rsync Add-on
 
-If you won't want to mess with **optware** but still want **rsync** on OpenELEC you can use the unofficial repository to install the **rsync** add-on (which basically installs the rsync binary in a weird location). First download the zip for the repository from [here](http://web-develop.ca/kodi/20150403-repositories/):
+If you won't want to mess with **optware** but still want **rsync** on OpenELEC you can use the unofficial repository to install the **rsync** add-on (which basically installs the rsync binary in a weird location). First download the zip for the repository from [here](http://unofficial.addon.pro/):
 
 ![openelec unoff repo OpenELEC on Raspberry Pi](https://github.com/elatov/uploads/raw/master/2013/11/openelec-unoff-repo.png)
 

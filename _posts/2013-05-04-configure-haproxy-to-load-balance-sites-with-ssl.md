@@ -91,7 +91,6 @@ There are actually a couple approaches to Load balancing SSL. The most popular i
 *   [Using HAProxy to Build a More Featureful Elastic Load Balancer](https://tech.shareaholic.com/2012/10/26/haproxy-a-substitute-for-amazon-elb/)
 *   [Haproxy SSL configuration explained](http://blog.hintcafe.com/post/33851388857/haproxy-ssl-configuration-explained)
 *   [SSL Client certificate management at application level](http://blog.haproxy.com/2012/10/03/ssl-client-certificate-management-at-application-level/)
-*   [Configure HAProxy to Scale Socket.io Node.js Apps With SSL](http://blog.davidmisshula.com/blog/2013/02/04/configure-haproxy-to-scale-multiple-nodes-with-stickiness-and-ssl/)
 
 Here are some links that explain why SSL termination can be advantageous:
 
