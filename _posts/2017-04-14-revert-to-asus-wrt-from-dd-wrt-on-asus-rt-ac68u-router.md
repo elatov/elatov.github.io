@@ -44,7 +44,7 @@ Then **scp** that backup to another machine:
 That should get your covered.
 
 ### Installing AsusWRT
-First get the latest stock firmare from the Asus Site. For the Asus RT-AC68U Router I found it [here](https://www.asus.com/us/support/Download/11/2/0/103/svItyTHFccLwnprr/8/). I downloaded the latest version and ended up with the following file:
+First get the latest stock firmare from the Asus Site. For the Asus RT-AC68U Router I found it [here](https://www.asus.com/us/Networking/RTAC68U/HelpDesk_Download/). I downloaded the latest version and ended up with the following file:
 
 	FW_RT_AC68U_30043803831.zip
 
