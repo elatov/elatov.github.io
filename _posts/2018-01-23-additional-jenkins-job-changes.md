@@ -45,7 +45,15 @@ Here is the code I ended up with:
         }
     }
 
-And then I created a build trigger to run it weekly:
+The note about *matcher* causing random issues is covered in [Serializing Local Variables](https://github.com/jenkinsci/pipeline-plugin/blob/master/TUTORIAL.md#serializing-local-variables):
+
+> * This occurs because the matcher local variable is of a type (Matcher) not considered serializable by Java. Since pipelines must survive Jenkins restarts, the state of the running program is periodically saved to disk so it can be resumed later (saves occur after every step or in the middle of steps such as sh).
+> 
+> * The “state” includes the whole control flow including: local variables, positions in loops, and so on. As such: any variable values used in your program should be numbers, strings, or other serializable types, not “live” objects such as network connections.
+>  
+> * If you must use a nonserializable value temporarily: discard it before doing anything else. When you keep the matcher only as a local variable inside a function, it is automatically discarded as soon as the function returned.
+
+Then I created a build trigger to run it weekly:
 
 ![build-trigger-cron](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-mail/build-trigger-cron.png&raw=1)
 
