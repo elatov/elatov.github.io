@@ -54,7 +54,7 @@ On one of the two non-working hosts, we saw the following:
 	Card UUID type 2: 00000000-0000-0000-0000-000000000000
 
 
-I then ran across [this](https://supportforums.cisco.com/thread/2166139) cisco forums page. And from that page:
+I then ran across [this](https://www.cisco.com/c/en/us/support/docs/switches/nexus-1000v-switch-vmware-vsphere/116257-trouble-uuid-vsm-00.html) cisco forums page. And from that page:
 
 > startDpa calls a script in /opt/cisco/vXXX/nexus/vem-vXXX/shell/vssnet-functions and extracts the UUID from the ESXi host:
 >

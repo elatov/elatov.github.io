@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Using WP Scan Docker Image with CoreOS"
 author: Karim Elatov
