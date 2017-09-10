@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Using Splunk with Docker"
 author: Karim Elatov
