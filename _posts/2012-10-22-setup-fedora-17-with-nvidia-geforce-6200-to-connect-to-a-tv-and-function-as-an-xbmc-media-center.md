@@ -358,7 +358,7 @@ That confirmed it. Then I logged in and installed xbmc:
 
 I was able to launch XBMC and all was working as expected.
 
-However when I wanted to check out some settings on the machine by hitting CTLR-ALT-F3 (the local tty) the text was very garbled and I could not see what I was typing at all. So the Xorg font was okay but the console font was a out of sync. I wanted to see if the text was also looking bad during boot so I decided to disable graphical boot. To do so, I followed the instructions laid out in the [Fedora Install Guide](http://docs.fedoraproject.org/en-US/Fedora/17/html/Installation_Guide/ch10s04.html). From the guide:
+However when I wanted to check out some settings on the machine by hitting CTLR-ALT-F3 (the local tty) the text was very garbled and I could not see what I was typing at all. So the Xorg font was okay but the console font was a out of sync. I wanted to see if the text was also looking bad during boot so I decided to disable graphical boot. To do so, I followed the instructions laid out in the [Fedora Install Guide](https://jfearn.fedorapeople.org/fdocs/en-US/Fedora/20/html/Installation_Guide/ch10s04.html). From the guide:
 
 > **10.4.1. Trouble With the Graphical GRUB Screen on an x86-based System?**
 >
