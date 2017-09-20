@@ -47,7 +47,7 @@ To confirm that my Mac was using "x86_64 EFI firmware", I ran the following:
 
 ## GRUB and EUFI
 
-Since I will be installing Fedora, I will be using GRUB for my boot loader. Here is how GRUB handles EUFI, from [GRUB and the boot process on UEFI-based x86 systems](http://docs.fedoraproject.org/en-US/Fedora/19/html/Installation_Guide/s2-grub-whatis-booting-uefi.html)":
+Since I will be installing Fedora, I will be using GRUB for my boot loader. Here is how GRUB handles EUFI, from **GRUB and the boot process on UEFI-based x86 systems**:
 
 > GRUB loads itself into memory in the following stages:
 >
@@ -60,7 +60,7 @@ Since I will be installing Fedora, I will be using GRUB for my boot loader. Here
 >
 > Because each vendor maintains its own directory of applications in the ESP, chain loading is not normally necessary on UEFI-based systems. The EFI boot manager can load any of the operating system bootloaders that are present in the ESP.
 
-The above sounds great, but with Fedora 19, there is a known bug. From "[Common F19 bugs](https://fedoraproject.org/wiki/Common_F19_bugs#Apple_EFI_Macs:_EFI_install_alongside_existing_EFI_installed_OS_.28including_OS_X.29_results_in_you_have_not_created_a_bootloader_stage1_target_device_error)":
+The above sounds great, but with Fedora 19, there is a known bug. From "[Common F19 bugs](https://fedoraproject.org/wiki/Unified_Extensible_Firmware_Interface)":
 
 > If you try to do a native UEFI install of Fedora 19 alongside a native UEFI install of OS X and re-use the existing EFI system partition, the installer will incorrectly consider the existing EFI system partition as invalid and report that you have not created a bootloader stage1 target device. Unfortunately, the Fedora automatic partitioning algorithm will actually attempt to re-use the EFI system partition, and so you will run into this bug in any Fedora 19 installation attempt where you use the automatic partitioning algorithm and do not choose to delete the existing EFI system partition.
 >
@@ -76,7 +76,7 @@ It looks like there are still some issues with the new UEFI and different OSes.
 
 ## Download Appropriate Install Media
 
-From [Fedora's Installation Guide](http://docs.fedoraproject.org/en-US/Fedora/19/html/Installation_Guide/ch-Boot-x86.html#s1-x86-starting):
+From [Fedora's Installation Guide](https://docs.fedoraproject.org/f26/install-guide/install/Preparing_for_Installation.html):
 
 > **Important — UEFI for 32-bit x86 systems**
 > Fedora 19 does not support UEFI booting for 32-bit x86 systems. Only BIOS booting is supported.

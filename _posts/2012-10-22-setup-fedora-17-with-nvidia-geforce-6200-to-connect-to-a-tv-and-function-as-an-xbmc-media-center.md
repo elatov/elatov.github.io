@@ -30,7 +30,7 @@ The machine was just used for sharing files and didn't even have Xorg installed 
     moxz:~> sudo yum install gdm xorg-x11-server-Xorg
 
 
-Next I needed to set the computer to use GDM as my display manager. From the Fedora Documentation "[Runlevel 5](http://docs.fedoraproject.org/en-US/Fedora/12/html/Deployment_Guide/s2-x-runlevels-5.html)":
+Next I needed to set the computer to use GDM as my display manager. From the Fedora Documentation "[Runlevel 5](https://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-x-runlevels.html)":
 
 > **20.5.2. Runlevel 5**
 >
