@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Run Elasticsearch and Kibana on Docker"
 author: Karim Elatov
