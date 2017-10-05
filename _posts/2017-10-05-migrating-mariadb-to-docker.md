@@ -218,7 +218,7 @@ So now let's do the suggested update:
     Phase 6/6: Running 'FLUSH PRIVILEGES'
     OK
 
-The update looked good by the above errors were still bothering me, so I ran into [this](http://dba.stackexchange.com/questions/139917/getting-innodb-internal-errors-on-every-query-run) site. It sounds like we can just export and import the **mysql** db to fix it. So I did that:
+The update looked good but the above errors were still bothering me, so I ran into [this](http://dba.stackexchange.com/questions/139917/getting-innodb-internal-errors-on-every-query-run) site. It sounds like we can just export and import the **mysql** db to fix it. So I did that:
 
     <> mysqldump -u root -p --events --quick --single-transaction mysql > mysql-dump.sql
     Enter password:
