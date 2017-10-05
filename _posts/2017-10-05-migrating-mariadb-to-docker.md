@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Migrating MariaDB to Docker"
 author: Karim Elatov
