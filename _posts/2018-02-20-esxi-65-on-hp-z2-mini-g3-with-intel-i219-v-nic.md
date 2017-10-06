@@ -196,4 +196,18 @@ And I confirmed that TSO was disabled:
 	vmnic0   off
 	vmnic32  off
 
-I will keep an eye to see if that's better than the **e1000e** driver.
+I will keep an eye to see if that's better than the **e1000e** driver. I tried one more reboot of the router and the NIC didn't panic, I just saw this in the logs:
+
+	[root@hp:~] dmesg | tail
+	2017-10-03T19:08:22.790Z cpu0:65721)VSCSI: 2891: handle 8203(vscsi0:0):Reset [Retries: 0/0] from (vmm0:gen)
+	2017-10-03T19:08:22.890Z cpu0:65721)VSCSI: 2679: handle 8203(vscsi0:0):Completing reset (0 outstanding commands)
+	2017-10-06T02:15:43.889Z cpu4:68736)DEBUG (ne1000): checking link for adapter vmnic0
+	2017-10-06T02:15:46.891Z cpu1:65954)DEBUG (ne1000): vmnic0: retry to wait for link up
+	2017-10-06T02:15:46.892Z cpu1:65954)INFO (ne1000): vmnic0: Link is Up
+	2017-10-06T02:15:46.892Z cpu1:65954)DEBUG (ne1000): link status unchanged: skip reporting.
+	2017-10-06T02:17:23.823Z cpu3:68901)DEBUG (ne1000): checking link for adapter vmnic0
+	2017-10-06T02:17:26.824Z cpu1:65954)DEBUG (ne1000): vmnic0: retry to wait for link up
+	2017-10-06T02:17:26.825Z cpu1:65954)INFO (ne1000): vmnic0: Link is Up
+	2017-10-06T02:17:26.825Z cpu1:65954)DEBUG (ne1000): link status unchanged: skip reporting.
+
+And it was able to recover.
