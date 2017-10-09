@@ -69,7 +69,7 @@ There was only one LUN experiencing slow response times. Checking out for that L
 	Other UIDs: vml.0200000000600508e000000000e51b24d0a7fad20e4c6f67696361
 
 
-So it was the local disk that was experiencing the issue and probably causing the host to hang. I later came across [this](https://www-947.ibm.com/support/entry/portal/docdisplay?brand=5000008&lndocid=MIGR-5089360) IBM article, here is content from the article:
+So it was the local disk that was experiencing the issue and probably causing the host to hang. I later came across [this](https://www.ibm.com/support/home/docdisplay?lndocid=migr-5089360) IBM article, here is content from the article:
 
 > **Symptom**
 > BladeCenter HS22 or BladeCenter HS22V systems running VMware ESXi 5.0 disconnect from vCenter during runtime. The systems are either using local hard drives or drives attached via the Serial Attached SCSI (SAS) pass-thru Combination Input Output Vertical (CIOv) adapter.
