@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Using Flannel with CoreOS"
 author: Karim Elatov
