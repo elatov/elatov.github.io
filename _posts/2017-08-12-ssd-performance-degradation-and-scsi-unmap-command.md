@@ -129,7 +129,7 @@ Before running the **UNMAP** command, the above took 3 minutes.
 
 ### SCSI UNMAP with ZFS/Solaris
 
-Reading over [OmniOS r151014](https://omnios.omniti.com/wiki.php/ReleaseNotes/r151014), it looks like with OmniOS version **r151014** it can handle **UNMAP**, which is great:
+Reading over [OmniOS r151014](https://www.omniosce.org/legacy/releasenotes/r151014), it looks like with OmniOS version **r151014** it can handle **UNMAP**, which is great:
 
 > New tunables:
 - zfs_free_max_blocks (can reduce for less free blocks per transaction)
