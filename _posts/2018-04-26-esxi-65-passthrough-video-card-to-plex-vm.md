@@ -43,6 +43,10 @@ Then I rebooted the host and under the **Passthough** column I saw **Active**. I
 
 This is actually expected since the Hypervisor enables the passthough at this point and you won't see the boot up process any more. This was discussed in [stuck after reboot: "vmkapei loaded successfully"](https://communities.vmware.com/thread/470911). I did have SSH enabled on the host and I was able to SSH to the host and confirm it booted up fine and the auto start process started booting up all the VMs.
 
+Another FYI is that with PCI Passthrough you can't take snapshots of the VM (this could impact your Backups). From [VMware KB 2142307](https://kb.vmware.com/s/article/2142307):
+
+> While VMDirectPath I/O can improve performance of a virtual machine, enabling it makes several important features of vSphere unavailable to the virtual machine, such as Suspend and Resume, Snapshots, Fault Tolerance, and vMotion.
+
 #### Adding Video Card/GPU to VM
 This was pretty easy as well. I just shutdown the VM and then in the Web Client I went to **Virtual Machines** -> **VM** -> **Actions** -> **Edit Settings**. Then added a new PCI Device and selected the Video Card from the drop down list:
 
