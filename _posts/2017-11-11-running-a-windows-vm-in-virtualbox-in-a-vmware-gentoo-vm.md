@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Running a Windows VM in Virtualbox in a VMware Gentoo VM"
 author: Karim Elatov
