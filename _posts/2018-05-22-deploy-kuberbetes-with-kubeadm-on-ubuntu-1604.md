@@ -137,7 +137,6 @@ And you should see all the pods in a **Running** state:
 
 and you can also confirm your network settings:
 
-## Networking information
 	elatov@ub:~$ ip -4 a
 	1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1
 	    inet 127.0.0.1/8 scope host lo
