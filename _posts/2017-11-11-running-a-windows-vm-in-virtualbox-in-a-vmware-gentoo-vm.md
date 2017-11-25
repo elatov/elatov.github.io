@@ -16,7 +16,7 @@ On top of that, I followed the instructions in these two sites to use **LVMs** a
 * [Gentoo Wiki:LVM](https://wiki.gentoo.org/wiki/LVM)
 * [Gentoo Wiki:systemd](https://wiki.gentoo.org/wiki/Systemd)
 
-Also, while I was compiling the kernel, I ended up enabling these options which were *VMware* Specific (just for reference here is the [stage3](http://distfiles.gentoo.org/releases/amd64/autobuilds/20170503/systemd/stage3-amd64-systemd-20170503.tar.bz2) file I used):
+Also, while I was compiling the kernel, I ended up enabling these options which were *VMware* Specific:
 
     $ zgrep -iE 'VMW|VMX' /proc/config.gz 
     # CONFIG_VMWARE_VMCI is not set

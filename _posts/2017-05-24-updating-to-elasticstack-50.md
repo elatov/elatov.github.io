@@ -306,7 +306,7 @@ version:
 
 ### Updating Logstash from 2.3 to 5.0
 
-I read over [Upgrading Logstash to 5.0](https://www.elastic.co/guide/en/logstash/current/upgrading-logstash-5.0.html) and I didn't see anything bad about the update. Then I followed the instructions laid out in [Upgrading Using Package Managers](https://www.elastic.co/guide/en/logstash/current/upgrading-using-package-managers.html) to do the update. First stop **logstash**, which I did above. Then add the repo, which I did during the **elasticsearch** update. And then I updated the package:
+I read over [Upgrading Logstash to 5.0](https://www.elastic.co/guide/en/logstash/5.0/upgrading-logstash.html) and I didn't see anything bad about the update. Then I followed the instructions laid out in [Upgrading Using Package Managers](https://www.elastic.co/guide/en/logstash/current/upgrading-using-package-managers.html) to do the update. First stop **logstash**, which I did above. Then add the repo, which I did during the **elasticsearch** update. And then I updated the package:
 
 	<> sudo yum update
 	Loaded plugins: fastestmirror, remove-with-leaves

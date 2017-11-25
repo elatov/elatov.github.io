@@ -469,7 +469,7 @@ From "Introduction to Fibre Channel over Ethernet (FCoE)", here is a good pictur
 
 The technology is kind of new and has it's issues. It does allow you to have all of your traffic going down one technology. The CNA can be your NIC and your HBA, the switch that we are connected to will have to encapsulate your Fibre Channel Protocol over Ethernet. These switches are really expensive but are around the same prices as SAN switches. Since FCoE is lossless, pause frames are utilized heavily during congestion, if the switch can't handle that then you will run into issues. You are also putting all of your eggs in one basket, if the FCoE switch dies then your networking and your storage are down. If you want to know more information regarding FCoE, I would suggest reading:
 
-*   [User’s Guide Converged Network Adapter](http://filedownloads.qlogic.com/files/Manual/79505/User_Guide_Converged_Network_Adapter_8100_Series_A.pdf)
+*   [User’s Guide Converged Network Adapter](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcap-dcd/3-3/User_Guide_Converged_Network_Adapter_8100_Series_A.pdf&raw=1)
 *   [QLogic Adapters and Cisco Nexus 5000 Series Switches: Fibre Channel over Ethernet Design Guide](http://www.cisco.com/en/US/prod/collateral/switches/ps9441/ps9670/white_paper_c11-569320_v1.pdf)
 *   [Nexus 1000V with FCoE CNA and VMWare ESX 4.0 deployment diagram](http://bradhedlund.com/2009/01/01/nexus-1000v-with-fcoe-cna-and-vmware-esx-40-deployment-diagram/)
 
