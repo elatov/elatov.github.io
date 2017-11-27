@@ -449,4 +449,4 @@ This is using the default **bridge** network that **docker-compose** creates for
     elatov@core ~ $ docker network ls | grep mar
     6df70ed8f399        maria_default        bridge              local  
 
-More information on docker networking is at [Docker container networking](https://docs.docker.com/engine/userguide/networking/). [Some folks](http://blog.balazspocze.me/2016/02/15/mysqldocker-performance-report-update/) had better luck using the docker **host** network type. But I was okay with the results, since they match my old local ones.
+More information on docker networking is at [Docker container networking](https://docs.docker.com/engine/userguide/networking/). [Some folks](https://mysqlserverteam.com/mysql-with-docker-performance-characteristics/) had better luck using the docker **host** network type. But I was okay with the results, since they match my old local ones.
