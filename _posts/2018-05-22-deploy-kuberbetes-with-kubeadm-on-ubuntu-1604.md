@@ -839,8 +839,7 @@ Then I was able to see the dashboard from a machine on the local subnet:
 
 ### Converting Docker-compose Jenkins to Kubernetes
 
-There is a cool tool called [kompose](https://kubernetes.io/docs/tools/kompose/user-guide/
-http://kompose.io/) which can convert **docker-compose.yml** into **kubenertes** files. I decided to give it a try, so taking something like this:
+There is a cool tool called [kompose](https://kubernetes.io/docs/tools/kompose/user-guide/) which can convert **docker-compose.yml** into **kubenertes** files. I decided to give it a try, so taking something like this:
 
 	elatov@ub:~$ cat docker-compose.yml
 	version: '2'
