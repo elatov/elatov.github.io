@@ -81,15 +81,15 @@ Then just create it:
 
 Then was able to go to the dashboard (**http://{K8S_HOST}:{NodePort}**) and see cluster information:
 
-![]()
+![grafana-kub-clusters.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/heapster-kubernetes/grafana-kub-clusters.png&raw=1)
 
 and also pod information:
 
-![]()
+![grafana-kub-pods.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/heapster-kubernetes/grafana-kub-pods.png&raw=1)
 
 And also checking out the **kubernetes** Dashboard, I now saw CPU information as well:
 
-![]()
+![dashboard-kub-w-cpu.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/heapster-kubernetes/dashboard-kub-w-cpu.png&raw=1)
 
 ### Confirm Kubernetes DNS is working
 The easiest thing to do is to just attach to a container running in **kubernetes** and run the following:
