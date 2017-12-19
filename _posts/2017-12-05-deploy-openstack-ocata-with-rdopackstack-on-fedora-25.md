@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Deploy OpenStack Ocata with RDO/PackStack on Fedora 25"
 author: Karim Elatov
