@@ -509,7 +509,10 @@ Then I restarted all the services to apply the changes:
 And then the VM booted up:
 
 	[root@packstack ~(keystone_demo)]# openstack server list
-	+-----------------------+------+--------+-----------------------+--------------+| ID                    | Name | Status | Networks              | Image Name   |+-----------------------+------+--------+-----------------------+--------------+| ca8dcb76-a0bb-4127    | test | ACTIVE | private_network=172.1 | cirros image || -a07d-2392b8629969    |      |        | 2.0.2                 |              |
+	+-----------------------+------+--------+-----------------------+--------------+
+	| ID                    | Name | Status | Networks              | Image Name   |	+-----------------------+------+--------+-----------------------+--------------+
+	| ca8dcb76-a0bb-4127    | test | ACTIVE | private_network=172.1 | cirros image |
+	| -a07d-2392b8629969    |      |        | 2.0.2                 |              |
 	+-----------------------+------+--------+-----------------------+--------------+
 
 #### Confirm VM Connectivity
