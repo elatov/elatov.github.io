@@ -17,11 +17,13 @@ It looks like there are multiple approaches to doing a rolling update. I will ta
 
 * **kubectl replace** (pointing to a new yaml file)
 	* If you specify **--force**, this would be a disruptive update and will destroy and re-create the resources([Disruptive updates](https://kubernetes.io/docs/concepts/cluster-administration/manage-deployment/#disruptive-updates)) 
-	* Very similar to **kubectl apply**, check out the above site for some of the differences.
+	* Similar to **kubectl apply**, check out the above site for some of the differences and also the [Declarative Management of Kubernetes Objects Using Configuration Files](https://kubernetes.io/docs/tutorials/object-management-kubectl/declarative-object-management-configuration/) page.
 * **kubectl set image** (pointing to a new image version)
 * **kubectl edit** (similar to a first one, but you just update the YAML config in place)
 
-I will use the second approach, as an example but I would probably prefer the second approach. With the **kubectl replace** approach the YAML will always be updated, in case I need to start from scratch or something. As a side note it looks like auto update of images in Pods (using the **latest** tag) is not recommended. This is discussed in [Force pods to re-pull an image without changing the image tag](https://github.com/kubernetes/kubernetes/issues/33664), using a specific version or SHA is the preffered method of specifying the **Image**.
+I will use the second approach, as an example but I will probably use the second approach for future updates. With the **kubectl replace** approach the YAML will always be updated, in case I need to start from scratch or something (check out [Kubernetes Object Management](https://kubernetes.io/docs/tutorials/object-management-kubectl/object-management/#trade-offs) for some of the trade-offs between **Imperative commands** and **Imperative object configuration**). 
+
+As a side note it looks like auto update of images in Pods (using the **latest** tag) is not recommended. This is discussed in [Force pods to re-pull an image without changing the image tag](https://github.com/kubernetes/kubernetes/issues/33664), using a specific version or SHA is the preffered method of specifying the **Image**.
 
 #### ReplicaController Vs Deployment
 With the new releases of **kubernetes** it's recommend to use **deployments** instead of **ReplicaControllers**. Nice overview between **ReplicaController** and **deployments**: [Rolling updates with Kubernetes: Replication Controllers vs Deployments](https://ryaneschinger.com/blog/rolling-updates-kubernetes-replication-controllers-vs-deployments/)
