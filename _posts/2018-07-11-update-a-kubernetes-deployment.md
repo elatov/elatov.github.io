@@ -8,11 +8,18 @@ tags: [kubernetes]
 ---
 ### Updating a kubernetes deployment
 
-Most of the instructions are here: [Updating a Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#updating-a-deployment). Also looking over [Kubernetes - Rolling updates with deployment](https://tachingchen.com/blog/Kubernetes-Rolling-Update-with-Deployment/), you can update using 3 different methods:
+Most of the instructions are here: [Updating a Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#updating-a-deployment). Also looking over:
+
+* [Kubernetes - Rolling updates with deployment](https://tachingchen.com/blog/Kubernetes-Rolling-Update-with-Deployment/)
+* [Deploying and Updating Apps with Kubernetes](http://freecontent.manning.com/deploying-and-updating-apps/)
+
+It looks like there are multiple approaches to doing a rolling update. I will talk about 3 different methods:
 
 * **kubectl replace** (pointing to a new yaml file)
+	* If you specify **--force**, this would be a disruptive update and will destroy and re-create the resources([Disruptive updates](https://kubernetes.io/docs/concepts/cluster-administration/manage-deployment/#disruptive-updates)) 
+	* Very similar to **kubectl apply**, check out the above site for some of the differences.
 * **kubectl set image** (pointing to a new image version)
-* **kubectl edit** (similar to a first one, but you just update the YAML config)
+* **kubectl edit** (similar to a first one, but you just update the YAML config in place)
 
 I will use the second approach, as an example but I would probably prefer the second approach. With the **kubectl replace** approach the YAML will always be updated, in case I need to start from scratch or something. As a side note it looks like auto update of images in Pods (using the **latest** tag) is not recommended. This is discussed in [Force pods to re-pull an image without changing the image tag](https://github.com/kubernetes/kubernetes/issues/33664), using a specific version or SHA is the preffered method of specifying the **Image**.
 
@@ -104,7 +111,29 @@ You can also run something like this to get each version of the **ReplicaSet**:
 	    Image:  jenkins/jenkins:2.89.1
 	jenkins-7899cc8d4
 	    Image:  jenkins/jenkins:2.89.2
-	    
+
+You can also use the **kubectl rollout history** to find out the same information:
+
+	<> kubectl rollout history deployment/jenkins --revision=3
+	deployments "jenkins" with revision #3
+	Pod Template:
+	  Labels:	io.kompose.service=jenkins
+		pod-template-hash=193838479
+	  Annotations:	kubernetes.io/change-cause=kubectl replace --filename=jenkins-deployment.yaml --record=true
+	  Containers:
+	   jenkins:
+	    Image:	jenkins/jenkins:2.73.3
+	    Ports:	8080/TCP, 50000/TCP
+	    Environment:
+	      JENKINS_OPTS:	--prefix=/jenkins
+	    Mounts:
+	      /var/jenkins_home from jenkins-home (rw)
+	  Volumes:
+	   jenkins-home:
+	    Type:	HostPath (bare host directory volume)
+	    Path:	/data/shared/jenkins/jenkins_home
+	    HostPathType:
+    	    
 I also set the **revisionHistoryLimit** to **2** just to make sure I don't keep to many version of the applications:
 
 	spec:
