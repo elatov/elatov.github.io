@@ -26,7 +26,7 @@ I updated my *portmaster* package the other day and I saw the following message:
 
 
 
-I did some research and it seems that the FreeBSD package management tool is getting replaced with a new utility called pkgng (pkg new generation). There is a great blog about this new tool, it's entitled "[pkgng: First look at FreeBSD’s new package manager](http://mebsd.com/make-build-your-freebsd-word/pkgng-first-look-at-freebsds-new-package-manager.html)". If you read over that blog, I am sure you will be excited since FreeBSD is moving to an easier package management. So I decided to give it a try. To do so, first install the new tool:
+I did some research and it seems that the FreeBSD package management tool is getting replaced with a new utility called pkgng (pkg new generation). There is a great blog about this new tool, it's entitled "[pkgng: First look at FreeBSD’s new package manager](https://www.freebsdnews.com/2012/02/13/pkgng-freebsd-package-manager/)". If you read over that blog, I am sure you will be excited since FreeBSD is moving to an easier package management. So I decided to give it a try. To do so, first install the new tool:
 
 
 	elatov@freebsd:~> cd /usr/ports/ports-mgmt/pkg

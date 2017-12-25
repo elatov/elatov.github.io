@@ -109,7 +109,7 @@ You can then upload the above output to their site and they will provide a *.bin
 
 ### 3. Install ClockWorkMod Recovery Using Android SDK
 
-Download the *.img * file and then run the following to install the image:
+Download the **.img** file and then run the following to install the image:
 
     [elatov@klaptop platform-tools]$ ./fastboot flash recovery ~/downloads/recovery.img
     sending 'recovery' (4876 KB)...
@@ -121,7 +121,7 @@ Download the *.img * file and then run the following to install the image:
 
 ### 4. Install SuperSU by uploading it to the SD-Card, and then using the ClockWorkMod Recovery to install it
 
-It took a while to find the latest version since the above site had an expired link. But after some *googling* around I found the latest version from [here](http://www.androidtotal.com/root-install-clockworkmod-recovery-on-htc-sensation-with-android-4.0.3-hboot-1.27.000/). After you have the file, do the following to install it:
+After you have the file, do the following to install it:
 
 *   Upload the file onto the SD-card.
 *   Boot into CWM Recovery.
@@ -249,7 +249,9 @@ All the sites had the same instructions. Here is what I did to accomplish that:
 
 ### 7. Pick a custom ROM and install it.
 
-"[here](http://www.lifehacker.com.au/2012/06/five-best-android-roms/). Here is a concise list of instructions:
+[Five Best Android ROMs](http://www.lifehacker.com.au/2012/06/five-best-android-roms/) and [Top 5 Custom ROM for HTC Rezound](http://tips4droid.com/top-5-custom-rom-for-htc-rezound/) talk about the different ROMs. I know that Cyanogen is pretty popular and I have used it with my previous phone. There is also the *Android Revolution HD*. All of the instructions on how to install Revolution HD, can be found [here](http://forum.xda-developers.com/showthread.php?t=1098849) and also [here](http://www.techsliver.com/step-by-step-guide-on-how-to-install-android-revolution-hd-6.4.0-ics-rom-on-htc-sensation-4g/).
+
+Doing some research it seemed that the Revolution HD looks exactly the same as ICS and it's just over clocked for performance and has a great battery life. I wanted to try out another interface so I decided to go with CyanogenMod. Instructions on how to install that can be found [here](http://wiki.cyanogenmod.org/w/Install_CM_for_pyramid). Here is a concise list of instructions:
 
 1.  Download the latest CyanogenMod 9 ROM to your computer
 2.  Download the latest Google Apps package
