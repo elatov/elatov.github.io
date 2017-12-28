@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Getting Started with Jenkins"
 author: Karim Elatov
