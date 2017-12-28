@@ -1,11 +1,6 @@
 _site/*
-_theme_packages/*
-
+Gemfile
 Thumbs.db
 .DS_Store
-
-!.gitkeep
-
-.rbenv-version
-.rvmrc
+*.swp
 .jekyll-metadata

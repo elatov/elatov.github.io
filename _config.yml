@@ -1,132 +1,117 @@
-# This is the default format. 
-# For more see: http://jekyllrb.com/docs/permalinks/
-permalink: /:year/:month/:title/
+#repository: tomjoht/documentation-theme-jekyll
 
-exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md", ".jekyll-metadata"]
-markdown: kramdown
-#highlighter: rouge
-#highlighter: pygments
+#output: web
+# this property is useful for conditional filtering of content that is separate from the PDF.
 
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
+permalink: :year/:month/:title/
 
-# Themes are encouraged to use these universal variables 
-# so be sure to set them if your theme uses them.
-#
+topnav_title: Blog
+# this appears on the top navigation bar next to the home button
+
 title : Blog
-tagline: The Virtualization Blog
-author :
+author: 
   name : Karim Elatov
   email : elatov@users.noreply.github.com
   github : elatov
   twitter : elatov
 
-# The production_url is only used when full-domain names are needed
-# such as sitemap.txt 
-# Most places will/should use BASE_PATH to make the urls
-#
-# If you have set a CNAME (pages.github.com) set your custom domain here.
-# Else if you are pushing to username.github.io, replace with your username.
-# Finally if you are pushing to a GitHub project page, include the project name at the end.
-#
-production_url : http://elatov.github.io
+site_title: Karim's Blog
+# this appears in the html browser tab for the site title (seen mostly by search engines, not users)
 
-# All Jekyll-Bootstrap specific configurations are namespaced into this hash
-#
-JB :
-  version : 0.3.0
+#company_name: Your company
+# this appears in the footer
 
-  # All links will be namespaced by BASE_PATH if defined.
-  # Links in your website should always be prefixed with {{BASE_PATH}}
-  # however this value will be dynamically changed depending on your deployment situation.
-  #
-  # CNAME (http://yourcustomdomain.com)
-  #   DO NOT SET BASE_PATH 
-  #   (urls will be prefixed with "/" and work relatively)
-  #
-  # GitHub Pages (http://username.github.io)
-  #   DO NOT SET BASE_PATH 
-  #   (urls will be prefixed with "/" and work relatively)
-  #
-  # GitHub Project Pages (http://username.github.io/project-name)
-  #
-  #   A GitHub Project site exists in the `gh-pages` branch of one of your repositories.
-  #  REQUIRED! Set BASE_PATH to: http://username.github.io/project-name
-  #
-  # CAUTION:
-  #   - When in Localhost, your site will run from root "/" regardless of BASE_PATH
-  #   - Only the following values are falsy: ["", null, false]
-  #   - When setting BASE_PATH it must be a valid url.
-  #     This means always setting the protocol (http|https) or prefixing with "/"
-  BASE_PATH : false
+#github_editme_path: tomjoht/documentation-theme-jekyll/blob/gh-pages/
+# if you're using Github, provide the basepath to the branch you've created for reviews, following the sample here. if not, leave this value blank.
 
-  # By default, the asset_path is automatically defined relative to BASE_PATH plus the enabled theme.
-  # ex: [BASE_PATH]/assets/themes/[THEME-NAME]
-  #
-  # Override this by defining an absolute path to assets here.
-  # ex: 
-  #   http://s3.amazonaws.com/yoursite/themes/watermelon
-  #   /assets
-  #
-#  ASSET_PATH : false
-  ASSET_PATH : /assets/themes/twitter-2.0
+# gitlab_editme_path: tomjoht/documentation-theme-jekyll/blob/gh-pages/
+# if you're using GitLab, provide the basepath to the branch you've created for reviews, following the sample here. if not, leave this value blank.
 
-  # These paths are to the main pages Jekyll-Bootstrap ships with.
-  # Some JB helpers refer to these paths; change them here if needed.
-  #
-  archive_path: /archive
-  categories_path : /categories
-  tags_path : /tags
-  atom_path : /atom.xml
-  rss_path : /rss.xml
+#disqus_shortname: idrbwjekyll
+# if you're using disqus for comments, add the shortname here. if not, leave this value blank.
 
-  # Settings for comments helper
-  # Set 'provider' to the comment provider you want to use.
-  # Set 'provider' to false to turn commenting off globally.
-  #
-#  comments :
-#    provider : disqus
-#    disqus :
-#      short_name : jekyllbootstrap
-#    livefyre :
-#      site_id : 123
-#    intensedebate :
-#      account : 123abc
-#    facebook :
-#      appid : 123
-#      num_posts: 5
-#      width: 580
-#      colorscheme: light
-   
-  # Settings for analytics helper
-  # Set 'provider' to the analytics provider you want to use.
-  # Set 'provider' to false to turn analytics off globally.
-  #        
-  analytics :
-    provider : google 
-    google : 
-        tracking_id : 'UA-51015706-1'
+google_analytics: UA-51015706-1
+# if you have google-analytics ID, put it in. if not, edit this value to blank.
 
-  # Settings for sharing helper. 
-  # Sharing is for things like tweet, plusone, like, reddit buttons etc.
-  # Set 'provider' to the sharing provider you want to use.
-  # Set 'provider' to false to turn sharing off globally.
-  #
-  sharing :
-    provider : false
-    
-  # Settings for all other include helpers can be defined by creating 
-  # a hash with key named for the given helper. ex:
-  #
-  #   pages_list :
-  #     provider : "custom"   
-  #
-  # Setting any helper's provider to 'custom' will bypass the helper code
-  # and include your custom code. Your custom file must be defined at:
-  #   ./_includes/custom/[HELPER]
-  # where [HELPER] is the name of the helper you are overriding.
-search :
-  provider : gcse
-  gcse :
-    cx : 001912851300668510249:qatni_pvtqg
+host: 127.0.0.1
+# the preview server used. Leave as is.
+
+port: 4000
+# the port where the preview is rendered. You can leave this as is unless you have other Jekyll builds using this same port that might cause conflicts. in that case, use another port such as 4006.
+
+exclude:
+  - .idea/
+  - .gitignore
+# these are the files and directories that jekyll will exclude from the build
+
+#feedback_subject_line: Jekyll documentation theme
+
+#feedback_email: tomjoht@gmail.com
+# used as a contact email for the Feedback link in the top navigation bar
+
+feedback_disable: true
+# if you uncomment the previous line, the Feedback link gets removed
+
+# feedback_text: "Need help?"
+# if you uncomment the previous line, it changes the Feedback text
+
+# feedback_link: "http://helpy.io/"
+# if you uncomment the previous line, it changes where the feedback link points to
+
+highlighter: rouge
+# library used for syntax highlighting
+
+markdown: kramdown
+kramdown:
+ input: GFM
+ auto_ids: true
+ hard_wrap: false
+ syntax_highlighter: rouge
+
+# filter used to process markdown. note that kramdown differs from github-flavored markdown in some subtle ways
+
+#collections:
+#  tooltips:
+#    output: false
+# collections are declared here. this renders the content in _tooltips and processes it, but doesn't output it as actual files in the output unless you change output to true
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+      comments: false
+      search: true
+      sidebar: "none"
+      topnav: "topnav"
+      hide_sidebar: true
+      toc: false
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      comments: false
+      search: true
+      sidebar: "none"
+      topnav: topnav
+      toc: true
+      hide_sidebar: true
+
+# these are defaults used for the frontmatter for these file types
+
+#sidebars:
+#- home_sidebar
+#- mydoc_sidebar
+#- product1_sidebar
+#- product2_sidebar
+#- other
+
+description: "Just a blog"
+# the description is used in the feed.xml file
+
+# needed for sitemap.xml file only
+url: https://elatov.github.io

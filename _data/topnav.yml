@@ -1,0 +1,22 @@
+## Topnav single links
+## if you want to list an external url, use external_url instead of url. the theme will apply a different link base.
+topnav:
+- title: Topnav
+  items:
+    - title: Archive
+      url: "/pages/archive/"
+    - title: Categories
+      url: "/pages/cat/"
+
+#Topnav dropdowns
+topnav_dropdowns:
+- title: Topnav dropdowns
+  folders:
+    - title: Study Guides
+      folderitems:
+        - title: VCAP5-DCD
+          url: "/2012/08/vcap5-dcd/"
+        - title: VCAP5-DCA
+          url: "/2012/09/vcap5-dca/"
+        - title: RHCSA and RHCE
+          url: "/2012/12/rhcsa-and-rhce-study-guide/"

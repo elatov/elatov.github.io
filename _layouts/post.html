@@ -1,5 +1,36 @@
 ---
 layout: default
 ---
-{% include JB/setup %}
-{% include themes/twitter-2.0/post.html %}
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
+        <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time> {% if page.author %}<span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">/ {{ page.author }} </span></span>{% endif %}{% if page.tags != null %}/
+            {% for tag in page.tags %}
+            <a href="/pages/tags/#{{tag}}-ref">{{tag}}</a>{% unless forloop.last %}, {% endunless%}
+            {% endfor %}
+            {% endif %}
+
+        </p>
+
+
+    </header>
+
+    {% unless post.toc == false %}
+    {% include toc.html %}
+    {% endunless %}
+
+    <div class="post-content" itemprop="articleBody">
+
+        {% if page.summary %}
+        <div class="summary">{{page.summary}}</div>
+        {% endif %}
+
+        {{ content }}
+    </div>
+
+
+
+</article>
+{{site.data.alerts.hr_shaded}}
+{% include footer.html %}
