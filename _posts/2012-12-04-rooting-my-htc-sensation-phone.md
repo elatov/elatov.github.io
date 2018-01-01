@@ -251,7 +251,7 @@ All the sites had the same instructions. Here is what I did to accomplish that:
 
 [Five Best Android ROMs](http://www.lifehacker.com.au/2012/06/five-best-android-roms/) and [Top 5 Custom ROM for HTC Rezound](http://tips4droid.com/top-5-custom-rom-for-htc-rezound/) talk about the different ROMs. I know that Cyanogen is pretty popular and I have used it with my previous phone. There is also the *Android Revolution HD*. All of the instructions on how to install Revolution HD, can be found [here](http://forum.xda-developers.com/showthread.php?t=1098849) and also [here](http://www.techsliver.com/step-by-step-guide-on-how-to-install-android-revolution-hd-6.4.0-ics-rom-on-htc-sensation-4g/).
 
-Doing some research it seemed that the Revolution HD looks exactly the same as ICS and it's just over clocked for performance and has a great battery life. I wanted to try out another interface so I decided to go with CyanogenMod. Instructions on how to install that can be found [here](http://wiki.cyanogenmod.org/w/Install_CM_for_pyramid). Here is a concise list of instructions:
+Doing some research it seemed that the Revolution HD looks exactly the same as ICS and it's just over clocked for performance and has a great battery life. I wanted to try out another interface so I decided to go with CyanogenMod. Instructions on how to install that can be found [here](https://www.lineageosroms.org/forums/topic/htc-sensation-cm14-cyanogenmod-14-nougat-7-0-rom/). Here is a concise list of instructions:
 
 1.  Download the latest CyanogenMod 9 ROM to your computer
 2.  Download the latest Google Apps package

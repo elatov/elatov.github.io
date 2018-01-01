@@ -15,7 +15,7 @@ I noticed that there was a new version of OpenELEC, so I decided to give it a tr
 > 
 > 	mv /storage/.xbmc /storage/.xbmc-backup
 
-And from the [update](http://wiki.openelec.tv/index.php/Updating_OpenELEC#Manually_Updating_OpenELEC) page, here are the instructions for the actual update:
+And from the [update](http://kodi.wiki/view/OpenELEC#Updating_OpenELEC) page, here are the instructions for the actual update:
 
 > #### Copying the Update Files
 > 
@@ -238,7 +238,7 @@ Everything was working out well, until I started watching some tv streams. XBMC 
 	
 I was only able to find [the following](http://forum.xbmc.org/showthread.php?tid=196936) (Openelec 4.0.3 Screen goes black during Live TV) forum that matched my error message. In the forum they mentioned that it's known issue and going back to 4.0.2 should fix the issue(and hopefully 4.0.4 fixes the issue). Given the fact that I was on 4.0.6 and the issue was still happening, I decided to downgrade to 4.0.2. 
 
-With the new version of OpenELEC (4.0), we just copy the **tar** file into the update folder and the update process will proceed. From [Updating OpenELEC](http://wiki.openelec.tv/index.php/Updating_OpenELEC#Manually_Updating_OpenELEC_3.x_to_4.0)
+With the new version of OpenELEC (4.0), we just copy the **tar** file into the update folder and the update process will proceed. From [Updating OpenELEC](http://kodi.wiki/view/OpenELEC#Updating_OpenELEC)
 
 > Manually updating OopenELEC Gotham has become easier as well. You are no longer required to extract the system files yourselves, this is all done by OpenELEC internally. This means, that you only have to copy the downloaded .tar file into the Update folder, and have OpenELEC reboot. The .tar file will be extracted and tested, after which the necessary components will be copied to the SYSTEM partition as before. A second boot will follow to finalize the upgrade process.
 
