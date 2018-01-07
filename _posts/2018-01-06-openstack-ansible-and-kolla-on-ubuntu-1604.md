@@ -877,7 +877,7 @@ and on the internal one:
         
 For the sake of understand the flow, let's continue as we had a separate compute and network node.
 
-### 6. Packet goes from the OVS tunnel bridge (br-tun) to the OVS integration bridge (br-int)
+#### 6. Packet goes from the OVS tunnel bridge (br-tun) to the OVS integration bridge (br-int)
 From the above sites:
 
 > The OVS tunnel bridge patch port (13) forwards the packet to the OVS integration bridge patch port (14).
