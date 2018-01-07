@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "OpenStack, Ansible, and Kolla on Ubuntu 16.04"
 author: Karim Elatov
