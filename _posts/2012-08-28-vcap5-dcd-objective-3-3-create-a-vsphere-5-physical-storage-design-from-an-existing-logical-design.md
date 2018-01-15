@@ -329,9 +329,9 @@ Duncan Epping also has a formula for this, from "[VMFS/LUN size?](http://www.yel
 >     360 rounded up -> 375GB >
 >
 
-As mentioned some array vendors provide recommendations as well, from "[Scale Computing VMware Best Practices Guide](http://www.scalecomputing.com/files/documentation/VMBook.pdf)":
+As mentioned some array vendors provide recommendations as well, from "[Sizing LUNs – A Citrix Perspective](https://www.citrix.com/blogs/2011/06/01/sizing-luns-a-citrix-perspective/)":
 
-> For best performance, create LUNs of 500 GB or less. Note that Scale Computing’s recommendations regarding maximum LUN size coincide with VMware’s informal rule-of-thumb suggestions regarding LUN size
+> Most people seem to agree that 10-25 VMDKs per LUN is the “sweet spot” or “magic number” and that typically results in LUN sizes anywhere from 300-700 GB. Before you freak out, please keep in mind those are just AVERAGES and 500 GB LUNs with 16 VMs per LUN certainly won’t work in every situation. 
 
 From "[Scalable Storage Performance](http://www.vmware.com/techpapers/2008/scalable-storage-performance-1059.html)":
 

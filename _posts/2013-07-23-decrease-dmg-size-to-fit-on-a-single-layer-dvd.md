@@ -325,7 +325,7 @@ Now we can just copy from the first sparse image to the second (smaller) sparse 
     ter by ditto(1).
 
 
-I prefer **rsync** over **ditto** ([ditto vs. rsync](http://lists.apple.com/archives/macos-x-server/2002/Mar/msg01142.html)), so here is what I ran to copy the contents onto the smaller sparse image:
+I prefer **rsync** over **ditto** ([ditto vs. rsync](https://discussions.apple.com/thread/2025609)), so here is what I ran to copy the contents onto the smaller sparse image:
 
     kelatov@kmac:~$sudo rsync -avzP /Volumes/Mac\ OS\ X\ Install\ DVD/. /Volumes/Small_Sparse/.
     ...

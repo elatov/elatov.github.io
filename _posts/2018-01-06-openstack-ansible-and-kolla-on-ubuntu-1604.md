@@ -813,7 +813,7 @@ The here is the relevant section `tun_id=0xf actions=mod_vlan_vid:1`, this corre
 
 Looking at other examples:
 
-* [Configuring VXLAN in Openstack Neutron](https://www.cloudenablers.com/blog/configuring-vxlan-in-openstack-neutron/)
+* [Openstack Neutron using VXLAN](http://www.opencloudblog.com/?p=300)
 * [User’s Guide OpenStack Deployment with VXLAN Configuration](http://www.qlogic.com/solutions/Documents/UsersGuide_OpenStack_VXLAN.pdf)
 
 It looks like I should've had a **vxlan** port on my **openvswitch**, like so:
