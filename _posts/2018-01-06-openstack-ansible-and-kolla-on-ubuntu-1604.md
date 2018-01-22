@@ -1200,42 +1200,46 @@ And since **/var/run** points to **/run**:
 
 I tracked down which machines share the **/run** folder with the host:
 
-	root@osa:~# for i in $(docker ps --format "table {{.Names}}"| grep -v NAMES); do echo $i; docker inspect $i | grep '/run:'; done
-	horizon
-	heat_engine
-	heat_api_cfn
-	heat_api
-	neutron_metadata_agent
-	neutron_l3_agent
-	                "/run:/run:shared",
-	neutron_dhcp_agent
-	neutron_openvswitch_agent
-	                "/run:/run:shared",
-	neutron_server
-	openvswitch_vswitchd
-	                "/run:/run:shared",
-	openvswitch_db
-	                "/run:/run:shared",
-	nova_compute
-	                "/run:/run:shared"
-	nova_novncproxy
-	nova_consoleauth
-	nova_conductor
-	nova_scheduler
-	nova_api
-	placement_api
-	nova_libvirt
-	nova_ssh
-	glance_registry
-	glance_api
-	keystone
-	rabbitmq
-	mariadb
-	memcached
-	keepalived
-	haproxy
-	cron
-	kolla_toolbox
-	fluentd
-	
+{% raw %}
+```
+root@osa:~# for i in $(docker ps --format "table {{.Names}}"| grep -v NAMES); do echo $i; docker inspect $i | grep '/run:'; done
+horizon
+heat_engine
+heat_api_cfn
+heat_api
+neutron_metadata_agent
+neutron_l3_agent
+                "/run:/run:shared",
+neutron_dhcp_agent
+neutron_openvswitch_agent
+                "/run:/run:shared",
+neutron_server
+openvswitch_vswitchd
+                "/run:/run:shared",
+openvswitch_db
+                "/run:/run:shared",
+nova_compute
+                "/run:/run:shared"
+nova_novncproxy
+nova_consoleauth
+nova_conductor
+nova_scheduler
+nova_api
+placement_api
+nova_libvirt
+nova_ssh
+glance_registry
+glance_api
+keystone
+rabbitmq
+mariadb
+memcached
+keepalived
+haproxy
+cron
+kolla_toolbox
+fluentd
+```
+{% endraw %}
+
 This is probably why I didn't have a **vxlan** setup in my deployment.

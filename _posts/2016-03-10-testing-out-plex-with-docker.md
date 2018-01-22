@@ -619,7 +619,7 @@ And then doing a test run:
 When working with **DockerFiles** it's important to know the difference between **CMD** and **ENTRYPOINT** directives. Here are some good links that talk about that:
 
 * [Best practices for writing Dockerfiles](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/)
-* [Dockerfile: ENTRYPOINT vs CMD](https://www.ctl.io/developers/blog/post/dockerfile-entrypoint-vs-cmd/)
+* [ENTRYPOINT vs CMD: Back to Basics](http://www.johnzaccone.io/entrypoint-vs-cmd-back-to-basics/)
 
 I ended up using **ENTRYPOINT** but I could've used **CMD** in my case as well. I will admit this is not the best way to run plex in a *container*, but there are great examples that cover appropriate use cases:
 

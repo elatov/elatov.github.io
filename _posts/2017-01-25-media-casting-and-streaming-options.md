@@ -88,7 +88,7 @@ And on my iPhone it showed up only for audio:
 
 ![iphone-airplay-kodi](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/iphone-airplay-kodi.png&raw=1)
 
-It looks like the latest version of kodi might work out. Check out [KODI Airplay Installation, Setup & How to Use Guide](https://kodiforu.com/airplay-kodi-mirroring/) for more information. For now OpenELEC 6.0.3 is stable with Kodi 15.2 and I will wait for OpenELEC 7.0 to become stable which will be Kodi 16 (some people are waiting for that as [well](http://openelec.tv/forum/90-miscellaneous/80144-jarvis-kodi-version-out-soon)). Doing **bonjour** queries **kodi** responded:
+It looks like the latest version of kodi might work out. Check out [KODI Airplay Installation, Setup & How to Use Guide](https://kodiforu.com/airplay-kodi-mirroring/) for more information. For now OpenELEC 6.0.3 is stable with Kodi 15.2 and I will wait for OpenELEC 7.0 to become stable which will be Kodi 16. Doing **bonjour** queries **kodi** responded:
 
 	┌─[elatov@macair] - [/Users/elatov] - [2016-06-12 12:17:41]
 	└─[130] <> dns-sd -B _raop._tcp .
