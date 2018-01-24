@@ -92,8 +92,4 @@ Then I added a new stage to my pipeline code of the main job:
             mail bcc: '', body: "${message}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/plain', subject: "${subject}", to: "${RECIPIENTS}"
        }
 
-With that I would receive a simple email like so:
-
-![jenkins-mail.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-mail/jenkins-mail.png&raw=1)
-
 There are also some good examples in [Sending Notifications in Pipeline](https://www.cloudbees.com/blog/sending-notifications-pipeline) which uses the [Email-ext plugin](https://wiki.jenkins.io/display/JENKINS/Email-ext+plugin).
