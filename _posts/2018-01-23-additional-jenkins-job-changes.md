@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Additional Jenkins Job Changes"
 author: Karim Elatov
