@@ -21,7 +21,7 @@ It looks like there are multiple approaches to doing a rolling update. I will ta
 * **kubectl set image** (pointing to a new image version)
 * **kubectl edit** (similar to a first one, but you just update the YAML config in place)
 
-I will use the second approach, as an example but I will probably use the second approach for future updates. With the **kubectl replace** approach the YAML will always be updated, in case I need to start from scratch or something (check out [Kubernetes Object Management](https://kubernetes.io/docs/tutorials/object-management-kubectl/object-management/#trade-offs) for some of the trade-offs between **Imperative commands** and **Imperative object configuration**). 
+I will use the second approach, as an example but I will probably use the first approach for future updates. With the **kubectl replace** approach the YAML will always be updated, in case I need to start from scratch or something (check out [Kubernetes Object Management](https://kubernetes.io/docs/tutorials/object-management-kubectl/object-management/#trade-offs) for some of the trade-offs between **Imperative commands** and **Imperative object configuration**). 
 
 As a side note it looks like auto update of images in Pods (using the **latest** tag) is not recommended. This is discussed in [Force pods to re-pull an image without changing the image tag](https://github.com/kubernetes/kubernetes/issues/33664), using a specific version or SHA is the preffered method of specifying the **Image**.
 
