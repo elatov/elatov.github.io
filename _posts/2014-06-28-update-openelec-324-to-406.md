@@ -8,16 +8,17 @@ categories: [os]
 tags: [linux,openelec,raspberry_pi,xbmc]
 ---
 
-I noticed that there was a new version of OpenELEC, so I decided to give it a try. From their [release](http://openelec.tv/news/22-releases/125-openelec-4-0-released) page, it doesn't look you can do an automatic update and it's recommended to do a manual update:
+I noticed that there was a new version of OpenELEC, so I decided to give it a try. From their [release](https://openelec.tv/documentation/updating-openelec) page, it doesn't look you can do an automatic update and it's recommended to do a manual update:
 
-> ####How To Upgrade To OpenELEC 4.0 Release
+> How To Upgrade To OpenELEC 4.0 Release
+> 
 > If you are going to update from one of our older releases, we STRONGLY advise that you make a backup of your XBMC data and manual update . There was reports regarding new database versions, settings, addons and addon repos, which can cause issues if you are using updating from OpenELEC 3.2 or older. You can use our OpenELEC Settings addon if you are using OpenELEC-3.2 to backup your data and then reset it. If you are on an older build, you will need to do this manually:
 > 
 > 	mv /storage/.xbmc /storage/.xbmc-backup
 
 And from the [update](http://kodi.wiki/view/OpenELEC#Updating_OpenELEC) page, here are the instructions for the actual update:
 
-> #### Copying the Update Files
+> Copying the Update Files
 > 
 > To update you must download the corresponding install depending on your hardware. To download click here. If you are unsure which version you need, click here.
 > 
@@ -242,7 +243,7 @@ With the new version of OpenELEC (4.0), we just copy the **tar** file into the u
 
 > Manually updating OopenELEC Gotham has become easier as well. You are no longer required to extract the system files yourselves, this is all done by OpenELEC internally. This means, that you only have to copy the downloaded .tar file into the Update folder, and have OpenELEC reboot. The .tar file will be extracted and tested, after which the necessary components will be copied to the SYSTEM partition as before. A second boot will follow to finalize the upgrade process.
 
-So I mozied over to the [archives](http://archive.openelec.tv/) page for openelec and downloaded the 4.0.2 version:
+So I mozied over to the [archives](https://openelec.tv/downloads) page for openelec and downloaded the 4.0.2 version:
 
 	elatov@crbook:~/download$ls -lh OpenELEC-RPi.arm-4.0.2.tar 
 	-rw-r--r-- 1 elatov elatov 109M May 27 12:33 OpenELEC-RPi.arm-4.0.2.tar

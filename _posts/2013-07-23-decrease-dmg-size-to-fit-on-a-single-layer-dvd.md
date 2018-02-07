@@ -318,7 +318,7 @@ Now we can just copy from the first sparse image to the second (smaller) sparse 
     /dev/disk3       4.3Gi   72Mi  4.2Gi     2%    /Volumes/Small_Sparse
 
 
-**asr** used to be able to do file-level copies, but now only block level copies/restores are allowed. From the man [page](https://developer.apple.com/library/mac/#documentation/Darwin/Reference/ManPages/man8/asr.8.html):
+**asr** used to be able to do file-level copies, but now only block level copies/restores are allowed. From the man [page](http://www.manpages.info/macosx/asr.8.html):
 
     When run in its first form above, the --erase option must always be used,
     as asr no longer supports file copying.  Such functionality is done bet-

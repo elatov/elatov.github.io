@@ -15,7 +15,7 @@ From their [home](http://ossec.github.io) page, here is a quick summary of the s
 
 > OSSEC is an Open Source Host-based Intrusion Detection System that performs log analysis, file integrity checking, policy monitoring, rootkit detection, real-time alerting and active response.
 
-From their [How It Works](http://www.ossec.net/?page_id=169) page, they describe the Server/Client approach. Here is a diagram from that page:
+From their [How It Works](https://ossec.github.io/docs/manual/ossec-architecture.html#architecture) page, they describe the Server/Client approach. Here is a diagram from that page:
 
 ![ossec architecture OSSEC on FreeBSD](https://github.com/elatov/uploads/raw/master/2014/03/ossec-architecture.png)
 
@@ -392,7 +392,7 @@ On the server side you should see an *alert* similar to this:
 
 ### Install Web-UI For OSSEC
 
-Most of the instructions are [here](http://www.ossec.net/wiki/index.php/OSSECWUI:Install). First get the web-ui package:
+Most of the instructions are [here](https://ossec.github.io/docs/faq/ossec-wui.html). First get the web-ui package:
 
     moxz:/opt/work>fetch http://www.ossec.net/files/ossec-wui-0.8.tar.gz
     ossec-wui-0.8.tar.gz                          100% of  158 kB  497 kBps 00m00s

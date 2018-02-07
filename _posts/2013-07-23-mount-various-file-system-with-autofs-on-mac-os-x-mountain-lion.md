@@ -58,7 +58,7 @@ The **D** stands for on-demand.
 
 ### Autofs Maps
 
-With Mac OS there are a couple of options for **autofs**. From the Mac OS [man](http://developer.apple.com/library/mac/#documentation/Darwin/Reference/ManPages/man5/auto_master.5.html#//apple_ref/doc/man/5/auto_master) page:
+With Mac OS there are a couple of options for **autofs**. From the Mac OS [man](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man5/auto_master.5.html) page:
 
 > **Direct Map**
 > A direct map associates filesystem locations directly with directories. The entry key is the full path name of a directory. For example:
