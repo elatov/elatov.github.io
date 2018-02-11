@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Troubleshooting tg3 Driver Issues on MacMini Running CoreOS"
 author: Karim Elatov
