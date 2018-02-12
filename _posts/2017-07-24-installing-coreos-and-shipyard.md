@@ -160,7 +160,8 @@ And now for the install:
 After a reboot, the machine will start up **CoreOS** and you can **ssh** using the keys that you defined in the **cloud-config** file.
 
 ### Installing Shipyard
-I then wanted to install **Shipyard** which can help with managing Docker Containers. Looking over the [Automated Deployment](https://shipyard-project.com/docs/deploy/automated/), it should be as easy as this:
+{% include note.html content="It looks like the Shipyard Project is no longer maintained." %}
+I then wanted to install **Shipyard** which can help with managing Docker Containers. Looking over the [GitHub Project](https://github.com/shipyard/shipyard), it should be as easy as this:
 
 	curl -sSL https://shipyard-project.com/deploy | bash -s
 
