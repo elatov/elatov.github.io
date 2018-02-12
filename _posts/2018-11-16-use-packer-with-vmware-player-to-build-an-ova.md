@@ -634,6 +634,6 @@ I ended up setting some options in my packer configuration (all the options are 
 	      "inline": ["ovftool output-ova-vmware-iso/packer-centos-7-x86_64.vmx output-ova-vmware-iso/test.ova"]
 	    }
 	    ]
-* I set the **guest_os_typ** to be **centos7-64** to make sure it shows up as CentOS 7 and not CentOS 5 (the full list of OS types is available [here](https://code.vmware.com/apis/199/storage-policy#https://vdc-repo.vmware.com/vmwb-repository/dcr-public/9fd87c06-14a3-41e5-b28d-277864a80f29/d6112c2a-b124-4fa5-96d7-9fb4b6f1bb50/doc/vim.vm.GuestOsDescriptor.GuestOsIdentifier.html)
+* I set the **guest_os_type** to be **centos7-64** to make sure it shows up as CentOS 7 and not CentOS 5 (the full list of OS types is available [here](https://code.vmware.com/apis/199/storage-policy#https://vdc-repo.vmware.com/vmwb-repository/dcr-public/9fd87c06-14a3-41e5-b28d-277864a80f29/d6112c2a-b124-4fa5-96d7-9fb4b6f1bb50/doc/vim.vm.GuestOsDescriptor.GuestOsIdentifier.html)
 
 That should be it.
