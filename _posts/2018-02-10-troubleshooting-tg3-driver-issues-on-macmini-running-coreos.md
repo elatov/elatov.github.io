@@ -3,7 +3,7 @@ published: true
 layout: post
 title: "Troubleshooting tg3 Driver Issues on MacMini Running CoreOS"
 author: Karim Elatov
-categories: [network]
+categories: [networking,os]
 tags: [coreos,tg3,ethtool,tso,gso,sg]
 ---
 ### tg3 Driver StackTrace
