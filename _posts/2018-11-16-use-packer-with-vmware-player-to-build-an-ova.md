@@ -636,4 +636,16 @@ I ended up setting some options in my packer configuration (all the options are 
 	    ]
 * I set the **guest_os_type** to be **centos7-64** to make sure it shows up as CentOS 7 and not CentOS 5 (the full list of OS types is available [here](https://code.vmware.com/apis/199/storage-policy#https://vdc-repo.vmware.com/vmwb-repository/dcr-public/9fd87c06-14a3-41e5-b28d-277864a80f29/d6112c2a-b124-4fa5-96d7-9fb4b6f1bb50/doc/vim.vm.GuestOsDescriptor.GuestOsIdentifier.html)
 
-That should be it.
+That was just some of the options that worked out for me.
+
+### Packer with Jenkins
+There is no shortage of example **Jenkinsfile**s out there:
+
+* [packer-centos-7](https://github.internet2.edu/docker/packer-centos-7/blob/master/Jenkinsfile)
+* [packer-pipeline-test](https://github.com/adampats/packer-pipeline-test/blob/master/Jenkinsfile)
+* [Automated AWS AMI builds for Jenkins agents with Packer](https://blog.grakn.ai/automated-aws-ami-builds-for-jenkins-agents-with-packer-e569630b1f8e)
+* [Build and Deploy using Jenkins, Packer and Terraform](https://medium.com/@I_M_Harsh/build-and-deploy-using-jenkins-packer-and-terraform-40b2aafedaec)
+
+After creating a Jenkins job of your choice and running a successful job (to build and store an OVA image), you might see something like this in your Jenkins Job Results (don't forget to use **stage** blocks):
+
+![jenkins-packer-job.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/packer-vmplayer/jenkins-packer-job.png&raw=1)
