@@ -6,7 +6,9 @@ description: ""
 categories: [os]
 tags: [grub,vagrant,opensuse, suse_studio]
 ---
-As I was creating an [OpenSUSE base box](/2014/06/create-a-base-opensuse-image-for-vagrant/) for vagrant, I realized that it was still kind of big in size. I wanted to create a minimal base OS of the OpenSUSE Linux Distribution. That is when I ran into [SUSE Studio](https://susestudio.com/). From [SUSE's site](https://www.suse.com/products/susestudio/technical-information/):
+{% include note.html content="SUSE Studio has been deprecated, and OBS can be used to build an image. Check out [Open Build Service Integration](http://blog.susestudio.com/2017/06/open-build-service-integration.html) and [SUSE Studio Integration](http://openbuildservice.org/2017/05/31/studio-import/) on instructions to migrate your configuration into OBS" %}
+
+As I was creating an [OpenSUSE base box](/2014/06/create-a-base-opensuse-image-for-vagrant/) for vagrant, I realized that it was still kind of big in size. I wanted to create a minimal base OS of the OpenSUSE Linux Distribution. That is when I ran into **SUSE Studio**. From [SUSE's site](https://www.suse.com/products/susestudio/technical-information/):
 
 > SUSE Studio is a web-based application for building and testing software applications in a web browser. It supports the creation of physical, virtual or cloud-based applications by leveraging the software appliance form-factor. It enables you to build your own application images or appliances based on SUSE Linux Enterprise Server. SUSE Studio is available as an online or onsite version.
 
