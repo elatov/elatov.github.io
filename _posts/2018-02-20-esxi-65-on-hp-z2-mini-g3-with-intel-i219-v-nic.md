@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "ESXi 6.5 on HP Z2 Mini G3 with Intel I219-V NIC"
 author: Karim Elatov
