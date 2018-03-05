@@ -650,7 +650,6 @@ There are a lot of cool cmdlets (like [Set-HardDisk](https://www.vmware.com/supp
 
 *   [Storage VMotion – The PowerCLI way](http://www.virtu-al.net/2009/06/11/storage-vmotion-the-powercli-way/)
 *   [Storage vMotion only one hard disk to another datastore in vSphere](http://ict-freak.nl/2011/04/01/storage-vmotion-only-one-hard-disk-to-another-datastore-in-vsphere/)
-*   [PowerShell – The first kiss with VMware PowerCLI](http://geekswithblogs.net/Wchrabaszcz/archive/2013/10/05/powershell--the-first-kiss-with-vmware-powercli.aspx)
 
 Unfortunately all of those required vCenter to work. So I decided to copy the hard disk. So let's get started. Here is the version of PowerCLI that I downloaded:
 

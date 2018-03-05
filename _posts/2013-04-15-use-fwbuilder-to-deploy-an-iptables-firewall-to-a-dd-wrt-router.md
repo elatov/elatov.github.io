@@ -7,7 +7,7 @@ categories: ['os', 'home_lab', 'networking']
 tags: ['fedora', 'upnp', 'linux', 'iptables', 'dd_wrt', 'fwbuilder', 'nat']
 ---
 
-I decided to learn how [FWBuilder](http://www.fwbuilder.org/) works and what is better than deploying in a home environment and making sure nothing breaks in the process? At home I have a router that is running [DD-WRT](http://www.dd-wrt.com) and FWBuilder works with that. So I decided to use that as my test, a good starting point is the [how-to](http://www.dd-wrt.com/wiki/index.php/Firewall_Builder) from DD-WRT.
+I decided to learn how [FWBuilder](http://fwbuilder.sourceforge.net/) works and what is better than deploying in a home environment and making sure nothing breaks in the process? At home I have a router that is running [DD-WRT](http://www.dd-wrt.com) and FWBuilder works with that. So I decided to use that as my test, a good starting point is the [how-to](http://www.dd-wrt.com/wiki/index.php/Firewall_Builder) from DD-WRT.
 
 
 ### Enable SSH On DD-WRT
@@ -217,7 +217,7 @@ Nothing crazy, **vlan2** is used for the public IP space and **br0** is used for
 
 ### Enabling JFFS on DD-WRT
 
-There are two ways to use FWBuilder with DD-WRT. One is to setup the **iptables** to run from **nvram** and the other is to store the **iptables** configs in **JFFS** and run them from there. The latter seemed more pleasant, from the FWBuilder [user-guide](http://www.fwbuilder.org/4.0/docs/users_guide5/dd-wrt.shtml):
+There are two ways to use FWBuilder with DD-WRT. One is to setup the **iptables** to run from **nvram** and the other is to store the **iptables** configs in **JFFS** and run them from there. The latter seemed more pleasant, from the FWBuilder [user-guide](http://fwbuilder.sourceforge.net/4.0/docs/users_guide5/dd-wrt.shtml):
 
 > **12.3.1. DD-WRT (nvram)**
 > In this mode generated script is shorter and does not support command-line arguments "start", "stop", "status". The script does not try to load iptables modules on the firewall but configures inetrface addresses, vlans, bridge ports and bonding interfaces. When you set host OS of the firewall object to "DD-WRT (nvram)", built-in policy installer saves the script in nvram variable "fwb" and configures nvram variable "rc_firewall" to run this script.
@@ -635,7 +635,7 @@ By default we have the following rule for our NAT:
 
 ![Nat Rules def Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/Nat_Rules_def.png)
 
-Creating DNAT rules is outlines in [this](http://www.fwbuilder.org/4.0/docs/users_guide5/destination-address-translation.shtml) FWBuilder guide. So let's forward port 80 to our web server which has the Internal IP of **192.168.1.100**. Here is NAT rule that I created for that:
+Creating DNAT rules is outlines in [this](http://fwbuilder.sourceforge.net/4.0/docs/users_guide5/destination-address-translation.shtml) FWBuilder guide. So let's forward port 80 to our web server which has the Internal IP of **192.168.1.100**. Here is NAT rule that I created for that:
 
 ![dnat port 80 Use FWBuilder to Deploy an IPtables Firewall to a DD WRT Router](https://github.com/elatov/uploads/raw/master/2013/04/dnat_port_80.png)
 
@@ -662,7 +662,7 @@ That will generate the following rules:
         6   360 SNAT       tcp  --  *      br0     0.0.0.0/0            192.168.1.100       tcp dpt:80 to:192.168.1.1
 
 
-This is covered in the FWBuilder chapter entitled "[RFC](http://www.fwbuilder.org/4.0/docs/users_guide5/dnat_to_same_network.shtml), here is what we see:
+This is covered in the FWBuilder chapter entitled "[Destination NAT Onto the Same Network](http://fwbuilder.sourceforge.net/4.0/docs/users_guide5/dnat_to_same_network.shtml). This concept is referred to as **NAT Hair-pinning**. From the [RFC](http://tools.ietf.org/html/rfc4787) here is what we see:
 
 > Hairpinning allows two endpoints on the internal side of the NAT to communicate even if they only use each other's external IP addresses and ports.
 
