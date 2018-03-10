@@ -195,7 +195,7 @@ Although this won't help with this old Mac Mini, but I noticed that it's install
 
 	$ rsync -avzP /Applications/ Install Mac OS X Mountain Lion.app/Resources/Shared Support/InstallESD.dmg /Volumes/Untitled/.
 
-Then plug that USB disk into a Linux box and we can start the conversion. I ran into [this](http://www.insanelymac.com/forum/topic/197403-converting-os-x-106dmg-to-iso-using-dmg2img/) page which mentions that the **InstallESD.dmg** file is not a valid DMG file and we have to use **7zip** to extract it. So let's extract that file:
+Then plug that USB disk into a Linux box and we can start the conversion. I ran into [this](http://www.dognmonkey.com/techs/extract-yosemite-10-10-5-and-el-capitan-10-11-5-installesd-dmg-using-7z.html) page which mentions that the **InstallESD.dmg** file is not a valid DMG file and we have to use **7zip** to extract it. So let's extract that file:
 
 	$7z x InstallESD.dmg
 

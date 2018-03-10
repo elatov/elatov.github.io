@@ -2,10 +2,10 @@
 title: Installing Mediatomb on FreeBSD 9 and Connecting to it with XBMC from a Fedora 17 OS
 author: Karim Elatov
 layout: post
-permalink: /2012/10/installing-mediatomb-on-freebsd-9-and-connecting-to-it-with-xbmc-from-a-fedora-17-os/
 categories: ['os', 'networking']
 tags: ['iptables','pf', 'igmp', 'xbmc', 'linux', 'fedora','freebsd', 'dlna', 'mediatomb', 'upnp']
 ---
+{% include note.html content="It looks like mediatomb is no longer maintained and [gerbera](https://gerbera.io/) is a nice alternative" %}
 
 I recently got some new hardware and wanted to setup a video streaming server in my home. There are a lot of choices out there, for example check out the wiki page "[How to Select a Proper Technology for HD Video Streaming in Home Networking Environments](http://en.wikipedia.org/wiki/List_of_streaming_media_systems)". From that article:
 
@@ -19,7 +19,7 @@ The paper also included a pretty good table of all the guidelines from the DLNA,
 
 DLNA uses UPnP for a lot of it's functions, so I decided to setup a UPnP capable server to stream my media. I was then checking out the wiki page "[Comparison of UPnP AV media servers](http://en.wikipedia.org/wiki/Comparison_of_UPnP_AV_MediaServers)" to see a list of UPnP servers. Of course, I wanted to choose a media server with the most functionality. Here are the ones that stood out:
 
-*   [MediaTomb](http://mediatomb.cc)
+*   [MediaTomb](https://sourceforge.net/projects/mediatomb/)
 *   [Plex](http://en.wikipedia.org/wiki/Plex_(software))
 *   [PS3 Media Server](http://en.wikipedia.org/wiki/PS3_Media_Server)
 *   [MiniDLNA](http://sourceforge.net/projects/minidlna/)
@@ -149,7 +149,7 @@ That should be it for the MediaTomb Setup.
 
 ### 4. Enable Multicast in your OS
 
-UPnP relies on multicast and IGMP to discover devices and to serve up files. Multicast is mostly UDP so it makes sense for streaming video. From the MediaTomb [Documentation](http://mediatomb.cc/pages/documentation), here is what is necessary:
+UPnP relies on multicast and IGMP to discover devices and to serve up files. Multicast is mostly UDP so it makes sense for streaming video. From the MediaTomb [Documentation](https://sourceforge.net/p/mediatomb/wiki/Home/), here is what is necessary:
 
 > **4.1. Network Setup**
 > Some systems require a special setup on the network interface. If MediaTomb exits with UPnP Error -117, or if it does not respond to M-SEARCH requests from the renderer (i.e. MediaTomb is running, but your renderer device does not show it) you should try the following settings (the lines below assume that MediaTomb is running on a Linux machine, on network interface eth1):
@@ -193,7 +193,7 @@ I also wanted to make sure I have the correct routes in place to allow for IGMP 
 
 ### 5. Make sure the appropriate ports are open on your UPnP Server and Client
 
-From MediaTomb [FAQ](http://mediatomb.cc/dokuwiki/faq:faq):
+From MediaTomb [FAQ](https://sourceforge.net/p/mediatomb/wiki/Home/):
 
 > The UPnP protocol players use to find media servers relies on the IGMP protocol, which uses multicast. Be sure your firewall is allowing IGMP join requests from any IP address, and general IGMP traffic destined for broadcast addresses. For example, using iptables on linux and assuming eth1 is the interface MediaTomb is listening on:
 >
@@ -219,7 +219,7 @@ Taken from "[Using OpenBSD with VDSL](http://un.geeig.net/openbsd-vdsl.html)" an
     pass in on em0 from any to 239.0.0.0/8 keep state
 
 
-Also from the MediaTomb [FAQ](http://mediatomb.cc/dokuwiki/faq:faq) page:
+Also from the MediaTomb [FAQ](https://sourceforge.net/p/mediatomb/wiki/Home/) page:
 
 > make sure that your firewall is not blocking the server, port 1900 has to be open as well as the port on which the server is running (i.e. web UI port), both TCP and UDP
 
