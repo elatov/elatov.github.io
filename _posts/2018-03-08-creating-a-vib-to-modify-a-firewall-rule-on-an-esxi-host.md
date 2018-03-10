@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Creating a VIB to modify a Firewall Rule on an ESXi Host"
 author: Karim Elatov
@@ -202,7 +202,7 @@ And lastly the custom firewall rule:
 	</service>
 	</ConfigRoot>
 
-Now let's start the container and (since we specified in our **docker-compose.yml* to attach to it) attach to it:
+Now let's start the container and (since we specified in our **docker-compose.yml** to attach to it) attach to it:
 
 	coreos # docker-compose run --rm vib-auth
 	Pulling servicename (lamw/vibauthor:latest)...
