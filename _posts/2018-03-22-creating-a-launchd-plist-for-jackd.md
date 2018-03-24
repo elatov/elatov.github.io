@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Creating a Launchd Plist for jackd"
 author: Karim Elatov
