@@ -36,7 +36,6 @@ I ran into another project called **Kolla** which also uses **ansible** for the 
 * [Quick Start](https://docs.openstack.org/project-deploy-guide/kolla-ansible/ocata/quickstart.html)
 * [Installation of kolla for openstack in docker](https://greatbsky.github.io/kolla-for-openstack-in-docker/en.html)
 * [Kolla: Openstack in Docker containers with Ansible playbooks ](https://marcelwiget.wordpress.com/2016/08/14/kolla-openstack-in-docker-containers-with-ansible-playbooks/)
-* [OpenStack Dockerized](http://www.jinkit.com/openstack-dockerized/) 
 
 ### Installing Kolla
 I started with a base *Ubuntu 16.04* OS and went from there. I had two NICs on the VM (**ens160** would be the **provider** network and **ens192** would be the **management network**). Here is the network setup I ended up with:

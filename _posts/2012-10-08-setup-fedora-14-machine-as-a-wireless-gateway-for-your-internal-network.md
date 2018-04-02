@@ -224,7 +224,7 @@ Also the **iwconfig** output should look like this:
 
 Now reboot the machine and make sure it comes up with your static DHCP IP address. If it doesn't work automatically, the order of **wpa_supplicant** and the **network** service might be off. You can edit your **/etc/rc.local** file to sleep for some time and then run the **dhclient** command from there. Here is a fedora [thread](http://forums.fedoraforum.org/showthread.php?t=235989) that talks about the process.
 
-Next we need our Fedora Machine to act as NAT. When talking about NAT, there are a couple of types. From "[Structure Of Iptables](http://www.iptables.info/en/structure-of-iptables.html)":
+Next we need our Fedora Machine to act as NAT. When talking about NAT, there are a couple of types. From "[Structure Of Iptables](http://www.linuxhowtos.org/Security/iptables.htm)":
 
 > The **DNAT** target is mainly used in cases where you have a public IP and want to redirect accesses to the firewall to some other host (on a DMZ for example). In other words, we change the destination address of the packet and reroute it to the host.
 >

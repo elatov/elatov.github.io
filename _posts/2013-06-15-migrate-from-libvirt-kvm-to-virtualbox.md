@@ -194,7 +194,7 @@ There is a script that goes from **vmx** to *libvirt* domain XML format: [vmware
     </domain>
 
 
-So if I had started out with ESX and was trying to go to KVM that would have been pretty easy (but at least now I can use **virsh** to query an ESX server). Since no solution has been found, I decided to write my own python script that converts from libvirt Domain XML format to virt-image (XML Image Descriptor) XML format. The format of the XML image descriptor is seen [here](http://manpages.ubuntu.com/manpages/wily/en/man5/virt-image.5.html). Here is an example of the format:
+So if I had started out with ESX and was trying to go to KVM that would have been pretty easy (but at least now I can use **virsh** to query an ESX server). Since no solution has been found, I decided to write my own python script that converts from libvirt Domain XML format to virt-image (XML Image Descriptor) XML format. The format of the XML image descriptor is seen [here](https://linux.die.net/man/5/virt-image). Here is an example of the format:
 
      < ?xml version="1.0" encoding="UTF-8"?>
                <image>

@@ -15,7 +15,7 @@ As I was playing around with **Vagrant**:
 - [OpenSUSE Base Box for Vagrant From SUSE Studio](/2014/06/opensuse-base-box-for-vagrant-from-suse-studio/)
 - [Multi VM Vagrant Setup](/2014/06/multi-vm-vagrant-setup/)
 
-I realized I could also use [Puppet](https://puppetlabs.com) to provision the VM. This was my chance to learn **puppet**, so I set a goal for my self to stand up a web server (with apache/php/wordpress) and a db server (with mysql and a wordpress db). 
+I realized I could also use [Puppet](https://puppet.com) to provision the VM. This was my chance to learn **puppet**, so I set a goal for my self to stand up a web server (with apache/php/wordpress) and a db server (with mysql and a wordpress db). 
 
 Puppet can get really advanced with classes and modules. Puppet provides a lot of modules from [Puppet Forge](https://forge.puppetlabs.com/), you can install them using `puppet module install`. Before I started using classes or modules, I wanted to do a manual setup of wordpress just to get familiar with **puppet**. Having said that, I am sure this is not the most efficient way of doing this.
 
@@ -165,7 +165,7 @@ The documentation for **puppet** is really good and most of the above is pretty 
 > 
 >   Causes the resource on the left to be applied first, and sends a refresh event to the resource on the right if the left resource changes. Written with a tilde and a greater-than sign.
 
-When I was downloading the wordpress source, I used those to make sure I have the file prior to extract it (and other steps as well). Another thing that you see is the **file_line** directive, this comes from the [stdlib](https://forge.puppetlabs.com/puppetlabs/stdlib/4.2.2) module and allows you to edit files. Lastly I also ended using the **facter** command. From the [Facter](http://puppetlabs.com/facter) page:
+When I was downloading the wordpress source, I used those to make sure I have the file prior to extract it (and other steps as well). Another thing that you see is the **file_line** directive, this comes from the [stdlib](https://forge.puppetlabs.com/puppetlabs/stdlib/4.2.2) module and allows you to edit files. Lastly I also ended using the **facter** command. From the [Facter](https://puppet.com/docs/facter/latest) page:
 
 > Facter is an independent, cross-platform Ruby library designed to gather information on all the nodes you will be managing with Puppet. It is available on all platforms that Puppet is available.
 
@@ -249,7 +249,7 @@ The command basically provides OS information. You can get a full list of availa
 	uptime_seconds => 1310
 	virtual => virtualbox
 	
-So you can use this if you need to check some variable prior to running a command or make some OS dependent choice, when I was going through the [puppet tutorial](https://puppetlabs.com/download-learning-vm), this was the example they provided:
+So you can use this if you need to check some variable prior to running a command or make some OS dependent choice, when I was going through the [puppet tutorial](https://puppet.com/download-learning-vm), this was the example they provided:
 
 	case $::operatingsystem {
 	  'CentOS': { $apache_pkg = 'httpd' }

@@ -6,7 +6,7 @@ author: Karim Elatov
 categories: [os]
 tags: [puppet]
 ---
-After [playing around with **puppet**](/2014/08/messing-around-with-puppet/) I realized that it's inevitable that I will have to write a puppet module. To get started check out [this](https://docs.puppetlabs.com/guides/module_guides/bgtm.html) page (there is a good 3-part blog series [here](http://puppetlabs.com/blog/best-practices-building-puppet-modules) as well). The module should break down into 5 files (just my opinion... every one seems to have their own patterns... check out the note about best practices from [Building a Functional Puppet Workflow Part 1: Module Structure](http://garylarizza.com/blog/2014/02/17/puppet-workflow-part-1/)):
+After [playing around with **puppet**](/2014/08/messing-around-with-puppet/) I realized that it's inevitable that I will have to write a puppet module. To get started check out [this](https://docs.puppetlabs.com/guides/module_guides/bgtm.html) page (there is a good 3-part blog series [here](https://puppet.com/blog/best-practices-for-building-puppet-modules) as well). The module should break down into 5 files (just my opinion... every one seems to have their own patterns... check out the note about best practices from [Building a Functional Puppet Workflow Part 1: Module Structure](http://garylarizza.com/blog/2014/02/17/puppet-workflow-part-1/)):
 
 1. init.pp     (main class)
 2. params.pp   (defines the default parameters of the class)
