@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Run Script Before Shutdown with VMware Tools"
 author: Karim Elatov
