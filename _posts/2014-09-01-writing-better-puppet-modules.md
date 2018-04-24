@@ -6,7 +6,7 @@ author: Karim Elatov
 categories: [os]
 tags: [puppet]
 ---
-After [playing around with **puppet**](/2014/08/messing-around-with-puppet/) I realized that it's inevitable that I will have to write a puppet module. To get started check out [this](https://docs.puppetlabs.com/guides/module_guides/bgtm.html) page (there is a good 3-part blog series [here](https://puppet.com/blog/best-practices-for-building-puppet-modules) as well). The module should break down into 5 files (just my opinion... every one seems to have their own patterns... check out the note about best practices from [Building a Functional Puppet Workflow Part 1: Module Structure](http://garylarizza.com/blog/2014/02/17/puppet-workflow-part-1/)):
+After [playing around with **puppet**](/2014/08/messing-around-with-puppet/) I realized that it's inevitable that I will have to write a puppet module. To get started check out [this](https://puppet.com/docs/puppet/latest/bgtm.html) page (there is a good 3-part blog series [here](https://puppet.com/blog/best-practices-for-building-puppet-modules) as well). The module should break down into 5 files (just my opinion... every one seems to have their own patterns... check out the note about best practices from [Building a Functional Puppet Workflow Part 1: Module Structure](http://garylarizza.com/blog/2014/02/17/puppet-workflow-part-1/)):
 
 1. init.pp     (main class)
 2. params.pp   (defines the default parameters of the class)
@@ -33,7 +33,7 @@ You will also notice that there are different methods to do ordering of the clas
 	   Class["ntp"]
 	}
 	
-Or even the [first guide](https://docs.puppetlabs.com/guides/module_guides/bgtm.html) that I mentioned has the following:
+Or even the [first guide](https://puppet.com/docs/puppet/latest/bgtm.html) that I mentioned has the following:
 
 > Best practices recommend basing your requires, befores, and other ordering-related dependencies on classes rather than resources. Class-based ordering allows you to shield the implementation details of each class from the other classes. You can do things like:
 > 
@@ -229,7 +229,7 @@ Here is how mine looks like by default:
 		}
 	}
 	
-This figures out all the necessary configurations and where all the files will go depending on the OS. I also use a hash for all the settings, so if you ened to override the settings for the software you are installing, you can pass in a hash and the template will parse them appropriately. There is a move to use hiera and ENC ([External Node Classifiers](https://docs.puppetlabs.com/guides/external_nodes.html)) for these, but I am still just learning and I don't use those yet. There is actually a pretty good discuss in [When to Hiera (Aka: How Do I Module?)](http://garylarizza.com/blog/2013/12/08/when-to-hiera/). From that post here are some pros and cons of using the **params class pattern**:
+This figures out all the necessary configurations and where all the files will go depending on the OS. I also use a hash for all the settings, so if you ened to override the settings for the software you are installing, you can pass in a hash and the template will parse them appropriately. There is a move to use hiera and ENC ([External Node Classifiers](https://puppet.com/docs/puppet/latest/nodes_external.html)) for these, but I am still just learning and I don't use those yet. There is actually a pretty good discuss in [When to Hiera (Aka: How Do I Module?)](http://garylarizza.com/blog/2013/12/08/when-to-hiera/). From that post here are some pros and cons of using the **params class pattern**:
 
 > **Pros:**
 > 

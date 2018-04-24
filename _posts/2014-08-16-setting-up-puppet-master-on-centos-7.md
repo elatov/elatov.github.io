@@ -15,7 +15,7 @@ For now I will setup the Open Source one. Puppet has some awesome documentation 
 
 ### Preparing for the Puppet Deployment
 
-From "[Installing Puppet: Pre-Install Tasks](https://docs.puppetlabs.com/guides/install_puppet/pre_install.html)"  let's setup/choose the necessary prereqiusites:
+From "[Installing Puppet: Pre-Install Tasks](https://puppet.com/docs/puppet/latest/install_pre.html)"  let's setup/choose the necessary prereqiusites:
 
 1. Decide on a Deployment Type, I went with the "Agent/Master Puppet" deployment since I already played with the standalone setup
 2. Check OS Versions and System Requirements, I will use CentOS 7 which is similar to RHEL 7 and that is supported.
@@ -82,7 +82,7 @@ I did a minimal install of CentOS 7 so now let's make sure the prerequisites for
 		+atlantic1.hochs 209.51.161.238   2 u   36   64    7   92.751  -18.210  20.591
 
 ### Install Puppet Server
-From [Installing Puppet: Red Hat Enterprise Linux (and Derivatives)](https://docs.puppetlabs.com/guides/install_puppet/install_el.html) let's get the correct version of the *puppet* YUM repository:
+From [Installing Puppet: Red Hat Enterprise Linux (and Derivatives)](https://docs.puppet.com/puppet/3.8/install_el.html) let's get the correct version of the *puppet* YUM repository:
 
 	[elatov@puppet ~]$ sudo rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm
 	
@@ -97,7 +97,7 @@ If we ever need to update the puppet-server version we can run the following:
 I didn't have to do that, but I am sure I will have to later on.
 
 ### Configure a Puppet Master Server
-From [Installing Puppet: Post-Install Tasks](https://docs.puppetlabs.com/guides/install_puppet/post_install.html), it looks like we need configure the following things:
+From [Installing Puppet: Post-Install Tasks](https://docs.puppet.com/puppet/3.8/post_install.html), it looks like we need configure the following things:
 
 > - Get the master’s names and certificates set up
 > - Configure any necessary settings
@@ -148,7 +148,7 @@ After that we can run the following to generate the certificates:
 After you see the `Starting Puppet master` line you can click **CTRL-C** to quit the *puppet* master.
 
 #### Configure The Puppet Master
-From [Configuration: Short List of Important Settings](https://docs.puppetlabs.com/puppet/latest/reference/config_important_settings.html#settings-for-puppet-master-servers) we can see a couple of basic settings. I decided to explicitly set the **ca** setting to **true** and I also ended up enabling the **autosigning** feature. More information on auto signing can be seen in [SSL Configuration: Autosigning Certificate Requests](https://docs.puppetlabs.com/puppet/latest/reference/ssl_autosign.html). I basically ended up specifying a whitelist which contains a list of hosts or domains which will be autosigned by the master (if the whitelist is a file that is executable by the puppet user then it can be a poicy based script). From the same page:
+From [Configuration: Short List of Important Settings](https://puppet.com/docs/puppet/latest/config_important_settings.html#settings-for-puppet-master-servers) we can see a couple of basic settings. I decided to explicitly set the **ca** setting to **true** and I also ended up enabling the **autosigning** feature. More information on auto signing can be seen in [SSL Configuration: Autosigning Certificate Requests](https://puppet.com/docs/puppet/latest/ssl_autosign.html). I basically ended up specifying a whitelist which contains a list of hosts or domains which will be autosigned by the master (if the whitelist is a file that is executable by the puppet user then it can be a poicy based script). From the same page:
 
 > In policy-based autosigning, the CA will run an external policy executable every time it receives a CSR. This executable will examine the CSR and tell the CA whether the certificate is approved for autosigning. If the executable approves, the certificate is autosigned; if not, it is left for manual review.
 
@@ -173,11 +173,11 @@ This was just a home setup, but there are obvious security issues with this. Fro
 > With basic autosigning enabled, an attacker able to guess an unused certname allowed by autosign.conf would be able to obtain a signed agent certificate from the puppet master. They would then be able to obtain a configuration catalog, which may or may not contain sensitive information (depending on your deployment’s Puppet code and node classification).
 
 #### Create Puppet Modules and Manifests
-From the [Installing Puppet: Post-Install Tasks](https://docs.puppetlabs.com/guides/install_puppet/post_install.html) page:
+From the [Installing Puppet: Post-Install Tasks](https://docs.puppet.com/puppet/3.8/post_install.html) page:
 
 > If you’re starting from scratch, ensure that the **main** manifest exists. You may also want to install some modules from the **Puppet Forge**.
 	
-I was starting from scratch so let's get a main manifest going. From the [Directories: The Main Manifest(s)](https://docs.puppetlabs.com/puppet/latest/reference/dirs_manifest.html) page:
+I was starting from scratch so let's get a main manifest going. From the [Directories: The Main Manifest(s)](https://puppet.com/docs/puppet/latest/dirs_manifest.html) page:
 
 > ### Location of Manifests
 > 
@@ -198,7 +198,7 @@ I was starting from scratch so let's get a main manifest going. From the [Direct
 > 
 > Puppet will only read the first level of files in a manifest directory; it won’t descend into subdirectories.
 
-I wanted to find out what directory environments were and from the [Directory Environments](https://docs.puppetlabs.com/puppet/latest/reference/environments.html) page:
+I wanted to find out what directory environments were and from the [Directory Environments](https://puppet.com/docs/puppet/4.9/environments.html) page:
 
 > Environments are isolated groups of puppet agent nodes. A puppet master server can serve each environment with completely different main manifests and modulepaths.
 > 
@@ -232,7 +232,7 @@ So let's make it a directory and put a single manifest in the directory (each ma
 	$ sudo mkdir /etc/puppet/manifests/site.pp
 	$ sudo touch /etc/puppet/manifests/site.pp/pup-node1.pp
 
-Another method is to use the **import** functionatlity. From [Language: Node Definitions](https://docs.puppetlabs.com/puppet/latest/reference/lang_node_definitions.html):
+Another method is to use the **import** functionatlity. From [Language: Node Definitions](https://puppet.com/docs/puppet/latest/lang_node_definitions.html):
 
 > #### Location
 > Node definitions should go in the site manifest (**site.pp**).
@@ -249,7 +249,7 @@ Another method is to use the **import** functionatlity. From [Language: Node Def
 >     import 'extra_nodes.pp'
 
 #### Creating a Puppet Module
-So now we need to define a node in our node defintion so we can push settings to the node. Before this was done inside the **site.pp** manifest file, but now everything is done with classes and(or) modules. From [Learning Puppet — Modules and Classes](https://docs.puppetlabs.com/learning/modules1.html):
+So now we need to define a node in our node defintion so we can push settings to the node. Before this was done inside the **site.pp** manifest file, but now everything is done with classes and(or) modules. From [Learning Puppet — Modules and Classes](https://puppet.com/presentations/getting-started-puppet):
 
 > #### The End of the One Huge Manifest
 > You can write some pretty sophisticated manifests at this point, but so far you’ve just been putting them in one file (either **/etc/puppetlabs/puppet/manifests/site.pp** or a one-off to use with puppet apply).
@@ -346,7 +346,7 @@ and let's include that class in our configuration node:
 		include users
 	}
 
-There are different ways to use a defined class, from [Language: Classes](https://docs.puppetlabs.com/puppet/latest/reference/lang_classes.html):
+There are different ways to use a defined class, from [Language: Classes](https://puppet.com/docs/puppet/latest/lang_classes.html):
 
 > ####Include-Like Behavior
 > The **include**, **require**, **contain**, and **hiera_include** functions let you safely declare a class multiple times; no matter how many times you declare it, a class will only be added to the catalog once. This can allow classes or defined types to manage their own dependencies, and lets you create overlapping “role” classes where a given node may have more than one role.
@@ -441,7 +441,7 @@ and the second one:
 I wasn't overriding any class parameters so I used the **include** declaration.
 
 ### Prepare a WebServer for the Puppet Master
-From the [Installing Puppet: Post-Install Tasks](https://docs.puppetlabs.com/guides/install_puppet/post_install.html) page:
+From the [Installing Puppet: Post-Install Tasks](https://docs.puppet.com/puppet/3.8/post_install.html) page:
 
 > #### Configure a Production-Ready Web Server
 > 
@@ -449,7 +449,7 @@ From the [Installing Puppet: Post-Install Tasks](https://docs.puppetlabs.com/gui
 > 
 > If you have no particular preference, you should use Passenger with Apache, since it works well and is simple to set up.
 
-The page [Configuring a Puppet Master Server with Passenger and Apache](https://docs.puppetlabs.com/guides/passenger.html) has most of the instructions laid out on how to install **Passenger**. We can either use the [EPEL](https://fedoraproject.org/wiki/EPEL) repository or the *PupperLabs* one. Since I already had the PuppetLabs one enabled (I did this when I installed the **puppet-server** package), I just ended up using that. So let's the necessary packages:
+The page [Configuring a Puppet Master Server with Passenger and Apache](https://puppet.com/docs/puppet/latest/passenger.html) has most of the instructions laid out on how to install **Passenger**. We can either use the [EPEL](https://fedoraproject.org/wiki/EPEL) repository or the *PupperLabs* one. Since I already had the PuppetLabs one enabled (I did this when I installed the **puppet-server** package), I just ended up using that. So let's the necessary packages:
 
 	$ sudo yum install httpd httpd-devel mod_ssl ruby-devel rubygems gcc gcc-c++ curl-devel openssl-devel zlib-devel
 
@@ -722,7 +722,7 @@ Now running the **curl** command without the **-k** arguement works fine:
 This is competely unnecessary but I just did it cause I wanted my laptop to trust the puppet CA SSL cert (even though my laptop won't be managed by the puppet master).
 
 ### Install and Configure a Puppet Agent
-Now that we are done with the puppet master configuration, let's setup a puppet node/agent. From [Installing Puppet: Red Hat Enterprise Linux (and Derivatives)](https://docs.puppetlabs.com/guides/install_puppet/install_el.html) we can see how to install the agent. We just add the same *PuppetLabs* YUM repo and install the **puppet** package instead of the **puppet-server** package. So I stood up a quick machine with **vagrant** and made sure the hostname is **pup-node1.dnsd.me**:
+Now that we are done with the puppet master configuration, let's setup a puppet node/agent. From [Installing Puppet: Red Hat Enterprise Linux (and Derivatives)](https://docs.puppet.com/puppet/3.8/install_el.html) we can see how to install the agent. We just add the same *PuppetLabs* YUM repo and install the **puppet** package instead of the **puppet-server** package. So I stood up a quick machine with **vagrant** and made sure the hostname is **pup-node1.dnsd.me**:
 
 	[vagrant@pup-node1 ~]$ hostname -s
 	pup-node1
@@ -742,7 +742,7 @@ and now let's install the puppet agent:
 
 	[vagrant@pup-node1 ~]$ sudo yum install puppet
 
-From [Installing Puppet: Post-Install Tasks](https://docs.puppetlabs.com/guides/install_puppet/post_install.html), here are the next steps:
+From [Installing Puppet: Post-Install Tasks](https://docs.puppet.com/puppet/3.8/post_install.html), here are the next steps:
 
 > After installing Puppet on a normal puppet agent node, you’ll need to:
 > 
@@ -751,7 +751,7 @@ From [Installing Puppet: Post-Install Tasks](https://docs.puppetlabs.com/guides/
 > - Sign the new node’s certificate
 > - Classify (assign configurations to) the new node
 
-Looking over [Configuration: Short List of Important Settings](https://docs.puppetlabs.com/puppet/latest/reference/config_important_settings.html#settings-for-agents-all-nodes), it looks like we need to define the **server** and the **certname** (this is basically the hostname of our node) if the hostname is not configured appropriately. So I just added the **server** directive (which is actually unncessary since by default the **server** directive is set to **puppet**... and my DNS was appropriately setup to resolve that name):
+Looking over [Configuration: Short List of Important Settings](https://puppet.com/docs/puppet/latest/config_important_settings.html#settings-for-agents-all-nodes), it looks like we need to define the **server** and the **certname** (this is basically the hostname of our node) if the hostname is not configured appropriately. So I just added the **server** directive (which is actually unncessary since by default the **server** directive is set to **puppet**... and my DNS was appropriately setup to resolve that name):
 
 	[vagrant@pup-node1 ~]$ grep server /etc/puppet/puppet.conf 
 		server = puppet.dnsd.me
@@ -825,7 +825,7 @@ Looks like I need to create the group first, but I was glad to see it try. So I 
 		}
 	}
 
-I then went back to node and ran the following to pull the new configuration (this was described in [Learning Puppet — Basic Agent/Master Puppet](https://docs.puppetlabs.com/learning/agent_master_basic.html)):
+I then went back to node and ran the following to pull the new configuration (this was described in [Learning Puppet — Basic Agent/Master Puppet](https://puppet.com/docs/puppet/latest/quick_start_master_agent_communication.html)):
 
 	[root@pup-node1 ~]# puppet agent --test
 	Info: Retrieving pluginfacts
@@ -880,7 +880,7 @@ and then re-check in with the master:
 If you want you can include the puppet cert in the vagrant box that way you won't have to do this, but then if any one gets a hold of the box they will be able to check in with the master since that cert will be already registered on the host. 
 
 ### Agent and Master Communication
-From [Learning Puppet — Basic Agent/Master Puppet](https://docs.puppetlabs.com/learning/agent_master_basic.html):
+From [Learning Puppet — Basic Agent/Master Puppet](https://puppet.com/docs/puppet/latest/quick_start_master_agent_communication.html):
 
 > Puppet’s agent/master mode is **pull-based**. Usually, agents are configured to periodically fetch a catalog and apply it, and the master controls what goes into that catalog.
 > 
@@ -901,9 +901,9 @@ From [Learning Puppet — Basic Agent/Master Puppet](https://docs.puppetlabs.com
 > 
 > If you accidentally run the agent without **--test**, it will daemonize and run in the background.
 
-There used to a **kick** funcionality, more information on that in the [Deprecated Command Line Features](https://docs.puppetlabs.com/puppet/3.7/reference/deprecated_command.html#puppet-kick). It basically allowed the master to initiate a **pull** from the node, but it required some setup on the node (like listening on port **8139** and allowing certain hosts to access the **pull** functionality). It's now a deprecated feature and will be replace with **mcollective** eventually. 
+There used to a **kick** funcionality, more information on that in the [Deprecated Command Line Features](https://docs.puppet.com/puppet/3.7/deprecated_command.html#puppet-kick). It basically allowed the master to initiate a **pull** from the node, but it required some setup on the node (like listening on port **8139** and allowing certain hosts to access the **pull** functionality). It's now a deprecated feature and will be replace with **mcollective** eventually. 
 
-We can also see that the default fetch period is every 30 minutes. This can be changed by modifying the **runinterval** option in the **agent** section of **/etc/puppet/puppet.conf** file on the node. From [Configuration Reference](https://docs.puppetlabs.com/references/latest/configuration.html#runinterval)
+We can also see that the default fetch period is every 30 minutes. This can be changed by modifying the **runinterval** option in the **agent** section of **/etc/puppet/puppet.conf** file on the node. From [Configuration Reference](https://puppet.com/docs/puppet/latest/configuration.html#runinterval)
 
 
 > #### runinterval

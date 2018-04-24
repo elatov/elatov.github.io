@@ -43,7 +43,7 @@ I also ended up opening ports **80** and **3306** on the base image:
 After that, I packaged up a new box and uploaded it to the vagrant cloud (for more information on the upload, check out [this](/2014/06/upload-vagrant-box-to-the-vagrant-cloud/) post).
 
 ### Prepare Web Puppet file
-I was using my Mac to run **vagrant** and **VirtualBox**, so I installed **puppet** on there locally, just so I can parse the config prior to appying it. Instructions on the install are laid out in [Installing Puppet: Mac OS X](http://docs.puppetlabs.com/guides/install_puppet/install_osx.html). We just have to install 3 packages, from the above page:
+I was using my Mac to run **vagrant** and **VirtualBox**, so I installed **puppet** on there locally, just so I can parse the config prior to appying it. Instructions on the install are laid out in [Installing Puppet: Mac OS X](https://puppet.com/docs/puppet/latest/install_osx.html). We just have to install 3 packages, from the above page:
 
 > Puppet Labs’ OS X packages can be found here. You will need three packages total:
 > 
@@ -153,7 +153,7 @@ After messing around with different **puppet** functionality, I ended up with th
 		notify => Service["apache2"],
 	}
 
-The documentation for **puppet** is really good and most of the above is pretty self explanatory. You will notice that I ended up using `->` and `~>`. Those are explained in [Language: Relationships and Ordering](http://docs.puppetlabs.com/puppet/latest/reference/lang_relationships.html). From that page:
+The documentation for **puppet** is really good and most of the above is pretty self explanatory. You will notice that I ended up using `->` and `~>`. Those are explained in [Language: Relationships and Ordering](https://puppet.com/docs/puppet/latest/lang_relationships.html). From that page:
 
 > You can create relationships between two resources or groups of resources using the `->` and `~>` operators.
 > 
@@ -590,7 +590,7 @@ There are already modules out there:
 
 Which basically automate what I did above. With those we have a couple of options, either pre-install them on the base box or install them on your local machine and then set the puppet **module_path** variable in the **VagrantFile**.
 
-We can also create modules instead of using single manifest files. From [Learning Puppet — Modules and Classes](http://docs.puppetlabs.com/learning/modules1.html):
+We can also create modules instead of using single manifest files. From [Learning Puppet — Modules and Classes](https://puppet.com/docs/puppet/latest/bgtm.html):
 
 > **The End of the One Huge Manifest**
 > 
