@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "ESXi 6.5 Passthrough Video Card/GPU to Plex VM"
 author: Karim Elatov
