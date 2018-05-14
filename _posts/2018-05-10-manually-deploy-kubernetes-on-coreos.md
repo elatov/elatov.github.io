@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Manually Deploy Kubernetes on CoreOS"
 author: Karim Elatov
