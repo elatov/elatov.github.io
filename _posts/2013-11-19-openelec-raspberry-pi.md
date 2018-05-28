@@ -257,7 +257,6 @@ I read a couple of sites that talked about **dirty regions**. More information o
 I also saw a couple of other posts that had similar goals:
 
 *   [OpenElec Raspberry PI – tweaks](http://lokir.wordpress.com/2013/01/12/openelec-raspberry-pi-tweaks/)
-*   [Setting up OpenELEC on the Raspberry Pi](http://mrpfister.com/journal/setting-up-openelec-on-the-raspberry-pi/)
 *   [HOW-TO:Modify dirty regions](http://kodi.wiki/view/Dirty_regions)
 
 In the end, I added the following to my **.xbmc/userdata/advancedsettings.xml** file:

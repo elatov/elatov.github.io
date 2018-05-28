@@ -299,7 +299,7 @@ This gave me the option to troubleshoot issues at an "OS" level. So the first **
 	if (Boolean.valueOf(ENABLE_FREEBSD_BUILD)){
 		    node('freebsd') {
 
-I also [clean out the workspace](https://www.quernus.co.uk/2016/10/03/wipe-workspace-jenkins-2.0-deletedir/) before each build just to make sure none of the previous build impacts this build:
+I also [clean out the workspace](https://jenkins.io/doc/pipeline/tour/post/) before each build just to make sure none of the previous build impacts this build:
 
 	deleteDir()
 
