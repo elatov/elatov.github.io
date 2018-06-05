@@ -144,7 +144,7 @@ Doing an **iperf** test with *parallel* threads I was able to get same BW:
 	[  4]  0.0-15.0 sec  6.60 GBytes  3.78 Gbits/sec
 	[SUM]  0.0-15.0 sec  13.2 GBytes  7.56 Gbits/sec
 
-Enabled *Jumbo frames* (as described in [Testing 10G network with iperf](https://elkano.org/blog/testing-10g-network-iperf/)):
+Enabled *Jumbo frames* (as described in [How to configure Jumbo Frames on a server](http://en.community.dell.com/techcenter/enterprise-solutions/w/oracle_solutions/1413.how-to-configure-jumbo-frames-on-a-server)):
 
 	┌─[elatov@air] - [/home/elatov] - [2016-01-03 10:50:52]
 	└─[0] <> sudo ip link set enp10s0f1 mtu 9000

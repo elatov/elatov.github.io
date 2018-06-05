@@ -581,7 +581,7 @@ Throughout my testing I did a couple of things. I would say the below had minima
 2.  From [VMware KB 1017652](http://kb.vmware.com/kb/1017652) use the **pvscsi** virtual adapter
 3.  From [Linux 2.6 kernel-based virtual machines experience slow disk I/O performance](http://kb.vmware.com/kb/2011861) set the I/O Scheduler to **noop** (`echo noop > /sys/block/sdb/queue/scheduler`).
 4.  Per [this](http://kb.vmware.com/kb/1003469) HP KB, change the **MaxIOSize** option in VMware (`esxcli system settings advanced set -o /Disk/DiskMaxIOSize -i 128`)
-5.  Modify the following ZFS settings on the ZFS Volume, taken from [this](http://www.serverfocus.org/zfs-evil-tuning-guide) blog.
+5.  Modify the following ZFS settings on the ZFS Volume, taken from [this](https://www.solaris-cookbook.eu/solaris/solaris-10-zfs-evil-tuning-guide/) blog.
     1.  Turn off the **checksum** (`zfs set checksum=off data/test`)
     2.  Change **Primary Cache** (`zfs set primarycache=metadata data/test`)
 6.  Disable **sync** (there is a discussion [here](http://forums.freenas.org/threads/data-integritry-nfs-vs-iscsi-on-zfs-with-vmware.12241/)), it seems that it mostly applies to NFS, but I decided to give it a try just to see if it helps out(`zfs set sync=disabled data/test`)

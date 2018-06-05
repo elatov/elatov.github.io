@@ -698,5 +698,5 @@ After a couple of days, I saw the following alert:
 
 ![php vulnerability Snort On Debian](https://github.com/elatov/uploads/raw/master/2014/04/php-vulnerability.png)
 
-[Here](http://thembits.blogspot.com/2014/02/php-cgi-exploitation-never-dies.html) is a little more information about the attack and here is a [link](http://projects.webappsec.org/w/page/13246955/Remote%20File%20Inclusion) that talks about disabling PHP Remote File Inclusion.
+[Here](http://thembits.blogspot.com/2014/02/php-cgi-exploitation-never-dies.html) is a little more information about the attack and here is a [link](https://www.netsparker.com/blog/web-security/remote-file-inclusion-vulnerability/) that talks about disabling PHP Remote File Inclusion.
 
