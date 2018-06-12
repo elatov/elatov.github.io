@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Installing Heapster for Kubernetes"
 author: Karim Elatov
