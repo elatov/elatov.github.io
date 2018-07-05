@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Install Guacamole on Docker"
 author: Karim Elatov
