@@ -110,7 +110,7 @@ And you can login with the default credentials:
 Change that as soon as you login. After that you can create all the connections you want: RDP, SSH, and VNC.
 
 ### Putting Guagamole behind a Reverse Proxy
-I have done this in tha past with [splunk](https://elatok.github.io/2013/12/installing-splunk-freebsd/) and [kibana](/2016/05/reverse-proxy-kibana-with-apache/). So I already had an **apache** server running on Debian and luckily it was version 2.4:
+I have done this in tha past with [splunk](/2013/12/installing-splunk-freebsd/) and [kibana](/2016/05/reverse-proxy-kibana-with-apache/). So I already had an **apache** server running on Debian and luckily it was version 2.4:
 
 	<> apache2ctl -v
 	Server version: Apache/2.4.25 (Debian)

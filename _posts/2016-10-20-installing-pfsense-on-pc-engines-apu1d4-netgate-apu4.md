@@ -320,7 +320,7 @@ And more information:
   
 #### CLOG Logs
 
-Most of the logs on pfSense are in CLOG format and therefore we need to use **clog** to read the logs: [Why can't I view view log files with cat/grep/etc? (clog)](https://doc.pfsense.org/index.php/Why_can't_I_view_view_log_files_with_cat/grep/etc%3F_(clog))
+Most of the logs on pfSense are in CLOG format and therefore we need to use **clog** to read the logs: [Working with Binary Circular Logs (clog)](https://www.netgate.com/docs/pfsense/monitoring/working-with-binary-circular-logs-clog.html)
 
 So we can do this:
 
@@ -453,4 +453,4 @@ Looking over [Installing FreeBSD Packages](https://doc.pfsense.org/index.php/Ins
 
 ### Other Similar Products
 
-Even though this device is 2 years old it still looks pretty good. It looks like you can get a newer device from **pfSense**: [SG-2440](https://store.pfsense.org/SG-2440/). I think if this one starts to slow down, I might take a look at the newer devices coming out.
+Even though this device is 2 years old it still looks pretty good. It looks like you can get a newer device from **pfSense**: [SG-2440](https://store.netgate.com/SG-2440.aspx). I think if this one starts to slow down, I might take a look at the newer devices coming out.
