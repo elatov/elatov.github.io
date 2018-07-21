@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Update a Kubernetes Deployment"
 author: Karim Elatov
