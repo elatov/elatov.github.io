@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Use Terraform to Deploy a VM in ESXi"
 author: Karim Elatov

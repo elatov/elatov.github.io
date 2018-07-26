@@ -124,7 +124,7 @@ First we need to have a DNS name for the manager (management portal) of *lemonld
 
 Second we need a DNS Name for the application portal, this is where regular users go to access SSO enabled applications, this is sometimes referred to as the **authentication portal**. I ended using **port.dnsd.me**.
 
-Lastly to be able to update configuration from the administration portal, we will need **reload.dnsd.me**. After that is in place we can start configuring *lemonldap-ng*. You can setup each of the components on different servers as shown [here](http://wiki.lemonldap.ow2.org/xwiki/bin/view/NG/Presentation#HArchitecture):
+Lastly to be able to update configuration from the administration portal, we will need **reload.dnsd.me**. After that is in place we can start configuring *lemonldap-ng*. You can setup each of the components on different servers as shown [here](https://lemonldap-ng.org/documentation/2.0/highavailability):
 
 ![lemonldap arch LemonLDAP NG With LDAP and SAML Google Apps](https://github.com/elatov/uploads/raw/master/2014/01/lemonldap-arch.png)
 
