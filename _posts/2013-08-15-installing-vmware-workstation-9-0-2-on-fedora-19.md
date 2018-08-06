@@ -94,7 +94,7 @@ And I was running Kernel 3.10:
     3.10.5-201.fc19.x86_64
 
 
-Similar patches can be found [here](http://mysticalzero.blogspot.com/2013/07/vmblock-patch-for-linux-310-vmware.html). After I ran the above commands to apply the patches, the compile went through.
+Similar patches can be found [here](http://www.yfwongricky.name/2013/07/vmblock-patch-for-linux-310-vmware.html). After I ran the above commands to apply the patches, the compile went through.
 
 ## Entering the License Number
 

@@ -11,7 +11,7 @@ I wanted to root my HTC Sensation phone, since I have been putting it off for a 
 
 1.  "[How to Root Your HTC Sensation](http://www.androidauthority.com/how-to-root-htc-sensation-21697/)"
 2.  "[How to Root HTC Sensation 4G](http://how2rootandroiddevices.blogspot.com/2012/06/how-to-root-htc-sensation-4g.html)"
-3.  "[How To Root HTC Sensation/Sensation XE Running Ice Cream Sandwich](http://www.blogotechblog.com/2012/04/how-to-root-htc-sensationsensation-xe-running-ice-cream-sandwich/)"
+3.  "[How To Root HTC Sensation/Sensation XE Running Ice Cream Sandwich](http://www.asgaur.com/wp/how-to-root-htc-sensationsensation-xe-running-ice-cream-sandwich/)"
 
 ### 1. Create Backups
 

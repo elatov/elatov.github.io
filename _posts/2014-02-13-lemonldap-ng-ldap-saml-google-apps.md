@@ -83,7 +83,7 @@ and then finally run the following to install it:
     sudo make install
 
 
-For some reason the [ld-run-path](https://blogs.oracle.com/ali/avoiding-ldlibrarypath:-the-options) wasn't setting appropriately, and upon loading the **Lasso** perl module it would fail with the following message:
+For some reason the [ld-run-path](https://blogs.oracle.com/solaris/ldlibrarypath-just-say-no-v2) wasn't setting appropriately, and upon loading the **Lasso** perl module it would fail with the following message:
 
     elatov@ccl:~$perl -MLasso
     Can't load '/usr/local/lib64/perl5/auto/Lasso/Lasso.so' for module Lasso:

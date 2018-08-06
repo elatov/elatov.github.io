@@ -6,7 +6,7 @@ description: ""
 categories: [os]
 tags: [grub,vagrant,opensuse, suse_studio]
 ---
-{% include note.html content="SUSE Studio has been deprecated, and OBS can be used to build an image. Check out [Open Build Service Integration](http://blog.susestudio.com/2017/06/open-build-service-integration.html) and [SUSE Studio Integration](http://openbuildservice.org/2017/05/31/studio-import/) on instructions to migrate your configuration into OBS" %}
+{% include note.html content="SUSE Studio has been deprecated, and OBS can be used to build an image. Check out [Open Build Service Integration](https://openbuildservice.org/2017/09/27/suse-studio-express/) and [SUSE Studio Integration](http://openbuildservice.org/2017/05/31/studio-import/) on instructions to migrate your configuration into OBS" %}
 
 As I was creating an [OpenSUSE base box](/2014/06/create-a-base-opensuse-image-for-vagrant/) for vagrant, I realized that it was still kind of big in size. I wanted to create a minimal base OS of the OpenSUSE Linux Distribution. That is when I ran into **SUSE Studio**. From [SUSE's site](https://www.suse.com/products/susestudio/technical-information/):
 

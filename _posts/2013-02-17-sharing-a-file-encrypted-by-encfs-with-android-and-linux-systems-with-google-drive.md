@@ -61,7 +61,7 @@ Now to configure the Google Drive Synchronization:
     Please input the authentication code here:
 
 
-At this point you can visit the link provided by grive. [This](http://maketecheasier.com/access-sync-google-drive-in-ubuntu/2012/06/06) site, has good screenshots of the process. After you enter the authentication code, the sync will start:
+At this point you can visit the link provided by grive. After you enter the authentication code, the sync will start:
 
     Reading local directories
     Synchronizing folders
