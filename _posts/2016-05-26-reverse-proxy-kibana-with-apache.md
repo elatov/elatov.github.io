@@ -9,7 +9,7 @@ tags: [linux,debian,apache,kibana]
 After some time I realized I wanted to protect my kibana dashboard using a password. I did a similar setup with my splunk setup, where I used apache's reverse proxy capability to password protect the application (the setup is covered [here](/2013/12/installing-splunk-freebsd/)). 
 
 ### Reverse Proxy with a Dedicated VirtualHost
-This setup is covered [here](http://mmbash.de/blog/kibana-beta-behind-apache-proxy/). I ended up creating the following configuration:
+This setup is covered [here](https://www.jhipster.tech/tips/023_tip_protecting_kibana_with_apache_basic_authent.html). I ended up creating the following configuration:
 
 	┌─[elatov@kerch] - [/home/elatov] - [2016-02-07 09:29:16]
 	└─[0] <> cat /etc/apache2/sites-enabled/40-www.conf

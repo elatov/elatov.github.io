@@ -6,7 +6,7 @@ author: Karim Elatov
 categories: [security,networking]
 tags: [pfsense,splunk,suricata]
 ---
-I wanted to ship my **suricata** alerts to my **splunk** instance. You could probably use syslog but the json won't show up nicely in **splunk**: [JSON from Syslog using Splunk](http://tabchalk.com/blog/?p=142), [Is it possible to parse an extracted field as json if the whole log line isn't json?](https://answers.splunk.com/answers/107488/is-it-possible-to-parse-an-extracted-field-as-json-if-the-whole-log-line-isnt-json.html), and [Sending rsyslog JSON format](https://answers.splunk.com/answers/318025/sending-rsyslog-json-format-1.html). There are a couple of work arounds but they are kind of painful. I heard of the Splunk forwarder and I wanted to try it out, so I decided to go that route.
+I wanted to ship my **suricata** alerts to my **splunk** instance. You could probably use syslog but the json won't show up nicely in **splunk**: [Consuming JSON With Splunk In Two Simple Steps](https://kzhendev.wordpress.com/2015/01/19/consuming-json-with-splunk-in-two-simple-steps/), [Is it possible to parse an extracted field as json if the whole log line isn't json?](https://answers.splunk.com/answers/107488/is-it-possible-to-parse-an-extracted-field-as-json-if-the-whole-log-line-isnt-json.html), and [Sending rsyslog JSON format](https://answers.splunk.com/answers/318025/sending-rsyslog-json-format-1.html). There are a couple of work arounds but they are kind of painful. I heard of the Splunk forwarder and I wanted to try it out, so I decided to go that route.
 
 ### Download the SplunkForwader 
 After logging into the **splunk** site you can get the **wget** command for the download:
