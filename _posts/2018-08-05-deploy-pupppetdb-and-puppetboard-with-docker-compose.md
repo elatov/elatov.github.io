@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Deploy PupppetDB and PuppetBoard with Docker Compose"
 author: Karim Elatov
