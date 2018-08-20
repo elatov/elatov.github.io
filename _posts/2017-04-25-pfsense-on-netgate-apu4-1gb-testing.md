@@ -211,7 +211,7 @@ As I kept reading about the APU4 unit I ran into a bunch of folks that mentioned
 
 	> ![pf-graph-apu](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu4-wan/pf-graph-apu.png&raw=1)
 
-* [pfSense home router using the PC Engines APU1D4](http://www.sgvulcan.com/2015/08/27/pfsense-home-router-using-the-pc-engines-apu1d4/)
+* pfSense home router using the PC Engines APU1D4
 
 	> Throughput: without heavy use (squid, snort, etc.) you should see 400-500 Mbit WAN->LAN (limited by the realtek NICs). I know Mbit is not a good measure of a router/firewall performance but this is what matters to me at home. I saw mentions of 600 Mbit. I was eager to deploy it so I didn’t do any testing so all I can say is that 300Mbit works fine without any strain.
 

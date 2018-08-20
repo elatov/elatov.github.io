@@ -5,7 +5,7 @@ layout: post
 categories: ['os', 'networking']
 tags: ['iptables','pf', 'igmp', 'xbmc', 'linux', 'fedora','freebsd', 'dlna', 'mediatomb', 'upnp']
 ---
-{% include note.html content="It looks like mediatomb is no longer maintained and [gerbera](https://gerbera.io/) is a nice alternative" %}
+{% include note.html content="It looks like mediatomb is no longer maintained and [gerbera](http://docs.gerbera.io) is a nice alternative" %}
 
 I recently got some new hardware and wanted to setup a video streaming server in my home. There are a lot of choices out there, for example check out the wiki page "[How to Select a Proper Technology for HD Video Streaming in Home Networking Environments](http://en.wikipedia.org/wiki/List_of_streaming_media_systems)". From that article:
 
