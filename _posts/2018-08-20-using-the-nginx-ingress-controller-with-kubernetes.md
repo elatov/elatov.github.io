@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Using the Nginx Ingress Controller with Kubernetes"
 author: Karim Elatov
