@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Installing OpenStack Pike with Kolla Ansible"
 author: Karim Elatov
