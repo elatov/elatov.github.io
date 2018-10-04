@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Deploying an OpenStack Instance with Terraform"
 author: Karim Elatov
