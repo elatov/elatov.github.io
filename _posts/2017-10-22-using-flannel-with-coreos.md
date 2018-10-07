@@ -62,7 +62,7 @@ Since I was already using CoreOS I knew that **flannel** comes pre-installed wit
 What I liked about **flannel** is that it sits in front of docker and the containers don't really need to know that they are using an overlay network. You can just configure the containers to use the **docker0** (bridge network) interface and it will work without issues. If you are not using CoreOS the **flannel** setup is covered in the following sites:
 
 1. [Multi-Host Networking Overlay with Flannel](http://docker-k8s-lab.readthedocs.io/en/latest/docker/docker-flannel.html)
-2. [Flannel for Docker Overlay Network](http://chunqi.li/2015/10/10/Flannel-for-Docker-Overlay-Network/)
+2. [Docker overlay network using Flannel](http://blog.shippable.com/docker-overlay-network-using-flannel)
 3. [Howto Configure flannel Overlay Network with VXLAN for Docker on Power Servers](http://cloudgeekz.com/1016/configure-flannel-docker-power.html)
 
 The jist of the setup is, first add the **flannel** network into **etcd2**:

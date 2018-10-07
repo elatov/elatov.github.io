@@ -12,7 +12,7 @@ Got myself a new router, didn't really need one, but got one just for the heck o
 
 Looking over the [following](http://www.dd-wrt.com/phpBB2/viewtopic.php?t=177612&postdays=0&postorder=asc&start=810) thread, it looks like at the time of writing (Nov 1st 2014) the **24461** firmware seems pretty stable. 
 
-With the ASUS router it's a two step process to get DD-WRT on it, first we flash it with the BrainSlayer Firmware (**.trx** file) and then we update to the lastest Kong Build of DD-WRT (**.bin** file). For the Kong DD-WRT build I grabbed the [25015M](http://www.desipro.de/ddwrt-ren/K3-AC-Arm/25015M/dd-wrt.v24-K3_AC_ARM_STD.bin) version (other people had luck with it) and  the [Supported Models document](http://www.desipro.de/ddwrt-ren/K3-AC-Arm/25015M/Supported%20Models.txt) had the **AC68U** Router listed.
+With the ASUS router it's a two step process to get DD-WRT on it, first we flash it with the BrainSlayer Firmware (**.trx** file) and then we update to the lastest Kong Build of DD-WRT (**.bin** file). For the Kong DD-WRT build I grabbed the [25015M](http://www.desipro.de/ddwrt/K3-AC-Arm/) version (other people had luck with it) and  the [Supported Models document](http://www.desipro.de/ddwrt/K3-AC-Arm/Supported%20Models) had the **AC68U** Router listed.
 
 ### DD-WRT Install Process
 
