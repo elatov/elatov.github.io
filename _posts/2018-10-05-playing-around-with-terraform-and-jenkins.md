@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Playing Around with Terraform and Jenkins"
 author: Karim Elatov
