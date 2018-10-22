@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Using Foreman to Provision and Configure Machines"
 author: Karim Elatov
