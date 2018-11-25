@@ -8,19 +8,13 @@ tags: [vcloud_air, vpn, syslog, ipsec, REST]
 ---
 I decided to play around with vCloud Air (VMware's solution for a public cloud).
 
-###vCloud Air Special Offer
-
-There is a pretty nice promotion to get free $300 credit in vCloud air for the first 90 days. More information is seen at [Special Offers](http://vcloud.vmware.com/service-offering/special-offer):
-
-> At the completion of the sign up process for vCloud Air OnDemand, including providing a valid credit card and billing address, new customers will receive a credit for $300 USD (amount varies depending on the currency for international customers). This credit will be valid for the first three billing cycles, with each billing cycle lasting a period of one month. At the completion of the first three billing cycles, any unused credit will expire and not be redeemable for service or cash. This credit may be used for any services provided by vCloud Air OnDernand at the time of sign up. Customers must sign up for the service by using the link provided on the OnDemand sign up promotion page at vcloud.vmware.com in order to qualify for this promotional credit. Services provided in excess of the initial $300 USD credit will be charged at then-current rates to the customer credit card provided.
-
-After signing up for that I decided to play around with different options.
+{% include note.html content="Vcloud Air is now Part of [OVH](https://www.ovh.com/world/vcloud_air_powered_by_ovh/) and the below guide is obsolete" %}
 
 ### Basic Network Connectivity
 By default most of the traffic is blocked and no NAT is configured so you can't reach the external network. First let's get a public IP. In vCloud air go to **Gateways** -> **GATEWAY ON VDC1** -> **Public IPs** and initially it will look like this:
 
 ![vca-no-pub-ips](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/vca-no-pub-ips.png&raw=1)
- 
+
 Then click on **Add IP Address** and it will warn you about getting charged and after that it will allocate the IP and you will see the following:
 
 ![vca-pub-ip-assigned](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/vca-pub-ip-assigned.png&raw=1)
@@ -80,7 +74,7 @@ A quick test with telnet showed that I can reach the internal machine. So from m
 	~$telnet 107.189.120.76 80
 	Trying 107.189.120.76...
 	telnet: Unable to connect to remote host: Connection refused
- 
+
 And on my test VM running a **tcpdump** showed the following:
 
 ![vca-vm-console-tcpdump-80](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/vca-vm-console-tcpdump-80.png&raw=1)
@@ -308,7 +302,7 @@ Now let's configure the Virtual VIP of the cluster. So go to the **Virtual Serve
 
 ![vca-lb-vip-settings](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/vca-lb-vip-settings.png&raw=1)
 
-Looking over [Introduction to Gateway Services: Load Balancing](http://vcloud.vmware.com/using-vcloud-air/tutorials/introduction-to-gateway-services-load-balancing) and [Load Balancing a SharePoint Application](http://vcloud.vmware.com/using-vcloud-air/tutorials/load-balancing-a-sharepoint-application-step-guide) they use the Public IP for the VIP and that makes sense. If we really wanted we could assign a private IP to the VIP and then do a DNAT at the firewall to go from Public_IP:443 to Private_VIP:443 (but I think that would cause all the traffic to come from the Internal IP and the IP Hash balancing algorithm won't help).
+Looking over [Introduction to Gateway Services: Load Balancing](https://docs.ovh.com/gb/en/load-balancer/loadbalancer-introduction/)  they use the Public IP for the VIP and that makes sense. If we really wanted we could assign a private IP to the VIP and then do a DNAT at the firewall to go from Public_IP:443 to Private_VIP:443 (but I think that would cause all the traffic to come from the Internal IP and the IP Hash balancing algorithm won't help).
 
 After it's done you will see the following under the **Virtual Servers** Subsection:
 
@@ -384,13 +378,15 @@ Then allow UDP 514 to the Syslog server on the machine it self:
 
 	iptables -L -n -v | grep 514
 	0   0   ACCEPT  udp --      *       *       0.0.0.0/0           0.0.0.0/0       state NEW udp dpt:514
+
  
- 
+
+
 And also at the vCloud Air level as well:
 
 ![vca-fw-allow-udp-syslog](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/vca-fw-allow-udp-syslog.png&raw=1)
 
- 
+
 ### Enable Sending Syslog to a Remote Machine in vCloud Air
 
 It looks like we need to use the Rest API to enable the syslog server. All of the instructions are laid out in [Manage the System Logs for an Edge Gateway](https://pubs.vmware.com/vca/index.jsp?topic=%2Fcom.vmware.vca.ans.api.doc%2FGUID-C22C0A41-CE0D-4A37-B0C4-ABC4454D5F19.html). I also ran into a cool cli ([vmware/vca-cli](https://github.com/vmware/vca-cli)), so I went ahead and installed it on my MAC:
@@ -483,8 +479,10 @@ Then we can use that **vchs-authorization** header to get the rest of the inform
 	Content-Length: 4428
 	Via: 1.1 vca.vmware.com
 	Connection: close
+
  
- 
+
+
 	$curl -i -X GET -H "Accept: application/json;version=5.7" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJhdWQiOlsibm9uZSJdLCJzY29wZSI6WyIxIl0sImdyYW50X3R5cGUiOiJpbXBsaWNpdCIsInN1YiI6IjAzNTI1MDkzLWMwNGUtNDAxOS04NDBjLTU3MmVkM2ZiNDUwZiIsImVtYWlsIjoia2FyaW0uZWxhdG92QHJzYS5jb20iLCJ1c2VyX2lkIjoiMDM1MjUwOTMtYzA0ZS00MDE5LTg0MGMtNTcyZWQzZmI0NTBmIiwidXNlcl9uYW1lIjoia2FyaW0uZWxhdG92QHJzYS5jb20iLCJjb21wYW55X2lkIjoiYTlmOTdhNmQtZGI0Ni00NjExLWEzMzItNmUyMTlmOGY2YWE1IiwiY29tcGFueV9uYW1lIjoiS2FyaW0gRWxhdG92IiwiY3VzdG9tZXJfbnVtYmVyIjoiMTMwMjMwNzQ5MyIsInZlcnNpb24iOiIxLjAiLCJzZ19pZCI6WyJhY2VhYjQyMS0zMDdkLTQzMDUtYWM4MC1hMzZmYjAxOGQzOGQiXSwicGxhbnMiOltdLCJleHAiOjE0NDIyNzExODUsImlhdCI6MTQ0MjI3MDI4NSwiaXNzIjoiaHR0cHM6Ly9pYW0udmNocy52bXdhcmUuY29tL29hdXRoL3Rva2VuIiwiY2xpZW50X2lkIjoidmNoc19zYyIsImp0aSI6IjVmMmViMzc3LTE4ZWMtNDZmNy04YTk2LWY1YWVmYjBiZTY1NiJ9.f21e_PuuBdHamZe8F8IBz_kaCU64i1B6q9NPZKelLQ_Vg5oI4KIVLsS03GWVjRbtR32pOGgZtHh7x2usqUcVZ9QAxQI9_lcjnO7fcYt6JBAOA8N2OaaKiYOz-hnDukcdvVB5RhWnpysaa43RkCEs73WXgQ_8_b6_UB0xxrgxP5ZSbfJldSToExoGnb_KX65DhfgrMKY-6Oip5zA63qUnl8XAT1Ro2Ffj9YqJ9S7-jXDEAsoMz8vqzg44bW2v3rtXWYDr6Z9Sr_eY1NwHTYji09FFJQquao98iB_6SJA2bWEfX-hbgJslHRtr6VjVH98UuNwGYsuPIucyDo7b8Sxjrg" https://vca.vmware.com/api/sc/instances
 	HTTP/1.1 200 OK
 	Date: Mon, 14 Sep 2015 22:38:38 GMT
@@ -500,22 +498,22 @@ Then we can use that **vchs-authorization** header to get the rest of the inform
 	Via: 1.1 vca.vmware.com
 	Connection: close
 	{"instances":[{"link":[],"description":"Create virtual machines, and easily scale up or down as your needs change.","region":"us-california-1-3.vchs.vmware.com","instanceVersion":"1.0","planId":"region:us-california-1-3.vchs.vmware.com:planID:c65d5821-aa97-4141-915a-7d7eab0a9d51","serviceGroupId":"aceab421-307d-4305-ac80-a36fb018d38d","apiUrl":"https://us-california-1-3.vchs.vmware.com/api/compute/api/org/INSTANCE_ID","dashboardUrl":"https://us-california-1-3.vchs.vmware.com/api/compute/compute/ui/index.html?orgName=INSTANCE_ID&serviceInstanceId=INSTANCE_ID&servicePlan=c65d5821-aa97-4141-915a-7d7eab0a9d51","instanceAttributes":"{\"orgName\":\"INSTANCE_ID\",\"sessionUri\":\"https://us-california-1-3.vchs.vmware.com/api/compute/api/sessions\",\"apiVersionUri\":\"https://us-california-1-3.vchs.vmware.com/api/compute/api/versions\"}","id":"INSTANCE_ID","name":"Virtual Private Cloud OnDemand"}]}
-	
+
 Now to actually get to your vcloud instance we have to use another URL and more information (**username@ORG: Password**) in the encoded *base64* authorization header:
-	
+​	
 The **ORG** is seen in the last output:
-	
-	\"orgName\":\"INSTANCE_ID\"
+​	
+​	\"orgName\":\"INSTANCE_ID\"
 
 and to get a list of available URLs that we have access to, we can query the session URL, also seen in the above output:
-	
-	"sessionUri\":\"https://us-california-1-3.vchs.vmware.com/api/compute/api/sessions\",
+​	
+​	"sessionUri\":\"https://us-california-1-3.vchs.vmware.com/api/compute/api/sessions\",
 
 Here is the example of authenticating to the compute services:
 
 	$ echo -n "elatov@test.com@INSTANCE_ID:PASSWORD" | base64
 	a2FyaW0uZWxhdG92QHJzYS5jb21ANjVlODFiMmQtNmQ1MC00ZmFhLWJjODgtNDhlMWQ5ZGNhZTM0OlBAc3N3MHJkMQ==
- 
+	 
 	$curl -i -X POST -H "Accept: application/*+xml;version=5.11" -H "Authorization: Basic a2FyaW0uZWxhdG92QHJzYS5jb21ANjVlODFiMmQtNmQ1MC00ZmFhLWJjODgtNDhlMWQ5ZGNhZTM0OlBAc3N3MHJkMQ==" https://us-california-1-3.vchs.vmware.com/api/compute/api/sessions
 	HTTP/1.1 200 OK
 	Date: Tue, 15 Sep 2015 00:15:46 GMT
@@ -562,7 +560,7 @@ Now we have to use another Header to include the **x-vcloud-authorization**, for
 	<OrgList xmlns="http://www.vmware.com/vcloud/v1.5" href="https://us-california-1-3.vchs.vmware.com/api/compute/api/org/" type="application/vnd.vmware.vcloud.orgList+xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.vmware.com/vcloud/v1.5 http://us-california-1-3.vchs.vmware.com/api/compute/api/v1.5/schema/master.xsd">
 	    <Org href="https://us-california-1-3.vchs.vmware.com/api/compute/api/org/INSTANCE_ID" name="INSTANCE_ID" type="application/vnd.vmware.vcloud.org+xml"/>
 	</OrgList>
- 
+
 For the syslog setup, first query your gateway to find out it's **gateway-id**:
 
 	$curl -i -X GET -H "Content-type: application/*+xml;" -H "Accept: application/*+xml;version=5.11" -H "x-vcloud-authorization: 755132f383b94fc6bb6bc1eddc30e135" https://us-california-1-3.vchs.vmware.com/api/compute/api/vchs/query?type=edgeGateway
@@ -597,8 +595,8 @@ Looking over [SyslogServerType](http://pubs.vmware.com/vca/index.jsp?topic=%2Fco
 {:.kt} 
 | CRUD | Operation | Description | Since | Deprecated |
 |------|-----------|-------------|-------|------------|
-|as input| POST /admin/edgeGateway/{id}/action/configureSyslogServerSettings |	Configure Syslog server settings for the org vdc edge gateway |5.11 |	 
- 
+|as input| POST /admin/edgeGateway/{id}/action/configureSyslogServerSettings |	Configure Syslog server settings for the org vdc edge gateway |5.11 |
+
 So let's try to update that, in the body we have to include the following XML (from the same page):
 
 	<SyslogServerSettings xmlns="http://www.vmware.com/vcloud/v1.5">

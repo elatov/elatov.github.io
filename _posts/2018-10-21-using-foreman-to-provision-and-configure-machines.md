@@ -95,7 +95,7 @@ Now let's sync the CentOS repos so when we provision VMs they can install from a
 
 #### Configure Hammer CLI
 Let's configure the **hammer** cli, so we can use that for some of the configuration:
-	
+​	
 	echo "ORG=\"Default Organization\"" >> ~/.bashrc
 	echo "LOCATION=\"Default Location\"" >> ~/.bashrc
 	echo "DOMAIN=kar.int" >> ~/.bashrc
@@ -108,9 +108,9 @@ Let's configure the **hammer** cli, so we can use that for some of the configura
 	    :username: 'admin'
 	    :password: 'P@ssw0rd'
 	EOF
-	
+
 Then make sure you can use it:
-	
+​	
 	[elatov@fore ~]$ hammer organization list
 	---|----------------------|----------------------|-------------|----------------------|------------
 	ID | TITLE                | NAME                 | DESCRIPTION | LABEL                | DESCRIPTION
@@ -319,8 +319,9 @@ My issue was that I didn't assign the *Smart Proxy* to my **subnet**. After fixi
 
 	[elatov@fore ~]# cat /var/lib/tftpboot/pxelinux.cfg/01-00-0c-29-f7-c1-e0
 	# This file was deployed via 'Kickstart default PXELinux' template
-	
-	
+
+
+​	
 	TIMEOUT 10
 	DEFAULT Kickstart default PXELinux
 	
@@ -516,7 +517,7 @@ Initially I didn't see the SSH keys created so I followed the instructions in th
 	$ sudo systemctl restart  httpd
 	$ sudo systemctl  restart foreman-tasks
 	$ sudo systemctl  restart foreman-proxy
-	
+
 Then I noticed that the SSH key wasn't not getting pushed to the provisioned VM. I had to make sure the **subnet** had a *Smart Proxy* assigned for the **remote-execution** feature:
 
 ![fore-subnet-rem-ex.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/foreman-install/fore-subnet-rem-ex.png&raw=1)
@@ -715,7 +716,7 @@ I needed to set the correct URL. I saw the issue discussed on different pages:
 * [Errno 2 - No such file or directory](https://projects.theforeman.org/issues/14745)
 * [Foreman-Ansible Callback Connection Refused (Errno 111)](https://groups.google.com/forum/#!topic/foreman-users/4IvpG9a8Kk4)
 
-All the pages suggested to set the **FOREMAN_URL**, **FOREMAN_SSL_CERT**, **FOREMAN_SSL_KEY**, and **FOREMAN_SSL_VERIFY** *environment* variables for the **foreman** user but none really talked about how to accomplish that. I followed the instructions laid out in [this](https://botbot.me/freenode/theforeman/2017-02-24/?page=4) IRC channel, and added them to the **/etc/environment** file:
+All the pages suggested to set the **FOREMAN_URL**, **FOREMAN_SSL_CERT**, **FOREMAN_SSL_KEY**, and **FOREMAN_SSL_VERIFY** *environment* variables for the **foreman** user but none really talked about how to accomplish that. I followed the instructions laid out in an IRC channel I randomly rant into, and added them to the **/etc/environment** file:
 
 	[elatov@fore ~]$ cat /etc/environment
 	FOREMAN_URL=https://fore.kar.int

@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Use Packer with VMware Player to build an OVA"
 author: Karim Elatov

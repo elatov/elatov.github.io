@@ -107,7 +107,7 @@ Then creating a module from a template will look like this:
 	test-test/tests
 	test-test/tests/init.pp
 
-Now you can import that directory (rename it from **test-test** to just **test**) into [geppetto](http://puppetlabs.github.io/geppetto/download.html) and modify the 5 files that were mentioned before. I even put together a *skeleton* to create a bare minimum puppet module that includes a client/server setup. Here are the files the template creates:
+Now you can import that directory (rename it from **test-test** to just **test**) into [geppetto](https://github.com/puppetlabs/geppetto) and modify the 5 files that were mentioned before. I even put together a *skeleton* to create a bare minimum puppet module that includes a client/server setup. Here are the files the template creates:
 
 	elatov@fed:~$puppet module generate t-test
 	Notice: Generating module at /home/elatov/t-test
