@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Terraform with ESXi and Foreman"
 author: Karim Elatov
