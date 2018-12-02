@@ -9,7 +9,7 @@ tags: [linux,centos,grub,dracut,systemd]
 A couple of sites talked about using pre-upgrade to perform the update:
 
 
-- [Upgrading headless hetzner server from CentOS 6.5 to CentOS 7: Success](http://tud0r.com/?p=238) 
+- [Upgrade from CentOS 6 to CentOS 7](https://www.itzgeek.com/how-tos/linux/centos-how-tos/upgrade-from-centos-6-to-centos-7.html) 
 - [Upgrade to CentOS 7](http://linuxsysconfig.com/2014/07/upgrade-to-centos-7/)
 - [CentOS 7: Upgrading from CentOS 6.x In Place](https://linuxacademy.com/blog/linux/centos-7-upgrading-from-centos-6-x-in-place/) 
 - [A Very Quick Look At Upgrading CentOS 6.5 To 7.0](http://damianzaremba.co.uk/2014/08/quick-look-at-upgrading-to-centos-7/) 
