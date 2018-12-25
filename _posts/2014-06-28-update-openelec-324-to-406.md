@@ -7,8 +7,9 @@ description: ""
 categories: [os]
 tags: [linux,openelec,raspberry_pi,xbmc]
 ---
+{% include note.html content="It looks like OpenElec is [no longer maintained](https://kodi.wiki/view/Archive:OpenELEC) and LibreElec is recommended" %}
 
-I noticed that there was a new version of OpenELEC, so I decided to give it a try. From their [release](https://openelec.tv/documentation/updating-openelec) page, it doesn't look you can do an automatic update and it's recommended to do a manual update:
+I noticed that there was a new version of OpenELEC, so I decided to give it a try. From their [release](https://libreelec.wiki/how_to/update_libreelec) page, it doesn't look you can do an automatic update and it's recommended to do a manual update:
 
 > How To Upgrade To OpenELEC 4.0 Release
 > 
@@ -243,7 +244,7 @@ With the new version of OpenELEC (4.0), we just copy the **tar** file into the u
 
 > Manually updating OopenELEC Gotham has become easier as well. You are no longer required to extract the system files yourselves, this is all done by OpenELEC internally. This means, that you only have to copy the downloaded .tar file into the Update folder, and have OpenELEC reboot. The .tar file will be extracted and tested, after which the necessary components will be copied to the SYSTEM partition as before. A second boot will follow to finalize the upgrade process.
 
-So I mozied over to the [archives](https://openelec.tv/downloads) page for openelec and downloaded the 4.0.2 version:
+So I mozied over to the [archives](https://libreelec.wiki/releases) page for openelec and downloaded the 4.0.2 version:
 
 	elatov@crbook:~/download$ls -lh OpenELEC-RPi.arm-4.0.2.tar 
 	-rw-r--r-- 1 elatov elatov 109M May 27 12:33 OpenELEC-RPi.arm-4.0.2.tar

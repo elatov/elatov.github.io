@@ -6,7 +6,7 @@ permalink: /2013/11/openelec-raspberry-pi/
 categories: ['os']
 tags: ['mmcblk0', 'optware', 'upnp', 'linux', 'openelec', 'raspberry_pi', 'xbmc']
 ---
-
+{% include note.html content="It looks like OpenElec is [no longer maintained](https://kodi.wiki/view/Archive:OpenELEC) and LibreElec is recommended" %}
 ## Raspberry Pi
 
 I received a free Raspberry Pi from [Simplivity](http://www.simplivity.com)  for being a [vExpert](http://blogs.vmware.com/vmtn/2013/05/vexpert-2013-awardees-announced.html) (Congrats to Joe and Jarret on achieving the same!) It was very nice of them. It was even the [B model](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) and not the A model... [Simplivity](http://www.simplivity.com) doesn't mess around :). After receiving the Raspberry Pi (RPi), I realized that I needed to order the following accessories to be able to use it:
@@ -29,7 +29,7 @@ From the get-go I wanted to use the RPi for a media center. I have used XBMC in 
 
 *   [Raspbmc -- now OSMC](https://osmc.tv/)
 *   [XBian](http://www.xbian.org/)
-*   [OpenELEC](http://openelec.tv/)
+*   [LibreELEC](https://libreelec.tv/)
 
 From the top link, here is a quick summary for each:
 

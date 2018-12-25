@@ -22,7 +22,7 @@ The software looked good to me, so I decided to install OpenVAS on CentOS.
 
 ### Install OpenVAS on CentOS
 
-Most of the instructions are laid out in [OpenVAS for CentOS via Atomic](http://www.openvas.org/install-packages.html#openvas_centos_atomic). You just need to enable the atomic YUM repository:
+Most of the instructions are laid out in [OpenVAS for CentOS via Atomic](https://github.com/greenbone/openvas-scanner/blob/master/INSTALL.md). You just need to enable the atomic YUM repository:
 
     wget -q -O - http://www.atomicorp.com/installers/atomic | sudo sh
 

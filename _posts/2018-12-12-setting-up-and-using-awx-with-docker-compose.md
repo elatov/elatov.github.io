@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Setting Up and Using AWX with docker-compose"
 author: Karim Elatov

@@ -89,7 +89,7 @@ That looks good, now let's install the binary:
 There are actually a couple approaches to Load balancing SSL. The most popular is *SSL Termination*, here are sample configurations of HAProxy that do exactly that:
 
 *   [Using HAProxy to Build a More Featureful Elastic Load Balancer](https://tech.shareaholic.com/2012/10/26/haproxy-a-substitute-for-amazon-elb/)
-*   [Haproxy SSL configuration explained](http://blog.hintcafe.com/post/33851388857/haproxy-ssl-configuration-explained)
+*   [The Four Essential Sections of an HAProxy Configuration](https://www.haproxy.com/blog/the-four-essential-sections-of-an-haproxy-configuration/)
 *   [SSL Client certificate management at application level](http://www.loadbalancer.org/blog/client-certificate-authentication-with-haproxy/)
 
 Here are some links that explain why SSL termination can be advantageous:
