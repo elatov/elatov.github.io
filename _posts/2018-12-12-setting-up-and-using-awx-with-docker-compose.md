@@ -7,7 +7,7 @@ categories: [automation]
 tags: [ansible,docker-compose]
 ---
 ### AWX
-AWX in the open source version of Ansible Tower. There are good install instructions available at [Installing AWX](https://github.com/ansible/awx/blob/devel/INSTALL.md). It basically breaks down into 3 steps:
+AWX is the open source version of Ansible Tower. There are good install instructions available at [Installing AWX](https://github.com/ansible/awx/blob/devel/INSTALL.md). It basically breaks down into 3 steps:
 
 1. Clone the Repo
 2. Configure the installer
