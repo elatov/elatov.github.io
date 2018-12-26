@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title: "Using G Suite Enterpise to Configure A Chromebook as a Kiosk Machine"
+title: "Using G-Suite Enterpise to Configure a Chromebook as a Kiosk Machine"
 author: Karim Elatov
 categories: [os]
 tags: [chromebook, g-suite]
