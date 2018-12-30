@@ -60,7 +60,7 @@ The **backup** options are described [here](http://forum.xda-developers.com/gala
 	-rw-r-----  1 elatov  1000   923M Apr  2 09:28 nexus5.ab
 
 ### Unlock Phone
-We can follow the instructions laid out in How to [Install CyanogenMod on the Google Nexus 5 ("hammerhead")](http://www.lineageosroms.org/nexus-5-cm-13-goes-official-and-here-is-how-to-flash/). First let's boot the phone into the fastboot mode:
+We can follow the instructions laid out in How to [Install LineageOS on hammerhead)](https://wiki.lineageos.org/devices/hammerhead/install). First let's boot the phone into the fastboot mode:
 
 	adb reboot bootloader
 
