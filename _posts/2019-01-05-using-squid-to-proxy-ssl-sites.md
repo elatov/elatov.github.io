@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Using Squid to Proxy SSL Sites"
 author: Karim Elatov
