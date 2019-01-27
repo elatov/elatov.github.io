@@ -1276,7 +1276,7 @@ Lastly here are the cron jobs for the automated syncing:
 	0 1 * * * root /bin/nice -n 19 /usr/bin/ionice -c2 -n7 /usr/local/openvas/sbin/openvas-scapdata-sync > /dev/null
 	
 ### Confirming the OpenVAS Install is good
-There is a pretty nifty script that can check all the necessary components are running. It's called [openvas-check-setup](https://svn.wald.intevation.org/svn/openvas/trunk/tools/openvas-check-setup). Here is what I did to run it:
+There is a pretty nifty script that can check all the necessary components are running. It's called [openvas-check-setup](https://github.com/kurobeats/OpenVas-Management-Scripts/blob/master/openvas-check-setup). Here is what I did to run it:
 
 	elatov@m2:~$wget --no-check-certificate https://svn.wald.intevation.org/svn/openvas/trunk/tools/openvas-check-setup
 	elatov@m2:~$chmod +x openvas-check-setup

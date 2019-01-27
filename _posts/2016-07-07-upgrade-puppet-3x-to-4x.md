@@ -9,7 +9,7 @@ tags: [puppet]
 I setup **puppet** a while back and I just let it do it's thing. Honestly I wasn't having any issues, I just decided to update to the latest version.
 
 ### Upgrading Puppet Server
-There is a pretty good overview at [Puppet 3.x to 4.x Server Upgrades](https://puppet.com/docs/puppet/latest/upgrade_major_pre.html). Here is a snippet from the page:
+There is a pretty good overview at [Puppet 3.x to 4.x Server Upgrades](https://puppet.com/docs/puppet/4.10/upgrade_major_server.html). Here is a snippet from the page:
 
 > 1. Install the `puppet-agent` and `puppetserver` packages for your operating system.
 > 2. Copy your certificate authority files to the new filesystem location (`/etc/puppetlabs/puppet/ssl)`
@@ -147,7 +147,7 @@ And then let's create the corresponding **tagmail** conf file:
 
 #### Migrate From Rack to PuppetServer
 
-It looks like it's recommended to use the direct puppetserver instead of the rack app. From [Puppet 3.x to 4.x: Get Upgrade-Ready](https://puppet.com/docs/puppet/latest/upgrade_major_pre.html): 
+It looks like it's recommended to use the direct puppetserver instead of the rack app. From [Puppet 3.x to 4.x: Get Upgrade-Ready](https://puppet.com/docs/puppet/4.10/upgrade_major_server.html): 
 
 > If you’re still using Rack or WEBrick to run your Puppet master, this is the best time to switch to Puppet Server. Puppet Server is designed to be a better-performing drop-in replacement for Rack and WEBrick Puppet masters, which are deprecated as of Puppet 4.1.
 
@@ -386,7 +386,7 @@ Had to explicitly convert a Integer to a String prior to comparing a string that
 That's is all that I had to do on the Puppet Server Side.
 
 ### Updating Puppet Agents
-Next I moved on to my agents. Most of the steps are covered in [Installing Puppet Agent: Linux](https://puppet.com/docs/puppet/latest/install_linux.html)
+Next I moved on to my agents. Most of the steps are covered in [Installing Puppet Agent: Linux](https://puppet.com/docs/puppet/5.3/install_linux.html)
 
 #### Update Centos Agents
 First let's remove the old package:

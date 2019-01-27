@@ -49,7 +49,7 @@ Then from the same document:
 >
 > The virtual machine initiates the connection to your Linux system on port 23.
 
-From Moxa's "[TCP Server Mode for NPort](http://www.moxa.com/resource_file/2036200811171320.pdf)" document:
+From Moxa's "[TCP Server Mode for NPort](https://www.moxa.com/doc/tech_notes/Moxa_Tech_Note---NPort_TCP_Server_Mode.pdf)" document:
 
 > What is TCP Server Mode?
 > In TCP Server mode, the serial port on the NPort is assigned a port number which must not conflict with any other serial port on the NPort. The host computer initiates contact with the NPort, establishes the connection, and receives data from the serial device. This operation mode also supports up to 8 simultaneous connections, enabling multiple hosts to collect data from the same serial device at the same time. The whole system should connect like this: ![moxa tcp server mode Connecting to a VM using Serial Port Over the Network With a Moxa Device Server](https://github.com/elatov/uploads/raw/master/2012/12/moxa_tcp_server_mode.png)

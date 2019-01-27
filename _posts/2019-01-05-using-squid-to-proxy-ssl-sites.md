@@ -252,7 +252,6 @@ Most of the browsers support specifying a URL for a **pac** file. A PAC file is 
 
 * [Proxy Auto-Config Files](https://www.cisco.com/c/en/us/td/docs/security/web_security/connector/connector2972/PACAP.html)
 * [Setting up Automatic Proxy Configuration (PAC) file](https://tektab.com/2012/09/26/setting-up-automatic-proxy-configuration-pac-file/)
-* [Example PAC File](https://findproxyforurl.com/example-pac-file/)
 * [PAC file best practices](https://www.websense.com/content/support/library/web/v76/pac_file_best_practices/PAC_best_pract.aspx)
 
 Borrowing most of the content from one of the above sites, here is what I ended up with:
@@ -333,7 +332,7 @@ One thing that I thought was interesting, was that most browsers don't support a
 >
 > The Firefox 33.0 browser is able to connect to proxies over TLS connections if configured to use one in a PAC file. GUI configuration appears not to be possible (yet)
 
-From [Secure Web Proxy](v), here is a simple **pac** file which specifies a secure proxy server:
+From [Secure Web Proxy](https://www.chromium.org/developers/design-documents/secure-web-proxy), here is a simple **pac** file which specifies a secure proxy server:
 
 	function FindProxyForURL(url, host) { return "HTTPS secure-proxy.example.com:443"; }
 

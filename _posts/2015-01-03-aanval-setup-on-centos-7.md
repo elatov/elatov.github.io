@@ -11,7 +11,7 @@ I wanted to try out a SIEM (Security Information and Event Management) product a
 
 ### Aanval
 
-From their [PDF](https://www.aanval.com/docs/aanval_sas_technology_brief.pdf):
+From their [FAQ](https://tacticalflex.zendesk.com/hc/en-us/articles/360009381474-What-is-Aanval-):
 
 > Aanval SAS (Situational Awareness System) is the combination of our most advanced SIEM features with our newly released Network Host Scanner, Rogue Host Detection, and Offensive Reconnaissance modules. Aanval SAS™ provides real-time security intelligence to shore up defenses and help defenders take the offensive on thwarting cyber attacks. As the industry’s most comprehensive Security Information and Event Management (SIEM) console on the market today, Aanval supports Snort and Suricata as well as virtually any syslog-sourced data, and is designed specifically to scale from small single-sensor installations to global enterprise deployments
 
@@ -29,7 +29,7 @@ The install is pretty straight forward, you just have to sign up and download th
     total 8080
     -rw-r----- 1 elatov elatov 8270303 Dec 27 14:31 aanval-7-latest-stable.tar.gz
 
-There are also pretty good instructions laid out [here](http://wiki.aanval.com/wiki/Aanval:V7_Installation_Guide). So let's extract the *tar* archive:
+There are also pretty good instructions laid out [here](https://tacticalflex.zendesk.com/hc/en-us/articles/360003407313-Aanval-9-Installation). So let's extract the *tar* archive:
 
     elatov@kerch:~/download$tar xzf aanval-7-latest-stable.tar.gz
 
@@ -143,7 +143,7 @@ To make sure the Daemons are running check the ouput of **ps**:
 
 #### Aanval Snort Module Configuration
 
-There is a actually a pretty good produre [here](http://wiki.aanval.com/wiki/Community:Snort_2.9.2.3_Installation_Guide_for_Ubuntu_12.04,_with_Barnyard2,_Pulledpork,_and_Aanval). After you login with the following credentials:
+There is a actually a pretty good produre [here](https://tacticalflex.zendesk.com/hc/en-us/articles/360010678893-Snort-vs-Suricata). After you login with the following credentials:
 
 > root/specter
 

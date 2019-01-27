@@ -139,7 +139,7 @@ At this point you can check to see if the SimpleSAMLPHP is working by visiting *
 
 ## Configure SimpleSAMLPHP as an IdP (Identity Provider)
 
-Luckily there is a pretty good guide from SimpleSAMLPHP: [Setting up a simpleSAMLphp SAML 2.0 IdP to use with Google Apps for Education](http://simplesamlphp.org/docs/1.5/simplesamlphp-googleapps). So let's go through the guide.
+Luckily there is a pretty good guide from SimpleSAMLPHP: [Setting up a simpleSAMLphp SAML 2.0 IdP to use with Google Apps for Education](https://simplesamlphp.org/docs/stable/simplesamlphp-googleapps). So let's go through the guide.
 
 ### Enabling the Identity Provider functionality in SimpleSAMLPHP
 
@@ -238,7 +238,7 @@ Populate the **AssertionConsumerService** appropriately, change the domain to ma
 
 ## Enable SSO for Google Apps
 
-These instructions are also laid out in the same SimpleSAMLPHP [page](http://simplesamlphp.org/docs/1.5/simplesamlphp-googleapps).
+These instructions are also laid out in the same SimpleSAMLPHP [page](https://simplesamlphp.org/docs/stable/simplesamlphp-googleapps).
 
 ### Login to your Google Apps Admin Portal/Dashboard
 
@@ -320,11 +320,11 @@ And everything worked out okay.
 
 There are many tools out there that can help with this:
 
-*   [HTTPFox](https://addons.mozilla.org/en-us/firefox/addon/httpfox/)
+*   [HTTPFox](https://discourse.mozilla.org/t/httpfox-add-on-not-available-in-new-firefox-version/22566)
 *   [Charles Proxy](http://www.charlesproxy.com/)
 *   [Chrome Developer Tools](https://developer.chrome.com/devtools)
 *   [Fiddler](http://fiddler2.com/)
-*   [Live HTTP Headers](https://addons.mozilla.org/en-us/firefox/addon/live-http-headers/)
+*   [Live HTTP Headers](https://addons.mozilla.org/en-US/firefox/addon/http-header-live/)
 
 I prefer Charles Proxy because it's a stand alone application. You point your browser to proxy all of it's traffic through Charles and you can see everything. While the other tools, attach themselves to the Browser and show you the traffic. For ease of use, I will use *Live HTTP Headers* cause it easy to copy Header information from it :)
 

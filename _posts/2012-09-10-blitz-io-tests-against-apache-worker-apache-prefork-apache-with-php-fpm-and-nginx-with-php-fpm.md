@@ -46,7 +46,6 @@ We can see that in this case it's **prefork** (you can also use **httpd -l** to 
 *   [Apache, Configuring](http://www.freebsdwiki.net/index.php/Apache,_Configuring)
 *   [Configuring the Apache MPM on Ubuntu](https://www.linode.com/docs/web-servers/apache/apache-web-server-on-ubuntu-14-04/#configure-the-multi-processing-module)
 *   [Running Apache On A Memory-Constrained VPS](http://www.kalzumeus.com/2010/06/19/running-apache-on-a-memory-constrained-vps/)
-*   [Tune Apache Performance Using MPM Prefork Module](http://cloudinservice.com/tune-apache-performance-using-mpm-prefork-module/)
 *   [Performance recommendations](http://docs.moodle.org/23/en/Performance_recommendations)
 
 The best recommendations I found were the following:

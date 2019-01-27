@@ -135,7 +135,7 @@ To make sure everything is working as expected reboot one more time:
 **Systemd** provides another daemon which can take care of the a wireless connection. It's called **networkd**, I ran into a couple of sites which had instructions on the setup: 
 
 * [Switching to systemd-networkd](https://www.joachim-breitner.de/blog/664-Switching_to_systemd-networkd)
-* [Using systemd-networkd with wpa_supplicant to manage wireless network configuration with roaming](https://beaveris.me/systemd-networkd-with-roaming/)
+* [Using systemd-networkd with wpa_supplicant to manage wireless network configuration with roaming](https://remy.grunblatt.org/using-systemd-networkd-with-wpa_supplicant-to-manage-wireless-network-configuration.html)
 
 Since we are using **systemd**, let's try to configure wireless networking with it. First let's create the wpa configuration
 

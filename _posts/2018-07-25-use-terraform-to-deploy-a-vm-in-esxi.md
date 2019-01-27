@@ -11,7 +11,6 @@ I wanted to try out [teffaform](https://www.terraform.io/intro/index.html). I ha
 
 * [Deploy a VMware vSphere Virtual Machine with Terraform](https://blog.inkubate.io/deploy-a-vmware-vsphere-virtual-machine-with-terraform/)
 * [Deploying vSphere VM with Terraform](https://emilwypych.com/2017/02/26/deploying-vsphere-vm-with-terraform/)
-* [Terraform and VMWare vSphere: A quick intro](https://insanity.org.uk/2017/10/20/terraform-and-vsphere-a-quick-intro/)
 * [A Simple Terraform on vSphere Build](http://blog.codybunch.com/2017/03/08/A-Simple-Terraform-on-vSphere-Build/)
 
 One thing you will notice is that **terraform** can create a VM from a template but it looks like you need to have vCenter for that (discussed here [Is vmware vCenter server necessary for esxi + terraform](https://stackoverflow.com/questions/38796466/is-vmware-vcenter-server-necessary-for-esxi-terraform)). It looks like you can copy a VMDK from the machine you are running **terraform** on ([vsphere_file - error datacenter '' not found](https://github.com/hashicorp/terraform/issues/9253)), but that sounds network intensive. 

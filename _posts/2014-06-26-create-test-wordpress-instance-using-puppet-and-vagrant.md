@@ -43,7 +43,7 @@ I also ended up opening ports **80** and **3306** on the base image:
 After that, I packaged up a new box and uploaded it to the vagrant cloud (for more information on the upload, check out [this](/2014/06/upload-vagrant-box-to-the-vagrant-cloud/) post).
 
 ### Prepare Web Puppet file
-I was using my Mac to run **vagrant** and **VirtualBox**, so I installed **puppet** on there locally, just so I can parse the config prior to appying it. Instructions on the install are laid out in [Installing Puppet: Mac OS X](https://puppet.com/docs/puppet/latest/install_osx.html). We just have to install 3 packages, from the above page:
+I was using my Mac to run **vagrant** and **VirtualBox**, so I installed **puppet** on there locally, just so I can parse the config prior to appying it. Instructions on the install are laid out in [Installing Puppet: Mac OS X](https://puppet.com/docs/puppet/5.5/install_osx.html). We just have to install 3 packages, from the above page:
 
 > Puppet Labs’ OS X packages can be found here. You will need three packages total:
 > 

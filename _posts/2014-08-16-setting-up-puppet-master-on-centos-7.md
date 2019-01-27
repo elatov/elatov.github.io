@@ -15,7 +15,7 @@ For now I will setup the Open Source one. Puppet has some awesome documentation 
 
 ### Preparing for the Puppet Deployment
 
-From "[Installing Puppet: Pre-Install Tasks](https://puppet.com/docs/puppet/latest/install_pre.html)"  let's setup/choose the necessary prereqiusites:
+From "[Installing Puppet: Pre-Install Tasks](https://puppet.com/docs/puppet/5.4/install_pre.html)"  let's setup/choose the necessary prereqiusites:
 
 1. Decide on a Deployment Type, I went with the "Agent/Master Puppet" deployment since I already played with the standalone setup
 2. Check OS Versions and System Requirements, I will use CentOS 7 which is similar to RHEL 7 and that is supported.
@@ -449,7 +449,7 @@ From the [Installing Puppet: Post-Install Tasks](https://docs.puppet.com/puppet/
 > 
 > If you have no particular preference, you should use Passenger with Apache, since it works well and is simple to set up.
 
-The page [Configuring a Puppet Master Server with Passenger and Apache](https://puppet.com/docs/puppet/latest/passenger.html) has most of the instructions laid out on how to install **Passenger**. We can either use the [EPEL](https://fedoraproject.org/wiki/EPEL) repository or the *PupperLabs* one. Since I already had the PuppetLabs one enabled (I did this when I installed the **puppet-server** package), I just ended up using that. So let's the necessary packages:
+The page [Configuring a Puppet Master Server with Passenger and Apache](https://puppet.com/docs/puppet/5.5/passenger.html) has most of the instructions laid out on how to install **Passenger**. We can either use the [EPEL](https://fedoraproject.org/wiki/EPEL) repository or the *PupperLabs* one. Since I already had the PuppetLabs one enabled (I did this when I installed the **puppet-server** package), I just ended up using that. So let's the necessary packages:
 
 	$ sudo yum install httpd httpd-devel mod_ssl ruby-devel rubygems gcc gcc-c++ curl-devel openssl-devel zlib-devel
 
