@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Adding Foreman Hosts with ansible and AWX"
 author: Karim Elatov
