@@ -19,7 +19,7 @@ I recently go a new Mac and I wanted to setup **autofs** on it, just like I did 
 
 ## AutoFS
 
-There is a pretty good overview of AutoFS on Mac OS [here](http://rajeev.name/2007/11/22/autofs-goodness-in-apples-leopard-105-part-i/):
+There is a pretty good overview of AutoFS on Mac OS [here](https://www.howtomacnew.xyz/nhgbffusf-bf-k-999.asp):
 
 > Autofs in Leopard consists of the following programs and daemons.
 >

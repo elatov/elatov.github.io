@@ -47,7 +47,6 @@ We can also check out which tables are taking up most space:
 
 So I did some research and it looks like partitioning the zabbix DB is the way to go. Here are some sites that talk about it:
 
-- [Partitioning Tables on Zabbix 1.8](http://zabbixzone.com/zabbix/partitioning-tables/)
 - [MySQL Database Partitioning ](https://www.zabbix.org/wiki/Docs/howto/mysql_partition)
 - [Yet Another MySQL Partitioning](https://www.zabbix.org/wiki/Docs/howto/mysql_partitioning)
 - [Partitioning to the database zabbix MySQL](http://unixadm.info/content/разбиение-секционирование-в-бд-zabbix-mysql)

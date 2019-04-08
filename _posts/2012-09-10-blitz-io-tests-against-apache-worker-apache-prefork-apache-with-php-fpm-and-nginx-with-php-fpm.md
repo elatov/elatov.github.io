@@ -12,7 +12,7 @@ We were setting up a VPS with 256MB of RAM and we were trying to figure out whic
 *   [Apache vs Nginx: Practical Considerations](https://www.digitalocean.com/community/tutorials/apache-vs-nginx-practical-considerations)
 *   [Setting Up Nginx & PHP-FPM on Ubuntu 10.04](http://www.justincarmony.com/blog/2011/10/24/setting-up-nginx-php-fpm-on-ubuntu-10-04/)
 *   [WordPress Hosting: Apache or Nginx?](http://wpforce.com/wordpress-hosting-apache-or-nginx/)
-*   [nginx vs cherokee vs apache vs lighttpd](http://www.whisperdale.net/11-nginx-vs-cherokee-vs-apache-vs-lighttpd.html)
+*   [nginx vs cherokee vs apache vs lighttpd](https://www.lowendtalk.com/discussion/6803/nginx-vs-litespeed-vs-apache-vs-cherokee-vs-lighttpd-vs-iis)
 
 You can find many others as well. So I decided to run some of my own tests, to see what the hype is about. First off, I will admit I really like Apache. It's simple, it works, and it's secure. Secondly, if we are going to test with performance we should use MPM (Multi-Processing Modules). From "[Multi-Processing Modules](http://httpd.apache.org/docs/2.4/mpm.html)" Apache page:
 

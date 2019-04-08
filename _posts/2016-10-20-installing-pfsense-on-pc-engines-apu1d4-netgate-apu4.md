@@ -22,7 +22,7 @@ Here is the device when it's all ready:
 I ran into a couple of sites that talked about the device. It looks like **OpenWrt** has some support but it doesn't look finished: [OpenWrt PC Engines APU](https://wiki.openwrt.org/toh/pcengines/apu). I also saw that the **BSD Router Project** had luck with the device: [BSD Router Project PC Engines APU](http://bsdrp.net/documentation/examples/pc_engines_apu). And lastly I ran into a couple of sites that installed **pfSense** on the device:
 
 * [pc engine – pfsense as router / firewall](http://sigtar.com/2015/02/26/pc-engine-pfsense-as-router-firewall/)
-* [Unpacking and Assembling PC Engines' APU - Part 1](http://www.yeasoft.com/site/article:apup1)
+* [Build an awesome APU based pfSense Router](https://mathew.id.au/build-an-awesome-apu-based-pfsense-router/)
 
 So I decided to try out **pfSense**.
 

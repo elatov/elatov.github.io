@@ -198,7 +198,7 @@ I ran into an interesting issue where the Nic wouldn't come up if flow-control i
 
 ##### Disable intr_throttling for ixgbe driver on OmniOS
 
-Then I ran into [Low latency networking](http://lists.omniti.com/pipermail/omnios-discuss/2012-August/000053.html) and they mentioned disabling **intr_polling** helped out. So I first set that on the fly:
+Then I ran into [Low latency networking](https://docs.oracle.com/cd/E19571-01/820-4979-12/5_LP_driverparams.html) and they mentioned disabling **intr_polling** helped out. So I first set that on the fly:
 
 	ndd -set /dev/ixgbe0 intr_throttling 1
 

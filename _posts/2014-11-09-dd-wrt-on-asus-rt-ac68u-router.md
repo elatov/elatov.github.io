@@ -370,7 +370,7 @@ But that didn't work on this version of the router/dd-wrt.  Here were the defaul
 	
 I then read over the following pages:
 
-- [Creating VLANs in DD-WRT (Part 1)](http://www.vspecialist.co.uk/creating-vlans-in-dd-wrt-part-1/)
+- [Creating VLANs in DD-WRT (Part 1)](https://michaelpoore.com/2011/07/creating-vlans-in-dd-wrt-part-1/)
 - [Asus RT-AC66U, VLAN & WLAN](http://www.dd-wrt.com/phpBB2/viewtopic.php?p=773584)
 - [DD-WRT heading two seperate networks](http://www.coertvonk.com/technology/networking/dd-wrt-heading-two-networks-asus-rt-ac68u-11717)
 

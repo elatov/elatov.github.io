@@ -169,14 +169,14 @@ After the install is done, you will see the dropbox status in your notification 
 
 That was just for the Mac. I then read up on how to setup dropbox on a headless linux server:
 
-*   [Install Dropbox In An Entirely Text-Based Linux Environment](http://www.dropboxwiki.com/tips-and-tricks/install-dropbox-in-an-entirely-text-based-linux-environment)
+*   [Install Dropbox In An Entirely Text-Based Linux Environment](https://help.dropbox.com/desktop-web/linux-commands)
 *   [Using Dropbox on Linux headless server](http://artofsimplicity.co.uk/install-dropbox-on-a-headless-ubuntu-server/)
 *   [How to install headless dropbox (with no GUI frontend) on ubuntu](http://ubuntuforums.org/showthread.php?t=1416686)
 
 All the installs provide an already compiled binary for either x86 or x86_64 architectures but nothing else. I then ran into a couple of CLIs for dropbox:
 
 *   [Using the Official Dropbox Command Line Interface (CLI)](http://www.dropboxwiki.com/tips-and-tricks/using-the-official-dropbox-command-line-interface-cli)
-*   [Dropbox Linux CLI](http://www.dropboxwiki.com/dropbox-addons/dropbox-linux-cli)
+*   [dbxcli: A command line tool for Dropbox users and team admins](https://github.com/dropbox/dbxcli)
 
 But they were just CLIs that depended on **dropboxd** to be already running (which was only provided for x86 and x86_64 architectures). There is a *nautilus-plugin*, which can be compiled (the source can be found [here](https://www.dropbox.com/help/247/en).
 
