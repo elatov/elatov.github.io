@@ -562,7 +562,7 @@ I wanted to see how the **openvswitch** configuration compares to the linux brid
 
 * [Connect An Instance to the Physical Network](https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/8/html/networking_guide/sec-connect-instance)
 * [Networking in too much detail](https://www.rdoproject.org/networking/networking-in-too-much-detail/)
-* [Under the Hood OpenVswitch Scenario 1](http://docs.ocselected.org/openstack-manuals/kilo/networking-guide/content/under_the_hood_openvswitch.html#under_the_hood_openvswitch_scenario1)
+* [Under the Hood OpenVswitch Scenario 1](https://docs.huihoo.com/openstack/archive/admin-guide-cloud/content/under_the_hood_openvswitch.html)
 * [East-west scenario 1: Instances on the same network](https://docs.openstack.org/ocata/networking-guide/deploy-ovs-selfservice.html#east-west-scenario-1-instances-on-the-same-network)
 * [Network Troubleshooting](https://docs.openstack.org/ops-guide/ops-network-troubleshooting.html)
 
@@ -570,7 +570,7 @@ I liked the image from [here](https://docs.openstack.org/ocata/networking-guide/
 
 ![ovs-traffic-flow](https://seacloud.cc/d/480b5e8fcd/files/?p=/openstack-kolla-ubuntu/ovs-traffic-flow.png&raw=1)
 
-The image from [here](http://docs.ocselected.org/openstack-manuals/kilo/networking-guide/content/under_the_hood_openvswitch.html#under_the_hood_openvswitch_scenario1) provides the best overview of all the components involved:
+The image from [here](https://docs.huihoo.com/openstack/archive/admin-guide-cloud/content/under_the_hood_openvswitch.html) provides the best overview of all the components involved:
 
 ![ovs-component](https://seacloud.cc/d/480b5e8fcd/files/?p=/openstack-kolla-ubuntu/ovs-component.png&raw=1)
 
@@ -578,7 +578,7 @@ And [this](https://access.redhat.com/documentation/en-us/red_hat_openstack_platf
 
 ![ovs-simple](https://seacloud.cc/d/480b5e8fcd/files/?p=/openstack-kolla-ubuntu/ovs-simple.png&raw=1)
 
-In it's simplest from, here is a very succint desriction taken from [here](http://docs.ocselected.org/openstack-manuals/kilo/networking-guide/content/under_the_hood_openvswitch.html#under_the_hood_openvswitch_scenario1):
+In it's simplest from, here is a very succint desriction taken from [here](https://docs.huihoo.com/openstack/archive/admin-guide-cloud/content/under_the_hood_openvswitch.html):
 
 > There are four distinct type of virtual networking devices: TAP devices, veth pairs, Linux bridges, and Open vSwitch bridges. For an Ethernet frame to travel from eth0 of virtual machine vm01 to the physical network, it must pass through nine devices inside of the host: TAP vnet0, Linux bridge qbrNNN, veth pair (qvbNNN, qvoNNN), Open vSwitch bridge br-int, veth pair (int-br-eth1, phy-br-eth1), and, finally, the physical network interface card eth1.
 
@@ -597,7 +597,7 @@ From [Networking in too much detail](https://www.rdoproject.org/networking/netwo
 
 > An outbound packet starts on eth0 of the virtual instance, which is connected to a tap device on the host, tap7c7ae61e-05. This tap device is attached to a Linux bridge device, qbr7c7ae61e-05.
 
-From [Under the Hood OpenVswitch Scenario 1](http://docs.ocselected.org/openstack-manuals/kilo/networking-guide/content/under_the_hood_openvswitch.html#under_the_hood_openvswitch_scenario1):
+From [Under the Hood OpenVswitch Scenario 1](https://docs.huihoo.com/openstack/archive/admin-guide-cloud/content/under_the_hood_openvswitch.html):
 
 > A TAP device, such as vnet0 is how hypervisors such as KVM and Xen implement a virtual network interface card (typically called a VIF or vNIC). An Ethernet frame sent to a TAP device is received by the guest operating system.
 

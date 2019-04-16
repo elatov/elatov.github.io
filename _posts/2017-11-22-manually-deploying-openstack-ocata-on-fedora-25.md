@@ -1471,7 +1471,7 @@ When my **ping**s weren't working, I started looking into the flow of the traffi
 * [Network Troubleshooting](https://docs.openstack.org/ops-guide/ops-network-troubleshooting.html)
 * [Linux bridge: Self-service networks](https://docs.openstack.org/ocata/networking-guide/deploy-lb-selfservice.html)
 * [Networking in too much detail](https://www.rdoproject.org/networking/networking-in-too-much-detail/)
-* [Scenario 2: Network host config](http://docs.ocselected.org/openstack-manuals/kilo/networking-guide/content/under_the_hood_linuxbridge_scenario2_network.html)
+* [Scenario 2: Network host config](https://docs.huihoo.com/openstack/archive/admin-guide-cloud/content/under_the_hood_openvswitch.html)
 
 Let's track down the flow from [their example](https://docs.openstack.org/ocata/networking-guide/deploy-lb-selfservice.html#north-south-scenario-1-instance-with-a-fixed-ip-address):
 
