@@ -302,7 +302,6 @@ Depending on what your HA policy is (decided from the above examples) calculate 
 
 *   [VMware High Availability (VMware HA): Deployment Best Practices VMware vSphere 4.1](http://www.vmware.com/files/pdf/techpaper/VMW-Server-WP-BestPractices.pdf)
 *   [Blades and HA / Cluster design](http://www.yellow-bricks.com/2009/02/09/blades-and-ha-cluster-design/)
-*   [HA Cluster design considerations in vSphere 5](http://www.cloud-buddy.com/?p=786)
 
 ### Explain the implications of using reservations, limits, and shares on the physical design
 

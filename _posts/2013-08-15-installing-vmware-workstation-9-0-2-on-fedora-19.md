@@ -105,7 +105,7 @@ At this point I ran **vmware** from the command line and workstation started up 
 I would click on "Enter License Key.." but nothing would happen. I found two sites that ran into the same issue:
 
 *   [Can't add serial code/activate VMware in Ubuntu 13.04](http://askubuntu.com/questions/285373/cant-add-serial-code-activate-vmware-in-ubuntu-13-04)
-*   [Fix: Unable to click on Enter license key for VMWare Workstation](http://platonic.techfiz.info/2013/05/fix-unable-to-click-on-enter-license-key-for-vmware-workstation/)
+*   [Can't enter VMware Workstation License key -- VMware or Ubuntu issue?](https://ubuntuforums.org/showthread.php?t=2168409)
 
 Both listed a fix, you can either run this:
 
