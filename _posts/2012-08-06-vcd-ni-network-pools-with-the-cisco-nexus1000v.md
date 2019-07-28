@@ -319,7 +319,7 @@ And also the following on the VEM:
 
 Check out the 00:13:f5 prefix for the Mac addresses. When VCD-NI is used you will not see the regular 00:50:56 prefix since Mac-in-Mac encapsulation is utilized. That is why only one vlan is necessary to use a VCD-NI network pool. If you want know more information on how VCD-NI works, check out the following links:
 
-* [vCloud Director Networking Infrastructure (VCDNI) Scalability](http://blog.ioshints.info/2011/04/vcloud-director-networking.html)
+* [vCloud Director Networking Infrastructure (VCDNI) Scalability](https://blog.ipspace.net/2011/04/vcloud-director-networking.html)
 * [vCD Network Isolation-vCDNI](http://virtualization24x7.blogspot.com/2015/12/vcd-network-isolation-vcdni-vcloud.html)
 * [VMware Communities Forum 286475](http://communities.vmware.com/thread/286475?start=15&tstart=0)
 
