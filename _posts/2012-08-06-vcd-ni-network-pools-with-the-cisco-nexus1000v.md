@@ -3,7 +3,6 @@ published: true
 title: VCD-NI Network Pools with the Cisco Nexus1000v Distributed Switch
 author: Karim Elatov
 layout: post
-permalink: /2012/08/vcd-ni-network-pools-with-the-cisco-nexus1000v/
 categories: ['networking', 'vmware']
 tags: [ 'nexus_1000v', 'mac_in_mac_encapsulation', 'multicast', 'vapp', 'vcd_ni', 'vcloud', 'vshield']
 ---
@@ -25,7 +24,7 @@ First enable the segmentation features on the N1K:
 	reg status: unregistered
 	last alert: - seconds ago
 	connection status: disconnected
-
+	
 	switch# show feature | grep seg
 	network-segmentation 1 enabled
 	segmentation 1 enabled
@@ -41,10 +40,10 @@ Next create a Port Profile which will be used for your type of Network Segmentat
 	switch(config-port-prof)# switchport mode access
 	switch(config-port-prof)# switchport access vlan 2002
 	switch(config-port-prof)# show running-config port-profile profile_for_segmentation
-
+	
 	!Command: show running-config port-profile profile_for_segmentation
 	!Time: Sun Aug 5 17:54:07 2012
-
+	
 	version 4.2(1)SV1(5.1)
 	port-profile type vethernet profile_for_segmentation
 	switchport mode access
@@ -65,13 +64,13 @@ Next we create a Network Segmentation Policy, this actually depends on your Tena
 	switch(config-network-segment-policy)# id e461e9cc-1205-40f4-9f36-ad0e841d9c73
 	switch(config-network-segment-policy)# import port-profile profile_for_segmentation
 	switch(config-network-segment-policy)# show run network-segment policy vcd-ni-pol
-
+	
 	!Command: show running-config network-segment policy vcd-ni-pol
 	!Time: Sun Aug 5 18:02:59 2012
-
+	
 	version 4.2(1)SV1(5.1)
 	feature network-segmentation-manager
-
+	
 	network-segment policy vcd-ni-pol
 	id e461e9cc-1205-40f4-9f36-ad0e841d9c73
 	description policy_for_vcd_ni
@@ -167,11 +166,11 @@ Upon powering on this vApp, I saw the the new DvPortgroup created and the VM add
 
 
 	switch# show network-segment policy usage
-
+	
 	network-segment policy default_segmentation_template
-
+	
 	network-segment policy default_vlan_template
-
+	
 	network-segment policy vcd-ni-pol
 	dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f
 
@@ -180,7 +179,7 @@ We can see that from our "vcd-ni-policy" network segment a new port-group has be
 
 
 	switch# show bridge-domain
-
+	
 	Bridge-domain dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f
 	(1 ports in all)
 	Segment ID: 5000 (Manual/Active)
@@ -193,12 +192,12 @@ We can see that it starts with Segment ID 5000 and the group IP is "224.0.4.1". 
 
 
 	switch# show run int vethernet 3
-
+	
 	!Command: show running-config interface Vethernet3
 	!Time: Mon Aug 6 21:57:33 2012
-
+	
 	version 4.2(1)SV1(5.1)
-
+	
 	interface Vethernet3
 	inherit port-profile dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f
 	description OI (3adadd61-75c1-4af2-9d76-ff467e42e965), Network Adapter 1
@@ -214,7 +213,7 @@ On the host we can see that virtual port looks like this:
 	Number of valid BDS: 7
 	BD 6, vdc 1, segment id 5000, segment group IP 224.0.4.1, swbd 4096, 1 ports, 'dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f'
 	Portlist:
-
+	
 	~ # vemcmd show bd 6
 	BD 6, vdc 1, segment id 5000, segment group IP 224.0.4.1, swbd 4096, 1 ports, 'dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f'
 	Portlist:
@@ -268,11 +267,11 @@ Now checking out the settings on the N1K, I saw the following:
 
 
 	switch# show network-segment policy usage
-
+	
 	network-segment policy default_segmentation_template
-
+	
 	network-segment policy default_vlan_template
-
+	
 	network-segment policy vcd-ni-pol
 	dvs.VCDVSorg_net_using_n1k_vcd-ni_pool-25717f9d-78cc-48c1-8506-c38b429f3565
 	dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f
@@ -283,14 +282,14 @@ Now we have two dvPortGroups: one for the test vApp Network and second for the "
 
 
 	switch# show bridge-domain
-
+	
 	Bridge-domain dvs.VCDVSorg_net_using_n1k_vcd-ni_pool-25717f9d-78cc-48c1-8506-c38
 	b429f3565 (1 ports in all)
 	Segment ID: 5001 (Manual/Active)
 	Group IP: 224.0.4.2
 	State: UP Mac learning: Enabled
 	Veth4
-
+	
 	Bridge-domain dvs.VCDVStest-93aa922b-260b-4cf1-a47b-561d8736c70f
 	(1 ports in all)
 	Segment ID: 5000 (Manual/Active)
@@ -318,5 +317,11 @@ And also the following on the VEM:
 	Dynamic 00:13:f5:01:01:03 18 21
 
 
-Check out the 00:13:f5 prefix for the Mac addresses. When VCD-NI is used you will not see the regular 00:50:56 prefix since Mac-in-Mac encapsulation is utilized. That is why only one vlan is necessary to use a VCD-NI network pool. If you want know more information on how VCD-NI works, check out [286475](http://blog.ioshints.info/2011/04/vcloud-director-networking.html). The last link actually has a sample pcap file, which you can examine and see the same Mac Address prefix that I see above.
+Check out the 00:13:f5 prefix for the Mac addresses. When VCD-NI is used you will not see the regular 00:50:56 prefix since Mac-in-Mac encapsulation is utilized. That is why only one vlan is necessary to use a VCD-NI network pool. If you want know more information on how VCD-NI works, check out the following links:
+
+* [vCloud Director Networking Infrastructure (VCDNI) Scalability](http://blog.ioshints.info/2011/04/vcloud-director-networking.html)
+* [vCD Network Isolation-vCDNI](http://virtualization24x7.blogspot.com/2015/12/vcd-network-isolation-vcdni-vcloud.html)
+* [VMware Communities Forum 286475](http://communities.vmware.com/thread/286475?start=15&tstart=0)
+
+The last link actually has a sample pcap file, which you can examine and see the same Mac Address prefix that I see above.
 

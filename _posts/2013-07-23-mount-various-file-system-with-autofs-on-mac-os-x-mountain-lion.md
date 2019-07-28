@@ -19,20 +19,24 @@ I recently go a new Mac and I wanted to setup **autofs** on it, just like I did 
 
 ## AutoFS
 
-There is a pretty good overview of AutoFS on Mac OS [here](https://www.howtomacnew.xyz/nhgbffusf-bf-k-999.asp):
+There are pretty good definitions of AutoFS (and it's components) on Mac OS from the various **man** pages:
 
 > Autofs in Leopard consists of the following programs and daemons.
 >
 > **autofsd**
+>
 > autofsd runs **automount**, and then waits for network configuration change events and, when such an event occurs, re-runs automount to update the mounts to reflect the current automounter maps. It can also be signalled by **automount_reread** to run **automount**.
 >
 > **automountd**
+>
 > automountd is a daemon that responds to requests from **autofs** to mount and unmount network filesystems, and to supply the contents of directories, based on the contents of automounter maps. The **automountd** is started on demand by **launchd**.
 >
 > **automount**
+>
 > automount is the actual mount manager. Manages the mounting and unmounting of remote resources using several map files and configuration files. The configuration files used are **/etc/autofs.conf** and **/etc/auto_master**.
 >
 > **automount_reread**
+>
 > The man pages for **autofsd** refer to a command called **automount_reread** that can trigger a network change event for **autofs**. However, there is no additional documentation in Leopard on that command and the command itself does not exist.
 
 We can see that by default only **autofsd** is running:

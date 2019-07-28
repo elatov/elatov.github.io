@@ -516,7 +516,7 @@ This seemed really cool, but I actually like having the idea of having the files
 
 #### DVCS-Autosync
 
-Another similar tool to SparleShare is DVCS-Autosync. From [their](http://www.mayrhofer.eu.org/dvcs-autosync) site:
+Another similar tool to SparleShare is DVCS-Autosync. From [their](https://github.com/rmayr/dvcs-autosync) site:
 
 > dvcs-autosync is a project to create an open source replacement for Dropbox/Wuala/Box.net/etc. based on distributed version control systems (DVCS). It offers nearly instantaneous mutual updates when a file is added or changed on one side but with the added benefit of (local, distributed) versioning and that it does not rely on a centralized service provider, but can be used with any DVCS hosting option including a completely separate server - your data remains your own.
 

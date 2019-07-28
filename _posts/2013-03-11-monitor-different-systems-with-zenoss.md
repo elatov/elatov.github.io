@@ -14,7 +14,7 @@ This is the third part and continuation of the 'Network Monitoring Software Comp
 >
 > Zenoss Core is award-winning Open Source IT monitoring software that offers visibility over the entire IT stack, from network devices to applications. Features include automatic discovery, inventory via CMDB, availability monitoring, easy-to-read performance graphs, sophisticated alerting, an easy-to-use web portal, and much, much more. It is Free Software, released under the GNU General Public License version 2. Zenoss has a very active community.
 
-Now to start the install. Reading over the [Zenoss Core 4 Installation Guide](http://www.zenoss.com/documentation/Core_Docs/Zenoss_Core_Installation_Upgrade_01-062014-4.2-v20.pdf), I saw that there is section on how to compile the software from source. This sparked an interest to install the software on my FreeBSD system.
+Now to start the install. Reading over the [Zenoss Install Guide](http://wiki.zenoss.org/Install_Zenoss), I saw that there is section on how to compile the software from source. This sparked an interest to install the software on my FreeBSD system.
 
 ### 1. Setup a MySQL Database for the Zenoss Install
 I decided to setup Zenoss on my FreeBSD machine, since my Ubuntu box was already running the other monitoring applications and I knew that the source for Zenoss was available. Zenoss uses MySQL for it's database, I actually had a MySQL instance running on the Ubuntu machine, hence I decided to allow remote access for root to MySQL. I would rarely do this, but since this was a test setup, I decided to just go all out :)Before any changes, I was able to login as **root** locally:

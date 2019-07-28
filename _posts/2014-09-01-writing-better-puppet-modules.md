@@ -19,7 +19,7 @@ From the first link here is a pretty good diagram of the way all the files inter
 ![puppet-module-class-design](https://seacloud.cc/d/480b5e8fcd/files/?p=/puppet-better-modules/puppet-module-class-design.png&raw=1)
 
 ### Puppet Class Ordering
-You will also notice that there are different methods to do ordering of the class execution. For example from [here](http://www.devco.net/archives/2012/12/13/simple-puppet-module-structure-redux.php):
+You will also notice that there are different methods to do ordering of the class execution. For example from [here](https://blog.mayflower.de/4573-The-Puppet-Anchor-Pattern-in-Practice.html):
 
 	class ntp(
 	   $version = "present",
