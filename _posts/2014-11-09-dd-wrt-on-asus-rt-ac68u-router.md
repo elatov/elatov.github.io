@@ -12,7 +12,7 @@ Got myself a new router, didn't really need one, but got one just for the heck o
 
 Looking over the [following](http://www.dd-wrt.com/phpBB2/viewtopic.php?t=177612&postdays=0&postorder=asc&start=810) thread, it looks like at the time of writing (Nov 1st 2014) the **24461** firmware seems pretty stable. 
 
-With the ASUS router it's a two step process to get DD-WRT on it, first we flash it with the BrainSlayer Firmware (**.trx** file) and then we update to the lastest Kong Build of DD-WRT (**.bin** file). For the Kong DD-WRT build I grabbed the [25015M](http://www.desipro.de/ddwrt/K3-AC-Arm/) version (other people had luck with it) and  the [Supported Models document](http://www.desipro.de/ddwrt/K3-AC-Arm/Supported%20Models) had the **AC68U** Router listed.
+With the ASUS router it's a two step process to get DD-WRT on it, first we flash it with the BrainSlayer Firmware (**.trx** file) and then we update to the lastest Kong Build of DD-WRT (**.bin** file). For the Kong DD-WRT build I grabbed the [25015M](http://dd-wrt.tweakedrom.com/Kong_PTB/K3-AC/) version (other people had luck with it) .
 
 ### DD-WRT Install Process
 
@@ -42,7 +42,7 @@ Here is what I did to clear the NVRAM on  the Stock Install:
 	Escape character is '^]'.
 	RT-AC68U login: admin
 	Password:
-
+	
 	ASUSWRT RT-AC68U_3.0.0.4 Tue Jul 15 09:23:33 UTC 2014
 	admin@RT-AC68U:/tmp/home/root# df -Ph
 	Filesystem                Size      Used Available Capacity Mounted on
@@ -80,29 +80,29 @@ As I saw the firmware upgrade is finished, I **telnet**'ed into the router and s
 	Trying 192.168.1.1...
 	Connected to 192.168.1.1.
 	Escape character is '^]'.
-
+	
 	DD-WRT v24-sp2 std (c) 2014 NewMedia-NET GmbH
 	Release: 06/23/14 (SVN revision: 24461)
-
+	
 	DD-WRT login: root 
 	Password: 
 	==========================================================
-
+	
 	 ____  ___    __        ______ _____         ____  _  _ 
 	 | _ \| _ \   \ \      / /  _ \_   _| __   _|___ \| || | 
 	 || | || ||____\ \ /\ / /| |_) || |   \ \ / / __) | || |_ 
 	 ||_| ||_||_____\ V  V / |  _ < | |    \ V / / __/|__   _| 
 	 |___/|___/      \_/\_/  |_| \_\|_|     \_/ |_____|  |_| 
-
+	
 						   DD-WRT v24-sp2
 					   http://www.dd-wrt.com
-
+	
 	==========================================================
 
 
 	BusyBox v1.22.1 (2014-06-23 04:49:23 CEST) built-in shell (ash)
 	Enter 'help' for a list of built-in commands.
-
+	
 	root@DD-WRT:~# reboot
 	root@DD-WRT:~# Connection closed by foreign host.
 
@@ -117,29 +117,29 @@ I set the password, **telnet**'ed again into the router, and cleared the NVRAM:
 	Trying 192.168.1.1...
 	Connected to 192.168.1.1.
 	Escape character is '^]'.
-
+	
 	DD-WRT v24-sp2 std (c) 2014 NewMedia-NET GmbH
 	Release: 06/23/14 (SVN revision: 24461)
-
+	
 	DD-WRT login: root
 	Password: 
 	==========================================================
-
+	
 	 ____  ___    __        ______ _____         ____  _  _ 
 	 | _ \| _ \   \ \      / /  _ \_   _| __   _|___ \| || | 
 	 || | || ||____\ \ /\ / /| |_) || |   \ \ / / __) | || |_ 
 	 ||_| ||_||_____\ V  V / |  _ < | |    \ V / / __/|__   _| 
 	 |___/|___/      \_/\_/  |_| \_\|_|     \_/ |_____|  |_| 
-
+	
 						   DD-WRT v24-sp2
 					   http://www.dd-wrt.com
-
+	
 	==========================================================
 
 
 	BusyBox v1.22.1 (2014-06-23 04:49:23 CEST) built-in shell (ash)
 	Enter 'help' for a list of built-in commands.
-
+	
 	root@DD-WRT:~# df -Ph
 	Filesystem                Size      Used Available Capacity Mounted on
 	rootfs                   25.0M     25.0M         0 100% /
@@ -166,29 +166,29 @@ After it rebooted (after applying the new dd-wrt build), I logged into router on
 	Trying 192.168.1.1...
 	Connected to 192.168.1.1.
 	Escape character is '^]'.
-
+	
 	DD-WRT v24-sp2 kongac (c) 2014 NewMedia-NET GmbH
 	Release: 09/13/14 (SVN revision: 25015M)
-
+	
 	DD-WRT login: root
 	Password: 
 	==========================================================
-
+	
 	 ____  ___    __        ______ _____         ____  _  _ 
 	 | _ \| _ \   \ \      / /  _ \_   _| __   _|___ \| || | 
 	 || | || ||____\ \ /\ / /| |_) || |   \ \ / / __) | || |_ 
 	 ||_| ||_||_____\ V  V / |  _ < | |    \ V / / __/|__   _| 
 	 |___/|___/      \_/\_/  |_| \_\|_|     \_/ |_____|  |_| 
-
+	
 						   DD-WRT v24-sp2
 					   http://www.dd-wrt.com
-
+	
 	==========================================================
 
 
 	BusyBox v1.22.1 (2014-09-13 23:35:28 CEST) built-in shell (ash)
 	Enter 'help' for a list of built-in commands.
-
+	
 	root@DD-WRT:~# erase nvram
 	erase[1572864]
 	root@DD-WRT:~# reboot
@@ -240,11 +240,11 @@ It wouldn't run cause they are build against the **uClibc** library. There is al
 	root@DD-WRT:~# mount --bind /jffs/opt /opt
 	root@DD-WRT:~# bootstrap 
 	Bootstrap is checking prerequisites...
-
+	
 	You did not enable USB automount.
 	Echo optpart /dev/mtdblock/4 on /opt type jffs2 (rw,relatime)
 	Found a valid partition: /opt.
-
+	
 	Proceed with download and install of opkg? (y/n) [default=n]: y
 	Connecting to www.desipro.de (82.165.77.220:80)
 	opkg.ipk             100% |**********************************************************| 56268   0:00:00 ETA
@@ -274,11 +274,11 @@ And here is what I ran to install the **iproute2** package:
 After I installed the right one I saw the binary point to the **/lib/ld-musl-arm.so.1** file:
 
 	root@DD-WRT:~# /opt/usr/bin/readelf -l /opt/usr/sbin/ip 
-
+	
 	Elf file type is EXEC (Executable file)
 	Entry point 0xa8b4
 	There are 6 program headers, starting at offset 52
-
+	
 	Program Headers:
 	  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align
 	  PHDR           0x000034 0x00008034 0x00008034 0x000c0 0x000c0 R E 0x4
@@ -292,11 +292,11 @@ After I installed the right one I saw the binary point to the **/lib/ld-musl-arm
 While the non-working ones pointed to the **uClibc**:
 
 	$readelf -l opkg 
-
+	
 	Elf file type is EXEC (Executable file)
 	Entry point 0x12c00
 	There are 6 program headers, starting at offset 52
-
+	
 	Program Headers:
 	  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align
 	  PHDR           0x000034 0x00010034 0x00010034 0x000c0 0x000c0 R E 0x4
@@ -367,7 +367,7 @@ But that didn't work on this version of the router/dd-wrt.  Here were the defaul
 	size: 30373 bytes (35163 left)
 	vlan2hwname=et0
 	vlan1hwname=et0
-	
+
 I then read over the following pages:
 
 - [Creating VLANs in DD-WRT (Part 1)](https://michaelpoore.com/2011/07/creating-vlans-in-dd-wrt-part-1/)

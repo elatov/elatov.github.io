@@ -23,7 +23,7 @@ Use VMware Converter and do a V2V of the VM and choose Thin for the destination 
 #### WINDOWS
 ##### Solution 1:**
 
-When this happens we need to reclaim the deleted space using sdelete, which will just zero out the deleted space. The page [Reclaim disk space from Thin Provisioned disks](https://community.hds.com/docs/DOC-1006003) talks about how to do that. So first zero out the deleted space with sdelete and then use storage vMotion to convert the disk to thin.
+When this happens we need to reclaim the deleted space using sdelete, which will just zero out the deleted space. The page [Reclaim disk space from Thin Provisioned disks](https://app-hds.jiveon.com/docs/DOC-1006003) talks about how to do that. So first zero out the deleted space with sdelete and then use storage vMotion to convert the disk to thin.
 
 ##### Solution 2
 You can also use the shrink disk from vmware tools to reclaim the delete space. More information can be seen here '[Storage VMotion and moving to a Thin Provisioned disk](http://www.yellow-bricks.com/2009/07/31/storage-vmotion-and-moving-to-a-thin-provisioned-disk/)'.
