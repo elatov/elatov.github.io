@@ -82,7 +82,7 @@ So let's clone the repository and add a test home page:
 	Total 3 (delta 0), reused 0 (delta 0)
 	To https://moxz1@github.com/moxz1/moxz1.github.io.git
 	 * [new branch]      master -> master
-	 
+
 Now if you look back on the **settings** page of the repository, it will let you know that your changes have been published:
 
 ![site-is-published-github-settings](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/site-is-published-github-settings.png&raw=1)
@@ -202,8 +202,9 @@ Now let's build and serve that jekyll-bootstrap template locally:
 	 Auto-regeneration: enabled
 	    Server address: http://0.0.0.0:4000/
 	  Server running... press ctrl-c to stop.
+
   
-  
+
 Now if you point your browser to **http://localhost:4000** you should see the template:
 
 ![jekyll-running-example-bootstrap](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/jekyll-running-example-bootstrap.png&raw=1)
@@ -248,7 +249,7 @@ Like I mentioned before, you can either clone the whole project or you can actua
 	Generating 'twitter' layout: post.html
 	=> Theme successfully switched!
 	=> Reload your web-page to check it out =)
-	
+
 Now if you re-run jekyll you should see the following after you visit **http://localhost:4000** :
 
 ![jekyll-with-twitter-theme-running](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/jekyll-with-twitter-theme-running.png&raw=1)
@@ -296,7 +297,7 @@ Let's add the information regarding the site. I ended up modifying the following
 	 #
 	-production_url : http://username.github.io
 	+production_url : http://moxz1.github.io
-	
+
 On the main page, I decided to just list posts and nothing else. Here is what I ended up with in the **index.md** file:
 
 {% raw  %}
@@ -339,7 +340,7 @@ If you like how it looks, you can push it to the github pages:
 	Total 21 (delta 5), reused 8 (delta 0)
 	To https://moxz1@github.com/moxz1/moxz1.github.io.git
 	 1f3596c..f692c6f  master -> master
-	 
+
 Then after some time, if you visit the github user pages, you will see the same site:
 
 ![github-updates-pushed-and-live](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/github-updates-pushed-and-live.png&raw=1)
@@ -385,7 +386,7 @@ and **_posts**, is a directory with all the converted posts:
 	-rw-r--r--  1 elatov  staff  71062 May 30 09:59 2014-04-22-post1.md
 	-rw-r--r--  1 elatov  staff  26118 May 30 09:59 2014-05-05-post2.md
 	-rw-r--r--  1 elatov  staff  87552 May 30 09:59 2014-05-06-post3.md
-	
+
 You can just copy those over to your jekyll setup:
 
 	elatov@kmac:~$rsync -avzP jek/jekyll-export/_posts/. moxz1.github.io/_posts/.
@@ -443,14 +444,14 @@ The first one has an R Script which clean up a bunch of HTML tags and the second
 	
 	### Replace Smiley images with characters
 	for i in $(grep '<img src="http://site.com/wp-includes/images/smilies/icon_smile.gif"' * | awk -F : '{print $1}'  | uniq); do echo $i; gsed -i 's%<img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif".*/>%:\)%g' $i; done
-	
+
 There were a bunch more but you get the point. The reason why I did it by hand was to make sure everything was converted as I expected. This was tedious, but it was better than re-writing all the posts and at the end I knew the markdown files were clean.
 
 #### Fixing HTML links and Image links
 Most of the **href** links looked like this in the new files:
 
 	<a href="https://communities.vmware.com/thread/423099" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://communities.vmware.com/thread/423099']);">ESXi 5.x on new Apple Mac Mini 6,2 Late 2012</a>
-	
+
 To fix those, I wrote a little python script:
 
 	elatov@kmac:~$cat conv-html-url-to-md.py
@@ -464,7 +465,7 @@ To fix those, I wrote a little python script:
 Then I just ran the following to clean up all the links:
 
 	elatov@kmac:~/moxz1.github.io$ for i in $(ls | grep -v py); do echo $i; python conv-html-url-to-md.py $i; done
-	
+
 The image links were in the following format in the converted files:
 
 	<a href="http://site.com/wp-content/uploads/2014/04/installing-unetbootin.png" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://virtuallyhyper.com/wp-content/uploads/2014/04/installing-unetbootin.png']);"><img src="http://virtuallyhyper.com/wp-content/uploads/2014/04/installing-unetbootin.png" alt="installing unetbootin ESXi on MacMini 6,2" width="520" height="369" class="alignnone size-full wp-image-10454" title="ESXi on MacMini 6,2" /></a>
@@ -482,7 +483,7 @@ Now with another python script we can fix the links for the images:
 Then with another for loop, we can run that through all the posts:
 
 	elatov@kmac:~/moxz1.github.io$ for i in $(ls | grep -v py); do echo $i; python conv-html-url-to-md.py $i; done
-	
+
 ### Moving Images and Uploads
 The first thing you will notice in the uploads directory is that there are multiple versions of the same image:
 
@@ -496,7 +497,7 @@ The first thing you will notice in the uploads directory is that there are multi
 	esxtop_latency-620x200.png
 	esxtop_latency-927x180.png
 	esxtop_latency.png
-	
+
 To clean those up we can use **find**, here the command to list them:
 
 	elatov@kmac:~/jek/jekyll-export/wp-content/uploads/2012/03$find . -name "*-[0-9]*x[0-9]*.png"
@@ -525,7 +526,7 @@ So for example the above image which was located at:
 From the Jekyll Export, will be accessible in the github repository with the following URL:
 
 	https://github.com/moxz1/uploads/raw/master/2012/03/esxtop_latency.png
-	
+
 Now we can use the following to point all the image links to the github repository:
 
 	elatov@kmac:~$cat conv-html-url-to-md.py
@@ -556,7 +557,7 @@ Lastly I searched for the python package:
 Then to install it:
 
 	elatov@kmac:~$sudo pip install pylinkchecker
-	
+
 Then I ran the following to check for broken links:
 
 	elatov@kmac:~$pylinkcheck.py http://localhost:4000 -O -o pylink.txt
@@ -566,7 +567,7 @@ It look about 15 minutes to finish, but then I was able to see if any of my link
 	elatov@kmac:~$grep github pylink.txt
 	  not found (404): https://github.com/moxz1/uploads/raw/master/2013/02/zenoss-ssh-linux-device.png
 	  not found (404): https://github.com/moxz1/uploads/raw/master/2013/04/vm_details_change_video_to_glx.png
-	  
+
 I had a very small amount and I fixed them really quick. Just as a side note another good linkchecker can be found [here](http://wummel.github.io/linkchecker/), it's also based on python. That one can be setup to run from cron to check for any broken links on your site.
 
 ### Writing new Posts
@@ -574,7 +575,7 @@ With **jekyllbootstrap**, we can use the prebuilt **Rakefile** to create new pos
 
 	elatov@kmac:~/moxz1.github.io$rake post title="New Post"
 	Creating new post: ./_posts/2014-05-30-new-post.md
-	
+
 You will see a template generated for the new post:
 
 {% raw  %}
@@ -717,4 +718,4 @@ and then click **Submit Changes** one more time. After that if you go back to yo
 I liked the transition to the new setup. Being a persion who loves the command-line, it's perfect. I think the only downside to this, is the fact that you have to check out the whole site from github before making any changes (and that means that you have to have a local copy on multiple machines). Also running Jekyll locally can be process consuming, depending on how many posts it has go through to generate the site. It will definitely give you more control over your content, and it's up to you to stay organized. There are definitely a lot pros to the setup as well. You don't have to manage your own jekyll server, github hosts the pages for you. Also since github is a version control system, you basically have backups of each commit that you make to github. This way of managing a site is definitely not for everyone. Here are some examples of people that had a different experience with jekyll.
 
 - [Moving back from to Jekyll to WordPress](http://www.multunus.com/blog/2014/02/migrated-back-wordpress-jekyll/)
-- [Migrating from Jekyll to WordPress](http://joshkayani.me/2015/12/21/migrating-from-jekyll-to-wordpress.html)
+- [How to migrate from Jekyll to WordPress](https://reyhan.org/2018/02/928)

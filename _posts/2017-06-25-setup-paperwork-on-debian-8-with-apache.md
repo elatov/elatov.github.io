@@ -7,7 +7,7 @@ categories: [os]
 tags: [paperwork,nodejs,apache]
 ---
 ### Paperwork
-I wanted to find an application that helps with note taking and it wasn't cloud based. I just wanted my own app that I could manage myself. So I ran into [Paperwork](http://paperwork.rocks/) and I decided to give it a try.
+I wanted to find an application that helps with note taking and it wasn't cloud based. I just wanted my own app that I could manage myself. So I ran into [Paperwork](https://paperwork.cloud/) and I decided to give it a try.
 
 ### Install Paperwork on Debian
 Most of the setup is covered here:
@@ -161,7 +161,7 @@ Next let's fill the database the all the data:
 First install **npm**, I grabbed the one provided my Debian:
 
 	<> sudo apt-get install npm
-	
+
 Next install **bower** and **gulp** globally:
 
 	<> sudo npm install -g gulp bower
@@ -257,7 +257,7 @@ I was looking over [Using Apache in place of Nginx](https://github.com/twostairs
 	        Require all granted
 	    </IfVersion>
 	</Directory>
-	
+
 Then going to **https://\<APACHE\>/pw** I was redirected to the application, I could login, and use it without issues.
 
 ### Updating Paperwork

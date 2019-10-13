@@ -29,12 +29,12 @@ We need to detect what thermal sensors are available, this can be down with the 
     moxz:~>sudo sensors-detect
     # sensors-detect revision 6085 (2012-10-30 18:18:45 +0100)
     # Board: ASUSTeK Computer INC. P4S533
-
+    
     This program will help you determine which kernel modules you need
     to load to use lm_sensors most effectively. It is generally safe
     and recommended to accept the default answers to all questions,
     unless you know what you're doing.
-
+    
     Some south bridges, CPUs or memory controllers contain embedded sensors.
     Do you want to scan for them? This is totally safe. (YES/no):
 
@@ -54,7 +54,7 @@ At the end of the output you should see something like this:
       * Bus `SiS96x SMBus adapter at 0xe600'
         Busdriver `i2c_sis96x', I2C address 0x2d (and 0x48 0x49)
         Chip `Asus ASB100 Bach' (confidence: 8)
-
+    
     Do you want to overwrite /etc/sysconfig/lm_sensors? (YES/no): Unloading i2c-dev... OK
 
 
@@ -63,7 +63,7 @@ It looks like it found the **asb100** chip. This was a very old P4 machine, here
     moxz:~>sudo dmidecode -t baseboard
     # dmidecode 2.12
     SMBIOS 2.3 present.
-
+    
     Handle 0x0002, DMI type 2, 8 bytes
     Base Board Information
         Manufacturer: ASUSTeK Computer INC.
@@ -104,51 +104,51 @@ The fields were very generic. At this point we would need to check out the manua
     # This example was tested vs. Asus P4S333
     #
     chip "asb100-*"
-
+    
         label in0 "VCore 1"
         #set in0_min cpu0_vid * 0.95
         #set in0_max cpu0_vid * 1.05
-
+    
         label in1 "VCore 2"
         ignore in1
         #set in1_min cpu0_vid * 0.95
         #set in1_max cpu0_vid * 1.05
-
+    
         label in2 "+3.3V"
         #set in2_min 3.3 * 0.95
         #set in2_max 3.3 * 1.05
-
+    
         label in3 "+5V"
         compute in3 1.68 * @ ,  @ / 1.68
         #set in3_min 5.0 * 0.95
         #set in3_max 5.0 * 1.05
-
+    
         label in4 "+12V"
         compute in4 3.8 * @ , @ / 3.8
         #set in4_min 12  * 0.90
         #set in4_max 12  * 1.10
-
+    
         label in5 "-12V (reserved)"
         #ignore in5
         compute in5 -@ * 3.97 ,  -@ / 3.97
         #set in5_max -12 * 0.90
         #set in5_min -12 * 1.10
-
+    
         label in6 "-5V (reserved)"
         #ignore in6
         compute in6 -@ * 1.666 , -@ / 1.666
         #set in6_max -5  * 0.95
         #set in6_min -5  * 1.05
-
+    
         label temp1 "M/B Temp"
         #set temp1_max      45
         #set temp1_max_hyst 40
-
+    
         label temp2 "CPU Temp (Intel)"
         #ignore temp2
         #set temp2_max      60
         #set temp2_max_hyst 50
-
+    
         # PWRTMP connector on P4S333, for external sensor
         label temp3 "Power Temp"
         #ignore temp3
@@ -161,15 +161,15 @@ The fields were very generic. At this point we would need to check out the manua
         #set temp4_max      60
         #set temp4_max_hyst 50
         #ignore temp4
-
+    
         label fan1 "CPU Fan"
         #set fan1_div 4
         #set fan1_min 2000
-
+    
         label fan2 "Chassis Fan"
         #set fan2_div 2
         #set fan2_min 4000
-
+    
         label fan3 "Power Fan"
         #set fan3_div 2
         #set fan3_min 4000
@@ -214,19 +214,19 @@ and then after running **sensors** I saw the following:
     ncp15wb473-isa-0000
     Adapter: ISA adapter
     temp1:        +32.6°C    sensor = thermistor
-
+    
     ncp15wb473-isa-0001
     Adapter: ISA adapter
     temp1:        +33.5°C    sensor = thermistor
-
+    
     ncp15wb473-isa-0002
     Adapter: ISA adapter
     temp1:        +31.5°C    sensor = thermistor
-
+    
     ncp15wb473-isa-0003
     Adapter: ISA adapter
     temp1:        +32.7°C    sensor = thermistor
-
+    
     exynos-therm-virtual-0
     Adapter: Virtual device
     temp1:        +38.0°C  (crit = +85.0°C)
@@ -579,16 +579,16 @@ For ease of plotting, I decided to label the TMU sensor *CPU temp* and the other
 
     chip "ncp15wb473-isa-0000"
         label temp1 "M/B 1 Temp"
-
+    
     chip "ncp15wb473-isa-0001"
         label temp1 "M/B 2 Temp"
-
+    
     chip "ncp15wb473-isa-0002"
         label temp1 "M/B 3 Temp"
-
+    
     chip "ncp15wb473-isa-0003"
         label temp1 "M/B 4 Temp"
-
+    
     chip "*-virtual-0"
         label temp1 "CPU Temp"
 
@@ -604,19 +604,19 @@ My output looked like this:
     ncp15wb473-isa-0000
     Adapter: ISA adapter
     M/B 1 Temp:   +31.6°C    sensor = thermistor
-
+    
     ncp15wb473-isa-0001
     Adapter: ISA adapter
     M/B 2 Temp:   +33.1°C    sensor = thermistor
-
+    
     ncp15wb473-isa-0002
     Adapter: ISA adapter
     M/B 3 Temp:   +31.0°C    sensor = thermistor
-
+    
     ncp15wb473-isa-0003
     Adapter: ISA adapter
     M/B 4 Temp:   +33.0°C    sensor = thermistor
-
+    
     exynos-therm-virtual-0
     Adapter: Virtual device
     CPU Temp:     +34.0°C  (crit = +85.0°C)
@@ -630,7 +630,7 @@ While in Mac OS X you can install **iStat** and then from the dashboard you can 
 
 ![i stat dashboard Monitor Thermal Sensors With lm sensors](https://github.com/elatov/uploads/raw/master/2013/09/i_stat_dashboard.png)
 
-You can also download the temperature Monitor from [here](http://www.bresink.com/osx/0TemperatureMonitor/download.php5). After you install, it you can run it manually. Here is what I saw when I ran it on my system:
+You can also download the temperature Monitor from [here](https://www.bresink.com/osx/TemperatureMonitor.html). After you install, it you can run it manually. Here is what I saw when I ran it on my system:
 
     $/Applications/TemperatureMonitor.app/Contents/MacOS/tempmonitor -a -c -l
     SMART Disk TOSHIBA MK5065GSXF (81RVCAO4T): 29 C
@@ -680,7 +680,7 @@ Rebooting into Fedora, here is the **lm-sensors** output:
     TPCD:         +66.0°C
     TW0P:        -127.0°C
     Th1H:         +60.8°C
-
+    
     coretemp-isa-0000
     Adapter: ISA adapter
     Physical id 0:  +74.0°C  (high = +86.0°C, crit = +100.0°C)
@@ -754,7 +754,7 @@ Also from the *mactel-linux* email forum there was a nice mapping as well:
 
     1) #KEY = Key count
        NTOK = Interrupt Ok key
-
+    
        T = Temperature sensor
        2)
          A = Ambient
@@ -770,7 +770,7 @@ Also from the *mactel-linux* email forum there was a nice mapping as well:
          p = Power supply
          S = Slot (Expansion)
          s = Slot (PCI express)???
-
+    
           3)
            0-9,A-Z: Number of sensor
             4)
@@ -811,7 +811,7 @@ After comparing the different sources from above, I ended up adding the followin
         label temp22 "PCH-Die Temp"
         label temp23 "Airport_Wireless-Proximity Temp"
         label temp24 "Heat-Pipe Temp"
-
+    
     chip "coretemp-*"
         label temp1 "CPU_Package Temp"
         label temp2 "CPU_Core0 Temp"
@@ -848,7 +848,7 @@ and then my **sensors** looked like this:
     PCH-Die Temp:                     +64.0°C
     Airport_Wireless-Proximity Temp: -127.0°C
     Heat-Pipe Temp:                   +62.5°C
-
+    
     coretemp-isa-0000
     Adapter: ISA adapter
     CPU_Package Temp:  +72.0°C  (high = +86.0°C, crit = +100.0°C)
@@ -884,7 +884,7 @@ I realized that my **Memory_Module Bank B** wasn't showing anything (and the **A
     PCH-Proximity Temp:          +60.5°C
     PCH-Die Temp:                +65.0°C
     Heat-Pipe Temp:              +63.5°C
-
+    
     coretemp-isa-0000
     Adapter: ISA adapter
     CPU_Package Temp:  +71.0°C  (high = +86.0°C, crit = +100.0°C)
