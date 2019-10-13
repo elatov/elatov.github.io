@@ -67,6 +67,8 @@ kramdown:
  auto_ids: true
  hard_wrap: false
  syntax_highlighter: rouge
+ syntax_highlighter_opts:
+    default_lang: plaintext
 
 # filter used to process markdown. note that kramdown differs from github-flavored markdown in some subtle ways
 
