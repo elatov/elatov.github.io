@@ -211,11 +211,11 @@ So we already enabled SimpleSAMLPHP to act as an IdP, now let's configure it. Ed
     $metadata['__DYNAMIC:1__'] = array(
         // The hostname of the server (VHOST) that this SAML entity will use.
         'host'              =>  '__DEFAULT__',
-
+    
         // X.509 key and certificate. Relative to the cert directory.
         'privatekey'   => 'googleappsidp.pem',
         'certificate'  => 'googleappsidp.crt',
-
+    
         'auth' => 'example-userpass',
     );
 
@@ -331,7 +331,7 @@ I prefer Charles Proxy because it's a stand alone application. You point your br
 Here is what I saw after I hit "Sign In" from gmail:
 
     https://accounts.google.com/ServiceLoginAuth
-
+    
     POST /ServiceLoginAuth HTTP/1.1
     Host: accounts.google.com
     User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:20.0) Gecko/20100101 Firefox/20.0
@@ -343,7 +343,7 @@ Here is what I saw after I hit "Sign In" from gmail:
     Connection: keep-alive
     Content-Type: application/x-www-form-urlencoded
     Content-Length: 693
-
+    
     HTTP/1.1 302 Moved Temporarily
     Cache-Control: private, max-age=0
     Content-Encoding: gzip
@@ -367,7 +367,7 @@ and that redirects us to the IdP with the SAML request included:
     Location: http://awsub.dnsd.me/simplesamlphp/saml2/idp/SSOService.php?SAMLRequest=fVLJTsMwEL0j8Q%2BR71lBAllNUAEhKrFENHDg5iaTxJU9Dh6nBb4eNwUBB7g%2Bv3nLeGZnr1oFG7AkDeYsjRIWANamkdjl7LG6Ck%2FZWXF4MCOh1cDno%2BvxAV5GIBf4SSQ%2BPeRstMiNIEkchQbirubL%2Be0Nz6KED9Y4UxvFgsVlztZrIUWnBlC9ggZF1%2Fd6aA32K0SB637VaqNRefbTV6xsF2tBNMICyQl0HkrSozA5DrOTKkt5esSz5JkF5afTucR9g%2F9irfYk4tdVVYbl%2FbKaBDayAXvn2TnrjOkURLXRO%2FtSEMmNh1uhCFgwJwLrfMALgzRqsEuwG1nD48NNznrnBuJxvN1uo2%2BZWMTavL5HWiJEOMaiJlZMu%2BVTPftjqf%2BHF1%2FmrPiWn8U%2FpIrPP9tVWVyWRsn6LZgrZbYXFoTzPZwdfY0rY7Vwf7ulUTohsgnbicpHpAFq2UpoWBAXe9ffx%2BFP5gM%3D&RelayState=https%3A%2F%2Faccounts.google.com%2FCheckCookie%3Fcontinue%3Dhttp%253A%252F%252Fmail.google.com%252Fmail%252F%26service%3Dmail%26ltmpl%3Ddefault
 
 
-Decoding the SAML Request (using this [tool](https://rnd.feide.no/2012/08/29/announcing-new-sparkling-saml-2-0-debugger/)) since it's base64 encoded, we get this:
+Decoding the SAML Request (using this [tool](https://riptutorial.com/saml-2-0/example/23446/saml-debugging-tools)) since it's base64 encoded, we get this:
 
     < ?xml version="1.0" encoding="UTF-8"?>
     <samlp:authnrequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
@@ -395,7 +395,7 @@ From the above we can see the Provider name is **google.com**, the **ACS URL** (
     Accept-Language: en-US,en;q=0.5
     Accept-Encoding: gzip, deflate
     Connection: keep-alive
-
+    
     HTTP/1.1 302 Found
     Date: Sat, 27 Apr 2013 21:13:25 GMT
     Server: Apache/2.2.22 (Ubuntu)
@@ -427,7 +427,7 @@ We get a **302 Found** which is good. At this point the IdP takes care of the au
     Content-Type: application/x-www-form-urlencoded
     Content-Length: 403
     username=test&password=password&AuthState=_a5482b21099f41743ad139014fb0794a02ea18521b%3Ahttp%3A%2F%2Fawsub.dnsd.me%2Fsimplesamlphp%2Fsaml2%2Fidp%2FSSOService.php%3Fspentityid%3Dgoogle.com%26cookieTime%3D1367098785%26RelayState%3Dhttps%253A%252F%252Faccounts.google.com%252FCheckCookie%253Fcontinue%253Dhttp%25253A%25252F%25252Fmail.google.com%25252Fmail%25252F%2526service%253Dmail%2526ltmpl%253Ddefault
-
+    
     HTTP/1.1 200 OK
     Date: Sat, 27 Apr 2013 21:39:52 GMT
     Server: Apache/2.2.22 (Ubuntu)
@@ -447,7 +447,7 @@ We get a **302 Found** which is good. At this point the IdP takes care of the au
 We ca see our super cool creds (**test/password**) and the **RelayState** is kept so we know which session this authentication process corresponds to. And here is the response that is sent from the IdP to the SP:
 
     https://www.google.com/a/moxz.mine.nu/acs
-
+    
     POST /a/moxz.mine.nu/acs HTTP/1.1
     Host: www.google.com
     User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:20.0) Gecko/20100101 Firefox/20.0
@@ -460,7 +460,7 @@ We ca see our super cool creds (**test/password**) and the **RelayState** is kep
     Content-Type: application/x-www-form-urlencoded
     Content-Length: 7341
     SAMLResponse=PHNhbWxwOlJlc3BvbnNlIHhtbG5zOnNhbWxwPSJ1cm46b2FzaXM6bmFtZXM6dGM6U0FNTDoyLjA6cHJvdG9jb2wiIHhtbG5zOnNhbWw9InVybjpvYXNpczpuYW1lczp0YzpTQU1MOjIuMDphc3NlcnRpb24iIElEPSJwZnhkYWNhNjAwNC0wNGE3LWYyMjktNzhhYi1iNTdmZDgzZTQyZTUiIFZlcnNpb249IjIuMCIgSXNzdWVJbnN0YW50PSIyMDEzLTA0LTI3VDIxOjM5OjUyWiIgRGVzdGluYXRpb249Imh0dHBzOi8vd3d3Lmdvb2dsZS5jb20vYS9tb3h6Lm1pbmUubnUvYWNzIj48c2FtbDpJc3N1ZXI%2BaHR0cDovL2F3c3ViLmRuc2QubWUvc2ltcGxlc2FtbHBocC9zYW1sMi9pZHAvbWV0YWRhdGEucGhwPC9zYW1sOklzc3Vlcj48ZHM6U2lnbmF0dXJlIHhtbG5zOmRzPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjIj4KICA8ZHM6U2lnbmVkSW5mbz48ZHM6Q2Fub25pY2FsaXphdGlvbk1ldGhvZCBBbGdvcml0aG09Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvMTAveG1sLWV4Yy1jMTRuIyIvPgogICAgPGRzOlNpZ25hdHVyZU1ldGhvZCBBbGdvcml0aG09Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkveG1sZHNpZyNyc2Etc2hhMSIvPgogIDxkczpSZWZlcmVuY2UgVVJJPSIjcGZ4ZGFjYTYwMDQtMDRhNy1mMjI5LTc4YWItYjU3ZmQ4M2U0MmU1Ij48ZHM6VHJhbnNmb3Jtcz48ZHM6VHJhbnNmb3JtIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS94bWxkc2lnI2VudmVsb3BlZC1zaWduYXR1cmUiLz48ZHM6VHJhbnNmb3JtIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS8xMC94bWwtZXhjLWMxNG4jIi8%2BPC9kczpUcmFuc2Zvcm1zPjxkczpEaWdlc3RNZXRob2QgQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjc2hhMSIvPjxkczpEaWdlc3RWYWx1ZT5VcFdaZ3phVzVZdk1FdnVBYysyQk1CUXVMREk9PC9kczpEaWdlc3RWYWx1ZT48L2RzOlJlZmVyZW5jZT48L2RzOlNpZ25lZEluZm8%2BPGRzOlNpZ25hdHVyZVZhbHVlPm4za2hoS2ZhSURRWXdlZTNZaEtkZTkzNjgrczlpL2VxODNweFNkektQUXo5SFZNUlYxS1RmVWVPSjFLeVN6RzBqTTdBdlRnTUZDcndUb1hNZ2RTRWsrSEhDUHFHMzJQazJyRG5YditzRHpuL1hLcE0yRDYzQWVkUTREZDFDekNiNWdCdjN4WkRGMU54dXlPOERHUVlPb0VvMnlmZURORFdSQkVQRUpkQVFScz08L2RzOlNpZ25hdHVyZVZhbHVlPgo8ZHM6S2V5SW5mbz48ZHM6WDUwOURhdGE%2BPGRzOlg1MDlDZXJ0aWZpY2F0ZT5NSUlDaXpDQ0FmUUNDUUM2TXhQNGJSaTdlakFOQmdrcWhraUc5dzBCQVFVRkFEQ0JpVEVMTUFrR0ExVUVCaE1DVlZNeEVUQVBCZ05WQkFnTUNFTnZiRzl5WVdSdk1SQXdEZ1lEVlFRSERBZENiM1ZzWkdWeU1RMHdDd1lEVlFRS0RBUkliMjFsTVEwd0N3WURWUVFMREFSTmIzaDZNUll3RkFZRFZRUUREQTFoZDNOMVlpNWtibk5rTG0xbE1SOHdIUVlKS29aSWh2Y05BUWtCRmhCbGJHRjBiM1pBWjIxaGFXd3VZMjl0TUI0WERURXpNRFF5TVRFNU1USTFPVm9YRFRRd01Ea3dOVEU1TVRJMU9Wb3dnWWt4Q3pBSkJnTlZCQVlUQWxWVE1SRXdEd1lEVlFRSURBaERiMnh2Y21Ga2J6RVFNQTRHQTFVRUJ3d0hRbTkxYkdSbGNqRU5NQXNHQTFVRUNnd0VTRzl0WlRFTk1Bc0dBMVVFQ3d3RVRXOTRlakVXTUJRR0ExVUVBd3dOWVhkemRXSXVaRzV6WkM1dFpURWZNQjBHQ1NxR1NJYjNEUUVKQVJZUVpXeGhkRzkyUUdkdFlXbHNMbU52YlRDQm56QU5CZ2txaGtpRzl3MEJBUUVGQUFPQmpRQXdnWWtDZ1lFQXRaazlxamxjbHRDSjBRT2dFbmx6WHhsOEorWFhzblovSjRyNTNBektrR2laYVlqenNvTHVxamJWRklUN25md1VmekF3ajN4VDNNZTNIZEMxamI1eXBOZDMvc0N5VVYxcnUrNm5RSzZERHpHWkxycXEzWXFjRC90Vmw4NTVRSi96VzdwbGJpakRWQlc4OUlvRURFWlBEcFFSU0doVWQwRE5UclhpZXJ4eXgxTUNBd0VBQVRBTkJna3Foa2lHOXcwQkFRVUZBQU9CZ1FDelgwZjZFaFdOZWo4K2hxMnpmTHZDVDhyQ0hEY21xKzZtTDIxOVVJU3RpRnlyQ1JLc3ZtNVgxekphYmltSDFXZmJWeFJFUUNTNmUwak5GdkF0RytpWVgrbUVibHFrOHFPSTJOMVpReE5ORUZPUHUrS3ZZTzNmVWlPTUFyazh3UjdZTUFEYXBuY0FQUTMxc0ZVSXc2UXh4RkhNSEowcnJEb2t6OVZxMTFvUzRnPT08L2RzOlg1MDlDZXJ0aWZpY2F0ZT48L2RzOlg1MDlEYXRhPjwvZHM6S2V5SW5mbz48L2RzOlNpZ25hdHVyZT48c2FtbHA6U3RhdHVzPjxzYW1scDpTdGF0dXNDb2RlIFZhbHVlPSJ1cm46b2FzaXM6bmFtZXM6dGM6U0FNTDoyLjA6c3RhdHVzOlN1Y2Nlc3MiLz48L3NhbWxwOlN0YXR1cz48c2FtbDpBc3NlcnRpb24geG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeG1sbnM6eHM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hIiBJRD0icGZ4YWQyZTY0ODItMzk5MC1lZjkxLWUwOWEtYmMzMjZlNzNhODA2IiBWZXJzaW9uPSIyLjAiIElzc3VlSW5zdGFudD0iMjAxMy0wNC0yN1QyMTozOTo1MloiPjxzYW1sOklzc3Vlcj5odHRwOi8vYXdzdWIuZG5zZC5tZS9zaW1wbGVzYW1scGhwL3NhbWwyL2lkcC9tZXRhZGF0YS5waHA8L3NhbWw6SXNzdWVyPjxkczpTaWduYXR1cmUgeG1sbnM6ZHM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkveG1sZHNpZyMiPgogIDxkczpTaWduZWRJbmZvPjxkczpDYW5vbmljYWxpemF0aW9uTWV0aG9kIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS8xMC94bWwtZXhjLWMxNG4jIi8%2BCiAgICA8ZHM6U2lnbmF0dXJlTWV0aG9kIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS94bWxkc2lnI3JzYS1zaGExIi8%2BCiAgPGRzOlJlZmVyZW5jZSBVUkk9IiNwZnhhZDJlNjQ4Mi0zOTkwLWVmOTEtZTA5YS1iYzMyNmU3M2E4MDYiPjxkczpUcmFuc2Zvcm1zPjxkczpUcmFuc2Zvcm0gQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjZW52ZWxvcGVkLXNpZ25hdHVyZSIvPjxkczpUcmFuc2Zvcm0gQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzEwL3htbC1leGMtYzE0biMiLz48L2RzOlRyYW5zZm9ybXM%2BPGRzOkRpZ2VzdE1ldGhvZCBBbGdvcml0aG09Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkveG1sZHNpZyNzaGExIi8%2BPGRzOkRpZ2VzdFZhbHVlPmJKYm9Ccm9DdFBJcEVUQmZleERsSWpZOURiaz08L2RzOkRpZ2VzdFZhbHVlPjwvZHM6UmVmZXJlbmNlPjwvZHM6U2lnbmVkSW5mbz48ZHM6U2lnbmF0dXJlVmFsdWU%2BQ05XNU1sQUYxU1FpWlljUFdrY0JUY0hvekF2WFVjZ3JsbXBEV1AxSkR0L013ZGtjWnVPbXFlUFhVUFYrZktUbVpBMmQ5SWsvbnpkY3M1SExxSGtJMnJxNWtzYWhPTll1K3pSRUdjQ0c1ZEI2L2t3bmM4cDdBcUFEQ1ZDMzNzNW5DSnYrbGJSTjdlUnZnTnVBY1E4VlF4NGt3ZEpHSTVpNVo0SGVjYWM3RzVBPTwvZHM6U2lnbmF0dXJlVmFsdWU%2BCjxkczpLZXlJbmZvPjxkczpYNTA5RGF0YT48ZHM6WDUwOUNlcnRpZmljYXRlPk1JSUNpekNDQWZRQ0NRQzZNeFA0YlJpN2VqQU5CZ2txaGtpRzl3MEJBUVVGQURDQmlURUxNQWtHQTFVRUJoTUNWVk14RVRBUEJnTlZCQWdNQ0VOdmJHOXlZV1J2TVJBd0RnWURWUVFIREFkQ2IzVnNaR1Z5TVEwd0N3WURWUVFLREFSSWIyMWxNUTB3Q3dZRFZRUUxEQVJOYjNoNk1SWXdGQVlEVlFRRERBMWhkM04xWWk1a2JuTmtMbTFsTVI4d0hRWUpLb1pJaHZjTkFRa0JGaEJsYkdGMGIzWkFaMjFoYVd3dVkyOXRNQjRYRFRFek1EUXlNVEU1TVRJMU9Wb1hEVFF3TURrd05URTVNVEkxT1Zvd2dZa3hDekFKQmdOVkJBWVRBbFZUTVJFd0R3WURWUVFJREFoRGIyeHZjbUZrYnpFUU1BNEdBMVVFQnd3SFFtOTFiR1JsY2pFTk1Bc0dBMVVFQ2d3RVNHOXRaVEVOTUFzR0ExVUVDd3dFVFc5NGVqRVdNQlFHQTFVRUF3d05ZWGR6ZFdJdVpHNXpaQzV0WlRFZk1CMEdDU3FHU0liM0RRRUpBUllRWld4aGRHOTJRR2R0WVdsc0xtTnZiVENCbnpBTkJna3Foa2lHOXcwQkFRRUZBQU9CalFBd2dZa0NnWUVBdFprOXFqbGNsdENKMFFPZ0VubHpYeGw4SitYWHNuWi9KNHI1M0F6S2tHaVphWWp6c29MdXFqYlZGSVQ3bmZ3VWZ6QXdqM3hUM01lM0hkQzFqYjV5cE5kMy9zQ3lVVjFydSs2blFLNkREekdaTHJxcTNZcWNEL3RWbDg1NVFKL3pXN3BsYmlqRFZCVzg5SW9FREVaUERwUVJTR2hVZDBETlRyWGllcnh5eDFNQ0F3RUFBVEFOQmdrcWhraUc5dzBCQVFVRkFBT0JnUUN6WDBmNkVoV05lajgraHEyemZMdkNUOHJDSERjbXErNm1MMjE5VUlTdGlGeXJDUktzdm01WDF6SmFiaW1IMVdmYlZ4UkVRQ1M2ZTBqTkZ2QXRHK2lZWCttRWJscWs4cU9JMk4xWlF4Tk5FRk9QdStLdllPM2ZVaU9NQXJrOHdSN1lNQURhcG5jQVBRMzFzRlVJdzZReHhGSE1ISjByckRva3o5VnExMW9TNGc9PTwvZHM6WDUwOUNlcnRpZmljYXRlPjwvZHM6WDUwOURhdGE%2BPC9kczpLZXlJbmZvPjwvZHM6U2lnbmF0dXJlPjxzYW1sOlN1YmplY3Q%2BPHNhbWw6TmFtZUlEIFNQTmFtZVF1YWxpZmllcj0iZ29vZ2xlLmNvbSIgRm9ybWF0PSJ1cm46b2FzaXM6bmFtZXM6dGM6U0FNTDoyLjA6bmFtZWlkLWZvcm1hdDplbWFpbCI%2BdGVzdDwvc2FtbDpOYW1lSUQ%2BPHNhbWw6U3ViamVjdENvbmZpcm1hdGlvbiBNZXRob2Q9InVybjpvYXNpczpuYW1lczp0YzpTQU1MOjIuMDpjbTpiZWFyZXIiPjxzYW1sOlN1YmplY3RDb25maXJtYXRpb25EYXRhIE5vdE9uT3JBZnRlcj0iMjAxMy0wNC0yN1QyMTo0NDo1MloiIFJlY2lwaWVudD0iaHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS9hL21veHoubWluZS5udS9hY3MiLz48L3NhbWw6U3ViamVjdENvbmZpcm1hdGlvbj48L3NhbWw6U3ViamVjdD48c2FtbDpDb25kaXRpb25zIE5vdEJlZm9yZT0iMjAxMy0wNC0yN1QyMTozOToyMloiIE5vdE9uT3JBZnRlcj0iMjAxMy0wNC0yN1QyMTo0NDo1MloiPjxzYW1sOkF1ZGllbmNlUmVzdHJpY3Rpb24%2BPHNhbWw6QXVkaWVuY2U%2BZ29vZ2xlLmNvbTwvc2FtbDpBdWRpZW5jZT48L3NhbWw6QXVkaWVuY2VSZXN0cmljdGlvbj48L3NhbWw6Q29uZGl0aW9ucz48c2FtbDpBdXRoblN0YXRlbWVudCBBdXRobkluc3RhbnQ9IjIwMTMtMDQtMjdUMjE6Mzk6NTJaIiBTZXNzaW9uTm90T25PckFmdGVyPSIyMDEzLTA0LTI4VDA1OjM5OjUyWiIgU2Vzc2lvbkluZGV4PSJfYjAxNDg1N2Y2ODBiNGJiMzkzNTVhM2I2OWVhYThkODU2ZTFmMGMyODJhIj48c2FtbDpBdXRobkNvbnRleHQ%2BPHNhbWw6QXV0aG5Db250ZXh0Q2xhc3NSZWY%2BdXJuOm9hc2lzOm5hbWVzOnRjOlNBTUw6Mi4wOmFjOmNsYXNzZXM6UGFzc3dvcmQ8L3NhbWw6QXV0aG5Db250ZXh0Q2xhc3NSZWY%2BPC9zYW1sOkF1dGhuQ29udGV4dD48L3NhbWw6QXV0aG5TdGF0ZW1lbnQ%2BPC9zYW1sOkFzc2VydGlvbj48L3NhbWxwOlJlc3BvbnNlPg%3D%3D&RelayState=https%3A%2F%2Faccounts.google.com%2FCheckCookie%3Fcontinue%3Dhttp%253A%252F%252Fmail.google.com%252Fmail%252F%26service%3Dmail%26ltmpl%3Ddefault
-
+    
     HTTP/1.1 200 OK
     Cache-Control: private, max-age=0
     Content-Encoding: gzip
@@ -541,7 +541,7 @@ We can see the certificate used for the signature and the signature it self. We 
 This ensures that this is for the **test** user. And finally Google confirms the SAML Assertion and directs us to the gmail page:
 
     https://mail.google.com/mail/?auth=DQAAAIMAAABnua9GG0M
-
+    
     GET /mail/?auth=DQAAAIMAAABnua9GG0MT-tvplNuWWHYhDzdqQujRwZbBajn88VRr9KtXR-oQZDzJQi2t7UH_4KOdZRZ2jpjd-KpqgMG6K-YFN2zDL5z6T_6mAybLzrTeLojLFoawA4j4JEvW0BfVElT26tYAliaLP4imdvRRnb_2lAEopz8bRZ8TQG0xED5mE0Via9PWezMwIoNavsU_DjM HTTP/1.1
     Host: mail.google.com
     User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:20.0) Gecko/20100101 Firefox/20.0
@@ -551,7 +551,7 @@ This ensures that this is for the **test** user. And finally Google confirms the
     Referer: https://www.google.com/a/moxz.mine.nu/acs
     Cookie: S=gmail=UZch6hOEVFj1Y-8w4g93qA; GMAIL_RTT=1063; GMAIL_LOGIN=T1367097141172/1367097141172/1367097200128; SID=DQAAAMUBAACoKZ4UcaFV-lyXqIdorzHbOArd3SMzxlHet0q4NaNgbgSMsh4sawE8rYSJU1xOrmOFHM9ArI0_CCjZEd7T5YLTLtNk5mFJ4jJUhA8bYp12xHrx4B5foOchdyo5vncNTnTniHoH73M8gYAdbvunwRL3kQGcKD7xmGZRAeNu0nnsB_aWM-MS3ftVd8ZG0BzahfstuJDuvCCyzqn3y2euzxNUAeJ3A-yHygcwlng_JiUGfzEyKE_Pvhq5S9aC5hvFhO0Wn5NNGuwdVgc5kPmW6ffAaw9w_tJ5VBbyAs_R5rQw3QoKuuTDDw93pKGGK0eDHOAmrelgBE0w1_8UyLjWQtl6ZQLB6Lp5WaKTpYahKwy_bo_2UxNcrBEDyJhjvvDa6H0Hg5ZvxomllM-aM4glNvfbT4oNiAlbqMuhCRru6qoSXxeWPemOfTGz4tIF9nskF4FLV9SIw8TYJ0oTwoum1g2xphflTJwnLsCsogkiAZKBb8CAZBbZTVkBGlw81gaTle09Y5QAWsYJdQ_GtkmjoAXH9XyXWT-1WvhM1IZJ5Ksb0ezwgpNyNIbq56iApyYo5vSiaczI4__DAYkd1pHo-VgHokNoFRNW6H1vsjiZ5mu18g; HSID=A_hmoPSGe8g9siTJM; SSID=AZHTNvqum9BfiZIuk; APISID=epkxgMmhGOstSn0C/AnAzZCRJDPz1eaz5_; SAPISID=RyzoBwecpP229So7/ADdaqYsMKoejHc1RZ
     Connection: keep-alive
-
+    
     HTTP/1.1 302 Moved Temporarily
     Cache-Control: no-cache, no-store, max-age=0, must-revalidate
     Content-Length: 0

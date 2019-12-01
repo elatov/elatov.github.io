@@ -9,7 +9,7 @@ tags: ['rhel', 'linux', 'performance', 'kernel']
 
 ## Kernel
 
-The kernel is a very complex concept, I will try to use some references to put it all together. From [Important parts of the kernel](http://www.tldp.org/LDP/sag/html/kernel-parts.html):
+The kernel is a very complex concept, I will try to use some references to put it all together. From [Important parts of the kernel](https://www.tldp.org/LDP/sag/html/kernel-parts.html):
 
 > The Linux kernel consists of several important parts: process management, memory management, hardware device drivers, filesystem drivers, network management, and various other bits and pieces.
 >
@@ -71,7 +71,7 @@ We can check the scheduler information, by checking out the contents of **/proc/
       .sysctl_sched_child_runs_first           : 0.000000
       .sysctl_sched_features                   : 15471
       .sysctl_sched_tunable_scaling            : 1 (logaritmic)
-
+    
     cpu#0, 2795.243 MHz
       .nr_running                    : 1
       .load                          : 1024
@@ -94,7 +94,7 @@ We can check the scheduler information, by checking out the contents of **/proc/
       .ttwu_count                    : 26666
       .ttwu_local                    : 26666
       .bkl_count                     : 152
-
+    
     cfs_rq[0]:/
       .exec_clock                    : 12072.940261
       .MIN_vruntime                  : 0.000001
@@ -106,13 +106,13 @@ We can check the scheduler information, by checking out the contents of **/proc/
       .load                          : 1024
       .nr_spread_over                : 9
       .shares                        : 0
-
+    
     rt_rq[0]:/
       .rt_nr_running                 : 0
       .rt_throttled                  : 0
       .rt_time                       : 0.000000
       .rt_runtime                    : 950.000000
-
+    
     runnable tasks:
                 task   PID         tree-key  switches  prio     exec-runtime         sum-exec        sum-sleep
     ----------------------------------------------------------------------------------------------------------
@@ -270,7 +270,7 @@ From this pretty old RHEL document entitled [Understanding Virtual Memory](http:
 > **What Comprises a VM** ![virtual mem RHCSA and RHCE Chapter 10   The Kernel](https://github.com/elatov/uploads/raw/master/2013/06/virtual_mem.png)
 >
 > **2.3 Zoned Buddy Allocator**
-> The Zoned Buddy Allocator is responsible for the management of page allocations to the entire system. This code manages lists of physically contiguous pages and maps them into the MMU page tables, so as to provide other kernel subsystems with valid physical address ranges when the kernel requests them (Physical to Virtual Address mapping is handled by a higher layer of the VM and is collapsed into the kernel subsystems block of Figure 1 ). The name Buddy Allocator is derived from the algorithm this subsystem uses to maintain it free page lists. All physical pages in RAM are cataloged by the buddy allocator and grouped into lists. Each list represents clusters of 2n pages, where n is incremented in each list. There is a list of single pages, a list of 2 page clusters, a list of 4 page cluster, and so on. When a request comes in for an amount of memory, that value is rounded up to the nearest power of 2, and a entry is removed from the appropriate list, registered in the page tables of the MMU and a corresponding physical address is returned to the caller, which is then mapped into a virtual address for kernel use. If no entries exist on the requested list, an entry from the next list up is broken into two separate clusters, and 1 is returned to the caller while the other is added to the next list down. When an allocation is returned to the buddy allocator, the reverse process happens. The allocation is returned to the requisite list, and the list is then examined to determine if a larger cluster can be made from the existing entries on the list which was just updated. This algorithm is advantageous in that it automatically returns pages to the highest order free list possible. That is to say, as allocations are returned to the free pool, they automatically form larger clusters, so that when a need arises for a large amount of physically contiguous memory (i.e. for a DMA operation), it is more likely that the request can be satisﬁed. Note that the buddy allocator allocates memory in page multiples only. Other subsystems are responsible for ﬁner grained control over allocation size. For more information regarding the ﬁner details of a buddy allocator, refer to [1](http://www.tldp.org/LDP/sag/html/kernel-parts.html). Note that the Buddy allocator also manages memory zones, which deﬁne pools of memory which have diﬀerent purposes. Currently there are three memory pools which the buddy allocator manages accesses for:
+> The Zoned Buddy Allocator is responsible for the management of page allocations to the entire system. This code manages lists of physically contiguous pages and maps them into the MMU page tables, so as to provide other kernel subsystems with valid physical address ranges when the kernel requests them (Physical to Virtual Address mapping is handled by a higher layer of the VM and is collapsed into the kernel subsystems block of Figure 1 ). The name Buddy Allocator is derived from the algorithm this subsystem uses to maintain it free page lists. All physical pages in RAM are cataloged by the buddy allocator and grouped into lists. Each list represents clusters of 2n pages, where n is incremented in each list. There is a list of single pages, a list of 2 page clusters, a list of 4 page cluster, and so on. When a request comes in for an amount of memory, that value is rounded up to the nearest power of 2, and a entry is removed from the appropriate list, registered in the page tables of the MMU and a corresponding physical address is returned to the caller, which is then mapped into a virtual address for kernel use. If no entries exist on the requested list, an entry from the next list up is broken into two separate clusters, and 1 is returned to the caller while the other is added to the next list down. When an allocation is returned to the buddy allocator, the reverse process happens. The allocation is returned to the requisite list, and the list is then examined to determine if a larger cluster can be made from the existing entries on the list which was just updated. This algorithm is advantageous in that it automatically returns pages to the highest order free list possible. That is to say, as allocations are returned to the free pool, they automatically form larger clusters, so that when a need arises for a large amount of physically contiguous memory (i.e. for a DMA operation), it is more likely that the request can be satisﬁed. Note that the buddy allocator allocates memory in page multiples only. Other subsystems are responsible for ﬁner grained control over allocation size. For more information regarding the ﬁner details of a buddy allocator, refer to [1](https://www.tldp.org/LDP/sag/html/kernel-parts.html). Note that the Buddy allocator also manages memory zones, which deﬁne pools of memory which have diﬀerent purposes. Currently there are three memory pools which the buddy allocator manages accesses for:
 >
 > *   **DMA** - This zone consists of the ﬁrst 16 MB of RAM, from which legacy devices allocate to perform direct memory operations
 > *   **NORMAL** - This zone encompasses memory addresses from 16 MB to 1 GB2 and is used by the kernel for internal data structures, as well as other system and user space allocations.
@@ -798,7 +798,7 @@ Or you can actually run **slabtop** and see real time usage. Here is how my **sl
      Active / Total Caches (% used)     : 96 / 183 (52.5%)
      Active / Total Size (% used)       : 31127.88K / 31911.36K (97.5%)
      Minimum / Average / Maximum Object : 0.01K / 0.04K / 4096.00K
-
+    
       OBJS ACTIVE  USE OBJ SIZE  SLABS OBJ/SLAB CACHE SIZE NAME
     467712 467589  99%    0.02K   2304  203  9216K avtab_node
     327700 327484  99%    0.03K   2900  113     11600K size-32
@@ -917,13 +917,13 @@ To check most of the those parameters you can use ethtool:
     RX Mini:    0
     RX Jumbo:   0
     TX:     256
-
+    
     [root@rhel1 ~]# ethtool -a eth0
     Pause parameters for eth0:
     Autonegotiate:  on
     RX:     on
     TX:     off
-
+    
     [root@rhel1 ~]# ethtool -k eth0
     Offload parameters for eth0:
     rx-checksumming: on
@@ -934,7 +934,7 @@ To check most of the those parameters you can use ethtool:
     generic-segmentation-offload: on
     generic-receive-offload: off
     large-receive-offload: off
-
+    
     [root@rhel1 ~]# ethtool -c eth0
     Coalesce parameters for eth0:
     Adaptive RX: off  TX: off
@@ -942,22 +942,22 @@ To check most of the those parameters you can use ethtool:
     sample-interval: 0
     pkt-rate-low: 0
     pkt-rate-high: 0
-
+    
     rx-usecs: 0
     rx-frames: 0
     rx-usecs-irq: 0
     rx-frames-irq: 0
-
+    
     tx-usecs: 0
     tx-frames: 0
     tx-usecs-irq: 0
     tx-frames-irq: 0
-
+    
     rx-usecs-low: 0
     rx-frame-low: 0
     tx-usecs-low: 0
     tx-frame-low: 0
-
+    
     rx-usecs-high: 0
     rx-frame-high: 0
     tx-usecs-high: 0

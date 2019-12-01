@@ -33,7 +33,7 @@ Here is how the first server looks like:
 	Alloc PE / Size 316 / 9.88 GB
 	Free PE / Size 0 / 0
 	VG UUID JXKHMj-aQOn-X8Tq-Wgol-iDMm-Tiij-48PkgU
-
+	
 	[root@rac1 ~]# lvdisplay
 	--- Logical volume ---
 	LV Name /dev/VolGroup00/LogVol00
@@ -49,7 +49,7 @@ Here is how the first server looks like:
 	Read ahead sectors auto
 	- currently set to 256
 	Block device 253:0
-
+	
 	--- Logical volume ---
 	LV Name /dev/VolGroup00/LogVol01
 	VG Name VolGroup00
@@ -101,7 +101,7 @@ and here is how the physical disk is paritioned:
 	Disk /dev/sda: 10.7 GB, 10737418240 bytes
 	255 heads, 63 sectors/track, 1305 cylinders
 	Units = cylinders of 16065 * 512 = 8225280 bytes
-
+	
 	Device Boot Start End Blocks Id System
 	/dev/sda1 * 1 13 104391 83 Linux
 	/dev/sda2 14 1305 10377990 8e Linux LVM
@@ -109,11 +109,11 @@ and here is how the physical disk is paritioned:
 So /dev/sda1 is formated ext3 and is our boot partition and the /dev/sda2 partition is of type LVM and it's split up into the two different Logical Volumes that I described above. For the first server, I will expand the vmdk from 10GB to 17GB and then resize the /dev/sda2 partition to be 17GB and then resize the Volume Group (VG) to be the same size. At that point, I will be able to extend the Logical Volume (LV) up to 17GB - 2GB (for swap) ~15GB, and lastly I will grow the filesystem on that LV and we will be all set. So let's get started on this. Here is how the physical disk looks like after I expand the disk:
 
 	[root@rac1 ~]# fdisk -l /dev/sda
-
+	
 	Disk /dev/sda: 18.2 GB, 18253611008 bytes
 	255 heads, 63 sectors/track, 2219 cylinders
 	Units = cylinders of 16065 * 512 = 8225280 bytes
-
+	
 	Device Boot Start End Blocks Id System
 	/dev/sda1 * 1 13 104391 83 Linux
 	/dev/sda2 14 1305 10377990 8e Linux LVM
@@ -121,27 +121,27 @@ So /dev/sda1 is formated ext3 and is our boot partition and the /dev/sda2 partit
 Notice the new size :). So let's go ahead and resize the partition with fdisk (delete and re-create with new size):
 
 	[root@rac1 ~]# fdisk /dev/sda
-
+	
 	The number of cylinders for this disk is set to 2219.
 	There is nothing wrong with that, but this is larger than 1024,
 	and could in certain setups cause problems with:
 	1) software that runs at boot time (e.g., old versions of LILO)
 	2) booting and partitioning software from other OSs
 	(e.g., DOS FDISK, OS/2 FDISK)
-
+	
 	Command (m for help): p
-
+	
 	Disk /dev/sda: 18.2 GB, 18253611008 bytes
 	255 heads, 63 sectors/track, 2219 cylinders
 	Units = cylinders of 16065 * 512 = 8225280 bytes
-
+	
 	Device Boot Start End Blocks Id System
 	/dev/sda1 * 1 13 104391 83 Linux
 	/dev/sda2 14 1305 10377990 8e Linux LVM
-
+	
 	Command (m for help): d
 	Partition number (1-4): 2
-
+	
 	Command (m for help): n
 	Command action
 	e extended
@@ -152,27 +152,27 @@ Notice the new size :). So let's go ahead and resize the partition with fdisk (d
 	Using default value 14
 	Last cylinder or +size or +sizeM or +sizeK (14-2219, default 2219):
 	Using default value 2219
-
+	
 	Command (m for help): t
 	Partition number (1-4): 2
 	Hex code (type L to list codes): 8e
 	Changed system type of partition 2 to 8e (Linux LVM)
-
+	
 	Command (m for help): p
-
+	
 	Disk /dev/sda: 18.2 GB, 18253611008 bytes
 	255 heads, 63 sectors/track, 2219 cylinders
 	Units = cylinders of 16065 * 512 = 8225280 bytes
-
+	
 	Device Boot Start End Blocks Id System
 	/dev/sda1 * 1 13 104391 83 Linux
 	/dev/sda2 14 2219 17719695 8e Linux LVM
-
+	
 	Command (m for help): w
 	The partition table has been altered!
-
+	
 	Calling ioctl() to re-read partition table.
-
+	
 	WARNING: Re-reading the partition table failed with error 16: Device or resource busy.
 	The kernel still uses the old table.
 	The new table will be used at the next reboot.
@@ -184,7 +184,7 @@ Now notice the "Device or resource busy" message. This is expected since we are 
 	Disk /dev/sda: 18.2 GB, 18253611008 bytes
 	255 heads, 63 sectors/track, 2219 cylinders
 	Units = cylinders of 16065 * 512 = 8225280 bytes
-
+	
 	Device Boot Start End Blocks Id System
 	/dev/sda1 * 1 13 104391 83 Linux
 	/dev/sda2 14 2219 17719695 8e Linux LVM
@@ -237,7 +237,7 @@ and here is the lvextent and the new size:
 	[root@rac1 ~]# lvextend -l +100%FREE /dev/VolGroup00/LogVol00
 	Extending logical volume LogVol00 to 14.91 GB
 	Logical volume LogVol00 successfully resized
-
+	
 	[root@rac1 ~]# lvdisplay /dev/VolGroup00/LogVol00
 	--- Logical volume ---
 	LV Name /dev/VolGroup00/LogVol00
@@ -281,9 +281,9 @@ And now for the new size:
 That is what we wanted to see. By the way, resize2fs works on ext3 online only ([ext2online(8) - Linux man page](http://linux.die.net/man/8/resize2fs)). Like I mentioned, this was probably not the safest way of doing this, so let's go ahead and reboot the OS and force a filesystem check, just to be safe:
 
 	[root@rac1 ~]# touch /forcefsck ; reboot
-
+	
 	Broadcast message from root (pts/1) (Sun Mar 18 13:36:22 2012):
-
+	
 	The system is going down for reboot NOW!
 
 You can launch your vSphere client to check out the progress of the fsck.
@@ -293,29 +293,29 @@ You can launch your vSphere client to check out the progress of the fsck.
 Now for the second machine we will keep it safe. The second machine that I used had a very similar hard drive/partition layout:
 
 	[root@rac2 ~]# fdisk -l /dev/sda
-
+	
 	Disk /dev/sda: 10.7 GB, 10737418240 bytes
 	255 heads, 63 sectors/track, 1305 cylinders
 	Units = cylinders of 16065 * 512 = 8225280 bytes
-
+	
 	Device Boot Start End Blocks Id System
 	/dev/sda1 * 1 13 104391 83 Linux
 	/dev/sda2 14 1305 10377990 8e Linux LVM
-
+	
 	[root@rac2 ~]# df -h
 	Filesystem                      Size Used Avail Use% Mounted on
 	/dev/mapper/VolGroup00-LogVol00 7.7G 6.3G 991M  87%  /
 	/dev/sda1                       99M  16M  78M   17%  /boot
 	tmpfs                           1.5G 164M 1.4G  11%  /dev/shm
-
+	
 	[root@rac2 ~]# pvs
 	PV VG Fmt Attr PSize PFree
 	/dev/sda2 VolGroup00 lvm2 a- 9.88G 0
-
+	
 	[root@rac2 ~]# vgs
 	VG #PV #LV #SN Attr VSize VFree
 	VolGroup00 1 2 0 wz--n- 9.88G 0
-
+	
 	[root@rac2 ~]# lvs
 	LV VG Attr LSize Origin Snap% Move Log Copy% Convert
 	LogVol00 VolGroup00 -wi-ao 7.91G
@@ -324,11 +324,11 @@ Now for the second machine we will keep it safe. The second machine that I used 
 On the second machine, we are going to expand the VMDK, create a new partition from the newly expanded space, add that new partition as a PV, and then do the same steps as before. Most of the steps can be seen at the following VMware KB ([1006371](http://kb.vmware.com/kb/1006371)). Here is how fdisk looks like after I expanded the vmdk:
 
 	[root@rac2 ~]# fdisk -l /dev/sda
-
+	
 	Disk /dev/sda: 17.1 GB, 17179869184 bytes
 	255 heads, 63 sectors/track, 2088 cylinders
 	Units = cylinders of 16065 * 512 = 8225280 bytes
-
+	
 	Device Boot Start End Blocks Id System
 	/dev/sda1 * 1 13 104391 83 Linux
 	/dev/sda2 14 1305 10377990 8e Linux LVM
@@ -336,14 +336,14 @@ On the second machine, we are going to expand the VMDK, create a new partition f
 Let's create a partition from the new space:
 
 	[root@rac2 ~]# fdisk /dev/sda
-
+	
 	The number of cylinders for this disk is set to 2088.
 	There is nothing wrong with that, but this is larger than 1024,
 	and could in certain setups cause problems with:
 	1) software that runs at boot time (e.g., old versions of LILO)
 	2) booting and partitioning software from other OSs
 	(e.g., DOS FDISK, OS/2 FDISK)
-
+	
 	Command (m for help): n
 	Command action
 	e extended
@@ -354,17 +354,17 @@ Let's create a partition from the new space:
 	Using default value 1306
 	Last cylinder or +size or +sizeM or +sizeK (1306-2088, default 2088):
 	Using default value 2088
-
+	
 	Command (m for help): t
 	Partition number (1-4): 3
 	Hex code (type L to list codes): 8e
 	Changed system type of partition 3 to 8e (Linux LVM)
-
+	
 	Command (m for help): w
 	The partition table has been altered!
-
+	
 	Calling ioctl() to re-read partition table.
-
+	
 	WARNING: Re-reading the partition table failed with error 16: Device or resource busy.
 	The kernel still uses the old table.
 	The new table will be used at the next reboot.
@@ -433,9 +433,9 @@ Now let's extend the LV from the new partition that we added:
 Like I mentioned before, we could use lvresize if we wanted to. The command would look something like this:
 
 	[root@rac2 ~]# lvresize -l +100%FREE /dev/VolGroup00/LogVol00
-
+	
 	Now let's make sure the size is correct:
-
+	
 	[root@rac2 ~]# lvdisplay /dev/VolGroup00/LogVol00
 	--- Logical volume ---
 	LV Name /dev/VolGroup00/LogVol00
@@ -471,14 +471,14 @@ Let's see if the OS sees the correct size:
 Everything went well. Since this was a "safer" way of expanding the LV you can just reboot without running any fsck. I would say I am a pretty paranoid person, so I will force a fsck :).
 
 	[root@rac2 ~]# shutdown -rF now
-
+	
 	Broadcast message from root (pts/1) (Sun Mar 18 14:19:10 2012):
-
+	
 	The system is going down for reboot NOW!
 
 Again you can check the progress of the fsck through the vSphere Client if you desire to do so.
 
-If you run out of partitions (4 primary or 3 primary and 1 extended with 11 logical partitions for SCSI: [Max Partitions on Linux](http://www.linuxforums.org/forum/installation/42716-maximum-partitions-linux.html)), you could always add a new disk to the VM and follow the same steps.
+If you run out of partitions (4 primary or 3 primary and 1 extended with 11 logical partitions for SCSI: [Max Partitions on Linux](https://www.tldp.org/HOWTO/Partition/fdisk_partitioning.html)), you could always add a new disk to the VM and follow the same steps.
 
 ### Related Posts
 

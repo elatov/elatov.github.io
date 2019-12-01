@@ -30,7 +30,7 @@ After I downloaded the latest version, I had the following:
 
 	elatov@crbook:~$ls -lh download/*.tar
 	-rw-r--r-- 1 elatov elatov 108M Jun 27 22:30 download/l/OpenELEC-RPi.arm-4.0.6.tar
-	
+
 Then extracting the **tar** file, I had the following files:
 
 	elatov@crbook:~/download$tree OpenELEC-RPi.arm-4.0.6
@@ -79,7 +79,7 @@ Then extracting the **tar** file, I had the following files:
 		├── KERNEL.md5
 		├── SYSTEM
 		└── SYSTEM.md5
-
+	
 	4 directories, 40 files
 
 We just need to grab all the files under the **target** directory and put under the **/storage/.update** directory on the current OpenELEC machine. So I SSH'ed into my OpenELEC machine and ran the following to copy the files (I had the **rsync** plugin):
@@ -95,10 +95,10 @@ We just need to grab all the files under the **target** directory and put under 
 	   102686720 100%  941.88kB/s    0:01:46 (xfer#3, to-check=1/5)
 	SYSTEM.md5
 			  48 100%    0.05kB/s    0:00:00 (xfer#4, to-check=0/5)
-
+	
 	sent 106 bytes  received 108711569 bytes  941226.62 bytes/sec
 	total size is 108684752  speedup is 1.00
-	
+
 Then I moved the current configuration out of the way as per the recommendation:
 
 	pi:~ # mv .xbmc .xbmc-backup
@@ -106,7 +106,7 @@ Then I moved the current configuration out of the way as per the recommendation:
 Lastly I just rebooted:
 
 	pi:~ # reboot
-	
+
 After it rebooted the new version was installed. 
 
 ### Re-Apply the Original Settings
@@ -114,6 +114,7 @@ I then went back to my [OpenELEC on Raspberry Pi](/2013/11/openelec-raspberry-pi
 
 1. Apply the IP settings and finish the Initial Setup Wizard
 2. Install the xTV-SAF Skin
+  
   - Copy the font settings over `cp .xbmc.backup/addons/skin.xtv-saf/720p/Font.xml .xbmc/addons/skin.xtv-saf/720p/Font.xml`
 3. Enable the Web Server Service. **System** -> **Services** -> **Webserver** (you don't have do this manually any more)
 4. Add my Plex Movies Libraty via UPNP. **Movies** -> **Add Movies** -> **Browse** -> **UPNP**
@@ -121,11 +122,12 @@ I then went back to my [OpenELEC on Raspberry Pi](/2013/11/openelec-raspberry-pi
 
    ![openelec-time-settings](https://seacloud.cc/d/480b5e8fcd/files/?p=/openelec-update-4/openelec-time-settings.png&raw=1)
    
+
 The rest of the stuff was okay, like **optware** and **snmpd** (check out [this](/2013/11/openelec-raspberry-pi/) post on that setup). 
 
 ### New Performance Tuning Settings
 
-I ran into [this](http://www.htpcbeginner.com/raspberry-pi-openelec-tweaks/) site, which had a lot of good recommendation. Here are the ones I followed.
+I ran into [this](https://www.smarthomebeginner.com/overclock-raspberry-pi-openelec/) site, which had a lot of good recommendation. Here are the ones I followed.
 
 
 #### OverClock the Raspberry Pi
@@ -144,7 +146,8 @@ Here are the steps for that:
 		arm_freq=800
 		core_freq=300
 	
-For a more in depth guide, check out [How to overclock Raspberry Pi running OpenELEC?](http://www.htpcbeginner.com/overclock-raspberry-pi-openelec/). After I rebooted I saw the following under the **Hardware** section:
+
+For a more in depth guide, check out [How to overclock Raspberry Pi running OpenELEC?](https://www.smarthomebeginner.com/overclock-raspberry-pi-openelec/). After I rebooted I saw the following under the **Hardware** section:
 
 ![openelec-new-hardware](https://seacloud.cc/d/480b5e8fcd/files/?p=/openelec-update-4/openelec-new-hardware_g.png&raw=1)
 
@@ -174,7 +177,7 @@ and add the following:
 	</network>
 	</advancedsettings>
 
-All of the above setting are discussed in detail at [Strategies to fix XBMC buffering issues on Raspberry Pi](http://www.htpcbeginner.com/fix-raspberry-pi-xbmc-buffering-issues/). The most noteable one is the **cachemembuffersize** option (I had a pretty decent SD card). From the above page:
+All of the above setting are discussed in detail at [Strategies to fix XBMC buffering issues on Raspberry Pi](https://www.smarthomebeginner.com/fix-raspberry-pi-xbmc-buffering-issues/). The most noteable one is the **cachemembuffersize** option (I had a pretty decent SD card). From the above page:
 
 > Alternatively, you could set the cachemembuffersize to 0, which would force XBMC to use your local storage (SD Card) for caching videos. In this case, the cache size is only limited by the amount of free space available. Upon stopping the video the cache is automatically cleared to free up space. Note that this will increase the read/write on your SD card, which may reduce its lifespan. But SD cards are cheap and doing this can help low RAM devices such as Raspberry Pi. 
 
@@ -205,11 +208,11 @@ and here are the settings that I ended up with:
 		<timeseekbackward>-15</timeseekbackward>
 		<subsdelayrange>240</subsdelayrange>
 	</video>
-	
+
 I decided to leave the logging just to see what's going on. But if you want to completely disable logging set the **logvelel** option to **-1**. All of the setttings are covered in detail in [advancedsettings.xml](http://kodi.wiki/view/advancedsettings.xml)
 
 ### Other Tweaks
-I also ran into [10 Tweaks to improve XBMC performance on Raspberry Pi](http://www.htpcbeginner.com/10-tweaks-to-improve-xbmc-performance-on-raspberry-pi/). Here are some of the settings I applied from that page.
+I also ran into [10 Tweaks to improve XBMC performance on Raspberry Pi](https://www.smarthomebeginner.com/10-tweaks-to-improve-xbmc-performance-on-raspberry-pi/). Here are some of the settings I applied from that page.
 
 #### Disable Un-used Services
 Go to **System** -> **Services** and disable anything you don't use. I disabled the following:
@@ -237,7 +240,7 @@ Everything was working out well, until I started watching some tv streams. XBMC 
 	13:59:04 T:2750211152   ERROR: COMXAudioCodecOMX::GetData Unexpected change of size (49152->65536)
 	13:59:04 T:2750211152   ERROR: COMXAudioCodecOMX::GetData Unexpected change of size (65536->49152)
 	13:59:04 T:2750211152   ERROR: COMXAudioCodecOMX::GetData Unexpected change of size (49152->65536)
-	
+
 I was only able to find [the following](http://forum.xbmc.org/showthread.php?tid=196936) (Openelec 4.0.3 Screen goes black during Live TV) forum that matched my error message. In the forum they mentioned that it's known issue and going back to 4.0.2 should fix the issue(and hopefully 4.0.4 fixes the issue). Given the fact that I was on 4.0.6 and the issue was still happening, I decided to downgrade to 4.0.2. 
 
 With the new version of OpenELEC (4.0), we just copy the **tar** file into the update folder and the update process will proceed. From [Updating OpenELEC](http://kodi.wiki/view/OpenELEC#Updating_OpenELEC)
@@ -248,17 +251,17 @@ So I mozied over to the [archives](https://libreelec.wiki/releases) page for ope
 
 	elatov@crbook:~/download$ls -lh OpenELEC-RPi.arm-4.0.2.tar 
 	-rw-r--r-- 1 elatov elatov 109M May 27 12:33 OpenELEC-RPi.arm-4.0.2.tar
-	
+
 Then I **ssh**'ed into the RPi and I copied the file over:
 
 	pi:~ # rsync -avP crbook:download/OpenELEC-RPi.arm-4.0.2.tar .update/.
 	receiving incremental file list
 	OpenELEC-RPi.arm-4.0.2.tar
 	   113664000 100%    1.63MB/s    0:01:06 (xfer#1, to-check=0/1)
-
+	
 	sent 42 bytes  received 113691864 bytes  1505853.06 bytes/sec
 	total size is 113664000  speedup is 1.00
-	
+
 Then after I rebooted, the 4.0.2 version was installed (rebooting a second time finished the downgrade). So I am currently on 4.0.2:
 
 	pi:~ # cat /etc/version 
