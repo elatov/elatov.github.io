@@ -62,11 +62,11 @@ I started with a base *Ubuntu 16.04* OS and went from there. I had two NICs on t
 	iface ens160 inet manual
 	up ip link set dev ens160 up
 	down ip link set dev ens160 down
-	
+
 Before starting the install I decided to clean up any **lxc** packages:
 
 	apt-get remove --purge lxd-client lxcfs
-	
+
 Then after that I just followed the [Kolla-Ansible Deployment Guide](https://docs.openstack.org/project-deploy-guide/kolla-ansible/ocata/). First let's install **pip**:
 
 	apt-get update
@@ -134,7 +134,7 @@ And luckily those versions worked out for me.
 
 ### Configure Kolla
 First let's copy the sample configs:
-  
+
 	cp -r /usr/local/share/kolla-ansible/etc_examples/kolla /etc/kolla/
 	cp /usr/local/share/kolla-ansible/ansible/inventory/all-in-one .
 
@@ -515,8 +515,9 @@ After fixing my **nova** configuration I saw that the VM booted up and got a DHC
 	/ /__ / // __// __// /_/ /\ \
 	\___//_//_/  /_/   \____/___/
 	   http://cirros-cloud.net
-	
-	
+
+
+​	
 	login as 'cirros' user. default password: 'cubswin:)'. use 'sudo' for root.
 	demo1 login:
 
@@ -640,7 +641,7 @@ Here is our **qbr-xx** bridge with the tap device and the **qvb-xx** veth interf
 	docker0         8000.0242c878ec62       no
 	qbr7060060e-21  8000.2208ba465650       no              qvb7060060e-21
 	                                                        tap7060060e-21
-                                                        
+
 We can also do a packet capture on that guy:
 
 	root@osa:~# tcpdump -nne -i qbr7060060e-21 icmp
@@ -813,7 +814,7 @@ The here is the relevant section `tun_id=0xf actions=mod_vlan_vid:1`, this corre
 Looking at other examples:
 
 * [Openstack Neutron using VXLAN](http://www.opencloudblog.com/?p=300)
-* [User’s Guide OpenStack Deployment with VXLAN Configuration](http://www.qlogic.com/solutions/Documents/UsersGuide_OpenStack_VXLAN.pdf)
+* [User’s Guide OpenStack Deployment with VXLAN Configuration](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/openstack-kolla-ubuntu/UsersGuide_OpenStack_VXLAN.pdf)
 
 It looks like I should've had a **vxlan** port on my **openvswitch**, like so:
 
@@ -873,7 +874,7 @@ and on the internal one:
 	            Interface int-br-ex
 	                type: patch
 	                options: {peer=phy-br-ex}
-        
+
 For the sake of understand the flow, let's continue as we had a separate compute and network node.
 
 #### 6. Packet goes from the OVS tunnel bridge (br-tun) to the OVS integration bridge (br-int)
@@ -1145,7 +1146,7 @@ Then I could re-deploy again if I wanted to. Or you could **destroy** all the co
 	    
 	root@osa:~# kolla-ansible destroy -i all-in-one --yes-i-really-really-mean-it
 	Destroy Kolla containers, volumes and host configuration : ansible-playbook -i all-in-one -e @/etc/kolla/globals.yml -e @/etc/kolla/passwords.yml -e CONFIG_DIR=/etc/kolla  /usr/local/share/kolla-ansible/ansible/destroy.yml
-
+	
 	TASK [destroy : Destroying kolla-cleanup folder] **********************************************************************************************************************************************************************
 	changed: [localhost]
 	
