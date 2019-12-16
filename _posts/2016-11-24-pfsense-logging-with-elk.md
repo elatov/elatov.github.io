@@ -12,7 +12,7 @@ After [setting up pfsense](/2016/10/installing-pfsense-on-pc-engines-apu1d4-netg
 There are actually a bunch of good example out there already. Here are few:
 
 * [Monitoring pfSense (2.1 & 2.2) logs using ELK (ElasticSearch, Logstash, Kibana)](https://elijahpaul.co.uk/monitoring-pfsense-2-1-logs-using-elk-logstash-kibana-elasticsearch/)
-* [pfsense & ELK](http://secretwafflelabs.com/2015/11/06/pfsense-elk/)
+* [pfsense & ELK](https://github.com/a3ilson/pfelk)
 * [pf Firewall Logs + Logstash + Elasticsearch + Kibana Install / Guide](http://pfelk.3ilson.com/2015/12/pf-firewall-logs-logstash-elasticsearch.html)
 
 I ended up with the following config:
@@ -120,7 +120,7 @@ I ended up with the following config:
 	            }
 		}
 	}
-	
+
 I ended up adding a new type of **pfsense**, but other people used the below syntax to basically mark it **syslog** unless it's coming from the **pfsense** machine. That's probably a better setup, but since I created a dedicated port for my **pfsense** input I was okay with it. Here is relevant **logstash** config if you want to use one config:
 
 	filter {
@@ -212,7 +212,7 @@ You will notice that the above setup is pointing to a new patterns file. I ended
 	DHCPINFORM %{WORD:dhcp_action} from %{IPV4:dhcp_client_ip} via %(?<dhcp_client_vlan>[0-9a-z_]*)
 	
 	DHCPRELEASE %{WORD:dhcp_action} of %{IPV4:dhcp_client_ip} from %{COMMONMAC:dhcp_client_mac}%{SPACE}(\(%{GREEDYDATA:dhcp_client_hostname}\))? via (?<dhcp_client_vlan>[0-9a-z_]*) %{GREEDYDATA:dhcp_release_message}
-	
+
 I ran into issues parsing the ECN option, in my setup it was coming in as **string** and not an **integer**. From the [wikipedia](https://en.wikipedia.org/wiki/Explicit_Congestion_Notification) page here are the conversions:
 
 > * 00 – Non ECN-Capable Transport, Non-ECT
@@ -235,7 +235,7 @@ I ended up sending the JSON EVE logs over syslog just to make sure I didn't have
 	  elasticsearch { hosts => ["localhost:9200"] }
 	  stdout { codec => rubydebug }	  	  
 	}
-	
+
 ### Apply the LogStash Config
 
 Before enabling the above config make sure it's good:
@@ -243,7 +243,7 @@ Before enabling the above config make sure it's good:
 	┌─[elatov@puppet] - [/etc/logstash/conf.d] - [2016-05-07 12:17:36]
 	└─[0] <> sudo service logstash configtest
 	Configuration OK
-	
+
 And if it's all good restart the service:
 
 	sudo service logstash restart
