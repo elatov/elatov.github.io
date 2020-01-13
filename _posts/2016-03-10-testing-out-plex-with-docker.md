@@ -624,5 +624,5 @@ When working with **DockerFiles** it's important to know the difference between 
 I ended up using **ENTRYPOINT** but I could've used **CMD** in my case as well. I will admit this is not the best way to run plex in a *container*, but there are great examples that cover appropriate use cases:
 
 * [Plex server on a VPS Docker setup without port forwarding](http://blog.vpetkov.net/2015/12/17/plex-server-on-a-vps-docker-setup-without-port-forwarding/)
-* [docker-plex](https://github.com/timhaak/docker-plex/blob/master/Dockerfile)
+* [docker-plex](https://github.com/plexinc/pms-docker)
 * [wernight/plex-media-server](https://hub.docker.com/r/wernight/plex-media-server/~/dockerfile/)

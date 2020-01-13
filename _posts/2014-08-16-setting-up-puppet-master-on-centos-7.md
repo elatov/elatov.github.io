@@ -15,7 +15,7 @@ For now I will setup the Open Source one. Puppet has some awesome documentation 
 
 ### Preparing for the Puppet Deployment
 
-From "[Installing Puppet: Pre-Install Tasks](https://puppet.com/docs/puppet/5.4/install_pre.html)"  let's setup/choose the necessary prereqiusites:
+From "[Installing Puppet: Pre-Install Tasks](https://puppet.com/docs/puppet/5.5/install_pre.html)"  let's setup/choose the necessary prereqiusites:
 
 1. Decide on a Deployment Type, I went with the "Agent/Master Puppet" deployment since I already played with the standalone setup
 2. Check OS Versions and System Requirements, I will use CentOS 7 which is similar to RHEL 7 and that is supported.

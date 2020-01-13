@@ -387,7 +387,7 @@ Just for reference here are the available formats:
     DC42 - Disk Copy 4.2 image
 
 
-taken from the man [page](https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/hdiutil.1.html). With bzip2 compression the end file will be even smaller:
+taken from the man [page](https://ss64.com/osx/hdiutil.html). With bzip2 compression the end file will be even smaller:
 
     kelatov@kmac:~$du -sh Mac_OS_10_6_Custom.dmg
     3.2G    Mac_OS_10_6_Custom.dmg

@@ -9,7 +9,7 @@ tags: ['mmcblk0', 'optware', 'upnp', 'linux', 'openelec', 'raspberry_pi', 'xbmc'
 {% include note.html content="It looks like OpenElec is [no longer maintained](https://kodi.wiki/view/Archive:OpenELEC) and LibreElec is recommended" %}
 ## Raspberry Pi
 
-I received a free Raspberry Pi from [Simplivity](http://www.simplivity.com)  for being a [vExpert](http://blogs.vmware.com/vmtn/2013/05/vexpert-2013-awardees-announced.html) (Congrats to Joe and Jarret on achieving the same!) It was very nice of them. It was even the [B model](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) and not the A model... [Simplivity](http://www.simplivity.com) doesn't mess around :). After receiving the Raspberry Pi (RPi), I realized that I needed to order the following accessories to be able to use it:
+I received a free Raspberry Pi from [Simplivity](https://www.hpe.com/us/en/integrated-systems/simplivity.html)  for being a [vExpert](http://blogs.vmware.com/vmtn/2013/05/vexpert-2013-awardees-announced.html) (Congrats to Joe and Jarret on achieving the same!) It was very nice of them. It was even the [B model](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) and not the A model... [Simplivity](http://www.simplivity.com) doesn't mess around :). After receiving the Raspberry Pi (RPi), I realized that I needed to order the following accessories to be able to use it:
 
 *   Power Supply
 *   SD flash card

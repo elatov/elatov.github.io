@@ -509,7 +509,7 @@ We can also confirm by checking the *type* of the thermal zone:
 
 #### Samsung Thermal Sensors
 
-It looks like the "regular" thermal sensors are getting registered as hwmon sensors. I ran into "[Linux/Documentation/hwmon/sysfs-interface](http://lxr.free-electrons.com/source/Documentation/hwmon/sysfs-interface)". From that document:
+It looks like the "regular" thermal sensors are getting registered as hwmon sensors. I ran into "[Linux/Documentation/hwmon/sysfs-interface](https://www.kernel.org/doc/html/latest/hwmon/sysfs-interface.html)". From that document:
 
 > An alternative method that some programs use is to access the sysfs files directly. This document briefly describes the standards that the drivers follow, so that an application program can scan for entries and access this data in a simple and consistent way. That said, such programs will have to implement conversion, labeling and hiding of inputs. For this reason, it is still not recommended to bypass the library.
 >

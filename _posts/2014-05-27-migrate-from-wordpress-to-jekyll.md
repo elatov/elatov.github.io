@@ -424,7 +424,7 @@ You can visit the local site (**http://localhost:4000**), and you will see your 
 None of the above converters are perfect, and after the migration you will definitely end up with some left over HTML. Here are a couple of sites that help with clean up:
 
 - [Migrating From Wordpress To Jekyll](http://www.carlboettiger.info/2012/09/19/migrating-from-wordpress-to-jekyll.html)
-- [How To Migrate Your Blog From Wordpress To Jekyll](https://devblog.supportbee.com/2012/08/27/how-to-migrate-your-blog-from-wordpress-to-jekyll/)
+- [Migrate From Wordpress To Jekyll](https://nealbuerger.com/2018/07/Wordpress-To-Jekyll.html)
 
 The first one has an R Script which clean up a bunch of HTML tags and the second one has a ruby script to clean up UTF-8 encoded characters. I ended playing with sed (**gsed** from *macports*) for some conversions. Here are a couple of that I ran:
 

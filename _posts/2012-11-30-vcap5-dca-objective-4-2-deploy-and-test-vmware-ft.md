@@ -203,7 +203,7 @@ Here is how it looks like in vCenter:
 
 ### Test FT failover, secondary restart, and application fault tolerance in a FT Virtual Machine
 
-I actually don't have CPU capable of supporting FT, but there is a great step by step guide [here](https://www.dell.com/support/article/us/en/19/sln312000/vmware-vsphere-ft-step-by-step-example?lang=en). From the community page:
+I actually don't have CPU capable of supporting FT, but there is a great step by step guide, from the community page:
 
 > **VMware vSphere FT Step by Step Example**
 >

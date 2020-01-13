@@ -129,7 +129,7 @@ To change the settings go to "Networking" View -> Right Click on a DVPortGroup -
 
 ### Configure Live Port Moving
 
-From [Public Docs](http://pubs.vmware.com/vsphere-4-esxi-installable-vcenter/index.jsp?topic=/com.vmware.vsphere.esxi_server_config.doc_41/esx_server_config/distributed_virtual_networking/t_edit_advanced_distributed_vritual_port_group_properties.html):
+From [Public Docs](https://kb.vmware.com/s/article/1010593):
 
 > **Edit Advanced dvPort Group Properties**
 > Use the dvPort Group Properties dialog box to configure advanced dvPort group properties such as port override settings.

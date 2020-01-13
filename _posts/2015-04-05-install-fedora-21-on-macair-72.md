@@ -199,7 +199,7 @@ and **wl0** is the driver
 
 #### Fixing the Brightness Button
 
-I realized the Brightness Buttons *F1* and *F2* weren't working on Gnome-Shell. The the notification showed up but it didn't change anything. So I ran across [this](https://ask.fedoraproject.org/en/question/26364/cannot-adjust-brightness/) and the fix is to add the following to GRUB:
+I realized the Brightness Buttons *F1* and *F2* weren't working on Gnome-Shell. The the notification showed up but it didn't change anything. So I ran across [this](https://askbot.fedoraproject.org/en/question/26364/cannot-adjust-brightness/) and the fix is to add the following to GRUB:
 
 	[elatov@localhost ~]$ grep LINUX /etc/default/grub
 	GRUB_CMDLINE_LINUX="rd.lvm.lv=fedora/swap rd.lvm.lv=fedora/root rhgb quiet acpi_backlight=vendor"

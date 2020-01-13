@@ -12,7 +12,7 @@ I knew that for Time Machine backups the easiest way to backup to a remote machi
 
 > If your backup disk is on a network, the network server must use Apple File Protocol (AFP) file sharing, and both your Mac and the networked backup disk should have Mac OS X v10.5.6 or later. The AFP disk must also be “mounted” (available to your Mac) during the set up of Time Machine. After you select the network disk in Time Machine preferences as a backup disk, Time Machine automatically mounts the disk when it’s time to backup or restore your data.
 
-There are a couple of work arounds you can do to use a samba share. The steps are laid out in [Time Machine Over SMB Share](http://www.win.tue.nl/~keesh/dokuwiki/doku.php?id=mac_wiki:time_machine_on_samba_disk). The gist of it:
+There are a couple of work arounds you can do to use a samba share. The steps are laid out in [Time Machine Over SMB Share](https://kirb.me/2018/03/24/using-samba-as-a-time-machine-network-server.html). The gist of it:
 
 1. Mount the Samba Share
 2. Create a sparse image file:

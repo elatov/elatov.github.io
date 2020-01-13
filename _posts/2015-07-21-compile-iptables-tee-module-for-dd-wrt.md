@@ -243,7 +243,6 @@ If you didn't disable **ipv6** then you have insert that first:
 I ran into a site that actually went over the process: [Compiling ip6tables DD-WRT](http://www.jonisdumb.com/2011/02/compiling-ip6tables-dd-wrt.html). I also found a patch for **iptables** for the *arm-musl* architecture:
 
 - [iptables build error when using musl-libc and kernel 3.18.x targeting ARM](http://www.spinics.net/lists/netfilter/msg55949.html)
-- [iptables-1.4.14-musl-fixes.patch](https://github.com/sabotage-linux/sabotage/blob/master/KEEP/iptables-1.4.14-musl-fixes.patch)
 
 So let's get the 1.4.14 version
 

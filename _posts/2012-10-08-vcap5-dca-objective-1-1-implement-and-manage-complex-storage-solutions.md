@@ -84,7 +84,7 @@ From the VMware Blog "[NPIV: N-Port ID Virtualization](http://blogs.vmware.com/v
 
 > Let's start by describing what this feature is. NPIV stands for N-Port ID Virtualization. It is an ANSI T11 standard that describes how a single Fibre Channel Physical HBA port can register with a fabric using several worldwide port names (WWPNs), what might be considered Virtual WWNs. This in turn means that since there a multiple Virtual HBAs per physical HBA, we can allow WWNs to be assigned to each VM
 
-The above blog, has a step by step process on how to set it up as well. Another good article that has a step by step process is "[NPIV support in VMware ESX4](http://www.brocade.com/forms/getFile?p=documents/white_papers/white_papers_partners/NPIV_ESX4_0_GA-TB-145-01.pdf)":
+The above blog, has a step by step process on how to set it up as well. Another good article that has a step by step process is "[NPIV support in VMware ESX4](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/Brocade_NPIV_ESX3.5_WP.pdf)":
 
 ![npiv slog VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/npiv_slog.png)
 

@@ -19,7 +19,7 @@ I decided to dust out the machine and to add some new thermal paste to alleviate
 
 I decided to order a brand new video card and a new heat sink ( I couldn't find the retention clip by it self, every where I looked it always came with the heat sink). While I was in the ordering mood I decided to get an s-video to composite cable as well. This way I could connect this old PC to my TV so it can connect as a client to my media server. Here the parts I ordered:
 
-*   [Nvidia GeForce 6200 AGP Video Card](http://www.newegg.com/Product/Product.aspx?Item=N82E16814130452&name=Desktop-Graphics-Cards)
+*   [Nvidia GeForce 6200 AGP Video Card](https://www.amazon.com/EVGA-GeForce-S-Video-Graphics-512-A8-N403-LR/dp/B001QMM6NU)
 *   [Intel Aluminum Heat Sink & 2.5" Fan w/Retention Clip](http://www.amazon.com/dp/B004MUDR36/?tag=virtuallyhyper.com-20")
 *   [S-Video with 3.5mm Audio to 3 RCA Composite Cable](http://www.newegg.com/Product/Product.aspx?Item=9SIA0PG08P9430)
 

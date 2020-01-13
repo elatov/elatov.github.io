@@ -142,7 +142,7 @@ It looks like **vmware-gksu** is crashing. **vmware-gksu** is a utility that com
     2013-08-14T19:07:48.689-07:00| appLoader| W110: Unable to execute /usr/lib/vmware/bin/vmware-gksu.
 
 
-It saw showing the same issue, **vmware-gksu** was having issues. From the *segfault* we can see that we are having an issue with **libc**. I found a lot of people mentioning that there are a lot of bugs with **vmware-gksu** and **libc**. [Here](http://www.kubuntuforums.net/showthread.php?62913) is one example. Manually elevating my privileges with **sudo** worked for me. So I ran this:
+It saw showing the same issue, **vmware-gksu** was having issues. From the *segfault* we can see that we are having an issue with **libc**. I found a lot of people mentioning that there are a lot of bugs with **vmware-gksu** and **libc**. Manually elevating my privileges with **sudo** worked for me. So I ran this:
 
     elatov@kmac:~$sudo vmware-netcfg
 

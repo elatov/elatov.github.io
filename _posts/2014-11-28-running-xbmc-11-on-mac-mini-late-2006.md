@@ -17,7 +17,7 @@ The Mac Mini has an *Intel Corporation Mobile 945GM/GMS* video card, nothing spe
 		Subsystem: Intel Corporation Device 7270
 		Kernel driver in use: i915
 
-The only thing we need is to get the right Xorg driver for it. Looking over the [Debian HCL](http://kmuto.jp/debian/hcl/Intel/Mobile+945GM%EF%BC%8FGMS%EF%BC%8F940GML+Express+Integrated+Graphics+Controller), I saw the following:
+The only thing we need is to get the right Xorg driver for it. Looking over the Debian HCL, I saw the following:
 
 ![debian-hcl-intel-card](https://seacloud.cc/d/480b5e8fcd/files/?p=/xbmc-on-mac-mini/debian-hcl-intel-card.png&raw=1)
 

@@ -121,7 +121,7 @@ You can also match configurations using a **star** (*) parameter. For instance h
 	/files/etc/hosts/#comment = "The following lines are desirable for IPv6 capable hosts"
 
 ### Augeas Generic Lenses
-There is a list of generic modules list in [Using the Augeas Resource Type](https://puppet.com/docs/puppet/latest/resources_augeas.html) and in [this](https://www.redhat.com/archives/augeas-devel/2012-March/msg00013.html) RedHat Forum. Here is a list from the former:
+There is a list of generic modules list in [Using the Augeas Resource Type](https://puppet.com/docs/puppet/5.5/resources_augeas.html) and in [this](https://www.redhat.com/archives/augeas-devel/2012-March/msg00013.html) RedHat Forum. Here is a list from the former:
 
 - Json.lns: parses JSON, available in Augeas 0.7.0
 - Phpvars.lns: parses simple PHP source files used as configs containing “**$key = ‘value’;**”, available in Augeas 0.3.5 (improved in 0.10.0)

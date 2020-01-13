@@ -16,13 +16,13 @@ I had a couple of criteria that the cloud storage solution had to support:
 1.  I could manage the files with a cli (some people called this headless). Whether this was done with the API or something else, it didn't really matter to me
 2.  It could be used cross platform and architecture. So I wanted to be able to use it on a Mac, Windows, Linux, and Android. For Linux, I wanted to be able to use it on x86, powerpc, ARM or whatever architecture.
 
-### SkyDrive
+### SkyDrive/OneDrive
 
 I haven't used **skydrive** before, so I wanted to give it a try. First, what is *skydrive*? from wikipedia:
 
 > SkyDrive (officially Microsoft SkyDrive, previously Windows Live SkyDrive and Windows Live Folders) is a file hosting service that allows users to upload and sync files to a cloud storage and then access them from a Web browser or their local device.
 
-So it's Microsoft's version of a cloud storage solution. There is a pretty good comparison page from a Microsoft, comparing SkyDrive, iCloud, Google Drive, and DropBox. Here is quick snippet from the [page](http://windows.microsoft.com/en-us/skydrive/compare):
+So it's Microsoft's version of a cloud storage solution. There is a pretty good comparison page from a Microsoft, comparing SkyDrive, iCloud, Google Drive, and DropBox. Here is quick snippet from the [page](https://onedrive.live.com/about/en-us/plans/):
 
 ![SkyDrive Comparison Syncing Files with Various Cloud Storage Solutions](https://github.com/elatov/uploads/raw/master/2013/10/SkyDrive_Comparison.png)
 
