@@ -12,7 +12,7 @@ tags: ['logical_design']
 
 ### Understand what management services are provided by VMware solutions
 
-The [APAC BrownBag Session 11](http://professionalvmware.com/2012/04/apac-vbrownbag-follow-up-management-design/) Slide Deck, covers these, here is a list from the slide deck:
+The [APAC BrownBag Session 11](https://professionalvmware.com/vmware-certifications/) Slide Deck, covers these, here is a list from the slide deck:
 
 > *   vMA
 > *   vCenter

@@ -141,7 +141,7 @@ Now for memory from the same document:
 >
 > Use of large pages can also change page sharing behavior. While ESXi ordinarily uses page sharing regardless of memory demands, it does not share large pages. Therefore with large pages, page sharing might not occur until memory overcommitment is high enough to require the large pages to be broken into small pages. For further information see VMware KB articles 1021095 and 1021896.
 
-And lastly from [APAC BrownBag Session 12](http://professionalvmware.com/2012/04/apac-vbrownbag-follow-up-vm-design/):
+And lastly from [APAC BrownBag Session 12](https://professionalvmware.com/vmware-certifications/):
 
 ![super-size-vm](https://github.com/elatov/uploads/raw/master/2012/09/super-size-vm.png)
 

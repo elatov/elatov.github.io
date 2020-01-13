@@ -218,5 +218,5 @@ Also remember to put your 10Gb NIcs on PCIe 8x slots. If possible use NetQueue, 
 
 Also if an FCoE capable infrastructure is already in place then definitely try to use it. This way your CNA (Converged Network Adapter) can be used as a NIC (Network Interface Controller) and and HBA (Host Bus Adapter). You will definitely save on PCI slots and you won't have a need for a LAN switch and a SAN switch. An FCoE enabled switch will replace both. With FCoE make sure flow control is working properly. FCoE is a lossless protocol and it utilizes pause frames to appropriate notion if congestion is taking place. If you want to read up on FCoE I would suggest reading : "[QLogic Adapters and Cisco Nexus 5000 Series Switches: Fibre Channel over Ethernet Design Guide](http://www.cisco.com/en/US/prod/collateral/switches/ps9441/ps9670/white_paper_c11-569320_v1.pdf)"
 
-Check out the [APAC BrownBag Session 3](http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap-dcd-networking-design/), it covers most of the material above.
+Check out the [APAC BrownBag Session 3](https://professionalvmware.com/vmware-certifications/), it covers most of the material above.
 

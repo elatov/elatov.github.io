@@ -82,7 +82,7 @@ We saw that from the 'esxcli swscsi nic list' output we were using e1000e driver
 
 > ESX/ESXi 4.1 U2 e1000e version 1.1.2.1-1vmw N/A async
 
-From the above output we could also see that Jumbo Frames were not utilized. Lastly we saw each VMkernel interface is on it's own subnet/VLAN. This is recommendation from EMC, from article "[Using EMC VNX Storage with VMware vSphere, Version 2.1](http://www.emc.com/collateral/hardware/technical-documentation/h8229-vnx-vmware-tb.pdf)":
+From the above output we could also see that Jumbo Frames were not utilized. Lastly we saw each VMkernel interface is on it's own subnet/VLAN. This is recommendation from EMC, from article "[Using EMC VNX Storage with VMware vSphere, Version 2.1](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/249258606-h8229-vnx-vmware-tb-2-pdf.pdf)":
 
 > EMC recommends the following configuration options for VNX systems:
 >

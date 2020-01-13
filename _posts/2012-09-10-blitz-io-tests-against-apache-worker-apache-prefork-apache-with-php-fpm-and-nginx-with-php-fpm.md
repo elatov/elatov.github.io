@@ -290,7 +290,7 @@ I then re-enabled **worker** MPM, so now I had Apache MPM **worker** with **mod_
 > **Results:**
 > 2,182 HITS WITH 0 ERRORS & 596 TIMEOUTS
 
-I really didn't see that much of an increase. Now there are other *fast-cgi* modules. The blog "[Installing Apache + Mod_FastCGI + PHP-FPM on Ubuntu Server Maverick](http://alexcabal.com/installing-apache-mod_fastcgi-php-fpm-on-ubuntu-server-maverick/)" clarifies that different versions, from the blog:
+I really didn't see that much of an increase. Now there are other *fast-cgi* modules. The blog "[Installing Apache + Mod_FastCGI + PHP-FPM on Ubuntu Server Maverick](http://blog.starcklin.com/2013/08/install-mod-fastcgi-and-php5-fpm-on-ubuntu/)" clarifies that different versions, from the blog:
 
 > **Apache + mod_fastcgi**: FastCGI is a module that allows you to neatly solve mod_php’s big problem, namely that it must spin up and destroy a PHP instance with every request. FastCGI instead keeps an instance of PHP running in the background. When Apache receives a request it forwards it to FastCGI, which feeds it to its already running instance of PHP and sends the result back to Apache. Apache then serves the result.
 > Without the constant build-and-destroy of new PHP processes, FastCGI is a great memory saver and performance booster. My Apache + mod_php install, which would constantly bloat to 1000′s of MB in memory usage and invoke OOM-Killer without mercy, has been humming along at a steady ~200MB for the past few months without a single problem after switching to mod_fastcgi.

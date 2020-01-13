@@ -17,7 +17,7 @@ From [this](http://www.virten.net/2012/06/vdcd510-objective-2-3-build-availabili
 > **vSphere Fault Tolerance (FT)**
 > provides continuous availability for virtual machines by creating a live copy of a virtual machine to another physical host.
 
-From the [APAC BrownBag Session 4](http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap5-dca-availability-dr/) slide deck:
+From the [APAC BrownBag Session 4](https://professionalvmware.com/vmware-certifications/) slide deck:
 
 ![availability_features](https://github.com/elatov/uploads/raw/master/2012/08/availability_features.png)
 

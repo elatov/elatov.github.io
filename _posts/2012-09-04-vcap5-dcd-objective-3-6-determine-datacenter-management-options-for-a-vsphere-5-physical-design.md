@@ -19,7 +19,7 @@ From "[vCenter Server and Host Management ESXi 5.0](http://pubs.vmware.com/vsphe
 
 ### Based on the service catalog and given functional requirements, for each service: Determine the most appropriate datacenter management options for the design.
 
-From [APAC BrownBag Session 11](http://professionalvmware.com/2012/04/apac-vbrownbag-follow-up-management-design/):
+From [APAC BrownBag Session 11](https://professionalvmware.com/vmware-certifications/):
 
 ![vmware-mgmg-tools](https://github.com/elatov/uploads/raw/master/2012/09/vmware-mgmg-tools.png)
 

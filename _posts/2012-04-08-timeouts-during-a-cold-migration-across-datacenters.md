@@ -7,7 +7,7 @@ categories: [ networking, vmware]
 tags: [ performance, nfc, veeam, vmware_converter, wan]
 ---
 I had a customer trying to cold migrate a VM across datacenters (across a WAN connection). Probably not the best setup, but it should work. Here is good white paper that talks about vCenter in WAN environments: ![Two_ESX_Connected_With_WAN](https://github.com/elatov/uploads/raw/master/2012/03/Two_ESX_Connected_With_WAN.jpg)
-Both of the hosts are managed by the same vCenter server. So we are trying to move the VM from ESX_1 to ESX_2. I definitely agree that there are much better solutions and here is a great tech paper that talks about some of the alternatives: [Data Migrations Techniques for VMware vSphere](http://www.emc.com/collateral/software/white-papers/h8063-data-migration-vsphere-wp.pdf), but we were just stuck with this setup for now.
+Both of the hosts are managed by the same vCenter server. So we are trying to move the VM from ESX_1 to ESX_2. I definitely agree that there are much better solutions and here is a great tech paper that talks about some of the alternatives: [Data Migrations Techniques for VMware vSphere](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/esx-wan-cp/h8063-data-migration-vsphere-wp.pdf), but we were just stuck with this setup for now.
 Whenever we tried to cold migrate, we would see the following in the vpxa logs (/var/log/vmware/vpx/vpxa.log in ESX 4.x or /var/log/vpxa.log in ESXi 5.0) of the source host:
 
 

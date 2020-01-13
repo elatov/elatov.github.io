@@ -39,7 +39,7 @@ From same blog as above:
 
 ### Analyze current performance, identify and address gaps when building the logical design
 
-From the [APAC BrownBag Session 14](http://professionalvmware.com/2012/05/apac-vbrownbag-follow-up-vcap-dcd-performance/) Slide deck:
+From the [APAC BrownBag Session 14](https://professionalvmware.com/vmware-certifications/) Slide deck:
 
 ![slide7of13-1](https://github.com/elatov/uploads/raw/master/2012/08/slide7of13-1.png)
 

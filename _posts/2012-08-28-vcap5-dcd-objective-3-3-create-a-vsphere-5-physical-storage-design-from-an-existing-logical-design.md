@@ -55,7 +55,7 @@ Also depending on what application needs to be run, check some requirements. Her
 
 ![exchange_storage_setup](https://github.com/elatov/uploads/raw/master/2012/08/exchange_storage_setup.png)
 
-Lastly the array vendor also provide their capabilities as well, from "[Using EMC VNX Storage with VMware vSphere](http://www.emc.com/collateral/hardware/technical-documentation/h8229-vnx-vmware-tb.pdf)":
+Lastly the array vendor also provide their capabilities as well, from "[Using EMC VNX Storage with VMware vSphere](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/249258606-h8229-vnx-vmware-tb-2-pdf.pdf)":
 
 ![vnx-tiers](https://github.com/elatov/uploads/raw/master/2012/08/vnx-tiers.png)
 

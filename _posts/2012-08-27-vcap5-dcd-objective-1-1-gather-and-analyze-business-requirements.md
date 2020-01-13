@@ -110,6 +110,6 @@ Here is an example of a logical diagram taken from the pdf:
 
 I would also suggest to watch the following recordings as well:
 
-*   [APAC VCAP5-DCD BrownBag Session 1](http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap-dcd-study-group/)
-*   [US VCAP5-DCD BrownBag Objective 1](http://professionalvmware.com/2011/09/brownbag-follow-up-vcap-dcd-objective-1-jason-boche/)
+*   [APAC VCAP5-DCD BrownBag Session 1](https://professionalvmware.com/vmware-certifications/)
+*   [US VCAP5-DCD BrownBag Objective 1](https://professionalvmware.com/vmware-certifications/)
 

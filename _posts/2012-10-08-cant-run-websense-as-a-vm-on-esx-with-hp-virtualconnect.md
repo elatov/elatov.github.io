@@ -21,7 +21,7 @@ The Cisco switch was configured to SPAN the external port to the switch port whi
 
 ![SPAN_to_Laptop](https://github.com/elatov/uploads/raw/master/2012/10/SPAN_to_Laptop.png)
 
-Now as soon as we plugged GigEthernet 1/8 into the ESX host we were not able to see the mirrored traffic. Now to setup ESX to run Websense, we followed the instructions laid out from WebSense site. From "[How to configure VMware to support Websense](http://www.websense.com/support/article/kbarticle/How-to-configure-VMWare-to-support-v7-Websense)":
+Now as soon as we plugged GigEthernet 1/8 into the ESX host we were not able to see the mirrored traffic. Now to setup ESX to run Websense, we followed the instructions laid out from WebSense site. From "[How to configure VMware to support Websense](https://www.websense.com/content/support/library/web/v71/wws_pdfs/ws_deployment_guide.pdf)":
 
 > 1.  To see network traffic, Websense Network Agent requires a network interface card (used for monitoring) set to promiscuous mode.
 >     1.  Websense running on VMware cannot see traffic that is mirrored from the switch. A packet capture will not show any traffic on the NIC. By default, the VMware NIC only accepts traffic that is specifically addressed to it. When using port span (port mirroring) the traffic is copied as is with the original destination IP’s in place. Because the traffic is not addressed to the Websense VMware NIC, the NIC drops it.

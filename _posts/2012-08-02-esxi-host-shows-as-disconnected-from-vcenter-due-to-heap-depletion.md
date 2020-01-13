@@ -113,7 +113,7 @@ That is way too much. Checking for the VMs that those Macs belong to, I saw the 
 	/volumes/71641d44-1e032a47/DSVA01/DSVA01.vmx:ethernet2.generatedAddress = "00:50:56:84:5a:ba"
 
 
-The DSVA (Deep Security Virtual Appliance) VMs were the VMs used for vShield Endpoint with TrendMicro, more information can be found here "[Trend Micro Deep Security](http://www.vmware.com/files/pdf/partners/trendmicro/vmware-trendmicro-anti-virus-virtual-datacenter-sb-en.pdf)". From the article:
+The DSVA (Deep Security Virtual Appliance) VMs were the VMs used for vShield Endpoint with TrendMicro, more information can be found here "[Trend Micro Deep Security](http://www.trendmicro.com.cn/cloud-content/us/pdfs/business/white-papers/wp_changing-the-game-for-antivirus-vmware.pdf)". From the article:
 
 > **How vShield Endpoint Works with Trend Micro Deep Security Virtual Appliance **
 > vShield Endpoint is a VMware API that is leveraged by Trend Micro Deep Security. vShield Endpoint

@@ -18,7 +18,7 @@ I was recently working with a customer who was experiencing a high number of Tre
 	Apr 19 09:36:37 ESX_Host vmkernel: 0:19:05:46.147 cpu0:4096)NMP: nmp_CompleteRetryForPath: Retry world recovered device 'naa.60060160467029002acca5f7836fe111'
 
 
-The customer had setup the CLARiiON to use ALUA (Assymetric Logical Unit Access) mode (fail over mode 4). From [EMC CLARiiON Integration with VMware ESX](http://www.emc.com/collateral/hardware/white-papers/h1416-emc-clariion-intgtn-vmware-wp.pdf):
+The customer had setup the CLARiiON to use ALUA (Assymetric Logical Unit Access) mode (fail over mode 4). From [EMC CLARiiON Integration with VMware ESX](https://www.vmware.com/pdf/clariion_wp_eng.pdf):
 
 > On VMware 4.x servers with CX4 arrays, the FIXED or Round Robin policy is supported. The FIXED policy on the CX4 provides failback capability. To use the FIXED policy, you must be running FLARE release 28 version 04.28.000.5.704 or later. Also, the failovermode mode must be set to 4 (ALUA mode or Asymmetric Active/Active mode). The default failovermode for ESX 4.x is 1. Use the Failover Setup Wizard within Navisphere to change the failovermode from 1 to 4.
 

@@ -219,7 +219,7 @@ Looking inside the Guest Operating System Event Viewer we saw the following:
 
 ![failed_to_flush](https://github.com/elatov/uploads/raw/master/2012/08/failed_to_flush.png)
 
-Searching for that error, I came across Veritas Tech Article [27875](https://www.veritas.com/support/en_US/article.TECH27875). It talks about the following:
+Searching for that error, I came across Veritas Tech Article [27875](https://www.veritas.com/content/support/en_US/article.100019356). It talks about the following:
 
 > There are some application-specific writers which write the data on request from the requesters; in this case, that can be backup software.
 >

@@ -143,7 +143,7 @@ If performance is your goal, get hardware that can support all the power saving 
 
 ### Explain the impact of a technical design on the choice of server density: Scale Up, Scale Out, Auto Deploy
 
-From [APAC BrownBag Session 8](http://professionalvmware.com/2012/03/apac-vbrownbag-follow-up-vcap-dcd-host-design/)
+From [APAC BrownBag Session 8](https://professionalvmware.com/vmware-certifications/)
 
 ![scale_up_vs_out](https://github.com/elatov/uploads/raw/master/2012/09/scale_up_vs_out.png)
 
@@ -165,7 +165,7 @@ From [this](https://github.com/elatov/uploads/raw/master/2013/04/vcap-dcd_notes.
 | More DC Engineering         |                                                              |
 | Smaller Footprint           |                                                              |
 
-From the [APAC Brownbag Session 8](http://professionalvmware.com/2012/03/apac-vbrownbag-follow-up-vcap-dcd-host-design/):
+From the [APAC Brownbag Session 8](https://professionalvmware.com/vmware-certifications/):
 
 ![blades_racks](https://github.com/elatov/uploads/raw/master/2012/09/blades_racks.png)
 

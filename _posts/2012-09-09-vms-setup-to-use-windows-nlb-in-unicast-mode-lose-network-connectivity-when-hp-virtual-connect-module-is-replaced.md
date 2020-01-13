@@ -7,7 +7,7 @@ categories: ['networking', 'vmware']
 tags: ['garp', 'hp_virtualconnect', 'windows_nlb']
 ---
 
-A VirtualConnect Module was being replaced on an HP Enclosure and only the VMs used for Windows NLB lost network connectivity.  If you are not too familiar with the HP VirtualConnect I would suggest reading "[HP Virtual Connect traffic flow](http://h20566.www2.hpe.com/hpsc/doc/public/display?docId=emr_na-c00810839&lang=en-us&cc=us)", here is a good picture:
+A VirtualConnect Module was being replaced on an HP Enclosure and only the VMs used for Windows NLB lost network connectivity.  If you are not too familiar with the HP VirtualConnect I would suggest reading "[HP Virtual Connect traffic flow](https://support.hpe.com/hpsc/doc/public/display?docId=emr_na-c00810839&lang=en-us&cc=us)", here is a good picture:
 
 ![flex-fabric](https://github.com/elatov/uploads/raw/master/2012/09/flex-fabric.png)
 
