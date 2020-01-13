@@ -222,7 +222,7 @@ So after all my testing and actually enabling TSO (it helped with **suricata** o
 ### Other Hardware
 Now that I know the limitation, next time I am upgrading my firewall, I will grab one of these:
 
-* [netbenches/Atom_C2558_4Cores-Intel_i350/fastforwarding-pf-ipfw/results/fbsd11-routing.r287531](https://github.com/ocochard/netbenches/blob/master/Atom_C2558_4Cores-Intel_i350/fastforwarding-pf-ipfw/results/fbsd11-routing.r287531/README.md)
+* [netbenches/Atom_C2558_4Cores-Intel_i350/fastforwarding-pf-ipfw/results/fbsd11-routing.r287531](https://github.com/ocochard/netbenches/blob/master/Atom_C2558_4Cores-Intel_i350/forwarding-pf-ipfw/results/fbsd11-routing.r287531/README.md)
 	* Netgate RCC-VE 4860 
 	
 	> ![netgate-4860-graph](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu4-wan/netgate-4860-graph.png&raw=1)

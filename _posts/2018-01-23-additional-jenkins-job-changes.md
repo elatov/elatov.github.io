@@ -92,4 +92,4 @@ Then I added a new stage to my pipeline code of the main job:
             mail bcc: '', body: "${message}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/plain', subject: "${subject}", to: "${RECIPIENTS}"
        }
 
-There are also some good examples in [Sending Notifications in Pipeline](https://www.cloudbees.com/blog/sending-notifications-pipeline) which uses the [Email-ext plugin](https://wiki.jenkins.io/display/JENKINS/Email-ext+plugin).
+There are also some good examples in [Sending Notifications in Pipeline](https://www.previous.cloudbees.com/blog/sending-notifications-pipeline) which uses the [Email-ext plugin](https://wiki.jenkins.io/display/JENKINS/Email-ext+plugin).

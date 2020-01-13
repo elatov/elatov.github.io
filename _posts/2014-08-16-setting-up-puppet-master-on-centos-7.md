@@ -198,7 +198,7 @@ I was starting from scratch so let's get a main manifest going. From the [Direct
 > 
 > Puppet will only read the first level of files in a manifest directory; it won’t descend into subdirectories.
 
-I wanted to find out what directory environments were and from the [Directory Environments](https://puppet.com/docs/puppet/4.9/environments.html) page:
+I wanted to find out what directory environments were and from the [Directory Environments](https://puppet.com/docs/puppet/latest/environments_creating.html) page:
 
 > Environments are isolated groups of puppet agent nodes. A puppet master server can serve each environment with completely different main manifests and modulepaths.
 > 

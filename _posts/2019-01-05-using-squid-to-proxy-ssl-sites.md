@@ -339,7 +339,7 @@ From [Secure Web Proxy](https://www.chromium.org/developers/design-documents/sec
 It's good to know it's possible.
 
 ### Trying out WebSafety
-There is a pretty cool product called [WebSafety](https://www.diladele.com/). It integrates really well with Squid to provide advanced web filter options and also a nice UI to configure most of the **squid** settings. [Install instructions](https://docs.diladele.com/administrator_guide_6_1/install/index.html) cover the setup really well. Everything is configurable through a UI where, for example, you can enable SSL filtering:
+There is a pretty cool product called [WebSafety](https://www.diladele.com/). It integrates really well with Squid to provide advanced web filter options and also a nice UI to configure most of the **squid** settings. [Install instructions](https://docs.diladele.com/administrator_guide_stable/index.html) cover the setup really well. Everything is configurable through a UI where, for example, you can enable SSL filtering:
 
 ![websafety-ssl-filter.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/squid-ssl-proxy/websafety-ssl-filter.png&raw=1)
 

@@ -674,7 +674,7 @@ I did a test build just in case with the **--safe** flag, because that is how gi
 > 
 > GitHub Pages is powered by Jekyll, however all Pages sites are generated using the `--safe `option to disable custom plugins for security reasons. Unfortunately, this means your plugins won’t work if you’re deploying to GitHub Pages.
 
-and from [Troubleshooting GitHub Pages build failures](https://help.github.com/articles/troubleshooting-github-pages-build-failures):
+and from [Troubleshooting GitHub Pages build failures](https://help.github.com/en/github/working-with-github-pages/troubleshooting-jekyll-build-errors-for-github-pages-sites):
 
 > To view Jekyll build errors locally, install Jekyll on your computer and run the `jekyll build --safe` command in the root of your GitHub Pages repository.
 

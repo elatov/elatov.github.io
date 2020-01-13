@@ -27,7 +27,7 @@ The size of the packet is 8266 bytes and jumbo frames are not setup. If TSO or L
 
 > Some cards can reassemble traffic. This will manifest itself in Wireshark as packets that are larger than expected, such as a 2900-byte packet on a network with a 1500-byte MTU. You can check and change offloading behavior on Linux and Windows using the methods described in the previous section.
 
-I then ran into [this](http://support.microsoft.com/kb/947239) Windows article. Here is a snippet from the article:
+I then ran into [this](https://support.microsoft.com/en-us/help/947239/description-of-the-receive-window-auto-tuning-feature-for-http-traffic) Windows article. Here is a snippet from the article:
 
 > When the Receive Window Auto-Tuning feature is enabled for HTTP traffic, older routers, older firewalls, and older operating systems that are incompatible with the Receive Window Auto-Tuning feature may sometimes cause slow data transfer or a loss of connectivity. When this occurs, users may experience slow performance. Or, the applications may crash. These older devices do not comply with the RFC 1323 standard
 

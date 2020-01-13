@@ -175,7 +175,7 @@ The windows copy had random spikes of different block sizes and sometimes went a
 >
 > Using snapshot volumes as the source for backups may affect the performance of the source volumes. In this case, the latency increased with the application simulation workload and the number of volumes being backed up (i.e., running the backup simulation workload). IOPS continued to scale, indicating the I/O processing abilities of the storage system had not yet been reached. However, had the increase to both workloads continued, eventually a point would be reached where the system would no longer deliver more IOPS and the latency would sharply increase.
 
-There was a community forum on Dell's site "[Equallogic - W2K8 latency with IO larger than 64KB](http://en.community.dell.com/techcenter/storage/f/4466/t/19454019.aspx)" and it seemed like a very similar issue. Here were some suggestions from that article:
+There was a community forum on Dell's site "[Equallogic - W2K8 latency with IO larger than 64KB](https://www.dell.com/community/FluidFS/Equallogic-W2K8-latency-with-IO-larger-than-64KB/m-p/3850595)" and it seemed like a very similar issue. Here were some suggestions from that article:
 
 > 1.  Delayed ACK DISABLED
 > 2.  Large Receive Offload DISABLED

@@ -490,7 +490,7 @@ So I can just reboot the Mac and hold Command-R to get into recovery mode.
 Starting with OS X Lion, you can create a recovery USB disk to help with recovery. Instructions on how to do that are here:
 
 *   [Using OS X Lion's Recovery Disk Assistant](http://macs.about.com/od/usingyourmac/ss/Using-Os-X-Lions-Recovery-Disk-Assistant_2.htm)
-*   [OS X: About Recovery Disk Assistant](http://support.apple.com/kb/ht4848)
+*   [OS X: About Recovery Disk Assistant](https://support.apple.com/en-us/HT201314)
 
 From "[OS X Recovery Disk Assistant v1.0](http://support.apple.com/kb/dl1433)":
 

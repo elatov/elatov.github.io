@@ -108,7 +108,7 @@ Also check out [VCAP5-DCD Objective 3.3](/2012/08/vcap5-dcd-objective-3-3-create
 
 Each vendor has their own best practices. Check out the following pages for a couple of vendors:
 
-*   [Using VMware vSphere with EMC Symmetrix Storage](http://www.emc.com/collateral/hardware/solution-overview/h2529-vmware-esx-svr-w-symmetrix-wp-ldv.pdf)
+*   [Using VMware vSphere with EMC Symmetrix Storage](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/h2529-vmware-esx-svr-w-symmetrix-wp-ldv.pdf)
 *   [HP Enterprise Virtual Array Family with VMware vSphere 4.0 , 4.1 and 5.0 Configuration Best Practices](http://www.vmware.com/files/pdf/techpaper/hp-enterprise-virtual-array-family-vsphere-configuration.pdf)
 *   [Using EMC VNX Storage with VMware vSphere](http://www.emc.com/collateral/hardware/technical-documentation/h8229-vnx-vmware-tb.pdf)
 *   [NetApp and VMware vSphere Storage Best Practices](http://media.netapp.com/documents/tr-3749.pdf)

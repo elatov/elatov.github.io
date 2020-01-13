@@ -38,7 +38,7 @@ I was using a Mac, so running the following took care of the install:
 Initially when I was playing around with the setup, I wanted to figure out what the default datacenter name is on a stand-alone ESXi host. I kept reading that Powershell was ported to Linux, so I decided to give it a shot. On an Ubuntu 16.04 machine, I followed the instructions from these sites:
 
 * [PowerCLI on the mac OS High Sierra?](https://communities.vmware.com/thread/573229) (I needed to get a specific version of the powershell package to use PowerCLI)
-* [Package installation instructions](https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md)
+* [Package installation instructions](https://github.com/PowerShell/PowerShell/)
 * [PowerCLI VMware Fling](https://labs.vmware.com/flings/powercli-core#instructions)
 
 So first let's download the alpha package:

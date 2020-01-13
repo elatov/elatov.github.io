@@ -814,7 +814,7 @@ I ended up downloading the latest version of the YAML file and modified it to us
 	elatov@ub:~$ vi kubernetes-dashboard.yaml
 	elatov@ub:~$ kubectl apply -f kubernetes-dashboard.yaml
 
-I also realized that with the new RBAC configuration, I needed to follow instructions laid out in [Access-control - admin privileges](https://github.com/kubernetes/dashboard/wiki/Access-control#admin-privileges) to be able to login to the dashboard without using a token:
+I also realized that with the new RBAC configuration, I needed to follow instructions laid out in [Access-control - admin privileges](https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/README.md) to be able to login to the dashboard without using a token:
 
 	elatov@ub:~$ cat dashboard-admin.yaml
 	apiVersion: rbac.authorization.k8s.io/v1beta1

@@ -131,7 +131,7 @@ Then fire off an ossec alert and you will see something similar to this in the l
 	}
 
 #### Create a Kibana 4 Dashboard For Ossec
-To create the dashboard we can follow the instructions laid out [here](https://vichargrave.github.io/create-an-ossec-log-management-console-with-kibana-4/). Here is what I added for my search:
+To create the dashboard we can follow the instructions laid out [here](https://vichargrave.github.io/tutorials/create-an-ossec-log-management-console-with-kibana-4/). Here is what I added for my search:
 
 ![kib-ossec-saved-search](https://seacloud.cc/d/480b5e8fcd/files/?p=/ossec-elk-splunk/kib-ossec-saved-search.png&raw=1)
 
