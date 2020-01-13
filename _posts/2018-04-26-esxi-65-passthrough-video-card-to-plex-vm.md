@@ -20,7 +20,6 @@ The instructions for accomplishing this are laid out in:
 
 * [Virtual Machine Graphics
 Acceleration Deployment Guide](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/whitepaper/vmware-horizon-view-graphics-acceleration-deployment-white-paper.pdf)
-* [ESXi GPU Passthrough for an HTPC](https://www.webbosworld.co.uk/?p=471)
 * [How to enable a VMware Virtual Machine for GPU Pass-through](https://www.dell.com/support/article/us/en/19/sln288103/how-to-enable-a-vmware-virtual-machine-for-gpu-pass-through?lang=en)
 
 I have the following Video Card on my ESXi Host:

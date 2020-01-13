@@ -80,7 +80,7 @@ Just a quick note, I ended up adding `hostNetwork: true` to the `ingress-nginx/d
 
 
 ### Creating Ingress Rules
-Good thing to check out are the different options you can set with [Annotations](https://github.com/kubernetes/ingress-nginx/blob/master/docs/user-guide/annotations.md). There were also a couple of issues with missing the trailing slash (/), but some workarounds are available here:
+Good thing to check out are the different options you can set with [Annotations](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/). There were also a couple of issues with missing the trailing slash (/), but some workarounds are available here:
 
 * [[nginx] Redirect with added trailing slash](https://github.com/kubernetes/ingress-nginx/issues/646)
 * [[NGINX] Rewrite annotation adding trailing slash](https://github.com/kubernetes/ingress-nginx/issues/1399)

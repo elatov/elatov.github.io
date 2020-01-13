@@ -9,7 +9,6 @@ tags: [terraform, powercli]
 ### Terraform
 I wanted to try out [teffaform](https://www.terraform.io/intro/index.html). I had a stand alone ESXi host (without vCenter) and so I decided to use **terraform** to create a VM on that ESXi host. I found a bunch of examples:
 
-* [Deploy a VMware vSphere Virtual Machine with Terraform](https://blog.inkubate.io/deploy-a-vmware-vsphere-virtual-machine-with-terraform/)
 * [Deploying vSphere VM with Terraform](https://emilwypych.com/2017/02/26/deploying-vsphere-vm-with-terraform/)
 * [A Simple Terraform on vSphere Build](http://blog.codybunch.com/2017/03/08/A-Simple-Terraform-on-vSphere-Build/)
 

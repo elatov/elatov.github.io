@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title: "Deploy Kuberbetes with kubeadm on Ubuntu 16.04"
+title: "Deploy Kubernetes with kubeadm on Ubuntu 16.04"
 author: Karim Elatov
 categories: [containers]
 tags: [kubernetes,docker,kubeadm,kubectl]
@@ -808,7 +808,7 @@ And I saw the rules added to the NAT table:
 	    0     0 KUBE-SVC-XGLOHA7QRQ3V22RZ  tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kube-system/kubernetes-dashboard: */ tcp dpt:30443
 
 ### Deploy kubernetes Dashboard
-I ended up downloading the latest version of the YAML file and modified it to use [NodePort](https://github.com/kubernetes/dashboard/wiki/Accessing-Dashboard---1.7.X-and-above#nodeport) so I can reach it internally:
+I ended up downloading the latest version of the YAML file and modified it to use [NodePort](https://github.com/kubernetes/dashboard/blob/master/docs/user/accessing-dashboard/1.7.x-and-above.md#nodeport) so I can reach it internally:
 
 	elatov@ub:~$ wget https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
 	elatov@ub:~$ vi kubernetes-dashboard.yaml

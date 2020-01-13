@@ -386,7 +386,7 @@ Had to explicitly convert a Integer to a String prior to comparing a string that
 That's is all that I had to do on the Puppet Server Side.
 
 ### Updating Puppet Agents
-Next I moved on to my agents. Most of the steps are covered in [Installing Puppet Agent: Linux](https://puppet.com/docs/puppet/5.3/install_linux.html)
+Next I moved on to my agents. Most of the steps are covered in [Installing Puppet Agent: Linux](https://puppet.com/docs/puppet/5.5/install_linux.html)
 
 #### Update Centos Agents
 First let's remove the old package:

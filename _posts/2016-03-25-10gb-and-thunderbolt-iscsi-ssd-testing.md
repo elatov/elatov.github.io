@@ -172,7 +172,7 @@ As I was reading over [Improving VM to VM network throughput on an ESXi platform
 	ipadm set-prop -p recv_buf=1048576 tcp
 	ipadm set-prop -p send_buf=1048576 tcp
 
-I saw a couple of other suggestions from [Solaris TCP Performance Tuning](https://community.emc.com/docs/DOC-39156), but they didn't apply to OmmiOS. I also ran into a pretty good site which had a lot of suggestions to try out when testing 10Gb: [How do I troubleshoot slow Myri10GE performance?](https://www.myricom.com/software/myri10ge/392-how-do-i-troubleshoot-slow-myri10ge-or-mx-10g-performance.html).
+I saw a couple of other suggestions from [Solaris TCP Performance Tuning](https://community.emc.com/docs/DOC-39156), but they didn't apply to OmmiOS. I also ran into a pretty good site which had a lot of suggestions to try out when testing 10Gb: [How do I troubleshoot slow Myri10GE performance?](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/10gb-tests/myri-10gb-perf.pdf).
 
 ##### Enable flow control on OmniOS
 It seems like with 10Gb network *flow control* is a good idea, so let's enable that:

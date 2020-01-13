@@ -712,7 +712,6 @@ Then after that the playbook succeeded but the playback failed:
 
 I needed to set the correct URL. I saw the issue discussed on different pages:
 
-* [Ansible 2.1.1.0 and the Ansible plugin compability](https://github.com/theforeman/foreman_ansible/issues/32)
 * [Errno 2 - No such file or directory](https://projects.theforeman.org/issues/14745)
 * [Foreman-Ansible Callback Connection Refused (Errno 111)](https://groups.google.com/forum/#!topic/foreman-users/4IvpG9a8Kk4)
 

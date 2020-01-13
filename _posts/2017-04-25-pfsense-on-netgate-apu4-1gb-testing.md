@@ -207,7 +207,7 @@ As I kept reading about the APU4 unit I ran into a bunch of folks that mentioned
 	> We have the un-branded SG-2440 box and we pushed about 600mbit of our 1000mbit link through it before it pegged the CPU... it went a bit over 600 a few times, but never maxed out our link.
 
 
-* [netbenches/AMD_G-T40E_2Cores_RTL8111E/fastforwarding-pf-ipfw/results/fbsd11-routing.r287531](https://github.com/ocochard/netbenches/blob/master/AMD_G-T40E_2Cores_RTL8111E/fastforwarding-pf-ipfw/results/fbsd11-routing.r287531/README.md)
+* [netbenches/AMD_G-T40E_2Cores_RTL8111E/fastforwarding-pf-ipfw/results/fbsd11-routing.r287531](https://github.com/ocochard/netbenches/blob/master/AMD_G-T40E_2Cores-RTL8111E/forwarding-pf-ipfw/results/fbsd11-routing.r287531/README.md)
 
 	> ![pf-graph-apu](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu4-wan/pf-graph-apu.png&raw=1)
 

@@ -102,7 +102,7 @@ Copied the binary to the **bin** directory:
 	┌─[elatov@moxz] - [/home/elatov] - [2016-01-16 10:56:10]
 	└─[0] <> sudo mv filebeat-freebsd-amd64 /usr/local/filebeat/bin/filebeat
 
-And then created the following config with the help of the Logstash documentation: [Migrating from Logstash Forwarder to Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/migrating-from-logstash-forwarder.html):
+And then created the following config with the help of the Logstash documentation: [Migrating from Logstash Forwarder to Filebeat](https://www.elastic.co/guide/en/beats/filebeat/6.2/migrating-from-logstash-forwarder.html):
 
 	┌─[elatov@moxz] - [/home/elatov] - [2016-01-16 10:59:23]
 	└─[0] <> cat /usr/local/filebeat/etc/filebeat.yml

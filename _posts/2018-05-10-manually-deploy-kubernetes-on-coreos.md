@@ -685,7 +685,7 @@ And also **kubernetes** pods:
 	default     svc/kubernetes   10.3.0.1     <none>        443/TCP   12h
 	
 #### Flannel and docker Interface Conflict
-Whenever I would try to expose the **kubernetes** *dashboard* service (as per the instructions in [Accessing Dashboard 1.7.X and above](https://github.com/kubernetes/dashboard/wiki/Accessing-Dashboard---1.7.X-and-above)), I would see the following in the logs:
+Whenever I would try to expose the **kubernetes** *dashboard* service (as per the instructions in [Accessing Dashboard 1.7.X and above](https://github.com/kubernetes/dashboard/blob/master/docs/user/accessing-dashboard/1.7.x-and-above.md)), I would see the following in the logs:
 
 	Nov 11 12:04:15 core kubelet-wrapper[6871]: W1111 19:04:15.759201    6871 docker_sandbox.go:342] failed to read pod IP from plugin/docker: NetworkPlugin cni failed on the status hook for pod "kubernetes-dashboard-150844358-bsmgf_kube-system": CNI failed to retrieve network namespace path: Cannot find network namespace for the terminated container "b01749c91e4583201a0c64680e83f332efe5cdc4db37ed28b8b30682538ca83d"
 

@@ -169,7 +169,7 @@ But running that yieled the following error:
 
 > Error starting userland proxy: listen tcp 0.0.0.0:7001: bind: address already in use.
 
-Then following the instructions laid out in [Install on coreos issues (solved) #755](https://github.com/shipyard/shipyard/issues/755) help out. I manually deployed the containers:
+Then following the instructions laid out in [Install on coreos issues (solved) #755](https://github.com/shipyard/shipyard) help out. I manually deployed the containers:
 
 	core ~ # docker run -ti -d --restart=always --name shipyard-swarm-manager swarm:latest manage --host tcp://0.0.0.0:3375 etcd://172.17.0.1:4001
 	cfc33357c008d94841e4470b580706203d6d54f6d7c8b3462370f18134587024

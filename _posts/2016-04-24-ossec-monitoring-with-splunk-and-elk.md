@@ -69,7 +69,7 @@ Pretty easy and nothing crazy.
 
 ### Setup ELK to Monitor Ossec Logs
 
-First let's enable **logstash** to accept logs from the ossec server (the example is covered [here](https://vichargrave.github.io/improved-ossec-log-parsing-with-logstash/)). Here is the config I ended up with:
+First let's enable **logstash** to accept logs from the ossec server (the example is covered [here](https://vichargrave.github.io/tutorials/improved-ossec-log-parsing-with-logstash/)). Here is the config I ended up with:
 
 	┌─[elatov@puppet] - [/home/elatov] - [2016-01-23 01:35:10]
 	└─[0] <> cat /etc/logstash/conf.d/ossec-syslog.conf

@@ -173,7 +173,6 @@ And I installed that on the Windows VM by adding it to the CD Drive of the VM.
 Initially I couldn't copy and paste to the nested Windows VM either using **rdesktop** or **xfreerdp**. I thought it was related to these issues:
 
 - [Protocol Security Negotiation Failure](https://github.com/FreeRDP/FreeRDP/issues/2862)
-- [clipboard not synchonizing between RDP sessions and host](https://github.com/FreeRDP/Remmina/issues/556)
 - [[rdesktop-users] VirtualBox Failed to negotiate protocol, retrying with plain RDP.](https://sourceforge.net/p/rdesktop/mailman/message/32115618/)
 - [Bug 1002978 - Failed to negotiate protocol, retrying with plain RDP](https://bugzilla.redhat.com/show_bug.cgi?id=1002978)
 

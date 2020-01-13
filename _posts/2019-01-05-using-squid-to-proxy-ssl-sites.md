@@ -351,6 +351,6 @@ It's also good at tagging your traffic appropriately. As soon as you visit the a
 
 ![websafety-login-page.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/squid-ssl-proxy/websafety-login-page.png&raw=1)
 
-There is a community version but it doesn't support web filter. You can check out the differences at [Community Version](https://docs.diladele.com/administrator_guide_6_1/community.html). It can show you current traffic and if it blocked anything (if you configured it to do so):
+There is a community version but it doesn't support web filter. You can check out the differences at [Community Version](https://www.diladele.com/licensing.html). It can show you current traffic and if it blocked anything (if you configured it to do so):
 
 ![websafety-web-traffic.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/squid-ssl-proxy/websafety-web-traffic.png&raw=1)

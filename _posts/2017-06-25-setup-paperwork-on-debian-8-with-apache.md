@@ -210,7 +210,7 @@ Finally build the project:
 
 ### Initial Setup for Paperwork
 
-I kept getting into a redirect loop and the issue is described [here](https://github.com/twostairs/paperwork/issues/649). So following the instructions laid out in: [Installing and configuring Paperwork without using the Setup Wizard](https://github.com/twostairs/paperwork/wiki/Installing-and-configuring-Paperwork-without-using-the-Setup-Wizard) I manually configured the Application. First set the config file to be **8**:
+I kept getting into a redirect loop and the issue is described [here](https://github.com/paperwork/paperwork/issues/649). So following the instructions laid out in: [Installing and configuring Paperwork without using the Setup Wizard](https://github.com/twostairs/paperwork/wiki/Installing-and-configuring-Paperwork-without-using-the-Setup-Wizard) I manually configured the Application. First set the config file to be **8**:
 
 	[/var/www/paperwork/frontend] - [2016-12-17 09:38:59]
 	└─[0] <git:(master 50527ed✱✈) > cat app/storage/config/setup

@@ -78,7 +78,7 @@ And configured the plugin to use my SMTP server (**Manage Jenkins** -> **Configu
 
 And then I checked out these pages on how to use it:
 
-- ["Mail" Step for Jenkins Workflow](https://www.cloudbees.com/blog/mail-step-jenkins-workflow)
+- ["Mail" Step for Jenkins Workflow](https://www.previous.cloudbees.com/blog/mail-step-jenkins-workflow)
 - [mail: Mail](https://jenkins.io/doc/pipeline/steps/workflow-basic-steps/#code-mail-code-mail)
 
 Then I added a new stage to my pipeline code of the main job:

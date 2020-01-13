@@ -9,7 +9,7 @@ tags: [ansible,awx]
 I wanted to checkout the provisioning capabilities of **ansible**. So I wanted to accomplish the same tasks as I did in my [previous post](/2018/11/terraform-with-esxi-and-foreman/) and create a VM in VMware and then add a host to **foreman** which will create the boot profile for the VM.
 
 ### Creating a VM with ansible
-Ansible used to utilize the [vsphere_guest](http://docs.ansible.com/ansible/latest/vsphere_guest_module.html) module (it's now deprecated). It just depends on the **pysphere** python library. So let's install that with **pip2**:
+Ansible used to utilize the [vsphere_guest](https://docs.ansible.com/ansible/latest/modules/vmware_guest_module.html) module (it's now deprecated). It just depends on the **pysphere** python library. So let's install that with **pip2**:
 
 	<> sudo pip2 install pysphere
 

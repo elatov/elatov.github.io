@@ -192,4 +192,4 @@ That just installed the applications without any settings. Then I just restored 
 	adb restore nexus5-no_sys.ab
 	
 ### Fix Broken Sound
-I noticed that after some time the sound would stop working, I ran into [this](https://productforums.google.com/forum/#!topic/nexus/bBoE12HGm5U;context-place=topicsearchin/nexus/category$3Aother-discussions) thread and people fixed the issue by installing the [SoundAbout](https://play.google.com/store/apps/details?id=com.woodslink.android.wiredheadphoneroutingfix&hl=en) App. I gave that a shot and so far do good.
+I noticed that after some time the sound would stop working, I ran into [this](https://productforums.google.com/forum/#!topic/nexus/bBoE12HGm5U;context-place=topicsearchin/nexus/category$3Aother-discussions) thread and people fixed the issue by installing the [SoundAbout](https://play.google.com/store/apps/details?id=com.woodslink.android.wiredheadphoneroutingfix.pro&hl=en_US) App. I gave that a shot and so far do good.

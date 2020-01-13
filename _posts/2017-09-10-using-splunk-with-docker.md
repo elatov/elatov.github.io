@@ -7,7 +7,7 @@ categories: [containers]
 tags: [docker,docker-compose,splunk]
 ---
 ### Splunk and Docker
-The instructions on the setup are covered in: [How to use the Splunk Enterprise Docker image](https://github.com/splunk/docker-splunk/blob/master/enterprise/README.md). I decided to take the **docker-compose** approach.
+The instructions on the setup are covered in: [How to use the Splunk Enterprise Docker image](https://github.com/splunk/docker-splunk/tree/master). I decided to take the **docker-compose** approach.
 
 ### Install docker-compose on CoreOS
 First we need to install **docker-compose** on CoreOS. There are a couple of sites that talk about the process:
