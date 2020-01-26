@@ -276,7 +276,7 @@ I could've used a floating IP, but I decided to just deploy directly on the prov
 
 ### Use Terraform with Jenkins
 
-Just for fun I decided to see if I could accomplish the same with **jenkins**. There is a [plugin](https://plugins.jenkins.io/terraform) for it, but I just used it to install the **terraform** binary (not to configure a *freestyle* job). So after you install the plugin, configure it to auto install a specific version of **terraform** and the architecture:
+Just for fun I decided to see if I could accomplish the same with **jenkins**. There is a [plugin](https://plugins.jenkins.io/terraform/) for it, but I just used it to install the **terraform** binary (not to configure a *freestyle* job). So after you install the plugin, configure it to auto install a specific version of **terraform** and the architecture:
 
 ![jen-terr-tool.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/terraform-openstack-jenkins/jen-terr-tool.png&raw=1)
 

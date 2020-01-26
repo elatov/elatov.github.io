@@ -339,7 +339,7 @@ Reading over a bunch of sites, it sounds like **chromecast** might be best optio
 > You should also take a look at Google’s latest product, Chromecast that is able to stream media from any Android device, smartphone or tablet, to a TV.
 
 And from [How to Stream Video to a TV from a Mobile Device or
-Computer](http://www.tomsguide.com/us/how-to-stream-to-tv,news-18335.html):
+Computer](https://www.tomsguide.com/us/how-to-stream-to-tv,news-18335.html):
 
 > I Have A Mixture Of Apple Devices And Windows Or Android Devices. What Should I Use To Stream Video?
 > Get Google Chromecast or Android TV, but check your hardware and software.
