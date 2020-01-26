@@ -30,7 +30,7 @@ Now running a test with netperf from within two VMs on those two sames host, goi
 
 So we are capable of utilizing the full 1GB but the hypervisor is limiting the userworlds other than VMs (ie: dd, scp). I do understand that this is not an apples-to-apples comparison (scp is actually reading and writing data to and from the local disks) but we are seeing scp transferring at 195Mb/s while netperf reaches 939Mb/s.
 
-This is by design and makes perfect sense. We want all our resources dedicated to the VMs and not to any of the tools within the hypervisor. There is a pretty good article entitled [ I/O Analyzer](http://www.quora.com/What-is-the-architecture-of-VMWare-ESX-like-and-how-does-it-compare-to-other-operating-systems). It's a VMware appliance that comes pre-installed with a Linux distro and has IOmeter preloaded on it. I might do a post on how to use that tool, as well. :)
+This is by design and makes perfect sense. We want all our resources dedicated to the VMs and not to any of the tools within the hypervisor. There is a pretty good article entitled [ I/O Analyzer](https://www.quora.com/What-is-the-architecture-of-VMWare-ESX-like-and-how-does-it-compare-to-other-operating-systems). It's a VMware appliance that comes pre-installed with a Linux distro and has IOmeter preloaded on it. I might do a post on how to use that tool, as well. :)
 
 ### Related Posts
 

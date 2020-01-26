@@ -10,7 +10,7 @@ tags: ['xorg', 'linux', 'chromebook', 'ubuntu']
 There are a bunch of the steps to the process, here are some good links that have most of the instructions:
 
 *   [So You Want ChrUbuntu on a USB / SD Card?](http://chromeos-cr48.blogspot.com/2012/12/so-you-want-chrubuntu-on-external-drive.html)
-*   [Installing ChrUbuntu on the Samsung ARM Chromebook. A step by step photo guide](http://www.amirkurtovic.com/blog/installing-chrubuntu-on-the-samsung-arm-chromebook-a-step-by-step-photo-guide/)
+*   [Complete Guide to Installing Linux on Chromebook](https://itsfoss.com/install-linux-chromebook/)
 
 I had some additional steps to the above guides and they kept piling up, so I decided to put everything in one big guide.
 

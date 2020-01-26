@@ -249,7 +249,7 @@ Another method is to use the **import** functionatlity. From [Language: Node Def
 >     import 'extra_nodes.pp'
 
 #### Creating a Puppet Module
-So now we need to define a node in our node defintion so we can push settings to the node. Before this was done inside the **site.pp** manifest file, but now everything is done with classes and(or) modules. From [Learning Puppet — Modules and Classes](https://puppet.com/presentations/getting-started-puppet):
+So now we need to define a node in our node defintion so we can push settings to the node. Before this was done inside the **site.pp** manifest file, but now everything is done with classes and(or) modules. From [Learning Puppet — Modules and Classes](https://learn.puppet.com/instructor-led-training/getting-started-with-puppet):
 
 > #### The End of the One Huge Manifest
 > You can write some pretty sophisticated manifests at this point, but so far you’ve just been putting them in one file (either **/etc/puppetlabs/puppet/manifests/site.pp** or a one-off to use with puppet apply).

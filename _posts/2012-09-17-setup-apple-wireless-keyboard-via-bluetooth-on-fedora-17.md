@@ -157,7 +157,7 @@ But on my fedora install I couldn't find any of those tools. I then ran into [Ma
 
 > Please keep in mind that whenever hcid or pand or hidd are mentioned it means that instructions are applicable only to bluez3 systems which is deprecated ages ago. Modern bluez4 uses only one daemon - bluetoothd and you are supposed to use dbus api directly to configure it. For pairing from command line use simple-agent script.
 
-That article also had link to the **simple-agent** script. Here is the [link](http://git.kernel.org/?p=bluetooth/bluez.git;a=blob_plain;f=test/simple-agent;hb=HEAD). It's a python script which runs all the necessary **dbus** calls to pair the devices. You could probably run the **dbus** calls your self, here are some articles which have examples of the **dbus** calls:
+That article also had link to the **simple-agent** script. Here is the [link](https://git.kernel.org/pub/scm/bluetooth/bluez.git/plain/test/simple-agent?id=HEAD). It's a python script which runs all the necessary **dbus** calls to pair the devices. You could probably run the **dbus** calls your self, here are some articles which have examples of the **dbus** calls:
 
 *   [Connecting Bluetooth devices from command line](http://zitzlinux.wordpress.com/2011/02/28/connecting-bluetooth-devices-from-command-line/)
 *   [Freedom Slim Keyboard](http://wiki.openmoko.org/wiki/Freedom_Slim_Keyboard)

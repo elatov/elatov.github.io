@@ -86,13 +86,13 @@ From [this](http://www.virten.net/2012/06/vdcd510-objective-2-3-build-availabili
 >
 > **Disaster Recovery** is focused on how to restore the services after a outage occurs. (Reactive)
 
-Here a slide from the [APAC BrownBag Session 4](http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap5-dca-availability-dr/):
+Here a slide from the [APAC BrownBag Session 4](https://professionalvmware.com/vmware-certifications/):
 
 ![dr_vs_bc](https://github.com/elatov/uploads/raw/master/2012/08/dr_vs_bc.png)
 
 ### Determine availability component of service level agreements (SLAs) and service level management processes
 
-From [APAC BrownBag Session 4](http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap5-dca-availability-dr/) slide deck:
+From [APAC BrownBag Session 4](https://professionalvmware.com/vmware-certifications/) slide deck:
 
 ![types_of_failures](https://github.com/elatov/uploads/raw/master/2012/08/types_of_failures.png)
 
@@ -121,7 +121,7 @@ Using VMware HA set the reboot priority depending on the availability requiremen
 
 ### Balance availability requirements with other infrastructure qualities
 
-From the [APAC BrownBag Session 4](http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap5-dca-availability-dr/):
+From the [APAC BrownBag Session 4](https://professionalvmware.com/vmware-certifications/):
 
 ![infra_qualities](https://github.com/elatov/uploads/raw/master/2012/08/infra_qualities.png)
 
@@ -137,7 +137,7 @@ Using vMotion,HA, DRS and redundant network and storage components we can balanc
 
 I would recommend watching:
 
-*   [APAC BrownBag Session 4](http://professionalvmware.com/2012/02/apac-brownbag-follow-up-vcap5-dca-availability-dr/)
+*   [APAC BrownBag Session 4](https://professionalvmware.com/vmware-certifications/)
 
 There is also an excellent VMware course on this:
 

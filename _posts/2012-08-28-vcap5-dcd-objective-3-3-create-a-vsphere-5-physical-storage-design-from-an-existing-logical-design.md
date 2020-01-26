@@ -63,7 +63,7 @@ Depending on the environment choose the storage protocol that will best fill the
 
 ### Create a physical storage design based on selected storage array capabilities, including but not limited to: Active/Active, Active/Passive, ALUA, VAAI, VASA, PSA (including PSPs and SATPs)
 
-Each Array has their best practices, I would suggest following those. Let's say you got an A/A array. A typical A/A array is an EMC Symmetrix. From "[Using VMware vSphere with EMC Symmetrix Storage](http://www.emc.com/collateral/hardware/solution-overview/h2529-vmware-esx-svr-w-symmetrix-wp-ldv.pdf)":
+Each Array has their best practices, I would suggest following those. Let's say you got an A/A array. A typical A/A array is an EMC Symmetrix. From "[Using VMware vSphere with EMC Symmetrix Storage](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/h2529-vmware-esx-svr-w-symmetrix-wp-ldv.pdf)":
 
 > **Symmetrix DMX connectivity**
 > Each ESX host that uses Symmetrix DMX storage should have at least two physical HBAs, and each HBA should be connected to one front-end port on different directors. This configuration ensures two things:First, since there are two HBAs, if one goes down for any reason all connectivity is not lost. Second, this ensures continued access to the array from the ESX host even if a front-end port goes down for maintenance activities on the director.

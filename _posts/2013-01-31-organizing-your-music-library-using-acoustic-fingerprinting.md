@@ -295,7 +295,7 @@ and lastly, here is the aftermath:
 	[elatov@moxz best]$ ls mus_2003
 	Alsu-Vchera.mp3 A_Russo_K_Agati-Mechti_Zbilis.mp3 Gazmanov_Oleg-Na_Zare.mp3
 
-That looked perfect except that it fails back to tags if the file can't be fingerprinted. What if the tags were gone and we can't fingerprint it. If I was doing this across regular/popular/US songs, I bet the above would've sufficed for my library. I then ran into [this](http://forum.xbmc.org/showthread.php?tid=37230) *xbmc* forum. From that Forum:
+That looked perfect except that it fails back to tags if the file can't be fingerprinted. What if the tags were gone and we can't fingerprint it. If I was doing this across regular/popular/US songs, I bet the above would've sufficed for my library. I then ran into [this](https://forum.kodi.tv/showthread.php?tid=372300) *xbmc* forum. From that Forum:
 
 > - **Last.fm fingerprints** - Uses an open source library to fingerprint and a web service to identify the song. Used by banshee-extension-lastfm fingerprint, for example.
 > - **MusicDNS/PUID** - Open source fingerprinting with libofa, closed database queries. MusicDNS was sold to Sony-owned Gracenote and is expected to be shit-canned. Thus, MusicBrainz is ditching it for Echoprint & Acoustid (see above article from 6/23/11).

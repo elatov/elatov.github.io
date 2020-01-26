@@ -36,7 +36,7 @@ I only had 4 VMs running on the host, 3 of the VMs were running on local storage
 
 I found a couple of sites that had instructions on how to copy ZFS Volumes across Zpools:
 
-*   [Transferring ZFS filesystems in ICTS environment.](https://www.icts.uiowa.edu/confluence/pages/viewpage.action?pageId=59411469)
+*   [Migrating Data With ZFS Send and Receive](https://blog.fosketts.net/2016/08/18/migrating-data-zfs-send-receive/)
 *   [zfs incremental recursive replication to usb drive](https://forums.freebsd.org/threads/60556/)
 *   [ZFS snapshots and clones](http://kbdone.com/zfs-snapshots-clones/)
 

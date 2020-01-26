@@ -62,7 +62,7 @@ So the first thing I wanted to do, was to convert the 2GB Split Spare VMDKs into
 Looking over a couple of sites, it looks like **vmware-vdiskmanager** is the way to go:
 
 *   [VMWARE: Converting Multiple VMDK files into one](http://www.eknori.de/2012-11-23/vmware-converting-multiple-vmdk-files-into-one/)
-*   [Converting Multiple VMDK (Virtual Machine Disk) files into one](http://technonstop.com/convert-multiple-vmdks-to-one)
+*   [Converting Multiple VMDK (Virtual Machine Disk) files into one](https://technonstop.com/convert-multiple-vmdks-to-one)
 
 The **vmware-vdiskmanager** is packaged with the "Virtual Disk Development Kit" which you can download from [here](http://www.vmware.com/support/developer/vddk/). Here is screenshot of the available downloads after I logged into the VMware portal:
 

@@ -16,7 +16,7 @@ I recently had a situation where I had 2 *Avi* files and 2 *Sub/Idx* files, and 
 
 ## Difference between VobSub and SRT
 
-From [Subtitle Formats Explained](http://www.afterdawn.com/guides/archive/subtitle_formats_explained.cfm):
+From [Subtitle Formats Explained](https://www.afterdawn.com/guides/archive/subtitle_formats_explained.cfm):
 
 > Most subtitles consist purely of text characters. Since text is also some of the easiest data to store and compress it makes sense to store subtitles as simple text files or a text stream within a video file. Although it's normal for all subtitles to start out this way, that doesn't mean that's how they're stored.
 >

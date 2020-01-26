@@ -241,7 +241,7 @@ Everything was working out well, until I started watching some tv streams. XBMC 
 	13:59:04 T:2750211152   ERROR: COMXAudioCodecOMX::GetData Unexpected change of size (65536->49152)
 	13:59:04 T:2750211152   ERROR: COMXAudioCodecOMX::GetData Unexpected change of size (49152->65536)
 
-I was only able to find [the following](http://forum.xbmc.org/showthread.php?tid=196936) (Openelec 4.0.3 Screen goes black during Live TV) forum that matched my error message. In the forum they mentioned that it's known issue and going back to 4.0.2 should fix the issue(and hopefully 4.0.4 fixes the issue). Given the fact that I was on 4.0.6 and the issue was still happening, I decided to downgrade to 4.0.2. 
+I was only able to find [the following](https://forum.xbmc.org/showthread.php?tid=196936) (Openelec 4.0.3 Screen goes black during Live TV) forum that matched my error message. In the forum they mentioned that it's known issue and going back to 4.0.2 should fix the issue(and hopefully 4.0.4 fixes the issue). Given the fact that I was on 4.0.6 and the issue was still happening, I decided to downgrade to 4.0.2. 
 
 With the new version of OpenELEC (4.0), we just copy the **tar** file into the update folder and the update process will proceed. From [Updating OpenELEC](http://kodi.wiki/view/OpenELEC#Updating_OpenELEC)
 

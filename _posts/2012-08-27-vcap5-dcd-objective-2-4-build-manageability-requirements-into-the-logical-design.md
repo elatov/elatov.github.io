@@ -130,7 +130,7 @@ This is really important, and it doesn't only apply to a VMware Environment. It'
 
 ### Based on customer requirements, identify required reporting assets and processes
 
-Determine what needs to be kept track of and monitor that. If you are using a VDI environment, keeping track of any new file placed in a View Client, would be too much and unnecessary. Choose what is important, newly deployed VMs, networking changes, storage pathing changes... etc. Choose the appropriate level of importance/monitoring for each aspect (these could be defined by constraints, requirements, and even SLAs). There are third party applications like [puppet](https://puppet.com/product/how-it-works) that use a client-server methodology to keep track of your environment's inventory.
+Determine what needs to be kept track of and monitor that. If you are using a VDI environment, keeping track of any new file placed in a View Client, would be too much and unnecessary. Choose what is important, newly deployed VMs, networking changes, storage pathing changes... etc. Choose the appropriate level of importance/monitoring for each aspect (these could be defined by constraints, requirements, and even SLAs). There are third party applications like [puppet](https://puppet.com/) that use a client-server methodology to keep track of your environment's inventory.
 
 For this objective, I would recommend reading/watching:
 

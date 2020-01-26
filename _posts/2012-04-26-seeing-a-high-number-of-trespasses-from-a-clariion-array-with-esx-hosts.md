@@ -44,7 +44,7 @@ Now what does ALUA allow us to do, from the same post:
 > processor and is ready to perform I/O and will give you the best performance, and the non-optimal path
 > is also ready to perform I/O but won’t give you the best performance since you are taking a detour.
 
-Now how does the array actually do this, from the article "[EMC CLARiiON Asymmetric Active/Active Feature](http://www.emc.com/collateral/hardware/white-papers/h2890-emc-clariion-asymm-active-wp.pdf):
+Now how does the array actually do this, from the article "[EMC CLARiiON Asymmetric Active/Active Feature](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/high-trespass-clariion/h2890-emc-clariion-asymm-active-wp.pdf):
 
 > In dual-SP systems, such as a CLARiiON, I/O can be routed through either SP. For example, if I/O for a LUN is sent to an SP that does not own the LUN, that SP redirects the I/O to the SP that does own the LUN. This redirection is done through internal communication within the storage system. It is transparent to the host, and the host is not aware that the other SP processed the I/O. Hence, a trespass is not required when I/O is sent to the non-owning (or non- optimal) SP.
 >
@@ -59,7 +59,7 @@ what those are. There is a great picture of TGP in this article, [It All Started
 
 ![asymmetricaccessstate](https://github.com/elatov/uploads/raw/master/2012/04/asymmetricaccessstate.png)
 
-Also from [EMC CLARiiON Asymmetric Active/Active Feature](http://www.emc.com/collateral/hardware/white-papers/h2890-emc-clariion-asymm-active-wp.pdf):
+Also from [EMC CLARiiON Asymmetric Active/Active Feature](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/high-trespass-clariion/h2890-emc-clariion-asymm-active-wp.pdf):
 
 > Target port group — A set of target ports that are in either primary SP ports or secondary SP ports.
 
@@ -142,7 +142,7 @@ Definitions of all the settings can be found at VMware KB [1022030](http://kb.vm
 > which prevents path thrashing in multi-host setups. This option is turned on using the esxcli command
 > enable_alua_followover and turned off using the esxcli command disable_alua_followover.
 
-Just to elaborate, the article '[EMC CLARiiON Asymmetric Active/Active Feature](http://www.emc.com/collateral/hardware/white-papers/h2890-emc-clariion-asymm-active-wp.pdf)', has a good paragraph about implicit and explicit failover:
+Just to elaborate, the article '[EMC CLARiiON Asymmetric Active/Active Feature](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/high-trespass-clariion/h2890-emc-clariion-asymm-active-wp.pdf)', has a good paragraph about implicit and explicit failover:
 
 > Explicit and implicit failover software
 > Explicit and implicit failover software should not be confused with the explicit and implicit trespass
