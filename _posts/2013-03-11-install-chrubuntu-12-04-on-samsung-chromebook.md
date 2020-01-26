@@ -20,7 +20,7 @@ I had some additional steps to the above guides and they kept piling up, so I de
 2.  Hold the **ESC** and **REFRESH** keys as you press the Power button to get into recovery mode.
 3.  Press **CTRL+D** to go into developer mode.
 
-This [site](http://www.amirkurtovic.com/blog/installing-chrubuntu-on-the-samsung-arm-chromebook-a-step-by-step-photo-guide/) has good pictures for the process. I didn't want to mess up the ChromeOS install, so I got an SD card just in case. Therefore all the below processes apply to an install of ChrUbuntu onto an SD Card.
+This [site](https://itsfoss.com/install-linux-chromebook/) has good pictures for the process. I didn't want to mess up the ChromeOS install, so I got an SD card just in case. Therefore all the below processes apply to an install of ChrUbuntu onto an SD Card.
 
 ### 2. Install Chrubuntu 12.04 on External SD-Card
 

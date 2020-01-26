@@ -39,7 +39,7 @@ Here is another picture of the HP Virtual Connect FlexFabric InterConnect Module
 
 ![flex-fabric2](https://github.com/elatov/uploads/raw/master/2012/09/flex-fabric2.png)
 
-Sometimes the Virtual Connect Module technology is just bundled as one technology, but in reality it consists of a couple of things. From "[HP Virtual Connect for the Cisco Network Administrator](http://h20565.www2.hpe.com/hpsc/doc/public/display?docId=emr_na-c01386629&lang=en-us&cc=us)":
+Sometimes the Virtual Connect Module technology is just bundled as one technology, but in reality it consists of a couple of things. From "[HP Virtual Connect for the Cisco Network Administrator](https://support.hpe.com/hpesc/public/docDisplay?cc=us&docId=emr_na-c01386629&lang=en-us)":
 
 > **Virtual Connect Components**
 > There are three key components that make up the Virtual Connect infrastructure. Two

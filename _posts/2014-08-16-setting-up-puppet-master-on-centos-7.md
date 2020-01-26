@@ -825,7 +825,7 @@ Looks like I need to create the group first, but I was glad to see it try. So I 
 		}
 	}
 
-I then went back to node and ran the following to pull the new configuration (this was described in [Learning Puppet — Basic Agent/Master Puppet](https://puppet.com/docs/puppet/latest/quick_start_master_agent_communication.html)):
+I then went back to node and ran the following to pull the new configuration (this was described in [Learning Puppet — Basic Agent/Master Puppet](https://puppet.com/docs/puppet/latest/quick_start_essential_config.html)):
 
 	[root@pup-node1 ~]# puppet agent --test
 	Info: Retrieving pluginfacts

@@ -140,6 +140,6 @@ For this objective, I would recommend reading/watching:
     *   Written by Glasshouse, has a good example of how to apply the above in an environment
 *   [Operational Readiness Assessment](http://communities.vmware.com/docs/DOC-11457)
     *   Has a list of questions if trying to follow the ITIL methodology
-*   [APAC BrownBag Session 11](http://professionalvmware.com/2012/04/apac-vbrownbag-follow-up-management-design/)
+*   [APAC BrownBag Session 11](https://professionalvmware.com/vmware-certifications/)
     *   Good recording and discussion on how to manage a vSphere Environment
 

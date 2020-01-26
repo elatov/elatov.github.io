@@ -254,7 +254,7 @@ After the above test we knew that it had to do something with VLAN 22(path to SP
 
 and the path thrashing stopped.
 
-So here is a summary of what happened. One of the stacked switches had QOS enabled. This caused a bottle neck with one of the paths. The ESX host would eventually lose the bad/degraded path cause it would send too much IO down that path and it would fail. After losing the path, it would start using the non-optimized path. When VNX receives 128K IOPs via a non-optimized path it will trespass that LUN to other SP cause it sees that too much IO is trying to get to LUN via the other SP/path. There is a good discussion about this in the EMC Communities, [here](https://community.emc.com/thread/146224):
+So here is a summary of what happened. One of the stacked switches had QOS enabled. This caused a bottle neck with one of the paths. The ESX host would eventually lose the bad/degraded path cause it would send too much IO down that path and it would fail. After losing the path, it would start using the non-optimized path. When VNX receives 128K IOPs via a non-optimized path it will trespass that LUN to other SP cause it sees that too much IO is trying to get to LUN via the other SP/path. There is a good discussion about this in the EMC Communities, [here](https://www.dell.com/community/VMware/lun-tresspass-and-round-robin/td-p/6876460):
 
 > After 128,000 I/O via the non-optimized paths, the system will make the decision to trespass the LUN (implicit trespass) instead of maintaining the non-optimal paths of an extra hop.
 

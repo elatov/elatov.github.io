@@ -348,7 +348,7 @@ And just for comparison, from [Swordfight! Streaming sticks from Google, Roku, a
 
 ![media-stick-comparison](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/media-stick-comparison.png&raw=1)
 
-It looks like **chromecast** has the best support. The [Best Miracast and Screen-Mirroring Devices 2016](http://www.tomsguide.com/us/best-miracast-screen-mirroring,review-2286.html) provides recommendation per OS and it might be worth checking out, if you
+It looks like **chromecast** has the best support. The [Best Miracast and Screen-Mirroring Devices 2016](https://www.tomsguide.com/us/best-miracast-screen-mirroring,review-2286.html) provides recommendation per OS and it might be worth checking out, if you
 are a pure windows or apple shop. Most of my streaming needs are covered with **Plex** and **Kodi**, I just wanted to find out if any of my existing devices covers all the platforms and it doesn't look like it. 
 
 For **chromecast**, it supports both **DIAL** and **mDNS** more information is seen in [Chromecast Implementation Documentation WIP](https://github.com/jloutsenhizer/CR-Cast/wiki/Chromecast-Implementation-Documentation-WIP):
