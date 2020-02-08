@@ -9,7 +9,7 @@ tags: ['debian', 'linux', 'monitoring', 'zabbix']
 
 I wanted to get a feel how much IO my machines are doing each day. As I was going through the **zabbix** graphs I noticed that IO statistics are not included. I did some research and I came across these forums:
 
-*   [Monitor a device performance on Linux with Zabbix](http://romain.novalan.fr/wiki/Monitor_a_device_performance_on_Linux_with_Zabbix)
+*   [Monitor a device performance on Linux with Zabbix](https://share.zabbix.com/operating-systems/linux/disk-stat)
 *   [DISK I/O - how to monitor with Zabbix](http://rals-madlab.blogspot.com/2013/07/in-spirit-of-zabbix-and-good-monitoring.html)
 
 Both use the same technique of querying the **/proc/diskstats** file and plotting that information. So let's start setting that up.

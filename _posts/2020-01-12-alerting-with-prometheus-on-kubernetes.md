@@ -291,7 +291,6 @@ Here are some other resources:
 
 * [camilb/prometheus-kubernetes](https://github.com/camilb/prometheus-kubernetes/blob/master/manifests/prometheus/prometheus-k8s-rules.yaml)
 * [openshift/cluster-monitoring-operator](https://github.com/openshift/cluster-monitoring-operator/blob/master/assets/prometheus-k8s/rules.yaml)
-* [Top Kubernetes Metrics to Monitor](http://outlyer.com/blog/top-kubernetes-metrics-to-monitor/)
 * [openstack / openstack-helm-infra](https://opendev.org/openstack/openstack-helm-infra/src/branch/master/prometheus/values_overrides/kubernetes.yaml)
 
 I picked a few, added them to the config and saw them fire:

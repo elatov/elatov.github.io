@@ -662,7 +662,7 @@ That will generate the following rules:
         6   360 SNAT       tcp  --  *      br0     0.0.0.0/0            192.168.1.100       tcp dpt:80 to:192.168.1.1
 
 
-This is covered in the FWBuilder chapter entitled "[Destination NAT Onto the Same Network](http://fwbuilder.sourceforge.net/4.0/docs/users_guide5/dnat_to_same_network.shtml). This concept is referred to as **NAT Hair-pinning**. From the [RFC](http://tools.ietf.org/html/rfc4787) here is what we see:
+This is covered in the FWBuilder chapter entitled "[Destination NAT Onto the Same Network](http://fwbuilder.sourceforge.net/4.0/docs/users_guide5/dnat_to_same_network.shtml). This concept is referred to as **NAT Hair-pinning**. From the [RFC](https://tools.ietf.org/html/rfc4787) here is what we see:
 
 > Hairpinning allows two endpoints on the internal side of the NAT to communicate even if they only use each other's external IP addresses and ports.
 

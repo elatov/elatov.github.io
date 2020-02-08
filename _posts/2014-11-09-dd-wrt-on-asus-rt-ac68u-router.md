@@ -372,7 +372,7 @@ I then read over the following pages:
 
 - [Creating VLANs in DD-WRT (Part 1)](https://michaelpoore.com/2011/07/creating-vlans-in-dd-wrt-part-1/)
 - [Asus RT-AC66U, VLAN & WLAN](http://www.dd-wrt.com/phpBB2/viewtopic.php?p=773584)
-- [DD-WRT heading two seperate networks](http://www.coertvonk.com/technology/networking/dd-wrt-heading-two-networks-asus-rt-ac68u-11717)
+- [DD-WRT heading two seperate networks](http://coertvonk.com/?p=11717)
 
 The last one has a nice picture to remind me how the networking worked on the dd-wrt Router:
 

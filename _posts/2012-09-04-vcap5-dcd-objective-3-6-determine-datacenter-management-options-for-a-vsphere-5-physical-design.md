@@ -567,7 +567,7 @@ Templates help out tremendously cause you don't want to install each of your VMs
 
 ### Based on the logical design identify and implement event, incident and problem management technologies.
 
-There is a great white paper on this, "[Proactive Incident and Problem Management](http://www.vmware.com/files/pdf/services/VMware-Proactive-Incident-Whitepaper.pdf)", from that white paper:
+There is a great white paper on this, "[Proactive Incident and Problem Management](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/vmware-proactive-incident-whitepaper.pdf)", from that white paper:
 
 > **Executive Summary**
 > As the IT infrastructure has grown, the approach to managing incidents and problems has evolved, from help desk to tiered support to integrated management. However, these approaches have all been reactive, essentially devising better and faster ways to fix broken components. The cloud makes a reactive approach untenable for several reasons:
