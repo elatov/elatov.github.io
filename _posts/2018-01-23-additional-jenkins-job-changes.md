@@ -14,7 +14,7 @@ I decided to create a job which will check for new releases of [drive](https://g
 
 - [Pipeline: Build Step](https://jenkins.io/doc/pipeline/steps/pipeline-build-step/)
 - [Groovy Matcher Class](http://docs.groovy-lang.org/latest/html/groovy-jdk/java/util/regex/Matcher.html)
-- [Parameterized Scheduler Plugin](https://wiki.jenkins.io/display/JENKINS/Parameterized+Scheduler+Plugin) (which is part of jenkins core now)
+- [Parameterized Scheduler Plugin](https://plugins.jenkins.io/parameterized-scheduler/) (which is part of jenkins core now)
 
 Here is the code I ended up with:
 

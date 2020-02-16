@@ -901,7 +901,7 @@ From [Learning Puppet — Basic Agent/Master Puppet](https://puppet.com/docs/pup
 > 
 > If you accidentally run the agent without **--test**, it will daemonize and run in the background.
 
-There used to a **kick** funcionality, more information on that in the [Deprecated Command Line Features](https://docs.puppet.com/puppet/3.7/deprecated_command.html#puppet-kick). It basically allowed the master to initiate a **pull** from the node, but it required some setup on the node (like listening on port **8139** and allowing certain hosts to access the **pull** functionality). It's now a deprecated feature and will be replace with **mcollective** eventually. 
+There used to a **kick** funcionality, more information on that in the [Deprecated Command Line Features](https://puppet.com/docs/puppet/3.8/man/kick.html). It basically allowed the master to initiate a **pull** from the node, but it required some setup on the node (like listening on port **8139** and allowing certain hosts to access the **pull** functionality). It's now a deprecated feature and will be replace with **mcollective** eventually. 
 
 We can also see that the default fetch period is every 30 minutes. This can be changed by modifying the **runinterval** option in the **agent** section of **/etc/puppet/puppet.conf** file on the node. From [Configuration Reference](https://puppet.com/docs/puppet/latest/configuration.html#runinterval)
 

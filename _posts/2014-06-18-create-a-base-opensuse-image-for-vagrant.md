@@ -11,7 +11,7 @@ There are a bunch of examples on the process. Here are a few sites:
 - [Creating A Base Box](http://docs.vagrantup.com/v2/boxes/base.html)
 - [How to Create a CentOS Vagrant Base Box](https://github.com/ckan/ckan/wiki/How-to-Create-a-CentOS-Vagrant-Base-Box)
 - [Creating a Custom Vagrant Box ](http://williamwalker.me/blog/creating-a-custom-vagrant-box.html)
-- [Building a Vagrant Box from Start to Finish](https://blog.engineyard.com/2014/building-a-vagrant-box)
+- [Building a Vagrant Box from Start to Finish](https://blog.engineyard.com/building-a-vagrant-box)
 
 First of all let's define what a box is in Vagrant terminology, from [Vagrant Docs: Boxes](http://docs.vagrantup.com/v2/getting-started/boxes.html):
 

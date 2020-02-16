@@ -108,7 +108,6 @@ I wanted to create a custom rule, so I ran into a couple of sites that talked ab
 
 * [Creating Custom VIBs For ESXi 5.0 & 5.1 with VIB Author Fling](http://www.virtuallyghetto.com/2012/09/creating-custom-vibs-for-esxi-50-51.html)
 * [How to create persistent firewall rules on ESXi](https://www.altaro.com/vmware/how-to-create-persistent-firewall-rules-on-esxi/)
-* [User defined xml firewall configurations are not persistent across ESXi host reboots (2007381)](https://kb.vmware.com/kb/2007381)
 * [A Docker Container for building custom ESXi VIBs](http://www.virtuallyghetto.com/2015/05/a-docker-container-for-building-custom-esxi-vibs.html)
 
 #### Deploying the VIB Author Container

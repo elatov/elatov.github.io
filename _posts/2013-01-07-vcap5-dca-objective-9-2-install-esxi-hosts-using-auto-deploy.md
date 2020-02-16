@@ -11,7 +11,7 @@ tags: ['powercli','pxe_boot', 'auto_deploy']
 
 ### Identify Auto Deploy requirements
 
-From "[VMware vSphere 5.0 Evaluation Guide Volume Four – Auto Deploy](http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-4-Auto-Deploy.pdf)":
+From "[VMware vSphere 5.0 Evaluation Guide Volume Four – Auto Deploy](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vmware-vsphere-evaluation-guide-1-white-paper.pdf)":
 
 > **Auto Deploy Requirements**
 > The following components are required for Auto Deploy:
@@ -23,7 +23,7 @@ From "[VMware vSphere 5.0 Evaluation Guide Volume Four – Auto Deploy](http://w
 
 ### Install the Auto Deploy Server
 
-From "[VMware vSphere 5.0 Evaluation Guide Volume Four – Auto Deploy](http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-4-Auto-Deploy.pdf)":
+From "[VMware vSphere 5.0 Evaluation Guide Volume Four – Auto Deploy](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vmware-vsphere-evaluation-guide-1-white-paper.pdf)":
 
 > The Auto Deploy Windows Installer is included with the vCenter installation media. From the main installation menu, choose the option to install the Auto Deploy server.
 >
