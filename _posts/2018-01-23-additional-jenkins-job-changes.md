@@ -68,7 +68,7 @@ But that would build it too often. I only wanted new releases to cause builds. A
      Started by user Jenkins Admin
 
 ### Jenkins mail Job Results
-I also ended up installing the [mailer plugin](https://wiki.jenkins.io/display/JENKINS/Mailer):
+I also ended up installing the [mailer plugin](https://plugins.jenkins.io/mailer/):
 
 ![jenkins-mailer-plugin-installed](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-mail/jenkins-mailer-plugin-installed.png&raw=1)
 

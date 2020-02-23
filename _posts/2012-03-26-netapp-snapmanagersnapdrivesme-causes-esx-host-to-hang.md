@@ -52,7 +52,7 @@ A lot of people ran into issue with having two VSS writers ([VMware KB 1029963](
 
 If you want to see a good picture of the setup with the OS disks being vmdks and Exchange data disks are RDMs, I would suggest looking over this article, [Running Microsoft Enterprise Applications on VMware vSphere, NetApp Unified Storage, and Cisco Unified Fabric](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/partners/netapp/vmware-running-microsoft-enterprise-applications-on-vsphere-netapp-unified.pdf)
 
-So now to the problem at hand. We had the following setup: used SnapDrive to add RDMs to the Exchange Server. Installed SME on the VM and used option two (from above) to take an application consistent backup with SME (not  VMware VSS-assisted backups). This worked just fine. Now the snapshot process for SMVI is a little different from a regular backup software, this document describes the process, [SnapManager 2.0 for Virtual Infrastructure Best Practices](http://media.netapp.com/documents/tr-3737.pdf):
+So now to the problem at hand. We had the following setup: used SnapDrive to add RDMs to the Exchange Server. Installed SME on the VM and used option two (from above) to take an application consistent backup with SME (not  VMware VSS-assisted backups). This worked just fine. Now the snapshot process for SMVI is a little different from a regular backup software, this document describes the process, [SnapManager 2.0 for Virtual Infrastructure Best Practices](http://www.redbooks.ibm.com/redbooks/pdfs/sg247867.pdf):
 
 > 1.  A backup is initiated within SMVI.
 >     i. Individual VM(s) backup – A VMware snapshot will be created for each virtual machine selected for backup that is powered on at the time of backup.

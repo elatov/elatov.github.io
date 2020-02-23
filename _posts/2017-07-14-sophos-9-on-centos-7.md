@@ -19,7 +19,7 @@ I decided to try out [sophos](https://www.sophos.com/en-us/products/free-tools/s
 
 ### Installing Sophos
 
-The instructions are covered in [Installing the standalone version of SAV for Linux/UNIX](https://community.sophos.com/kb/en-us/14378) and also in the [Sophos Anti-Virus for Linux startup guide](https://www.sophos.com/en-us/medialibrary/pdfs/documentation/savl_9_sgeng.pdf). I downloaded the archive (the [How to Install Sophos Anti-Virus (Free Edition) on CentOS 7 / RHEL 7](http://www.techbrown.com/install-sophos-anti-virus-free-edition-centos-7-rhel-7.shtml) page has good screenshots of the process) and then I extracted the archive:
+The instructions are covered in [Installing the standalone version of SAV for Linux/UNIX](https://community.sophos.com/kb/en-us/14378) and also in the [Sophos Anti-Virus for Linux startup guide](https://www.sophos.com/en-us/medialibrary/pdfs/documentation/savl_9_sgeng.pdf). I downloaded the archive (the [Sophos Anti-Virus for Linux/UNIX: Installing the standalone version](https://community.sophos.com/kb/en-us/14378) page has good screenshots of the process) and then I extracted the archive:
 
 	<> tar xzf sav-linux-free-9.tgz
 

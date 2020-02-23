@@ -13,7 +13,6 @@ Here are some examples of the usage:
 * [Tutorial: How to Use Terraform to Deploy OpenStack Workloads](https://www.stratoscale.com/blog/openstack/tutorial-how-to-use-terraform-to-deploy-openstack-workloads/)
 * [Basic OpenStack architecture with networking](https://github.com/terraform-providers/terraform-provider-openstack/tree/master/examples/app-with-networking)
 * [Terraform Demo](https://github.com/elastx/terraform-demo)
-* [OpenStack infrastructure automation with Terraform – Part 2](https://www.matt-j.co.uk/2015/03/27/openstack-infrastructure-automation-with-terraform-part-2/)
 * [Terraform example for OpenStack and Ansible](http://khmel.org/?p=1204)
 * [openstack_compute_instance_v2](https://www.terraform.io/docs/providers/openstack/r/compute_instance_v2.html)
 

@@ -473,5 +473,5 @@ The technology is kind of new and has it's issues. It does allow you to have all
 *   [QLogic Adapters and Cisco Nexus 5000 Series Switches: Fibre Channel over Ethernet Design Guide](http://www.cisco.com/en/US/prod/collateral/switches/ps9441/ps9670/white_paper_c11-569320_v1.pdf)
 *   [Nexus 1000V with FCoE CNA and VMWare ESX 4.0 deployment diagram](http://bradhedlund.com/2009/01/01/nexus-1000v-with-fcoe-cna-and-vmware-esx-40-deployment-diagram/)
 
-I would suggest watching [APAC BrownBag Session 2](http://professionalvmware.com/2012/02/apac-brownbag-vcap-dcd-storage-follow-up/), it covers most of the above material.
+I would suggest watching [APAC BrownBag Session 2](https://professionalvmware.com/vmware-certifications/), it covers most of the above material.
 

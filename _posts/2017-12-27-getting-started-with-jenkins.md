@@ -67,7 +67,7 @@ I decided to customize the plugins just to keep the install minimal:
 Here are some plugins I chose to enable:
 
 * [Green Balls](https://plugins.jenkins.io/greenballs/)
-* [Rebuild Plugin](https://wiki.jenkins.io/display/JENKINS/Rebuild+Plugin)
+* [Rebuild Plugin](https://plugins.jenkins.io/rebuild/)
 * [Pipeline Plugin](https://wiki.jenkins.io/display/JENKINS/Pipeline+Plugin)
 * [Publish Over SSH Plugin](https://wiki.jenkins.io/display/JENKINS/Publish+Over+SSH+Plugin) (Didn't really use this with **pipeline**)
 * [SSH Slaves plugin](https://wiki.jenkins.io/display/JENKINS/SSH+Slaves+plugin)

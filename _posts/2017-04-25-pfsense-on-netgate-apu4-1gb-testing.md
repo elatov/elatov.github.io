@@ -238,7 +238,7 @@ Now that I know the limitation, next time I am upgrading my firewall, I will gra
 	
 	> Well, I am very happy to report that with 2.3 installed, and PowerD set to Maximum, I am now achieving expected speeds! My recent speed test shows 810.67Mbps down, and 936.71Mbps up.
 	
-* [Qotom J1900 4-core - 4 x Intel LAN build - 8GB RAM, 120GB mSATA- 10 watts - $260](https://forum.pfsense.org/index.php?topic=114202.15) and [pfSense, m-ITX quad-core, 1Gbit, <20w](https://www.reddit.com/r/homelab/comments/2fmt0t/pfsense_mitx_quadcore_1gbit_20w/)
+* [pfSense, m-ITX quad-core, 1Gbit, <20w](https://www.reddit.com/r/homelab/comments/2fmt0t/pfsense_mitx_quadcore_1gbit_20w/)
 
 	> TCP tests ended up around ~990Mbit/s. TCP test was also performed with iperf, test was done from a server within LAN to a server outside WAN. Server on the Internet -> WAN -> NAT -> LAN -> server on the LAN.
 

@@ -114,7 +114,7 @@ From "[vSphere Installation and Setup vSphere 5.0](http://pubs.vmware.com/vspher
 
 ### Provision/Re-provision ESXi hosts using Auto Deploy
 
-From "[VMware vSphere 5.0 Evaluation Guide Volume Four – Auto Deploy](http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-4-Auto-Deploy.pdf)":
+From "[VMware vSphere 5.0 Evaluation Guide Volume Four – Auto Deploy](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vmware-vsphere-evaluation-guide-1-white-paper.pdf)":
 
 > Create Auto Deploy Rules
 > From the vSphere PowerCLI shell you will create the rules to identify the image profile and host profile to use and where in vCenter to place the auto deployed host. The rules use pattern matching to compare the attributes of the host being deployed against the predefined rules. There are a number of attributes that can be used. The following figure shows the list of available attributes that can be used for pattern matching in Auto Deploy.
