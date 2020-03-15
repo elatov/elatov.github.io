@@ -217,7 +217,7 @@ Then run the command manually to make sure it works:
     46
 
 
-That looks good. Now let' add the corresponding **UserParameter** scripts to the *agentd* configuration (I just chose two, but you can pick any attribute you desire, [this](http://www.argotronic.com/en/smart.php) site talks about what all the different values are). Edit the **/etc/zabbix/zabbix_agentd.conf** file and add the following to it:
+That looks good. Now let' add the corresponding **UserParameter** scripts to the *agentd* configuration (I just chose two, but you can pick any attribute you desire, [this](https://www.argusmonitor.com/en/smart.php) site talks about what all the different values are). Edit the **/etc/zabbix/zabbix_agentd.conf** file and add the following to it:
 
     $ tail -3 /etc/zabbix_agentd.conf
     UserParameter=smart.temp[*],/usr/local/bin/getsv /dev/$1 Temperature_Celsius

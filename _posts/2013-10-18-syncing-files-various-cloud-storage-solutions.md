@@ -22,7 +22,7 @@ I haven't used **skydrive** before, so I wanted to give it a try. First, what is
 
 > SkyDrive (officially Microsoft SkyDrive, previously Windows Live SkyDrive and Windows Live Folders) is a file hosting service that allows users to upload and sync files to a cloud storage and then access them from a Web browser or their local device.
 
-So it's Microsoft's version of a cloud storage solution. There is a pretty good comparison page from a Microsoft, comparing SkyDrive, iCloud, Google Drive, and DropBox. Here is quick snippet from the [page](https://onedrive.live.com/about/en-us/plans/):
+So it's Microsoft's version of a cloud storage solution. There is a pretty good comparison page from a Microsoft, comparing SkyDrive, iCloud, Google Drive, and DropBox. Here is quick snippet from the [page](https://products.office.com/en-us/onedrive/compare-onedrive-plans):
 
 ![SkyDrive Comparison Syncing Files with Various Cloud Storage Solutions](https://github.com/elatov/uploads/raw/master/2013/10/SkyDrive_Comparison.png)
 

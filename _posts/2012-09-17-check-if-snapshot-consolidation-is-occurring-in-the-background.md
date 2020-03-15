@@ -107,7 +107,7 @@ Second way is to use other tools like powerCLI to run through your VM Inventory 
 
 Lastly you can use third party tools like [RVtools](http://www.robware.net/) to generate a listing of VMs that have snapshots.
 
-In conclusion there are many ways on how to check if VM is still going through snapshot consolidation. However instead of using those tools, be proactive and keep an eye on your environment and don't let your VMs have snapshots older than 3 days. Check out "[VMware Snapshot Alerting and Reporting](http://www.virtualpro.co.uk/2010/06/21/vmware-snapshots-alerting-and-reporting/)", an example of how someone got in trouble with snapshots and started to monitor for snapshots after the incident.
+In conclusion there are many ways on how to check if VM is still going through snapshot consolidation. However instead of using those tools, be proactive and keep an eye on your environment and don't let your VMs have snapshots older than 3 days. Check out [VMware Snapshot Alerting and Reporting](https://www.vladan.fr/create-vcenter-alarm-vms-running-snapshots/), an example of how someone got in trouble with snapshots and started to monitor for snapshots after the incident.
 
 ### Related Posts
 

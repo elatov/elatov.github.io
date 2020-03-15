@@ -165,7 +165,7 @@ Lastly if the array support VASA, then use it as well. VASA allows you to get ar
 > *   Using storage characterizations to create virtual machine placement rules in the form of storage profiles.
 > *   Providing easy means to check a virtual machine's compliance against these rules.
 
-The blog "[Configuring VASA with EMC arrays – CLARiiON, VNX and VMAX](http://www.virtualpro.co.uk/2011/12/20/configuring-vasa-with-emc-arrays-%E2%80%93-clariion-vnx-and-vmax/)" has great examples of how to set it up. Here are the capabilities that can be setup:
+The blog "[Configuring VASA with EMC arrays – CLARiiON, VNX and VMAX](https://blogs.vmware.com/vsphere/2011/10/emcs-vasa-implementation.html)" has great examples of how to set it up. Here are the capabilities that can be setup:
 
 ![vasa-cap-emc](https://github.com/elatov/uploads/raw/master/2012/08/vasa-cap-emc.png)
 
@@ -407,7 +407,7 @@ If using Software iSCSI use port binding to enable multipathing. From "[Multipat
 
 With iSCSI think about either getting hardware or software adapters. With hardware adapters it does save on CPU but it does waste an extra PCI slot. Now a days CPU is pretty cheap and Software iSCSI performs almost the same as the iSCSI HBA. Use Jumbo to help with performance, but make sure it's end-to-end. Also with 1Gb Jumbo Frames the performance is minimal but definitely use Jumbo Frames with 10Gb.
 
-From "[NetApp and VMware vSphere Storage Best Practices](http://media.netapp.com/documents/tr-3749.pdf)"
+From "[NetApp and VMware vSphere Storage Best Practices](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/tr-3749.pdf)"
 
 > **10GBE OR DATA CENTER ETHERNET**
 > NetApp Data ONTAP and VMware ESX/ESXi 4 both provide support for 10GbE. An advantage of 10GbE is the ability to reduce the number of network ports in the infrastructure, especially for blade servers

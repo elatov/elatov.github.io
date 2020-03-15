@@ -84,7 +84,7 @@ Now let's do the install:
 	Installation completed.
 	Your computer is now protected by Sophos Anti-Virus.
 	
-Also as an FYI, it looks likes the UI is no longer available for **sophos** as per [SAV Linux 9.11.0 GUI functionality no longer available](https://community.sophos.com/kb/en-us/122722).
+Also as an FYI, it looks likes the UI is no longer available for **sophos**.
 
 #### Compiling the Talpa Module
 Initially the **talpa** module failed to compile:

@@ -417,7 +417,7 @@ So initially I ran into the issue with the VM not booting, so I decided to use *
 	cpu_mode=none
 	EOF
 
-Reading over [Deploy OpenStack Designate with Kolla](https://egonzalez.org/docs/build/html/2016-04-24-openstack-kolla-deployment-from-rdo-packages.html) site, I could just do this:
+Reading over [Deploy OpenStack Designate with Kolla](https://blog.egonzalez.org/openstack/index/deploy-openstack-designate-with-kolla-ansible) site, I could just do this:
 
 	kolla-ansible reconfigure -i all-in-one --tags nova
 

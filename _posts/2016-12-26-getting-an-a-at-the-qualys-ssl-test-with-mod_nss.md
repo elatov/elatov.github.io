@@ -72,7 +72,7 @@ Also if you want to quickly test what ciphers your server supports you can use *
 	Nmap done: 1 IP address (1 host up) scanned in 0.36 seconds
 
 ### Adding the HSTS Header
-The thing that got me to the A+ was enabling the [HSTS](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security) header. The config is covered in [HTTP Strict Transport Security for Apache, NGINX and Lighttpd](https://raymii.org/s/tutorials/HTTP_Strict_Transport_Security_for_Apache_NGINX_and_Lighttpd.html). First I enabled the **header** module for apache:
+The thing that got me to the A+ was enabling the [HSTS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) header. The config is covered in [HTTP Strict Transport Security for Apache, NGINX and Lighttpd](https://raymii.org/s/tutorials/HTTP_Strict_Transport_Security_for_Apache_NGINX_and_Lighttpd.html). First I enabled the **header** module for apache:
 
 	<> sudo a2enmod headers
 	Enabling module headers.
