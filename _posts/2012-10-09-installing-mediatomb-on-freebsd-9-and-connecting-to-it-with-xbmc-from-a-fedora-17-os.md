@@ -27,7 +27,7 @@ DLNA uses UPnP for a lot of it's functions, so I decided to setup a UPnP capable
 I then wanted to check out what other people were setting up, after doing some googling around, I found the following:
 
 *   [6 UPnP/DLNA Servers For Streaming Media To Your Devices [Cross-Platform]](http://www.makeuseof.com/tag/6-upnpdlna-servers-streaming-media-devices-crossplatform/) (+1 MediaTomb)
-*   [Setup a Home Server with FreeBSD and ZFS](http://www.thev.net/PaulLiu/bsd-home-server.html) (+1 MediaTomb +1 minidlna)
+*   [Setup a Home Server with FreeBSD and ZFS](https://thomasguymer.co.uk/blog/2015/2015-06-21/) (+1 MediaTomb +1 minidlna)
 *   [DLNA for FreeBSD?](https://forums.freebsd.org/threads/dlna-for-freebsd.48497/) (+1 MediaTomb +1 minidlna)
 
 I also wanted the package to be included in ports (just for management's sake). I checked out ports:

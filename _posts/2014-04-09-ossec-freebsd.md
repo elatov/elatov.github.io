@@ -11,7 +11,7 @@ After trying out Samhain and Beltane (check out the [previous](/2014/03/install-
 
 ### OSSEC
 
-From their [home](http://ossec.github.io) page, here is a quick summary of the software:
+From their [home](https://www.ossec.net/) page, here is a quick summary of the software:
 
 > OSSEC is an Open Source Host-based Intrusion Detection System that performs log analysis, file integrity checking, policy monitoring, rootkit detection, real-time alerting and active response.
 

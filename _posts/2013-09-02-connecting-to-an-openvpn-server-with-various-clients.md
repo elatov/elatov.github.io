@@ -442,7 +442,7 @@ We can see the static routes getting added and the DNS information was added as 
 
 ## OpenVPN Client for Mac OS X
 
-For Mac OS there is a client called Tunnelblick and it can be downloaded from [here](https://code.google.com/p/tunnelblick/). After you have downloaded and install it, it should be in your Applications folder. Go to your Applications folder (Command-Shift-A) and locate the App:
+For Mac OS there is a client called Tunnelblick and it can be downloaded from [here](https://tunnelblick.net/). After you have downloaded and install it, it should be in your Applications folder. Go to your Applications folder (Command-Shift-A) and locate the App:
 
 ![tunnelblick icon Connecting to an OpenVPN Server with Various Clients](https://github.com/elatov/uploads/raw/master/2013/09/tunnelblick-icon.png)
 
