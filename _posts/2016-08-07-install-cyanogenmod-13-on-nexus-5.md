@@ -7,7 +7,7 @@ categories: [os]
 tags: [phone,cyanogenmod,nexus_5,android,adb]
 ---
 ### Install ADB & Fastboot
-I used MacPorts to install **adb**, most of the instructions are laid out in [MacPorts Install ADB](https://sskaje.me/2015/05/macports-install-adb/). First install the android sdk:
+I used MacPorts to install **adb**, most of the instructions are laid out in [MacPorts Install ADB](https://brismuth.com/installing-adb-on-mac-os-x-f34b39ff0dd1). First install the android sdk:
 
 	sudo port install android
 

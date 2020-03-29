@@ -589,7 +589,7 @@ You notice that there were a bunch of files created and that's when I was messin
 	+    Option "RegistryDwords" "PowerMizerEnable=0x1; PerfLevelSrc=0x3333; PowerMizerDefault=0x2; PowerMizerDefaultAC=0x2"
 	+EndSection
 
-It's pretty cool. You can then undo changes if you want. The [Using Snapper to Undo Changes](https://www.suse.com/documentation/sled-12/book_sle_admin/data/sec_snapper_auto.html) has a good description of the process and it mentions that it's important to know the difference between **rollback** and **undoing changes**. From the page:
+It's pretty cool. You can then undo changes if you want. The [Using Snapper to Undo Changes](https://documentation.suse.com/sles/15-SP1/html/SLES-all/cha-snapper.html#sec-snapper-undo) has a good description of the process and it mentions that it's important to know the difference between **rollback** and **undoing changes**. From the page:
 
 > **IMPORTANT: Undoing Changes vs. Rollback**
 >

@@ -70,7 +70,7 @@ Here are some plugins I chose to enable:
 * [Rebuild Plugin](https://plugins.jenkins.io/rebuild/)
 * [Pipeline Plugin](https://plugins.jenkins.io/workflow-aggregator/)
 * [Publish Over SSH Plugin](https://plugins.jenkins.io/publish-over-ssh/) (Didn't really use this with **pipeline**)
-* [SSH Slaves plugin](https://wiki.jenkins.io/display/JENKINS/SSH+Slaves+plugin)
+* [SSH Slaves plugin](https://plugins.jenkins.io/ssh-slaves/)
 * [Workspace Cleanup Plugin](https://wiki.jenkins.io/display/JENKINS/Workspace+Cleanup+Plugin)
 
 

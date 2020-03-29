@@ -11,7 +11,7 @@ I decided to install ESXi on MacMini 6,2 ([Late 201](http://support.apple.com/kb
 
 *   [ESXi 5.x on new Apple Mac Mini 6,2 Late 2012](https://communities.vmware.com/thread/423099)
 *   [Running ESXi 5.5/5.5u1 on Apple Mac Mini](http://www.virtuallyghetto.com/2013/09/running-esxi-55-on-apple-mac-mini.html)
-*   [ESXi on an Apple Mac Mini Server Late 2012 6,2](http://www.patcup.com/esxi-on-an-apple-mac-mini-server-late-2012-62/)
+*   [ESXi on an Apple Mac Mini Server Late 2012 6,2](https://derflounder.wordpress.com/2015/03/24/setting-up-esxi-6-0-on-a-2012-mac-mini-server/)
 
 ### Create a Bootable USB Drive with ESXi 5.5
 

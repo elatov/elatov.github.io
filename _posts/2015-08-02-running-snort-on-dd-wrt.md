@@ -26,7 +26,7 @@ After you save and apply settings the disk will now show up in the OS:
 
 
 
-At this point we can partition the USB drive with **fdisk**. All of the instructions for that are laid out in [How To - Format And Partition External Storage Device](http://www.dd-wrt.com/wiki/index.php/How_to_-_Format_and_Partition_External_Storage_Device). After I partitioned the disk I had to follow the instructions laid out in [Can't mount ext3 USB Drive - WNDR3700](http://www.dd-wrt.com/phpBB2/viewtopic.php?t=82049&view=next&sid=3c2ec10482f44bbad36ebaa95a6a22e3) to mount it manually:
+At this point we can partition the USB drive with **fdisk**. All of the instructions for that are laid out in [How To - Format And Partition External Storage Device](https://wiki.dd-wrt.com/wiki/index.php/How_to_-_Format_and_Partition_External_Storage_Device). After I partitioned the disk I had to follow the instructions laid out in [Can't mount ext3 USB Drive - WNDR3700](http://www.dd-wrt.com/phpBB2/viewtopic.php?t=82049&view=next&sid=3c2ec10482f44bbad36ebaa95a6a22e3) to mount it manually:
 
 	root@DD-WRT:~# mkfs.ext3 /dev/sda1
 	root@DD-WRT:~# insmod jbd

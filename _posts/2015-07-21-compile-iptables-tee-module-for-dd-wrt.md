@@ -14,7 +14,7 @@ I was running the following version of dd-wrt:
 The full setup is covered [here](/2014/11/dd-wrt-on-asus-rt-ac68u-router/). I noticed in that version of DD-WRT the TEE module for iptables doesn't work. I found a couple of links that talk about the issue:
 
 - [iptables features broke (tee)](http://svn.dd-wrt.com/ticket/3499)
-- [iptables --tee does not work with my router/fw](http://www.dd-wrt.com/phpBB2/viewtopic.php?t=55128&postdays=0&postorder=asc&highlight=mirror&start=15)
+- [iptables --tee does not work with my router/fw](https://forum.dd-wrt.com/phpBB2/viewtopic.php?t=55128&postdays=0&postorder=asc&highlight=mirror&start=15)
 - [Unable to add port mirroring iptables commands to Buffalo DD-WRT wireless router](http://seclists.org/snort/2014/q2/24)
 
 
