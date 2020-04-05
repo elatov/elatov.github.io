@@ -222,7 +222,7 @@ then start **xbindkeys** by running:
 We can add the above command to the **~/.icewm/startup** file, if we want it to auto-start upon login into IceWM. There are other alternatives to the keyboard shortcuts:
 
 *   [xmodtool](http://askubuntu.com/questions/249760/remap-shortcut-to-a-single-key-cannot-be-used)
-*   [autokey](http://code.google.com/p/autokey/)
+*   [autokey](https://code.google.com/archive/p/autokey)
 
 And that's it. Last note, you can check the status of your battery with the **upower** utility:
 

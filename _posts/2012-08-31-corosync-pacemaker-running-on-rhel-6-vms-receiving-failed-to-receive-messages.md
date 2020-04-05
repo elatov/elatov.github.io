@@ -139,7 +139,7 @@ But that didn't make a difference. We then ran into VMware KB [1026055](http://k
 	pci=nomsi
 
 
-to the kernel line of the grub menu, but it didn't help out either. We then saw "[Improving UDP Performance by Configuring OS UDP Buffer Limits](https://access.redhat.com/knowledge/docs/en-US/JBoss_Enterprise_Web_Platform/5/html/Administration_And_Configuration_Guide/jgroups-perf-udpbuffer.html)", and we decide to increase our UDP Buffer limit from within the RHEL Guest. We ran this:
+to the kernel line of the grub menu, but it didn't help out either. We then saw "[Improving UDP Performance by Configuring OS UDP Buffer Limits](https://access.redhat.com/documentation/en-us/jboss_enterprise_application_platform/5/html/administration_and_configuration_guide/jgroups-perf-udpbuffer)", and we decide to increase our UDP Buffer limit from within the RHEL Guest. We ran this:
 
 
 	sysctl -w net.core.rmem_max=26214400

@@ -71,7 +71,7 @@ Here are some plugins I chose to enable:
 * [Pipeline Plugin](https://plugins.jenkins.io/workflow-aggregator/)
 * [Publish Over SSH Plugin](https://plugins.jenkins.io/publish-over-ssh/) (Didn't really use this with **pipeline**)
 * [SSH Slaves plugin](https://plugins.jenkins.io/ssh-slaves/)
-* [Workspace Cleanup Plugin](https://wiki.jenkins.io/display/JENKINS/Workspace+Cleanup+Plugin)
+* [Workspace Cleanup Plugin](https://plugins.jenkins.io/ws-cleanup/)
 
 
 And after I was done disabling and enabling the plugins, it started installing them (don't worry you can add additional plugins laters under **Manage Jenkins** -> **Manage Plugins** and then use [these URLs](https://support.cloudbees.com/hc/en-us/articles/216118748-How-to-Start-Stop-or-Restart-your-Instance) to safely restart the **Jenkins** service):

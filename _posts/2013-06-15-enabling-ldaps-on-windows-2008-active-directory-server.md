@@ -165,7 +165,7 @@ Usually the location of the binary will let you know which one you have. For exa
     /usr/lib/mozldap/ldapsearch
 
 
-RedHat mostly uses the Mozilla version. From "[LDAP Tool Locations](https://access.redhat.com/documentation/en-US/Red_Hat_Directory_Server/8.1/html/Installation_Guide/Installation_Guide-Common_Usage-ldap-tools.html)":
+RedHat mostly uses the Mozilla version. From "[LDAP Tool Locations](https://access.redhat.com/documentation/en-us/red_hat_directory_server/9.0/html/administration_guide/ldap-tools-examples)":
 
 > For all Red Hat Directory Server guides and documentation, the LDAP tools used in the examples, such as **ldapsearch** and **ldapmodify**, are the Mozilla LDAP tools. For most Linux systems, OpenLDAP tools are already installed in the **/usr/bin/** directory.
 
