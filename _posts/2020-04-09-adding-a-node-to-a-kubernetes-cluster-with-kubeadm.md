@@ -73,7 +73,7 @@ sudo apt-mark hold kubelet kubeadm kubectl
 ```
 
 ## Joining the Node to the K8S cluster
-Then I need to join this node to the cluster, the steps for that are covered in [Joining your nodes](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/#join-nodes), I basically needed to run this:
+Then I needed to join this node to the cluster, the steps for that are covered in [Joining your nodes](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/#join-nodes), I basically needed to run this:
 
 ```bash
 kubeadm join --token <token> <control-plane-host>:<control-plane-port> --discovery-token-ca-cert-hash sha256:<hash>
@@ -171,7 +171,7 @@ This node has joined the cluster:
 Run 'kubectl get nodes' on the control-plane to see this node join the cluster.
 ```
 
-I quiered the master and I was able to see the node:
+I queried the master and I was able to see the node:
 
 ```bash
 > k get nodes
