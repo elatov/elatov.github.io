@@ -70,7 +70,7 @@ Compiling LiME has a couple of steps, I found good sites that go over the proces
 
 - [LiME – Linux Memory Extractor](https://github.com/504ensicsLabs/LiME/tree/master/doc)
 - [LiME](http://sgros-students.blogspot.ca/2014/04/lime.html)
-- [AndroidMemoryForensics](https://code.google.com/p/volatility/wiki/AndroidMemoryForensics)  
+- [AndroidMemoryForensics](https://code.google.com/archive/p/volatility/wikis/AndroidMemoryForensics.wiki)  
 
 So let's get started on that.
 

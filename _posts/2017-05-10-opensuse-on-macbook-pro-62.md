@@ -186,7 +186,7 @@ I even tried the **vlc** repo which was available for Leap 42.2:
 But that caused all sorts of dependency problems (and **vlc** still complained about the missing codecs)... that's what I get for trying a beta version :) At this point I decided to try out openSUSE Tumbleweed.
 
 ### openSUSE Tumbleweed
-There is a nice page that talks about the difference betwee two Distro Versions: [Side-by-side: openSuSE Tumbleweed and Leap](http://www.zdnet.com/article/side-by-side-opensuse-tumbleweed-and-leap/). From that page:
+There is a nice page that talks about the difference betwee two Distro Versions: [Side-by-side: openSuSE Tumbleweed and Leap](https://www.zdnet.com/article/side-by-side-opensuse-tumbleweed-and-leap/). From that page:
 
 > The openSUSE project offers two distributions: Tumbleweed, which is a rolling distribution that gets continuous updates, and Leap, which is a point distribution that gets periodic updates.
 
