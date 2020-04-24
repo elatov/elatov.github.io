@@ -7,8 +7,6 @@ categories: [devops]
 tags: [prometheus,opensolaris,vmware,smart]
 ---
 
-[TOC]
-
 I slowly started using [prometheus](https://prometheus.io/) for monitoring my **kubernetes** cluster and I realized I wanted to use **prometheus** for other targets: solaris machines, S.M.A.R.T attributes, and VMware. As I was doing research I actually ran into each of targets covered one way or another. I will try to break these down into a section.
 
 ### Compiling node_exporter on OmniOS
