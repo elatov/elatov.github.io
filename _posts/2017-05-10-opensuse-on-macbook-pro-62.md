@@ -347,7 +347,7 @@ If you want the device to connect on boot we have to set the laptop's bluetooth 
 Then I rebooted the laptop and at the **lightdm** screen I typed a couple of keys and after about two times the keyboard started to work.
 
 ### Lm_sensors Config
-Macs usually have a pretty complicated temperature sensor configurations (which can be good and bad). Check out [my previous post](/2013/10/monitor-thermal-sensors-lm-sensors/) on that. For this laptop I ran into the [Apple Technician Guide: MacBook Pro (17-inch, Mid 2010)](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/us_apple-macbook-pro-service-manual.pdf&raw=1) and that had a nice description of all the sensors:
+Macs usually have a pretty complicated temperature sensor configurations (which can be good and bad). Check out [my previous post](/2013/10/monitor-thermal-sensors-lm-sensors/) on that. For this laptop I ran into the [Apple Technician Guide: MacBook Pro (17-inch, Mid 2010)](https://raw.githubusercontent.com/elatov/upload/master/opensuse-mbp/us_apple-macbook-pro-service-manual.pdf) and that had a nice description of all the sensors:
 
 ![mac-sensors-table](https://raw.githubusercontent.com/elatov/upload/master/opensuse-mbp/mac-sensors-table.png)
 

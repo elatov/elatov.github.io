@@ -9,7 +9,7 @@ tags: ['fcoe', 'fiber_channel', 'san_zoning', 'sioc', 'vmotion', 'iscsi', 'port_
 
 ### Describe selection criteria for commonly used RAID types
 
-From "[Best Practices for Microsoft SQL Server on Hitachi Universal Storage Platform VM](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcap-dcd/3-3/best-practices-for-microsoft-sql-server-on-hitachi-universal-storage-platform-vm.pdf&raw=1)":
+From "[Best Practices for Microsoft SQL Server on Hitachi Universal Storage Platform VM](https://raw.githubusercontent.com/elatov/upload/master/vcap-dcd/3-3/best-practices-for-microsoft-sql-server-on-hitachi-universal-storage-platform-vm.pdf)":
 
 > RAID-1+ is best suited to applications with low cache-hit ratios, such as random I/O activity, and with high write-to-read ratios.
 >
@@ -194,7 +194,7 @@ From the vSphere Storage Guide":
 >
 > With ESXi hosts, use a single-initiator zoning or a single-initiator-single-target zoning. The latter is a preferred zoning practice. Using the more restrictive zoning prevents problems and misconfigurations that can occur on the SAN.
 
-Also From "[Secure SAN Zoning Best Practices](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcap-dcd/3-3/Zoning_Best_Practices_WP-00.pdf&raw=1)":
+Also From "[Secure SAN Zoning Best Practices](https://raw.githubusercontent.com/elatov/upload/master/vcap-dcd/3-3/Zoning_Best_Practices_WP-00.pdf)":
 
 > Zoning not only prevents a host from unauthorized access of storage assets, but it also stops undesired host-to-host communication and fabric-wide Registered State Change Notification (RSCN) disruptions. RSCNs are managed by the fabric Name Server and notify end devices of events in the fabric, such as a storage node or a switch going offline. Brocade isolates these notifications to only the zones that require the update, so nodes that are unaffected by the fabric change do not receive the RSCN. This is important for non-disruptive fabric operations, because RSCNs have the potential to disrupt storage traffic.
 >
@@ -469,7 +469,7 @@ From "Introduction to Fibre Channel over Ethernet (FCoE)", here is a good pictur
 
 The technology is kind of new and has it's issues. It does allow you to have all of your traffic going down one technology. The CNA can be your NIC and your HBA, the switch that we are connected to will have to encapsulate your Fibre Channel Protocol over Ethernet. These switches are really expensive but are around the same prices as SAN switches. Since FCoE is lossless, pause frames are utilized heavily during congestion, if the switch can't handle that then you will run into issues. You are also putting all of your eggs in one basket, if the FCoE switch dies then your networking and your storage are down. If you want to know more information regarding FCoE, I would suggest reading:
 
-*   [User’s Guide Converged Network Adapter](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcap-dcd/3-3/User_Guide_Converged_Network_Adapter_8100_Series_A.pdf&raw=1)
+*   [User’s Guide Converged Network Adapter](https://raw.githubusercontent.com/elatov/upload/master/vcap-dcd/3-3/User_Guide_Converged_Network_Adapter_8100_Series_A.pdf)
 *   [QLogic Adapters and Cisco Nexus 5000 Series Switches: Fibre Channel over Ethernet Design Guide](http://www.cisco.com/en/US/prod/collateral/switches/ps9441/ps9670/white_paper_c11-569320_v1.pdf)
 *   [Nexus 1000V with FCoE CNA and VMWare ESX 4.0 deployment diagram](http://bradhedlund.com/2009/01/01/nexus-1000v-with-fcoe-cna-and-vmware-esx-40-deployment-diagram/)
 

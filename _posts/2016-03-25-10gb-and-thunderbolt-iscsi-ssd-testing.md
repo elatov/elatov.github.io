@@ -509,7 +509,7 @@ You will notice the default it's MRU (**Path Selection Policy: VMW_PSP_MRU**). I
 
 You will also notice that the Round Robin occurs after 1000 iops as per and it's recommended to change that to 1. Couple of Links:
 
-* [Best Practices for VMware vSphere with NexentaStor](https://seacloud.cc/d/480b5e8fcd/files/?p=/10gb-tests/Best_Practices_for_VMware_vSphere_with_NexentaStor.pdf&raw=1)
+* [Best Practices for VMware vSphere with NexentaStor](https://raw.githubusercontent.com/elatov/upload/master/10gb-tests/Best_Practices_for_VMware_vSphere_with_NexentaStor.pdf)
 * [Adjusting Round Robin IOPS limit from default 1000 to 1](http://kb.vmware.com/kb/2069356)
 
 From the VMware KB:
