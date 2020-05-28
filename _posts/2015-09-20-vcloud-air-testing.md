@@ -41,7 +41,7 @@ vCloud Director offers many different networking options, most of them are cover
 >
 > **Figure 11. Direct Connection to a Routed External Organization Virtual Datacenter Network**
 >
-> ![vca-vcloud-routed-net-diag](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/vca-vcloud-routed-net-diag.png&raw=1)
+> ![vca-vcloud-routed-net-diag](https://raw.githubusercontent.com/elatov/upload/master/vcloud_air_test/vca-vcloud-routed-net-diag.png)
 
 
 And it looks like this in vCloud Director (Navigate to **Administration** -> **Virtual Datacenters** -> **VCD1** -> **Org VDC Networks**):

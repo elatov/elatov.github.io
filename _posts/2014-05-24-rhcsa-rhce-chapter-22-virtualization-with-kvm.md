@@ -33,7 +33,7 @@ From the [Virtualization Host Configuration and Guest Installation Guide](https:
 >
 > 2. Continue installation up to package selection <br>
 >   Complete the other steps up to the package selection step.<br>
->   ![virt-host-select-rhel-install](https://seacloud.cc/d/480b5e8fcd/files/?p=/rhce_p22/virt-host-select-rhel-install.png&raw=1)
+>   ![virt-host-select-rhel-install](https://raw.githubusercontent.com/elatov/upload/master/rhce_p22/virt-host-select-rhel-install.png)
 >   Select the **Virtualization Host** server role to install a platform for guest virtual machines.
 >
 > #### Installing the virtualization packages with yum
@@ -64,7 +64,7 @@ From the [Virtualization Host Configuration and Guest Installation Guide](https:
 >
 > Virtualization Package Groups
 >
-> ![virt-group-pkgs](https://seacloud.cc/d/480b5e8fcd/files/?p=/rhce_p22/virt-group-pkgs.png&raw=1)
+> ![virt-group-pkgs](https://raw.githubusercontent.com/elatov/upload/master/rhce_p22/virt-group-pkgs.png)
 >
 > To install a package group, run the `yum groupinstall <groupname>` command. For instance, to install the Virtualization Tools package group, run the **yum groupinstall "Virtualization Tools"** command.
 
@@ -958,7 +958,7 @@ From the Virtualization_Host_Configuration_and_Guest_Installation_Guide:
 >
 >	The **virt-manager** window allows you to create a new virtual machine. Click the **Create a new virtual** machine button to open the New VM wizard.
 >
->	![virt-man-p1](https://seacloud.cc/d/480b5e8fcd/files/?p=/rhce_p22/virt-man-p1.png&raw=1)
+>	![virt-man-p1](https://raw.githubusercontent.com/elatov/upload/master/rhce_p22/virt-man-p1.png)
 >
 >	The New VM wizard breaks down the virtual machine creation process into five steps:
 >
@@ -974,7 +974,7 @@ From the Virtualization_Host_Configuration_and_Guest_Installation_Guide:
 >
 >	The guest virtual machine creation process starts with the selection of a name and installation type. Virtual machine names can have underscores (_), periods (.), and hyphens (-).
 >
->	![virt-man-p2](https://seacloud.cc/d/480b5e8fcd/files/?p=/rhce_p22/virt-man-p2.png&raw=1)
+>	![virt-man-p2](https://raw.githubusercontent.com/elatov/upload/master/rhce_p22/virt-man-p2.png)
 >
 >	Type in a virtual machine name and choose an installation type:
 >
@@ -989,21 +989,21 @@ From the Virtualization_Host_Configuration_and_Guest_Installation_Guide:
 >
 >	Next, configure the **OS type** and **Version** of the installation. Ensure that you select the appropriate OS type for your virtual machine. Depending on the method of installation, provide the install URL or existing storage path.
 >
->	![virt-man-p3](https://seacloud.cc/d/480b5e8fcd/files/?p=/rhce_p22/virt-man-p3.png&raw=1)
+>	![virt-man-p3](https://raw.githubusercontent.com/elatov/upload/master/rhce_p22/virt-man-p3.png)
 >
->	![virt-man-p4](https://seacloud.cc/d/480b5e8fcd/files/?p=/rhce_p22/virt-man-p4.png&raw=1)
+>	![virt-man-p4](https://raw.githubusercontent.com/elatov/upload/master/rhce_p22/virt-man-p4.png)
 >
 >  6. Configure CPU and memory
 >
 >	The next step involves configuring the number of CPUs and amount of memory to allocate to the virtual machine. The wizard shows the number of CPUs and amount of memory you can allocate; configure these settings and click **Forward**.
 >
->	![virt-man-p5](https://seacloud.cc/d/480b5e8fcd/files/?p=/rhce_p22/virt-man-p5.png&raw=1)
+>	![virt-man-p5](https://raw.githubusercontent.com/elatov/upload/master/rhce_p22/virt-man-p5.png)
 >
 >  7. Configure storage
 >
 >	Assign storage to the guest virtual machine.
 >
->	![virt-man-p5-5.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/rhce_p22/virt-man-p5-5.png&raw=1)
+>	![virt-man-p5-5.png](https://raw.githubusercontent.com/elatov/upload/master/rhce_p22/virt-man-p5-5.png)
 >
 >	If you chose to import an existing disk image during the first step, virt-manager will skip this step.
 >
@@ -1013,7 +1013,7 @@ From the Virtualization_Host_Configuration_and_Guest_Installation_Guide:
 >
 >	Verify the settings of the virtual machine and click Finish when you are satisfied; doing so will create the virtual machine with default networking settings, virtualization type, and architecture.
 >
->	![virt-man-p6](https://seacloud.cc/d/480b5e8fcd/files/?p=/rhce_p22/virt-man-p6.png&raw=1)
+>	![virt-man-p6](https://raw.githubusercontent.com/elatov/upload/master/rhce_p22/virt-man-p6.png)
 >
 > 	If you prefer to further configure the virtual machine's hardware first, check the **Customize configuration before install** box first before clicking **Finish**. Doing so will open another wizard that will allow you to add, remove, and configure the virtual machine's hardware settings.
 >

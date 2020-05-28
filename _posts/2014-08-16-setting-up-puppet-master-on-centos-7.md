@@ -888,7 +888,7 @@ From [Learning Puppet — Basic Agent/Master Puppet](https://puppet.com/docs/pup
 >
 > Running Puppet in agent/master mode works much the same way — the main difference is that it moves the manifests and compilation to the puppet master server. Agents don’t have to see any manifest files at all, and have no access to configuration information that isn’t in their own catalog.
 >
-> ![pup-ag-mas-interaction](https://seacloud.cc/d/480b5e8fcd/files/?p=/os-puppet-master-setup/pup-ag-mas-interaction.png&raw=1)
+> ![pup-ag-mas-interaction](https://raw.githubusercontent.com/elatov/upload/master/os-puppet-master-setup/pup-ag-mas-interaction.png)
 >
 > ..
 >

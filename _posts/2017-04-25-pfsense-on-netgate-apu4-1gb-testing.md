@@ -209,7 +209,7 @@ As I kept reading about the APU4 unit I ran into a bunch of folks that mentioned
 
 * [netbenches/AMD_G-T40E_2Cores_RTL8111E/fastforwarding-pf-ipfw/results/fbsd11-routing.r287531](https://github.com/ocochard/netbenches/blob/master/AMD_G-T40E_2Cores-RTL8111E/forwarding-pf-ipfw/results/fbsd11-routing.r287531/README.md)
 
-	> ![pf-graph-apu](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu4-wan/pf-graph-apu.png&raw=1)
+	> ![pf-graph-apu](https://raw.githubusercontent.com/elatov/upload/master/apu4-wan/pf-graph-apu.png)
 
 * pfSense home router using the PC Engines APU1D4
 
@@ -225,14 +225,14 @@ Now that I know the limitation, next time I am upgrading my firewall, I will gra
 * [netbenches/Atom_C2558_4Cores-Intel_i350/fastforwarding-pf-ipfw/results/fbsd11-routing.r287531](https://github.com/ocochard/netbenches/blob/master/Atom_C2558_4Cores-Intel_i350/forwarding-pf-ipfw/results/fbsd11-routing.r287531/README.md)
 	* Netgate RCC-VE 4860
 
-	> ![netgate-4860-graph](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu4-wan/netgate-4860-graph.png&raw=1)
+	> ![netgate-4860-graph](https://raw.githubusercontent.com/elatov/upload/master/apu4-wan/netgate-4860-graph.png)
 
 * [Playing with FreeBSD packet filter state table limits](http://blog.cochard.me/2016/05/playing-with-freebsd-packet-filter.html)
 	* Netgate RCC-VE 4860
 * [Thinking of switching to pfsense](https://www.reddit.com/r/PFSENSE/comments/3xqhqo/thinking_of_switching_to_pfsense/)
 	* Nice table from there (SG-2440):
 
-	> ![ng-perf-table](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu4-wan/ng-perf-table.png&raw=1)
+	> ![ng-perf-table](https://raw.githubusercontent.com/elatov/upload/master/apu4-wan/ng-perf-table.png)
 
 * [Gigabit WAN speeds with RCC-VE 2440?](https://www.reddit.com/r/PFSENSE/comments/3t184g/gigabit_wan_speeds_with_rccve_2440/)
 

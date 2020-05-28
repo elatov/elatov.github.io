@@ -198,31 +198,31 @@ Now let's create a VM in VirtualBox. Here is the command sequence for that.
 
     > VirtualBox 4.3.12 Oracle VM VirtualBox Extension Pack  All supported platforms Support for USB 2.0 devices, VirtualBox RDP and PXE boot for Intel cards.
 
-    ![remote-desktop-mac-os-x](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_base_box/remote-desktop-mac-os-x.png&raw=1)
+    ![remote-desktop-mac-os-x](https://raw.githubusercontent.com/elatov/upload/master/vagrant_create_base_box/remote-desktop-mac-os-x.png)
 
 11. Finish installing and configuring the VM from the Remote Desktop client, or the regular Non-headless Virtualbox application:
 
-    ![remote-desktop-connection](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_base_box/remote-desktop-connection.png&raw=1)
+    ![remote-desktop-connection](https://raw.githubusercontent.com/elatov/upload/master/vagrant_create_base_box/remote-desktop-connection.png)
 
 12. During the installation, create a vagrant user as an administrator user:
 
-    ![create-vagrant-user-during-creation-of-template](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_base_box/create-vagrant-user-during-creation-of-template.png&raw=1)
+    ![create-vagrant-user-during-creation-of-template](https://raw.githubusercontent.com/elatov/upload/master/vagrant_create_base_box/create-vagrant-user-during-creation-of-template.png)
 
 13. By default the firewall blocks port 22, so let's go ahead and open that:
 
-    ![opensuse-open-firewall](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_base_box/opensuse-open-firewall.png&raw=1)
+    ![opensuse-open-firewall](https://raw.githubusercontent.com/elatov/upload/master/vagrant_create_base_box/opensuse-open-firewall.png)
 
 14. After the install is finished, it will automatically reboot and will again boot from the CD. This time around choose to boot from the Hard Drive:
 
-     ![boot-from-hd-opensuse](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_base_box/boot-from-hd-opensuse.png&raw=1)
+     ![boot-from-hd-opensuse](https://raw.githubusercontent.com/elatov/upload/master/vagrant_create_base_box/boot-from-hd-opensuse.png)
 
      This time around it will use yast to install packages:
 
-     ![opensuse-yast-installing](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_base_box/opensuse-yast-installing.png&raw=1)
+     ![opensuse-yast-installing](https://raw.githubusercontent.com/elatov/upload/master/vagrant_create_base_box/opensuse-yast-installing.png)
 
      After that's done you will be able to login into the system as the vagrant user:
 
-     ![login-vagrant-user-after-install](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_base_box/login-vagrant-user-after-install.png&raw=1)
+     ![login-vagrant-user-after-install](https://raw.githubusercontent.com/elatov/upload/master/vagrant_create_base_box/login-vagrant-user-after-install.png)
 
 At this point you can ssh to the VM like so:
 

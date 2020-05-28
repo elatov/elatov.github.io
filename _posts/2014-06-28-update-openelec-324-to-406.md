@@ -120,7 +120,7 @@ I then went back to my [OpenELEC on Raspberry Pi](/2013/11/openelec-raspberry-pi
 4. Add my Plex Movies Libraty via UPNP. **Movies** -> **Add Movies** -> **Browse** -> **UPNP**
 5. Fix the Time Zone. **System** -> **Appearance** -> **International**
 
-   ![openelec-time-settings](https://seacloud.cc/d/480b5e8fcd/files/?p=/openelec-update-4/openelec-time-settings.png&raw=1)
+   ![openelec-time-settings](https://raw.githubusercontent.com/elatov/upload/master/openelec-update-4/openelec-time-settings.png)
 
 
 The rest of the stuff was okay, like **optware** and **snmpd** (check out [this](/2013/11/openelec-raspberry-pi/) post on that setup).
