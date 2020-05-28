@@ -48,14 +48,14 @@ Reading over [Operating Kolla](https://docs.openstack.org/kolla-ansible/latest/u
 
 	root@osa:~# grep openstack_release /etc/kolla/globals.yml
 	openstack_release: "4.0.0"
-	
+
 
 #### Trying a Kolla Update
 
 So let's update the **kolla-ansible** tool:
 
 	root@osa:~# pip install -U kolla-ansible
-	
+
 Then let's update the version:
 
 	root@osa:~# grep openstack_release /etc/kolla/globals.yml
@@ -84,12 +84,12 @@ Next I ran into the following error:
 
 	RUNNING HANDLER [common : Restart fluentd container] ***************************
 	fatal: [localhost]: FAILED! => {"changed": true, "failed": true, "msg": "'Traceback (most recent call last):\\n  File \"/tmp/ansible_EwrJnL/ansible_module_kolla_docker.py\", line 799, in main\\n    result = bool(getattr(dw, module.params.get(\\'action\\'))())\\n  File \"/tmp/ansible_EwrJnL/ansible_module_kolla_docker.py\", line 597, in recreate_or_restart_container\\n    self.start_container()\\n  File \"/tmp/ansible_EwrJnL/ansible_module_kolla_docker.py\", line 603, in start_container\\n    self.pull_image()\\n  File \"/tmp/ansible_EwrJnL/ansible_module_kolla_docker.py\", line 456, in pull_image\\n    repository=image, tag=tag, stream=True\\n  File \"/usr/local/lib/python2.7/dist-packages/docker/api/image.py\", line 381, in pull\\n    header = auth.get_config_header(self, registry)\\nAttributeError: \\'module\\' object has no attribute \\'get_config_header\\'\\n'"}
-	
+
 	RUNNING HANDLER [common : Restart kolla-toolbox container] *********************
-	
+
 	RUNNING HANDLER [common : Restart cron container] ******************************
 		to retry, use: --limit @/usr/local/share/kolla-ansible/ansible/site.retry
-	
+
 	PLAY RECAP *********************************************************************
 	localhost                  : ok=12   changed=7    unreachable=0    failed=1
 
@@ -104,13 +104,13 @@ Then just installing **docker** module:
 	root@osa:~# pip install docker
 	Collecting docker
 	  Using cached docker-2.7.0-py2.py3-none-any.whl
-	  
+
 This was actually discussed in this [bug](https://bugs.launchpad.net/kolla-ansible/+bug/1704569) and also [here](https://bugs.launchpad.net/kolla/+bug/1668346).
 
 #### Kolla Software Versions
 
 Just for reference, here were all the versions I had:
-	
+
 	root@osa:~# docker --version
 	Docker version 17.05.0-ce, build 89658be
 	root@osa:~# pip --version
@@ -128,7 +128,7 @@ Just for reference, here were all the versions I had:
 	Name: kolla-ansible
 	Version: 5.0.1
 	Summary: Ansible Deployment of Kolla containers
-	
+
 Moving on.
 
 ### Building Kolla Docker Images
@@ -434,10 +434,10 @@ When I tried to do an **update** it failed to start up the new **rabbitmq** serv
 
 	TASK [rabbitmq : Find gospel node] ******************************************************************************************************************************************************************************************************
 	fatal: [localhost]: FAILED! => {"changed": true, "cmd": ["docker", "exec", "-t", "rabbitmq", "/usr/local/bin/rabbitmq_get_gospel_node"], "delta": "0:00:02.014192", "end": "2017-12-30 12:34:01.379612", "failed": true, "failed_when_result": true, "rc": 0, "start": "2017-12-30 12:33:59.365420", "stderr": "", "stderr_lines": [], "stdout": "{\"failed\": true, \"changed\": true, \"error\": \"Traceback (most recent call last):\\n  File \\\"/usr/local/bin/rabbitmq_get_gospel_node\\\", line 29, in main\\n    shell=True, stderr=subprocess.STDOUT  # nosec: this command appears\\n  File \\\"/usr/lib64/python2.7/subprocess.py\\\", line 575, in check_output\\n    raise CalledProcessError(retcode, cmd, output=output)\\nCalledProcessError: Command '/usr/sbin/rabbitmqctl eval 'rabbit_clusterer:status().'' returned non-zero exit status 2\\n\"}", "stdout_lines": ["{\"failed\": true, \"changed\": true, \"error\": \"Traceback (most recent call last):\\n  File \\\"/usr/local/bin/rabbitmq_get_gospel_node\\\", line 29, in main\\n    shell=True, stderr=subprocess.STDOUT  # nosec: this command appears\\n  File \\\"/usr/lib64/python2.7/subprocess.py\\\", line 575, in check_output\\n    raise CalledProcessError(retcode, cmd, output=output)\\nCalledProcessError: Command '/usr/sbin/rabbitmqctl eval 'rabbit_clusterer:status().'' returned non-zero exit status 2\\n\"}"]}
-	
+
 	NO MORE HOSTS LEFT **********************************************************************************************************************************************************************************************************************
 		to retry, use: --limit @/usr/local/share/kolla-ansible/ansible/site.retry
-	
+
 	PLAY RECAP ******************************************************************************************************************************************************************************************************************************
 	localhost                  : ok=67   changed=15   unreachable=0    failed=1
 
@@ -445,44 +445,44 @@ I wasn't sure why that happened so I decided to just do a brand new deployment o
 
 	root@osa:~# kolla-ansible destroy -i all-in-one --yes-i-really-really-mean-it
 	Destroy Kolla containers, volumes and host configuration : ansible-playbook -i all-in-one -e @/etc/kolla/globals.yml -e @/etc/kolla/passwords.yml -e CONFIG_DIR=/etc/kolla  /usr/local/share/kolla-ansible/ansible/destroy.yml
-	
+
 	PLAY [Apply role destroy] ***************************************************************************************************************************************************************************************************************
-	
+
 	TASK [Gathering Facts] ******************************************************************************************************************************************************************************************************************
 	ok: [localhost]
-	
+
 	TASK [destroy : Creating /kolla-cleanup/tools directory on node] ************************************************************************************************************************************************************************
 	changed: [localhost]
-	
+
 	TASK [destroy : Copying validate-docker-execute.sh file] ********************************************************************************************************************************************************************************
 	changed: [localhost]
-	
+
 	TASK [destroy : Copying cleanup-containers file] ****************************************************************************************************************************************************************************************
 	changed: [localhost]
-	
+
 	TASK [destroy : Copying cleanup-host file] **********************************************************************************************************************************************************************************************
 	changed: [localhost]
-	
+
 	TASK [destroy : Copying cleanup-images file] ********************************************************************************************************************************************************************************************
 	skipping: [localhost]
-	
+
 	TASK [destroy : Destroying all Kolla containers and volumes] ****************************************************************************************************************************************************************************
 	changed: [localhost]
-	
+
 	TASK [destroy : Removing Kolla images] **************************************************************************************************************************************************************************************************
 	skipping: [localhost]
-	
+
 	TASK [destroy : Destroying Kolla host configuration] ************************************************************************************************************************************************************************************
 	changed: [localhost]
-	
+
 	TASK [destroy : Destroying kolla-cleanup folder] ****************************************************************************************************************************************************************************************
 	changed: [localhost]
-	
+
 	PLAY RECAP ******************************************************************************************************************************************************************************************************************************
 	localhost                  : ok=8    changed=7    unreachable=0    failed=0
-	
+
 Then doing a **precheck** looked good:
-	
+
 	root@osa:~# kolla-ansible prechecks -i /usr/local/share/kolla-ansible/ansible/inventory/all-in-one
 	Pre-deployment checking : ansible-playbook -i all-in-one -e @/etc/kolla/globals.yml -e @/etc/kolla/passwords.yml -e CONFIG_DIR=/etc/kolla  -e action=precheck /usr/local/share/kolla-ansible/ansible/site.yml
 	 [WARNING]: Found variable using reserved name: action
@@ -490,13 +490,13 @@ Then doing a **precheck** looked good:
 	..
 	TASK [octavia : include] ****************************************************************************************************************************************************************************************************************
 	skipping: [localhost]
-	
+
 	PLAY [Apply role zun] *******************************************************************************************************************************************************************************************************************
 	skipping: no hosts matched
-	
+
 	PLAY [Apply role skydive] ***************************************************************************************************************************************************************************************************************
 	skipping: no hosts matched
-	
+
 	PLAY RECAP ******************************************************************************************************************************************************************************************************************************
 	localhost                  : ok=45   changed=0    unreachable=0    failed=0
 
@@ -505,30 +505,30 @@ and then the new deploy:
 	root@osa:~# kolla-ansible deploy -i /usr/local/share/kolla-ansible/ansible/inventory/all-in-one
 	Deploying Playbooks : ansible-playbook -i /usr/local/share/kolla-ansible/ansible/inventory/all-in-one -e @/etc/kolla/globals.yml -e @/etc/kolla/passwords.yml -e CONFIG_DIR=/etc/kolla  -e action=deploy /usr/local/share/kolla-ansible/ansible/site.yml
 	 [WARNING]: Found variable using reserved name: action
-	
-	
+
+
 	PLAY [Gather facts for all hosts] *******************************************************************************************************************************************************************************************************
-	
+
 	TASK [setup] ****************************************************************************************************************************************************************************************************************************
 	ok: [localhost]
 	..
 	..
 	TASK [horizon : Check horizon container] ************************************************************************************************************************************************************************************************
 	changed: [localhost]
-	
+
 	TASK [horizon : include] ****************************************************************************************************************************************************************************************************************
 	skipping: [localhost]
-	
+
 	TASK [horizon : include] ****************************************************************************************************************************************************************************************************************
 	skipping: [localhost]
-	
+
 	RUNNING HANDLER [horizon : Restart horizon container] ***********************************************************************************************************************************************************************************
 	changed: [localhost]
 	...
 	...
 	TASK [skydive : include] ****************************************************************************************************************************************************************************************************************
 	skipping: [localhost]
-	
+
 	PLAY RECAP ******************************************************************************************************************************************************************************************************************************
 	localhost                  : ok=224  changed=140  unreachable=0    failed=0
 
@@ -625,8 +625,8 @@ Then I was able to re-create the rest of the config:
 	/ /__ / // __// __// /_/ /\ \
 	\___//_//_/  /_/   \____/___/
 	   http://cirros-cloud.net
-	
-	
+
+
 	login as 'cirros' user. default password: 'cubswin:)'. use 'sudo' for root.
 
 I was at the state where I was before the update.
@@ -644,10 +644,10 @@ And then the **pull** worked:
 	root@osa:~# kolla-ansible pull
 	Pulling Docker images : ansible-playbook -i /usr/local/share/kolla-ansible/ansible/inventory/all-in-one -e @/etc/kolla/globals.yml -e @/etc/kolla/passwords.yml -e CONFIG_DIR=/etc/kolla  -e action=pull /usr/local/share/kolla-ansible/ansible/site.yml
 	 [WARNING]: Found variable using reserved name: action
-	
-	
+
+
 	PLAY [Gather facts for all hosts] *******************************************************************************************************************************************************************************************************
-	
+
 	TASK [setup] ****************************************************************************************************************************************************************************************************************************
 	ok: [localhost]
 	...
@@ -656,14 +656,14 @@ And then the **pull** worked:
 	changed: [localhost] => (item={'key': u'cron', 'value': {u'environment': {u'DUMMY_ENVIRONMENT': u'kolla_useless_env'}, u'image': u'kolla/centos-binary-cron:pike', u'volumes': [u'/etc/kolla//cron/:/var/lib/kolla/config_files/:ro', u'/etc/localtime:/etc/localtime:ro', u'kolla_logs:/var/log/kolla/'], u'container_name': u'cron'}})
 	changed: [localhost] => (item={'key': u'fluentd', 'value': {u'environment': {u'KOLLA_CONFIG_STRATEGY': u'COPY_ALWAYS'}, u'image': u'kolla/centos-binary-fluentd:pike', u'volumes': [u'/etc/kolla//fluentd/:/var/lib/kolla/config_files/:ro', u'/etc/localtime:/etc/localtime:ro', u'kolla_logs:/var/log/kolla/'], u'container_name': u'fluentd'}})
 	changed: [localhost] => (item={'key': u'kolla-toolbox', 'value': {u'environment': {u'ANSIBLE_LIBRARY': u'/usr/share/ansible', u'ANSIBLE_NOCOLOR': u'1'}, u'image': u'kolla/centos-binary-kolla-toolbox:pike', u'privileged': True, u'volumes': [u'/etc/kolla//kolla-toolbox/:/var/lib/kolla/config_files/:ro', u'/etc/localtime:/etc/localtime:ro', u'/dev/:/dev/', u'/run/:/run/:shared', u'kolla_logs:/var/log/kolla/'], u'container_name': u'kolla_toolbox'}})
-	
+
 	TASK [common : Registering common role has run] *****************************************************************************************************************************************************************************************
 	ok: [localhost]
 	...
 	...
 	TASK [skydive : include] ****************************************************************************************************************************************************************************************************************
 	skipping: [localhost]
-	
+
 	PLAY RECAP ******************************************************************************************************************************************************************************************************************************
 	localhost                  : ok=28   changed=12   unreachable=0    failed=0
 
@@ -710,4 +710,4 @@ Worked out and I had the following versions running:
 
 Logging into the **horizon** dashboard, I saw all the components:
 
-![openstack-horizon-pike.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/kolla-pike/openstack-horizon-pike.png&raw=1)
+![openstack-horizon-pike.png](https://raw.githubusercontent.com/elatov/upload/master/kolla-pike/openstack-horizon-pike.png)

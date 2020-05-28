@@ -14,7 +14,7 @@ Since I had a docker server, I decided to deploy the **Jenkins**/Master Server o
 	core ~ # cat jenkins/docker-compose.yml
 	version: '2'
 	services:
-	
+
 	    jenkins:
 	       image: jenkins:latest
 	       container_name: jenkins
@@ -54,15 +54,15 @@ And then ran `docker-compose up -d` to download and start the **Jenkins** Servic
 
 So I pointed my browser to the CoreOS machine on port **8080** and I saw the setup wizard:
 
-![jenkins-wiz-p1](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-drive/jenkins-wiz-p1.png&raw=1)
+![jenkins-wiz-p1](https://raw.githubusercontent.com/elatov/upload/master/jenkins-drive/jenkins-wiz-p1.png)
 
 Then I pasted the password to proceed and it asked me to choose what plugins to install:
 
-![jenkins-wiz-p2](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-drive/jenkins-wiz-p2.png&raw=1)
+![jenkins-wiz-p2](https://raw.githubusercontent.com/elatov/upload/master/jenkins-drive/jenkins-wiz-p2.png)
 
 I decided to customize the plugins just to keep the install minimal:
 
-![jenkins-wiz-p3](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-drive/jenkins-wiz-p3.png&raw=1)
+![jenkins-wiz-p3](https://raw.githubusercontent.com/elatov/upload/master/jenkins-drive/jenkins-wiz-p3.png)
 
 Here are some plugins I chose to enable:
 
@@ -76,11 +76,11 @@ Here are some plugins I chose to enable:
 
 And after I was done disabling and enabling the plugins, it started installing them (don't worry you can add additional plugins laters under **Manage Jenkins** -> **Manage Plugins** and then use [these URLs](https://support.cloudbees.com/hc/en-us/articles/216118748-How-to-Start-Stop-or-Restart-your-Instance) to safely restart the **Jenkins** service):
 
-![jenkins-wiz-p4](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-drive/jenkins-wiz-p4.png&raw=1)
+![jenkins-wiz-p4](https://raw.githubusercontent.com/elatov/upload/master/jenkins-drive/jenkins-wiz-p4.png)
 
 Then it asked me to create the first admin user and I did that:
 
-![jenkins-wiz-p5.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-drive/jenkins-wiz-p5.png&raw=1)
+![jenkins-wiz-p5.png](https://raw.githubusercontent.com/elatov/upload/master/jenkins-drive/jenkins-wiz-p5.png)
 
 ### Adding a Slave Node using SSH
 When adding a jenkins slave node, you have a couple of options. I would say the two primary ones are over **SSH** and **Java Web Start**. I have used the **Java Web Start** in the past and it works great, but I decided to try out the **SSH** method. To use the **Java Web Start** method, check out these sites:
@@ -91,7 +91,7 @@ When adding a jenkins slave node, you have a couple of options. I would say the 
 
 For the SSH method, the [How to Connect to Remote SSH Slaves](https://support.cloudbees.com/hc/en-us/articles/222978868-How-to-Connect-to-Remote-SSH-Slaves) page covers all the steps. Add a node as you normally would (**Manage Jenkins** -> **Manage Nodes** -> **New Node**) and make sure you choose the SSH **Launch method**:
 
-![jenkins-add-ssh-node](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-drive/jenkins-add-ssh-node.png&raw=1)
+![jenkins-add-ssh-node](https://raw.githubusercontent.com/elatov/upload/master/jenkins-drive/jenkins-add-ssh-node.png)
 
 I already had the private keys added as **credentials**. Before finishing up the install make sure the master has the machine in it's **known_hosts** file. So on the CoreOS machine I attached to the container:
 
@@ -117,7 +117,7 @@ Also don't forget to install **java** on the slave node:
 
 Then after you add the node, you can check out the logs (**Manage Jenkins** -> **Manage Nodes** -> *YOUR_NODE* -> **Log**), you will see a successful connection:
 
-![node-connected-over-ssh.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-drive/node-connected-over-ssh.png&raw=1)
+![node-connected-over-ssh.png](https://raw.githubusercontent.com/elatov/upload/master/jenkins-drive/node-connected-over-ssh.png)
 
 #### Installing Oracle Java on OmniOS
 
@@ -137,7 +137,7 @@ When I was adding an OmniOS node to **Jenkins** it kept failing to stay connecte
 
 As I tested I decided to try the **Java Web Start** launch method on this node. After I changed the **Launch method**, I saw the following on the node's **status** page:
 
-![jenkins-node-status-java-ws](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-drive/jenkins-node-status-java-ws.png&raw=1)
+![jenkins-node-status-java-ws](https://raw.githubusercontent.com/elatov/upload/master/jenkins-drive/jenkins-node-status-java-ws.png)
 
 So then I ran that on the OmniOS machine:
 
@@ -145,7 +145,7 @@ So then I ran that on the OmniOS machine:
 
 And then I got another message about the wrong version:
 
-![jenkins-wrong-version-log](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-drive/jenkins-wrong-version-log.png&raw=1)
+![jenkins-wrong-version-log](https://raw.githubusercontent.com/elatov/upload/master/jenkins-drive/jenkins-wrong-version-log.png)
 
 By default the OmniOS machine had the following version of **java** installed:
 
@@ -169,45 +169,45 @@ and that worked out:
 
 Then when adding the node, I specified the **JavaPath** option under the **Advanced** section:
 
-![jenkins-node-javapath.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-drive/jenkins-node-javapath.png&raw=1)
+![jenkins-node-javapath.png](https://raw.githubusercontent.com/elatov/upload/master/jenkins-drive/jenkins-node-javapath.png)
 
 Then the node connected fine without issues using the SSH **Launch method**:
 
-![jenkins-omnios-node-con](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-drive/jenkins-omnios-node-con.png&raw=1)
+![jenkins-omnios-node-con](https://raw.githubusercontent.com/elatov/upload/master/jenkins-drive/jenkins-omnios-node-con.png)
 
 After I was done adding all of my nodes, I saw the following:
 
-![jenkins-nodes-added](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-drive/jenkins-nodes-added.png&raw=1)
+![jenkins-nodes-added](https://raw.githubusercontent.com/elatov/upload/master/jenkins-drive/jenkins-nodes-added.png)
 
 ### Jenkins Freestyle Job
 As a test, I wanted to check out this *github* project: [drive](https://github.com/odeke-em/drive) and build it. First create a new project, give it a name, and choose the **freestyle** project:
 
-![je-new-job](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-drive/je-new-job.png&raw=1)
+![je-new-job](https://raw.githubusercontent.com/elatov/upload/master/jenkins-drive/je-new-job.png)
 
 Then under **Source Control Management** point to the **git** project:
 
-![je-jo-p3](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-drive/je-jo-p3.png&raw=1)
+![je-jo-p3](https://raw.githubusercontent.com/elatov/upload/master/jenkins-drive/je-jo-p3.png)
 
 Then I decided to clean up the **Build Environment**:
 
-![je-jo-p5](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-drive/je-jo-p5.png&raw=1)
+![je-jo-p5](https://raw.githubusercontent.com/elatov/upload/master/jenkins-drive/je-jo-p5.png)
 
 And following the instructions in the **git** project page, I created the following steps for the **Build steps**:
 
-![je-jo-p6](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-drive/je-jo-p6.png&raw=1)
+![je-jo-p6](https://raw.githubusercontent.com/elatov/upload/master/jenkins-drive/je-jo-p6.png)
 
 And lastly I decided to keep the built binary as a build **artifact**:
 
-![je-jo-p7](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-drive/je-jo-p7.png&raw=1)
+![je-jo-p7](https://raw.githubusercontent.com/elatov/upload/master/jenkins-drive/je-jo-p7.png)
 
 #### Jenkins Build Process
 At this point I had a job setup and I decided to build it manually. So go into the job and click **Build Now**:
 
-![je-bn-button](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-drive/je-bn-button.png&raw=1)
+![je-bn-button](https://raw.githubusercontent.com/elatov/upload/master/jenkins-drive/je-bn-button.png)
 
 After I kicked off a build I received the following error (which I saw in the **console output**):
 
-![je-co-out](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-drive/je-co-out.png&raw=1)
+![je-co-out](https://raw.githubusercontent.com/elatov/upload/master/jenkins-drive/je-co-out.png)
 
 I realized I was missing the **go** compiler, so I installed it:
 
@@ -215,32 +215,32 @@ I realized I was missing the **go** compiler, so I installed it:
 
 Then the build succeeded:
 
-![je-build-finished](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-drive/je-build-finished.png&raw=1)
+![je-build-finished](https://raw.githubusercontent.com/elatov/upload/master/jenkins-drive/je-build-finished.png)
 
 And I saw the **artifact** in the job dashboard:
 
-![je-art-avail](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-drive/je-art-avail.png&raw=1)
+![je-art-avail](https://raw.githubusercontent.com/elatov/upload/master/jenkins-drive/je-art-avail.png)
 
 ### Convert Freestyle Job to Pipeline
 
 I wanted to start getting used to **pipeline** so I decided to convert my simple job to **pipeline**. Here are some nice examples of **pipeline**:
 
-* [Pipeline Examples](https://jenkins.io/doc/pipeline/examples/) 
+* [Pipeline Examples](https://jenkins.io/doc/pipeline/examples/)
 * [Pipeline: Basic Steps](https://jenkins.io/doc/pipeline/steps/workflow-basic-steps/)
-* [Getting Started with Pipelines](https://jenkins.io/pipeline/getting-started-pipelines/) 
+* [Getting Started with Pipelines](https://jenkins.io/pipeline/getting-started-pipelines/)
 * [pipeline-examples](https://github.com/jenkinsci/pipeline-examples/tree/master/pipeline-examples)
 
 I created a new job and instead of choosing **Freestyle**, I chose **Pipeline**:
 
-![jen-new-pl-job](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-drive/jen-new-pl-job.png&raw=1)
+![jen-new-pl-job](https://raw.githubusercontent.com/elatov/upload/master/jenkins-drive/jen-new-pl-job.png)
 
 And here was the simple code I used to convert my **freestyle** job:
 
-![je-sim-pipe-cod](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-drive/je-sim-pipe-cod.png&raw=1)
+![je-sim-pipe-cod](https://raw.githubusercontent.com/elatov/upload/master/jenkins-drive/je-sim-pipe-cod.png)
 
 Then running a manual build showed me the **stages** of the build and it was successful as well:
 
-![je-pl-stages](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-drive/je-pl-stages.png&raw=1)
+![je-pl-stages](https://raw.githubusercontent.com/elatov/upload/master/jenkins-drive/je-pl-stages.png)
 
 #### Expanding the Pipeline Code
 After some playing around I ended up writing some more code just to see it's limits. It's definitely not perfect but it was a learning experience to see what pipeline is capable of. Here is snippet:
@@ -251,30 +251,30 @@ After some playing around I ended up writing some more code just to see it's lim
 	        String arch = sh (script: "uname -p", returnStdout: true).trim()
 	        String os_version = sh (script: "uname -r", returnStdout: true)
 	        String os_ver = os_version.tokenize(".")[0]
-	        
+
 	        stage('Prepare on FreeBSD'){
 	            checkout ([
-	                $class: 'GitSCM', 
-	                userRemoteConfigs: [[url: "https://github.com/odeke-em/drive.git"]], 
+	                $class: 'GitSCM',
+	                userRemoteConfigs: [[url: "https://github.com/odeke-em/drive.git"]],
 	                branches: [[name: "refs/tags/${DRIVE_VERSION}"]],
 	                extensions: [[$class: 'CleanBeforeCheckout']],
 	                poll: false
 	                ])
 	        }
-	        
+
 	        stage("Build on FreeBSD"){
 	            withEnv(["GOPATH=${WORKSPACE}/go","PATH=${PATH}:${env.GOPATH}/bin"]){
 	                sh "go get -u github.com/odeke-em/drive/cmd/drive"
 	                sh "chmod +x ${WORKSPACE}/go/bin/drive"
 	            }
 	        }
-	        
+
 	        stage ("Test on FreeBSD"){
 	            dir ("/tmp/gdrive"){
 	                sh "${WORKSPACE}/go/bin/drive pull"
 	            }
 	        }
-	        
+
 	        stage("Archive on FreeBSD"){
 	            freebsd_archive = "drive-FreeBSD-${os_ver}-${arch}.tar.bz2"
 	            dir ("${WORKSPACE}/go"){
@@ -283,7 +283,7 @@ After some playing around I ended up writing some more code just to see it's lim
 	            }
 	            archive freebsd_archive
 	        }
-	        
+
 	        stage("Deploy FreeBSD Artifacts to Puppet Node"){
 	            sh "scp ${freebsd_archive} elatov@puppet:/etc/puppetlabs/code/environments/production/modules/drive/files/jenkins/"
 	        }
@@ -292,7 +292,7 @@ After some playing around I ended up writing some more code just to see it's lim
 
 I ended up adding the following [parameters](https://www.cyotek.com/blog/using-parameters-with-jenkins-pipeline-builds) to the job:
 
-![drive-pipeline-parameters](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-drive/drive-pipeline-parameters.png&raw=1)
+![drive-pipeline-parameters](https://raw.githubusercontent.com/elatov/upload/master/jenkins-drive/drive-pipeline-parameters.png)
 
 This gave me the option to troubleshoot issues at an "OS" level. So the first **if** statement checks if the parameter is defined and if so, proceed (had to convert it to [boolean](https://stackoverflow.com/questions/12044721/best-performance-for-string-to-boolean-conversion) first):
 
@@ -313,12 +313,12 @@ I also defined a bunch of [stage](https://jenkins.io/doc/pipeline/steps/pipeline
 
 	stage('Prepare on FreeBSD'){
 	stage("Build on FreeBSD"){
-	
+
 Since I wanted to check out a specific branch I decided to use the [checkout](https://jenkins.io/doc/pipeline/steps/workflow-scm-step/) step:
 
 	checkout ([
-		        $class: 'GitSCM', 
-		        userRemoteConfigs: [[url: "https://github.com/odeke-em/drive.git"]], 
+		        $class: 'GitSCM',
+		        userRemoteConfigs: [[url: "https://github.com/odeke-em/drive.git"]],
 		        branches: [[name: "refs/tags/${DRIVE_VERSION}"]],
 		        extensions: [[$class: 'CleanBeforeCheckout']],
 		        poll: false
@@ -338,18 +338,18 @@ I could've probably initialized a brand new directory and then do a **pull** but
 		sh "tar cpvjf ${WORKSPACE}/${freebsd_archive} drive"
 	}
 	archive freebsd_archive
-	
+
 And lastly I deploy/**scp** the **archive** to the puppet master:
 
 	sh "scp ${freebsd_archive} elatov@puppet:/etc/puppetlabs/code/environments/production/modules/drive/files/jenkins/"
 
-This is under the assumption that each slave node has **ssh** keys configured to connect to the puppet node. 
+This is under the assumption that each slave node has **ssh** keys configured to connect to the puppet node.
 
 #### Another approach to deploying the Artifacts
 
 Another way of accomplishing a similar goal is to either [stash](https://jenkins.io/doc/pipeline/steps/workflow-basic-steps/#code-stash-code-stash-some-files-to-be-used-later-in-the-build) or **archive** the results and then deploy the results from the master rather than from each build node. There is a minor difference between **stash** and **archive** and it's discussed [here](https://www.previous.cloudbees.com/blog/top-10-best-practices-jenkins-pipeline-plugin). **Stash**es are only available until the build is running, while **archive**s are available after the build. Also a nice note about **stash**ing files:
 
-> **Note** that the **stash** and **unstash** steps are designed for use with small files. For large data transfers, use the External Workspace Manager plugin, or use an external repository manager such as Nexus or Artifactory. This is because stashed files are archived in a compressed TAR, and with large files this demands considerable on-master resources, particularly CPU time. There's not a hard stash size limit, but between 5-100 MB you should probably consider alternatives. 
+> **Note** that the **stash** and **unstash** steps are designed for use with small files. For large data transfers, use the External Workspace Manager plugin, or use an external repository manager such as Nexus or Artifactory. This is because stashed files are archived in a compressed TAR, and with large files this demands considerable on-master resources, particularly CPU time. There's not a hard stash size limit, but between 5-100 MB you should probably consider alternatives.
 
 My files were really small so I was okay, but if my files were above 10MB then using [artifactory](https://www.jfrog.com/artifactory/) would be recommended. So after I got my files to the master, I could use the following to **scp** them from there:
 
@@ -362,4 +362,4 @@ My files were really small so I was okay, but if my files were above 10MB then u
 
 This would save me the trouble of setting up the SSH keys across all the build nodes (but it would put more burden on the master node). After my job ran successfully here all the crazy **stages** :) (and you can see all the **artifacts** archived as well)
 
-![drive-pipeline-stages](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-drive/drive-pipeline-stages.png&raw=1)
+![drive-pipeline-stages](https://raw.githubusercontent.com/elatov/upload/master/jenkins-drive/drive-pipeline-stages.png)

@@ -49,7 +49,7 @@ I already had a running **postgresql** container running that was used by other 
 	Password for user postgres:
 	psql (10.1)
 	Type "help" for help.
-	
+
 	postgres=# alter user awx with encrypted password 'awxpass';
 	ALTER ROLE
 	postgres=# grant all privileges on database awx to awx;
@@ -74,35 +74,35 @@ My docker host was an *ubuntu* machine, so I installed the latest **ansible** ve
 Now if we go back to the **awx** repo we can run the installer:
 
 	<git:(devel b8cba91✱) > ansible-playbook -i inventory install.yml
-	
+
 	PLAY [Build and deploy AWX] ****************************************************
-	
+
 	TASK [check_vars : include_tasks] **********************************************
 	included: /home/elatov/awx/installer/check_vars/tasks/check_docker.yml for localhost
-	
+
 	TASK [check_vars : postgres_data_dir should be defined] ************************
 	skipping: [localhost]
-	
-	
+
+
 	TASK [local_docker : Set DockerHub Image Paths] ********************************
 	ok: [localhost]
 
-	
+
 	TASK [local_docker : Set properties without postgres for awx_web] **************
 	skipping: [localhost]
-	
+
 	TASK [local_docker : Activate AWX Task Container] ******************************
 	skipping: [localhost]
-	
+
 	TASK [local_docker : Create /data/docker/awx directory] ************************
 	ok: [localhost]
-	
+
 	TASK [local_docker : Create docker-compose.yml file] ***************************
 	changed: [localhost]
-	
+
 	TASK [local_docker : Start the containers] *************************************
 	changed: [localhost]
-	
+
 	PLAY RECAP *********************************************************************
 	localhost                  : ok=6    changed=2    unreachable=0    failed=0
 
@@ -126,13 +126,13 @@ Next we can confirm the containers are running:
 
 At point you should be able to see the login page (http://DOCKER_HOST:HOST_PORT):
 
-![awx-login-page.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/awx-setup/awx-login-page.png&raw=1)
+![awx-login-page.png](https://raw.githubusercontent.com/elatov/upload/master/awx-setup/awx-login-page.png)
 
 ### Create a Sample Job to be Executed
 
 As a quick test, let's create a template job to be executed. First go to **Credentials** and add your SSH key which will be used to login to the hosts:
 
-![awx-cred-ssh.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/awx-setup/awx-cred-ssh.png&raw=1)
+![awx-cred-ssh.png](https://raw.githubusercontent.com/elatov/upload/master/awx-setup/awx-cred-ssh.png)
 
 Then create a project (which is covered at the [Ansible Tower User Guide - Projects](http://docs.ansible.com/ansible-tower/latest/html/userguide/projects.html) page). When creating a project you can point to a git repo which has all the configs. Here is the [sample git repo](https://github.com/ansible/tower-example) I started from from. I ended up with the following files:
 
@@ -146,15 +146,15 @@ Then create a project (which is covered at the [Ansible Tower User Guide - Proje
 
 Then when adding the project, point to the git repo:
 
-![awx-create-project.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/awx-setup/awx-create-project.png&raw=1)
+![awx-create-project.png](https://raw.githubusercontent.com/elatov/upload/master/awx-setup/awx-create-project.png)
 
 The **inventory** file contains a list of hosts which the ansible playbooks are run against (more information about inverntories is available at the [Ansible Tower User Guide - Inventories](http://docs.ansible.com/ansible-tower/latest/html/userguide/inventories.html#sourced-from-a-project) page). We adding an **inventory** file you can reference one from a project (which is why we had one in the sample git repo). So let's create an inventory and point to the newly created Project's file:
 
-![awx-add-inventory.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/awx-setup/awx-add-inventory.png&raw=1)
+![awx-add-inventory.png](https://raw.githubusercontent.com/elatov/upload/master/awx-setup/awx-add-inventory.png)
 
 Then if you go to the **Hosts** tab of the inventory you will see all the hosts read in:
 
-![awx-inventory-read.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/awx-setup/awx-inventory-read.png&raw=1)
+![awx-inventory-read.png](https://raw.githubusercontent.com/elatov/upload/master/awx-setup/awx-inventory-read.png)
 
 Lastly create a template under **Templates** and point to:
 
@@ -163,35 +163,35 @@ Lastly create a template under **Templates** and point to:
 * Playbook
 * Credential
 
-![awx-create-template.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/awx-setup/awx-create-template.png&raw=1)
+![awx-create-template.png](https://raw.githubusercontent.com/elatov/upload/master/awx-setup/awx-create-template.png)
 
 Then after creating the template, you will see a **Launch** button:
 
-![awx-list-templates.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/awx-setup/awx-list-templates.png&raw=1)
+![awx-list-templates.png](https://raw.githubusercontent.com/elatov/upload/master/awx-setup/awx-list-templates.png)
 
 and upon clicking that it will run your play book against your inventory:
 
-![awx-template-executed.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/awx-setup/awx-template-executed.png&raw=1)
+![awx-template-executed.png](https://raw.githubusercontent.com/elatov/upload/master/awx-setup/awx-template-executed.png)
 
 You can also create schedules associated with the template:
 
-![awx-template-schedule.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/awx-setup/awx-template-schedule.png&raw=1)
+![awx-template-schedule.png](https://raw.githubusercontent.com/elatov/upload/master/awx-setup/awx-template-schedule.png)
 
 And you have a lot of options for sending notifications:
 
-![awx-template-notifications.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/awx-setup/awx-template-notifications.png&raw=1)
+![awx-template-notifications.png](https://raw.githubusercontent.com/elatov/upload/master/awx-setup/awx-template-notifications.png)
 
 Then after creating a notification you can choose which one to use and for what types of results for a template:
 
-![awx-notification-on-action.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/awx-setup/awx-notification-on-action.png&raw=1)
+![awx-notification-on-action.png](https://raw.githubusercontent.com/elatov/upload/master/awx-setup/awx-notification-on-action.png)
 
 And you will get the following notification when your job succeeds or fails:
 
-![awx-templ-notification-sent.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/awx-setup/awx-templ-notification-sent.png&raw=1)
+![awx-templ-notification-sent.png](https://raw.githubusercontent.com/elatov/upload/master/awx-setup/awx-templ-notification-sent.png)
 
 BTW if you want to install any role from **galaxy** you can follow instructions laid out in [Ansible Tower User Guide - Ansible Galaxy Support](http://docs.ansible.com/ansible-tower/latest/html/userguide/projects.html#ansible-galaxy-support). And when running a template with specific roles you will see them get intalled:
 
-![awx-fetch-role.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/awx-setup/awx-fetch-role.png&raw=1)
+![awx-fetch-role.png](https://raw.githubusercontent.com/elatov/upload/master/awx-setup/awx-fetch-role.png)
 
 ### Using tower-cli
 
@@ -229,21 +229,21 @@ You can even run a job and monitor it:
 	<> tower-cli job launch -J 8 --monitor
 	------Starting Standard Out Stream------
 	Identity added: /tmp/awx_20_REewdT/credential_2 (/tmp/awx_20_REewdT/credential_2)
-	
+
 	PLAY [Hello World Sample] ******************************************************
-	
-	
+
+
 	TASK [Gathering Facts] *********************************************************
 	ok: [10.0.0.2]
-	
+
 	TASK [Hello Message] ***********************************************************
 	ok: [10.0.0.2] => {
 	    "msg": "Hello World!"
 	}
-	
+
 	PLAY RECAP *********************************************************************
 	10.0.0.2                   : ok=2    changed=0    unreachable=0    failed=0
-	
+
 	------End of Standard Out Stream--------
 	Resource changed.
 	== ============ =========================== ========== =======

@@ -56,11 +56,11 @@ I ran into this guide about the setup: [A Suricata application for Splunk](https
 
 Then from the splunk UI just go to the application section (**App: Search and Reporting** -> **Manage Apps**):
 
-![splunk-manage-apps](https://seacloud.cc/d/480b5e8fcd/files/?p=/suricata-elk-splunk/splunk-manage-apps.png&raw=1)
+![splunk-manage-apps](https://raw.githubusercontent.com/elatov/upload/master/suricata-elk-splunk/splunk-manage-apps.png)
 
 Then click on **Install App from File**:
 
-![splunk-install-app-button](https://seacloud.cc/d/480b5e8fcd/files/?p=/suricata-elk-splunk/splunk-install-app-button.png&raw=1)
+![splunk-install-app-button](https://raw.githubusercontent.com/elatov/upload/master/suricata-elk-splunk/splunk-install-app-button.png)
 
 And point to the download file. After that's installed, let's create a **suricata** type to parse the JSON file (as described in [Suricata and Ulogd meet Logstash and Splunk](https://home.regit.org/2014/03/suricata-ulogd-splunk-logstash/)):
 
@@ -84,10 +84,10 @@ Then go ahead and restart **splunk** to apply the new settings:
 
 	┌─[elatov@moxz] - [/home/elatov] - [2016-01-16 10:26:24]
 	└─[0] <> sudo service splunk restart
-	
+
 Then after some time you will see a bunch of pretty graphs:
 
-![splunk-sur-dashboard](https://seacloud.cc/d/480b5e8fcd/files/?p=/suricata-elk-splunk/splunk-sur-dashboard.png&raw=1)
+![splunk-sur-dashboard](https://raw.githubusercontent.com/elatov/upload/master/suricata-elk-splunk/splunk-sur-dashboard.png)
 
 ### ELK Configuration for Suricata
 There are a couple of configuration parts to the setup. There is actually a pretty good guide at [Logstash Kibana and Suricata JSON output](https://redmine.openinfosecfoundation.org/projects/suricata/wiki/_logstash_kibana_and_suricata_json_output).
@@ -111,11 +111,11 @@ And then created the following config with the help of the Logstash documentatio
 	    -
 	      paths:
 	        - /var/log/suricata/eve.json
-	
+
 	output:
 	  logstash:
 	    hosts: ["10.0.0.6:5044"]
-    
+
 To start it up I just had to run the following (this was after I configured logstash to accept this *input*):
 
 	┌─[elatov@moxz] - [/home/elatov] - [2016-01-16 10:56:45]
@@ -127,35 +127,35 @@ I also ended up creating a service file for filebeat:
 	└─[0] <> cat /usr/local/etc/rc.d/filebeat
 	#!/bin/sh
 	#
-	
+
 	# PROVIDE: filebeat
 	# REQUIRE: LOGIN
 	# KEYWORD: shutdown
-	
+
 	#
 	# Add the following lines to /etc/rc.conf to enable the filebeat agent:
 	#
 	# filebeat_enable="YES"
-	
+
 	. /etc/rc.subr
-	
+
 	name="filebeat"
 	rcvar=filebeat_enable
-	
+
 	load_rc_config "$name"
-	
+
 	: ${filebeat_enable="NO"}
-	
+
 	command="/usr/local/filebeat/bin/filebeat"
 	command_args="-e -c /usr/local/filebeat/etc/filebeat.yml"
 	start_cmd=filebeat_start
 	pidfile="/var/run/${name}.pid"
-	
+
 	filebeat_start() {
 		echo "Starting filebeat."
 		/usr/sbin/daemon -c -f -p $pidfile ${command} ${command_args}
 	}
-	
+
 	run_rc_command "$1"
 
 Then I enabled it to start on boot:
@@ -169,7 +169,7 @@ And then I could use the regular service commands to start/stop/check status of 
 	┌─[elatov@moxz] - [/home/elatov] - [2016-01-30 09:32:04]
 	└─[0] <> sudo service filebeat status
 	filebeat is running as pid 19908.
-	
+
 ### Configure LogStash to Receive JSON from FileBeat
 On the ELK server I added the following configuration:
 
@@ -182,7 +182,7 @@ On the ELK server I added the following configuration:
 	     codec => json
 	   }
 	}
-	
+
 	filter {
 	  if [type] == "SuricataIDPS" {
 	    date {
@@ -192,7 +192,7 @@ On the ELK server I added the following configuration:
 	      code => "if event['event_type'] == 'fileinfo'; event['fileinfo']['type']=event['fileinfo']['magic'].to_s.split(',')[0]; end;"
 	    }
 	  }
-	
+
 	  if [src_ip]  {
 	    geoip {
 	      source => "src_ip"
@@ -220,7 +220,7 @@ On the ELK server I added the following configuration:
 	    }
 	  }
 	}
-	
+
 	output {
 	  elasticsearch { hosts => ["localhost:9200"] }
 	  stdout { codec => rubydebug }
@@ -293,8 +293,8 @@ Then I was checking out the **/var/log/logstash/logstash.stdout** file and I saw
 
 Pretty cool. In the Suricata guide there are a bunch of Kibana Templates but they were created for Kibana version 3 and I was running Kibana 4, so I couldn't use them as per this [discussion](https://discuss.elastic.co/t/migrate-dashboards-from-kibana3-to-kibana4/837). I created my own, it wasn't as extensive but it was good enough for me:
 
-![kib-suricata-dashboard](https://seacloud.cc/d/480b5e8fcd/files/?p=/suricata-elk-splunk/kib-suricata-dashboard.png&raw=1)
+![kib-suricata-dashboard](https://raw.githubusercontent.com/elatov/upload/master/suricata-elk-splunk/kib-suricata-dashboard.png)
 
 Here is another view after moving some stuff around:
 
-![suricata-dashboard-kibana](https://seacloud.cc/d/480b5e8fcd/files/?p=/suricata-elk-splunk/suricata-dashboard-kibana.png&raw=1)
+![suricata-dashboard-kibana](https://raw.githubusercontent.com/elatov/upload/master/suricata-elk-splunk/suricata-dashboard-kibana.png)

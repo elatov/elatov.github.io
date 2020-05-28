@@ -17,7 +17,7 @@ From their [FAQ](https://tacticalflex.zendesk.com/hc/en-us/articles/360009381474
 
 I already had snort running so I decided to integrate that with Aanval. From their site here is a comparison of the free vs not-free features:
 
-![aanval-comparison](https://seacloud.cc/d/480b5e8fcd/files/?p=/aanval-on-centos7/aanval-comparison.png&raw=1)
+![aanval-comparison](https://raw.githubusercontent.com/elatov/upload/master/aanval-on-centos7/aanval-comparison.png)
 
 I will just test out the community version.
 
@@ -58,7 +58,7 @@ Lastly let's change the ownership of the aanval install over to the **apache** u
 Now let's prepare the DB. I already had a MySQL DB Server running so I just added the DB and access to it remotely. On the MySQL server I ran the following:
 
     elatov@kerch:~$mysql -u root -p
-    Enter password: 
+    Enter password:
     mysql> create database aanvaldb;
     Query OK, 1 row affected (0.01 sec)
 
@@ -73,7 +73,7 @@ Then from the CentOS machine we can confirm that we can connect to the database:
 
     elatov@kerch:~$ sudo yum install mariadb
     elatov@kerch:~$ mysql -u aanval_user -p -h 10.0.0.2
-    Enter password: 
+    Enter password:
     Welcome to the MariaDB monitor.  Commands end with ; or \g.
     Your MySQL connection id is 1440335
 
@@ -91,28 +91,28 @@ Then from the CentOS machine we can confirm that we can connect to the database:
     You can turn off this feature to get a quicker startup with -A
 
     Database changed
-    MySQL [aanvaldb]> 
+    MySQL [aanvaldb]>
 
 #### Aanval Initial Configuration
 At this point you can browse to **http://IP/aanval** and you will see the EULA:
 
-![snort-uela](https://seacloud.cc/d/480b5e8fcd/files/?p=/aanval-on-centos7/snort-uela.png&raw=1)
+![snort-uela](https://raw.githubusercontent.com/elatov/upload/master/aanval-on-centos7/snort-uela.png)
 
 After accepting the License we can then check to make sure the install is ready for use. If all is well you will see the following (if anything is missing, install the necessary modules):
 
-![aanval-install-prereq-success](https://seacloud.cc/d/480b5e8fcd/files/?p=/aanval-on-centos7/aanval-install-prereq-success.png&raw=1)
+![aanval-install-prereq-success](https://raw.githubusercontent.com/elatov/upload/master/aanval-on-centos7/aanval-install-prereq-success.png)
 
 You can then fill out the Database information:
 
-![aanval-db-info-filled-out](https://seacloud.cc/d/480b5e8fcd/files/?p=/aanval-on-centos7/aanval-db-info-filled-out.png&raw=1)
+![aanval-db-info-filled-out](https://raw.githubusercontent.com/elatov/upload/master/aanval-on-centos7/aanval-db-info-filled-out.png)
 
 If all is well upon hitting **Submit** you will see the following:
 
-![aanval-config-successful](https://seacloud.cc/d/480b5e8fcd/files/?p=/aanval-on-centos7/aanval-config-successful.png&raw=1)
+![aanval-config-successful](https://raw.githubusercontent.com/elatov/upload/master/aanval-on-centos7/aanval-config-successful.png)
 
 Then you can click "**Continue**" and you will see the next steps:
 
-![aanval-setup-done-userlogin-info](https://seacloud.cc/d/480b5e8fcd/files/?p=/aanval-on-centos7/aanval-setup-done-userlogin-info.png&raw=1)
+![aanval-setup-done-userlogin-info](https://raw.githubusercontent.com/elatov/upload/master/aanval-on-centos7/aanval-setup-done-userlogin-info.png)
 
 I went back and started the BPUs:
 
@@ -149,22 +149,22 @@ There is a actually a pretty good produre [here](https://tacticalflex.zendesk.co
 
 You can then click on the *gear* at the bottom right:
 
-![gear-configuration_g](https://seacloud.cc/d/480b5e8fcd/files/?p=/aanval-on-centos7/gear-configuration_g.png&raw=1)
+![gear-configuration_g](https://raw.githubusercontent.com/elatov/upload/master/aanval-on-centos7/gear-configuration_g.png)
 
 You will then see all the available sensors:
 
-![aanval-config-page](https://seacloud.cc/d/480b5e8fcd/files/?p=/aanval-on-centos7/aanval-config-page.png&raw=1)
+![aanval-config-page](https://raw.githubusercontent.com/elatov/upload/master/aanval-on-centos7/aanval-config-page.png)
 
 Click on **Settings** under the "Snort Module" section and fill everything out (I already had a snorby DB that barnyard2 was writing to):
 
-![snorby-db-configured-aanval](https://seacloud.cc/d/480b5e8fcd/files/?p=/aanval-on-centos7/snorby-db-configured-aanval.png&raw=1)
+![snorby-db-configured-aanval](https://raw.githubusercontent.com/elatov/upload/master/aanval-on-centos7/snorby-db-configured-aanval.png)
 
 Lastly go to the "Sensor Configuration" link for the Snort Module and make sure it's enabled:
 
-![snort-enabled-sensor-aanval](https://seacloud.cc/d/480b5e8fcd/files/?p=/aanval-on-centos7/snort-enabled-sensor-aanval.png&raw=1)
+![snort-enabled-sensor-aanval](https://raw.githubusercontent.com/elatov/upload/master/aanval-on-centos7/snort-enabled-sensor-aanval.png)
 
 After that if you go to the dashboard you will see the events that snort had captured:
 
-![snort-events-in-aanval](https://seacloud.cc/d/480b5e8fcd/files/?p=//aanval-on-centos7/snort-events-in-aanval.png&raw=1)
+![snort-events-in-aanval](https://raw.githubusercontent.com/elatov/upload/master//aanval-on-centos7/snort-events-in-aanval.png)
 
 The cool thing is if you have syslog server then you can add that as a sensor and it will correlate any events snort with syslog logs.

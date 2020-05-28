@@ -12,16 +12,16 @@ So after trying out the [TEE module with DD-WRT](/2015/07/compile-iptables-tee-m
 
 Plugin a USB stick into the router and enable USB support. To enable USB support login to the admin web interface and go to **Services** -> **USB** -> **enable Core USB Support** -> **Enable USB Storage Support**:
 
-![sda-mounted-dd-wrt](https://seacloud.cc/d/480b5e8fcd/files/?p=/snort-ddwrt/sda-mounted-dd-wrt_g.png&raw=1)
+![sda-mounted-dd-wrt](https://raw.githubusercontent.com/elatov/upload/master/snort-ddwrt/sda-mounted-dd-wrt_g.png)
 
 After you save and apply settings the disk will now show up in the OS:
 
 	root@DD-WRT:~# fdisk -l /dev/sda
-	
+
 	Disk /dev/sda: 8004 MB, 8004304896 bytes
 	247 heads, 62 sectors/track, 1020 cylinders
 	Units = cylinders of 15314 * 512 = 7840768 bytes
-	
+
 	   Device Boot      Start         End      Blocks  Id System
 
 
@@ -44,7 +44,7 @@ I mostly followed the instructions laid out in [how to install entware on ARM.md
 	root@DD-WRT:/tmp/mnt/sda1# wget http://qnapware.zyxmon.org/binaries-armv7/installer/entware_install_arm.sh
 	Connecting to qnapware.zyxmon.org (81.4.123.217:80)
 	entware_install_arm. 100% |*****************************************|  1711   0:00:00 ETA
-	root@DD-WRT:/tmp/mnt/sda1# ./entware_install_arm.sh 
+	root@DD-WRT:/tmp/mnt/sda1# ./entware_install_arm.sh
 	Info: Checking for prerequisites and creating folders...
 	Warning: Folder /opt exists!
 	Info: Opkg package manager deployment...
@@ -101,7 +101,7 @@ I mostly followed the instructions laid out in [how to install entware on ARM.md
 	Info: Found a Bug? Please report at https://github.com/zyxmon/entware-arm/issues
 
 As a quick test I made sure I could reach the repo:
- 
+
 	root@DD-WRT:~# which opkg
 	/opt/bin/opkg
 	root@DD-WRT:~# opkg update
@@ -115,9 +115,9 @@ Now as a quick let's install another version of the **ip** utility:
 	Downloading http://qnapware.zyxmon.org/binaries-armv7/ip-legacy_2.6.39-1_armv7soft.ipk.
 	Configuring ip-legacy.
 	root@DD-WRT:~# /opt/sbin/ip -4 a
-	1: lo: <LOOPBACK,MULTICAST,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN 
+	1: lo: <LOOPBACK,MULTICAST,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN
 	    inet 127.0.0.1/8 brd 127.255.255.255 scope host lo
-	9: br0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP 
+	9: br0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP
 	    inet 192.168.1.1/24 brd 192.168.1.255 scope global br0
 	       valid_lft forever preferred_lft forever
 
@@ -163,8 +163,8 @@ And let's modify the following in that file:
 
 Also update the path to dynamic preprocessor libraries in the same file:
 
-	dynamicpreprocessor directory /opt/lib/snort_dynamicpreprocessor                                 
-	dynamicengine /opt/lib/snort_dynamicengine/libsf_engine.so                                
+	dynamicpreprocessor directory /opt/lib/snort_dynamicpreprocessor
+	dynamicengine /opt/lib/snort_dynamicengine/libsf_engine.so
 	#dynamicdetection directory /opt/lib/snort_dynamicrules
 
 
@@ -185,7 +185,7 @@ Copy the rules to dd-wrt:
 
 Create a simple local rule:
 
-	root@DD-WRT:~# cat /opt/etc/snort/rules/local.rules 
+	root@DD-WRT:~# cat /opt/etc/snort/rules/local.rules
 	suppress gen_id 129, sig_id 12
 
 Copy the **threshold** conf:
@@ -213,13 +213,13 @@ So let's enable swap on the dd-wrt router. First let's create the swap file:
 
 Now put a swap file system on the swap file:
 
-	root@DD-WRT:/tmp/mnt/sda1/swap# mkswap swap.file 
+	root@DD-WRT:/tmp/mnt/sda1/swap# mkswap swap.file
 	Setting up swapspace version 1, size = 1073737728 bytes
 	UUID=23ac1ac1-4f88-439e-90a6-50cd1f9aba2d
 
 Lastly let's enable the swap file:
 
-	root@DD-WRT:/tmp/mnt/sda1/swap# swapon swap.file 
+	root@DD-WRT:/tmp/mnt/sda1/swap# swapon swap.file
 
 Lastly use the free utility to confirm it's enabled:
 
@@ -243,9 +243,9 @@ After some time you will see the following:
 	Reload thread starting...
 	Reload thread started, thread 0xa5608460 (4843)
 	Decoding Ethernet
-	
+
 	        --== Initialization Complete ==--
-	
+
 	   ,,_     -*> Snort! <*-
 	  o"  )~   Version 2.9.7.2 GRE (Build 177)
 	   ''''    By Martin Roesch & The Snort Team: http://www.snort.org/contact#team
@@ -254,7 +254,7 @@ After some time you will see the following:
 	           Using libpcap version 1.5.3
 	           Using PCRE version: 8.36 2014-09-26
 	           Using ZLIB version: 1.2.8
-	
+
 	           Rules Engine: SF_SNORT_DETECTION_ENGINE  Version 2.4  <Build 1>
 	           Preprocessor Object: SF_DNS  Version 1.1  <Build 4>
 	           Preprocessor Object: SF_SSLPP  Version 1.1  <Build 4>

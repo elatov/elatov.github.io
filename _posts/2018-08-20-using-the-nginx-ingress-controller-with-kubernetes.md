@@ -14,7 +14,7 @@ There are some good examples of how to use it and what is does here:
 * [Kubernetes nginx-ingress-controller](https://daemonza.github.io/2017/02/13/kubernetes-nginx-ingress-controller/)
 
 
-#### Configure an Nginx Ingress Controller  
+#### Configure an Nginx Ingress Controller
 
 Instructions are in the [Installation Guide](https://github.com/kubernetes/ingress-nginx/tree/master/deploy#installation-guide). First get the source:
 
@@ -50,23 +50,23 @@ You should be able to see all the configs deployed:
 	NAME                              DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
 	deploy/default-http-backend       1         1         1            1           6m
 	deploy/nginx-ingress-controller   1         1         1            1           4m
-	
+
 	NAME                                    DESIRED   CURRENT   READY     AGE
 	rs/default-http-backend-55c6c69b88      1         1         1         6m
 	rs/nginx-ingress-controller-d7b4cbf98   1         1         1         4m
-	
+
 	NAME                              DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
 	deploy/default-http-backend       1         1         1            1           6m
 	deploy/nginx-ingress-controller   1         1         1            1           4m
-	
+
 	NAME                                    DESIRED   CURRENT   READY     AGE
 	rs/default-http-backend-55c6c69b88      1         1         1         6m
 	rs/nginx-ingress-controller-d7b4cbf98   1         1         1         4m
-	
+
 	NAME                                          READY     STATUS    RESTARTS   AGE
 	po/default-http-backend-55c6c69b88-wj8bn      1/1       Running   0          6m
 	po/nginx-ingress-controller-d7b4cbf98-xqmrr   1/1       Running   0          4m
-	
+
 	NAME                       TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                      AGE
 	svc/default-http-backend   ClusterIP   10.102.171.108   <none>        80/TCP                       6m
 	svc/ingress-nginx          NodePort    10.106.90.156    <none>        80:36006/TCP,443:36698/TCP   2m
@@ -117,7 +117,7 @@ Then I created the following **Ingress** configuration:
 
 Now if I go to **http://K8S_HOST/jenkins**, I would be forwarded to the **jenkins** service:
 
-![jenkins-with-ing.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/k8s-ingress/jenkins-with-ing.png&raw=1)
+![jenkins-with-ing.png](https://raw.githubusercontent.com/elatov/upload/master/k8s-ingress/jenkins-with-ing.png)
 
 #### Creating Ingress Rules for the Kubernetes Dashboard
 Since this uses SSL by default, I ended up using SSL Passthrough, here is the configuration I ended up with:
@@ -146,7 +146,7 @@ Since this uses SSL by default, I ended up using SSL Passthrough, here is the co
 
 Now if I go to **https://K8S_HOST/ui**, I would be forwarded to the **kubernetes** dashboard:
 
-![kub-dash-with-ing.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/k8s-ingress/kub-dash-with-ing.png&raw=1)
+![kub-dash-with-ing.png](https://raw.githubusercontent.com/elatov/upload/master/k8s-ingress/kub-dash-with-ing.png)
 
 #### Creating Ingress Rules for Grafana (Heapster)
 I had installed [heapster](/2018/06/installing-heapster-for-kubernetes/) and that uses **Grafana** for it's dashboard. First it looks like we need to enable the application to be aware that it's getting reverse proxied ([Running Grafana behind a reverse proxy](http://docs.grafana.org/installation/behind_proxy/)). Luckily we can just update an environment variable and apply a new config:
@@ -186,7 +186,7 @@ Then creating the following **Ingress** rule:
 
 Took care of the config and if I go to **http://K8S_HOST/grafana**, I would be forwarded to the **grafana** service:
 
-![grafana-with-ing.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/k8s-ingress/grafana-with-ing.png&raw=1)
+![grafana-with-ing.png](https://raw.githubusercontent.com/elatov/upload/master/k8s-ingress/grafana-with-ing.png)
 
 ### Checking out the Nginx Controller
 First if you want to you can check out the logs:
@@ -196,14 +196,14 @@ First if you want to you can check out the logs:
 	default-http-backend-55c6c69b88-wj8bn       1/1       Running   2          1d
 	nginx-ingress-controller-6b96d48658-gznhl   1/1       Running   0          1d
 	<> kubectl logs -n ingress-nginx nginx-ingress-controller-6b96d48658-gznhl
-	
+
 	-------------------------------------------------------------------------------
 	NGINX Ingress controller
 	  Release:    0.9.0
 	  Build:      git-6816630
 	  Repository: https://github.com/kubernetes/ingress-nginx
 	-------------------------------------------------------------------------------
-	
+
 	I1227 16:29:28.597996       7 main.go:227] Creating API client for https://10.96.0.1:443
 	I1227 16:29:28.607067       7 main.go:239] Running in Kubernetes Cluster version v1.9 (v1.9.0) - git (clean) commit 925c127ec6b946659ad0fd596fa959be43f0cc05 - platform linux/amd64
 	I1227 16:29:28.608379       7 main.go:83] validated ingress-nginx/default-http-backend as the default backend
@@ -246,10 +246,10 @@ This can give you a bunch of hints as to why **nginx** is having issue reverse p
 	            set $service_name   "jenkins";
 	            rewrite ^(/jenkins)$ http://$best_http_host$1/ permanent;
 	            proxy_pass http://default-jenkins-8080;
-            
+
 The config is pretty big, but you get the point, from there you can figure out what affect the **annotations** from above have on this file. You can also visit **http://K8S_HOST:18080/nginx_status** and you can see a small status servlet:
 
-![ing-status.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/k8s-ingress/ing-status.png&raw=1)
+![ing-status.png](https://raw.githubusercontent.com/elatov/upload/master/k8s-ingress/ing-status.png)
 
 ### Checking out the Ingress Rules
 You can also use **kubectl** to confirm the Igress rules, to list them just run this:
@@ -276,5 +276,5 @@ If you want more information we can use **describe**:
 	              /ui   kubernetes-dashboard:8443 (10.244.0.40:8443)
 	Annotations:
 	Events:  <none>
-	
+
 Pretty sweet.

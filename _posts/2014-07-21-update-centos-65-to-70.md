@@ -9,10 +9,10 @@ tags: [linux,centos,grub,dracut,systemd]
 A couple of sites talked about using pre-upgrade to perform the update:
 
 
-- [Upgrade from CentOS 6 to CentOS 7](https://www.itzgeek.com/how-tos/linux/centos-how-tos/upgrade-from-centos-6-to-centos-7.html) 
+- [Upgrade from CentOS 6 to CentOS 7](https://www.itzgeek.com/how-tos/linux/centos-how-tos/upgrade-from-centos-6-to-centos-7.html)
 - [Upgrade to CentOS 7](http://linuxsysconfig.com/2014/07/upgrade-to-centos-7/)
-- [CentOS 7: Upgrading from CentOS 6.x In Place](https://linuxacademy.com/blog/linux/centos-7-upgrading-from-centos-6-x-in-place/) 
-- [A Very Quick Look At Upgrading CentOS 6.5 To 7.0](http://damianzaremba.co.uk/2014/08/quick-look-at-upgrading-to-centos-7/) 
+- [CentOS 7: Upgrading from CentOS 6.x In Place](https://linuxacademy.com/blog/linux/centos-7-upgrading-from-centos-6-x-in-place/)
+- [A Very Quick Look At Upgrading CentOS 6.5 To 7.0](http://damianzaremba.co.uk/2014/08/quick-look-at-upgrading-to-centos-7/)
 
 ### Upgrade CentOS 6.5 to 7.0 with PreUpg
 First download all the necessary packages:
@@ -40,7 +40,7 @@ Now let’s install the pre-upgrade checker:
 And let’s import the new GPG key:
 
 	elatov@ccl:~/up$sudo rpm --import http://ftp.plusline.de/centos/7.0.1406/os/x86_64/RPM-GPG-KEY-CentOS-7
-	
+
 Now let's run the tool:
 
 	elatov@ccl:~$sudo preupg
@@ -268,7 +268,7 @@ Now let's run the tool:
 	The latest assessment is stored in directory /root/preupgrade .
 	Upload results to UI by command:
 	e.g. preupg -u http://127.0.0.1:8099/submit/ -r /root/preupgrade-results/preupg_results-*.tar.gz .
-	
+
 Now let's install the actual upgrade tool:
 
 	elatov@ccl:~/up$sudo yum localinstall redhat-upgrade-tool-0.7.22-1.el6.noarch.rpm python-rhsm-1.9.7-1.el6.x86_64.rpm
@@ -277,7 +277,7 @@ After that **screen** your session if you want (if you are remote, your session 
 
 	elatov@ccl:~$sudo redhat-upgrade-tool-cli --instrepo=http://mirror.bytemark.co.uk/centos/7/os/x86_64/ --network=7 --disablerepo=epel --disablerepo=rpmforge --disablerepo=atomic
 	setting up repos...
-	base                        | 3.6 kB     00:00 
+	base                        | 3.6 kB     00:00
 	base/primary_db             | 4.9 MB     00:00
 	cmdline-instrepo            | 3.6 kB     00:00
 	cmdline-instrepo/primary_db | 4.9 MB     00:01
@@ -335,13 +335,13 @@ If all is well you should see the following:
 	rpm install 100% [====]
 	setting up system for upgrade
 	Finished. Reboot to start upgrade.
-	
-	
+
+
 After I restarted the upgrade process started:
 
-![preupg-starting_1](https://seacloud.cc/d/480b5e8fcd/files/?p=/update-to-centos7/preupg-starting_1.png&raw=1)
+![preupg-starting_1](https://raw.githubusercontent.com/elatov/upload/master/update-to-centos7/preupg-starting_1.png)
 
-![preupg-process](https://seacloud.cc/d/480b5e8fcd/files/?p=/update-to-centos7/preupg-process.png&raw=1)
+![preupg-process](https://raw.githubusercontent.com/elatov/upload/master/update-to-centos7/preupg-process.png)
 
 
 
@@ -385,12 +385,12 @@ But the machine would actually boot. Logging into the system and checking the st
 	     Docs: man:systemd-fsck-root.service(8)
 	  Process: 390 ExecStart=/usr/lib/systemd/systemd-fsck (code=exited, status=0/SUCCESS)
 	 Main PID: 390 (code=exited, status=0/SUCCESS)
-	
+
 	Jul 17 09:57:52 ccl systemd-fsck[390]: /dev/mapper/vg_centos64-lv_root: clean, 178713/494832 files, 1270686/1976320 blocks
 	Jul 17 09:57:52 ccl systemd[1]: Started File System Check on Root Device.
 	[root@ccl ~]#
 
-It looked good. There is an RHEL [page](https://access.redhat.com/solutions/971793) on it, but without a subscription I couldn't see what the solution was. 
+It looked good. There is an RHEL [page](https://access.redhat.com/solutions/971793) on it, but without a subscription I couldn't see what the solution was.
 
 I checked out the man page for **systemd-fsck** and I saw the following:
 
@@ -429,7 +429,7 @@ So let's make a copy of the initramfs :
 
 	elatov@ccl:/boot$sudo cp initramfs-3.10.0-123.4.2.el7.x86_64.img initramfs-3.10.0-123.4.2.el7.x86_64.img.orig
 	elatov@ccl:/boot$sudo cp vmlinuz-3.10.0-123.4.2.el7.x86_64 vmlinuz-3.10.0-123.4.2.el7.x86_64.orig
-	
+
 Then I added the **fscks** parameter in **/etc/dracut.conf** to look like this (this way I knew which binaries would be included):
 
 	elatov@ccl:~$grep fscks /etc/dracut.conf
@@ -523,7 +523,7 @@ Also checking out the differences between the original and new images, I saw the
 	1177a1183,1184
 	> usr/sbin/xfs_db
 	> usr/sbin/xfs_repair
-	> 
+	>
 
 I wanted to make sure I wasn't missing any files. I rebooted again and there was another error:
 
@@ -535,11 +535,11 @@ So now the binary is there, but the device is not. Checking out the dracut [page
 > rd.break={cmdline|pre-udev|pre-trigger|initqueue|pre-mount|mount|pre-pivot|cleanup}<br>
 > drop to a shell on defined breakpoint
 
-So I rebooted with **rd.break=mount** kernel option (manually added it in the grub menu) and then checking out **/run/initramfs/rdsosreport.txt** file and I saw the following: 
+So I rebooted with **rd.break=mount** kernel option (manually added it in the grub menu) and then checking out **/run/initramfs/rdsosreport.txt** file and I saw the following:
 
 	[   1.708234] ccl kernel: ata2.00: configured for UDMA/33
 	[   1.560814] ccl systemd[1]: Starting File System Check on /dev/mapper/vg_centos64-lv_root
-	[   1.710253] ccl kernel: scsi 2:0:0:0: CD-ROM        NECVMWar VMware IDE CDR10 1.00 
+	[   1.710253] ccl kernel: scsi 2:0:0:0: CD-ROM        NECVMWar VMware IDE CDR10 1.00
 	[   1.588895] ccl systemd-fsck[265]: fsck.ext2: No such file or directory while trying to open /dev/mapper/vg_centos64-lv_root
 	[   1.589337] ccl systemd-fsck[265]: Possibly non-existent device?
 	[   1.590900] ccl systemd-fsck[265]: fsck failed with error code 8.
@@ -571,7 +571,7 @@ So the **fcsk** is happening prior to the LVM being discovered. I also started t
 	  Active: active (exited) since Fri 2014-07-18 22:43:30 UTC; 13min ago
 	     Docs: man:systemd-fsck@.service(8)
 	Main PID: 265 (code=exited, status=0/SUCCESS)
-	
+
 	Jul 18 22:43:30 ccl systemd-fsck[265]: fsck.ext2: No such file or directory while trying to open /dev/mapper/vg_centos64-lv_root
 	Jul 18 22:43:30 ccl systemd-fsck[265]: Passibly non-existent deuice?
 	Jul 18 22:43:30 ccl systemd[1]: Started File System Check on /dev/mapper/vg_centos64-lv_root.
@@ -587,15 +587,15 @@ So that confirmed that an **fsck** can actually go through, it's just about orde
 	#  under the terms of the GNU Lesser General Public License as published by
 	#  the Free Software Foundation; either version 2.1 of the License, or
 	#  (at your option) any later version.
-	
+
 	[Unit]
 	Description=File System Check on %f
 	Documentation=man:systemd-fsck@.service(8)
 	DefaultDependencies=no
 	BindsTo=%i.device
 	After=systemd-readahead-collect.service systemd-readahead-replay.service %i.device systemd-fsck-root.service dracut-initqueue.service
-	Before=shutdown.target 
-	
+	Before=shutdown.target
+
 	[Service]
 	Type=oneshot
 	RemainAfterExit=yes
@@ -609,7 +609,7 @@ After modifying the **/usr/lib/systemd/system/systemd-fsck@.service** file, I re
 
 and rebooted. Then the error went away and I saw the following in the boot log:
 
-	elatov@ccl:~$head -20 /var/log/boot.log 
+	elatov@ccl:~$head -20 /var/log/boot.log
 	[  OK  ] Started Show Plymouth Boot Screen.
 	[  OK  ] Reached target Paths.
 	[  OK  ] Reached target Basic System.
@@ -626,16 +626,16 @@ and rebooted. Then the error went away and I saw the following in the boot log:
 	[  OK  ] Started Reload Configuration from the Real Root.
 	[  OK  ] Reached target Initrd File Systems.
 	[  OK  ] Reached target Initrd Default Target.
-	
+
 	Welcome to CentOS Linux 7 (Core)!
-	
+
 	[  OK  ] Stopped Switch Root.
 
 So it looks like the **systemd-fsck** happens in *initramfs* and then in the regular OS well. There is actually a whole discussion whether it's okay to do two **fsck**s. The discussion can be seen [here](https://www.mail-archive.com/systemd-devel@lists.freedesktop.org/msg20541.html).
 
 An easier approach would be to just remove the **fsck** service from the *initramfs* setup. The **systemd** module of **dracut** takes care of that:
 
-	elatov@ccl:~$grep fsck /usr/lib/dracut/modules.d/98systemd/module-setup.sh 
+	elatov@ccl:~$grep fsck /usr/lib/dracut/modules.d/98systemd/module-setup.sh
 	        $systemdutildir/systemd-fsck \
 	        $systemdsystemunitdir/systemd-fsck@.service \
 
@@ -708,7 +708,7 @@ I decided to update the GRUB install to GRUB2 since GRUB2 is already installed:
 
 First you can check out what devices the previous GRUB saw (I install GRUB on the whole device and not a partition):
 
-	elatov@ccl:~$cat /boot/grub/device.map 
+	elatov@ccl:~$cat /boot/grub/device.map
 	# this device map was generated by anaconda
 	(hd0)     /dev/sda
 
@@ -719,7 +719,7 @@ Then to install GRUB, just run the following (If you install GRUB on a partition
 
 Finally let's generate the GRUB menu:
 
-	elatov@ccl:~$sudo grub2-mkconfig -o /boot/grub2/grub.cfg 
+	elatov@ccl:~$sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 	Generating grub configuration file ...
 	Found linux image: /boot/vmlinuz-3.10.0-123.4.2.el7.x86_64
 	Found initrd image: /boot/initramfs-3.10.0-123.4.2.el7.x86_64.img
@@ -737,20 +737,20 @@ Finally let's generate the GRUB menu:
 
 After the reboot, I got the following kernel panic:
 
-![error-after-grub2-update](https://seacloud.cc/d/480b5e8fcd/files/?p=/update-to-centos7/error-after-grub2-update.png&raw=1)
+![error-after-grub2-update](https://raw.githubusercontent.com/elatov/upload/master/update-to-centos7/error-after-grub2-update.png)
 
 
 I wanted to make sure GRUB was able to see the *initramfs* files. So I clicked **c** to open up the **grub-console** and I ran `ls (hd0,1)` to see a list of available files in the **/boot** partition:
 
-![grub-ls-first-partition](https://seacloud.cc/d/480b5e8fcd/files/?p=/update-to-centos7/grub-ls-first-partition.png&raw=1)
+![grub-ls-first-partition](https://raw.githubusercontent.com/elatov/upload/master/update-to-centos7/grub-ls-first-partition.png)
 
 So GRUB is able to mount the **/boot** partition and see the necessary files. Then looking over the default grub menu, I realized the **initrd** line was missing for the default GRUB menu. After adding it:
 
-![finished-grub-menu](https://seacloud.cc/d/480b5e8fcd/files/?p=/update-to-centos7/finished-grub-menu.png&raw=1)
+![finished-grub-menu](https://raw.githubusercontent.com/elatov/upload/master/update-to-centos7/finished-grub-menu.png)
 
 It kept booting up but then *initramfs* would fail to mount the root partition which was an LVM. So when I was in the **rdshell**, I just mounted it manually:
 
-![mounting-lv-root-from-rd-shell_g](https://seacloud.cc/d/480b5e8fcd/files/?p=/update-to-centos7/mounting-lv-root-from-rd-shell_g.png&raw=1)
+![mounting-lv-root-from-rd-shell_g](https://raw.githubusercontent.com/elatov/upload/master/update-to-centos7/mounting-lv-root-from-rd-shell_g.png)
 
 I basically ran the following commands:
 
@@ -760,14 +760,14 @@ I basically ran the following commands:
 
 After the **exit** command, it proceed to boot up with out issues. I realized I was missing the **rd.lvm.lv** parameter, so after I booted up into CentOS, I created the following GRUB customization:
 
-	elatov@ccl:~$cat /etc/default/grub 
+	elatov@ccl:~$cat /etc/default/grub
 	GRUB_TIMEOUT=20
 	GRUB_CMDLINE_LINUX="rd.md=0 rd.dm=0 rd.lvm.lv=vg_centos64/lv_root quiet"
 	GRUB_DISABLE_SUBMENU=true
 
 And then I regenerated the GRUB menu:
 
-	elatov@ccl:~$sudo grub2-mkconfig -o /boot/grub2/grub.cfg 
+	elatov@ccl:~$sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
 and the boot process would be okay. BTW just for reference, here are the original kernel parameters that were used with GRUB1:
 
@@ -795,7 +795,7 @@ Another error/warning I saw during boot was the following:
 
 I actually had two entries for **/tmp**:
 
-	elatov@ccl:~$grep tmp /etc/fstab 
+	elatov@ccl:~$grep tmp /etc/fstab
 	tmpfs                  /tmp    tmpfs   defaults      0 0
 	/dev/shm            	/tmp    auto    bind          0 0
 
@@ -831,13 +831,13 @@ At this point I didn't see any errors in the logs and now I started to fix the b
 Checking out the status of the service, I saw the following:
 
 	elatov@ccl:~$sudo systemctl status avahi-daemon.service -l
-	[sudo] password for elatov: 
+	[sudo] password for elatov:
 	avahi-daemon.service - Avahi mDNS/DNS-SD Stack
 	   Loaded: loaded (/usr/lib/systemd/system/avahi-daemon.service; enabled)
 	   Active: failed (Result: exit-code) since Sat 2014-07-19 18:34:28 MDT; 7min ago
 	  Process: 1715 ExecStart=/usr/sbin/avahi-daemon -s (code=exited, status=255)
 	 Main PID: 1715 (code=exited, status=255)
-	
+
 	Jul 19 18:34:28 ccl systemd[1]: Starting Avahi mDNS/DNS-SD Stack...
 	Jul 19 18:34:28 ccl avahi-daemon[1715]: Found user 'avahi' (UID 70) and group 'avahi' (GID 70).
 	Jul 19 18:34:28 ccl avahi-daemon[1715]: Successfully dropped root privileges.
@@ -857,21 +857,21 @@ Only **root** can access the directory. Looking over [this](https://bugzilla.red
 > 3.2.2. **/run** directory<br>
 > Fedora 15 has a /run directory for storing runtime data. /run is now a tmpfs, and /var/run is bind mounted to it. /var/lock is bind mounted to /run/lock. Applications can use /run the same way as /var/run. Several programs including udev, dracut, mdadm, mount and initscripts used hidden directories under /dev for runtime data during early bootup before /var is mounted. However /dev/ is supposed to be used for only device nodes and there is consensus between major distributions to shift to using /run instead. Fedora 15 is leading this change. Details including the benefits are explained here.<br>
 > This change is compliant with the Filesystem Hierarchy Standard, which allows distributions to create new directories in the root hierarchy as long as there is careful consideration of the consequences. Co-author of the latest FHS specification has expressed support for this change. Lennart Poettering has filed a request to update the FHS standard to include this change as well.
-> 
+>
 > 3.2.3. **/var/run** and **/var/lock**<br>
 > /var/run and /var/lock are now bind mounted to /run and /run/lock from tmpfs, and hence emptied on reboot. Applications must ensure to recreate their own files/dirs on startup, and cannot rely that doing this at package installation will suffice. It is possible to use systemd's tmpfiles.d mechanism to recreate directories and files beneath /var/run and /var/lock on boot, if necessary. See tmpfiles.d(5) for details (http://0pointer.de/public/systemd-man/tmpfiles.d.html) and the conf files in /etc/tmpfiles.d for examples of such configuration. Fedora packaging guidelines for tmpfiles.d is at http://fedoraproject.org/wiki/Packaging:Tmpfiles.d.
 
 So let's go ahead and move the directories out of the way and link them to their corresponding locations:
 
 	elatov@ccl:/var$sudo mv run run.orig
-	elatov@ccl:/var$sudo ln -s /run/ 
+	elatov@ccl:/var$sudo ln -s /run/
 	elatov@ccl:/var$sudo mv lock lock.orig
-	elatov@ccl:/var$sudo ln -s /run/lock/ 
+	elatov@ccl:/var$sudo ln -s /run/lock/
 
 Then after a reboot the service started up fine:
 
-	elatov@ccl:~$sudo systemctl status avahi-daemon.service 
-	[sudo] password for elatov: 
+	elatov@ccl:~$sudo systemctl status avahi-daemon.service
+	[sudo] password for elatov:
 	avahi-daemon.service - Avahi mDNS/DNS-SD Stack
 	   Loaded: loaded (/usr/lib/systemd/system/avahi-daemon.service; enabled)
 	   Active: active (running) since Sat 2014-07-19 18:46:23 MDT; 50s ago
@@ -896,7 +896,7 @@ The **ddclient**, showed the following:
 	   Loaded: loaded (/etc/rc.d/init.d/ddclient)
 	   Active: failed (Result: resources) since Sat 2014-07-19 18:46:25 MDT; 1min 59s ago
 	  Process: 688 ExecStart=/etc/rc.d/init.d/ddclient start (code=exited, status=0/SUCCESS)
-	
+
 	Jul 19 18:46:25 ccl systemd[1]: PID file /var/run/ddclient/ddclient.pid not readable (yet?) after start.
 	Jul 19 18:46:25 ccl systemd[1]: Failed to start LSB: Client to update dynamic DNS host entries.
 	Jul 19 18:46:25 ccl systemd[1]: Unit ddclient.service entered failed state.
@@ -924,7 +924,7 @@ I thought updating the repo would help out:
 But even the new repo had the old version of the package. The above bug has a description of what needs to be done to fix the init script for **ddclient**, the fix is [here](https://bugzilla.redhat.com/attachment.cgi?id=511722&action=diff). So after I added/modified these five lines in the **ddclient** *init* script (**/etc/init.d/ddclient**):
 
 	#[ ! -f /var/lock/subsys/network -a ! -f /var/lock/subsys/NetworkManager ] && exit 0
-	
+
 	piddir=/var/run/ddclient
 	pid=$piddir/ddclient.pid
 	[ -d $piddir ] || mkdir $piddir
@@ -932,8 +932,8 @@ But even the new repo had the old version of the package. The above bug has a de
 
 Then reloading **systemd** (since we modified an *init* script), and starting the service worked:
 
-	elatov@ccl:~$sudo systemctl daemon-reload 
-	elatov@ccl:~$sudo systemctl start ddclient.service 
+	elatov@ccl:~$sudo systemctl daemon-reload
+	elatov@ccl:~$sudo systemctl start ddclient.service
 	elatov@ccl:~$sudo systemctl status ddclient.service -l
 	ddclient.service - LSB: Client to update dynamic DNS host entries
 	   Loaded: loaded (/etc/rc.d/init.d/ddclient)
@@ -951,7 +951,7 @@ Lastly onto **exim**:
 	exim.service - SYSV: Exim is a Mail Transport Agent, which is the program that moves mail from one machine to another.
 	   Loaded: loaded (/etc/rc.d/init.d/exim)
 	   Active: failed (Result: exit-code) since Sat 2014-07-19 18:46:26 MDT; 25min ago
-	
+
 	Jul 19 18:46:26 ccl systemd[1]: Starting SYSV: Exim is a Mail Transport Agent, which is the program that moves mail from one machine to another....
 	Jul 19 18:46:26 ccl exim[709]: Starting exim: /usr/sbin/exim: error while loading shared libraries: libsasl2.so.2: cannot open shared object file: No such file or directory
 	Jul 19 18:46:26 ccl exim[709]: [FAILED]
@@ -986,7 +986,7 @@ But it also looks like there is a newer version in the **epel** repo:
 	Installed Packages
 	exim.x86_64                         4.72-5.el6                           @epel/6
 	Available Packages
-	exim.x86_64                         4.82.1-4.el7                         epel   
+	exim.x86_64                         4.82.1-4.el7                         epel
 
 So let's install the new version:
 
@@ -1008,7 +1008,7 @@ and the service started up:
 	 Main PID: 1890 (exim)
 	   CGroup: /system.slice/exim.service
 	           └─1890 /usr/sbin/exim -bd -q1h
-	
+
 	Jul 19 19:16:53 ccl systemd[1]: Started Exim Mail Transport Agent.
 
 and after all of that, there are no more broken services:
@@ -1078,7 +1078,7 @@ Doing a `yum check` yielded the following:
 
 After some cleanup:
 
-	sudo yum remove texlive-util python-six python-pybloomfiltermmap python-SocksiPy pysvn pygtksourceview pyPdf cmake28 nettle PyXML openscap cloog-ppl python-nltk scapy ppl atomic-glib2-glib2 libgcj 389-admin 389-adminutil                    
+	sudo yum remove texlive-util python-six python-pybloomfiltermmap python-SocksiPy pysvn pygtksourceview pyPdf cmake28 nettle PyXML openscap cloog-ppl python-nltk scapy ppl atomic-glib2-glib2 libgcj 389-admin 389-adminutil
 
 And then I was only left with the following:
 
@@ -1098,19 +1098,19 @@ And then I was only left with the following:
 And those depended on the **lemonldap-ng** and **shibboleth** repositories which weren't updated to Centos 7. I will have to revisit those. But after that the machine was pretty clean.
 
 ### Miscenalous Discoveries
-For some reason **rsyslog** was disabled: 
+For some reason **rsyslog** was disabled:
 
-	elatov@ccl:~$sudo systemctl status rsyslog.service 
+	elatov@ccl:~$sudo systemctl status rsyslog.service
 	rsyslog.service - System Logging Service
 	   Loaded: loaded (/usr/lib/systemd/system/rsyslog.service; disabled)
 	   Active: inactive (dead)
 
 So I ran the following to enable it:
 
-	elatov@ccl:~$sudo systemctl enable rsyslog.service 
+	elatov@ccl:~$sudo systemctl enable rsyslog.service
 	ln -s '/usr/lib/systemd/system/rsyslog.service' '/etc/systemd/system/multi-user.target.wants/rsyslog.service'
-	elatov@ccl:~$sudo systemctl start rsyslog.service 
-	elatov@ccl:~$sudo systemctl status rsyslog.service 
+	elatov@ccl:~$sudo systemctl start rsyslog.service
+	elatov@ccl:~$sudo systemctl status rsyslog.service
 	rsyslog.service - System Logging Service
 	   Loaded: loaded (/usr/lib/systemd/system/rsyslog.service; enabled)
 	   Active: active (running) since Sat 2014-07-19 19:34:31 MDT; 4s ago
@@ -1120,7 +1120,7 @@ So I ran the following to enable it:
 
 I also noticed the default target is **runleve3**:
 
-	elatov@ccl:~$systemctl get-default 
+	elatov@ccl:~$systemctl get-default
 	runlevel3.target
 
 It's synonymous with the **multi-user** target, so I went ahead and set that as the default:
@@ -1180,7 +1180,7 @@ I also checked out the boot times, after it's all said and done. It takes about 
 	             8ms systemd-update-utmp.service
 	             5ms systemd-update-utmp-runlevel.service
 	             3ms tmp.mount
-	elatov@ccl:~$sudo systemd-analyze 
+	elatov@ccl:~$sudo systemd-analyze
 	Startup finished in 711ms (kernel) + 2.982s (initrd) + 20.090s (userspace) = 23.784s
 
 And the network service takes the longest time (but we only spent ~3 seconds in *initrd/initramfs*). If you want to see a graphical representation of the boot cycle, you can run the following:
@@ -1191,4 +1191,4 @@ And checking out that file:
 
 	$ inkscape st.svg
 
-![systemd-analyze-plot](https://seacloud.cc/d/480b5e8fcd/files/?p=/update-to-centos7/systemd-analyze-plot.png&raw=1)
+![systemd-analyze-plot](https://raw.githubusercontent.com/elatov/upload/master/update-to-centos7/systemd-analyze-plot.png)

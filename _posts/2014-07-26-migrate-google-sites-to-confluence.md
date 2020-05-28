@@ -7,7 +7,7 @@ categories: [os]
 tags: [linux,markdown,google-sites,confluence]
 ---
 
-The first thing we have to do is export the google sites content. 
+The first thing we have to do is export the google sites content.
 
 ### Use Google Sites Liberation to Export Google Sites
 There is a tool called **google-sites-liberation** which takes care of that for us. [Here](https://code.google.com/p/google-sites-liberation/) is the link to the program and here is a snippet from the site on what the tool does:
@@ -24,7 +24,7 @@ So let's go ahead and download the program:
 	Length: 4799363 (4.6M) [application/x-java-archive]
 	Saving to: ‘google-sites-liberation-1.0.4.jar’
 
-	100%[======================================>] 4,799,363    419KB/s   in 12s    
+	100%[======================================>] 4,799,363    419KB/s   in 12s
 
 	2014-07-26 09:49:10 (407 KB/s) - ‘google-sites-liberation-1.0.4.jar’ saved [4799363/4799363]
 
@@ -41,15 +41,15 @@ So running the following started up the program:
 
 and I saw the following:
 
-![sites-liberation-launched](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-gsites-to-confluence/sites-liberation-launched.png&raw=1)
+![sites-liberation-launched](https://raw.githubusercontent.com/elatov/upload/master/migrate-gsites-to-confluence/sites-liberation-launched.png)
 
 Then go ahead and fill out your sites information. Here is an example from the original site:
 
-![sites-liberation-filledout](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-gsites-to-confluence/sites-liberation-filledout.png&raw=1)
+![sites-liberation-filledout](https://raw.githubusercontent.com/elatov/upload/master/migrate-gsites-to-confluence/sites-liberation-filledout.png)
 
 After everything is filled out click in **Export from Sites** and you will see the progress of the export:
 
-![sites-liberation-progress](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-gsites-to-confluence/sites-liberation-progress.png&raw=1)
+![sites-liberation-progress](https://raw.githubusercontent.com/elatov/upload/master/migrate-gsites-to-confluence/sites-liberation-progress.png)
 
 After it's done you will have a folder with all of your google sites broken down by folders for each page (and if you had sub pages, those would broken down into sub folders).
 
@@ -66,14 +66,14 @@ There is already a tool called **sites-to-markdown**, [here](https://github.com/
 There are a couple of prereqs for this software, from the main page:
 
 > Requirements
-> 
+>
 > - java 1.7
 > - maven
 
 I already had **java**, so let's install **maven**:
 
 	elatov@fed:~$sudo yum install maven
-	
+
 Here was the **maven** version that was installed:
 
 	elatov@fed:~$mvn --version
@@ -87,9 +87,9 @@ Here was the **maven** version that was installed:
 From the main site, here is the usage:
 
 > Usage
-> 
+>
 > Make sure your environment's jvm is 1.7
-> 
+>
 > \# verify the version
 >
 > 	java -version
@@ -99,7 +99,7 @@ From the main site, here is the usage:
 > 	export JAVA_HOME=/Library/Java/JavaVirtualMachines/1.7.0.jdk/Contents/Home
 >
 > Run the conversion
-> 
+>
 > 	export MAVEN_OPTS=-Dfile.encoding=UTF-8
 > 	mvn exec:java -Dexec.mainClass="jon.Convert" -Dexec.args="/path/to/exported/sites/ /path/to/markdown/destination"
 
@@ -120,7 +120,7 @@ So let's try it out:
 After a lot of dependencies, it failed with the following message:
 
 	[WARNING] Warning: killAfter is now deprecated. Do you need it ? Please comment on MEXEC-6.
-	[WARNING] 
+	[WARNING]
 	java.lang.ClassNotFoundException: jon.Convert
 		at java.net.URLClassLoader$1.run(URLClassLoader.java:366)
 		at java.net.URLClassLoader$1.run(URLClassLoader.java:355)
@@ -138,10 +138,10 @@ After a lot of dependencies, it failed with the following message:
 	[INFO] Final Memory: 14M/108M
 	[INFO] ------------------------------------------------------------------------
 	[ERROR] Failed to execute goal org.codehaus.mojo:exec-maven-plugin:1.3.1:java (default-cli) on project ConvertWiki: An exception occured while executing the Java class. jon.Convert -> [Help 1]
-	[ERROR] 
+	[ERROR]
 	[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 	[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-	[ERROR] 
+	[ERROR]
 	[ERROR] For more information about the errors and possible solutions, please read the following articles:
 	[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
 
@@ -149,11 +149,11 @@ It looks like it's a known issue, and [here](https://github.com/foursquare/sites
 
 	elatov@fed:/opt/work/mig/sites-to-markdown$mvn install
 	[INFO] Scanning for projects...
-	[INFO]                                                                         
+	[INFO]
 	[INFO] ------------------------------------------------------------------------
 	[INFO] Building ConvertWiki 0.0.1-SNAPSHOT
 	[INFO] ------------------------------------------------------------------------
-	[INFO] 
+	[INFO]
 	[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ ConvertWiki ---
 	Downloading: http://repo.maven.apache.org/maven2/junit/junit/3.8.1/junit-3.8.1.pom
 	Downloaded: http://repo.maven.apache.org/maven2/junit/junit/3.8.1/junit-3.8.1.pom (998 B at 3.8 KB/sec)
@@ -174,11 +174,11 @@ And then it worked:
 
 	elatov@fed:/opt/work/mig/sites-to-markdown$mvn exec:java -Dexec.mainClass="jon.Convert" -Dexec.args="/home/elatov/g-sites/home /home/elatov/g-sites-md"
 	[INFO] Scanning for projects...
-	[INFO]                                                                         
+	[INFO]
 	[INFO] ------------------------------------------------------------------------
 	[INFO] Building ConvertWiki 0.0.1-SNAPSHOT
 	[INFO] ------------------------------------------------------------------------
-	[INFO] 
+	[INFO]
 	[INFO] --- exec-maven-plugin:1.3.1:java (default-cli) @ ConvertWiki ---
 	[WARNING] Warning: killAfter is now deprecated. Do you need it ? Please comment on MEXEC-6.
 	Unhandled element table
@@ -198,12 +198,12 @@ And then it worked:
 	[INFO] Finished at: Sat Jul 26 10:23:59 MDT 2014
 	[INFO] Final Memory: 11M/175M
 	[INFO] ------------------------------------------------------------------------
-	
+
 It looks like it couldn't handle a table, but that should be okay. The only weird thing about the conversion was the image links, they were in the following format:
 
 	[![](https://sites.google.com/a/company.com/notes/_/rsrc/1381006622014/home/sharepoint-install/reg_user_edit_page.png)
 	](home sharepoint install reg_user_edit_page png?attredirects=0)
-	
+
 It looks like it's an imbedded image link within a regular URL link. In *markdown*, here is an image link:
 
 	![img-title](http://url-to-img.com)
@@ -214,11 +214,11 @@ And here is just a regular link:
 
 And it was also pointing to the original image link which was in google sites. I already had the local version of the images downloaded, so let's fix all the links to point to the local images. I wrote a quick python script to search for a regular expression and substitute the matched expession, here is the script:
 
-	elatov@fed:~/g-sites-md$cat md-img-fix.py 
+	elatov@fed:~/g-sites-md$cat md-img-fix.py
 	#!/usr/bin/env python
 	import re, sys
 
-	img = re.compile('\[\!\[\]\(https://sites.google.com/a/company.com/notes/_/rsrc/(.*?)/(.*?)\)\n\]\((.*?)\)',re.M) 
+	img = re.compile('\[\!\[\]\(https://sites.google.com/a/company.com/notes/_/rsrc/(.*?)/(.*?)\)\n\]\((.*?)\)',re.M)
 
 	# set the first arguement as the file we are going to modify
 	file = sys.argv[1]
@@ -260,12 +260,12 @@ If everything looks good, then actuallly run it:
 To convert all the pages, we can just run the python script through a **for** loop:
 
 	elatov@fed:~/g-sites-md$for file in $(ls *.md); do echo $file; python md-img-fix.py $file; done
-	
+
 ### Convert *Markdown* to Word Doc Format
 There is a cool tool called **pandoc** which can convert *markdown* to **.docx** format, from [their](http://johnmacfarlane.net/pandoc/index.html) main page:
 
 > If you need to convert files from one markup format into another, pandoc is your swiss-army knife. Pandoc can convert documents in markdown, reStructuredText, textile, HTML, DocBook, LaTeX, MediaWiki markup, OPML, Emacs Org-Mode, or Haddock markup to
-> 
+>
 > - HTML formats: XHTML, HTML5, and HTML slide shows using Slidy, reveal.js, Slideous, S5, or DZSlides.
 > - Word processor formats: Microsoft Word docx, OpenOffice/LibreOffice ODT, OpenDocument XML
 > - Ebooks: EPUB version 2 or 3, FictionBook2
@@ -284,35 +284,35 @@ So let's install the software:
 Now let's try to convert one *markdown* page:
 
 	pandoc -o output.docx -f markdown -t docx markdown-file.md
-	
+
 If you then open up the word document you will see your images in the document:
 
-![converted-word-doc-with-images](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-gsites-to-confluence/converted-word-doc-with-images.png&raw=1)
+![converted-word-doc-with-images](https://raw.githubusercontent.com/elatov/upload/master/migrate-gsites-to-confluence/converted-word-doc-with-images.png)
 
 You can do the same thing and use a **for** loop to convert all the documents:
 
 	elatov@fed:~/g-sites-md$for file in $(ls *.md); do echo $file; pandoc -o $(basename $file .md).docx -f markdown -t docx $file; done
-	
+
 ### Import Word Document into Confluence
 From the **Tools** menu you can select the **Import Word Document** option:
 
-![confluence-import-word-doc](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-gsites-to-confluence/confluence-import-word-doc.png&raw=1)
+![confluence-import-word-doc](https://raw.githubusercontent.com/elatov/upload/master/migrate-gsites-to-confluence/confluence-import-word-doc.png)
 
 Upon initial import, I received the following error:
 
-![confluence-error-upload-docx](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-gsites-to-confluence/confluence-error-upload-docx.png&raw=1)
+![confluence-error-upload-docx](https://raw.githubusercontent.com/elatov/upload/master/migrate-gsites-to-confluence/confluence-error-upload-docx.png)
 
 It looks like I need a **.doc** format and not **.docx** format. [Abiword](http://www.abisource.com/) can convert between the two formats:
 
 	$abiword -t doc splunk.docx
-	
+
 Here is a for loop to convert all the **docx** files into **doc** files:
 
 	$for file in $(ls *.docx); do echo $file; abiword -t doc $file; done
-	
+
 Then after it recognized the **.doc** format, I received yet another error:
 
-![confluence-image-size-limitation](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-gsites-to-confluence/confluence-image-size-limitation.png&raw=1)
+![confluence-image-size-limitation](https://raw.githubusercontent.com/elatov/upload/master/migrate-gsites-to-confluence/confluence-image-size-limitation.png)
 
 Looks like I need to go through all my images and make sure the size is below **900x1200**. So let's get a feel of how many images I will have to convert. Here is command that will count all the images that have a width above **900** pixels:
 
@@ -326,7 +326,7 @@ And for the height:
 
 Looks like I just need to concentrate on the 217 images with the large width. So I decided to write a python script to take care of the conversion. Here is the script.
 
-	elatov@fed:~/g-sites$cat resize-img.py 
+	elatov@fed:~/g-sites$cat resize-img.py
 	#!/usr/bin/env python
 	import glob,magic
 	import os,sys,re
@@ -363,7 +363,7 @@ It has a couple of dependencies, here is what I did to install them:
 
 	elatov@fed:~$sudo pip install python-magic
 	elatov@fed:~$sudo yum install python-pillow
-	
+
 Be careful with the *magic* module cause there are two different ones with the same name. Check out the differences [here](http://www.zak.co.il/tddpirate/2013/03/03/the-python-module-for-file-type-identification-called-magic-is-not-standardized/). Then I just ran the script on the whole **home** (this was the root of the google sites export) directory:
 
 	elatov@fed:~/g-sites$./resize-img.py home/
@@ -372,12 +372,12 @@ The script sets the width of the image to **899** pixels, so let's see how many 
 
 	elatov@fed:~/g-sites$find . -name "*.png" -exec exiftool -s -ImageWidth {} \; | awk '$3 == 899' | wc -l
 	217
-	
+
 That confirms that the script changed all of the necessary files. Lastly we can check to see no images have a width over 900:
 
 	elatov@fed:~/g-sites$find . -name "*.png" -exec exiftool -s -ImageWidth {} \; | awk '$3 > 900' | wc -l
 	0
-	
+
 That looks good, now let's re-run the conversion from *markdown* to **.docx**:
 
 	elatov@fed:~/g-sites-md$for file in $(ls *.md); do echo $file; pandoc -o $(basename $file .md).docx -f markdown -t docx $file; done
@@ -386,10 +386,10 @@ and then from **.docx** to **.doc**:
 
 	elatov@fed:~/g-sites-md$for file in $(ls *.docx); do echo $file; abiword -t doc $file; done
 
-Now re-uploading the same document, I got an error message saying that the size of the biggest image was **1187 x 1126**, so the size changed but it didn't reflect the actual size (cause I converted them to **899 x original height**). 
+Now re-uploading the same document, I got an error message saying that the size of the biggest image was **1187 x 1126**, so the size changed but it didn't reflect the actual size (cause I converted them to **899 x original height**).
 
-I then modifed the script and the set the width to be **799** pixels and then *Confluence* told me that the biggest size is **1055 x 1084**. It went down but still not enough. After I set the width to be **699** pixels all the documents went throught without any issues. Not sure if *Confluence* is reading the size wrong (maybe it's not using pixels to check the size) or if the Python **PIL** module is not converting the images correctly. I only had 6 pages out of 50 that had that issue and going to a lower size didn't bother me. 
+I then modifed the script and the set the width to be **799** pixels and then *Confluence* told me that the biggest size is **1055 x 1084**. It went down but still not enough. After I set the width to be **699** pixels all the documents went throught without any issues. Not sure if *Confluence* is reading the size wrong (maybe it's not using pixels to check the size) or if the Python **PIL** module is not converting the images correctly. I only had 6 pages out of 50 that had that issue and going to a lower size didn't bother me.
 
 In summary, I would say 85% of the import went well with regards to images (This depends if you have big images in your google sites). The code blocks didn't really convert over (so I will fix those manually), but the rest of the formating (headings, links, images, bold and italic text) was there. Here is snippet of the converted page that I had originally shown with Word:
 
-![splunk-page-converted-in-confluence](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-gsites-to-confluence/splunk-page-converted-in-confluence.png&raw=1)
+![splunk-page-converted-in-confluence](https://raw.githubusercontent.com/elatov/upload/master/migrate-gsites-to-confluence/splunk-page-converted-in-confluence.png)

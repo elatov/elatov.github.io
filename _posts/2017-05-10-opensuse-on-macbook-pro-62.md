@@ -12,23 +12,23 @@ I had an old mac book pro laying around and I wanted to install linux on it. I h
 #### openSUSE Install
 After the DVD boots you will see the GRUB menu for it:
 
-![opensuse-booting](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/opensuse-booting.jpg&raw=1)
+![opensuse-booting](https://raw.githubusercontent.com/elatov/upload/master/opensuse-mbp/opensuse-booting.jpg)
 
 You can boot into the installer and by default it will suggest a partition schema for you:
 
-![os-sug-part](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/os-sug-part.jpg&raw=1)
+![os-sug-part](https://raw.githubusercontent.com/elatov/upload/master/opensuse-mbp/os-sug-part.jpg)
 
 I ended up clicking on the **Expert Partitioner** and creating the following partition layout:
 
-![os-new-part](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/os-new-part.jpg&raw=1)
+![os-new-part](https://raw.githubusercontent.com/elatov/upload/master/opensuse-mbp/os-new-part.jpg)
 
 And for the *Desktop Setup*, I decided to leave it blank for now:
 
-![os-desktop-selection](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/os-desktop-selection.jpg&raw=1)
+![os-desktop-selection](https://raw.githubusercontent.com/elatov/upload/master/opensuse-mbp/os-desktop-selection.jpg)
 
 And in the end here was the summary it provided before starting the install:
 
-![os-summary](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/os-summary.jpg&raw=1)
+![os-summary](https://raw.githubusercontent.com/elatov/upload/master/opensuse-mbp/os-summary.jpg)
 
 After the install finished it rebooted and I booted from the CD one more time so I could install GRUB appropriately.
 
@@ -39,7 +39,7 @@ I booted from the CD and chose the *Rescue Linux* option and it booted into a sh
 	$ lvm vgscan -v
 	$ lvm vgchange -a y
 	$ lvm lvs –all
-	
+
 	## mount all the partions
 	$ mount /dev/mapper/system-root /a
 	$ mount --bind /dev /a/dev
@@ -47,42 +47,42 @@ I booted from the CD and chose the *Rescue Linux* option and it booted into a sh
 	$ mount --bind /sys /a/sys
 	$ mount /dev/sda2 /a/boot
 	$ mount /dev/sda1 /a/boot/efi
-	
+
 	## chroot into the install
 	$ chroot /a
-	
+
 	## Install grub
 	$ grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=opensuse --recheck --debug
 	$ grub-mkconfig -o /boot/efi/EFI/opensuse/grub.cfg
 	$ cp /boot/efi/EFI/opensuse/grub.cfg /boot/grub/grub.cfg
 	$ cp /boot/efi/EFI/opensuse/grubx64.efi /boot/efi/EFI/boot/bootx64.efi
-	
+
 	## delete the Mac OS X option
 	$ efibootmgr -b 0000 -B
 
 Here is screenshot of the shell when I was just starting out the mount:
 
-![os-rescue-mount](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/os-rescue-mount.jpg&raw=1)
+![os-rescue-mount](https://raw.githubusercontent.com/elatov/upload/master/opensuse-mbp/os-rescue-mount.jpg)
 
 After the above commands are done, you can do the following to reboot:
 
 	## leave the chroot
 	$ exit
-	
+
 	## unmount the install
 	$ umount -R /a
-	
+
 	## and reboot
 	$ reboot
 
 #### rEFIt GPT sync
 After that I put in the **rEFIt** CD and held the **Alt/Option** Key see the available boot options (you will notice the Linux Install is not available yet):
 
-![refit-boot-screen](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/refit-boot-screen.jpg&raw=1)
+![refit-boot-screen](https://raw.githubusercontent.com/elatov/upload/master/opensuse-mbp/refit-boot-screen.jpg)
 
 Then I booted from the CD and opened up a shell and ran **gptsync.efi**:
 
-![gpt-sync-with-refit](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/gpt-sync-with-refit.jpg&raw=1)
+![gpt-sync-with-refit](https://raw.githubusercontent.com/elatov/upload/master/opensuse-mbp/gpt-sync-with-refit.jpg)
 
 Then rebooting one more time, I was able to boot into the openSUSE install.
 
@@ -125,11 +125,11 @@ Then we can run the following for it to install the correct driver:
 	Warning: Repository 'openSUSE-Leap-42.2-Update-Non-Oss' appears to be outdated. Consider using a different mirror or server.
 	Reading installed packages...
 	Resolving package dependencies...
-	
+
 	The following 5 NEW packages are going to be installed:
 	  nvidia-computeG03 nvidia-gfxG03-kmp-default nvidia-glG03
 	  nvidia-uvm-gfxG03-kmp-default x11-video-nvidiaG03
-	
+
 	5 new packages to install.
 	Overall download size: 70.1 MiB. Already cached: 0 B. After the operation,
 	additional 341.0 MiB will be used.
@@ -169,7 +169,7 @@ And here is the after:
 
 Then after one more reboot I finally saw **lightdm**:
 
-![opensuse-leap-with-lightdm](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/opensuse-leap-with-lightdm.png&raw=1)
+![opensuse-leap-with-lightdm](https://raw.githubusercontent.com/elatov/upload/master/opensuse-mbp/opensuse-leap-with-lightdm.png)
 
 #### Media Codecs
 Initially I installed **mpv** and tried playing a video but it complained about not having the necessary codecs. There is nice page that talks about adding the right repos: [Multimedia Codecs](http://opensuse-guide.org/codecs.php), but I couldn't find the repo for Leap 42.2, I tried 42.1:
@@ -195,7 +195,7 @@ I think in summary **Tumbleweed** is supposed to be close to bleeding edge where
 #### openSUSE Tumbleweed Install
 I just booted into the new DVD and actually ended up wiping my root parition and formatting it **btrfs** (just to try it out), but the left the rest of the setup the same as in Leap 42.2. After installing **X**, **lightdm** started up without any issues:
 
-![os-tw-with-lightdm](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/os-tw-with-lightdm.jpg&raw=1)
+![os-tw-with-lightdm](https://raw.githubusercontent.com/elatov/upload/master/opensuse-mbp/os-tw-with-lightdm.jpg)
 
 This was using the **Nouveau** drivers (and didn't have to make any GRUB changes).
 
@@ -349,11 +349,11 @@ Then I rebooted the laptop and at the **lightdm** screen I typed a couple of key
 ### Lm_sensors Config
 Macs usually have a pretty complicated temperature sensor configurations (which can be good and bad). Check out [my previous post](/2013/10/monitor-thermal-sensors-lm-sensors/) on that. For this laptop I ran into the [Apple Technician Guide: MacBook Pro (17-inch, Mid 2010)](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/us_apple-macbook-pro-service-manual.pdf&raw=1) and that had a nice description of all the sensors:
 
-![mac-sensors-table](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/mac-sensors-table.png&raw=1)
+![mac-sensors-table](https://raw.githubusercontent.com/elatov/upload/master/opensuse-mbp/mac-sensors-table.png)
 
 and also a nice diagram of where they are located:
 
-![mac-sensors-dia](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/mac-sensors-dia.png&raw=1)
+![mac-sensors-dia](https://raw.githubusercontent.com/elatov/upload/master/opensuse-mbp/mac-sensors-dia.png)
 
 After looking through the guide, I ended up creating the following sensors config:
 
@@ -377,11 +377,11 @@ After looking through the guide, I ended up creating the following sensors confi
 		label temp16 "Mainboard_Proximity Temp"
 		label temp17 "Palmrest_Proximity Temp"
 		label temp18 "Memory_Proximity Temp"
-	
+
 	chip "coretemp-*"
 		label temp2 "CPU_Core0 Temp"
 		label temp4 "CPU_Core1 Temp"
-	
+
 	chip "BAT0-virtual-*"
 		label temp1 "Battery Temp"
 
@@ -391,7 +391,7 @@ And that produced the following output:
 	BAT0-virtual-0
 	Adapter: Virtual device
 	Battery Temp:  +38.3°C
-	
+
 	applesmc-isa-0300
 	Adapter: ISA adapter
 	Left side  :                     2306 RPM  (min = 2000 RPM, max = 6000 RPM)
@@ -414,7 +414,7 @@ And that produced the following output:
 	Mainboard_Proximity Temp:         +57.2°C
 	Palmrest_Proximity Temp:          +35.0°C
 	Memory_Proximity Temp:            +47.0°C
-	
+
 	coretemp-isa-0000
 	Adapter: ISA adapter
 	CPU_Core0 Temp:  +63.0°C  (high = +95.0°C, crit = +105.0°C)
@@ -474,7 +474,7 @@ Then a reboot worked.
 #### Random kworker and Power Consumption issue
 I installed **zabbix** on the laptop, since it runs at home all the time and I kept getting a lot of "Too many processes running" and "High Load Avg" alerts from the laptop.
 
-![os-top-la-kwor](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/os-top-la-kwor.png&raw=1)
+![os-top-la-kwor](https://raw.githubusercontent.com/elatov/upload/master/opensuse-mbp/os-top-la-kwor.png)
 
 I realized I had a lot of **kworker** threads:
 
@@ -507,7 +507,7 @@ After trying the workaround, it didn't help:
 Then I went on a rampage and tried a bunch of **grub**/**kernel** options:
 
 1. [Arch Macbook Stability Problems](https://wiki.archlinux.org/index.php/MacBook#Stability_problems)
-	
+
 	* `libata.force=1:noncq`
 2. [MacBookPro6-2/Precise](https://help.ubuntu.com/community/MacBookPro6-2/Precise)
 	* Confirmed the Controller using AHCI Mode and not IDE Mode
@@ -516,15 +516,15 @@ Then I went on a rampage and tried a bunch of **grub**/**kernel** options:
 
 		`00:1f.2 SATA controller: Intel Corporation 5 Series/3400 Series Chipset 4 port SATA AHCI Controller (rev 06)`
 3. [High load averages and interrupts with 2.6.36/2.6.37](https://bbs.archlinux.org/viewtopic.php?id=111111&p=2)
-	
+
 	* `nohz=off highres=off`
 4. [AC to battery causes extreme load, many kworker threads in D state - 2008 Macbook](https://bugzilla.kernel.org/show_bug.cgi?id=169241)
-	
+
 	* `acpi=off`
 
 There were a couple more (I didn't keep track), but none of those helped. Then by dumb luck I was running **powertop** and I saw it action:
 
-![suse-powertop-2.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/suse-powertop-2.png&raw=1)
+![suse-powertop-2.png](https://raw.githubusercontent.com/elatov/upload/master/opensuse-mbp/suse-powertop-2.png)
 
 After that I found this kernel bug: [SLAB: extreme load averages and over 2000 kworker threads](https://bugzilla.kernel.org/show_bug.cgi?id=172981). Since tumbleweed was running the latest kernel at the time:
 
@@ -617,7 +617,7 @@ SUSE is an RPM based distro but it uses it's own package manager called **zypper
 	<> sudo zypper up
 	The following 2 packages are going to be upgraded:
 	  moc mpv
-	
+
 	2 packages to upgrade.
 	Overall download size: 1.4 MiB. Already cached: 0 B. After the operation,
 	additional 48.0 B will be used.
@@ -632,7 +632,7 @@ SUSE is an RPM based distro but it uses it's own package manager called **zypper
 	There are some running programs that might use files deleted by recent upgrade. You may wish to check and restart some of them. Run 'zypper ps -s' to list these programs.
 	<> sudo zypper ps
 	The following running processes use deleted files:
-	
+
 	PID   | PPID  | UID  | User   | Command        | Service | Files
 	------+-------+------+--------+----------------+---------+----------------------
 	24123 | 23020 | 1000 | elatov | mocp (deleted) |         | /usr/lib64/moc/deco->
@@ -654,7 +654,7 @@ Eventually I found that within the **search** (se) option there is a **--file-li
 	<> sudo zypper se -f "*/bin/convert"
 	Loading repository data...
 	Reading installed packages...
-	
+
 	S | Name        | Summary                         | Type
 	--+-------------+---------------------------------+--------
 	  | ImageMagick | Viewer and Converter for Images | package
@@ -662,16 +662,16 @@ Eventually I found that within the **search** (se) option there is a **--file-li
 With openSUSE you can also use the **cnf** (command not found) utility but it doesn't work for libraries:
 
 	<> cnf convert
-	
+
 	The program 'convert' can be found in the following package:
 	  * ImageMagick [ path: /usr/bin/convert, repository: zypp (repo-oss) ]
-	
+
 	Try installing with:
 	    sudo zypper install ImageMagick
 
 Another way of searching for files used to be **webpin**, but it looks like that has become deprecated. Here is how it looked like.
 
-![web-pin-sus](https://seacloud.cc/d/480b5e8fcd/files/?p=/opensuse-mbp/web-pin-sus.png&raw=1)
+![web-pin-sus](https://raw.githubusercontent.com/elatov/upload/master/opensuse-mbp/web-pin-sus.png)
 
 Or you can use the cli, get the RPM from [here](https://software.opensuse.org/package/webpin?search_term=webpin). Then after installing, you can use it:
 
@@ -713,7 +713,7 @@ Or you can use the **search** option but then I am not sure what the difference 
 	<> sudo zypper se -ir packman
 	Loading repository data...
 	Reading installed packages...
-	
+
 	S | Name                         | Summary                                                                   | Type
 	--+------------------------------+---------------------------------------------------------------------------+--------
 	i | dkms                         | Dynamic Kernel Module Support Framework                                   | package

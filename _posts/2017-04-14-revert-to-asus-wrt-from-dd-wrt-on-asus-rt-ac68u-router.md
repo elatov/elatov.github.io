@@ -12,27 +12,27 @@ I initially install dd-wrt on the Asus RT-AC68U Router (the instructions for tha
 
 I recently got a fiber connection for my WAN and I wanted to see what speed I can reach. Plugging my laptop directly into the Modem, I saw the following:
 
-![direct-laptop](https://seacloud.cc/d/480b5e8fcd/files/?p=/asuswrt-install/direct-laptop.png&raw=1)
+![direct-laptop](https://raw.githubusercontent.com/elatov/upload/master/asuswrt-install/direct-laptop.png)
 
 That's really good. Then plugging my laptop through the Router, I saw the following:
 
-![ddwrt-only-ethr-2](https://seacloud.cc/d/480b5e8fcd/files/?p=/asuswrt-install/ddwrt-only-ethr-2.png&raw=1)
+![ddwrt-only-ethr-2](https://raw.githubusercontent.com/elatov/upload/master/asuswrt-install/ddwrt-only-ethr-2.png)
 
 And here are the results with wifi:
 
-![ddwrt-wifi](https://seacloud.cc/d/480b5e8fcd/files/?p=/asuswrt-install/ddwrt-wifi.png&raw=1)
+![ddwrt-wifi](https://raw.githubusercontent.com/elatov/upload/master/asuswrt-install/ddwrt-wifi.png)
 
 It wasn't as good. So I decided to try out AsusWRT
 
 ### Create a backup of DD-WRT
 Before completing wiping my router, I decided to create a backup. First go to the admin UI and export the config. **Administration** -> **Backup** and select Backup:
 
-![wrt-backup-ui](https://seacloud.cc/d/480b5e8fcd/files/?p=/asuswrt-install/wrt-backup-ui.png&raw=1)
+![wrt-backup-ui](https://raw.githubusercontent.com/elatov/upload/master/asuswrt-install/wrt-backup-ui.png)
 
 It will download a file called **nvrambak.bin** for the backup. I also grabbed the contents of the **/jffs** and **/opt** directories since I had a USB drive plugged in. First install a better version of **tar** (after **ssh**'ing into the router):
 
 	# opkg install tar
-	
+
 And then create a **tar** archive:
 
 	# /opt/bin/tar -cpvjf /opt/backup/backup-8-27-16.tar.bz2 /opt /jjfs --exclude=/opt/backup
@@ -62,7 +62,7 @@ If you extract the zip you see the **trx** file:
 From the Router's Manual pdf:
 
 > To launch the rescue mode and use the Firmware Restoration utility:
-> 
+>
 > 1. Unplug the wireless router from the power source.
 > 2. Hold the Reset button at the rear panel and simultaneously replug the wireless router into the power source. Release the Reset button when the Power LED at the front panel flashes slowly, which indicates that the wireless router is in the rescue mode.
 
@@ -78,30 +78,30 @@ I noticed there are two procedures, from the Router's Manual pdf:
 If things get really bad you can use the following instructions which I found at the [asuswrt-merlin FAQ](https://github.com/RMerl/asuswrt-merlin/wiki/FAQ) page:
 
 > **Q: How do I put the router into Recovery Mode?**
-> 
+>
 > A: Turn the router off. Press the reset button, and while keeping it pressed turn it back on. Wait a few seconds until the power led blinks, and then release the reset button. Router will now be in Recovery Mode, reachable at 192.168.1.1.
-> 
+>
 > **Q: How do I wipe my settings?**
-> 
+>
 > A: Press the reset button for more than 5 seconds, then release it.
-> 
+>
 > **Q: How do I wipe my settings? Reset button does not work.**
-> 
+>
 > A: If the firmware fails to boot, then the reset button won't work. Turn the router off, press the WPS button. While keeping it pressed turn the router back on. Wait a few seconds, then release the WPS button. Settings will be back to factory defaults.
 
 #### Installing the Stock ASUS Firmware
 
 After the router is in the **Recovery/Rescue** mode, install the **Firmware Restoration Utility** and launch it. I was using a Mac, and I actually found it in the App Store:
 
-![as-asus-res-utility](https://seacloud.cc/d/480b5e8fcd/files/?p=/asuswrt-install/as-asus-res-utility.png&raw=1)
+![as-asus-res-utility](https://raw.githubusercontent.com/elatov/upload/master/asuswrt-install/as-asus-res-utility.png)
 
 Then I configured my IP to be on the same network as the router (**192.168.1.X/24**) and I uploaded the **trx** file to the utility:
 
-![as-asus-res-fw-up](https://seacloud.cc/d/480b5e8fcd/files/?p=/asuswrt-install/as-asus-res-fw-up.png&raw=1)
+![as-asus-res-fw-up](https://raw.githubusercontent.com/elatov/upload/master/asuswrt-install/as-asus-res-fw-up.png)
 
 And then after you click **Upload**, it will start the upload:
 
-![as-asus-res-fw-start](https://seacloud.cc/d/480b5e8fcd/files/?p=/asuswrt-install/as-asus-res-fw-start.png&raw=1)
+![as-asus-res-fw-start](https://raw.githubusercontent.com/elatov/upload/master/asuswrt-install/as-asus-res-fw-start.png)
 
 If all is well it will finish the upload and ask you to reboot your router. Then you can visit **http://192.168.1.1** to finish the configuration.
 
@@ -109,13 +109,13 @@ If all is well it will finish the upload and ask you to reboot your router. Then
 
 After I installed and configured AsusWRT, I decided to run another speed test and here is what I saw:
 
-![asus-stock-only-ether-2](https://seacloud.cc/d/480b5e8fcd/files/?p=/asuswrt-install/asus-stock-only-ether-2.png&raw=1)
+![asus-stock-only-ether-2](https://raw.githubusercontent.com/elatov/upload/master/asuswrt-install/asus-stock-only-ether-2.png)
 
 
 That's a little bit better :) Here is the version I was on:
 
 	ASUSWRT RT-AC68U_3.0.0.4 Wed Jul  6 12:15:38 UTC 2016
-	
+
 	admin@(none):/tmp/home/root# nvram get firmver
 	3.0.0.4
 	admin@(none):/tmp/home/root# nvram get model
@@ -143,7 +143,7 @@ After extracting it, I just grabbed the **trx** file:
 
 So from the AsusWRT Admin UI, I went to **Administration** -> **Firmware Upgrade** and uploaded the new **trx** file and clicked **Upload**:
 
-![asus-update-ui](https://seacloud.cc/d/480b5e8fcd/files/?p=/asuswrt-install/asus-update-ui.png&raw=1)
+![asus-update-ui](https://raw.githubusercontent.com/elatov/upload/master/asuswrt-install/asus-update-ui.png)
 
 After the update was done, here is the version I was on:
 
@@ -157,12 +157,12 @@ After the update was done, here is the version I was on:
 
 After upgrading the stock Asus Firmware to the Merlin Firmware here were the results of the speed test:
 
-![asus-merlin-only-ether2](https://seacloud.cc/d/480b5e8fcd/files/?p=/asuswrt-install/asus-merlin-only-ether2.png&raw=1)
+![asus-merlin-only-ether2](https://raw.githubusercontent.com/elatov/upload/master/asuswrt-install/asus-merlin-only-ether2.png)
 
 Very similar results and I get cool features, like SNMP and traffic stats saved to a usb disk (full list is available [here](https://asuswrt.lostrealm.ca/features)). I also ran a test with wi-fi and it was pretty much the same accross both versions of AsusWRT:
 
 
-![asus-merlin-only-wifi](https://seacloud.cc/d/480b5e8fcd/files/?p=/asuswrt-install/asus-merlin-only-wifi.png&raw=1)
+![asus-merlin-only-wifi](https://raw.githubusercontent.com/elatov/upload/master/asuswrt-install/asus-merlin-only-wifi.png)
 
 ### VLAN Config
 
@@ -194,7 +194,7 @@ When I was initially testing, I ran the following to get what I needed:
 	/sbin/vconfig add eth0 3
 	/sbin/ifconfig vlan3 up
 	/sbin/ifconfig vlan3 10.0.0.1 netmask 255.255.255.0
-	
+
 But when I tried to add to a script it would freeze my router, eventually I realized that after enabling a couple of options the default config changed to have the **vlan 1** port to have **8t** instead of **5t** (which makes sense, since that applies to a 1GB interfaces, more on that [here](http://www.dd-wrt.com/wiki/index.php/Switched_Ports)). So I ended up with the following script on the router which worked for me (and survived a reboot):
 
 	admin@RT-AC68U-1F08:/tmp/home/root# cat /jffs/scripts/firewall-start
@@ -204,7 +204,7 @@ But when I tried to add to a script it would freeze my router, eventually I real
 	/sbin/vconfig add eth0 3
 	/sbin//ifconfig vlan3 up
 	/sbin//ifconfig vlan3 10.0.0.1 netmask 255.255.255.0
-	
+
 ### Firewall Setup with FWBuilder
 I wanted to use my existing setup as described in [here](/2013/04/use-fwbuilder-to-deploy-an-iptables-firewall-to-a-dd-wrt-router/) and [here](/2014/11/dd-wrt-on-asus-rt-ac68u-router/). The **iproute2** utility **ip** is always causing problems. This time around the **ip link show \<int\>** or **ip link show dev \<int\>** would not work on the router:
 
@@ -220,14 +220,14 @@ But the **ip link show** command would work:
 	admin@RT-AC68U-1F08:/tmp/home/root# ip link show  | grep br0 -A 1
 	10: br0: <BROADCAST,MULTICAST,ALLMULTI,UP,LOWER_UP> mtu 1500 qdisc noqueue state UNKNOWN mode DEFAULT
 	    link/ether 78:24:af:7b:1f:08 brd ff:ff:ff:ff:ff:ff
-	    
+
 Luckily **ip addr** worked fine. So to integrate with **fwbuilder** I did a couple of things. On the **FWBuilder** side, I configured it to drop the script under **/jffs/scripts/nat-start**:
 
-![fw-builder-output-asus](https://seacloud.cc/d/480b5e8fcd/files/?p=/asuswrt-install/fw-builder-output-asus.png&raw=1)
+![fw-builder-output-asus](https://raw.githubusercontent.com/elatov/upload/master/asuswrt-install/fw-builder-output-asus.png)
 
 and to run a custom install script (**/jffs/firewall/firewall.sh**):
 
-![fb-asus-inst](https://seacloud.cc/d/480b5e8fcd/files/?p=/asuswrt-install/fb-asus-inst.png&raw=1)
+![fb-asus-inst](https://raw.githubusercontent.com/elatov/upload/master/asuswrt-install/fb-asus-inst.png)
 
 The install script removes the **ip link show dev** references and replaces them with **ifconfig** which still works and then it runs the script:
 
@@ -240,7 +240,7 @@ The install script removes the **ip link show dev** references and replaces them
 
 And lastly I unchecked the **Verify interfaces before loading firewall policy**, this got rid of the **ip link show** commands:
 
-![fb-un-verif](https://seacloud.cc/d/480b5e8fcd/files/?p=/asuswrt-install/fb-un-verif.png&raw=1)
+![fb-un-verif](https://raw.githubusercontent.com/elatov/upload/master/asuswrt-install/fb-un-verif.png)
 
 After those changes, I was able to successfully push the firewall of type **dd-wrt with jffs** without issues.
 
@@ -256,11 +256,11 @@ On my dd-wrt router I also used **dnsmasq** as a DNS server, it was pretty convi
 	bogus-priv
 	addn-hosts=/jffs/hosts.home
 	strict-order
-	
+
 And then I just restarted the **dnsmasq** service:
 
 	service restart_dnsmasq
-	
+
 ### Entware Configuration
 Entware is the new version of optware and is available for AsusWRT. The setup is covered [here](https://github.com/RMerl/asuswrt-merlin/wiki/Entware). We basically just run **entware-setup.sh** and that's it:
 
@@ -271,7 +271,7 @@ Entware is the new version of optware and is available for AsusWRT. The setup is
 	 Info:  replaced with this one. Also some start scripts will be installed,
 	 Info:  the old ones will be saved on Entware partition with name
 	 Info:  like /tmp/mnt/sda1/jffs_scripts_backup.tgz
-	
+
 	 Info:  Looking for available partitions...
 	[1] --> /tmp/mnt/sda1
 	 =>  Please enter partition number or 0 to exit
@@ -331,7 +331,7 @@ Entware is the new version of optware and is available for AsusWRT. The setup is
 	Info: Add /opt/bin & /opt/sbin to your PATH variable
 	Info: Add '/opt/etc/init.d/rc.unslung start' to startup script for Entware-ng services to start
 	Info: Found a Bug? Please report at https://github.com/Entware-ng/Entware-ng/issues
-	
+
 Now I can use **opkg** to install nice cool packages on the router.
 
 ### Fixing Auto Logout Issue
@@ -346,19 +346,19 @@ The reason for the amazing speed is because of NAT Acceleration. [This website](
 
 > Level 1: CTF (Cut Through Forwarding): Software optimization technique to accelerate NAT traffic.
 > You may need this option if your internet provider is offer you speed above 100 mb /sec. You generally need this option if you want to achieve peak speeds especially for speed above 200 mb/sec.
-> 
+>
 > CTF or Cut-Through Forwarding is achieved by the router starting to send out transmission frames as soon as it receives its destination. However, the router relies on the end device to tell it whether the data is corrupted for resend. This restriction can cause problems with a few common home uses.
-> 
+>
 > When you have CTF or level 1 NAT Acceleration disabled, the router will “store” the entire frame before sending it out to its destination. This holding period may require more router’s CPU use.
-> 
+>
 > Level 2: Level 1 (CTF) + FA (Flow Accelerator): Hardware NAT acceleration mechanism design for accelerating wired DHCP and Static IP connections.
-> 
+>
 > You will need Flow Accelerator option to fully take advantage of internet provider’s Gigabit service is offered.
 
 Unfortunately some network feature are not supported with NAT Acceleration. Here is a quick list:
 
 * QoS
-* Port Forwarding 
+* Port Forwarding
 * IP Traffic Monitoring
 * Streaming Services
 
@@ -366,7 +366,7 @@ The Port Forwarding impacted me the most. I noticed that some ports worked and s
 
 	/usr/sbin/robocfg vlan 1 ports "1 2 3 4t 8t"
 	/usr/sbin/robocfg vlan 3 ports "4t 8t"
-    
+
 to this:
 
 	/usr/sbin/robocfg vlan 1 ports "1 2 3 4t 5t"

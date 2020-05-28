@@ -11,7 +11,7 @@ I had an old **snorby** install get stale with a lot of data since the **cache_j
 ### Snorby Database
 I didn't find a good diagram of the database schema for snorby specifically but I did find a close one from **snort**. From [ACID: Database (v100-103) ER Diagram](http://www.andrew.cmu.edu/user/rdanyliw/snort/acid_db_er_v102.html):
 
-![snort-db.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/snorby-db-cleanup/snort-db.png&raw=1)
+![snort-db.png](https://raw.githubusercontent.com/elatov/upload/master/snorby-db-cleanup/snort-db.png)
 
 Another good site [Querying SNORT SQL database](http://sgros.blogspot.com/2012/07/querying-snort-sql-database.html) has good examples of queries to show you the contents of the database. Some useful queries from that site:
 
@@ -24,7 +24,7 @@ Another good site [Querying SNORT SQL database](http://sgros.blogspot.com/2012/0
 	select signature,count(*) as cnt,inet_ntoa(ip_src) from event,iphdr where event.cid=iphdr.cid and event.sid=iphdr.sid group by ip_src order by cnt;
 	select inet_ntoa(iphdr.ip_src) as SRC,inet_ntoa(iphdr.ip_dst) as DST,timestamp from event,iphdr,icmphdr where (icmphdr.sid,icmphdr.cid)=(event.sid,event.cid) and (iphdr.sid,iphdr.cid)=(event.sid,event.cid) and icmp_type=8 limit 3;
 	select signature.sig_name,count(*) from signature,event,iphdr where (event.cid,event.sid)=(iphdr.cid,iphdr.sid) and inet_ntoa(ip_src)='10.61.34.152' and event.signature=signature.sig_id group by sig_id;
-	
+
 ### Clean the DB Manually
 There used to be a pretty good site that went over the process: "How to clean up unwanted Snorby events by Signature name" (but it seems to be offline now). I found old commands from that post [here](https://groups.google.com/forum/#!topic/security-onion/nrHt2lQit9c). First list the signatures that have the most counts:
 
@@ -70,7 +70,7 @@ Next we can clean up any missing data from the tables:
 	ss.sig_name = "SURICATA STREAM 3way handshake right seq wrong ack evasion" OR
 	ss.sig_name = "SURICATA STREAM Packet with invalid timestamp" OR ss.sig_name =
 	"SURICATA UDPv4 invalid checksum" OR ss.sig_name = "SURICATA STREAM ESTABLISHED retransmission packet before last ack") AND se.cid=st.cid;
-	
+
 ### Clean up Old Data
 I also found a couple of bugs in which the cache jobs were failing to clean up old data. Here are some data:
 
@@ -81,7 +81,7 @@ From the first one we can run the following to clean up the old stale data:
 
 	delete from iphdr where ip_src = 0 or ip_dst = 0;
 	delete from caches where (sid, cid) not in (select iphdr.sid as sid, iphdr.cid as cid from iphdr);
-	delete from daily_caches where (sid, cid) not in (select iphdr.sid as sid, iphdr.cid as cid from iphdr);    
+	delete from daily_caches where (sid, cid) not in (select iphdr.sid as sid, iphdr.cid as cid from iphdr);
 	delete from data where (sid, cid) not in (select iphdr.sid as sid, iphdr.cid as cid from iphdr);
 	delete from event where (sid, cid) not in (select iphdr.sid as sid, iphdr.cid as cid from iphdr);
 	delete from favorites where (sid, cid) not in (select iphdr.sid as sid, iphdr.cid as cid from iphdr);
@@ -106,13 +106,13 @@ I was using InnoDB at the time so I could run the following to get back the spac
 	optimize table iphdr;
 	optimize table tcphdr;
 	optimize table opt;
-	
+
 Then we can run the cache jobs as well to rebuild/clean up the cache:
 
 	bundle exec 'rails c production'
 	Snorby::Jobs::SensorCacheJob.new(true).perform
 	Snorby::Jobs::DailyCacheJob.new(true).perform
-	
+
 ### Preventing Database Increase
 I found a couple of bugs that talk manually running jobs to prune the db:
 

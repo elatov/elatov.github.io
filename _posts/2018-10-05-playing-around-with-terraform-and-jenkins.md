@@ -90,13 +90,13 @@ And I also saw a new DHCP **netns**:
 Then after doing a new **deploy** to be on the provider network (instead of the internal one):
 
 	<> terraform apply
-	
+
 	An execution plan has been generated and is shown below.
 	Resource actions are indicated with the following symbols:
 	  + create
-	
+
 	Terraform will perform the following actions:
-	
+
 	  + openstack_compute_instance_v2.vm1
 	      id:                         <computed>
 	      access_ip_v4:               <computed>
@@ -124,16 +124,16 @@ Then after doing a new **deploy** to be on the provider network (instead of the 
 	      security_groups.3814588639: "default"
 	      stop_before_destroy:        "false"
 	      user_data:                  "90f8abf748f00aaee3f0d436dea4cbdc46adac63"
-	
-	
+
+
 	Plan: 1 to add, 0 to change, 0 to destroy.
-	
+
 	Do you want to perform these actions?
 	  Terraform will perform the actions described above.
 	  Only 'yes' will be accepted to approve.
-	
+
 	  Enter a value: yes
-	
+
 	openstack_compute_instance_v2.vm1: Creating...
 	  access_ip_v4:               "" => "<computed>"
 	  access_ip_v6:               "" => "<computed>"
@@ -162,7 +162,7 @@ Then after doing a new **deploy** to be on the provider network (instead of the 
 	  user_data:                  "" => "90f8abf748f00aaee3f0d436dea4cbdc46adac63"
 	openstack_compute_instance_v2.vm1: Still creating... (10s elapsed)
 	openstack_compute_instance_v2.vm1: Creation complete after 14s (ID: 3811cde4-8051-4e3e-97a1-8d434ab40fa6)
-	
+
 	Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 
 
@@ -267,7 +267,7 @@ I was also able to SSH to the machine without going through the **netns** router
 	$ ping -c 1 google.com
 	PING google.com (172.217.1.206): 56 data bytes
 	64 bytes from 172.217.1.206: seq=0 ttl=57 time=3.845 ms
-	
+
 	--- google.com ping statistics ---
 	1 packets transmitted, 1 packets received, 0% packet loss
 	round-trip min/avg/max = 3.845/3.845/3.845 ms
@@ -278,7 +278,7 @@ I could've used a floating IP, but I decided to just deploy directly on the prov
 
 Just for fun I decided to see if I could accomplish the same with **jenkins**. There is a [plugin](https://plugins.jenkins.io/terraform/) for it, but I just used it to install the **terraform** binary (not to configure a *freestyle* job). So after you install the plugin, configure it to auto install a specific version of **terraform** and the architecture:
 
-![jen-terr-tool.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/terraform-openstack-jenkins/jen-terr-tool.png&raw=1)
+![jen-terr-tool.png](https://raw.githubusercontent.com/elatov/upload/master/terraform-openstack-jenkins/jen-terr-tool.png)
 
 If you ever run a job that uses that tool, it will auto install it:
 
@@ -312,6 +312,6 @@ There is actually a pretty good example at [Automating Terraform Projects with J
 
 Here is the job running and applying the plan :)
 
-![jen-terr-job.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/terraform-openstack-jenkins/jen-terr-job.png&raw=1)
+![jen-terr-job.png](https://raw.githubusercontent.com/elatov/upload/master/terraform-openstack-jenkins/jen-terr-job.png)
 
 It's [recommended](https://www.terraform.io/guides/running-terraform-in-automation.html) to use a backend that supports **locking** and **remote state**. For my quick test I just had the files locally, but this was just to make sure it works.

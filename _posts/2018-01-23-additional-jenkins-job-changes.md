@@ -33,10 +33,10 @@ Here is the code I ended up with:
             println("time to build drive, old version: ${current_drive_version} new version: ${latest_drive_version}")
             sh "if [ -d /etc/puppetlabs/code/environments/production/modules/drive/files/jenkins/${latest_drive_version} ]; then true; else mkdir /etc/puppetlabs/code/environments/production/modules/drive/files/jenkins/${latest_drive_version}; fi"
             stage ('Starting Build job') {
-                build job: '02-drive-pipeline', 
+                build job: '02-drive-pipeline',
                     parameters: [
-                        [$class: 'StringParameterValue', 
-                         name: 'DRIVE_VERSION', 
+                        [$class: 'StringParameterValue',
+                         name: 'DRIVE_VERSION',
                          value: latest_drive_version]],
                     wait: false
             }
@@ -48,18 +48,18 @@ Here is the code I ended up with:
 The note about *matcher* causing random issues is covered in [Serializing Local Variables](https://github.com/jenkinsci/pipeline-plugin/blob/master/TUTORIAL.md#serializing-local-variables):
 
 > * This occurs because the matcher local variable is of a type (Matcher) not considered serializable by Java. Since pipelines must survive Jenkins restarts, the state of the running program is periodically saved to disk so it can be resumed later (saves occur after every step or in the middle of steps such as sh).
-> 
+>
 > * The “state” includes the whole control flow including: local variables, positions in loops, and so on. As such: any variable values used in your program should be numbers, strings, or other serializable types, not “live” objects such as network connections.
->  
+>
 > * If you must use a nonserializable value temporarily: discard it before doing anything else. When you keep the matcher only as a local variable inside a function, it is automatically discarded as soon as the function returned.
 
 Then I created a build trigger to run it weekly:
 
-![build-trigger-cron](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-mail/build-trigger-cron.png&raw=1)
+![build-trigger-cron](https://raw.githubusercontent.com/elatov/upload/master/jenkins-mail/build-trigger-cron.png)
 
 Of course I could just **Poll SCM**/Git for a new Commit every time:
 
-![build-triggers](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-mail/build-triggers.png&raw=1)
+![build-triggers](https://raw.githubusercontent.com/elatov/upload/master/jenkins-mail/build-triggers.png)
 
 But that would build it too often. I only wanted new releases to cause builds. After that was in place, I saw the following at the beginning of the triggered job:
 
@@ -70,11 +70,11 @@ But that would build it too often. I only wanted new releases to cause builds. A
 ### Jenkins mail Job Results
 I also ended up installing the [mailer plugin](https://plugins.jenkins.io/mailer/):
 
-![jenkins-mailer-plugin-installed](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-mail/jenkins-mailer-plugin-installed.png&raw=1)
+![jenkins-mailer-plugin-installed](https://raw.githubusercontent.com/elatov/upload/master/jenkins-mail/jenkins-mailer-plugin-installed.png)
 
 And configured the plugin to use my SMTP server (**Manage Jenkins** -> **Configure System** -> **E-mail Notification**) and sent a test email:
 
-![mailer-email-sent](https://seacloud.cc/d/480b5e8fcd/files/?p=/jenkins-mail/mailer-email-sent.png&raw=1)
+![mailer-email-sent](https://raw.githubusercontent.com/elatov/upload/master/jenkins-mail/mailer-email-sent.png)
 
 And then I checked out these pages on how to use it:
 

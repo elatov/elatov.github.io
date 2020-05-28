@@ -36,15 +36,15 @@ After that the **katello** scenario will be available:
 So now let's run the installer, while I was at it, I decided to enable some plugins that I might use later on:
 
 	[elatov@fore ~]$ sudo foreman-installer --scenario katello --enable-foreman-compute-libvirt --enable-foreman-compute-openstack --enable-foreman-compute-vmware --enable-foreman-plugin-ansible --enable-foreman-plugin-remote-execution
-	
+
 	Installing             Done                                               [100%]
 	  Success!
 	  * Katello is running at https://fore.kar.int
 	      Initial credentials are admin / xdw2xnVKUd8bKGC2
 	  * To install an additional Foreman proxy on separate machine continue by running:
-	
+
 	      foreman-proxy-certs-generate --foreman-proxy-fqdn "$FOREMAN_PROXY" --certs-tar "/root/$FOREMAN_PROXY-certs.tar"
-	
+
 	  The full log is at /var/log/foreman-installer/katello.log
 
 ### Confirm PXE Network Boot is Working
@@ -82,7 +82,7 @@ You can confirm the **tftp** service was configured appropriately by checking ou
 
 You can see all the necessary files that are needed to PXE Boot a machine. After that, I created a test VM on my ESXi host and added a blank disk to it so it would boot from it's NIC (this is discussed in [Using PXE with Virtual Machines](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-ABDA2AC1-9799-4C9C-B2A0-97CBB5E78D68.html)) and I saw it started to boot from **foreman**:
 
-![vm-pxe-booting.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/foreman-install/vm-pxe-booting.png&raw=1)
+![vm-pxe-booting.png](https://raw.githubusercontent.com/elatov/upload/master/foreman-install/vm-pxe-booting.png)
 
 ### Syncing CentOS Repos with Katello
 Now let's sync the CentOS repos so when we provision VMs they can install from a local repo rather than downloading packages from the internet. Some nice instructions are available here:
@@ -95,7 +95,7 @@ Now let's sync the CentOS repos so when we provision VMs they can install from a
 
 #### Configure Hammer CLI
 Let's configure the **hammer** cli, so we can use that for some of the configuration:
-​	
+​
 	echo "ORG=\"Default Organization\"" >> ~/.bashrc
 	echo "LOCATION=\"Default Location\"" >> ~/.bashrc
 	echo "DOMAIN=kar.int" >> ~/.bashrc
@@ -110,7 +110,7 @@ Let's configure the **hammer** cli, so we can use that for some of the configura
 	EOF
 
 Then make sure you can use it:
-​	
+​
 	[elatov@fore ~]$ hammer organization list
 	---|----------------------|----------------------|-------------|----------------------|------------
 	ID | TITLE                | NAME                 | DESCRIPTION | LABEL                | DESCRIPTION
@@ -134,10 +134,10 @@ And now let's create the Repos:
 
 	[elatov@fore ~]$ hammer repository create --name='CentOS 7 - Base - x86_64' --organization "Default Organization" --product='CentOS_7' --content-type='yum' --publish-via-http=true --url=http://mirror.centos.org/centos/7/os/x86_64/ --checksum-type=sha256 --gpg-key=GPG-CentOS-7
 	Repository created
-	
+
 	[elatov@fore ~]$ hammer repository create --name='CentOS 7 - Updates - x86_64' --organization "Default Organization" --product='CentOS_7' --content-type='yum' --publish-via-http=true --url=http://mirror.centos.org/centos/7/updates/x86_64/ --checksum-type=sha256 --gpg-key=GPG-CentOS-7
 	Repository created
-	
+
 	[elatov@fore ~]$ hammer repository create --name='CentOS 7 - Extras - x86_64' --organization "Default Organization" --product='CentOS_7' --content-type='yum' --publish-via-http=true --url=http://mirror.centos.org/centos/7/extras/x86_64/ --checksum-type=sha256 --gpg-key=GPG-CentOS-7
 	Repository created
 
@@ -153,7 +153,7 @@ And now let's add our CentOS product to be part of the sync:
 
 You can also login to the foreman admin console and kick off a sync now. **Content** -> **Sync Status** -> **Select CentOS_7 Product** -> **Select All** -> **Synchronize Now**:
 
-![fore-cos-repos-unsynced.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/foreman-install/fore-cos-repos-unsynced.png&raw=1)
+![fore-cos-repos-unsynced.png](https://raw.githubusercontent.com/elatov/upload/master/foreman-install/fore-cos-repos-unsynced.png)
 
 Or you can do it one my one using **hammer**:
 
@@ -163,7 +163,7 @@ Or you can do it one my one using **hammer**:
 
 After the sync is done you will see them synced:
 
-![fore-cos-repos-synced.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/foreman-install/fore-cos-repos-synced.png&raw=1)
+![fore-cos-repos-synced.png](https://raw.githubusercontent.com/elatov/upload/master/foreman-install/fore-cos-repos-synced.png)
 
 You can also confirm using **hammer** (first list all the repos):
 
@@ -263,14 +263,14 @@ And I was also able to get an **RPM** directly:
 	Resolving fore.kar.int (fore.kar.int)... 10.0.0.7
 	Connecting to fore.kar.int (fore.kar.int)|10.0.0.7|:80... connected.
 	HTTP request sent, awaiting response... 302 FOUND
-	Location: http://fore.kar.int:80/streamer/var/lib/pulp/content/units/rpm/2b/768197d6ff9daba6e50d580ab0d0423ffe388ad759cafb1d46871c12612b48/389-ds-base-1.3.6.1-16.el7.x86_64.rpm?policy=eyJleHRlbnNpb25zIjogeyJyZW1vdGVfaXAiOiAiMTkyLjE2OC4xLjE%3D 
+	Location: http://fore.kar.int:80/streamer/var/lib/pulp/content/units/rpm/2b/768197d6ff9daba6e50d580ab0d0423ffe388ad759cafb1d46871c12612b48/389-ds-base-1.3.6.1-16.el7.x86_64.rpm?policy=eyJleHRlbnNpb25zIjogeyJyZW1vdGVfaXAiOiAiMTkyLjE2OC4xLjE%3D
 	Reusing existing connection to fore.kar.int:80.
 	HTTP request sent, awaiting response... 200 OK
 	Length: 1783596 (1.7M) [application/x-rpm]
 	Saving to: ‘389-ds-base-1.3.6.1-16.el7.x86_64.rpm’
-	
+
 	100%[======================================>] 1,783,596   --.-K/s   in 0.05s
-	
+
 	2018-01-14 16:05:24 (33.6 MB/s) - ‘389-ds-base-1.3.6.1-16.el7.x86_64.rpm’ saved [1783596/1783596]
 
 and confirm it was a valid RPM:
@@ -299,7 +299,7 @@ and confirm it was a valid RPM:
 
 As a quick test, I created a **medium** and pointed it to the CentOS repo that I synced with Katello:
 
-![foreman-create-medium.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/foreman-install/foreman-create-medium.png&raw=1)
+![foreman-create-medium.png](https://raw.githubusercontent.com/elatov/upload/master/foreman-install/foreman-create-medium.png)
 
 I know I could use the *Synced Content* from **Katello** but that required passing more parameters to the **hammer** cli.
 
@@ -321,10 +321,10 @@ My issue was that I didn't assign the *Smart Proxy* to my **subnet**. After fixi
 	# This file was deployed via 'Kickstart default PXELinux' template
 
 
-​	
+​
 	TIMEOUT 10
 	DEFAULT Kickstart default PXELinux
-	
+
 	LABEL Kickstart default PXELinux
 	  KERNEL boot/CentOS-7-x86_64-vmlinuz
 	  APPEND initrd=boot/CentOS-7-x86_64-initrd.img ks=http://fore.kar.int:8000/unattended/provision?token=b7cf62a1-5ad9-4179-a723-3a2fed4bd696  network ksdevice=bootif ks.device=bootif BOOTIF=00-00-0c-29-f7-c1-e0 kssendmac ks.sendmac inst.ks.sendmac
@@ -339,23 +339,23 @@ And I saw the boot files added as well:
 
 After starting up the VM, I saw the boot process:
 
-![fore-pxeboot-kernel.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/foreman-install/fore-pxeboot-kernel.png&raw=1)
+![fore-pxeboot-kernel.png](https://raw.githubusercontent.com/elatov/upload/master/foreman-install/fore-pxeboot-kernel.png)
 
 Initially I ran into this error:
 
-![fore-pxeboot-ram-error.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/foreman-install/fore-pxeboot-ram-error.png&raw=1)
+![fore-pxeboot-ram-error.png](https://raw.githubusercontent.com/elatov/upload/master/foreman-install/fore-pxeboot-ram-error.png)
 
 Luckily the issue was discussed in [f24 installation fails with 1GB ram](https://bugzilla.redhat.com/show_bug.cgi?id=1314092). After adding more RAM, I saw the install get further:
 
-![fore-pxe-pr1.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/foreman-install/fore-pxe-pr1.png&raw=1)
+![fore-pxe-pr1.png](https://raw.githubusercontent.com/elatov/upload/master/foreman-install/fore-pxe-pr1.png)
 
 After the install was done, I saw the VM boot up:
 
-![fore-pxe-pr4.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/foreman-install/fore-pxe-pr4.png&raw=1)
+![fore-pxe-pr4.png](https://raw.githubusercontent.com/elatov/upload/master/foreman-install/fore-pxe-pr4.png)
 
 And in the **foreman** console, I saw the host in an **installed** state:
 
-![fore-installed-host.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/foreman-install/fore-installed-host.png&raw=1)
+![fore-installed-host.png](https://raw.githubusercontent.com/elatov/upload/master/foreman-install/fore-installed-host.png)
 
 You can also SSH to the VM, and check out the **kickstart** script:
 
@@ -386,7 +386,7 @@ You can also SSH to the VM, and check out the **kickstart** script:
 	keyboard --vckeymap=us --xlayouts=''
 	# System language
 	lang en_US.UTF-8
-	
+
 	# Network information
 	network  --bootproto=dhcp --device=00:0c:29:f7:c1:e0 --hostname=leigh-wetzler.kar.int --activate
 	# Reboot after installation
@@ -408,7 +408,7 @@ You can also SSH to the VM, and check out the **kickstart** script:
 	zerombr
 	# Partition clearing information
 	clearpart --all --initlabel
-	
+
 	%post --nochroot
 	exec < /dev/tty3 > /dev/tty3
 	#changing to VT 3 so that we can see whats going on....
@@ -418,18 +418,18 @@ You can also SSH to the VM, and check out the **kickstart** script:
 	/usr/bin/chvt 1
 	) 2>&1 | tee /mnt/sysimage/root/install.postnochroot.log
 	%end
-	
+
 	%post
 	logger "Starting anaconda leigh-wetzler.kar.int postinstall"
 	exec < /dev/tty3 > /dev/tty3
 	#changing to VT 3 so that we can see whats going on....
 	/usr/bin/chvt 3
 	(
-	
+
 	#  interface
 	real=`grep -l 00:0c:29:f7:c1:e0 /sys/class/net/*/{bonding_slave/perm_hwaddr,address} 2>/dev/null | awk -F '/' '// {print $5}' | head -1`
 	sanitized_real=`echo $real | sed s/:/_/`
-	
+
 	cat << EOF > /etc/sysconfig/network-scripts/ifcfg-$sanitized_real
 	BOOTPROTO="dhcp"
 	DOMAIN="kar.int"
@@ -440,15 +440,15 @@ You can also SSH to the VM, and check out the **kickstart** script:
 	PEERROUTES=yes
 	DEFROUTE=yes
 	EOF
-	
+
 	#update local time
 	echo "updating system time"
 	/usr/sbin/ntpdate -sub 0.fedora.pool.ntp.org
 	/usr/sbin/hwclock --systohc
-	
+
 	# update all the base packages from the updates repository
 	yum -t -y -e 0 update
-	
+
 	# SSH keys setup snippet for Remote Execution plugin
 	#
 	# Parameters:
@@ -466,23 +466,23 @@ You can also SSH to the VM, and check out the **kickstart** script:
 	# This template sets up SSH keys in any host so that as long as your public
 	# SSH key is in remote_execution_ssh_keys, you can SSH into a host. This only
 	# works in combination with Remote Execution plugin.
-	
+
 	# The Remote Execution plugin queries smart proxies to build the
 	# remote_execution_ssh_keys array which is then made available to this template
 	# via the host's parameters. There is currently no way of supplying this
 	# parameter manually.
 	# See http://projects.theforeman.org/issues/16107 for details.
-	
+
 	sync
-	
+
 	# Inform the build system that we are done.
 	echo "Informing Foreman that we are built"
 	wget -q -O /dev/null --no-check-certificate http://fore.kar.int:8000/unattended/built?token=b7cf62a1-5ad9-4179-a723-3a2fed4bd696
 	) 2>&1 | tee /root/install.post.log
 	exit 0
-	
+
 	%end
-	
+
 	%packages --ignoremissing
 	@Core
 	chrony
@@ -491,11 +491,11 @@ You can also SSH to the VM, and check out the **kickstart** script:
 	ntp
 	wget
 	yum
-	
+
 	%end
-	
+
 	%addon com_redhat_kdump --enable --reserve-mb='auto'
-	
+
 	%end
 
 Pretty sweet.
@@ -520,7 +520,7 @@ Initially I didn't see the SSH keys created so I followed the instructions in th
 
 Then I noticed that the SSH key wasn't not getting pushed to the provisioned VM. I had to make sure the **subnet** had a *Smart Proxy* assigned for the **remote-execution** feature:
 
-![fore-subnet-rem-ex.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/foreman-install/fore-subnet-rem-ex.png&raw=1)
+![fore-subnet-rem-ex.png](https://raw.githubusercontent.com/elatov/upload/master/foreman-install/fore-subnet-rem-ex.png)
 
 I also had to use a different port to confirm I could **curl** the SSH key:
 
@@ -534,7 +534,7 @@ At first I thought I misconfigured the SSH key some how. This was discussed in: 
 
 Also while I was troubleshooting the issue I ran into [How to update remoteExecution SSH key properly? and where?](https://groups.google.com/forum/#!topic/foreman-users/rDjhYmcQSvI), which had instructions on how to refresh the **smart proxy** to refresh the new SSH key if you updated it:
 
-> It's stored in the database in Foreman.  If you go to the Smart Proxy's page and click "Refresh" under the actions it will refresh the key. 
+> It's stored in the database in Foreman.  If you go to the Smart Proxy's page and click "Refresh" under the actions it will refresh the key.
 
 #### smart_proxy_dynflow_core Issues
 
@@ -543,9 +543,9 @@ Then I ran into an issue where the **smart_proxy_dynflow_core** service wasn't s
 	sudo systemctl enable smart_proxy_dynflow_core
 	sudo systemctl start smart_proxy_dynflow_core
 
-Next I ran into an issue where the **smart_proxy_dynflow_core** service was misconfigured, this was discussed in: 
+Next I ran into an issue where the **smart_proxy_dynflow_core** service was misconfigured, this was discussed in:
 
-* [Remote Execution sending error after upgrade katello 3.4.3](https://projects.theforeman.org/issues/20206) 
+* [Remote Execution sending error after upgrade katello 3.4.3](https://projects.theforeman.org/issues/20206)
 * [Timeout when running job](https://projects.theforeman.org/issues/19425)
 * [smart_proxy_dynflow_core.service on capsule keeps failing when running `yum -y install --advisory ...` ReX on 6k hosts](https://bugzilla.redhat.com/show_bug.cgi?id=1417978)
 
@@ -564,7 +564,7 @@ I ended up configuring the following file:
 
 Then I was successfully able to run a command remotely on a provisioned host:
 
-![fore-remot-ex-success.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/foreman-install/fore-remot-ex-success.png&raw=1)
+![fore-remot-ex-success.png](https://raw.githubusercontent.com/elatov/upload/master/foreman-install/fore-remot-ex-success.png)
 
 Took a while but I got there, I feel like the installer should've probably take care of that.
 
@@ -628,17 +628,17 @@ And then ran it:
 
 	[elatov@fore ~]$ ansible-playbook deploy.yml -u root -v
 	Using /etc/ansible/ansible.cfg as config file
-	
+
 	PLAY [all] *************************************************************************************************************
-	
+
 	TASK [Gathering Facts] *************************************************************************************************
 	ok: [10.0.0.150]
-	
+
 	TASK [influxdata.chrony : include os-specific vars] ********************************************************************
 	ok: [10.0.0.150] => {"ansible_facts": {"chrony_conf_file": "/etc/chrony.conf", "chrony_driftfile": "/var/lib/chrony/drif
 	t", "chrony_keyfile": "/etc/chrony/chrony.keys", "chrony_service_name": "chronyd"}, "ansible_included_var_files": ["/etc
 	/ansible/roles/influxdata.chrony/vars/redhat.yml"], "changed": false}
-	
+
 	TASK [influxdata.chrony : Install Chrony] ******************************************************************************
 	ok: [10.0.0.150] => {"changed": false, "msg": "", "rc": 0, "results": ["chrony-3.1-2.el7.centos.x86_64 providing chrony
 	is already installed"]}
@@ -662,7 +662,7 @@ And that was it. I logged into the host and confirmed **chronyd** is running:
 	 Main PID: 20361 (chronyd)
 	   CGroup: /system.slice/chronyd.service
 	           └20361 /usr/sbin/chronyd
-	
+
 	Jan 18 19:06:12 karim-test.kar.int systemd[1]: Starting NTP client/server...
 	Jan 18 19:06:12 karim-test.kar.int chronyd[20361]: chronyd version 3.1 starting (+CMDMON +NTP +REFCLOCK +RTC +PRI...BUG)
 	Jan 18 19:06:12 karim-test.kar.int chronyd[20361]: commandkey directive is no longer supported
@@ -675,11 +675,11 @@ Pretty easy.
 #### Running Ansible With Foreman
 I already had the **chronyd** role installed so I imported it under **Configure** -> **Ansible Roles**:
 
-![ansible-role-imported.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/foreman-install/ansible-role-imported.png&raw=1)
+![ansible-role-imported.png](https://raw.githubusercontent.com/elatov/upload/master/foreman-install/ansible-role-imported.png)
 
 Then I just assigned that role to the host and selected to run the playbook on the selected host:
 
-![fore-play-ans-role.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/foreman-install/fore-play-ans-role.png&raw=1)
+![fore-play-ans-role.png](https://raw.githubusercontent.com/elatov/upload/master/foreman-install/fore-play-ans-role.png)
 
 #### Issues With Running Ansible Playbooks
 
@@ -690,7 +690,7 @@ Initially ran into this issue: [ActionController::UrlGenerationError in HostsCon
 
 I was able to run an ansible playbook. Then I ran into a permission error:
 
-![fore-ans-perm-issue.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/foreman-install/fore-ans-perm-issue.png&raw=1)
+![fore-ans-perm-issue.png](https://raw.githubusercontent.com/elatov/upload/master/foreman-install/fore-ans-perm-issue.png)
 
 and I found this page: [Running playbook role in Foreman 1.15.6 / ansible pluging 1.4.5 / ansible 2.4.1 return an error](https://community.theforeman.org/t/running-playbook-role-in-foreman-1-15-6-ansible-pluging-1-4-5-ansible-2-4-1-return-an-error/7665/2). And so I confirmed it was a home directory permission issue:
 
@@ -708,7 +708,7 @@ and then to fix it:
 
 Then after that the playbook succeeded but the playback failed:
 
-![fore-ans-playback-error.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/foreman-install/fore-ans-playback-error.png&raw=1)
+![fore-ans-playback-error.png](https://raw.githubusercontent.com/elatov/upload/master/foreman-install/fore-ans-playback-error.png)
 
 I needed to set the correct URL. I saw the issue discussed on different pages:
 
@@ -745,4 +745,4 @@ But none of those worked, finally I just modified the script directly:
 
 And after that the **ansible** role apply looked pretty good:
 
-![fore-ansible-role-playback-working.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/foreman-install/fore-ansible-role-playback-working.png&raw=1)
+![fore-ansible-role-playback-working.png](https://raw.githubusercontent.com/elatov/upload/master/foreman-install/fore-ansible-role-playback-working.png)

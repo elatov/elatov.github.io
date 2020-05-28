@@ -11,13 +11,13 @@ I ended up installing ESXi 6.5 on the HP Z2 Mini G3 and it actually worked out w
 
 	[root@hp:~] esxcli hardware platform get
 	Platform Information
-	   UUID: 0x24 0x98 	   
+	   UUID: 0x24 0x98
 	   Product Name: HP Z2 Mini G3 Workstation
 	   Vendor Name: HP
-   
+
 Here is what I saw from the web vSphere client:
 
-![vsphere-hp-info.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/hp-z2-esxi/vsphere-hp-info.png&raw=1)
+![vsphere-hp-info.png](https://raw.githubusercontent.com/elatov/upload/master/hp-z2-esxi/vsphere-hp-info.png)
 
 This guy had **i7-6700 CPUs** and 32GB of RAM:
 
@@ -42,19 +42,19 @@ This guy had **i7-6700 CPUs** and 32GB of RAM:
 	   L3 Cache Associativity: 16
 	   L3 Cache Line Size: 64
 	   L3 Cache CPU Count: 2
-	   
+
 and here is the RAM information:
 
 	[root@hp:~] esxcli hardware memory get
 	   Physical Memory: 34133794816 Bytes
 	   Reliable Memory: 0 Bytes
 	   NUMA Node Count: 1
-	   
+
 ### USB 3 Ethernet Adapter
 I did end up getting a USB 3 Ethernet Adapter and following the instructions laid out in [USB 3.0 Ethernet Adapter (NIC) driver for ESXi 6.5](http://www.virtuallyghetto.com/2016/11/usb-3-0-ethernet-adapter-nic-driver-for-esxi-6-5.html) to get it working. I ended getting a **Realtek** Based USB adapter but it still worked out with out issues. Here is the information about the device:
 
 	[root@hp:~] lsusb -v -s 002:002
-	
+
 	Bus 002 Device 002: ID 0bda:8153 Realtek Semiconductor Corp. RTL8153 Gigabit Ethernet Adapter
 	Device Descriptor:
 	  bLength                18
@@ -88,11 +88,11 @@ Then after a reboot here is the NIC:
 This NIC is on the Vmware HCL([Intel Ethernet Connection (2) I219-LM](https://www.vmware.com/resources/compatibility/detail.php?deviceCategory=io&productid=39796&deviceCategory=io&details=1&VID=8086&DID=15b7&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc)).Initially I ran into issues where the NIC would just randomly hang and I would see this message:
 
 	2017-02-22T16:25:09.994Z cpu2:65908)INFO (ne1000): false RX hang detected on vmnic0
-	
+
 I ran into [Strange Ethernet error that I can't find any info on](https://communities.vmware.com/thread/556755) vmware community post and running the following would stop using the default **ne1000** driver and would default to the **e1000e** driver:
 
 	esxcli system module set --enabled=false --module=ne1000
-	
+
 After a reboot I saw the following driver utilized:
 
 	[root@hp:~] ethtool -i vmnic0
@@ -125,11 +125,11 @@ This worked out great and fixed the initial issue. But then I ran into another i
 	  next_to_clean        <0>
 	buffer_info[next_to_clean]:
 	  time_stamp      $
-	  
+
 Then I ran into [KB 2149915](https://kb.vmware.com/kb/2149915) and it had the following:
 
 > This patch updates the ne1000 VIB to resolve the following issues:
-> 
+>
 > When TSO capability is enabled in NE1000 driver, I218 NIC reset frequently in heavy traffic scenario, because of I218 h/w issue. The NE1000 TSO capability for I218 NIC should be disabled.
 
 So I decided to update to ESXi 6.5 U1
@@ -153,13 +153,13 @@ There are actually pretty good instructions at [How to easily update your VMware
 	# Reinstall the realtek vib
 	esxcli software vib install -v /vmfs/volumes/datastore1/drivers/r8152-2.06.0-4_esxi65.vib
 
-Everything was working as before. 
+Everything was working as before.
 
 ### Re-enable ne1000 Driver
 So lastly I re-enabled the **ne1000** driver:
 
 	# esxcli system module set --enabled=true --module=ne1000
-	
+
 Then after the reboot I saw the following:
 
 	[root@hp:~] esxcli network nic get -n vmnic0

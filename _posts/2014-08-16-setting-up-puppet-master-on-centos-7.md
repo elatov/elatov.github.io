@@ -9,9 +9,9 @@ tags: [linux,centos,puppet,fedora,ssl,apache]
 
 After playing around with the Vagrant and Puppet configuration, I decided to stand up a puppet master/server to play with. There are two different versions: Open Source Puppet and Puppet Enterprise. Here is a comparison of the two:
 
-![puppet-os-vs-ent](https://seacloud.cc/d/480b5e8fcd/files/?p=/os-puppet-master-setup/puppet-os-vs-ent.png&raw=1)
+![puppet-os-vs-ent](https://raw.githubusercontent.com/elatov/upload/master/os-puppet-master-setup/puppet-os-vs-ent.png)
 
-For now I will setup the Open Source one. Puppet has some awesome documentation so let's follow their recommendations. 
+For now I will setup the Open Source one. Puppet has some awesome documentation so let's follow their recommendations.
 
 ### Preparing for the Puppet Deployment
 
@@ -25,19 +25,19 @@ From "[Installing Puppet: Pre-Install Tasks](https://puppet.com/docs/puppet/5.5/
 I did a minimal install of CentOS 7 so now let's make sure the prerequisites for networking are ready:
 
  1. Firewalls
-  
+
     We have to make sure port **8140** is open. By default CentOS 7 uses **firewalld**. Unless you are running on a laptop I feel that **firewalld** is a little bit too much. So let's remove it and configure **iptables**.
-  
+
 		[elatov@puppet ~]$ sudo yum remove firewalld
 		[elatov@puppet ~]$ sudo yum install iptables-services
-  
+
     Now let's add port **8140** to the default configuration. This is done by adding the following to the **/etc/sysconfig/iptables** file:
-  
+
 		# Allow Puppet Clients
 		-A INPUT -p tcp -m state --state NEW -m tcp --dport 8140 --tcp-flags FIN,SYN,RST,ACK SYN -j ACCEPT
 
 	Now let's enable and start the service and confirm the rule is in place:
- 
+
 		[elatov@puppet ~]$ sudo systemctl enable iptables
 		[elatov@puppet ~]$ sudo systemctl start iptables
 		[elatov@puppet ~]$ sudo iptables -L -n -v | grep 8140
@@ -46,16 +46,16 @@ I did a minimal install of CentOS 7 so now let's make sure the prerequisites for
  2. Name resolution
 
 	I just added "puppet" to my DNS server so any machine was able to resolve **puppet**:
-	
+
 		[elatov@puppet ~]$ host puppet
 		puppet.dnsd.me has address 10.0.0.6
-		
+
 	If you don't want to add that DNS entry you will have to ensure all the puppet clients have local **/etc/hosts** entries pointing to the puppet master.
-	
+
  3. Check Timekeeping on Your Puppet Master Server
 
 	I decided to use **ntp** to keep the puppet master in sync with an external time server. So let's install **ntpd** on the machine:
-	
+
 		[elatov@puppet ~]$ sudo yum install ntp
 
 	Now let's make sure the servers look good
@@ -85,7 +85,7 @@ I did a minimal install of CentOS 7 so now let's make sure the prerequisites for
 From [Installing Puppet: Red Hat Enterprise Linux (and Derivatives)](https://docs.puppet.com/puppet/3.8/install_el.html) let's get the correct version of the *puppet* YUM repository:
 
 	[elatov@puppet ~]$ sudo rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm
-	
+
 Now let's do the actual install:
 
 	[elatov@puppet ~]$ sudo yum install puppet-server
@@ -93,7 +93,7 @@ Now let's do the actual install:
 If we ever need to update the puppet-server version we can run the following:
 
 	[elatov@puppet ~]$ sudo puppet resource package puppet-server ensure=latest
-	
+
 I didn't have to do that, but I am sure I will have to later on.
 
 ### Configure a Puppet Master Server
@@ -111,9 +111,9 @@ So let's get to it.
 There are a couple of different scenarios like if you have multiple Puppet Masters then you will have to dedicate one of them to be the CA master and then configure the other ones as Non-CA masters. I only have one Puppet master so I didn't have to worry about that. From the above site:
 
 > When you create the puppet master’s certificate, you must include every DNS name at which agent nodes might try to contact the master.
-> 
+>
 > Decide on a main name for Puppet services at your site, and make sure your DNS resolves it to the puppet master (or its load balancer). Unconfigured agents will try to find a master at puppet, so if you use this name it can reduce setup time.
-> 
+>
 > In the [**main**] section of the master’s **puppet.conf** file, set the dns_alt_names setting to a comma-separated list of each hostname the master should be allowed to use
 
 There are only two options for my setup:
@@ -123,7 +123,7 @@ There are only two options for my setup:
 
 So here is how my **puppet.conf** looked like:
 
-	[elatov@puppet ~]$ grep dns_alt_names /etc/puppet/puppet.conf 
+	[elatov@puppet ~]$ grep dns_alt_names /etc/puppet/puppet.conf
 		dns_alt_names = puppet,puppet.dnsd.me
 
 After that we can run the following to generate the certificates:
@@ -161,72 +161,72 @@ Here is what I added to the **/etc/puppet/puppet.conf** file (the *autosign* fil
 
 and here are the contents of the **autosign.conf** file:
 
-	[elatov@puppet ~]$ cat /etc/puppet/autosign.conf 
+	[elatov@puppet ~]$ cat /etc/puppet/autosign.conf
 	*.dnsd.me
 
 This was just a home setup, but there are obvious security issues with this. From the above page:
 
 > ####Security Implications of Basic Autosigning
-> 
+>
 > Since any host can provide any certname when requesting a certificate, basic autosigning should only be used in situations where you fully trust any computer able to connect to the puppet master.
-> 
+>
 > With basic autosigning enabled, an attacker able to guess an unused certname allowed by autosign.conf would be able to obtain a signed agent certificate from the puppet master. They would then be able to obtain a configuration catalog, which may or may not contain sensitive information (depending on your deployment’s Puppet code and node classification).
 
 #### Create Puppet Modules and Manifests
 From the [Installing Puppet: Post-Install Tasks](https://docs.puppet.com/puppet/3.8/post_install.html) page:
 
 > If you’re starting from scratch, ensure that the **main** manifest exists. You may also want to install some modules from the **Puppet Forge**.
-	
+
 I was starting from scratch so let's get a main manifest going. From the [Directories: The Main Manifest(s)](https://puppet.com/docs/puppet/latest/dirs_manifest.html) page:
 
 > ### Location of Manifests
-> 
+>
 > #### With Puppet Master
-> 
+>
 > - When using no environments, the main manifest will default to `$confdir/manifests/site.pp`, which is a single file. (See here for info about the confdir.) This location can be configured with the **manifest** setting.
 > - If you are using directory environments, the main manifest will always be `$confdir/environments/<ENVIRONMENT NAME>/manifests`, which is a directory. The location of the environments directory can be configured with the **environmentpath** setting; see the page about directory environments for more details.
 > - If you are using config file environments, Puppet will look for a manifest setting in that environment’s config section; if it isn’t set there, Puppet will fall back to the **manifest** setting in the **[master]** or **[main]** section. See the page about config file environments for more details.
-> 
+>
 > The main manifest may be a single file or a directory of **.pp** files. To check the actual manifest your puppet master will use, run `puppet config print manifest --section master --environment <ENVIRONMENT>`.
-> 
+>
 > ..
-> 
+>
 > ####Directory Behavior (vs. Single File)
 > If the main manifest is a directory, Puppet will parse every **.pp** file in the directory in alphabetical order and then evaluate the combined manifest.
-> 
+>
 > Puppet will act as though the whole directory were just one big manifest; for example, a variable assigned in the file 01_all_nodes.pp would be accessible in node_web01.pp.
-> 
+>
 > Puppet will only read the first level of files in a manifest directory; it won’t descend into subdirectories.
 
 I wanted to find out what directory environments were and from the [Directory Environments](https://puppet.com/docs/puppet/latest/environments_creating.html) page:
 
 > Environments are isolated groups of puppet agent nodes. A puppet master server can serve each environment with completely different main manifests and modulepaths.
-> 
+>
 > This frees you to use different versions of the same modules for different populations of nodes, which is useful for testing changes to your Puppet code before implementing them on production machines. (You could also do this by running a separate puppet master for testing, but using environments is often easier.)
-> 
+>
 > ####Directory Environments vs. Config File Environments
 > There are two ways to set up environments on a puppet master: directory environments, and config file environments. Note that these are mutually exclusive — enabling one will completely disable the other.
-> 
+>
 > This page is about directory environments, which are easier to use and will eventually replace config file environments completely.
 
 Also from the same page here is a diagram that demonstrates how the directory structure would look like:
 
-![puppet-dir-env-diag](https://seacloud.cc/d/480b5e8fcd/files/?p=/os-puppet-master-setup/puppet-dir-env-diag.png&raw=1)
+![puppet-dir-env-diag](https://raw.githubusercontent.com/elatov/upload/master/os-puppet-master-setup/puppet-dir-env-diag.png)
 
-That seems like a very cool feature, I was only planning on managing like 3 machines (just to play around with the setup). But in a big puppet deployment it would be sweet to setup Prod/DEV/QA environments and push configs accordningly. For now I will skip the environment configurations. 
+That seems like a very cool feature, I was only planning on managing like 3 machines (just to play around with the setup). But in a big puppet deployment it would be sweet to setup Prod/DEV/QA environments and push configs accordningly. For now I will skip the environment configurations.
 
 I also noticed that if the main manifest is a directory then we can break down manifests into separate files. So let's try that out. First let's confirm the manifest location:
 
 	$ sudo puppet config print manifest --section master
 	/etc/puppet/manifests/site.pp
-	
+
 That location doesn't even exist yet:
 
 	$ ls -la /etc/puppet/manifests/
 	total 0
 	drwxr-xr-x 2 root root   6 Jun  9 15:10 .
 	drwxr-xr-x 5 root root 131 Aug 16 10:53 ..
-	
+
 So let's make it a directory and put a single manifest in the directory (each manifest will be a node definition... just in my example):
 
 	$ sudo mkdir /etc/puppet/manifests/site.pp
@@ -236,15 +236,15 @@ Another method is to use the **import** functionatlity. From [Language: Node Def
 
 > #### Location
 > Node definitions should go in the site manifest (**site.pp**).
-> 
+>
 > Alternately, you can store node definitions in any number of manifest files which are imported into site.pp:
-> 
+>
 >     # /etc/puppetlabs/puppet/manifests/site.pp
-> 
+>
 >     # Import every file in /etc/puppetlabs/puppet/manifests/nodes/
 >     # (Usually, each file contains one node definition.)
 >     import 'nodes/*.pp'
-> 
+>
 >     # Import several nodes from a single file
 >     import 'extra_nodes.pp'
 
@@ -253,31 +253,31 @@ So now we need to define a node in our node defintion so we can push settings to
 
 > #### The End of the One Huge Manifest
 > You can write some pretty sophisticated manifests at this point, but so far you’ve just been putting them in one file (either **/etc/puppetlabs/puppet/manifests/site.pp** or a one-off to use with puppet apply).
-> 
+>
 > Past a handful of resources, this gets unwieldy. You can probably already see the road to the three thousand line manifest of doom, and you don’t want to go there. It’s much better to split chunks of logically related code out into their own files, and then refer to those chunks by name when you need them.
-> 
+>
 > Classes are Puppet’s way of separating out chunks of code, and modules are Puppet’s way of organizing classes so that you can refer to them by name.
 
 From the same page here is an example of creating a simple **ntp** module:
 
 > #### Module Structure
-> 
+>
 > - A module is a directory.
 > - The module’s name must be the name of the directory.
 > - It contains a manifests directory, which can contain any number of .pp files.
 > - The manifests directory should always contain an init.pp file.
 > 	- This file must contain a single class definition. The class’s name must be the same as the module’s name.
-> 
+>
 > There’s more to know, but this will get us started. Let’s turn our NTP class into a real module:
-> 
+>
 > 	# cd /etc/puppetlabs/puppet/modules
 > 	# mkdir -p ntp/manifests
 > 	# touch ntp/manifests/init.pp
-> 
+>
 > Edit this **init.pp** file, and paste your ntp class definition into it. Be sure not to paste in the include statement; it’s not necessary here.
-> 
+>
 >     # /etc/puppetlabs/puppet/modules/ntp/manifests/init.pp
-> 
+>
 >     class ntp {
 >       case $operatingsystem {
 >         centos, redhat: {
@@ -289,7 +289,7 @@ From the same page here is an example of creating a simple **ntp** module:
 >           $conf_file    = 'ntp.conf.debian'
 >         }
 >       }
-> 
+>
 >       package { 'ntp':
 >         ensure => installed,
 >       }
@@ -306,22 +306,22 @@ From the same page here is an example of creating a simple **ntp** module:
 >         subscribe => File['ntp.conf'],
 >       }
 >     }
-> 
+>
 > #### Declaring Classes From Modules
-> 
+>
 > Now that we have a working module, you can edit your **site.pp** file: if there are any NTP-related resources left in it, be sure to delete them, then add one line:
-> 
+>
 > 	include ntp
 
 So let's create a simple module that ensures that a user called *elatov* is created. First let's confirm where our **modulepath** is:
 
 	$ sudo puppet config print modulepath --section master
 	/etc/puppet/modules:/usr/share/puppet/modules
-	
+
 Now let's create our module:
 
 	$ sudo mkdir -p /etc/puppet/modules/users/manifests
-	$ sudo vi /etc/puppet/modules/users/manifests/init.pp 
+	$ sudo vi /etc/puppet/modules/users/manifests/init.pp
 
 Here is how my **init.pp** looked like in the end:
 
@@ -341,7 +341,7 @@ Here is how my **init.pp** looked like in the end:
 
 and let's include that class in our configuration node:
 
-	$ cat /etc/puppet/manifests/site.pp/pup-node1.pp 
+	$ cat /etc/puppet/manifests/site.pp/pup-node1.pp
 	node 'pup-node1.dnsd.me' {
 		include users
 	}
@@ -350,9 +350,9 @@ There are different ways to use a defined class, from [Language: Classes](https:
 
 > ####Include-Like Behavior
 > The **include**, **require**, **contain**, and **hiera_include** functions let you safely declare a class multiple times; no matter how many times you declare it, a class will only be added to the catalog once. This can allow classes or defined types to manage their own dependencies, and lets you create overlapping “role” classes where a given node may have more than one role.
-> 
+>
 > Include-like behavior relies on external data and defaults for class parameter values, which allows the external data source to act like cascading configuration files for all of your classes. When a class is declared, Puppet will try the following for each of its parameters:
-> 
+>
 > 1. Request a value from the external data source, using the key `<class name>::<parameter name>`. (For example, to get the apache class’s version parameter, Puppet would search for apache::version.)
 > 2. Use the default value.
 > 3. Fail compilation with an error if no value can be found.
@@ -361,7 +361,7 @@ and here is the second one:
 
 > #### Resource-like Behavior
 > Resource-like class declarations require that you only declare a given class once. They allow you to override class parameters at compile time, and will fall back to external data for any parameters you don’t override. When a class is declared, Puppet will try the following for each of its parameters:
-> 
+>
 > 1. Use the override value from the declaration, if present.
 > 2. Request a value from the external data source, using the key `<class name>::<parameter name>`. (For example, to get the apache class’s version parameter, Puppet would search for apache::version.)
 > 3. Use the default value.
@@ -370,19 +370,19 @@ and here is the second one:
 So if you don't need to change any parameters of the class, you can use **include**, here are examples from the same page:
 
 > #### Using include
-> 
+>
 > The include function is the standard way to declare classes.
-> 
+>
 >     include base::linux
 >     include base::linux # no additional effect; the class is only declared once
-> 
+>
 >     include base::linux, apache # including a list
-> 
+>
 >     $my_classes = ['base::linux', 'apache']
 >     include $my_classes # including an array
-> 
+>
 > The include function uses include-like behavior. (Multiple declarations OK; relies on external data for parameters.) It can accept:
-> 
+>
 > - A single class
 > - A comma-separated list of classes
 > - An array of classes
@@ -390,16 +390,16 @@ So if you don't need to change any parameters of the class, you can use **includ
 If you are passing or changing parameters to/of a class then use **class**:
 
 > #### Using Resource-Like Declarations
-> 
+>
 > Resource-like declarations look like normal resource declarations, using the special class pseudo-resource type.
-> 
+>
 >     # Overriding a parameter:
 >     class {'apache':
 >       version => '2.2.21',
 >     }
 >     # Declaring a class with no parameters:
 >     class {'base::linux':}
-> 
+>
 > Resource-like declarations use resource-like behavior. (Multiple declarations prohibited; parameters may be overridden at compile-time.) You can provide a value for any class parameter by specifying it as resource attribute; any parameters not specified will follow the normal external/default/fail lookup path.
 
 Here are the class definitions that the above examples are calling:
@@ -437,16 +437,16 @@ and the second one:
         subscribe => File['/etc/httpd.conf'],
       }
     }
-	
+
 I wasn't overriding any class parameters so I used the **include** declaration.
 
 ### Prepare a WebServer for the Puppet Master
 From the [Installing Puppet: Post-Install Tasks](https://docs.puppet.com/puppet/3.8/post_install.html) page:
 
 > #### Configure a Production-Ready Web Server
-> 
+>
 > Puppet includes a basic puppet master web server, but you cannot use it for real-life loads. You must configure a production quality web server before you start managing your nodes with Puppet.
-> 
+>
 > If you have no particular preference, you should use Passenger with Apache, since it works well and is simple to set up.
 
 The page [Configuring a Puppet Master Server with Passenger and Apache](https://puppet.com/docs/puppet/5.5/passenger.html) has most of the instructions laid out on how to install **Passenger**. We can either use the [EPEL](https://fedoraproject.org/wiki/EPEL) repository or the *PupperLabs* one. Since I already had the PuppetLabs one enabled (I did this when I installed the **puppet-server** package), I just ended up using that. So let's the necessary packages:
@@ -530,7 +530,7 @@ When it's done installing, you will see the following:
 	   <VirtualHost *:80>
 		  ServerName www.yourhost.com
 		  # !!! Be sure to point DocumentRoot to 'public'!
-		  DocumentRoot /somewhere/public    
+		  DocumentRoot /somewhere/public
 		  <Directory /somewhere/public>
 			 # This relaxes Apache security settings.
 			 AllowOverride all
@@ -558,7 +558,7 @@ Now let's move the puppet master application into a generic location:
 	$ sudo mkdir /usr/share/puppet/rack/puppetmasterd/public /usr/share/puppet/rack/puppetmasterd/tmp
 	$ sudo cp /usr/share/puppet/ext/rack/config.ru /usr/share/puppet/rack/puppetmasterd/
 	$ sudo chown puppet:puppet /usr/share/puppet/rack/puppetmasterd/config.ru
-	
+
 Lastly let's configure apache to use the **passenger** module to host the puppetmaster *rack-web-application*. Let's copy the sample config over:
 
 	$ sudo cp /usr/share/puppet/ext/rack/example-passenger-vhost.conf /etc/httpd/conf.d/puppetmaster.conf
@@ -566,7 +566,7 @@ Lastly let's configure apache to use the **passenger** module to host the puppet
 
 After that modify the config to apply to your environment, here is what I ended up with:
 
-	$ cat /etc/httpd/conf.d/puppetmaster.conf 
+	$ cat /etc/httpd/conf.d/puppetmaster.conf
 	# This Apache 2 virtual host config shows how to use Puppet as a Rack
 	# application via Passenger. See
 	# http://docs.puppetlabs.com/guides/passenger.html for more information.
@@ -650,14 +650,14 @@ Disable Puppet Master if it was enabled:
 
 Then enable the **httpd** service and start it:
 
-	$ sudo systemctl enable httpd.service 
+	$ sudo systemctl enable httpd.service
 	ln -s '/usr/lib/systemd/system/httpd.service' '/etc/systemd/system/multi-user.target.wants/httpd.service'
-	$ sudo systemctl start httpd.service 
+	$ sudo systemctl start httpd.service
 
 Lastly make sure **httpd** is listening on port **8140**:
 
-	$ sudo ss -lntp 
-	State      Recv-Q Send-Q        Local Address:Port          Peer Address:Port 
+	$ sudo ss -lntp
+	State      Recv-Q Send-Q        Local Address:Port          Peer Address:Port
 	LISTEN     0      100               127.0.0.1:25                       *:*      users:(("master",1112,13))
 	LISTEN     0      128                       *:443                      *:*      users:(("httpd",7845,5))
 	LISTEN     0      128                       *:8140                     *:*      users:(("httpd",7845,4))
@@ -685,12 +685,12 @@ If you don't use the **-k** option it will give you a warning that it doesn't tr
 	 not match the domain name in the URL).
 	If you'd like to turn off curl's verification of the certificate, use
 	 the -k (or --insecure) option.
-	 
+
 If you want, you can add the **puppet** CA cert to your system as a trusted SSL CA. Here is what I did on my Fedora laptop to achieve that. First get the CA from the puppet master:
 
 	elatov@fed:~$scp root@puppet.dnsd.me:/var/lib/puppet/ssl/certs/ca.pem ca-puppet.dnsd.me
-	root@puppet.dnsd.me's password: 
-	ca.pem                                        100% 1956     1.9KB/s   00:00    
+	root@puppet.dnsd.me's password:
+	ca.pem                                        100% 1956     1.9KB/s   00:00
 
 I then added it to the **ca-trust source** directory:
 
@@ -702,7 +702,7 @@ Then regenerating the **ca-bundle**:
 
 The above command will create a new **/etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem** file  and **/etc/pki/tls/certs/ca-bundle.crt** is a symlink to that file:
 
-	elatov@fed:~$ls -l /etc/pki/tls/certs/ca-bundle.crt 
+	elatov@fed:~$ls -l /etc/pki/tls/certs/ca-bundle.crt
 	lrwxrwxrwx 1 root root 49 Mar 25 09:07 /etc/pki/tls/certs/ca-bundle.crt -> /etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem
 
 And that's the default file that the OS uses to check for trusted SSL CAs. After that  I can confirm it's in the trust policy store:
@@ -728,7 +728,7 @@ Now that we are done with the puppet master configuration, let's setup a puppet 
 	pup-node1
 	[vagrant@pup-node1 ~]$ hostname -f
 	pup-node1.dnsd.me
-	
+
 And of course it could resolve the **puppet.dnsd.me** hostname:
 
 	[vagrant@pup-node1 ~]$ getent hosts puppet
@@ -745,7 +745,7 @@ and now let's install the puppet agent:
 From [Installing Puppet: Post-Install Tasks](https://docs.puppet.com/puppet/3.8/post_install.html), here are the next steps:
 
 > After installing Puppet on a normal puppet agent node, you’ll need to:
-> 
+>
 > - Configure Puppet
 > - Start the puppet agent service (or configure a cron job)
 > - Sign the new node’s certificate
@@ -753,7 +753,7 @@ From [Installing Puppet: Post-Install Tasks](https://docs.puppet.com/puppet/3.8/
 
 Looking over [Configuration: Short List of Important Settings](https://puppet.com/docs/puppet/latest/config_important_settings.html#settings-for-agents-all-nodes), it looks like we need to define the **server** and the **certname** (this is basically the hostname of our node) if the hostname is not configured appropriately. So I just added the **server** directive (which is actually unncessary since by default the **server** directive is set to **puppet**... and my DNS was appropriately setup to resolve that name):
 
-	[vagrant@pup-node1 ~]$ grep server /etc/puppet/puppet.conf 
+	[vagrant@pup-node1 ~]$ grep server /etc/puppet/puppet.conf
 		server = puppet.dnsd.me
 
 and I was able to confirm it with the following command:
@@ -778,7 +778,7 @@ Now let's go ahead and start the agent:
 	  enable => 'true',
 	}
 	[vagrant@pup-node1 ~]$ systemctl list-unit-files | grep puppet
-	puppet.service                         enabled 
+	puppet.service                         enabled
 	puppetagent.service                    disabled
 
 ### Confirming the Puppet Node Applied the Manifest
@@ -806,7 +806,7 @@ and on the nodeI saw the following under **/var/log/messages**:
 
 Looks like I need to create the group first, but I was glad to see it try. So I updated my **users** class:
 
-	[elatov@puppet ~]$ cat /etc/puppet/modules/users/manifests/init.pp 
+	[elatov@puppet ~]$ cat /etc/puppet/modules/users/manifests/init.pp
 	class users {
 	   group { "elatov":
 			ensure => present,
@@ -844,8 +844,8 @@ Checking the group and password files, I saw the following:
 	elatov:x:1000:1000::/home/elatov:/bin/bash
 	[root@pup-node1 ~]# getent group elatov
 	elatov:x:1000:
-	
-That all looks good. To fix the missing **fact** error above we need to install the **bind-utils** package on the node (that provides the **host** utility). 
+
+That all looks good. To fix the missing **fact** error above we need to install the **bind-utils** package on the node (that provides the **host** utility).
 
 	[vagrant@pup-node1 ~]$ sudo yum install bind-utils
 
@@ -877,37 +877,37 @@ and then re-check in with the master:
 	Notice: /Stage[main]/Users/User[elatov]/ensure: created
 	Notice: Finished catalog run in 0.26 seconds
 
-If you want you can include the puppet cert in the vagrant box that way you won't have to do this, but then if any one gets a hold of the box they will be able to check in with the master since that cert will be already registered on the host. 
+If you want you can include the puppet cert in the vagrant box that way you won't have to do this, but then if any one gets a hold of the box they will be able to check in with the master since that cert will be already registered on the host.
 
 ### Agent and Master Communication
 From [Learning Puppet — Basic Agent/Master Puppet](https://puppet.com/docs/puppet/latest/architecture.html):
 
 > Puppet’s agent/master mode is **pull-based**. Usually, agents are configured to periodically fetch a catalog and apply it, and the master controls what goes into that catalog.
-> 
+>
 > ..
-> 
+>
 > Running Puppet in agent/master mode works much the same way — the main difference is that it moves the manifests and compilation to the puppet master server. Agents don’t have to see any manifest files at all, and have no access to configuration information that isn’t in their own catalog.
-> 
+>
 > ![pup-ag-mas-interaction](https://seacloud.cc/d/480b5e8fcd/files/?p=/os-puppet-master-setup/pup-ag-mas-interaction.png&raw=1)
-> 
+>
 > ..
-> 
+>
 > The puppet agent subcommand fetches configurations from a master server. It has two main modes:
-> 
+>
 > 1. Daemonize and fetch configurations every half-hour (default)
 > 2. Run once and quit
-> 
+>
 > We’ll be using the second mode, since it gives a better view of what’s going on. To keep the agent from daemonizing, you should use the **--test** option, which also prints detailed descriptions of what the agent is doing.
-> 
+>
 > If you accidentally run the agent without **--test**, it will daemonize and run in the background.
 
-There used to a **kick** funcionality, more information on that in the [Deprecated Command Line Features](https://puppet.com/docs/puppet/3.8/man/kick.html). It basically allowed the master to initiate a **pull** from the node, but it required some setup on the node (like listening on port **8139** and allowing certain hosts to access the **pull** functionality). It's now a deprecated feature and will be replace with **mcollective** eventually. 
+There used to a **kick** funcionality, more information on that in the [Deprecated Command Line Features](https://puppet.com/docs/puppet/3.8/man/kick.html). It basically allowed the master to initiate a **pull** from the node, but it required some setup on the node (like listening on port **8139** and allowing certain hosts to access the **pull** functionality). It's now a deprecated feature and will be replace with **mcollective** eventually.
 
 We can also see that the default fetch period is every 30 minutes. This can be changed by modifying the **runinterval** option in the **agent** section of **/etc/puppet/puppet.conf** file on the node. From [Configuration Reference](https://puppet.com/docs/puppet/latest/configuration.html#runinterval)
 
 
 > #### runinterval
-> 
+>
 > How often puppet agent applies the catalog. Note that a runinterval of 0 means “run continuously” rather than “never run.” If you want puppet agent to never run, you should start it with the --no-client option. This setting can be a time interval in seconds (30 or 30s), minutes (30m), hours (6h), days (2d), or years (5y).
-> 
+>
 > - Default: 30m

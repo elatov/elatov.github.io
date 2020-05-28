@@ -49,10 +49,10 @@ And finally let's start **madsonic**:
 
 	┌─[elatov@m2] - [/home/elatov] - [2015-12-29 05:24:42]
 	└─[0] <> sudo systemctl start madsonic
-	
+
 After that you can go to **http://\<MADSONIC_IP\>:4040** and you will see the admin web ui:
 
-![madsonic-init-page](https://seacloud.cc/d/480b5e8fcd/files/?p=/madsonic-setup/madsonic-init-page.png&raw=1)
+![madsonic-init-page](https://raw.githubusercontent.com/elatov/upload/master/madsonic-setup/madsonic-init-page.png)
 
 After logging into madsonic as:
 
@@ -60,10 +60,10 @@ After logging into madsonic as:
 
 I had initial steps to complete:
 
-![madsonic-steps-to-complete](https://seacloud.cc/d/480b5e8fcd/files/?p=/madsonic-setup/madsonic-steps-to-complete.png&raw=1)
-	
+![madsonic-steps-to-complete](https://raw.githubusercontent.com/elatov/upload/master/madsonic-setup/madsonic-steps-to-complete.png)
+
 ### Bind MadSonic to a Dedicated IP
-I was running **madsonic** and **plex** on the same server and for some reason my Smart TV wasn't able to see **madsonic** via UPnP. So I decided to bind my **madsonic** instance to a specific IP. 
+I was running **madsonic** and **plex** on the same server and for some reason my Smart TV wasn't able to see **madsonic** via UPnP. So I decided to bind my **madsonic** instance to a specific IP.
 
 #### Create an IP Alias on CentOS 7
 

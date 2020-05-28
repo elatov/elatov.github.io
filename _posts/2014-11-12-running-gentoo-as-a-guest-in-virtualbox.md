@@ -18,25 +18,25 @@ The process is definitely more involved then a regular Linux Distro install, but
 #### Getting the Right Media
 I was using a 64bit version so I grabbed the [ISO](https://www.gentoo.org/downloads/). After that I created a VM called **gentoo** in Virtualbox and Virtualbox autodetected the OS to be **gentoo** and took care of the rest. I gave the VM 1GB of ram and 20GB of disk space (VirtualBox set the Disk controller to be SATA and that worked out okay). I then attached the downloaded ISO to the IDE Controller:
 
-![iso-attached-gentoo-vm](https://seacloud.cc/d/480b5e8fcd/files/?p=/gentoo-in-virtualbox/iso-attached-gentoo-vm.png&raw=1)
+![iso-attached-gentoo-vm](https://raw.githubusercontent.com/elatov/upload/master/gentoo-in-virtualbox/iso-attached-gentoo-vm.png)
 
 Then powering on the vm and typing in `gentoo-nofb` booted from the livecd:
 
 
-![gentoo-nofb-vm](https://seacloud.cc/d/480b5e8fcd/files/?p=/gentoo-in-virtualbox/gentoo-nofb-vm.png&raw=1)
+![gentoo-nofb-vm](https://raw.githubusercontent.com/elatov/upload/master/gentoo-in-virtualbox/gentoo-nofb-vm.png)
 
 After the VM is booted I saw the following:
 
-![gentoo-cd-booted](https://seacloud.cc/d/480b5e8fcd/files/?p=/gentoo-in-virtualbox/gentoo-cd-booted.png&raw=1)
+![gentoo-cd-booted](https://raw.githubusercontent.com/elatov/upload/master/gentoo-in-virtualbox/gentoo-cd-booted.png)
 
 #### Enable SSH from the livecd
 From here we can enable **ssh** just to make the install easier. So let's enable **ssh** and set the password from the *livecd*:
 
-![ssh-enabled-live-cd](https://seacloud.cc/d/480b5e8fcd/files/?p=/gentoo-in-virtualbox/ssh-enabled-live-cd.png&raw=1)
+![ssh-enabled-live-cd](https://raw.githubusercontent.com/elatov/upload/master/gentoo-in-virtualbox/ssh-enabled-live-cd.png)
 
 Now from virtualbox let's enable port forwarding so we can ssh from the host machine:
 
-![port-forward-gentoo-vm](https://seacloud.cc/d/480b5e8fcd/files/?p=/gentoo-in-virtualbox/port-forward-gentoo-vm.png&raw=1)
+![port-forward-gentoo-vm](https://raw.githubusercontent.com/elatov/upload/master/gentoo-in-virtualbox/port-forward-gentoo-vm.png)
 
 And then ssh from the host machine:
 
@@ -47,32 +47,32 @@ And then ssh from the host machine:
 	Warning: Permanently added '[localhost]:2244' (ED25519) to the list of known hosts.
 	Password:
 	Welcome to the Gentoo Linux Minimal Installation CD!
-	
+
 	The root password on this system has been auto-scrambled for security.
-	
+
 	If any ethernet adapters were detected at boot, they should be auto-configured
 	if DHCP is available on your network.  Type "net-setup eth0" to specify eth0 IP
 	address settings by hand.
-	
+
 	Check /etc/kernels/kernel-config-* for kernel configuration(s).
 	The latest version of the Handbook is always available from the Gentoo web
 	site by typing "links http://www.gentoo.org/doc/en/handbook/handbook.xml".
-	
+
 	To start an ssh server on this system, type "/etc/init.d/sshd start".  If you
 	need to log in remotely as root, type "passwd root" to reset root's password
 	to a known value.
-	
+
 	Please report any bugs you find to http://bugs.gentoo.org. Be sure to include
 	detailed information about how to reproduce the bug you are reporting.
 	Thank you for using Gentoo Linux!
-	
+
 	livecd ~ #
-	
+
 #### Partition the Disk
 Initially nothing is on the disk:
 
 	livecd ~ # fdisk -l /dev/sda
-	
+
 	Disk /dev/sda: 20 GiB, 21474836480 bytes, 41943040 sectors
 	Units: sectors of 1 * 512 = 512 bytes
 	Sector size (logical/physical): 512 bytes / 512 bytes
@@ -81,17 +81,17 @@ Initially nothing is on the disk:
 So let's create a 200MB boot partition and the rest will be used for an LVM:
 
 	livecd ~ # fdisk /dev/sda
-	
+
 	Welcome to fdisk (util-linux 2.24.1).
 	Changes will remain in memory only, until you decide to write them.
 	Be careful before using the write command.
-	
+
 	Device does not contain a recognized partition table.
-	
+
 	Created a new DOS disklabel with disk identifier 0xf2370f07.
-	
+
 	Command (m for help): n
-	
+
 	Partition type:
 	   p   primary (0 primary, 0 extended, 4 free)
 	   e   extended
@@ -99,11 +99,11 @@ So let's create a 200MB boot partition and the rest will be used for an LVM:
 	Partition number (1-4, default 1):
 	First sector (2048-41943039, default 2048):
 	Last sector, +sectors or +size{K,M,G,T,P} (2048-41943039, default 41943039): +200M
-	
+
 	Created a new partition 1 of type 'Linux' and of size 200 MiB.
-	
+
 	Command (m for help): n
-	
+
 	Partition type:
 	   p   primary (1 primary, 0 extended, 3 free)
 	   e   extended
@@ -111,15 +111,15 @@ So let's create a 200MB boot partition and the rest will be used for an LVM:
 	Partition number (2-4, default 2):
 	First sector (411648-41943039, default 411648):
 	Last sector, +sectors or +size{K,M,G,T,P} (411648-41943039, default 41943039):
-	
+
 	Created a new partition 2 of type 'Linux' and of size 19.8 GiB.
-	
+
 	Command (m for help): t
 	Partition number (1,2, default 2): 2
 	Hex code (type L to list all codes): 8e
-	
+
 	Changed type of partition 'Linux' to 'Linux LVM'.
-	
+
 	Command (m for help): p
 	Disk /dev/sda: 20 GiB, 21474836480 bytes, 41943040 sectors
 	Units: sectors of 1 * 512 = 512 bytes
@@ -127,30 +127,30 @@ So let's create a 200MB boot partition and the rest will be used for an LVM:
 	I/O size (minimum/optimal): 512 bytes / 512 bytes
 	Disklabel type: dos
 	Disk identifier: 0xf2370f07
-	
+
 	Device    Boot     Start       End   Blocks  Id System
 	/dev/sda1           2048    411647   204800  83 Linux
 	/dev/sda2         411648  41943039 20765696  8e Linux LVM
-	
+
 	Command (m for help): w
-	
+
 	The partition table has been altered.
 	Calling ioctl() to re-read partition table.
 	Syncing disks.
-	
+
 	livecd ~ # fdisk -l /dev/sda
-	
+
 	Disk /dev/sda: 20 GiB, 21474836480 bytes, 41943040 sectors
 	Units: sectors of 1 * 512 = 512 bytes
 	Sector size (logical/physical): 512 bytes / 512 bytes
 	I/O size (minimum/optimal): 512 bytes / 512 bytes
 	Disklabel type: dos
 	Disk identifier: 0xf2370f07
-	
+
 	Device    Boot     Start       End   Blocks  Id System
 	/dev/sda1           2048    411647   204800  83 Linux
 	/dev/sda2         411648  41943039 20765696  8e Linux LVM
-	
+
 Now let's create the logical volumes:
 
 	livecd ~ # vgscan
@@ -171,10 +171,10 @@ Now let's create the logical volumes:
 	  Logical volume "root" created
 	livecd ~ # lvs
 	  WARNING: lvmetad is running but disabled. Restart lvmetad before enabling it!
-	  LV   VG   Attr       LSize  Pool Origin Data%  Meta%  Move Log 
+	  LV   VG   Attr       LSize  Pool Origin Data%  Meta%  Move Log
 	  root vg   -wi-a----- 17.80g
 	  swap vg   -wi-a-----  2.00g
-	  
+
 Now let's put appropriate filesystems on the logical volumes:
 
 	livecd ~ # mkfs.ext2 /dev/sda1
@@ -183,11 +183,11 @@ Now let's put appropriate filesystems on the logical volumes:
 	Filesystem UUID: 7b6c019a-1509-4ee1-8858-24db713dbf48
 	Superblock backups stored on blocks:
 		8193, 24577, 40961, 57345, 73729
-	
+
 	Allocating group tables: done
 	Writing inode tables: done
 	Writing superblocks and filesystem accounting information: done
-	
+
 	livecd ~ # mkfs.ext3 /dev/mapper/vg-root
 	mke2fs 1.42.10 (18-May-2014)
 	Creating filesystem with 4666368 4k blocks and 1166880 inodes
@@ -195,23 +195,23 @@ Now let's put appropriate filesystems on the logical volumes:
 	Superblock backups stored on blocks:
 		32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208,
 		4096000
-	
+
 	Allocating group tables: done
 	Writing inode tables: done
 	Creating journal (32768 blocks): done
 	Writing superblocks and filesystem accounting information: mdone
-	
+
 	livecd ~ # mkswap /dev/mapper/vg-swap
 	Setting up swapspace version 1, size = 2097148 KiB
 	no label, UUID=40710598-2858-432b-9265-7a1b81412c26
-	
+
 The boot partition is ext2, cause we don't need to journal it. Now let's mount the file systems:
 
 	livecd ~ # swapon -p 1 /dev/mapper/vg-swap
 	livecd ~ # mount /dev/mapper/vg-root /mnt/gentoo/
 	livecd ~ # mkdir /mnt/gentoo/boot
 	livecd ~ # mount /dev/sda1 /mnt/gentoo/boot
-	
+
 #### Getting the Stage 3 files
 From the gentoo mirrors I just grabbed the amd64 version:
 
@@ -223,23 +223,23 @@ From the gentoo mirrors I just grabbed the amd64 version:
 	HTTP request sent, awaiting response... 200 OK
 	Length: 208643338 (199M) [application/x-bzip2]
 	Saving to: 'stage3-amd64-20141106.tar.bz2'
-	
+
 	stage3-amd64-201411 100%[=====================>] 198.98M  4.70MB/s   in 47s
-	
+
 	2014-11-12 21:56:56 (4.20 MB/s) - 'stage3-amd64-20141106.tar.bz2' saved [208643338/208643338]
 	livecd gentoo # time tar xjf stage3-amd64-20141106.tar.bz2
 
 	real	0m37.671s
 	user	0m18.770s
 	sys	0m17.120s
-	
+
 That should extract most of the directory structure:
 
 	livecd gentoo # ls
 	bin   etc   lib32       media  proc  sbin                           tmp
 	boot  home  lib64       mnt    root  stage3-amd64-20141106.tar.bz2  usr
 	dev   lib   lost+found  opt    run   sys                            var
-	
+
 #### Chrooting into the Stage 3 Environment
 
 Now that we have all the files let's **ch**ange **root** into our install:
@@ -250,7 +250,7 @@ Now that we have all the files let's **ch**ange **root** into our install:
 	livecd gentoo # cp -L /etc/resolv.conf /mnt/gentoo/etc/
 	livecd gentoo # chroot /mnt/gentoo /bin/bash
 	livecd / # source /etc/profile
-	
+
 The networking was all good so we can get the portage snapshot:
 
 	livecd / # ifconfig
@@ -263,7 +263,7 @@ The networking was all good so we can get the portage snapshot:
 	        RX errors 0  dropped 0  overruns 0  frame 0
 	        TX packets 249923  bytes 26854299 (25.6 MiB)
 	        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-	
+
 	lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
 	        inet 127.0.0.1  netmask 255.0.0.0
 	        inet6 ::1  prefixlen 128  scopeid 0x10<host>
@@ -284,7 +284,7 @@ The networking was all good so we can get the portage snapshot:
 	Checking digest ...
 	Getting snapshot timestamp ...
 	Syncing local tree ...
-	
+
 	Number of files: 182833
 	Number of files transferred: 156585
 	Total file size: 335.80M bytes
@@ -296,19 +296,19 @@ The networking was all good so we can get the portage snapshot:
 	File list transfer time: 0.000 seconds
 	Total bytes sent: 154.15M
 	Total bytes received: 3.08M
-	
+
 	sent 154.15M bytes  received 3.08M bytes  1.65M bytes/sec
 	total size is 335.80M  speedup is 2.14
 	Cleaning up ...
-	
+
 	Performing Global Updates
 	(Could take a couple of minutes if you have a lot of binary packages.)
-	
-	
-	
+
+
+
 	 * IMPORTANT: 8 news items need reading for repository 'gentoo'.
 	 * Use eselect news to read news items.
-	
+
 	livecd / #
 
 Now let's set the *timezone*:
@@ -342,7 +342,7 @@ You can change your OS profile at this stage, but I just left mine as is:
 	  [18]  hardened/linux/musl/amd64
 	  [19]  default/linux/uclibc/amd64
 	  [20]  hardened/linux/uclibc/amd64
-	  
+
 Now let's set our hostname:
 
 	livecd etc # echo "127.0.0.1 gen.local gen localhost" > hosts
@@ -355,18 +355,18 @@ Now let's set our hostname:
 First let's go ahead and get the kernel source:
 
 	livecd etc # time emerge gentoo-sources
-	
+
 	real	2m1.159s
 	user	0m39.270s
 	sys	0m28.550s
 	livecd etc # cd /usr/src/linux
-	
+
 Since we are using LVM for our root partition we have to make sure LVM is enabled:
 
 	Device Drivers -->
 		Multi-device support (RAID and LVM)  --->
-		<*>   RAID support 
-		[*]     Autodetect RAID arrays during kernel boot (NEW) 
+		<*>   RAID support
+		[*]     Autodetect RAID arrays during kernel boot (NEW)
 		< >     Linear (append) mode (NEW)
 		< >     RAID-0 (striping) mode (NEW)
 		< >     RAID-1 (mirroring) mode (NEW)
@@ -413,7 +413,7 @@ Also from the virtualbox page, we need the following:
 	        <M> Advanced Linux Sound Architecture --->
 	            [*] PCI sound Devices --->
 	                <M> Intel/SiS/nVidia/AMD/ALi AC97 Controller
-	                
+
 And for the compile options we need to add the following:
 
 	INPUT_DEVICES="evdev"
@@ -424,14 +424,14 @@ Into **/etc/portage/make.conf** file. I can't live without **vim**, so I install
 	real	2m1.949s
 	user	1m20.620s
 	sys	0m10.780s
-	
+
 Now to actually configure the kernel:
 
 	livecd linux # make menuconfig
 
 All of the above options were already enabled except the audio card:
 
-![menu-config-audio-gentoo](https://seacloud.cc/d/480b5e8fcd/files/?p=/gentoo-in-virtualbox/menu-config-audio-gentoo.png&raw=1)
+![menu-config-audio-gentoo](https://raw.githubusercontent.com/elatov/upload/master/gentoo-in-virtualbox/menu-config-audio-gentoo.png)
 
 As a side note, if you don't want to mess with the config, you can always just use the same config that the livecd is using. This can be accomplished with the following:
 
@@ -449,7 +449,7 @@ After we configured our options for the kernel, let's actually build it:
 	System is 5529 kB
 	CRC 666bb5f2
 	Kernel: arch/x86/boot/bzImage is ready  (#1)
-	
+
 	real	11m8.265s
 	user	9m43.780s
 	sys	0m26.810s
@@ -474,7 +474,7 @@ About 20 minutes to build the kernel... that's not to bad. Now let's get all of 
 	  INSTALL sound/pci/ac97/snd-ac97-codec.ko
 	  INSTALL sound/pci/snd-intel8x0.ko
 	  DEPMOD  3.16.5-gentoo
-	
+
 	real	0m0.654s
 	user	0m0.000s
 	sys	0m0.010s
@@ -500,11 +500,11 @@ Here is how the build looked like:
 	livecd linux # genkernel --install --lvm  initramfs
 	* Gentoo Linux Genkernel; Version 3.4.49.2
 	* Running with options: --install --lvm initramfs
-	
+
 	* Using genkernel.conf from /etc/genkernel.conf
 	* Sourcing arch-specific config.sh from /usr/share/genkernel/arch/x86_64/config.sh ..
 	* Sourcing arch-specific modules_load from /usr/share/genkernel/arch/x86_64/modules_load ..
-	
+
 	* Linux Kernel 3.16.5-gentoo for x86_64...
 	* .. with config file /usr/share/genkernel/arch/x86_64/kernel-config
 	* busybox: >> Applying patches...
@@ -535,13 +535,13 @@ Here is how the build looked like:
 	*         >> Appending linker cpio data...
 	*         >> Finalizing cpio...
 	*         >> Compressing cpio data (.xz)...
-	
+
 	* WARNING... WARNING... WARNING...
 	* Additional kernel cmdline arguments that *may* be required to boot properly...
 	* add "dolvm" for lvm support
 	* With support for several ext* filesystems available, it may be needed to
 	* add "rootfstype=ext3" or "rootfstype=ext4" to the list of boot parameters.
-	
+
 	* Do NOT report kernel bugs as genkernel bugs unless your bug
 	* is about the default genkernel configuration...
 	*
@@ -623,7 +623,7 @@ I was using DHCP so just the bare minimum worked out:
 	 * service net.enp0s3 added to runlevel default
 	livecd init.d # rc-update add sshd default
 	 * service sshd added to runlevel default
-	 
+
 Let's set the password for root as well:
 
 	livecd ~ # passwd
@@ -664,7 +664,7 @@ And let's enable them as well to start on boot:
 	 * service syslog-ng added to runlevel default
 	livecd ~ # rc-update add vixie-cron default
 	 * service vixie-cron added to runlevel default
-	 
+
 Since Virtualbox uses DHCP let's install the DHCP client:
 
 	livecd ~ # time emerge dhcpcd
@@ -685,25 +685,25 @@ So first let's leave the **chroot** and then unmount everything:
 	livecd gentoo # poweroff
 	livecd gentoo #
 	Broadcast message from root@gen (pts/0) (Wed Nov 12 23:53:14 2014):
-	
+
 	The system is going down for system halt NOW!
 
 I shut it off so I can remove the CD prior to booting the system back up:
 
-![remove-iso-gentoo-vm](https://seacloud.cc/d/480b5e8fcd/files/?p=/gentoo-in-virtualbox/remove-iso-gentoo-vm.png&raw=1)
+![remove-iso-gentoo-vm](https://raw.githubusercontent.com/elatov/upload/master/gentoo-in-virtualbox/remove-iso-gentoo-vm.png)
 
 ### Post Install Configuration:
 Upon booting up I saw the **grub2** menu:
 
-![grub2-menu-gentoo-vm](https://seacloud.cc/d/480b5e8fcd/files/?p=/gentoo-in-virtualbox/grub2-menu-gentoo-vm.png&raw=1)
+![grub2-menu-gentoo-vm](https://raw.githubusercontent.com/elatov/upload/master/gentoo-in-virtualbox/grub2-menu-gentoo-vm.png)
 
 Upon selecting the default menu, I saw *initramfs* loaded and the machine kept booting:
 
-![gentoo-booting-up-lvm-loaded](https://seacloud.cc/d/480b5e8fcd/files/?p=/gentoo-in-virtualbox/gentoo-booting-up-lvm-loaded.png&raw=1)
+![gentoo-booting-up-lvm-loaded](https://raw.githubusercontent.com/elatov/upload/master/gentoo-in-virtualbox/gentoo-booting-up-lvm-loaded.png)
 
 After it was done booting up, I saw the following:
 
-![gentoo-booted-up](https://seacloud.cc/d/480b5e8fcd/files/?p=/gentoo-in-virtualbox/gentoo-booted-up.png&raw=1)
+![gentoo-booted-up](https://raw.githubusercontent.com/elatov/upload/master/gentoo-in-virtualbox/gentoo-booted-up.png)
 
 If you try to SSH you will receive an "*Identification*" warning:
 
@@ -740,7 +740,7 @@ You can check the enabled locales like so:
 	  [1]   C
 	  [2]   POSIX
 	  [ ]   (free form)
-  
+
 I went ahead and enabled the US locales:
 
 	gen ~ # grep -vE '^$|^#' /etc/locale.gen
@@ -769,7 +769,7 @@ And now I can see them on the list:
 You can then set it with:
 
 	gen ~ # eselect locale set 3
-	
+
 ### Modifying the *make.conf* file
 Here we can enable concurrent compilation processes:
 
@@ -796,10 +796,10 @@ There are pretty good instructions in [Xorg/Configuration](http://wiki.gentoo.or
 When I tried to install the package, I saw the following:
 
 	gen ~ # emerge xorg-server
-	
+
 	 * IMPORTANT: 8 news items need reading for repository 'gentoo'.
 	 * Use eselect news to read news items.
-	
+
 	..
 	..
 	The following USE changes are necessary to proceed:
@@ -809,7 +809,7 @@ When I tried to install the package, I saw the following:
 	# required by x11-drivers/xf86-video-virtualbox-4.2.24
 	# required by x11-base/xorg-drivers-1.15[video_cards_virtualbox]
 	=dev-libs/libxml2-2.9.1-r4 python
-	
+
 	Use --autounmask-write to write changes to config files (honoring
 	CONFIG_PROTECT). Carefully examine the list of proposed changes,
 	paying special attention to mask or keyword changes that may expose
@@ -831,9 +831,9 @@ into the **/etc/portage/package.use** or we can just run **emerge** with the sug
 	# required by x11-drivers/xf86-input-evdev-2.8.2
 	# required by x11-base/xorg-drivers-1.15[input_devices_evdev]
 	=dev-libs/libxml2-2.9.1-r4 python
-	
+
 	Autounmask changes successfully written.
-	
+
 	 * IMPORTANT: config file '/etc/portage/package.use' needs updating.
 	 * See the CONFIGURATION FILES section of the emerge
 	 * man page to learn how to update config files.
@@ -851,8 +851,8 @@ Looks like some configs are requiring some changes, so let's update the configs:
 	                           (-5 to auto-merge AND not use 'mv -i')
 	                           (-7 to discard all updates)
 	                           (-9 to discard all updates AND not use 'rm -i'):
-	
-	
+
+
 	File: /etc/portage/._cfg0000_package.use
 	1) Replace original with update
 	2) Delete update, keeping original as is
@@ -861,9 +861,9 @@ Looks like some configs are requiring some changes, so let's update the configs:
 	5) Save update as example config
 	Please select from the menu above (-1 to ignore this update): 1
 	Replacing /etc/portage/package.use with /etc/portage/._cfg0000_package.use
-	
+
 	Exiting: Nothing left to do; exiting. :)
-	
+
 Now that the changes are in place, let's compile the package:
 
 
@@ -881,7 +881,7 @@ Now that the changes are in place, let's compile the package:
 
 Then I just ran **startx** on the terminal and I saw the following:
 
-![xorg-start-gentoo-vm](https://seacloud.cc/d/480b5e8fcd/files/?p=/gentoo-in-virtualbox/xorg-start-gentoo-vm.png&raw=1)
+![xorg-start-gentoo-vm](https://raw.githubusercontent.com/elatov/upload/master/gentoo-in-virtualbox/xorg-start-gentoo-vm.png)
 
 #### Installing icewm
 There are pretty good instructions on the setup at [IceWM Gentoo Package](https://packages.gentoo.org/packages/x11-wm/icewm). The install itself is pretty easy:
@@ -894,7 +894,7 @@ There are pretty good instructions on the setup at [IceWM Gentoo Package](https:
 
 From here we have some options. If we don't have a display manager we can just add the following
 
-	exec icewm-session 
+	exec icewm-session
 
 into **~/.xinitrc** and then running **startx** will start the icewm. Or we can install a display manager and it will auto detect it. I have used **lightdm** in the past and I liked it.
 
@@ -909,7 +909,7 @@ There are good instructions at [LightDM Gentoo Wiki](http://wiki.gentoo.org/wiki
 	# required by x11-misc/lightdm-1.8.5
 	# required by x11-misc/lightdm-gtk-greeter-1.6.1
 	=sys-auth/consolekit-0.4.6 policykit
-	
+
 	Use --autounmask-write to write changes to config files (honoring
 	CONFIG_PROTECT). Carefully examine the list of proposed changes,
 	paying special attention to mask or keyword changes that may expose
@@ -925,9 +925,9 @@ So then I ran the following to configure the package.use file accordingly:
 	# required by x11-misc/lightdm-1.8.5
 	# required by x11-misc/lightdm-gtk-greeter-1.6.1
 	=sys-auth/consolekit-0.4.6 policykit
-	
+
 	Autounmask changes successfully written.
-	
+
 	 * IMPORTANT: config file '/etc/portage/package.use' needs updating.
 	 * See the CONFIGURATION FILES section of the emerge
 	 * man page to learn how to update config files.
@@ -966,12 +966,12 @@ After it's installed and enabled, we can set it as the default display manager b
 
 into the **/etc/conf.d/xdm** file. Then restarting the machine auto loaded the lightdm login page:
 
-![lightdm-loaded-gentoo](https://seacloud.cc/d/480b5e8fcd/files/?p=/gentoo-in-virtualbox/lightdm-loaded-gentoo.png&raw=1)
+![lightdm-loaded-gentoo](https://raw.githubusercontent.com/elatov/upload/master/gentoo-in-virtualbox/lightdm-loaded-gentoo.png)
 
 and then after logging in as a regular user I saw icewm loaded:
 
 
-![icevm-loaded-gentoo](https://seacloud.cc/d/480b5e8fcd/files/?p=/gentoo-in-virtualbox/icevm-loaded-gentoo.png&raw=1)
+![icevm-loaded-gentoo](https://raw.githubusercontent.com/elatov/upload/master/gentoo-in-virtualbox/icevm-loaded-gentoo.png)
 
 After that you can run the following to keep your system up-to-date
 

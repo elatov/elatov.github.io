@@ -6,7 +6,7 @@ author: Karim Elatov
 categories: [os,networking]
 tags: [wol,linux]
 ---
-I had a laptop at home that I didn't really use much. I realized that I could save some power if I only power it on only when I need it. 
+I had a laptop at home that I didn't really use much. I realized that I could save some power if I only power it on only when I need it.
 
 ### Wake On LAN
 
@@ -16,7 +16,7 @@ I remember that I can use Wake On LAN (WOL) to power on a machine over the netwo
 	└─[1] <> sudo dmidecode -t system
 	# dmidecode 2.12
 	SMBIOS 2.4 present.
-	
+
 	Handle 0x0100, DMI type 1, 27 bytes
 	System Information
 		Manufacturer: Dell Inc.
@@ -27,10 +27,10 @@ I remember that I can use Wake On LAN (WOL) to power on a machine over the netwo
 		Wake-up Type: Power Switch
 		SKU Number: Not Specified
 		Family:
-	
+
 Then after checking out the specs of the laptop luckily it had this option available. So I enabled that in the BIOS:
 
-![dell-laptop-wol-enabled-bios](https://seacloud.cc/d/480b5e8fcd/files/?p=/wol-dell-laptop/dell-laptop-wol-enabled-bios.jpg&raw=1)
+![dell-laptop-wol-enabled-bios](https://raw.githubusercontent.com/elatov/upload/master/wol-dell-laptop/dell-laptop-wol-enabled-bios.jpg)
 
 ### WOL NIC Support
 
@@ -79,7 +79,7 @@ Then I just powered off the machine:
 	elatov@gen ~ $ sudo poweroff
 	WARNING: could not determine runlevel - doing soft poweroff
 	  (it's better to use shutdown instead of poweroff from the command line)
-	
+
 	Broadcast message from root@gen.dnsd.me (pts/0) (Wed Nov 11 20:37:02 2015):
 	The system is going down for system halt NOW!
 

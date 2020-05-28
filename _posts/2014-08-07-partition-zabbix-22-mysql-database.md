@@ -25,7 +25,7 @@ And the database was taking up half of that:
 	4.0K	/var/lib/mysql/mysql_upgrade_info
 	368K	/var/lib/mysql/snorby
 	7.6G	/var/lib/mysql
-	
+
 We can also check out which tables are taking up most space:
 
 	mysql> SELECT TABLE_SCHEMA, TABLE_NAME,(INDEX_LENGTH+DATA_LENGTH)/(1024*1024) AS SIZE_MB, TABLE_ROWS FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA NOT IN ("mysql", "information_schema") ORDER BY SIZE_MB DESC LIMIT 10;
@@ -63,7 +63,7 @@ So the VM is on **datastore1**. So go into the VM's directory and first create a
 	/vmfs/volumes/533e29ae-e243ce90-39a5-685b35c99610/VM1 # vmkfstools -c 10G -d eagerzeroedthick VM1-1.vmdk
 	Creating disk 'VM1-1.vmdk' and zeroing it out...
 	Create: 100% done.
-	
+
 Lastly let's go ahead and add the disk to the VM:
 
 	~ # vim-cmd vmsvc/device.diskaddexisting 6 /vmfs/volumes/datastore1/VM1/VM1-1.vmdk 0 1
@@ -89,22 +89,22 @@ after that you should see the new device:
 and of course **fdisk** can see it as well:
 
 	root@kerch:~# fdisk -l /dev/sdb
-	
+
 	Disk /dev/sdb: 10.7 GB, 10737418240 bytes
 	255 heads, 63 sectors/track, 1305 cylinders, total 20971520 sectors
 	Units = sectors of 1 * 512 = 512 bytes
 	Sector size (logical/physical): 512 bytes / 512 bytes
 	I/O size (minimum/optimal): 512 bytes / 512 bytes
 	Disk identifier: 0x00000000
-	
+
 	Disk /dev/sdb doesn't contain a valid partition table
 
 That's our 10GB disk. Just for reference here is the **lsscsi** output after the device is descovered:
 
-	root@kerch:~$lsscsi 
-	[0:0:0:0]    disk    VMware   Virtual disk     1.0   /dev/sda 
-	[0:0:1:0]    disk    VMware   Virtual disk     1.0   /dev/sdb 
-	[2:0:0:0]    cd/dvd  NECVMWar VMware IDE CDR10 1.00  /dev/sr0 
+	root@kerch:~$lsscsi
+	[0:0:0:0]    disk    VMware   Virtual disk     1.0   /dev/sda
+	[0:0:1:0]    disk    VMware   Virtual disk     1.0   /dev/sdb
+	[2:0:0:0]    cd/dvd  NECVMWar VMware IDE CDR10 1.00  /dev/sr0
 
 ### Add Disk Space to the Root LV
 So now that we have a disk (**/dev/sdb**), let's add it to the root LV. Checking over the LVM settings, I see the following:
@@ -119,24 +119,24 @@ So now that we have a disk (**/dev/sdb**), let's add it to the root LV. Checking
 	  LV     VG    Attr     LSize   Pool Origin Data%  Move Log Copy%  Convert
 	  root   vg1   -wi-ao--  15.07g
 	  swap_1 vg1   -wi-ao-- 708.00m
-	 
+
 So we use a single partition (**/dev/sda5**) and that partition makes up one volume group (**vg1**) and the volume group is broken into the root and swap LVs/partitions. So first let's add **/dev/sdb** as a physical volume:
 
 	root@kerch:~# pvcreate /dev/sdb
 	  Writing physical volume data to disk "/dev/sdb"
 	  Physical volume "/dev/sdb" successfully created
-  
+
 Now let's add that physical volume to the volume group:
 
 	root@kerch:~# vgextend vg1 /dev/sdb
 	  Volume group "vg1" successfully extended
-	  
+
 Now let's give all the free space (10GB) from the volume group to the logical volume:
 
 	root@kerch:~# lvextend -l +100%FREE /dev/vg1/root
 	  Extending logical volume root to 25.06 GiB
 	  Logical volume root successfully resized
-	  
+
 Now let's resize the existing file system:
 
 	root@kerch:~# resize2fs /dev/mapper/vg1-root
@@ -147,7 +147,7 @@ Now let's resize the existing file system:
 	The filesystem on /dev/mapper/vg1-root is now 6569984 blocks long.
 
 And now we have space on the VM:
-	
+
 	root@kerch:~# df -h
 	Filesystem              Size  Used Avail Use% Mounted on
 	rootfs                   25G   15G  9.4G  61% /
@@ -157,13 +157,13 @@ And now we have space on the VM:
 So let's backup the database, before we make any changes. First let's stop the zabbix server service:
 
 	root@kerch:~# service zabbix-server stop
-	
+
 I was able to get back about 2GB just by **optimizing** the tables:
 
 	mysql> use zabbix;
 	Reading table information for completion of table and column names
 	You can turn off this feature to get a quicker startup with -A
-	
+
 	Database changed
 	mysql> optimize table history_uint;
 	+---------------------+----------+----------+----------+
@@ -184,7 +184,7 @@ After that **df** showed 13GB *used* instead of 15GB:
 
 	elatov@kerch:~$df -h | grep tfs
 	rootfs                   25G   13G   11G  54% /
-	
+
 Now let's dump the db:
 
 	root@kerch:~# mysqldump -u root -p zabbix > zabbix.sql
@@ -203,7 +203,7 @@ We can also dump each table just in case:
 	root@kerch:/opt/work/zabbix-db# mysqldump -u root -p zabbix trends_uint > trends_uint.sql
 	root@kerch:/opt/work/zabbix-db# mysqldump -u root -p zabbix service_alarms > service_alarms.sql
 	root@kerch:/opt/work/zabbix-db# mysqldump -u root -p zabbix housekeeper > housekeeper.sql
-	
+
 Here are all my tables dumped:
 
 	elatov@kerch:/opt/work/zabbix-db$du -ha -d 1
@@ -221,7 +221,7 @@ Here are all my tables dumped:
 	87M	./trends_uint.sql
 	4.0K	./alerts.sql
 	7.5G	.
-	
+
 ### Partition Zabbix MySQL Tables
 
 Now let's partition the tables. As a quick check ensure that that partitioning is supported:
@@ -234,19 +234,19 @@ Now let's partition the tables. As a quick check ensure that that partitioning i
 	+-------------------+-------+
 	1 row in set (0.00 sec)
 
-#### Index Changes	
+#### Index Changes
 
 Modify the index:
 
 	mysql> use zabbix;
 	Reading table information for completion of table and column names
 	You can turn off this feature to get a quicker startup with -A
-	
+
 	Database changed
 	mysql> Alter table history_text drop primary key, add index (id), drop index history_text_2, add index history_text_2 (itemid, id);
 	Query OK, 0 rows affected (0.01 sec)
 	Records: 0  Duplicates: 0  Warnings: 0
-	
+
 	mysql> Alter table history_log drop primary key, add index (id), drop index history_log_2, add index history_log_2 (itemid, id);
 	Query OK, 250807 rows affected (0.82 sec)
 	Records: 250807  Duplicates: 0  Warnings: 0
@@ -266,12 +266,12 @@ Add the following stored procedures (taken from [here](https://www.zabbix.org/wi
 	        /*
 	           Verify that the partition does not already exist
 	        */
-	 
+
 	        DECLARE RETROWS INT;
 	        SELECT COUNT(1) INTO RETROWS
 	        FROM information_schema.partitions
 	        WHERE table_schema = SCHEMANAME AND TABLE_NAME = TABLENAME AND partition_name = PARTITIONNAME;
-	 
+
 	        IF RETROWS = 0 THEN
 	                /*
 	                   1. Print a message indicating that a partition was created.
@@ -286,7 +286,7 @@ Add the following stored procedures (taken from [here](https://www.zabbix.org/wi
 	        END IF;
 	END$$
 	DELIMITER ;
-	
+
 Here is the 2nd procedure:
 
 	DELIMITER $$
@@ -299,7 +299,7 @@ Here is the 2nd procedure:
 	        */
 	        DECLARE done INT DEFAULT FALSE;
 	        DECLARE drop_part_name VARCHAR(16);
-	 
+
 	        /*
 	           Get a list of all the partitions that are older than the date
 	           in DELETE_BELOW_PARTITION_DATE.  All partitions are prefixed with
@@ -310,7 +310,7 @@ Here is the 2nd procedure:
 	                FROM information_schema.partitions
 	                WHERE table_schema = SCHEMANAME AND TABLE_NAME = TABLENAME AND CAST(SUBSTRING(partition_name FROM 2) AS UNSIGNED) < DELETE_BELOW_PARTITION_DATE;
 	        DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
-	 
+
 	        /*
 	           Create the basics for when we need to drop the partition.  Also, create
 	           @drop_partitions to hold a comma-delimited list of all partitions that
@@ -318,7 +318,7 @@ Here is the 2nd procedure:
 	        */
 	        SET @alter_header = CONCAT("ALTER TABLE ", SCHEMANAME, ".", TABLENAME, " DROP PARTITION ");
 	        SET @drop_partitions = "";
-	 
+
 	        /*
 	           Start looping through all the partitions that are too old.
 	        */
@@ -340,7 +340,7 @@ Here is the 2nd procedure:
 	                PREPARE STMT FROM @full_sql;
 	                EXECUTE STMT;
 	                DEALLOCATE PREPARE STMT;
-	 
+
 	                SELECT CONCAT(SCHEMANAME, ".", TABLENAME) AS `table`, @drop_partitions AS `partitions_deleted`;
 	        ELSE
 	                /*
@@ -361,7 +361,7 @@ Here is the 3rd one:
 	        DECLARE PARTITION_NAME VARCHAR(16);
 	        DECLARE LESS_THAN_TIMESTAMP INT;
 	        DECLARE CUR_TIME INT;
-	 
+
 	        CALL partition_verify(SCHEMA_NAME, TABLE_NAME, HOURLY_INTERVAL);
 	        SET CUR_TIME = UNIX_TIMESTAMP(DATE_FORMAT(NOW(), '%Y-%m-%d 00:00:00'));
 	        IF DATE(NOW()) = '2014-04-01' THEN
@@ -372,16 +372,16 @@ Here is the 3rd one:
 	                IF @__interval > CREATE_NEXT_INTERVALS THEN
 	                        LEAVE create_loop;
 	                END IF;
-	 
+
 	                SET LESS_THAN_TIMESTAMP = CUR_TIME + (HOURLY_INTERVAL * @__interval * 3600);
 	                SET PARTITION_NAME = FROM_UNIXTIME(CUR_TIME + HOURLY_INTERVAL * (@__interval - 1) * 3600, 'p%Y%m%d%H00');
 	                CALL partition_create(SCHEMA_NAME, TABLE_NAME, PARTITION_NAME, LESS_THAN_TIMESTAMP);
 	                SET @__interval=@__interval+1;
 	        END LOOP;
-	 
+
 	        SET OLDER_THAN_PARTITION_DATE=DATE_FORMAT(DATE_SUB(NOW(), INTERVAL KEEP_DATA_DAYS DAY), '%Y%m%d0000');
 	        CALL partition_drop(SCHEMA_NAME, TABLE_NAME, OLDER_THAN_PARTITION_DATE);
-	 
+
 	END$$
 	DELIMITER ;
 
@@ -393,14 +393,14 @@ And here is the last one:
 	        DECLARE PARTITION_NAME VARCHAR(16);
 	        DECLARE RETROWS INT(11);
 	        DECLARE FUTURE_TIMESTAMP TIMESTAMP;
-	 
+
 	        /*
 	         * Check if any partitions exist for the given SCHEMANAME.TABLENAME.
 	         */
 	        SELECT COUNT(1) INTO RETROWS
 	        FROM information_schema.partitions
 	        WHERE table_schema = SCHEMANAME AND TABLE_NAME = TABLENAME AND partition_name IS NULL;
-	 
+
 	        /*
 	         * If partitions do not exist, go ahead and partition the table
 	         */
@@ -413,11 +413,11 @@ And here is the last one:
 	                 */
 	                SET FUTURE_TIMESTAMP = TIMESTAMPADD(HOUR, HOURLYINTERVAL, CONCAT(CURDATE(), " ", '00:00:00'));
 	                SET PARTITION_NAME = DATE_FORMAT(CURDATE(), 'p%Y%m%d%H00');
-	 
+
 	                -- Create the partitioning query
 	                SET @__PARTITION_SQL = CONCAT("ALTER TABLE ", SCHEMANAME, ".", TABLENAME, " PARTITION BY RANGE(`clock`)");
 	                SET @__PARTITION_SQL = CONCAT(@__PARTITION_SQL, "(PARTITION ", PARTITION_NAME, " VALUES LESS THAN (", UNIX_TIMESTAMP(FUTURE_TIMESTAMP), "));");
-	 
+
 	                -- Run the partitioning query
 	                PREPARE STMT FROM @__PARTITION_SQL;
 	                EXECUTE STMT;
@@ -425,7 +425,7 @@ And here is the last one:
 	        END IF;
 	END$$
 	DELIMITER ;
-	
+
 #### Running the Stored Procedure to Partition Tables
 Here is the actual command to run the procedure:
 
@@ -444,14 +444,14 @@ Here is the actual command to run the procedure:
 	| partition_create(zabbix,history,p201408200000,1408600800) |
 	+-----------------------------------------------------------+
 	1 row in set (50.45 sec)
-	
+
 	+----------------+--------------------+
 	| table          | partitions_deleted |
 	+----------------+--------------------+
 	| zabbix.history | N/A                |
 	+----------------+--------------------+
 	1 row in set (50.45 sec)
-	
+
 	Query OK, 0 rows affected, 1 warning (50.45 sec)
 
 To help the ease the process, there is one more procedure to do the maintenance across all the tables. Here it is:
@@ -478,7 +478,7 @@ After that's in place we can run the following to do the necessary maintenace on
 	| zabbix.history | N/A                |
 	+----------------+--------------------+
 	1 row in set (0.01 sec)
-	
+
 	+---------------------------------------------------------------+
 	| msg                                                           |
 	+---------------------------------------------------------------+
@@ -493,16 +493,16 @@ After that's in place we can run the following to do the necessary maintenace on
 	| partition_create(zabbix,trends_uint,p201408200000,1408600800) |
 	+---------------------------------------------------------------+
 	1 row in set (4 min 54.11 sec)
-	
+
 	+--------------------+--------------------+
 	| table              | partitions_deleted |
 	+--------------------+--------------------+
 	| zabbix.trends_uint | N/A                |
 	+--------------------+--------------------+
 	1 row in set (4 min 54.12 sec)
-	
+
 	Query OK, 0 rows affected, 1 warning (4 min 54.12 sec)
-	
+
 After it's all said and done, I was using 9.3GB (vs the 15GB I was at when I started):
 
 	elatov@kerch:/opt$df -h
@@ -513,22 +513,22 @@ And the MySQL DB went down to 5GB:
 
 	elatov@kerch:~$sudo du -ha -d 0 /var/lib/mysql/zabbix
 	5.0G	/var/lib/mysql/zabbix
-	
+
 ### Disable Zabbix HouseKeeping
 I ended up doing two things, I set the engine of the table to be BlackHole:
 
 	mysql> use zabbix;
 	Reading table information for completion of table and column names
 	You can turn off this feature to get a quicker startup with -A
-	
+
 	Database changed
 	mysql> ALTER TABLE housekeeper ENGINE = BLACKHOLE;
 	Query OK, 8 rows affected (0.00 sec)
 	Records: 8  Duplicates: 0  Warnings: 0
-	
+
 And I also went into the Zabbix Web Management and under the **Administration** -> **General** -> **Housekeeping**, I made sure all of the options were unchecked:
 
-![zab-house-keeping-disabled](https://seacloud.cc/d/480b5e8fcd/files/?p=/zabbix-partition-mysql-db/zab-house-keeping-disabled.png&raw=1)
+![zab-house-keeping-disabled](https://raw.githubusercontent.com/elatov/upload/master/zabbix-partition-mysql-db/zab-house-keeping-disabled.png)
 
 ### Remove Disk Space from LV
 So now that I am in a good place, I can remove the disk that I initially added to get out of this situation. We first have to resize the filesystem and then we can resize the Logical Volume. I was  using ext4 as my file system and unfortunately ext4 shrinking is not supported. If you try to shrink the filesystem on the fly, you will get the following warning:
@@ -537,7 +537,7 @@ So now that I am in a good place, I can remove the disk that I initially added t
 	resize2fs 1.42.5 (29-Jul-2012)
 	Filesystem at /dev/mapper/vg1-root is mounted on /; on-line resizing required
 	resize2fs: On-line shrinking not supported
-	
+
 So I booted from a Debian Live CD and then I installed the LVM utilities:
 
 	user@debian:~$ sudo su -
@@ -594,18 +594,18 @@ Now let's figure out the segments of the LV:
 	  Read ahead sectors     auto
 	  - currently set to     256
 	  Block device           254:0
-	
+
 	  --- Segments ---
 	  Logical extent 0 to 3856:
 	    Type		linear
 	    Physical volume	/dev/sda5
 	    Physical extents	0 to 3856
-	
+
 	  Logical extent 3857 to 6415:
 	    Type		linear
 	    Physical volume	/dev/sdb
 	    Physical extents	0 to 2558
-	    
+
 We can see that **/dev/sda5** is **0** to **3856** and **/dev/sdb** is **3857** to **6415** and the size of the 2nd segment is **2558** so let's reduce our LV by the *size_of_segment* + 1 (2558 - 1 = **2559**).
 
 	root@debian:~# lvreduce -l -2559 /dev/mapper/vg1-root
@@ -613,8 +613,8 @@ We can see that **/dev/sda5** is **0** to **3856** and **/dev/sdb** is **3857** 
 	  THIS MAY DESTROY YOUR DATA (filesystem etc.)
 	Do you really want to reduce root? [y/n]: y
 	  Reducing logical volume root to 15.07 GiB
-	  Logical volume root successfully resized. 
-	  
+	  Logical volume root successfully resized.
+
 Now let's make sure the file system is still okay:
 
 	root@debian:~# e2fsck -f /dev/mapper/vg1-root
@@ -637,7 +637,7 @@ And it's not. Now let's remove the disk from the volume group:
 
 	root@debian:~# vgreduce vg1 /dev/sdb
 	  Removed "/dev/sdb" from volume group "vg1"
-	  
+
 And finally let's remove the disk from LVM completely:
 
 	root@debian:~# pvremove /dev/sdb
@@ -710,13 +710,13 @@ So I decided to go with the **cron** option (check out [this](http://unixadm.inf
 
 Since I was creating 2 weeks worth of partitions, I decided to run the above command weekly. This is done by just adding a file into the **/etc/cron.weekly** directory:
 
-	elatov@kerch:~$cat /etc/cron.weekly/zab-part 
+	elatov@kerch:~$cat /etc/cron.weekly/zab-part
 	#!/bin/sh
 	/usr/bin/mysql -h localhost -u zabbix -ppassword zabbix -e "CALL partition_maintenance_all('zabbix');"
-	
+
 This will actually send an email with any output from the script (I wanted to see the output to make sure the partitions are getting cleared out appropriately), if you don't want the output of the command, just make the file look like this:
 
-	elatov@kerch:~$cat /etc/cron.weekly/zab-part 
+	elatov@kerch:~$cat /etc/cron.weekly/zab-part
 	#!/bin/sh
 	/usr/bin/mysql -h localhost -u zabbix -ppassword zabbix -e "CALL partition_maintenance_all('zabbix');" >/dev/null 2>&1
 

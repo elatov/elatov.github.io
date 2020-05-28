@@ -12,17 +12,17 @@ tags: [linux,openelec,raspberry_pi,xbmc]
 I noticed that there was a new version of OpenELEC, so I decided to give it a try. From their [release](https://libreelec.wiki/how_to/update_libreelec) page, it doesn't look you can do an automatic update and it's recommended to do a manual update:
 
 > How To Upgrade To OpenELEC 4.0 Release
-> 
+>
 > If you are going to update from one of our older releases, we STRONGLY advise that you make a backup of your XBMC data and manual update . There was reports regarding new database versions, settings, addons and addon repos, which can cause issues if you are using updating from OpenELEC 3.2 or older. You can use our OpenELEC Settings addon if you are using OpenELEC-3.2 to backup your data and then reset it. If you are on an older build, you will need to do this manually:
-> 
+>
 > 	mv /storage/.xbmc /storage/.xbmc-backup
 
 And from the [update](http://kodi.wiki/view/OpenELEC#Updating_OpenELEC) page, here are the instructions for the actual update:
 
 > Copying the Update Files
-> 
+>
 > To update you must download the corresponding install depending on your hardware. To download click here. If you are unsure which version you need, click here.
-> 
+>
 > When you download the file you will be presented with a **.tar** file. You will need to extract this tar file and get the four files int the target folder (**SYSTEM** **KERNEL** **SYSTEM.md5** **KERNEL.md5**).
 
 ### Updating OpenELEC to 4.0
@@ -79,7 +79,7 @@ Then extracting the **tar** file, I had the following files:
 		├── KERNEL.md5
 		├── SYSTEM
 		└── SYSTEM.md5
-	
+
 	4 directories, 40 files
 
 We just need to grab all the files under the **target** directory and put under the **/storage/.update** directory on the current OpenELEC machine. So I SSH'ed into my OpenELEC machine and ran the following to copy the files (I had the **rsync** plugin):
@@ -95,7 +95,7 @@ We just need to grab all the files under the **target** directory and put under 
 	   102686720 100%  941.88kB/s    0:01:46 (xfer#3, to-check=1/5)
 	SYSTEM.md5
 			  48 100%    0.05kB/s    0:00:00 (xfer#4, to-check=0/5)
-	
+
 	sent 106 bytes  received 108711569 bytes  941226.62 bytes/sec
 	total size is 108684752  speedup is 1.00
 
@@ -107,23 +107,23 @@ Lastly I just rebooted:
 
 	pi:~ # reboot
 
-After it rebooted the new version was installed. 
+After it rebooted the new version was installed.
 
 ### Re-Apply the Original Settings
 I then went back to my [OpenELEC on Raspberry Pi](/2013/11/openelec-raspberry-pi/) post and re-applied my old settings:
 
 1. Apply the IP settings and finish the Initial Setup Wizard
 2. Install the xTV-SAF Skin
-  
+
   - Copy the font settings over `cp .xbmc.backup/addons/skin.xtv-saf/720p/Font.xml .xbmc/addons/skin.xtv-saf/720p/Font.xml`
 3. Enable the Web Server Service. **System** -> **Services** -> **Webserver** (you don't have do this manually any more)
 4. Add my Plex Movies Libraty via UPNP. **Movies** -> **Add Movies** -> **Browse** -> **UPNP**
 5. Fix the Time Zone. **System** -> **Appearance** -> **International**
 
    ![openelec-time-settings](https://seacloud.cc/d/480b5e8fcd/files/?p=/openelec-update-4/openelec-time-settings.png&raw=1)
-   
 
-The rest of the stuff was okay, like **optware** and **snmpd** (check out [this](/2013/11/openelec-raspberry-pi/) post on that setup). 
+
+The rest of the stuff was okay, like **optware** and **snmpd** (check out [this](/2013/11/openelec-raspberry-pi/) post on that setup).
 
 ### New Performance Tuning Settings
 
@@ -145,11 +145,11 @@ Here are the steps for that:
 
 		arm_freq=800
 		core_freq=300
-	
+
 
 For a more in depth guide, check out [How to overclock Raspberry Pi running OpenELEC?](https://www.smarthomebeginner.com/overclock-raspberry-pi-openelec/). After I rebooted I saw the following under the **Hardware** section:
 
-![openelec-new-hardware](https://seacloud.cc/d/480b5e8fcd/files/?p=/openelec-update-4/openelec-new-hardware_g.png&raw=1)
+![openelec-new-hardware](https://raw.githubusercontent.com/elatov/upload/master/openelec-update-4/openelec-new-hardware_g.png)
 
 Notice the new **Speed**, you can also **ssh** into the RPi and check out **dmesg** output:
 
@@ -158,7 +158,7 @@ Notice the new **Speed**, you can also **ssh** into the RPi and check out **dmes
 
 To make sure I wasn't abusing the CPU, I played a movie and checked out **top**:
 
-![top-xbmc-playing-video](https://seacloud.cc/d/480b5e8fcd/files/?p=/openelec-update-4/top-xbmc-playing-video.png&raw=1)
+![top-xbmc-playing-video](https://raw.githubusercontent.com/elatov/upload/master/openelec-update-4/top-xbmc-playing-video.png)
 
 I wasn't pegging the CPU to max or anything. So the overclocking wasn't abusing my CPU.
 
@@ -179,7 +179,7 @@ and add the following:
 
 All of the above setting are discussed in detail at [Strategies to fix XBMC buffering issues on Raspberry Pi](https://www.smarthomebeginner.com/fix-raspberry-pi-xbmc-buffering-issues/). The most noteable one is the **cachemembuffersize** option (I had a pretty decent SD card). From the above page:
 
-> Alternatively, you could set the cachemembuffersize to 0, which would force XBMC to use your local storage (SD Card) for caching videos. In this case, the cache size is only limited by the amount of free space available. Upon stopping the video the cache is automatically cleared to free up space. Note that this will increase the read/write on your SD card, which may reduce its lifespan. But SD cards are cheap and doing this can help low RAM devices such as Raspberry Pi. 
+> Alternatively, you could set the cachemembuffersize to 0, which would force XBMC to use your local storage (SD Card) for caching videos. In this case, the cache size is only limited by the amount of free space available. Upon stopping the video the cache is automatically cleared to free up space. Note that this will increase the read/write on your SD card, which may reduce its lifespan. But SD cards are cheap and doing this can help low RAM devices such as Raspberry Pi.
 
 So I was okay to store the cache locally:
 
@@ -226,7 +226,7 @@ Go to **System** -> **Services** and disable anything you don't use. I disabled 
 
 This one is found under **System** -> **Videos** -> **Library**:
 
-![openelec-dont-get-actor-thumb](https://seacloud.cc/d/480b5e8fcd/files/?p=/openelec-update-4/openelec-dont-get-actor-thumb.png&raw=1)
+![openelec-dont-get-actor-thumb](https://raw.githubusercontent.com/elatov/upload/master/openelec-update-4/openelec-dont-get-actor-thumb.png)
 
 If you are planning to play a lot of music you can uncheck the **Disable Tag Reading** option.
 
@@ -241,7 +241,7 @@ Everything was working out well, until I started watching some tv streams. XBMC 
 	13:59:04 T:2750211152   ERROR: COMXAudioCodecOMX::GetData Unexpected change of size (65536->49152)
 	13:59:04 T:2750211152   ERROR: COMXAudioCodecOMX::GetData Unexpected change of size (49152->65536)
 
-I was only able to find [the following](https://forum.kodi.tv/showthread.php?tid=196936) (Openelec 4.0.3 Screen goes black during Live TV) forum that matched my error message. In the forum they mentioned that it's known issue and going back to 4.0.2 should fix the issue(and hopefully 4.0.4 fixes the issue). Given the fact that I was on 4.0.6 and the issue was still happening, I decided to downgrade to 4.0.2. 
+I was only able to find [the following](https://forum.kodi.tv/showthread.php?tid=196936) (Openelec 4.0.3 Screen goes black during Live TV) forum that matched my error message. In the forum they mentioned that it's known issue and going back to 4.0.2 should fix the issue(and hopefully 4.0.4 fixes the issue). Given the fact that I was on 4.0.6 and the issue was still happening, I decided to downgrade to 4.0.2.
 
 With the new version of OpenELEC (4.0), we just copy the **tar** file into the update folder and the update process will proceed. From [Updating OpenELEC](http://kodi.wiki/view/OpenELEC#Updating_OpenELEC)
 
@@ -249,7 +249,7 @@ With the new version of OpenELEC (4.0), we just copy the **tar** file into the u
 
 So I mozied over to the [archives](https://libreelec.wiki/releases) page for openelec and downloaded the 4.0.2 version:
 
-	elatov@crbook:~/download$ls -lh OpenELEC-RPi.arm-4.0.2.tar 
+	elatov@crbook:~/download$ls -lh OpenELEC-RPi.arm-4.0.2.tar
 	-rw-r--r-- 1 elatov elatov 109M May 27 12:33 OpenELEC-RPi.arm-4.0.2.tar
 
 Then I **ssh**'ed into the RPi and I copied the file over:
@@ -258,13 +258,13 @@ Then I **ssh**'ed into the RPi and I copied the file over:
 	receiving incremental file list
 	OpenELEC-RPi.arm-4.0.2.tar
 	   113664000 100%    1.63MB/s    0:01:06 (xfer#1, to-check=0/1)
-	
+
 	sent 42 bytes  received 113691864 bytes  1505853.06 bytes/sec
 	total size is 113664000  speedup is 1.00
 
 Then after I rebooted, the 4.0.2 version was installed (rebooting a second time finished the downgrade). So I am currently on 4.0.2:
 
-	pi:~ # cat /etc/version 
+	pi:~ # cat /etc/version
 	4.0.2
 
 Since I have been on 4.0.2, I haven't seen xbmc restart and the TV streams are working without issues.

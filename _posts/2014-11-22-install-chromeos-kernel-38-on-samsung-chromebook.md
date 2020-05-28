@@ -19,8 +19,8 @@ You will notice there are two approaches to installing the kernel:
 
 1. To sign the kernel and to **dd** the kernel into the Kernel partion
 2. Using Nv-Uboot just copy the file to /boot
-	
-Since I followed the instructions to install Arch Linux I already had Nv-Uboot installed so I took the second approach. 
+
+Since I followed the instructions to install Arch Linux I already had Nv-Uboot installed so I took the second approach.
 
 ### Mainline Kernel on Samsung Chromebook
 At the time of writing this post the lastest kernel is 3.17 but the mainline kernel doesn't support some of the hardware yet (like audio). I also found a couple of sites which talked about compiling the mainline kernel for the Samsung Chromebook:
@@ -42,7 +42,7 @@ The latest link provides instructions on how to compile the latest kernel (3.13)
 
 After nv-uboot with FB enabled is installed you can use the steps from above sites to install the mainline kernel, but of course sounds won't work. I actually gave this a try just to see what happens and during boot you will see the Linux Tux:
 
-![chromebook-booting-main-kern](https://seacloud.cc/d/480b5e8fcd/files/?p=/chromeos38_kernel_chromebook/chromebook-booting-main-kern.jpg&raw=1)
+![chromebook-booting-main-kern](https://raw.githubusercontent.com/elatov/upload/master/chromeos38_kernel_chromebook/chromebook-booting-main-kern.jpg)
 
 But it was pretty slow to boot and some of the components didn't work well.
 
@@ -145,7 +145,7 @@ Now let's build the DTBs (Device Tree Blob) files:
 	real    0m2.590s
 	user    0m1.015s
 	sys     0m0.615s
-	
+
 Just for reference if you are planning to restart the compile, or if you made some modifications to the code it's always a good to clean the previous build files, this is accompished by running the following:
 
 	elatov@crbook:~/chromeos$make mrproper
@@ -242,7 +242,7 @@ This format includes both the Kernel Image and the DTB file and they have to mat
 		};
 	};
 
-**Notice** that we use the **zImage** file and not the **uImage** file. 
+**Notice** that we use the **zImage** file and not the **uImage** file.
 
 When I tried to run **mkimage** to build the image, I initially recieved the following error:
 
@@ -284,18 +284,18 @@ Then finally I can just backup the original FIT Kernel Image and copy the new on
 
 	elatov@crbook:~/chromeos$sudo cp /boot/vmlinux.uimg /boot/vmlinux.uimg.orig
 	elatov@crbook:~/chromeos$sudo cp arch/arm/boot/vmlinux.uimg /boot/vmlinux.uimg
-	
+
 Then after rebooting the new 3.8 kernel booted up.
 
 ### Building NFS and AutoFS Kernel Modules
 
 In my previous version of Arch Linux I was actually using NFS and AutoFS, but those modules are not automatically enabled for the Samsung Chromebook. So let's build those, go back to the source code and run `make menuconfig` and under **File Systems** Enable **AutoFS** and **Network File Systems**:
 
-![make-menuconfig-autofs-nfs](https://seacloud.cc/d/480b5e8fcd/files/?p=/chromeos38_kernel_chromebook/make-menuconfig-autofs-nfs.png&raw=1)
+![make-menuconfig-autofs-nfs](https://raw.githubusercontent.com/elatov/upload/master/chromeos38_kernel_chromebook/make-menuconfig-autofs-nfs.png)
 
 Then go into Network File Systems and enable the desired versions:
 
-![make-menu-config-NFS-options](https://seacloud.cc/d/480b5e8fcd/files/?p=/chromeos38_kernel_chromebook/make-menu-config-NFS-options.png&raw=1)
+![make-menu-config-NFS-options](https://raw.githubusercontent.com/elatov/upload/master/chromeos38_kernel_chromebook/make-menu-config-NFS-options.png)
 
 Then rebuild just the modules, by running `make -j 3 modules`, at first I receieved the following warning/error:
 
@@ -310,7 +310,7 @@ Then rebuild just the modules, by running `make -j 3 modules`, at first I receie
 
 So I went back into `make menuconfig` and under **Kernel Hacking**, I disabled the option to treat warning as errors:
 
-![make-menuconfig-compiler-warn-as-err](https://seacloud.cc/d/480b5e8fcd/files/?p=/chromeos38_kernel_chromebook/make-menuconfig-compiler-warn-as-err.png&raw=1)
+![make-menuconfig-compiler-warn-as-err](https://raw.githubusercontent.com/elatov/upload/master/chromeos38_kernel_chromebook/make-menuconfig-compiler-warn-as-err.png)
 
 Then cleaning the source:
 
@@ -369,27 +369,27 @@ Then reinstalling the modules:
 	real    0m4.162s
 	user    0m0.605s
 	sys 0m0.610s
-	
+
 For good measure (even though I didn't have to), I rebooted and then I saw the new modules loaded:
 
 	elatov@crbook:~$uname -a
 	Linux crbook.dnsd.me 3.8.11 #1 SMP Sat Nov 22 13:52:12 MST 2014 armv7l GNU/Linux
-	elatov@crbook:~$lsmod 
+	elatov@crbook:~$lsmod
 	Module                  Size  Used by
-	mwifiex_sdio           22648  0 
+	mwifiex_sdio           22648  0
 	mwifiex               162905  1 mwifiex_sdio
-	btmrvl_sdio            17424  0 
+	btmrvl_sdio            17424  0
 	btmrvl                 18081  1 btmrvl_sdio
 	bluetooth             271358  3 btmrvl,btmrvl_sdio
 	cfg80211              416240  1 mwifiex
-	isl29018               18268  0 
-	sbs_battery            13002  0 
-	joydev                 17227  0 
-	rtc_s3c                13393  0 
-	nfs                   128563  0 
+	isl29018               18268  0
+	sbs_battery            13002  0
+	joydev                 17227  0
+	rtc_s3c                13393  0
+	nfs                   128563  0
 	lockd                  74948  1 nfs
 	sunrpc                196525  2 nfs,lockd
-	autofs4                28213  2 
+	autofs4                28213  2
 
 and I was able to mount NFS shares.
 
@@ -411,7 +411,7 @@ and then I switched the Xorg config to use **armsoc** instead of **fbdev**:
 
 Then after another reboot X started up with out issues. I also noticed the backlight sysfs node changed to another location:
 
-	elatov@crbook:~$cat /sys/class/backlight/backlight.12/brightness 
+	elatov@crbook:~$cat /sys/class/backlight/backlight.12/brightness
 	1000
 
 ### Changing NV-Uboot Boot process
@@ -460,10 +460,10 @@ Before we start making changes, let's go ahead and check all the configuration f
 	tftpserverip=0.0.0.0
 	tftp_setup=setenv tftpkernelpath /tftpboot/vmlinux.uimg; setenv tftprootpath /tftpboot/initrd.uimg; setenv rootpath /export/nfsroot; setenv autoload n
 	usb_boot=setenv devtype usb; setenv devnum 0; setenv devname sda; run run_disk_boot_script;run ext2_boot
-	
+
 We can see that no **dtb** file is utilized. There are good instructions on how to setup a nice **env.txt** file in your **/boot** partition in [ARM Chromebook/U-Boot Environment](http://linux-exynos.org/wiki/ARM_Chromebook/U-Boot_Environment).  After it's in place, you can modify that file and just type in **run import_sd_env** and it will import your changes (this way you don't have to type the commands one at a time on the **u-boot** prompt.) Here is how my file looked like, I made some minor modifications from the above page:
 
-	elatov@crbook:~$cat /boot/env.txt 
+	elatov@crbook:~$cat /boot/env.txt
 	boot_part=2
 	root_part=3
 	script_part=c
@@ -485,7 +485,7 @@ We can see that no **dtb** file is utilized. There are good instructions on how 
 
 	load_env_txt=ext2load ${dev_type} ${dev_num}:${boot_part} ${loadaddr} ${env_path}; run import_env_txt
 
-	import_env_txt=env import -t ${loadaddr} 
+	import_env_txt=env import -t ${loadaddr}
 
 	import_env=setenv dev_num 0; run mmc_setup; run load_env_txt
 	import_sd_env=setenv dev_num 1; run mmc_setup; run load_env_txt
@@ -535,14 +535,14 @@ Here is what I ran to import the **env.txt** file:
 	SMDK5250 # env import -t 0x42000000
 	## Info: input data size = 1833 = 0x729
 	SMDK5250 #
-	
+
 Then you can run **saveenv** and those changes will be pushed to Flash.
 
 	SMDK5250 # saveenv
 	Saving Environment to SPI Flash
 	SF: Detected W25Q32 with page size 4KIB, total MiB
 	Erasing SPI flash... Writing to SPI flash ... done
-	
+
 Now after that's in place, you can make changes to the **env.txt** file under **/boot** and then do the following to import them, if you are planning to test with different u-boot settings, this will definitely help out:
 
 	Model: Google Snow

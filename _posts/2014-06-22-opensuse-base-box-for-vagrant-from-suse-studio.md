@@ -14,44 +14,44 @@ As I was creating an [OpenSUSE base box](/2014/06/create-a-base-opensuse-image-f
 
 You can basically create your own custom image of the SUSE Linux Distribution and customizing every aspect in the process. So let's give it a try, go to **https://susestudio.com/** and login, after you login you will see the available templates:
 
-![opensuse-templates](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_os_box_with_studio/opensuse-templates.png&raw=1)
+![opensuse-templates](https://raw.githubusercontent.com/elatov/upload/master/vagrant_create_os_box_with_studio/opensuse-templates.png)
 
 Since we are trying to minimize the size, let's select "Just Enough OS" then scroll down, select the archicture, give this applicance name:
 
 
-![ss-arch-name-app](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_os_box_with_studio/ss-arch-name-app.png&raw=1)
+![ss-arch-name-app](https://raw.githubusercontent.com/elatov/upload/master/vagrant_create_os_box_with_studio/ss-arch-name-app.png)
 
 After clicking on "Create Appliance", it will take you to the configuration:
 
-![ss-config-your-app](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_os_box_with_studio/ss-config-your-app.png&raw=1)
+![ss-config-your-app](https://raw.githubusercontent.com/elatov/upload/master/vagrant_create_os_box_with_studio/ss-config-your-app.png)
 
 Then click on "Switch to the Software tab to continue", and it will take you to the software tab where you can customize what RPMs are included in your custom image:
 
-![ss-software-tab](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_os_box_with_studio/ss-software-tab.png&raw=1)
+![ss-software-tab](https://raw.githubusercontent.com/elatov/upload/master/vagrant_create_os_box_with_studio/ss-software-tab.png)
 
 Let's add the **sudo** package, since vagrant uses that, (while we are at it let's add **zerofree** and **curl**):
 
-![ss-add-sudo](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_os_box_with_studio/ss-add-sudo.png&raw=1)
+![ss-add-sudo](https://raw.githubusercontent.com/elatov/upload/master/vagrant_create_os_box_with_studio/ss-add-sudo.png)
 
 After that go to the **Configuration** tab, configure the timezone, enable the firewall (after enabling the firewall it will ask you to add the **SuSEfirewall2** package), and add the vagrant user:
 
-![ss-config-tab](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_os_box_with_studio/ss-config-tab.png&raw=1)
+![ss-config-tab](https://raw.githubusercontent.com/elatov/upload/master/vagrant_create_os_box_with_studio/ss-config-tab.png)
 
 Then go to the Appliance subsection and configure LVM:
 
-![ss-configure-appliance-subtab](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_os_box_with_studio/ss-configure-appliance-subtab.png&raw=1)
+![ss-configure-appliance-subtab](https://raw.githubusercontent.com/elatov/upload/master/vagrant_create_os_box_with_studio/ss-configure-appliance-subtab.png)
 
 Then go to the **Build** Tab and select the "VMware Workstation/Virtualbox Format":
 
-![ss-image-format-drop-down](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_os_box_with_studio/ss-image-format-drop-down.png&raw=1)
+![ss-image-format-drop-down](https://raw.githubusercontent.com/elatov/upload/master/vagrant_create_os_box_with_studio/ss-image-format-drop-down.png)
 
 Then click on **Build** to start the creation of your custom image:
 
-![ss-creating-image](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_os_box_with_studio/ss-creating-image.png&raw=1)
+![ss-creating-image](https://raw.githubusercontent.com/elatov/upload/master/vagrant_create_os_box_with_studio/ss-creating-image.png)
 
 After the build is done, you can download it:
 
-![ss-build-finished](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_os_box_with_studio/ss-build-finished.png&raw=1)
+![ss-build-finished](https://raw.githubusercontent.com/elatov/upload/master/vagrant_create_os_box_with_studio/ss-build-finished.png)
 
 After you have the file, extract it:
 
@@ -62,11 +62,11 @@ After you have the file, extract it:
 
 Now let's add a new VM in VirtualBox and point the virtual disk to the extract vmdk file. So start VirtualBox, click on **New** VM, and give it a Name:
 
-![VirtualBox_Name-the_VM](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_os_box_with_studio/VirtualBox_Name-the_VM.png&raw=1)
+![VirtualBox_Name-the_VM](https://raw.githubusercontent.com/elatov/upload/master/vagrant_create_os_box_with_studio/VirtualBox_Name-the_VM.png)
 
 When it gets to the hard-drive page, select "Use an existing virtual hard drive file" and point to the vmdk:
 
-![vb-select-vmdk](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_os_box_with_studio/vb-select-vmdk.png&raw=1)
+![vb-select-vmdk](https://raw.githubusercontent.com/elatov/upload/master/vagrant_create_os_box_with_studio/vb-select-vmdk.png)
 
 After the VM is created, disable the USB ports, audio device and the floppy device in the boot menu. Start the VM and follow the instructions laid out [here](/2014/06/create-a-base-opensuse-image-for-vagrant/) to finish the customization of the VM. As a side note, it won't bring up the first interface by default so login as root to the appliance and run the following to get an IP via DHCP (then you can SSH to the VM using port forwarding like before):
 
@@ -85,9 +85,9 @@ Modify the following lines:
 	STARTMODE=auto
 	BOOTPROTO=dhcp4
 	DHCLIENT_SET_DEFAULT_ROUTE=yes
-	
+
 **NOTE** Ran into a bug [Bug 802970 - Default gateway not set up after first user logs in](https://bugzilla.novell.com/show_bug.cgi?id=802970), that's why the **DHCLIENT_SET** option was used.
-	
+
 Also the boot partition is already labeled:
 
 	vagrant@linux-mjbf:~> sudo e2label /dev/sda1
@@ -118,7 +118,7 @@ to this:
 Then run the following to create a new **grub** menu and to rebuild the **initrd** image:
 
 	vagrant@linux-mjbf:~> sudo mkinitrd
-	
+
 	Kernel image:   /boot/vmlinuz-3.11.10-11-default
 	Initrd image:   /boot/initrd-3.11.10-11-default
 	Root device:	/dev/systemVG/LVRoot (mounted on / as ext3)
@@ -129,13 +129,13 @@ Then run the following to create a new **grub** menu and to rebuild the **initrd
 To build the virtualbox guest additions, install these packages prior:
 
 	sudo zypper in kernel-devel kernel-default-devel gcc make
- 
+
  After creating the box:
- 
+
 	elatov@kmac:~/vagrant-boxes$ vagrant package --output vagrant-stu-min-opensuse13-64.box --base opensuse13-64
- 
+
  Here is was the final size:
- 
+
 	elatov@kmac:~/vagrant-boxes$ls -lh
 	total 7427872
 	-rw-r--r--  1 elatov  staff   688M Jun 11 12:35 vagrant-opensuse13-32bit-small.box

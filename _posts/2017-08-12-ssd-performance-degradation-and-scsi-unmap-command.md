@@ -61,13 +61,13 @@ And a couple on my OmniOS ZFS storage:
 
     <> sg_vpd -p ai /dev/rdsk/c2t4d0
     ATA information VPD page:
-      SAT Vendor identification: ATA     
-      SAT Product identification: Samsung SSD 840 
+      SAT Vendor identification: ATA
+      SAT Product identification: Samsung SSD 840
       SAT Product revision level: BB6Q
       Device signature indicates PATA transport
       ATA command IDENTIFY DEVICE response summary:
-        model: Samsung SSD 840 EVO 250GB               
-        serial number: ftrt     
+        model: Samsung SSD 840 EVO 250GB
+        serial number: ftrt
         firmware revision: EXT0BB6Q
 
 ### SSD Performance Degradation
@@ -75,7 +75,7 @@ Over a period of 4 years, the SSDs became slow and slower. I noticed that backup
 
 - [FAQ: Using SSDs with ESXi (Updated)](https://www.v-front.de/2013/10/faq-using-ssds-with-esxi.html)
 - [Exploring the Relationship Between Spare Area and Performance Consistency in Modern SSDs](http://www.anandtech.com/show/6489/playing-with-op)
-- [The Myth of SSD Performance Degradation](http://blog.houzz.com/post/115950977148/the-myth-of-ssd-performance-degradation) 
+- [The Myth of SSD Performance Degradation](http://blog.houzz.com/post/115950977148/the-myth-of-ssd-performance-degradation)
 
 Some notes, from the above sites:
 
@@ -241,14 +241,14 @@ I removed the LUN, I removed the volume, and I deleted the pool. Then I formatte
 
 Then I re-created the pool, volume, and LUN (more on the process check out the [ZFS iSCSI Benchmark Tests on ESX](/2014/01/zfs-iscsi-benchmarks-tests/) post). Before re-adding it to the ESXi host I ran a quick **bonnie++** and I got the following:
 
-![zfs-bon-results](https://seacloud.cc/d/480b5e8fcd/files/?p=/ssd-unmap/zfs-bon-results.png&raw=1)
+![zfs-bon-results](https://raw.githubusercontent.com/elatov/upload/master/ssd-unmap/zfs-bon-results.png)
 
 Before running the **purge** with the **format** utility, I got 60MB/s Write and 700MB/s for Read. I am glad to see my write performance back.
 
 ### Automatic UNMAP with vSphere 6.5
 Then I read that with vSphere 6.5 and VMFS-6, **UNMAP** is automatic. From [What’s new in vSphere 6.5 Core Storage](http://cormachogan.com/2016/10/18/whats-new-vsphere-6-5-core-storage/):
 
-> This is a feature I know that many of you have been waiting for. There is now automatic UNMAP with VMFS-6 and vSphere 6.5. This automated UNMAP crawler mechanism will reclaim what is termed “dead” or “stranded” space on VMFS-6 datastores. Blocks that have been freed will be reclaimed within 12 hours by the crawler. 
+> This is a feature I know that many of you have been waiting for. There is now automatic UNMAP with VMFS-6 and vSphere 6.5. This automated UNMAP crawler mechanism will reclaim what is termed “dead” or “stranded” space on VMFS-6 datastores. Blocks that have been freed will be reclaimed within 12 hours by the crawler.
 
 But unfortunately you can't do an upgrade: [Migrating VMFS 5 datastore to VMFS 6 datastore](https://kb.vmware.com/kb/2147824). So I moved everything off the local datastore and formatted it with VMFS-6. I also readded the ZFS LUN, formatted it with VMFS-6 from the get-go, and I was able to confirm that it's enabled:
 

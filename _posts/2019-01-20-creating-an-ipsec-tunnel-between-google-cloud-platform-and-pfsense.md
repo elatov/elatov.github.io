@@ -20,7 +20,7 @@ These resources helped out tremendously.
 ### Creating a VPN in GCP
 First we can go ahead and create a VPN configuration on the GCP side. In the console go to **Hybrid Connectivity** -> **VPN** and click on **Create**. First it will ask you to define the VPN Gateway:
 
-![gcp-create-vpn-p1.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/gcp-pfsense-ipsec/gcp-create-vpn-p1.png&raw=1)
+![gcp-create-vpn-p1.png](https://raw.githubusercontent.com/elatov/upload/master/gcp-pfsense-ipsec/gcp-create-vpn-p1.png)
 
 The shared key can be generated using the command from the above site:
 
@@ -31,36 +31,36 @@ And the **Peer IP Address** is the public IP address of the PfServe machine.
 #### Confirm the VPN Tunnel Settings
 After creating a VPN Gateway, it will also create a VPN Tunnel automatically and check out the state of the tunnel:
 
-![gcp-create-vpn-p2.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/gcp-pfsense-ipsec/gcp-create-vpn-p2.png&raw=1)
+![gcp-create-vpn-p2.png](https://raw.githubusercontent.com/elatov/upload/master/gcp-pfsense-ipsec/gcp-create-vpn-p2.png)
 
 You will notice the firewall rules will get automatically created on the GCP side.
 
 ### Create IPSec Tunnel in PfSense
 Now let's create the settings on the PfSense machine. From the admin console go to **VPN** -> **IPsec** -> **Tunnels** -> **Phase 1** and fill out all the settings (most of the settings are covered in the above sites):
 
-![ipsec-create-vpn-p2.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/gcp-pfsense-ipsec/ipsec-create-vpn-p2.png&raw=1)
+![ipsec-create-vpn-p2.png](https://raw.githubusercontent.com/elatov/upload/master/gcp-pfsense-ipsec/ipsec-create-vpn-p2.png)
 
 #### Adding a Phase 2 Configuration
 After the Phase 1 configurations are added, add a Phase 2 configuration and set your settings depending on your setup. Here is how my configuration looked like.
 
-![gcp-create-vpn-p3.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/gcp-pfsense-ipsec/gcp-create-vpn-p3.png&raw=1)
+![gcp-create-vpn-p3.png](https://raw.githubusercontent.com/elatov/upload/master/gcp-pfsense-ipsec/gcp-create-vpn-p3.png)
 
 
 #### Create Firewall Rules to Allow IPSec
 On the WAN interface allow the IPSec ports and protocol:
 
-![ipsec-firewall-rule-pf.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/gcp-pfsense-ipsec/ipsec-firewall-rule-pf.png&raw=1)
+![ipsec-firewall-rule-pf.png](https://raw.githubusercontent.com/elatov/upload/master/gcp-pfsense-ipsec/ipsec-firewall-rule-pf.png)
 
 Also don't forget to allow communication between the internal subnets (I kind of went crazy and just allowed all the traffic across the IpSec interface):
 
-![ipsec-firewall-rules-pf-2.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/gcp-pfsense-ipsec/ipsec-firewall-rules-pf-2.png&raw=1)
+![ipsec-firewall-rules-pf-2.png](https://raw.githubusercontent.com/elatov/upload/master/gcp-pfsense-ipsec/ipsec-firewall-rules-pf-2.png)
 
 After you save your configuration and apply it, the tunnel should get established.
 
 ### Confirm the Tunnel is established
 From the PfSense side, you can go to **Status** -> **IPsec** -> **Overview** and you should see the tunnel established:
 
-![gcp-create-vpn-p4.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/gcp-pfsense-ipsec/gcp-create-vpn-p4.png&raw=1)
+![gcp-create-vpn-p4.png](https://raw.githubusercontent.com/elatov/upload/master/gcp-pfsense-ipsec/gcp-create-vpn-p4.png)
 
 You can also SSH to the PfSense machine and check out the status:
 
@@ -229,11 +229,11 @@ You can also check out the logs:
 
 And on the GCP side, if you go check out the VPN details, you will see the Tunnel is established:
 
-![gcp-create-vpn-p5.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/gcp-pfsense-ipsec/gcp-create-vpn-p5.png&raw=1)
+![gcp-create-vpn-p5.png](https://raw.githubusercontent.com/elatov/upload/master/gcp-pfsense-ipsec/gcp-create-vpn-p5.png)
 
 If you have [Stackdriver Logging](https://cloud.google.com/logging/) enabled, you can also check out the logs of the VPN Gateway VM:
 
-![gcp-stackdriver-logs-p1.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/gcp-pfsense-ipsec/gcp-stackdriver-logs-p1.png&raw=1)
+![gcp-stackdriver-logs-p1.png](https://raw.githubusercontent.com/elatov/upload/master/gcp-pfsense-ipsec/gcp-stackdriver-logs-p1.png)
 
 Lastly make sure a machine from the internal network can login to a VM running in GCP:
 
@@ -252,7 +252,7 @@ Lastly make sure a machine from the internal network can login to a VM running i
 
 If you check out **pftop** on the PfSense machine you should see the connection established as well:
 
-![pfsense-pftop.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/gcp-pfsense-ipsec/pfsense-pftop.png&raw=1)
+![pfsense-pftop.png](https://raw.githubusercontent.com/elatov/upload/master/gcp-pfsense-ipsec/pfsense-pftop.png)
 
 Lastly you can also confirm is going through the tunnel, by doing a **tcpdump** on the tunnel interface:
 
@@ -261,7 +261,7 @@ Lastly you can also confirm is going through the tunnel, by doing a **tcpdump** 
     listening on enc0, link-type ENC (OpenBSD encapsulated IP), capture size 262144 bytes
     14:11:26.528630 (authentic,confidential): SPI 0xc1a39381: IP 192.168.56.151.32964 > 10.138.0.6.ssh: Flags [S], seq 2935568875, win 29200, options [mss 1460,sackOK,TS val 4255537816 ecr 0,nop,wscale 7], length 0
     14:11:27.560091 (authentic,confidential): SPI 0xc1a39381: IP 192.168.56.151.32964 > 10.138.0.6.ssh: Flags [S], seq 2935568875, win 29200, options [mss 1460,sackOK,TS val 4255538849 ecr 0,nop,wscale 7], length 0
-    
+
 That should be it.
 
 

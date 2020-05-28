@@ -14,7 +14,7 @@ I used MacPorts to install **adb**, most of the instructions are laid out in [Ma
 Then launch the **Android SDK Manager** and make sure to install **Android SDK Platform-tools**:
 
 
-![and-man](https://seacloud.cc/d/480b5e8fcd/files/?p=/cm-nexus_5/and-man.png&raw=1)
+![and-man](https://raw.githubusercontent.com/elatov/upload/master/cm-nexus_5/and-man.png)
 
 After that the binaries will be here:
 
@@ -136,18 +136,18 @@ Now let's push the CyanogenMod and gapps onto the phone:
 	┌─[elatov@macair] - [/Users/elatov] - [2016-04-02 10:15:59]
 	└─[0] <> adb push download/cm-13.0-20160316-SNAPSHOT-ZNH0EAO1QC-hammerhead.zip /sdcard/
 	4988 KB/s (334188304 bytes in 65.424s)
-	
+
 	┌─[elatov@macair] - [/Users/elatov] - [2016-04-02 10:18:31]
 	└─[0] <> adb push download/open_gapps-arm-6.0-nano-20160402.zip /sdcard/
 	4901 KB/s (122494130 bytes in 24.406s)
 
 My phone was already in recovery mode, while in recovery mode I created a backup and reset the phone to factory settings:
 
-![trec-backup-reset](https://seacloud.cc/d/480b5e8fcd/files/?p=/cm-nexus_5/trec-backup-reset.jpg&raw=1)
+![trec-backup-reset](https://raw.githubusercontent.com/elatov/upload/master/cm-nexus_5/trec-backup-reset.jpg)
 
 Then I chose **Install** and first chose the **cm-13.0-20160316-SNAPSHOT-ZNH0EAO1QC-hammerhead.zip** file:
 
-![team-rec-install-cm](https://seacloud.cc/d/480b5e8fcd/files/?p=/cm-nexus_5/team-rec-install-cm.jpg&raw=1)
+![team-rec-install-cm](https://raw.githubusercontent.com/elatov/upload/master/cm-nexus_5/team-rec-install-cm.jpg)
 
 And after that was complete I then installed did the same with the **open_gapps-arm-6.0-nano-20160402.zip** file.
 
@@ -185,11 +185,11 @@ At this point the pop up on the phone showed up and I accepted my Mac and then I
 ### Restoring from Backup
 As I was resetting up the the phone, I had the option to restore all the apps from The Play Store (and I could choose which ones to install), this is only if you enabled backup to google:
 
-![restore-phone-with-google](https://seacloud.cc/d/480b5e8fcd/files/?p=/cm-nexus_5/restore-phone-with-google.png&raw=1)
+![restore-phone-with-google](https://raw.githubusercontent.com/elatov/upload/master/cm-nexus_5/restore-phone-with-google.png)
 
 That just installed the applications without any settings. Then I just restored from the adb backup for the actual data:
 
 	adb restore nexus5-no_sys.ab
-	
+
 ### Fix Broken Sound
 I noticed that after some time the sound would stop working, I ran into [this](https://productforums.google.com/forum/#!topic/nexus/bBoE12HGm5U;context-place=topicsearchin/nexus/category$3Aother-discussions) thread and people fixed the issue by installing the [SoundAbout](https://play.google.com/store/apps/details?id=com.woodslink.android.wiredheadphoneroutingfix.pro&hl=en_US) App. I gave that a shot and so far do good.

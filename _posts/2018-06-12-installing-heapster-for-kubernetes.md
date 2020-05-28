@@ -81,15 +81,15 @@ Then just create it:
 
 Then was able to go to the dashboard (**http://{K8S_HOST}:{NodePort}**) and see cluster information:
 
-![grafana-kub-clusters.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/heapster-kubernetes/grafana-kub-clusters.png&raw=1)
+![grafana-kub-clusters.png](https://raw.githubusercontent.com/elatov/upload/master/heapster-kubernetes/grafana-kub-clusters.png)
 
 and also pod information:
 
-![grafana-kub-pods.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/heapster-kubernetes/grafana-kub-pods.png&raw=1)
+![grafana-kub-pods.png](https://raw.githubusercontent.com/elatov/upload/master/heapster-kubernetes/grafana-kub-pods.png)
 
 And also checking out the **kubernetes** Dashboard, I now saw CPU information as well:
 
-![dashboard-kub-w-cpu.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/heapster-kubernetes/dashboard-kub-w-cpu.png&raw=1)
+![dashboard-kub-w-cpu.png](https://raw.githubusercontent.com/elatov/upload/master/heapster-kubernetes/dashboard-kub-w-cpu.png)
 
 ### Confirm Kubernetes DNS is working
 The easiest thing to do is to just attach to a container running in **kubernetes** and run the following:
@@ -113,7 +113,7 @@ If configured appropriately with **iptables** you can also do a host lookup from
 	Name: 10.96.0.10
 	Address: 10.96.0.10#53
 	Aliases:
-	
+
 	kubernetes.default.svc.cluster.local has address 10.96.0.1
 
 and also the service it self:
@@ -123,7 +123,7 @@ and also the service it self:
 	Name: 10.96.0.10
 	Address: 10.96.0.10#53
 	Aliases:
-	
+
 	monitoring-influxdb.kube-system.svc.cluster.local has address 10.105.27.176
 
 Lastly you can also do a simple **busybox** deployment for testing (this is covered in [Troubleshooting Tips](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#troubleshooting-tips)). Here is a simple deploy config:
@@ -156,7 +156,7 @@ Then do a test run
 	<> kubectl exec -it busybox nslookup kubernetes.default
 	Server:    10.96.0.10
 	Address 1: 10.96.0.10 kube-dns.kube-system.svc.cluster.local
-	
+
 	Name:      kubernetes.default
 	Address 1: 10.96.0.1 kubernetes.default.svc.cluster.local
 
@@ -164,9 +164,9 @@ You can go one step further and make sure the port is reachable:
 
 	<> kubectl exec -it busybox /bin/sh
 	/ # telnet monitoring-influxdb.kube-system.svc 8086
-	
+
 	HTTP/1.1 400 Bad Request
 	Content-Type: text/plain; charset=utf-8
 	Connection: close
-	
+
 	400 Bad RequestConnection closed by foreign host

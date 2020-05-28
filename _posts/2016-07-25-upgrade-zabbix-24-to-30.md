@@ -44,7 +44,7 @@ Next let's install it and overwrite the **sources.list** file from the older ver
 	Preparing to unpack zabbix-release_3.0-1+jessie_all.deb ...
 	Unpacking zabbix-release (3.0-1+jessie) over (2.4-1+jessie) ...
 	Setting up zabbix-release (3.0-1+jessie) ...
-	
+
 	Configuration file '/etc/apt/sources.list.d/zabbix.list'
 	 ==> Modified (by you or by a script) since installation.
 	 ==> Package distributor has shipped an updated version.
@@ -74,7 +74,7 @@ I then checked out the **/etc/zabbix/apache.conf** file and it looks like the
 	<IfModule mod_alias.c>
 	    Alias /zab /usr/share/zabbix
 	</IfModule>
-	
+
 	<Directory "/usr/share/zabbix">
 	    Options FollowSymLinks
 	    AllowOverride None
@@ -91,7 +91,7 @@ I then checked out the **/etc/zabbix/apache.conf** file and it looks like the
 	     php_value date.timezone America/Denver
 	  </IfModule>
 	</Directory>
-	
+
 	<Directory "/usr/share/zabbix/conf">
 	    Order deny,allow
 	    Deny from all
@@ -100,7 +100,7 @@ I then checked out the **/etc/zabbix/apache.conf** file and it looks like the
 	        Deny from all
 	    </files>
 	</Directory>
-	
+
 	#<Directory "/usr/share/zabbix/api">
 	#    Order deny,allow
 	#    Deny from all
@@ -109,7 +109,7 @@ I then checked out the **/etc/zabbix/apache.conf** file and it looks like the
 	#        Deny from all
 	#    </files>
 	#</Directory>
-	
+
 	<Directory "/usr/share/zabbix/app">
 	    Order deny,allow
 	    Deny from all
@@ -118,7 +118,7 @@ I then checked out the **/etc/zabbix/apache.conf** file and it looks like the
 	        Deny from all
 	    </files>
 	</Directory>
-	
+
 	<Directory "/usr/share/zabbix/include">
 	    Order deny,allow
 	    Deny from all
@@ -127,7 +127,7 @@ I then checked out the **/etc/zabbix/apache.conf** file and it looks like the
 	        Deny from all
 	    </files>
 	</Directory>
-	
+
 	#<Directory "/usr/share/zabbix/include/classes">
 	#    Order deny,allow
 	#    Deny from all
@@ -136,7 +136,7 @@ I then checked out the **/etc/zabbix/apache.conf** file and it looks like the
 	#        Deny from all
 	#    </files>
 	#</Directory>
-	
+
 	<Directory "/usr/share/zabbix/local">
 	    Order deny,allow
 	    Deny from all
@@ -219,10 +219,10 @@ Here is what I saw the logs (**/var/log/zabbix/zabbix_agentd.log**):
 	1040:20160326:182453.326 agent #0 started [main process]
 	1043:20160326:182453.327 agent #2 started [listener #1]
 	1042:20160326:182453.329 agent #1 started [collector]
-	
+
 I also logged in and checked out the new UI:
 
-![zab-new-ui](https://seacloud.cc/d/480b5e8fcd/files/?p=/upgrade-zabbix-3/zab-new-ui.png&raw=1)
+![zab-new-ui](https://raw.githubusercontent.com/elatov/upload/master/upgrade-zabbix-3/zab-new-ui.png)
 
 ### Update Zabbix Agent to 3.0 on FreeBSD
 For my FreeBSD servers, I saw the new package available for 3.0 agent, so I
@@ -330,7 +330,7 @@ The original setup for that is covered in my [old post](/2013/10/monitor-smart-a
 
 	pogo:~# /opt/etc/init.d/zabbix-agentd stop
 
-Now let's get the source 
+Now let's get the source
 
 	pogo:~# wget https://sourceforge.net/projects/zabbix/files/ZABBIX%20Latest%20Stable/3.0.1/zabbix-3.0.1.tar.gz
 

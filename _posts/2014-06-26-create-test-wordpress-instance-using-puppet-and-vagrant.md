@@ -15,7 +15,7 @@ As I was playing around with **Vagrant**:
 - [OpenSUSE Base Box for Vagrant From SUSE Studio](/2014/06/opensuse-base-box-for-vagrant-from-suse-studio/)
 - [Multi VM Vagrant Setup](/2014/06/multi-vm-vagrant-setup/)
 
-I realized I could also use [Puppet](https://puppet.com) to provision the VM. This was my chance to learn **puppet**, so I set a goal for my self to stand up a web server (with apache/php/wordpress) and a db server (with mysql and a wordpress db). 
+I realized I could also use [Puppet](https://puppet.com) to provision the VM. This was my chance to learn **puppet**, so I set a goal for my self to stand up a web server (with apache/php/wordpress) and a db server (with mysql and a wordpress db).
 
 Puppet can get really advanced with classes and modules. Puppet provides a lot of modules from [Puppet Forge](https://forge.puppetlabs.com/), you can install them using `puppet module install`. Before I started using classes or modules, I wanted to do a manual setup of wordpress just to get familiar with **puppet**. Having said that, I am sure this is not the most efficient way of doing this.
 
@@ -39,14 +39,14 @@ I also ended up opening ports **80** and **3306** on the base image:
 
 	linux-mjbf:~ # grep ^FW_SERVICES_EXT_TCP /etc/sysconfig/SuSEfirewall2
 	FW_SERVICES_EXT_TCP="22 80 3306"
-	
+
 After that, I packaged up a new box and uploaded it to the vagrant cloud (for more information on the upload, check out [this](/2014/06/upload-vagrant-box-to-the-vagrant-cloud/) post).
 
 ### Prepare Web Puppet file
 I was using my Mac to run **vagrant** and **VirtualBox**, so I installed **puppet** on there locally, just so I can parse the config prior to appying it. Instructions on the install are laid out in [Installing Puppet: Mac OS X](https://puppet.com/docs/puppet/5.5/install_osx.html). We just have to install 3 packages, from the above page:
 
 > Puppet Labs’ OS X packages can be found here. You will need three packages total:
-> 
+>
 > - The most recent Facter package (`facter-<VERSION>.dmg`)
 > - The most recent Hiera package (`hiera-<VERSION>.dmg`)
 > - The most recent Puppet package (`puppet-<VERSION>.dmg`)
@@ -57,54 +57,54 @@ After that, you can install the **stdlib** module for the local user:
 	elatov@kmac:~$puppet module list
 	/Users/elatov/.puppet/modules
 	└── puppetlabs-stdlib (v4.2.2)
-	
+
 After messing around with different **puppet** functionality, I ended up with the following manifest puppet file for the web server:
 
 	elatov@kmac:~/test2/manifests$cat web.pp
 	# Global setttings
 	Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/" ] }
-	
+
 	exec { "system-update":
 		command => "zypper update -y",
 		onlyif => "test $(facter uptime_seconds) -lt 300",
 	}
-	
+
 	package { "wget":
 		ensure  => present,
 	}
-	
+
 	package { "apache2":
 		ensure  => present,
 		require => Exec["system-update"],
 	}
-	
+
 	package { "apache2-mod_php5":
 		ensure  => present,
 		require => Exec["system-update"],
 	}
-	
+
 	package { "php5-mysql":
 		ensure  => latest,
 		require => Exec["system-update"],
 	}
-	
+
 	service { "apache2":
 		ensure  => "running",
 		enable => "true",
 		require => Package["apache2"],
 	}
-	
+
 	$install_dir = '/srv/www/htdocs/wp'
-	
+
 	file { "${install_dir}":
 		ensure  => directory,
 		recurse => true,
 	}
-	
+
 	file { "${install_dir}/wp-config-sample.php":
 		ensure => present,
 	}
-	
+
 	exec { 'Download wordpress':
 		command => "wget http://wordpress.org/latest.tar.gz -O /tmp/wp.tar.gz",
 		creates => "/tmp/wp.tar.gz",
@@ -145,7 +145,7 @@ After messing around with different **puppet** functionality, I ended up with th
 		require => Exec["Extract wordpress"],
 		refreshonly => true,
 	}
-	
+
 	exec { "enable-php-module":
 		command => "sudo a2enmod php5",
 		unless => "grep php5 /etc/sysconfig/apache2",
@@ -156,13 +156,13 @@ After messing around with different **puppet** functionality, I ended up with th
 The documentation for **puppet** is really good and most of the above is pretty self explanatory. You will notice that I ended up using `->` and `~>`. Those are explained in [Language: Relationships and Ordering](https://puppet.com/docs/puppet/latest/lang_relationships.html). From that page:
 
 > You can create relationships between two resources or groups of resources using the `->` and `~>` operators.
-> 
+>
 > - `->` (ordering arrow)
->   
+>
 >   Causes the resource on the left to be applied before the resource on the right. Written with a hyphen and a greater-than sign.
-> 
+>
 > - `~>` (notification arrow)
-> 
+>
 >   Causes the resource on the left to be applied first, and sends a refresh event to the resource on the right if the left resource changes. Written with a tilde and a greater-than sign.
 
 When I was downloading the wordpress source, I used those to make sure I have the file prior to extract it (and other steps as well). Another thing that you see is the **file_line** directive, this comes from the [stdlib](https://forge.puppetlabs.com/puppetlabs/stdlib/4.2.2) module and allows you to edit files. Lastly I also ended using the **facter** command. From the [Facter](https://puppet.com/docs/facter/latest) page:
@@ -248,7 +248,7 @@ The command basically provides OS information. You can get a full list of availa
 	uptime_hours => 0
 	uptime_seconds => 1310
 	virtual => virtualbox
-	
+
 So you can use this if you need to check some variable prior to running a command or make some OS dependent choice, when I was going through the [puppet tutorial](https://puppet.com/download-learning-vm), this was the example they provided:
 
 	case $::operatingsystem {
@@ -290,7 +290,7 @@ Here was my complete **VagrantFile**:
 	     puppet.manifest_file  = "web.pp"
 	   end
 	end
-	
+
 Then inside the *test2* directory (this was where I initiated my vagrant environment), I placed my **manifest** files:
 
 	elatov@kmac:~/test2$tree
@@ -298,9 +298,9 @@ Then inside the *test2* directory (this was where I initiated my vagrant environ
 	├── Vagrantfile
 	└── manifests
 	    └── web.pp
-	
+
 	1 directory, 4 files
-	
+
 Then doing a `vagrant up`, I saw the following:
 
 	elatov@kmac:~/test2$vagrant up
@@ -347,7 +347,7 @@ Then doing a `vagrant up`, I saw the following:
 	==> default: Notice: /Stage[main]//Exec[enable-php-module]/returns: executed successfully
 	==> default: Notice: /Stage[main]//Service[apache2]/ensure: ensure changed 'stopped' to 'running'
 	==> default: Notice: Finished catalog run in 83.04 seconds
-	
+
 You can modify the puppet manifest file and re-run the provisioning like so:
 
 	elatov@kmac:~/test2$vagrant provision web
@@ -358,7 +358,7 @@ You can modify the puppet manifest file and re-run the provisioning like so:
 
 It will only apply the changes that are necessary (if you made necessary checks in your puppet manifest file). If you try to visit the wordpress instance (**http://localhost:8080/wp**), you will see the following:
 
-![wp-db-connection-error](https://seacloud.cc/d/480b5e8fcd/files/?p=/puppet-vagrant-wordpress/wp-db-connection-error.png&raw=1)
+![wp-db-connection-error](https://raw.githubusercontent.com/elatov/upload/master/puppet-vagrant-wordpress/wp-db-connection-error.png)
 
 And that's expected since we haven't done our DB server yet, but at least we know **apache** is up and is parsing **PHP** appropriately.
 
@@ -368,45 +368,45 @@ This one wasn't as complicated, here are the contents of the file:
 	elatov@kmac:~/test2/manifests$cat db.pp
 	# Global setttings
 	Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/" ] }
-	
+
 	exec { "system-update":
 		command => "zypper update -y",
 		onlyif => "test $(facter uptime_seconds) -lt 300",
 	}
-	
+
 	package { "mysql-community-server-client":
 		ensure  => present,
 	}
-	
+
 	package { "mysql-community-server":
 	        ensure  => present,
 	        require => Exec["system-update"],
 	}
-	
+
 	service { "mysql":
 		ensure  => "running",
 		enable => "true",
 		require => Package["mysql-community-server"],
 	}
-	
+
 	$mysql_password = "testing"
 	$db_name = "wordpress_db"
 	$db_user = "wordpress_user"
 	$db_pass = "wordpress"
 	$db_access = "192.168.33.%"
-	
+
 	exec { "set-mysql-password":
 	    unless => "mysqladmin -u root -p\"$mysql_password\" status",
 	    command => "mysqladmin -u root password \"$mysql_password\"",
 	    require => [ Package["mysql-community-server-client"], Service["mysql"] ]
 	}
-	
+
 	exec { "create-wordpress-db":
 	      unless => "mysql -uroot -p$mysql_password ${db_name}",
 	      command => "mysql -uroot -p$mysql_password -e \"create database ${db_name}; grant all on ${db_name}.* to ${db_user}@'$db_access' identified by '$db_pass';\"",
 	      require => [ Package["mysql-community-server-client"], Service["mysql"], Exec["set-mysql-password"] ]
 	}
-	
+
 If you spin up a new vagrant instance, you will see the puppet provisioner do the following:
 
 	==> db: Mounting shared folders...
@@ -421,7 +421,7 @@ If you spin up a new vagrant instance, you will see the puppet provisioner do th
 	==> db: Notice: /Stage[main]//Exec[set-mysql-password]/returns: executed successfully
 	==> db: Notice: /Stage[main]//Exec[create-wordpress-db]/returns: executed successfully
 	==> db: Notice: Finished catalog run in 101.79 seconds
-	
+
 ### Preparing a MultiVM VagrantFile
 I had an example in [this](/2014/06/multi-vm-vagrant-setup/) post, expanding on that example (I just added the **puppet** provisioner section), I ended up with this **VagrantFile**:
 
@@ -432,10 +432,10 @@ I had an example in [this](/2014/06/multi-vm-vagrant-setup/) post, expanding on 
 	  { :name => :db,:pup => 'db',:ip => '192.168.33.3',:ssh_port => 2202,:cpus => 1,:mem => 512 },
 	  { :name => :web,:pup => 'web',:ip => '192.168.33.2',:ssh_port => 2201,:http_port => 8080,:cpus => 1, :mem => 512},
 	  ]
-	
+
 	# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 	VAGRANTFILE_API_VERSION = "2"
-	
+
 	Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	    boxes.each do |opts|
 	        config.vm.define opts[:name] do |config|
@@ -458,10 +458,10 @@ I had an example in [this](/2014/06/multi-vm-vagrant-setup/) post, expanding on 
 	       end
 	    end
 	end
-	
+
 This basically defines two vagrant boxes on top and then runs through a *for* loop creating each box and configuring each VM with the options defined above. If you do a `vagrant up` with that **VagrantFile** you will see both VMs getting created and provisioned approriately. You will also notice that there are two interfaces, the NAT is the default one which **vagrant** uses to access the VM, and the private one is used for the communication between the VMs (Apache/WP/PHP to talk to MySQL). After they are deployed, if you visit **http://localhost:8080/wp**, you will see the wordpress instance:
 
-![wp-installed](https://seacloud.cc/d/480b5e8fcd/files/?p=/puppet-vagrant-wordpress/wp-installed.png&raw=1)
+![wp-installed](https://raw.githubusercontent.com/elatov/upload/master/puppet-vagrant-wordpress/wp-installed.png)
 
 BTW if you don't care for the *for* loop in the **VagrantFile**, here is a multi VM **VagrantFile** that manually defines all the VMs:
 
@@ -514,7 +514,7 @@ If you want to try out the above, you just need to do 3 things:
 1. Grab my Vagrant Box
 
 		$ vagrant box add elatov/opensuse13-64
-	
+
 2. Grab my **VagrantFile** and Puppet manifest files
 
 		$ git clone https://github.com/elatov/vagrant.git
@@ -536,7 +536,7 @@ When you are done with the setup, you can just run the following to remove it:
 	    db: Are you sure you want to destroy the 'db' VM? [y/N] y
 	==> db: Forcing shutdown of VM...
 	==> db: Destroying VM and associated drives...
-	==> db: Running cleanup tasks for 'puppet' provisioner...	
+	==> db: Running cleanup tasks for 'puppet' provisioner...
 
 Just for reference here are some exceprts from the `vagrant up` of the comlete setup:
 
@@ -593,11 +593,11 @@ Which basically automate what I did above. With those we have a couple of option
 We can also create modules instead of using single manifest files. From [Learning Puppet — Modules and Classes](https://puppet.com/docs/puppet/latest/bgtm.html):
 
 > **The End of the One Huge Manifest**
-> 
+>
 > You can write some pretty sophisticated manifests at this point, but so far you’ve just been putting them in one file (either **/etc/puppetlabs/puppet/manifests/site.pp** or a one-off to use with puppet apply).
-> 
+>
 > Past a handful of resources, this gets unwieldy. You can probably already see the road to the three thousand line manifest of doom, and you don’t want to go there. It’s much better to split chunks of logically related code out into their own files, and then refer to those chunks by name when you need them.
-> 
+>
 > Classes are Puppet’s way of separating out chunks of code, and modules are Puppet’s way of organizing classes so that you can refer to them by name.
 
 [Here](https://github.com/patrickdlee/vagrant-examples) are some examples of the Modules approach with puppet and here is the structure of one of the examples:
@@ -614,7 +614,7 @@ We can also create modules instead of using single manifest files. From [Learnin
 	            │   └── bashrc
 	            └── manifests
 	                └── init.pp
-	
+
 	6 directories, 4 files
 
 Check out the contents of the files for a better understanding of how it all goes together.

@@ -6,7 +6,7 @@ author: Karim Elatov
 categories: [security,os]
 tags: [mod_nss,linux,debian,apache,tls]
 ---
-So I got my self a certificate from [Let's Encrypt](https://letsencrypt.org/) and I wanted to setup a webserver using **mod_nss**. 
+So I got my self a certificate from [Let's Encrypt](https://letsencrypt.org/) and I wanted to setup a webserver using **mod_nss**.
 
 ### Mod_NSS Install
 
@@ -28,10 +28,10 @@ I was using a Debian machine so first let's install the necessary package:
 By default the **nssdb** is pretty small:
 
 	root@kerch:~# certutil -L -d /etc/apache2/nssdb/
-	
+
 	Certificate Nickname                                         Trust Attributes
 	                                                             SSL,S/MIME,JAR/XPI
-	
+
 	cacert                                                       CTu,Cu,Cu
 	beta                                                         u,pu,u
 	alpha                                                        u,pu,u
@@ -72,11 +72,11 @@ I ended up modifying the file to be a simple ssl-vhost:
 I also modified the default config to listen on port **443** and to define the **NSSCipherSuite** list at the global level not just at the *vhost* level. Here is the relevant section from the module config (**/etc/apache2/mods-enabled/nss.conf**):
 
 	Listen 443
-	
+
 	<VirtualHost _default_:443>
-	
+
 	NSSCipherSuite -rsa_rc4_128_md5,-rsa_rc4_128_sha,+rsa_3des_sha,-rsa_des_sha,-rsa_rc4_40_md5,-rsa_rc2_40_md5,-rsa_null_md5,-rsa_null_sha,+fips_3des_sha,-fips_des_sha,-fortezza,-fortezza_rc4_128_sha,-fortezza_null,-rsa_des_56_sha,-rsa_rc4_56_sha,+rsa_aes_128_sha,+rsa_aes_256_sha
-	
+
 	NSSProtocol TLSv1.1,TLSv1.2
 
 ### Import SSL Certificate into the NSSDB
@@ -98,10 +98,10 @@ the next command:
 To confirm the cert is in there you can use the **certuil** command:
 
 	root@kerch:~# certutil -L -d /etc/apache2/nssdb/
-	
+
 	Certificate Nickname                                         Trust Attributes
 	                                                             SSL,S/MIME,JAR/XPI
-	
+
 	cacert                                                       CTu,Cu,Cu
 	beta                                                         u,pu,u
 	www-cert                                                     u,u,u
@@ -115,9 +115,9 @@ is actually by design and is expected. From [Managing Certificate Trust flags
 in NSS Database](https://blogs.oracle.com/meena/entry/notes_about_trust_flags):
 
 > Flags that apply to CA Certificates
-> 
+>
 > c - its for validity override - It tells even though this certificate doesn't look like a CA certificate - In version 1 certificates like old root CA certificates (that predated X509 v3) its necessary to set this.
-> 
+>
 > C trusted CA flag implies c - This certificate should be treated like a CA certificate but also should be treated as root certificate we trust. By default roots are not trusted. We can take any certificate and mark it with a  "C" so it will be treated as a root CA certificate. When NSS clients/server validates certificate chain we can stop right there. NSS will build chain to send out as far as it reaches a root CA i.e. when it sees "C" flag. So intermediate CA certificates should not have this trust flag "C".
 
 If you want you can check the chain of a specific cert by running the
@@ -125,9 +125,9 @@ following:
 
 	root@kerch:~# certutil -O -d /etc/apache2/nssdb/ -n www-cert
 	"Builtin Object Token:DST Root CA X3" [CN=DST Root CA X3,O=Digital Signature Trust Co.]
-	
+
 	  "Let's Encrypt Authority X1 - Digital Signature Trust Co." [CN=Let's Encrypt Authority X1,O=Let's Encrypt,C=US]
-	
+
 	    "www-cert" [CN=www.moxz.tk]
 
 You can also make sure the certficate is valid:
@@ -168,22 +168,22 @@ Then restart the apache services:
 	           ├─18973 /usr/sbin/apache2 -k start
 	           ├─18974 /usr/sbin/apache2 -k start
 	           └─18975 /usr/sbin/apache2 -k start
-	
+
 	Nov 08 15:47:25 kerch apache2[18910]: Starting web server: apache2.
-	
+
 Then upon visiting the site, I saw that it had a valid certificate:
 
-![www-ssl-cert-valid](https://seacloud.cc/d/480b5e8fcd/files/?p=/debian-mod-nss/www-ssl-cert-valid.png&raw=1)
+![www-ssl-cert-valid](https://raw.githubusercontent.com/elatov/upload/master/debian-mod-nss/www-ssl-cert-valid.png)
 
 
 ### Confirming TLS Connection
 The TLS protocol has a lot of steps involved in the initial handshake. From [SSL Profiles Part 7: Server Name Indication](https://devcentral.f5.com/articles/ssl-profiles-part-7-server-name-indication) here is a pretty nice diagram:
 
-![tls-handshake](https://seacloud.cc/d/480b5e8fcd/files/?p=/debian-mod-nss/tls-handshake.png&raw=1)
+![tls-handshake](https://raw.githubusercontent.com/elatov/upload/master/debian-mod-nss/tls-handshake.png)
 
 What's really interesting is the Server Name Indication (SNI). This is the way TLS handles **name-based** virtual hosts (multiple hostnames on the same IP), more information is [here](https://en.wikipedia.org/wiki/Server_Name_Indication) and from the same page here is a pretty nice diagram:
 
-![tls-sni](https://seacloud.cc/d/480b5e8fcd/files/?p=/debian-mod-nss/tls-sni.png&raw=1)
+![tls-sni](https://raw.githubusercontent.com/elatov/upload/master/debian-mod-nss/tls-sni.png)
 
 We can confirm TLS is working appropriately by using a couple of tools, for example we can use **openssl**:
 

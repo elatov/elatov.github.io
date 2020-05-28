@@ -18,37 +18,37 @@ Here are the steps to the process.
 ### Prepare Github
 Most of the steps are covered in [GitHub Pages](https://pages.github.com/). First go and create your self an account on *github.com*:
 
-![github-account-creation](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/github-account-creation.png&raw=1)
+![github-account-creation](https://raw.githubusercontent.com/elatov/upload/master/migrate-to-jekyll/github-account-creation.png)
 
 For the plan you can choose free:
 
-![github-plan-free](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/github-plan-free.png&raw=1)
+![github-plan-free](https://raw.githubusercontent.com/elatov/upload/master/migrate-to-jekyll/github-plan-free.png)
 
 After you done with the creation it will take you to your github account:
 
-![github-account-created-login-page](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/github-account-created-login-page.png&raw=1)
+![github-account-created-login-page](https://raw.githubusercontent.com/elatov/upload/master/migrate-to-jekyll/github-account-created-login-page.png)
 
 After the account we have to create a repository with a special name. From [Using Jekyll with Pages](https://help.github.com/articles/using-jekyll-with-pages):
 
 > Using Jekyll
-> 
+>
 > Every GitHub Page is run through Jekyll when you push content to a specially named branch within your repository. For User Pages, use the master branch in your **username.github.io** repository. For Project Pages, use the **gh-pages** branch in your project's repository. Because a normal HTML site is also a valid Jekyll site, you don't have to do anything special to keep your standard HTML files unchanged. Jekyll has thorough documentation that covers its features and usage. Simply start committing Jekyll formatted files and you'll be using Jekyll in no time.
 
 So let's go ahead and create a repository with name of **username**.github.io. First select **Create New Repository** from the top:
 
-![create-new-repo-github](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/create-new-repo-github.png&raw=1)
+![create-new-repo-github](https://raw.githubusercontent.com/elatov/upload/master/migrate-to-jekyll/create-new-repo-github.png)
 
 Then name it appropriately:
 
-![github-new-repo-name](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/github-new-repo-name.png&raw=1)
+![github-new-repo-name](https://raw.githubusercontent.com/elatov/upload/master/migrate-to-jekyll/github-new-repo-name.png)
 
 After it's created, you will see quick instructions on how to initialize the git repository:
 
-![github-initialization-instruct](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/github-initialization-instruct.png&raw=1)
+![github-initialization-instruct](https://raw.githubusercontent.com/elatov/upload/master/migrate-to-jekyll/github-initialization-instruct.png)
 
 After it's done, go to settings of the repository and check the box that says **Restrict editing to collabolators only**:
 
-![github-restrict-editting](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/github-restrict-editting.png&raw=1)
+![github-restrict-editting](https://raw.githubusercontent.com/elatov/upload/master/migrate-to-jekyll/github-restrict-editting.png)
 
 So let's clone the repository and add a test home page:
 
@@ -65,14 +65,14 @@ So let's clone the repository and add a test home page:
 	Your name and email address were configured automatically based
 	on your username and hostname. Please check that they are accurate.
 	You can suppress this message by setting them explicitly:
-	
+
 	    git config --global user.name "Your Name"
 	    git config --global user.email you@example.com
-	
+
 	If the identity used for this commit is wrong, you can fix it with:
-	
+
 	    git commit --amend --author='Your Name <you@example.com>'
-	
+
 	 1 files changed, 1 insertions(+), 0 deletions(-)
 	 create mode 100644 index.html
 	elatov@ccl:~/moxz1.github.io$git push origin master
@@ -85,13 +85,13 @@ So let's clone the repository and add a test home page:
 
 Now if you look back on the **settings** page of the repository, it will let you know that your changes have been published:
 
-![site-is-published-github-settings](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/site-is-published-github-settings.png&raw=1)
+![site-is-published-github-settings](https://raw.githubusercontent.com/elatov/upload/master/migrate-to-jekyll/site-is-published-github-settings.png)
 
-If you want you can update your git user configuration to reflect your username. And you can also use SSH keys instead regular password over https to do commits to the github repository. More information on how to configure the SSH keys are seen in [Generating SSH Keys](https://help.github.com/articles/generating-ssh-keys). 
+If you want you can update your git user configuration to reflect your username. And you can also use SSH keys instead regular password over https to do commits to the github repository. More information on how to configure the SSH keys are seen in [Generating SSH Keys](https://help.github.com/articles/generating-ssh-keys).
 
 After sometime if you visit your user github page you will see the contents of the **index.html** file that you uploaded:
 
-![test-page-seen-from-github](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/test-page-seen-from-github.png&raw=1)
+![test-page-seen-from-github](https://raw.githubusercontent.com/elatov/upload/master/migrate-to-jekyll/test-page-seen-from-github.png)
 
 ### Running Jekyll Locally
 I was using a mac for my testing, so I decided to run **jekyll** locally. MacOSX comes with a ruby version but I didn't want to mess with the system version. I already had **macports** setup on the mac ([here](/2013/07/mount-various-file-system-with-autofs-on-mac-os-x-mountain-lion/) is a post for the macports setup). Once you have macports, you can run the following to install the **ruby** version from macports:
@@ -128,7 +128,7 @@ Now let's update the system gems:
 	Installing RubyGems 2.2.2
 	RubyGems 2.2.2 installed
 	Installing ri documentation for rubygems-2.2.2
-	
+
 	= 2.2.1 / 2014-01-06
 
 Then install the **rdoc** gem before the jekyll install:
@@ -143,7 +143,7 @@ Lastly go ahead and install **jekyll**
 From [Directory structure](http://jekyllrb.com/docs/structure/):
 
 > A basic Jekyll site usually looks something like this:
-> 
+>
 > 	.
 > 	├── _config.yml
 > 	├── _drafts
@@ -203,11 +203,11 @@ Now let's build and serve that jekyll-bootstrap template locally:
 	    Server address: http://0.0.0.0:4000/
 	  Server running... press ctrl-c to stop.
 
-  
+
 
 Now if you point your browser to **http://localhost:4000** you should see the template:
 
-![jekyll-running-example-bootstrap](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/jekyll-running-example-bootstrap.png&raw=1)
+![jekyll-running-example-bootstrap](https://raw.githubusercontent.com/elatov/upload/master/migrate-to-jekyll/jekyll-running-example-bootstrap.png)
 
 #### Jekyll Themes
 There are a bunch of themes out there. Here are a couple of pages that have themes:
@@ -252,7 +252,7 @@ Like I mentioned before, you can either clone the whole project or you can actua
 
 Now if you re-run jekyll you should see the following after you visit **http://localhost:4000** :
 
-![jekyll-with-twitter-theme-running](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/jekyll-with-twitter-theme-running.png&raw=1)
+![jekyll-with-twitter-theme-running](https://raw.githubusercontent.com/elatov/upload/master/migrate-to-jekyll/jekyll-with-twitter-theme-running.png)
 
 #### Customize Jekyll Configurations
 Let's add the information regarding the site. I ended up modifying the following lines in the **_config.yml** file:
@@ -267,11 +267,11 @@ Let's add the information regarding the site. I ended up modifying the following
 	 # For more see: http://jekyllrb.com/docs/permalinks/
 	-permalink: /:categories/:year/:month/:day/:title
 	+permalink: /:year/:month/:title
-	
+
 	 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 	-pygments: true
 	+highligher: pygments
-	
+
 	 # Themes are encouraged to use these universal variables
 	 # so be sure to set them if your theme uses them.
 	 #
@@ -288,7 +288,7 @@ Let's add the information regarding the site. I ended up modifying the following
 	+  name : Me Moxz
 	+  email : moxz@me.com
 	+  github : moxz1
-	
+
 	 # The production_url is only used when full-domain names are needed
 	 # such as sitemap.txt
 	@@ -25,7 +23,7 @@ author :
@@ -307,7 +307,7 @@ On the main page, I decided to just list posts and nothing else. Here is what I 
 	title: Posts
 	---
 	{% include JB/setup %}
-	
+
 	<ul class="posts">
 	{% for post in site.posts  limit:10 %}
 	    <a href="{{ BASE_PATH }}{{ post.url }}"><h3> {{ post.title }}<br /></h3></a>
@@ -320,7 +320,7 @@ On the main page, I decided to just list posts and nothing else. Here is what I 
 
 After a reload of **jekyll**, I saw the following on the local site:
 
-![jekyll-personal-info-added](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/jekyll-personal-info-added.png&raw=1)
+![jekyll-personal-info-added](https://raw.githubusercontent.com/elatov/upload/master/migrate-to-jekyll/jekyll-personal-info-added.png)
 
 If you like how it looks, you can push it to the github pages:
 
@@ -343,7 +343,7 @@ If you like how it looks, you can push it to the github pages:
 
 Then after some time, if you visit the github user pages, you will see the same site:
 
-![github-updates-pushed-and-live](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/github-updates-pushed-and-live.png&raw=1)
+![github-updates-pushed-and-live](https://raw.githubusercontent.com/elatov/upload/master/migrate-to-jekyll/github-updates-pushed-and-live.png)
 
 ### Migrate Wordpress Posts to Jekyll
 There are a couple of methods to the approach. Here are a few:
@@ -354,7 +354,7 @@ There are a couple of methods to the approach. Here are a few:
 
 I ended up using the bottom one. After you install the plugin in your wordpress install, you can either go to the Wordpress Managament Page and you will see the  **Export to Jekyll** button there:
 
-![export-to-jekyl-plugin-wp](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/export-to-jekyl-plugin-wp.png&raw=1)
+![export-to-jekyl-plugin-wp](https://raw.githubusercontent.com/elatov/upload/master/migrate-to-jekyll/export-to-jekyl-plugin-wp.png)
 
 Upon clicking that, it will start the export and you should get a zip of the export. Mine kept timing out, so I did it manually on the host it self:
 
@@ -370,7 +370,7 @@ I copied the zip from the host and here were the contents of the zip extracted:
 	├── contact
 	├── _posts
 	└── wp-content
-	
+
 	4 directories, 1 file
 
 **wp-contents** contained all the uploads from wordpress:
@@ -399,7 +399,7 @@ You can just copy those over to your jekyll setup:
 	       26118 100%    8.30MB/s    0:00:00 (xfer#2, to-check=1/4)
 	2014-05-06-post3.md
 	       87552 100%    8.35MB/s    0:00:00 (xfer#3, to-check=0/4)
-	
+
 	sent 49675 bytes  received 92 bytes  99534.00 bytes/sec
 	total size is 184732  speedup is 3.71
 
@@ -418,7 +418,7 @@ Now launching your local jekyll instance:
 
 You can visit the local site (**http://localhost:4000**), and you will see your posts included in the main page:
 
-![posts_migrated_tojekyll-local-view](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/posts_migrated_tojekyll-local-view.png&raw=1)
+![posts_migrated_tojekyll-local-view](https://raw.githubusercontent.com/elatov/upload/master/migrate-to-jekyll/posts_migrated_tojekyll-local-view.png)
 
 #### Clean up Converted Markdown
 None of the above converters are perfect, and after the migration you will definitely end up with some left over HTML. Here are a couple of sites that help with clean up:
@@ -432,16 +432,16 @@ The first one has an R Script which clean up a bunch of HTML tags and the second
 	for file in $(grep -E '\[code|\[shell|\[bash|\[powershell|\[xml' * | cut -d : -f 1 | uniq); do echo $file; gsed -ri '/\[code|\[shell|\[bash|\[powershell|\[xml/,/\[\/code|\[\/shell|\[\/bash|\[\/powershell|\[\/xml\]/{s/^/\t/g}' $file; done
 	for file in $(grep -E '\[code|\[shell|\[bash|\[powershell|\[xml' * | cut -d : -f 1 | uniq); do echo $file; gsed -ri 's/\[[code|bash|powershell|xml|shell].*\]//g' $file; done
 	for file in $(grep -E '\[\/code\]|\[\/shell\]|\[\/bash\]|\[\/powershell\]|\[\/xml\]' *| cut -d : -f 1 | uniq); do echo $file; gsed -ri 's/\[\/[code|bash|powershell|xml|shell]*\]//g' $file; done
-	
+
 	### Replace single quote
 	for i in $(grep '&#8217;' * | awk -F : '{print $1}'  | uniq); do echo $i;gsed -i "s/&#8217;/'/g" $i;  done
-	
+
 	### replace _\ with _
 	for i in $(grep '\_' * | awk -F : '{print $1}'  | uniq); do echo $i; done
-	
+
 	### replace the &gt; with >
 	for i in $(grep '&gt;' * | awk -F : '{print $1}'  | uniq); do echo $i; gsed -i 's%\&gt;%>%g' $i; done
-	
+
 	### Replace Smiley images with characters
 	for i in $(grep '<img src="http://site.com/wp-includes/images/smilies/icon_smile.gif"' * | awk -F : '{print $1}'  | uniq); do echo $i; gsed -i 's%<img src="http://virtuallyhyper.com/wp-includes/images/smilies/icon_smile.gif".*/>%:\)%g' $i; done
 
@@ -457,7 +457,7 @@ To fix those, I wrote a little python script:
 	elatov@kmac:~$cat conv-html-url-to-md.py
 	import fileinput
 	import re
-	
+
 	for line in fileinput.input(inplace=1):
 	    line = re.sub(r'<a href="(.*)" onclick="(.*)">(.*)</a>', r'[\3](\1)', line.rstrip())
 	    print(line)
@@ -475,7 +475,7 @@ Now with another python script we can fix the links for the images:
 	elatov@kmac:~$cat conv-html-url-to-md.py
 	import fileinput
 	import re
-	
+
 	for line in fileinput.input(inplace=1):
 	    line = re.sub(r'<a href="(.*)" onclick=(.*) title="(.*)" \/></a>', r'![\3](\1)', line.rstrip())
 	    print(line)
@@ -532,7 +532,7 @@ Now we can use the following to point all the image links to the github reposito
 	elatov@kmac:~$cat conv-html-url-to-md.py
 	import fileinput
 	import re
-	
+
 	for line in fileinput.input(inplace=1):
 	    line = re.sub(r'http\:\/\/site.com\/wp-content\/uploads/(.*)', r'https://github.com/moxz1/uploads/raw/master/\1', line.rstrip())
 
@@ -612,19 +612,19 @@ After you define the metadata of the post, you can use your favorite markdown ed
 
 Here is a screenshot of **Mou**:
 
-![Mou-Example](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/Mou-Example.png&raw=1)
+![Mou-Example](https://raw.githubusercontent.com/elatov/upload/master/migrate-to-jekyll/Mou-Example.png)
 
 Here is **Haroopad**:
 
-![haroopad-example](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/haroopad-example.png&raw=1)
+![haroopad-example](https://raw.githubusercontent.com/elatov/upload/master/migrate-to-jekyll/haroopad-example.png)
 
 I like Mou and Haroopad for their shortcuts, here are some shortcuts from **haroopad**:
 
-![haroopad-keyboard-shortcuts.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/haroopad-keyboard-shortcuts.png&raw=1)
+![haroopad-keyboard-shortcuts.png](https://raw.githubusercontent.com/elatov/upload/master/migrate-to-jekyll/haroopad-keyboard-shortcuts.png)
 
 You can see the full list under the help section of **haroopad** or **Mou**. Here is **Sublime Text 3**:
 
-![sublime-text-preview.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/sublime-text-preview.png&raw=1)
+![sublime-text-preview.png](https://raw.githubusercontent.com/elatov/upload/master/migrate-to-jekyll/sublime-text-preview.png)
 
 Sublime Text Plugins don't have the variety of shortcuts by default, but you can definitely customize it to your need. While you are editing the file, upon saving the file to check your changes, you will see **jekyll** letting you know if a file has changed:
 
@@ -665,13 +665,13 @@ After you are done editing your post and you confirmed the local copy looks good
 
 After that you should see your new post on your github pages:
 
-![github-user-pages-with-new-post](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/github-user-pages-with-new-post.png&raw=1)
+![github-user-pages-with-new-post](https://raw.githubusercontent.com/elatov/upload/master/migrate-to-jekyll/github-user-pages-with-new-post.png)
 
 
 I did a test build just in case with the **--safe** flag, because that is how github runs **jekyll**. From [Jekyll Plugins](http://jekyllrb.com/docs/plugins/):
 
 > Plugins on GitHub Pages
-> 
+>
 > GitHub Pages is powered by Jekyll, however all Pages sites are generated using the `--safe `option to disable custom plugins for security reasons. Unfortunately, this means your plugins won’t work if you’re deploying to GitHub Pages.
 
 and from [Troubleshooting GitHub Pages build failures](https://help.github.com/en/github/working-with-github-pages/troubleshooting-jekyll-build-errors-for-github-pages-sites):
@@ -683,35 +683,35 @@ This way we can check for any errors before pushing anything to the github pages
 #### Create New Post with prose.io
 There is also an online tool that allows you to create posts [prose.io](http://prose.io/). After visiting the above page and authorizing **prose.io** to access your github pages, you will see the following:
 
-![prose-io-first-page](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/prose-io-first-page.png&raw=1)
+![prose-io-first-page](https://raw.githubusercontent.com/elatov/upload/master/migrate-to-jekyll/prose-io-first-page.png)
 
 Click on the project will show you the contents:
 
-![prose-io-inside-project](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/prose-io-inside-project.png&raw=1)
+![prose-io-inside-project](https://raw.githubusercontent.com/elatov/upload/master/migrate-to-jekyll/prose-io-inside-project.png)
 
 After clicking going inside the **_posts** directory and clicking **New File**, you can give the post a title and enter markdown code:
 
-![prose-io-new-file.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/prose-io-new-file.png&raw=1)
+![prose-io-new-file.png](https://raw.githubusercontent.com/elatov/upload/master/migrate-to-jekyll/prose-io-new-file.png)
 
 You can also get a preview of the page after the markdown is parsed:
 
-![prose-io-preview-post](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/prose-io-preview-post.png&raw=1)
+![prose-io-preview-post](https://raw.githubusercontent.com/elatov/upload/master/migrate-to-jekyll/prose-io-preview-post.png)
 
 You can also edit the metadata of the post from here (by default, it's blank):
 
-![prose-io-edit-metadata](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/prose-io-edit-metadata.png&raw=1)
+![prose-io-edit-metadata](https://raw.githubusercontent.com/elatov/upload/master/migrate-to-jekyll/prose-io-edit-metadata.png)
 
 You can also click on **Submit Changes** to push the change to github:
 
-![prose-io-save-changes](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/prose-io-save-changes.png&raw=1)
+![prose-io-save-changes](https://raw.githubusercontent.com/elatov/upload/master/migrate-to-jekyll/prose-io-save-changes.png)
 
 To publish the post, click on the "**Unpublish**" button:
 
-![prose-io-publish-post](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/prose-io-publish-post.png&raw=1)
+![prose-io-publish-post](https://raw.githubusercontent.com/elatov/upload/master/migrate-to-jekyll/prose-io-publish-post.png)
 
 and then click **Submit Changes** one more time. After that if you go back to your github pages you will see the new post:
 
-![post-with-prose-published](https://seacloud.cc/d/480b5e8fcd/files/?p=/migrate-to-jekyll/post-with-prose-published.png&raw=1)
+![post-with-prose-published](https://raw.githubusercontent.com/elatov/upload/master/migrate-to-jekyll/post-with-prose-published.png)
 
 ### Jekyll Summary
 

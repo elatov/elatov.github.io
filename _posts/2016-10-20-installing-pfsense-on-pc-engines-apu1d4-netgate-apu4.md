@@ -15,7 +15,7 @@ You can even buy a DIY kit: [APU1D4 DIY Kit](http://store.netgate.com/kit-APU1C4
 
 Here is the device when it's all ready:
 
-![apu-upside-down](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu-pfsense-install/apu-upside-down-s.png&raw=1)
+![apu-upside-down](https://raw.githubusercontent.com/elatov/upload/master/apu-pfsense-install/apu-upside-down-s.png)
 
 ### Support for APU 1D4
 
@@ -43,10 +43,10 @@ We can also confirm with the **setserial** command (in my case my serial port is
 Next we can configure **minicom** to connnect to our serial port:
 
 	sudo minicom -s
-	
+
 We can go to **Serial port setup**:
 
-![serial-port-setup](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu-pfsense-install/serial-port-setup.png&raw=1)
+![serial-port-setup](https://raw.githubusercontent.com/elatov/upload/master/apu-pfsense-install/serial-port-setup.png)
 
 And configure the options to be:
 
@@ -54,12 +54,12 @@ And configure the options to be:
 * Bps/Par/Bits: **115200 8N1**
 * Hardware Flow Control: **No**
 
-![minicom-settings](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu-pfsense-install/minicom-settings.png&raw=1)
+![minicom-settings](https://raw.githubusercontent.com/elatov/upload/master/apu-pfsense-install/minicom-settings.png)
 
 Then we can just **Save setup as dfl**, and it will create the config under **/etc/minirc.dfl**. Lastly add yourself to the **dialout** group so you can run **minicom** without **sudo**:
 
 	sudo usermod -a -G dialout elatov
-	
+
 ### Prepare the pfSense Install USB Drive
 
 I went to the site and chose the following options:
@@ -68,14 +68,14 @@ I went to the site and chose the following options:
 * Platform: **Memstick image with Installer**
 * Console: **Serial**
 
-![pfsen-down.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu-pfsense-install/pfsen-down.png&raw=1)
+![pfsen-down.png](https://raw.githubusercontent.com/elatov/upload/master/apu-pfsense-install/pfsen-down.png)
 
 After that we can go and extract the image:
 
 	gunzip -d pfSense-CE-memstick-serial-2.3-RELEASE-amd64.img.gz
 
 Before we overwrite our USB drive, let's back it up:
-	
+
 	┌─[elatov@gen] - [/home/elatov] - [2016-04-30 01:29:35]
 	└─[1] <> sudo dd if=/dev/sdb of=/data/backup/usb-backup.dd bs=1M
 	967+0 records in
@@ -100,7 +100,7 @@ After it's done, the drive looked like this:
 	I/O size (minimum/optimal): 512 bytes / 512 bytes
 	Disklabel type: dos
 	Disk identifier: 0x90909090
-	
+
 	Device     Boot Start   End Sectors  Size Id Type
 	/dev/sdb4  *        0 49999   50000 24.4M a5 FreeBSD
 
@@ -139,31 +139,31 @@ After powering on the device I saw the following:
 
 And here is how the **minicom** looked like:
 
-![minicom-apu-botting-up](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu-pfsense-install/minicom-apu-botting-up.png&raw=1)
+![minicom-apu-botting-up](https://raw.githubusercontent.com/elatov/upload/master/apu-pfsense-install/minicom-apu-botting-up.png)
 
 I hit **F12** and it showed me the boot menu:
 
-![minicom-boot-menu-apu](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu-pfsense-install/minicom-boot-menu-apu.png&raw=1)
+![minicom-boot-menu-apu](https://raw.githubusercontent.com/elatov/upload/master/apu-pfsense-install/minicom-boot-menu-apu.png)
 
 I chose the second option, it booted from the usb stick, and here is what I saw:
 
-![minicom-pfsense-usb-boot.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu-pfsense-install/minicom-pfsense-usb-boot.png&raw=1)
+![minicom-pfsense-usb-boot.png](https://raw.githubusercontent.com/elatov/upload/master/apu-pfsense-install/minicom-pfsense-usb-boot.png)
 
 I left the default option and it started booting into the installer. I also chose the **easy install** and here is the progress of the install:
 
-![minicom-pf-einstall-p1](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu-pfsense-install/minicom-pf-einstall-p1.png&raw=1)
+![minicom-pf-einstall-p1](https://raw.githubusercontent.com/elatov/upload/master/apu-pfsense-install/minicom-pf-einstall-p1.png)
 
-![minicom-pf-einstall-p2](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu-pfsense-install/minicom-pf-einstall-p2.png&raw=1)
+![minicom-pf-einstall-p2](https://raw.githubusercontent.com/elatov/upload/master/apu-pfsense-install/minicom-pf-einstall-p2.png)
 
-![minicom-pf-einstall-p3](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu-pfsense-install/minicom-pf-einstall-p3.png&raw=1)
+![minicom-pf-einstall-p3](https://raw.githubusercontent.com/elatov/upload/master/apu-pfsense-install/minicom-pf-einstall-p3.png)
 
 After the reboot, I removed the USB stick and it started booting from the SD Card:
 
-![minicom-pfsense-reg-boot](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu-pfsense-install/minicom-pfsense-reg-boot.png&raw=1)
+![minicom-pfsense-reg-boot](https://raw.githubusercontent.com/elatov/upload/master/apu-pfsense-install/minicom-pfsense-reg-boot.png)
 
 And after it was done booting up I saw the **pfSense** Menu:
 
-![minicom-pfsense-booted-up](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu-pfsense-install/minicom-pfsense-booted-up.png&raw=1)
+![minicom-pfsense-booted-up](https://raw.githubusercontent.com/elatov/upload/master/apu-pfsense-install/minicom-pfsense-booted-up.png)
 
 To leave the **minicom** program you can type in **Ctrl+A X**
 
@@ -175,15 +175,15 @@ After it booted up I reassigned my interface accordingly:
 * re1: OPT1 (connected to the regular network)
 * re2: LAN (connected to my **dd-wrt** router)
 
-![minicom-pfsense-inter-assign](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu-pfsense-install/minicom-pfsense-inter-assign.png&raw=1)
+![minicom-pfsense-inter-assign](https://raw.githubusercontent.com/elatov/upload/master/apu-pfsense-install/minicom-pfsense-inter-assign.png)
 
 And I also changed the LAN network since my **dd-wrt** router already uses that subnet:
 
-![minicom-pfsense-change-lan-net](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu-pfsense-install/minicom-pfsense-change-lan-net.png&raw=1)
+![minicom-pfsense-change-lan-net](https://raw.githubusercontent.com/elatov/upload/master/apu-pfsense-install/minicom-pfsense-change-lan-net.png)
 
 Then I plugged my laptop into **re2** and I was able to get an address and also get to the admin page:
 
-![pfsense-admin-page](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu-pfsense-install/pfsense-admin-page.png&raw=1)
+![pfsense-admin-page](https://raw.githubusercontent.com/elatov/upload/master/apu-pfsense-install/pfsense-admin-page.png)
 
 Here is a list of things I ended up configuring before I placed it in front of my router:
 
@@ -205,11 +205,11 @@ When you login via ssh you will see the **pfSense** menu and you can choose opti
 	┌─[elatov@macair] - [/Users/elatov] - [2016-05-01 11:54:57]
 	└─[0] <> ssh root@pf
 	*** Welcome to pfSense 2.3-RELEASE-pfSense (amd64) on pf ***
-	
+
 	 WAN (wan)       -> re0        -> v4/DHCP4: X.X.X.X/21
 	 LAN (lan)       -> re2        -> v4: 192.168.56.1/24
 	 OPT1 (opt1)     -> re1        -> v4: 192.168.1.99/24
-	
+
 	 0) Logout (SSH only)                  9) pfTop
 	 1) Assign Interfaces                 10) Filter Logs
 	 2) Set interface(s) IP address       11) Restart webConfigurator
@@ -219,10 +219,10 @@ When you login via ssh you will see the **pfSense** menu and you can choose opti
 	 6) Halt system                       15) Restore recent configuration
 	 7) Ping host                         16) Restart PHP-FPM
 	 8) Shell
-	
-	
+
+
 	Enter an option: 8
-	
+
 	[2.3-RELEASE][root@pf.kar.int]/root:
 
 
@@ -243,7 +243,7 @@ We can also check out the partition information:
 	=>      63  31520705    da0  MBR  (15G)
 	        63  31519467  da0s1  freebsd  [active]  (15G)
 	  31519530      1238         - free -  (619K)
-	
+
 	=>       0  31519467   da0s1  BSD  (15G)
 	         0        16          - free -  (8.0K)
 	        16  23130843  da0s1a  freebsd-ufs  (11G)
@@ -269,7 +269,7 @@ Here is a quick bench mark:
 		255         	# Heads according to firmware.
 		63          	# Sectors according to firmware.
 		058F63666485	# Disk ident.
-	
+
 	Seek times:
 		Full stroke:	  250 iter in   0.221129 sec =    0.885 msec
 		Half stroke:	  250 iter in   0.221257 sec =    0.885 msec
@@ -294,7 +294,7 @@ Here is the Card Reader information:
 
 	[2.3-RELEASE][root@pf.kar.int]/root: camcontrol devlist
 	<Multiple Card  Reader 1.00>       at scbus6 target 0 lun 0 (pass0,da0)
-	
+
 	[2.3-RELEASE][root@pf.kar.int]/root: usbconfig list | grep -i flash
 	ugen6.2: <Flash Card ReaderWriter Generic> at usbus6, cfg=0 md=HOST spd=HIGH (480Mbps) pwr=ON (100mA)
 
@@ -302,7 +302,7 @@ And more information:
 
 	[2.3-RELEASE][root@pf.kar.int]/root: usbconfig -u 6 -a 2 dump_device_desc
 	ugen6.2: <Flash Card ReaderWriter Generic> at usbus6, cfg=0 md=HOST spd=HIGH (480Mbps) pwr=ON (100mA)
-	
+
 	  bLength = 0x0012
 	  bDescriptorType = 0x0001
 	  bcdUSB = 0x0201
@@ -317,7 +317,7 @@ And more information:
 	  iProduct = 0x0002  <Flash Card Reader/Writer>
 	  iSerialNumber = 0x0003  <058F63666485>
 	  bNumConfigurations = 0x0001
-  
+
 #### CLOG Logs
 
 Most of the logs on pfSense are in CLOG format and therefore we need to use **clog** to read the logs: [Working with Binary Circular Logs (clog)](https://www.netgate.com/docs/pfsense/monitoring/working-with-binary-circular-logs-clog.html)
@@ -350,7 +350,7 @@ I ended up using an old perl script:
 	mem_gap_hw:  +     68988928 (     65MB)        Memory gap: Segment Mappings?!
 	-------------- ------------ -----------
 	mem_hw:      =   4294967296 (   4096MB)        Total real memory installed
-	
+
 	SYSTEM MEMORY SUMMARY:
 	mem_used:         495599616 (    472MB) [ 11%] Logically used memory
 	mem_avail:   +   3799367680 (   3623MB) [ 88%] Logically available memory
@@ -367,7 +367,7 @@ Here is a sample **dmidecode** output:
 	# dmidecode 3.0
 	Scanning /dev/mem for entry point.
 	SMBIOS 2.7 present.
-	
+
 	Handle 0x0001, DMI type 1, 27 bytes
 	System Information
 		Manufacturer: PC Engines
@@ -378,7 +378,7 @@ Here is a sample **dmidecode** output:
 		Wake-up Type: Reserved
 		SKU Number: 4 GB
 		Family: None Provided
-	
+
 	Handle 0x0004, DMI type 32, 11 bytes
 	System Boot Information
 		Status: No errors detected
@@ -389,7 +389,7 @@ And here is the CPU info:
 	# dmidecode 3.0
 	Scanning /dev/mem for entry point.
 	SMBIOS 2.7 present.
-	
+
 	Handle 0x0003, DMI type 4, 42 bytes
 	Processor Information
 		Socket Designation: P0

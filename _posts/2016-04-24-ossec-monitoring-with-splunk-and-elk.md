@@ -17,13 +17,13 @@ Most of the instructions are laid out in [How to set up Syslog output](http://os
 	    <port>5001</port>
 	    <format>splunk</format>
 	  </syslog_output>
-	
+
 	  <syslog_output>
 	    <server>10.0.0.6</server>
 	    <port>5001</port>
 	    <format>default</format>
 	  </syslog_output>
-	
+
 	</ossec_config>
 
 Next let's enable syslog on the ossec server:
@@ -59,11 +59,11 @@ Then restarting splunk applied that
 
 Then going to the ossec dashboard:
 
-![ossec-dashboard](https://seacloud.cc/d/480b5e8fcd/files/?p=/ossec-elk-splunk/ossec-dashboard-button.png&raw=1)
+![ossec-dashboard](https://raw.githubusercontent.com/elatov/upload/master/ossec-elk-splunk/ossec-dashboard-button.png)
 
 I saw all the summary:
 
-![ossec-dashboard-sum](https://seacloud.cc/d/480b5e8fcd/files/?p=/ossec-elk-splunk/ossec-dashboard-sum.png&raw=1)
+![ossec-dashboard-sum](https://raw.githubusercontent.com/elatov/upload/master/ossec-elk-splunk/ossec-dashboard-sum.png)
 
 Pretty easy and nothing crazy.
 
@@ -80,7 +80,7 @@ First let's enable **logstash** to accept logs from the ossec server (the exampl
 	     type => "ossec"
 	  }
 	}
-	
+
 	filter {
 	  if [type] == "ossec" {
 	    grok {
@@ -92,7 +92,7 @@ First let's enable **logstash** to accept logs from the ossec server (the exampl
 	    }
 	  }
 	}
-	
+
 	output {
 	  elasticsearch { hosts => ["localhost:9200"] }
 	  stdout { codec => rubydebug }
@@ -133,28 +133,28 @@ Then fire off an ossec alert and you will see something similar to this in the l
 #### Create a Kibana 4 Dashboard For Ossec
 To create the dashboard we can follow the instructions laid out [here](https://vichargrave.github.io/tutorials/create-an-ossec-log-management-console-with-kibana-4/). Here is what I added for my search:
 
-![kib-ossec-saved-search](https://seacloud.cc/d/480b5e8fcd/files/?p=/ossec-elk-splunk/kib-ossec-saved-search.png&raw=1)
+![kib-ossec-saved-search](https://raw.githubusercontent.com/elatov/upload/master/ossec-elk-splunk/kib-ossec-saved-search.png)
 
 Before adding a visualization make sure you update your field list. There is a [request](https://github.com/elastic/kibana/issues/2236) to automatically do this, but I just did it manually. Go to **Settings** -> **Indices** -> **logstash-*** -> **Refresh Field List**:
 
-![kib-refresh-field-list](https://seacloud.cc/d/480b5e8fcd/files/?p=/ossec-elk-splunk/kib-refresh-field-list.png&raw=1)
+![kib-refresh-field-list](https://raw.githubusercontent.com/elatov/upload/master/ossec-elk-splunk/kib-refresh-field-list.png)
 
 After that the fields will be available for visualizations and you can even search for the **ossec_server** one which is added by **logstash**:
 
-![ossec-server-field](https://seacloud.cc/d/480b5e8fcd/files/?p=/ossec-elk-splunk/ossec-server-field.png&raw=1)
+![ossec-server-field](https://raw.githubusercontent.com/elatov/upload/master/ossec-elk-splunk/ossec-server-field.png)
 
 Here is the count vertical graph:
 
-![kib-ossec-vert-graph.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/ossec-elk-splunk/kib-ossec-vert-graph.png&raw=1)
+![kib-ossec-vert-graph.png](https://raw.githubusercontent.com/elatov/upload/master/ossec-elk-splunk/kib-ossec-vert-graph.png)
 
 Here is the pie chart visualization:
 
-![kib-ossec-pie-chard](https://seacloud.cc/d/480b5e8fcd/files/?p=/ossec-elk-splunk/kib-ossec-pie-chard.png&raw=1)
+![kib-ossec-pie-chard](https://raw.githubusercontent.com/elatov/upload/master/ossec-elk-splunk/kib-ossec-pie-chard.png)
 
 I also added a stacked graph for fun the instuctions are laid out [here](https://www.digitalocean.com/community/tutorials/how-to-use-kibana-dashboards-and-visualizations):
 
-![kib-ossec-stacked-graph](https://seacloud.cc/d/480b5e8fcd/files/?p=/ossec-elk-splunk/kib-ossec-stacked-graph.png&raw=1)
+![kib-ossec-stacked-graph](https://raw.githubusercontent.com/elatov/upload/master/ossec-elk-splunk/kib-ossec-stacked-graph.png)
 
 And in the end here is the dashboard I ended up with:
 
-![kib-ossec-dashboard](https://seacloud.cc/d/480b5e8fcd/files/?p=/ossec-elk-splunk/kib-ossec-dashboard.png&raw=1)
+![kib-ossec-dashboard](https://raw.githubusercontent.com/elatov/upload/master/ossec-elk-splunk/kib-ossec-dashboard.png)

@@ -17,7 +17,7 @@ I didn't even have the login information for the local admin user. To reset the 
 
 Here is how that looks like:
 
-![mac-os-x-sum-fsck-and-mount](https://seacloud.cc/d/480b5e8fcd/files/?p=/mac-mini-2006-debian/mac-os-x-sum-fsck-and-mount.png&raw=1)
+![mac-os-x-sum-fsck-and-mount](https://raw.githubusercontent.com/elatov/upload/master/mac-mini-2006-debian/mac-os-x-sum-fsck-and-mount.png)
 
 After that, we can run the following to launch the user Directory service:
 
@@ -29,18 +29,18 @@ Then run the following to see a list of available users on the system:
 
 Then finally run the following to set a desired password for a user of your choice:
 
-	dscl . -passwd /Users/USER PASSWORD 
-	
+	dscl . -passwd /Users/USER PASSWORD
+
 After that you should be all set, just reboot into regular mode:
 
 	reboot
-	
+
 ### Download and Burn the Debian ISO
 I just grabbed the net-boot ISO:
 
 	elatov@fed:~$ls -l downloads/*.iso
 	-rw-r----- 1 elatov elatov 290455552 Sep 20 09:55 downloads/debian-7.6.0-i386-netinst.iso
-	
+
 And burned it onto an empty CD using my Fedora Laptop:
 
 	elatov@fed:~$wodim dev=/dev/sr0 --devices
@@ -48,10 +48,10 @@ And burned it onto an empty CD using my Fedora Laptop:
 	-------------------------------------------------------------------------
 	 0  dev='/dev/sr0'	rwrw-- : 'MATSHITA' 'DVD+-RW UJ892'
 	-------------------------------------------------------------------------
-	
+
 So my **/dev/sr0** drive will be able to handle the burning of a blank CD. Now for the actual command to burn the ISO:
 
-	elatov@fed:~$wodim -v dev=/dev/sr0 speed=4 -eject downloads/debian-7.6.0-i386-netinst.iso 
+	elatov@fed:~$wodim -v dev=/dev/sr0 speed=4 -eject downloads/debian-7.6.0-i386-netinst.iso
 
 ### Download and Copy rEFIt ISO Disk Image onto a USB drive
 While the CD was burning I went to the Mac and first made sure the password was reset. Then I installed the **rEFIt** image on my USB Drive, so I can boot from it later. I could've probably used the **diskutility** to complete this, but I decided to go with the command line. I just grabbed the ISO disk image and ran the following:
@@ -59,7 +59,7 @@ While the CD was burning I went to the Mac and first made sure the password was 
 	gunzip -d rEFIt-0.14.cdr.gz
 	hdiutil convert -format UDRW -o refit.dmg rEFIt-0.14.cdr
 	sudo dd if=refit.dmg of=/dev/disk1
-	
+
 As soon as the **dd** finished the volume auto mounted and I saw the **rEFIt** icon.
 
 ### Mute the Boot Chime from OS X
@@ -73,45 +73,45 @@ You can confirm the setting by running the following:
 	SystemAudioVolume	%80
 
 After that I rebooted and I didn't hear the boot chime.
-	
+
 ### Use DiskUtility to Create a Partition for Debian
 Just fire up **DiskUtility** and resize the partition (I covered this in a [previous](/2013/08/install-fedora-19-on-mac-book-pro/) post)
-	
+
 ### Boot from the Debian CD and Install Debian on the Free Space
 I decided to dual boot just in case I ever needed to reboot into Mac OS for updates or firmware updates. So reboot from Mac OS X and hold down the **Alt** key and it will show you the boot manager. On the boot manager the Debian CD will show up with a title of **Windows**:
 
-![mac-osx-boot-man-cd-selected2](https://seacloud.cc/d/480b5e8fcd/files/?p=/mac-mini-2006-debian/mac-osx-boot-man-cd-selected2_gc.jpg&raw=1)
+![mac-osx-boot-man-cd-selected2](https://raw.githubusercontent.com/elatov/upload/master/mac-mini-2006-debian/mac-osx-boot-man-cd-selected2_gc.jpg)
 
 If you select the CD, it will start the Debian Installer. Just fill out everything as you normally would. I selected the "**Guided - use the largest continuous free space**":
 
-![deb-in-part-guided_g](https://seacloud.cc/d/480b5e8fcd/files/?p=/mac-mini-2006-debian/deb-in-part-guided_g.jpg&raw=1)
+![deb-in-part-guided_g](https://raw.githubusercontent.com/elatov/upload/master/mac-mini-2006-debian/deb-in-part-guided_g.jpg)
 
 After selecting that it created the following partitions:
 
-![deb-in-part-guided2](https://seacloud.cc/d/480b5e8fcd/files/?p=/mac-mini-2006-debian/deb-in-part-guided2_gc.jpg&raw=1)
+![deb-in-part-guided2](https://raw.githubusercontent.com/elatov/upload/master/mac-mini-2006-debian/deb-in-part-guided2_gc.jpg)
 
 It will also ask you where to install GRUB and I selected the fourth partition (**/dev/sda4**):
 
-![deb-in-grub-spec-disk_g](https://seacloud.cc/d/480b5e8fcd/files/?p=/mac-mini-2006-debian/deb-in-grub-spec-disk_g.jpg&raw=1)
+![deb-in-grub-spec-disk_g](https://raw.githubusercontent.com/elatov/upload/master/mac-mini-2006-debian/deb-in-grub-spec-disk_g.jpg)
 
 After the install is finished it will eject the CD and reboot. Before rebooting insert the USB drive that has **rEFIt** on it.
 
 ### Sync MBR with GPT
 When the Mac is rebooting keep pressing the **Alt** key until you see the boot manager, since you have the USB stick plugged in, you will see the **rEFIt** icon:
 
-![osx-boot-man-refit_g](https://seacloud.cc/d/480b5e8fcd/files/?p=/mac-mini-2006-debian/osx-boot-man-refit_g.jpg&raw=1)
+![osx-boot-man-refit_g](https://raw.githubusercontent.com/elatov/upload/master/mac-mini-2006-debian/osx-boot-man-refit_g.jpg)
 
 After booting from the **rEFIt** USB stick, you will see both your OS X and Linux Boot Disks:
 
-![refit-linux-selected_g](https://seacloud.cc/d/480b5e8fcd/files/?p=/mac-mini-2006-debian/refit-linux-selected_g.jpg&raw=1)
+![refit-linux-selected_g](https://raw.githubusercontent.com/elatov/upload/master/mac-mini-2006-debian/refit-linux-selected_g.jpg)
 
 Scroll down and select the **shell**:
 
-![refit-shell-selected_g](https://seacloud.cc/d/480b5e8fcd/files/?p=/mac-mini-2006-debian/refit-shell-selected_g.jpg&raw=1)
+![refit-shell-selected_g](https://raw.githubusercontent.com/elatov/upload/master/mac-mini-2006-debian/refit-shell-selected_g.jpg)
 
 After the shell is started just run **gptsync.efi**, here is how it will look like:
 
-![refit-gptsync-change_g.jpg](https://seacloud.cc/d/480b5e8fcd/files/?p=/mac-mini-2006-debian/refit-gptsync-change_g.jpg&raw=1)
+![refit-gptsync-change_g.jpg](https://raw.githubusercontent.com/elatov/upload/master/mac-mini-2006-debian/refit-gptsync-change_g.jpg)
 
 Here is the full output, just for reference:
 
@@ -150,11 +150,11 @@ Type **exit** to leave the **rEFIt** shell.
 ### Reboot into Debian
 Reboot from the **rEFIt** USB disk and eject the USB disk, then hold down the **Alt** key and now you will see the new **Windows** Disk which is the Debian GRUB Boot loader:
 
-![mac-osx-boot-man-deb-selected_g](https://seacloud.cc/d/480b5e8fcd/files/?p=/mac-mini-2006-debian/mac-osx-boot-man-deb-selected_g.jpg&raw=1)
+![mac-osx-boot-man-deb-selected_g](https://raw.githubusercontent.com/elatov/upload/master/mac-mini-2006-debian/mac-osx-boot-man-deb-selected_g.jpg)
 
 Upon selecting the **Windows** boot disk, you will see the GRUB menu with the Debian entry:
 
-![deb-grub_g](https://seacloud.cc/d/480b5e8fcd/files/?p=/mac-mini-2006-debian/deb-grub_g.jpg&raw=1)
+![deb-grub_g](https://raw.githubusercontent.com/elatov/upload/master/mac-mini-2006-debian/deb-grub_g.jpg)
 
 After that Debian will boot up normally.
 
@@ -170,7 +170,7 @@ If you don't want to keep pushing the **Alt** key to boot into Debian, we can **
 	   3: 21686148-6449-6E6F-744E-65656445                   1.0 MB     disk0s3
 	   4:       Microsoft Basic Data                         19.0 GB    disk0s4
 	   5:                 Linux Swap                         856.7 MB   disk0s5
-	   
+
 It's still partition 4, so let's just run the following to **bless** that guy:
 
 	$ sudo bless --device /dev/disk0s4 --setBoot --legacy --verbose
@@ -187,7 +187,7 @@ It's still partition 4, so let's just run the following to **bless** that guy:
 		Preserving: (null)
 	Setting EFI NVRAM:
 		boot-args='(null)'
-		
+
 Then after that if you reboot, it will automatically boot into Debian.
 
 ### Create a Recovery 10.7 USB Disk

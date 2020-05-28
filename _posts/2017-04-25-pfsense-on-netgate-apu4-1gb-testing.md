@@ -11,18 +11,18 @@ I recently played around with AsusWRT and a 1Gb WAN connection and I was actuall
 ### Direct Speed Test
 Plugging my laptop directly into the modem, I saw the following results:
 
-![direct-laptop](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu4-wan/direct-laptop.png&raw=1)
+![direct-laptop](https://raw.githubusercontent.com/elatov/upload/master/apu4-wan/direct-laptop.png)
 
 Which I was pretty happy with.
 
 ### pfSense Speed Test
 Adding pfSense into mix yielded the following results:
 
-![pf-only-with-suricata](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu4-wan/pf-only-with-suricata.png&raw=1)
+![pf-only-with-suricata](https://raw.githubusercontent.com/elatov/upload/master/apu4-wan/pf-only-with-suricata.png)
 
 I started trying different things to see if that would help.
 
-### TSO with Realtek RTL8111E 
+### TSO with Realtek RTL8111E
 
 Checking over the hardware, I saw the following:
 
@@ -32,8 +32,8 @@ Checking over the hardware, I saw the following:
 	    device     = 'RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller'
 	    class      = network
 	    subclass   = ethernet
-	
-	[2.3.2-RELEASE][root@pf.kar.int]/root: dmesg | grep re0    
+
+	[2.3.2-RELEASE][root@pf.kar.int]/root: dmesg | grep re0
 	re0: <RealTek 8168/8111 B/C/CP/D/DP/E/F/G PCIe Gigabit Ethernet> port 0x1000-0x10ff mem 0xf7a00000-0xf7a00fff,0xf7900000-0xf7903fff irq 16 at device 0.0 on pci1
 	re0: Using 1 MSI-X message
 	re0: ASPM disabled
@@ -70,7 +70,7 @@ BTW if you want to check supported features on the NIC you can run **ifconfig -m
 
 	[2.3.2-RELEASE][root@pf.kar.int]/root: ifconfig -m re1 | grep capa
 	       	capabilities=1839db<RXCSUM,TXCSUM,VLAN_MTU,VLAN_HWTAGGING,POLLING,VLAN_HWCSUM,TSO4,WOL_UCAST,WOL_MCAST,WOL_MAGIC,LINKSTATE,NETMAP>
-	       	
+
 After enabling TSO, I saw the following:
 
 	[2.3.2-RELEASE][root@pf.kar.int]/root: iperf -c 192.168.1.100 -w 2m
@@ -81,7 +81,7 @@ After enabling TSO, I saw the following:
 	[  3] local 192.168.1.99 port 6017 connected with 192.168.1.100 port 5001
 	[ ID] Interval       Transfer     Bandwidth
 	[  3]  0.0-10.0 sec  1.07 GBytes   920 Mbits/sec
-	
+
 But unfortunately that didn't help with the LAN -> WAN speed.
 
 ### Other Performance Tweaks
@@ -91,7 +91,7 @@ Reading over [Tuning and Troubleshooting Network Cards](https://doc.pfsense.org/
 
 But that didn't help. I also tried disabling and enabling the different options available in pfSense under **System** -> **Advanced** -> **Networking**:
 
-![pf-net-options](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu4-wan/pf-net-options.png&raw=1) 
+![pf-net-options](https://raw.githubusercontent.com/elatov/upload/master/apu4-wan/pf-net-options.png)
 
 The following options didn't help:
 
@@ -103,7 +103,7 @@ The following options didn't help:
 ### Checking out the CPU Usage
 Running **top -aSH** showed that NIC interrupts are high but not completely taking over the CPU:
 
-![image](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu4-wan/pf-top-interr.png&raw=1)
+![image](https://raw.githubusercontent.com/elatov/upload/master/apu4-wan/pf-top-interr.png)
 
 Reading over the [FreeBSD forwarding Performance](https://bsdrp.net/documentation/technical_docs/performance), I tried using the **pmcstat** tool to see if **pf** is taking a lot of the kernel time, and when I ran the following:
 
@@ -113,7 +113,7 @@ Reading over the [FreeBSD forwarding Performance](https://bsdrp.net/documentatio
 The biggest user was **sbuf_bcat** (memory allocation):
 
 	PMC: [FR_RETIRED_X86_INSTRUCTIONS] Samples: 2836 (100.0%) , 73 unresolved
-	
+
 	%SAMP IMAGE      FUNCTION             CALLERS
 	 35.6 kernel     sbuf_bcat            sysctl_kern_malloc_stats:35.0 ...
 	  3.5 kernel     pagezero             vm_fault_hold
@@ -127,7 +127,7 @@ The biggest user was **sbuf_bcat** (memory allocation):
 and **pf** stayed pretty low.
 
 	PMC: [FR_RETIRED_X86_INSTRUCTIONS] Samples: 12178 (100.0%) , 0 unresolved
-	
+
 	%SAMP IMAGE      FUNCTION             CALLERS
 	 23.2 kernel     sched_idletd         fork_exit
 	  6.1 kernel     pf_test              pf_check_out:3.3 pf_check_in:2.8
@@ -135,12 +135,12 @@ and **pf** stayed pretty low.
 	  3.3 kernel     pf_test_state_tcp    pf_test
 	  3.0 kernel     __rw_rlock           bpf_mtap:0.9 in_localip:0.9
 
-But still nothing in the high 70s for the percentage. 
+But still nothing in the high 70s for the percentage.
 
 I was also reading over the [PCEngines APU board with pfsense setup](https://forum.pfsense.org/index.php?topic=77196.0) and decided to try out **powerd**. After enabling it, I couldn't run the **powerd** command, and it turned out to be a [known bug](https://redmine.pfsense.org/issues/5739). After adding the following to the **/boot/device.hints** file, it started working:
 
-	hint.acpi_throttle.0.disabled="0" 
-	hint.p4tcc.0.disabled="0"  
+	hint.acpi_throttle.0.disabled="0"
+	hint.p4tcc.0.disabled="0"
 
 After that you will also get more info from **sysctl**:
 
@@ -200,7 +200,7 @@ As I kept reading about the APU4 unit I ran into a bunch of folks that mentioned
 
 * [Netgate Router Recommendation?](https://www.reddit.com/r/PFSENSE/comments/2vzy6t/netgate_router_recommendation/)
 
-	> I've anecdotally heard the APU series is good for 500-600mbit/sec worth of NAT (at 100% CPU) and our own testing suggests it should be good for at least 30-40mbit/sec of VPN at AES128 (not using AES-GCM, projected based on CPU usage with our current WAN link). 
+	> I've anecdotally heard the APU series is good for 500-600mbit/sec worth of NAT (at 100% CPU) and our own testing suggests it should be good for at least 30-40mbit/sec of VPN at AES128 (not using AES-GCM, projected based on CPU usage with our current WAN link).
 
 * [Throughput numbers for new SG-* devices?](https://www.reddit.com/r/PFSENSE/comments/348uho/throughput_numbers_for_new_sg_devices/)
 
@@ -217,27 +217,27 @@ As I kept reading about the APU4 unit I ran into a bunch of folks that mentioned
 
 So after all my testing and actually enabling TSO (it helped with **suricata** offloading) this the best I could get (about **~530Mb** down):
 
-![**image**](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu4-wan/pf-only-tso-2.png&raw=1)
+![**image**](https://raw.githubusercontent.com/elatov/upload/master/apu4-wan/pf-only-tso-2.png)
 
 ### Other Hardware
 Now that I know the limitation, next time I am upgrading my firewall, I will grab one of these:
 
 * [netbenches/Atom_C2558_4Cores-Intel_i350/fastforwarding-pf-ipfw/results/fbsd11-routing.r287531](https://github.com/ocochard/netbenches/blob/master/Atom_C2558_4Cores-Intel_i350/forwarding-pf-ipfw/results/fbsd11-routing.r287531/README.md)
-	* Netgate RCC-VE 4860 
-	
+	* Netgate RCC-VE 4860
+
 	> ![netgate-4860-graph](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu4-wan/netgate-4860-graph.png&raw=1)
-	
+
 * [Playing with FreeBSD packet filter state table limits](http://blog.cochard.me/2016/05/playing-with-freebsd-packet-filter.html)
 	* Netgate RCC-VE 4860
 * [Thinking of switching to pfsense](https://www.reddit.com/r/PFSENSE/comments/3xqhqo/thinking_of_switching_to_pfsense/)
 	* Nice table from there (SG-2440):
-	
+
 	> ![ng-perf-table](https://seacloud.cc/d/480b5e8fcd/files/?p=/apu4-wan/ng-perf-table.png&raw=1)
-	
+
 * [Gigabit WAN speeds with RCC-VE 2440?](https://www.reddit.com/r/PFSENSE/comments/3t184g/gigabit_wan_speeds_with_rccve_2440/)
-	
+
 	> Well, I am very happy to report that with 2.3 installed, and PowerD set to Maximum, I am now achieving expected speeds! My recent speed test shows 810.67Mbps down, and 936.71Mbps up.
-	
+
 * [pfSense, m-ITX quad-core, 1Gbit, <20w](https://www.reddit.com/r/homelab/comments/2fmt0t/pfsense_mitx_quadcore_1gbit_20w/)
 
 	> TCP tests ended up around ~990Mbit/s. TCP test was also performed with iperf, test was done from a server within LAN to a server outside WAN. Server on the Internet -> WAN -> NAT -> LAN -> server on the LAN.

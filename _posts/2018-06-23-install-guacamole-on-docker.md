@@ -28,23 +28,23 @@ Now from a machine that has access to your **MariaDB** server, create the databa
 	Welcome to the MariaDB monitor.  Commands end with ; or \g.
 	Your MariaDB connection id is 9454
 	Server version: 10.2.10-MariaDB-10.2.10+maria~jessie mariadb.org binary distribution
-	
+
 	Copyright (c) 2000, 2017, Oracle, MariaDB Corporation Ab and others.
-	
+
 	Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-	
+
 	MariaDB [(none)]> CREATE DATABASE guacamole;
 	Query OK, 1 row affected (0.00 sec)
-	
+
 	MariaDB [(none)]> CREATE USER 'guac' IDENTIFIED BY 'password';
 	Query OK, 0 rows affected (0.00 sec)
-	
+
 	MariaDB [(none)]> GRANT SELECT,INSERT,UPDATE,DELETE,CREATE ON guacamole.* TO 'guac'@'%';
 	Query OK, 0 rows affected (0.00 sec)
-	
+
 	MariaDB [(none)]> FLUSH PRIVILEGES;
 	Query OK, 0 rows affected (0.01 sec)
-	
+
 	MariaDB [(none)]> quit
 	Bye
 
@@ -73,7 +73,7 @@ I just ended up creating the following config:
 	    ports:
 	      - "4822:4822"
 	    network_mode: bridge
-	
+
 	  guacamole:
 	    image: "guacamole/guacamole"
 	    container_name: guacamole
@@ -101,7 +101,7 @@ I just ended up creating the following config:
 
 At this point if we run `docker-compose up -d` the services should come up and if we go to **http://{DOCKER_HOST}:8084/guacamole/** you will see the login page:
 
-![guac-login-page.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/guacamole-docker/guac-login-page.png&raw=1)
+![guac-login-page.png](https://raw.githubusercontent.com/elatov/upload/master/guacamole-docker/guac-login-page.png)
 
 And you can login with the default credentials:
 
@@ -165,7 +165,7 @@ Then create the following config:
 	    ProxyPass http://192.168.1.106:8084/guacamole/ flushpackets=on
 	    ProxyPassReverse http://192.168.1.106:8084/guacamole/
 	</Location>
-	
+
 	<Location /guacamole/websocket-tunnel>
 	    Order allow,deny
 	    Allow from all
@@ -177,4 +177,4 @@ Then create the following config:
 
 Then connecting over the proxy worked with out issues:
 
-![guac-with-rdp-session.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/guacamole-docker/guac-with-rdp-session.png&raw=1)
+![guac-with-rdp-session.png](https://raw.githubusercontent.com/elatov/upload/master/guacamole-docker/guac-with-rdp-session.png)

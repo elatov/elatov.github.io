@@ -410,7 +410,7 @@ And then you should see the custom one added:
 
 If you checkout the config in the UI you will see it there as well:
 
-![awx-custom-env.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/awx-virtualenv/awx-custom-env.png&raw=1)
+![awx-custom-env.png](https://raw.githubusercontent.com/elatov/upload/master/awx-virtualenv/awx-custom-env.png)
 
 
 Initially I ran into this:
@@ -466,7 +466,7 @@ Very similar approach, install the necessary python modules in your custom **vir
 
 And with those two things in place, I was able to run a test **foreman** ansible playbook:
 
-![awx-create-foreman-host.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/awx-virtualenv/awx-create-foreman-host.png&raw=1)
+![awx-create-foreman-host.png](https://raw.githubusercontent.com/elatov/upload/master/awx-virtualenv/awx-create-foreman-host.png)
 
 ### Combining all the Tasks into one playbook
 There are a couple of options for combining different playbooks but it seems that sharing variable between playbooks is kind of a pain and the easiest approach is to just create one playbook with multiple tasks:

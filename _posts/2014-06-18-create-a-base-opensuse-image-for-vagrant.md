@@ -32,19 +32,19 @@ Now let's create a VM in VirtualBox. Here is the command sequence for that.
 		Virtual machine 'vagrant-opensuse13-32bit' is created and registered.
 		UUID: e6e1c3fe-1321-4c2e-b17a-f81c31b345ea
 		Settings file: '/Users/elatov/.virt/vagrant-opensuse13-32bit/vagrant-opensuse13-32bit.vbox'
-		
+
 2. Assign 1GB of RAM to the VM
 
 		elatov@kmac:~$VBoxManage modifyvm vagrant-opensuse13-32bit --memory 1024
-		
+
 3. Assign a Nic to the VM and set the network type to NAT
 
 		elatov@kmac:~$VBoxManage modifyvm vagrant-opensuse13-32bit --nic1 nat
-		
+
 4. Create a NAT rule from host machine 2223 to VM port 22
 
 		elatov@kmac:~$VBoxManage modifyvm vagrant-opensuse13-32bit --natpf1 "guestssh,tcp,,2223,,22"
-		
+
 5. Create the Hard Drive and attach it to the VM
 
 		elatov@kmac:~$VBoxManage createhd --filename .virt/vagrant-opensuse13-32bit/vagrant-opensuse13-32bit.vdi --size 15000 --format VDI
@@ -57,7 +57,7 @@ Now let's create a VM in VirtualBox. Here is the command sequence for that.
 
 		elatov@kmac:~$VBoxManage storagectl vagrant-opensuse13-32bit --name "IDE Controller" --add ide --controller PIIX4
 		elatov@kmac:~$VBoxManage storageattach vagrant-opensuse13-32bit --storagectl "IDE Controller" --port 1 --device 0 --type dvddrive --medium download/openSUSE-13.1-DVD-i586.iso
-		
+
 7. Confirm all the settings
 
 		elatov@kmac:~$VBoxManage showvminfo vagrant-opensuse13-32bit
@@ -145,49 +145,49 @@ Now let's create a VM in VirtualBox. Here is the command sequence for that.
 		VRDE:            disabled
 		USB:             disabled
 		EHCI:            disabled
-		
+
 		USB Device Filters:
-		
+
 		<none>
-		
+
 		Available remote USB devices:
-		
+
 		<none>
-		
+
 		Currently Attached USB Devices:
-		
+
 		<none>
-		
+
 		Bandwidth groups:  <none>
-		
+
 		Shared folders:  <none>
-		
+
 		VRDE Connection:    not active
 		Clients so far:     0
-		
+
 		Video capturing:    not active
 		Capture screens:    0
 		Capture file:       /Users/elatov/.virt/vagrant-opensuse13-32bit/vagrant-opensuse13-32bit.webm
 		Capture dimensions: 1024x768
 		Capture rate:       512 kbps
 		Capture FPS:        25
-		
+
 		Guest:
-		
+
 		Configured memory balloon size:      0 MB
-	
+
 8. Enable **RDE** for the VM, so we can connect to the VM using Remote Desktop (port 3389) and finish the install.
 
 		elatov@kmac:~$VBoxManage modifyvm vagrant-opensuse13-32bit --vrde on
 		elatov@kmac:~$VBoxManage modifyvm vagrant-opensuse13-32bit --vram 128
-		
+
 9. Start the VM in headless mode:
 
 		elatov@kmac:~$VBoxHeadless --startvm vagrant-opensuse13-32bit
 		Oracle VM VirtualBox Headless Interface 4.3.12
 		(C) 2008-2014 Oracle Corporation
 		All rights reserved.
-		
+
 		VRDE server is listening on port 3389.
 
 10. Connect to the VM with your favorite RDP Client
@@ -195,15 +195,15 @@ Now let's create a VM in VirtualBox. Here is the command sequence for that.
 		elatov@kmac:~$open /Applications/Remote\ Desktop\ Connection.app
 
     * Note - you need to install the Oracle Extras Extension pack to be able to use RDP with a VM. If it's too much hassle, just open the regular VirtualBox Application and do the install there. From [Virtualbox downloads](https://www.virtualbox.org/wiki/Downloads):
-    
+
     > VirtualBox 4.3.12 Oracle VM VirtualBox Extension Pack  All supported platforms Support for USB 2.0 devices, VirtualBox RDP and PXE boot for Intel cards.
-    
-    ![remote-desktop-mac-os-x](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_base_box/remote-desktop-mac-os-x.png&raw=1) 
+
+    ![remote-desktop-mac-os-x](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_base_box/remote-desktop-mac-os-x.png&raw=1)
 
 11. Finish installing and configuring the VM from the Remote Desktop client, or the regular Non-headless Virtualbox application:
 
     ![remote-desktop-connection](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_base_box/remote-desktop-connection.png&raw=1)
-    
+
 12. During the installation, create a vagrant user as an administrator user:
 
     ![create-vagrant-user-during-creation-of-template](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_base_box/create-vagrant-user-during-creation-of-template.png&raw=1)
@@ -215,13 +215,13 @@ Now let's create a VM in VirtualBox. Here is the command sequence for that.
 14. After the install is finished, it will automatically reboot and will again boot from the CD. This time around choose to boot from the Hard Drive:
 
      ![boot-from-hd-opensuse](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_base_box/boot-from-hd-opensuse.png&raw=1)
-     
+
      This time around it will use yast to install packages:
-     
+
      ![opensuse-yast-installing](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_base_box/opensuse-yast-installing.png&raw=1)
-     
+
      After that's done you will be able to login into the system as the vagrant user:
-     
+
      ![login-vagrant-user-after-install](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_base_box/login-vagrant-user-after-install.png&raw=1)
 
 At this point you can ssh to the VM like so:
@@ -235,9 +235,9 @@ At this point you can ssh to the VM like so:
 	Last login: Tue Jun 10 12:24:28 2014
 	Have a lot of fun...
 	vagrant@linux-nkez:~>
-	
+
 ### Configure the Guest OS
-There are a couple of things we need to do on the VM to prep it for Vagrant. 
+There are a couple of things we need to do on the VM to prep it for Vagrant.
 
 #### Add Directories with system binaries to Vagrant's User Path
 
@@ -264,7 +264,7 @@ And add the following into the file:
 
 	Defaults !requiretty
 	vagrant ALL=(ALL) NOPASSWD: ALL
-	
+
 Now let's install the public **SSH** key used by **vagrant**:
 
 	vagrant@linux-nkez:~> mkdir .ssh
@@ -279,8 +279,8 @@ Now let's try to login with **ssh** and run a **sudo** command
 
 	elatov@kmac:~$ssh vagrant@localhost -p 2223 -i .vagrant.d/insecure_private_key 'sudo date'
 	Tue Jun 10 13:20:19 MDT 2014
-	
-If you get any errors fix them as they come up and make sure it doesn't prompt you for any passwords. 
+
+If you get any errors fix them as they come up and make sure it doesn't prompt you for any passwords.
 
 #### Update the OS
 
@@ -289,11 +289,11 @@ Next go ahead and update the system:
 	vagrant@linux-nkez:~> sudo zypper update
 	Loading repository data...
 	Reading installed packages...
-	
+
 	The following NEW packages are going to be installed:
 	  kernel-default-3.11.10-11.1 kernel-pae-3.11.10-11.1 keyutils
 	  virtualbox-guest-kmp-default-4.2.18_k3.11.10_11-2.12.1
-	
+
 	The following packages are going to be upgraded:
 	  aaa_base aaa_base-extras autofs bind-libs bind-utils ca-certificates
 	  ca-certificates-mozilla coreutils curl dbus-1 dbus-1-x11 file file-magic
@@ -311,12 +311,12 @@ Next go ahead and update the system:
 	  util-linux vim virtualbox-guest-tools yast2 yast2-add-on yast2-ldap-client
 	  yast2-network yast2-ruby-bindings yast2-storage yast2-trans-en_US
 	  yast2-ycp-ui-bindings zypper zypper-aptitude
-	
+
 	96 packages to upgrade, 4 new.
 	Overall download size: 144.2 MiB. After the operation, additional 249.5 MiB
 	will be used.
 	Continue? [y/n/? shows all options] (y):
-	
+
 After that's done go ahead and poweroff the VM:
 
 	vagrant@linux-nkez:~> sudo /sbin/poweroff
@@ -332,16 +332,16 @@ Then install VirtualBox Guest Additions (this is necessary if you plan to share 
 And now let's connect the VBoxAdditions ISO:
 
 	elatov@kmac:~$VBoxManage modifyvm vagrant-opensuse13-32bit --dvd /Applications/VirtualBox.app/Contents/MacOS/VBoxGuestAdditions.iso
-	
+
 Then power the VM back up:
 
 	elatov@kmac:~$VBoxHeadless --startvm vagrant-opensuse13-32bit
 	Oracle VM VirtualBox Headless Interface 4.3.12
 	(C) 2008-2014 Oracle Corporation
 	All rights reserved.
-	
+
 	VRDE server is listening on port 3389.
-	
+
 You will actually notice that by default the tools are installed:
 
 	vagrant@linux-nkez:~> rpm -qa | grep virtualbox
@@ -353,7 +353,7 @@ But they are usually a version behind:
 
 	elatov@kmac:~$VBoxManage --version
 	4.3.12r93733
-	
+
 So the latest VirtualBox is **4.3.12**, but the tools are **4.2.18**. Not sure if that matters, but for experiment's sake let's install the latest version. First let's remove the ones included with the OS:
 
 	vagrant@linux-nkez:~> sudo zypper rm virtualbox-guest-kmp-default virtualbox-guest-tools virtualbox-guest-x11
@@ -363,11 +363,11 @@ So the latest VirtualBox is **4.3.12**, but the tools are **4.2.18**. Not sure i
 	'virtualbox-guest-x11' not found in package names. Trying capabilities.
 	No provider of 'virtualbox-guest-x11' is installed.
 	Resolving package dependencies...
-	
+
 	The following 3 packages are going to be REMOVED:
 	  virtualbox-guest-kmp-default-4.2.18_k3.11.6_4-2.2.10
 	  virtualbox-guest-kmp-default-4.2.18_k3.11.10_11-2.12.1 virtualbox-guest-tools
-	
+
 	3 packages to remove.
 	After the operation, 1.6 MiB will be freed.
 	Continue? [y/n/? shows all options] (y): y
@@ -378,12 +378,12 @@ Next let's install the necessary packages to compile the latest virtualbox guest
 	Loading repository data...
 	Reading installed packages...
 	Resolving package dependencies...
-	
+
 	The following 14 NEW packages are going to be installed:
 	  binutils gcc gcc48 glibc-devel kernel-default-devel kernel-devel
 	  kernel-pae-devel libasan0 libatomic1 libgomp1 libitm1 linux-glibc-devel make
 	  site-config
-	
+
 	14 new packages to install.
 	Overall download size: 26.4 MiB. After the operation, additional 105.0 MiB will
 	be used.
@@ -424,13 +424,13 @@ Reboot and make sure the kernel modules are loaded after the reboot:
 	   Loaded: loaded (/etc/init.d/vboxadd)
 	   Active: active (exited) since Tue 2014-06-10 13:46:23 MDT; 6h ago
 	  Process: 406 ExecStart=/etc/init.d/vboxadd start (code=exited, status=0/SUCCESS)
-	
+
 	Jun 10 13:46:22 linux-nkez systemd[1]: Starting LSB: VirtualBox Linux Addit.....
 	Jun 10 13:46:23 linux-nkez vboxadd[406]: Starting the VirtualBox Guest Addit...e
 	Jun 10 13:46:23 linux-nkez systemd[1]: Started LSB: VirtualBox Linux Additi...s.
 	Hint: Some lines were ellipsized, use -l to show in full.
-	
-Everything looks good. 
+
+Everything looks good.
 
 #### Clean up References to /dev/disk/by-id
 
@@ -461,18 +461,18 @@ Do the following, first blacklist the **ic2_piix4 module**, this is done by edit
 and adding the following to it:
 
 	blacklist i2c_piix4
-	
+
 Then rebuild the *initrd* image:
 
 	vagrant@linux-nkez:~> sudo /sbin/mkinitrd
-	
+
 	Kernel image:   /boot/vmlinuz-3.11.10-11-default
 	Initrd image:   /boot/initrd-3.11.10-11-default
 	Root device:	/dev/system/root (mounted on / as ext4)
 	Resume device:	/dev/system/swap
 	Kernel Modules:	hwmon thermal_sys thermal processor fan dm-mod dm-log dm-region-hash dm-mirror dm-snapshot scsi_dh scsi_dh_alua scsi_dh_hp_sw scsi_dh_emc scsi_dh_rdac libata libahci ahci linear
 	Features:       acpi dm block lvm2
-	
+
 To be safe, you can also rebuild **grub** as well (**mkinitrd** already does this, but just in case):
 
 	vagrant@linux-nkez:~> sudo /usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg
@@ -492,7 +492,7 @@ To be safe, you can also rebuild **grub** as well (**mkinitrd** already does thi
 
 Another thing you can do is clean up all the space to make the box image smaller. Boot the VM into single user mode (append **single** to the linux line in grub):
 
-![opensuse-grub-menu-add-single](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_base_box/opensuse-grub-menu-add-single.png&raw=1)
+![opensuse-grub-menu-add-single](https://raw.githubusercontent.com/elatov/upload/master/vagrant_create_base_box/opensuse-grub-menu-add-single.png)
 
 
 Then install **zerofree**:
@@ -506,7 +506,7 @@ remount **/** with read-only:
 then zero out the unused data:
 
 	zerofree -v /dev/mapper/system-root
-	
+
 If you don't want to install **zerofree**, you can do something like this:
 
 	vagrant@linux-nkez:~> sudo dd if=/dev/zero of=/EMPTY bs=1M
@@ -516,12 +516,12 @@ If you don't want to install **zerofree**, you can do something like this:
 	11909644288 bytes (12 GB) copied, 20.3938 s, 584 MB/s
 	vagrant@linux-nkez:~> sudo rm -f /EMPTY
 	vagrant@linux-nkez:~> sudo poweroff
-	
+
 Then compact the virtual disk:
 
 	elatov@kmac:~$VBoxManage modifyhd .virt/vagrant-opensuse13-32bit/vagrant-opensuse13-32bit.vdi --compact
 	0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
-	
+
 Then power off the VM. The above (**zerofree**) saved about 130MB:
 
 	elatov@kmac:~/vagrant-boxes$vagrant package --output vagrant-opensuse13-32bit-small.box --base vagrant-opensuse13-32bit
@@ -531,7 +531,7 @@ Then power off the VM. The above (**zerofree**) saved about 130MB:
 	total 6459208
 	-rw-r--r--  1 elatov  staff   688M Jun 11 12:35 vagrant-opensuse13-32bit-small.box
 	-rw-r--r--  1 elatov  staff   823M Jun 11 10:54 vagrant-opensuse13-32bit.box
-	
+
 Here is the **dd** one (*vagrant-opensuse13-32bit-small2.box*):
 
 	elatov@kmac:~/vagrant-boxes$ls -lh
@@ -539,7 +539,7 @@ Here is the **dd** one (*vagrant-opensuse13-32bit-small2.box*):
 	-rw-r--r--  1 elatov  staff   688M Jun 11 12:35 vagrant-opensuse13-32bit-small.box
 	-rw-r--r--  1 elatov  staff   698M Jun 11 12:50 vagrant-opensuse13-32bit-small2.box
 	-rw-r--r--  1 elatov  staff   823M Jun 11 10:54 vagrant-opensuse13-32bit.box
-	
+
 **zerofree** vs **dd** was about 10MB difference.
 
 ### Create a Box from the VM template
@@ -575,7 +575,7 @@ Now let's **init** a vm from that box:
 	ready to `vagrant up` your first virtual environment! Please read
 	the comments in the Vagrantfile as well as documentation on
 	`vagrantup.com` for more information on using Vagrant.
-	
+
 Lastly let's power on the new VM:
 
 	elatov@kmac:~/new_vm$vagrant up
@@ -601,7 +601,7 @@ Lastly let's power on the new VM:
 	==> default: Checking for guest additions in VM...
 	==> default: Mounting shared folders...
 	    default: /vagrant => /Users/elatov/new_vm
-	   
+
 After the VM is up, you can ssh into it:
 
 	elatov@kmac:~/new_vm$vagrant ssh
@@ -612,10 +612,10 @@ After the VM is up, you can ssh into it:
 	ata-VBOX_HARDDISK_VB46ac6aa5-c6b2e7b3
 	ata-VBOX_HARDDISK_VB46ac6aa5-c6b2e7b3-part1
 	ata-VBOX_HARDDISK_VB46ac6aa5-c6b2e7b3-part2
-	
+
 And you should also see the shared mount point from virtualbox there:
 
 	vagrant@linux-nkez:~> df -h -t vboxsf
 	Filesystem      Size  Used Avail Use% Mounted on
 	none            414G  202G  213G  49% /vagrant
-	
+

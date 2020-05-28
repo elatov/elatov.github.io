@@ -68,22 +68,22 @@ Following the instructions from the above page, I ran the following to initiate 
 	[bootstraptoken] Creating the "cluster-info" ConfigMap in the "kube-public" namespace
 	[addons] Applied essential addon: kube-dns
 	[addons] Applied essential addon: kube-proxy
-	
+
 	Your Kubernetes master has initialized successfully!
-	
+
 	To start using your cluster, you need to run (as a regular user):
-	
+
 	  mkdir -p $HOME/.kube
 	  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 	  sudo chown $(id -u):$(id -g) $HOME/.kube/config
-	
+
 	You should now deploy a pod network to the cluster.
 	Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
 	  http://kubernetes.io/docs/admin/addons/
-	
+
 	You can now join any number of machines by running the following on each node
 	as root:
-	
+
 	  kubeadm join --token f37d14.650c3c609175ff3e 192.168.1.106:6443 --discovery-token-ca-cert-hash sha256:05bf820daaa0a8706710257eaea18986124537499a637294d2ddf3141ca0ce26
 
 If you want to fix the **swap** warning, you can follow the steps laid out in [kubeadm init --kubernetes-version=v1.8.0 fail with connection refuse for Get http://localhost:10255/healthz #53333](https://github.com/kubernetes/kubernetes/issues/53333#issuecomment-333965512):
@@ -224,22 +224,22 @@ Then recreate:
 	[bootstraptoken] Creating the "cluster-info" ConfigMap in the "kube-public" namespace
 	[addons] Applied essential addon: kube-dns
 	[addons] Applied essential addon: kube-proxy
-	
+
 	Your Kubernetes master has initialized successfully!
-	
+
 	To start using your cluster, you need to run (as a regular user):
-	
+
 	  mkdir -p $HOME/.kube
 	  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 	  sudo chown $(id -u):$(id -g) $HOME/.kube/config
-	
+
 	You should now deploy a pod network to the cluster.
 	Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
 	  http://kubernetes.io/docs/admin/addons/
-	
+
 	You can now join any number of machines by running the following on each node
 	as root:
-	
+
 	  kubeadm join --token 75a0fd.ae8280ca83fbdbc3 192.168.1.106:6443 --discovery-token-ca-cert-hash sha256:8a09a0a499d90c1cbac1a37eb939285d22ca30ca17637e4dcb9015d0730c1893
 
 And then you should see the following added to the API service:
@@ -250,7 +250,7 @@ And then you should see the following added to the API service:
 
 Very cool.
 
-### Compiling kubeadm  
+### Compiling kubeadm
 For some reason when exposing ports it would never add the **iptables** rules. Checking out the logs I saw this:
 
 	<> kubectl logs --namespace=kube-system po/kube-proxy-xjtrx
@@ -287,7 +287,7 @@ Looks like it's a [known issue](https://github.com/kubernetes/kubernetes/issues/
 	elatov@ub:~/kubernetes$ git checkout release-1.8
 	Branch release-1.8 set up to track remote branch release-1.8 from origin.
 	Switched to a new branch 'release-1.8'
-	
+
 #### Install Go on Ubuntu
 
 By default Ubuntu comes with Go version 1.6 and for kubernetes we need 1.8 or above. To get a later version we can follow instructions laid out in [GoLang Ubuntu Wiki](https://github.com/golang/go/wiki/Ubuntu). First add their custom repo:
@@ -686,7 +686,7 @@ If you really feel patient you can try doing a whole build (it's actually pretty
 	    cmd/kubemark
 	    vendor/github.com/onsi/ginkgo/ginkgo
 	    test/e2e_node/e2e_node.test
-	
+
 	+++ [1118 10:41:32] Syncing out of container
 	+++ [1118 10:43:08] Building tarball: src
 	+++ [1118 10:43:08] Building tarball: salt
@@ -832,10 +832,10 @@ I also realized that with the new RBAC configuration, I needed to follow instruc
 	name: kubernetes-dashboard
 	namespace: kube-system
 	elatov@ub:~$ kubectl apply -f dashboard-admin.yaml
-	
+
 Then I was able to see the dashboard from a machine on the local subnet:
 
-![kubernetes-dashboard-kubeadm.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/kubeadm-kubernetes/kubernetes-dashboard-kubeadm.png&raw=1)
+![kubernetes-dashboard-kubeadm.png](https://raw.githubusercontent.com/elatov/upload/master/kubeadm-kubernetes/kubernetes-dashboard-kubeadm.png)
 
 ### Converting Docker-compose Jenkins to Kubernetes
 
@@ -844,7 +844,7 @@ There is a cool tool called [kompose](https://kubernetes.io/docs/tools/kompose/u
 	elatov@ub:~$ cat docker-compose.yml
 	version: '2'
 	services:
-	
+
 	    jenkins:
 	       image: jenkins/jenkins:lts
 	       container_name: jenkins
@@ -1006,19 +1006,19 @@ And I saw the following running:
 	elatov@ub:~$ kubectl get all
 	NAME             DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
 	deploy/jenkins   1         1         1            1           30s
-	
+
 	NAME                    DESIRED   CURRENT   READY     AGE
 	rs/jenkins-554f449b64   1         1         1         30s
-	
+
 	NAME             DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
 	deploy/jenkins   1         1         1            1           30s
-	
+
 	NAME                    DESIRED   CURRENT   READY     AGE
 	rs/jenkins-554f449b64   1         1         1         30s
-	
+
 	NAME                          READY     STATUS    RESTARTS   AGE
 	po/jenkins-554f449b64-jrnjs   1/1       Running   0          30s
-	
+
 	NAME             TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                          AGE
 	svc/jenkins      NodePort    10.99.227.209   <none>        8081:38081/TCP,50001:33551/TCP   16s
 	svc/kubernetes   ClusterIP   10.96.0.1       <none>        443/TCP                          13m
@@ -1035,4 +1035,4 @@ And the **iptables** were in place as well:
 
 And I was able to reach it the **jenkins** service from my machine on the IP of the host:
 
-![jenkins-on-kub-port.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/kubeadm-kubernetes/jenkins-on-kub-port.png&raw=1)
+![jenkins-on-kub-port.png](https://raw.githubusercontent.com/elatov/upload/master/kubeadm-kubernetes/jenkins-on-kub-port.png)

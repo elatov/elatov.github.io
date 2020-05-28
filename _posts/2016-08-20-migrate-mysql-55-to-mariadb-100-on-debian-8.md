@@ -6,7 +6,7 @@ author: Karim Elatov
 categories: [os]
 tags: [linux,debian,mysql,mariadb]
 ---
-I kept hearing good things about **mariadb** and it seems like a lot of OSes are using **mariadb** by default now adays (like [Redhat](http://www.zdnet.com/article/red-hat-will-switch-from-oracle-mysql-to-mariadb-reports/)). There are also a couple of sites that talk about the benefits to moving to mariadb ([10 reasons to migrate to MariaDB (if still using MySQL)](https://seravo.fi/2015/10-reasons-to-migrate-to-mariadb-if-still-using-mysql)). So I decided to migrate my MySQL install to MariaDB. 
+I kept hearing good things about **mariadb** and it seems like a lot of OSes are using **mariadb** by default now adays (like [Redhat](http://www.zdnet.com/article/red-hat-will-switch-from-oracle-mysql-to-mariadb-reports/)). There are also a couple of sites that talk about the benefits to moving to mariadb ([10 reasons to migrate to MariaDB (if still using MySQL)](https://seravo.fi/2015/10-reasons-to-migrate-to-mariadb-if-still-using-mysql)). So I decided to migrate my MySQL install to MariaDB.
 
 ### Backup Database
 It's of course recommended to backup your databases. Here is the command that should grab everything you need:
@@ -19,7 +19,7 @@ Since MariaDB is a replacement for MySQL we can just install it on top of MySQL 
 	┌─[elatov@kerch] - [/home/elatov] - [2016-04-10 08:59:27]
 	└─[0] <> sudo apt-get install mariadb-server
 	Reading package lists... Done
-	Building dependency tree       
+	Building dependency tree
 	Reading state information... Done
 	The following packages were automatically installed and are no longer required:
 	  dbconfig-common libconfig-inifiles-perl libsnmp-perl snmptt
@@ -45,7 +45,7 @@ Since MariaDB is a replacement for MySQL we can just install it on top of MySQL 
 	Get:4 http://ftp.us.debian.org/debian/ jessie/main mariadb-server-core-10.0 amd64 10.0.23-0+deb8u1 [4,251 kB]
 	Get:5 http://ftp.us.debian.org/debian/ jessie/main mariadb-server-10.0 amd64 10.0.23-0+deb8u1 [5,573 kB]
 	Get:6 http://ftp.us.debian.org/debian/ jessie/main mariadb-server all 10.0.23-0+deb8u1 [16.3 kB]
-	Fetched 11.8 MB in 38s (308 kB/s)                                              
+	Fetched 11.8 MB in 38s (308 kB/s)
 	Preconfiguring packages ...
 	(Reading database ... 101816 files and directories currently installed.)
 	Removing mysql-server (5.5.47-0+deb8u1) ...
@@ -62,7 +62,7 @@ Since MariaDB is a replacement for MySQL we can just install it on top of MySQL 
 	  Package mysql-client-5.5 which provides mysql-client is to be removed.
 	  Package virtual-mysql-client is not installed.
 	  Package mysql-client-5.5 which provides virtual-mysql-client is to be removed.
-	
+
 	Removing mysql-client-5.5 (5.5.47-0+deb8u1) ...
 	Processing triggers for man-db (2.7.0.2-5) ...
 	Selecting previously unselected package mariadb-client-10.0.
@@ -101,7 +101,7 @@ Since MariaDB is a replacement for MySQL we can just install it on top of MySQL 
 	Installing new version of config file /etc/apparmor.d/usr.sbin.mysqld ...
 	Installing new version of config file /etc/init.d/mysql ...
 	Installing new version of config file /etc/logrotate.d/mysql-server ...
-	
+
 	Configuration file '/etc/mysql/conf.d/mysqld_safe_syslog.cnf'
 	 ==> Modified (by you or by a script) since installation.
 	 ==> Package distributor has shipped an updated version.
@@ -137,7 +137,7 @@ Since MariaDB is a replacement for MySQL we can just install it on top of MySQL 
 
 During the install a prompt popped up asking if I wanted to migrate:
 
-![mariadb-upgrade-screen](https://seacloud.cc/d/480b5e8fcd/files/?p=/mig-mysql-to-mariadb/mariadb-upgrade-screen.png&raw=1)
+![mariadb-upgrade-screen](https://raw.githubusercontent.com/elatov/upload/master/mig-mysql-to-mariadb/mariadb-upgrade-screen.png)
 
 I ended up choosing the **Migrate** option.
 
@@ -344,11 +344,11 @@ As a quick sanity check we can log into **mariadb** and make sure we can see all
 	Welcome to the MariaDB monitor.  Commands end with ; or \g.
 	Your MariaDB connection id is 154
 	Server version: 10.0.23-MariaDB-0+deb8u1-log (Debian)
-	
+
 	Copyright (c) 2000, 2015, Oracle, MariaDB Corporation Ab and others.
-	
+
 	Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-	
+
 	MariaDB [(none)]> show databases;
 	+--------------------+
 	| Database           |
@@ -361,7 +361,7 @@ As a quick sanity check we can log into **mariadb** and make sure we can see all
 	| zabbix             |
 	+--------------------+
 	8 rows in set (0.00 sec)
-	
+
 	MariaDB [(none)]>
 
 

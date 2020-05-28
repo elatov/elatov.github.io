@@ -10,7 +10,7 @@ Got myself a new router, didn't really need one, but got one just for the heck o
 
 ### DD-WRT Firmware for the ASUS RT-AC68U
 
-Looking over the [following](http://www.dd-wrt.com/phpBB2/viewtopic.php?t=177612&postdays=0&postorder=asc&start=810) thread, it looks like at the time of writing (Nov 1st 2014) the **24461** firmware seems pretty stable. 
+Looking over the [following](http://www.dd-wrt.com/phpBB2/viewtopic.php?t=177612&postdays=0&postorder=asc&start=810) thread, it looks like at the time of writing (Nov 1st 2014) the **24461** firmware seems pretty stable.
 
 With the ASUS router it's a two step process to get DD-WRT on it, first we flash it with the BrainSlayer Firmware (**.trx** file) and then we update to the lastest Kong Build of DD-WRT (**.bin** file). For the Kong DD-WRT build I grabbed the [25015M](http://dd-wrt.tweakedrom.com/Kong_PTB/K3-AC/) version (other people had luck with it) .
 
@@ -42,7 +42,7 @@ Here is what I did to clear the NVRAM on  the Stock Install:
 	Escape character is '^]'.
 	RT-AC68U login: admin
 	Password:
-	
+
 	ASUSWRT RT-AC68U_3.0.0.4 Tue Jul 15 09:23:33 UTC 2014
 	admin@RT-AC68U:/tmp/home/root# df -Ph
 	Filesystem                Size      Used Available Capacity Mounted on
@@ -68,11 +68,11 @@ It looks pretty cool and a lot of people prefer to run that on the ASUS routers,
 
 After the router rebooted (after I flashed the NVRAM), I went back to the Management console (http://192.168.1.1) and navigated to  **Administration** -> **Firmware Upgrade** and uploaded the **asus_rt-ac68u-firmware.trx** file:
 
-![rtx-upload-asus](https://seacloud.cc/d/480b5e8fcd/files/?p=/asus-dd-wrt/rtx-upload-asus.png&raw=1)
+![rtx-upload-asus](https://raw.githubusercontent.com/elatov/upload/master/asus-dd-wrt/rtx-upload-asus.png)
 
 Upon hitting **upload** the upgrade will start and after it's done you will see the following:
 
-![firmware-update-done](https://seacloud.cc/d/480b5e8fcd/files/?p=/asus-dd-wrt/firmware-update-done.png&raw=1)
+![firmware-update-done](https://raw.githubusercontent.com/elatov/upload/master/asus-dd-wrt/firmware-update-done.png)
 
 As I saw the firmware upgrade is finished, I **telnet**'ed into the router and saw that dd-wrt is already installed (so I went ahead and **reboot**ed the router):
 
@@ -80,36 +80,36 @@ As I saw the firmware upgrade is finished, I **telnet**'ed into the router and s
 	Trying 192.168.1.1...
 	Connected to 192.168.1.1.
 	Escape character is '^]'.
-	
+
 	DD-WRT v24-sp2 std (c) 2014 NewMedia-NET GmbH
 	Release: 06/23/14 (SVN revision: 24461)
-	
-	DD-WRT login: root 
-	Password: 
+
+	DD-WRT login: root
+	Password:
 	==========================================================
-	
-	 ____  ___    __        ______ _____         ____  _  _ 
-	 | _ \| _ \   \ \      / /  _ \_   _| __   _|___ \| || | 
-	 || | || ||____\ \ /\ / /| |_) || |   \ \ / / __) | || |_ 
-	 ||_| ||_||_____\ V  V / |  _ < | |    \ V / / __/|__   _| 
-	 |___/|___/      \_/\_/  |_| \_\|_|     \_/ |_____|  |_| 
-	
+
+	 ____  ___    __        ______ _____         ____  _  _
+	 | _ \| _ \   \ \      / /  _ \_   _| __   _|___ \| || |
+	 || | || ||____\ \ /\ / /| |_) || |   \ \ / / __) | || |_
+	 ||_| ||_||_____\ V  V / |  _ < | |    \ V / / __/|__   _|
+	 |___/|___/      \_/\_/  |_| \_\|_|     \_/ |_____|  |_|
+
 						   DD-WRT v24-sp2
 					   http://www.dd-wrt.com
-	
+
 	==========================================================
 
 
 	BusyBox v1.22.1 (2014-06-23 04:49:23 CEST) built-in shell (ash)
 	Enter 'help' for a list of built-in commands.
-	
+
 	root@DD-WRT:~# reboot
 	root@DD-WRT:~# Connection closed by foreign host.
 
 #### Clear the NVRAM in DD-WRT
 After it rebooted, I pointed my browser to 192.168.1.1 and saw the initial DD-WRT set password page:
 
-![ddwrt-installed](https://seacloud.cc/d/480b5e8fcd/files/?p=/asus-dd-wrt/ddwrt-installed.png&raw=1)
+![ddwrt-installed](https://raw.githubusercontent.com/elatov/upload/master/asus-dd-wrt/ddwrt-installed.png)
 
 I set the password, **telnet**'ed again into the router, and cleared the NVRAM:
 
@@ -117,29 +117,29 @@ I set the password, **telnet**'ed again into the router, and cleared the NVRAM:
 	Trying 192.168.1.1...
 	Connected to 192.168.1.1.
 	Escape character is '^]'.
-	
+
 	DD-WRT v24-sp2 std (c) 2014 NewMedia-NET GmbH
 	Release: 06/23/14 (SVN revision: 24461)
-	
+
 	DD-WRT login: root
-	Password: 
+	Password:
 	==========================================================
-	
-	 ____  ___    __        ______ _____         ____  _  _ 
-	 | _ \| _ \   \ \      / /  _ \_   _| __   _|___ \| || | 
-	 || | || ||____\ \ /\ / /| |_) || |   \ \ / / __) | || |_ 
-	 ||_| ||_||_____\ V  V / |  _ < | |    \ V / / __/|__   _| 
-	 |___/|___/      \_/\_/  |_| \_\|_|     \_/ |_____|  |_| 
-	
+
+	 ____  ___    __        ______ _____         ____  _  _
+	 | _ \| _ \   \ \      / /  _ \_   _| __   _|___ \| || |
+	 || | || ||____\ \ /\ / /| |_) || |   \ \ / / __) | || |_
+	 ||_| ||_||_____\ V  V / |  _ < | |    \ V / / __/|__   _|
+	 |___/|___/      \_/\_/  |_| \_\|_|     \_/ |_____|  |_|
+
 						   DD-WRT v24-sp2
 					   http://www.dd-wrt.com
-	
+
 	==========================================================
 
 
 	BusyBox v1.22.1 (2014-06-23 04:49:23 CEST) built-in shell (ash)
 	Enter 'help' for a list of built-in commands.
-	
+
 	root@DD-WRT:~# df -Ph
 	Filesystem                Size      Used Available Capacity Mounted on
 	rootfs                   25.0M     25.0M         0 100% /
@@ -154,11 +154,11 @@ I set the password, **telnet**'ed again into the router, and cleared the NVRAM:
 #### Install the Kong DD-WRT Build
 After the rebooted finished, I went back to the Admin Console (**http://192.168.1.1**) and navigated to **Administration** -> **Firmware Upgrade** to apply the DD-WRT Kong Build. I uploaded the **dd-wrt.v24-K3_AC_ARM_STD.bin** file and I chose **Don't Reset**:
 
-![kong-firmware-dont-reset.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/asus-dd-wrt/kong-firmware-dont-reset.png&raw=1)
+![kong-firmware-dont-reset.png](https://raw.githubusercontent.com/elatov/upload/master/asus-dd-wrt/kong-firmware-dont-reset.png)
 
 After I hit upgrade the uploaded started and after it finished I saw the "Upgrade Successful" message:
 
-![upgrade-successful-kong_g.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/asus-dd-wrt/upgrade-successful-kong_g.png&raw=1)
+![upgrade-successful-kong_g.png](https://raw.githubusercontent.com/elatov/upload/master/asus-dd-wrt/upgrade-successful-kong_g.png)
 
 After it rebooted (after applying the new dd-wrt build), I logged into router one more time and reset the NVRAM just for good measure:
 
@@ -166,29 +166,29 @@ After it rebooted (after applying the new dd-wrt build), I logged into router on
 	Trying 192.168.1.1...
 	Connected to 192.168.1.1.
 	Escape character is '^]'.
-	
+
 	DD-WRT v24-sp2 kongac (c) 2014 NewMedia-NET GmbH
 	Release: 09/13/14 (SVN revision: 25015M)
-	
+
 	DD-WRT login: root
-	Password: 
+	Password:
 	==========================================================
-	
-	 ____  ___    __        ______ _____         ____  _  _ 
-	 | _ \| _ \   \ \      / /  _ \_   _| __   _|___ \| || | 
-	 || | || ||____\ \ /\ / /| |_) || |   \ \ / / __) | || |_ 
-	 ||_| ||_||_____\ V  V / |  _ < | |    \ V / / __/|__   _| 
-	 |___/|___/      \_/\_/  |_| \_\|_|     \_/ |_____|  |_| 
-	
+
+	 ____  ___    __        ______ _____         ____  _  _
+	 | _ \| _ \   \ \      / /  _ \_   _| __   _|___ \| || |
+	 || | || ||____\ \ /\ / /| |_) || |   \ \ / / __) | || |_
+	 ||_| ||_||_____\ V  V / |  _ < | |    \ V / / __/|__   _|
+	 |___/|___/      \_/\_/  |_| \_\|_|     \_/ |_____|  |_|
+
 						   DD-WRT v24-sp2
 					   http://www.dd-wrt.com
-	
+
 	==========================================================
 
 
 	BusyBox v1.22.1 (2014-09-13 23:35:28 CEST) built-in shell (ash)
 	Enter 'help' for a list of built-in commands.
-	
+
 	root@DD-WRT:~# erase nvram
 	erase[1572864]
 	root@DD-WRT:~# reboot
@@ -196,7 +196,7 @@ After it rebooted (after applying the new dd-wrt build), I logged into router on
 
 After it was done, here is what I saw on the system settings page of DD-WRT:
 
-![dd-wrt-finished.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/asus-dd-wrt/dd-wrt-finished.png&raw=1)
+![dd-wrt-finished.png](https://raw.githubusercontent.com/elatov/upload/master/asus-dd-wrt/dd-wrt-finished.png)
 
 ### Install a Later Version of iproute2
 I was using **fwbuilder** to push my firewall to the DD-WRT router (check out [my previous post ](/2013/04/use-fwbuilder-to-deploy-an-iptables-firewall-to-a-dd-wrt-router/)on the setup) and I wanted to keep that. I realized the **ip** utility (which is part of **iproute2** software) is limited, I could only get routes from the utility and nothing else:
@@ -204,11 +204,11 @@ I was using **fwbuilder** to push my firewall to the DD-WRT router (check out [m
 	root@DD-WRT:~# /usr/sbin/ip addr show
 	root@DD-WRT:~# /usr/sbin/ip rule ls
 	root@DD-WRT:~# /usr/sbin/ip route ls
-	default via 10.10.10.1 dev vlan2 
-	10.0.0.0/24 dev vlan3  proto kernel  scope link  src 10.0.0.1 
+	default via 10.10.10.1 dev vlan2
+	10.0.0.0/24 dev vlan3  proto kernel  scope link  src 10.0.0.1
 	10.10.0/23 dev vlan2  proto kernel  scope link  src 10.10.10.1
-	127.0.0.0/8 dev lo  scope link 
-	192.168.1.0/24 dev br0  proto kernel  scope link  src 192.168.1.1 
+	127.0.0.0/8 dev lo  scope link
+	192.168.1.0/24 dev br0  proto kernel  scope link  src 192.168.1.1
 
 But the **fwbuilder** script actually uses the `ip addr` functionality for some of it's components. There are actually a bunch of forums on this:
 
@@ -225,26 +225,26 @@ One of them provides an **ip** binary but it's built for MIPS architecture and t
 After trying that repository I wasn't able to run the **opkg** binary. I then ran into [Kong 24500 for Arm Routers](http://www.dd-wrt.com/phpBB2/viewtopic.php?t=263675&sid=20d62bfad442096d789b358fdfa01040) and from that forum:
 
 > 1. The build is based on 24500 but I added a few patches which show up in svn in later revisions. I just didn't want to sync anything from >24500 since I did all my testing with 24500 and only added fixes for things I found. This time I tested a lot more services and features.
-> 
+>
 > 2. No uClibc anymore, thus any app that has been compiled for uClibc won't work now. A new repo with apps compiled against musl is up and you can install them through opkg. I removed ipkg and added a script that installs opkg for you. Before it was required to have one partition mounted to /jffs and one to /opt, now /opt is enough (/jffs is still recommended as it is the default location for override configs and storage space for things like webserver etc.).
-> Bootstrap script will install opkg to /opt. Thus, if you already have a partition that is mounted to /opt, run the script "bootstrap". 
+> Bootstrap script will install opkg to /opt. Thus, if you already have a partition that is mounted to /opt, run the script "bootstrap".
 
 It looks there was a recent move to MUSL-ARM based packages and away from **uClibc**. More information on
 that [here](http://www.dd-wrt.com/phpBB2/viewtopic.php?p=903789) as well. So when I used this repository:
 
->  http://downloads.openwrt.org/snapshots/trunk/imx6/ 
+>  http://downloads.openwrt.org/snapshots/trunk/imx6/
 
 It wouldn't run cause they are build against the **uClibc** library. There is also a **bootstrap** file on the router to setup the right repository. Here is what I did to install the right version of **optware** on the Asus RT-AC68U Router:
 
-	root@DD-WRT:~# mkdir /jffs/opt 
+	root@DD-WRT:~# mkdir /jffs/opt
 	root@DD-WRT:~# mount --bind /jffs/opt /opt
-	root@DD-WRT:~# bootstrap 
+	root@DD-WRT:~# bootstrap
 	Bootstrap is checking prerequisites...
-	
+
 	You did not enable USB automount.
 	Echo optpart /dev/mtdblock/4 on /opt type jffs2 (rw,relatime)
 	Found a valid partition: /opt.
-	
+
 	Proceed with download and install of opkg? (y/n) [default=n]: y
 	Connecting to www.desipro.de (82.165.77.220:80)
 	opkg.ipk             100% |**********************************************************| 56268   0:00:00 ETA
@@ -273,12 +273,12 @@ And here is what I ran to install the **iproute2** package:
 
 After I installed the right one I saw the binary point to the **/lib/ld-musl-arm.so.1** file:
 
-	root@DD-WRT:~# /opt/usr/bin/readelf -l /opt/usr/sbin/ip 
-	
+	root@DD-WRT:~# /opt/usr/bin/readelf -l /opt/usr/sbin/ip
+
 	Elf file type is EXEC (Executable file)
 	Entry point 0xa8b4
 	There are 6 program headers, starting at offset 52
-	
+
 	Program Headers:
 	  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align
 	  PHDR           0x000034 0x00008034 0x00008034 0x000c0 0x000c0 R E 0x4
@@ -291,12 +291,12 @@ After I installed the right one I saw the binary point to the **/lib/ld-musl-arm
 
 While the non-working ones pointed to the **uClibc**:
 
-	$readelf -l opkg 
-	
+	$readelf -l opkg
+
 	Elf file type is EXEC (Executable file)
 	Entry point 0x12c00
 	There are 6 program headers, starting at offset 52
-	
+
 	Program Headers:
 	  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align
 	  PHDR           0x000034 0x00010034 0x00010034 0x000c0 0x000c0 R E 0x4
@@ -309,7 +309,7 @@ While the non-working ones pointed to the **uClibc**:
 
 Just for reference here are the repository settings for the MUSL-ARM packages:
 
-	root@DD-WRT:~# cat /opt/etc/opkg.conf 
+	root@DD-WRT:~# cat /opt/etc/opkg.conf
 	src/gz kongac http://www.desipro.de/bcm53xx-musl/packages
 	dest root /opt
 	dest ram /tmp
@@ -320,16 +320,16 @@ Just for reference here are the repository settings for the MUSL-ARM packages:
 After installing a newer version of **iproute2**, here is the output of **ip**:
 
 	root@DD-WRT:~# /opt/usr/sbin/ip -4 a
-	1: lo: <LOOPBACK,MULTICAST,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default 
+	1: lo: <LOOPBACK,MULTICAST,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default
 		inet 127.0.0.1/8 brd 127.255.255.255 scope host lo
 		   valid_lft forever preferred_lft forever
 	5: vlan2@eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
 		inet 10.10.10.1/23 brd 10.10.10.255 scope global vlan2
 		   valid_lft forever preferred_lft forever
-	8: vlan3@eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default 
+	8: vlan3@eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
 		inet 10.0.0.1/24 brd 10.0.0.255 scope global vlan3
 		   valid_lft forever preferred_lft forever
-	9: br0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default 
+	9: br0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
 		inet 169.254.255.1/16 brd 169.254.255.255 scope global br0:0
 		   valid_lft forever preferred_lft forever
 		inet 192.168.1.1/24 brd 192.168.1.255 scope global br0
@@ -337,7 +337,7 @@ After installing a newer version of **iproute2**, here is the output of **ip**:
 
 Then on the **fwbuilder** side, I just pointed to the correct path of the **ip** utility:
 
-![update-ip-path](https://seacloud.cc/d/480b5e8fcd/files/?p=/asus-dd-wrt/update-ip-path.png&raw=1)
+![update-ip-path](https://raw.githubusercontent.com/elatov/upload/master/asus-dd-wrt/update-ip-path.png)
 
 And then **fwbuilder** pushed the same settings without any issues.
 
@@ -376,7 +376,7 @@ I then read over the following pages:
 
 The last one has a nice picture to remind me how the networking worked on the dd-wrt Router:
 
-![dd-wrt-internals2](https://seacloud.cc/d/480b5e8fcd/files/?p=/asus-dd-wrt/dd-wrt-internals2.png&raw=1)
+![dd-wrt-internals2](https://raw.githubusercontent.com/elatov/upload/master/asus-dd-wrt/dd-wrt-internals2.png)
 
 But the first two links used the **16** parameter on the (**portvlans** setttings), which is the equivilant of the **tagged** option checked on the GUI. So in the end, I ended up with the following config (notice I didn't even set the **vlan3ports**... but it still worked out):
 

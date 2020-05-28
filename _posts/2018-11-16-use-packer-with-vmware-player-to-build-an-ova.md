@@ -41,7 +41,7 @@ I also did the same thing on the **kickstart** file (initially it gave me a warn
 
 	<> ksvalidator http/ks.cfg
 	The following problem occurred on line 5 of the kickstart file:
-	
+
 	Unknown command: unsupported_hardware
 
 But then specifying the correct version got rid of the warnings:
@@ -97,7 +97,7 @@ Then I saw the following:
 
 	<> packer build centos7.json
 	vmware-iso output will be in this color.
-	
+
 	Build 'vmware-iso' errored: Failed creating VMware driver: Unable to initialize any driver for this platform. The errors
 	from each driver are shown below. Please fix at least one driver
 	to continue:
@@ -119,7 +119,7 @@ Then I ran into an issue where it was missing a **vmplayer** configuration file:
 
 	<> packer build centos7.json
 	vmware-iso output will be in this color.
-	
+
 	==> vmware-iso: Downloading or copying ISO
 	    vmware-iso: Downloading or copying: file:///usr/local/packer/iso/CentOS-7-x86_64-Minimal-1708.iso
 	==> vmware-iso: Creating virtual machine disk
@@ -127,10 +127,10 @@ Then I ran into an issue where it was missing a **vmplayer** configuration file:
 	==> vmware-iso: Could not find netmap conf file: /etc/vmware/netmap.conf
 	==> vmware-iso: Deleting output directory...
 	Build 'vmware-iso' errored: Could not find netmap conf file: /etc/vmware/netmap.conf
-	
+
 	==> Some builds didn't complete successfully and had errors:
 	--> vmware-iso: Could not find netmap conf file: /etc/vmware/netmap.conf
-	
+
 	==> Builds finished but no artifacts were created.
 
 So I created a sample file using a copy from [How to Manually Configure VMWARE Networking on Linux Command Line](https://alexbelle.wordpress.com/2017/04/10/how-to-manually-configure-vmware-networking-on-linux-command-line/) site, and it ended up looking like this:
@@ -150,7 +150,7 @@ Then I ran into this message:
 
 	<> packer build centos7.json
 	vmware-iso output will be in this color.
-	
+
 	==> vmware-iso: Downloading or copying ISO
 	    vmware-iso: Downloading or copying: file:///usr/local/packer/iso/CentOS-7-x86_64-Minimal-1708.iso
 	==> vmware-iso: Creating virtual machine disk
@@ -165,7 +165,7 @@ Then I ran into this message:
 	==> vmware-iso: Deleting output directory...
 	Build 'vmware-iso' errored: Error starting VM: VMware error: /usr/lib/vmware/bin/vmware-vmx: error while loading shared libraries: libXcursor.so.1: cannot open shared object file: No such file or directory
 
-I located the file 
+I located the file
 
 	<> sudo updatedb
 	<> locate libXcursor.so.1
@@ -189,7 +189,7 @@ Then I ran into one more issue:
 
 	<> packer build centos7.json
 	vmware-iso output will be in this color.
-	
+
 	==> vmware-iso: Downloading or copying ISO
 	    vmware-iso: Downloading or copying: file:///usr/local/packer/iso/CentOS-7-x86_64-Minimal-1708.iso
 	==> vmware-iso: Creating virtual machine disk
@@ -228,7 +228,7 @@ While the **Kickstart** install is going, **packer** was showing this message,
 
 	<> packer build centos7.json
 	vmware-iso output will be in this color.
-	
+
 	==> vmware-iso: Downloading or copying ISO
 	    vmware-iso: Downloading or copying: file:///usr/local/packer/iso/CentOS-7-x86_64-Minimal-1708.iso
 	==> vmware-iso: Creating virtual machine disk
@@ -253,7 +253,7 @@ then on my Mac, I ran this:
 
 Then after typing in the password (from the **packer** output), I saw the install going:
 
-![packer-ks-going.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/packer-vmplayer/packer-ks-going.png&raw=1)
+![packer-ks-going.png](https://raw.githubusercontent.com/elatov/upload/master/packer-vmplayer/packer-ks-going.png)
 
 It was good to confirm the install was going.
 
@@ -263,7 +263,7 @@ I ran into another issue with the **ansible** provisioner:
 
 	<> packer build centos7.json
 	vmware-iso output will be in this color.
-	
+
 	==> vmware-iso: Downloading or copying ISO
 	    vmware-iso: Downloading or copying: file:///usr/local/packer/iso/CentOS-7-x86_64-Minimal-1708.iso
 	==> vmware-iso: Creating virtual machine disk
@@ -307,7 +307,7 @@ As I test I disabled **ansible** and just used the **shell** provisioner, and th
 
 	<> packer build centos7.json
 	vmware-iso output will be in this color.
-	
+
 	==> vmware-iso: Downloading or copying ISO
 	    vmware-iso: Downloading or copying: file:///usr/local/packer/iso/CentOS-7-x86_64-Minimal-1708.iso
 	==> vmware-iso: Creating virtual machine disk
@@ -549,7 +549,7 @@ As I test I disabled **ansible** and just used the **shell** provisioner, and th
 	    vmware-iso (shell-local): Transfer Completed
 	    vmware-iso (shell-local): Completed successfully
 	Build 'vmware-iso' finished.
-	
+
 	==> Builds finished. The artifacts of successful builds are:
 	--> vmware-iso: VM files in directory: output-ova-vmware-iso
 	--> vmware-iso:
@@ -571,17 +571,17 @@ Pretty cool. I was also able to query the OVA to see it's properties:
 	OVF version:   1.0
 	VirtualApp:    false
 	Name:          packer-centos-7-x86_64
-	
+
 	Download Size:  782.63 MB
-	
+
 	Deployment Sizes:
 	  Flat disks:   16.00 GB
 	  Sparse disks: 1.55 GB
-	
+
 	Networks:
 	  Name:        nat
 	  Description: The nat network
-	
+
 	Virtual Machines:
 	  Name:               packer-centos-7-x86_64
 	  Operating System:   centos7_64guest
@@ -590,13 +590,13 @@ Pretty cool. I was also able to query the OVA to see it's properties:
 	    Number of CPUs:   2
 	    Cores per socket: 1
 	    Memory:           512.00 MB
-	
+
 	    Disks:
 	      Index:          0
 	      Instance ID:    7
 	      Capacity:       16.00 GB
 	      Disk Types:     SCSI-lsilogic
-	
+
 	    NICs:
 	      Adapter Type:   E1000
 	      Connection:     nat
@@ -619,7 +619,7 @@ As a quick test I deployed the OVA on an ESXi host:
 
 I was able to power on the VM and login with the root user. Here is how the VM looked like in the web-client:
 
-![esxi-packer-ova-deployed.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/packer-vmplayer/esxi-packer-ova-deployed.png&raw=1)
+![esxi-packer-ova-deployed.png](https://raw.githubusercontent.com/elatov/upload/master/packer-vmplayer/esxi-packer-ova-deployed.png)
 
 ### Packer Options
 I ended up setting some options in my packer configuration (all the options are covered in [VMware Builder (from ISO)](https://www.packer.io/docs/builders/vmware-iso.html)):
@@ -648,4 +648,4 @@ There is no shortage of example **Jenkinsfile**s out there:
 
 After creating a Jenkins job of your choice and running a successful job (to build and store an OVA image), you might see something like this in your Jenkins Job Results (don't forget to use **stage** blocks):
 
-![jenkins-packer-job.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/packer-vmplayer/jenkins-packer-job.png&raw=1)
+![jenkins-packer-job.png](https://raw.githubusercontent.com/elatov/upload/master/packer-vmplayer/jenkins-packer-job.png)

@@ -19,7 +19,7 @@ The Mac Mini has an *Intel Corporation Mobile 945GM/GMS* video card, nothing spe
 
 The only thing we need is to get the right Xorg driver for it. Looking over the Debian HCL, I saw the following:
 
-![debian-hcl-intel-card](https://seacloud.cc/d/480b5e8fcd/files/?p=/xbmc-on-mac-mini/debian-hcl-intel-card.png&raw=1)
+![debian-hcl-intel-card](https://raw.githubusercontent.com/elatov/upload/master/xbmc-on-mac-mini/debian-hcl-intel-card.png)
 
 Checking the PCI ID of the device I saw the following:
 
@@ -61,7 +61,7 @@ At this point you can test by running `startx`.
 The XBMC version in the Debian repositories is a little old:
 
 	root@deb:~# apt-cache showpkg xbmc | grep ^Versions -A 1
-	Versions: 
+	Versions:
 	2:11.0~git20120510.82388d5-1 (/var/lib/apt/lists/ftp.us.debian.org_debian_dists_wheezy_main_binary-i386_Packages) (/var/lib/dpkg/status)
 
 It looks like it's XBMC 11, there are [experimental repositories](http://balintreczey.hu/blog/xbmc-13-0-gotham-entered-debian/) out there that provide XBMC 13, but they don't seem that stable, I have used XBMC 11 and
@@ -73,7 +73,7 @@ it actually covers my needs (to play movies over UPNP, no extra plugins necessar
 After that we can create an init script to auto-launch XBMC without any Window Manager. The setup is covered in [HOW-TO:Autostart XBMC for Linux](http://kodi.wiki/view/HOW-TO:Autostart_XBMC_for_Linux). Here is the
 init script I ended up using:
 
-	root@deb:~# cat /etc/init.d/xbmc 
+	root@deb:~# cat /etc/init.d/xbmc
 	#! /bin/sh
 
 	### BEGIN INIT INFO
@@ -143,7 +143,7 @@ Lastly to allow X to run from non-consoles I needed to run
 
 And to choose "Anyone":
 
-![deb-x11common-config.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/xbmc-on-mac-mini/deb-x11common-config.png&raw=1)
+![deb-x11common-config.png](https://raw.githubusercontent.com/elatov/upload/master/xbmc-on-mac-mini/deb-x11common-config.png)
 
 After that we can enable the service to start on boot:
 
@@ -170,8 +170,8 @@ I just need to install also-utils and un-mute the speaker mixer. To install **al
 
 Then I ran alsamixer and scrolled to the speaker mixer and click "**m**" to un-mute:
 
-![deb-alsamixer.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/xbmc-on-mac-mini/deb-alsamixer.png&raw=1)
+![deb-alsamixer.png](https://raw.githubusercontent.com/elatov/upload/master/xbmc-on-mac-mini/deb-alsamixer.png)
 
 After that I was able to play a video over UPNP with Audio:
 
-![xbmc-playing-with-info](https://seacloud.cc/d/480b5e8fcd/files/?p=/xbmc-on-mac-mini/xbmc-playing-with-info.png&raw=1)
+![xbmc-playing-with-info](https://raw.githubusercontent.com/elatov/upload/master/xbmc-on-mac-mini/xbmc-playing-with-info.png)

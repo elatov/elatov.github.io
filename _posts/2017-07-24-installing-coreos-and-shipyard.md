@@ -156,7 +156,7 @@ And now for the install:
     gpg: Good signature from "CoreOS Buildbot (Offical Builds) <buildbot@coreos.com>" [ultimate]
     Installing cloud-config...
     Success! CoreOS stable 1235.6.0 is installed on /dev/nvme0n1
-    
+
 After a reboot, the machine will start up **CoreOS** and you can **ssh** using the keys that you defined in the **cloud-config** file.
 
 ### Installing Shipyard
@@ -236,11 +236,11 @@ And finally run the controller:
 
 Now you can go to **http://IP:8080** and login with **admin/shipyard** and you can see all the containers that are currently running:
 
-![sy-containers](https://seacloud.cc/d/480b5e8fcd/files/?p=/coreos-shipyard/sy-containers.png&raw=1) 
+![sy-containers](https://raw.githubusercontent.com/elatov/upload/master/coreos-shipyard/sy-containers.png)
 
 And the available nodes (I only had one for now):
 
-![sy-nodes](https://seacloud.cc/d/480b5e8fcd/files/?p=/coreos-shipyard/sy-nodes.png&raw=1)
+![sy-nodes](https://raw.githubusercontent.com/elatov/upload/master/coreos-shipyard/sy-nodes.png)
 
 ### Change the Cloud-Config And Update it
 
@@ -385,7 +385,7 @@ You can then stop all the containers and reboot, to apply the config:
 	cfc33357c008
 	ca24bde9016b
 	core ~ # reboot
-	
+
 Also as an FYI, you can use the **update_engine_client** command to check for update:
 
 	macm ~ # update_engine_client -check_for_update --status

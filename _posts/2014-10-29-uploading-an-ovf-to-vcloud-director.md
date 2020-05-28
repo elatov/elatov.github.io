@@ -12,7 +12,7 @@ I was trying to upload an OVF into vCloud director and gave me some grief. Throu
 
 After waiting a whole hour of importing (now I know why) vCloud gave me the following error:
 
-![vcloud-upload-error](https://seacloud.cc/d/480b5e8fcd/files/?p=/upload-ovf-to-vcloud/vcloud-upload-error.jpg&raw=1)
+![vcloud-upload-error](https://raw.githubusercontent.com/elatov/upload/master/upload-ovf-to-vcloud/vcloud-upload-error.jpg)
 
 The error was a little vauge and it was actually missing the most important part of the error. It just had this:
 
@@ -26,18 +26,18 @@ At this point I went to vCloud Director and exported another template to see how
 	OVF version:   1.0
 	VirtualApp:    false
 	Name:          TEMPLATE
-	
+
 	Download Size:  354.44 MB
-	
+
 	Deployment Sizes:
 	  Flat disks:   20.00 GB
 	  Sparse disks: Unknown
-	
+
 	Networks:
 	  Name:        01-Direct
-	
+
 	  Name:        02-Direct
-	
+
 	Virtual Machines:
 	  Name:               TEMPLATE
 	  Operating System:   slesguest
@@ -46,17 +46,17 @@ At this point I went to vCloud Director and exported another template to see how
 	    Number of CPUs:   2
 	    Cores per socket: 1
 	    Memory:           8.00 GB
-	
+
 	    Disks:
 	      Index:          0
 	      Instance ID:    2000
 	      Capacity:       20.00 GB
 	      Disk Types:     SCSI-lsilogic
-	
+
 	    NICs:
 	      Adapter Type:   E1000
 	      Connection:     01-Direct
-	
+
 	      Adapter Type:   E1000
 	      Connection:     02-Direct
 
@@ -129,13 +129,13 @@ And **ovftool** was parsing the configuration just fine:
 	OVF version:   1.0
 	VirtualApp:    false
 	Name:          Template
-	
+
 	Download Size:  10.22 GB
-	
+
 	Deployment Sizes:
 	  Flat disks:   120.00 GB
 	  Sparse disks: 20.10 GB
-	
+
 	Virtual Machines:
 	  Name:               Template
 	  Operating System:   ubuntu64guest
@@ -144,7 +144,7 @@ And **ovftool** was parsing the configuration just fine:
 	    Number of CPUs:   4
 	    Cores per socket: 1
 	    Memory:           4.00 GB
-	
+
 	    Disks:
 	      Index:          0
 	      Instance ID:    5
@@ -190,7 +190,7 @@ We can see that the error is similar ( **No manifest entry found for**) to the o
 
 So then I tried uploading that OVF to vCloud and now I received a different error:
 
-![vcloud-upload-error2](https://seacloud.cc/d/480b5e8fcd/files/?p=/upload-ovf-to-vcloud/vcloud-upload-error2.png&raw=1)
+![vcloud-upload-error2](https://raw.githubusercontent.com/elatov/upload/master/upload-ovf-to-vcloud/vcloud-upload-error2.png)
 
 This time I saw:
 
@@ -217,7 +217,7 @@ Prior to making any changes, here was the **fdisk** output of the disk:
 	I/O size (minimum/optimal): 512 bytes / 512 bytes
 	Disklabel type: dos
 	Disk identifier: 0x0008acdc
-	
+
 	Deuice   Boot    Start     End   Blocks    Id System
 	/dev/sda1 *      2048   499711   248832    83 Linux
 	/dev/sda2      501758 251656191 125577217   5 Extended
@@ -233,7 +233,7 @@ Here are the commands I ran to shrink a FileSystem on an LVM Logical Volume:
 	Pass 4: Checking reference counts
 	Pass 5: Checking group summary information
 	/dev/mint-vg/root: 230264/7725056 files (0.2% non-contiguous), 2879153/30869504 blocks
-	
+
 	root@sysrescd /root % resize2fs -p /dev/mint-vg/root 20G
 	resize2fs 1.42.12 (29-Aug-2014)
 	Resizing the filesystem on /dev/mint-vg/root to 5242880 (4k) blocks.
@@ -244,7 +244,7 @@ Here are the commands I ran to shrink a FileSystem on an LVM Logical Volume:
 	Begin pass 4 (max = 27602)
 	Updating inode references    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 	The filesystem on /dev/mint-vg/root is now 5242880 (4k) blocks long.
-	
+
 	root@sysrescd /root % lvreduce -L 20G /dev/mint-vg/root
 	WARNING: lvmetad is running but disabled. Restart lvmetad before enabling it!
 	WARNING: Reducing active logical volume to 20.00 GiB
@@ -252,7 +252,7 @@ Here are the commands I ran to shrink a FileSystem on an LVM Logical Volume:
 	Do you really want to reduce root? [y/n]: y
 	Size of logical volume mint-vg/root changed from 117.76 GiB to 20.00 GiB.
 	Logical volume root successfully resized
-	
+
 	root@sysrescd /root % e2fsck -f /dev/mint-vg/root
 	e2fsck 1.42.12 (29-Aug-2014)
 	Pass 1: Checking inodes, blocks, and sizes
@@ -262,7 +262,7 @@ Here are the commands I ran to shrink a FileSystem on an LVM Logical Volume:
 	Pass 5: Checking group summary information
 	/dev/mint-vg/root: 230264/1310720 files (0.5% non-contiguous), 2472790/5242880 blocks
 
-#### Shrink the LVM Physical Volume 
+#### Shrink the LVM Physical Volume
 When I tried to do a **pvresize**, I ran into the following error:
 
 > pvresize cannot resize to extents as later ones are allocated
@@ -279,23 +279,23 @@ And that worked out.
 Now that I have ensured that nothing will be using the free space, we should be able to shrink/change the size of the actual partition. But I ran into this issue:
 
 	root@sysrescd /root % fdisk /dev/sda
-	
+
 	Command (m for help): p
-	
+
 	Disk /dev/sda: 120 GiB, 128849018880 bytes, 251658240 sectors
 	Units = sectors of 1 * 512 = 512 bytes
 	Sector size (logical/physical): 512 bytes / 512 bytes
 	I/O size (minimum/optimal): 512 bytes / 512 bytes
 	Disk identifier: 0x0008acdc
-	
+
 	   Device Boot      Start         End      Blocks   Id  System
 	/dev/sda1   *        2048      499711      248832   83  Linux
 	/dev/sda2          501758   251656191   125577217    5  Extended
 	/dev/sda5          501760   251656191   125577216   8e  Linux LVM
-	
+
 	Command (m for help): d
 	Partition number (1-5): 5
-	
+
 	Command (m for help): n
 	Partition type:
 	   p   primary (1 primary, 1 extended, 2 free)
@@ -315,17 +315,17 @@ When I tried to set the partition start-offset to match the original partition. 
 	root@sysrescd /root % sfdisk -d /dev/sda > file
 
 Then I modified the **file** with **vi** and set the size to be 23GB (23 * 1024 * 1024 * 1024 / 512 = **48234496** sectors). Here is how the **file** looked at the end:
-	
+
 	root@sysrescd /root % cat file
 	# partition table of /dev/sda
 	unit: sectors
-	
+
 	/dev/sda1: start=    2048, size=   497664, Id=83, bootable
 	/dev/sda2: start=  501758, size=251154434, Id= 5
 	/dev/sda3: start=       0, size=        0, Id= 0
 	/dev/sda4: start=       0, size=        0, Id= 0
 	/dev/sda5: start=  501760, size= 48234496, Id=8e
-	
+
 I just modified the last line to match the new size. Then I imported the new partition table like so:
 
 	root@sysrescd /root % sfdisk --force /dev/sda < file
@@ -339,7 +339,7 @@ And here is how **fdisk** looked like after it was done:
 	I/O size (minimum/optimal): 512 bytes / 512 bytes
 	Disklabel type: dos
 	Disk identifier: 0x0008acdc
-	
+
 	Deuice   Boot    Start      End    Blocks    Id System
 	/dev/sda1 *      2048    499711    248832    83 Linux
 	/dev/sda2      501758 251656191 125577217     5 Extended
@@ -349,7 +349,7 @@ And here is how **fdisk** looked like after it was done:
 	Units: sectors of 1 * 512 = 512 bytes
 	Sector size (logical/physical): 512 bytes / 512 bytes
 	I/O size (minimum/optimal): 512 bytes / 512 bytes
-	
+
 	Disk /dev/mapper/mint--vg-swap_1: 2 GiB, 2147483648 bytes, 4194304 sectors
 	Units: sectors of 1 * 512 = 512 bytes
 	Sector size (logical/physical): 512 bytes / 512 bytes
@@ -368,7 +368,7 @@ We can see that the partition **/dev/sda5** is now smaller. After I rebooted int
 	none                       100M   12K  100M   1% /run/user
 	/dev/sda1                  236M   45M  179M  20% /boot
 	/dev/sr0                   393M  393M     0 100% /media/devuser/sysrcd-4.4.0
-	
+
 I was happy to see the machine boot and that my root filesystem is now 20GB.
 
 #### Shrinking the VMDK
@@ -382,7 +382,7 @@ So I ran into a bunch of issues with this one. Since the original VMDK was pre-a
 	1. I just ran this in the VM: `sudo vmware-toolbox-cmd disk shrink /boot /`
 3. Convert the VMDK to VDI and then shrink
 	1. I followed the instuctions laid on in [VMware disk file is too large, how to reduce the size of its](http://stackoverflow.com/questions/22213255/vmware-disk-file-is-too-large-how-to-reduce-the-size-of-it). I converted the vmdk to vdi with this command `VBoxManage clonehd myvm.vmdk myvm.vdi --variant Standard --format VDI`. Then when I tried to resize it with the following command: `VBoxManage modifyhd myvm.vdi --resize 25600`, it would fail saying **format not supported**.
-	
+
 The first two help out lowering the size of the Sparse disk, but they don't change the size of the actual VMDK, while the latter doesn't work with VMware VMDKs. So after some time, I just added a second disk (with a smaller size)to the VM and booted from the SystemRescueCD and then just **dd**'ed the bigger disk onto the smaller drive:
 
 	root@sysrescd /root % dd if=/dev/sda of=/dev/sdb
@@ -390,7 +390,7 @@ The first two help out lowering the size of the Sparse disk, but they don't chan
 	52428801+0 records in
 	52428800+0 records out
 	26843545600 bytes (27 GB) copied, 684.758 s, 39.2 MB/s
-	
+
 The warning about running out of space is expected since I am **dd**'ing a 120GB disk onto a 20GB disk, but I ensured nothing is using anything above 20GB. I powered off the VM, removed the big 120GB disk and left just the 20GB (it became the primary) and the machine booted up just fine. I exported that VM as an OVF, ensured my manifest file was correct, and the import worked:
 
-![import-successful](https://seacloud.cc/d/480b5e8fcd/files/?p=/upload-ovf-to-vcloud/import-successful.jpg&raw=1)
+![import-successful](https://raw.githubusercontent.com/elatov/upload/master/upload-ovf-to-vcloud/import-successful.jpg)

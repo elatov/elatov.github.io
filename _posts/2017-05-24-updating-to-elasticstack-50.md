@@ -31,7 +31,7 @@ Let's try it out.
 
 Reading over [Upgrading Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/5.0/setup-upgrade.html) there is a table of suggested updates.
 
-![es-update-table](https://seacloud.cc/d/480b5e8fcd/files/?p=/update-es-50/es-update-table.png&raw=1)
+![es-update-table](https://raw.githubusercontent.com/elatov/upload/master/update-es-50/es-update-table.png)
 
 I think the biggest concern is whether you need to reindex old indices. I was on **elasticsearch** 2.4 and I was using **logstash**'s time based indices so I didn't need to worry about that (I also used [curator](https://www.elastic.co/guide/en/elasticsearch/client/curator/current/examples.html) to delete old indices):
 
@@ -39,12 +39,12 @@ I think the biggest concern is whether you need to reindex old indices. I was on
 	health status index               pri rep docs.count docs.deleted store.size pri.store.size
 	yellow open   logstash-2016.10.22   5   1     172206            0     66.1mb         66.1mb
 	yellow open   logstash-2016.10.23   5   1     237647            0     86.8mb         86.8mb
-	yellow open   logstash-2016.10.24   5   1    1834855            0 
+	yellow open   logstash-2016.10.24   5   1    1834855            0
        62.7mb         62.7mb
     ...
 	yellow open   .kibana               1   1         46            1       63kb           63kb
 	yellow open   logstash-2016.10.05   5   1     135822            0     58.4mb         58.4mb
-	
+
 So I didn't worry about the **re-index and update** approach. I then stopped **logstash** and **kibana** in preparation for the update:
 
 	<> sudo systemctl stop logstash.service
@@ -150,10 +150,10 @@ And now for the update:
 	warning: /etc/elasticsearch/logging.yml saved as /etc/elasticsearch/logging.yml.rpmsave
 	  Verifying  : elasticsearch-5.0.0-1.noarch                                                                                                                                                  1/2
 	  Verifying  : elasticsearch-2.4.1-1.noarch                                                                                                                                                  2/2
-	
+
 	Updated:
 	  elasticsearch.noarch 0:5.0.0-1
-	
+
 	Complete!
 
 I didn't have any plugins so at this point I just started the service back up:
@@ -177,7 +177,7 @@ Then we can check out the status:
 
 	<> curl -XGET 'localhost:9200/_cat/health?pretty'
 	1477773428 14:37:08 elasticsearch yellow 1 1 276 276 0 0 276 0 - 50.0%
-	
+
 	<> curl -XGET 'localhost:9200/_cat/nodes?pretty'
 	127.0.0.1 23 97 19 0.48 0.38 0.28 mdi * NVsq0kL
 
@@ -234,7 +234,7 @@ You can also confirm the version of **elasticsearch**:
 
 I read over [Upgrading Kibana](https://www.elastic.co/guide/en/kibana/5.0/upgrade.html) and checking out the table, I can just do a **standard** upgrade without doing a re-index (since I was using **logstash**'s time based indices):
 
-![kib-update-table](https://seacloud.cc/d/480b5e8fcd/files/?p=/update-es-50/kib-update-table.png&raw=1)
+![kib-update-table](https://raw.githubusercontent.com/elatov/upload/master/update-es-50/kib-update-table.png)
 
 I started using Kibana from 4.3 and above (you can check out the original setup that I did [here](/2016/02/playing-around-with-an-elasticsearchlogstashkibana-elk-stack/)) so I was good. The steps for the update are layed out
 in the [Standard Upgrade](https://www.elastic.co/guide/en/kibana/5.0/upgrade-standard.html) page. First you stop the **kibana** instance, which I did above. Then install the rpm, since **elasticsearch** and **kibana** share the repo, I didn't have to do anything special.  Then I performed the update:
@@ -253,9 +253,9 @@ in the [Standard Upgrade](https://www.elastic.co/guide/en/kibana/5.0/upgrade-sta
 	---> Package kibana.x86_64 0:4.5.4-1 will be updated
 	---> Package kibana.x86_64 0:5.0.0-1 will be an update
 	--> Finished Dependency Resolution
-	
+
 		Upgrade  1 Package
-	
+
 	Total download size: 39 M
 	Is this ok [y/d/N]: y
 	Downloading packages:
@@ -271,10 +271,10 @@ in the [Standard Upgrade](https://www.elastic.co/guide/en/kibana/5.0/upgrade-sta
 	warning: /opt/kibana/config/kibana.yml saved as /opt/kibana/config/kibana.yml.rpmsave
 	  Verifying  : kibana-5.0.0-1.x86_64                                                                                                                                                         1/2
 	  Verifying  : kibana-4.5.4-1.x86_64                                                                                                                                                         2/2
-	
+
 	Updated:
 	  kibana.x86_64 0:5.0.0-1
-	
+
 	Complete!
 
 Then I went ahead and copied the config over:
@@ -302,7 +302,7 @@ I didn't have any plugins for **kibana** so I just started up the service:
 Then you can point your browser to the **kibana** dashboard and see the new
 version:
 
-![kib-50](https://seacloud.cc/d/480b5e8fcd/files/?p=/update-es-50/kib-50.png&raw=1)
+![kib-50](https://raw.githubusercontent.com/elatov/upload/master/update-es-50/kib-50.png)
 
 ### Updating Logstash from 2.3 to 5.0
 
@@ -321,9 +321,9 @@ I read over [Upgrading Logstash to 5.0](https://www.elastic.co/guide/en/logstash
 	---> Package logstash.noarch 1:2.3.4-1 will be updated
 	---> Package logstash.noarch 1:5.0.0-1 will be an update
 	--> Finished Dependency Resolution
-	
+
 		Upgrade  1 Package
-	
+
 	Total download size: 101 M
 	Is this ok [y/d/N]: y
 	Downloading packages:
@@ -340,10 +340,10 @@ I read over [Upgrading Logstash to 5.0](https://www.elastic.co/guide/en/logstash
 	warning: /etc/logrotate.d/logstash saved as /etc/logrotate.d/logstash.rpmsave
 	  Verifying  : 1:logstash-5.0.0-1.noarch                                                                                                                                                     1/2
 	  Verifying  : 1:logstash-2.3.4-1.noarch                                                                                                                                                     2/2
-	
+
 	Updated:
 	  logstash.noarch 1:5.0.0-1
-	
+
 	Complete!
 
 Then I confirmed the config file is okay:

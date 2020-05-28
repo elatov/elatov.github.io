@@ -26,27 +26,27 @@ After you reboot you can check out the new **vib** installed on the system:
 ### Using the VMware Remote Console
 Now if you go the VMware Host Client (**https://ESXI_IP/ui**), you will see the new client:
 
-![esxi-web-client](https://seacloud.cc/d/480b5e8fcd/files/?p=/new-vmrc/esxi-web-client.png&raw=1)
+![esxi-web-client](https://raw.githubusercontent.com/elatov/upload/master/new-vmrc/esxi-web-client.png)
 
 And if you login you can open a console to any of the VMs:
 
-![vm-console-opts](https://seacloud.cc/d/480b5e8fcd/files/?p=/new-vmrc/vm-console-opts.png&raw=1)
+![vm-console-opts](https://raw.githubusercontent.com/elatov/upload/master/new-vmrc/vm-console-opts.png)
 
 And if you open it in the browser you can get a console to the VM and see the VM's display:
 
-![web-console-vm](https://seacloud.cc/d/480b5e8fcd/files/?p=/new-vmrc/web-console-vm.png&raw=1)
+![web-console-vm](https://raw.githubusercontent.com/elatov/upload/master/new-vmrc/web-console-vm.png)
 
 If you want you can also download the stand-alone VMRC. Check out more details at [this](https://kb.vmware.com/kb/2091284) KB. Basically you download the client, and from the Web UI you choose **Launch Remote Console** and if VMRC is installed it will launch automatically, here is how it looked like on my Mac:
 
-![vmrc-launched](https://seacloud.cc/d/480b5e8fcd/files/?p=/new-vmrc/vmrc-launched.png&raw=1)
+![vmrc-launched](https://raw.githubusercontent.com/elatov/upload/master/new-vmrc/vmrc-launched.png)
 
 And you will see it running on your dock:
 
-![vmrc-on-dock](https://seacloud.cc/d/480b5e8fcd/files/?p=/new-vmrc/vmrc-on-dock.png&raw=1)
+![vmrc-on-dock](https://raw.githubusercontent.com/elatov/upload/master/new-vmrc/vmrc-on-dock.png)
 
 You can check out different settings of the VM in the VMRC as well:
 
-![rd-vmrc-set](https://seacloud.cc/d/480b5e8fcd/files/?p=/new-vmrc/rd-vmrc-set.png&raw=1)
+![rd-vmrc-set](https://raw.githubusercontent.com/elatov/upload/master/new-vmrc/rd-vmrc-set.png)
 
 ### Enabling VNC for a VM
 
@@ -85,7 +85,7 @@ And then save the config to have it survive reboots:
 
 Or if you want you can just use the existing Service of **GDB Server**, that will enable more ports than necessary but it will get the job done:
 
-![firewall-opened](https://seacloud.cc/d/480b5e8fcd/files/?p=/new-vmrc/firewall-opened.png&raw=1)
+![firewall-opened](https://raw.githubusercontent.com/elatov/upload/master/new-vmrc/firewall-opened.png)
 
 Or run the following on the command line:
 
@@ -111,7 +111,7 @@ Now that the firewall is open, we can shutdown the VM and we have to add the fol
 
 You can either do this via SSH or just **edit settings** on the VM in the new web client and under the **advanced** section add them there:
 
-![vm-options-added](https://seacloud.cc/d/480b5e8fcd/files/?p=/new-vmrc/vm-options-added.png&raw=1)
+![vm-options-added](https://raw.githubusercontent.com/elatov/upload/master/new-vmrc/vm-options-added.png)
 
 Then you can use **vncviewer** (tigervnc) to connect to the VM. On my Mac I can the following:
 

@@ -14,9 +14,9 @@ The MacBook is the *MacBook Air (13-inch, Early 2015)* or **MacBookAir7,2**. Her
 
 	elatov@macair:~$system_profiler SPHardwareDataType
 	Hardware:
-	
+
 	    Hardware Overview:
-	
+
 	      Model Name: MacBook Air
 	      Model Identifier: MacBookAir7,2
 	      Processor Name: Intel Core i7
@@ -37,14 +37,14 @@ The install was very similar to [this](/2013/08/install-fedora-19-on-mac-book-pr
 
 I just started the **Disk Utility** and resized the OS (I gave the Linux OS only 25GB):
 
-![diskutil-part-for-fed](https://seacloud.cc/d/480b5e8fcd/files/?p=/macair_fed21/diskutil-part-for-fed.png&raw=1)
+![diskutil-part-for-fed](https://raw.githubusercontent.com/elatov/upload/master/macair_fed21/diskutil-part-for-fed.png)
 
 ### Create a Bootable USB from the Fedora Live DVD ISO
 After downloading the Fedora ISO, I had the following file:
 
 	elatov@macair:~$ls -lh downloads/Fedora-Live-Workstation-x86_64-21-5.iso
 	-rw-r-----  1 elatov  elatov   1.4G Mar 25 17:14 downloads/Fedora-Live-Workstation-x86_64-21-5.iso
-	
+
 First we have to convert the ISO into a DMG (I talked about different image formats [here](/2013/07/decrease-dmg-size-to-fit-on-a-single-layer-dvd/)):
 
 	elatov@macair:~/downloads$hdiutil convert -format UDRW -o fed_21.dmg Fedora-Live-Workstation-x86_64-21-5.iso
@@ -61,7 +61,7 @@ First we have to convert the ISO into a DMG (I talked about different image form
 	Speed: 177.9Mbytes/sec
 	Savings: 0.0%
 	created: /Users/elatov/downloads/fed_21.dmg
-	
+
 
 I had a 32GB USB drive with an *ext3* partition on it, as soon as plug it in it would get auto mounted and here are the partitions on the USB drive:
 
@@ -70,12 +70,12 @@ I had a 32GB USB drive with an *ext3* partition on it, as soon as plug it in it 
 	   #:                       TYPE NAME                    SIZE       IDENTIFIER
 	   0:     FDisk_partition_scheme                        *32.0 GB    disk2
 	   1:                      Linux                         32.0 GB    disk2s1
-   
+
 
 So first I unmounted the USB Drive:
 
 	elatov@macair:~$diskutil umount /Volumes/Untitled/
-	Volume  on disk2s1 unmounted 
+	Volume  on disk2s1 unmounted
 
 Then I removed the MBR partition scheme:
 
@@ -90,7 +90,7 @@ Then the disk was blank
 	/dev/disk2
 	   #:                       TYPE NAME                    SIZE       IDENTIFIER
 	   0:                                                   *32.0 GB    disk2
-   
+
 We can also use **diskutil** to zero out the disk:
 
 	elatov@macair:~$diskutil partitionDisk /dev/disk2 1 "Free Space" "unused" "100%"
@@ -103,7 +103,7 @@ We can also use **diskutil** to zero out the disk:
 	   #:                       TYPE NAME                    SIZE       IDENTIFIER
 	   0:      GUID_partition_scheme                        *32.0 GB    disk2
 	   1:                        EFI EFI                     209.7 MB   disk2s1
-   
+
 Either way after the disk is ready to be used you can then **DD** the **DMG** onto it:
 
 
@@ -121,7 +121,7 @@ After that the USB disk will have the following disk partition:
 	   1:        Apple_partition_map                         8.2 KB     disk2s1
 	   2:                  Apple_HFS                         5.2 MB     disk2s2
 	   3:                  Apple_HFS Fedora Live             20.8 MB    disk2s3
-   
+
 If you are going to unplug the USB disk then first unmount it:
 
 	elatov@macair:~$diskutil eject /dev/disk2
@@ -132,15 +132,15 @@ If this is the same laptop where you are going to install Fedora then just reboo
 ### Installing Fedora
 Right as you reboot the Mac hold down the **alt/option** key and you will see a list of available bootable devices:
 
-![boot-menu-mac](https://seacloud.cc/d/480b5e8fcd/files/?p=/macair_fed21/boot-menu-mac.png&raw=1)
+![boot-menu-mac](https://raw.githubusercontent.com/elatov/upload/master/macair_fed21/boot-menu-mac.png)
 
 Boot from the Fedora disk and the live CD will start booting. When then Live CD starts it will ask you if you want to install onto the hard disk or try the Live CD, I selected to install onto the Hard Disk. During the installation wizard I asked the install to use the free space and to create the partitions automatically and the following partitions were created:
 
-![fedora-installer-manual-partitions](https://seacloud.cc/d/480b5e8fcd/files/?p=/macair_fed21/fedora-installer-manual-partitions.png&raw=1)
+![fedora-installer-manual-partitions](https://raw.githubusercontent.com/elatov/upload/master/macair_fed21/fedora-installer-manual-partitions.png)
 
 After the installed finished I rebooted and I saw the GRUB menu:
 
-![grub-menu-after-fedora-installer](https://seacloud.cc/d/480b5e8fcd/files/?p=/macair_fed21/grub-menu-after-fedora-installer.png&raw=1)
+![grub-menu-after-fedora-installer](https://raw.githubusercontent.com/elatov/upload/master/macair_fed21/grub-menu-after-fedora-installer.png)
 
 Selecting the top menu booted into Fedora without issues.
 
@@ -166,7 +166,7 @@ and the ethernet device showed up:
 	    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 	2: ens9: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN mode DEFAULT group default qlen 1000
 	    link/ether 0c:4d:e9:a0:c0:aa brd ff:ff:ff:ff:ff:ff
-	    
+
 After using Network Manager I got an IP via DHCP and then I updated all the packages:
 
 	[elatov@localhost ~]$ sudo yum update
@@ -174,7 +174,7 @@ After using Network Manager I got an IP via DHCP and then I updated all the pack
 Then I installed the **kernel-devel** package along with the **kmod-wl** package:
 
 	[elatov@localhost ~]$ sudo yum install kmod-wl kernel-devel
-	
+
 Then after the reboot I was able to see the wireless device:
 
 	[elatov@localhost ~]$ iw dev
@@ -220,11 +220,11 @@ And then after re-genenating the GRUB menu one more time and rebooting the issue
 ### Booting back into Mac OS X
 To boot back into Mac OS X, just reboot and hold down the alt/option key and you will see the **Macintosh HD** and **Fedora** bootable devices:
 
-![boot-menu-post-fedora-install](https://seacloud.cc/d/480b5e8fcd/files/?p=/macair_fed21/boot-menu-post-fedora-install.png&raw=1)
+![boot-menu-post-fedora-install](https://raw.githubusercontent.com/elatov/upload/master/macair_fed21/boot-menu-post-fedora-install.png)
 
 Upon selecting Macintosh HD you will boot back into Mac OS X. Once booted you can go into System Preferences and change the Start Up Disks if you so desire:
 
-![mac-osx-startup-after-fed-install](https://seacloud.cc/d/480b5e8fcd/files/?p=/macair_fed21/mac-osx-startup-after-fed-install.png&raw=1)
+![mac-osx-startup-after-fed-install](https://raw.githubusercontent.com/elatov/upload/master/macair_fed21/mac-osx-startup-after-fed-install.png)
 
 Also by default the **EFI** partition from LInux will show up on your Desktop. To hide it from **Finder** you can run the following:
 
@@ -252,10 +252,10 @@ The issue is described [here](https://bugzilla.redhat.com/show_bug.cgi?id=893179
 	        chainloader /System/Library/CoreServices/boot.efi
 	        boot
 	}
-	
+
 I chose **gpt3** cause that's where the Apple Boot partition was
 
 	[elatov@localhost ~]$ sudo fdisk -l | grep boot
 	/dev/sda3  186509544 187779079   1269536 619.9M Apple boot
-	
+
 And I found a pretty good example of the config [here](http://forums.fedoraforum.org/archive/index.php/t-288002.html). Then I re-generated the GRUB menu, rebooted and chose the "Mac OS X Yosemite" entry and I saw Mac OS X boot up.

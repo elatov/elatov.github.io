@@ -31,11 +31,11 @@ And here is the profile applied to the host
 	   Creation Time: 2014-04-06T01:38:34
 	   Modification Time: 2014-04-06T01:38:34
 	   Stateless Ready: True
-	   Description: 
+	   Description:
 
 So I located and downloaded patch **ESXi550-201404001**:
 
-![esxi-hb-patch](https://seacloud.cc/d/480b5e8fcd/files/?p=/esxi-hb-patch/esxi-hb-patch.png&raw=1)
+![esxi-hb-patch](https://raw.githubusercontent.com/elatov/upload/master/esxi-hb-patch/esxi-hb-patch.png)
 
 Before applying the patch, I made sure no VMs are running on the Host:
 
@@ -50,7 +50,7 @@ Then go ahead and put the host into maintenance mode:
 
 Now let's go ahead and apply the patch:
 
-	~ # esxcli software vib update -d /vmfs/volumes/ISOS/vmware/ESXI/5_5/ESXi550-201404001.zip 
+	~ # esxcli software vib update -d /vmfs/volumes/ISOS/vmware/ESXI/5_5/ESXi550-201404001.zip
 	Installation Result
 	   Message: The update completed successfully, but the system needs to be rebooted for the changes to be effective.
 	   Reboot Required: true
@@ -66,22 +66,22 @@ If you have a quick internet connection you can install the patch directly with 
 Lastly let's reboot the host:
 
 	~ # esxcli system shutdown reboot -r 'heartbleed'
-	~ # 
+	~ #
 
 Since I was running on a mac mini, I wanted to make sure  Interrupt Remapping is still disabled:
 
 	~ # esxcli system settings kernel list -o iovDisableIR
 	Name          Type  Description                              Configured  Runtime  Default
 	------------  ----  ---------------------------------------  ----------  -------  -------
-	iovDisableIR  Bool  Disable Interrrupt Routing in the IOMMU  true        TRUE     FALSE  
+	iovDisableIR  Bool  Disable Interrrupt Routing in the IOMMU  true        TRUE     FALSE
 
 
 and I still had two NICs:
 
 	~ # esxcli network nic list
-	Name    PCI Device     Driver  Link  Speed  Duplex  MAC Address         MTU  Description                                                  
+	Name    PCI Device     Driver  Link  Speed  Duplex  MAC Address         MTU  Description
 	------  -------------  ------  ----  -----  ------  -----------------  ----  -------------------------------------------------------------
-	vmnic0  0000:001:00.0  tg3     Up     1000  Full    68:5b:35:c9:96:10  1500  Broadcom Corporation NetXtreme BCM57766 Gigabit Ethernet     
+	vmnic0  0000:001:00.0  tg3     Up     1000  Full    68:5b:35:c9:96:10  1500  Broadcom Corporation NetXtreme BCM57766 Gigabit Ethernet
 	vmnic1  0000:009:00.0  tg3     Up     1000  Full    68:5b:35:91:47:85  1500  Broadcom Corporation NetXtreme BCM57762 Gigabit Ethernet PCIe
 
 Everything looked good. Now before we take the host out of maintenance mode, let's go ahead and get new SSL certs in place. The instructions for that are laid out in the [same KB](http://kb.vmware.com/kb/2076665). First let's backup the existing certs:
@@ -96,7 +96,7 @@ Everything looked good. Now before we take the host out of maintenance mode, let
 
 Next let's generate new ones:
 
-	~ # /sbin/generate-certificates 
+	~ # /sbin/generate-certificates
 	WARNING: can't open config file: /usr/ssl/openssl.cnf
 	~ # ls -l /etc/vmware/ssl/
 	total 8
@@ -116,7 +116,7 @@ That *WARNING* in the first command is okay and can be safely ignored. Lastly ap
 At this point you can either restart the management services or just reboot the host. I was already in maintenance mode so I just rebooted the host:
 
 	~ # esxcli system shutdown reboot -r 'new certs'
-	~ # 
+	~ #
 
 Then the last thing we have to do is reset the root password. So after the host is back up, relogin with SSH and run the following to set the new password for root:
 
@@ -139,7 +139,7 @@ Then the last thing we have to do is reset the root password. So after the host 
 	Alternatively, if noone else can see your terminal now, you can
 	pick this as your password: "oynpx+rne*fznyy".
 
-	Enter new password: 
+	Enter new password:
 
 After that you should be all set. Take the host out of maintenance mode and power on your VMs:
 
@@ -149,13 +149,13 @@ After that you should be all set. Take the host out of maintenance mode and powe
 
 	~ # vim-cmd vmsvc/getallvms
 	Vmid    Name                 File                      Guest OS          Version   Annotation
-	1      VM1      [datastore1] VM1/VM1.vmx           rhel6_64Guest           vmx-08              
-	2      VM2      [datastore1] VM2/VM2.vmx           windows7Server64Guest   vmx-08              
+	1      VM1      [datastore1] VM1/VM1.vmx           rhel6_64Guest           vmx-08
+	2      VM2      [datastore1] VM2/VM2.vmx           windows7Server64Guest   vmx-08
 
 	~ # vim-cmd vmsvc/power.on 2
 	Powering on VM:
 
 If you connect back to the ESXi host with the vSphere Client it will give you a warning about the SSL certificate for the ESXi host:
 
-![ssl-warning-while-connecting-to-esx-host_g](https://seacloud.cc/d/480b5e8fcd/files/?p=/esxi-hb-patch/ssl-warning-while-connecting-to-esx-host_g.png&raw=1)
+![ssl-warning-while-connecting-to-esx-host_g](https://raw.githubusercontent.com/elatov/upload/master/esxi-hb-patch/ssl-warning-while-connecting-to-esx-host_g.png)
 

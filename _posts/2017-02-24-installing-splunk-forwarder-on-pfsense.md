@@ -8,7 +8,7 @@ tags: [pfsense,splunk,suricata]
 ---
 I wanted to ship my **suricata** alerts to my **splunk** instance. You could probably use syslog but the json won't show up nicely in **splunk**: [Consuming JSON With Splunk In Two Simple Steps](https://kzhendev.wordpress.com/2015/01/19/consuming-json-with-splunk-in-two-simple-steps/), [Is it possible to parse an extracted field as json if the whole log line isn't json?](https://answers.splunk.com/answers/107488/is-it-possible-to-parse-an-extracted-field-as-json-if-the-whole-log-line-isnt-json.html), and [Sending rsyslog JSON format](https://answers.splunk.com/answers/318025/sending-rsyslog-json-format-1.html). There are a couple of work arounds but they are kind of painful. I heard of the Splunk forwarder and I wanted to try it out, so I decided to go that route.
 
-### Download the SplunkForwader 
+### Download the SplunkForwader
 After logging into the **splunk** site you can get the **wget** command for the download:
 
 	<> wget -O splunkforwarder-6.4.2-00f5bb3fa822-freebsd-10.1-amd64.txz 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=freebsd&version=6.4.2&product=universalforwarder&filename=splunkforwarder-6.4.2-00f5bb3fa822-freebsd-10.1-amd64.txz&wget=true'
@@ -26,7 +26,7 @@ Now let's go ahead and extract the software. First **ssh** to the **pfSense** ma
 
 	[2.3.2-RELEASE][root@pf.kar.int]/root: tar xJfP splunkforwarder-6.4.2-00f5bb3fa822-freebsd-10.1-amd64.txz
 
-The install instructions are covered [here](http://docs.splunk.com/Documentation/Forwarder/6.4.2/Forwarder/Installanixuniversalforwarder#Install_on_FreeBSD). 
+The install instructions are covered [here](http://docs.splunk.com/Documentation/Forwarder/6.4.2/Forwarder/Installanixuniversalforwarder#Install_on_FreeBSD).
 
 ### Configure SplunkForwarder
 Next let's create a configuration to define where to forward the data to, which will be our **splunk** server. This is done by creating the **outputs.conf** file. [Here](http://docs.splunk.com/Documentation/Forwarder/6.4.2/Forwarder/Configureforwardingwithoutputs.conf) are the basic configuration settings that go into that file. I ended up creating the following:
@@ -34,7 +34,7 @@ Next let's create a configuration to define where to forward the data to, which 
 	[2.3.2-RELEASE][root@pf.kar.int]/root: cat /opt/splunkforwarder/etc/system/local/outputs.conf
 	[tcpout]
 	defaultGroup=my_indexers
-	
+
 	[tcpout:my_indexers]
 	server=10.0.0.2:9997
 
@@ -49,7 +49,7 @@ So here is the **inputs.conf** file I ended up with:
 	[monitor:///var/log/suricata/suricata_re034499/eve.json]
 	sourcetype=suricata
 
-Examples for the **inputs.conf** are [here](http://docs.splunk.com/Documentation/Splunk/latest/Admin/Inputsconf). 
+Examples for the **inputs.conf** are [here](http://docs.splunk.com/Documentation/Splunk/latest/Admin/Inputsconf).
 
 ### Configure Splunk Server/Indexer to Accept Data From Splunk Forwarder
 
@@ -81,7 +81,7 @@ And confirmed I was now listening on port **9997** tcp:
 	Cooked:tcp :
 	        9997:192.168.1.99:8089
 	                time opened = 2016-08-03T11:10:28-0600
-	
+
 	tcp_cooked:listenerports :
 	        9997
 
@@ -103,13 +103,13 @@ Now let's start the forwarder:
 
 	[2.3.2-RELEASE][root@pf.kar.int]/root: /opt/splunkforwarder/bin/splunk start
 	                    SOFTWARE LICENSE AGREEMENT
-	
+
 	Do you agree with this license? [y/n]: y
-	
+
 	This appears to be your first time running this version of Splunk.
-	
+
 	Splunk> Finding your faults, just like mom.
-	
+
 	Checking prerequisites...
 	        Checking mgmt port [8089]: open
 	                Creating: /opt/splunkforwarder/var/lib/splunk
@@ -129,7 +129,7 @@ Now let's start the forwarder:
 	        All installed files intact.
 	        Done
 	All preliminary checks passed.
-	
+
 	Starting splunk server daemon (splunkd)...
 	Generating a 1024 bit RSA private key
 	.......++++++
@@ -154,10 +154,10 @@ If all is well you should see the following in the logs:
 	08-02-2016 12:47:52.226 -0600 WARN  TcpOutputProc - Forwarding to indexer group my_indexers blocked for 1200 seconds.
 	08-02-2016 12:48:07.049 -0600 INFO  TcpOutputProc - Connected to idx=10.0.0.2:9997
 	08-02-2016 12:48:07.129 -0600 INFO  TailReader -   ...continuing.
-	
+
 And of course if you check out the **splunk** UI you will see the json alerts in there:
 
-![splunk-json-suricata](https://seacloud.cc/d/480b5e8fcd/files/?p=/splunk-forward-pfsense/splunk-json-suricata.png&raw=1)
+![splunk-json-suricata](https://raw.githubusercontent.com/elatov/upload/master/splunk-forward-pfsense/splunk-json-suricata.png)
 
 ### Enable Auto Start of Splunk Forwarder
 
@@ -165,10 +165,10 @@ if you were on another **FreeBSD** system you can enable it to start on boot wit
 
 	┌─[elatov@moxz] - [/home/elatov] - [2016-08-03 10:35:40]
 	└─[0] <> sudo /opt/splunkforwarder/bin/splunk enable boot-start
-	
+
 	Init script installed at /etc/rc.d/splunk.
 	Init script is configured to run at boot.
 
 But with **pfSense** we can add the start command as a **shellcmd**, the process is covered [here](https://doc.pfsense.org/index.php/Executing_commands_at_boot_time), here is what I added:
 
-![splunk-shell-cmd](https://seacloud.cc/d/480b5e8fcd/files/?p=/splunk-forward-pfsense/splunk-shell-cmd.png&raw=1)
+![splunk-shell-cmd](https://raw.githubusercontent.com/elatov/upload/master/splunk-forward-pfsense/splunk-shell-cmd.png)

@@ -21,7 +21,7 @@ But then that caused another issue, so I decided to compile my own version.
 
 I talked about the architecture for OpenVAS 6 in my [previous post](/2014/05/openvas-centos/), but it seems that it has changed, from [this](http://www.openvas.org/about.html) OpenVAS page:
 
-![openvas7-arch](https://seacloud.cc/d/480b5e8fcd/files/?p=/openvas7-compile/openvas7-arch.png&raw=1)
+![openvas7-arch](https://raw.githubusercontent.com/elatov/upload/master/openvas7-compile/openvas7-arch.png)
 
 Notice that the *administrator* is no longer part of the deployment, that got merged into the *manager*. From "[Install OpenVAS from Source Code](http://www.openvas.org/install-source.html)":
 
@@ -33,7 +33,7 @@ Notice that the *administrator* is no longer part of the deployment, that got me
 > |Manager 3.0.7   |Manager 4.0.5  |Manager 5.0.2   |
 > |Administrator 1.2.2 | Administrator 1.3.2| Merged into Manager|
 > |Greenbone Security Assistant (GSA) 3.0.3 | Greenbone Security Assistant (GSA) 4.0.2 | Greenbone Security Assistant (GSA) 5.0.1|
-> | Greenbone Security Desktop (GSD) 1.2.2 | Greenbone Security Desktop (GSD) 1.2.2| *) Not supported anymore| 
+> | Greenbone Security Desktop (GSD) 1.2.2 | Greenbone Security Desktop (GSD) 1.2.2| *) Not supported anymore|
 > | Commandline Interface (CLI) 1.1.5 | Commandline Interface (CLI) 1.2.0 | Commandline Interface (CLI) 1.3.0 |
 
 ### Compile OpenVAS Libraries
@@ -43,46 +43,46 @@ So let's try this out. First get the source:
     elatov@m2:/opt/work$wget http://wald.intevation.org/frs/download.php/1671/openvas-libraries-7.0.2.tar.gz
     elatov@m2:/opt/work$tar xzf openvas-libraries-7.0.2.tar.gz
     elatov@m2:/opt/work$cd openvas-libraries-7.0.2/
-    
+
 Looking over the **INSTALL** file, here were the prerequites:
 
 > General build environment:
-> 
+>
 > * a C compiler (e.g. gcc)
 > * bison
 > * flex
 > * cmake
 > * pkg-config
-> 
+>
 > Specific development libraries:
-> 
+>
 > * libglib >= 2.16
 > * libgnutls >= 2.8
 > * zlib
 > * libpcap
 > * libgpgme >= 1.1.2
 > * uuid-dev (from e2fsprogs)
-> 
+>
 > Prerequisites for building documentation:
-> 
+>
 > * doxygen
 > * xmltoman (optional, for building man page)
 > * sqlfairy (optional, for producing database diagram)
-> 
+>
 > Recommended to have WMI support:
-> 
+>
 > * wmiclient library (see doc/wmi-howto.txt)
-> 
+>
 > Recommended to have improved SSH support:
-> 
+>
 > * libssh >= 0.5.0
-> 
+>
 > Recommended to have improved SSL support:
-> 
+>
 > * libksba >= 1.0.7
-> 
+>
 > Recommended to have LDAP support:
-> 
+>
 > * libldap >= 2.4.11
 >   (LDAP can be disabled with -DBUILD_WITHOUT_LDAP=1)
 
@@ -139,14 +139,14 @@ When I tried to build the software I ran into the following error:
     /opt/work/openvas-libraries-7.0.2/misc/openvas_server.c: In function ‘client_cert_callback’:
     /opt/work/openvas-libraries-7.0.2/misc/openvas_server.c:239: error: ‘st’ undeclared (first use in this function)
     /opt/work/openvas-libraries-7.0.2/misc/openvas_server.c:239: error: (Each undeclared identifier is reported only once
-    
-Looks like it didn't like the **gnutls** defined object. So I decided to install my own version of **gnutls**. 
+
+Looks like it didn't like the **gnutls** defined object. So I decided to install my own version of **gnutls**.
 
 #### Compile gnutls
 First let's remove the previous installed *devel* package:
 
     elatov@m2:~$sudo yum remove gnutls-devel
-    
+
 Now let's get the source:
 
 	elatov@m2:/opt/work$wget ftp://ftp.gnutls.org/gcrypt/gnutls/v3.2/gnutls-3.2.14.tar.xz
@@ -156,10 +156,10 @@ Now let's get the source:
 From the **README**, looks like we need the following for gnutls:
 
 > The library depends on libnettle and gmplib.
-> 
+>
 >  * gmplib: for big number arithmetic
 >      http://gmplib.org/
->      
+>
 >  * nettle: for cryptographic algorithms
 >      http://www.lysator.liu.se/~nisse/nettle/
 
@@ -180,7 +180,7 @@ Now to prepare the source:
     ...
     ...
     configure: summary of build options:
-    
+
       Version:           nettle 2.7
       Host type:         x86_64-unknown-linux-gnu
       ABI:               64
@@ -191,7 +191,7 @@ Now to prepare the source:
       Static libraries:  yes
       Shared libraries:  yes
       Public key crypto: yes
-      Documentation:     no      
+      Documentation:     no
 
 To install run the following:
 
@@ -210,7 +210,7 @@ Now back to **gnutls**:
     ..
     ..
     configure: summary of build options:
-    
+
       version:              3.2.14 shared 58:5:30
       Host/Target system:   x86_64-unknown-linux-gnu
       Build system:         x86_64-unknown-linux-gnu
@@ -221,18 +221,18 @@ Now back to **gnutls**:
       Local libopts:        yes
       Local libtasn1:       yes
       Use nettle-mini:      no
-    
+
     configure: External hardware support:
-    
+
       /dev/crypto:          no
       Hardware accel:       x86-64
       PKCS#11 support:      no
       TPM support:          no
-    
+
     configure: Optional features:
     (note that included applications might not compile properly
     if features are disabled)
-    
+
       DTLS-SRTP support:    yes
       ALPN support:         yes
       OCSP support:         yes
@@ -245,30 +245,30 @@ Now back to **gnutls**:
       Heartbeat support:    yes
       Unicode support:      yes
       Non-SuiteB curves:    yes
-    
+
     configure: Optional applications:
-    
+
       crywrap app:          yes
-    
+
     configure: Optional libraries:
-    
+
       Guile wrappers:       no
       C++ library:          yes
       DANE library:         no
       OpenSSL compat:       yes
-    
+
     configure: System files:
-    
+
       Trust store pkcs11:
       Trust store file:     /etc/pki/tls/cert.pem
       Blacklist file:
       CRL file:
       DNSSEC root key file: /etc/unbound/root.key
-      
+
 And now to build and install the software:
 
     elatov@m2:/opt/work/gnutls-3.2.14$make && make install
-    
+
 Now rebuild **openvas-libraries**:
 
     elatov@m2:/opt/work/openvas-libraries-7.0.2/build$export PKG_CONFIG_PATH=/usr/local/openvas/lib/pkgconfig:$PKG_CONFIG_PATH
@@ -312,7 +312,7 @@ Now rebuild **openvas-libraries**:
     -- Generating done
     -- Build files have been written to: /opt/work/openvas-libraries-7.0.2/build
 
-Notice this time around it picked a new version of gnutls (`found gnutls, version 3.2.14`). 
+Notice this time around it picked a new version of gnutls (`found gnutls, version 3.2.14`).
 
 And the **make** finished without issues:
 
@@ -334,24 +334,24 @@ And the **make** finished without issues:
     [100%] Building C object omp/CMakeFiles/openvas_omp_shared.dir/omp.c.o
     Linking C shared library libopenvas_omp.so
     [100%] Built target openvas_omp_shared
-    
+
 To make sure all the libraries as linked appropriately run the following as a precaution:
 
     elatov@m2:/usr/local/openvas$find {bin,lib,lib64} -executable \! -type d -print -exec ldd {} \;  | grep -i found
-    
+
 If anything is returned check out the library to find which one is not linked appropriately. You can also run this to check for libraries that are not executable:
 
     elatov@m2:/usr/local/openvas$find . -name "*.so" -exec ldd {} \; | grep found
     ldd: warning: you do not have execution permission for `./lib64/libhogweed.so'
     ldd: warning: you do not have execution permission for `./lib64/libnettle.so'
-    
+
 ### Compile OpenVAS Scanner
 Get the source:
 
     elatov@m2:/opt/work$wget http://wald.intevation.org/frs/download.php/1640/openvas-scanner-4.0.1.tar.gz
     elatov@m2:/opt/work$tar xzvf openvas-scanner-4.0.1.tar.gz
     elatov@m2:/opt/work$cd openvas-scanner-4.0.1/
-    
+
 Prepare the source:
 
     elatov@m2:/opt/work/openvas-scanner-4.0.1$mkdir build
@@ -378,7 +378,7 @@ Prepare the source:
     -- Configuring done
     -- Generating done
     -- Build files have been written to: /opt/work/openvas-scanner-4.0.1/build
-    
+
 The **make install** went through without issues:
 
     elatov@m2:/opt/work/openvas-scanner-4.0.1/build$make
@@ -426,7 +426,7 @@ Get the source:
     elatov@m2:/opt/work$wget wget http://wald.intevation.org/frs/download.php/1667/openvas-manager-5.0.2.tar.gz
     elatov@m2:/opt/work$tar xzf openvas-manager-5.0.2.tar.gz
     elatov@m2:/opt/work$cd openvas-manager-5.0.2/
-    
+
 Now let's prepare the source:
 
     elatov@m2:/opt/work/openvas-manager-5.0.2$export CC='gcc -Wl,-rpath,/usr/local/openvas/lib64 -Wl,-rpath,/usr/local/openvas/lib'
@@ -473,7 +473,7 @@ And finally for the **cmake**:
     -- Configuring done
     -- Generating done
     -- Build files have been written to: /opt/work/openvas-manager-5.0.2/build
-    
+
 Upon trying to build the software, I ran into this error:
 
     [ 55%] Building C object src/CMakeFiles/manage.dir/manage_config_system_discovery.c.o
@@ -485,11 +485,11 @@ Upon trying to build the software, I ran into this error:
     make[2]: *** [src/CMakeFiles/manage.dir/manage_sql.c.o] Error 1
     make[1]: *** [src/CMakeFiles/manage.dir/all] Error 2
     make: *** [all] Error 2
-    
+
 So I removed the **sqlite-devel** package from yum and compiled my own version:
 
     elatov@m2:~$sudo yum remove sqlite-devel
-    
+
 Now for the source:
 
     elatov@m2:/opt/work$wget http://www.sqlite.org/2014/sqlite-autoconf-3080500.tar.gz
@@ -554,7 +554,7 @@ And now the new version of **sqlite3** is there (`found sqlite3, version 3.8.5`)
     make[2]: *** [src/CMakeFiles/omp.dir/omp.c.o] Error 1
     make[1]: *** [src/CMakeFiles/omp.dir/all] Error 2
     make: *** [all] Error 2
-    
+
 This one is related to **glib2**, so let's remove the yum version:
 
     elatov@m2:~$sudo yum remove glib2-devel
@@ -564,7 +564,7 @@ And let's compile **glib2** from source:
     elatov@m2:/opt/work$wget http://ftp.gnome.org/pub/gnome/sources/glib/2.40/glib-2.40.0.tar.xz
     elatov@m2:/opt/work$tar xJf glib-2.40.0.tar.xz
     elatov@m2:/opt/work$cd glib-2.40.0/
-    
+
 From the **README** file it looks like we need libffi:
 
 > GObject includes a generic marshaller, g_cclosure_marshal_generic.
@@ -583,7 +583,7 @@ Now to prepare the source:
 The build and install went without a hitch:
 
     elatov@m2:/opt/work/glib-2.40.0$make && make install
-    
+
 Now back to the **openvas-manager** source:
 
     elatov@m2:/opt/work/openvas-manager-5.0.2/build$rm -rf *
@@ -645,22 +645,22 @@ The new version of **glib2** is there (`found glib-2.0, version 2.40.0`). The co
     [100%] Building C object src/CMakeFiles/openvasmd.dir/ompd.c.o
     Linking C executable openvasmd
     [100%] Built target openvasmd
-    
+
 And the install was fine as well:
 
     elatov@m2:/opt/work/openvas-manager-5.0.2/build$make install
-    
+
 ### Compile Greenbone Security Assistant
 As always, let's get the source:
 
     elatov@m2:/opt/work$wget http://wald.intevation.org/frs/download.php/1675/greenbone-security-assistant-5.0.1.tar.gz
     elatov@m2:/opt/work$tar xzf greenbone-security-assistant-5.0.1.tar.gz
     elatov@m2:/opt/work$cd greenbone-security-assistant-5.0.1/
-    
+
 From the **INSTALL** file I saw the following prerequisites:
 
 > Prerequisites:
-> 
+>
 > * openvas-libraries (>= 7.0.0)
 > * gnutls (>= 2.8)
 > * cmake
@@ -688,7 +688,7 @@ At first I used the **libmicrohttpd** version from yum:
     Available Packages
     libmicrohttpd-devel.i686                      0.9.22-1.el6                    epel
     libmicrohttpd-devel.x86_64                    0.9.22-1.el6                    epel
-    
+
 But I ran into the following warnings in the logs:
 
 	MHD: Failed to receive data: The TLS connection was non-properly terminated.
@@ -719,15 +719,15 @@ Now let's prepare the source:
       build examples:    yes
       libmicrospdy:      yes
       spdylay (testing): no
-      
+
 The build and install didn't have any errors pop up:
 
     elatov@m2:/opt/work/libmicrohttpd-0.9.36$make && make install
-    
+
 The other prerequites can be installed with the following:
 
     elatov@m2:~$sudo yum install libxslt-devel libxml2-devel
-    
+
 Now back to **gsad**:
 
     elatov@m2:/opt/work/greenbone-security-assistant-5.0.1$mkdir build
@@ -772,11 +772,11 @@ Now back to **gsad**:
 The **libmicrohttpd**, **glib2**, and **gnutls** versions look good. After that the build and install worked fine:
 
     elatov@m2:/opt/work/greenbone-security-assistant-5.0.1/build$make && make install
-    
+
 ### Post Install Configuration for OpenVAS 7
 There are a couple of steps after you have the software installed.
 
-#### Generate SSL Certs for OpenVAS 
+#### Generate SSL Certs for OpenVAS
 
     sudo /usr/local/openvas/sbin/openvas-mkcert
 
@@ -815,7 +815,7 @@ After it's done you will see the following
     elatov@m2:~$ps -eaf | grep open
     root     12163     1 50 14:52 ?        00:02:29 openvassd: Waiting for incoming connections
     elatov   12392 10832  0 14:57 pts/2    00:00:00 grep --color=auto open
-    
+
 #### Generate Client SSL Certs for OpenVAS Manager
 
     elatov@m2:~$sudo /usr/local/openvas/sbin/openvas-mkcert-client -n -i
@@ -832,7 +832,7 @@ Next let's create an admin user
 
 	elatov@m2:~$sudo /usr/local/openvas/sbin/openvasmd --create-user=admin
 	User created with password 'a192f8e7-54a2-4894-bf'.
-	
+
 Now let's create an encryption key:
 
 	elatov@m2:~$sudo /usr/local/openvas/sbin/openvasmd --create-credentials-encryption-key
@@ -854,7 +854,7 @@ Now let's encrypt all credentials:
 
 	elatov@m2:~$sudo /usr/local/openvas/sbin/openvasmd --encrypt-all-credentials
 	Encryption succeeded.
-	
+
 #### Download SCAP Database
 This script (**/usr/local/openvas/sbin/openvas-scapdata-sync**) doesn't use any *openvas* binaries so we don't have to modify it, we can just run it:
 
@@ -874,7 +874,7 @@ This script (**/usr/local/openvas/sbin/openvas-scapdata-sync**) doesn't use any 
 	    42211550 100%    6.63MB/s    0:00:06 (xfer#52, to-check=1/63)
 	oval/5.10/org.mitre.oval/v/family/windows.xml.asc
 	         198 100%    0.25kB/s    0:00:00 (xfer#53, to-check=0/63)
-	
+
 	sent 1105 bytes  received 624960144 bytes  7309488.29 bytes/sec
 	total size is 624880035  speedup is 1.00
 	[i] Initializing scap database
@@ -902,14 +902,14 @@ Then run the script:
 	OpenVAS feed server - http://www.openvas.org/
 	This service is hosted by Intevation GmbH - http://intevation.de/
 	All transactions are logged.
-	
+
 	Please report synchronization problems to openvas-feed@intevation.de.
 	If you have any other questions, please use the OpenVAS mailing lists
 	or the OpenVAS IRC chat. See http://www.openvas.org/ for details.
-	
+
 	receiving incremental file list
 	./
-	
+
 	sent 62 bytes  received 716 bytes  311.20 bytes/sec
 	total size is 8793411  speedup is 11302.58
 	[i] Skipping /usr/local/openvas/var/lib/openvas/cert-data/dfn-cert-2008.xml, file is older than last revision
@@ -920,7 +920,7 @@ Then run the script:
 	[i] Updating /usr/local/openvas/var/lib/openvas/cert-data/dfn-cert-2013.xml
 	[i] Updating /usr/local/openvas/var/lib/openvas/cert-data/dfn-cert-2014.xml
 	[i] Updating Max CVSS for DFN-CERT
-	
+
 ### Setup the init scripts
 I just copied the the scripts from the atomic repo with slight modifications. Here is the **openvas-scanner**:
 
@@ -938,34 +938,34 @@ I just copied the the scripts from the atomic repo with slight modifications. He
 	### BEGIN INIT INFO
 	# Provides: $openvas-scanner
 	### END INIT INFO
-	
+
 	# Source function library.
 	. /etc/rc.d/init.d/functions
-	
+
 	EXEC="/usr/local/openvas/sbin/openvassd"
 	PROG=$(basename $EXEC)
-	
+
 	# Check for missing binaries (stale symlinks should not happen)
 	# Note: Special treatment of stop for LSB conformance
 	test -x $EXEC || { echo "$EXEC not installed";
 		if [ "$1" = "stop" ]; then exit 0;
 		else exit 5; fi; }
-	
+
 	# Check for existence of needed config file
 	OPENVASSD_CONFIG=/etc/sysconfig/openvas-scanner
 	test -r $OPENVASSD_CONFIG || { echo "$OPENVASSD_CONFIG does not exist";
 		if [ "$1" = "stop" ]; then exit 0;
 		else exit 6; fi; }
-	
+
 	# Read config
 	. $OPENVASSD_CONFIG
-	
+
 	# Build parameters
 	[ "$SCANNER_ADDRESS" ] && PARAMS="$PARAMS --listen=$SCANNER_ADDRESS"
 	[ "$SCANNER_PORT" ]    && PARAMS="$PARAMS --port=$SCANNER_PORT"
-	
+
 	LOCKFILE=/var/lock/subsys/$PROG
-	
+
 	start() {
 	    echo -n $"Starting openvas-scanner: "
 	    daemon $EXEC $PARAMS
@@ -974,7 +974,7 @@ I just copied the the scripts from the atomic repo with slight modifications. He
 	    [ $RETVAL -eq 0 ] && touch $LOCKFILE
 	    return $RETVAL
 	}
-	
+
 	stop() {
 	    echo -n $"Stopping openvas-scanner: "
 	    killproc $PROG
@@ -983,12 +983,12 @@ I just copied the the scripts from the atomic repo with slight modifications. He
 	    [ $RETVAL -eq 0 ] && rm -f $LOCKFILE
 	    return $RETVAL
 	}
-	
+
 	restart() {
 	    stop
 	    start
 	}
-	
+
 	reload() {
 	    echo -n $"Reloading openvas-scanner: "
 	    killproc $PROG -HUP
@@ -996,15 +996,15 @@ I just copied the the scripts from the atomic repo with slight modifications. He
 	    echo
 	    return $RETVAL
 	}
-	
+
 	force_reload() {
 	    restart
 	}
-	
+
 	fdr_status() {
 	    status $PROG
 	}
-	
+
 	case "$1" in
 	    start|stop|restart|reload)
 	        $1
@@ -1022,18 +1022,18 @@ I just copied the the scripts from the atomic repo with slight modifications. He
 	        echo $"Usage: $0 {start|stop|status|restart|try-restart|reload|force-reload}"
 	        exit 2
 	esac
-	
+
 Here is the **openvas-manager**:
 
 	elatov@m2:~$cat /etc/init.d/openvas-manager
 	#!/bin/bash
-	
+
 	# This is an implementation of a start-script for OpenVAS Manager
-	
+
 	# chkconfig: - 92 10
 	# Description: OpenVAS Manager is a vulnerability Scanner management daemon
 	#
-	
+
 	### BEGIN INIT INFO
 	# Provides: openvas-manager
 	# Required-Start: $local_fs $network $syslog
@@ -1043,26 +1043,26 @@ Here is the **openvas-manager**:
 	# Short-Description: start|stop|status|restart|condrestart OpenVAS Manager
 	# Description: control OpenVAS Manager
 	### END INIT INFO
-	
+
 	# Source function library.
 	. /etc/rc.d/init.d/functions
-	
+
 	exec="/usr/local/openvas/sbin/openvasmd"
 	prog="openvasmd"
 	progname="openvas-manager"
 	lockfile=/var/lock/subsys/openvasmd
-	
+
 	[ -e /etc/sysconfig/$progname ] && . /etc/sysconfig/$progname
-	
+
 	rh_status() {
 		# run checks to determine if the service is running or use generic status
 		status -p /usr/local/openvas/var/run/$prog.pid -l $lockfile $progname
 	}
-	
+
 	rh_status_q() {
 		rh_status >/dev/null 2>&1
 	}
-	
+
 	start() {
 		echo "Starting $progname:"
 		daemon --pidfile=/var/run/$prog.pid $exec $OPTIONS
@@ -1071,7 +1071,7 @@ Here is the **openvas-manager**:
 		[ $RETVAL -eq 0 ] && touch $lockfile
 		return $RETVAL
 	}
-	
+
 	stop() {
 		echo -n "Stopping $progname: "
 		killproc $prog
@@ -1080,44 +1080,44 @@ Here is the **openvas-manager**:
 		[ $RETVAL -eq 0 ] && rm -f $lockfile
 		return $RETVAL
 	}
-	
+
 	restart() {
 		stop
 		start
 	}
-	
-	
+
+
 	case "$1" in
 		start)
 			rh_status_q && exit 0
 			$1
 			;;
-	
+
 		stop)
 			rh_status_q || exit 0
 			$1
 	                ;;
-	
+
 		restart)
 			$1
 			;;
-	
+
 		condrestart|try-restart)
 			rh_status_q || exit 0
 			$1
 			;;
-	
+
 		status)
 			status -p /usr/local/openvas/var/run/$prog.pid -l $lockfile $progname
 	                ;;
-	
+
 		*)
 			echo "Usage: $0 {start|stop|status|restart|condrestart}"
 			exit 1
 	esac
-	
+
 	exit 0
-	
+
 Here is **gsad**:
 
 	elatov@m2:~$cat /etc/init.d/gsad
@@ -1134,28 +1134,28 @@ Here is **gsad**:
 	### BEGIN INIT INFO
 	# Provides: $greenbone-security-assistant
 	### END INIT INFO
-	
+
 	# Source function library.
 	. /etc/rc.d/init.d/functions
-	
+
 	EXEC="/usr/local/openvas/sbin/gsad"
 	PROG=$(basename $EXEC)
-	
+
 	# Check for missing binaries (stale symlinks should not happen)
 	# Note: Special treatment of stop for LSB conformance
 	test -x $EXEC || { echo "$EXEC not installed";
 		if [ "$1" = "stop" ]; then exit 0;
 		else exit 5; fi; }
-	
+
 	# Check for existence of needed config file
 	GSAD_CONFIG=/etc/sysconfig/gsad
 	test -r $GSAD_CONFIG || { echo "$GSAD_CONFIG not existing";
 		if [ "$1" = "stop" ]; then exit 0;
 		else exit 6; fi; }
-	
+
 	# Read config
 	. $GSAD_CONFIG
-	
+
 	# Build parameters
 	[ "$GSA_ADDRESS" ] && PARAMS="--listen=$GSA_ADDRESS"
 	[ "$GSA_PORT" ] && PARAMS="$PARAMS --port=$GSA_PORT"
@@ -1165,9 +1165,9 @@ Here is **gsad**:
 	[ "$GSA_REDIRECT_PORT" ] && PARAMS="$PARAMS --rport=$GSA_REDIRECT_PORT"
 	[ "$MANAGER_ADDRESS" ] && PARAMS="$PARAMS --mlisten=$MANAGER_ADDRESS"
 	[ "$MANAGER_PORT" ] && PARAMS="$PARAMS --mport=$MANAGER_PORT"
-	
+
 	LOCKFILE=/var/lock/subsys/$PROG
-	
+
 	start() {
 	    echo -n $"Starting greenbone-security-assistant: "
 	    daemon $EXEC $PARAMS
@@ -1176,7 +1176,7 @@ Here is **gsad**:
 	    [ $RETVAL -eq 0 ] && touch $LOCKFILE
 	    return $RETVAL
 	}
-	
+
 	stop() {
 	    echo -n $"Stopping greenbone-security-assistant: "
 	    killproc $PROG
@@ -1185,12 +1185,12 @@ Here is **gsad**:
 	    [ $RETVAL -eq 0 ] && rm -f $LOCKFILE
 	    return $RETVAL
 	}
-	
+
 	restart() {
 	    stop
 	    start
 	}
-	
+
 	reload() {
 	    echo -n $"Reloading greenbone-security-assistant: "
 	    killproc $PROG -HUP
@@ -1198,15 +1198,15 @@ Here is **gsad**:
 	    echo
 	    return $RETVAL
 	}
-	
+
 	force_reload() {
 	    restart
 	}
-	
+
 	fdr_status() {
 	    status $PROG
 	}
-	
+
 	case "$1" in
 	    start|stop|restart|reload)
 	        $1
@@ -1224,28 +1224,28 @@ Here is **gsad**:
 	        echo $"Usage: $0 {start|stop|status|restart|try-restart|reload|force-reload}"
 	        exit 2
 	esac
-	
+
 Each of those had a corresponding **sysconfig** file:
 
 	elatov@m2:~$cat /etc/sysconfig/openvas-scanner
 	# Options to pass to the openvassd daemon
 	OPTIONS="-p 9391"
-	
+
 	# Set to yes if plugins should be automatically updated via a cron job
 	auto_plugin_update=yes
-	
+
 	# Notify OpenVAS scanner after update by seding it SIGHUP?
 	notify_openvas_scanner=yes
-	
+
 	# Method to use to get updates. The default is via rsync
 	# Note that only wget and curl support retrieval via proxy
 	# update_method=rsync|wget|curl
-	
+
 	# Additionaly, you can specify the following variables
 	#NVT_DIR		where to extract plugins (absolute path)
 	#OV_RSYNC_FEED		URL of rsync feed
 	#OV_HTTP_FEED		URL of http feed
-	
+
 	# First time install token
 	FIRSTBOOT=no
 
@@ -1253,7 +1253,7 @@ Here is the **openvas-manager** one:
 
 	elatov@m2:~$cat /etc/sysconfig/openvas-manager
 	OPTIONS="--port 9390 --sport 9391 -v"
-	
+
 And lastly the **gsad** one:
 
 	elatov@m2:~$grep -vE '^$|^#' /etc/sysconfig/gsad
@@ -1261,7 +1261,7 @@ And lastly the **gsad** one:
 	GSA_PORT=9392
 	MANAGER_ADDRESS=127.0.0.1
 	MANAGER_PORT=9390
-	
+
 Lastly here are the cron jobs for the automated syncing:
 
 	elatov@m2:~$for i in $(ls /etc/cron.d/openvas-sync-*); do echo $i; cat $i; done
@@ -1274,7 +1274,7 @@ Lastly here are the cron jobs for the automated syncing:
 	/etc/cron.d/openvas-sync-scap
 	# start plugin sync daily at 1am
 	0 1 * * * root /bin/nice -n 19 /usr/bin/ionice -c2 -n7 /usr/local/openvas/sbin/openvas-scapdata-sync > /dev/null
-	
+
 ### Confirming the OpenVAS Install is good
 There is a pretty nifty script that can check all the necessary components are running. It's called [openvas-check-setup](https://github.com/kurobeats/OpenVas-Management-Scripts/blob/master/openvas-check-setup). Here is what I did to run it:
 
@@ -1285,13 +1285,13 @@ There is a pretty nifty script that can check all the necessary components are r
 	  Test completeness and readiness of OpenVAS-7
 	  (add '--v4', '--v5', '--v6' or '--v8'
 	   if you want to check for another OpenVAS version)
-	
+
 	  Please report us any non-detected problems and
 	  help us to improve this check routine:
 	  http://lists.wald.intevation.org/mailman/listinfo/openvas-discuss
-	
+
 	  Send us the log-file (/tmp/openvas-check-setup.log) to help analyze the problem.
-	
+
 	Step 1: Checking OpenVAS Scanner ...
 	        OK: OpenVAS Scanner is present in version 4.0.1.
 	        OK: OpenVAS Scanner CA Certificate is present as /usr/local/openvas/var/lib/openvas/CA/cacert.pem.
@@ -1340,9 +1340,9 @@ There is a pretty nifty script that can check all the necessary components are r
 	        SUGGEST: Install alien.
 	        OK: nsis found, LSC credential package generation for Microsoft Windows targets is likely to work.
 	        OK: SELinux is disabled.
-	
+
 	It seems like your OpenVAS-7 installation is OK.
-	
+
 	If you think it is not OK, please report your observation
 	and help us to improve this check routine:
 	http://lists.wald.intevation.org/mailman/listinfo/openvas-discuss
@@ -1379,8 +1379,8 @@ Just for reference here are the defaults:
 	nasl_no_signature_check = yes
 	drop_privileges = no
 	unscanned_closed = yes
-	vhosts = 
-	vhosts_ip = 
+	vhosts =
+	vhosts_ip =
 	report_host_details = yes
 	cert_file = /usr/local/openvas/var/lib/openvas/CA/servercert.pem
 	key_file = /usr/local/openvas/var/lib/openvas/private/CA/serverkey.pem
@@ -1401,4 +1401,4 @@ Then modify as necessary. You should be done, at this point make sure all the se
 	root     15420     1  0 12:35 ?        00:00:00 /usr/local/openvas/sbin/gsad --listen=0.0.0.0 --port=9392 --mlisten=127.0.0.1 --mport=9390 -v
 	root     15751  4304  0 12:40 ?        00:00:52 openvassd: Serving 127.0.0.1
 
-And then you can point your browser to the OpenVAS server and run scans just like described in my [previous post](/2014/05/openvas-centos/). 
+And then you can point your browser to the OpenVAS server and run scans just like described in my [previous post](/2014/05/openvas-centos/).

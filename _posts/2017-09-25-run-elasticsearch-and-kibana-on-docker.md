@@ -8,7 +8,7 @@ tags: [docker,docker-compose,elasticsearch,kibana,coreos]
 ---
 ### Elasticsearch with Docker
 
-I had a CoreOS machine and I wanted to move my ELK (**elasticsearch**,**logstash**, and **kibana**) stack to docker. At first I wanted to move all the machines, but then I realized that I was already using UDP port 514 for **splunk** on the same host so I decided to just move just the **elasticsearch** and **kibana** components. This was actually perfect, cause all the components were on the same machine before and were using **localhost** for communication and I wanted to see how the remote communication works out between some of the components. 
+I had a CoreOS machine and I wanted to move my ELK (**elasticsearch**,**logstash**, and **kibana**) stack to docker. At first I wanted to move all the machines, but then I realized that I was already using UDP port 514 for **splunk** on the same host so I decided to just move just the **elasticsearch** and **kibana** components. This was actually perfect, cause all the components were on the same machine before and were using **localhost** for communication and I wanted to see how the remote communication works out between some of the components.
 
 ### CoreOS sysctl configuration
 Looking over the [Install Elasticsearch with Docker](https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html), it looks like they recommend modifying the following **sysctl/kernel** parameter:
@@ -22,7 +22,7 @@ Looking over the [Install Elasticsearch with Docker](https://www.elastic.co/guid
 > 	  $ grep vm.max_map_count /etc/sysctl.conf
 > 	  vm.max_map_count=262144
 >
-> To apply the setting on a live system type: 
+> To apply the setting on a live system type:
 >
 > `sysctl -w vm.max_map_count=262144`
 
@@ -32,7 +32,7 @@ With CoreOS we can follow the instructions laid out in [Tuning sysctl parameters
 	  - path: /etc/sysctl.d/elk.conf
 	    content: |
 	      vm.max_map_count=262144
-	      
+
 Then ran the following to apply it to the configuration (now if the host reboots that setting will be there):
 
 	core ~ # coreos-cloudinit -validate --from-file cloud-config.yaml
@@ -58,7 +58,7 @@ There is actually a pretty good example of the compose file for **elasticsearch*
 	core elk # cat docker-compose.yml
 	version: '2'
 	services:
-	
+
 	  elasticsearch:
 	    image: "docker.elastic.co/elasticsearch/elasticsearch:5.2.2"
 	    hostname: elasticsearch
@@ -75,7 +75,7 @@ There is actually a pretty good example of the compose file for **elasticsearch*
 	      nofile:
 	        soft: 65536
 	        hard: 65536
-	
+
 	  kibana:
 	    image: "docker.elastic.co/kibana/kibana:5.2.2"
 	    hostname: kibana
@@ -85,7 +85,7 @@ There is actually a pretty good example of the compose file for **elasticsearch*
 	      - "5601:5601"
 	    volumes:
 	      - "./kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml"
- 
+
 #### Preparing Local Volumes
 
 Since I wanted to change some settings (and keep the **elasticsearch** data persistent), I ended up with the following directory structure:
@@ -129,7 +129,7 @@ And here is the kibana config:
 	xpack.monitoring.enabled: false
 	xpack.graph.enabled: false
 	xpack.reporting.enabled: false
-	
+
 I could probably pass those into the command or set environment variables, but I decided to use config files.
 
 #### Send Logs from Logstash
@@ -147,7 +147,7 @@ Then I ran the following to make sure the configuration is okay:
 And then finally the following to restart the service:
 
 	<> sudo systemctl restart logstash
-	
+
 ##### Logstash Docker Compose
 BTW if you wanted to you could use a similar configuration for the **logstash** docker-compose configuration:
 
@@ -194,7 +194,7 @@ If you want you can also check out the logs are the containers come up:
 ### Exporting the Visualizations
 I logged into the original **kibana** instance and went to **Management** -> **Saved Objects** -> **Export Everything**. And that created an **export.json** file. Initially when I went to the new kibana instance and imported the file (**Management** -> **Saved Objects** -> **Import**), I saw the following error:
 
-![kib-import-error](https://seacloud.cc/d/480b5e8fcd/files/?p=/docker-elk/kib-import-error.png&raw=1)
+![kib-import-error](https://raw.githubusercontent.com/elatov/upload/master/docker-elk/kib-import-error.png)
 
 It looks like this was a known issue ([Kibana .raw in 5.0.0 alpha3](https://discuss.elastic.co/t/kibana-raw-in-5-0-0-alpha3/53758)) for Kibana 5.0. Since I had old mappings from the 4.x versions they were called **.raw** and I needed to change them to **.keyword**. So I ran this on the file:
 
@@ -202,6 +202,6 @@ It looks like this was a known issue ([Kibana .raw in 5.0.0 alpha3](https://disc
 
 And then the re-import worked without issues. Don't forget to refresh your field list (**Management** -> **Index Patterns** -> **Logstash-*** -> **Refresh field list**) after some data comes in from **logstash**:
 
-![kib-ref-list](https://seacloud.cc/d/480b5e8fcd/files/?p=/docker-elk/kib-ref-list.png&raw=1)
+![kib-ref-list](https://raw.githubusercontent.com/elatov/upload/master/docker-elk/kib-ref-list.png)
 
 

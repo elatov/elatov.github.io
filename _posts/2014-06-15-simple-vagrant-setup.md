@@ -13,15 +13,15 @@ I kept hearing good things about **vagrant**. Vagrant, from [their](http://www.v
 
 Basically utilizing existing virtualization products (Virtualbox, VMware, AWS ... etc) you are able to spin up an environment from a template for your personal use. If you are in need of a quick test enrvironmet, which you can remove after you are done, then vagrant is for you. Let's try out vagrant, first go to the [download](https://www.vagrantup.com/downloads.html) page and download the software:
 
-![vagrant-download-page](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_environment/vagrant-download-page.png&raw=1)
+![vagrant-download-page](https://raw.githubusercontent.com/elatov/upload/master/vagrant_create_environment/vagrant-download-page.png)
 
 Then install the software:
 
-![vagrant-installer](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_environment/vagrant-installer.png&raw=1)
+![vagrant-installer](https://raw.githubusercontent.com/elatov/upload/master/vagrant_create_environment/vagrant-installer.png)
 
 Here is a successfull install:
 
-![vargrant-successfully-installed](https://seacloud.cc/d/480b5e8fcd/files/?p=/vagrant_create_environment/vargrant-successfully-installed.png&raw=1)
+![vargrant-successfully-installed](https://raw.githubusercontent.com/elatov/upload/master/vagrant_create_environment/vargrant-successfully-installed.png)
 
 After it's installed you can open a terminal and you should see the executable available in your path:
 
@@ -37,7 +37,7 @@ As a test run the following to create a very basic **VagrantFile**:
 	ready to `vagrant up` your first virtual environment! Please read
 	the comments in the Vagrantfile as well as documentation on
 	`vagrantup.com` for more information on using Vagrant.
-	
+
 Here are the contents of the file without all the comments:
 
 	elatov@kmac:~$grep -vE '  #|^$' Vagrantfile
@@ -88,7 +88,7 @@ Then go ahead and fire up the test machine (Make sure you also have [VirtualBox]
 	    default: VirtualBox Version: 4.3
 	==> default: Mounting shared folders...
 	    default: /vagrant => /Users/elatov
-	    
+
 That will spin up an Ubuntu 12.04 LTS 32-bit VM (downloaded from the vagrant cloud) in your local VirtualBox instance. You can see the VM, by using **VboxManage**:
 
 	elatov@kmac:~$VBoxManage list vms
@@ -104,9 +104,9 @@ You can also check the status of the VM with the **vagrant** command:
 
 	elatov@kmac:~$vagrant status
 	Current machine states:
-	
+
 	default                   running (virtualbox)
-	
+
 	The VM is running. To stop this VM, you can run `vagrant halt` to
 	shut it down forcefully, or you can run `vagrant suspend` to simply
 	suspend the virtual machine. In either case, to restart it again,
@@ -232,50 +232,50 @@ From the above output we can see that it's IP is **10.0.2.15**, which is the def
 	VRDE:            disabled
 	USB:             disabled
 	EHCI:            disabled
-	
+
 	USB Device Filters:
-	
+
 	<none>
-	
+
 	Available remote USB devices:
-	
+
 	<none>
-	
+
 	Currently Attached USB Devices:
-	
+
 	<none>
-	
+
 	Bandwidth groups:  <none>
-	
+
 	Shared folders:
-	
+
 	Name: 'vagrant', Host path: '/Users/elatov' (machine mapping), writable
-	
+
 	VRDE Connection:    not active
 	Clients so far:     0
-	
+
 	Video capturing:    not active
 	Capture screens:    0
 	Capture file:       /Users/elatov/.virt/elatov_default_1402421505875_51723/elatov_default_1402421505875_51723.webm
 	Capture dimensions: 1024x768
 	Capture rate:       512 kbps
 	Capture FPS:        25
-	
+
 	Guest:
-	
+
 	Configured memory balloon size:      0 MB
 	OS type:                             Linux26
 	Additions run level:                 2
 	Additions version:                   4.2.0 r80737
-	
-	
+
+
 	Guest Facilities:
-	
+
 	Facility "VirtualBox Base Driver": active/running (last update: 2014/06/10 17:31:53 UTC)
 	Facility "VirtualBox System Service": active/running (last update: 2014/06/10 17:31:54 UTC)
 	Facility "Seamless Mode": not active (last update: 2014/06/10 17:31:53 UTC)
 	Facility "Graphics Mode": not active (last update: 2014/06/10 17:31:53 UTC)
- 
+
 From the `vagrant up` command we can see that it created a port forward from **127.0.0.1:2222** to port **22** of the spun up VM and it created an ssh key for the **vagrant** user. So let's try the manual way of logging into the vm:
 
 	elatov@kmac:~$ssh vagrant@localhost -p 2222 -i .vagrant.d/insecure_private_key
@@ -284,7 +284,7 @@ From the `vagrant up` command we can see that it created a port forward from **1
 	Are you sure you want to continue connecting (yes/no)? yes
 	Warning: Permanently added '[localhost]:2222' (ECDSA) to the list of known hosts.
 	Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic-pae i686)
-	
+
 	 * Documentation:  https://help.ubuntu.com/
 	Welcome to your Vagrant-built virtual machine.
 	Last login: Tue Jun 10 17:39:16 2014 from 10.0.2.2
@@ -294,12 +294,12 @@ An easy way to access the VM is with the `vagrant ssh` command, like so:
 
 	elatov@kmac:~$vagrant ssh default
 	Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic-pae i686)
-	
+
 	 * Documentation:  https://help.ubuntu.com/
 	Welcome to your Vagrant-built virtual machine.
 	Last login: Fri Sep 14 06:22:31 2012 from 10.0.2.2
 	vagrant@precise32:~$
-	
+
 After you done with the VM, you can shut it down:
 
 	elatov@kmac:~$vagrant halt
@@ -310,5 +310,5 @@ and then remove the VM:
 	elatov@kmac:~$vagrant destroy
 		    default: Are you sure you want to destroy the 'default' VM? [y/N] y
 		==> default: Destroying VM and associated drives...
-		
-This will remove the VM from VirtualBox's Inventory (and it's associated virtual disk), but the box (**hashicorp/precise32**) that you downloaded from the vagrant cloud will be stored in your local disk. This way when you need to spin up another VM it will just use the template box / base image (more on this in the next post).  
+
+This will remove the VM from VirtualBox's Inventory (and it's associated virtual disk), but the box (**hashicorp/precise32**) that you downloaded from the vagrant cloud will be stored in your local disk. This way when you need to spin up another VM it will just use the template box / base image (more on this in the next post).

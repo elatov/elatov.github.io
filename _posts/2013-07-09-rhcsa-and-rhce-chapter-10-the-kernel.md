@@ -71,7 +71,7 @@ We can check the scheduler information, by checking out the contents of **/proc/
       .sysctl_sched_child_runs_first           : 0.000000
       .sysctl_sched_features                   : 15471
       .sysctl_sched_tunable_scaling            : 1 (logaritmic)
-    
+
     cpu#0, 2795.243 MHz
       .nr_running                    : 1
       .load                          : 1024
@@ -94,7 +94,7 @@ We can check the scheduler information, by checking out the contents of **/proc/
       .ttwu_count                    : 26666
       .ttwu_local                    : 26666
       .bkl_count                     : 152
-    
+
     cfs_rq[0]:/
       .exec_clock                    : 12072.940261
       .MIN_vruntime                  : 0.000001
@@ -106,13 +106,13 @@ We can check the scheduler information, by checking out the contents of **/proc/
       .load                          : 1024
       .nr_spread_over                : 9
       .shares                        : 0
-    
+
     rt_rq[0]:/
       .rt_nr_running                 : 0
       .rt_throttled                  : 0
       .rt_time                       : 0.000000
       .rt_runtime                    : 950.000000
-    
+
     runnable tasks:
                 task   PID         tree-key  switches  prio     exec-runtime         sum-exec        sum-sleep
     ----------------------------------------------------------------------------------------------------------
@@ -798,7 +798,7 @@ Or you can actually run **slabtop** and see real time usage. Here is how my **sl
      Active / Total Caches (% used)     : 96 / 183 (52.5%)
      Active / Total Size (% used)       : 31127.88K / 31911.36K (97.5%)
      Minimum / Average / Maximum Object : 0.01K / 0.04K / 4096.00K
-    
+
       OBJS ACTIVE  USE OBJ SIZE  SLABS OBJ/SLAB CACHE SIZE NAME
     467712 467589  99%    0.02K   2304  203  9216K avtab_node
     327700 327484  99%    0.03K   2900  113     11600K size-32
@@ -917,13 +917,13 @@ To check most of the those parameters you can use ethtool:
     RX Mini:    0
     RX Jumbo:   0
     TX:     256
-    
+
     [root@rhel1 ~]# ethtool -a eth0
     Pause parameters for eth0:
     Autonegotiate:  on
     RX:     on
     TX:     off
-    
+
     [root@rhel1 ~]# ethtool -k eth0
     Offload parameters for eth0:
     rx-checksumming: on
@@ -934,7 +934,7 @@ To check most of the those parameters you can use ethtool:
     generic-segmentation-offload: on
     generic-receive-offload: off
     large-receive-offload: off
-    
+
     [root@rhel1 ~]# ethtool -c eth0
     Coalesce parameters for eth0:
     Adaptive RX: off  TX: off
@@ -942,22 +942,22 @@ To check most of the those parameters you can use ethtool:
     sample-interval: 0
     pkt-rate-low: 0
     pkt-rate-high: 0
-    
+
     rx-usecs: 0
     rx-frames: 0
     rx-usecs-irq: 0
     rx-frames-irq: 0
-    
+
     tx-usecs: 0
     tx-frames: 0
     tx-usecs-irq: 0
     tx-frames-irq: 0
-    
+
     rx-usecs-low: 0
     rx-frame-low: 0
     tx-usecs-low: 0
     tx-frame-low: 0
-    
+
     rx-usecs-high: 0
     rx-frame-high: 0
     tx-usecs-high: 0

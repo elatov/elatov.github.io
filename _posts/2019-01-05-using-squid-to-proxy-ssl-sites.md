@@ -224,19 +224,19 @@ Now if we try with a browser, first specify the proxy server, in Linux we can st
 
 and by default you will see an SSL warning:
 
-![chrome-ssl-warning.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/squid-ssl-proxy/chrome-ssl-warning.png&raw=1)
+![chrome-ssl-warning.png](https://raw.githubusercontent.com/elatov/upload/master/squid-ssl-proxy/chrome-ssl-warning.png)
 
 So in the address bat enter **chrome://settings/certificates**, and then import the CA certificate under the **Authorities** section, and make sure you choose this certificate to validate *websites*:
 
-![chrome-trust-ca.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/squid-ssl-proxy/chrome-trust-ca.png&raw=1)
+![chrome-trust-ca.png](https://raw.githubusercontent.com/elatov/upload/master/squid-ssl-proxy/chrome-trust-ca.png)
 
 Lastly confirm the certificate is imported:
 
-![chrome-squid-cert-imported.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/squid-ssl-proxy/chrome-squid-cert-imported.png&raw=1)
+![chrome-squid-cert-imported.png](https://raw.githubusercontent.com/elatov/upload/master/squid-ssl-proxy/chrome-squid-cert-imported.png)
 
 Now if you go to any site, your browser will trust the Squid CA as Squid will generate a dynamic cert for that hostname:
 
-![chrome-trusts-squid-ca.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/squid-ssl-proxy/chrome-trusts-squid-ca.png&raw=1)
+![chrome-trusts-squid-ca.png](https://raw.githubusercontent.com/elatov/upload/master/squid-ssl-proxy/chrome-trusts-squid-ca.png)
 
 #### Check out Squid Logs
 After your browser is configured to use Squid as it's proxy you can check out the access logs to confirm it's proxying the connections:
@@ -341,16 +341,16 @@ It's good to know it's possible.
 ### Trying out WebSafety
 There is a pretty cool product called [WebSafety](https://www.diladele.com/). It integrates really well with Squid to provide advanced web filter options and also a nice UI to configure most of the **squid** settings. [Install instructions](https://docs.diladele.com/administrator_guide_stable/index.html) cover the setup really well. Everything is configurable through a UI where, for example, you can enable SSL filtering:
 
-![websafety-ssl-filter.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/squid-ssl-proxy/websafety-ssl-filter.png&raw=1)
+![websafety-ssl-filter.png](https://raw.githubusercontent.com/elatov/upload/master/squid-ssl-proxy/websafety-ssl-filter.png)
 
 or get a nice overview of the system:
 
-![websafety-dashboard.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/squid-ssl-proxy/websafety-dashboard.png&raw=1)
+![websafety-dashboard.png](https://raw.githubusercontent.com/elatov/upload/master/squid-ssl-proxy/websafety-dashboard.png)
 
 It's also good at tagging your traffic appropriately. As soon as you visit the admin console it allows you to download the CA certificate that it uses for signing the dynamically generated certificates:
 
-![websafety-login-page.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/squid-ssl-proxy/websafety-login-page.png&raw=1)
+![websafety-login-page.png](https://raw.githubusercontent.com/elatov/upload/master/squid-ssl-proxy/websafety-login-page.png)
 
 There is a community version but it doesn't support web filter. You can check out the differences at [Community Version](https://www.diladele.com/licensing.html). It can show you current traffic and if it blocked anything (if you configured it to do so):
 
-![websafety-web-traffic.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/squid-ssl-proxy/websafety-web-traffic.png&raw=1)
+![websafety-web-traffic.png](https://raw.githubusercontent.com/elatov/upload/master/squid-ssl-proxy/websafety-web-traffic.png)

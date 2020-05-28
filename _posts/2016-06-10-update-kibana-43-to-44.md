@@ -11,7 +11,7 @@ I noticed that a [new update](https://www.elastic.co/guide/en/kibana/4.4/release
 ### Preparing for the Kibana Update
 If you remember [my previous](/2016/02/playing-around-with-an-elasticsearchlogstashkibana-elk-stack/) post I ended up getting the **tar.gz** archive and installing it manually under **/opt**. This time around I decided to add a *YUM* repository and install from there. First I exported all of my objects just in case. This is done in **kibana** under **Settings** -> **Objects** -> **Export Everything**:
 
-![kib-obj-export](https://seacloud.cc/d/480b5e8fcd/files/?p=/kibana-update/kib-obj-export.png&raw=1)
+![kib-obj-export](https://raw.githubusercontent.com/elatov/upload/master/kibana-update/kib-obj-export.png)
 
 Now let's stop the **kibana** server:
 
@@ -35,7 +35,7 @@ Next let's create the *YUM* repo:
 	gpgcheck=1
 	gpgkey=http://packages.elastic.co/GPG-KEY-elasticsearch
 	enabled=1
-	
+
 Now we are ready for the update.
 
 ### Install Kibana 4.4
@@ -52,7 +52,7 @@ Now let's update **systemd**:
 	sudo systemctl daemon-reload
 	sudo systemctl disable kibana.service
 	sudo systemctl enable kibana.service
-	
+
 Now let's copy over the original config:
 
 	sudo cp /opt/kibana/config/kibana.yml /opt/kibana/config/kibana.yml.orig
@@ -68,7 +68,7 @@ And checking out the logs looked good:
 	Feb 21 08:53:35 puppet systemd[1]: Starting Kibana 4 Web Interface...
 	Feb 21 08:53:38 puppet kibana4[25523]:{"type":"log","@timestamp":"2016-02-21T15:53:38+00:00","tags":["status","plugin:kibana","info"],"pid":25523,"name":"plugin:kibana","state":"gree
 	Feb 21 08:53:38 puppet kibana4[25523]: {"type":"log","@timestamp":"2016-02-21T15:53:38+00:00","tags":["status","plugin:elasticsearch","info"],"pid":25523,"name":"plugin:elasticsearch"
-	
+
 After I logged into **kibana** I saw the new version:
 
-![kib-version](https://seacloud.cc/d/480b5e8fcd/files/?p=/kibana-update/kib-version.png&raw=1)
+![kib-version](https://raw.githubusercontent.com/elatov/upload/master/kibana-update/kib-version.png)

@@ -16,28 +16,28 @@ There are a couple of work arounds you can do to use a samba share. The steps ar
 
 1. Mount the Samba Share
 2. Create a sparse image file:
-	
+
        hdiutil create -size 200G -fs HFS+J -volname 'Time Machine Backups' -type SPARSEBUNDLE time_machine.sparsebundle
 
 3. Copy the Sparse Bundle onto the Samba share:
 
 	   rsync -avzP time_machine.sparsebunde /Volumes/Samba_Share
-	
+
 4. Mount the Sparse Bundle as a local Volume:
 
 	   hdiutil attach /Volumes/Samba_Share/time_machine.sparsebundle
-	
+
 5. Then enable non-supported destinations for Time Machine Backups
 
 	   defaults write com.apple.systempreferences TMShowUnsupportedNetworkVolumes 1
-	
+
 6. Set the Sparse Bundle as the Destination for Time Machine Backups
 
 	   sudo tmutil setdestination "/Volumes/Time Machine Backups"
 
 7. Launch the Time Machine Preferences and run the backup
 
-That's cool and all but for some reason I wanted to try out setting up my own AFP server. My main storage box runs OmniOS so after doing some research it looks like you can install [netatalk](http://netatalk.sourceforge.net/) and [mDNSResponder](http://docs.oracle.com/cd/E23824_01/html/821-1455/dnsref-51.html) on opensolaris and use it for Time Machine Backups. 
+That's cool and all but for some reason I wanted to try out setting up my own AFP server. My main storage box runs OmniOS so after doing some research it looks like you can install [netatalk](http://netatalk.sourceforge.net/) and [mDNSResponder](http://docs.oracle.com/cd/E23824_01/html/821-1455/dnsref-51.html) on opensolaris and use it for Time Machine Backups.
 
 ### Installing netatalk and mDNSResponder on OmniOS
 
@@ -92,14 +92,14 @@ Here is the information about the netatalk daemon:
 
 	root@zf:~#afpd -V
 	afpd 3.1.7 - Apple Filing Protocol (AFP) daemon of Netatalk
-	
+
 	This program is free software; you can redistribute it and/or modify it under
 	the terms of the GNU General Public License as published by the Free Software
 	Foundation; either version 2 of the License, or (at your option) any later
 	version. Please see the file COPYING for further information and details.
-	
+
 	afpd has been compiled with support for these features:
-	
+
 	          AFP versions: 2.2 3.0 3.1 3.2 3.3 3.4
 	         CNID backends: dbd last tdb
 	      Zeroconf support: mDNSResponder
@@ -114,7 +114,7 @@ Here is the information about the netatalk daemon:
 	         D-Bus support: No
 	     Spotlight support: No
 	         DTrace probes: Yes
-	
+
 	              afp.conf: /etc/afp.conf
 	           extmap.conf: /etc/extmap.conf
 	       state directory: /var/netatalk/
@@ -152,7 +152,7 @@ And then added a simple config like this:
 	;
 	; Netatalk 3.x configuration file
 	;
-	
+
 	[Global]
 	 mimic model = TimeCapsule6,106
 	 log level = default:warn
@@ -160,10 +160,10 @@ And then added a simple config like this:
 	 hosts allow = 192.168.1.0/24
 	 disconnect time = 1
 	 vol dbpath = /var/netatalk/CNID/$u/$v/
-	
+
 	; [Homes]
 	; basedir regex = /xxxx
-	
+
 	[time_mach]
 	 time machine = yes
 	 path=/data/tm/$u
@@ -298,7 +298,7 @@ And on the omnios machine I did see the sparse bundle get created:
 
 On Napp-it you can enable the bojour services to auto start if you want. In the Napp-it UI it will show what sample commands you can enter:
 
-![napp-it-bonjour-instructions](https://seacloud.cc/d/480b5e8fcd/files/?p=/afp-omnios/napp-it-bonjour-instructions.png&raw=1)
+![napp-it-bonjour-instructions](https://raw.githubusercontent.com/elatov/upload/master/afp-omnios/napp-it-bonjour-instructions.png)
 
 Basically run the following commands (also seen [here](https://forums.servethehome.com/index.php?threads/bonjour-mdns-stopped-working-after-updating-omnios.3964/))
 
@@ -331,7 +331,7 @@ and of course from the mac you can query that information:
 
 And in Finder you will your see device:
 
-![napp-it-bonjour-instructions](https://seacloud.cc/d/480b5e8fcd/files/?p=/afp-omnios/zf-bonjour-info.png&raw=1)
+![napp-it-bonjour-instructions](https://raw.githubusercontent.com/elatov/upload/master/afp-omnios/zf-bonjour-info.png)
 
 If you are manually mouting the afp share, it probably won't matter that much.
 

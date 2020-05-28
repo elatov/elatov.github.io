@@ -15,12 +15,12 @@ Most of the setup is covered here:
 
 	$ sudo apt-get install php5-mysql curl wget git php5-cli php5-gd php5-mcrypt nodejs nodejs-legacy
 
-Next install **composer**: 
+Next install **composer**:
 
 	<> curl -sS https://getcomposer.org/installer | php
 	All settings correct for using Composer
 	Downloading 1.2.4...
-	
+
 	Composer successfully installed to: /home/elatov/composer.phar
 	Use it: php composer.phar
 
@@ -51,23 +51,23 @@ Then install all the necessary packages:
 	Updating dependencies (including require-dev)
 	  - Installing erusev/parsedown (dev-master 20ff8bb)
 	    Downloading: 100%
-	
+
 	  - Installing strebl/adldap (v4.0.5)
 	    Downloading: 100%
-	
+
 	  ...
 	  ...
 	  - Installing jeremeamia/superclosure (1.0.2)
 	    Downloading: 100%
-	
+
 	  - Installing monolog/monolog (1.22.0)
 	    Downloading: 100%
-	
+
 	...
 	...
-	
+
 	monolog/monolog suggests installing aws/aws-sdk-php (Allow sending log messages to AWS services like DynamoDB)
-	
+
 	symfony/security-core suggests installing symfony/validator (For using the user password constraint)
 	phpdocumentor/reflection-docblock suggests installing dflydev/markdown (~1.0)
 	Package strebl/adldap is abandoned, you should avoid using it. Use adldap2/adldap2 instead.
@@ -105,23 +105,23 @@ Then on the DB server:
 	Welcome to the MariaDB monitor.  Commands end with ; or \g.
 	Your MariaDB connection id is 48561
 	Server version: 10.0.27-MariaDB FreeBSD Ports
-	
+
 	Copyright (c) 2000, 2016, Oracle, MariaDB Corporation Ab and others.
-	
+
 	Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-	
+
 	MariaDB [(none)]> DROP DATABASE IF EXISTS paperwork;
 	Query OK, 0 rows affected, 1 warning (0.00 sec)
-	
+
 	MariaDB [(none)]> CREATE DATABASE IF NOT EXISTS paperwork DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 	Query OK, 1 row affected (0.01 sec)
-	
+
 	MariaDB [(none)]> GRANT ALL PRIVILEGES ON paperwork.* TO 'paperwork'@'10.0.0.2' IDENTIFIED BY 'password' WITH GRANT OPTION;
 	Query OK, 0 rows affected (0.01 sec)
-	
+
 	MariaDB [(none)]> FLUSH PRIVILEGES;
 	Query OK, 0 rows affected (0.02 sec)
-	
+
 	MariaDB [(none)]> quit
 	Bye
 
@@ -131,11 +131,11 @@ Then from **apache** server make sure you can login to the new db:
 	Welcome to the MariaDB monitor.  Commands end with ; or \g.
 	Your MariaDB connection id is 48564
 	Server version: 10.0.27-MariaDB FreeBSD Ports
-	
+
 	Copyright (c) 2000, 2016, Oracle, MariaDB Corporation Ab and others.
-	
+
 	Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-	
+
 	MariaDB [(none)]>
 
 Next let's fill the database the all the data:
@@ -144,7 +144,7 @@ Next let's fill the database the all the data:
 	**************************************
 	*     Application In Production!     *
 	**************************************
-	
+
 	Do you really wish to run this command? y
 	Migration table created successfully.
 	Migrated: 2014_07_22_194050_initialize
@@ -171,19 +171,19 @@ Next install **bower** and **gulp** globally:
 	...
 	├── gulp-util@3.0.7 (array-differ@1.0.0, lodash._reevaluate@3.0.0, lodash._reinterpolate@3.0.0, lodash._reescape@3.0.0, beeper@1.1.1, array-uniq@1.0.3, object-assign@3.0.0, replace-ext@0.0.1, has-gulplog@0.1.0, fancy-log@1.2.0, gulplog@1.0.0, lodash.template@3.6.2, vinyl@0.5.3, through2@2.0.3, multipipe@0.1.2, dateformat@1.0.12)
 	└── vinyl-fs@0.3.14 (strip-bom@1.0.0
-	
+
 	bower@1.8.0 /usr/local/lib/node_modules/bower
 
 Now let's get all the **nodejs** packages:
 
 	<> cd /var/www/paperwork/frontend
 	<> npm install
-	
+
 	gulp-rename@1.2.2 node_modules/gulp-rename
 	...
 	...
 	└── less@2.7.1 (graceful-fs@4.1.11, mime@1.3.4, image-size@0.5.0, mkdirp@0.5.1, errno@0.1.4, source-map@0.5.6, promise@7.1.1)
-	
+
 	bower@1.8.0 node_modules/bower
 
 Same thing with **bower**:
@@ -235,7 +235,7 @@ Lastly go ahead and change ownership to apache:
 
 Then when you go to the application (**http://\<APACHE\>/paperwork/frontend/public**) it should redirect you to the login page:
 
-![pw-login-page](https://seacloud.cc/d/480b5e8fcd/files/?p=/paperwork-on-debian/pw-login-page.png&raw=1)
+![pw-login-page](https://raw.githubusercontent.com/elatov/upload/master/paperwork-on-debian/pw-login-page.png)
 
 Then register the first user (by clicking **Sign Up**) which will be the admin and if you want you can disable the registration by modifying the **app/storage/config/paperwork.json** file.
 
@@ -247,9 +247,9 @@ I was looking over [Using Apache in place of Nginx](https://github.com/twostairs
 		RewriteEngine on
 		RewriteRule ^(/paperwork/)?$ /paperwork/frontend/public [R=301,L]
 	</Directory>
-	
+
 	#Alias /paperwork /var/www/paperwork/frontend/public
-	
+
 	<Directory /var/www/paperwork/frontend/public/>
 	    Options Indexes FollowSymLinks
 	    AllowOverride All
@@ -291,10 +291,10 @@ Then do the update:
 	..
 	└── jshint@2.9.4 (strip-json-comments@1.0.4, exit@0.1.2, console-browserify@1.1.0, shelljs@0.3.0, minimatch@3.0.3, cli@1.0.1, htmlparser2@3.8.3, lodash@3.7.0)
 	Running npm run bower-update
-	
+
 	> @ bower-update /var/www/paperwork/frontend
 	> gulp bower-update
-	
+
 	[21:35:46] Using gulpfile /var/www/paperwork/frontend/gulpfile.js
 	[21:35:46] Starting 'bower-update'...
 	[21:35:46] Using cwd:  /var/www/paperwork/frontend
@@ -305,10 +305,10 @@ Then do the update:
 	[21:35:53] Finished 'bower-update' after 6.91 s
 	[21:35:53] Finished 'bower-update' after 6.91 s
 	Running npm run build
-	
+
 	> @ build /var/www/paperwork/frontend
 	> gulp
-	
+
 	[21:35:55] Using gulpfile /var/www/paperwork/frontend/gulpfile.js
 	[21:35:55] Starting 'compileLessBootstrapTheme'...
 	[21:35:55] Finished 'compileLessBootstrapTheme' after 7.44 ms

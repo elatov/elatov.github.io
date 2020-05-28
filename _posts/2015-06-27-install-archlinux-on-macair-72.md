@@ -91,14 +91,14 @@ Now let's **dd** the iso onto the USB (notice **/dev/disk2** vs **/dev/rdisk2**)
 ### Prepare for the Arch Linux Install
 After I rebooted, I held the *Option* key and I saw the USB drive as a bootable device. After I booted from it, I saw the following menu:
 
-![ArchLinux_Boot_Menu](https://seacloud.cc/d/480b5e8fcd/files/?p=/archlinux-macair/ArchLinux_Boot_Menu.jpg&raw=1)
+![ArchLinux_Boot_Menu](https://raw.githubusercontent.com/elatov/upload/master/archlinux-macair/ArchLinux_Boot_Menu.jpg)
 
 and after selecting the first menu I saw a shell:
 
     Arch Linux 4.0.4-2-ARCH (tty1)
 
     archiso login: root (automatic login)
-    root@archiso ~ # 
+    root@archiso ~ #
 
 
 Since the fedora install named the LVMs with the title of "**fedora**" I went ahead and renamed it to be generic, just so I know what's it used for:
@@ -252,7 +252,7 @@ Then I ran the following:
     Boot0000* Fedora
     Boot0080* Mac OS X
     Boot0081* Mac OS X
-    BootFFFF* 
+    BootFFFF*
     Boot0001* arch_grub
     Installation finished. No error reported.
 
@@ -288,7 +288,7 @@ After the reboot I saw the GRUB menu and Arch Linux was the only available optio
 #### Install Yaourt
 I was still using the usb tethering after I rebooted. Let's install the **yaourt** utitility which will allow us to install packages from AUR. We can just enable their repo and then install the necessary packages as per [this](https://wiki.archlinux.org/index.php/Unofficial_user_repositories#archlinuxfr) page:
 
-    [elatov@macair ~]$ tail -3 /etc/pacman.conf 
+    [elatov@macair ~]$ tail -3 /etc/pacman.conf
     [archlinuxfr]
     SigLevel=Never
     Server=http://repo.archlinux.fr/$arch
@@ -365,7 +365,7 @@ And now let's load the **wl** module:
 And now we will see our wireless card:
 
     [elatov@macair ~]$ ip link
-    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default 
+    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default
         link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     2: wlp3s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP mode DORMANT group default qlen 1000
         link/ether ge:ge:ge:ge:ge:ge brd ff:ff:ff:ff:ff:ff
@@ -443,7 +443,7 @@ Let's enable the display manager to start on boot:
 
 Here is track pad setup that worked well for me:
 
-    [elatov@air ~]$ cat /etc/X11/xorg.conf.d/60-synaptics.conf 
+    [elatov@air ~]$ cat /etc/X11/xorg.conf.d/60-synaptics.conf
     Section "InputClass"
       Identifier "touchpad"
       Driver "synaptics"
@@ -473,7 +473,7 @@ To fix the **~** (Tilde) key I ended up adding the following to GRUB menu:
 
 To make sure the **xbacklight** utility works, set the following GRUB option:
 
-    [elatov@macair ~]$ grep LINUX_D /etc/default/grub 
+    [elatov@macair ~]$ grep LINUX_D /etc/default/grub
     GRUB_CMDLINE_LINUX_DEFAULT="quiet acpi_backlight=vendor"
 
 For the above options I had to regenerate the GRUB menu.

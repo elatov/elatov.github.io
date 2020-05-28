@@ -12,7 +12,7 @@ I wanted to try out [teffaform](https://www.terraform.io/intro/index.html). I ha
 * [Deploying vSphere VM with Terraform](https://emilwypych.com/2017/02/26/deploying-vsphere-vm-with-terraform/)
 * [A Simple Terraform on vSphere Build](http://blog.codybunch.com/2017/03/08/A-Simple-Terraform-on-vSphere-Build/)
 
-One thing you will notice is that **terraform** can create a VM from a template but it looks like you need to have vCenter for that (discussed here [Is vmware vCenter server necessary for esxi + terraform](https://stackoverflow.com/questions/38796466/is-vmware-vcenter-server-necessary-for-esxi-terraform)). It looks like you can copy a VMDK from the machine you are running **terraform** on ([vsphere_file - error datacenter '' not found](https://github.com/hashicorp/terraform/issues/9253)), but that sounds network intensive. 
+One thing you will notice is that **terraform** can create a VM from a template but it looks like you need to have vCenter for that (discussed here [Is vmware vCenter server necessary for esxi + terraform](https://stackoverflow.com/questions/38796466/is-vmware-vcenter-server-necessary-for-esxi-terraform)). It looks like you can copy a VMDK from the machine you are running **terraform** on ([vsphere_file - error datacenter '' not found](https://github.com/hashicorp/terraform/issues/9253)), but that sounds network intensive.
 
 Last caveat, it looks like we need to define an empty **resource pool** when using a standalone ESXi host:
 
@@ -49,11 +49,11 @@ So first let's download the alpha package:
 Then install the prereqs:
 
 	$ sudo apt install libcurl3 libunwind8
-	
+
 And then install the package:
 
 	$ sudo dpkg -i powershell_6.0.0-alpha.18-1ubuntu1.16.04.1_amd64.deb
- 
+
 Next let's install PowerCLI, first download the module:
 
 	$ wget https://download3.vmware.com/software/vmw-tools/powerclicore/PowerCLI_Core.zip
@@ -74,8 +74,8 @@ Lastly let's do a test login:
 	Please specify server credential
 	User: root
 	Password for user root: ********
-	
-	
+
+
 	Name                           Port  User
 	----                           ----  ----
 	192.168.1.109                  443   root
@@ -83,7 +83,7 @@ Lastly let's do a test login:
 Pretty cool huh :) To get the Datacenter name we can just run the following (after you have logged in):
 
 	PS /home/elatov> Get-Datacenter
-	
+
 	Name
 	----
 	ha-datacenter
@@ -101,7 +101,7 @@ A lot of the basics are covered in:
 * [Data Source Configuration](https://www.terraform.io/docs/configuration/data-sources.html)
   *   > Data sources allow data to be fetched or computed for use elsewhere in Terraform configuration. Use of data sources allows a Terraform configuration to build on information defined outside of Terraform, or defined by another separate Terraform configuration.
 *   [Input Variable Configuration](https://www.terraform.io/docs/configuration/variables.html)
-	* > For all files which match terraform.tfvars or *.auto.tfvars present in the current directory, Terraform automatically loads them to populate variables.    
+	* > For all files which match terraform.tfvars or *.auto.tfvars present in the current directory, Terraform automatically loads them to populate variables.
 
 So let's create 3 files:
 
@@ -110,10 +110,10 @@ So let's create 3 files:
 	├── terraform.tfvars
 	├── test.tf
 	└── variables.tf
- 
+
 *  **terraform.tfvars** contains the credentials for the vsphere login
 *  **test.tf** contains most of the infrastructure definition (this is just a single VM in my example, but could be much larger)
-*  **variables.tf** contains the variables which can be passed into the **test.tf** file for processing. 
+*  **variables.tf** contains the variables which can be passed into the **test.tf** file for processing.
 
 Here is how my files looked like in the end:
 
@@ -125,29 +125,29 @@ Here is how my files looked like in the end:
 	    password = "${var.vsphere_password}"
 	    allow_unverified_ssl = true
 	}
-	
+
 	## Build VM
 	data "vsphere_datacenter" "dc" {
 	  name = "ha-datacenter"
 	}
-	
+
 	data "vsphere_datastore" "datastore" {
 	  name          = "datastore1"
 	  datacenter_id = "${data.vsphere_datacenter.dc.id}"
 	}
-	
+
 	data "vsphere_resource_pool" "pool" {}
-	
+
 	data "vsphere_network" "mgmt_lan" {
 	  name          = "VM_VLAN1"
 	  datacenter_id = "${data.vsphere_datacenter.dc.id}"
 	}
-	
+
 	resource "vsphere_virtual_machine" "test2" {
 	  name             = "test2"
 	  resource_pool_id = "${data.vsphere_resource_pool.pool.id}"
 	  datastore_id     = "${data.vsphere_datastore.datastore.id}"
-	
+
 	  num_cpus   = 1
 	  memory     = 2048
 	  wait_for_guest_net_timeout = 0
@@ -157,7 +157,7 @@ Here is how my files looked like in the end:
 	   network_id     = "${data.vsphere_network.mgmt_lan.id}"
 	   adapter_type   = "vmxnet3"
 	  }
-	
+
 	  disk {
 	   size             = 16
 	   name             = "test2.vmdk"
@@ -179,7 +179,7 @@ And here is the last one:
 	vsphere_server = "192.168.1.109"
 	vsphere_user = "root"
 	vsphere_password = "password"
-	
+
 Now we are ready to create our infrastructure.
 
 ### Applying the Terraform Configuration files
@@ -187,27 +187,27 @@ First initialize **terraform** which will also install any plugins that you need
 
 	<> cd test
 	<> terraform init
-	
+
 	Initializing provider plugins...
 	- Checking for available provider plugins on https://releases.hashicorp.com...
 	- Downloading plugin for provider "vsphere" (1.1.1)...
-	
+
 	The following providers do not have any version constraints in configuration,
 	so the latest version was installed.
-	
+
 	To prevent automatic upgrades to new major versions that may contain breaking
 	changes, it is recommended to add version = "..." constraints to the
 	corresponding provider blocks in configuration, with the constraint strings
 	suggested below.
-	
+
 	* provider.vsphere: version = "~> 1.1"
-	
+
 	Terraform has been successfully initialized!
-	
+
 	You may now begin working with Terraform. Try running "terraform plan" to see
 	any changes that are required for your infrastructure. All Terraform commands
 	should now work.
-	
+
 	If you ever set or change modules or backend configuration for Terraform,
 	rerun this command to reinitialize your working directory. If you forget, other
 	commands will detect it and remind you to do so if necessary.
@@ -218,20 +218,20 @@ Now let's make sure the plan is okay:
 	Refreshing Terraform state in-memory prior to plan...
 	The refreshed state will be used to calculate this plan, but will not be
 	persisted to local or remote state storage.
-	
+
 	data.vsphere_resource_pool.pool: Refreshing state...
 	data.vsphere_datacenter.dc: Refreshing state...
 	data.vsphere_datastore.datastore: Refreshing state...
 	data.vsphere_network.mgmt_lan: Refreshing state...
-	
+
 	------------------------------------------------------------------------
-	
+
 	An execution plan has been generated and is shown below.
 	Resource actions are indicated with the following symbols:
 	  + create
-	
+
 	Terraform will perform the following actions:
-	
+
 	  + vsphere_virtual_machine.test2
 	      id:                                        <computed>
 	      boot_retry_delay:                          "10000"
@@ -299,12 +299,12 @@ Now let's make sure the plan is okay:
 	      vmware_tools_status:                       <computed>
 	      vmx_path:                                  <computed>
 	      wait_for_guest_net_timeout:                "0"
-	
-	
+
+
 	Plan: 1 to add, 0 to change, 0 to destroy.
-	
+
 	------------------------------------------------------------------------
-	
+
 	Note: You didn't specify an "-out" parameter to save this plan, so Terraform
 	can't guarantee that exactly these actions will be performed if
 	"terraform apply" is subsequently run.
@@ -316,13 +316,13 @@ It looks like it will create one 1 VM which greate, so now let's apply it:
 	data.vsphere_datacenter.dc: Refreshing state...
 	data.vsphere_network.mgmt_lan: Refreshing state...
 	data.vsphere_datastore.datastore: Refreshing state...
-	
+
 	An execution plan has been generated and is shown below.
 	Resource actions are indicated with the following symbols:
 	  + create
-	
+
 	Terraform will perform the following actions:
-	
+
 	  + vsphere_virtual_machine.test2
 	      id:                                        <computed>
 	      boot_retry_delay:                          "10000"
@@ -390,16 +390,16 @@ It looks like it will create one 1 VM which greate, so now let's apply it:
 	      vmware_tools_status:                       <computed>
 	      vmx_path:                                  <computed>
 	      wait_for_guest_net_timeout:                "0"
-	
-	
+
+
 	Plan: 1 to add, 0 to change, 0 to destroy.
-	
+
 	Do you want to perform these actions?
 	  Terraform will perform the actions described above.
 	  Only 'yes' will be accepted to approve.
-	
+
 	  Enter a value: yes
-	
+
 	vsphere_virtual_machine.test2: Creating...
 	  boot_retry_delay:                          "" => "10000"
 	  change_version:                            "" => "<computed>"
@@ -467,12 +467,12 @@ It looks like it will create one 1 VM which greate, so now let's apply it:
 	  vmx_path:                                  "" => "<computed>"
 	  wait_for_guest_net_timeout:                "" => "0"
 	vsphere_virtual_machine.test2: Creation complete after 1s (ID: 564d35b6-17f3-dffe-4236-8294cf3196d0)
-	
+
 	Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 
 Now if we login to vsphere client we will see the VM created in the **Events**:
 
-![terraform-create-vm.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/terraform-esxi/terraform-create-vm.png&raw=1)
+![terraform-create-vm.png](https://raw.githubusercontent.com/elatov/upload/master/terraform-esxi/terraform-create-vm.png)
 
 After a successful deploy, let's destroy the vm (just to clean up):
 
@@ -482,29 +482,29 @@ After a successful deploy, let's destroy the vm (just to clean up):
 	data.vsphere_network.mgmt_lan: Refreshing state...
 	data.vsphere_datastore.datastore: Refreshing state...
 	vsphere_virtual_machine.test2: Refreshing state... (ID: 564d35b6-17f3-dffe-4236-8294cf3196d0)
-	
+
 	An execution plan has been generated and is shown below.
 	Resource actions are indicated with the following symbols:
 	  - destroy
-	
+
 	Terraform will perform the following actions:
-	
+
 	  - vsphere_virtual_machine.test2
-	
-	
+
+
 	Plan: 0 to add, 0 to change, 1 to destroy.
-	
+
 	Do you really want to destroy?
 	  Terraform will destroy all your managed infrastructure, as shown above.
 	  There is no undo. Only 'yes' will be accepted to confirm.
-	
+
 	  Enter a value: yes
-	
+
 	vsphere_virtual_machine.test2: Destroying... (ID: 564d35b6-17f3-dffe-4236-8294cf3196d0)
 	vsphere_virtual_machine.test2: Destruction complete after 0s
-	
+
 	Destroy complete! Resources: 1 destroyed.
 
 And we will see the corresponding **Events** for that as well:
 
-![terraform-destroy-vm.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/terraform-esxi/terraform-destroy-vm.png&raw=1)
+![terraform-destroy-vm.png](https://raw.githubusercontent.com/elatov/upload/master/terraform-esxi/terraform-destroy-vm.png)

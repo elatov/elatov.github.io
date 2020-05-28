@@ -13,24 +13,24 @@ I decided to play around with vCloud Air (VMware's solution for a public cloud).
 ### Basic Network Connectivity
 By default most of the traffic is blocked and no NAT is configured so you can't reach the external network. First let's get a public IP. In vCloud air go to **Gateways** -> **GATEWAY ON VDC1** -> **Public IPs** and initially it will look like this:
 
-![vca-no-pub-ips](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/vca-no-pub-ips.png&raw=1)
+![vca-no-pub-ips](https://raw.githubusercontent.com/elatov/upload/master/vcloud_air_test/vca-no-pub-ips.png)
 
 Then click on **Add IP Address** and it will warn you about getting charged and after that it will allocate the IP and you will see the following:
 
-![vca-pub-ip-assigned](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/vca-pub-ip-assigned.png&raw=1)
+![vca-pub-ip-assigned](https://raw.githubusercontent.com/elatov/upload/master/vcloud_air_test/vca-pub-ip-assigned.png)
 
 Now let's create the SNAT, so any machine can reach the internet. Go to **Gateways** -> **GATEWAY ON VDC1** -> **NAT Rules** -> **Add a NAT Rule** and fill out the following:
 
-![vca-snat-rule](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/vca-snat-rule.png&raw=1)
+![vca-snat-rule](https://raw.githubusercontent.com/elatov/upload/master/vcloud_air_test/vca-snat-rule.png)
 
 This is also referred to as IP Masquerading. The firewall is pretty restrictive as well, so go to **Gateways** -> **GATEWAY ON VDC1** -> **Firewall Rules** and the following basic rules:
 
-![vca-basic-outbound-fw-rules](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/vca-basic-outbound-fw-rules.png&raw=1)
+![vca-basic-outbound-fw-rules](https://raw.githubusercontent.com/elatov/upload/master/vcloud_air_test/vca-basic-outbound-fw-rules.png)
 
 
 I spun up a test VM and made sure everything was working as expected:
 
-![vca-vm-cons-test-net](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/vca-vm-cons-test-net.png&raw=1)
+![vca-vm-cons-test-net](https://raw.githubusercontent.com/elatov/upload/master/vcloud_air_test/vca-vm-cons-test-net.png)
 
 ###Adding a second Organization Network
 
@@ -38,36 +38,36 @@ vCloud Director offers many different networking options, most of them are cover
 
 > **5.4.1.5. Direct - External Organization Virtual Datacenter Network (Routed)**
 > If the same example vApp with three virtual machines is connected to an organization virtual datacenter network that has a routed connection to an external network, the vApp is connected to an organization virtual datacenter network and is deployed there with the organization virtual datacenter networkâs IP addressing. The Edge Gateway device then provides a routed connection between the organization virtual datacenter network and the external network. This scenario is shown in the following figure.
-> 
+>
 > **Figure 11. Direct Connection to a Routed External Organization Virtual Datacenter Network**
-> 
+>
 > ![vca-vcloud-routed-net-diag](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/vca-vcloud-routed-net-diag.png&raw=1)
 
 
 And it looks like this in vCloud Director (Navigate to **Administration** -> **Virtual Datacenters** -> **VCD1** -> **Org VDC Networks**):
 
-![vca-vcloud-org-networks-def](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/vca-vcloud-org-networks-def.png&raw=1)
+![vca-vcloud-org-networks-def](https://raw.githubusercontent.com/elatov/upload/master/vcloud_air_test/vca-vcloud-org-networks-def.png)
 
 So let's another routed network just to have two different subnets that we'll connect to each other. So click the **green +** and it will start the wizard. Choose the **routed** option:
 
-![vca-net-wiz-routed-net](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/vca-net-wiz-routed-net.png&raw=1)
+![vca-net-wiz-routed-net](https://raw.githubusercontent.com/elatov/upload/master/vcloud_air_test/vca-net-wiz-routed-net.png)
 
 I then added the following network details on the next page:
 
-![vca-net-wiz-add-route-net-info](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/vca-net-wiz-add-route-net-info.png&raw=1)
+![vca-net-wiz-add-route-net-info](https://raw.githubusercontent.com/elatov/upload/master/vcloud_air_test/vca-net-wiz-add-route-net-info.png)
 
 And after that you will have two networks:
 
-![vca-two-routed-org-nets](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/vca-two-routed-org-nets.png&raw=1)
+![vca-two-routed-org-nets](https://raw.githubusercontent.com/elatov/upload/master/vcloud_air_test/vca-two-routed-org-nets.png)
 
 ###DNAT to an Internal Web Server
 Let's add a DNAT (or a port forward) from Public IP port 443 to the Internal portal IP port 443. So in vCloud Air navigate to **Gateways** -> **GATEWAY ON VDC1** -> **NAT Rules** -> **Add a NAT Rule** and add the following DNAT:
 
-![vca-dnat-rule-port-443](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/vca-dnat-rule-port-443.png&raw=1)
+![vca-dnat-rule-port-443](https://raw.githubusercontent.com/elatov/upload/master/vcloud_air_test/vca-dnat-rule-port-443.png)
 
 On the next page if you are really organized you can also add a similar rule for 80. Also don't forget to allow the firewall to access port 80 and 443 on the public IP and the internal network. I ended up created the following rules to allow that traffic:
 
-![vca-dnat-firewall-rules](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/vca-dnat-firewall-rules.png&raw=1)
+![vca-dnat-firewall-rules](https://raw.githubusercontent.com/elatov/upload/master/vcloud_air_test/vca-dnat-firewall-rules.png)
 
 A quick test with telnet showed that I can reach the internal machine. So from my laptop I ran the following:
 
@@ -77,25 +77,25 @@ A quick test with telnet showed that I can reach the internal machine. So from m
 
 And on my test VM running a **tcpdump** showed the following:
 
-![vca-vm-console-tcpdump-80](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/vca-vm-console-tcpdump-80.png&raw=1)
+![vca-vm-console-tcpdump-80](https://raw.githubusercontent.com/elatov/upload/master/vcloud_air_test/vca-vm-console-tcpdump-80.png)
 
 ###Establishing the IPSec Tunnel To Local Environment
 
 There is a pretty good KB on the process from VMware: [Configuring IPsec VPN within VMware vCloud Air to a remote network](http://kb.vmware.com/kb/2051370) and there is a pretty good diagram that represents all the networks:
 
-![vca-ipsec-diag](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/vca-ipsec-diag.png&raw=1)
+![vca-ipsec-diag](https://raw.githubusercontent.com/elatov/upload/master/vcloud_air_test/vca-ipsec-diag.png)
 
 My local networks is the second routed network which is the **10.10.10.0/24** network and my peer network is the **192.168.1.0/16** network which is the  internal network at home. So to start this configuration from vCloud Air go to  **Gateways** -> **GATEWAY ON VDC1**, then click on **Manage in vCloud director**:
 
-![vca-mgmt-gw-in-vcloud-dir](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/vca-mgmt-gw-in-vcloud-dir.png&raw=1)
+![vca-mgmt-gw-in-vcloud-dir](https://raw.githubusercontent.com/elatov/upload/master/vcloud_air_test/vca-mgmt-gw-in-vcloud-dir.png)
 
 Once in vCloud Director go to **Administration** -> **Virtual Datacenters** -> **VCD1** -> **Edge Gateways** and right click on the default GW to choose **Edge Gateway Services**:
 
-![vca-edge-gw-ser-but](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/vca-edge-gw-ser-but.png&raw=1)
+![vca-edge-gw-ser-but](https://raw.githubusercontent.com/elatov/upload/master/vcloud_air_test/vca-edge-gw-ser-but.png)
 
 Then go to the **VPN** tab and click **Enable VPN** and then **Add**:
 
-![vca-conf-gw-vpn-tab](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/vca-conf-gw-vpn-tab.png&raw=1)
+![vca-conf-gw-vpn-tab](https://raw.githubusercontent.com/elatov/upload/master/vcloud_air_test/vca-conf-gw-vpn-tab.png)
 
 After clicking Add the wizard will start, here are the configurations I ended up using:
 
@@ -198,9 +198,9 @@ We also need to create an **ipsec.secrets** file which has the PSK. Here is what
 	# /etc/ipsec.secrets - strongSwan IPsec secrets file
 	192.168.1.248 107.189.120.76 : PSK "XXXXXX5gB3wsQ4M8rh5a"
 
-I used the format of:  
+I used the format of:
 
-> LOCAL_IP PEER_IP : PSK "SHARED_KEY". 
+> LOCAL_IP PEER_IP : PSK "SHARED_KEY".
 
 The **Shared Key** is copied from the vCloud configuration. Then starting the tunnel, I saw the following in the logs:
 
@@ -265,48 +265,48 @@ To allow traffic to traverse the CentOS machine make sure your **FORWARD** iptab
 
 After all the above is done, if you go back to vCloud Director you will see the VPN connection is good:
 
-![vca-ipsec-established_m](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/vca-ipsec-established_m.png&raw=1)
+![vca-ipsec-established_m](https://raw.githubusercontent.com/elatov/upload/master/vcloud_air_test/vca-ipsec-established_m.png)
 
 ### vCloud Air Load Balancing
 
 I decided to try out the LB functionality of vCloud Air. So I created two VMs and installed Apache on both:
 
-![vca-two-vms-created](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/vca-two-vms-created.png&raw=1)
+![vca-two-vms-created](https://raw.githubusercontent.com/elatov/upload/master/vcloud_air_test/vca-two-vms-created.png)
 
 #### Configure LB Pool Members
 
 Then in vCloud Director navigate to **Administration** -> **Virtual Datacenters** -> **VDC1** -> **Edge Gateways** right click on gateway and choose **Edge Gateway Services**:
 
-![vca-edge-gw-ser-but](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/vca-edge-gw-ser-but.png&raw=1)
+![vca-edge-gw-ser-but](https://raw.githubusercontent.com/elatov/upload/master/vcloud_air_test/vca-edge-gw-ser-but.png)
 
 Then go to the **Load Balancer** tab and click **Add** under the Pool Servers subsection. For services I ended up using *IP Hash* for balancing:
 
-![vca-lb-ip-hash-pool](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/vca-lb-ip-hash-pool.png&raw=1)
+![vca-lb-ip-hash-pool](https://raw.githubusercontent.com/elatov/upload/master/vcloud_air_test/vca-lb-ip-hash-pool.png)
 
 Then for monitoring I just used port monitoring of port 80:
 
-![vca-port-monitoring](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/vca-port-monitoring.png&raw=1)
+![vca-port-monitoring](https://raw.githubusercontent.com/elatov/upload/master/vcloud_air_test/vca-port-monitoring.png)
 
 and I added both of the members to the pool:
 
-![vca-lb-members](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/vca-lb-members.png&raw=1)
+![vca-lb-members](https://raw.githubusercontent.com/elatov/upload/master/vcloud_air_test/vca-lb-members.png)
 
 After it's done you will see the following under the **Pool** subsection:
 
-![lb-pool-mem-overview](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/lb-pool-mem-overview.png&raw=1)
+![lb-pool-mem-overview](https://raw.githubusercontent.com/elatov/upload/master/vcloud_air_test/lb-pool-mem-overview.png)
 
 
 #### Configure LB Virtual Servers
 
 Now let's configure the Virtual VIP of the cluster. So go to the **Virtual Servers** subsection of the **Load Balancer** Tab, click **add** and configure the following:
 
-![vca-lb-vip-settings](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/vca-lb-vip-settings.png&raw=1)
+![vca-lb-vip-settings](https://raw.githubusercontent.com/elatov/upload/master/vcloud_air_test/vca-lb-vip-settings.png)
 
 Looking over [Introduction to Gateway Services: Load Balancing](https://docs.ovh.com/gb/en/load-balancer/loadbalancer-introduction/)  they use the Public IP for the VIP and that makes sense. If we really wanted we could assign a private IP to the VIP and then do a DNAT at the firewall to go from Public_IP:443 to Private_VIP:443 (but I think that would cause all the traffic to come from the Internal IP and the IP Hash balancing algorithm won't help).
 
 After it's done you will see the following under the **Virtual Servers** Subsection:
 
-![vca-lb-vip-set-overview](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/vca-lb-vip-set-overview.png&raw=1)
+![vca-lb-vip-set-overview](https://raw.githubusercontent.com/elatov/upload/master/vcloud_air_test/vca-lb-vip-set-overview.png)
 
 #### Testing out Load Balancing
 
@@ -347,7 +347,7 @@ I also logged from two different machines and the persistence stuck. Another thi
 
 And in the logs (instructions on configuring remote syslog is below) pretty instantly you will see the LB take that guy out of rotation:
 
-![lb_syslog-lb-node-down](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/lb_syslog-lb-node-down.png&raw=1)
+![lb_syslog-lb-node-down](https://raw.githubusercontent.com/elatov/upload/master/vcloud_air_test/lb_syslog-lb-node-down.png)
 
 And upon visiting the webserver I was forwarded to only live node. Then on the dead machine I started the service back up:
 
@@ -355,7 +355,7 @@ And upon visiting the webserver I was forwarded to only live node. Then on the d
 
 and in the logs I saw the following:
 
-![lb-syslog-node-back-up](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/lb-syslog-node-back-up.png&raw=1)
+![lb-syslog-node-back-up](https://raw.githubusercontent.com/elatov/upload/master/vcloud_air_test/lb-syslog-node-back-up.png)
 
 And was well with the world.
 
@@ -363,7 +363,7 @@ And was well with the world.
 
 We can also check out the LB logs by enabling logs for the LB configuration and then configure a syslog server which can receive syslog messages. Here is the checkbox from the LB configuration:
 
-![lb-enable-loggins](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/lb-enable-loggins.png&raw=1)
+![lb-enable-loggins](https://raw.githubusercontent.com/elatov/upload/master/vcloud_air_test/lb-enable-loggins.png)
 
 Since I had a Centos machine in my testing environment, I decided to make it a syslog server. So on the CentOS machine install **rsyslog**:
 
@@ -379,12 +379,12 @@ Then allow UDP 514 to the Syslog server on the machine it self:
 	iptables -L -n -v | grep 514
 	0   0   ACCEPT  udp --      *       *       0.0.0.0/0           0.0.0.0/0       state NEW udp dpt:514
 
- 
+
 
 
 And also at the vCloud Air level as well:
 
-![vca-fw-allow-udp-syslog](https://seacloud.cc/d/480b5e8fcd/files/?p=/vcloud_air_test/vca-fw-allow-udp-syslog.png&raw=1)
+![vca-fw-allow-udp-syslog](https://raw.githubusercontent.com/elatov/upload/master/vcloud_air_test/vca-fw-allow-udp-syslog.png)
 
 
 ### Enable Sending Syslog to a Remote Machine in vCloud Air
@@ -392,18 +392,18 @@ And also at the vCloud Air level as well:
 It looks like we need to use the Rest API to enable the syslog server. All of the instructions are laid out in [Manage the System Logs for an Edge Gateway](https://pubs.vmware.com/vca/index.jsp?topic=%2Fcom.vmware.vca.ans.api.doc%2FGUID-C22C0A41-CE0D-4A37-B0C4-ABC4454D5F19.html). I also ran into a cool cli ([vmware/vca-cli](https://github.com/vmware/vca-cli)), so I went ahead and installed it on my MAC:
 
 	elatov@macair:~$sudo port install py27-pip
-	
+
 	elatov@macair:~$sudo port select --set pip pip27
 	Selecting 'pip27' for 'pip' succeeded. 'pip27' is now active.
 	elatov@macair:~$which pip
 	/opt/local/bin/pip
 	elatov@macair:~$pip -V
 	pip 7.1.2 from /opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages (python 2.7)
-		
+
 	elatov@macair:~$sudo pip install vca-cli
-	 
+
 	elatov@macair:~$sudo ln -s /opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/vca /usr/local/bin/
-	 
+
 	elatov@macair:~$vca -v
 	vca-cli version 14 (pyvcloud: 14)
 	Now let's login and try to get the IP of Edge Gateway:
@@ -411,30 +411,30 @@ It looks like we need to use the Rest API to enable the syslog server. All of th
 	Password:
 	User 'elatov@test.com' logged in, profile 'default'
 	Password encrypted and saved in local profile. Use --do-not-save-password to disable it.
-	
+
 	elatov@macair:~$vca instance
 	Available instances for user 'elatov@test.com', profile 'default':
 	| Service Group   | Region            | Plan                           | Instance Id                          | Selected   |
 	|-----------------+-------------------+--------------------------------+--------------------------------------+------------|
 	| SVC_GROUP      | us-california-1-3 | Virtual Private Cloud OnDemand | INSTANCE_ID |            |
 	Then we can use that instance and get it's gateway information:
-	
+
 	elatov@macair:~$vca instance use --instance INSTANCE_ID
 	Using instance:org 'INSTANCE_ID':'INSTANCE_ID', profile 'default'
 	Using VDC 'VDC1', profile 'default'
 	Here is the actual command to complete the setup:
-	
+
 	elatov@macair:~$ $ vca gateway
 	Available gateways in 'VDC1', profile 'default':
 	| Name    | External IPs   | DHCP   | Firewall   | NAT   | VPN   | Routed Networks                          | Syslog   | Uplinks     | Selected   |
 	|---------+----------------+--------+------------+-------+-------+------------------------------------------+----------+-------------+------------|
 	| gateway | 107.189.120.76 | Off    | On         | On    | On    | routed-network-2, default-routed-network |          | d2p3v40-ext | *          |
-	
+
 	elatov@macair:~$ $ vca gateway set-syslog --gateway gateway --ip 10.10.10.4
 	| Start Time          | Duration      | Status   |
 	|---------------------+---------------+----------|
 	| 2015-09-14 18:37:58 | 0 mins 5 secs | success  |
-	
+
 	elatov@macair:~$ $ vca gateway
 	Available gateways in 'VDC1', profile 'default':
 	| Name    | External IPs   | DHCP   | Firewall   | NAT   | VPN   | Routed Networks                          | Syslog     | Uplinks     | Selected   |
@@ -480,7 +480,7 @@ Then we can use that **vchs-authorization** header to get the rest of the inform
 	Via: 1.1 vca.vmware.com
 	Connection: close
 
- 
+
 
 
 	$curl -i -X GET -H "Accept: application/json;version=5.7" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJhdWQiOlsibm9uZSJdLCJzY29wZSI6WyIxIl0sImdyYW50X3R5cGUiOiJpbXBsaWNpdCIsInN1YiI6IjAzNTI1MDkzLWMwNGUtNDAxOS04NDBjLTU3MmVkM2ZiNDUwZiIsImVtYWlsIjoia2FyaW0uZWxhdG92QHJzYS5jb20iLCJ1c2VyX2lkIjoiMDM1MjUwOTMtYzA0ZS00MDE5LTg0MGMtNTcyZWQzZmI0NTBmIiwidXNlcl9uYW1lIjoia2FyaW0uZWxhdG92QHJzYS5jb20iLCJjb21wYW55X2lkIjoiYTlmOTdhNmQtZGI0Ni00NjExLWEzMzItNmUyMTlmOGY2YWE1IiwiY29tcGFueV9uYW1lIjoiS2FyaW0gRWxhdG92IiwiY3VzdG9tZXJfbnVtYmVyIjoiMTMwMjMwNzQ5MyIsInZlcnNpb24iOiIxLjAiLCJzZ19pZCI6WyJhY2VhYjQyMS0zMDdkLTQzMDUtYWM4MC1hMzZmYjAxOGQzOGQiXSwicGxhbnMiOltdLCJleHAiOjE0NDIyNzExODUsImlhdCI6MTQ0MjI3MDI4NSwiaXNzIjoiaHR0cHM6Ly9pYW0udmNocy52bXdhcmUuY29tL29hdXRoL3Rva2VuIiwiY2xpZW50X2lkIjoidmNoc19zYyIsImp0aSI6IjVmMmViMzc3LTE4ZWMtNDZmNy04YTk2LWY1YWVmYjBiZTY1NiJ9.f21e_PuuBdHamZe8F8IBz_kaCU64i1B6q9NPZKelLQ_Vg5oI4KIVLsS03GWVjRbtR32pOGgZtHh7x2usqUcVZ9QAxQI9_lcjnO7fcYt6JBAOA8N2OaaKiYOz-hnDukcdvVB5RhWnpysaa43RkCEs73WXgQ_8_b6_UB0xxrgxP5ZSbfJldSToExoGnb_KX65DhfgrMKY-6Oip5zA63qUnl8XAT1Ro2Ffj9YqJ9S7-jXDEAsoMz8vqzg44bW2v3rtXWYDr6Z9Sr_eY1NwHTYji09FFJQquao98iB_6SJA2bWEfX-hbgJslHRtr6VjVH98UuNwGYsuPIucyDo7b8Sxjrg" https://vca.vmware.com/api/sc/instances
@@ -500,20 +500,20 @@ Then we can use that **vchs-authorization** header to get the rest of the inform
 	{"instances":[{"link":[],"description":"Create virtual machines, and easily scale up or down as your needs change.","region":"us-california-1-3.vchs.vmware.com","instanceVersion":"1.0","planId":"region:us-california-1-3.vchs.vmware.com:planID:c65d5821-aa97-4141-915a-7d7eab0a9d51","serviceGroupId":"aceab421-307d-4305-ac80-a36fb018d38d","apiUrl":"https://us-california-1-3.vchs.vmware.com/api/compute/api/org/INSTANCE_ID","dashboardUrl":"https://us-california-1-3.vchs.vmware.com/api/compute/compute/ui/index.html?orgName=INSTANCE_ID&serviceInstanceId=INSTANCE_ID&servicePlan=c65d5821-aa97-4141-915a-7d7eab0a9d51","instanceAttributes":"{\"orgName\":\"INSTANCE_ID\",\"sessionUri\":\"https://us-california-1-3.vchs.vmware.com/api/compute/api/sessions\",\"apiVersionUri\":\"https://us-california-1-3.vchs.vmware.com/api/compute/api/versions\"}","id":"INSTANCE_ID","name":"Virtual Private Cloud OnDemand"}]}
 
 Now to actually get to your vcloud instance we have to use another URL and more information (**username@ORG: Password**) in the encoded *base64* authorization header:
-​	
+​
 The **ORG** is seen in the last output:
-​	
+​
 ​	\"orgName\":\"INSTANCE_ID\"
 
 and to get a list of available URLs that we have access to, we can query the session URL, also seen in the above output:
-​	
+​
 ​	"sessionUri\":\"https://us-california-1-3.vchs.vmware.com/api/compute/api/sessions\",
 
 Here is the example of authenticating to the compute services:
 
 	$ echo -n "elatov@test.com@INSTANCE_ID:PASSWORD" | base64
 	a2FyaW0uZWxhdG92QHJzYS5jb21ANjVlODFiMmQtNmQ1MC00ZmFhLWJjODgtNDhlMWQ5ZGNhZTM0OlBAc3N3MHJkMQ==
-	 
+
 	$curl -i -X POST -H "Accept: application/*+xml;version=5.11" -H "Authorization: Basic a2FyaW0uZWxhdG92QHJzYS5jb21ANjVlODFiMmQtNmQ1MC00ZmFhLWJjODgtNDhlMWQ5ZGNhZTM0OlBAc3N3MHJkMQ==" https://us-california-1-3.vchs.vmware.com/api/compute/api/sessions
 	HTTP/1.1 200 OK
 	Date: Tue, 15 Sep 2015 00:15:46 GMT
@@ -592,7 +592,7 @@ So from the above output our gateway URL is the following:
 
 Looking over [SyslogServerType](http://pubs.vmware.com/vca/index.jsp?topic=%2Fcom.vmware.vcloud.api.reference.doc_511%2Fdoc%2Ftypes%2FSyslogServerType.html&resultof=%22configureSyslogServerSettings%2e%22%20%22configuresyslogserverset%22%20) it has the following table:
 
-{:.kt} 
+{:.kt}
 | CRUD | Operation | Description | Since | Deprecated |
 |------|-----------|-------------|-------|------------|
 |as input| POST /admin/edgeGateway/{id}/action/configureSyslogServerSettings |	Configure Syslog server settings for the org vdc edge gateway |5.11 |

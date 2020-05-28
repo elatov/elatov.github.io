@@ -90,7 +90,7 @@ Initially I wanted to use **flannel** for networking, so I created the following
 	core # cat /etc/systemd/system/flanneld.service.d/40-ExecStartPre-symlink.conf
 	[Service]
 	ExecStartPre=/usr/bin/ln -sf /etc/flannel/options.env /run/flannel/options.env
-	
+
 From my previous config with **flannel**, I already had a network defined:
 
 	core ~ # etcdctl get /coreos.com/network/config
@@ -313,7 +313,7 @@ Now we just need to apply the configs and start up all the pods. First reload al
 And then lastly start the kubelet service:
 
 	core # systemd start kubelet
-	
+
 You should see something like this for the status:
 
 	core ~ # systemctl status kubelet -f
@@ -331,7 +331,7 @@ You should see something like this for the status:
 	   CGroup: /system.slice/kubelet.service
 	           ├─29076 /kubelet --api-servers=http://127.0.0.1:8080 --register-schedulable=false --network-plugin=cni --container-runtime=docker --allow-privileged=true --pod-manifest-path=/etc/kubernetes/manifests --hostname-override=192.168.1
 	           └─29126 journalctl -k -f
-	
+
 	Nov 11 09:48:36 core kubelet-wrapper[29076]: I1111 16:48:36.457532   29076 factory.go:54] Registering systemd factory
 	Nov 11 09:48:36 core kubelet-wrapper[29076]: I1111 16:48:36.457990   29076 factory.go:86] Registering Raw factory
 	Nov 11 09:48:36 core kubelet-wrapper[29076]: I1111 16:48:36.458352   29076 manager.go:1106] Started watching for new ooms in manager
@@ -341,7 +341,7 @@ You should see something like this for the status:
 	Nov 11 09:48:36 core kubelet-wrapper[29076]: I1111 16:48:36.553148   29076 kubelet_node_status.go:74] Attempting to register node 192.168.1.106
 	Nov 11 09:48:36 core kubelet-wrapper[29076]: I1111 16:48:36.565394   29076 kubelet_node_status.go:113] Node 192.168.1.106 was previously registered
 	Nov 11 09:48:36 core kubelet-wrapper[29076]: I1111 16:48:36.565416   29076 kubelet_node_status.go:77] Successfully registered node 192.168.1.106
-	
+
 You can also make sure you can query the API service:
 
 	core ~ # curl http://127.0.0.1:8080/version
@@ -407,7 +407,7 @@ At this point I wanted to deploy the **kubernetes** *dashboard* and I ran into a
 	serviceaccount "kubernetes-dashboard" created
 	Error from server (BadRequest): error when creating "https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml": Role in version "v1beta1" cannot be handled as a Role: no kind "Role" is registered for version "rbac.authorization.k8s.io/v1beta1"
 	Error from server (BadRequest): error when creating
-	
+
 It looks like the latest *dashboard* depends on [RBAC](https://cloud.google.com/kubernetes-engine/docs/role-based-access-control) functionality which was introduced in Kubernetes 1.6. I ran into a good site ([Upgrading Kubernetes on a Baremetal CoreOS Cluster From Version 1.5 to 1.6](https://dzone.com/articles/upgrading-kubernetes-on-bare-metal-coreos-cluster-1)) which actually talks about updating kubernetes to 1.6.1 and it actually involves updating **etcd2** to **etcd3**. So first let's do that, I just followed the steps laid out in the web page.
 
 #### Stop Kubernetes 1.5.1
@@ -417,20 +417,20 @@ Let's **drain** our master node:
 	node "192.168.1.106" already cordoned
 	WARNING: Deleting pods not managed by ReplicationController, ReplicaSet, Job, DaemonSet or StatefulSet: kube-apiserver-192.168.1.106, kube-controller-manager-192.168.1.106, kube-proxy-192.168.1.106, kube-scheduler-192.168.1.106
 	node "192.168.1.106" drained
-	
+
 	core ~ # kubectl get nodes
 	NAME            STATUS                     AGE
 	192.168.1.106   Ready,SchedulingDisabled   1h
-	
+
 Next let's stop the **kubelet** service:
 
 	core ~ # systemctl stop kubelet
-	
+
 Now let's stop all the containers:
 
 	core ~ # docker ps -a | grep kube | awk '{print $1}' | xargs docker stop
 	core ~ # docker ps -a | grep kube | awk '{print $1}' | xargs docker rm
-	
+
 Now we are ready to update **etcd**.
 
 #### Update etcd2 to etcd3
@@ -439,34 +439,34 @@ Make sure the cluster is currently healthy:
 	core ~ # etcdctl cluster-health
 	member ce2a822cea30bfca is healthy: got healthy result from http://192.168.1.106:2379
 	cluster is healthy
-	
+
 Now let's stop the service and disable it from starting up:
 
-	core ~ # systemctl stop etcd2 
-	core ~ # systemctl disable etcd2 
+	core ~ # systemctl stop etcd2
+	core ~ # systemctl disable etcd2
 
 Now let's make a backup of the **etcd2** data:
 
 	core ~ # etcdctl backup --data-dir /var/lib/etcd2 --backup-dir /home/core/etcd2-backup
-	
+
 Now let's copy the old data into the new data directory:
 
 	core ~ # rm -rf /var/lib/etcd/*
 	core ~ # cp -a /var/lib/etcd2/* /var/lib/etcd
-	
+
 Next let's create a new service which will start **etcd3**. I ended up doing the following:
 
 	core ~ # mkdir /etc/systemd/system/etcd-member.service.d
 	core ~ # cp /run/systemd/system/etcd2.service.d/20-cloudinit.conf /etc/systemd/system/etcd-member.service.d/.
 	core ~ # cp /etc/systemd/system/etcd2.service.d/50-network-config.conf /etc/systemd/system/etcd-member.service.d/.
-	
+
 Now let's start the new service:
 
 	core ~ # systemctl daemon-reload
 	core ~ # systemctl enable etcd-member
 	Created symlink /etc/systemd/system/multi-user.target.wants/etcd-member.service → /usr/lib/systemd/system/etcd-member.service.
 	core ~ # systemctl start etcd-member
-	
+
 And you can confirm the service started up successfully:
 
 	core ~ # systemctl status etcd-member
@@ -484,7 +484,7 @@ And you can confirm the service started up successfully:
 	      CPU: 2.362s
 	   CGroup: /system.slice/etcd-member.service
 	           └─26522 /usr/local/bin/etcd
-	
+
 	Nov 11 11:10:42 core etcd-wrapper[26522]: 2017-11-11 18:10:42.420693 I | raft: raft.node: ce2a822cea30bfca elected leader ce2a822cea30bfca at term 20
 	Nov 11 11:10:42 core etcd-wrapper[26522]: 2017-11-11 18:10:42.420925 I | etcdserver: updating the cluster version from 2.3 to 3.1
 	Nov 11 11:10:42 core etcd-wrapper[26522]: 2017-11-11 18:10:42.427604 N | etcdserver/membership: updated the cluster version from 2.3 to 3.1
@@ -501,7 +501,7 @@ And make sure the cluster is still healthy:
 	core ~ # etcdctl cluster-health
 	member ce2a822cea30bfca is healthy: got healthy result from http://192.168.1.106:2379
 	cluster is healthy
-	
+
 The last step is to migrate the data, first let's download a new binary:
 
 	core ~ # cd /opt/
@@ -516,9 +516,9 @@ The last step is to migrate the data, first let's download a new binary:
 	2017-11-11 11:12:36.129480 N | etcdserver/membership: updated the cluster version from 2.3 to 3.1
 	2017-11-11 11:12:36.129514 I | etcdserver/api: enabled capabilities for version 3.1
 	waiting for etcd to close and release its lock on "/var/lib/etcd/member/snap/db"
-	
+
 	finished transforming keys
-	
+
 Next let's update kubernetes *manifest* files to use the new version.
 
 #### Update Kubernetes Pods
@@ -548,7 +548,7 @@ And now the versions will look like this:
 	/etc/kubernetes/manifests/kube-controller-manager.yaml:    image: quay.io/coreos/hyperkube:v1.6.1_coreos.0
 	/etc/kubernetes/manifests/kube-proxy.yaml:    image: quay.io/coreos/hyperkube:v1.6.1_coreos.0
 	/etc/kubernetes/manifests/kube-scheduler.yaml:    image: quay.io/coreos/hyperkube:v1.6.1_coreos.0
-	
+
 Now let's start up the new Pods:
 
 	core ~ # systemctl daemon-reload
@@ -568,11 +568,11 @@ You should see the API service respond with the following:
 	  "compiler": "gc",
 	  "platform": "linux/amd64"
 	}
-	
+
 Lastly just re-enable the master node to be part of the cluster:
 
-	core ~ # kubectl uncordon 192.168.1.106 
-	
+	core ~ # kubectl uncordon 192.168.1.106
+
 ### Update Kubernetes 1.6.1 to 1.7.2
 At this point when I tried to deploy the *dashboard* I recieved different errors but still related to permission issues:
 
@@ -584,7 +584,7 @@ At this point when I tried to deploy the *dashboard* I recieved different errors
 	service "kubernetes-dashboard" created
 	unable to decode "kubernetes-dashboard.yaml": no kind "Role" is registered for version "rbac.authorization.k8s.io/v1beta1"
 	unable to decode "kubernetes-dashboard.yaml": no kind "RoleBinding" is registered for version "rbac.authorization.k8s.io/v1beta1"
-	
+
 So I deleted the deployment:
 
 	core # kubectl delete -f kubernetes-dashboard.yaml
@@ -609,7 +609,7 @@ I followed a similar approach as before. Delete/Stop everything and update the m
 	/etc/kubernetes/manifests/kube-scheduler.yaml:    image: quay.io/coreos/hyperkube:v1.7.2_coreos.0
 	core ~ # systemctl daemon-reload
 	core ~ # systemctl start kubelet
-	
+
 I also updated the **kubectl** binary:
 
 	core ~ # cd /opt/bin/
@@ -622,7 +622,7 @@ And here is the final result:
 	core ~ # kubectl get no
 	NAME            STATUS    AGE       VERSION
 	192.168.1.106   Ready     2h        v1.7.2+coreos.0
-	
+
 I tried deploying the *dashboard* and recieved another permission error:
 
 	core dashboard # kubectl create -f kubernetes-dashboard.yaml
@@ -632,7 +632,7 @@ I tried deploying the *dashboard* and recieved another permission error:
 	deployment "kubernetes-dashboard" created
 	service "kubernetes-dashboard" created
 	Error from server (Forbidden): error when creating "kubernetes-dashboard.yaml": roles.rbac.authorization.k8s.io "kubernetes-dashboard-minimal" is forbidden: attempt to grant extra privileges: [PolicyRule{Resources:["secrets"], APIGroups:[""], Verbs:["create"]} PolicyRule{Resources:["secrets"], APIGroups:[""], Verbs:["watch"]} PolicyRule{Resources:["secrets"], ResourceNames:["kubernetes-dashboard-key-holder"], APIGroups:[""], Verbs:["get"]} PolicyRule{Resources:["secrets"], ResourceNames:["kubernetes-dashboard-certs"], APIGroups:[""], Verbs:["get"]} PolicyRule{Resources:["secrets"], ResourceNames:["kubernetes-dashboard-key-holder"], APIGroups:[""], Verbs:["update"]} PolicyRule{Resources:["secrets"], ResourceNames:["kubernetes-dashboard-certs"], APIGroups:[""], Verbs:["update"]} PolicyRule{Resources:["secrets"], ResourceNames:["kubernetes-dashboard-key-holder"], APIGroups:[""], Verbs:["delete"]} PolicyRule{Resources:["secrets"], ResourceNames:["kubernetes-dashboard-certs"], APIGroups:[""], Verbs:["delete"]} PolicyRule{Resources:["services"], ResourceNames:["heapster"], APIGroups:[""], Verbs:["proxy"]}] user=&{kube-admin  [system:authenticated] map[]} ownerrules=[PolicyRule{Resources:["selfsubjectaccessreviews"], APIGroups:["authorization.k8s.io"], Verbs:["create"]} PolicyRule{NonResourceURLs:["/version" "/api" "/api/*" "/apis" "/apis/*"], Verbs:["get"]} PolicyRule{NonResourceURLs:["/healthz"], Verbs:["get"]} PolicyRule{NonResourceURLs:["/swaggerapi"], Verbs:["get"]} PolicyRule{NonResourceURLs:["/swaggerapi/*"], Verbs:["get"]}] ruleResolutionErrors=[]
-	
+
 #### Kubernetes kubelet Parameter Changes
 I then ran into:
 
@@ -640,7 +640,7 @@ I then ran into:
 * [Fresh Dedicated Server To Single Node Kubernetes Cluster On CoreOS, Part 3: Setting Up Essential Kubernetes Addons](https://vadosware.io/post/fresh-dedicated-server-to-single-node-kubernetes-cluster-on-coreos-part-3/)
 
 There were changes in some of the parameters. I added:
-	
+
 	--register-node=true \
 	--require-kubeconfig \
 	--kubeconfig=/etc/kubernetes/kubeconfig.yaml
@@ -663,7 +663,7 @@ Then the *dashboard* deployed successfully:
 	rolebinding "kubernetes-dashboard-minimal" created
 	deployment "kubernetes-dashboard" created
 	service "kubernetes-dashboard" created
-	
+
 And I saw all the components deployed:
 
 	core # rkt list
@@ -680,10 +680,10 @@ And also **kubernetes** pods:
 	kube-system   po/kube-controller-manager-192.168.1.106   1/1       Running   0          6m
 	kube-system   po/kube-proxy-192.168.1.106                1/1       Running   0          6m
 	kube-system   po/kube-scheduler-192.168.1.106            1/1       Running   0          6m
-	
+
 	NAMESPACE   NAME             CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
 	default     svc/kubernetes   10.3.0.1     <none>        443/TCP   12h
-	
+
 #### Flannel and docker Interface Conflict
 Whenever I would try to expose the **kubernetes** *dashboard* service (as per the instructions in [Accessing Dashboard 1.7.X and above](https://github.com/kubernetes/dashboard/blob/master/docs/user/accessing-dashboard/1.7.x-and-above.md)), I would see the following in the logs:
 
@@ -699,7 +699,7 @@ And I noticed that bother the **docker0** and **cni0** interfaces would have the
 	22: cni0: <BROADCAST,MULTICAST,PROMISC,UP,LOWER_UP> mtu 1450 qdisc htb state UP group default qlen 1000
 	    inet 10.2.67.1/24 scope global cbr0
 	       valid_lft forever preferred_lft forever
-	       
+
 There were a bunch of people running into the issue:
 
 * [Couldn't find network status for {namespace}/{pod_name} through plugin: invalid network status for](https://github.com/kubernetes/kubernetes/issues/43988)
@@ -710,17 +710,17 @@ Some folks recommended removing the **--bip** parameter from **docker**, but I a
 
 	core ~ # ps -ef | grep dockerd
 	root      1199     1  0 Nov12 ?        00:14:01 /run/torcx/bin/dockerd --host=fd:// --containerd=/var/run/docker/libcontainerd/docker-containerd.sock --selinux-enabled=true --insecure-registry=0.0.0.0/0 --mtu=1450
-	
+
 And I actually had other containers that I deployed with **docker-compose** and I didn't want to impact them. Since I was using a single machine for my testing, I decided to use the **kubenet** network plugin instead of **cni**. To do that I modified the **/etc/systemd/system/kubelet.service** to have this:
 
 	--network-plugin=kubenet \
 	--pod-cidr=10.2.68.0/24 \
-  
+
 Instead of this:
-  
+
 	--cni-conf-dir=/etc/kubernetes/cni/net.d \
 	--network-plugin=cni \
-	
+
 I will have to check out if I can use **flannel** for both some time later. But after that I was able to expose the service without issues:
 
 	core ~ # kubectl get all --all-namespaces=true
@@ -730,17 +730,17 @@ I will have to check out if I can use **flannel** for both some time later. But 
 	kube-system   po/kube-proxy-192.168.1.106                1/1       Running   8          2d
 	kube-system   po/kube-scheduler-192.168.1.106            1/1       Running   9          2d
 	kube-system   po/kubernetes-dashboard-1592587111-2lk87   1/1       Running   0          2d
-	
+
 	NAMESPACE     NAME                       CLUSTER-IP   EXTERNAL-IP   PORT(S)         AGE
 	default       svc/kubernetes             10.3.0.1     <none>        443/TCP         3d
 	kube-system   svc/kubernetes-dashboard   10.3.0.175   <nodes>       443:30443/TCP   2d
-	
+
 	NAMESPACE     NAME                          DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
 	kube-system   deploy/kubernetes-dashboard   1         1         1            1           2d
-	
+
 	NAMESPACE     NAME                                 DESIRED   CURRENT   READY     AGE
 	kube-system   rs/kubernetes-dashboard-1592587111   1         1         1         2d
-	
+
 And I was able to get into the *dashboard* to check out my **kubernetes** resources:
 
-![k8s-dashboard.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/k8s-coreos/k8s-dashboard.png&raw=1)
+![k8s-dashboard.png](https://raw.githubusercontent.com/elatov/upload/master/k8s-coreos/k8s-dashboard.png)

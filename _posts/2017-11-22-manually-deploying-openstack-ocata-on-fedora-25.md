@@ -9,11 +9,11 @@ tags: [openstack,vxlan,network-namespace]
 ### OpenStack
 So I decided to try out OpenStack on Fedora 25. I was able to follow the [OpenStack Installation Tutorial for Red Hat Enterprise Linux and CentOS](https://docs.openstack.org/ocata/install-guide-rdo/). The guide is pretty long and I don't want to cover each step in great detail since it's covered in the guide. I also decided to follow the [Networking Option 2: Self-service networks](https://docs.openstack.org/ocata/install-guide-rdo/overview.html#networking-option-2-self-service-networks) (it uses VXLAN for overlay networking) setup. Here are the components that get deployed in that scenario:
 
-![networking-option-2-os](https://seacloud.cc/d/480b5e8fcd/files/?p=/openstack-manual-fedora/networking-option-2-os.png&raw=1)
+![networking-option-2-os](https://raw.githubusercontent.com/elatov/upload/master/openstack-manual-fedora/networking-option-2-os.png)
 
 And here is how the connectivity looks like (from [Self-service network](https://docs.openstack.org/ocata/install-guide-rdo/launch-instance-networks-selfservice.html) page):
 
-![selfservice-network-os-conn](https://seacloud.cc/d/480b5e8fcd/files/?p=/openstack-manual-fedora/selfservice-network-os-conn.png&raw=1)
+![selfservice-network-os-conn](https://raw.githubusercontent.com/elatov/upload/master/openstack-manual-fedora/selfservice-network-os-conn.png)
 
 ### OpenStack Controller Node
 On the *controller* node I configured the following setttings.
@@ -32,17 +32,17 @@ Here are the commands I ran to prepare Fedora for OpenStack:
 	$ systemctl start iptables
 
 And don't forget to configure NTP:
-	
+
 	$ dnf install chrony
 	$ chronyc sources
 
 #### OpenStack Repo
 I just installed the repo and went from there:
-	
+
 	$ dnf install https://rdoproject.org/repos/rdo-release.rpm
 	$ dnf upgrade
 	$ dnf install python-openstackclient
-	
+
 ### Configure MariaDB
 Here are the commands I ran to configure **MariaDB**:
 
@@ -52,7 +52,7 @@ Here are the commands I ran to configure **MariaDB**:
 	---
 	[mysqld]
 	bind-address = 192.168.1.121
-	
+
 	default-storage-engine = innodb
 	innodb_file_per_table = on
 	max_connections = 4096
@@ -62,7 +62,7 @@ Here are the commands I ran to configure **MariaDB**:
 	$ systemctl enable mariadb.service
 	$ systemctl start mariadb.service
 	$ mysql_secure_installation
-	
+
 #### Configure RabbitMQ
 Here is the RabbitMQ setup:
 
@@ -71,7 +71,7 @@ Here is the RabbitMQ setup:
 	$ systemctl start rabbitmq-server.service
 	$ rabbitmqctl add_user openstack secret
 	$ rabbitmqctl set_permissions openstack ".*" ".*" ".*"
-	
+
 #### Configure Memcached
 Here is the MemCached Setup:
 
@@ -86,7 +86,7 @@ Here is the MemCached Setup:
 	---
 	$ systemctl enable memcached.service
 	$ systemctl start memcached.service
-	
+
 #### Configure Identity Service (Keystone)
 This one can be broken down into multiple parts. First setup the database:
 
@@ -144,17 +144,17 @@ Then install the package and configure the settings file:
 	provider = fernet
 	[tokenless_auth]
 	[trust]
-	
+
 Then sync the settings to the database:
 
 	$ su -s /bin/sh -c "keystone-manage db_sync" keystone
-	
+
 Next create the endpoints:
 
 	$ keystone-manage fernet_setup --keystone-user keystone --keystone-group keystone
 	$ keystone-manage credential_setup --keystone-user keystone --keystone-group keystone
 	$ keystone-manage bootstrap --bootstrap-password secret --bootstrap-admin-url http://os-controller:35357/v3/ --bootstrap-internal-url http://os-controller:5000/v3/ --bootstrap-public-url http://os-controller:5000/v3/ --bootstrap-region-id RegionOne
-	
+
 Then configure **apache** to serve the endpoints:
 
 	$ vi /etc/httpd/conf/httpd.conf
@@ -196,7 +196,7 @@ Also let's prepare the **Demo Source Script**:
 	export OS_AUTH_URL=http://os-controller:5000/v3
 	export OS_IDENTITY_API_VERSION=3
 	export OS_IMAGE_API_VERSION=2
-	
+
 #### Configure Image Service (Glance)
 Similar setup for **glance**, create the DB:
 
@@ -204,7 +204,7 @@ Similar setup for **glance**, create the DB:
 	MariaDB [(none)]> CREATE DATABASE glance;
 	MariaDB [(none)]> GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'localhost' IDENTIFIED BY 'secret';
 	MariaDB [(none)]> GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'%' IDENTIFIED BY 'secret';
-	
+
 Connect to **keystone** and enable endpoints:
 
 	$ . admin-setup
@@ -214,7 +214,7 @@ Connect to **keystone** and enable endpoints:
 	$ openstack endpoint create --region RegionOne image public http://os-controller:9292
 	$ openstack endpoint create --region RegionOne image internal http://os-controller:9292
     $ openstack endpoint create --region RegionOne image admin http://os-controller:9292
-    
+
 Configure the settings file:
 
     $ dnf install openstack-glance
@@ -278,22 +278,22 @@ Configure the settings file:
 	[paste_deploy]
 	flavor = keystone
 	[profiler]
-	
+
 And let's sync to the DB:
 
 	$ su -s /bin/sh -c "glance-manage db_sync" glance
-	
+
 And lastly enable and start the service:
 
 	$ systemctl enable openstack-glance-api.service   openstack-glance-registry.service
 	$ systemctl start openstack-glance-api.service   openstack-glance-registry.service
 
 To test out the image service, let's import a small image to make sure it's working:
-	
+
 	$ wget http://download.cirros-cloud.net/0.3.5/cirros-0.3.5-x86_64-disk.img
 	$ . admin-setup
 	$ openstack image create "cirros" --file cirros-0.3.5-x86_64-disk.img --disk-format qcow2 --container-format bare --public
-	
+
 #### Configure Compute Service (Nova)
 Prepare the DB:
 
@@ -307,9 +307,9 @@ Prepare the DB:
 	MariaDB [(none)]> GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'%' IDENTIFIED BY 'secret';
 	MariaDB [(none)]> GRANT ALL PRIVILEGES ON nova_cell0.* TO 'nova'@'localhost' IDENTIFIED BY 'secret';
 	MariaDB [(none)]> GRANT ALL PRIVILEGES ON nova_cell0.* TO 'nova'@'%'  IDENTIFIED BY 'secret';
-	
+
 Create users and endpoints:
-	
+
 	$ . admin-openrc
 	$ openstack user create --domain default --password-prompt nova
 	$ openstack role add --project service --user nova admin
@@ -323,9 +323,9 @@ Create users and endpoints:
 	$ openstack endpoint create --region RegionOne placement public http://os-controller:8778
 	$ openstack endpoint create --region RegionOne placement internal http://os-controller:8778
 	$ openstack endpoint create --region RegionOne placement admin http://os-controller:8778
-	
+
 Configure the settings:
-	
+
 	$ dnf install openstack-nova-api openstack-nova-conductor openstack-nova-console openstack-nova-novncproxy openstack-nova-scheduler openstack-nova-placement-api
 	$ grep -vE '^$|^#' /etc/nova/nova.conf
 	[DEFAULT]
@@ -442,15 +442,15 @@ Configure the settings:
 	</Directory>
 	---
 	$ systemctl restart httpd
-	
+
 Sync to DB:
-	
+
 	$ su -s /bin/sh -c "nova-manage api_db sync" nova
 	$ su -s /bin/sh -c "nova-manage cell_v2 map_cell0" nova
 	$ su -s /bin/sh -c "nova-manage cell_v2 create_cell --name=cell1 --verbose" nova
 	$ su -s /bin/sh -c "nova-manage db sync" nova
 	$ nova-manage cell_v2 list_cells
-	
+
 Enable and start the Service:
 
 	$ systemctl enable openstack-nova-api.service   openstack-nova-consoleauth.service openstack-nova-scheduler.service   openstack-nova-conductor.service openstack-nova-novncproxy.service
@@ -463,7 +463,7 @@ Prepare the DB:
 	MariaDB [(none)] CREATE DATABASE neutron;
 	MariaDB [(none)]> GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'localhost' IDENTIFIED BY 'secret';
 	MariaDB [(none)]> GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'%' IDENTIFIED BY 'secret';
-	
+
 Create user and endpoints:
 
 	$ . admin-setup
@@ -472,11 +472,11 @@ Create user and endpoints:
 	$ openstack endpoint create --region RegionOne network public http://os-controller:9696
 	$ openstack endpoint create --region RegionOne network internal http://os-controller:9696
 	$ openstack endpoint create --region RegionOne network admin http://os-controller:9696
-	
+
 Configure the settings files (I decided to use VXLAN with LinuxBridge... I thought using OVS for a lab setup is a bit of an overkill):
-	
+
 	$ dnf install openstack-neutron openstack-neutron-ml2 openstack-neutron-linuxbridge ebtables
-	$ grep -vE '^$|^#' /etc/neutron/neutron.conf 
+	$ grep -vE '^$|^#' /etc/neutron/neutron.conf
 	auth_strategy = keystone
 	core_plugin = ml2
 	service_plugins = router
@@ -568,19 +568,19 @@ Configure the settings files (I decided to use VXLAN with LinuxBridge... I thoug
 	[agent]
 	[cache]
 	$ ln -s /etc/neutron/plugins/ml2/ml2_conf.ini /etc/neutron/plugin.ini
-	
+
 Sync to DB:
-	
+
 	$ su -s /bin/sh -c "neutron-db-manage --config-file /etc/neutron/neutron.conf --config-file /etc/neutron/plugins/ml2/ml2_conf.ini upgrade head" neutron
-	
+
 Enable and start the service:
-	
+
 	$ systemctl restart openstack-nova-api.service
 	$ systemctl enable neutron-server.service neutron-linuxbridge-agent.service neutron-dhcp-agent.service neutron-metadata-agent.service
 	$ systemctl start neutron-server.service neutron-linuxbridge-agent.service neutron-dhcp-agent.service neutron-metadata-agent.service
 	$ systemctl enable neutron-l3-agent.service
 	$ systemctl start neutron-l3-agent.service
-	
+
 #### Install Dashboard (Horizon)
 Install the package:
 
@@ -634,15 +634,15 @@ Configure the settings file:
     'enable_firewall': True,
     'enable_vpn': True,
 	---
-	
+
 Restart the necessary service to apply the settings:
 
 	$ systemctl restart httpd.service memcached.service
 
 You can now login to the demo project and check out some settings:
 
-![openstack-dashboard](https://seacloud.cc/d/480b5e8fcd/files/?p=/openstack-manual-fedora/openstack-dashboard.png&raw=1)
-	
+![openstack-dashboard](https://raw.githubusercontent.com/elatov/upload/master/openstack-manual-fedora/openstack-dashboard.png)
+
 And that should be it for the *controller* node. Now it has the following services configured on it:
 
 * Identity Service (Keystone)
@@ -669,17 +669,17 @@ Same setup as on the *controller* node:
 	$ systemctl start iptables
 
 Don't forget to configure NTP:
-	
+
 	$ dnf install chrony
 	$ chronyc sources
 
 #### OpenStack Repo
 I just installed the repo and went from there:
-	
+
 	$ dnf install https://rdoproject.org/repos/rdo-release.rpm
 	$ dnf upgrade
 	$ dnf install python-openstackclient
-	
+
 #### Configure the Compute Service
 
 On the *compute* node had to downgrade **iptables** due to a package dependency issue: [Bug 1327786 - iptables-services should not Provide "iptables"](https://bugzilla.redhat.com/show_bug.cgi?id=1327786)
@@ -849,7 +849,7 @@ Then configure all the setting files:
 	enable_vxlan = true
 	local_ip = 10.0.0.11
 	l2_population = true
-	
+
 Then enable and start the service:
 
 	$ systemctl enable neutron-linuxbridge-agent.service
@@ -953,23 +953,23 @@ You should also have a bunch of endpoints used for various services:
 	+----------------------------+-----------+--------------+--------------+---------+-----------+----------------------------+
 
 ### Launch an Instance in OpenStack
-This is broken down into a couple of steps. 
+This is broken down into a couple of steps.
 
 #### Prepare OpenStack Networking
 First create a **provider** network (this is done with the **admin** user):
-	
+
 	[root@os-controller ~]# . admin-setup
 	[root@os-controller ~]# openstack network create  --share --external \
 	>   --provider-physical-network provider \
 	>   --provider-network-type flat provider
 
 Next, create a subnet that is on the **provider** network:
-	
+
 	[root@os-controller ~]# openstack subnet create --network provider \
 	>   --allocation-pool start=10.0.0.100,end=10.0.0.120 \
 	>   --dns-nameserver 10.0.0.1 --gateway 10.0.0.1 \
 	>   --subnet-range 10.0.0.0/24 provider
-	
+
 Next create your **self-service** network (this is done with the **demo** user):
 
 	[root@os-controller ~]# . demo-setup
@@ -1089,7 +1089,7 @@ and then the **ping** started working:
 	PING 10.0.0.104 (10.0.0.104) 56(84) bytes of data.
 	64 bytes from 10.0.0.104: icmp_seq=1 ttl=64 time=0.146 ms
 	64 bytes from 10.0.0.104: icmp_seq=2 ttl=64 time=0.156 ms
-	
+
 	--- 10.0.0.104 ping statistics ---
 	2 packets transmitted, 2 received, 0% packet loss, time 1046ms
 	rtt min/avg/max/mdev = 0.146/0.151/0.156/0.005 ms
@@ -1213,7 +1213,7 @@ List the available **network**s:
 	| addf3eeb-ef5d-4222-9cbe-ecd8e782702a | provider    | 9fdb2fe2-79e6-4224-9395-fda93c0fe6d9 |
 	| dc61d555-2a0f-44e6-873c-db4c108915f3 | selfservice | 152cfc92-e1ba-428f-93d9-a729fc6ec83a |
 	+--------------------------------------+-------------+--------------------------------------+
-	
+
 Then list the **security group**s:
 
 	[root@os-controller ~]# openstack security group list
@@ -1290,7 +1290,7 @@ Next we can figure out what the VNC URL is for that vm:
 
 And then point your browser to that URL and you will see the console of the VM:
 
-![vnc-to-vm](https://seacloud.cc/d/480b5e8fcd/files/?p=/openstack-manual-fedora/vnc-to-vm.png&raw=1)
+![vnc-to-vm](https://raw.githubusercontent.com/elatov/upload/master/openstack-manual-fedora/vnc-to-vm.png)
 
 I noticed that I couldn't **ping** the default gw from the VM. Here is what I saw on the compute node:
 
@@ -1305,12 +1305,12 @@ It looks like another **iptables** issue. I deleted the default **REJECT** rule 
 
 	[root@os-controller ~]# iptables -L INPUT -n -v --line-numbers
 	Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
-	num   pkts bytes target     prot opt in     out     source               destination         
-	1     900K  331M neutron-linuxbri-INPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
-	2     901K  331M nova-api-INPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+	num   pkts bytes target     prot opt in     out     source               destination
+	1     900K  331M neutron-linuxbri-INPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0
+	2     901K  331M nova-api-INPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0
 	3     877K  329M ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            state RELATED,ESTABLISHED
-	4        1    84 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0           
-	5     1571 92572 ACCEPT     all  --  lo     *       0.0.0.0/0            0.0.0.0/0           
+	4        1    84 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0
+	5     1571 92572 ACCEPT     all  --  lo     *       0.0.0.0/0            0.0.0.0/0
 	6        3   284 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpt:22
 	7       11   636 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpt:80
 	8       19  1140 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpt:5672
@@ -1349,7 +1349,7 @@ And after another reboot of the VM, it was able to get an address with DHCP:
 	RAM Size: 49MB
 	Disks:
 	NAME MAJ:MIN       SIZE LABEL         MOUNTPOINT
-	vda  253:0   1073741824               
+	vda  253:0   1073741824
 	vda1 253:1   1061061120 cirros-rootfs /
 	=== sshd host keys ===
 	-----BEGIN SSH HOST KEY KEYS-----
@@ -1358,9 +1358,9 @@ And after another reboot of the VM, it was able to get an address with DHCP:
 	=== network info ===
 	if-info: lo,up,127.0.0.1,8,::1
 	if-info: eth0,up,172.16.1.10,24,fe80::f816:3eff:fe37:74b4
-	ip-route:default via 172.16.1.1 dev eth0 
-	ip-route:169.254.169.254 via 172.16.1.1 dev eth0 
-	ip-route:172.16.1.0/24 dev eth0  src 172.16.1.10 
+	ip-route:default via 172.16.1.1 dev eth0
+	ip-route:169.254.169.254 via 172.16.1.1 dev eth0
+	ip-route:172.16.1.0/24 dev eth0  src 172.16.1.10
 	=== datasource: ec2 net ===
 	instance-id: i-0000000a
 	name: N/A
@@ -1370,13 +1370,13 @@ And after another reboot of the VM, it was able to get an address with DHCP:
 	=== cirros: current=0.3.5 uptime=11.67 ===
 	  ____               ____  ____
 	 / __/ __ ____ ____ / __ \/ __/
-	/ /__ / // __// __// /_/ /\ \ 
-	\___//_//_/  /_/   \____/___/ 
+	/ /__ / // __// __// /_/ /\ \
+	\___//_//_/  /_/   \____/___/
 	   http://cirros-cloud.net
-	
-	
+
+
 	login as 'cirros' user. default password: 'cubswin:)'. use 'sudo' for root.
-	selfservice-instance login: 
+	selfservice-instance login:
 
 
 And I was able to **ping** it from the **router**:
@@ -1384,7 +1384,7 @@ And I was able to **ping** it from the **router**:
 	[root@os-controller ~]# ip netns exec qrouter-9574c13d-530a-4c8b-9f4c-b459d2f4709c ping -c 1 172.16.1.10
 	PING 172.16.1.10 (172.16.1.10) 56(84) bytes of data.
 	64 bytes from 172.16.1.10: icmp_seq=1 ttl=64 time=5.19 ms
-	
+
 	--- 172.16.1.10 ping statistics ---
 	1 packets transmitted, 1 received, 0% packet loss, time 0ms
 	rtt min/avg/max/mdev = 5.194/5.194/5.194/0.000 ms
@@ -1451,16 +1451,16 @@ Now login from a machine that has access to the **provider** network:
 	RSA key fingerprint is SHA256:3kqW7d2DWjZfCLc+NqqqJbfbmpvQTp2PZLwqOHqzbW4.
 	Are you sure you want to continue connecting (yes/no)? yes
 	Warning: Permanently added '10.0.0.109' (RSA) to the list of known hosts.
-	cirros@10.0.0.109's password: 
+	cirros@10.0.0.109's password:
 	$ ip -4 a
-	1: lo: <LOOPBACK,UP,LOWER_UP> mtu 16436 qdisc noqueue 
+	1: lo: <LOOPBACK,UP,LOWER_UP> mtu 16436 qdisc noqueue
 	    inet 127.0.0.1/8 scope host lo
 	2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1450 qdisc pfifo_fast qlen 1000
 	    inet 172.16.1.10/24 brd 172.16.1.255 scope global eth0
 	$ ping -c 1 google.com
 	PING google.com (172.217.11.238): 56 data bytes
 	64 bytes from 172.217.11.238: seq=0 ttl=57 time=5.251 ms
-	
+
 	--- google.com ping statistics ---
 	1 packets transmitted, 1 packets received, 0% packet loss
 	round-trip min/avg/max = 5.251/5.251/5.251 ms
@@ -1475,14 +1475,14 @@ When my **ping**s weren't working, I started looking into the flow of the traffi
 
 Let's track down the flow from [their example](https://docs.openstack.org/ocata/networking-guide/deploy-lb-selfservice.html#north-south-scenario-1-instance-with-a-fixed-ip-address):
 
-![lb-vni-traffic-flow](https://seacloud.cc/d/480b5e8fcd/files/?p=/openstack-manual-fedora/lb-vni-traffic-flow.png&raw=1)
+![lb-vni-traffic-flow](https://raw.githubusercontent.com/elatov/upload/master/openstack-manual-fedora/lb-vni-traffic-flow.png)
 
 Here is a nice overview of the components as well:
 
-![os-network-components](https://seacloud.cc/d/480b5e8fcd/files/?p=/openstack-manual-fedora/os-network-components.png&raw=1)
+![os-network-components](https://raw.githubusercontent.com/elatov/upload/master/openstack-manual-fedora/os-network-components.png)
 
 ### On the Compute Node
-Here are the networking functions that occur on the *compute* node. 
+Here are the networking functions that occur on the *compute* node.
 
 #### 1. Instance Sends Packet to LinuxBridge
 From [Self-service networks](https://docs.openstack.org/ocata/networking-guide/deploy-lb-selfservice.html) page:
@@ -1532,7 +1532,7 @@ I saw the following chain created:
 
 	[root@os-compute ~]# iptables -L nova-compute-FORWARD -v -n
 	Chain nova-compute-FORWARD (1 references)
-	 pkts bytes target     prot opt in     out     source               destination 
+	 pkts bytes target     prot opt in     out     source               destination
 	 1682  185K ACCEPT     all  --  brqdc61d555-2a *       0.0.0.0/0            0.0.0.0/0
 	    0     0 ACCEPT     all  --  *      brqdc61d555-2a  0.0.0.0/0            0.0.0.0/0
 
@@ -1577,19 +1577,19 @@ From [Self-service networks](https://docs.openstack.org/ocata/networking-guide/d
 	listening on ens192, link-type EN10MB (Ethernet), capture size 262144 bytes
 	12:10:51.121143 fa:16:3e:2e:bb:7b > 78:24:af:7b:1f:08, ethertype IPv4 (0x0800), length 98: 10.0.0.109 > 10.0.0.1: ICMP echo request, id 47361, seq 0, length 64
 	12:10:51.121318 78:24:af:7b:1f:08 > fa:16:3e:2e:bb:7b, ethertype IPv4 (0x0800), length 98: 10.0.0.1 > 10.0.0.109: ICMP echo reply, id 47361, seq 0, length 64
-	
+
 Notice the internal IP of the VM **172.16.1.10** isn't seen on the physical NIC. We can use the **Decode As** feature with wireshark. After you choose the UDP traffic and **decode** it as VXLAN, you will see the following:
 
-![vxlan-wireshark](https://seacloud.cc/d/480b5e8fcd/files/?p=/openstack-manual-fedora/vxlan-wireshark.png&raw=1)
+![vxlan-wireshark](https://raw.githubusercontent.com/elatov/upload/master/openstack-manual-fedora/vxlan-wireshark.png)
 
 Or we can also use **tshark**, here is the frame without being decoded:
 
-    <> tshark  -r file.pcap "frame.number==17" 
+    <> tshark  -r file.pcap "frame.number==17"
        17   0.348712    10.0.0.11 → 10.0.0.10    UDP 148 42053 → 8472 Len=106
-   
+
 And we can see that the actual traffic is ICMP traffic after we **Decode As** VXLAN:
 
-    <> tshark  -d udp.port==8472,vxlan -r file.pcap "frame.number==17"   
+    <> tshark  -d udp.port==8472,vxlan -r file.pcap "frame.number==17"
        17   0.348712  172.16.1.10 → 10.0.0.1     ICMP 148 Echo (ping) request  id=0xdd01, seq=0/0, ttl=64
 
 We can also see in the wireshark that the **VNI** is set as **58**, which is the correct value. Lastly if we just check using **tcpdump**, we will see it as **OTV overlay**:
@@ -1668,7 +1668,7 @@ You can check out the interfaces in the **router** namespace like so:
 	       valid_lft forever preferred_lft forever
 	    inet6 fe80::f816:3eff:fe2e:bb7b/64 scope link
 	       valid_lft forever preferred_lft forever
-	       
+
 The **qr-** interface is the default gateway for the internal network, it sees all the traffic as well:
 
 	[root@os-controller ~]# ip netns exec qrouter-9574c13d-530a-4c8b-9f4c-b459d2f4709c tcpdump -i qr-745bc525-6f not port ssh -nne
@@ -1689,12 +1689,12 @@ We can also checkout the **iptables** configuration of the namespace **router**:
 
 	[root@os-controller ~]# ip netns exec qrouter-9574c13d-530a-4c8b-9f4c-b459d2f4709c iptables -L neutron-l3-agent-OUTPUT -n -v -t nat
 	Chain neutron-l3-agent-OUTPUT (1 references)
-	 pkts bytes target     prot opt in     out     source               destination 
+	 pkts bytes target     prot opt in     out     source               destination
 	    0     0 DNAT       all  --  *      *       0.0.0.0/0            10.0.0.109           to:172.16.1.10
-	    
+
 	    [root@os-controller ~]# ip netns exec qrouter-9574c13d-530a-4c8b-9f4c-b459d2f4709c iptables -L neutron-l3-agent-PREROUTING -n -v -t nat
 	Chain neutron-l3-agent-PREROUTING (1 references)
-	 pkts bytes target     prot opt in     out     source               destination 
+	 pkts bytes target     prot opt in     out     source               destination
 	   16   960 REDIRECT   tcp  --  qr-+   *       0.0.0.0/0            169.254.169.254      tcp dpt:80 redir ports 9697
 	    4   288 DNAT       all  --  *      *       0.0.0.0/0            10.0.0.109           to:172.16.1.10
 
@@ -1702,10 +1702,10 @@ and here is the SNAT:
 
 	[root@os-controller ~]# ip netns exec qrouter-9574c13d-530a-4c8b-9f4c-b459d2f4709c iptables -L neutron-l3-agent-float-snat -n -v -t nat
 	Chain neutron-l3-agent-float-snat (1 references)
-	 pkts bytes target     prot opt in     out     source               destination 
+	 pkts bytes target     prot opt in     out     source               destination
 	   20  1624 SNAT       all  --  *      *       172.16.1.10          0.0.0.0/0            to:10.0.0.109
 
-#### 3. The router forwards the packet to the provider bridge 
+#### 3. The router forwards the packet to the provider bridge
 
 From the [Self-service networks](https://docs.openstack.org/ocata/networking-guide/deploy-lb-selfservice.html) page:
 
@@ -1729,8 +1729,8 @@ The **bridge** with the physical NIC in it (**ens192**) is the **provider** netw
 	listening on brqaddf3eeb-ef, link-type EN10MB (Ethernet), capture size 262144 bytes
 	13:28:48.453515 fa:16:3e:2e:bb:7b > 78:24:af:7b:1f:08, ethertype IPv4 (0x0800), length 98: 10.0.0.109 > 10.0.0.1: ICMP echo request, id 50177, seq 0, length 64
 	13:28:48.453718 78:24:af:7b:1f:08 > fa:16:3e:2e:bb:7b, ethertype IPv4 (0x0800), length 98: 10.0.0.1 > 10.0.0.109: ICMP echo reply, id 50177, seq 0, length 64
-	
-#### 4. The provider bridge forwards the packet to the physical network interface 
+
+#### 4. The provider bridge forwards the packet to the physical network interface
 
 Here I diverge from the setup a little bit. From the [Self-service networks](https://docs.openstack.org/ocata/networking-guide/deploy-lb-selfservice.html) page:
 

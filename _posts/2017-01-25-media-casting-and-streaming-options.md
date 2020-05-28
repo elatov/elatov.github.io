@@ -14,15 +14,15 @@ It seems in this day and age we have so many options to cast or stream media to 
 
 Of course everyone is familiar with Apple's **Airplay** technology. The best way to get this working is with an Apple TV. As soon as you configure it on your local network all your Apple Devices will see a mirror capable device and you can cast your whole screen to it:
 
-![at-menu](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/at-menu.png&raw=1)
+![at-menu](https://raw.githubusercontent.com/elatov/upload/master/screen-cast/at-menu.png)
 
 After you select you Apple TV device it will start casting to it and if you go back to the same menu you will see more options:
 
-![at-casting](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/at-casting.png&raw=1)
+![at-casting](https://raw.githubusercontent.com/elatov/upload/master/screen-cast/at-casting.png)
 
 And in **iTunes** you will also see it as an audio casting device:
 
-![itunes-cast-menu](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/itunes-cast-menu.png&raw=1)
+![itunes-cast-menu](https://raw.githubusercontent.com/elatov/upload/master/screen-cast/itunes-cast-menu.png)
 
 Airplay uses **mDNS**/**bonjour** for it's discovery capabilties, you can confirm by using **dns-sd** command:
 
@@ -33,7 +33,7 @@ Airplay uses **mDNS**/**bonjour** for it's discovery capabilties, you can confir
 	11:55:20.767  ...STARTING...
 	Timestamp     A/R    Flags  if Domain               Service Type         Instance Name
 	11:55:20.768  Add        2   4 local.               _airplay._tcp.       Apple TV
-	
+
 	┌─[elatov@macair] - [/Users/elatov] - [2016-06-12 11:55:50]
 	└─[130] <> dns-sd -B _raop._tcp .
 	Browsing for _raop._tcp
@@ -74,19 +74,19 @@ There is actually an unofficial **airplay** guide available at [Unofficial AirPl
 
 I have a Raspberry Pi (with OpenELEC) and it supports old IOS devices but with the new devices **airplay** doesn't work. After enabling it in **Kodi**:
 
-![kodi-airplay-enabled](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/kodi-airplay-enabled.png&raw=1)
+![kodi-airplay-enabled](https://raw.githubusercontent.com/elatov/upload/master/screen-cast/kodi-airplay-enabled.png)
 
 I wasn't able to use it for casting, the mirror option would show up but no devices would show up:
 
-![no-kodi-in-menu](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/no-kodi-in-menu.png&raw=1)
+![no-kodi-in-menu](https://raw.githubusercontent.com/elatov/upload/master/screen-cast/no-kodi-in-menu.png)
 
 I also noticed that it only shows up as an audio device and not a video device. **iTunes** would see it:
 
-![itunes-kodi-menu](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/itunes-kodi-menu.png&raw=1)
+![itunes-kodi-menu](https://raw.githubusercontent.com/elatov/upload/master/screen-cast/itunes-kodi-menu.png)
 
 And on my iPhone it showed up only for audio:
 
-![iphone-airplay-kodi](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/iphone-airplay-kodi.png&raw=1)
+![iphone-airplay-kodi](https://raw.githubusercontent.com/elatov/upload/master/screen-cast/iphone-airplay-kodi.png)
 
 It looks like the latest version of kodi might work out. Check out [Kodi Airplay- How to Enable on Kodi 17.6- Quick Steps](https://www.kodiinfopark.com/enable-kodi-airplay/) for more information. For now OpenELEC 6.0.3 is stable with Kodi 15.2 and I will wait for OpenELEC 7.0 to become stable which will be Kodi 16. Doing **bonjour** queries **kodi** responded:
 
@@ -97,7 +97,7 @@ It looks like the latest version of kodi might work out. Check out [Kodi Airplay
 	12:17:51.789  ...STARTING...
 	Timestamp     A/R    Flags  if Domain               Service Type         Instance Name
 	12:17:51.791  Add        2   4 local.               _raop._tcp.          B827EB647504@Kodi (pi)
-	
+
 	┌─[elatov@macair] - [/Users/elatov] - [2016-06-12 12:17:54]
 	└─[130] <> dns-sd -B _airplay._tcp .
 	Browsing for _airplay._tcp
@@ -106,7 +106,7 @@ It looks like the latest version of kodi might work out. Check out [Kodi Airplay
 	Timestamp     A/R    Flags  if Domain               Service Type         Instance Name
 	12:18:04.848  Add        3   4 local.               _airplay._tcp.       Apple TV
 	12:18:04.848  Add        2   4 local.               _airplay._tcp.       Kodi (pi)
-	
+
 	┌─[elatov@macair] - [/Users/elatov] - [2016-06-12 12:18:06]
 	└─[130] <> dns-sd -L "Kodi (pi)" _airplay._tcp
 	Lookup Kodi (pi)._airplay._tcp.local
@@ -140,55 +140,55 @@ But I was unable to screen cast (**airplay** mirror) to it. But it did offer som
 I have a Smart Samsung TV and it supports **Wi-Fi Direct** from [Wi-Fi Direct: what it is and why you should care](http://www.techradar.com/us/news/phone-and-communications/mobile-phones/wi-fi-direct-what-it-is-and-why-you-should-care-1065449)
 
 > Wi-Fi Direct devices can connect to each other without having to go through an access point, that is to say you don't need to use your router.
-> 
+>
 > This is because Wi-Fi Direct devices establish their own ad-hoc networks as and when required, letting you see which devices are available and choose which one you want to connect to.
-> 
+>
 > If you think that sounds very like Bluetooth, that's because it is... only a lot faster.
 
 More notes:
 
 > Wi-Fi Direct is in DLNA, iOS, Android and BB OS and even your new Xbox
-> 
+>
 > In November 2011, the Digital Living Network Alliance (DLNA) announced that it was including Wi-Fi Direct in its interoperability guidelines. Since then Google has added Wi-Fi Direct support to all versions of Android since Android 4.0 Ice Cream Sandwich.
 
 The [wiki page](https://en.wikipedia.org/wiki/Wi-Fi_Direct) also has a bunch of good information:
 
 > Mobile devices
 > Google announced Wi-Fi Direct support in Android 4.0 in October 2011.[16] While some Android 2.3 devices like Samsung Galaxy S II have had this feature through proprietary operating system extensions developed by OEMs, the Galaxy Nexus (released November 2011) was the first Android device to ship with Google's implementation of this feature and an application programming interface for developers. Ozmo Devices, which developed integrated circuits (chips) designed for Wi-Fi Direct, was acquired by Atmel in 2012.
-> 
+>
 > Wi-Fi Direct became available With the Blackberry 10.2 upgrade.
-> 
+>
 > As of March 2016 iPhone devices do not implement Wi-Fi Direct, instead it has its own implementation
-> 
+>
 > Game consoles
 > The Xbox One, released in 2013, supports Wi-Fi Direct.
-> 
+>
 > NVIDIA's SHIELD controller uses Wi-Fi Direct to connect to compatible devices. NVIDIA claims a reduction in latency and increase in throughput over competing Bluetooth controllers
-> 
+>
 > Televisions
 > In March 2016 Sony, LG and Philips have implemented Wi-Fi Direct on some of their televisions.
 
 From the [How do I connect my smartphone or tablet to my TV using screen mirroring?](http://www.samsung.com/uk/support/skp/faq/1108504) page it talks about how it works:
 
 > The Screen Mirroring feature is compatible with TVs that use WiFi direct technology. The first model that supported screen mirroring was the F range in 2013. You can check the age of your Samsung TV here. If your TV is older than the F range (2013) then you can still use screen mirroring via an Allshare Cast.
-> 
+>
 > To try it out we can enable screen mirror on the TV and then with my adroind device I saw it an available device to cast to.
 
 I just went to the screen mirroring source on the TV:
 
-![sam-tv-enable-sm](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/sam-tv-enable-sm.jpg&raw=1)
+![sam-tv-enable-sm](https://raw.githubusercontent.com/elatov/upload/master/screen-cast/sam-tv-enable-sm.jpg)
 
 And it showed how to connect the phone to it:
 
-![sam-tv-screen-enabled](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/sam-tv-screen-enabled.jpg&raw=1)
+![sam-tv-screen-enabled](https://raw.githubusercontent.com/elatov/upload/master/screen-cast/sam-tv-screen-enabled.jpg)
 
 Then from my android I went to the cast menu:
 
-![and-cast-button.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/and-cast-button.png&raw=1)
+![and-cast-button.png](https://raw.githubusercontent.com/elatov/upload/master/screen-cast/and-cast-button.png)
 
 Then I enabled the wireless display and I saw my TV:
 
-![and-cast-enable-widi](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/and-cast-enable-widi.png&raw=1)
+![and-cast-enable-widi](https://raw.githubusercontent.com/elatov/upload/master/screen-cast/and-cast-enable-widi.png)
 
 Unfortunately my iPhone wasn't able to use this feature.
 
@@ -201,25 +201,25 @@ From the [wikipedia page](https://en.wikipedia.org/wiki/Miracast)
 Here is more about specific devices:
 
 > The Wi-Fi Alliance maintains a current list of Miracast-certified devices, which features 5,007 devices as of April 26, 2016.
-> 
+>
 > Nvidia announced support for it in their Tegra 3 platform, and Freescale Semiconductor, Texas Instruments, Qualcomm, Marvell Technology Group and other chip vendors have also announced their plans to support it.
-> 
+>
 > Both devices (the sender and the receiver) need to be Miracast certified for the technology to work. However, to stream music and movies to a non-certified device there will be Miracast adapters available that plug into HDMI or USB ports.
-> 
+>
 > On 29 October 2012, Google announced that Android version 4.2+ (from updated version of Jelly Bean) are supporting the Miracast wireless display standard, and by default have it integrated .
-> 
+>
 > As of January 8, 2013, the LG Nexus 4 and Sony's Xperia Z, ZL, T and V officially support the function, as does HTC One, Motorola in their Droid Maxx & Ultra flagships, and Samsung in its Galaxy S III and Galaxy Note II under the moniker AllShare Cast. The Galaxy S4 uses Samsung Link for its implementation. In October 2013, BlackBerry released its 10.2.1 update to most of the existing BlackBerry 10 devices available at that time. As of March 2015, the BlackBerry Q10, Q5, Z30, and later models support Miracast streaming; the BlackBerry Z10 does not support Miracast, due to hardware limitations.
-> 
+>
 > In April 2013, Rockchip unveiled a Miracast adapter powered by the RK2928.
-> 
+>
 > Microsoft also added support for Miracast in Windows 8.1 (announced in June 2013). This functionality first became available in the Windows 8.1 Preview, and is available on hardware with supported Miracast drivers from hardware (GPU) manufacturers such as those listed above.
-> 
+>
 > The WDTV Live Streaming Media Player added Miracast support with firmware version 2.02.32
-> 
+>
 > The Amazon Fire TV Stick, which started shipping on 19 November 2014, also supports Miracast.
-> 
+>
 > On 28 July 2013, Google announced the availability of the Chromecast powered by a Marvell DE3005-A1, but despite the similarity in name and Google's early support of Miracast in Android, the Chromecast does not support Miracast.
-> 
+>
 > As of late April of 2016, the Ubuntu Touch powered Meizu Pro 5 supports Miracast in OTA-11.
 
 And here is a note about OS Support:
@@ -230,15 +230,15 @@ From the Wi-Fi Direct wikipage it looks like **Miracast** is based on **Wi-Fi Di
 
 Just enable screen mirroring on the **Roku** side:
 
-![roku-enable-screenmirror](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/roku-enable-screenmirror.png&raw=1)
+![roku-enable-screenmirror](https://raw.githubusercontent.com/elatov/upload/master/screen-cast/roku-enable-screenmirror.png)
 
 and you will see the device available for casting, like on my android Nexus 5 phone:
 
-![and-roku-seen](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/and-roku-seen.png&raw=1)
+![and-roku-seen](https://raw.githubusercontent.com/elatov/upload/master/screen-cast/and-roku-seen.png)
 
 and I can cast to it:
 
-![and-roku-conn](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/and-roku-conn.png&raw=1)
+![and-roku-conn](https://raw.githubusercontent.com/elatov/upload/master/screen-cast/and-roku-conn.png)
 
 There are also good guides here for **Roku** Screen Mirroring:
 
@@ -289,7 +289,7 @@ Since it uses **SSDP** we can query for it. Here is what I saw on my TV:
 
 Both my TV and the **Roku** can act as **DIAL** clients. To use **DIAL** just launch a **youtube** video in chrome and there will be an option to cast that video to a **DIAL** capable device:
 
-![youtu-dial-tv](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/youtu-dial-tv.png&raw=1)
+![youtu-dial-tv](https://raw.githubusercontent.com/elatov/upload/master/screen-cast/youtu-dial-tv.png)
 
 #### DLNA
 
@@ -306,7 +306,7 @@ I have talked about **DLNA** in the [past post](/2012/10/installing-mediatomb-on
 
 On the **Kodi** side I went ahead and enabled it to be a **DLNA Renderer**:
 
-![kodi-enable-upnp-mr](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/kodi-enable-upnp-mr.png&raw=1)
+![kodi-enable-upnp-mr](https://raw.githubusercontent.com/elatov/upload/master/screen-cast/kodi-enable-upnp-mr.png)
 
 and now both my TV and Raspberry Pi can accept media streams:
 
@@ -325,11 +325,11 @@ and now both my TV and Raspberry Pi can accept media streams:
 
 Now we can use mobile apps like **BubbleUPNP**, **mConnect Free**, and **TV Cast for DLNA** to stream files to either device. In **BubbleUPNP** I see all my **DLNA** devices (Renderers and Servers):
 
-![bu-ren-ser-seen](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/bu-ren-ser-seen.png&raw=1)
+![bu-ren-ser-seen](https://raw.githubusercontent.com/elatov/upload/master/screen-cast/bu-ren-ser-seen.png)
 
 And on iPhone, I see both of my devices are Renderers:
 
-![iphone-co-dlna](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/iphone-co-dlna.png&raw=1)
+![iphone-co-dlna](https://raw.githubusercontent.com/elatov/upload/master/screen-cast/iphone-co-dlna.png)
 
 After that I can pick a designated **Renderer** (Kodi or Sasmsung TV) and then I can stream movies from **Plex** to the **Renderer** with my phone as the middle man. This isn't true screencasting but it still helps out.
 
@@ -346,10 +346,10 @@ Computer](https://www.tomsguide.com/us/how-to-stream-to-tv,news-18335.html):
 
 And just for comparison, from [Swordfight! Streaming sticks from Google, Roku, and Amazon compared](http://www.digitaltrends.com/home-theater/chromecast-vs-roku-streaming-stick-vs-amazon-fire-tv-stick)
 
-![media-stick-comparison](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/media-stick-comparison.png&raw=1)
+![media-stick-comparison](https://raw.githubusercontent.com/elatov/upload/master/screen-cast/media-stick-comparison.png)
 
 It looks like **chromecast** has the best support. The [Best Miracast and Screen-Mirroring Devices 2016](https://www.tomsguide.com/us/best-miracast-screen-mirroring,review-2286.html) provides recommendation per OS and it might be worth checking out, if you
-are a pure windows or apple shop. Most of my streaming needs are covered with **Plex** and **Kodi**, I just wanted to find out if any of my existing devices covers all the platforms and it doesn't look like it. 
+are a pure windows or apple shop. Most of my streaming needs are covered with **Plex** and **Kodi**, I just wanted to find out if any of my existing devices covers all the platforms and it doesn't look like it.
 
 For **chromecast**, it supports both **DIAL** and **mDNS** more information is seen in [Chromecast Implementation Documentation WIP](https://github.com/jloutsenhizer/CR-Cast/wiki/Chromecast-Implementation-Documentation-WIP):
 
@@ -389,24 +389,24 @@ And here is more information:
 
 Once in chrome you can cast any tab or the whole screen:
 
-![c-options-menu](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/c-options-menu.png&raw=1)
+![c-options-menu](https://raw.githubusercontent.com/elatov/upload/master/screen-cast/c-options-menu.png)
 
 Then you can choose what screen to cast:
 
-![c-share-screen](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/c-share-screen.png&raw=1)
+![c-share-screen](https://raw.githubusercontent.com/elatov/upload/master/screen-cast/c-share-screen.png)
 
 And after that the casting will start and you can see the status from the same location:
 
-![c-cast-going](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/c-cast-going.png&raw=1)
+![c-cast-going](https://raw.githubusercontent.com/elatov/upload/master/screen-cast/c-cast-going.png)
 
 You can also download the **Google Cast** mobile app and cast your phone screen to it:
 
-![and-gca-cast](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/and-gca-cast.png&raw=1)
+![and-gca-cast](https://raw.githubusercontent.com/elatov/upload/master/screen-cast/and-gca-cast.png)
 
 Now adays a lot of apps support chrome cast as well and you will see your casting icon within the app and it will list your **chromecast**. Here is the **plex** app:
 
-![plex-app-cc](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/plex-app-cc.png&raw=1)
+![plex-app-cc](https://raw.githubusercontent.com/elatov/upload/master/screen-cast/plex-app-cc.png)
 
 and here is **pandora**:
 
-![pan-cast-cc](https://seacloud.cc/d/480b5e8fcd/files/?p=/screen-cast/pan-cast-cc.png&raw=1)
+![pan-cast-cc](https://raw.githubusercontent.com/elatov/upload/master/screen-cast/pan-cast-cc.png)

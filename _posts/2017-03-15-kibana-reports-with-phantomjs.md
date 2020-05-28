@@ -23,28 +23,28 @@ And there have been a couple of tools that were created to help out:
 
 And lastly it sounds like [X-Pack from Elastic](https://www.elastic.co/guide/en/x-pack/current/xpack-introduction.html) will allow for reporting, but it won't be free. You can use it for a 30 day trial but after that you have to purchase a license. Here is nice support table:
 
-![elk-lic](https://seacloud.cc/d/480b5e8fcd/files/?p=/kibana-phantomjs/elk-lic.png&raw=1)
+![elk-lic](https://raw.githubusercontent.com/elatov/upload/master/kibana-phantomjs/elk-lic.png)
 
 ### Screenshot Solutions
 
 It seems some people started using tools to take a screenshot of **Kibana** dashboards:
 
 * [Kibana Reporting Tool?](https://discuss.elastic.co/t/kibana-reporting-tool/27223)
-	* This has an example of a **selenium** script in **python** 
+	* This has an example of a **selenium** script in **python**
 * [Kibana3 Automated Email Reports Using Windows](http://www.ragingcomputer.com/2014/03/kibana3-automated-email-reports-using-windows)
-	* This is an old version of **phantomjs** with **ImageMagick** 
+	* This is an old version of **phantomjs** with **ImageMagick**
 * [how can I screen capture kibana 4 including tooltips?](https://groups.google.com/forum/#!topic/phantomjs/yQEIduvuM4w)
-	* This has the simplest version of a **phantomjs** script to work with **Kibana** 4 
+	* This has the simplest version of a **phantomjs** script to work with **Kibana** 4
 * [Snapshot for Kibana / Grafana](https://github.com/parvez/snapshot)
 	* This is nice app, based on **phantomjs** , which can schedule and create screenshots of **Kibana** dashboards.
-	
+
 Actually watching the [From Dashboard to PDF: Generate Reports with the Elastic Stack video from ElastiCon](https://www.elastic.co/elasticon/conf/2016/sf/from-dashboard-to-pdf-generate-reports-with-the-elastic-stack), it mentions that the new export-to-pdf functionality in **x-pack** also depends on **phantomjs**.
 
 ### Playing Around with PhantomJS
 So I decided to try out **phantomjs** just to see how it works out. Looking over the [download page](http://phantomjs.org/download.html) it looks like for now only the binaries are available for linux, but I did notice that FreeBSD already had it available in the package repos, so I decided to install on my FreeBSD machine. The install is pretty easy:
 
 	$ sudo pkg install phantomjs
- 
+
 Then copying some of the example from above here is the simplest example:
 
 	<> cat l.js
@@ -52,10 +52,10 @@ Then copying some of the example from above here is the simplest example:
 	var page = require('webpage').create();
 	//wait to load kibana in ms
 	var waitTime = 10 * 1000;
-	
+
 	//size of virtual browser window
 	page.viewportSize = { width: 1500, height: 1000 };
-	
+
 	page.open(url, function (status) {
 	    if (status !== 'success') {
 	        console.log('Unable to load the address!');
@@ -76,7 +76,7 @@ Then running the following:
 
 Produced a file called **kibana.jpg** in the same directory and here is how it looked like:
 
-![ph-jpg-ex](https://seacloud.cc/d/480b5e8fcd/files/?p=/kibana-phantomjs/ph-jpg-ex.png&raw=1)
+![ph-jpg-ex](https://raw.githubusercontent.com/elatov/upload/master/kibana-phantomjs/ph-jpg-ex.png)
 
 #### Snapshot - Report Generation for ElasticSearch Kibana / Grafana
 

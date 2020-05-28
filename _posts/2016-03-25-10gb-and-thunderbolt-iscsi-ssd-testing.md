@@ -191,7 +191,7 @@ Here were the results with *flow control* and *jumbo frames*:
 	[ ID] Interval       Transfer     Bandwidth
 	[  3]  0.0-10.0 sec  9.18 GBytes  7.89 Gbits/sec
 	[  3] MSS size 8948 bytes (MTU 8988 bytes, unknown interface)
-	
+
 I ran into an interesting issue where the Nic wouldn't come up if flow-control is enabled during boot. So I actually ended up disabling that for long term:
 
 	dladm set-linkprop -p flowctrl=no ixgbe0
@@ -223,7 +223,7 @@ So after disabling **intr_polling**, I saw the following:
 	Socket Socket  Message  Elapsed              Send     Recv     Send    Recv
 	Size   Size    Size     Time     Throughput  local    remote   local   remote
 	bytes  bytes   bytes    secs.    10^6bits/s  % S      % M      us/KB   us/KB
-	
+
 	524744 425984 425984    60.00      8114.30   4.48     31.14    0.181   1.257
 
 I was able to get about **8Gb/s**. To permanently disable **intr_throttling** we can add the following:
@@ -237,22 +237,22 @@ And after a reboot it should be applied.
 #### Thunderbolt 8Gb/s throughput
 After trying different things, I couldn't get above the *8Gb/s* limitation. I started doing some research and I saw that other people saw the same limitation with *thunderbolt*:
 
-* [What you need to know about Thunderbolt](http://www.macworld.com/article/1158145/thunderbolt_what_you_need_to_know.html) 
+* [What you need to know about Thunderbolt](http://www.macworld.com/article/1158145/thunderbolt_what_you_need_to_know.html)
 * [Promise Pegasus R6 & Mac Thunderbolt Review ](http://www.anandtech.com/show/4489/promise-pegasus-r6-mac-thunderbolt-review/6)
 * [Theoretical vs. Actual Bandwidth: PCI Express and Thunderbolt](http://www.tested.com/tech/457440-theoretical-vs-actual-bandwidth-pci-express-and-thunderbolt/)
 
 Some notes from the above sites:
 
 > So how much performance can you actually wring out of a Thunderbolt connection?
-> 
+>
 > Gordon Ung at Maximum PC saw peak read transfer speeds of 931MB/s when reading from a RAID 0 of four 240GB SandForce SF-2281 SSDs in a Pegasus R4 chassis.
-> 
+>
 > AnandTech actually got an SSD RAID in a Pegasus chassis right up to 1002MB/s at its very peak, which seems to be right up at the practical limit of a single Thunderbolt channel, but that was using a RAID 0 of four 128GB 6Gbps SATA SSDs, running sustained 2MB reads at a queue depth of 10.
 
 **1002MB/s** is about the same as **8Gbits/s** and here is more:
 
 > How fast is it really?
-> 
+>
 > In theory, it’s blazing fast. A Thunderbolt channel can provide up to 10 Gigabits per second (Gbps) of data throughput—and each Thunderbolt port includes two channels. Thunderbolt is also bi-directional, meaning it can transmit and receive data at the same time. Even with estimated real-world performance of around 8Gbps, Thunderbolt is many times faster than FireWire 800 and USB 3.0. It’s also significantly faster than the eSATA connections available on many Windows PCs.
 
 And lastly:
@@ -337,9 +337,9 @@ But that didn't make a difference in the **iperf** results. Also disabled it at 
 	   Default String Value:
 	   Valid Characters:
 	   Description: LRO enabled for TCP/IP
-   
+
    But that still didn't help. Lastly tried to disable TSO:
-   
+
 	[root@macm:~] esxcli system settings advanced set -o /Net/UseHwTSO -i 0
 	[root@macm:~] esxcli system settings advanced list -o /Net/UseHwTSO
 	   Path: /Net/UseHwTSO
@@ -352,9 +352,9 @@ But that didn't make a difference in the **iperf** results. Also disabled it at 
 	   Default String Value:
 	   Valid Characters:
 	   Description: When non-zero, use pNIC HW TSO offload if available
-   
+
    and that didn't help either. The highest BW on the ESXi host I got was **7Gb/s**. Even tried enabling IPv4 **TSO** on the Nics:
-   
+
 	[root@macm:~] esxcli network nic software set --ipv4tso=1 -n vmnic1
 	[root@macm:~] esxcli network nic software set --ipv4tso=1 -n vmnic2
 	[root@macm:~] esxcli network nic software list
@@ -375,12 +375,12 @@ I ended up creating a **raid0** zpool from my two SSD drives that were used for 
 	 state: ONLINE
 	  scan: none requested
 	config:
-	
+
 	        NAME        STATE     READ WRITE CKSUM
 	        ssd         ONLINE       0     0     0
 	          c2t0d0    ONLINE       0     0     0
 	          c2t1d0    ONLINE       0     0     0
-	
+
 	errors: No known data errors
 
 Both drives are the same SSDs:
@@ -392,19 +392,19 @@ Both drives are the same SSDs:
 
 Doing a **bonnie++** test from the netapp-it console, I saw the following results (it's the **ssd** zpool):
 
-![napp-it-bonnie](https://seacloud.cc/d/480b5e8fcd/files/?p=/10gb-tests/napp-it-bonnie.png&raw=1)
+![napp-it-bonnie](https://raw.githubusercontent.com/elatov/upload/master/10gb-tests/napp-it-bonnie.png)
 
 I also did other benchmarks in my [previous](/2015/11/build-your-own-zfs-home-storage-server/) post. It looks like we can do *550MB/s Write* and *700MB/s Read* (both sequential).
 
 ### Initial IOmeter Testing
-I did the same thing that I did [here](/2014/01/zfs-iscsi-benchmarks-tests/) for my benchmark tests. 
+I did the same thing that I did [here](/2014/01/zfs-iscsi-benchmarks-tests/) for my benchmark tests.
 Initially the results looked like this:
 
-![iometer-raid0-ssd-small.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/10gb-tests/iometer-raid0-ssd-small.png&raw=1)
+![iometer-raid0-ssd-small.png](https://raw.githubusercontent.com/elatov/upload/master/10gb-tests/iometer-raid0-ssd-small.png)
 
 And here is a similar test for bigger IO:
 
-![iometer-raid0-ssd-big](https://seacloud.cc/d/480b5e8fcd/files/?p=/10gb-tests/iometer-raid0-ssd-big.png&raw=1)
+![iometer-raid0-ssd-big](https://raw.githubusercontent.com/elatov/upload/master/10gb-tests/iometer-raid0-ssd-big.png)
 
 While the test was going, I checked out the Nic Utilization on the OmniOS machine and I saw the following:
 
@@ -447,8 +447,8 @@ Since the converter had two 10Gb Nics, I decided to set up iSCSI MPIO with port 
 
 * [vSphere 5.0 Storage Features Part 12 – iSCSI Multipathing Enhancements](https://blogs.vmware.com/vsphere/2011/08/vsphere-50-storage-features-part-12-iscsi-multipathing-enhancements.html)
 * [Multipathing Configuration for Software iSCSI Using Port Binding](http://www.vmware.com/files/pdf/techpaper/vmware-multipathing-configuration-software-iSCSI-port-binding.pdf)
-* [Considerations for using software iSCSI port binding in ESX/ESXi](http://kb.vmware.com/kb/2038869) 
-	
+* [Considerations for using software iSCSI port binding in ESX/ESXi](http://kb.vmware.com/kb/2038869)
+
 After I was done I saw multiple paths going to the same LUN:
 
 	[root@macm:~] esxcli storage nmp path list -d naa.600144f009d4d236000056918f920002 | grep ^iq
@@ -458,7 +458,7 @@ After I was done I saw multiple paths going to the same LUN:
 	--
 	iqn.1998-01.com.vmware:macm-38de68076-00023d000001,iqn.2010-09.org.napp-it:zfs,t,1-naa.600144f009d4d236000056918f920002
 	   Runtime Name: vmhba37:C0:T0:L4
-   
+
 #### Change Path Policy from MRU (Most Recently Used) to RR (Round Robin) for OmniOS Luns
 
 By default only one path will be used for active IO, so let's change that. First figure out the available PSPs:
@@ -510,11 +510,11 @@ You will notice the default it's MRU (**Path Selection Policy: VMW_PSP_MRU**). I
 You will also notice that the Round Robin occurs after 1000 iops as per and it's recommended to change that to 1. Couple of Links:
 
 * [Best Practices for VMware vSphere with NexentaStor](https://seacloud.cc/d/480b5e8fcd/files/?p=/10gb-tests/Best_Practices_for_VMware_vSphere_with_NexentaStor.pdf&raw=1)
-* [Adjusting Round Robin IOPS limit from default 1000 to 1](http://kb.vmware.com/kb/2069356) 
+* [Adjusting Round Robin IOPS limit from default 1000 to 1](http://kb.vmware.com/kb/2069356)
 
 From the VMware KB:
 
-> Adjusting the limit can provide a positive impact to performance and is recommended by other storage vendors to change IOPS limit to 1. For example, the default of 1000 input/output operations per second (IOPS) sends 1000 I/O down each path before switching. If the load is such that a portion of the 1000 IOPS can saturate the bandwidth of the path, the remaining I/O must wait even if the storage array could service the requests. The IOPS or bytes limit can be adjusted downward allowing the path to be switched at a more frequent rate. The adjustment allows the bandwidth of additional paths to be used while the other path is currently saturated. 
+> Adjusting the limit can provide a positive impact to performance and is recommended by other storage vendors to change IOPS limit to 1. For example, the default of 1000 input/output operations per second (IOPS) sends 1000 I/O down each path before switching. If the load is such that a portion of the 1000 IOPS can saturate the bandwidth of the path, the remaining I/O must wait even if the storage array could service the requests. The IOPS or bytes limit can be adjusted downward allowing the path to be switched at a more frequent rate. The adjustment allows the bandwidth of additional paths to be used while the other path is currently saturated.
 
 We can change that to 1, first confirm the setting:
 
@@ -576,25 +576,25 @@ And finally reboot
 Then after the reboot make sure all the LUN options are set apppropriately:
 
 	[root@macm:~] for disk in $(esxcli  storage nmp device list | grep SUN -B 1 | grep ^naa); do echo ""; esxcli storage nmp psp roundrobin deviceconfig get -d $disk; done
-	
+
 	   Byte Limit: 10485760
 	   Device: naa.600144f009d4d2360000569169d20001
 	   IOOperation Limit: 1
 	   Limit Type: Iops
 	   Use Active Unoptimized Paths: false
-	
+
 	   Byte Limit: 10485760
 	   Device: naa.600144f009d4d23600005588ed0e0002
 	   IOOperation Limit: 1
 	   Limit Type: Default
 	   Use Active Unoptimized Paths: false
-	
+
 	   Byte Limit: 10485760
 	   Device: naa.600144f009d4d2360000564773790001
 	   IOOperation Limit: 1
 	   Limit Type: Default
 	   Use Active Unoptimized Paths: false
-	
+
 	   Byte Limit: 10485760
 	   Device: naa.600144f009d4d236000056918f920002
 	   IOOperation Limit: 1
@@ -604,18 +604,18 @@ Then after the reboot make sure all the LUN options are set apppropriately:
 ### Final IOmeter Results
 After all of the above settings here were the results:
 
-![iometer-mpio-small](https://seacloud.cc/d/480b5e8fcd/files/?p=/10gb-tests/iometer-mpio-small.png&raw=1)
+![iometer-mpio-small](https://raw.githubusercontent.com/elatov/upload/master/10gb-tests/iometer-mpio-small.png)
 
 16K and 32K output went way up. And the bigger IO one:
 
-![iometer-mpio-big.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/10gb-tests/iometer-mpio-big.png&raw=1)
+![iometer-mpio-big.png](https://raw.githubusercontent.com/elatov/upload/master/10gb-tests/iometer-mpio-big.png)
 
 Most of the results increased except the 1M read. Getting 800MB/s (6.4Gb/s) write and read speed is pretty incredible.  While I was running the test I saw the following in esxtop:
 
-![esxtop-low-davg](https://seacloud.cc/d/480b5e8fcd/files/?p=/10gb-tests/esxtop-low-davg.png&raw=1)
+![esxtop-low-davg](https://raw.githubusercontent.com/elatov/upload/master/10gb-tests/esxtop-low-davg.png)
 
 I love seeing high Write Speed and low DAVG :) And to confirm multipathing is working I saw the following on the Nics:
 
-![esxtop-both-nics-uses](https://seacloud.cc/d/480b5e8fcd/files/?p=/10gb-tests/esxtop-both-nics-uses.png&raw=1)
+![esxtop-both-nics-uses](https://raw.githubusercontent.com/elatov/upload/master/10gb-tests/esxtop-both-nics-uses.png)
 
 We can see the same amount of traffic going down both Nics. My guess is that the SSD write and read speeds are slowing down the test a little bit, but other than that I am pretty happy with the results. I want to get the next generation mac mini or Mac Pro (they have thunderbolt 2 ports vs Thunderbolt 1 and are advertised to handle 20Gb/s throughput) and see if the results change.

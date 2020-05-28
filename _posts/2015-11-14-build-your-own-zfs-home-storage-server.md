@@ -30,7 +30,7 @@ After looking through various pages and comparing different specs, I ended up ge
 
 Here is a picture while I was putting everything together :)
 
-![storage-server-parts](https://seacloud.cc/d/480b5e8fcd/files/?p=/zfs-perf-biy-san/storage-server-parts.jpg&raw=1) 
+![storage-server-parts](https://raw.githubusercontent.com/elatov/upload/master/zfs-perf-biy-san/storage-server-parts.jpg)
 
 ### Local SSD Performance Tests
 Initially I wanted to see how my SSDs performed and here were some dd results:
@@ -39,10 +39,10 @@ Initially I wanted to see how my SSDs performed and here were some dd results:
 	5120+0 records in
 	5120+0 records out
 	5368709120 bytes (5.4 GB) copied, 9.44135 s, 569 MB/s
-	
+
 My plan wasn't to use those directly, with ZFS we can use them for **L2ARC** Cache and as a **ZIL** pool. But I wanted to check what the SSDs were capable of.
 
-#### ZIL 
+#### ZIL
 There are a bunch of sites that talk about what **ZIL** is and what it's used for, I found these two sites the most useful:
 
 * [Setting Up Separate ZFS Log Devices](http://docs.oracle.com/cd/E19253-01/819-5461/gfgaa/index.html)
@@ -55,10 +55,10 @@ From the top site:
 And from the second site:
 
 > Using a ZIL is faster than writing to the regular pool structure, because it doesn't come with the overhead of updating file system metadata and other housekeeping tasks. But having the ZIL on the same disk as the rest of the pool introduces a competition between the ZIL and the regular pool structure, fighting over precious IOPS resources, resulting in bad performance whenever there's a significant portion of synchronous writes.
-> 
+>
 > ..
 > ..
-> 
+>
 > But the biggest benefit can be obtained by using ZIL devices that can execute writes fast. Really fast. And that's why we at Oracle like to make such a great fuzz about Flash memory devices. From Oracle's Sun F5100 Flash Storage Array to the Sun Flash Accelerator F20, both running on cool, space-saving Flash Modules, to standard, enterprise-class SATA/SAS SSDs.
 
 #### L2ARC
@@ -85,7 +85,7 @@ Here is what I ran to add each:
 
 	root@zfs:~# zpool add data log c2t0d0
 	root@zfs:~# zpool add data cache c2t1d0
-	
+
 You can confirm both are added by using the **status** command:
 
 	root@zfs:~#zpool status data
@@ -93,7 +93,7 @@ You can confirm both are added by using the **status** command:
 	 state: ONLINE
 	  scan: scrub repaired 0 in 1h35m with 0 errors on Fri Nov 13 04:05:40 2015
 	config:
-	
+
 	        NAME        STATE     READ WRITE CKSUM
 	        data        ONLINE       0     0     0
 	          c2t3d0    ONLINE       0     0     0
@@ -102,7 +102,7 @@ You can confirm both are added by using the **status** command:
 	          c2t1d0    ONLINE       0     0     0
 	        cache
 	          c2t0d0    ONLINE       0     0     0
-	
+
 	errors: No known data errors
 
 
@@ -126,18 +126,18 @@ Then here is the after test:
 
 We are definitely enjoying the SSDs cache here :) Here is the **DD** test from the *napp-it* interface with both ZIL and L2ARC (the read test is awesome):
 
-![dd-test-new-storage-box](https://seacloud.cc/d/480b5e8fcd/files/?p=/zfs-perf-biy-san/dd-test-new-storage-box.png&raw=1)
+![dd-test-new-storage-box](https://raw.githubusercontent.com/elatov/upload/master/zfs-perf-biy-san/dd-test-new-storage-box.png)
 
 ### Remote iSCSI Performance Tests
 I ran the same tests that I ran in the original post and here were the results for small IO:
 
-![iom-small-res.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/zfs-perf-biy-san/iom-small-res.png&raw=1)
+![iom-small-res.png](https://raw.githubusercontent.com/elatov/upload/master/zfs-perf-biy-san/iom-small-res.png)
 
 The results were very similar to the original test and that's because I am still getting stuck at my 1GB NIC and Switch limitation. I think in the future I will try get a hold of a Switch that can do port link aggregation and install a multiport NIC on the ZFS machine to setup link aggreation on that side as well ([Overview of Link Aggregations](https://docs.oracle.com/cd/E23824_01/html/821-1458/fpjvl.html))
 
 My backups were completing much faster now, here are the results after the storage upgrade:
 
-![backups-after-storage-upgrade](https://seacloud.cc/d/480b5e8fcd/files/?p=/zfs-perf-biy-san/backups-after-storage-upgrade.png&raw=1)
+![backups-after-storage-upgrade](https://raw.githubusercontent.com/elatov/upload/master/zfs-perf-biy-san/backups-after-storage-upgrade.png)
 
 You can see the results before the upgrade in my [old post](/2014/02/esxi-backups-zfs-xsibackup/).
 

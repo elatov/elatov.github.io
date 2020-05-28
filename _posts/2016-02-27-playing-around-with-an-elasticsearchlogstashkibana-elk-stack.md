@@ -69,7 +69,7 @@ The install for **logstash** is similar to **elasticsearch** and instructions ar
 	gpgkey=http://packages.elastic.co/GPG-KEY-elasticsearch
 	enabled=1
 
-Now let's install **logstash**: 
+Now let's install **logstash**:
 
 	$ sudo yum install logstash
 
@@ -88,7 +88,7 @@ Let's create an example of where **logstash** parses syslog info. There are a bu
 	    type => syslog
 	  }
 	}
-	
+
 	filter {
 	  if [type] == "syslog" {
 	    grok {
@@ -102,7 +102,7 @@ Let's create an example of where **logstash** parses syslog info. There are a bu
 	    }
 	  }
 	}
-	
+
 	output {
 	  elasticsearch { hosts => ["localhost:9200"] }
 	  stdout { codec => rubydebug }
@@ -209,7 +209,7 @@ And let's create a service file:
 	User=kibana
 	Group=kibana
 	Environment=NODE_ENV=production
-	
+
 	[Install]
 	WantedBy=multi-user.target
 
@@ -228,7 +228,7 @@ We can check out the **journalctl** command to make sure it's running
 	...
 	Dec 27 15:40:02 puppet.dnsd.me kibana4[7121]: {"type":"log","@timestamp":"2015-12-27T22:40:02+00:00","tags":["status","plugin:elasticsearch","info"],"pid":7121,"name":"plugin:elasticsearch","state":"green","message":"Status changed from yellow to green - Kibana index ready","prevState":"yellow","prevMsg":"Waiting for Elasticsearch"}
 
-### Forward Logs to Logstash 
+### Forward Logs to Logstash
 
 I ended up just forwarding **rsyslog** to **logstash** locally. I know I could've installed filebeat and used that as a forwarder but I wanted to skip that. So I created the following file
 
@@ -242,7 +242,7 @@ To apply the above changes I restarted the service:
 
 Then I went to **kibana** (**http://\<KIBABA_IP\>:9200**) and it was showing messages from my local machine:
 
-![kibana-logs-seen](https://seacloud.cc/d/480b5e8fcd/files/?p=/kibana/kibana-logs-seen.png&raw=1)
+![kibana-logs-seen](https://raw.githubusercontent.com/elatov/upload/master/kibana/kibana-logs-seen.png)
 
 ### Create a visualization
 
@@ -253,23 +253,23 @@ Some nice visualization starting guides:
 
 I wanted to create a simple bar chart that would just show me count of logs per host. So I ended up going to visualization and adding a vertical bar graph. I used  the following options:
 
-* y-axis 
+* y-axis
 	* Aggregation - Count
 * x-axis
 	* Aggreation - Terms
 	* Field - syslog_hostname.raw
 	* Order by - Count
-	
+
 And I ended up creating this graph:
 
-![kibana-bgraph-count-host](https://seacloud.cc/d/480b5e8fcd/files/?p=/kibana/kibana-bgraph-count-host.png&raw=1)
+![kibana-bgraph-count-host](https://raw.githubusercontent.com/elatov/upload/master/kibana/kibana-bgraph-count-host.png)
 
 I then saved that.
 
 ### Create a Dashboard
 Under dashboards I just added my visualization from above and when I saved it I made sure I enabled the "**Store time with dashboard**" option (since I didn't want the count to show just what the time picker has selected):
 
-![kibana-dashboard-with-vis](https://seacloud.cc/d/480b5e8fcd/files/?p=/kibana/kibana-dashboard-with-vis.png&raw=1)
+![kibana-dashboard-with-vis](https://raw.githubusercontent.com/elatov/upload/master/kibana/kibana-dashboard-with-vis.png)
 
 #### Set a Saved Dashboard as the Default
 If you want you can set a saved dashboard as the default application for kibaba. This way when any one logs into kibana they will see the dashboard and not the discover tab which allows you to search for logs. The instructions are laid out in this [kibana github issue](https://github.com/elastic/kibana/issues/3777). I called my dashboard "Main-Dashboard", so I set the following setting in the kibana config:
@@ -291,7 +291,7 @@ I wanted to create a search that would just show me failed or errors in the past
 
 and I saved that:
 
-![kibana-saved-search.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/kibana/kibana-saved-search.png&raw=1)
+![kibana-saved-search.png](https://raw.githubusercontent.com/elatov/upload/master/kibana/kibana-saved-search.png)
 
 I tried adding that saved search to the dashboard, but I quickly realized that a dashboard can only have one time period. There is actually an [enhancement request](https://github.com/elastic/kibana/issues/3578) to allow to configure time per visualization rather than globally.
 
@@ -309,4 +309,4 @@ So I ran into the forum: [Kibana flapping between red and green](https://discuss
 
 Then after restarting kibana the issue went away (and I could even search for it in **kibana**):
 
-![kibana-timeout](https://seacloud.cc/d/480b5e8fcd/files/?p=/kibana/kibana-timeout.png&raw=1)
+![kibana-timeout](https://raw.githubusercontent.com/elatov/upload/master/kibana/kibana-timeout.png)

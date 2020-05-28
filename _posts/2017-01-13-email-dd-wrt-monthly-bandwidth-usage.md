@@ -9,17 +9,17 @@ tags: [ttraff,dd_wrt,bash,gnuplot]
 ### Bandwidth Usage in DD-WRT
 I decided to keep an eye on my bandwidth usage. By default dd-wrt provides a pretty nice graph under **Status** -> **WAN** -> **Traffic by Month**:
 
-![dd-wrt-traf-mon](https://seacloud.cc/d/480b5e8fcd/files/?p=/email-wrt-bw/dd-wrt-traf-mon.png&raw=1)
+![dd-wrt-traf-mon](https://raw.githubusercontent.com/elatov/upload/master/email-wrt-bw/dd-wrt-traf-mon.png)
 
 The graph has everything that I needed (per day break down and the total usage for the whole month). The data is collected by [ttraff](https://github.com/iamacarpet/ttraff) and by default it's enabled under **Services** -> **Services** -> **WAN Traffic Counter**:
 
-![dd-ttraff-en](https://seacloud.cc/d/480b5e8fcd/files/?p=/email-wrt-bw/dd-ttraff-en.png&raw=1)
+![dd-ttraff-en](https://raw.githubusercontent.com/elatov/upload/master/email-wrt-bw/dd-ttraff-en.png)
 
 ### DD-WRT SSH Authorized Keys and ttraff
 I wanted to email such a graph on a monthly basis. So I decided to put
 together a script which will grab the **ttraff** data, plot it, and email it. The first thing we need to do is enable ssh keys for remote access. I created ssh keys and added them under **Services** -> **Services** -> **Secure Shell**:
 
-![wrt-ssh-keys](https://seacloud.cc/d/480b5e8fcd/files/?p=/email-wrt-bw/wrt-ssh-keys.png&raw=1)
+![wrt-ssh-keys](https://raw.githubusercontent.com/elatov/upload/master/email-wrt-bw/wrt-ssh-keys.png)
 
 After that I could query **ttraff** data without any issue:
 
@@ -56,7 +56,7 @@ I ended up with the following:
 
 and I actually ended up with the following graph:
 
-![gnupl-GB](https://seacloud.cc/d/480b5e8fcd/files/?p=/email-wrt-bw/gnupl-GB.png&raw=1)
+![gnupl-GB](https://raw.githubusercontent.com/elatov/upload/master/email-wrt-bw/gnupl-GB.png)
 
 Here is the data I was playing with initially:
 
@@ -80,7 +80,7 @@ I did the following:
 After checking out the help section of **gnuplot**, I realized there was already a format for the desired notation:
 
 > The acceptable formats (if not in time/date mode) are:
-> 
+>
 >        Format       Explanation
 >        %f           floating point notation
 >        %e or %E     exponential notation; an "e" or "E" before the power
@@ -104,7 +104,7 @@ So after that I ended up with this:
 
 And that produced the following graph:
 
-![gnupl-Gi](https://seacloud.cc/d/480b5e8fcd/files/?p=/email-wrt-bw/gnupl-Gi.png&raw=1)
+![gnupl-Gi](https://raw.githubusercontent.com/elatov/upload/master/email-wrt-bw/gnupl-Gi.png)
 
 I also ended up multiplying the values by 1024 twice to convert from megabytes to bytes instead of just appending 6 zeros.
 
@@ -116,26 +116,26 @@ After playing around with some settings I ended up with the following script:
 	LAST_MONTH=$(/bin/date -d '-2 days' "+%m-%Y")
 	LAST_MONTH_M=$(/bin/date -d '-2 days' "+%b")
 	LAST_MONTH_Y=${LAST_MONTH#*-}
-	
+
 	# Get the Data from WRT (Assumes ssh keys are in place)
 	DATA=$(/usr/bin/ssh -q wrt "nvram get traff-$LAST_MONTH")
 	DATA_FILE="/tmp/bw-"$LAST_MONTH".data"
-	
+
 	# Sample DATA
 	#DATA="1139:972 5872:548 1050:216 439:116 227:213 1815:479 5151:1447 976:294 6004:531 492:86 334:101 1574:184 879:118 297:85 1014:190 7706:489 592:122 411:100 107:64 1409:270 1428:205 2887:146 3192:314 783:85 707:124 1838:243 1780:314 3147:369 2768:399 8230:1304 [64248:10128]"
-	
+
 	# Convert data string to Array
 	ARR_DATA=($DATA)
-	
+
 	# Get the last element of the array
 	ARR_DATA_SUM=${ARR_DATA[${#ARR_DATA[@]}-1]}
-	
+
 	# remove the last element of the array, since that's the sum data
 	unset ARR_DATA[${#ARR_DATA[@]}-1]
-	
+
 	# Copy Array into another array
 	ARR_DATA_POINTS=(${ARR_DATA[@]})
-	
+
 	# Print the data to be plotted, increment index since we start at zero
 	for i in "${!ARR_DATA_POINTS[@]}"; do
 		# get substring before colon
@@ -147,24 +147,24 @@ After playing around with some settings I ended up with the following script:
 		OUT_B=$(($OUT_MB * 1024 * 1024))
 		printf "%02d %s %s\n" "$(($i+1))" "$IN_B" "$OUT_B" >> $DATA_FILE
 	done
-	
+
 	# Remove square brakets from the Sum Array
 	ARR_DATA_SUM=( "${ARR_DATA_SUM[@]/#[/}" )
 	ARR_DATA_SUM=( "${ARR_DATA_SUM[@]/%]/}" )
-	
+
 	# Grab substings for incoming and outgoing values
 	TOT_IN_MB=${ARR_DATA_SUM%:*}
 	TOT_OUT_MB=${ARR_DATA_SUM#*:}
-	
+
 	# Convert to GB without decimals
 	# didn't use this
 	#TOT_IN_GB=$(($TOT_IN_MB/1024))
 	#TOT_OUT_GB=$(($TOT_OUT_MB/1024))
-	
+
 	# convert to GB with decimals
 	TOT_IN_GB=$(echo "scale=2; $TOT_IN_MB / 1024" | /usr/bin/bc)
 	TOT_OUT_GB=$(echo "scale=2; $TOT_OUT_MB / 1024" | /usr/bin/bc)
-	
+
 	GNUPLOT_OUTPUT="/tmp/bw-"$LAST_MONTH".png"
 	GNUPLOT_SCRIPT='set title "'$LAST_MONTH_M' '$LAST_MONTH_Y' (Incoming: '$TOT_IN_GB'GB Outgoing: '$TOT_OUT_GB'GB)"\n
 	set terminal png size 800,600 enhanced font "Helvetica,10"\n
@@ -177,29 +177,29 @@ After playing around with some settings I ended up with the following script:
 	set format y "%.2b%B"\n
 	plot "'$DATA_FILE'" using 2:xtic(1) title "Incoming",""using 3:xtic(1) title "Outgoing"'
 	GNUPLOT_SCRIPT_FILE="/tmp/bw.gnu"
-	
+
 	# Create gnuplot script
 	echo -e $GNUPLOT_SCRIPT >> $GNUPLOT_SCRIPT_FILE
-	
+
 	# Generate the graph
 	/usr/bin/gnuplot $GNUPLOT_SCRIPT_FILE
-	
+
 	if [ $? -ne 0 ]; then
 		echo "GnuPlot Failed, exiting"
 		exit 1
 	fi
-	
+
 	# Send email
 	echo "BW Summary" | /usr/bin/mailx -s "BW Usage for $LAST_MONTH_M $LAST_MONTH_Y" -a $GNUPLOT_OUTPUT elatov
-	
+
 	if [ $? -ne 0 ]; then
 	    echo "Email Failed, exiting"
 	    exit 1
 	fi
-	
+
 	# clean up
 	/bin/rm $GNUPLOT_SCRIPT_FILE $DATA_FILE $GNUPLOT_OUTPUT
-	
+
 	if [ $? -ne 0 ]; then
 	    echo "clean-up Failed, exiting"
 	    exit 1
@@ -212,13 +212,13 @@ Here are the tools necessary for the script:
 	ii  bc                1.06.95-9   amd64    GNU bc arbitrary precision calculator language
 	ii  gnuplot           4.6.6-2     all      Command-line driven interactive plotting program
 	ii  heirloom-mailx    12.5-4      amd64    feature-rich BSD mail(1)
-	
+
 If you really like the way the graph looks like with the Gigabytes output here is what you can do to auto append 6 zeroes to each element of the array:
 
 	# Replace all colons (:) with spaces and append 6 0s for MB
 	ARR_DATA_POINTS=( "${ARR_DATA_POINTS[@]/:/000000 }" )
 	ARR_DATA_POINTS=( "${ARR_DATA_POINTS[@]/%/000000}" )
-	
+
 ### Adding a Cron Job
 The last thing to do is to just add that script to be run from cron. I decided to run that on the first day of the month (that way the script will get the right values for the month variables):
 

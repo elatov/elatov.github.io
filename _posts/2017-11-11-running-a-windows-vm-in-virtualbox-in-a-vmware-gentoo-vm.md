@@ -18,7 +18,7 @@ On top of that, I followed the instructions in these two sites to use **LVMs** a
 
 Also, while I was compiling the kernel, I ended up enabling these options which were *VMware* Specific:
 
-    $ zgrep -iE 'VMW|VMX' /proc/config.gz 
+    $ zgrep -iE 'VMW|VMX' /proc/config.gz
     # CONFIG_VMWARE_VMCI is not set
     # CONFIG_VMWARE_PVSCSI is not set
     CONFIG_VMXNET3=y
@@ -35,7 +35,7 @@ Initially I wanted to just to boot up [headless](https://www.virtualbox.org/manu
     app-emulation/phpvirtualbox ~amd64
     app-emulation/virtualbox-bin ~amd64
     app-emulation/virtualbox-modules ~amd64
-    
+
 And here are the **USE** flags I used:
 
     $ cat /etc/portage/package.use/*virt*
@@ -78,7 +78,7 @@ Then I enabled the service, started it up, and it started without issues:
       Process: 1752 ExecStart=/opt/bin/vboxwebsrv --pidfile /run/vboxweb/vboxweb.pid
      Main PID: 1771 (vboxwebsrv)
        CGroup: /system.slice/vboxweb.service
-               ├─1771 /opt/VirtualBox/vboxwebsrv --pidfile /run/vboxweb/vboxweb.pid 
+               ├─1771 /opt/VirtualBox/vboxwebsrv --pidfile /run/vboxweb/vboxweb.pid
                ├─1774 /opt/VirtualBox/VBoxXPCOMIPCD
                ├─1779 /opt/VirtualBox/VBoxSVC --auto-shutdown
 
@@ -90,12 +90,12 @@ Then I enabled the service, started it up, and it started without issues:
 #### Using Apache to Host the phpVirtualbox App
 Next we can install **apache** and **php** so we use the **phpVirtualBox** application. Here are the **USE** flags I created for **php**:
 
-    $ cat /etc/portage/package.use/php 
+    $ cat /etc/portage/package.use/php
     dev-lang/php soap gd apache2
 
 And that installed **apache2** as well. Then I created the following configuration for **apache2**:
 
-    $ cat /etc/apache2/vhosts.d/99-virtualbox.conf 
+    $ cat /etc/apache2/vhosts.d/99-virtualbox.conf
     <VirtualHost *:443>
             ServerName gen.kar.int
             DocumentRoot /var/www/localhost/htdocs/phpvirtualbox
@@ -123,13 +123,13 @@ The issue is actually discussed at [apache-2.4.3: Invalid Mutex directory](https
 
     $ sudo mkdir /run/apache_ssl_mutex
     $ sudo chown apache:apache /run/apache_ssl_mutex/
-    
+
 And then I created a **tmp.files** configuration to create the directory on boot:
 
-    $ cat /etc/tmpfiles.d/apache2.conf 
+    $ cat /etc/tmpfiles.d/apache2.conf
     d /run/apache_ssl_mutex 0755 apache apache
 
-After that, **apache2** started up without issues. 
+After that, **apache2** started up without issues.
 
 #### phpVirtualbox logging in issues
 I ran into different issues logging into **phpVirtualbox** and most of them are discussed at [Common phpVirtualBox Errors and Issues](https://sourceforge.net/p/phpvirtualbox/wiki/Common%20phpVirtualBox%20Errors%20and%20Issues/#error-logging-in-or-connecting-to-vboxwebsrv). To fix my issues, I ended creating a dedicated to login and disabled the **auth** option:
@@ -143,7 +143,7 @@ I ran into different issues logging into **phpVirtualbox** and most of them are 
 
 Then after that I was able to login to **phpVirtualbox** and see the VirtualBox host information:
 
-![phpvb-host-info](https://seacloud.cc/d/480b5e8fcd/files/?p=/vb-gentoo-esxi/phpvb-host-info.png&raw=1)
+![phpvb-host-info](https://raw.githubusercontent.com/elatov/upload/master/vb-gentoo-esxi/phpvb-host-info.png)
 
 ### Enabling VMware Hardware Assisted Virtualization on the Gentoo VM
 When I tried to create a VM I noticed that I could not select an operating system that was 64 bit. I ran into these two sites that talk about the issue:
@@ -158,17 +158,17 @@ It looks like I need to make sure the VM has the **Virtualization Technology** p
 
 So through the webclient I shutdown the **Gentoo** VM and enabled that option:
 
-![esxi-espose-vt](https://seacloud.cc/d/480b5e8fcd/files/?p=/vb-gentoo-esxi/esxi-espose-vt.png&raw=1)
+![esxi-espose-vt](https://raw.githubusercontent.com/elatov/upload/master/vb-gentoo-esxi/esxi-espose-vt.png)
 
 After that I was able to create and poweron a VM in VirtualBox that was 64 bit. Just for reference the **virtualbox-bin** package includes the [VirtualBox Guest Additions](https://www.virtualbox.org/manual/ch04.html#additions-windows) ISO:
 
-    $ ls -l /opt/VirtualBox/additions/VBoxGuestAdditions.iso 
+    $ ls -l /opt/VirtualBox/additions/VBoxGuestAdditions.iso
     -rw-r--r-- 1 root root 59445248 May  7 20:08 /opt/VirtualBox/additions/VBoxGuestAdditions.iso
 
 And I installed that on the Windows VM by adding it to the CD Drive of the VM.
 
 
-### Enabling Shared Clipboard with VirtualBox Remote Display Protocol 
+### Enabling Shared Clipboard with VirtualBox Remote Display Protocol
 
 Initially I couldn't copy and paste to the nested Windows VM either using **rdesktop** or **xfreerdp**. I thought it was related to these issues:
 
@@ -201,7 +201,7 @@ I then followed the instructions laid out in: [Gentoo Wiki: Xorg/Guide](https://
 
 And here are the **USE** flags for the **mesa** package:
 
-    $ cat /etc/portage/package.use/mesa 
+    $ cat /etc/portage/package.use/mesa
     media-libs/mesa -llvm -video_cards_nouveau -video_cards_radeon -video_cards_radeonsi xa
 
 Then I installed **Xorg** and **icewm**:
@@ -210,15 +210,15 @@ Then I installed **Xorg** and **icewm**:
 
 I was then able to login as my test user and execute `startx`. And just using the keyboard I was able to launch **Virtualbox**. Here is screenshot of the **Gentoo** VM Console in the web client with **VirtualBox Manager GUI** launched:
 
-![gentoo-vm-with-vb](https://seacloud.cc/d/480b5e8fcd/files/?p=/vb-gentoo-esxi/gentoo-vm-with-vb.png&raw=1)
+![gentoo-vm-with-vb](https://raw.githubusercontent.com/elatov/upload/master/vb-gentoo-esxi/gentoo-vm-with-vb.png)
 
 My mouse wouldn't work initially. I ran into [Mouse Does Not Function Properly in Linux Guests That Use X.Org 7.1 or Higher (5739104)](https://kb.vmware.com/kb/5739104) and I installed the **vmmouse** driver as recommended:
 
     sudo emerge xf86-input-vmmouse
-    
+
 And after that, my mouse started working. Then I launched the VM from **icewm** using the **VirtualBox Manager GUI** instead of **phpVirtualBox**:
 
-![gentoo-with-vb-win-running](https://seacloud.cc/d/480b5e8fcd/files/?p=/vb-gentoo-esxi/gentoo-with-vb-win-running.png&raw=1)
+![gentoo-with-vb-win-running](https://raw.githubusercontent.com/elatov/upload/master/vb-gentoo-esxi/gentoo-with-vb-win-running.png)
 
 and I saw the following in the logs:
 
@@ -229,15 +229,15 @@ and I saw the following in the logs:
 
 It turned out that as long as you have **Xorg** running the shared clipboard works even if you launch the VM in headless mode via **phpVirtualBox**:
 
-![php-vb-vm-running.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/vb-gentoo-esxi/php-vb-vm-running.png&raw=1)
+![php-vb-vm-running.png](https://raw.githubusercontent.com/elatov/upload/master/vb-gentoo-esxi/php-vb-vm-running.png)
 
 I also noticed that you can enable the shared clipboard on the VM only when using the **VirtualBox Manager GUI** (under **Settings** -> **General** -> **Advanced**):
 
-![enable-clip](https://seacloud.cc/d/480b5e8fcd/files/?p=/vb-gentoo-esxi/enable-clip.png&raw=1)
+![enable-clip](https://raw.githubusercontent.com/elatov/upload/master/vb-gentoo-esxi/enable-clip.png)
 
 While **phpVirtualBox** doesn't even show that option:
 
-![php-virtualbox-no-clip](https://seacloud.cc/d/480b5e8fcd/files/?p=/vb-gentoo-esxi/php-virtualbox-no-clip.png&raw=1)
+![php-virtualbox-no-clip](https://raw.githubusercontent.com/elatov/upload/master/vb-gentoo-esxi/php-virtualbox-no-clip.png)
 
 And after that I was able to RDP into the VM and used the shared clipboard without issues (**rdesktop** or **xfreerdp**).
 
@@ -249,30 +249,30 @@ When I was initially connecting to the Windows Machine I was only able to get **
 and reloading the VMX:
 
 	vim-cmd vmsvc/reload <VMID>
-    
+
 I saw that the Gentoo VM had a lot more Resolution options:
 
     <> xrandr -display :0.0 -q
     Screen 0: minimum 1 x 1, current 1600 x 1200, maximum 8192 x 8192
     Virtual1 connected primary 1600x1200+0+0 (normal left inverted right x axis y axis) 0mm x 0mm
        1440x900      59.89 +
-       800x600       60.00 +  60.32  
-       2560x1600     59.99  
-       1920x1440     60.00  
-       1856x1392     60.00  
-       1792x1344     60.00  
-       1920x1200     59.88  
-       1600x1200     60.00* 
-       1680x1050     59.95  
-       1400x1050     59.98  
-       1280x1024     60.02  
-       1280x960      60.00  
-       1360x768      60.02  
-       1280x800      59.81  
-       1152x864      75.00  
-       1280x768      59.87  
-       1024x768      60.00  
-       640x480       59.94  
+       800x600       60.00 +  60.32
+       2560x1600     59.99
+       1920x1440     60.00
+       1856x1392     60.00
+       1792x1344     60.00
+       1920x1200     59.88
+       1600x1200     60.00*
+       1680x1050     59.95
+       1400x1050     59.98
+       1280x1024     60.02
+       1280x960      60.00
+       1360x768      60.02
+       1280x800      59.81
+       1152x864      75.00
+       1280x768      59.87
+       1024x768      60.00
+       640x480       59.94
     Virtual2 disconnected (normal left inverted right x axis y axis)
     Virtual3 disconnected (normal left inverted right x axis y axis)
     Virtual4 disconnected (normal left inverted right x axis y axis)

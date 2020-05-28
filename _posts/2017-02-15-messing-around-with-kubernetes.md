@@ -10,9 +10,9 @@ tags: [kubernetes,docker,vagrant,coreos,virtualbox]
 With the popularity of **container**s, Google came out with a nice management system of **container**s: **kubernetes**. From the [kubernetes page](http://kubernetes.io/docs/whatisk8s/), here is nice description of what it is:
 
 > Kubernetes is an open-source platform for automating deployment, scaling, and operations of application containers across clusters of hosts, providing container-centric infrastructure.
-> 
+>
 > With Kubernetes, you are able to quickly and efficiently respond to customer demand:
-> 
+>
 > * Deploy your applications quickly and predictably.
 > * Scale your applications on the fly.
 > * Seamlessly roll out new features.
@@ -23,7 +23,7 @@ I also ended up going through the [Scalable Microservices with Kubernetes](https
 #### Kubernetes Master Components
 I would say the **Kubernetes** architecture breaks down into two parts: **Kubernetes Master** and **Kubernetes Nodes**. The **Kubernetes Master** consists of the following (taken from [Kubernetes Components](http://kubernetes.io/docs/admin/cluster-components/)):
 
-> * **kube-apiserver** exposes the Kubernetes API; it is the front-end for the Kubernetes control plane. It is designed to scale horizontally 
+> * **kube-apiserver** exposes the Kubernetes API; it is the front-end for the Kubernetes control plane. It is designed to scale horizontally
 > * **etcd** is used as Kubernetes’ backing store. All cluster data is stored here. Proper administration of a Kubernetes cluster includes a backup plan for etcd’s data.
 > * **kube-controller-manager** is a binary that runs controllers, which are the background threads that handle routine tasks in the cluster. Logically, each controller is a separate process, but to reduce the number of moving pieces in the system, they are all compiled into a single binary and run in a single process. These controllers include:
 > 	* **Node Controller**: Responsible for noticing & responding when nodes go down.
@@ -49,15 +49,15 @@ The nodes are where the actual **container**s run on, they consist of the follow
 #### Kubernetes Architecture Diagrams
 I ran into a couple of nice diagrams that describe the above. From [Learn the Kubernetes Key Concepts in 10 Minutes](http://omerio.com/2015/12/18/learn-the-kubernetes-key-concepts-in-10-minutes/):
 
-![k8s-diag-1](https://seacloud.cc/d/480b5e8fcd/files/?p=/messing-k8s/k8s-diag-1.png&raw=1)
+![k8s-diag-1](https://raw.githubusercontent.com/elatov/upload/master/messing-k8s/k8s-diag-1.png)
 
 And from [Kubernetes architecture](https://github.com/kubernetes/kubernetes/blob/release-1.3/docs/design/architecture.md):
 
-![k8s-diag-2](https://seacloud.cc/d/480b5e8fcd/files/?p=/messing-k8s/k8s-diag-2.png&raw=1)
+![k8s-diag-2](https://raw.githubusercontent.com/elatov/upload/master/messing-k8s/k8s-diag-2.png)
 
 [Load Balancing in Kubernetes](http://www.devoperandi.com/load-balancing-in-kubernetes/) has a pretty nice overview of the kubernetes architecture:
 
-![k8s-diag-3](https://seacloud.cc/d/480b5e8fcd/files/?p=/messing-k8s/k8s-diag-3.png&raw=1)
+![k8s-diag-3](https://raw.githubusercontent.com/elatov/upload/master/messing-k8s/k8s-diag-3.png)
 
 #### Kubernetes Components
 When deploying a **container** there are a couple of components, I will cover just the basics (taken from the [User Guide](http://kubernetes.io/docs/user-guide/)):
@@ -90,9 +90,9 @@ I was running a later version of **Virtualbox**, so I followed the instructions 
 
 
 > Step 1: Copy the version_4_3.rb file in %vagrant_install_dir%\embedded\gems\gems\vagrant-1.7.2\plugins\providers\virtualbox\driver to version_5_0.rb and edit the class name of the copied file to be "version_5_0"
-> 
+>
 > Step 2: Modify the "meta.rb" file in the virtualbox\driver folder by adding ,5.0" => Version_5_0 to the driver_map hashmap (line 48).
-> 
+>
 > Step 3: Modify the plugin.rb file in the providers\virtualbox directory (up one directory from where we were) and add the following line under line 47: autoload :Version_5_0, File.expand_path("../driver/version_5_0", __FILE__)
 
 
@@ -203,7 +203,7 @@ And also check some of the **kubernetes** cluster end points:
 	Heapster is running at https://172.17.4.99:443/api/v1/proxy/namespaces/kube-system/services/heapster
 	KubeDNS is running at https://172.17.4.99:443/api/v1/proxy/namespaces/kube-system/services/kube-dns
 	kubernetes-dashboard is running at https://172.17.4.99:443/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard
-	
+
 Check out the logs from each of the components:
 
 	[elatov@fed single-node]$ kubectl logs --namespace=kube-system kubernetes-dashboard-v1.1.0-3nfk3
@@ -278,7 +278,7 @@ You can even check out the log contents:
 
 Now let's deploy a **pod** on the **kubernetes** cluster. [This setup](http://kubernetes.io/docs/user-guide/connecting-applications/) covers the basics. Here is nice diagram (from the udacity class that I watched) of a **pod**:
 
-![k8s-class-pod](https://seacloud.cc/d/480b5e8fcd/files/?p=/messing-k8s/k8s-class-pod.png&raw=1) 
+![k8s-class-pod](https://raw.githubusercontent.com/elatov/upload/master/messing-k8s/k8s-class-pod.png)
 
 I decided to just deploy an **nginx** server with a **replica**. Here is the config:
 
@@ -299,7 +299,7 @@ I decided to just deploy an **nginx** server with a **replica**. Here is the con
 	        image: nginx
 	        ports:
 	        - containerPort: 80
-	
+
 	[elatov@fed single-node]$ kubectl create -f run-my-nginx.yaml
 	deployment "my-nginx" created
 
@@ -405,7 +405,7 @@ If you want more information you can use the **describe** arguement.
 ### Expose Nginx Pod with a Service
 At this point the machines are deployed, but you can't reach the machines externally, so we have to expose an IP for the this **pod**. This is accomplished by creating a **service** in **kubernetes** and associate it with our created **pod**. Here is another nice diagram (from the class) describing a **kubernetes service**:
 
-![k8s-class-svc](https://seacloud.cc/d/480b5e8fcd/files/?p=/messing-k8s/k8s-class-svc.png&raw=1)
+![k8s-class-svc](https://raw.githubusercontent.com/elatov/upload/master/messing-k8s/k8s-class-svc.png)
 
 We can create another config file for that:
 
@@ -535,7 +535,7 @@ We can also setup a port-forward to our **Virtualbox** machine:
 
 And now I can reach my **container** on my local browser:
 
-![k8s-ngx-port-forward](https://seacloud.cc/d/480b5e8fcd/files/?p=/messing-k8s/k8s-ngx-port-forward.png&raw=1)
+![k8s-ngx-port-forward](https://raw.githubusercontent.com/elatov/upload/master/messing-k8s/k8s-ngx-port-forward.png)
 
 ### Open Shell to Container with kubectl
 From our **Virtualbox** host let's run **kubectl** to get a shell into our **container** (this is assuming **bash** is available on the **container** image... the **nginx** one does):
@@ -558,10 +558,10 @@ From our **Virtualbox** host let's run **kubectl** to get a shell into our **con
 	tmpfs          1003M   12K 1003M   1% /run/secrets/kubernetes.io/serviceaccount
 	shm              64M     0   64M   0% /dev/shm
 
-From the class they recommend using the [alpine image](https://hub.docker.com/_/alpine/) for your base docker images. 
+From the class they recommend using the [alpine image](https://hub.docker.com/_/alpine/) for your base docker images.
 
 We can even modify our index page:
-	
+
 	root@my-nginx-2494149703-ff3gr:~# cd /usr/share/nginx/html/
 	root@my-nginx-2494149703-ff3gr:/usr/share/nginx/html# sed -i 's/Welcome to nginx/Testing with Nginx/' index.html
 

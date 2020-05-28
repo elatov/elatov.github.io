@@ -34,7 +34,7 @@ Looking at other forums it looks like people didn't have much luck with that vid
 
 But I guess I got lucky. In the *vSphere Web Client*, I just went to **Host** -> **Manage** -> **Hardware** -> **PCI Devices** -> **Toggle passthough** on the Video Card:
 
-![esxi-passthrough-enabled.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/plex-hw-accel/esxi-passthrough-enabled.png&raw=1)
+![esxi-passthrough-enabled.png](https://raw.githubusercontent.com/elatov/upload/master/plex-hw-accel/esxi-passthrough-enabled.png)
 
 Then I rebooted the host and under the **Passthough** column I saw **Active**. I didn't have to do any extra configuration for that. After I rebooted I thought the ESXi was hung cause it just showed the following on the boot up:
 
@@ -49,7 +49,7 @@ Another FYI is that with PCI Passthrough you can't take snapshots of the VM (thi
 #### Adding Video Card/GPU to VM
 This was pretty easy as well. I just shutdown the VM and then in the Web Client I went to **Virtual Machines** -> **VM** -> **Actions** -> **Edit Settings**. Then added a new PCI Device and selected the Video Card from the drop down list:
 
-![vm-pci-passthrough.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/plex-hw-accel/vm-pci-passthrough.png&raw=1)
+![vm-pci-passthrough.png](https://raw.githubusercontent.com/elatov/upload/master/plex-hw-accel/vm-pci-passthrough.png)
 
 After I powered on the Linux VM, I actually still saw the console through Vsphere Web Client and the monitor that was connected to the ESXi host didn't show anything. I then realized the VM now had two Video Cards:
 
@@ -66,7 +66,7 @@ and here are the two PCI devices:
 	03:00.0 VGA compatible controller: VMware SVGA II Adapter
 	04:00.0 VGA compatible controller: Intel Corporation HD Graphics 530 (rev 06)
 
-#### Disabling Primary Video Card on a VM 
+#### Disabling Primary Video Card on a VM
 At this point I wanted to make sure the VM only has one Video card. As I was looking around for a way to accomplish this, I ran into a parameter in the **vmx** file called **svga.present**. I also some folks try to use that parameter:
 
 * [Remove virtual SVGA adapter](https://communities.vmware.com/thread/495240)
@@ -74,7 +74,7 @@ At this point I wanted to make sure the VM only has one Video card. As I was loo
 
 So I decided to try it out. **Virtual Machines** -> **VM** -> **Actions** -> **Edit Settings** -> **VM Options** -> **Advanced** -> **Configuration Parameters** -> **Edit Configuration** -> Set **svga.present** to **FALSE**:
 
-![vm-svga-disabled.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/plex-hw-accel/vm-svga-disabled.png&raw=1)
+![vm-svga-disabled.png](https://raw.githubusercontent.com/elatov/upload/master/plex-hw-accel/vm-svga-disabled.png)
 
 Then after another reboot of the VM, I saw the VM boot up process on the monitor that is connected to the ESXi host and inside the VM only one VGA device showed up:
 
@@ -107,7 +107,7 @@ And here is the information on the PCI device:
 Very cool.
 
 ### Enabling Hardrware Acceleration on Plex
-The original link has all the instructions: 
+The original link has all the instructions:
 
 > 2. Enable hardware acceleration
 > To use Hardware-Accelerated Streaming in Plex Media Server, you need to enable it using the Plex Web App.
@@ -158,7 +158,7 @@ And they recommended adding the **plex** user to be part of the **video** group.
 And restarted the **plex** service:
 
 	<> sudo systemctl restart plexmediaserver.service
-	
+
 And after that I saw the following in the logs:
 
 	<> tail -f Plex\ Media\ Server.log | grep -i hardware
@@ -176,12 +176,12 @@ And also this:
 
 You will also see **HW** when a video is playing in the Plex Web App:
 
-![plex-web-app-hw-accel.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/plex-hw-accel/plex-web-app-hw-accel.png&raw=1)
+![plex-web-app-hw-accel.png](https://raw.githubusercontent.com/elatov/upload/master/plex-hw-accel/plex-web-app-hw-accel.png)
 
 ### Confirming GPU Utilization
 Initially I ran **top** to make sure the CPU is not getting utilized as much. And I did see that when **plex** was transcoding:
 
-![top-low-cpu-transcoder.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/plex-hw-accel/top-low-cpu-transcoder.png&raw=1)
+![top-low-cpu-transcoder.png](https://raw.githubusercontent.com/elatov/upload/master/plex-hw-accel/top-low-cpu-transcoder.png)
 
 I then ran into a tool called **intel_gpu_top** and that is available with the **intel-gpu-tools** package on *CentOS* 7.
 
@@ -201,14 +201,14 @@ I then ran into a tool called **intel_gpu_top** and that is available with the *
 
 When I ran that tool I did see GPU utilization:
 
-![gpu-top-usage.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/plex-hw-accel/gpu-top-usage.png&raw=1)
+![gpu-top-usage.png](https://raw.githubusercontent.com/elatov/upload/master/plex-hw-accel/gpu-top-usage.png)
 
 Lastly I had a **zabbix** agent collecting CPU information on the box, and here are the results from before:
 
-![zabbix-cpu-before.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/plex-hw-accel/zabbix-cpu-before.png&raw=1)
+![zabbix-cpu-before.png](https://raw.githubusercontent.com/elatov/upload/master/plex-hw-accel/zabbix-cpu-before.png)
 
 And here are the results watching the same thing after:
 
-![zabbix-cpu-after.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/plex-hw-accel/zabbix-cpu-after.png&raw=1)
+![zabbix-cpu-after.png](https://raw.githubusercontent.com/elatov/upload/master/plex-hw-accel/zabbix-cpu-after.png)
 
 It looks pretty good.

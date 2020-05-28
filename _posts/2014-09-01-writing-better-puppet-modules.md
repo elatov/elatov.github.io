@@ -16,7 +16,7 @@ After [playing around with **puppet**](/2014/08/messing-around-with-puppet/) I r
 
 From the first link here is a pretty good diagram of the way all the files interact with each other:
 
-![puppet-module-class-design](https://seacloud.cc/d/480b5e8fcd/files/?p=/puppet-better-modules/puppet-module-class-design.png&raw=1)
+![puppet-module-class-design](https://raw.githubusercontent.com/elatov/upload/master/puppet-better-modules/puppet-module-class-design.png)
 
 ### Puppet Class Ordering
 You will also notice that there are different methods to do ordering of the class execution. For example from [here](https://blog.mayflower.de/4573-The-Puppet-Anchor-Pattern-in-Practice.html):
@@ -32,11 +32,11 @@ You will also notice that there are different methods to do ordering of the clas
 	   class{'ntp::service': } ->
 	   Class["ntp"]
 	}
-	
+
 Or even the [first guide](https://puppet.com/docs/puppet/latest/bgtm.html) that I mentioned has the following:
 
 > Best practices recommend basing your requires, befores, and other ordering-related dependencies on classes rather than resources. Class-based ordering allows you to shield the implementation details of each class from the other classes. You can do things like:
-> 
+>
 >     file { 'configuration':
 >       ensure  => present,
 >       require => Class['module::install'],
@@ -55,7 +55,7 @@ and here is containement:
 	class { 'ssh::server::install': } ->
 	class { 'ssh::server::config': } ~>
 	class { 'ssh::server::service': }
-	
+
 	contain ssh::server::install
 	contain ssh::server::config
 	contain ssh::server::service
@@ -148,38 +148,38 @@ Here is how the default **init.pp** looks like for me:
 	class module (
 	  ## Packages
 	  $package_name		= $module::params::module_package_name,
-	
+
 	  ## Services
 	  $service_name		= $module::params::module_service_name,
-	
+
 	  ## Dirs
 	  $config_dir		= $module::params::module_config_dir,
 	  $service_dir		= $module::params::module_service_dir,
 	  $home			= $module::params::module_home,
-	
+
 	  ## Conf Files
 	  $config_file		= $module::params::module_config_file,
 	  $service_file		= $module::params::module_service_file,
-	
+
 	  ## settings
 	  $module_settings	= $module::params::module_settings,
 	) inherits module::params {
-	
+
 	  # validate parameters here
 	  validate_hash($settings)
 	  validate_string($package_name)
-	
+
 	  class { 'module::install': } ->
 	  class { 'module::config': } ~>
 	  class { 'module::service': } ->
 	  Class['module']
 	}
-	
+
 From the puppet documentation:
 
 > The main class of any module must share the name of the module and be located in the **init.pp** file. The name and location of the main module class is extremely important, as it guides the autoloader behavior. The main class of a module is its interface point and ought to be the only parameterized class if possible. Limiting the parameterized classes to just the main class allows you to control usage of the entire module with the inclusion of a single class. This class should provide sensible defaults so that a user can get going with include module.
 
-So upon **including** that class it will grab the defaults from the **params.pp** file, unless the class is instantiated and parameters are passed to the class at which point the parameters are overwritten. After that, we validate to make sure the variables are of the intended data types (you need the **stdlib** module for those functions) and then we call the classes in the appropriate order. Also note that we **inherit** from the **params** class, since the variables are actually defined there. 
+So upon **including** that class it will grab the defaults from the **params.pp** file, unless the class is instantiated and parameters are passed to the class at which point the parameters are overwritten. After that, we validate to make sure the variables are of the intended data types (you need the **stdlib** module for those functions) and then we call the classes in the appropriate order. Also note that we **inherit** from the **params** class, since the variables are actually defined there.
 
 ### Puppet params.pp Manifest
 Here is how mine looks like by default:
@@ -191,12 +191,12 @@ Here is how mine looks like by default:
 	# It sets variables according to platform
 	#
 	class module::params {
-	
+
 		$module_settings = {
 				   'user' 	=> 'test',
 				   'host'	=> $::hostname,
 				   }
-		
+
 		case $::osfamily {
 			'Debian': {
 				$module_package_name		= 'module'
@@ -212,7 +212,7 @@ Here is how mine looks like by default:
 				$module_service_name		= 'module'
 				$module_config_dir		= '/etc/sysconfig'
 				$module_home			= '/usr/local/module'
-	
+
 				if $::operatingsystemmajrelease >= 7 {
 					$module_service_dir  	= '/usr/lib/systemd/system'
 					$module_config_file  	= 'module.sysconf.systemd'
@@ -228,19 +228,19 @@ Here is how mine looks like by default:
 			}
 		}
 	}
-	
+
 This figures out all the necessary configurations and where all the files will go depending on the OS. I also use a hash for all the settings, so if you ened to override the settings for the software you are installing, you can pass in a hash and the template will parse them appropriately. There is a move to use hiera and ENC ([External Node Classifiers](https://puppet.com/docs/puppet/latest/nodes_external.html)) for these, but I am still just learning and I don't use those yet. There is actually a pretty good discuss in [When to Hiera (Aka: How Do I Module?)](http://garylarizza.com/blog/2013/12/08/when-to-hiera/). From that post here are some pros and cons of using the **params class pattern**:
 
 > **Pros:**
-> 
+>
 > * All conditional logic is in a single class
 > * You always know which class to seek out if you need to change any of the logic used to determine a variable’s value
 > * You can use the include function because parameters for each class will be defaulted to the values that came out of the params class
 > * If you need to override the value of a particular parameter, you can still use the parameterized class declaration syntax to do so
 > * Anyone using Puppet version 2.6 or higher can use it (i.e. anyone who’s been using Puppet since about 2010).
-> 
+>
 > **Cons:**
-> 
+>
 > * Conditional logic is repeated in every module
 > * You will need to use inheritance to inherit parameter values in each subclass
 > * It’s another place to look if you ALSO use Hiera inside the module
@@ -256,10 +256,10 @@ Here is how the default one looks like for me:
 	# == Class module::install
 	#
 	class module::install  {
-	
+
 	  ensure_packages ($module::package_name,{ 'ensure'=> 'present' })
 	}
-	
+
 Depends on the **stdlib** module (in my case any ways). From the puppet page:
 
 > The install class must be located in the **install.pp** file, and should contain all of the resources related to getting the software the module manages onto the node.
@@ -273,9 +273,9 @@ Here is my default one that I use:
 	# This class is called from module
 	#
 	class module::config {
-	
+
 	  ensure_resource ('user',$module::settings['user'],{ 'ensure'=> 'present' })
-	
+
 	  if $module::service_file =~ /(?i:service)/ {
 	    file { $module::service_file:
 	      ensure  => "present",
@@ -289,7 +289,7 @@ Here is my default one that I use:
 	      refreshonly 	=> true,
 	    }
 	  }
-	
+
 	  if $module::service_file =~ /(?i:init)/ {
 	    file { $module::service_file:
 	      ensure  => 'present',
@@ -298,12 +298,12 @@ Here is my default one that I use:
 	      content => "puppet:///modules/module/${module::service_file}",
 	    }
 	  }
-	
-	
+
+
 	  file { $module::config_dir:
 	    ensure  => 'directory',
 	  }
-	
+
 	  file { $module::config_file:
 	    ensure  => 'present',
 	    path    => "${module::config_dir}/module",
@@ -329,7 +329,7 @@ Another easy one:
 	# It ensure the service is running
 	#
 	class module::service {
-	
+
 	  service { $module::service_name:
 	    ensure     => running,
 	    enable     => true,
@@ -346,11 +346,11 @@ This deserves a topic of it's own cause so advanced. But for now here is a sampl
 
 But each of the configuration files are unique per software, so you will have to modify them accordingly. Sometimes instead of templates I end up using **augeas** and I will do a post on that later.
 
-### Using the Puppet Module	
+### Using the Puppet Module
 After filling out the necessary information ,and you will probably have to change some logic (every software is a snow flake and is very unique), you can install and configure the software by just instantiating the class/module in your node configuration:
 
 	class {'module':}
-	
+
 Or you can override some settings by passing in some parameters:
 
 	class {'module':

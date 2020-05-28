@@ -19,12 +19,12 @@ Initially I wanted to play around with a pure **Ansible** deployment for **OpenS
 >
 > * CPU/motherboard that supports hardware-assisted virtualization
 > * 8 CPU Cores
-> * 80GB free disk space on the root partition, or 60GB+ on a blank secondary disk. Using a secondary disk requires the use of the bootstrap_host_data_disk_device parameter. 
+> * 80GB free disk space on the root partition, or 60GB+ on a blank secondary disk. Using a secondary disk requires the use of the bootstrap_host_data_disk_device parameter.
 > * 16GB RAM
 
 And also from [Appendix A: Example test environment configuration](https://docs.openstack.org/project-deploy-guide/openstack-ansible/draft/app-config-test.html) here is a sample deployment:
 
-![ansible-arch](https://seacloud.cc/d/480b5e8fcd/files/?p=/openstack-kolla-ubuntu/ansible-arch.png&raw=1)
+![ansible-arch](https://raw.githubusercontent.com/elatov/upload/master/openstack-kolla-ubuntu/ansible-arch.png)
 
 On top of the regular *compute* and *controller* nodes there are also *infrastructure* nodes and services. That's probably why it requires so many resources. So I wonderered if there was a different project that was less resources intensive.
 
@@ -43,13 +43,13 @@ I started with a base *Ubuntu 16.04* OS and went from there. I had two NICs on t
 	root@osa:~# cat /etc/network/interfaces
 	# This file describes the network interfaces available on your system
 	# and how to activate them. For more information, see interfaces(5).
-	
+
 	source /etc/network/interfaces.d/*
-	
+
 	# The loopback network interface
 	auto lo
 	iface lo inet loopback
-	
+
 	# The primary network interface
 	auto ens192
 	iface ens192 inet static
@@ -57,7 +57,7 @@ I started with a base *Ubuntu 16.04* OS and went from there. I had two NICs on t
 	  netmask 255.255.255.0
 	  gateway 192.168.1.1
 	  dns-nameserver 192.168.1.1
-	
+
 	auto ens160
 	iface ens160 inet manual
 	up ip link set dev ens160 up
@@ -108,23 +108,23 @@ The guide mentioned that the versions are pretty specific, so here is what I end
 	### Docker
 	root@osa:~# docker --version
 	Docker version 1.12.6, build 78d1802
-	
+
 	## Pip
 	root@osa:~# pip --version
 	pip 9.0.1 from /usr/local/lib/python2.7/dist-packages (python 2.7)
-	
+
 	## docker-py
 	root@osa:~# pip show docker-py
 	Name: docker-py
 	Version: 1.10.6
-	
+
 	## Ansible
 	root@osa:~# ansible --version
 	ansible 2.3.1.0
 	  config file =
 	  configured module search path = Default w/o overrides
 	  python version = 2.7.12 (default, Nov 19 2016, 06:48:10) [GCC 5.4.0 20160609]
-	
+
 	## Kolla Ansible
 	root@osa:~# pip show kolla-ansible
 	Name: kolla-ansible
@@ -161,7 +161,7 @@ Next we can **bootstrap** the environment:
 	root@osa:~# kolla-ansible -i all-in-one bootstrap-servers
 	TASK [baremetal : Reboot] ******************************************************
 	skipping: [localhost]
-	
+
 	PLAY RECAP *********************************************************************
 	localhost                  : ok=33   changed=17   unreachable=0    failed=0
 
@@ -173,7 +173,7 @@ Initially I ran into this error during the **pull**
 
 	fatal: [localhost]: FAILED! => {"changed": false, "failed": true, "msg": "Unknown error message: Tag 4.0.2 not found in repository docker.io/kolla/centos-binary-kolla-toolbox"}
 	    to retry, use: --limit @/usr/local/share/kolla-ansible/ansible/site.retry
-	
+
 	PLAY RECAP *********************************************************************
 	localhost                  : ok=11   changed=0    unreachable=0    failed=1
 
@@ -199,7 +199,7 @@ Then it worked out:
 	root@osa:~# kolla-ansible pull
 	TASK [octavia : include] **********************************************************************************************************************************************************
 	skipping: [localhost]
-	
+
 	PLAY RECAP ************************************************************************************************************************************************************************
 	localhost                  : ok=79   changed=14   unreachable=0    failed=0
 
@@ -267,7 +267,7 @@ First make sure all the **pre-checks** are okay:
 	root@osa:~# kolla-ansible prechecks -i all-in-one
 	TASK [octavia : include] **********************************************************************************************************************************************************
 	skipping: [localhost]
-	
+
 	PLAY RECAP ************************************************************************************************************************************************************************
 	localhost                  : ok=124  changed=0    unreachable=0    failed=0
 
@@ -277,10 +277,10 @@ And then the **deploy** went through:
 	root@osa:~# kolla-ansible deploy -i all-in-one
 	TASK [Gathering Facts] ************************************************************************************************************************************************************
 	ok: [localhost]
-	
+
 	TASK [octavia : include] **********************************************************************************************************************************************************
 	skipping: [localhost]
-	
+
 	PLAY RECAP ************************************************************************************************************************************************************************
 	localhost                  : ok=263  changed=131  unreachable=0    failed=0
 
@@ -324,15 +324,15 @@ Now let's generate the source files to connect to **OpenStack** as the **admin**
 
 	root@osa:~# kolla-ansible post-deploy
 	Post-Deploying Playbooks : ansible-playbook -i /usr/local/share/kolla-ansible/ansible/inventory/all-in-one -e @/etc/kolla/globals.yml -e @/etc/kolla/passwords.yml -e CONFIG_DIR=/etc/kolla  /usr/local/share/kolla-ansible/ansible/post-deploy.yml
-	
+
 	PLAY [Creating admin openrc file on the deploy node] ******************************************************************************************************************************
-	
+
 	TASK [Gathering Facts] ************************************************************************************************************************************************************
 	ok: [localhost]
-	
+
 	TASK [template] *******************************************************************************************************************************************************************
 	changed: [localhost]
-	
+
 	PLAY RECAP ************************************************************************************************************************************************************************
 	localhost                  : ok=2    changed=1    unreachable=0    failed=0
 
@@ -379,9 +379,9 @@ And then ran the script:
 
 	root@osa:~# ./init-runonce
 	Done.
-	
+
 	To deploy a demo instance, run:
-	
+
 	openstack server create \
 	    --image cirros \
 	    --flavor m1.tiny \
@@ -444,7 +444,7 @@ I took the **reconfigure** approach:
 	root@osa:~# kolla-ansible reconfigure -i all-in-one --tags nova
 	TASK [octavia : include] ***********************************************************************************************************************************************************************************************************
 	skipping: [localhost]
-	
+
 	PLAY RECAP *************************************************************************************************************************************************************************************************************************
 	localhost                  : ok=141  changed=2    unreachable=0    failed=0
 
@@ -517,7 +517,7 @@ After fixing my **nova** configuration I saw that the VM booted up and got a DHC
 	   http://cirros-cloud.net
 
 
-​	
+​
 	login as 'cirros' user. default password: 'cubswin:)'. use 'sudo' for root.
 	demo1 login:
 
@@ -550,7 +550,7 @@ Whie I was on the VM, I made sure I could reach out to the internet:
 	$ ping -c 1 google.com
 	PING google.com (8.8.8.8): 56 data bytes
 	64 bytes from 8.8.8.8: seq=0 ttl=57 time=4.439 ms
-	
+
 	--- google.com ping statistics ---
 	1 packets transmitted, 1 packets received, 0% packet loss
 	round-trip min/avg/max = 4.439/4.439/4.439 ms
@@ -569,15 +569,15 @@ I wanted to see how the **openvswitch** configuration compares to the linux brid
 
 I liked the image from [here](https://docs.openstack.org/ocata/networking-guide/deploy-ovs-selfservice.html#east-west-scenario-1-instances-on-the-same-network) on the overall flow:
 
-![ovs-traffic-flow](https://seacloud.cc/d/480b5e8fcd/files/?p=/openstack-kolla-ubuntu/ovs-traffic-flow.png&raw=1)
+![ovs-traffic-flow](https://raw.githubusercontent.com/elatov/upload/master/openstack-kolla-ubuntu/ovs-traffic-flow.png)
 
 The image from [here](https://docs.huihoo.com/openstack/archive/admin-guide-cloud/content/under_the_hood_openvswitch.html) provides the best overview of all the components involved:
 
-![ovs-component](https://seacloud.cc/d/480b5e8fcd/files/?p=/openstack-kolla-ubuntu/ovs-component.png&raw=1)
+![ovs-component](https://raw.githubusercontent.com/elatov/upload/master/openstack-kolla-ubuntu/ovs-component.png)
 
 And [this](https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/8/html/networking_guide/sec-connect-instance) page, had the simplest diagram of the traffic flow:
 
-![ovs-simple](https://seacloud.cc/d/480b5e8fcd/files/?p=/openstack-kolla-ubuntu/ovs-simple.png&raw=1)
+![ovs-simple](https://raw.githubusercontent.com/elatov/upload/master/openstack-kolla-ubuntu/ovs-simple.png)
 
 In it's simplest from, here is a very succint desriction taken from [here](https://docs.huihoo.com/openstack/archive/admin-guide-cloud/content/under_the_hood_openvswitch.html):
 
@@ -586,7 +586,7 @@ In it's simplest from, here is a very succint desriction taken from [here](https
 
 #### 1. Packet Leaves VM
 
-From [Open vSwitch: Self-service networks](https://docs.openstack.org/ocata/networking-guide/deploy-ovs-selfservice.html#network-traffic-flow) 
+From [Open vSwitch: Self-service networks](https://docs.openstack.org/ocata/networking-guide/deploy-ovs-selfservice.html#network-traffic-flow)
 
 > The instance interface (1) forwards the packet to the security group bridge instance port (2) via veth pair.
 
@@ -621,7 +621,7 @@ Next:
 >
 > Bridge qbr-xx is connected to br-int using veth pair qvb-xx <-> qvo-xxx. This is because the bridge is used to apply the inbound/outbound firewall rules defined by the security group.
 
-And: 
+And:
 
 > Ideally, the TAP device vnet0 would be connected directly to the integration bridge, br-int. Unfortunately, this isn't possible because of how OpenStack security groups are currently implemented. OpenStack uses iptables rules on the TAP devices such as vnet0 to implement security groups, and Open vSwitch is not compatible with iptables rules that are applied directly on TAP devices that are connected to an Open vSwitch port.
 
@@ -786,13 +786,13 @@ Or VXLAN in some cases. At this point we can check out the rules on the virtual 
 
 I found a couple of sites that talk about the **Openflow** tables:
 
-* [Distributed Virtual Routing – Overview and East/West Routing](https://assafmuller.com/2015/04/15/distributed-virtual-routing-overview-and-eastwest-routing/) 
+* [Distributed Virtual Routing – Overview and East/West Routing](https://assafmuller.com/2015/04/15/distributed-virtual-routing-overview-and-eastwest-routing/)
 * [Openstack Neutron using VXLAN](http://www.opencloudblog.com/?p=300)
 * [Troubleshooting OpenStack Neutron Networking, Part One](http://dischord.org/2015/03/09/troubleshooting-openstack-neutron-networking-part-one/)
 
 One of the above page goes over the tables in great detail and actually has a nice diagram:
 
-![ovs-tables](https://seacloud.cc/d/480b5e8fcd/files/?p=/openstack-kolla-ubuntu/ovs-tables.png&raw=1)
+![ovs-tables](https://raw.githubusercontent.com/elatov/upload/master/openstack-kolla-ubuntu/ovs-tables.png)
 
 We can see that the **br-tun** does the translation here between the vxlan (15 or **0xf**) and the internal vlan (1).
 
@@ -896,7 +896,7 @@ We can do a similar approach and check out the **patch-tun** port of the **openv
 	>   -- --id=@m create Mirror name=mymirror select-dst-port=@patch-tun \
 	>   select-src-port=@patch-tun output-port=@snooper0 select_all=1
 	ef872559-9358-4cf8-b5ce-1949b598a0b0
-	
+
 	root@osa:~# tcpdump -i snooper0 -nne
 	18:04:55.310260 fa:16:3e:b4:0e:76 > fa:16:3e:43:5c:90, ethertype 802.1Q (0x8100), length 102: vlan 1, p 0, ethertype IPv4, 172.24.0.12 > 8.8.8.8: ICMP echo request, id 22017, seq 0, length 64
 	18:04:55.310413 fa:16:3e:15:99:dc > 78:24:af:7b:1f:08, ethertype 802.1Q (0x8100), length 102: vlan 2, p 0, ethertype IPv4, 10.0.0.152 > 8.8.8.8: ICMP echo request, id 22017, seq 0, length 64
@@ -1041,7 +1041,7 @@ Let's set up another port mirror to see the traffic:
 	>         -- --id=@m create Mirror name=mymirror select-dst-port=@br-ex \
 	>         select-src-port=@br-ex output-port=@snooper0 select_all=1
 	778be0ba-9081-452a-a6ab-225e1180225d
-	
+
 	root@osa:~# tcpdump -i snooper0 -nne icmp
 	tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
 	listening on snooper0, link-type EN10MB (Ethernet), capture size 262144 bytes
@@ -1092,21 +1092,21 @@ And as we saw from the **openvswitch** bridge here is the physical NIC attached 
 
 Yet another pretty complex setup :)
 
-### Cleaning up the Kolla Deployment 
+### Cleaning up the Kolla Deployment
 There are a couple of options. You can either **stop** all the containers, when I tried to stop all the services it actually failed for me:
 
 	root@osa:~# kolla-ansible stop -i all-in-one
 	Stop Kolla containers : ansible-playbook -i all-in-one -e @/etc/kolla/globals.yml -e @/etc/kolla/passwords.yml -e CONFIG_DIR=/etc/kolla  /usr/local/share/kolla-ansible/ansible/stop.yml
-	
+
 	PLAY [all] *******************************************************************************
-	
+
 	TASK [stop : Stopping Kolla containers] *******************************************************************************************************************************************************************************
 	fatal: [localhost]: FAILED! => {"changed": true, "cmd": ["/tmp/kolla-stop/tools/stop-containers"], "delta": "0:00:00.013070", "end": "2017-07-01 22:38:59.797830", "failed": true, "rc": 1, "start": "2017-07-01 22:38:59.784760", "stderr": "", "stderr_lines": [], "stdout": "Some qemu processes were detected.\nDocker will not be able to stop the nova_libvirt container with those running.\nPlease clean them up before rerunning this script.", "stdout_lines": ["Some qemu processes were detected.", "Docker will not be able to stop the nova_libvirt container with those running.", "Please clean them up before rerunning this script."]}
 	        to retry, use: --limit @/usr/local/share/kolla-ansible/ansible/stop.retry
-	
+
 	PLAY RECAP ************************************************************************************************************************************************************************************************************
 	localhost                  : ok=4    changed=3    unreachable=0    failed=1
-	
+
 	Command failed ansible-playbook -i all-in-one -e @/etc/kolla/globals.yml -e @/etc/kolla/passwords.yml -e CONFIG_DIR=/etc/kolla  /usr/local/share/kolla-ansible/ansible/stop.yml
 
 Rather than just deleting the server using **openstack** (`openstack server delete demo1`), I decided to just manually stop it to see if that would work out:
@@ -1118,21 +1118,21 @@ Rather than just deleting the server using **openstack** (`openstack server dele
 	 2     instance-00000002              running
 	(nova-libvirt)[root@osa /]$ virsh destroy 2
 	Domain 2 destroyed
-	
+
 	(nova-libvirt)[root@osa /]$ virsh list
 	 Id    Name                           State
 	----------------------------------------------------
-	
+
 	(nova-libvirt)[root@osa /]$ exit
 
 And then the **stop** command worked:
 
 	root@osa:~# kolla-ansible stop -i all-in-one
 	Stop Kolla containers : ansible-playbook -i all-in-one -e @/etc/kolla/globals.yml -e @/etc/kolla/passwords.yml -e CONFIG_DIR=/etc/kolla  /usr/local/share/kolla-ansible/ansible/stop.yml
-	
+
 	TASK [stop : Stopping Kolla containers] *******************************************************************************************************************************************************************************
 	changed: [localhost]
-	
+
 	PLAY RECAP ************************************************************************************************************************************************************************************************************
 	localhost                  : ok=5    changed=1    unreachable=0    failed=0
 
@@ -1143,13 +1143,13 @@ Then I could re-deploy again if I wanted to. Or you could **destroy** all the co
 	    This will PERMANENTLY DESTROY all deployed kolla containers, volumes and host configuration.
 	    There is no way to recover from this action. To confirm, please add the following option:
 	    --yes-i-really-really-mean-it
-	    
+
 	root@osa:~# kolla-ansible destroy -i all-in-one --yes-i-really-really-mean-it
 	Destroy Kolla containers, volumes and host configuration : ansible-playbook -i all-in-one -e @/etc/kolla/globals.yml -e @/etc/kolla/passwords.yml -e CONFIG_DIR=/etc/kolla  /usr/local/share/kolla-ansible/ansible/destroy.yml
-	
+
 	TASK [destroy : Destroying kolla-cleanup folder] **********************************************************************************************************************************************************************
 	changed: [localhost]
-	
+
 	PLAY RECAP ************************************************************************************************************************************************************************************************************
 	localhost                  : ok=8    changed=7    unreachable=0    failed=0
 
@@ -1172,15 +1172,15 @@ Then you could login to the **horizon** dashboard (**http://\<kolla_internal_vip
 
 And you should see your **OpenStack** Project:
 
-![kolla-initial-dash](https://seacloud.cc/d/480b5e8fcd/files/?p=/openstack-kolla-ubuntu/kolla-initial-dash.png&raw=1)
+![kolla-initial-dash](https://raw.githubusercontent.com/elatov/upload/master/openstack-kolla-ubuntu/kolla-initial-dash.png)
 
 and you could check out your networking:
 
-![kolla-dashboard-net.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/openstack-kolla-ubuntu/kolla-dashboard-net.png&raw=1)
+![kolla-dashboard-net.png](https://raw.githubusercontent.com/elatov/upload/master/openstack-kolla-ubuntu/kolla-dashboard-net.png)
 
 and you can connect to your deployed instance:
 
-![kolla-vm-vnc](https://seacloud.cc/d/480b5e8fcd/files/?p=/openstack-kolla-ubuntu/kolla-vm-vnc.png&raw=1)
+![kolla-vm-vnc](https://raw.githubusercontent.com/elatov/upload/master/openstack-kolla-ubuntu/kolla-vm-vnc.png)
 
 ### Containers Sharing the OpenVswitch Database
 

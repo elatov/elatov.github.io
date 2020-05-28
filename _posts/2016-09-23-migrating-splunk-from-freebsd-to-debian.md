@@ -9,7 +9,7 @@ tags: [splunk,freebsd,debian]
 It was recently announced that splunk for FreeBSD would only support the *splunk-forwarder* configuration. From [Install the universal forwarder on FreeBSD](http://docs.splunk.com/Documentation/Splunk/latest/Installation/InstallonFreeBSD):
 
 > Important: Splunk does not offer an installation package for Splunk Enterprise on FreeBSD. It does, however, offer a universal forwarder installation package for FreeBSD versions 9 and 10. These instructions detail how to install the universal forwarder on those versions of FreeBSD.
-> 
+>
 > To use Splunk Enterprise on FreeBSD, you must download an older version of the Splunk software.
 
 Looking over the [Older Splunk Releases](http://www.splunk.com/page/previous_releases#x86_64freebsd) page it looks like the latest supported version for FreeBSD is **6.2.7**. The latest version of Splunk was **6.4** and I wanted to migrate my install to a supported OS (like Debian) and update it.
@@ -18,12 +18,12 @@ Looking over the [Older Splunk Releases](http://www.splunk.com/page/previous_rel
 Looking over [Migrating a Splunk installation](https://wiki.splunk.com/Deploy:Migrating_a_Splunk_Install) it looks like the steps are actually pretty easy:
 
 > Migrating a splunk install to a new operating system builds on this, with some caveats. The general idea is as follows.
-> 
+>
 > 1. Shut down your old Splunk install: `splunk stop`
 > 2. Copy (via whatever means, scp, rsync, tar, zip) the Splunk install directory to the desired install location on the new computer.
 > 3. Unpack or install the Splunk tar or package for new system on top of the copied files.
 > 4. Start it up. `splunk start`
-> 
+>
 > You can even "upgrade" to the same version you were already using with this method, just to validate that the operating system transition was effective.
 
 So on the FreeBSD machine let's create a backup of the install:
@@ -58,7 +58,7 @@ Now let's just start the splunk service:
 	┌─[elatov@kerch] - [/home/elatov] - [2016-04-23 10:00:01]
 	└─[0] <> sudo /opt/splunk/bin/splunk start
 	                    SOFTWARE LICENSE AGREEMENT
-	
+
 	THIS SOFTWARE LICENSE AGREEMENT (“AGREEMENT”) GOVERNS THE LICENSING,
 	INSTALLATION AND USE OF SPLUNK SOFTWARE. BY DOWNLOADING AND/OR INSTALLING SPLUNK
 	SOFTWARE (A) YOU ARE INDICATING THAT YOU HAVE READ AND UNDERSTAND THIS
@@ -68,69 +68,69 @@ Now let's just start the splunk service:
 	ENTITY FOR WHICH YOU ARE ACTING, ON BEHALF OF YOURSELF AS AN INDIVIDUAL; AND (B)
 	YOU REPRESENT AND WARRANT THAT YOU HAVE THE AUTHORITY TO ACT ON BEHALF OF AND
 	BIND SUCH COMPANY, GOVERNMENT OR OTHER ENTITY (IF ANY).
-	
+
 	WITHOUT LIMITING THE FOREGOING, YOU (AND YOUR ENTITY, IF ANY) ACKNOWLEDGE THAT
 	BY SUBMITTING AN ORDER FOR THE SPLUNK SOFTWARE, YOU (AND YOUR ENTITY (IF ANY))
 	HAVE AGREED TO BE BOUND BY THIS AGREEMENT.
-	
+
 	As used in this Agreement, “Splunk,” refers to Splunk Inc., a Delaware
 	corporation, with its principal place of business at 250 Brannan Street, San
 	Francisco, California 94107, U.S.A.; and “Customer” refers to the company,
 	government, or other entity on whose behalf you have entered into this Agreement
 	or, if there is no such entity, you as an individual.
-	
+
 	1.     DEFINITIONS. Capitalized terms used but not otherwise defined in this
 	Agreement have the meanings set forth in Exhibit A.
 	Do you agree with this license? [y/n]: Y
-	
+
 	This appears to be an upgrade of Splunk.
 	--------------------------------------------------------------------------------)
-	
+
 	Splunk has detected an older version of Splunk installed on this machine. To
 	finish upgrading to the new version, Splunk's installer will automatically
 	update and alter your current configuration files. Deprecated configuration
 	files will be renamed with a .deprecated extension.
-	
+
 	You can choose to preview the changes that will be made to your configuration
 	files before proceeding with the migration and upgrade:
-	
+
 	If you want to migrate and upgrade without previewing the changes that will be
 	made to your existing configuration files, choose 'y'.
 	If you want to see what changes will be made before you proceed with the
 	upgrade, choose 'n'.
-	
-	
+
+
 	Perform migration and upgrade without previewing configuration changes? [y/n] Y
-	
+
 	-- Migration information is being logged to '/opt/splunk/var/log/splunk/migration.log.2016-04-23.10-00-47' --
-	
+
 	Migrating to:
 	VERSION=6.4.0
 	BUILD=f2c836328108
 	PRODUCT=splunk
 	PLATFORM=Linux-x86_64
-	
+
 	Copying '/opt/splunk/etc/myinstall/splunkd.xml' to '/opt/splunk/etc/myinstall/splunkd.xml-migrate.bak'.
-	
+
 	Checking saved search compatibility...
-	
+
 	Handling deprecated files...
-	
+
 	Checking script configuration...
-	
+
 	Copying '/opt/splunk/etc/myinstall/splunkd.xml.cfg-default' to '/opt/splunk/etc/myinstall/splunkd.xml'.
 	Deleting '/opt/splunk/etc/system/local/field_actions.conf'.
 	Moving '/opt/splunk/share/splunk/search_mrsparkle/modules' to '/opt/splunk/share/splunk/search_mrsparkle/modules.old.20160423-100048'.
 	Moving '/opt/splunk/share/splunk/search_mrsparkle/modules.new' to '/opt/splunk/share/splunk/search_mrsparkle/modules'.
 	The following apps might contain lookup table files that are not exported to other apps:
-	
+
 		TA-Suricata
-	
+
 	Such lookup table files could only be used within their source app.  To export them globally and allow other apps to access them, add the following stanza to each /opt/splunk/etc/apps/<app_name>/metadata/local.meta file:
-	
+
 		[lookups]
 		export = system
-	
+
 	For more information, see http://docs.splunk.com/Documentation/Splunk/latest/AdvancedDev/SetPermissions#Make_objects_globally_available.
 	Checking for possible UI view conflicts...
 	 App "splunk_management_console" has an overriding copy of the "reports.xml" view, thus the new version may not be in effect. location=/opt/splunk/etc/apps/splunk_management_console/default/data/ui/views
@@ -152,12 +152,12 @@ Now let's just start the splunk service:
 	Deleting '/opt/splunk/etc/apps/search/default/data/ui/views/search_status.xml'.
 	Deleting '/opt/splunk/etc/apps/search/default/data/ui/views/status_index.xml'.
 	Distributed Search is not configured on this instance
-	
+
 	"/opt/splunk/etc/auth/ca.pem": certificate renewed
 	"/opt/splunk/etc/auth/cacert.pem": certificate renewed
 	"/opt/splunk/etc/auth/server.pem": certificate renewed
 	Clustering migration already complete, no further changes required.
-	
+
 	Generating checksums for datamodel and report acceleration bucket summaries for all indexes.
 	If you have defined many indexes and summaries, summary checksum generation may take a long time.
 	Processed 1 out of 7 configured indexes.
@@ -168,11 +168,11 @@ Now let's just start the splunk service:
 	Processed 6 out of 7 configured indexes.
 	Processed 7 out of 7 configured indexes.
 	Finished generating checksums for datamodel and report acceleration bucket summaries for all indexes.
-	
+
 	Creating $SPLUNK_HOME/var/run/splunk/csv and moving inputcsv/outputcsv files into the created directory.
-	
+
 	Splunk> Be an IT superhero. Go home early.
-	
+
 	Checking prerequisites...
 		Checking http port [8000]: open
 		Checking mgmt port [8089]: open
@@ -191,11 +191,11 @@ Now let's just start the splunk service:
 		All installed files intact.
 		Done
 	All preliminary checks passed.
-	
+
 	Starting splunk server daemon (splunkd)...
 	Done
-	
-	
+
+
 	Waiting for web server at http://127.0.0.1:8000 to be available
 	sed: error while loading shared libraries: /opt/splunk/lib/libpcre.so.3: ELF file OS ABI invalid
 	grep: error while loading shared libraries: /opt/splunk/lib/libpcre.so.3: ELF file OS ABI invalid
@@ -208,11 +208,11 @@ Now let's just start the splunk service:
 	.sed: error while loading shared libraries: /opt/splunk/lib/libpcre.so.3: ELF file OS ABI invalid
 	grep: error while loading shared libraries: /opt/splunk/lib/libpcre.so.3: ELF file OS ABI invalid
 	.. Done
-	
-	
+
+
 	If you get stuck, we're here to help.
 	Look for answers here: http://docs.splunk.com
-	
+
 	The Splunk web interface is at http://kerch:8000
 
 The conversion and upgrade were fine but it was complaining about the **libpcre.so** file, I checked it out and the file was pointing to the correct location it just had a leftover file:
@@ -268,7 +268,7 @@ Then I just restarted the service:
 	           ├─9010 /opt/splunk/bin/splunkd instrument-resource-usage -p 8089 -...
 	           ├─9091 splunkd fsck --log-to--splunkd-log repair --try-warm-then-c...
 	           └─9092 splunkd fsck --log-to--splunkd-log repair --try-warm-then-c...
-	
+
 	Apr 23 09:43:41 kerch splunk[8871]: Checking conf files for problems... Done
 	Apr 23 09:43:41 kerch splunk[8871]: Checking default conf files for edits...
 	Apr 23 09:43:42 kerch splunk[8871]: Validating installed files against hashes fr
@@ -304,13 +304,13 @@ Ended up adding a new input for *ossec*, since the *ossec* server was running on
 	└─[0] <> sudo cat /opt/splunk/etc/system/local/inputs.conf
 	[default]
 	host = kerch.kar.int
-	
+
 	[udp://10.0.0.3:5002]
 	disabled = false
 	sourcetype = ossec
 	connection_host = none
 	host = moxz.kar.int
-	
+
 I also updated my hostname under **Settings** -> **Server Settings** -> **General Settings**:
 
-![update-hostname-splunk](https://seacloud.cc/d/480b5e8fcd/files/?p=/splunk-mig-to-deb/update-hostname-splunk.png&raw=1)
+![update-hostname-splunk](https://raw.githubusercontent.com/elatov/upload/master/splunk-mig-to-deb/update-hostname-splunk.png)

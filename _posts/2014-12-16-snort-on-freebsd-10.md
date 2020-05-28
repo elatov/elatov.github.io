@@ -14,7 +14,7 @@ I decided to try out installing snort on FreeBSD since the **snort** package was
 	FreeBSD repository is up-to-date.
 	All repositories are up-to-date.
 	The following 26 packages will be affected (of 0 checked):
-	
+
 	New packages to be INSTALLED:
 		snort: 2.9.7.0
 		pulledpork: 0.7.0
@@ -42,7 +42,7 @@ I decided to try out installing snort on FreeBSD since the **snort** package was
 		barnyard2: 1.13
 		libnet: 1.1.6_2,1
 		daq: 2.0.4_1
-	
+
 	The process will require 11 MB more space.
 	4 MB to be downloaded.
 
@@ -50,41 +50,41 @@ There were some notes after the install:
 
 	Message for pulledpork-0.7.0:
 	 =====================================================================
-	
+
 	In order to use pulled pork, adjust the config files located in
 	/usr/local/etc/pulledpork
-	
-	
+
+
 	Important Note:
-	
+
 	Snort changed the way rules are published. Since June 2010 Snort
 	stop offering rules in the "snortrules-snapshot-CURRENT" format.
-	
+
 	Instead, rules will be released for specific Snort versions.
 	You will be responsible for downloading the correct rules release
 	for your version of Snort.
-	
+
 	The new versioning mechanism will require a four digit version in the
 	file name. To get the new download naming schema visit snort.org,
 	and look at 'My Account' -> 'Subscriptions and Oinkcodes'
-	
+
 	=====================================================================
 	Message for barnyard2-1.13:
 	 Read the notes in the barnyard2.conf file for how to configure
 	/usr/local/etc/barnyard2.conf after installation.  For addtional information
 	see the Securixlive FAQ at http://www.securixlive.com/barnyard2/faq.php.
-	
+
 	In order to enable barnyard2 to start on boot, you must edit /etc/rc.conf
 	with the appropriate flags, etc.  See the FreeBSD Handbook for syntax:
 	http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/configtuning-rcng.html
-	
+
 	For the various options available, type %25 barnyard2 -h after install or read
 	the options in the startup script - in /usr/local/etc/rc.d.
-	
+
 	Barnyard2 can process unified2 files from snort or suricata.  It can also
 	interact with snortsam firewall rules as well as the sguil-sensor. Those
 	ports must be installed separately if you wish to use them.
-	
+
 	************************************************************************
 	Message for snort-2.9.7.0:
 	 =========================================================================
@@ -92,12 +92,12 @@ There were some notes after the install:
 	Please see /usr/local/etc/rc.d/snort
 	for list of available variables and their description.
 	Configuration files are located in /usr/local/etc/snort directory.
-	
+
 	Please note that, by default, snort will truncate packets larger than the
 	default snaplen of 15158 bytes.  Additionally, LRO may cause issues with
 	Stream5 target-based reassembly.  It is recommended to disable LRO, if
 	your card supports it.
-	
+
 	This can be done by appending '-lro' to your ifconfig_ line in rc.conf.
 	=========================================================================
 
@@ -163,7 +163,7 @@ Then go ahead and configure the **pulledpork** install like so:
 Now let's go ahead and grab all the rules:
 
 	elatov@moxz:~$sudo pulledpork.pl -c /usr/local/etc/pulledpork/pulledpork.conf -l
-	 
+
 	    http://code.google.com/p/pulledpork/
 	      _____ ____
 	     `----,\    )
@@ -175,7 +175,7 @@ Now let's go ahead and grab all the rules:
 	     \   /-| ||'--'  Rules give me wings!
 	      \_\  \_\\
 	 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	
+
 	Checking latest MD5 for snortrules-snapshot-2970.tar.gz....
 	Rules tarball download of snortrules-snapshot-2970.tar.gz....
 		They Match
@@ -225,7 +225,7 @@ Now let's go ahead and grab all the rules:
 		Total Rules:------22760
 	IP Blacklist Stats...
 		Total IPs:-----13281
-	
+
 	Done
 	Please review /var/log/snort/sid_changes.log for additional details
 	Fly Piggy Fly!
@@ -253,9 +253,9 @@ and then starting the service:
 
 And at this point you should see the **merged.log** under **/var/log/snort**:
 
-	elatov@moxz:~$ls -l /var/log/snort/merged.log 
+	elatov@moxz:~$ls -l /var/log/snort/merged.log
 	-rw-------  1 root  wheel  181 Dec 14 13:23 /var/log/snort/merged.log.1418767402
-	
+
 We can setup a cronjob to pull the rules on a nightly basis:
 
 	elatov@moxz:~$sudo crontab -l
@@ -272,39 +272,39 @@ I already had **mysql** server installed:
 
 Make sure the service is enabled:
 
-	elatov@moxz:~$grep mysql /etc/rc.conf 
+	elatov@moxz:~$grep mysql /etc/rc.conf
 	mysql_enable="YES"
 
 Then go ahead and start the service:
 
-	elatov@moxz:~$sudo service mysql-server start 
+	elatov@moxz:~$sudo service mysql-server start
 	Starting mysql.
 
 If this is a brand new installation run `sudo mysql_secure_installation` to set the root password and secure the installation. Then login as root and create the **snorby** database:
 
 	elatov@moxz:~$mysql -u root -p
-	Enter password: 
+	Enter password:
 	Welcome to the MySQL monitor.  Commands end with ; or \g.
 	Your MySQL connection id is 13
 	Server version: 5.6.22 Source distribution
-	
+
 	Copyright (c) 2000, 2014, Oracle and/or its affiliates. All rights reserved.
-	
+
 	Oracle is a registered trademark of Oracle Corporation and/or its
 	affiliates. Other names may be trademarks of their respective
 	owners.
-	
+
 	Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-	
+
 	mysql> create database snorby;
 	Query OK, 1 row affected (0.00 sec)
-	
+
 	mysql> grant ALL on snorby.* to snorby@localhost identified by 'snorby';
 	Query OK, 0 rows affected (0.00 sec)
-	
+
 	mysql> flush privileges;
 	Query OK, 0 rows affected (0.00 sec)
-	
+
 	mysql> exit
 	Bye
 
@@ -359,9 +359,9 @@ Then I searched for the package in ports:
 	Info:	Interpreter for Snort unified2 binary output files
 	Maint:	pauls@utdallas.edu
 	B-deps:	autoconf-2.69 autoconf-wrapper-20131203 automake-1.14_1 automake-wrapper-20131203 indexinfo-0.2 libtool-2.4.2.418 m4-1.4.17_1,1 perl5-5.18.4_10
-	R-deps:	
+	R-deps:
 	WWW:	http://www.securixlive.com/barnyard2/
-	
+
 	Port:	barnyard2-sguil-1.13
 	Path:	/usr/ports/security/barnyard2-sguil
 	Info:	Interpreter for Snort unified2 binary output files
@@ -375,19 +375,19 @@ After that I configured the package to enable MySQL support:
 	elatov@moxz:~$cd /usr/ports/security/barnyard2
 	elatov@moxz:/usr/ports/security/barnyard2$sudo make config
 
-![make-config-by2-fb](https://seacloud.cc/d/480b5e8fcd/files/?p=/snort_freebsd/make-config-by2-fb.png&raw=1)
+![make-config-by2-fb](https://raw.githubusercontent.com/elatov/upload/master/snort_freebsd/make-config-by2-fb.png)
 
 Then remove the old version install with **pkgng**:
 
 	elatov@moxz:~$sudo pkg delete -f barnyard2
 	Checking integrity... done (0 conflicting)
 	Deinstallation has been requested for the following 1 packages (of 0 packages in the universe):
-	
+
 	Installed packages to be REMOVED:
 		barnyard2-1.13
-	
+
 	The operation will free 411 KB.
-	
+
 	Proceed with deinstalling packages? [y/N]: y
 	[1/1] Deinstalling barnyard2-1.13...
 	[1/1] Deleting files for barnyard2-1.13: 100%
@@ -441,9 +441,9 @@ Now let's configure barnyard2 by editing the **/usr/local/etc/barnyard2.conf** f
 	- # config interface:  eth0
 	+ config hostname:   moxz
 	+ config interface:  em0
-	- #config daemon 
-	+ config daemon 
-	
+	- #config daemon
+	+ config daemon
+
 	- #config waldo_file: /tmp/waldo
 	+ config waldo_file: /var/log/snort/barnyard2.waldo
 	+ output database: log, mysql, user=snorby password=snorby dbname=snorby host=localhost
@@ -502,7 +502,7 @@ Then add the following to automatically rotate the logs:
 
 	elatov@moxz:~$grep snort /etc/newsyslog.conf
 	/var/log/snort/snort.log  644 3 100 * JC
-	
+
 Also we can add the following cron job to clean up old archived **merge.log** files under **/var/log/snort/archive** (these are created by barnyard2), just to make sure it doesn't keep adding up:
 
 	elatov@moxz:~$sudo crontab -l
@@ -538,7 +538,7 @@ After we can install the apache module:
 
 For a quick test let's then create the following configuration file to load the passenger plugin:
 
-	elatov@moxz:~$cat /usr/local/etc/apache24/Includes/passenger.conf 
+	elatov@moxz:~$cat /usr/local/etc/apache24/Includes/passenger.conf
 	LoadModule passenger_module /usr/local/lib/ruby/gems/1.9/gems/passenger-4.0.55/buildout/apache2/mod_passenger.so
 	<IfModule mod_passenger.c>
 	  PassengerRoot /usr/local/lib/ruby/gems/1.9/gems/passenger-4.0.55
@@ -548,7 +548,7 @@ For a quick test let's then create the following configuration file to load the 
 
 Then make sure apache is enabled:
 
-	elatov@moxz:~$grep apache /etc/rc.conf 
+	elatov@moxz:~$grep apache /etc/rc.conf
 	apache24_enable="YES"
 
 And now let's make sure the configuration for apache is okay:
@@ -617,7 +617,7 @@ Now let's setup the snorby install
 
 Then config the snorby rails app:
 
-	elatov@moxz:/usr/local/snorby$bundle exec rake snorby:setup 
+	elatov@moxz:/usr/local/snorby$bundle exec rake snorby:setup
 	Jammit Warning: Asset compression disabled -- Java unavailable.
 	[~] Adding `index_timestamp_cid_sid` index to the event table
 	[~] Adding `index_caches_ran_at` index to the caches table
@@ -661,13 +661,13 @@ file:
 	LoadModule passenger_module /usr/local/lib/ruby/gems/1.9/gems/passenger-4.0.55/buildout/apache2/mod_passenger.so
 	PassengerRoot /usr/local/lib/ruby/gems/1.9/gems/passenger-4.0.55
 	PassengerDefaultRuby /usr/local/bin/ruby19
-	
+
 	Alias /snorby /usr/local/snorby/public
 	<Location /snorby>
 	    PassengerBaseURI /snorby
 	    PassengerAppRoot /usr/local/snorby
 	</Location>
-	
+
 	<Directory /usr/local/snorby/public>
 	  #Options Indexes FollowSymLinks MultiViews
 	  Options -MultiViews
@@ -676,27 +676,27 @@ file:
 	  #Order allow,deny
 	  #allow from all
 	</Directory>
-	
+
 	ErrorLog /var/log/snort/snorby_error.log
 	CustomLog /var/log/snort/snorby_access.log combined
 
 This way I could use the snorby setup as a sub URL. If you want you can just make it the default page for apache on a specific port. The config will look like this if you want to take the latter approach:
 
-	elatov@moxz:~$cat /usr/local/etc/apache24/Includes/passenger.conf 
+	elatov@moxz:~$cat /usr/local/etc/apache24/Includes/passenger.conf
 	LoadModule passenger_module /usr/local/lib/ruby/gems/1.9/gems/passenger-4.0.55/buildout/apache2/mod_passenger.so
 	PassengerRoot /usr/local/lib/ruby/gems/1.9/gems/passenger-4.0.55
 	PassengerDefaultRuby /usr/local/bin/ruby19
-	
+
 	Listen 3000
 	<VirtualHost *:3000>
-	
+
 	DocumentRoot "/usr/local/snorby/public"
-	
+
 	<Directory />
 	  Options FollowSymLinks
 	  AllowOverride None
 	</Directory>
-	
+
 	<Directory /usr/local/snorby/public>
 	  #Options Indexes FollowSymLinks MultiViews
 	  Options -MultiViews
@@ -705,10 +705,10 @@ This way I could use the snorby setup as a sub URL. If you want you can just mak
 	  #Order allow,deny
 	  #allow from all
 	</Directory>
-	
+
 	ErrorLog /var/log/snort/snorby_error.log
 	CustomLog /var/log/snort/snorby_access.log combined
-	
+
 	</VirtualHost>
 
 Both examples are covered in the following pages:
@@ -722,6 +722,6 @@ With snorby ran into the issue described [here](https://github.com/Snorby/snorby
 
 After that the dashboard looked good and it didn't show me that the worker is not running:
 
-![snorby-dashboard](https://seacloud.cc/d/480b5e8fcd/files/?p=/snort_freebsd/snorby-dashboard.png&raw=1)
+![snorby-dashboard](https://raw.githubusercontent.com/elatov/upload/master/snort_freebsd/snorby-dashboard.png)
 
 Lastly I ran into a pretty cool script which automates the above install, it's located [here](https://github.com/shirkdog/snorby-bsd/blob/master/snorbyInstall.sh). It's written for FreeBSD 9, but with minor tweaks I am sure it will work for FreeBSD 10.

@@ -20,7 +20,7 @@ Then I updated my apt sources files as such:
 	└─[0] <> cat /etc/apt/sources.list.d/zabbix.list
 	deb http://repo.zabbix.com/zabbix/2.4/debian/ jessie main
 	deb-src http://repo.zabbix.com/zabbix/2.4/debian/ jessie main
-	
+
 Lastly update the package cache:
 
 	sudo apt-get update
@@ -33,7 +33,7 @@ At this point I ran the following to update the agent:
 After I was done with that I updated the server:
 
 	sudo apt-get upgrade zabbix-server-mysql
-	
+
 During the update it asked if I wanted to update my configuration files, but they were close enough so I left the original ones in place. I noticed that after the update the services are auto started and the database is updated on first startup:
 
 	$ less /var/log/zabbix/zabbix_server.log
@@ -49,7 +49,7 @@ During the update it asked if I wanted to update my configuration files, but the
 	 14513:20151129:101319.087 completed 100% of database upgrade
 	 14513:20151129:101319.088 database upgrade fully completed
 	 14513:20151129:101319.111 server #0 started [main process]
-	 
+
 ### Post Update Clean Up
 
 I noticed that the VMware templates have changed and not all the Macros are utilized any more. So I deleted all the discovered VMs and Hypervisors and readded the discovery as described in [Virtual machine monitoring](https://www.zabbix.com/documentation/2.4/manual/vm_monitoring) (just to start from a new slate). It actually worked out pretty well. I lost my old history data, but that's okay for me. After that I noticed some of the performance counters were failing for some reason:
@@ -59,29 +59,29 @@ I noticed that the VMware templates have changed and not all the Macros are util
 After looking around I noticed that only some of the VMs are not showing performance data. You can check all the "not supported" items by either running the following SQL command:
 
 	SELECT * FROM zabbix.items WHERE state=1;
-	
+
 Or by doing the following in the Zabbix UI (as described in [here](https://www.zabbix.com/forum/showthread.php?p=174743)):
 
-> Click on Configure->Hosts<br /> 
-> Now click on Items for any host<br /> 
-> Now click on Filter and the filter options will appear<br /> 
-> Change the Status drop down to Not Supported and clear the Host field.<br /> 
+> Click on Configure->Hosts<br />
+> Now click on Items for any host<br />
+> Now click on Filter and the filter options will appear<br />
+> Change the Status drop down to Not Supported and clear the Host field.<br />
 > Now click the Filter button
 
 Then I logged into the ESXi host and noticed that VMs with **vmxnet3** NICs are not showing any performance data:
 
-![vm-missing-net-perf-data](https://seacloud.cc/d/480b5e8fcd/files/?p=/zabbix-to-24/vm-missing-net-perf-data.png&raw=1)
+![vm-missing-net-perf-data](https://raw.githubusercontent.com/elatov/upload/master/zabbix-to-24/vm-missing-net-perf-data.png)
 
 While VMs with e1000 Nics had the performance data:
 
-![vm-contains-net-perf-data](https://seacloud.cc/d/480b5e8fcd/files/?p=/zabbix-to-24/vm-contains-net-perf-data.png&raw=1)
+![vm-contains-net-perf-data](https://raw.githubusercontent.com/elatov/upload/master/zabbix-to-24/vm-contains-net-perf-data.png)
 
 Initially I ran into this old VMware KB: [Networking performance data is missing when the VMXNET3 adapter is used (1015402)](http://kb.vmware.com/kb/1015402), but I was on ESXi 6.0 not 4.x. Then by dumb luck I ran into the release notes for [ESXi 6.0 Update 1a](https://kb.vmware.com/kb/2124716) and I saw the following:
 
 > **Virtual machine Network performance data metrics not available for VM configured with VMXNET3 connected to a standard vSwitch**
-> 
-> You are unable to view the real time performance graph for Network of a virtual machine configured with VMXNET3 adapter in the VMware vSphere Client 6.0 as the option is not available in the Switch to drop-down list. 
-> 
+>
+> You are unable to view the real time performance graph for Network of a virtual machine configured with VMXNET3 adapter in the VMware vSphere Client 6.0 as the option is not available in the Switch to drop-down list.
+>
 > This issue is resolved in this release.
 
 So I decided to update my ESXi host.
@@ -103,7 +103,7 @@ Either download the offline bundle from here:
 
 > my.vmware.com/group/vmware/info?slug=datacenter_cloud_infrastructure/vmware_vsphere/6_0
 
-![vmware-download-6u1a](https://seacloud.cc/d/480b5e8fcd/files/?p=/zabbix-to-24/vmware-download-6u1a.png&raw=1)
+![vmware-download-6u1a](https://raw.githubusercontent.com/elatov/upload/master/zabbix-to-24/vmware-download-6u1a.png)
 and then **scp** the bundle to the host:
 
 	┌─[elatov@macair] - [/Users/elatov/Downloads] - [2015-11-29 04:29:47]
@@ -128,7 +128,7 @@ Or just download the bundle directly:
 I prefer to download the bundle so I can use it later if necessary. Then finally reboot the host:
 
 	[root@macm:~] esxcli system shutdown reboot -r 'update_to_6_0U1a'
-	
+
 ### Confirm the Perf Data is There
 After I rebooted the host and powered on the VM I did end up seeing the performance data (and new version):
 
@@ -136,14 +136,14 @@ After I rebooted the host and powered on the VM I did end up seeing the performa
 	VMware ESXi 6.0.0 build-3073146
 	VMware ESXi 6.0.0 Update 1
 
-![new-vm-perf-data.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/zabbix-to-24/new-vm-perf-data.png&raw=1)
+![new-vm-perf-data.png](https://raw.githubusercontent.com/elatov/upload/master/zabbix-to-24/new-vm-perf-data.png)
 
 
 After some time I saw the following in the logs of the zabbix server:
 
 	1349:20151129:165139.402 item "564d2d47-8acb-62e5-8151-f4a924b1670a:vmware.vm.
 	net.if.out[{$URL},{HOST.HOST},4000,pps]" became supported
-	
+
 And also from the Zabbix UI I saw new data come in:
 
-![zabbix-new-data](https://seacloud.cc/d/480b5e8fcd/files/?p=/zabbix-to-24/zabbix-new-data.png&raw=1)
+![zabbix-new-data](https://raw.githubusercontent.com/elatov/upload/master/zabbix-to-24/zabbix-new-data.png)

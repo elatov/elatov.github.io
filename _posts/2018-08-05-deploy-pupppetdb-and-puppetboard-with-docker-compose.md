@@ -15,9 +15,9 @@ Since I already had a **puppet master** I wanted to deploy the other components 
 
 	<> cat docker-compose.yml
 	version: '2'
-	
+
 	services:
-	
+
 	  postgres:
 	    container_name: postgres
 	    hostname: postgres
@@ -31,7 +31,7 @@ Since I already had a **puppet master** I wanted to deploy the other components 
 	    volumes:
 	      - /data/shared/puppetboard/postgres/data:/var/lib/postgresql/data/
 	    network_mode: bridge
-	
+
 	  puppetdb:
 	    container_name: puppetdb
 	    hostname: puppetdb
@@ -45,7 +45,7 @@ Since I already had a **puppet master** I wanted to deploy the other components 
 	    network_mode: bridge
 	    extra_hosts:
 	       - "postgres:192.168.1.106"
-	
+
 	  puppetboard:
 	    container_name: puppetboard
 	    hostname: puppetboard
@@ -94,7 +94,7 @@ Also make sure have a **default** node definition on your **puppet master**. [He
 
 	<> cat /etc/puppetlabs/code/environments/production/manifests/site.pp
 	File { backup => false }
-	
+
 	node default {
 	  file { '/tmp/puppet-in-docker':
 	    ensure  => present,
@@ -182,8 +182,8 @@ Another note is that the **puppetdb** node connects to a machine called **postgr
 	PUPPETDB_DATABASE_CONNECTION=//postgres:5432/puppetdb
 	PUPPETDB_USER=puppetdb
 	PUPPETDB_PASSWORD=puppetdb
-	PUPPETDB_JAVA_ARGS=-Djava.net.preferIPv4Stack=true -Xms256m -Xmx256m  
-  
+	PUPPETDB_JAVA_ARGS=-Djava.net.preferIPv4Stack=true -Xms256m -Xmx256m
+
 So make sure the container can reach that (or change it to whatever you want). I just added an **extra_hosts** option (in the **docker-compose** file) and pointed to the **docker** host and that worked for me (for some reason the **links** feature didn't update the **/etc/hosts** file for me, plus it sounds like the **links** feature is not recommended: [Compose file version 2 reference](https://docs.docker.com/compose/compose-file/compose-file-v2/#links)).
 
 #### Puppet Master Connects to PuppetDB
@@ -255,7 +255,7 @@ And create an appropriate **routes.yaml** file:
 	  facts:
 	    terminus: puppetdb
 	    cache: yaml
-	    
+
 Finally restart the **puppet master** service to apply all the changes:
 
 	<> sudo systemctl restart puppetserver
@@ -271,4 +271,4 @@ Then login to any **puppet node** and do a test run (`sudo puppet agent -t`), an
 
 Now if you visit the **puppetboard** (**http://DOCKER_HOST:8001**) you will see a good summary of your **puppet** nodes:
 
-![puppet-board.png](https://seacloud.cc/d/480b5e8fcd/files/?p=/docker-compose-puppetboard/puppet-board.png&raw=1)
+![puppet-board.png](https://raw.githubusercontent.com/elatov/upload/master/docker-compose-puppetboard/puppet-board.png)
