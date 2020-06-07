@@ -210,7 +210,7 @@ Snyk takes a different approach and it tries to stay really close to the source 
 
 ### Use Kaniko to Build a Container
 
-There is actually a [catalog](https://github.com/tektoncd/catalog) item which has an example on how to use [kaniko with tekton](https://github.com/tektoncd/catalog/tree/master/kaniko). I ended up using the following task to build a [Dockerfile](https://hub.docker.com/r/firecyberice/rss2hook/dockerfile) (you have to rebuild the binary if you want to use it with alpine Linux ... this is discussed in [Can not run in docker](https://github.com/skx/rss2hook/issues/4)):
+There is actually a [catalog](https://github.com/tektoncd/catalog) item which has an example on how to use [kaniko with tekton](https://github.com/tektoncd/catalog/tree/master/kaniko). I ended up using the following task to build a [Dockerfile](https://hub.docker.com/r/firecyberice/rss2hook/dockerfile) (you have to rebuild the `rss2hook` binary if you want to use it with alpine Linux ... this is discussed in [Can not run in docker](https://github.com/skx/rss2hook/issues/4)):
 
 ```bash
 apiVersion: tekton.dev/v1beta1
@@ -272,7 +272,7 @@ There are also a couple of other examples of using kaniko with tekton:
 * [A first look at Tekton Pipelines](https://octopus.com/blog/introduction-to-tekton-pipelines)
 * [Build and run container image using Knative + Tekton](https://ruzickap.github.io/k8s-knative-gitlab-harbor/part-07/)
 
-After the pipeline is finished, I see the image pushed in dockerhub:
+After the pipeline is finished, I see the image available in dockerhub:
 
 ![dockerhub-rss2hook.png](https://res.cloudinary.com/elatov/image/upload/v1591497882/blog-pics/sec-tool-k8s/dockerhub-rss2hook.png)
 
