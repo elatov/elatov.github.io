@@ -386,6 +386,7 @@ We can see that we forward to a target group called **karim-Balan-6O2Y7D0PHCFF**
 
 We can see that we target the ec2 instance where the container is running and the correct port. We can also get the endpoints from convox:
 
+```bash
 > convox apps info --app karim-httpd
 Name        karim-httpd
 Status      running
@@ -394,7 +395,7 @@ Release     RJCCONJUAAN
 Processes   web
 Endpoints   karim-httpd-web.karim-Route-1B7H2GIJW6LEN-502343295.us-east-1.convox.site:80 (web)
             karim-httpd-web.karim-Route-1B7H2GIJW6LEN-502343295.us-east-1.convox.site:443 (web)
-
+```
 
 And if we visit the endpoints we will see the app deployed:
 
