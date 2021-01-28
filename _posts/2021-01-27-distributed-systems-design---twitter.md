@@ -19,7 +19,7 @@ There are a plethora of existing content on this:
 
 There are also a bunch of cool YouTube Videos:
 
-* [Twitter system design | twitter Software architecture | twitter interview questions](https://www.youtube.com/watch?v=wYk0xPP_P_8)
+* [Twitter system design, twitter Software architecture , Twitter interview questions](https://www.youtube.com/watch?v=wYk0xPP_P_8)
 * [System Design: How to design Twitter? Interview question at Facebook, Google, Microsoft](https://www.youtube.com/watch?v=KmAyPUv9gOY)
 * [Real-Time Delivery Architecture at Twitter](https://www.youtube.com/watch?v=J5auCY4ajK8)
 
