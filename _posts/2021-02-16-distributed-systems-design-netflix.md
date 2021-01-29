@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title: "Distributed Systems Design - Neflix"
+title: "Distributed Systems Design - Netflix"
 author: Karim Elatov
 categories: [distributed systems design]
 tags: [netflix, spark, kafka, elasticsearch, cdn]
