@@ -7,7 +7,7 @@ categories: [devops,automation,containers]
 tags: [kubernetes,kustomize]
 ---
 # Architecture
-From [their site](https://kubectl.docs.kubernetes.io/guides/introduction/kustomize/) page:
+From [their site](https://kubectl.docs.kubernetes.io/guides/introduction/kustomize/):
 
 > * Kustomize helps customizing config files in a template free way.
 > * Kustomize provides a number of handy methods like generators to make customization easier.
