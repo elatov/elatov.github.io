@@ -79,7 +79,7 @@ Then extracting the **tar** file, I had the following files:
 		├── KERNEL.md5
 		├── SYSTEM
 		└── SYSTEM.md5
-
+	
 	4 directories, 40 files
 
 We just need to grab all the files under the **target** directory and put under the **/storage/.update** directory on the current OpenELEC machine. So I SSH'ed into my OpenELEC machine and ran the following to copy the files (I had the **rsync** plugin):
@@ -95,7 +95,7 @@ We just need to grab all the files under the **target** directory and put under 
 	   102686720 100%  941.88kB/s    0:01:46 (xfer#3, to-check=1/5)
 	SYSTEM.md5
 			  48 100%    0.05kB/s    0:00:00 (xfer#4, to-check=0/5)
-
+	
 	sent 106 bytes  received 108711569 bytes  941226.62 bytes/sec
 	total size is 108684752  speedup is 1.00
 
@@ -243,7 +243,7 @@ Everything was working out well, until I started watching some tv streams. XBMC 
 
 I was only able to find [the following](https://forum.kodi.tv/showthread.php?tid=196936) (Openelec 4.0.3 Screen goes black during Live TV) forum that matched my error message. In the forum they mentioned that it's known issue and going back to 4.0.2 should fix the issue(and hopefully 4.0.4 fixes the issue). Given the fact that I was on 4.0.6 and the issue was still happening, I decided to downgrade to 4.0.2.
 
-With the new version of OpenELEC (4.0), we just copy the **tar** file into the update folder and the update process will proceed. From [Updating OpenELEC](http://kodi.wiki/view/OpenELEC#Updating_OpenELEC)
+With the new version of OpenELEC (4.0), we just copy the **tar** file into the update folder and the update process will proceed. From [Updating OpenELEC](https://kodi.wiki/view/HOW-TO:Install_Kodi_on_Raspberry_Pi)
 
 > Manually updating OopenELEC Gotham has become easier as well. You are no longer required to extract the system files yourselves, this is all done by OpenELEC internally. This means, that you only have to copy the downloaded .tar file into the Update folder, and have OpenELEC reboot. The .tar file will be extracted and tested, after which the necessary components will be copied to the SYSTEM partition as before. A second boot will follow to finalize the upgrade process.
 
@@ -258,7 +258,7 @@ Then I **ssh**'ed into the RPi and I copied the file over:
 	receiving incremental file list
 	OpenELEC-RPi.arm-4.0.2.tar
 	   113664000 100%    1.63MB/s    0:01:06 (xfer#1, to-check=0/1)
-
+	
 	sent 42 bytes  received 113691864 bytes  1505853.06 bytes/sec
 	total size is 113664000  speedup is 1.00
 

@@ -7,7 +7,7 @@ categories: ['storage', 'vmware']
 tags: [ 'vss', 'cbt', 'rdm', 'vm_snapshot', 'vdr', 'vhw']
 ---
 
-I recently ran into an issue with the VMware VDR appliance. The Integrity Check was failing and a VM (the Email Server VM) was failing to successfully back up. First I wanted to figure out why the Integrity Check was failing. Luckily we had two backup jobs and two Dedupe stores. The Backup Jobs were called "Email_Server_Backup_Job" (this backed up to Dedupe_Store_1) and "All_Other_VMs_Backup_Job" (this backed up to Dedupe_Store_2). We disabled both jobs to narrow down the issue. Each Dedup store was a 1TB RDM, which is a supported configuration. From the '[VMware Data Recovery Administration Guide 2.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vmware-data-recovery-administrators-guide-20.pdf)'
+I recently ran into an issue with the VMware VDR appliance. The Integrity Check was failing and a VM (the Email Server VM) was failing to successfully back up. First I wanted to figure out why the Integrity Check was failing. Luckily we had two backup jobs and two Dedupe stores. The Backup Jobs were called "Email_Server_Backup_Job" (this backed up to Dedupe_Store_1) and "All_Other_VMs_Backup_Job" (this backed up to Dedupe_Store_2). We disabled both jobs to narrow down the issue. Each Dedup store was a 1TB RDM, which is a supported configuration. From the '[VMware Data Recovery Administration Guide 2.0](https://www.vmware.com/pdf/vdr_20_admin.pdf)'
 
 > While Data Recovery does not impose limits on deduplication store size, other factors limit deduplication shares. As a result, deduplication stores are limited to:
 >
@@ -26,7 +26,7 @@ We logged into the VDR appliance and looked under the Reports Tab and we saw the
 
 ![recatalog_fails_1](https://github.com/elatov/uploads/raw/master/2012/08/recatalog_fails_1.png)
 
-VMware KB [2014249](http://kb.vmware.com/kb/2014249) talks about this:
+VMware KB [1018060](https://kb.vmware.com/s/article/1018060) talks about this:
 
 > This issue has been resolved in VDR 2.0.1
 
@@ -185,7 +185,7 @@ After working through the DNS issues the Backup still failed with the same log m
     2012-07-08T18:08:53.513-04:00 [4B5C7940 error 'Default'] Exception in VCBSnapshot_ReadFile: Error code: 1315
 
 
-I then ran across VMware KB [2013450](http://kb.vmware.com/kb/2013450), which had the following instructions to fix the above issue:
+I then ran across VMware KB [2013450](https://kb.vmware.com/s/article/2013450), which had the following instructions to fix the above issue:
 
 > 1. Open a console or SSH to the VDR Appliance.
 > 2. Log in using your credentials. The default credentials are:

@@ -9,19 +9,19 @@ tags: ['nat','iptables', 'vnc', 'kvm', 'rhel', 'libvirt', 'linux']
 
 
 ### KVM
-From the [Virtualization Getting Started Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Virtualization_Getting_Started_Guide/Red_Hat_Enterprise_Linux-6-Virtualization_Getting_Started_Guide-en-US.pdf):
+From the [Virtualization Getting Started Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/virtualization_getting_started_guide/red_hat_enterprise_linux-6-virtualization_getting_started_guide-en-us.pdf):
 
 > What is KVM?
 >
 > KVM (Kernel-based Virtual Machine) is a full virtualization solution for Linux on AMD64 and Intel 64 hardware that is built into the standard Red Hat Enterprise Linux 6 kernel. It can run multiple, unmodified Windows and Linux guest operating systems. The KVM hypervisor in Red Hat Enterprise Linux is managed with the **libvirt** API and tools built for **libvirt** (such as **virt-manager** and **virsh**). Virtual machines are executed and run as multi-threaded Linux processes controlled by these tools.
 
-and from the [Virtualization Tuning and Optimization Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Virtualization_Tuning_and_Optimization_Guide/Red_Hat_Enterprise_Linux-6-Virtualization_Tuning_and_Optimization_Guide-en-US.pdf) here is a quick overview:
+and from the [Virtualization Tuning and Optimization Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/virtualization_tuning_and_optimization_guide/red_hat_enterprise_linux-6-virtualization_tuning_and_optimization_guide-en-us.pdf) here is a quick overview:
 
 ![kvm-overview.png](https://raw.githubusercontent.com/elatov/upload/master/rhce_p22/kvm-overview.png)
 
 ### Installing The Hypervisor
 
-From the [Virtualization Host Configuration and Guest Installation Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Virtualization_Host_Configuration_and_Guest_Installation_Guide/Red_Hat_Enterprise_Linux-6-Virtualization_Host_Configuration_and_Guest_Installation_Guide-en-US.pdf)
+From the [Virtualization Host Configuration and Guest Installation Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/virtualization_host_configuration_and_guest_installation_guide/red_hat_enterprise_linux-6-virtualization_host_configuration_and_guest_installation_guide-en-us.pdf)
 
 > ###Configuring a Virtualization Host installation
 > This section covers installing virtualization tools and virtualization packages as part of a fresh Red Hat Enterprise Linux installation.
@@ -131,7 +131,7 @@ and of course the CPU flags were there as well:
 
 ### The libvirt daemon
 
-From the [Virtualization Administration Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Virtualization_Administration_Guide/Red_Hat_Enterprise_Linux-6-Virtualization_Administration_Guide-en-US.pdf)
+From the [Virtualization Administration Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/virtualization_administration_guide/virtualization-administration-guide.pdf)
 
 > The **libvirt** daemon provides an interface for managing virtual machines. You must have the libvirtd daemon installed and running on every remote host that needs managing.
 >
@@ -367,10 +367,10 @@ From the same guide:
 > 	$virsh help vol-path
 > 	  NAME
 > 		vol-path - returns the volume path for a given volume name or key
->
+>	
 > 	  SYNOPSIS
 > 		vol-path <vol> [--pool <string>]
->
+>	
 > 	  OPTIONS
 > 		[--vol] <string>  volume name or key
 > 		--pool <string>  pool name or uuid
@@ -432,15 +432,15 @@ Now for using **virsh**:
 
 	[root@rhel3 ~]# virsh
 	Welcome to virsh, the virtualization interactive terminal.
-
+	
 	Type:  'help' for help with commands
 		   'quit' to quit
-
+	
 	virsh # connect qemu:///system
-
+	
 	virsh # capabilities
 	<capabilities>
-
+	
 	  <host>
 		<uuid>564d4d7b-76ee-e8f8-4f94-73a2120ac990</uuid>
 		<cpu>
@@ -487,7 +487,7 @@ Now for using **virsh**:
 		  <doi>0</doi>
 		</secmodel>
 	  </host>
-
+	
 	  <guest>
 		<os_type>hvm</os_type>
 		<arch name='i686'>
@@ -517,7 +517,7 @@ Now for using **virsh**:
 		  <nonpae/>
 		</features>
 	  </guest>
-
+	
 	  <guest>
 		<os_type>hvm</os_type>
 		<arch name='x86_64'>
@@ -545,7 +545,7 @@ Now for using **virsh**:
 		  <apic default='on' toggle='no'/>
 		</features>
 	  </guest>
-
+	
 	</capabilities>
 
 
@@ -691,7 +691,7 @@ Here are the firewall rules that were added by the **libvirt** package:
 		0     0 ACCEPT     all  --  lo     *       0.0.0.0/0            0.0.0.0/0
 		6   360 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           state NEW tcp dpt:22
 	  127 34552 REJECT     all  --  *      *       0.0.0.0/0            0.0.0.0/0           reject-with icmp-host-prohibited
-
+	
 	Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
 	 pkts bytes target     prot opt in     out     source               destination
 		0     0 ACCEPT     all  --  *      virbr0  0.0.0.0/0            192.168.122.0/24    state RELATED,ESTABLISHED
@@ -700,7 +700,7 @@ Here are the firewall rules that were added by the **libvirt** package:
 		0     0 REJECT     all  --  *      virbr0  0.0.0.0/0            0.0.0.0/0           reject-with icmp-port-unreachable
 		0     0 REJECT     all  --  virbr0 *       0.0.0.0/0            0.0.0.0/0           reject-with icmp-port-unreachable
 		0     0 REJECT     all  --  *      *       0.0.0.0/0            0.0.0.0/0           reject-with icmp-host-prohibited
-
+	
 	Chain OUTPUT (policy ACCEPT 1593 packets, 241K bytes)
 	 pkts bytes target     prot opt in     out     source               destination
 
@@ -709,13 +709,13 @@ And here is the **nat** table:
 	[root@rhel3 ~]# iptables -L -n -v -t nat
 	Chain PREROUTING (policy ACCEPT 73 packets, 14236 bytes)
 	 pkts bytes target     prot opt in     out     source               destination
-
+	
 	Chain POSTROUTING (policy ACCEPT 12 packets, 699 bytes)
 	 pkts bytes target     prot opt in     out     source               destination
 		0     0 MASQUERADE  tcp  --  *      *       192.168.122.0/24    !192.168.122.0/24    masq ports: 1024-65535
 		0     0 MASQUERADE  udp  --  *      *       192.168.122.0/24    !192.168.122.0/24    masq ports: 1024-65535
 		0     0 MASQUERADE  all  --  *      *       192.168.122.0/24    !192.168.122.0/24
-
+	
 	Chain OUTPUT (policy ACCEPT 12 packets, 699 bytes)
 	 pkts bytes target     prot opt in     out     source               destination
 
@@ -760,7 +760,7 @@ That looks good. I copied a centos ISO in there which I will use for my VM insta
 	[root@rhel3 ~]# rsync -avzP 192.168.1.101:/data/isos/centos/CentOS-6.5-x86_64-minimal.iso /var/lib/libvirt/images/.
 	Password:
 	receiving incremental file list
-
+	
 	sent 11 bytes  received 62 bytes  29.20 bytes/sec
 	total size is 417333248  speedup is 5716893.81
 
@@ -847,7 +847,7 @@ First let's install the utility:
 Here is a command that will create the VM:
 
 	[root@rhel3 ~]# virt-install --name=centos --ram=512 --vcpus=1 --cdrom=/var/lib/libvirt/images/CentOS-6.5-x86_64-minimal.iso --os-type=linux --os-variant=rhel6 --disk=/var/lib/libvirt/images/centos.img,size=5 --network network=default --graphics=vnc,listen=0.0.0.0,keymap=en-us --noautoconsole
-
+	
 	Starting install...
 	Allocating 'centos.img'                                                                                         | 5.0 GB     00:00
 	Creating domain...                                                                                              |    0 B     00:00
@@ -865,7 +865,7 @@ Now find the *vncdisplay* assigned to the VM:
 
 	[root@rhel3 ~]# virsh vncdisplay 1
 	127.0.0.1:0
-
+	
 	[root@rhel3 ~]# netstat -ant | grep 590
 	tcp        0      0 0.0.0.0:5900                0.0.0.0:*                   LISTEN
 
@@ -889,23 +889,23 @@ From there we can just finish the install. Let's stop there, shutdown the VM, an
 
 	[root@rhel3 ~]# virsh
 	Welcome to virsh, the virtualization interactive terminal.
-
+	
 	Type:  'help' for help with commands
 		   'quit' to quit
-
+	
 	virsh # list
 	 Id    Name                           State
 	----------------------------------------------------
 	 1     centos                         running
-
+	
 	virsh # destroy 1
 	Domain 1 destroyed
-
+	
 	virsh # list --all
 	 Id    Name                           State
 	----------------------------------------------------
 	 -     centos                         shut off
-
+	
 	virsh # undefine centos
 	Domain centos has been undefined
 
@@ -917,12 +917,12 @@ Lastly remove the disk image file that was created for the VM:
 Since I started the VNC server for the VM on **0.0.0.0** (remote and not just local), I could connect to the VM from a remote machine using a regular vnc client:
 
 	elatov@fed:~$vncviewer rhel3:0
-
+	
 	TigerVNC Viewer 64-bit v1.3.0 (20140319)
 	Built on Mar 19 2014 at 17:09:18
 	Copyright (C) 1999-2011 TigerVNC Team and many others (see README.txt)
 	See http://www.tigervnc.org for information on TigerVNC.
-
+	
 	Sat May 24 18:24:31 2014
 	 CConn:       connected to host rhel3 port 5900
 	 CConnection: Server supports RFB protocol version 3.8
@@ -1104,7 +1104,7 @@ To find out the IP of the VM you can do a couple of things. First you can find t
 	 Id    Name                           State
 	----------------------------------------------------
 	 4     centos                         running
-
+	
 	[root@rhel3 ~]# virsh domiflist 4
 	Interface  Type       Source     Model       MAC
 	-------------------------------------------------------
@@ -1161,7 +1161,7 @@ Lastly to make sure the NAT is working properly, check to see that you can reach
 	64 bytes from nuq05s01-in-f4.1e100.net (74.125.239.100): icmp_seq=1 ttl=53 time=41.1 ms
 	64 bytes from nuq05s01-in-f4.1e100.net (74.125.239.100): icmp_seq=2 ttl=53 time=39.1 ms
 	64 bytes from nuq05s01-in-f4.1e100.net (74.125.239.100): icmp_seq=3 ttl=53 time=41.2 ms
-
+	
 	--- google.com ping statistics ---
 	3 packets transmitted, 3 received, 0% packet loss, time 2045ms
 	rtt min/avg/max/mdev = 39.183/40.519/41.234/0.945 ms

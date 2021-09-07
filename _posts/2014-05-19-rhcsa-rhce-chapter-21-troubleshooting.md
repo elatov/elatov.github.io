@@ -284,7 +284,7 @@ Let's say you couldn't SSH into a server. Here are the steps I would take to mak
         [root@rhel2 ~]# nslookup rhel1
         Server:     192.168.2.2
         Address:    192.168.2.2#53
-
+      
         Name:   rhel1.local.com
         Address: 192.168.2.2
 
@@ -296,7 +296,7 @@ Let's say you couldn't SSH into a server. Here are the steps I would take to mak
         64 bytes from rhel1.local.com (192.168.2.2): icmp_seq=1 ttl=64 time=0.087 ms
         64 bytes from rhel1.local.com (192.168.2.2): icmp_seq=2 ttl=64 time=0.298 ms
         64 bytes from rhel1.local.com (192.168.2.2): icmp_seq=3 ttl=64 time=0.228 ms
-
+      
         --- rhel1.local.com ping statistics ---
         3 packets transmitted, 3 received, 0% packet loss, time 2000ms
         rtt min/avg/max/mdev = 0.087/0.204/0.298/0.088 ms
@@ -369,9 +369,9 @@ Let's say you couldn't SSH into a server. Here are the steps I would take to mak
         debug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic,password
         debug1: Next authentication method: gssapi-with-mic
         debug1: Unspecified GSS failure.  Minor code may provide more information No credentials cache found
-
+       
         debug1: Unspecified GSS failure.  Minor code may provide more information No credentials cache found
-
+       
         debug1: Unspecified GSS failure.  Minor code may provide more information No credentials cache found
         debug1: Next authentication method: publickey
         debug1: Trying private key: /root/.ssh/identity
@@ -397,7 +397,7 @@ This usually means that either the port is already used by another process, or t
 
 
     We can see that it will be using the **192\.168.2.2** IP address and the port used for **smtp**. From the **/etc/services** file:
-
+    
         [root@rhel1 ~]# grep ^smtp /etc/services
         smtp            25/tcp          mail
         smtp            25/udp          mail
@@ -437,7 +437,7 @@ Let's say you can't ping a host:
     From rhel1.dnsd.me (192.168.2.2) icmp_seq=1 Destination Host Prohibited
     From rhel1.dnsd.me (192.168.2.2) icmp_seq=2 Destination Host Prohibited
     From rhel1.dnsd.me (192.168.2.2) icmp_seq=3 Destination Host Prohibited
-
+    
     --- google.com ping statistics ---
     3 packets transmitted, 0 received, +3 errors, 100% packet loss, time 2001ms
 
@@ -463,7 +463,7 @@ Try the following to make sure your networking is copacetic:
 
 
     We can also use **ethtool** for this:
-
+    
         [root@rhel2 ~]# ethtool eth0
         Settings for eth0:
             Supported ports: [ TP ]
@@ -531,19 +531,19 @@ Try the following to make sure your networking is copacetic:
 
 
     We can see that there are no manual static routes added and the default gateway is **192\.168.2.2**. Let's make sure we can reach the default gateway:
-
+    
         [root@rhel2 ~]# ping -c 2 192.168.2.2
         PING 192.168.2.2 (192.168.2.2) 56(84) bytes of data.
         64 bytes from 192.168.2.2: icmp_seq=1 ttl=64 time=0.186 ms
         64 bytes from 192.168.2.2: icmp_seq=2 ttl=64 time=0.334 ms
-
+    
         --- 192.168.2.2 ping statistics ---
         2 packets transmitted, 2 received, 0% packet loss, time 999ms
         rtt min/avg/max/mdev = 0.186/0.260/0.334/0.074 ms
 
 
     If we had static routes, for example let's say we had a route that said we need to use **eth0** to reach a certain IP:
-
+    
         [root@rhel2 ~]# ip route ls
         74.125.239.14 dev eth0  scope link
         192.168.2.0/24 dev eth1  proto kernel  scope link  src 192.168.2.3
@@ -553,20 +553,20 @@ Try the following to make sure your networking is copacetic:
 
 
     The top line is setting a static route to go out of **eth0** if reaching **74\.125.239.14**. You can also use **ip route get** to find out which interface will be used to reach a certain IP:
-
+    
         [root@rhel2 ~]# ip route get 74.125.239.14
         74.125.239.14 dev eth0  src 172.1.2.12
             cache  expires 21334364sec mtu 1500 advmss 1460 hoplimit 64
 
 
     We can see that to reach IP **74\.125.239.14** we will use **eth0** as the source interface. My ping was of course failing:
-
+    
         [root@rhel2 ~]# ping 74.125.239.14 -c 3
         PING 74.125.239.14 (74.125.239.14) 56(84) bytes of data.
         From 172.1.2.12 icmp_seq=1 Destination Host Unreachable
         From 172.1.2.12 icmp_seq=2 Destination Host Unreachable
         From 172.1.2.12 icmp_seq=3 Destination Host Unreachable
-
+    
         --- 74.125.239.14 ping statistics ---
         3 packets transmitted, 0 received, +3 errors, 100% packet loss, time 2001ms, pipe 3
 
@@ -582,7 +582,7 @@ Try the following to make sure your networking is copacetic:
                   TX packets:46943 errors:0 dropped:0 overruns:0 carrier:0
                   collisions:0 txqueuelen:1000
                   RX bytes:3974689 (3.7 MiB)  TX bytes:6006739 (5.7 MiB)
-
+      
         [root@rhel2 ~]# ip -s link show eth1
         3: eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast qlen 1000
             link/ether 00:0c:29:4f:a1:ef brd ff:ff:ff:ff:ff:ff
@@ -593,7 +593,7 @@ Try the following to make sure your networking is copacetic:
 
 
     From above we can see there are no **drops** or **errors**, **ethtool** can show more statistics:
-
+    
         [root@rhel2 ~]# ethtool -S eth1
         NIC statistics:
              rx_packets: 35469
@@ -646,7 +646,7 @@ Try the following to make sure your networking is copacetic:
 
 
     We can also check TCP and UDP statistics with **netstat**:
-
+    
         [root@rhel2 ~]# netstat -st
         IcmpMsg:
             InType0: 439
@@ -709,7 +709,7 @@ Try the following to make sure your networking is copacetic:
 
 
     If along the way anything is timing out, then there might an external routing issue. Here is me getting blocked locally:
-
+    
          [root@rhel2 ~]# traceroute -n google.com
          traceroute to google.com (74.125.239.7), 30 hops max, 40 byte packets
          1  192.168.2.2  0.141 ms  0.138 ms  0.149 ms
@@ -721,7 +721,7 @@ Try the following to make sure your networking is copacetic:
         [root@rhel2 ~]# nslookup google.com | head -6
         Server:     192.168.2.2
         Address:    192.168.2.2#53
-
+      
         Non-authoritative answer:
         Name:   google.com
         Address: 74.125.224.129
@@ -734,7 +734,7 @@ Try the following to make sure your networking is copacetic:
         64 bytes from 74.125.224.102: icmp_seq=1 ttl=52 time=42.3 ms
         64 bytes from 74.125.224.102: icmp_seq=2 ttl=52 time=42.5 ms
         64 bytes from 74.125.224.102: icmp_seq=3 ttl=52 time=45.1 ms
-
+      
         --- google.com ping statistics ---
         3 packets transmitted, 3 received, 0% packet loss, time 2003ms
         rtt min/avg/max/mdev = 42.353/43.353/45.109/1.268 ms
@@ -742,27 +742,27 @@ Try the following to make sure your networking is copacetic:
 
 There are many more things to try if you are trying a specific application. You can try to get a packet capture with **tcpdump** (covered in [Chapter 5][24]) and check to see what is happening at layer 7 of the OSI stack.
 
- [1]: https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf
- [2]: /2013/01/rhcsa-and-rhce-chapter-2-system-initialization/
- [3]: https://github.com/elatov/uploads/raw/master/2014/05/grub-menu.png
- [4]: https://github.com/elatov/uploads/raw/master/2014/05/grub-menu-after-e.png
- [5]: https://github.com/elatov/uploads/raw/master/2014/05/kernel-line-menu.png
- [6]: https://github.com/elatov/uploads/raw/master/2014/05/single-appended.png
- [7]: https://github.com/elatov/uploads/raw/master/2014/05/single-user-mode-booted.png
- [8]: https://github.com/elatov/uploads/raw/master/2014/05/password-reset.png
- [9]: https://github.com/elatov/uploads/raw/master/2014/05/dvd-booted.png
- [10]: https://github.com/elatov/uploads/raw/master/2014/05/boot-cd-select-lang.png
- [11]: https://github.com/elatov/uploads/raw/master/2014/05/boot-cd-keyb-sel.png
- [12]: https://github.com/elatov/uploads/raw/master/2014/05/boot-cd-res-metho.png
- [13]: https://github.com/elatov/uploads/raw/master/2014/05/boot-cd-select-net.png
- [14]: https://github.com/elatov/uploads/raw/master/2014/05/boot-cd-attempt-moount.png
- [15]: https://github.com/elatov/uploads/raw/master/2014/05/boot-cd-success-mount-linux.png
- [16]: https://github.com/elatov/uploads/raw/master/2014/05/boot-cd-mounted-linux.png
- [17]: https://github.com/elatov/uploads/raw/master/2014/05/first-aide-quickstart-menu.png
- [18]: https://github.com/elatov/uploads/raw/master/2014/05/shell-dropped.png
- [19]: https://github.com/elatov/uploads/raw/master/2014/05/res-chroot-pass-reset.png
- [20]: https://github.com/elatov/uploads/raw/master/2014/05/grub-reinstall-p1.png
- [21]: https://github.com/elatov/uploads/raw/master/2014/05/mbr-reinstall-p2.png
- [22]: https://github.com/elatov/uploads/raw/master/2014/05/grub-install.png
- [23]: https://github.com/elatov/uploads/raw/master/2014/05/fsck-lvm.png
- [24]: /2013/01/rhcsa-and-rhce-chapter-5-networking/
+[1]: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/installation_guide/installation-guide.pdf
+[2]: /2013/01/rhcsa-and-rhce-chapter-2-system-initialization/
+[3]: https://github.com/elatov/uploads/raw/master/2014/05/grub-menu.png
+[4]: https://github.com/elatov/uploads/raw/master/2014/05/grub-menu-after-e.png
+[5]: https://github.com/elatov/uploads/raw/master/2014/05/kernel-line-menu.png
+[6]: https://github.com/elatov/uploads/raw/master/2014/05/single-appended.png
+[7]: https://github.com/elatov/uploads/raw/master/2014/05/single-user-mode-booted.png
+[8]: https://github.com/elatov/uploads/raw/master/2014/05/password-reset.png
+[9]: https://github.com/elatov/uploads/raw/master/2014/05/dvd-booted.png
+[10]: https://github.com/elatov/uploads/raw/master/2014/05/boot-cd-select-lang.png
+[11]: https://github.com/elatov/uploads/raw/master/2014/05/boot-cd-keyb-sel.png
+[12]: https://github.com/elatov/uploads/raw/master/2014/05/boot-cd-res-metho.png
+[13]: https://github.com/elatov/uploads/raw/master/2014/05/boot-cd-select-net.png
+[14]: https://github.com/elatov/uploads/raw/master/2014/05/boot-cd-attempt-moount.png
+[15]: https://github.com/elatov/uploads/raw/master/2014/05/boot-cd-success-mount-linux.png
+[16]: https://github.com/elatov/uploads/raw/master/2014/05/boot-cd-mounted-linux.png
+[17]: https://github.com/elatov/uploads/raw/master/2014/05/first-aide-quickstart-menu.png
+[18]: https://github.com/elatov/uploads/raw/master/2014/05/shell-dropped.png
+[19]: https://github.com/elatov/uploads/raw/master/2014/05/res-chroot-pass-reset.png
+[20]: https://github.com/elatov/uploads/raw/master/2014/05/grub-reinstall-p1.png
+[21]: https://github.com/elatov/uploads/raw/master/2014/05/mbr-reinstall-p2.png
+[22]: https://github.com/elatov/uploads/raw/master/2014/05/grub-install.png
+[23]: https://github.com/elatov/uploads/raw/master/2014/05/fsck-lvm.png
+[24]: /2013/01/rhcsa-and-rhce-chapter-5-networking/

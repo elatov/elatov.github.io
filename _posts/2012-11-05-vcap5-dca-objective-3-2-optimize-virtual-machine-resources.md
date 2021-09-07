@@ -95,7 +95,7 @@ There are also a lot of OS'es that support it and that don't. From the blog "[VM
 
 ![hot-add_matrix](https://github.com/elatov/uploads/raw/master/2012/10/hot-add_matrix.png)
 
-Also check out "[VMware Hot-Add Memory/CPU Support](http://www.petri.co.il/vsphere-hot-add-memory-and-cpu.htm#)"
+Also check out "[VMware Hot-Add Memory/CPU Support](https://www.petri.com/vsphere-hot-add-memory-and-cpu)"
 
 ### Tune Virtual Machine memory configurations
 

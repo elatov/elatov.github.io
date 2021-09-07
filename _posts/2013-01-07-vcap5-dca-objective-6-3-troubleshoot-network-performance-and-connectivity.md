@@ -162,7 +162,7 @@ Here is a quick summary:
 
 ### Analyze troubleshooting data to determine if the root cause for a given network problem originates in the physical infrastructure or vSphere environment
 
-From "[Performance Troubleshooting for VMware vSphere 4.1](http://communities.vmware.com/servlet/JiveServlet/previewBody/14905-102-2-17952/vsphere41-performance-troubleshooting.pdf)":
+From "[Performance Troubleshooting for VMware vSphere 4.1](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/vsphere41-performance-troubleshooting.pdf)":
 
 > **12.2. Dropped Receive Packets**
 > **12.2.1. Causes**
@@ -464,4 +464,3 @@ Here are the rest of the options:
 >     Here are all the options as seen in the DCUI:
 >
 >     ![dcui options VCAP5 DCA Objective 6.3 – Troubleshoot Network Performance and Connectivity ](https://github.com/elatov/uploads/raw/master/2012/12/dcui_options.png)
->

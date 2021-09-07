@@ -144,7 +144,7 @@ But ran into a similar issue:
 
 	create_api_error_from_http_exception\\n    raise cls(e, response=response, explanation=explanation)\\nNotFound: 404 Client Error: Not Found (\"manifest for kolla/centos-binary-kolla-toolbox:5.0.0 not found\")\\n'"}
 
-Based on [this post](https://ask.openstack.org/en/question/110691/kolla-images-for-pike-with-tag-500-dont-exist-on-docker-hub-registry/) it looks like the images don't yet exist. So I decided to build the images which requires the **tox** tool. All the instructions are laid on in [Building Container Images](https://docs.openstack.org/kolla/latest/admin/image-building.html). After installing **tox** I kep running into another issue where the **kolla-build** binary was not available. I ended following instructions laid out in [Kolla-build: command not found](https://ask.openstack.org/en/question/93967/kolla-build-command-not-found/):
+It looks like the images don't yet exist. So I decided to build the images which requires the **tox** tool. All the instructions are laid on in [Building Container Images](https://docs.openstack.org/kolla/latest/admin/image-building.html). After installing **tox** I kept running into another issue where the **kolla-build** binary was not available. I ended running the following to get `kolla-build`:
 
 	root@osa:~# git clone https://github.com/openstack/kolla.git
 	Cloning into 'kolla'...

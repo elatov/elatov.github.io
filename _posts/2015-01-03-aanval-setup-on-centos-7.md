@@ -11,7 +11,7 @@ I wanted to try out a SIEM (Security Information and Event Management) product a
 
 ### Aanval
 
-From their [FAQ](https://tacticalflex.zendesk.com/hc/en-us/articles/360009381474-What-is-Aanval-):
+From their [FAQ](https://resources.infosecinstitute.com/topic/aanval-siem-by-tactical-flex/):
 
 > Aanval SAS (Situational Awareness System) is the combination of our most advanced SIEM features with our newly released Network Host Scanner, Rogue Host Detection, and Offensive Reconnaissance modules. Aanval SAS™ provides real-time security intelligence to shore up defenses and help defenders take the offensive on thwarting cyber attacks. As the industry’s most comprehensive Security Information and Event Management (SIEM) console on the market today, Aanval supports Snort and Suricata as well as virtually any syslog-sourced data, and is designed specifically to scale from small single-sensor installations to global enterprise deployments
 
@@ -29,7 +29,7 @@ The install is pretty straight forward, you just have to sign up and download th
     total 8080
     -rw-r----- 1 elatov elatov 8270303 Dec 27 14:31 aanval-7-latest-stable.tar.gz
 
-There are also pretty good instructions laid out [here](https://tacticalflex.zendesk.com/hc/en-us/articles/360003407313-Aanval-9-Installation). So let's extract the *tar* archive:
+There are also pretty good instructions laid out [here](https://www.youtube.com/watch?v=NnOkAGhAtwE). So let's extract the *tar* archive:
 
     elatov@kerch:~/download$tar xzf aanval-7-latest-stable.tar.gz
 
@@ -61,10 +61,10 @@ Now let's prepare the DB. I already had a MySQL DB Server running so I just adde
     Enter password:
     mysql> create database aanvaldb;
     Query OK, 1 row affected (0.01 sec)
-
+    
     mysql> GRANT ALL PRIVILEGES ON aanvaldb.* TO 'aanval_user'@'localhost' IDENTIFIED BY 'aanval' with grant option;
     Query OK, 0 rows affected (0.00 sec)
-
+    
     mysql> GRANT ALL PRIVILEGES ON aanvaldb.* TO 'aanval_user'@'10.0.0.6' IDENTIFIED BY 'aanval' with grant option;
     Query OK, 0 rows affected (0.00 sec)
     mysql> flush privileges;
@@ -76,7 +76,7 @@ Then from the CentOS machine we can confirm that we can connect to the database:
     Enter password:
     Welcome to the MariaDB monitor.  Commands end with ; or \g.
     Your MySQL connection id is 1440335
-
+    
     MySQL [(none)]> show databases;
     +--------------------+
     | Database           |
@@ -85,11 +85,11 @@ Then from the CentOS machine we can confirm that we can connect to the database:
     | aanvaldb           |
     +--------------------+
     2 rows in set (0.00 sec)
-
+    
     MySQL [(none)]> use aanvaldb;
     Reading table information for completion of table and column names
     You can turn off this feature to get a quicker startup with -A
-
+    
     Database changed
     MySQL [aanvaldb]>
 
@@ -117,17 +117,17 @@ Then you can click "**Continue**" and you will see the next steps:
 I went back and started the BPUs:
 
     elatov@kerch:/var/www/html/aan/apps$sudo -u apache perl ./idsBackground.pl -srt
-
+    
     ---------------------------------------------------
     Aanval by Tactical FLEX, Inc.
     Copyright 2003-2014
-
+    
     http://www.tacticalflex.com/
-
+    
     Background Processing Unit (BPU) Initializer
     Version: 8.0.800
     ---------------------------------------------------
-
+    
     Aanval BPU (core) launched in daemon mode [PID: 2175].
     Aanval BPU (process) launched in daemon mode [PID: 2181].
     Aanval BPU (report) launched in daemon mode [PID: 2192].
@@ -143,7 +143,7 @@ To make sure the Daemons are running check the ouput of **ps**:
 
 #### Aanval Snort Module Configuration
 
-There is a actually a pretty good produre [here](https://tacticalflex.zendesk.com/hc/en-us/articles/360010678893-Snort-vs-Suricata). After you login with the following credentials:
+There is a actually a pretty good produre [here](https://adaptive.codes/pages/aanval). After you login with the following credentials:
 
 > root/specter
 

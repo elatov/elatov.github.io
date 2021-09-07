@@ -11,7 +11,7 @@ tags: [kubernetes,nginx]
 There are some good examples of how to use it and what is does here:
 
 * [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
-* [Kubernetes nginx-ingress-controller](https://daemonza.github.io/2017/02/13/kubernetes-nginx-ingress-controller/)
+* [Nginx Ingress Controller in Kubernetes](https://medium.com/avmconsulting-blog/nginx-ingress-controller-in-kubernetes-8eb14f737f7b)
 
 
 #### Configure an Nginx Ingress Controller
@@ -50,23 +50,23 @@ You should be able to see all the configs deployed:
 	NAME                              DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
 	deploy/default-http-backend       1         1         1            1           6m
 	deploy/nginx-ingress-controller   1         1         1            1           4m
-
+	
 	NAME                                    DESIRED   CURRENT   READY     AGE
 	rs/default-http-backend-55c6c69b88      1         1         1         6m
 	rs/nginx-ingress-controller-d7b4cbf98   1         1         1         4m
-
+	
 	NAME                              DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
 	deploy/default-http-backend       1         1         1            1           6m
 	deploy/nginx-ingress-controller   1         1         1            1           4m
-
+	
 	NAME                                    DESIRED   CURRENT   READY     AGE
 	rs/default-http-backend-55c6c69b88      1         1         1         6m
 	rs/nginx-ingress-controller-d7b4cbf98   1         1         1         4m
-
+	
 	NAME                                          READY     STATUS    RESTARTS   AGE
 	po/default-http-backend-55c6c69b88-wj8bn      1/1       Running   0          6m
 	po/nginx-ingress-controller-d7b4cbf98-xqmrr   1/1       Running   0          4m
-
+	
 	NAME                       TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                      AGE
 	svc/default-http-backend   ClusterIP   10.102.171.108   <none>        80/TCP                       6m
 	svc/ingress-nginx          NodePort    10.106.90.156    <none>        80:36006/TCP,443:36698/TCP   2m
@@ -86,7 +86,7 @@ Good thing to check out are the different options you can set with [Annotations]
 * [[NGINX] Rewrite annotation adding trailing slash](https://github.com/kubernetes/ingress-nginx/issues/1399)
 
 #### Creating Ingress Rules for Jenkins
-I had already followed instructions in [Running Jenkins behind Apache](https://wiki.jenkins.io/display/JENKINS/Running+Jenkins+behind+Apache) and enabled the service to run under **/jenkins**, here is the relevant config:
+I had already followed instructions in [Running Jenkins behind a Proxy](https://www.jenkins.io/doc/book/system-administration/reverse-proxy-configuration-nginx/) and enabled the service to run under **/jenkins**, here is the relevant config:
 
 	<> grep prefix /data/k8s/jenkins/jenkins-deployment.yaml -B 2
 	        env:
@@ -196,14 +196,14 @@ First if you want to you can check out the logs:
 	default-http-backend-55c6c69b88-wj8bn       1/1       Running   2          1d
 	nginx-ingress-controller-6b96d48658-gznhl   1/1       Running   0          1d
 	<> kubectl logs -n ingress-nginx nginx-ingress-controller-6b96d48658-gznhl
-
+	
 	-------------------------------------------------------------------------------
 	NGINX Ingress controller
 	  Release:    0.9.0
 	  Build:      git-6816630
 	  Repository: https://github.com/kubernetes/ingress-nginx
 	-------------------------------------------------------------------------------
-
+	
 	I1227 16:29:28.597996       7 main.go:227] Creating API client for https://10.96.0.1:443
 	I1227 16:29:28.607067       7 main.go:239] Running in Kubernetes Cluster version v1.9 (v1.9.0) - git (clean) commit 925c127ec6b946659ad0fd596fa959be43f0cc05 - platform linux/amd64
 	I1227 16:29:28.608379       7 main.go:83] validated ingress-nginx/default-http-backend as the default backend
