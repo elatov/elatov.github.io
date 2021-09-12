@@ -29,7 +29,7 @@ We wanted to find out why this happened so the customer sent me the logs from al
 	Mar 28 14:26:11 esx_host vmkernel: 259:19:17:51.738 cpu2:4110)LVM: 2710: Device naa.xxx:1 is detected as being in volume 497924f8-0ba43178-cffe-001517515780 (0x417f80077808)
 
 
-And I saw the same logs across all the hosts. This LUN was showing up as snapshots, [KB 1011385](http://kb.vmware.com/kb/1011385) talks about how LUN snapshots are detected. I then wanted to see when the LUNs were resignatured (since the customer said they had not done so themselves). And I saw the following in the logs:
+And I saw the same logs across all the hosts. This LUN was showing up as snapshots, [KB 1011387](https://kb.vmware.com/s/article/1011387) talks about how LUN snapshots are detected. I then wanted to see when the LUNs were resignatured (since the customer said they had not done so themselves). And I saw the following in the logs:
 
 
 	elatov@host$ find . -name 'vmkernel*' -exec grep -i 'resig' {} \;

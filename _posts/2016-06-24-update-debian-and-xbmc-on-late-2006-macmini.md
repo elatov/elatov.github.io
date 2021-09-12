@@ -80,7 +80,7 @@ Then remove old packages:
 
 	sudo apt-get autoremove --purge
 
-Then create the systemd script, taken from [here](http://kodi.wiki/view/HOW-TO:Autostart_XBMC_for_Linux):
+Then create the systemd script, taken from [here](https://kodi.wiki/view/HOW-TO:Autostart_Kodi_for_Linux):
 
 
 	elatov@deb:~$ cat /etc/systemd/system/kodi.service

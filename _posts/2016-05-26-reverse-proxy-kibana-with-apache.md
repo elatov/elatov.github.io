@@ -43,7 +43,7 @@ This setup is covered [here](https://www.jhipster.tech/tips/023_tip_protecting_k
 		</Proxy>
 	</VirtualHost>
 	</IfModule>
-	
+
 This is actually doing SSL Offloading as well so it's pretty sweet. I covered my **mod_nss** setup [here](/2015/11/setup-an-ssl-site-with-mod_nss-on-debian-8/).
 
 ### Reverse Proxy with a Dedicated ServerPath/Directory
@@ -88,7 +88,7 @@ Then modify you apache config to look like this:
 The only downside of the **BasePath** directive is after that's set you actually can't go directly to the kibana app. I think this is a bug and there is a discussion on it [here](https://github.com/elastic/kibana/pull/5337). Hopefully in the next release it will be fixed.
 
 ### Reverse Proxy without Kibana BasePath
-If you don't setup the **basePath** you will have to reverse proxy a bunch of locations. The gist of them are covered [here](https://github.com/elastic/kibana/issues/5230#issuecomment-157078673). You would need this (I tried it out and was actually okay):
+If you don't setup the **basePath** you will have to reverse proxy a bunch of locations. The gist of them are covered [here](https://github.com/elastic/kibana/issues/5230). You would need this (I tried it out and was actually okay):
 
 	ProxyRequests Off
 	

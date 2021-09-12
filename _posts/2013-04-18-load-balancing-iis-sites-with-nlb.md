@@ -33,16 +33,16 @@ Just for reference here is the IP configuration for IIS-1 :
 
     C:\Users\Administrator>ipconfig
     Windows IP Configuration
-
+    
     Ethernet adapter Local Area Connection 2:
-
+    
        Connection-specific DNS Suffix  . :
        IPv4 Address. . . . . . . . . . . : 192.168.250.48
        Subnet Mask . . . . . . . . . . . : 255.255.255.0
        Default Gateway . . . . . . . . . :
-
+    
     Ethernet adapter Local Area Connection:
-
+    
        Connection-specific DNS Suffix  . :
        IPv4 Address. . . . . . . . . . . : 192.168.250.47
        Subnet Mask . . . . . . . . . . . : 255.255.255.0
@@ -53,16 +53,16 @@ Here is the IP configuration for IIS-2:
 
     C:\Users\administrator>ipconfig
     Windows IP Configuration
-
+    
     Ethernet adapter Local Area Connection 2:
-
+    
        Connection-specific DNS Suffix  . :
        IPv4 Address. . . . . . . . . . . : 192.168.250.50
        Subnet Mask . . . . . . . . . . . : 255.255.255.0
        Default Gateway . . . . . . . . . :
-
+    
     Ethernet adapter Local Area Connection:
-
+    
        Connection-specific DNS Suffix  . :
        IPv4 Address. . . . . . . . . . . : 192.168.250.49
        Subnet Mask . . . . . . . . . . . : 255.255.255.0
@@ -72,20 +72,20 @@ Here is the IP configuration for IIS-2:
 The secondary interface will be used to ensure the cluster nodes can talk to each other. Lastly make sure they can ping each other over the both IPs:
 
     C:\Users\administrator>ping 192.168.250.47 -n 1
-
+    
     Pinging 192.168.250.47 with 32 bytes of data:
     Reply from 192.168.250.47: bytes=32 time=2ms TTL=128
-
+    
     Ping statistics for 192.168.250.47:
         Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
     Approximate round trip times in milli-seconds:
         Minimum = 2ms, Maximum = 2ms, Average = 2ms
-
+    
     C:\Users\administrator>ping 192.168.250.48 -n 1
-
+    
     Pinging 192.168.250.48 with 32 bytes of data:
     Reply from 192.168.250.48: bytes=32 time=1ms TTL=128
-
+    
     Ping statistics for 192.168.250.48:
         Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
     Approximate round trip times in milli-seconds:
@@ -138,7 +138,7 @@ From here click "Add" and enter the IP that will be used as the "Cluster" IP add
 
 Click "OK", then click "Next", and you will get to the "Cluster Parameters" page. On this screen fill in the "Full Internet Name" of the cluster (cluster.elatov.local) and leave the Operation Mode in **Unicast** (any mode will work as long as the cluster can converge).
 
-If you select *Multicast* mode your upstream switch will have to support multicast. *Unicast* doesn't require any configuration on the upstream switch but does require two Network Interfaces. The reason for this has to do with how NLB operates. When the primary Network Interfaces are setup to be part of an NLB cluster they actually won't be able to talk to each other with those interfaces. So we need a second interface on a network that has access to the primary network (the easiest way to accomplish that is put it on the same subnet). More information regarding the Cluster operation modes can be seen in [this](http://technet.microsoft.com/en-us/library/bb742455.aspx) Microsoft article, from that article:
+If you select *Multicast* mode your upstream switch will have to support multicast. *Unicast* doesn't require any configuration on the upstream switch but does require two Network Interfaces. The reason for this has to do with how NLB operates. When the primary Network Interfaces are setup to be part of an NLB cluster they actually won't be able to talk to each other with those interfaces. So we need a second interface on a network that has access to the primary network (the easiest way to accomplish that is put it on the same subnet). More information regarding the Cluster operation modes can be seen in [this](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-2000-server/bb742455(v=technet.10)) Microsoft article, from that article:
 
 > Network Load Balancing's unicast mode has the side effect of disabling communication between cluster hosts using the cluster adapters. Since outgoing packets for another cluster host are sent to the same MAC address as the sender, these packets are looped back within the sender by the network stack and never reach the wire. This limitation can be avoided by adding a second network adapter card to each cluster host. In this configuration, Network Load Balancing is bound to the network adapter on the subnet that receives incoming client requests, and the other adapter is typically placed on a separate, local subnet for communication between cluster hosts and with back-end file and database servers. Network Load Balancing only uses the cluster adapter for its heartbeat and remote control traffic.
 
@@ -154,7 +154,7 @@ If you click "Edit" it will show you the default rule set:
 
 ![nlbmgr edit port rule Load Balancing IIS Sites with NLB](https://github.com/elatov/uploads/raw/master/2013/04/nlbmgr_edit_port_rule.png)
 
-By default it's setup to load balance all the ports "0-65535" and that will work for our setup. If you wanted to be pedantic you could create one rule to only balance port 80, but the default is okay. Now the *Affinity* setting is noteworthy, cause it basically decides how the load balancing occurs. [This](http://technet.microsoft.com/en-us/library/cc778263%28v=ws.10%29.aspx) Microsoft article explains the different modes, here are the important excerpts:
+By default it's setup to load balance all the ports "0-65535" and that will work for our setup. If you wanted to be pedantic you could create one rule to only balance port 80, but the default is okay. Now the *Affinity* setting is noteworthy, cause it basically decides how the load balancing occurs. [This](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc778263(v=ws.10)) Microsoft article explains the different modes, here are the important excerpts:
 
 > *   The **None** option specifies that multiple connections from the same client IP address can be handled by different cluster hosts (no client affinity). In order to allow Network Load Balancing to properly handle IP fragments, you should avoid using None when selecting UDP or Both for your protocol setting.
 > *   The **Single** option specifies that Network Load Balancing should direct multiple requests from the same client IP address to the same cluster host. This is the default setting for affinity.
@@ -192,7 +192,7 @@ If the conversion fails we will need to enable weak host receive and send option
     netsh interface ipv4 set interface "Local Area Connection 2" weakhostsend=enable
 
 
-More information regarding Windows Weak Host Receive and Send can be found in [this](http://technet.microsoft.com/en-us/magazine/2007.09.cableguy.aspx) Microsoft article.
+More information regarding Windows Weak Host Receive and Send can be found in [this](https://docs.microsoft.com/en-us/previous-versions/technet-magazine/cc137807(v=msdn.10)) Microsoft article.
 
 ### Testing NLB
 
@@ -201,7 +201,7 @@ Add an **A** record in your DNS Server for your cluster IP to be the hostname (c
     C:\Users\elatov>nslookup cluster
     Server:  UnKnown
     Address:  192.168.250.47
-
+    
     Name:    cluster.elatov.local
     Address:  192.168.250.51
 

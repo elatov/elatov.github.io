@@ -6,15 +6,11 @@ layout: post
 categories: [ networking, vmware]
 tags: [ beacon_probing, garp, multicast, pxe_boot, rarp]
 ---
-I see a lot of different reasons for a RARP storms from an ESX host. The biggest one that I ran into is a PXE boot environment (ie: Citrix Provisioning Server). During the PXE boot process the unicast mac-address changes and the ESX host sends a GARP to notify the switch (sometimes these GARPs show up as RARPs in Wireshark). If you see thousands of RARPs, then you may have run into some known issues that have been fixed with the following patch. For ESX 4.1 [2009143](http://kb.vmware.com/kb/2009136), for both patches we see the following:
+I see a lot of different reasons for a RARP storms from an ESX host. The biggest one that I ran into is a PXE boot environment (ie: Citrix Provisioning Server). During the PXE boot process the unicast mac-address changes and the ESX host sends a GARP to notify the switch (sometimes these GARPs show up as RARPs in Wireshark). If you see thousands of RARPs, then you may have run into some known issues that have been fixed with the following patch. For ESX 4.1 [2007011](https://kb.vmware.com/s/article/2007011), for both patches we see the following:
 
 > An erroneous code sends out Reverse Address Resolution Protocol (RARP) broadcasts immediately after a unicast Address is changed. The issue is resolved by timing the RARP broadcasting in a timer to avoid RARP packets from flooding.
 
-If you see a couple of RARPs, then that is normal. Another reason if RARPs is joining a Multicast group, again a couple are fine but an excessive amount is a known issue and for 4.1 the above patch fixes it. From the same articles:
-
-UPDATE: This has been back ported into 4.0 and is included in P11 for ESX [2011768](http://kb.vmware.com/kb/2011767)
-
-> ESXi generates unnecessary and excessive Reverse Address Resolution Protocol (RARP) packets when virtual machines join or leave multicast groups.
+If you see a couple of RARPs, then that is normal. Another reason if RARPs is joining a Multicast group, again a couple are fine but an excessive amount is a known issue.
 
 ESXi 5.0 U1 fixes similar issues, from the [ESXi 5.0 U1 Release Notes](https://www.vmware.com/support/vsphere5/doc/vsp_esxi50_u1_rel_notes.html):
 

@@ -46,9 +46,9 @@ First go ahead and download the latest version (the download link can be found [
     HTTP request sent, awaiting response... 200 OK
     Length: 1132317 (1.1M) [application/x-gzip]
     Saving to: “haproxy-1.5-dev18.tar.gz”
-
+    
     100%[======================================>] 1,132,317   14.2K/s   in 2m 25s
-
+    
     2013-05-04 12:47:10 (7.62 KB/s) - “haproxy-1.5-dev18.tar.gz” saved [1132317/1132317]
 
 
@@ -95,7 +95,7 @@ There are actually a couple approaches to Load balancing SSL. The most popular i
 Here are some links that explain why SSL termination can be advantageous:
 
 *   [SSL Offloading](https://f5.com/glossary/ssl-offloading)
-*   [Why Early Termination Is Not A Bad Thing](https://blogs.akamai.com/2013/10/why-early-termination-is-not-a-bad-thing.html)
+*   [Why Early Termination Is Not A Bad Thing](https://blog.filestack.com/thoughts-and-knowledge/improved-https-performance-with-early-ssl-termination/)
 
 Some excepts from the above links:
 
@@ -116,7 +116,7 @@ Here is a very simple configuration that I ended up using:
       daemon
       uid 99
       gid 99
-
+    
     defaults
       log     global
       mode    http
@@ -128,7 +128,7 @@ Here is a very simple configuration that I ended up using:
       stats enable
       stats refresh 10s
       stats uri /stats
-
+    
     frontend https_frontend
       bind *:443 ssl crt /etc/ssl/certs/elatov-local-cert-key.pem
       mode http
@@ -136,7 +136,7 @@ Here is a very simple configuration that I ended up using:
       option forwardfor
       reqadd X-Forwarded-Proto:\ https
       default_backend web_server
-
+    
     backend web_server
       mode http
       balance roundrobin
@@ -160,7 +160,7 @@ Going directly to the servers with **curl**, here is what we see in the headers:
     ETag: "8216ffd7c333ce1:0"
     Server: Microsoft-IIS/7.5
     Date: Sat, 04 May 2013 20:58:24 GMT
-
+    
     [root@haproxy ~]# curl -I http://192.168.250.49
     HTTP/1.1 200 OK
     Content-Length: 689
@@ -266,18 +266,18 @@ Here is the config I chose:
       daemon
       uid 99
       gid 99
-
+    
     defaults
       log     global
       timeout server 5s
       timeout connect 5s
       timeout client 5s
-
+    
     frontend https_frontend
       bind *:443
       mode tcp
       default_backend web_server
-
+    
     backend web_server
       mode tcp
       balance roundrobin
@@ -307,33 +307,33 @@ If you want "real" load-balancing of HTTPS sessions, you can use this configurat
       uid 99
       gid 99
       stats socket /tmp/haproxy.stats level admin
-
+    
     defaults
       log     global
       timeout server 5s
       timeout connect 5s
       timeout client 5s
-
+    
     frontend https_frontend
       bind *:443
       mode tcp
       default_backend web_server
-
+    
     backend web_server
       mode tcp
       balance roundrobin
       stick-table type binary len 32 size 30k expire 30m
-
+    
       acl clienthello req_ssl_hello_type 1
       acl serverhello rep_ssl_hello_type 2
-
+    
       tcp-request inspect-delay 5s
       tcp-request content accept if clienthello
-
+    
       tcp-response content accept if serverhello
       stick on payload_lv(43,1) if clienthello
       stick store-response payload_lv(43,1) if serverhello
-
+    
       server s1 192.168.250.47:443
       server s2 192.168.250.49:443
 

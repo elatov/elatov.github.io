@@ -124,7 +124,7 @@ To make those permanent, I added the following :
 
 to the **/usr/share/X11/xorg.conf.d/10-synaptics.conf** file.
 
-The last issue that I ran into was Chromium stopped playing HTML5 audio for some reason. I ran across [this](http://www.chromestory.com/2012/07/google-music-html5-audio-not-working-in-chromium-here-is-the-fix/) post, and I fixed the issue by running the following:
+The last issue that I ran into was Chromium stopped playing HTML5 audio for some reason. I ran across [this](https://askubuntu.com/questions/234871/youtube-says-this-video-is-currently-unavailable) post, and I fixed the issue by running the following:
 
     sudo apt-get install chromium-codecs-ffmpeg-extra
 
@@ -154,11 +154,11 @@ I also wanted to have the brightness keys work as well (those corresponded to F6
     elatov@crbook:~$ cat /usr/local/bin/chbr
     #!/bin/bash
     cur_bri=$(/usr/bin/pkexec /usr/lib/gnome-settings-daemon/gsd-backlight-helper --get-brightness)
-
+    
     if [ $1 == "up" ] ; then
         /usr/bin/pkexec /usr/lib/gnome-settings-daemon/gsd-backlight-helper --set-brightness $(($cur_bri+100))
     fi
-
+    
     if [ $1 == "down" ] ; then
         /usr/bin/pkexec /usr/lib/gnome-settings-daemon/gsd-backlight-helper --set-brightness $(($cur_bri-100))
     fi
@@ -200,16 +200,16 @@ then create a **~.xbindkeysrc** file with the following contents:
 
     "xvkbd -xsendevent -text '\[Delete]'"
     Alt + BackSpace
-
+    
     "xvkbd -xsendevent -text '\[Home]'"
     Alt + Left
-
+    
     "xvkbd -xsendevent -text '\[End]'"
     Alt + Right
-
+    
     "xvkbd -xsendevent -text '\[Page_Down]'"
     Alt + Down
-
+    
     "xvkbd -xsendevent -text '\[Page_Up]'"
     Alt + Up
 
@@ -230,5 +230,4 @@ And that's it. Last note, you can check the status of your battery with the **up
         state:               charging
         time to full:        1.4 hours
         percentage:          34.1355%
-
 

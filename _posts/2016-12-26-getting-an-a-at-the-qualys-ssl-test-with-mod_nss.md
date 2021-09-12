@@ -50,7 +50,7 @@ With that in place I got an A and it covered 99% of the browsers, I only missed 
 Also if you want to quickly test what ciphers your server supports you can use **nmap**:
 
 	<> nmap --script ssl-enum-ciphers -p 443 www.moxz.tk
-
+	
 	Starting Nmap 7.12 ( https://nmap.org ) at 2016-05-22 10:28 MDT
 	Nmap scan report for kerch (10.0.0.2)
 	Host is up (0.0018s latency).
@@ -68,11 +68,11 @@ Also if you want to quickly test what ciphers your server supports you can use *
 	|       NULL
 	|     cipher preference: server
 	|_  least strength: A
-
+	
 	Nmap done: 1 IP address (1 host up) scanned in 0.36 seconds
 
 ### Adding the HSTS Header
-The thing that got me to the A+ was enabling the [HSTS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) header. The config is covered in [HTTP Strict Transport Security for Apache, NGINX and Lighttpd](https://raymii.org/s/tutorials/HTTP_Strict_Transport_Security_for_Apache_NGINX_and_Lighttpd.html). First I enabled the **header** module for apache:
+The thing that got me to the A+ was enabling the [HSTS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) header. The config is covered in [HTTP Strict Transport Security for Apache, NGINX and Lighttpd](https://www.heelpbook.net/2017/http-strict-transport-security/). First I enabled the **header** module for apache:
 
 	<> sudo a2enmod headers
 	Enabling module headers.

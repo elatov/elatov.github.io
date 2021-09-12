@@ -67,7 +67,7 @@ but it was the same thing, it couldn't match anything. However beets is also alb
 
 If the acoustic fingerprinting would've worked, it would have been sweet (*beets* looks really cool). After I fix all my file names and tags, I might use *beets* to manage my library just cause it looks so cool and flexible.
 
-I then ran into [here](https://github.com/echonest/echoprint-codegen#codegen-for-echoprint). From the **ReadMe**, here are the requirements:
+I then ran into [here](https://github.com/spotify/echoprint-codegen). From the **ReadMe**, here are the requirements:
 
 > Requirements for libcodegen
 >
@@ -104,17 +104,17 @@ That actually looked okay. For testing reasons, I wanted to write a python scrip
 	#!/bin/env python
 	coding: UTF-8 -*-
 	import os,sys,json,subprocess,re
-
+	
 	rootdir = sys.argv[1]
-
+	
 	def translit(cyr_str):
-
+	
 	capital_letters = { u'А': u'A', u'Б': u'B', u'В': u'V', u'Г': u'G', u'Д': u'D', u'Е': u'E', u'Ё': u'E', u'Ж': u'j', u'З': u'Z', u'И': u'I', u'Й': u'Y', u' К': u'K', u'Л': u'L', u'М': u'M', u'Н': u'N', u'О': u'O', u'П': u'P', u'Р': u'R ', u'С': u'S', u'Т': u'T', u'У': u'U', u'Ф': u'F', u'Х': u'H', u'Ц': u'Ts', u'Ч ': u'Ch', u'Ш': u'Sh', u'Щ': u'Sch', u'Ъ': u'y', u'Ы': u'Y', u'Ь': u'i', u'Э': u'E', u'Ю': u'Yu', u'Я': u'Ya' }
-
+	
 	lower_case_letters = { u'а': u'a', u'б': u'b', u'в': u'v', u'г': u'g', u'д': u'd', u'е': u'e', u'ё': u'e', u'ж': u'j', u'з': u'z', u'и': u'i', u'й': u'y', u'к': u'k', u'л': u'l', u'м': u'm', u'н': u'n', u'о': u'o', u'п': u'p', u'р': u'r', u'с': u's', u'т': u't', u'у': u'u', u'ф': u'f', u'х': u'h', u'ц': u'ts', u'ч': u'ch', u'ш': u'sh', u'щ': u'sch', u'ъ': u'y', u'ы': u'y', u'ь': u'i', u'э': u'e', u'ю': u'yu', u'я': u'ya' }
-
+	
 	translit_string = ""
-
+	
 	for index, char in enumerate(cyr_str):
 	if char in lower_case_letters.keys():
 	char = lower_case_letters[char]
@@ -126,9 +126,9 @@ That actually looked okay. For testing reasons, I wanted to write a python scrip
 	else:
 	char = char.upper()
 	translit_string += char
-
+	
 	return translit_string
-
+	
 	def get_finger_print(audio_file):
 	results = subprocess.Popen(['/home/elatov/downloads/echoprint-codegen-release-4.12/echoprint-codegen',audio_file,'10','40'],stdout=subprocess.PIPE)
 	r=results.communicate()[0]
@@ -140,14 +140,14 @@ That actually looked okay. For testing reasons, I wanted to write a python scrip
 	else:
 	song_title=data[0]['metadata']['title']
 	song_artist=data[0]['metadata']['artist']
-
+	
 	if isinstance(song_artist,unicode):
 	song_artist = translit(data[0]['metadata']['artist'])
 	if isinstance(song_title,unicode):
 	song_title = translit(data[0]['metadata']['title'])
-
+	
 	return song_title,song_artist
-
+	
 	def clean_up_names(string):
 	string=(re.sub("['\"]", "", string))
 	string=(re.sub("[^\w]+", "_", string))
@@ -157,9 +157,9 @@ That actually looked okay. For testing reasons, I wanted to write a python scrip
 	if string.startswith('_'):
 	string=string[1:]
 	string=string.title()
-
+	
 	return string
-
+	
 	for path, subdirs, files in os.walk(rootdir):
 	for name in files:
 	print os.path.join(path,name)
@@ -249,13 +249,13 @@ We can see that the "Artist" and "Title" returned from **echoprint** are the sam
 
 	[elatov@moxz mus]$ ./tag2utf.py mus_2003.bak/
 	1 file(s) finded in the mus_2003.bak/
-
+	
 	[c] If charset of tags is cp1251:
 	Àëñó-Â÷åðà.mp3 Вчера Алсу
-
+	
 	[k] If charset of tags is koi8-r:
 	Àëñó-Â÷åðà.mp3 бВЕПЮ юКЯС
-
+	
 	Select charset:
 	's' - skip this file(s)
 	c
@@ -334,19 +334,19 @@ That looks great. It looks like **lastfm** has a little bit more entries than **
 
 	#!/bin/env python
 	-*- coding: UTF-8 -*-
-
+	
 	import sys,os,re
 	import lastfp
-
+	
 	rootdir = sys.argv[1]
-
+	
 	def translit(cyr_str):
 	capital_letters = { u'А': u'A', u'Б': u'B', u'В': u'V', u'Г': u'G', u'Д': u'D', u'Е': u'E', u'Ё': u'E', u'Ж': u'j', u'З': u'Z', u'И': u'I', u'Й': u'Y', u'К': u'K', u'Л': u'L', u'М': u'M', u'Н': u'N', u'О': u'O', u'П': u'P', u'Р': u'R', u'С': u'S', u'Т': u'T', u'У': u'U', u'Ф': u'F', u'Х': u'H', u'Ц': u'Ts', u'Ч': u'Ch', u'Ш': u'Sh', u'Щ': u'Sch', u'Ъ': u'y', u'Ы': u'Y', u'Ь': u'i', u'Э': u'E', u'Ю': u'Yu', u'Я': u'Ya' }
-
+	
 	lower_case_letters = { u'а': u'a', u'б': u'b', u'в': u'v', u'г': u'g', u'д': u'd', u'е': u'e', u'ё': u'e', u'ж': u'j', u'з': u'z', u'и': u'i', u'й': u'y', u'к': u'k', u'л': u'l', u'м': u'm', u'н': u'n', u'о': u'o', u'п': u'p', u'р': u'r', u'с': u's', u'т': u't', u'у': u'u', u'ф': u'f', u'х': u'h', u'ц': u'ts', u'ч': u'ch', u'ш': u'sh', u'щ': u'sch', u'ъ': u'y', u'ы': u'y', u'ь': u'i', u'э': u'e', u'ю': u'yu', u'я': u'ya' }
-
+	
 	translit_string = ""
-
+	
 	for index, char in enumerate(cyr_str):
 	if char in lower_case_letters.keys():
 	char = lower_case_letters[char]
@@ -358,22 +358,22 @@ That looks great. It looks like **lastfm** has a little bit more entries than **
 	else:
 	char = char.upper()
 	translit_string += char
-
+	
 	return translit_string
-
+	
 	def get_finger_print(audio_file):
 	API_KEY = '7821ee9bf9937b7f94af2abecced8ddd'
 	xml = lastfp.gst_match(API_KEY, audio_file)
 	matches = lastfp.parse_metadata(xml)
-
+	
 	song_artist = matches[0]['artist']
 	song_title = matches[0]['title']
-
+	
 	if isinstance(song_artist,unicode):
 	song_artist = translit(matches[0]['artist'])
 	if isinstance(song_title,unicode):
 	song_title = translit(matches[0]['title'])
-
+	
 	return song_title,song_artist
 	def clean_up_names(string):
 	string=(re.sub("['\"]", "", string))
@@ -384,9 +384,9 @@ That looks great. It looks like **lastfm** has a little bit more entries than **
 	if string.startswith('_'):
 	string=string[1:]
 	string=string.title()
-
+	
 	return string
-
+	
 	for path, subdirs, files in os.walk(rootdir):
 	for name in files:
 	print os.path.join(path,name)
@@ -456,7 +456,7 @@ At this point we have all the audio files named **ARTIST-TITLE.EXT**. The artist
 	TCOM (Composer):
 	TOPE (Original artist(s)/performer(s)):
 	TPE1 (Lead performer(s)/Soloist(s)): 07<0=>2 ;53
-
+	
 	id3v1 tag info for mus_2003/Alsu-Vchera.mp3:
 	Title : ���
 	Artist: ��
@@ -478,7 +478,7 @@ At this point we have all the audio files named **ARTIST-TITLE.EXT**. The artist
 	TOPE (Original artist(s)/performer(s)):
 	TPE1 (Lead performer(s)/Soloist(s)): ��
 	COMM (Comments): ()[]: http://www.delit.net
-
+	
 	id3v1 tag info for mus_2003/Orbakayte_Kristina_Russo_Avraam-Lyubovi_Kotoroy_Bolishe_Net.mp3:
 	Title : Mechti Zbilis'
 	Artist: A. Russo & K. Agati
@@ -546,14 +546,14 @@ Now checking that tags on all the files:
 	Album : Year: , Genre: Unknown (255)
 	Comment:
 	mus_2003/Oleg_Gazmanov-Na_Zare.mp3: No ID3v2 tag
-
+	
 	id3v1 tag info for mus_2003/Alsu-Vchera.mp3:
 	Title : Vchera
 	Artist: Alsu
 	Album : Year: , Genre: Unknown (255)
 	Comment:
 	mus_2003/Alsu-Vchera.mp3: No ID3v2 tag
-
+	
 	id3v1 tag info for mus_2003/Orbakayte_Kristina_Russo_Avraam-Lyubovi_Kotoroy_Bolishe_Net.mp3:
 	Title : Lyubovi_Kotoroy_Bolishe_Net
 	Artist: Orbakayte_Kristina_Russo_Avraam
