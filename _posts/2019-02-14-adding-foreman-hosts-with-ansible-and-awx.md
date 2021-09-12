@@ -61,7 +61,7 @@ and after that you can create a playbook like this:
 	        num_cpus: 1
 	        osid: centos7_64Guest
 	        scsi: paravirtual
-
+	
 	   - name: Collect Facts
 	     delegate_to: localhost
 	     vsphere_guest:
@@ -72,11 +72,11 @@ and after that you can create a playbook like this:
 	      guest: "{{ vm_name }}"
 	      vmware_guest_facts: yes
 	     register: vmfacts
-
+	
 	   - name: Print MAC mac_address
 	     debug:
 	      msg: "{{ vmfacts.ansible_facts.hw_eth0.macaddress }} {{ vm_name }}"
-
+	
 	   - name: Restart VM
 	     delegate_to: localhost
 	     vsphere_guest:
@@ -95,24 +95,24 @@ And then run it:
 
 
 	PLAY [localhost] ***************************************************************
-
+	
 	TASK [Gathering Facts] *********************************************************
 	ok: [localhost]
-
+	
 	TASK [Create a VM] *************************************************************
 	changed: [localhost -> localhost]
-
+	
 	TASK [Collect Facts] ***********************************************************
 	ok: [localhost -> localhost]
-
+	
 	TASK [Print MAC mac_address] ***************************************************
 	ok: [localhost] => {
 	    "msg": "00:0c:29:f2:f2:9b test01"
 	}
-
+	
 	TASK [Restart VM] **************************************************************
 	changed: [localhost -> localhost]
-
+	
 	PLAY RECAP *********************************************************************
 	localhost                  : ok=5    changed=2    unreachable=0    failed=0
 
@@ -139,7 +139,7 @@ And then I got the working version:
 	pyvmomi (6.7.0)
 
 
-Then running the playbook worked out (you can see the full version of the playbook [here](https://github.com/elatov/ansible)):
+Then running the playbook worked out:
 
 
 	<> ansible-playbook esxi-new.yml
@@ -148,16 +148,16 @@ Then running the playbook worked out (you can see the full version of the playbo
 
 
 	PLAY [localhost] ***************************************************************
-
+	
 	TASK [Gathering Facts] *********************************************************
 	ok: [localhost]
-
+	
 	TASK [Create a VM] *************************************************************
 	changed: [localhost -> localhost]
-
+	
 	TASK [Collect Facts] ***********************************************************
 	ok: [localhost -> localhost]
-
+	
 	TASK [Print MAC mac_address] ***************************************************
 	ok: [localhost] => {
 	    "msg": "00:0c:29:f2:f2:9b test01"
@@ -166,7 +166,7 @@ Then running the playbook worked out (you can see the full version of the playbo
 Both approaches worked, but I am sure the deprecated one will be phased out.
 
 ### Adding a Host to Foreman with ansible
-There is a [foreman module](http://docs.ansible.com/ansible/latest/foreman_module.html) available, but it's not very robust at the moment (looks like there are some [pull requests](https://github.com/theforeman/foreman-ansible-modules/pull/23) to expand it). There is [another foreman module](https://github.com/Nosmoht/ansible-module-foreman) which has more parameters. This one depends on a python module called **python-foreman** and it's actually a custom python module created by the same author (not to be confused by the [official](https://pypi.python.org/pypi/python-foreman) one). Instructions on how to install the module are covered [here](https://github.com/Nosmoht/python-foreman). First install the python module:
+There is a [foreman module](https://github.com/theforeman/foreman-ansible-modules) available, but it's not very robust at the moment (looks like there are some [pull requests](https://github.com/theforeman/foreman-ansible-modules/pull/23) to expand it). There is [another foreman module](https://github.com/Nosmoht/ansible-module-foreman) which has more parameters. This one depends on a python module called **python-foreman** and it's actually a custom python module created by the same author (not to be confused by the [official](https://pypi.python.org/pypi/python-foreman) one). Instructions on how to install the module are covered [here](https://github.com/Nosmoht/python-foreman). First install the python module:
 
 	sudo pip2 install git+https://github.com/Nosmoht/python-foreman.git#master
 
@@ -240,15 +240,15 @@ and run it:
 
 
 	PLAY [localhost] ***************************************************************
-
+	
 	TASK [Gathering Facts] *********************************************************
 	ok: [localhost]
-
+	
 	TASK [Ensure Host] *************************************************************
 	 [WARNING]: Module did not set no_log for root_pass
-
+	
 	changed: [localhost]
-
+	
 	PLAY RECAP *********************************************************************
 	localhost                  : ok=2    changed=1    unreachable=0    failed=0
 
@@ -280,7 +280,7 @@ And that actually worked out, I created a new template and set the extra variabl
 
 #### Creating a Custom VirtualEnv
 
-It looks like now with later versions you can create your own **virtualenv**. The setup is covered in [Managing Custom Python Dependencies](https://github.com/ansible/awx/blob/devel/docs/custom_virtualenvs.md). So let's create a new **virtualenv** and use it to deploy a VM using **vmware_guest** module instead of the **vsphere_guest** one.
+It looks like now with later versions you can create your own **virtualenv**. The setup is covered in [Managing Custom Python Dependencies](https://docs.ansible.com/ansible-tower/latest/html/upgrade-migration-guide/virtualenv.html). So let's create a new **virtualenv** and use it to deploy a VM using **vmware_guest** module instead of the **vsphere_guest** one.
 
 	<> docker-compose exec task /bin/bash
 	[root@awx awx]# virtualenv /var/lib/awx/venv/karim-env
@@ -305,7 +305,7 @@ Here is the first one I saw:
 	common.o
 	  unable to execute gcc: No such file or directory
 	  error: command 'gcc' failed with exit status 1
-
+	
 	  ----------------------------------------
 	  Failed building wheel for psutil
 	  Running setup.py clean for psutil
@@ -483,32 +483,32 @@ After doing that I ran the combined playbook:
 
 
 	PLAY [localhost] ***************************************************************
-
+	
 	TASK [Gathering Facts] *********************************************************
 	ok: [localhost]
-
+	
 	TASK [Create a VM] *************************************************************
 	changed: [localhost -> localhost]
-
+	
 	TASK [Collect Facts] ***********************************************************
 	ok: [localhost -> localhost]
-
+	
 	TASK [Print MAC mac_address] ***************************************************
 	ok: [localhost] => {
 	    "msg": "00:0c:29:f2:f2:9b test01"
 	}
-
+	
 	TASK [set_fact] ****************************************************************
 	ok: [localhost]
-
+	
 	TASK [Create Foreman Host] *****************************************************
 	 [WARNING]: Module did not set no_log for root_pass
-
+	
 	changed: [localhost]
-
+	
 	TASK [Restart VM] **************************************************************
 	changed: [localhost -> localhost]
-
+	
 	PLAY RECAP *********************************************************************
 	localhost                  : ok=7    changed=3    unreachable=0    failed=0
 
@@ -520,18 +520,18 @@ I also created a clean up playbook to remove the created resources and that work
 
 
 	PLAY [localhost] ***************************************************************
-
+	
 	TASK [Gathering Facts] *********************************************************
 	ok: [localhost]
-
+	
 	TASK [Delete VM] ***************************************************************
 	changed: [localhost -> localhost]
-
+	
 	TASK [Delete Foreman Host] *****************************************************
 	 [WARNING]: Module did not set no_log for root_pass
-
+	
 	changed: [localhost]
-
+	
 	PLAY RECAP *********************************************************************
 	localhost                  : ok=3    changed=2    unreachable=0    failed=0
 

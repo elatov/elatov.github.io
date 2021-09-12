@@ -56,7 +56,7 @@ Here is a good summary:
 > $MLMTD: Percentage of time a ready to vCPU was no schedules because of a CPU limit setting (Trouble when > 1, to resolve; remove the CPU limit)
 > $SWPWT: How Long a VM has to wait for swapped pages read from disk. (Trouble when > 5, possible reason; memory overcommitment
 
-Also this is from a 4.x document but it applies to 5.0 as well. Here is the document: "[Performance Troubleshooting for VMware vSphere 4.1](http://communities.vmware.com/servlet/JiveServlet/previewBody/14905-102-2-17952/vsphere41-performance-troubleshooting.pdf)". From that document:
+Also this is from a 4.x document but it applies to 5.0 as well. Here is the document: "[Performance Troubleshooting for VMware vSphere 4.1](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/vsphere41-performance-troubleshooting.pdf". From that document:
 
 ![check for host cpu saturation VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance ](https://github.com/elatov/uploads/raw/master/2012/12/check_for_host_cpu_saturation.png)
 

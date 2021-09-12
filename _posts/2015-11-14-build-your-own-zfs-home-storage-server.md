@@ -70,7 +70,7 @@ I found a pretty good blog: [ZFS L2ARC](http://www.brendangregg.com/blog/2008-07
 > ..
 > A previous ZFS feature (the ZIL) allowed you to add SSD disks as log devices to improve write performance. This means ZFS provides two dimensions for adding flash memory to the file system stack: the L2ARC for random reads, and the ZIL for writes.
 
-The page [Explanation of ARC and L2ARC](http://www.zfsbuild.com/2010/04/15/explanation-of-arc-and-l2arc/) was pretty informative as well:
+The page [Explanation of ARC and L2ARC](https://www.anandtech.com/show/3963/zfs-building-testing-and-benchmarking/2) was pretty informative as well:
 
 > ZFS includes two exciting features that dramatically improve the performance of read operations. I’m talking about ARC and L2ARC. ARC stands for adaptive replacement cache. ARC is a very fast cache located in the server’s memory (RAM). The amount of ARC available in a server is usually all of the memory except for 1GB.
 > ..
@@ -93,7 +93,7 @@ You can confirm both are added by using the **status** command:
 	 state: ONLINE
 	  scan: scrub repaired 0 in 1h35m with 0 errors on Fri Nov 13 04:05:40 2015
 	config:
-
+	
 	        NAME        STATE     READ WRITE CKSUM
 	        data        ONLINE       0     0     0
 	          c2t3d0    ONLINE       0     0     0
@@ -102,7 +102,7 @@ You can confirm both are added by using the **status** command:
 	          c2t1d0    ONLINE       0     0     0
 	        cache
 	          c2t0d0    ONLINE       0     0     0
-
+	
 	errors: No known data errors
 
 

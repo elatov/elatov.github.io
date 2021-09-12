@@ -3,8 +3,6 @@ title: Sharing a File Encrypted by EncFS with Android and Linux Systems with Goo
 author: Karim Elatov
 layout: post
 permalink: /2013/02/sharing-a-file-encrypted-by-encfs-with-android-and-linux-systems-with-google-drive/
-dsq_thread_id:
-  - 1405469623
 categories: ['os', 'storage']
 tags: ['linux', 'android', 'boxcryptor', 'encfs', 'fedora', 'grive', 'ubuntu']
 ---
@@ -17,7 +15,7 @@ I wanted to share an encrypted file between my Linux workstations and my Android
 
 There are a bunch more, check out the following sites for more options:
 
-*   [5 Ways To Securely Encrypt Your Files In The Cloud](http://www.makeuseof.com/tag/5-ways-to-securely-encrypt-your-files-in-the-cloud/)
+*   [5 Ways To Securely Encrypt Your Files In The Cloud](https://www.makeuseof.com/tag/5-ways-to-securely-encrypt-your-files-in-the-cloud/)
 *   [How to encrypt your cloud storage for free](http://www.pcworld.com/article/2010296/how-to-encrypt-your-cloud-storage-for-free.html)
 *   [4 Alternatives to Google Drive for Linux](http://www.howtogeek.com/130465/4-alternatives-to-google-drive-for-linux/)
 
@@ -56,7 +54,7 @@ Now to configure the Google Drive Synchronization:
     kerch:~/.gdrive>grive -a
     -----------------------
     Please go to this URL and get an authentication code:
-
+    
     -----------------------
     Please input the authentication code here:
 
@@ -227,9 +225,9 @@ And now let's mount the volume:
      enter "p" for pre-configured paranoia mode,
      anything else, or an empty line will select standard mode.
     ?> p
-
+    
     Paranoia configuration selected.
-
+    
     Configuration finished.  The filesystem to be created has
     the following properties:
     Filesystem cipher: "ssl/aes", version 3:0:2

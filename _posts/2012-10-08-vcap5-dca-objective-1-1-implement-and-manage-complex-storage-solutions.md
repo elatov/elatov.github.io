@@ -68,7 +68,7 @@ From "[Configuration Examples and Troubleshooting for VMDirectPath](http://www.v
 
 > VMDirectPath allows guest operating systems to directly access an I/O device, bypassing the virtualization layer. This direct path, or passthrough can improve performance for VMware ESX™ systems that utilize high‐speed I/O devices, such as 10 Gigabit Ethernet.
 
-From "[How to access USB and Other PCI Devices in VMware ESXi4 VMs with VMDirectPath](http://www.petri.co.il/vmware-esxi4-vmdirectpath.htm)", here is a good diagram:
+From "[How to access USB and Other PCI Devices in VMware ESXi4 VMs with VMDirectPath](https://petri.com/vmware-esxi4-vmdirectpath)", here is a good diagram:
 
 ![vm direct path io VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/vm-direct_path_io.png)
 
@@ -94,7 +94,7 @@ The above page also has snapshots of how to set it. Most of the links are reffer
 
 ### Determine appropriate RAID level for various Virtual Machine workloads
 
-From the Microsoft Article "[Planning the Layout and RAID Level of Volumes](http://technet.microsoft.com/en-us/library/cc786889(WS.10).aspx)":
+From the Microsoft Article "[Planning the Layout and RAID Level of Volumes](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc786889(v=ws.10))":
 
 ![data type with characteristics VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/data_type_with_characteristics.png)
 
@@ -343,7 +343,7 @@ From [vSphere Storage ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmwa
 
 ### Analyze I/O workloads to determine storage performance requirements
 
-Determine what kind of workload your application requires. From "[EMC CLARiiON Fibre Channel Storage Fundamentals](https://education.emc.com/academicalliance/student/EMC%20Clariion%20Fibre%20Channel%20WP.pdf)":
+Determine what kind of workload your application requires. From "[EMC CLARiiON Fibre Channel Storage Fundamentals](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/EMC_CLARiiON_Storage_System_Fundamentals_for_Performance_and_Availability_Applied_Best_Practices.pdf)":
 
 ![application io workloads VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/application_io_workloads.png)
 
@@ -786,7 +786,7 @@ Also check out KB "[Detaching a datastore or storage device from multiple ESXi 5
 >
 >
 >	 # partedUtil getptbl /vmfs/devices/disks/naa.60a98000572d54724a34655733506751
->
+>	
 >	 Error: Could not stat device /vmfs/devices/disks/naa.60a98000572d54724a34655733506751- No such file or directory.
 >	 Unable to get device /vmfs/devices/disks/naa.60a98000572d54724a34655733506751
 >

@@ -113,9 +113,9 @@ It doesn't actually check the versions of the file and it will download the box 
 	Length: 721075604 (688M) [application/x-gzip]
 	Saving to: ‘virtualbox.box’
 	100%[======================================>] 721,075,604 2.57MB/s   in 3m 15s
-
+	
 	2014-06-11 14:11:43 (3.53 MB/s) - ‘virtualbox.box’ saved [721075604/721075604]
-
+	
 	FINISHED --2014-06-11 14:11:43--
 	Total wall clock time: 3m 17s
 	Downloaded: 1 files, 688M in 3m 15s (3.53 MB/s)
@@ -138,7 +138,7 @@ At this point you will have two different versions of the vmdks as well:
 	│       ├── box.ovf
 	│       └── metadata.json
 	└── metadata_url
-
+	
 	4 directories, 9 files
 
 And vagrant will list them as separate boxes:
@@ -190,4 +190,4 @@ then in the current directory you will have a **package.box** file:
 	elatov@kmac:~$ls -lh pack*
 	-rw-r--r--  1 elatov  staff   688M Jun 11 14:30 package.box
 
-I also ran into a cool git hub project to host your own vagrant cloud: [vagrant-catalog](https://github.com/vube/vagrant-catalog). As long as the server/location has a valid json it should allow versioning of the box as per [this](https://groups.google.com/forum/#!topic/vagrant-up/NV_2FUPNjjg) google forum.
+I also ran into a cool git hub project to host your own vagrant cloud: [vagrant-catalog](https://github.com/vube/vagrant-catalog). As long as the server/location has a valid json it should allow versioning of the box as per [this](https://groups.google.com/g/vagrant-up/c/NV_2FUPNjjg) google forum.

@@ -30,11 +30,11 @@ Then we can run these command to install **lynis**:
 
 	$ sudo yum makecache fast
 	$ sudo yum install lynis
-	
+
 Next we can quickly create a quick audit report:
 
 	$ sudo lynis audit system
-	
+
 You will see the results in your shell and also under **/var/log/lynis-report.dat**. You can also check out the log file under **/var/log/lynis.log**.
 
 #### Lynis Cron Job
@@ -66,7 +66,7 @@ There is a pretty good example of the cron job in [Lynis Documentation](https://
 	${MAIL} -s "Lynis Report for ${HOST}" ${EMAILTO} < ${REPORT}
 	
 	# The End
-	
+
 ### Lynis Suggestions
 After running the audit report on my Centos 7 machine, I first got the following suggestions:
 
@@ -236,7 +236,7 @@ Similar to the USB one, we just need to disable the kernel module. The setup is 
 Then a reboot would apply that. If you don't want to reboot you can unload the module on the fly:
 
 	$ sudo modprobe -r <module>
-	
+
 #### Consider running ARP monitoring software (arpwatch,arpon) [NETW-3032]
 
 I decided to install **arpwatch**, the setup is covered in: [Arpwatch Tool to Monitor Ethernet Activity in Linux](http://www.tecmint.com/monitor-ethernet-activity-in-linux/). Here are the steps:
@@ -248,7 +248,7 @@ I decided to install **arpwatch**, the setup is covered in: [Arpwatch Tool to Mo
 	### enable and start
 	sudo systemctl enable arpwatch
 	sudo systemctl start arpwatch
-	
+
 #### Consider hardening SSH configuration [SSH-7408]
 A couple of the suggestions I didn't really want to apply cause sometimes I SSH to a machine from multiple machines, but here are some of the configs that I changed in the **/etc/ssh/sshd_config** file:
 
@@ -264,14 +264,14 @@ This site goes over the settings pretty well: [Audit and harden your SSH configu
 Lastly restart the daemon to apply the settings:
 
 	$ sudo systemctl restart sshd
-	
+
 You can also disable any tests that you don't want to show up in the results. To do this modify the **/etc/lynis/default.prf** file and add the following to it:
 
 	skip-test=AUTH-9286
 	skip-test=SSH-7408:clientalivecountmax
 	skip-test=SSH-7408:compression
 	skip-test=SSH-7408:loglevel
-	
+
 #### Add a legal banner to /etc/issue, to warn unauthorized users [BANN-7126]
 
 This site has good examples of banners: [TipsAndTricks -> BannerFiles](https://wiki.centos.org/TipsAndTricks/BannerFiles). I ended up modifying the file to look like this:
@@ -279,7 +279,7 @@ This site has good examples of banners: [TipsAndTricks -> BannerFiles](https://w
 	<> cat /etc/issue
 	Unauthorized access to this machine is prohibited
 	Press <Ctrl-D> if you are not an authorized user
-	
+
 Don't forget to modify the **sshd_config** to point to that file (or add the above to **/etc/motd** file and you won't have to modify the config file):
 
 	<> sudo grep ^Banner /etc/ssh/sshd_config
@@ -296,13 +296,13 @@ This site goes over the setup pretty well: [How to Monitor User Activity with ps
 	### then enable it and start it
 	sudo systemctl enable psacct.service
 	sudo systemctl start psacct.service
-	
+
 After that you can manually run command to get system information:
 
 	<> ac -p
 		elatov                             553.69
 		total      553.69
-		
+
 And more:
 
 	<> sudo lastcomm elatov | awk '{print $1}' | sort | uniq -c | sort -nr | head
@@ -316,7 +316,7 @@ And more:
 	     28 Plex
 	     26 which
 	     24 env
-     	
+
 I ended up creating a **cronjob** which would send me a couple of statistics monthly:
 
 	<> sudo cat /etc/cron.monthly/psacct
@@ -329,7 +329,7 @@ I ended up creating a **cronjob** which would send me a couple of statistics mon
 	/bin/last | /bin/awk '{print $1}' | /bin/sort | /bin/uniq -c  | /bin/sort -nr | /bin/head
 	echo -e "Host Logins\n"
 	/bin/last | /bin/awk '{print $3}' | /bin/sort | /bin/uniq -c  | /bin/sort -nr | /bin/head
-	
+
 ### Audit daemon is enabled with an empty ruleset. Disable the daemon or define rules [ACCT-9630]
 
 The [suggestion link](https://cisofy.com/controls/ACCT-9630/) has a good config file to use. I just had to modify the **puppet** line since it's moved to a different location. Here is the file I ended up with:
@@ -555,7 +555,7 @@ The [suggestion link](https://cisofy.com/controls/ACCT-9630/) has a good config 
 After that you can restart the service
 
 	$ sudo service auditd restart
-	
+
 You can get a bunch of summaries using the **aureport** utility. I ended up creating a daily job for some summary reports:
 
 	<> cat /etc/cron.daily/aureports
@@ -572,7 +572,7 @@ Also this site has a **python** script that accomplishes similar tasks: [SELinux
 #### Determine if automation tools are present for system management [TOOL-5002]
 
 I actually had **puppet** installed but it wouldn't pick up the binary. From [Lynis Releases](https://github.com/CISOfy/lynis/releases) (under the *Lynis 2.3.3* section) you can use **--bin-dirs** to specify the paths which will be scanned for binaries, but rather than appending it just overwrites it. You could do something like this with the cronjob
- 
+
 	 <> grep bindir /etc/cron.weekly/lynis
 	${LYNIS} audit system --auditor "${AUDITOR}" --cronjob  --bindirs "/usr/bin /usr/sbin /opt/puppetlabs/bin/ /var/ossec/bin"> ${REPORT}
 
@@ -588,7 +588,7 @@ The default paths are in the **consts** file in the **BIN_PATH** variable:
 If you don't want to mess with **--bin-dirs** you can created a *symlink* under **/usr/bin/**
 
 	<> sudo ln -s /opt/puppetlabs/bin/puppet /usr/bin/puppet
-	
+
 Notice I also added **/var/ossec/bin/** to the **bindirs**, parameter since that's where the **ossec** binary reside.
 
 ### Harden the system by installing at least one malware scanner, to perform periodic file system scans [HRDN-7230]
@@ -598,7 +598,7 @@ I ended up installing **sophos** and here is [post](/2017/07/sophos-9-on-centos-
 ### One or more sysctl values differ from the scan profile and could be tweaked [KRNL-6000]
 
 A lot of these are covered here:
-[Security Features in the Kernel from Security and Hardening Guide](https://www.suse.com/documentation/sles-12/singlehtml/book_hardening/book_hardening.html#sec.sec_prot.general.kernel). First get a backup of the default settings just in case:
+[Security Features in the Kernel from Security and Hardening Guide](https://documentation.suse.com/sles/12-SP3/html/SLES-all/cha-sec-prot-general.html). First get a backup of the default settings just in case:
 
 	<> sudo sysctl -a > /tmp/sysctl-defaults.conf
 
@@ -684,7 +684,7 @@ In the end got the following results:
 > 
 >   Follow-up:
 >   
->   ----------------------------
+>  ----------------------------
 >   
 >   - Show details of a test (lynis show details TEST-ID)
 >   - Check the logfile for all details (less /var/log/lynis.log)
@@ -704,5 +704,5 @@ In the end got the following results:
 The firewall one suggests running **iptables -L -n -v** and checking for any rules that has **0 bytes** processed. But I had some rules that are valid, like block ICMP but they were just never triggered. But it's good reminder to check out your rules, cause some rules do get out of date. Also just for reference when you are testing out your configurations you can run one specific test like so:
 
 	<> sudo lynis audit system --tests ACCT-9622
-	
+
 That should be it, now my system is super secure and everyone knows about it :)

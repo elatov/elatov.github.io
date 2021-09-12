@@ -181,7 +181,7 @@ I removed the LUN, I removed the volume, and I deleted the pool. Then I formatte
     Specify disk (enter its number): 4
     selecting c2t4d0
     [disk formatted]
-
+    
     FORMAT MENU:                                                             [33/57]
             disk       - select a disk
             type       - select (define) a disk type
@@ -200,7 +200,7 @@ I removed the LUN, I removed the volume, and I deleted the pool. Then I formatte
             !<cmd>     - execute <cmd>, then return
             quit
     format> analyze
-
+    
     ANALYZE MENU:
             read     - read only test   (doesn't harm SunOS)
             refresh  - read then write  (doesn't harm data)
@@ -214,29 +214,29 @@ I removed the LUN, I removed the volume, and I deleted the pool. Then I formatte
             config   - show analysis parameters
             !<cmd>   - execute <cmd> , then return
             quit
-
+    
     analyze> purge
     The purge command runs for a minimum of 4 passes plus a last pass if the
     first 4 passes were successful.
     Ready to purge (will corrupt data). This takes a long time,
     but is interruptible with CTRL-C. Continue? y
-
+    
             pass 0 - pattern = 0xaaaaaaaa
        488397042  64  44
-
+    
             pass 1 - pattern = 0x55555555
        488397042
-
+    
             pass 2 - pattern = 0xaaaaaaaa
        488397042
-
+    
             pass 3 - pattern = 0xaaaaaaaa
        488397042
-
+    
     The last 4 passes were successful, running alpha pattern pass
             pass 4 - pattern = 0x40404040
        488397042
-
+    
     Total of 0 defective blocks repaired.
 
 Then I re-created the pool, volume, and LUN (more on the process check out the [ZFS iSCSI Benchmark Tests on ESX](/2014/01/zfs-iscsi-benchmarks-tests/) post). Before re-adding it to the ESXi host I ran a quick **bonnie++** and I got the following:
@@ -260,7 +260,6 @@ BTW more information on that feature is here:
 
 - [Automatic space reclamation (UNMAP) is back in vSphere 6.5](http://vsphere-land.com/news/automatic-space-reclamation-unmap-is-back-in-vsphere-6-5.html)
 - [Using the esxcli storage vmfs unmap command to reclaim VMFS deleted blocks on thin-provisioned LUNs](https://kb.vmware.com/kb/2057513)
-- [UNMAP](https://storagehub.vmware.com/#!/vsphere-core-storage/vsphere-6-5-storage/unmap)
 
 If you run that on a VMFS-5 datastore you will see the following:
 

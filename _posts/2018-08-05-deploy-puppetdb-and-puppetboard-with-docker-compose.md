@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title: "Deploy PupppetDB and PuppetBoard with Docker Compose"
+title: "Deploy PuppetDB and PuppetBoard with Docker Compose"
 author: Karim Elatov
 categories: [os,containers]
 tags: [puppet,docker-compose,puppetdb]
@@ -15,9 +15,9 @@ Since I already had a **puppet master** I wanted to deploy the other components 
 
 	<> cat docker-compose.yml
 	version: '2'
-
+	
 	services:
-
+	
 	  postgres:
 	    container_name: postgres
 	    hostname: postgres
@@ -31,7 +31,7 @@ Since I already had a **puppet master** I wanted to deploy the other components 
 	    volumes:
 	      - /data/shared/puppetboard/postgres/data:/var/lib/postgresql/data/
 	    network_mode: bridge
-
+	
 	  puppetdb:
 	    container_name: puppetdb
 	    hostname: puppetdb
@@ -45,7 +45,7 @@ Since I already had a **puppet master** I wanted to deploy the other components 
 	    network_mode: bridge
 	    extra_hosts:
 	       - "postgres:192.168.1.106"
-
+	
 	  puppetboard:
 	    container_name: puppetboard
 	    hostname: puppetboard
@@ -80,7 +80,7 @@ I ended up making some changes to the **docker-compose** file to accomodate my s
 
 #### PuppetDB Connects to Puppet Master
 
-By default **puppetdb** connects to machine called **puppet** in DNS and tries to do a config apply (it uses [Installing PuppetDB via Puppet module](https://puppet.com/docs/puppetdb/5.1/install_via_module.html) method for the install of **puppetdb**):
+By default **puppetdb** connects to machine called **puppet** in DNS and tries to do a config apply (it uses [Installing PuppetDB via Puppet module](https://puppet.com/docs/puppetdb/latest/install_via_module.html) method for the install of **puppetdb**):
 
 	<> docker-compose exec puppetdb /opt/puppetlabs/puppet/bin/puppet config print server
 	puppet
@@ -94,7 +94,7 @@ Also make sure have a **default** node definition on your **puppet master**. [He
 
 	<> cat /etc/puppetlabs/code/environments/production/manifests/site.pp
 	File { backup => false }
-
+	
 	node default {
 	  file { '/tmp/puppet-in-docker':
 	    ensure  => present,
@@ -219,7 +219,7 @@ At this point the **puppet master** should be able to reach the **puppetdb** por
 	^CConnection closed by foreign host.
 
 ### Configure Puppet Master to use PuppetDB
-Now let's connect the running **puppet master** to deployed containers. Most of the instructions are available at [Connecting Puppet masters to PuppetDB](https://puppet.com/docs/puppetdb/latest/connect_puppet_master.html). First let's install the necessary plugins on the **puppet master**:
+Now let's connect the running **puppet master** to deployed containers. Most of the instructions are available at [Connecting Puppet masters to PuppetDB](https://puppet.com/docs/puppetdb/latest/puppetdb_connection.html). First let's install the necessary plugins on the **puppet master**:
 
 	<> sudo puppet resource package puppetdb-termini ensure=latest
 	[sudo] password for elatov:

@@ -188,23 +188,23 @@ Then run the following to list the available overlays and to cache them:
 You will see our overlay in the list:
 
     localhost ~ # layman -L | grep spike
-	* spike          [Git       ] (https://github.com/Spike-Pentesti...)
+    * spike          [Git       ] (https://github.com/Spike-Pentesti...)
 
 Now let's add our overlay
 
     localhost ~ # layman -a spike
-
-	* Adding overlay,...
-	* Running Git... # ( cd /var/lib/layman  && /usr/bin/git clone https://github.com/Spike-Pentesting/spike-overlay.git /var/lib/layman/spike )
-	Cloning into '/var/lib/layman/spike'...
-	remote: Counting objects: 11045, done.
-	remote: Total 11045 (delta 0), reused 0 (delta 0), pack-reused 11045
-	Receiving objects: 100% (11045/11045), 3.90 MiB | 304.00 KiB/s, done.
-	Resolving deltas: 100% (4945/4945), done.
-	Checking connectivity... done.
-	 * Running Git... # ( cd /var/lib/layman/spike  && /usr/bin/git config user.name "layman" )
-	 * Running Git... # ( cd /var/lib/layman/spike  && /usr/bin/git config user.email "layman@localhost" )
-	 * Successfully added overlay(s) spike.
+    
+    * Adding overlay,...
+    * Running Git... # ( cd /var/lib/layman  && /usr/bin/git clone https://github.com/Spike-Pentesting/spike-overlay.git /var/lib/layman/spike )
+    Cloning into '/var/lib/layman/spike'...
+    remote: Counting objects: 11045, done.
+    remote: Total 11045 (delta 0), reused 0 (delta 0), pack-reused 11045
+    Receiving objects: 100% (11045/11045), 3.90 MiB | 304.00 KiB/s, done.
+    Resolving deltas: 100% (4945/4945), done.
+    Checking connectivity... done.
+     * Running Git... # ( cd /var/lib/layman/spike  && /usr/bin/git config user.name "layman" )
+     * Running Git... # ( cd /var/lib/layman/spike  && /usr/bin/git config user.email "layman@localhost" )
+     * Successfully added overlay(s) spike.
 
 After that we should see the desired packages:
 
@@ -226,57 +226,58 @@ Before we compile the kernel let's get the **mkimage** binary installed as well
 and for the kernel source install
 
     localhost ~ # emerge -av chromeos-sources
+    
+    These are the packages that would be merged, in order:
+    
+    Calculating dependencies... done!
+    [ebuild  N    *] sys-kernel/chromeos-sources-9999:9999::spike  USE="-build -deblob -symlink" 0 KiB
+    
+    Total: 1 package (1 new), Size of downloads: 0 KiB
+    
+    Would you like to merge these packages? [Yes/No] y
+    
+    >>> Verifying ebuild manifests
+    
+    >>> Emerging (1 of 1) sys-kernel/chromeos-sources-9999::spike
+    >>> Preparing to unpack ...
+    >>> Unpacking source...
+    fatal: repository 'git' does not exist
+    fatal: repository 'clone' does not exist
+    Cloning into bare repository '/usr/portage/distfiles/egit-src/kernel'...
+    remote: Sending approximately 1.05 GiB ...
+    remote: Counting objects: 237538, done
+    remote: Finding sources: 100% (31453/31453)  
+    remote: Total 4173841 (delta 3451254), reused 4173436 (delta 3451254)
+    Receiving objects: 100% (4173841/4173841), 1.08 GiB | 230.00 KiB/s, done.
+    Resolving deltas: 100% (3451824/3451824), done.
+    Checking connectivity... done.
+    GIT NEW clone -->
+       repository:               https://chromium.googlesource.com/chromiumos/third_party/kernel
+       at the commit:            8a084bb91a783e55f146f19940b33af18aeab538
+       branch:                   chromeos-3.4
+       storage directory:        "/usr/portage/distfiles/egit-src/kernel"
+       checkout type:            bare repository
+    Cloning into '/var/tmp/portage/sys-kernel/chromeos-sources-9999/work/linux-3.4.0-chromeos'...
+    done.
+    Checking out files: 100% (39093/39093), done.
+    Branch branch-chromeos-3.4 set up to track remote branch chromeos-3.4 from origin.
+    Switched to a new branch 'branch-chromeos-3.4'
+    >>> Unpacked to /var/tmp/portage/sys-kernel/chromeos-sources-9999/work/linux-3.4.0-chromeos
+    >>> Source unpacked in /var/tmp/portage/sys-kernel/chromeos-sources-9999/work
+    >>> Preparing source in /var/tmp/portage/sys-kernel/chromeos-sources-9999/work/linux-3.4.0-chromeos ...
+    >>> Source prepared.
+    >>> Configuring source in /var/tmp/portage/sys-kernel/chromeos-sources-9999/work/linux-3.4.0-chromeos ...
+    >>> Source configured.
+    >>> Compiling source in /var/tmp/portage/sys-kernel/chromeos-sources-9999/work/linux-3.4.0-chromeos ...
+    >>> Source compiled.
+    >>> Test phase [not enabled]: sys-kernel/chromeos-sources-9999
+    
+    >>> Install chromeos-sources-9999 into /var/tmp/portage/sys-kernel/chromeos-sources-9999/image/ category sys-kernel
+    >>> Copying sources ...
+    >>> Completed installing chromeos-sources-9999 into /var/tmp/portage/sys-kernel/chromeos-sources-9999/image/
 
-	These are the packages that would be merged, in order:
-	
-	Calculating dependencies... done!
-	[ebuild  N    *] sys-kernel/chromeos-sources-9999:9999::spike  USE="-build -deblob -symlink" 0 KiB
-	
-	Total: 1 package (1 new), Size of downloads: 0 KiB
-	
-	Would you like to merge these packages? [Yes/No] y
-	
-	>>> Verifying ebuild manifests
-	
-	>>> Emerging (1 of 1) sys-kernel/chromeos-sources-9999::spike
-	>>> Preparing to unpack ...
-	>>> Unpacking source...
-	fatal: repository 'git' does not exist
-	fatal: repository 'clone' does not exist
-	Cloning into bare repository '/usr/portage/distfiles/egit-src/kernel'...
-	remote: Sending approximately 1.05 GiB ...
-	remote: Counting objects: 237538, done
-	remote: Finding sources: 100% (31453/31453)  
-	remote: Total 4173841 (delta 3451254), reused 4173436 (delta 3451254)
-	Receiving objects: 100% (4173841/4173841), 1.08 GiB | 230.00 KiB/s, done.
-	Resolving deltas: 100% (3451824/3451824), done.
-	Checking connectivity... done.
-	GIT NEW clone -->
-	   repository:               https://chromium.googlesource.com/chromiumos/third_party/kernel
-	   at the commit:            8a084bb91a783e55f146f19940b33af18aeab538
-	   branch:                   chromeos-3.4
-	   storage directory:        "/usr/portage/distfiles/egit-src/kernel"
-	   checkout type:            bare repository
-	Cloning into '/var/tmp/portage/sys-kernel/chromeos-sources-9999/work/linux-3.4.0-chromeos'...
-	done.
-	Checking out files: 100% (39093/39093), done.
-	Branch branch-chromeos-3.4 set up to track remote branch chromeos-3.4 from origin.
-	Switched to a new branch 'branch-chromeos-3.4'
-	>>> Unpacked to /var/tmp/portage/sys-kernel/chromeos-sources-9999/work/linux-3.4.0-chromeos
-	>>> Source unpacked in /var/tmp/portage/sys-kernel/chromeos-sources-9999/work
-	>>> Preparing source in /var/tmp/portage/sys-kernel/chromeos-sources-9999/work/linux-3.4.0-chromeos ...
-	>>> Source prepared.
-	>>> Configuring source in /var/tmp/portage/sys-kernel/chromeos-sources-9999/work/linux-3.4.0-chromeos ...
-	>>> Source configured.
-	>>> Compiling source in /var/tmp/portage/sys-kernel/chromeos-sources-9999/work/linux-3.4.0-chromeos ...
-	>>> Source compiled.
-	>>> Test phase [not enabled]: sys-kernel/chromeos-sources-9999
-	
-	>>> Install chromeos-sources-9999 into /var/tmp/portage/sys-kernel/chromeos-sources-9999/image/ category sys-kernel
-	>>> Copying sources ...
-	>>> Completed installing chromeos-sources-9999 into /var/tmp/portage/sys-kernel/chromeos-sources-9999/image/
-	
-	
+
+​	
 	>>> Installing (1 of 1) sys-kernel/chromeos-sources-9999::spike
 	 * checking 39117 files for package collisions
 	1000 files checked ...
@@ -326,7 +327,7 @@ Here are the options I enabled:
           [M]     NFS client support for NFS version 4
           <M>     NFS client support for NFS version 2 (NEW)
           <M>     NFS client support for NFS version 3 (NEW)
-
+    
     File systems --->
         [*] Dnotify support
 
@@ -371,7 +372,7 @@ Now let's build the kernel
     Load Address: 40008000
     Entry Point: 40008000
     Image arch/arm/boot/uImage is ready
-
+    
     real 21m42.837s
     user 24m30.555s
     sys 2m47.515s
@@ -383,7 +384,7 @@ Only 21 minutes :) Now let's build the modules:
     LD [M] sound/usb/snd-usb-audio.ko
     CC sound/usb/snd-usbmidi-lib.mod.o
     LD [M] sound/usb/snd-usbmidi-lib.ko
-
+    
     real 13m43.842s
     user 8m47.570s
     sys 0m59.675s
@@ -687,7 +688,7 @@ You can also just get the CPU information:
       Features: swp,half,thumb,fastmult,vfp,edsp,thumbee,neon,vfpv3,tls,vfpv4,idiva,idivt,
       BogoMips: 199.30
       Config Status: cfg=new, avail=yes, need=no, active=unknown
-
+    
     02: None 01.0: 10103 CPU
       [Created at cpu.269]
       Unique ID: wkFv.j8NaKXDZtZ6
@@ -717,18 +718,18 @@ and then you can run the following to find out how long a specific package took 
 
     crbook ~ # genlop -t llvm
      * sys-devel/llvm
-
+    
          Mon Feb  2 05:49:38 2015 >>> sys-devel/llvm-3.5.0
            merge time: 51 minutes and 54 seconds.
 
 If there is an emerge going in the background you can check how it will take to finish (estimating from the last compile time):
 
     crbook ~ # genlop -c
-
+    
      Currently merging 1 out of 1
-
+    
      * www-client/chromium-41.0.2272.16
-
+    
            current merge time: 1 hour, 14 minutes and 44 seconds.
            ETA: 8 hours, 9 minutes and 8 seconds.
 
@@ -869,7 +870,7 @@ Lastly configured the browser to look for that version:
     crbook ~ # cat /etc/chromium/default
     # Default settings for chromium. This file is sourced by /bin/bash from
     # the chromium launcher.
-
+    
     # Options to pass to chromium.
     #CHROMIUM_FLAGS=""
     CHROMIUM_FLAGS=" --ppapi-flash-path=/usr/lib/PepperFlash/libpepflashplayer.so --ppapi-flash-version=12.0.0.77"
@@ -910,8 +911,8 @@ After compiling **keepass** it failed to start with the following error:
 
 I found a couple of bugs on that:
 
-- [mono doesn't work on hard float abi on ARM](https://bugzilla.xamarin.com/show_bug.cgi?id=7938)
-- [Mono < 3.4.0 - 3.8.x fails on armhf platforms with Windows Form including textbox](https://bugzilla.xamarin.com/show_bug.cgi?id=20239)
+- [mono doesn't work on hard float abi on ARM](https://bugzilla.xamarin.com/79/7938/bug.html)
+- [Mono < 3.4.0 - 3.8.x fails on armhf platforms with Windows Form including textbox](https://bugzilla.xamarin.com/20/20239/bug.html)
 
 and it's the same as the **freerdp** issue, it's not compiling using the hard float abi. It seems later versions fix the issue. I found an *overlay* which contained later versions. So first I added the overlay:
 
@@ -930,12 +931,12 @@ I found the latest version with **eix**:
          Installed versions:  3.12.0[1](04:16:58 PM 02/15/2015)(nls -debug -doc -minimal -pax_kernel -xen)
          Homepage:            http://www.mono-project.com/Main_Page
          Description:         Mono runtime and class libraries, a C# compiler/interpreter
-
+    
     * dev-lang/mono-basic
          Available versions:  *2.10^t
          Homepage:            http://www.mono-project.com/VisualBasic.NET_support
          Description:         Visual Basic .NET Runtime and Class Libraries
-
+    
     [1] "dotnet" /var/lib/layman/dotnet
 
 and the installed the latest version:

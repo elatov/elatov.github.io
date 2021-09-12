@@ -62,8 +62,7 @@ Since I was already using CoreOS I knew that **flannel** comes pre-installed wit
 What I liked about **flannel** is that it sits in front of docker and the containers don't really need to know that they are using an overlay network. You can just configure the containers to use the **docker0** (bridge network) interface and it will work without issues. If you are not using CoreOS the **flannel** setup is covered in the following sites:
 
 1. [Multi-Host Networking Overlay with Flannel](http://docker-k8s-lab.readthedocs.io/en/latest/docker/docker-flannel.html)
-2. [Docker overlay network using Flannel](http://blog.shippable.com/docker-overlay-network-using-flannel)
-3. [Howto Configure flannel Overlay Network with VXLAN for Docker on Power Servers](http://cloudgeekz.com/1016/configure-flannel-docker-power.html)
+3. [Configuring a flannel overlay network with VXLAN for Docker on IBM Power Systems servers](https://developer.ibm.com/tutorials/l-flannel-overlay-network-vxlan-docker-trs/)
 
 The jist of the setup is, first add the **flannel** network into **etcd2**:
 
@@ -107,7 +106,7 @@ With CoreOS all we have to do is configure the **cloud-config.yml** file and app
 	          content: |
 	            [Service]
 	            Restart=always
-
+	
 	            [Install]
 	            WantedBy=multi-user.target
 	- name: docker.service
@@ -118,16 +117,16 @@ With CoreOS all we have to do is configure the **cloud-config.yml** file and app
 	            [Unit]
 	            [Service]
 	            Environment=DOCKER_OPTS='--insecure-registry="0.0.0.0/0"'
-
+	
 	        - name: 60-docker-wait-for-flannel-config.conf
 	          content: |
 	            [Unit]
 	            After=flanneld.service
 	            Requires=flanneld.service
-
+	
 	            [Service]
 	            Restart=always
-
+	
 	            [Install]
 	            WantedBy=multi-user.target
 	- name: flanneld.service
@@ -138,10 +137,10 @@ With CoreOS all we have to do is configure the **cloud-config.yml** file and app
 	          [Unit]
 	           After=etcd2.service
 	           Requires=etcd2.service
-
+	
 	          [Service]
 	          ExecStartPre=/usr/bin/etcdctl set /coreos.com/network/config '{"Network":"10.2.0.0/16", "Backend": {"Type": "vxlan"}}'
-
+	
 	          [Install]
 	           WantedBy=multi-user.target
 
@@ -174,7 +173,7 @@ After that's done, you will see the **flanneld** daemon running:
 	      CPU: 3.959s
 	   CGroup: /system.slice/flanneld.service
 	           └─4775 /opt/bin/flanneld --ip-masq=true
-
+	
 	Apr 26 11:07:33 core flannel-wrapper[4775]: I0426 17:07:33.300976    4775 manager.go:149] Using interface with name enp1s0f0 and address 192.168.0.106
 	Apr 26 11:07:33 core flannel-wrapper[4775]: I0426 17:07:33.300993    4775 manager.go:166] Defaulting external address to interface address (192.168.0.106)
 	Apr 26 11:07:33 core flannel-wrapper[4775]: I0426 17:07:33.313707    4775 local_manager.go:134] Found lease (10.2.37.0/24) for current IP (192.168.0.106), reusing
@@ -202,7 +201,7 @@ And the docker daemon will also start up on the new **flannel** network:
 	           ├─ 4892 dockerd --host=fd:// --containerd=/var/run/docker/libcontainerd/docker-containerd.sock --insecure-registry=0.0.0.0/0 --bip=10.2.37.1/24 --mtu=1450 --ip-masq=false --selinux-enabled
 	           ├─ 5022 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 3306 -container-ip 10.2.37.9 -container-port
 	3306
-
+	
 	Apr 26 11:07:36 core dockerd[4892]: time="2017-04-26T11:07:36.101420161-06:00" level=info msg="Loading containers: done."
 	Apr 26 11:07:36 core dockerd[4892]: time="2017-04-26T11:07:36.101509944-06:00" level=info msg="Daemon has completed initializ
 	ation"
@@ -243,7 +242,7 @@ Now I can start up a container and make sure I can reach another container on th
 	/ # ping -c 1 10.2.37.5
 	PING 10.2.37.5 (10.2.37.5): 56 data bytes
 	64 bytes from 10.2.37.5: seq=0 ttl=64 time=0.125 ms
-
+	
 	--- 10.2.37.5 ping statistics ---
 	1 packets transmitted, 1 packets received, 0% packet loss
 	round-trip min/avg/max = 0.125/0.125/0.125 ms
@@ -310,7 +309,7 @@ You will notice that for each port your **expose** an **iptables** rule is added
 	core ~ # iptables -L -n -v
 	Chain INPUT (policy ACCEPT 1185 packets, 207K bytes)
 	 pkts bytes target     prot opt in     out     source               destination
-
+	
 	Chain FORWARD (policy ACCEPT 189 packets, 32822 bytes)
 	 pkts bytes target     prot opt in     out     source               destination
 	1154K  517M DOCKER-ISOLATION  all  --  *      *       0.0.0.0/0            0.0.0.0/0
@@ -318,10 +317,10 @@ You will notice that for each port your **expose** an **iptables** rule is added
 	 151K   32M ACCEPT     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
 	 414K  363M ACCEPT     all  --  docker0 !docker0  0.0.0.0/0            0.0.0.0/0
 	   46  2784 ACCEPT     all  --  docker0 docker0  0.0.0.0/0            0.0.0.0/0
-
+	
 	Chain OUTPUT (policy ACCEPT 974 packets, 448K bytes)
 	 pkts bytes target     prot opt in     out     source               destination
-
+	
 	Chain DOCKER (1 references)
 	 pkts bytes target     prot opt in     out     source               destination
 	 395K   52M ACCEPT     tcp  --  !docker0 docker0  0.0.0.0/0            10.2.37.9            tcp dpt:3306
@@ -336,14 +335,14 @@ And since I was also specifying external **ports** in my configuration, I saw **
 	Chain PREROUTING (policy ACCEPT 96 packets, 11911 bytes)
 	 pkts bytes target     prot opt in     out     source               destination
 	23111 1457K DOCKER     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ADDRTYPE match dst-type LOCAL
-
+	
 	Chain INPUT (policy ACCEPT 94 packets, 11775 bytes)
 	 pkts bytes target     prot opt in     out     source               destination
-
+	
 	Chain OUTPUT (policy ACCEPT 8 packets, 1496 bytes)
 	 pkts bytes target     prot opt in     out     source               destination
 	    2   120 DOCKER     all  --  *      *       0.0.0.0/0           !127.0.0.0/8          ADDRTYPE match dst-type LOCAL
-
+	
 	Chain POSTROUTING (policy ACCEPT 8 packets, 1496 bytes)
 	 pkts bytes target     prot opt in     out     source               destination
 	  492  103K RETURN     all  --  *      *       10.2.0.0/16          10.2.0.0/16
@@ -365,4 +364,4 @@ Later on as I was doing some research I ran into [this](https://github.com/coreo
 	-Name=docker*
 	+Name=docker* br-*
 
-In the the **50-docker.network** file, would've probably fixed my original issue, but I was still happy to move my containers to **flannel** for future expansion. And it looks like version [1353.7.0](https://coreos.com/releases/#1353.7.0) fixes that specific issue as well.
+In the the **50-docker.network** file, would've probably fixed my original issue, but I was still happy to move my containers to **flannel** for future expansion. And it looks like version [1353.7.0](https://github.com/coreos/manifest/releases/tag/v1353.7.0) fixes that specific issue as well.

@@ -156,7 +156,7 @@ Now let’s initialize the Zenoss service:
 	ZentinelPortal loaded at zport
 	Starting Zope Server .
 	daemon process started, pid=24771
-
+	
 	=========================================================
 	zensocket must be setuid. As root, execute the following:
 	chown root:zenoss /usr/local/zenoss/bin/zensocket
@@ -258,7 +258,7 @@ And then I skipped adding devices and went to the dashboard:
 
 ![zenoss dashboard Monitor Different Systems with Zenoss](https://github.com/elatov/uploads/raw/master/2013/02/zenoss_dashboard.png)
 
-Looking over the [Administration Guide](https://sourceforge.net/projects/zenoss/files/Documentation/zenoss-4.2.x-docs/zendocs-4.2.4/Zenoss_Core_Administration_02-102013-4.2-v07.pdf/download), I saw this:
+Looking over the [Administration Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/zenoss/Zenoss_Core_Administration_02-102013-4.2-v07.pdf), I saw this:
 
 > Servers are organized by operating system. If the system discovers Windows devices, for example, you might choose to relocate them to /Server/Windows. Similarly, you might choose to classify discovered Linux devices in /Server/Linux (if you want to monitor and model using SNMP), or /Server/SSH/Linux (if you want to monitor and model using SSH)
 
@@ -273,7 +273,7 @@ I decided to use SNMP for the FreeBSD and Fedora Machines, and SSH for the Ubunt
 Now let’s start monitoring our nodes.
 
 ### 3. Monitor our Ubuntu Machine with Zenoss via SSH
-To get any useful information from SSH it’s recommended to install the *LinuxMonitor ZenPack*, more information is seen in [Zenoss_Core_Extended_Monitoring](https://sourceforge.net/projects/zenoss/files/Documentation/zenoss-4.2.x-docs/zendocs-4.2.4/Zenoss_Core_Extended_Monitoring_03-062013-4.2-v05.pdf/download). Here is a description of ZenPacks from that guide:
+To get any useful information from SSH it’s recommended to install the *LinuxMonitor ZenPack*, more information is seen in [Zenoss_Core_Extended_Monitoring](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/zenoss/Zenoss_Core_Extended_Monitoring_03-062013-4.2-v05.pdf). Here is a description of ZenPacks from that guide:
 
 > **13.1. About ZenPacks**
 >
@@ -594,7 +594,7 @@ After the device was added and 'modeled', I saw similar information under the co
 Now let's monitor our RAID on the FreebSD Machine.
 
 ### 6. Add a Raid Check in Zenoss for the FreeBSD machine.
-Instructions on how to run commands and gather information from the output are in the [Admin Guide](https://sourceforge.net/projects/zenoss/files/Documentation/zenoss-4.2.x-docs/zendocs-4.2.4/Zenoss_Core_Administration_02-062013-4.2-v06.pdf/download) (in the Chapter Entitled "Monitoring Using ZenCommand"). I knew that Zenoss could use Nagios plugins, so I found two scripts online: one written in [Python](http://exchange.nagios.org/directory/Plugins/Hardware/Storage-Systems/RAID-Controllers/Adaptec-RAID-Check-by-Anchor-Systems/details) and the other in [Perl](http://exchange.nagios.org/directory/Plugins/Hardware/Storage-Systems/RAID-Controllers/check_aacraid-Adaptec-and-ICP-Controller-Monitoring/details). I downloaded the Perl script, made some changes to it (path changes and such), copied it to the Zenoss install, and ran a test:
+Instructions on how to run commands and gather information from the output are in the [Admin Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/zenoss/Zenoss_Core_Administration_02-062013-4.2-v06.pdf) (in the Chapter Entitled "Monitoring Using ZenCommand"). I knew that Zenoss could use Nagios plugins, so I found two scripts online: one written in [Python](http://exchange.nagios.org/directory/Plugins/Hardware/Storage-Systems/RAID-Controllers/Adaptec-RAID-Check-by-Anchor-Systems/details) and the other in [Perl](http://exchange.nagios.org/directory/Plugins/Hardware/Storage-Systems/RAID-Controllers/check_aacraid-Adaptec-and-ICP-Controller-Monitoring/details). I downloaded the Perl script, made some changes to it (path changes and such), copied it to the Zenoss install, and ran a test:
 
 	freebsd:~>sudo cp check_aacraid.pl /usr/local/zenoss/libexec/check_aacraid
 	freebsd:~>sudo su - zenoss

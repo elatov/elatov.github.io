@@ -203,7 +203,7 @@ This was also discussed in [Objective 3.4](/2012/09/vcap5-dcd-objective-3-4-dete
 
 ### Decide on the suitability of using FT or 3rd party clustering products based on application requirements.
 
-From "[VMware Fault Tolerance](http://www.vmware.com/files/pdf/techpaper/VMware-vSphere6-FT-arch-perf.pdf)":
+From "[VMware Fault Tolerance](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/vmware-vsphere6-ft-arch-perf.pdf)":
 
 > **How Does VMware Fault Tolerance Work?**
 >

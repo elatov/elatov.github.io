@@ -133,7 +133,7 @@ They have a database which is updated every 12 hours and they scan from popular 
 > | ghsa/       | -                | GitHub Advisory Database        | https://github.com/advisories/                      |
 >
 
-I thought it was pretty useful. They also have examples of how to use it in your CI system, the process is described in [Continuous Integration (CI)](Continuous Integration (CI)), you basically run something along the lines of this:
+I thought it was pretty useful. They also have examples of how to use it in your CI system, the process is described in [Continuous Integration (CI)](https://aquasecurity.github.io/trivy/latest/advanced/integrations/, you basically run something along the lines of this:
 
 ```bash
 ./trivy --exit-code 0 --severity HIGH --no-progress trivy-ci-test:${COMMIT}
@@ -210,7 +210,7 @@ Snyk takes a different approach and it tries to stay really close to the source 
 
 ### Use Kaniko to Build a Container
 
-There is actually a [catalog](https://github.com/tektoncd/catalog) item which has an example on how to use [kaniko with tekton](https://github.com/tektoncd/catalog/tree/master/kaniko). I ended up using the following task to build a [Dockerfile](https://hub.docker.com/r/firecyberice/rss2hook/dockerfile) (you have to rebuild the `rss2hook` binary if you want to use it with alpine Linux ... this is discussed in [Can not run in docker](https://github.com/skx/rss2hook/issues/4)):
+There is actually a [catalog](https://github.com/tektoncd/catalog) item which has an example on how to use [kaniko with tekton](https://github.com/tektoncd/catalog/blob/main/task/kaniko/0.5/kaniko.yaml). I ended up using the following task to build a [Dockerfile](https://hub.docker.com/r/firecyberice/rss2hook/dockerfile) (you have to rebuild the `rss2hook` binary if you want to use it with alpine Linux ... this is discussed in [Can not run in docker](https://github.com/skx/rss2hook/issues/4)):
 
 ```bash
 apiVersion: tekton.dev/v1beta1

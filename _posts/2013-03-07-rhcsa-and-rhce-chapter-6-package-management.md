@@ -11,7 +11,7 @@ The easiest way to install software on RHEL is to use RPM.
 
 ## RPM
 
-From "[Red Hat Enterprise Linux 6 Deployment Guide](https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf)":
+From "[Red Hat Enterprise Linux 6 Deployment Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/deployment_guide/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf)":
 
 > **RPM**
 > The RPM Package Manager (RPM) is an open packaging system, which runs on Red Hat Enterprise Linux as well as other Linux and UNIX systems. Red Hat, Inc. and the Fedora Project encourage other vendors to use RPM for their own products. RPM is distributed under the terms of the GPL (GNU General Public License). The RPM Package Manager only works with packages built to work with the RPM format. RPM is itself provided as a pre-installed rpm package. For the end user, RPM makes system updates easy. Installing, uninstalling and upgrading RPM packages can be accomplished with short commands. RPM maintains a database of installed packages and their files, so you can invoke powerful queries and verifications on your system. The RPM package format has been improved for Red Hat Enterprise Linux 6. RPM packages are now compressed using the XZ lossless data compression format, which has the benefit of greater compression and less CPU usage during decompression, and support multiple strong hash algorithms, such as SHA-256, for package signing and verification.
@@ -238,7 +238,7 @@ The last section from the guide is the following:
 >
 >
 >     The output would look like the following:
->
+>    
 >         ghostscript-8.70-1.el6.x86_64
 >
 >
@@ -255,7 +255,7 @@ The last section from the guide is the following:
 >
 >
 >     The output would be similar to the following:
->
+>    
 >         /usr/share/doc/procps-3.2.8/BUGS
 >         /usr/share/doc/procps-3.2.8/FAQ
 >         /usr/share/doc/procps-3.2.8/NEWS
@@ -285,7 +285,7 @@ The last section from the guide is the following:
 >
 >
 >     The output would be similar to the following:
->
+>    
 >         Name        : crontabs                     Relocations: (not relocatable)
 >         Version     : 1.10                              Vendor: Red Hat, Inc.
 >         Release     : 32.1.el6                      Build Date: Thu 03 Dec 2009 02:17:44 AM CET
@@ -311,7 +311,7 @@ The last section from the guide is the following:
 >
 >
 >     The output is similar to the following:
->
+>    
 >         /etc/cron.daily
 >         /etc/cron.hourly
 >         /etc/cron.monthly
@@ -970,9 +970,9 @@ Now let's install that:
     ---> Package libevent.i686 0:1.4.13-1.el6 will be installed
     ---> Package nfs-utils-lib.i686 0:1.1.5-3.el6 will be installed
     --> Finished Dependency Resolution
-
+    
     Dependencies Resolved
-
+    
     =======================================================================================================================================
      Package                              Arch                       Version                               Repository                 Size
     =======================================================================================================================================

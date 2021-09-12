@@ -9,7 +9,7 @@ tags: ['linux', 'rhel', 'vnc']
 
 ## OpenSSH
 
-There are a couple of ways to manage RHEL machines. The primary one is over SSH. SSH is described in the [Deployment Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf). From the Deployment Guide:
+There are a couple of ways to manage RHEL machines. The primary one is over SSH. SSH is described in the [Deployment Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/deployment_guide/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf). From the Deployment Guide:
 
 > **SSH** (Secure Shell) is a protocol which facilitates secure communications between two systems using a client/server architecture and allows users to log into server host systems remotely. Unlike other remote communication protocols, such as FTP or Telnet, SSH encrypts the login session, rendering the connection difficult for intruders to collect unencrypted passwords.
 >
@@ -263,9 +263,9 @@ The **.pub** file is the public part and the **id_rsa** file is the private key.
     15
     user1@rhel1's password:
     Now try logging into the machine, with "ssh 'rhel1'", and check in:
-
+    
       .ssh/authorized_keys
-
+    
     to make sure we haven't added extra keys that you weren't expecting.
 
 
@@ -391,13 +391,13 @@ There is a good Red Hat Magazine Article that covers the process: [Configuring V
     ...
     Installed:
       tigervnc-server.i686 0:1.0.90-0.15.20110314svn4359.el6
-
+    
     Dependency Installed:
       libXdmcp.i686 0:1.0.3-1.el6               libxkbfile.i686 0:1.0.6-1.1.el6
       mesa-dri-drivers.i686 0:7.10-1.el6        xkeyboard-config.noarch 0:1.6-7.el6
       xorg-x11-fonts-misc.noarch 0:7.2-9.1.el6  xorg-x11-xauth.i686 1:1.0.2-7.1.el6
       xorg-x11-xkb-utils.i686 0:7.4-6.el6
-
+    
     Complete!
 
 
@@ -420,7 +420,7 @@ Now we can start the service:
     [root@rhel1 ~]# service vncserver start
     Starting VNC server: 2:user1
     New 'rhel1.local.com:2 (user1)' desktop is rhel1.local.com:2
-
+    
     Creating default startup script /home/user1/.vnc/xstartup
     Starting applications specified in /home/user1/.vnc/xstartup
     Log file is /home/user1/.vnc/rhel1.local.com:2.log
@@ -470,7 +470,7 @@ Then restarting the VNC server:
     Shutting down VNC server: 2:user1
     Starting VNC server: 2:user1
     New 'rhel1.local.com:2 (user1)' desktop is rhel1.local.com:2
-
+    
     Starting applications specified in /home/user1/.vnc/xstartup
     Log file is /home/user1/.vnc/rhel1.local.com:2.log
 
@@ -478,12 +478,12 @@ Then restarting the VNC server:
 Now if I try to connect directly to the VNC server, I get the following:
 
     elatov@fed:~$vncviewer rhel1:2
-
+    
     TigerVNC Viewer 64-bit v1.3.0 (20140121)
     Built on Jan 21 2014 at 09:40:20
     Copyright (C) 1999-2011 TigerVNC Team and many others (see README.txt)
     See http://www.tigervnc.org for information on TigerVNC.
-
+    
     Sat Mar  8 11:49:27 2014
      CConn:       unable connect to socket: Connection refused (111)
 
@@ -510,16 +510,16 @@ Then connecting to **localhost** port **5902** connected to the machine:
 **vncviewer** by default has a option which can create the SSH tunnel on the fly. This is done with the **-via** flag. Here is an example:
 
     elatov@fed:~$vncviewer -via user1@rhel1 127.0.0.1:2
-
+    
     TigerVNC Viewer 64-bit v1.3.0 (20140121)
     Built on Jan 21 2014 at 09:40:20
     Copyright (C) 1999-2011 TigerVNC Team and many others (see README.txt)
     See http://www.tigervnc.org for information on TigerVNC.
-
+    
     Sat Mar  8 11:55:09 2014
      main:        localhost::33422
     user1@rhel1's password:
-
+    
     Sat Mar  8 11:55:13 2014
      CConn:       connected to host localhost port 33422
      CConnection: Server supports RFB protocol version 3.8
@@ -533,9 +533,9 @@ Notice it first asks for the **user1** password to establish the SSH tunnel and 
 If the vnc server package is installed but you don't have sudo to start the vncserver service, then you can start the VNC server manually like this:
 
     [user1@rhel1 ~]$ vncserver :1
-
+    
     New 'rhel1.local.com:1 (user1)' desktop is rhe1.local.com:1
-
+    
     Starting applications specified in /home/user1/.vnc/xstartup
     Log file is /home/user1/.vnc/rhel1.local.com:1.log
 
@@ -561,5 +561,4 @@ Lastly to confirm it's not running:
 
     [user1@rhel1 ~]$ ps -eaf | grep vnc
     user1     2704  2610  0 12:10 pts/0    00:00:00 grep vnc
-
 

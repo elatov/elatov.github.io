@@ -12,7 +12,7 @@ I was running Arch Linux on the ARM based Samsung Chromebook Snow Model ([here](
 I ran into 3 sites that went over the process pretty well:
 
 - [Samsung arm Chromebook kernel (XE303C12 Snow)](https://github.com/singulared/chromebook-kernel)
-- [Samsung Chromebook XE303C12/Installing Linux](http://linux-exynos.org/wiki/Samsung_Chromebook_XE303C12/Installing_Linux)
+- [Samsung Chromebook XE303C12/Installing Linux](https://www.instructables.com/Linux-on-XE303C12-Chromebook/)
 - [Building and installing a custom kernel for Samsung Arm Chromebook Fedora 18](http://people.redhat.com/wcohen/chromebook/chrome_kernel.txt)
 
 You will notice there are two approaches to installing the kernel:
@@ -28,14 +28,14 @@ At the time of writing this post the lastest kernel is 3.17 but the mainline ker
 - [Booted mainline kernel on Chromebook](http://marcin.juszkiewicz.com.pl/2013/07/22/booted-mainline-kernel-on-chromebook/)
 - [booting-3.11kernel](http://people.redhat.com/wcohen/chromebook/booting-3.11kernel.txt)
 - [Using an Upstream Kernel on Chrome OS](http://www.chromium.org/chromium-os/how-tos-and-troubleshooting/using-an-upstream-kernel-on-snow)
-- [ARM Chromebook/Mainline Linux kernel](http://linux-exynos.org/wiki/ARM_Chromebook/Mainline_Linux_kernel)
+- [ARM Chromebook/Mainline Linux kernel](https://archlinuxarm.org/platforms/armv7/samsung/samsung-chromebook)
 
-The latest link provides instructions on how to compile the latest kernel (3.13) and has support for most devices but still lacks support for audio and the camera. The instructions to install the mainline kernel are very similar, you just have to make sure you install nv-uboot that has simple frame buffer support. Both nv-uboot versions are available at [ARM Chromebook/nv u-boot](http://linux-exynos.org/wiki/ARM_Chromebook/nv_u-boot). Since I wasn't going to run the mainline kernel, I didn't have to worry about the nv-uboot version. Just for reference here are the commands to install the different versions of nv-uboot:
+The latest link provides instructions on how to compile the latest kernel (3.13) and has support for most devices but still lacks support for audio and the camera. The instructions to install the mainline kernel are very similar, you just have to make sure you install nv-uboot that has simple frame buffer support. Both nv-uboot versions are available at [https://wiki.debian.org/InstallingDebianOn/Samsung/ARMChromebook). Since I wasn't going to run the mainline kernel, I didn't have to worry about the nv-uboot version. Just for reference here are the commands to install the different versions of nv-uboot:
 
 	# without FB support
 	wget -O - http://commondatastorage.googleapis.com/chromeos-localmirror/distfiles/nv_uboot-snow.kpart.bz2 | bunzip2 > nv_uboot.kpart
 	dd if=nv_uboot.kpart of=/dev/mmcblk1p1
-
+	
 	# with FB support
 	wget -O - http://commondatastorage.googleapis.com/chromeos-localmirror/distfiles/nv_uboot-snow-simplefb.kpart.bz2 | bunzip2 > nv_uboot.kpart
 	dd if=nv_uboot.kpart of=/dev/mmcblk1p1
@@ -81,7 +81,7 @@ Lastly let's go ahead and do the compile:
 	Load Address: 40008000
 	Entry Point:  40008000
 	  Image arch/arm/boot/uImage is ready
-
+	
 	real   15m45.719s
 	user   25m43.955s
 	sys    2m35.610s
@@ -97,7 +97,7 @@ You will notice it toook about 40 minutes to build the kernel image file. Now le
 	  LD [M]  sound/core/snd-rawmidi.ko
 	  LD [M]  sound/usb/snd-usb-audio.ko
 	  LD [M]  sound/usb/snd-usbmidi-lib.ko
-
+	
 	real    6m37.689s
 	user    10m44.965s
 	sys     1m11.755s
@@ -110,7 +110,7 @@ And now let's install the modules:
 	  INSTALL sound/usb/snd-usb-audio.ko
 	  INSTALL sound/usb/snd-usbmidi-lib.ko
 	  DEPMOD  3.8.11
-
+	
 	real    0m9.016s
 	user    0m1.180s
 	sys     0m1.360s
@@ -141,7 +141,7 @@ Now let's build the DTBs (Device Tree Blob) files:
 	  DTC     arch/arm/boot/dts/exynos5420-smdk5420-evt0.dtb
 	  DTC     arch/arm/boot/dts/exynos5422-peach-pi.dtb
 	  DTC     arch/arm/boot/dts/exynos5440-ssdk5440.dtb
-
+	
 	real    0m2.590s
 	user    0m1.015s
 	sys     0m0.615s
@@ -207,7 +207,7 @@ This format includes both the Kernel Image and the DTB file and they have to mat
 
 	elatov@crbook:~/chromeos$cat arch/arm/boot/kernel.its
 	/dts-v1/;
-
+	
 	/ {
 		description = "Chrome OS kernel image with one or more FDT blobs";
 		#address-cells = <1>;
@@ -341,7 +341,7 @@ and rebuilding the modules:
 	  LD [M]  fs/nfs/nfs_layout_nfsv41_files.ko
 	  LD [M]  net/bluetooth/bluetooth.ko
 	  LD [M]  net/wireless/cfg80211.ko
-
+	
 	real    2m0.212s
 	user    2m57.095s
 	sys 0m21.905s
@@ -365,7 +365,7 @@ Then reinstalling the modules:
 	  INSTALL net/bluetooth/bluetooth.ko
 	  INSTALL net/wireless/cfg80211.ko
 	  DEPMOD  3.8.11
-
+	
 	real    0m4.162s
 	user    0m0.605s
 	sys 0m0.610s
@@ -398,9 +398,9 @@ When I rebooted, X would fail to launch, to fix the issue I ended up grabbing ch
 
 	elatov@crbook:~$pacman -Ss armsoc
 	alarm/xf86-video-armsoc-chromium 1:r233.4712450-1 [installed]
-
+	
 	alarm/xf86-video-armsoc-git 1:219.f16b5c8-2
-
+	
 	alarm/xf86-video-armsoc-odroid 237.3bdf799-1
 
 and then I switched the Xorg config to use **armsoc** instead of **fbdev**:
@@ -461,55 +461,55 @@ Before we start making changes, let's go ahead and check all the configuration f
 	tftp_setup=setenv tftpkernelpath /tftpboot/vmlinux.uimg; setenv tftprootpath /tftpboot/initrd.uimg; setenv rootpath /export/nfsroot; setenv autoload n
 	usb_boot=setenv devtype usb; setenv devnum 0; setenv devname sda; run run_disk_boot_script;run ext2_boot
 
-We can see that no **dtb** file is utilized. There are good instructions on how to setup a nice **env.txt** file in your **/boot** partition in [ARM Chromebook/U-Boot Environment](http://linux-exynos.org/wiki/ARM_Chromebook/U-Boot_Environment).  After it's in place, you can modify that file and just type in **run import_sd_env** and it will import your changes (this way you don't have to type the commands one at a time on the **u-boot** prompt.) Here is how my file looked like, I made some minor modifications from the above page:
+We can see that no **dtb** file is utilized. There are good instructions on how to setup a nice **env.txt** file in your **/boot** partition in [ARM Chromebook/U-Boot Environment](https://github.com/ARM-software/u-boot/blob/master/doc/README.chromium).  After it's in place, you can modify that file and just type in **run import_sd_env** and it will import your changes (this way you don't have to type the commands one at a time on the **u-boot** prompt.) Here is how my file looked like, I made some minor modifications from the above page:
 
 	elatov@crbook:~$cat /boot/env.txt
 	boot_part=2
 	root_part=3
 	script_part=c
-
+	
 	loadaddr=0x42000000
 	dtaddr=0x43000000
 	scriptaddr=0x44000000
 	initrdaddr=0x45000000
-
+	
 	env_path=/env.txt
 	kernel_path=/vmlinux.uimg
 	dtb_path=/exynos5250-snow.dtb
-
+	
 	common_bootargs=cros_legacy console=ttySAC3,115200 console=tty1 earlyprintk clk_ignore_unused
 	dev_extras=daisy
-
+	
 	bootdelay=3
 	bootcmd=run usb_boot; run mmc1_boot; run mmc0_boot
-
+	
 	load_env_txt=ext2load ${dev_type} ${dev_num}:${boot_part} ${loadaddr} ${env_path}; run import_env_txt
-
+	
 	import_env_txt=env import -t ${loadaddr}
-
+	
 	import_env=setenv dev_num 0; run mmc_setup; run load_env_txt
 	import_sd_env=setenv dev_num 1; run mmc_setup; run load_env_txt
 	import_usb_env=run usb_setup; run load_env_txt
-
+	
 	regen_all=setenv bootargs ${common_bootargs} ${dev_extras} ${extra_bootargs} ${dev_bootargs}
 	regen_bootargs=setenv dev_bootargs root=/dev/${dev_name}${root_part} rootwait rw; run regen_all
-
+	
 	load_kernel=ext2load ${dev_type} ${dev_num}:${boot_part} ${loadaddr} ${kernel_path}
 	load_dtb=ext2load ${dev_type} ${dev_num}:${boot_part} ${dtaddr} ${dtb_path}
-
+	
 	boot_kernel=run regen_bootargs; run load_kernel; run load_dtb; if run load_initrd; then bootm ${loadaddr} ${initrdaddr} ${dtaddr}; else bootm ${loadaddr} - ${dtaddr}; fi
-
+	
 	load_script=fatload ${dev_type} ${dev_num}:${script_part} ${scriptaddr} ${script_path} || ext2load ${dev_type} ${dev_num}:${boot_part} ${scriptaddr} ${script_path}
-
+	
 	boot_script=if run load_script; then source ${scriptaddr} fi;
-
+	
 	boot=run boot_script; run boot_kernel
-
+	
 	mmc_setup=mmc dev ${dev_num}; mmc rescan; setenv dev_type mmc; setenv dev_name mmcblk${dev_num}p
 	mmc_boot=run mmc_setup; run boot
 	mmc0_boot=setenv dev_num 0; run mmc_boot
 	mmc1_boot=setenv dev_num 1; run mmc_boot
-
+	
 	usb_setup=usb start; setenv dev_type usb; setenv dev_num 0; setenv dev_name sda;
 	usb_boot=run usb_setup; run boot
 

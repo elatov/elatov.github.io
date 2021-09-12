@@ -34,7 +34,7 @@ There is a python client available for SkyDrive that uses the SkyDrive API. It's
 
 #### Python-Skydrive
 
-To use the **python-skypdrive** (now called **python-onedrive**) client, you have to register the SkyDrive application with the "Live Connect Developer Center". First visit the Dev Center, [here](http://msdn.microsoft.com/en-us/live/). Login with the same credentials that you created when you registered for SkyDrive and you should be inside the Dev Center:
+To use the **python-skypdrive** (now called **python-onedrive**) client, you have to register the SkyDrive application with the "Live Connect Developer Center". First visit the Dev Center, [here](https://developer.microsoft.com/en-us/windows/). Login with the same credentials that you created when you registered for SkyDrive and you should be inside the Dev Center:
 
 ![Live connect dev center Syncing Files with Various Cloud Storage Solutions](https://github.com/elatov/uploads/raw/master/2013/10/Live_connect_dev_center.png)
 
@@ -74,18 +74,18 @@ Now using **pip**, let's install the SkyDrive client:
     Downloading/unpacking python-skydrive[standalone]
       Downloading python-skydrive-13.08.2.tar.gz
       Running setup.py egg_info for package python-skydrive
-
+    
       Installing extra requirements: 'standalone'
     Downloading/unpacking requests (from python-skydrive[standalone])
       Downloading requests-2.0.0.tar.gz (362kB): 362kB downloaded
       Running setup.py egg_info for package requests
-
+    
     Installing collected packages: python-skydrive, requests
       Running setup.py install for python-skydrive
-
+    
         Installing skydrive-cli script to /opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin
       Running setup.py install for requests
-
+    
     Successfully installed python-skydrive requests
     Cleaning up...
 
@@ -112,9 +112,9 @@ Now it's time to authorize our client to be able to access SkyDrive. Here is the
       authorize there, confirm access permissions, and paste URL of an empty page
       (starting with "https://login.live.com/oauth20_desktop.srf") you will get redirected to in the end.
     Alternatively, use the returned (after redirects) URL with "/opt/local/bin/skydrive-cli auth <URL>" command.
-
+    
     URL to visit: https://login.live.com/oauth20_authorize.srf?scope=wl.skydrive+wl.skydrive_update+wl.offline_access&redirect_uri=https%3A%2F%2Flogin.live.com%2Foauth20_desktop.srf&response_type=code&client_id=790E
-
+    
     URL after last redirect: https://login.live.com/oauth20_desktop.srf?code=c0c
     API authorization was completed successfully.
 
@@ -261,10 +261,10 @@ That looks good, now let's run the setup:
     * Installed a new davfs config file in '/home/elatov/.davfs2/davfs2.conf'
     * Credentials are missing from /home/elatov/.davfs2/secrets. Please add them:
       $ echo "https://www.box.com/dav MYEMAIL MYPASSWORD" >> /home/elatov/.davfs2/secrets
-
+    
     * Box mount point is missing. Please add this line to your /etc/fstab:
       $ sudo sh -c 'echo "https://www.box.com/dav /home/elatov/Box davfs rw,user,noauto 0 0" >> /etc/fstab'
-
+    
     * '/home/elatov/.davfs2/davfs2.conf' looks good ;)
 
 
@@ -346,7 +346,7 @@ You can see that SkyDrive, Dropbox, and Box are all supported and a lot of other
       Package libfuse-dev is not installed.
      storagemadeeasy depends on libqt4-gui; however:
       Package libqt4-gui is not installed.
-
+    
     dpkg: error processing storagemadeeasy (--install):
      dependency problems - leaving unconfigured
     Processing triggers for bamfdaemon ...
@@ -536,7 +536,7 @@ There are also client available for all the platforms and you can compile your o
 
 #### SeaFile
 
-At this point I ran into **Seafile**. What was cool about **seafile** is that you can setup your own storage cloud if you want, or you could use their storage cloud called **SeaCloud**. Here is information regarding seacloud, from [their](https://seacloud.cc/group/2/wiki/) site:
+At this point I ran into **Seafile**. What was cool about **seafile** is that you can setup your own storage cloud if you want, or you could use their storage cloud called **SeaCloud**. Here is information regarding seacloud, from [their](https://www.seafile.com/en/features/) site:
 
 > SeaCloud is a place for managing your documents with team members. You can create public/private groups with file syncing, wiki, discussion and other functions. SeaCloud is hosted on Amazon Web Services.
 >
@@ -581,7 +581,7 @@ Then grab the source and extract it:
     $ tar xzf seafile-latest.tar.gz
 
 
-Now let's compile **libsearpc** (initially I tried with the **-prefix** option when running **./configure**, but it gave me an error during the complie, that issue is currently getting looked at, here is the [link](https://groups.google.com/forum/#!msg/seafile/vO7CCdsMwxE/PxCTDv4XotwJ) for the bug report). By default the compile puts all the files under **/usr/local** and that was good enough for me. I could've probably changed the configure scripts around but I didn't feel like messing with it. So first go inside the source code:
+Now let's compile **libsearpc** (initially I tried with the **-prefix** option when running **./configure**, but it gave me an error during the complie, that issue is currently getting looked at, here is the [link](https://groups.google.com/g/seafile/c/vO7CCdsMwxE/m/PxCTDv4XotwJ) for the bug report). By default the compile puts all the files under **/usr/local** and that was good enough for me. I could've probably changed the configure scripts around but I didn't feel like messing with it. So first go inside the source code:
 
     $ cd seafile-1.8.2/libsearpc
 
@@ -656,7 +656,7 @@ You will be able to check the status by running the following:
 
     $ seaf-cli status
     # Name  Status  Progress
-
+    
     # Name  Status
     files       downloading
 

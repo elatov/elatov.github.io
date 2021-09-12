@@ -10,9 +10,9 @@ tags: [sophos]
 As I was going through the [lynis suggestions](/2017/06/install-lynis-and-fix-some-suggestions/), I realized that I should install an anti-virus solution on my machine. After reading a couple of sites:
 
 * [AV-Test Lab tests 16 Linux antivirus products against Windows and Linux malware](http://www.networkworld.com/article/2989137/linux/av-test-lab-tests-16-linux-antivirus-products-against-windows-and-linux-malware.html)
-* [The 7 Best Free Linux Anti-Virus Programs](http://www.makeuseof.com/tag/free-linux-antivirus-programs/)
+* [The 7 Best Free Linux Anti-Virus Programs](https://www.makeuseof.com/tag/free-linux-antivirus-programs//)
 
-I decided to try out [sophos](https://www.sophos.com/en-us/products/free-tools/sophos-antivirus-for-linux.aspx). I have used **clamav** in the past but apparently now it's detection rate is pretty low:
+I decided to try out [sophos](https://secure2.sophos.com/en-us/products/free-tools.aspx). I have used **clamav** in the past but apparently now it's detection rate is pretty low:
 
 ![av-det-rate](https://raw.githubusercontent.com/elatov/upload/master/sophos-install/av-det-rate.png)
 
@@ -27,15 +27,15 @@ Now let's do the install:
 
 	<> cd sophos-av
 	<> sudo ./install.sh
-
+	
 	Sophos Anti-Virus
 	=================
 	Copyright (c) 1989-2016 Sophos Limited. All rights reserved.
-
+	
 	Welcome to the Sophos Anti-Virus installer. Sophos Anti-Virus contains an on-
 	access scanner, an on-demand command-line scanner, the Sophos Anti-Virus daemon,
 	and the Sophos Anti-Virus GUI.
-
+	
 	On-access scanner         Scans files as they are accessed, and grants access
 	                          to only those that are threat-free.
 	On-demand scanner         Scans the computer, or parts of the computer,
@@ -47,40 +47,40 @@ Now let's do the install:
 
 	Press <return> to display Licence. Then press <spc> to scroll forward.
 	Please read the following legally binding License Agreement between Sophos and
-
+	
 	Do you accept the licence? Yes(Y)/No(N) [N]
 	> Y
-
+	
 	Where do you want to install Sophos Anti-Virus? [/opt/sophos-av]
 	>
-
+	
 	Do you want to enable on-access scanning? Yes(Y)/No(N) [Y]
 	>
-
+	
 	Sophos recommends that you configure Sophos Anti-Virus to auto-update.
-
+	
 	It can update either from Sophos directly (requiring username/password details)
 	or from your own server (directory or website (possibly requiring
 	username/password)).
-
+	
 	Which type of auto-updating do you want? From Sophos(s)/From own server(o)/None(n) [s]
 	> s
-
+	
 	Updating directly from Sophos.
 	Do you wish to install the Free (f) or Supported (s) version of SAV for Linux? [s]
 	> f
-
+	
 	The Free version of Sophos Anti-Virus for Linux comes with no support.
 	Forums are available for our free tools at http://openforum.sophos.com/
 	Do you need a proxy to access Sophos updates? Yes(Y)/No(N) [N]
 	> n
-
+	
 	Fetching free update credentials.
 	Installing Sophos Anti-Virus....
 	Selecting appropriate kernel support...
 	When Sophos Anti-Virus starts, it updates itself to try to find a Sophos kernel interface module update. This might cause a significant delay.
 	Sophos Anti-Virus starts after installation.
-
+	
 	Installation completed.
 	Your computer is now protected by Sophos Anti-Virus.
 
@@ -91,7 +91,7 @@ Initially the **talpa** module failed to compile:
 
 	[root@m2 kernels]# tail -11 /opt/sophos-av/log/talpaselect.log
 	checking for linux/version.h... configure: error: cannot proceed without the required header file
-
+	
 	Traceback (most recent call last):
 	  File "talpa_select.py", line 2176, in _action
 	  File "talpa_select.py", line 1074, in load
@@ -254,11 +254,11 @@ You can run a quick scan manually to see how clean your system is:
 	Virus data version 5.34, November 2016
 	Includes detection for 12414465 viruses, Trojans and worms
 	Copyright (c) 1989-2016 Sophos Limited. All rights reserved.
-
+	
 	System time 12:08:18 PM, System date 24 December 2016
-
+	
 	IDE directory is: /opt/sophos-av/lib/sav
-
+	
 	Using IDE file fare-boh.ide
 	Using IDE file dride-wf.ide
 	Using IDE file rans-dwk.ide
@@ -273,16 +273,16 @@ You can run a quick scan manually to see how clean your system is:
 	Using IDE file mdro-hrr.ide
 	Using IDE file locky-yp.ide
 	Using IDE file cerbe-xy.ide
-
+	
 	Quick Scanning
-
+	
 	Could not open /etc/alternatives/policytool
 	Could not open /usr/bin/policytool
 	Could not open /usr/lib/modules/3.10.0-327.28.3.el7.x86_64/source
 	Could not open /usr/lib/modules/3.10.0-327.36.1.el7.x86_64/source
 	Could not open /usr/lib/modules/3.10.0-327.36.2.el7.x86_64/source
 	Could not open /usr/lib/modules/3.10.0-327.36.3.el7.x86_64/source
-
+	
 	42781 files scanned in 1 minute and 25 seconds.
 	6 errors were encountered.
 	No viruses were discovered.

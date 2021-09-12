@@ -15,7 +15,7 @@ Before we keep going with disk and partitioning, I want to setup the RHEL Instal
     /usr/bin/which: no parted in (/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin)
 
 
-From "[Red Hat Enterprise Linux 6 Installation Guide](https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf)":
+From "[Red Hat Enterprise Linux 6 Installation Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/installation_guide/red_hat_enterprise_linux-6-installation_guide-en-us.pdf)":
 
 > **35.3.1.2. Using a Red Hat Enterprise Linux Installation DVD as a Software Repository**
 >
@@ -54,11 +54,11 @@ From "[Red Hat Enterprise Linux 6 Installation Guide](https://access.redhat.com/
 >
 >
 >         The name of the repository is specified in square brackets — in this example, [dvd]. The name is not important, but you should choose something that is meaningful and recognizable.
->
+>    
 >         The line that specifies the **baseurl** should contain the path to the mount point that you created previously, suffixed with **/Server** for a Red Hat Enterprise Linux server installation DVD, or with **/Client** for a Red Hat Enterprise Linux client installation DVD.
->
+>    
 >     4.  Press the **Esc** key to exit **insert** mode.
->
+>    
 >     5.  Type **:wq** and press the **Enter** key to save the file and exit the vi text editor.
 >     6.  After installing or upgrading software from the DVD, delete the repo file that you created
 
@@ -66,7 +66,7 @@ Here is what I did to setup up a local repo. First I mounted the iso to my VM an
 
     [root@rhel01 ~]# cat /proc/sys/dev/cdrom/info
     CD-ROM information, Id: cdrom.c 3.20 2003/12/17
-
+    
     drive name: sr0
     drive speed: 1
     drive # of slots: 1
@@ -285,14 +285,14 @@ Now to partitioning with **fdisk**. From this old "[Partitioning with fdisk](htt
 Here is how my partition table looked like on 1st SCSI disk:
 
     [root@rhel01 ~]# fdisk -l /dev/sda
-
+    
     Disk /dev/sda: 21.5 GB, 21474836480 bytes
     255 heads, 63 sectors/track, 2610 cylinders
     Units = cylinders of 16065 * 512 = 8225280 bytes
     Sector size (logical/physical): 512 bytes / 512 bytes
     I/O size (minimum/optimal): 512 bytes / 512 bytes
     Disk identifier: 0x00086e02
-
+    
     Device Boot Start End Blocks Id System
     /dev/sda1 * 1 64 512000 83 Linux
     /dev/sda2 64 2611 20458496 8e Linux LVM
@@ -309,36 +309,36 @@ Then the guide has an example of how to create 4 primary partitions with **fdisk
 So here is my second SCSI disk:
 
     [root@rhel01 ~]# fdisk -l /dev/sdb
-
+    
     Disk /dev/sdb: 8589 MB, 8589934592 bytes
     255 heads, 63 sectors/track, 1044 cylinders
     Units = cylinders of 16065 * 512 = 8225280 bytes
     Sector size (logical/physical): 512 bytes / 512 bytes
     I/O size (minimum/optimal): 512 bytes / 512 bytes
     Disk identifier: 0x000bbb96
-
+    
     Device Boot Start End Blocks Id System
 
 
 There are currently no partitions on it and it's size is 8GB. So let's create 3 partitions of size 2GB and mark them as ext3 and 1 partition of size 2GB and mark it as a swap partition. The creation of the first one looks like this:
 
     [root@rhel01 ~]# fdisk /dev/sdb
-
+    
     WARNING: DOS-compatible mode is deprecated. It's strongly recommended to
     switch off the mode (command 'c') and change display units to
     sectors (command 'u').
-
+    
     Command (m for help): p
-
+    
     Disk /dev/sdb: 8589 MB, 8589934592 bytes
     255 heads, 63 sectors/track, 1044 cylinders
     Units = cylinders of 16065 * 512 = 8225280 bytes
     Sector size (logical/physical): 512 bytes / 512 bytes
     I/O size (minimum/optimal): 512 bytes / 512 bytes
     Disk identifier: 0x000bbb96
-
+    
     Device Boot Start End Blocks Id System
-
+    
     Command (m for help): n
     Command action
     e extended
@@ -353,17 +353,17 @@ There are currently no partitions on it and it's size is 8GB. So let's create 3 
 Now if we keep going and add another one, it will look like this:
 
     Command (m for help): p
-
+    
     Disk /dev/sdb: 8589 MB, 8589934592 bytes
     255 heads, 63 sectors/track, 1044 cylinders
     Units = cylinders of 16065 * 512 = 8225280 bytes
     Sector size (logical/physical): 512 bytes / 512 bytes
     I/O size (minimum/optimal): 512 bytes / 512 bytes
     Disk identifier: 0x000bbb96
-
+    
     Device Boot Start End Blocks Id System
     /dev/sdb1 1 262 2104483+ 83 Linux
-
+    
     Command (m for help): n
     Command action
     e extended
@@ -378,18 +378,18 @@ Now if we keep going and add another one, it will look like this:
 And here is how the third one looks like:
 
     Command (m for help): p
-
+    
     Disk /dev/sdb: 8589 MB, 8589934592 bytes
     255 heads, 63 sectors/track, 1044 cylinders
     Units = cylinders of 16065 * 512 = 8225280 bytes
     Sector size (logical/physical): 512 bytes / 512 bytes
     I/O size (minimum/optimal): 512 bytes / 512 bytes
     Disk identifier: 0x000bbb96
-
+    
     Device Boot Start End Blocks Id System
     /dev/sdb1 1 262 2104483+ 83 Linux
     /dev/sdb2 263 524 2104515 83 Linux
-
+    
     Command (m for help): n
     Command action
     e extended
@@ -404,19 +404,19 @@ And here is how the third one looks like:
 and lastly here is partition 4:
 
     Command (m for help): p
-
+    
     Disk /dev/sdb: 8589 MB, 8589934592 bytes
     255 heads, 63 sectors/track, 1044 cylinders
     Units = cylinders of 16065 * 512 = 8225280 bytes
     Sector size (logical/physical): 512 bytes / 512 bytes
     I/O size (minimum/optimal): 512 bytes / 512 bytes
     Disk identifier: 0x000bbb96
-
+    
     Device Boot Start End Blocks Id System
     /dev/sdb1 1 262 2104483+ 83 Linux
     /dev/sdb2 263 524 2104515 83 Linux
     /dev/sdb3 525 786 2104515 83 Linux
-
+    
     Command (m for help): n
     Command action
     e extended
@@ -432,14 +432,14 @@ and lastly here is partition 4:
 Notice for the last one I just selected the default so it takes all the available space. Here is how the final partition table looks like:
 
     Command (m for help): p
-
+    
     Disk /dev/sdb: 8589 MB, 8589934592 bytes
     255 heads, 63 sectors/track, 1044 cylinders
     Units = cylinders of 16065 * 512 = 8225280 bytes
     Sector size (logical/physical): 512 bytes / 512 bytes
     I/O size (minimum/optimal): 512 bytes / 512 bytes
     Disk identifier: 0x000bbb96
-
+    
     Device Boot Start End Blocks Id System
     /dev/sdb1 1 262 2104483+ 83 Linux
     /dev/sdb2 263 524 2104515 83 Linux
@@ -452,9 +452,9 @@ The '**Id**' for all the partitions is '**83**'. To see the list of all the **Id
     Command (m for help): t
     Partition number (1-4): 4
     Hex code (type L to list codes): L
-
+    
     Hex code (type L to list codes): L
-
+    
      0  Empty           24  NEC DOS         81  Minix / old Lin bf  Solaris
      1  FAT12           39  Plan 9          82  Linux swap / So c1  DRDOS/sec (FAT-
      2  XENIX root      3c  PartitionMagic  83  Linux           c4  DRDOS/sec (FAT-
@@ -486,16 +486,16 @@ So we can see that '**83**' is Linux which is usually **EXT3**. Now for **swap**
 
     Hex code (type L to list codes): 82
     Changed system type of partition 4 to 82 (Linux swap / Solaris)
-
+    
     Command (m for help): p
-
+    
     Disk /dev/sdb: 8589 MB, 8589934592 bytes
     255 heads, 63 sectors/track, 1044 cylinders
     Units = cylinders of 16065 * 512 = 8225280 bytes
     Sector size (logical/physical): 512 bytes / 512 bytes
     I/O size (minimum/optimal): 512 bytes / 512 bytes
     Disk identifier: 0x000bbb96
-
+    
     Device Boot Start End Blocks Id System
     /dev/sdb1 1 262 2104483+ 83 Linux
     /dev/sdb2 263 524 2104515 83 Linux
@@ -507,7 +507,7 @@ Now to write the partition we can do this:
 
     Command (m for help): w
     The partition table has been altered!
-
+    
     Calling ioctl() to re-read partition table.
     Syncing disks.
 
@@ -515,14 +515,14 @@ Now to write the partition we can do this:
 Now checking the partition table we see this:
 
     [root@rhel01 ~]# fdisk -l /dev/sdb
-
+    
     Disk /dev/sdb: 8589 MB, 8589934592 bytes
     255 heads, 63 sectors/track, 1044 cylinders
     Units = cylinders of 16065 * 512 = 8225280 bytes
     Sector size (logical/physical): 512 bytes / 512 bytes
     I/O size (minimum/optimal): 512 bytes / 512 bytes
     Disk identifier: 0x000bbb96
-
+    
     Device Boot Start End Blocks Id System
     /dev/sdb1 1 262 2104483+ 83 Linux
     /dev/sdb2 263 524 2104515 83 Linux
@@ -535,12 +535,12 @@ If the table didn't show up properly, we could run **partprobe** to re-check the
     [root@rhel01 ~]# partprobe --help
     Usage: partprobe [OPTION] [DEVICE]...
     Inform the operating system about partition table changes.
-
+    
     -d, --dry-run do not actually inform the operating system
     -s, --summary print a summary of contents
     -h, --help display this help and exit
     -v, --version output version information and exit
-
+    
     When no DEVICE is given, probe all partitions.
 
 
@@ -553,32 +553,32 @@ Here is how the output looks like:
 We had 4 partitions so that looks good. To delete a partition with **fdisk**, we can do this:
 
     [root@rhel01 ~]# fdisk /dev/sdb
-
+    
     WARNING: DOS-compatible mode is deprecated. It's strongly recommended to
     switch off the mode (command 'c') and change display units to
     sectors (command 'u').
-
+    
     Command (m for help): p
-
+    
     Disk /dev/sdb: 8589 MB, 8589934592 bytes
     255 heads, 63 sectors/track, 1044 cylinders
     Units = cylinders of 16065 * 512 = 8225280 bytes
     Sector size (logical/physical): 512 bytes / 512 bytes
     I/O size (minimum/optimal): 512 bytes / 512 bytes
     Disk identifier: 0x000bbb96
-
+    
     Device Boot Start End Blocks Id System
     /dev/sdb1 1 262 2104483+ 83 Linux
     /dev/sdb2 263 524 2104515 83 Linux
     /dev/sdb3 525 786 2104515 83 Linux
     /dev/sdb4 787 1044 2072385 82 Linux swap / Solaris
-
+    
     Command (m for help): d
     Partition number (1-4): 3
-
+    
     Command (m for help): w
     The partition table has been altered!
-
+    
     Calling ioctl() to re-read partition table.
     Syncing disks.
 
@@ -586,14 +586,14 @@ We had 4 partitions so that looks good. To delete a partition with **fdisk**, we
 So I deleted the 3rd partition. So let's see how **fdisk** looks like now:
 
     [root@rhel01 ~]# fdisk -l /dev/sdb
-
+    
     Disk /dev/sdb: 8589 MB, 8589934592 bytes
     255 heads, 63 sectors/track, 1044 cylinders
     Units = cylinders of 16065 * 512 = 8225280 bytes
     Sector size (logical/physical): 512 bytes / 512 bytes
     I/O size (minimum/optimal): 512 bytes / 512 bytes
     Disk identifier: 0x000bbb96
-
+    
     Device Boot Start End Blocks Id System
     /dev/sdb1 1 262 2104483+ 83 Linux
     /dev/sdb2 263 524 2104515 83 Linux
@@ -606,7 +606,7 @@ Now let's do similar functions with **parted**.
 
 ### Partitioning with *parted*
 
-From "[Red Hat Enterprise Linux 6 Storage Administration Guide](https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Storage_Administration_Guide/Red_Hat_Enterprise_Linux-6-Storage_Administration_Guide-en-US.pdf)"
+From "[Red Hat Enterprise Linux 6 Storage Administration Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/storage_administration_guide/red_hat_enterprise_linux-6-storage_administration_guide-en-us.pdf)"
 
 > **Chapter 5. Partitions**
 >
@@ -701,7 +701,7 @@ So let's use **parted** to remove the rest of partitions on **/dev/sdb** and the
     Disk /dev/sdb: 8590MB
     Sector size (logical/physical): 512B/512B
     Partition Table: msdos
-
+    
     Number Start End Size Type File system Flags
     1 32.3kB 2155MB 2155MB primary
     2 2155MB 4310MB 2155MB primary
@@ -719,12 +719,12 @@ Now to remove the partitions:
     Disk /dev/sdb: 8590MB
     Sector size (logical/physical): 512B/512B
     Partition Table: msdos
-
+    
     Number Start End Size Type File system Flags
     1 32.3kB 2155MB 2155MB primary
     2 2155MB 4310MB 2155MB primary
     4 6465MB 8587MB 2122MB primary
-
+    
     (parted) rm 1
     (parted) rm 2
     (parted) rm 4
@@ -733,7 +733,7 @@ Now to remove the partitions:
     Disk /dev/sdb: 8590MB
     Sector size (logical/physical): 512B/512B
     Partition Table: msdos
-
+    
     Number Start End Size Type File system Flags
 
 
@@ -741,7 +741,7 @@ Now let's create the first one, taking 33% of the space:
 
     (parted) help mkpart
       mkpart PART-TYPE [FS-TYPE] START END     make a partition
-
+    
         PART-TYPE is one of: primary, logical, extended
             FS-TYPE is one of: ext4, ext3, ext2, fat32, fat16, hfsx, hfs+, hfs, jfs,
             swsusp, linux-swap(v1), linux-swap(v0), ntfs, reiserfs, hp-ufs, sun-ufs,
@@ -751,7 +751,7 @@ Now let's create the first one, taking 33% of the space:
             START and END are disk locations, such as 4GB or 10%.  Negative values
             count from the end of the disk.  For example, -1s specifies exactly the
             last sector.
-
+    
             'mkpart' makes a partition without creating a new file system on the
             partition.  FS-TYPE may be specified to set an appropriate partition
             ID.
@@ -761,7 +761,7 @@ Now let's create the first one, taking 33% of the space:
     Disk /dev/sdb: 8590MB
     Sector size (logical/physical): 512B/512B
     Partition Table: msdos
-
+    
     Number Start End Size Type File system Flags
     1 1049kB 2834MB 2833MB primary
 
@@ -774,7 +774,7 @@ Now for the second one:
     Disk /dev/sdb: 8590MB
     Sector size (logical/physical): 512B/512B
     Partition Table: msdos
-
+    
     Number Start End Size Type File system Flags
     1 1049kB 2834MB 2833MB primary
     2 2835MB 5670MB 2834MB primary
@@ -788,7 +788,7 @@ Now the last one:
     Disk /dev/sdb: 8590MB
     Sector size (logical/physical): 512B/512B
     Partition Table: msdos
-
+    
     Number Start End Size Type File system Flags
     1 1049kB 2834MB 2833MB primary
     2 2835MB 5670MB 2834MB primary
@@ -804,14 +804,14 @@ As soon as your quit the parted utility it writes the new partition table:
 Now to check the partition table:
 
     [root@rhel01 ~]# fdisk -l /dev/sdb
-
+    
     Disk /dev/sdb: 8589 MB, 8589934592 bytes
     255 heads, 63 sectors/track, 1044 cylinders
     Units = cylinders of 16065 * 512 = 8225280 bytes
     Sector size (logical/physical): 512 bytes / 512 bytes
     I/O size (minimum/optimal): 512 bytes / 512 bytes
     Disk identifier: 0x000bbb96
-
+    
     Device Boot Start End Blocks Id System
     /dev/sdb1 1 345 2766848 83 Linux
     Partition 1 does not end on cylinder boundary.
@@ -822,7 +822,7 @@ Now to check the partition table:
 
 ### Logical Volume Manager (LVM)
 
-Now onto LVMs, from "[Red Hat Enterprise Linux 6 Logical Volume Manager Administration](https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Logical_Volume_Manager_Administration/Red_Hat_Enterprise_Linux-6-Logical_Volume_Manager_Administration-en-US.pdf)":
+Now onto LVMs, from "[Red Hat Enterprise Linux 6 Logical Volume Manager Administration](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/Red_Hat_Enterprise_Linux-6-Logical_Volume_Manager_Administration-en-US.pdf)":
 
 > The underlying physical storage unit of an LVM logical volume is a block device such as a partition or whole disk. This device is initialized as an LVM physical volume (PV).
 >
@@ -1090,7 +1090,7 @@ I don't want to add my other disks, do let's partition my one drive (**sdb**) in
     Disk /dev/sdb: 8590MB
     Sector size (logical/physical): 512B/512B
     Partition Table: msdos
-
+    
     Number Start End Size Type File system Flags
     1 1049kB 2834MB 2833MB primary
     2 2920MB 5670MB 2749MB primary
@@ -1164,7 +1164,7 @@ Now let's extend our Logical Volume to use all the available space:
 Checking out the device, I see the following:
 
     [root@rhel01 ~]# fdisk -l /dev/kvg/kvol
-
+    
     Disk /dev/kvg/kvol: 8409 MB, 8409579520 bytes
     255 heads, 63 sectors/track, 1022 cylinders
     Units = cylinders of 16065 * 512 = 8225280 bytes
@@ -1273,7 +1273,7 @@ Now let's move to **mdadm**. From "[Red Hat Enterprise Linux 6 Storage Administr
 
 ### RAID Device with *mdadm*
 
-From an older guide "[Red Hat Enterprise Linux 5 Installation Guide](https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/5/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-5-Installation_Guide-en-US.pdf)", here is an example of creating a raid configuration with **dmadm**:
+From an older guide "[Red Hat Enterprise Linux 5 Installation Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/pdf/installation_guide/red_hat_enterprise_linux-5-installation_guide-en-us.pdf)", here is an example of creating a raid configuration with **dmadm**:
 
 > **22.3.1. Creating a RAID Device With mdadm**
 >
@@ -1402,7 +1402,7 @@ Now let's create the raid configuration:
     or, for --examine-bitmap, a file name.
     The first such name is often the name of an md device. Subsequent
     names are often names of component devices.
-
+    
     Some common options are:
     --help -h : General help message or, after above option, mode specific help message
     --help-options : This help message
@@ -1412,7 +1412,7 @@ Now let's create the raid configuration:
     --brief -b : Be less verbose, more brief
     --export -Y : With --detail, use key=value format for easy import into environment
     --force -f : Override normal checks and be more forceful
-
+    
     --assemble -A : Assemble an array
     --build -B : Build an array without metadata
     --create -C : Create a new array
@@ -1430,25 +1430,25 @@ and more information:
 
     [root@rhel01 ~]# mdadm -C --help
     Usage: mdadm --create device -chunk=X --level=Y --raid-devices=Z devices
-
+    
     This usage will initialise a new md array, associate some
     devices with it, and activate the array. In order to create an
     array with some devices missing, use the special word 'missing' in
     place of the relevant device name.
-
+    
     Before devices are added, they are checked to see if they already contain
     raid superblocks or filesystems. They are also checked to see if
     the variance in device size exceeds 1%.
     If any discrepancy is found, the user will be prompted for confirmation
     before the array is created. The presence of a '--run' can override this
     caution.
-
+    
     If the --size option is given then only that many kilobytes of each
     device is used, no matter how big each device is.
     If no --size is given, the apparent size of the smallest drive given
     is used for raid level 1 and greater, and the full device is used for
     other levels.
-
+    
     Options that are valid with --create (-C) are:
     --bitmap= : Create a bitmap for the array with the given filename
     --chunk= -c : chunk size of kibibytes
@@ -1491,7 +1491,7 @@ Now checking the status of our raid, we see the following:
     md0 : active raid5 sdb3[3] sdb2[1] sdb1[0]
     5366784 blocks super 1.2 level 5, 512k chunk, algorithm 2 [3/2] [UU_]
     [====>................] recovery = 24.1% (647424/2683392) finish=0.8min speed=40464K/sec
-
+    
     unused devices: <none>
 
 
@@ -1501,7 +1501,7 @@ We can see that the devices are getting initialized, after it's done the output 
     Personalities : [raid6] [raid5] [raid4]
     md0 : active raid5 sdb3[3] sdb2[1] sdb1[0]
     5366784 blocks super 1.2 level 5, 512k chunk, algorithm 2 [3/3] [UUU]
-
+    
     unused devices: <none>
 
 
@@ -1517,22 +1517,22 @@ You can always check the information regarding the raid device with **mdadm**, l
     Raid Devices : 3
     Total Devices : 3
     Persistence : Superblock is persistent
-
+    
     Update Time : Tue Jan 1 17:03:40 2013
     State : clean
-
+    
     Active Devices : 3
     Working Devices : 3
     Failed Devices : 0
     Spare Devices : 0
-
+    
     Layout : left-symmetric
     Chunk Size : 512K
-
+    
     Name : rhel01:0 (local to host rhel01)
     UUID : 73a30958:0d00c98d:1cf3f91b:fb500ba6
     Events : 18
-
+    
     Number Major Minor RaidDevice State
     0 8 17 0 active sync /dev/sdb1
     1 8 18 1 active sync /dev/sdb2
@@ -1557,27 +1557,27 @@ Now checking the status of our raid, we see the following:
     Raid Devices : 3
     Total Devices : 3
     Persistence : Superblock is persistent
-
+    
     Update Time : Tue Jan 1 17:08:09 2013
     State : clean, degraded
-
+    
     Active Devices : 2
     Working Devices : 2
     Failed Devices : 1
     Spare Devices : 0
-
+    
     Layout : left-symmetric
     Chunk Size : 512K
-
+    
     Name : rhel01:0 (local to host rhel01)
     UUID : 73a30958:0d00c98d:1cf3f91b:fb500ba6
     Events : 19
-
+    
     Number Major Minor RaidDevice State
     0 8 17 0 active sync /dev/sdb1
     1 8 18 1 active sync /dev/sdb2
     2 0 0 2 removed
-
+    
     3 8 19 - faulty spare /dev/sdb3
 
 
@@ -1599,22 +1599,22 @@ Now checking the status:
     Raid Devices : 3
     Total Devices : 2
     Persistence : Superblock is persistent
-
+    
     Update Time : Tue Jan 1 17:10:17 2013
     State : clean, degraded
-
+    
     Active Devices : 2
     Working Devices : 2
     Failed Devices : 0
     Spare Devices : 0
-
+    
     Layout : left-symmetric
     Chunk Size : 512K
-
+    
     Name : rhel01:0 (local to host rhel01)
     UUID : 73a30958:0d00c98d:1cf3f91b:fb500ba6
     Events : 22
-
+    
     Number Major Minor RaidDevice State
     0 8 17 0 active sync /dev/sdb1
     1 8 18 1 active sync /dev/sdb2
@@ -1639,24 +1639,24 @@ And now checking the status:
     Raid Devices : 3
     Total Devices : 3
     Persistence : Superblock is persistent
-
+    
     Update Time : Tue Jan 1 17:12:42 2013
     State : clean, degraded, recovering
-
+    
     Active Devices : 2
     Working Devices : 3
     Failed Devices : 0
     Spare Devices : 1
-
+    
     Layout : left-symmetric
     Chunk Size : 512K
-
+    
     Rebuild Status : 6% complete
-
+    
     Name : rhel01:0 (local to host rhel01)
     UUID : 73a30958:0d00c98d:1cf3f91b:fb500ba6
     Events : 26
-
+    
     Number Major Minor RaidDevice State
     0 8 17 0 active sync /dev/sdb1
     1 8 18 1 active sync /dev/sdb2
@@ -1669,7 +1669,7 @@ We can see that the disk is added to configuration and then rebuild process has 
     Personalities : [raid6] [raid5] [raid4]
     md0 : active raid5 sdb3[3] sdb2[1] sdb1[0]
     5366784 blocks super 1.2 level 5, 512k chunk, algorithm 2 [3/3] [UUU]
-
+    
     unused devices: <none>
 
 

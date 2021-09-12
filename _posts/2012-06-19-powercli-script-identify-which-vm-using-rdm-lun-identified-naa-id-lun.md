@@ -8,7 +8,7 @@ categories: ['vmware', 'storage']
 tags: ['naa_id', 'powercli', 'rdm', 'vml_id']
 ---
 
-I recently had a interesting query: "Given the naa_id of a LUN which is an RDM, how do you find which VM that LUN is connected to?" Doing some quick searching in the VMware KB, I found VMware articles [1005937](http://kb.vmware.com/kb/1005937) had a powercli script which showed the size of the RDM and the full path of the RDM:
+I recently had a interesting query: "Given the naa_id of a LUN which is an RDM, how do you find which VM that LUN is connected to?" Doing some quick searching in the VMware KB, I found VMware articles [1004814](https://kb.vmware.com/s/article/1004814) had a powercli script which showed the size of the RDM and the full path of the RDM:
 
 
 	Get-Datastore | Get-HardDisk -DiskType "RawPhysical","RawVirtual" | Select "Filename","CapacityKB" | fl
@@ -19,7 +19,7 @@ Sample ouput:
 > Filename : [DatastoreName] DirectoryName/virtualrdm.vmdk
 > CapacityKB : 5760
 
-Although helpful, but not exactly what we were looking for. The same KB ([1005937](http://kb.vmware.com/kb/1005937)) also had a way of doing through the command line of the esx host:
+Although helpful, but not exactly what we were looking for. The same KB ([1004814](https://kb.vmware.com/s/article/1004814)) also had a way of doing through the command line of the esx host:
 
 
 	~ # find /vmfs/volumes/ -type f -name '*.vmdk' -size -1024k -exec grep -l '^createType=.*RawDeviceMap' {} \; | xargs -L 1 vmkfstools -q
@@ -37,7 +37,7 @@ Sample output:
 > Disk /vmfs/volumes/.../physicalrdm.vmdk is a Passthrough Raw Device Mapping
 > Maps to: vml.02000000006006048000019030091953303030313253594d4d4554
 
-This is perfect however this had to be run on each individual host since there is lock on the vmdk files from the host where the VM resides. Again helpful but a lot work. In the second KB [2001823](http://kb.vmware.com/kb/2001823 ), there was another powercli script:
+This is perfect however this had to be run on each individual host since there is lock on the vmdk files from the host where the VM resides. Again helpful but a lot work. In the second KB [2001823](https://kb.vmware.com/s/article/2001823), there was another powercli script:
 
 
 	Get-VM | Get-HardDisk -DiskType "RawPhysical","RawVirtual" | Select Parent,Name,DiskType,ScsiCanonicalName,DeviceName | fl

@@ -12,14 +12,14 @@ I have a lab environment where I deploy about 30 VMs on one physical server and 
 	Product Name:Seabream
 	Vendor Name:InventecESC
 	Serial Number:P1237010411
-
+	
 	~ # vsish -e cat /hardware/cpu/cpuInfo | grep -E 'Number\ of \cores|Number\ of\ CPU'
 	Number of cores:8
 	Number of CPUs (threads):8
-
+	
 	~ # vsish -e cat /hardware/cpu/cpuModelName
 	Intel(R) Xeon(R) CPU X5355 @ 2.66GHz
-
+	
 	~ # vsish -e cat /memory/comprehensive | head -2
 	Comprehensive {
 	Physical memory estimate:8388084 KB
@@ -28,7 +28,7 @@ So 8 cores at 2.66GHz and 8GB of RAM, nothing crazy. Each VM has the minimum amo
 
 ![esxtop_latency](https://github.com/elatov/uploads/raw/master/2012/03/esxtop_latency.png)
 
-To get to this screen just launch esxtop and hit 'v' for "disk VMs". On ESXi 5.0 the latency is automatically displayed in this view. If you are on 4.x, after selecting 'v' you can type in 'f' and that will show you a list of available columns, select the latency columns and you will see the same as above. From the above picture we see VM "uaclass39" and "uaclass17" experiencing latency up to 20 milliseconds. At certain times 20 VMs would experience the same issue. I saw this lantency be steady for a couple of minutes. More information regarding latency can be seen at this communities page ([Performance Troubleshooting for VMware vSphere™ 4.1](http://communities.vmware.com/docs/DOC-11812)", check out the section entitled '7.3.13. Check for Slow or Under-Sized Storage Device'.
+To get to this screen just launch esxtop and hit 'v' for "disk VMs". On ESXi 5.0 the latency is automatically displayed in this view. If you are on 4.x, after selecting 'v' you can type in 'f' and that will show you a list of available columns, select the latency columns and you will see the same as above. From the above picture we see VM "uaclass39" and "uaclass17" experiencing latency up to 20 milliseconds. At certain times 20 VMs would experience the same issue. I saw this latency be steady for a couple of minutes. More information regarding latency can be seen at this communities page ([Performance Troubleshooting for VMware vSphere 4.1](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/vsphere41-performance-troubleshooting.pdf), check out the section entitled '7.3.13. Check for Slow or Under-Sized Storage Device'.
 
 I decided to take a look at what the VM is doing and why it was experiencing such high read and write latency. So I ssh'ed over to one of the VMs and I launched top, and here is I saw:![Ubuntu_11_10_top](https://github.com/elatov/uploads/raw/master/2012/03/Ubuntu_11_10_top.png)
 
@@ -67,34 +67,34 @@ So it looks like the "update-apt-xapian-index" is what's causing the high disk I
 
 	root@uaclass39:~# iostat 1 5 /dev/sda
 	Linux 3.0.0-17-virtual (uaclass39) 03/29/2012 _x86_64_ (1 CPU)
-
+	
 	avg-cpu: %user %nice %system %iowait %steal %idle
 	1.03 2.09 1.94 44.96 0.00 49.99
-
+	
 	Device: tps kB_read/s kB_wrtn/s kB_read kB_wrtn
 	sda 169.03 5636.54 312.89 7418419 411800
-
+	
 	avg-cpu: %user %nice %system %iowait %steal %idle
 	0.00 1.98 2.97 95.05 0.00 0.00
-
+	
 	Device: tps kB_read/s kB_wrtn/s kB_read kB_wrtn
 	sda 609.90 16419.80 91.09 16584 92
-
+	
 	avg-cpu: %user %nice %system %iowait %steal %idle
 	0.00 2.00 2.00 96.00 0.00 0.00
-
+	
 	Device: tps kB_read/s kB_wrtn/s kB_read kB_wrtn
 	sda 563.00 14884.00 40.00 14884 40
-
+	
 	avg-cpu: %user %nice %system %iowait %steal %idle
 	0.97 1.94 0.97 96.12 0.00 0.00
-
+	
 	Device: tps kB_read/s kB_wrtn/s kB_read kB_wrtn
 	sda 779.61 20749.51 38.83 21372 40
-
+	
 	avg-cpu: %user %nice %system %iowait %steal %idle
 	0.00 7.69 1.92 90.38 0.00 0.00
-
+	
 	Device: tps kB_read/s kB_wrtn/s kB_read kB_wrtn
 	sda 658.65 15638.46 319.23 16264 332
 
@@ -114,9 +114,9 @@ but it still caused an issue and it states that ionice should not be used in a v
 
 
 	#!/bin/bash
-
+	
 	HOSTS="uaclass01 uaclass02 uaclass03 ..."
-
+	
 	for i in $HOSTS;do
 	echo $i
 	/usr/bin/ssh $i '/bin/chmod 0 /etc/cron.weekly/apt-xapian-index'
@@ -128,7 +128,7 @@ A more appropriate fix would be to completely remove the package:
 
 	root@uaclass39:~$ dpkg -l | grep apt-xapian
 	ii apt-xapian-index 0.44ubuntu4 maintenance and search tools for a Xapian index of Debian packages
-
+	
 	root@uaclass39:~$ apt-get --purge remove apt-xapian-index
 	Reading package lists... Done
 	Building dependency tree
@@ -151,23 +151,23 @@ But I didn't want to do that just yet. Just as an FYI, here are the spec of each
 
 	root@uaclass39:~# uname -a
 	Linux uaclass39 3.0.0-17-virtual #30-Ubuntu SMP Thu Mar 8 23:45:51 UTC 2012 x86_64 x86_64 x86_64 GNU/Linux
-
+	
 	root@uaclass39:~# lsb_release -a
 	No LSB modules are available.
 	Distributor ID: Ubuntu
 	Description: Ubuntu 11.10
 	Release: 11.10
 	Codename: oneiric
-
+	
 	root@uaclass39:~# free -m
 	total used free shared buffers cached
 	Mem: 176 167 8 0 10 107
 	-/+ buffers/cache: 50 126
 	Swap: 379 35 344
-
+	
 	root@uaclass39:~# x86info
 	x86info v1.25. Dave Jones 2001-2009
-
+	
 	Found 1 CPU
 	--------------------------------------------------------------------------
 	EFamily: 0 EModel: 0 Family: 6 Model: 15 Stepping: 7
