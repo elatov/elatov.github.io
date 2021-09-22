@@ -54,11 +54,11 @@ From "[Red Hat Enterprise Linux 6 Installation Guide](https://access.redhat.com/
 >
 >
 >         The name of the repository is specified in square brackets — in this example, [dvd]. The name is not important, but you should choose something that is meaningful and recognizable.
->    
+>        
 >         The line that specifies the **baseurl** should contain the path to the mount point that you created previously, suffixed with **/Server** for a Red Hat Enterprise Linux server installation DVD, or with **/Client** for a Red Hat Enterprise Linux client installation DVD.
->    
+>        
 >     4.  Press the **Esc** key to exit **insert** mode.
->    
+>        
 >     5.  Type **:wq** and press the **Enter** key to save the file and exit the vi text editor.
 >     6.  After installing or upgrading software from the DVD, delete the repo file that you created
 
@@ -186,7 +186,7 @@ Now to install the package:
 
 ### Hard Disks
 
-Now to partitions, from "[Red Hat Enterprise Linux 6 Installation Guide](https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf)":
+Now to partitions, from "[Red Hat Enterprise Linux 6 Installation Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/installation_guide/red_hat_enterprise_linux-6-installation_guide-en-us.pdf)":
 
 > **A.1. Hard Disk Basic Concepts**
 >
@@ -1177,7 +1177,7 @@ So it looks like it's taking up all the space. Of course this was a round about 
 
 ### RAID
 
-Now let's move to **mdadm**. From "[Red Hat Enterprise Linux 6 Storage Administration Guide](https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Storage_Administration_Guide/Red_Hat_Enterprise_Linux-6-Storage_Administration_Guide-en-US.pdf)":
+Now let's move to **mdadm**. From "[Red Hat Enterprise Linux 6 Storage Administration Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/storage_administration_guide/red_hat_enterprise_linux-6-storage_administration_guide-en-us.pdf)":
 
 > **Chapter 16. Redundant Array of Independent Disks (RAID)**
 >

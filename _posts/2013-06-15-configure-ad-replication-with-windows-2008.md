@@ -3,15 +3,13 @@ title: Configure AD Replication with Windows 2008
 author: Karim Elatov
 layout: post
 permalink: /2013/06/configure-ad-replication-with-windows-2008/
-dsq_thread_id:
-  - 1405505844
 categories: ['home_lab', 'os']
 tags: ['dns', 'active_directory', 'win2k8r2']
 ---
 
 ## Types of AD replication
 
-With Active Directory (AD) there are multiple types of replication. From "[What Is Active Directory Replication Topology?](http://technet.microsoft.com/en-us/library/cc775549%28WS.10%29.aspx)":
+With Active Directory (AD) there are multiple types of replication. From "[What Is Active Directory Replication Topology?](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc775549(v=ws.10))":
 
 > As such, replication within sites generally occurs at high speeds between domain controllers that are on the same network segment. Similarly, site link objects can be configured to represent the wide area network (WAN) links that connect LANs. Replication between sites usually occurs over these WAN links, which might be costly in terms of bandwidth. To accommodate the differences in distance and cost of replication within a site and replication between sites, the intrasite replication topology is created to optimize speed, and the intersite replication topology is created to minimize cost.
 > ...
@@ -31,7 +29,7 @@ So intra-site replication is automatically setup, while inter-site requires some
 
 ## Data Replicated with AD Replication
 
-The article "[How the Active Directory Replication Model Works](http://technet.microsoft.com/en-us/library/cc772726%28v=ws.10%29.aspx)" talk about what data is replicated:
+The article "[How the Active Directory Replication Model Works](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc772726(v=ws.10))" talk about what data is replicated:
 
 > Different categories of data are stored in replicas of different directory partitions, as follows:
 >
@@ -48,15 +46,15 @@ The article "[How the Active Directory Replication Model Works](http://technet.m
 
 ## AD Replication Interval
 
-The interval of the replication depends on your setup as well. From "[Replication within a site](https://technet.microsoft.com/en-us/library/cc961783.aspx)":
+The interval of the replication depends on your setup as well. From "[Replication within a site](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-2000-server/cc961783(v=technet.10))":
 
 > Directory updates made within a site are likely to have the most direct impact on local clients, so intrasite replication is optimized for speed. Replication within a site occurs automatically on the basis of change notification. Intrasite replication begins when you make a directory update on a domain controller. By default, the source domain controller waits 15 seconds and then sends an update notification to its closest replication partner. If the source domain controller has more than one replication partner, subsequent notifications go out by default at 3 second intervals to each partner. After receiving notification of a change, a partner domain controller sends a directory update request to the source domain controller. The source domain controller responds to the request with a replication operation. The 3 second notification interval prevents the source domain controller from being overwhelmed with simultaneous update requests from its replication partners.
 
-From "[Understanding Replication Between Sites](http://technet.microsoft.com/en-us/library/cc771251.aspx)":
+From "[Understanding Replication Between Sites](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771251(v=ws.11))":
 
 > AD DS preserves bandwidth between sites by minimizing the frequency of replication and by making it possible for you to schedule the availability of site links for replication. By default, intersite replication across each site link occurs every 180 minutes (3 hours). You can adjust this frequency to match your specific needs.
 
-So intra-site replication is automatic, while inter-site is setup on a interval based schedule. Also from "[Active Directory Replication Technologies](http://technet.microsoft.com/en-us/library/cc776877%28v=ws.10%29.aspx)":
+So intra-site replication is automatic, while inter-site is setup on a interval based schedule. Also from "[Active Directory Replication Technologies](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc776877(v=ws.10))":
 
 > Replication topology generation is optimized for speed within sites and for cost between sites. Replication between domain controllers in the same site occurs automatically in response to changes and does not require administrative management. Replication within a site is sent uncompressed to reduce processing time. Replication between domain controllers in different sites can be managed to control the scheduling and routing of replication over WAN links. Replication between sites is compressed so that it uses less bandwidth when sent across WAN links, thereby reducing the cost.
 
@@ -96,7 +94,7 @@ Before we go any further let's take a snapshot of our users from the current AD 
 Also let's see if replication is setup:
 
     C:\Users\Administrator>repadmin /showrepl
-
+    
     Repadmin: running command /showrepl against full DC localhost
     Default-First-Site-Name\DC
     DSA Options: IS_GC
@@ -108,12 +106,12 @@ Also let's see if replication is setup:
 And of course it's not. Also let's check out the DNS Zones defined on the AD server:
 
     C:\Users\Administrator>dnscmd  /EnumZones
-
+    
     Enumerated zone list:
             Zone count = 5
-
+    
      Zone name                      Type       Storage         Properties
-
+    
      .                              Cache      AD-Domain
      _msdcs.elatov.local            Primary    AD-Forest       Secure
      101.168.192.in-addr.arpa       Primary    AD-Domain       Secure Rev
@@ -134,7 +132,7 @@ And now let's check out our DNS Records:
     dc                               1200 A  192.168.250.47
     haproxy                          3600 A  192.168.250.52
     iis-2            [Aging:3613995] 1200 A  192.168.250.49
-
+    
     Command completed successfully.
 
 
@@ -217,7 +215,7 @@ Checking the DNS Records on the new machine, I saw the following:
     dc2                              3600 A  192.168.250.54
     haproxy                          3600 A  192.168.250.52
     iis-2            [Aging:3613995] 1200 A  192.168.250.49
-
+    
     Command completed successfully.
 
 
@@ -226,7 +224,7 @@ We can see that our machine (dc2) was automatically added to DNS. Checking for t
     C:\Users\Administrator>dnscmd /EnumRecords elatov.local dc2 /type A
     Returned records:
     @                    [Aging:3614831] 3600 A  192.168.250.54
-
+    
     Command completed successfully.
 
 
@@ -234,7 +232,7 @@ That looks good. Now to check the status of the replication:
 
     C:\Users\Administrator.ELATOV>repadmin /replsummary
     Replication Summary Start Time: 2013-05-18 16:43:23
-
+    
     Beginning data collection for replication summary, this may take awhile:
       .....
 
@@ -252,43 +250,43 @@ That looks good. Now to check the status of the replication:
 No errors are seen. We can also see all the data that has been replicated:
 
     C:\Users\Administrator>repadmin /showrepl
-
+    
     Repadmin: running command /showrepl against full DC localhost
     Default-First-Site-Name\DC
     DSA Options: IS_GC
     Site Options: (none)
     DSA object GUID: a68c69a8-b015-4254-b81c-dc65782bd1fa
     DSA invocationID: a68c69a8-b015-4254-b81c-dc65782bd1fa
-
+    
     ==== INBOUND NEIGHBORS ======================================
-
+    
     DC=elatov,DC=local
         Default-First-Site-Name\DC2 via RPC
             DSA object GUID: f3d68c86-ec97-42d0-8aef-f62e8c70f347
             Last attempt @ 2013-05-18 16:33:47 was successful.
-
+    
     CN=Configuration,DC=elatov,DC=local
         Default-First-Site-Name\DC2 via RPC
             DSA object GUID: f3d68c86-ec97-42d0-8aef-f62e8c70f347
             Last attempt @ 2013-05-18 16:35:57 was successful.
-
+    
     CN=Schema,CN=Configuration,DC=elatov,DC=local
         Default-First-Site-Name\DC2 via RPC
             DSA object GUID: f3d68c86-ec97-42d0-8aef-f62e8c70f347
             Last attempt @ 2013-05-18 16:31:54 was successful.
-
+    
     DC=DomainDnsZones,DC=elatov,DC=local
         Default-First-Site-Name\DC2 via RPC
             DSA object GUID: f3d68c86-ec97-42d0-8aef-f62e8c70f347
             Last attempt @ 2013-05-18 16:31:54 was successful.
-
+    
     DC=ForestDnsZones,DC=elatov,DC=local
         Default-First-Site-Name\DC2 via RPC
             DSA object GUID: f3d68c86-ec97-42d0-8aef-f62e8c70f347
             Last attempt @ 2013-05-18 16:31:54 was successful.
 
 
-We can see that DNS is included as well. This is expected since we have AD-intergrated DNS. From "[Active Directory-Integrated DNS Zones](http://technet.microsoft.com/en-us/library/cc731204%28v=ws.10%29.aspx)":
+We can see that DNS is included as well. This is expected since we have AD-intergrated DNS. From "[Active Directory-Integrated DNS Zones](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731204(v=ws.10))":
 
 > Domain Name System (DNS) servers running on domain controllers can store their zones in Active Directory Domain Services (AD DS). In this way, it is not necessary to configure a separate DNS replication topology that uses ordinary DNS zone transfers because all zone data is replicated automatically by means of Active Directory replication.
 
@@ -331,7 +329,7 @@ Let's call our user "test":
 After the user is created run the above command again:
 
     C:\Users\Administrator.ELATOV>repadmin /showchanges . dc=elatov,dc=local /cookie:config.txt
-
+    
     Repadmin: running command /showchanges against full DC localhost
     Using cookie from file config.txt (132 bytes)
     ==== SOURCE DSA: localhost ====
@@ -379,7 +377,7 @@ We can see that the difference in the cookie file since it was last run is the n
 I added a new user called 'test2' and made sure it was replicated. I then removed the user, ran the same command, and here is what I saw:
 
     C:\Users\Administrator.ELATOV>repadmin /showchanges . dc=elatov,dc=local /cookie:config.txt
-
+    
     Repadmin: running command /showchanges against full DC localhost
     Using cookie from file config.txt (132 bytes)
     ==== SOURCE DSA: localhost ====

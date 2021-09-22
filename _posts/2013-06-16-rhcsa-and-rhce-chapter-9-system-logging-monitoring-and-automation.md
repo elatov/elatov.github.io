@@ -9,7 +9,7 @@ tags: ['rhel', 'linux', 'rsyslog', 'performance']
 
 ## Syslog
 
-From [Red Hat Enterprise Linux 6 Deployment Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf):
+From [Red Hat Enterprise Linux 6 Deployment Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/deployment_guide/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf):
 
 > **Chapter 20. Viewing and Managing Log Files**
 > *Log files* are files that contain messages about the system, including the kernel, services, and applications running on it. There are different log files for different information. For example, there is a default system log file, a log file just for security messages, and a log file for cron tasks.
@@ -117,64 +117,64 @@ Here is how the default configuration for rsyslog looks like:
 
     [root@rhel1 ~]# cat /etc/rsyslog.conf
     #rsyslog v3 config file
-
+    
     # if you experience problems, check
     # http://www.rsyslog.com/troubleshoot for assistance
-
+    
     #### MODULES ####
-
+    
     $ModLoad imuxsock.so    # provides support for local system logging (e.g. via logger command)
     $ModLoad imklog.so  # provides kernel logging support (previously done by rklogd)
     #$ModLoad immark.so # provides --MARK-- message capability
-
+    
     # Provides UDP syslog reception
     #$ModLoad imudp.so
     #$UDPServerRun 514
-
+    
     # Provides TCP syslog reception
     #$ModLoad imtcp.so
     #$InputTCPServerRun 514
 
 
     #### GLOBAL DIRECTIVES ####
-
+    
     # Use default timestamp format
     $ActionFileDefaultTemplate RSYSLOG_TraditionalFileFormat
-
+    
     # File syncing capability is disabled by default. This feature is usually not required,
     # not useful and an extreme performance hit
     #$ActionFileEnableSync on
 
 
     #### RULES ####
-
+    
     # Log all kernel messages to the console.
     # Logging much else clutters up the screen.
     #kern.*                                                 /dev/console
-
+    
     # Log anything (except mail) of level info or higher.
     # Don't log private authentication messages!
     *.info;mail.none;authpriv.none;cron.none                /var/log/messages
-
+    
     # The authpriv file has restricted access.
     authpriv.*                                              /var/log/secure
-
+    
     # Log all the mail messages in one place.
     mail.*                                                  -/var/log/maillog
 
 
     # Log cron stuff
     cron.*                                                  /var/log/cron
-
+    
     # Everybody gets emergency messages
     *.emerg                                                 *
-
+    
     # Save news errors of level crit and higher in a special file.
     uucp,news.crit                                          /var/log/spooler
-
+    
     # Save boot messages also to boot.log
     local7.*                                                /var/log/boot.log
-
+    
     # ### begin forwarding rule ###
     # The statement between the begin ... end define a SINGLE forwarding
     # rule. They belong together, do NOT split them. If you create multiple
@@ -278,7 +278,7 @@ So **cron** runs **logrotate** periodically. Here is the script that cron runs d
 
     [root@rhel1 ~]# cat /etc/cron.daily/logrotate
     #!/bin/sh
-
+    
     /usr/sbin/logrotate /etc/logrotate.conf >/dev/null 2>&1
     EXITVALUE=$?
     if [ $EXITVALUE != 0 ]; then
@@ -293,22 +293,22 @@ That basically runs `/usr/sbin/logrotate /etc/logrotate.conf`. Checking out **/e
     # see "man logrotate" for details
     # rotate log files weekly
     weekly
-
+    
     # keep 4 weeks worth of backlogs
     rotate 4
-
+    
     # create new (empty) log files after rotating old ones
     create
-
+    
     # use date as a suffix of the rotated file
     dateext
-
+    
     # uncomment this if you want your log files compressed
     #compress
-
+    
     # RPM packages drop log rotation information into this directory
     include /etc/logrotate.d
-
+    
     # no packages own wtmp and btmp -- we'll rotate them here
     /var/log/wtmp {
         monthly
@@ -316,7 +316,7 @@ That basically runs `/usr/sbin/logrotate /etc/logrotate.conf`. Checking out **/e
         minsize 1M
         rotate 1
     }
-
+    
     /var/log/btmp {
         missingok
         monthly
@@ -443,7 +443,7 @@ There is also another command called lastlog. Here is how each look like:
 
     [root@rhel1 ~]# lastb
     root     ssh:notty    192.168.56.1     Wed Jun 12 16:26 - 16:26  (00:00)
-
+    
     btmp begins Wed Jun 12 16:26:27 2013
 
 
@@ -488,7 +488,7 @@ and here is the other one:
 
 ## Monitoring The System
 
-From [Red Hat Enterprise Linux 6 Performance Tuning Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Performance_Tuning_Guide/Red_Hat_Enterprise_Linux-6-Performance_Tuning_Guide-en-US.pdf):
+From [Red Hat Enterprise Linux 6 Performance Tuning Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/performance_tuning_guide/red_hat_enterprise_linux-6-performance_tuning_guide-en-us.pdf):
 
 > **3.3. Built-in Command-line Monitoring Tools**
 > In addition to graphical monitoring tools, Red Hat Enterprise Linux provides several tools that can be used to monitor a system from the command line. The advantage of these tools is that they can be used outside run level 5. This section discusses each tool briefly, and suggests the purposes to which each tool is best suited.
@@ -538,7 +538,7 @@ Here is how **top** looks like:
     Cpu(s):  0.0%us,  0.0%sy,  0.0%ni,100.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
     Mem:    511508k total,   161764k used,   349744k free,     9136k buffers
     Swap:  1048568k total,        0k used,  1048568k free,   101512k cached
-
+    
       PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND
      1334 root      20   0 11400 3224 2592 S  0.3  0.6   0:00.20 sshd
      1434 root      20   0  2540 1096  880 R  0.3  0.2   0:00.09 top
@@ -886,9 +886,9 @@ Looking over the file on the RHEL6 machine, I saw the following:
 
     [root@rhel1 ~]# cat /etc/anacrontab
     # /etc/anacrontab: configuration file for anacron
-
+    
     # See anacron(8) and anacrontab(5) for details.
-
+    
     SHELL=/bin/sh
     PATH=/sbin:/bin:/usr/sbin:/usr/bin
     MAILTO=root
@@ -896,7 +896,7 @@ Looking over the file on the RHEL6 machine, I saw the following:
     RANDOM_DELAY=45
     # the jobs will be started during the following hours only
     START_HOURS_RANGE=3-22
-
+    
     #period in days   delay in minutes   job-identifier   command
     1   5   cron.daily      nice run-parts /etc/cron.daily
     7   25  cron.weekly     nice run-parts /etc/cron.weekly
@@ -1083,7 +1083,7 @@ It looks like I don't have it installed. So let's go ahead and install it:
     ..
     Installed:
       at.i686 0:3.1.10-43.el6
-
+    
     Complete!
     [root@rhel1 ~]#
 

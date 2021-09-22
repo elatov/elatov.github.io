@@ -17,7 +17,7 @@ If you don't have [Virtual Machine Manager](http://virt-manager.org/) installed,
     sudo yum install virt-manager
 
 
-Depending on where your ISOs are stored you have a couple of options. If the ISOs are stored on the KVM server then you will have to use SSH X-Forwarding to do the initial setup, and after the initial install you can manage the VMs with **virt-manager** via *qemu+ssh* protocol instead of SSH X-Forwarding. The reason for this is because you can't browse local directories from **virt-manager** remotely. From '[Chapter 12. Managing Storage](https://doc.opensuse.org/documentation/leap/virtualization/html/book.virt/cha-libvirt-storage.html)'
+Depending on where your ISOs are stored you have a couple of options. If the ISOs are stored on the KVM server then you will have to use SSH X-Forwarding to do the initial setup, and after the initial install you can manage the VMs with **virt-manager** via *qemu+ssh* protocol instead of SSH X-Forwarding. The reason for this is because you can't browse local directories from **virt-manager** remotely. From '[Chapter 12. Managing Storage](https://doc.opensuse.org/documentation/leap/archive/15.0/virtualization/html/book.virt/cha.libvirt.storage.htmll)'
 
 > Using the file browser by clicking on Browse is not possible when operating from remote.
 
@@ -85,7 +85,7 @@ Then click "Forward" and then we will get to step 3 of the wizard:
 
 ![create new vm step3 Deploying a Test Windows Environment in a KVM Infrastucture](https://github.com/elatov/uploads/raw/master/2013/04/create_new_vm_step3.png)
 
-We have to choose CPU and RAM settings, looking over [this](http://technet.microsoft.com/en-us/windowsserver/bb414778.aspx) microsoft page, we can see their minimum requirements:
+We have to choose CPU and RAM settings, looking over [this](https://docs.microsoft.com/en-us/windows/deployment/deploy-whats-new) microsoft page, we can see their minimum requirements:
 
 ![microsoft min reqs Deploying a Test Windows Environment in a KVM Infrastucture](https://github.com/elatov/uploads/raw/master/2013/04/microsoft_min_reqs.png)
 
@@ -166,9 +166,9 @@ If you have ssh-agent running then you will just have to type in that password o
     [elatov@klaptop ~]$ ssh-copy-id virtuser@kvm
     virtuser@kvm's password:
     Now try logging into the machine, with "ssh 'virtuser@kvm'", and check in:
-
+    
       ~/.ssh/authorized_keys
-
+    
     to make sure we haven't added extra keys that you weren't expecting.
 
 
@@ -255,18 +255,18 @@ Selecting "Finish" from the above window prompted for a restart. After the resta
 Indicating that I was part of the "elatov" domain :) After I logged in I checked the IP settings and I saw the following:
 
     C:\Users\Administrator>ipconfig /all
-
+    
     Windows IP Configuration
-
+    
        Host Name . . . . . . . . . . . . : dc
        Primary Dns Suffix  . . . . . . . : elatov.local
        Node Type . . . . . . . . . . . . : Hybrid
        IP Routing Enabled. . . . . . . . : No
        WINS Proxy Enabled. . . . . . . . : No
        DNS Suffix Search List. . . . . . : elatov.local
-
+    
     Ethernet adapter Local Area Connection:
-
+    
        Connection-specific DNS Suffix  . :
        Description . . . . . . . . . . . : Realtek RTL8139C+ Fast Ethernet NIC
        Physical Address. . . . . . . . . : 52-54-00-07-BA-A3
@@ -364,17 +364,17 @@ Then click "OK" and "Close" and you should be all set. From Internet Explorer go
 Install Windows 7 on another VM. Give it an IP and make sure the primary DNS points to the new DC server that we setup. Here is how the IP configuration looked like on my Windows 7 Client:
 
     C:\Users\elatov>ipconfig /all
-
+    
     Windows IP Configuration
-
+    
        Host Name . . . . . . . . . . . . : client
        Primary Dns Suffix  . . . . . . . :
        Node Type . . . . . . . . . . . . : Hybrid
        IP Routing Enabled. . . . . . . . : No
        WINS Proxy Enabled. . . . . . . . : No
-
+    
     Ethernet adapter Local Area Connection:
-
+    
        Connection-specific DNS Suffix  . :
        Description . . . . . . . . . . . : Realtek RTL8139C+ Fast Ethernet NIC
        Physical Address. . . . . . . . . : 52-54-00-5D-FB-1D
@@ -393,7 +393,7 @@ Do a test on the client, run **nslookup** to make sure it works:
     C:\Users\elatov>nslookup dc.elatov.local
     Server:  UnKnown
     Address:  192.168.250.47
-
+    
     Name:    dc.elatov.local
     Address:  192.168.250.47
 

@@ -19,17 +19,17 @@ That is a lot of components, so let's break them down. NetApp SnapManager for Vi
 
 > SnapManager® for Virtual Infrastructure works with VMware vCenter, automating and simplifying management of backup and restore operations.
 
-Here is link the main page of SVMI, [NetApp SnapManager for Virtual Infrastructure Demo](http://www.netapp.com/us/products/management-software/vsc/snapmanager-virtual.html). Next we have SnapDrive. SnapDrive is an application that runs from within an OS and allows you to manage (create,delete, resize, and ...etc) LUNs for a NetApp Filer. As always NetApp describes it best:
+Here is link the main page of SVMI, [SnapManager for Virtual Infrastructure](https://www.netapp.com/data-management/virtual-infrastructure-management/). There is a good video that describes what is does and has a good demo. Here a link to that video,[NetApp SnapManager for Virtual Infrastructure Demo](http://www.youtube.com/watch?v=JECAgR9YftQ). Next we have SnapDrive. SnapDrive is an application that runs from within an OS and allows you to manage (create,delete, resize, and ...etc) LUNs for a NetApp Filer. As always NetApp describes it best:
 
 > Eliminate the time-consuming and error-prone manual management of NetApp storage with our protocol-agnostic solution. Automate storage provisioning tasks and simplify the process of taking error-free, host-consistent data Snapshot copies. Run SnapDrive on your Windows-based hosts in either a physical or virtual environment and integrate it with your Microsoft Cluster Server and Windows failover clustering
 
-Here is main page of SnapDrive, [Connect & Create Luns with SnapDrive](http://www.netapp.com/us/products/management-software/snapdrive-windows.html). SnapDrive also allows you to take array level snapshots of the LUNs presented to the OS.
+Here is main page of SnapDrive, [SnapDrive for Windows](https://mysupport.netapp.com/info/web/ecmlp2567967.html) and here is [Technical Overview of NetApp SnapDrive](http://media.netapp.com/documents/tr-3197.pdf). Also, here is another video which shows you how SnapDrive works, [Connect & Create Luns with SnapDrive](http://www.youtube.com/watch?v=_7Srm21Wadg). SnapDrive also allows you to take array level snapshots of the LUNs presented to the OS.
 
 Lastly, we have SnapManager for Exchange (SME). We know how IO intensive Exchange can be, in order to perform backups of an Exchange Server, we need to freeze the IO for a little bit and then take a backup, so no disruption to Exchange Server occurs and we can have an application level consistent backup. That is exactly for SME does. Here is NetApp's description of the product:
 
 > Simplify your application data management with SnapManager for Microsoft Exchange Server. You can automate complex, manual, and time-consuming processes associated with the backup, recovery, and verification of Exchange Server databases while reducing messaging storage costs, improving manageability, and increasing availability.
 
-Here is the link for to the NetApp webpage, [napManager 2.0 for Virtual Infrastructure Best Practices](http://www.netapp.com/us/products/management-software/snapmanager-exchange.html)):
+Here is the link for to the NetApp webpage, [SnapManager for Microsoft Exchange Server](https://library.netapp.com/ecmdocs/ECMP1400523/html/GUID-36675F1D-06E8-46AF-866F-014B6E5EB299.html). And instead of a video here a link to another blog that has a step by step guide on how to set it up, [SnapManager For Exchange Backup Wizard](http://www.sysadmintutorials.com/tutorials/netapp/snapmanager-for-exchange/snapmanager-for-exchange-backup-wizard). Now how does this all work together? There is actually a very good PowerPoint provided by NetApp which puts all the products together [SnapDrive 6.0 for Windows SE Presentation](http://www.snt.hu/downloads/press/SnapDrive.ppt). Starting with SnapDrive 6.2 we can add RDMs to a VM, which is awesome. So when SMVI takes a snapshot of a VM that is running SnapDrive and SME. We have a couple of options, from the following tech paper [SnapManager 2.0 for Virtual Infrastructure Best Practices](http://media.netapp.com/documents/tr-3737.pdf): 
 
 > *   SMVI, working through the VMware guest VSS stack, provides application-consistent backup and recovery for applications that have VSS writers and store their data on virtual disks (VMDKs). Recovery, in this scenario, is at the full VM level only.
 > *   SnapDrive® and application-specific SnapManager products such as SnapManager for Exchange (SME) and SnapManager for SQL (SMSQL) running in the guest OS, provide application consistent backup and fine-grained recovery for applications whose data is stored using Microsoft iSCSI Software Initiator LUNs or RDMs.
@@ -48,7 +48,18 @@ But both options can be used together, from the same white paper we see this:
 >
 > Another recommendation for these environments is to use physical mode RDM LUNs, instead of Microsoft iSCSI Software Initiator LUNs, when provisioning storage in order to get the maximum protection level from the combined SMVI and SDW/SM solution: guest file system consistency for OS images using VSS-assisted SMVI backups, and application-consistent backups and fine-grained recovery for application data using the SnapManager applications.
 
-A lot of people ran into issue with having two VSS writers ([VMware KB 1029963](https://communities.netapp.com/thread/14067) ). The Snapdrive and RDM issues seem to be fixed with the latest versions of all the products ;) The former seems to still come up and it depends on what your goal is, but that last Netapp community page has a good description of what to try.
+A lot of people ran into issue with having two VSS writers:
+
+- [VSC - Backups Hanging](http://communities.netapp.com/thread/14067)
+- [VSS Components Conflicting](https://communities.netapp.com/thread/3015?tstart=3)
+- [Problem with vmware quiesced snapshot (and smvi) and iscsi rdm](https://communities.netapp.com/message/30383)
+
+There were also a couple of issues with using SnapDrive to add an RDM:
+
+- [FC RDM Luns in ESX4.1 virtual machines](http://communities.netapp.com/message/45241) 
+- [VMware KB 1029963](http://kb.vmware.com/kb/1029963)
+
+The Snapdrive and RDM issues seem to be fixed with the latest versions of all the products :). The former seems to still come up and it depends on what your goal is, but that last Netapp community page has a good description of what to try.
 
 If you want to see a good picture of the setup with the OS disks being vmdks and Exchange data disks are RDMs, I would suggest looking over this article, [Running Microsoft Enterprise Applications on VMware vSphere, NetApp Unified Storage, and Cisco Unified Fabric](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/partners/netapp/vmware-running-microsoft-enterprise-applications-on-vsphere-netapp-unified.pdf)
 

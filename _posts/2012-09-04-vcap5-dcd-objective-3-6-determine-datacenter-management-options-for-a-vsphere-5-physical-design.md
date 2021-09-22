@@ -339,7 +339,7 @@ And for the [features](http://www.vmware.com/products/datacenter-virtualization/
 > *   Workflow automation from approvals provisioning, through de-provisioning
 > *   Automatically sends email notifications and approval requests Lastly here is a snapshot of the application from "
 
-[VMware Service Manager 9 - Asset Management](http://www.slideshare.net/khanyasmin/vmware-service-manager-9-asset-management)":
+[VMware Service Manager 9 - Asset Management](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/products/servicemanager/vmware-service-manager-version-9.0-readiness-assessment-service.pdf)":
 
 ![vm-serv-mana-sub-request](https://github.com/elatov/uploads/raw/master/2012/09/vm-serv-mana-sub-request.png)
 
@@ -561,7 +561,7 @@ Also from the same document:
 > **Install a Guest Operating System from Media**
 > You can install a guest operating system from a CD-ROM or from an ISO image. Installing from an ISO image is typically faster and more convenient than a CD-ROM installation.
 
-Lastly for Citrix PVS check out "[Design Considerations for Virtualizing Citrix Provisioning Services](https://support.citrix.com/article/CTX128645)". It basically allows you to provision VMs quickly and store windows Profiles on the provisioning server. This way you don't have to depend on local media.
+Lastly for Citrix PVS check out "[Design Considerations for Virtualizing Citrix Provisioning Services](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/Design%20Considerations%20for%20vPVS%20v2.1.pdf)". It basically allows you to provision VMs quickly and store windows Profiles on the provisioning server. This way you don't have to depend on local media.
 
 Each option has it's ups and downs. If you decide to PXE boot, with Citrix PVS or any other third party software, then make sure you have a dedicated person to manage that. And again this will be your single point of failure. If the PXE boot server is down then VMs won't boot. Or if your PVS server is lost, then all of the Windows profiles are lost as well. But this does allow for fast provisioning, so if a new windows patch comes out, then update the base image and push it to you clients. Next time the VM is is rebooted, the system components are updates and the users profiles and their settings are preserved. Now with regular installation you will have to update each VM manually.
 

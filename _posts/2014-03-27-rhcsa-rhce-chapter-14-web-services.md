@@ -9,7 +9,7 @@ tags: ['linux','apache', 'rhel', 'squid']
 
 ## Apache
 
-From the [Deployment Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf):
+From the [Deployment Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/deployment_guide/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf):
 
 > **HTTP** (Hypertext Transfer Protocol) server, or a web server, is a network service that serves content to a client over the web. This typically means web pages, but any other documents can be served as well.
 >
@@ -624,7 +624,7 @@ Here is the server:
     [root@rhel1 ~]# ping -c 1 rhel1-vh
     PING rhel1.local.com (192.168.2.2) 56(84) bytes of data.
     64 bytes from rhel1.local.com (192.168.2.2): icmp_seq=1 ttl=64 time=0.040 ms
-
+    
     --- rhel1.local.com ping statistics ---
     1 packets transmitted, 1 received, 0% packet loss, time 0ms
     rtt min/avg/max/mdev = 0.040/0.040/0.040/0.000 ms
@@ -635,7 +635,7 @@ and here is the client:
     [root@rhel2 ~]# ping -c 1 rhel1-vh
     PING rhel1.local.com (192.168.2.2) 56(84) bytes of data.
     64 bytes from rhel1.local.com (192.168.2.2): icmp_seq=1 ttl=64 time=0.138 ms
-
+    
     --- rhel1.local.com ping statistics ---
     1 packets transmitted, 1 received, 0% packet loss, time 0ms
     rtt min/avg/max/mdev = 0.138/0.138/0.138/0.000 ms
@@ -656,7 +656,7 @@ Now let's create a virtualhost configuration to point to that directory:
 
     [root@rhel1 ~]# cat /etc/httpd/conf.d/rhel1-vh.conf
     NameVirtualHost rhel1-vh.local.com:80
-
+    
     <VirtualHost rhel1-vh.local.com:80>
         ServerAdmin webmaster@local.com
         DocumentRoot /var/www/html/vh
@@ -846,7 +846,7 @@ After that the wizard stopped and I saw the following output:
     [root@rhel1 ~]# genkey rhel1.local.com
     /usr/bin/keyutil -c makecert -g 2048 -s "CN=rhel1.local.com, OU=RHEL LAB, O=Home, L=Boulder, ST=Colorado, C=US" -v 1 -a -z /etc/pki/tls/.rand.2539 -o /etc/pki/tls/certs/rhel1.local.com.crt -k /etc/pki/tls/private/local.com.key
     cmdstr: makecert
-
+    
     cmd_CreateNewCert
     command:  makecert
     keysize = 2048 bits
@@ -858,7 +858,7 @@ After that the wizard stopped and I saw the following output:
 
 
     Generating key. This may take a few moments...
-
+    
     Made a key
     Opened tmprequest for writing
     (null) Copying the cert pointer
@@ -991,7 +991,7 @@ We can see that it's a self signed certificate.
 
 ## Squid Web Proxy
 
-From [Managing Confined Services](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Managing_Confined_Services/Red_Hat_Enterprise_Linux-6-Managing_Confined_Services-en-US.pdf):
+From [Managing Confined Services](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/managing_confined_services/red_hat_enterprise_linux-6-managing_confined_services-en-us.pdf):
 
 > Squid is a high-performance proxy caching server for web clients, supporting FTP, Gopher, and HTTP data objects. It reduces bandwidth and improves response times by caching and reusing frequently-requested web pages.
 >

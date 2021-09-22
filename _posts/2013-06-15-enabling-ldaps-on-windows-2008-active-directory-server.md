@@ -3,8 +3,6 @@ title: Enabling LDAPS on Windows 2008 Active Directory Server
 author: Karim Elatov
 layout: post
 permalink: /2013/06/enabling-ldaps-on-windows-2008-active-directory-server/
-dsq_thread_id:
-  - 1405434219
 categories: ['home_lab', 'os']
 tags: ['win2k8r2', 'active_directory', 'ldap','ssl']
 ---
@@ -165,7 +163,7 @@ Usually the location of the binary will let you know which one you have. For exa
     /usr/lib/mozldap/ldapsearch
 
 
-RedHat mostly uses the Mozilla version. From "[LDAP Tool Locations](https://access.redhat.com/documentation/en-us/red_hat_directory_server/9.0/html/administration_guide/ldap-tools-examples)":
+RedHat mostly uses the Mozilla version. From "[LDAP Tool Locations](https://access.redhat.com/documentation/en-us/red_hat_directory_server/10/html/administration_guide/ldap-tools-examples)":
 
 > For all Red Hat Directory Server guides and documentation, the LDAP tools used in the examples, such as **ldapsearch** and **ldapmodify**, are the Mozilla LDAP tools. For most Linux systems, OpenLDAP tools are already installed in the **/usr/bin/** directory.
 
@@ -180,7 +178,7 @@ The two different versions have different arguments so make sure you know which 
     # filter: sAMAccountName=elatov
     # requesting: ALL
     #
-
+    
     # Karim Elatov, Users, elatov.local
     dn: CN=Karim Elatov,CN=Users,DC=elatov,DC=local
     objectClass: top
@@ -216,11 +214,11 @@ The two different versions have different arguments so make sure you know which 
     userPrincipalName: elatov@elatov.local
     objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=elatov,DC=local
     dSCorePropagationData: 16010101000000.0Z
-
+    
     # search result
     search: 2
     result: 0 Success
-
+    
     # numResponses: 2
     # numEntries: 1
 
@@ -236,15 +234,15 @@ We can see that I used "CN=Users,DC=elatov,DC=local" as my **baseDN** and I used
     # filter: sAMAccountName=elatov
     # requesting: name
     #
-
+    
     # Karim Elatov, Users, elatov.local
     dn: CN=Karim Elatov,CN=Users,DC=elatov,DC=local
     name: Karim Elatov
-
+    
     # search result
     search: 2
     result: 0 Success
-
+    
     # numResponses: 2
     # numEntries: 1
 
@@ -276,7 +274,7 @@ But since we have not uploaded an appropriate certificate it won't work properly
 
 ### LDAPS Prerequisites
 
-The list is available at [Event ID 1220 — LDAP over SSL](http://technet.microsoft.com/en-us/library/ee411009%28WS.10%29.aspx), from that page:
+The list is available at [Event ID 1220 — LDAP over SSL](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee411009(v=ws.10)), from that page:
 
 1.  Certificate must be valid for the purpose of Server Authentication. This means that it must also contains the Server Authentication object identifier (OID): 1.3.6.1.5.5.7.3.1
 
@@ -403,31 +401,31 @@ Since we are using a self-signed certificate, this is expected. From the man pag
                   ity certificates.
     ...
     ...
-
+    
     TLS_CERT filename
                   Specifies  the  file that contains the client certificate.  This
                   is a user-only option.
     ...
     ...
-
+    
     TLS_REQCERT level
                   Specifies what checks to perform on server certificates in a TLS
                   session, if any. The level can be specified as one of the fol-
                   lowing keywords:
-
+    
                   never  The  client will not request or check any server certifi-
                          cate.
-
+    
                   allow  The server certificate is requested. If no certificate is
                          provided,  the  session  proceeds normally. If a bad cer-
                          tificate is provided, it will be ignored and the  session
                          proceeds normally.
-
+    
                   try    The server certificate is requested. If no certificate is
                          provided, the session proceeds normally. If  a  bad  cer-
                          tificate  is  provided, the session is immediately termi-
                          nated.
-
+    
                   demand | hard
                          These keywords are equivalent. The server certificate  is
                          requested.  If  no certificate is provided, or a bad cer-
@@ -465,7 +463,7 @@ with MozLDAP it actually uses NSS to verify the SSL certificates and unfortunate
     Enter a password which will be used to encrypt your keys.
     The password should be at least 8 characters long,
     and should contain at least one non-alphabetic character.
-
+    
     Enter new password:
     Re-enter password:
 

@@ -29,7 +29,7 @@ This is very application specific. Here are some example from [this](http://www.
 
 ### Gather information needed in order to identify application dependencies.
 
-From [this](http://www.virtualnetworkdesign.com/vcap5-dcd-study-guide/) blog, we can see that should be done during the Current-State Analysis:
+From an old and discontinued blog, we can see that should be done during the Current-State Analysis:
 
 > **Current-State Analysis**
 >

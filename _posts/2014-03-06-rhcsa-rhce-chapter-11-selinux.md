@@ -7,7 +7,7 @@ categories: ['os', 'certifications', 'rhcsa_rhce']
 tags: ['linux', 'rhel', 'selinux']
 ---
 
-Most of the information is covered in [Security-Enhanced Linux](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Security-Enhanced_Linux/Red_Hat_Enterprise_Linux-6-Security-Enhanced_Linux-en-US.pdf) Guide. From the guide here is what SELinux is:
+Most of the information is covered in [Security-Enhanced Linux](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/security-enhanced_linux/red_hat_enterprise_linux-6-security-enhanced_linux-en-us.pdf) Guide. From the guide here is what SELinux is:
 
 > Security-Enhanced Linux (SELinux) is an implementation of a mandatory access control mechanism in the Linux kernel, checking for allowed operations after standard discretionary access controls are checked. It was created by the National Security Agency and can enforce rules on files and processes in a Linux system, and on their actions, based on defined policies.
 >
@@ -103,7 +103,7 @@ Onto domains:
 >
 >
 >     The **passwd** application accesses **/etc/shadow**, which is labeled with the **shadow_t** type:
->
+>    
 >         ~]$ ls -Z /etc/shadow
 >         -r--------. root root system_u:object_r:shadow_t:s0    /etc/shadow
 >
@@ -231,19 +231,19 @@ We already can see that the domain/type is of **var_t** and our process is runni
 We can also see that we can get more information if we run the following:
 
     [root@rhel1 ~]# sealert -l 128f1d32-f8c7-4e31-86d2-881ac5928a7e
-
+    
     Summary:
-
+    
     SELinux is preventing /usr/sbin/vsftpd "read" access to /var/www.
-
+    
     Detailed Description:
-
+    
     SELinux denied access requested by vsftpd. /var/www may be a mislabeled.
     /var/www default SELinux type is httpd_sys_content_t, but its current type is
     var_t. Changing this file back to the default type, may fix your problem.
-
+    
     File contexts can be assigned to a file in the following ways.
-
+    
       * Files created in a directory receive the file context of the parent
         directory by default.
       * The SELinux policy might override the default label inherited from the
@@ -255,27 +255,27 @@ We can also see that we can get more information if we run the following:
         with the net_conf_t type because the SELinux policy specifies this.
       * Users can change the file context on a file using tools such as chcon, or
         restorecon.
-
+    
     This file could have been mislabeled either by user error, or if an normally
     confined application was run under the wrong domain.
-
+    
     However, this might also indicate a bug in SELinux because the file should not
     have been labeled with this type.
-
+    
     If you believe this is a bug, please file a bug report against this package.
-
+    
     Allowing Access:
-
+    
     You can restore the default system context to this file by executing the
     restorecon command. restorecon '/var/www', if this file is a directory, you can
     recursively restore using restorecon -R '/var/www'.
-
+    
     Fix Command:
-
+    
     /sbin/restorecon '/var/www'
-
+    
     Additional Information:
-
+    
     Source Context                system_u:system_r:ftpd_t:s0-s0:c0.c1023
     Target Context                unconfined_u:object_r:var_t:s0
     Target Objects                /var/www [ dir ]
@@ -298,11 +298,11 @@ We can also see that we can get more information if we run the following:
     Last Seen                     Sun Feb 23 14:58:38 2014
     Local ID                      128f1d32-f8c7-4e31-86d2-881ac5928a7e
     Line Numbers
-
+    
     Raw Audit Messages
-
+    
     node=rhel1.local.com type=AVC msg=audit(1393192718.339:126): avc:  denied  { read } for  pid=2989 comm="vsftpd" name="www" dev=dm-0 ino=394931 scontext=system_u:system_r:ftpd_t:s0-s0:c0.c1023 tcontext=unconfined_u:object_r:var_t:s0 tclass=dir
-
+    
     node=rhel1.local.com type=SYSCALL msg=audit(1393192718.339:126): arch=40000003 syscall=5 success=no exit=-13 a0=1aaae28 a1=98800 a2=db233c a3=bfe3b154 items=0 ppid=2987 pid=2989 auid=4294967295 uid=14 gid=50 euid=14 suid=14 fsuid=14 egid=50 sgid=50 fsgid=50 tty=(none) ses=4294967295 comm="vsftpd" exe="/usr/sbin/vsftpd" subj=system_u:system_r:ftpd_t:s0-s0:c0.c1023 key=(null)
 
 
@@ -319,12 +319,12 @@ as we expected the source context (**scontext=system_u:system_r:ftpd_t:s0-s0:c0.
         One of the following booleans was set incorrectly.
         Description:
         Allow ftp servers to login to local users and read/write all files on the system, governed by DAC.
-
+    
         Allow access by executing:
         # setsebool -P allow_ftpd_full_access 1
         Description:
         Allow ftp to read and write files in the user home directories
-
+    
         Allow access by executing:
         # setsebool -P ftp_home_dir 1
 
@@ -397,7 +397,7 @@ Here is the example:
 >
 >
 >     Run the **ls -Z /var/www/html/testfile** command to view the changes:
->
+>    
 >         ~]$ ls -Z /var/www/html/testfile
 >         -rw-r--r--  root root unconfined_u:object_r:samba_share_t:s0 /var/www/html/testfile
 >
@@ -409,7 +409,7 @@ Here is the example:
 >
 >
 >     If the output differs, run the **service httpd stop** command as the Linux root user to stop the httpd process:
->
+>    
 >         ~]# service httpd stop
 >         Stopping httpd:                                            [  OK  ]
 >
@@ -447,9 +447,9 @@ Here is the example:
 >         HTTP request sent, awaiting response... 200 OK
 >         Length: 0 [text/plain]
 >         Saving to: `testfile.1'
->
+>        
 >         [ <=>                            ]--.-K/s   in 0s
->
+>        
 >         2009-05-07 01:41:10 (0.00 B/s) - `testfile.1' saved [0/0]
 >
 >
@@ -462,7 +462,7 @@ Here is the example:
 >
 >
 >     Run the **ls -Z /usr/sbin/httpd** command to confirm that **/usr/sbin/httpd** is labeled with the **httpd_exec_t** type:
->
+>    
 >         ~]$ ls -Z /usr/sbin/httpd
 >         -rwxr-xr-x  root root system_u:object_r:httpd_exec_t:s0 /usr/sbin/httpd
 >

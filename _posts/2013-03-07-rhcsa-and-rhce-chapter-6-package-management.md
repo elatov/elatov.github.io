@@ -238,7 +238,7 @@ The last section from the guide is the following:
 >
 >
 >     The output would look like the following:
->    
+>        
 >         ghostscript-8.70-1.el6.x86_64
 >
 >
@@ -255,7 +255,7 @@ The last section from the guide is the following:
 >
 >
 >     The output would be similar to the following:
->    
+>        
 >         /usr/share/doc/procps-3.2.8/BUGS
 >         /usr/share/doc/procps-3.2.8/FAQ
 >         /usr/share/doc/procps-3.2.8/NEWS
@@ -285,7 +285,7 @@ The last section from the guide is the following:
 >
 >
 >     The output would be similar to the following:
->    
+>        
 >         Name        : crontabs                     Relocations: (not relocatable)
 >         Version     : 1.10                              Vendor: Red Hat, Inc.
 >         Release     : 32.1.el6                      Build Date: Thu 03 Dec 2009 02:17:44 AM CET
@@ -311,7 +311,7 @@ The last section from the guide is the following:
 >
 >
 >     The output is similar to the following:
->    
+>        
 >         /etc/cron.daily
 >         /etc/cron.hourly
 >         /etc/cron.monthly
@@ -399,7 +399,7 @@ We can see that the **tree** package was installed today along with **rsync**. Y
 
 ## YUM
 
-Now as great as RPMs are, **yum** is more flexible and actually goes online to download the packages and then installs them. From "[Red Hat Enterprise Linux 6 Deployment Guide](https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf)":
+Now as great as RPMs are, **yum** is more flexible and actually goes online to download the packages and then installs them. From "[Red Hat Enterprise Linux 6 Deployment Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/deployment_guide/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf)":
 
 > **Chapter 5. Yum**
 > **YUM** is the Red Hat package manager that is able to query for information about available packages, fetch packages from repositories, install and uninstall them, and update an entire system to the latest available version. Yum performs automatic dependency resolution on packages you are updating, installing, or removing, and thus is able to automatically determine, fetch, and install all available dependent packages. **Yum** can be configured with new, additional repositories, or package sources, and also provides many plug-ins which enhance and extend its capabilities. Yum is able to perform many of the same tasks that **RPM** can; additionally, many of the command line options are similar. Yum enables easy and simple package management on a single machine or on groups of them. Yum also enables you to easily set up your own repositories of RPM packages for download and installation on other machines.

@@ -9,7 +9,7 @@ tags: ['bind', 'dns', 'linux','rhel']
 
 ## DNS
 
-From the [Deployment Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf):
+From the [Deployment Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/deployment_guide/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf):
 
 > **DNS** (Domain Name System), also known as a *nameserver*, is a network system that associates hostnames with their respective IP addresses. For users, this has the advantage that they can refer to machines on the network by names that are usually easier to remember than the numerical network addresses. For system administrators, using the nameserver allows them to change the IP address for a host without ever affecting the name-based queries, or to decide which machines handle these queries.
 >
@@ -174,7 +174,7 @@ From the above guide:
 >       max-cache-size    256M;
 >       directory         "/var/named";
 >       statistics-file   "/var/named/data/named_stats.txt";
->
+>    
 >       recursion         yes;
 >       dnssec-enable     yes;
 >       dnssec-validation yes;
@@ -542,7 +542,7 @@ Here is the default named configuration:
     //
     // See /usr/share/doc/bind*/sample/ for example named configuration files.
     //
-
+    
     options {
         listen-on port 53 { 127.0.0.1; };
         listen-on-v6 port 53 { ::1; };
@@ -552,27 +552,27 @@ Here is the default named configuration:
             memstatistics-file "/var/named/data/named_mem_stats.txt";
         allow-query     { localhost; };
         recursion yes;
-
+    
         dnssec-enable yes;
         dnssec-validation yes;
         dnssec-lookaside auto;
-
+    
         /* Path to ISC DLV key */
         bindkeys-file "/etc/named.iscdlv.key";
     };
-
+    
     logging {
             channel default_debug {
                     file "data/named.run";
                     severity dynamic;
             };
     };
-
+    
     zone "." IN {
         type hint;
         file "named.ca";
     };
-
+    
     include "/etc/named.rfc1912.zones";
 
 
@@ -722,11 +722,11 @@ Then edit the file to update the necessary the settings. Here is how my file loo
         1H  ; retry
         1W  ; expire
         3H )    ; minimum
-
+    
     ; Nameservers
     @   IN  NS  rhel1.local.com.
     @   IN  A   192.168.2.2
-
+    
     ; Networking Hosts
     rhel1   IN  A   192.168.2.2
     rhel2   IN  A   192.168.2.3
@@ -748,10 +748,10 @@ Then edit the file to have the pointer records:
         1H  ; retry
         1W  ; expire
         3H )    ; minimum
-
+    
     ; Nameservers
     @   IN  NS  rhel1.local.com.
-
+    
     ; Networking Hosts
     2   IN  PTR rhel1.local.com.
     3   IN  PTR rhel2.local.com.
@@ -825,25 +825,25 @@ If you look under **/var/log/messages**, you should see your zones loaded:
 As a quick test, run a DNS query from the client machine:
 
     [root@rhel2 ~]# dig rhel2.local.com
-
+    
     ; <<>> DiG 9.3.6-P1-RedHat-9.3.6-4.P1.el5_4.2 <<>> rhel2.local.com
     ;; global options:  printcmd
     ;; Got answer:
     ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 64625
     ;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 1
-
+    
     ;; QUESTION SECTION:
     ;rhel2.local.com.       IN  A
-
+    
     ;; ANSWER SECTION:
     rhel2.local.com.    86400   IN  A   192.168.2.3
-
+    
     ;; AUTHORITY SECTION:
     local.com.      86400   IN  NS  rhel1.local.com.
-
+    
     ;; ADDITIONAL SECTION:
     rhel1.local.com.    86400   IN  A   192.168.2.2
-
+    
     ;; Query time: 0 msec
     ;; SERVER: 192.168.2.2#53(192.168.2.2)
     ;; WHEN: Sun Apr 13 12:03:07 2014
@@ -853,25 +853,25 @@ As a quick test, run a DNS query from the client machine:
 When using **dig**, it shows a lot of good information, like who is the authoritative DNS server is (in our case we can see that's **rhel1.local.com**) and of course the response to our query (**192.168.2.3**). Here is a similar response for the reverse lookup:
 
     [root@rhel2 ~]# dig -x 192.168.2.4
-
+    
     ; <<>> DiG 9.3.6-P1-RedHat-9.3.6-4.P1.el5_4.2 <<>> -x 192.168.2.4
     ;; global options:  printcmd
     ;; Got answer:
     ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 1784
     ;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 1
-
+    
     ;; QUESTION SECTION:
     ;4.2.168.192.in-addr.arpa.  IN  PTR
-
+    
     ;; ANSWER SECTION:
     4.2.168.192.in-addr.arpa. 86400 IN  PTR google.local.com.
-
+    
     ;; AUTHORITY SECTION:
     2.168.192.in-addr.arpa. 86400   IN  NS  rhel1.local.com.
-
+    
     ;; ADDITIONAL SECTION:
     rhel1.local.com.    86400   IN  A   192.168.2.2
-
+    
     ;; Query time: 0 msec
     ;; SERVER: 192.168.2.2#53(192.168.2.2)
     ;; WHEN: Sun Apr 13 12:05:28 2014
@@ -1018,7 +1018,7 @@ Then edit the configuration and remove any miscellaneous settings. In the end I 
         dump-file       "data/cache_dump.db";
             statistics-file     "data/named_stats.txt";
             memstatistics-file  "data/named_mem_stats.txt";
-
+    
     };
     logging
     {
@@ -1035,13 +1035,13 @@ Now let's add the local zones and the root DNS servers:
             type hint;
             file "named.root";
     };
-
+    
     zone "localhost." IN {
             type master;
             file "localhost.zone";
             allow-update { none; };
     };
-
+    
     zone "0.0.127.in-addr.arpa." IN {
             type master;
             file "named.local";
@@ -1061,7 +1061,7 @@ Lastly let's add the zones that we will be the secondary/slave DNS server for:
             file "slaves/example.com.zone";
             masters { 192.168.2.2; };
     };
-
+    
     zone "2.168.192.in-addr.arpa" {
             type slave;
             file "slaves/example.com.revzone";
@@ -1129,7 +1129,7 @@ This is expected since, we have setup the master yet. So let's configure our mas
 Now if you try to do a manual transfer you should see the following:
 
     [root@rhel2 ~]# dig @192.168.2.2 local.com -t axfr
-
+    
     ; <<>> DiG 9.3.6-P1-RedHat-9.3.6-4.P1.el5_4.2 <<>> @192.168.2.2 local.com -t axfr
     ; (1 server found)
     ;; global options:  printcmd
@@ -1255,7 +1255,7 @@ Then from the client, I am able to do queries to that DNS server for the **local
     [root@rhel2 ~]# nslookup mac.local.me
     Server:     192.168.2.2
     Address:    192.168.2.2#53
-
+    
     Non-authoritative answer:
     Name:   mac.local.me
     Address: 192.168.1.109
@@ -1347,14 +1347,14 @@ After that modify the **/etc/rndc.conf** file and copy the contents of **/etc/rn
         algorithm hmac-md5;
         secret "TKp2/7Li9dLrB9kEzOIcNw==";
     };
-
+    
     options {
         default-key "rndc-key";
         default-server 127.0.0.1;
         default-port 953;
     };
     # End of rndc.conf
-
+    
     # Use with the following in named.conf, adjusting the allow list as needed:
     # key "rndc-key" {
     #   algorithm hmac-md5;
@@ -1431,9 +1431,9 @@ Here is quick overview of all the available commands for **rndc**:
     [root@rhel1 data]# rndc
     Usage: rndc [-b address] [-c config] [-s server] [-p port]
         [-k key-file ] [-y key] [-V] command
-
+    
     command is one of the following:
-
+    
       reload    Reload configuration file and zones.
       reload zone [class [view]]
             Reload a single zone.
@@ -1482,7 +1482,7 @@ Here is quick overview of all the available commands for **rndc**:
             Add zone to given view. Requires new-zone-file option.
       delzone ["file"] zone [class [view]]
             Removes zone from given view. Requires new-zone-file option.
-
+    
     * == not yet implemented
     Version: 9.7.3-RedHat-9.7.3-2.el6
 

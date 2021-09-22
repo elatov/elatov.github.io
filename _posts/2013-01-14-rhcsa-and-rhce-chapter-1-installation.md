@@ -7,7 +7,7 @@ categories: ['storage', 'networking', 'certifications', 'home_lab', 'rhcsa_rhce'
 tags: ['ext3', 'port_channel','grub', 'rhel', 'linux', 'mbr']
 ---
 
-There is a lot of good information in "[Red Hat Enterprise Linux 6 Installation Guide](https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf)". From that Guide:
+There is a lot of good information in "[Red Hat Enterprise Linux 6 Installation Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/installation_guide/red_hat_enterprise_linux-6-installation_guide-en-us.pdf)". From that Guide:
 
 > **9.3. Welcome to Red Hat Enterprise Linux**
 >
@@ -401,7 +401,7 @@ I then logged and started to setup network.
 
 ### RedHat Networking Configuration
 
-From "[Red Hat Enterprise Linux 6 Deployment Guide](https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf)":
+From "[Red Hat Enterprise Linux 6 Deployment Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/deployment_guide/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf)":
 
 > **8.2. Interface Configuration Files**
 >

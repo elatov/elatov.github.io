@@ -19,7 +19,7 @@ The basics of this were covered in [Chapter 1](/2013/01/rhcsa-and-rhce-chapter-1
     collisions:0 txqueuelen:1000
     RX bytes:19554970 (18.6 MiB) TX bytes:313001 (305.6 KiB)
     Interrupt:19 Base address:0x2400
-
+    
     eth1 Link encap:Ethernet HWaddr 00:50:56:17:1B:A5
     inet addr:192.168.2.100 Bcast:192.168.2.255 Mask:255.255.255.0
     inet6 addr: fe80::250:56ff:fe17:1ba5/64 Scope:Link
@@ -29,7 +29,7 @@ The basics of this were covered in [Chapter 1](/2013/01/rhcsa-and-rhce-chapter-1
     collisions:0 txqueuelen:1000
     RX bytes:0 (0.0 b) TX bytes:678 (678.0 b)
     Interrupt:16 Base address:0x2480
-
+    
     lo Link encap:Local Loopback
     inet addr:127.0.0.1 Mask:255.0.0.0
     inet6 addr: ::1/128 Scope:Host
@@ -44,7 +44,7 @@ We can see that **eth0** has **IP** 10.131.65.22 with a **subnet mask** of 255.2
 
 ### Network Interface Actions
 
-Now after you have setup the interfaces you take them down. From "[Red Hat Enterprise Linux 6 Deployment Guide](https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf)":
+Now after you have setup the interfaces you take them down. From "[Red Hat Enterprise Linux 6 Deployment Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/deployment_guide/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf)":
 
 > First, bring up the bond you created by running **ifconfig** bond up as root:
 >
@@ -69,7 +69,7 @@ So let's try to take our **eth1** interface down and then bring it back up:
     collisions:0 txqueuelen:1000
     RX bytes:19911001 (18.9 MiB) TX bytes:317929 (310.4 KiB)
     Interrupt:19 Base address:0x2400
-
+    
     lo Link encap:Local Loopback
     inet addr:127.0.0.1 Mask:255.0.0.0
     inet6 addr: ::1/128 Scope:Host
@@ -158,7 +158,7 @@ If you want to temporary change the **IP** of you interface without using any fi
     collisions:0 txqueuelen:1000
     RX bytes:4200 (4.1 KiB) TX bytes:1146 (1.1 KiB)
     Interrupt:16 Base address:0x2480
-
+    
     [root@rhel01 ~]# ifconfig eth1 172.0.0.2 netmask 255.255.255.0
     [root@rhel01 ~]# ifconfig eth1
     eth1 Link encap:Ethernet HWaddr 00:50:56:17:1B:A5
@@ -183,7 +183,7 @@ That looks good, now let's reset the interface:
     collisions:0 txqueuelen:1000
     RX bytes:4200 (4.1 KiB) TX bytes:1146 (1.1 KiB)
     Interrupt:16 Base address:0x2480
-
+    
     [root@rhel01 ~]# ifup eth1
     [root@rhel01 ~]# ifconfig eth1
     eth1 Link encap:Ethernet HWaddr 00:50:56:17:1B:A5
@@ -375,21 +375,21 @@ Now let's check out how basic DNS client works in RHEL. From the deployment guid
 Let's check out the mentioned man pages. Firs the man page for **hosts**:
 
     HOSTS(5)                   Linux Programmer’s Manual                  HOSTS(5)
-
+    
     NAME
            hosts - The static table lookup for host names
-
+    
     SYNOPSIS
            /etc/hosts
-
+    
     DESCRIPTION
            This manual page describes the format of the /etc/hosts file. This file
            is a simple text file that associates IP addresses with hostnames,  one
            line per IP address. For each host a single line should be present with
            the following information:
-
+    
                   IP_address canonical_hostname [aliases...]
-
+    
            Fields of the entry are separated by any number of  blanks  and/or  tab
            characters.  Text  from  a "#" character until the end of the line is a
            comment, and is ignored.  Host  names  may  contain  only  alphanumeric
@@ -397,26 +397,26 @@ Let's check out the mentioned man pages. Firs the man page for **hosts**:
            an  alphabetic  character  and  end  with  an  alphanumeric  character.
            Optional aliases provide for name changes, alternate spellings, shorter
            hostnames, or generic hostnames (for example, localhost).
-
+    
            The Berkeley Internet Name Domain (BIND) Server implements the Internet
            name  server  for  UNIX systems. It augments or replaces the /etc/hosts
            file or host name lookup, and frees a host from relying  on  /etc/hosts
            being up to date and complete.
-
+    
            In  modern  systems,  even though the host table has been superseded by
            DNS, it is still widely used for:
-
+    
            bootstrapping
                   Most systems have a small host table  containing  the  name  and
                   address  information  for  important hosts on the local network.
                   This is useful when DNS is not running, for example during  sys-
                   tem bootup.
-
+    
            NIS    Sites  that  use NIS use the host table as input to the NIS host
                   database. Even though NIS can be used with DNS, most  NIS  sites
                   still  use the host table with an entry for all local hosts as a
                   backup.
-
+    
            isolated nodes
                   Very small sites that are isolated from the network use the host
                   table  instead  of DNS. If the local information rarely changes,
@@ -428,15 +428,15 @@ Let's check out the mentioned man pages. Firs the man page for **hosts**:
             192.168.1.13    bar.mydomain.org  bar
             146.82.138.7    master.debian.org      master
             209.237.226.90  www.opensource.org
-
+    
     NOTE
            Modifications  to this file normally take effect immediately, except in
            cases where the file is cached by applications.
-
+    
     HISTORICAL NOTES
            RFC 952 gave the original format for the  host  table,  though  it  has
            since changed.
-
+    
            Before  the advent of DNS, the host table was the only way of resolving
            hostnames on the fledgling Internet. Indeed, this file could be created
            from  the official host data base maintained at the Network Information
@@ -445,7 +445,7 @@ Let's check out the mentioned man pages. Firs the man page for **hosts**:
            NIC no longer maintains the hosts.txt files, though looking  around  at
            the  time of writing (circa 2000), there are historical hosts.txt files
            on the WWW. I just found three, from 92, 94, and 95.
-
+    
     FILES
            /etc/hosts
 
@@ -476,7 +476,7 @@ So let's see what happens we when query that **hostname**:
 
     [root@rhel01 ~]# ping -c 1 test
     PING test.localdomain.com (10.10.10.10) 56(84) bytes of data.
-
+    
     --- test.localdomain.com ping statistics ---
     1 packets transmitted, 0 received, 100% packet loss, time 10000ms
 
@@ -488,7 +488,7 @@ Since that **IP** didn't exist we failed to reach it, but we resolved to the cor
     PING rhel02.localdomain.com (192.168.2.101) 56(84) bytes of data.
     64 bytes from rhel02.localdomain.com (192.168.2.101): icmp_seq=1 ttl=64 time=0.561 ms
     64 bytes from rhel02.localdomain.com (192.168.2.101): icmp_seq=2 ttl=64 time=0.978 ms
-
+    
     --- rhel02.localdomain.com ping statistics ---
     2 packets transmitted, 2 received, 0% packet loss, time 1001ms
     rtt min/avg/max/mdev = 0.561/0.769/0.978/0.210 ms
@@ -497,13 +497,13 @@ Since that **IP** didn't exist we failed to reach it, but we resolved to the cor
 That looked good. Now let's check out the **resolv.conf** man page:
 
     RESOLV.CONF(5)                                                  RESOLV.CONF(5)
-
+    
     NAME
            resolv.conf - resolver configuration file
-
+    
     SYNOPSIS
            /etc/resolv.conf
-
+    
     DESCRIPTION
            The  resolver is a set of routines in the C library that provide access
            to the Internet Domain Name System (DNS).  The  resolver  configuration
@@ -511,14 +511,14 @@ That looked good. Now let's check out the **resolv.conf** man page:
            first time they are invoked by a process.  The file is designed  to  be
            human readable and contains a list of keywords with values that provide
            various types of resolver information.
-
+    
            On a normally configured system this file should not be necessary.  The
            only name server to be queried will be on the local machine; the domain
            name is determined from the host name and the  domain  search  path  is
            constructed from the domain name.
-
+    
            The different configuration options are:
-
+    
            nameserver Name server IP address
                   Internet  address  (in  dot  notation) of a name server that the
                   resolver  should  query.   Up  to  MAXNS   (currently   3,   see
@@ -530,7 +530,7 @@ That looked good. Now let's check out the **resolv.conf** man page:
                   out, try the next, until out of name servers, then repeat trying
                   all  the  name  servers  until  a  maximum number of retries are
                   made.)
-
+    
            domain Local domain name.
                   Most queries for names within this domain can  use  short  names
                   relative  to  the  local domain.  If no domain entry is present,
@@ -538,7 +538,7 @@ That looked good. Now let's check out the **resolv.conf** man page:
                   gethostname();  the  domain part is taken to be everything after
                   the first ‘.’.  Finally, if the host name  does  not  contain  a
                   domain part, the root domain is assumed.
-
+    
      search Search list for host-name lookup.
                   The  search  list  is  normally determined from the local domain
                   name; by default, it contains only the local domain name.   This
@@ -553,10 +553,10 @@ That looked good. Now let's check out the **resolv.conf** man page:
                   lot of network traffic if the servers for the listed domains are
                   not local, and that queries will time out if no server is avail-
                   able for one of the domains.
-
+    
                   The search list is currently limited to six domains with a total
                   of 256 characters.
-
+    
            sortlist
                   Sortlist  allows  addresses  returned  by  gethostbyname  to  be
                   sorted.   A  sortlist  is specified by IP address netmask pairs.
@@ -564,17 +564,17 @@ That looked good. Now let's check out the **resolv.conf** man page:
                   the net. The IP address and optional network pairs are separated
                   by slashes. Up to 10 pairs may be specified. E.g.,
                     sortlist 130.155.160.0/255.255.240.0 130.155.0.0
-
+    
      options
                   Options allows certain internal resolver variables to  be  modi-
                   fied.  The syntax is
-
+    
                          options option ...
-
+    
                   where option is one of the following:
-
+    
                   debug  sets RES_DEBUG in _res.options.
-
+    
                   ndots:n
                          sets a threshold for the number of dots which must appear
                          in a name given to res_query() (see  resolver(3))  before
@@ -582,53 +582,53 @@ That looked good. Now let's check out the **resolv.conf** man page:
                          n is ‘‘1’’, meaning that if there are any dots in a name,
                          the  name  will be tried first as an absolute name before
                          any search list elements are appended to it.
-
+    
                   timeout:n
                          sets the amount of time the  resolver  will  wait  for  a
                          response  from  a  remote name server before retrying the
                          query via a different name server.  Measured in  seconds,
                          the default is RES_TIMEOUT (currently 5, see <resolv.h>).
-
+    
                   attempts:n
                          sets the number of times the resolver will send  a  query
                          to  its  name  servers  before giving up and returning an
                          error  to  the  calling  application.   The  default   is
                          RES_DFLRETRY (currently 2, see <resolv.h>).
-
+    
                   rotate sets RES_ROTATE in _res.options, which causes round robin
                          selection of nameservers from among those  listed.   This
                          has  the  effect  of  spreading  the query load among all
                          listed servers, rather than having all  clients  try  the
                          first listed server first every time.
-
+    
                   no-check-names
                          sets  RES_NOCHECKNAME in _res.options, which disables the
                          modern BIND checking of  incoming  host  names  and  mail
                          names for invalid characters such as underscore (_), non-
                          ASCII, or control characters.
-
+    
                   inet6  sets RES_USE_INET6 in _res.options.  This has the  effect
                          of trying a AAAA query before an A query inside the geth-
                          ostbyname() function, and of mapping  IPv4  responses  in
                          IPv6  ‘‘tunnelled form’’ if no AAAA records are found but
                          an A record set exists.
-
+    
            The domain and search keywords are mutually exclusive.   If  more  than
            one instance of these keywords is present, the last instance wins.
-
+    
            The  search keyword of a system’s resolv.conf file can be overridden on
            a per-process basis by setting the environment variable ‘‘LOCALDOMAIN’’
            to a space-separated list of search domains.
-
+    
            The  options keyword of a system’s resolv.conf file can be amended on a
            per-process basis by setting the environment  variable  ‘‘RES_OPTIONS’’
            to  a space-separated list of resolver options as explained above under
            options.
-
+    
            The keyword and value must appear on a single  line,  and  the  keyword
            (e.g.  nameserver) must start the line.  The value follows the keyword,
            separated by white space.
-
+    
     FILES
            /etc/resolv.conf, <resolv.h>
 
@@ -669,7 +669,7 @@ Now let's see if we can query the **hostname**:
     [root@rhel01 ~]# nslookup rhel02
     Server:  10.131.23.175
     Address:    10.131.23.175#53
-
+    
     Non-authoritative answer:
     Name:   rhel02.localdomain.com
     Address: 98.124.198.1
@@ -707,7 +707,7 @@ So first we check **files** (**/etc/hosts**) and if we can't resolve the **hostn
     [root@rhel01 ~]# ping -c 1 rhel02
     PING rhel02.localdomain.com (192.168.2.101) 56(84) bytes of data.
     64 bytes from rhel02.localdomain.com (192.168.2.101): icmp_seq=1 ttl=64 time=1.15 ms
-
+    
     --- rhel02.localdomain.com ping statistics ---
     1 packets transmitted, 1 received, 0% packet loss, time 1ms
     rtt min/avg/max/mdev = 1.158/1.158/1.158/0.000 ms
@@ -719,7 +719,7 @@ So I queried **/etc/hosts** and found an **IP** there and then **ping**'ed that 
     hosts: dns files
     [root@rhel01 ~]# ping -c 1 rhel02
     PING rhel02.localdomain.com (98.124.198.1) 56(84) bytes of data.
-
+    
     --- rhel02.localdomain.com ping statistics ---
     1 packets transmitted, 0 received, 100% packet loss, time 10000ms
 
@@ -732,7 +732,7 @@ So now we queried the DNS server and used that **IP** from that response. Lastly
 
 ### Network Port Information
 
-Now let's move onto other cool networking utilities that can help troubleshoot networking issues. From "[Red Hat Enterprise Linux 6 Security Guide](https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Security_Guide/Red_Hat_Enterprise_Linux-6-Security_Guide-en-US.pdf)"
+Now let's move onto other cool networking utilities that can help troubleshoot networking issues. From "[Red Hat Enterprise Linux 6 Security Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/security_guide/red_hat_enterprise_linux-6-security_guide-en-us.pdf)"
 
 > **2.2.8. Verifying Which Ports Are Listening**
 >
@@ -773,7 +773,7 @@ Now let's try the last one, **nmap**:
 Nmap is network scanner so let's run **nmap** against a remote machine, our rhel02 machine:
 
     [root@rhel01 ~]# nmap -P0 rhel02
-
+    
     Starting Nmap 5.51 ( http://nmap.org ) at 2013-01-09 19:04 MST
     Nmap scan report for rhel02 (192.168.2.101)
     Host is up (0.00049s latency).
@@ -782,14 +782,14 @@ Nmap is network scanner so let's run **nmap** against a remote machine, our rhel
     PORT STATE SERVICE
     22/tcp open ssh
     MAC Address: 00:50:56:17:1B:A8 (VMware)
-
+    
     Nmap done: 1 IP address (1 host up) scanned in 5.14 seconds
 
 
 It looks like we only see one port open on the remote machine, that is probably because there is a firewall and only port 22 is allowed through the firewall. Running it against **localhost**, I saw the following:
 
     [root@rhel01 ~]# nmap -P0 localhost
-
+    
     Starting Nmap 5.51 ( http://nmap.org ) at 2013-01-09 19:06 MST
     Nmap scan report for localhost (127.0.0.1)
     Host is up (0.000012s latency).
@@ -798,7 +798,7 @@ It looks like we only see one port open on the remote machine, that is probably 
     PORT STATE SERVICE
     22/tcp open ssh
     25/tcp open smtp
-
+    
     Nmap done: 1 IP address (1 host up) scanned in 0.09 seconds
 
 
@@ -810,7 +810,7 @@ The last tool that I will cover is **tcpdump**. **Tcpdump** allows you to see th
     PING 192.168.2.100 (192.168.2.100) 56(84) bytes of data.
     64 bytes from 192.168.2.100: icmp_seq=1 ttl=64 time=0.474 ms
     64 bytes from 192.168.2.100: icmp_seq=2 ttl=64 time=0.445 ms
-
+    
     --- 192.168.2.100 ping statistics ---
     2 packets transmitted, 2 received, 0 duplicates, 0% packet loss, time 1000ms
     rtt min/avg/max/mdev = 0.445/0.470/0.493/0.031 ms

@@ -47,7 +47,7 @@ And also from "[Storage Considerations for VMware View](https://github.com/elato
 
 ![no_of_vm_on_prot](https://github.com/elatov/uploads/raw/master/2012/08/no_of_vm_on_prot.png)
 
-From "[Storage Protocol Choices & Storage Best Practices for VMware ESX](http://communities.vmware.com/servlet/JiveServlet/download/1362588-28209/Storage%20Best%20Practices.pdf)" here is an example setup using all the protocols:
+From "[Storage Protocol Choices & Storage Best Practices for VMware ESX](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/storage-best-practices.pdf)" here is an example setup using all the protocols:
 
 ![vmware-multi-protocol-storage](https://github.com/elatov/uploads/raw/master/2012/08/vmware-multi-protocol-storage.png)
 
@@ -267,7 +267,7 @@ And here is how the VSA works:
 
 ![vsa-san](https://github.com/elatov/uploads/raw/master/2012/08/vsa-san.png)
 
-If you want more information on how the VSA works, please read "[VMware vSphere Storage Appliance Technical Deep Dive](http://communities.vmware.com/servlet/JiveServlet/previewBody/17932-102-1-23101/VM-vSphere-Storage-Appliance-Deep-Dive-WP.pdf)"
+If you want more information on how the VSA works, please read "[VMware vSphere Storage Appliance Technical Deep Dive](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/vm-vsphere-storage-appliance-deep-dive-white-paper.pdf)"
 
 ### Given the functional requirements, size the storage for capacity, availability and performance, including: Virtual Storage, Physical Storage
 
@@ -329,7 +329,7 @@ Duncan Epping also has a formula for this, from "[VMFS/LUN size?](http://www.yel
 >     360 rounded up -> 375GB >
 >
 
-As mentioned some array vendors provide recommendations as well, from "[Sizing LUNs – A Citrix Perspective](https://www.citrix.com/blogs/2011/06/01/sizing-luns-a-citrix-perspective/)":
+As mentioned some array vendors provide recommendations as well, from "[Sizing LUNs – A Citrix Perspective](https://www.citrix.com/blogs/2014/01/02/new-citrix-best-practices/)":
 
 > Most people seem to agree that 10-25 VMDKs per LUN is the “sweet spot” or “magic number” and that typically results in LUN sizes anywhere from 300-700 GB. Before you freak out, please keep in mind those are just AVERAGES and 500 GB LUNs with 16 VMs per LUN certainly won’t work in every situation.
 

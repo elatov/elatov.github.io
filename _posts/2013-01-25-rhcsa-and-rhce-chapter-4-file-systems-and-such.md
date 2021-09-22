@@ -9,7 +9,7 @@ tags: [ 'exports', 'rhel', 'linux', 'fstab', 'dd', 'ext3', 'luks']
 
 ### File Systems
 
-After we have partitioned our drives to our heart's desire, we should actually start using them. The first thing that we need to do is put a file system on our partitions so we can later mount them. From "[Red Hat Enterprise Linux 6 Storage Administration Guide](https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Storage_Administration_Guide/Red_Hat_Enterprise_Linux-6-Storage_Administration_Guide-en-US.pdf)", here are some file systems that are supported my RHEL:
+After we have partitioned our drives to our heart's desire, we should actually start using them. The first thing that we need to do is put a file system on our partitions so we can later mount them. From "[Red Hat Enterprise Linux 6 Storage Administration Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/storage_administration_guide/red_hat_enterprise_linux-6-storage_administration_guide-en-us.pdf)", here are some file systems that are supported my RHEL:
 
 > **2.2. Overview of Supported File Systems**
 >
@@ -48,19 +48,19 @@ So let's try it out. Let's create a single partition on our **sdb** drive and th
     Disk /dev/sdb: 8590MB
     Sector size (logical/physical): 512B/512B
     Partition Table: msdos
-
+    
     Number Start End Size Type File system Flags
-
+    
     (parted) mkpart primary ext2 1 -1s
     (parted) print
     Model: VMware Virtual disk (scsi)
     Disk /dev/sdb: 8590MB
     Sector size (logical/physical): 512B/512B
     Partition Table: msdos
-
+    
     Number Start End Size Type File system Flags
     1 1049kB 8590MB 8589MB primary
-
+    
     (parted) quit
     Information: You may need to update /etc/fstab.
 
@@ -68,14 +68,14 @@ So let's try it out. Let's create a single partition on our **sdb** drive and th
 Checking how **fdisk** sees the partition:
 
     [root@rhel01 ~]# fdisk -l /dev/sdb
-
+    
     Disk /dev/sdb: 8589 MB, 8589934592 bytes
     255 heads, 63 sectors/track, 1044 cylinders
     Units = cylinders of 16065 * 512 = 8225280 bytes
     Sector size (logical/physical): 512 bytes / 512 bytes
     I/O size (minimum/optimal): 512 bytes / 512 bytes
     Disk identifier: 0x000bbb96
-
+    
     Device Boot Start End Blocks Id System
     /dev/sdb1 1 1045 8387584 83 Linux
 
@@ -98,10 +98,10 @@ Now to put an **ext2** filesystem on our newly created partition:
     8192 inodes per group
     Superblock backups stored on blocks:
     32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632
-
+    
     Writing inode tables: done
     Writing superblocks and filesystem accounting information: done
-
+    
     This filesystem will be automatically checked every 32 mounts or
     180 days, whichever comes first. Use tune2fs -c or -i to override.
 
@@ -140,7 +140,7 @@ To check if the filesystem is ext3, you can use **dumpe2fs** to query the file s
 As mentioned above we can also **label** our file system. Here is what I did to **label** my file system:
 
     [root@rhel01 ~]# e2label /dev/sdb1
-
+    
     [root@rhel01 ~]# e2label /dev/sdb1 test
     [root@rhel01 ~]# e2label /dev/sdb1
     test
@@ -447,7 +447,7 @@ Let's un-mount **sdb1** and then remove it and re-create marking it for swap. Cu
     Disk /dev/sdb: 8590MB
     Sector size (logical/physical): 512B/512B
     Partition Table: msdos
-
+    
     Number Start End Size Type File system Flags
     1 1049kB 8590MB 8589MB primary ext3
 
@@ -463,21 +463,21 @@ Notice the file system field is filled out, this happens after you do a **mkfs**
     Disk /dev/sdb: 8590MB
     Sector size (logical/physical): 512B/512B
     Partition Table: msdos
-
+    
     Number Start End Size Type File system Flags
     1 1049kB 8590MB 8589MB primary ext3
-
+    
     (parted) rm 1
     (parted) mkpart primary linux-swap 1 -1s
     (parted) quit
     Information: You may need to update /etc/fstab.
-
+    
     [root@rhel01 ~]# parted /dev/sdb print
     Model: VMware Virtual disk (scsi)
     Disk /dev/sdb: 8590MB
     Sector size (logical/physical): 512B/512B
     Partition Table: msdos
-
+    
     Number Start End Size Type File system Flags
     1 1049kB 8590MB 8589MB primary ext3
 
@@ -508,7 +508,7 @@ The top one is the system created one, and the bottom one is the one I just crea
     Disk /dev/sdb: 8590MB
     Sector size (logical/physical): 512B/512B
     Partition Table: msdos
-
+    
     Number Start End Size Type File system Flags
     1 1049kB 8590MB 8589MB primary linux-swap(v1)
 
@@ -631,7 +631,7 @@ Notice that either the device or the uuid of the device are used. So let's refor
     Disk /dev/sdb: 8590MB
     Sector size (logical/physical): 512B/512B
     Partition Table: msdos
-
+    
     Number Start End Size Type File system Flags
     1 1049kB 8590MB 8589MB primary linux-swap(v1)
 
@@ -654,11 +654,11 @@ Not let's format it with **ext3**:
     8192 inodes per group
     Superblock backups stored on blocks:
     32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632
-
+    
     Writing inode tables: done
     Creating journal (32768 blocks): done
     Writing superblocks and filesystem accounting information: done
-
+    
     This filesystem will be automatically checked every 36 mounts or
     180 days, whichever comes first. Use tune2fs -c or -i to override.
 
@@ -670,7 +670,7 @@ Now checking out the output of **parted**:
     Disk /dev/sdb: 8590MB
     Sector size (logical/physical): 512B/512B
     Partition Table: msdos
-
+    
     Number Start End Size Type File system Flags
     1 1049kB 8590MB 8589MB primary ext3
 
@@ -679,12 +679,12 @@ That looks good. Now to add an entry to **/etc/fstab**. Let's look at the man pa
 
        The first field, (fs_spec),  describes  the  block  special  device  or
        remote filesystem to be mounted.
-
+    
        For  ordinary  mounts  it  will hold (a link to) a block special device
        node (as created by mknod(8))  for  the  device  to  be  mounted,  like
        ‘/dev/cdrom’   or   ‘/dev/sdb7’.    For   NFS   mounts  one  will  have
        <host>:<dir>, e.g., ‘knuth.aeb.nl:/’.  For procfs, use ‘proc’.
-
+    
        Instead of giving the device explicitly, one may indicate the (ext2  or
        xfs)  filesystem that is to be mounted by its UUID or volume label (cf.
        e2label(8) or  xfs_admin(8)),  writing  LABEL=<label>  or  UUID=<uuid>,
@@ -714,7 +714,7 @@ So the second field will be **/mnt**. Onto the 3rd field:
        entry ignore causes the line to be ignored.  This  is  useful  to  show
        disk  partitions  which  are currently unused.  An entry none is useful
        for bind or move mounts.
-
+    
        mount(8) and umount(8) support  filesystem  subtypes.  The  subtype  is
        defined  by  ’.subtype’  suffix.  For example ’fuse.sshfs’. It’s recom-
        mended to use subtype notation rather than add any prefix to the  first
@@ -725,7 +725,7 @@ Our third field will be **ext3**. Then if we keep going:
 
       The  fourth  field, (fs_mntops), describes the mount options associated
        with the filesystem.
-
+    
        It is formatted as a comma separated list of options.  It  contains  at
        least  the type of mount plus any additional options appropriate to the
        filesystem type.  For documentation on the available options  for  non-
@@ -791,7 +791,7 @@ and same thing goes for **umount**:
     [root@rhel01 ~]# umount /mnt
 
 
-The last thing I saw in "[Red Hat Enterprise Linux 6 Deployment Guide](https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf)" is the following:
+The last thing I saw in "[Red Hat Enterprise Linux 6 Deployment Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/deployment_guide/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf)" is the following:
 
 > **E.2.21. /proc/mounts**
 >
@@ -811,7 +811,7 @@ So as you mount a file system on a machine you can check **/etc/mtab** or **/pro
 
 ### Device Encryption
 
-Now if we wanted to encrypt a file system we can also do that. From "[Red Hat Enterprise Linux 6 Installation Guide](https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf)":
+Now if we wanted to encrypt a file system we can also do that. From "[Red Hat Enterprise Linux 6 Installation Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/deployment_guide/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf)":
 
 > **C.1. What is block device encryption?**
 >
@@ -947,11 +947,11 @@ So let's give it a try with my **/dev/sdb1** partition. First let's fill it with
 Now let's format the device as a LUKS Encrypted device:
 
     [root@rhel01 ~]# cryptsetup luksFormat /dev/sdb1
-
+    
     WARNING!
     ========
     This will overwrite data on /dev/sdb1 irrevocably.
-
+    
     Are you sure? (Type uppercase yes): YES
     Enter LUKS passphrase:
     Verify passphrase:
@@ -973,7 +973,7 @@ Now let's see the details of our encrypted device:
 
     [root@rhel01 ~]# cryptsetup luksDump /dev/sdb1
     LUKS header information for /dev/sdb1
-
+    
     Version: 1
     Cipher name: aes
     Cipher mode: cbc-essiv:sha256
@@ -1039,11 +1039,11 @@ That looks good. Now to format our mapped device:
     8192 inodes per group
     Superblock backups stored on blocks:
     32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632
-
+    
     Writing inode tables: done
     Creating journal (32768 blocks): done
     Writing superblocks and filesystem accounting information: done
-
+    
     This filesystem will be automatically checked every 39 mounts or
     180 days, whichever comes first. Use tune2fs -c or -i to override.
 
@@ -1055,16 +1055,16 @@ Now notice parted doesn't know the file system of the partition but it does know
     Disk /dev/sdb: 8590MB
     Sector size (logical/physical): 512B/512B
     Partition Table: msdos
-
+    
     Number Start End Size Type File system Flags
     1 1049kB 8590MB 8589MB primary
-
+    
     [root@rhel01 ~]# parted /dev/mapper/my_enc_dev print
     Model: Linux device-mapper (crypt) (dm)
     Disk /dev/mapper/my_enc_dev: 8587MB
     Sector size (logical/physical): 512B/512B
     Partition Table: loop
-
+    
     Number Start End Size File system Flags
     1 0.00B 8587MB 8587MB ext4
 
@@ -1319,11 +1319,11 @@ That looks good. Now let's format device as a regular ext3 partition:
     8192 inodes per group
     Superblock backups stored on blocks:
     32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632
-
+    
     Writing inode tables: done
     Creating journal (32768 blocks): done
     Writing superblocks and filesystem accounting information: done
-
+    
     This filesystem will be automatically checked every 29 mounts or
     180 days, whichever comes first. Use tune2fs -c or -i to override.
 
@@ -1414,7 +1414,7 @@ Now let's add a user called user1 and enable quotas to be soft at 20M,hard at 25
     [root@rhel01 ~]# getent passwd user1
     user1:x:500:500::/home/user1:/bin/bash
     Now let's edit this user's quota:
-
+    
     [root@rhel01 ~]# edquota user1
     Disk quotas for user user1 (uid 500):
     Filesystem blocks soft hard inodes soft hard
@@ -1485,7 +1485,7 @@ We can see that the blocks is the same as limit, indicating that we have gone ov
     ----------------------------------------------------------------------
     root -- 149628 0 0 4 0 0
     user1 +- 25000 20000 25000 47:55 5 0 0
-
+    
     Statistics:
     Total blocks: 7
     Data blocks: 1
@@ -1703,5 +1703,4 @@ If you want to remove those permissions for user1 we can do the following:
     group::r--
     mask::r--
     other::r--
-
 

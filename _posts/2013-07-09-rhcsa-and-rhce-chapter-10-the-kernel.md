@@ -54,7 +54,7 @@ Another view from [Anatomy of the Linux kernel](http://www.cyberciti.biz/tips/un
 
 ### RHEL CPU Scheduler
 
-From [RedHat 6 Release notes](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/6.0_Release_Notes/Red_Hat_Enterprise_Linux-6-6.0_Release_Notes-en-US.pdf):
+From [RedHat 6 Release notes](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/6.0_release_notes/kernel):
 
 > **12.2.1. Completely Fair Scheduler (CFS)**
 > A process (or task) scheduler is a specific kernel subsystem that is responsible for assigning the order in which processes are sent to the CPU. The kernel (version 2.6.32) shipped in Red Hat Enterprise Linux 6 replaces the O(1) scheduler with the new Completely Fair Scheduler (CFS). The CFS implements the fair queuing scheduling algorithm.
@@ -71,7 +71,7 @@ We can check the scheduler information, by checking out the contents of **/proc/
       .sysctl_sched_child_runs_first           : 0.000000
       .sysctl_sched_features                   : 15471
       .sysctl_sched_tunable_scaling            : 1 (logaritmic)
-
+    
     cpu#0, 2795.243 MHz
       .nr_running                    : 1
       .load                          : 1024
@@ -94,7 +94,7 @@ We can check the scheduler information, by checking out the contents of **/proc/
       .ttwu_count                    : 26666
       .ttwu_local                    : 26666
       .bkl_count                     : 152
-
+    
     cfs_rq[0]:/
       .exec_clock                    : 12072.940261
       .MIN_vruntime                  : 0.000001
@@ -106,13 +106,13 @@ We can check the scheduler information, by checking out the contents of **/proc/
       .load                          : 1024
       .nr_spread_over                : 9
       .shares                        : 0
-
+    
     rt_rq[0]:/
       .rt_nr_running                 : 0
       .rt_throttled                  : 0
       .rt_time                       : 0.000000
       .rt_runtime                    : 950.000000
-
+    
     runnable tasks:
                 task   PID         tree-key  switches  prio     exec-runtime         sum-exec        sum-sleep
     ----------------------------------------------------------------------------------------------------------
@@ -125,7 +125,7 @@ We can see that CFS is used. There is a lot of resources on the scheduler:
 *   [Completely Fair Scheduler](http://www.linuxjournal.com/magazine/completely-fair-scheduler)
 *   [Inside the Linux 2.6 Completely Fair Scheduler](http://www.ibm.com/developerworks/library/l-completely-fair-scheduler/)
 
-From [Performance Tuning Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Performance_Tuning_Guide/Red_Hat_Enterprise_Linux-6-Performance_Tuning_Guide-en-US.pdf):
+From [Performance Tuning Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/performance_tuning_guide/red_hat_enterprise_linux-6-performance_tuning_guide-en-us.pdf):
 
 > **4.2. CPU Scheduling**
 > The scheduler is responsible for keeping the CPUs in the system busy. The Linux scheduler implements a number of scheduling policies, which determine when and for how long a thread runs on a particular CPU core.
@@ -259,7 +259,7 @@ From the same page:
 
 ### RHEL Memory Management
 
-From this pretty old RHEL document entitled [Understanding Virtual Memory](http://people.redhat.com/nhorman/papers/rhel4_vm.pdf)
+From this pretty old RHEL document entitled [Understanding Virtual Memory](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/rhel4_vm.pdf)
 
 > **Introduction**
 > One of the most important aspects of an operating system is the Virtual Memory Management system. Virtual Memory (VM) allows an operating system to perform many of its advanced functions, such as process isolation, ﬁle caching, and swapping. As such, it is imperative that an administrator understand the functions and tunable parameters of an operating system’s virtual memory manager so that optimal performance for a given workload may be achieved. This article is intended to provide a system administrator a general overview of how a VM works, speciﬁcally the VM implemented in Red Hat Enterprise Linux 4 (RHEL4). After reading this document, the reader should have a rudimentary understanding of the data the RHEL4 VM controls and the algorithms it uses. Further, the reader should have a fairly good understanding of general Linux VM tuning techniques. It is important to note that Linux as an operating system has a proud legacy of overhaul. Items which no longer serve useful purposes or which have better implementations as technology advances are phased out. This implies that the tuning parameters described in this article may be out of date if you are using a newer or older kernel. This is particularly true of this release of Red Hat Enterprise Linux, as it is the ﬁrst RHEL release making use of the 2.6 kernel series. Fear not however! With a well grounded understanding of the general mechanics of a VM, it is fairly easy to convert ones knowledge of VM tuning to another VM
@@ -357,7 +357,7 @@ Another concise summary is seen at [Linux Performance and Tuning Guidelines](htt
 
 ### Tuning Memory Management
 
-From [Realtime Tuning Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_MRG/2/pdf/Realtime_Tuning_Guide/Red_Hat_Enterprise_MRG-2-Realtime_Tuning_Guide-en-US.pdf):
+From [Realtime Tuning Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/Red_Hat_Enterprise_MRG-2-Realtime_Tuning_Guide-en-US.pdf):
 
 > **2.8. Swapping and Out Of Memory Tips**
 >
@@ -798,7 +798,7 @@ Or you can actually run **slabtop** and see real time usage. Here is how my **sl
      Active / Total Caches (% used)     : 96 / 183 (52.5%)
      Active / Total Size (% used)       : 31127.88K / 31911.36K (97.5%)
      Minimum / Average / Maximum Object : 0.01K / 0.04K / 4096.00K
-
+    
       OBJS ACTIVE  USE OBJ SIZE  SLABS OBJ/SLAB CACHE SIZE NAME
     467712 467589  99%    0.02K   2304  203  9216K avtab_node
     327700 327484  99%    0.03K   2900  113     11600K size-32
@@ -807,7 +807,7 @@ Or you can actually run **slabtop** and see real time usage. Here is how my **sl
       5973   5649  94%    0.34K    543   11  2172K inode_cache
 
 
-We can see that our *inode_cache* is taking **2172K**. I didn't find that many tuning options for VFS. From [RHEL Global File System](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Global_File_System_2/s2-vfstuning-gfs2.html):
+We can see that our *inode_cache* is taking **2172K**. I didn't find that many tuning options for VFS. From [RHEL Global File System](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/pdf/global_file_system_2/red_hat_enterprise_linux-7-global_file_system_2-en-us.pdf):
 
 > **2.5.3. VFS Tuning Options: Research and Experiment**
 > Like all Linux file systems, GFS2 sits on top of a layer called the virtual file system (VFS). You can tune the VFS layer to improve underlying GFS2 performance by using the sysctl(8) command. For example, the values for **dirty_background_ratio** and **vfs_cache_pressure** may be adjusted depending on your situation. To fetch the current values, use the following commands:
@@ -917,13 +917,13 @@ To check most of the those parameters you can use ethtool:
     RX Mini:    0
     RX Jumbo:   0
     TX:     256
-
+    
     [root@rhel1 ~]# ethtool -a eth0
     Pause parameters for eth0:
     Autonegotiate:  on
     RX:     on
     TX:     off
-
+    
     [root@rhel1 ~]# ethtool -k eth0
     Offload parameters for eth0:
     rx-checksumming: on
@@ -934,7 +934,7 @@ To check most of the those parameters you can use ethtool:
     generic-segmentation-offload: on
     generic-receive-offload: off
     large-receive-offload: off
-
+    
     [root@rhel1 ~]# ethtool -c eth0
     Coalesce parameters for eth0:
     Adaptive RX: off  TX: off
@@ -942,22 +942,22 @@ To check most of the those parameters you can use ethtool:
     sample-interval: 0
     pkt-rate-low: 0
     pkt-rate-high: 0
-
+    
     rx-usecs: 0
     rx-frames: 0
     rx-usecs-irq: 0
     rx-frames-irq: 0
-
+    
     tx-usecs: 0
     tx-frames: 0
     tx-usecs-irq: 0
     tx-frames-irq: 0
-
+    
     rx-usecs-low: 0
     rx-frame-low: 0
     tx-usecs-low: 0
     tx-frame-low: 0
-
+    
     rx-usecs-high: 0
     rx-frame-high: 0
     tx-usecs-high: 0
@@ -1194,7 +1194,7 @@ There are a lot of parameters to tune the kernel networking. From the "[Performa
 
 ### The proc File System
 
-As you have noticed most of the kernel tuning is done under **/proc** or via **sysctl**. So let's cover that, from the [Deployment Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf):
+As you have noticed most of the kernel tuning is done under **/proc** or via **sysctl**. So let's cover that, from the [Deployment Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/deployment_guide/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf):
 
 > **The proc File System**
 > The Linux kernel has two primary functions: to control access to physical devices on the computer and to schedule when and how processes interact with these devices. The /proc/ directory (also called the proc file system) contains a hierarchy of special files which represent the current state of the kernel, allowing applications and users to peer into the kernel's view of the system.

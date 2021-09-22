@@ -27,11 +27,11 @@ So only one of the LUNs was mounted, the other was not. Checking out fdisk for b
 
 
 	~ # fdisk -lu /vmfs/devices/disks/naa.600144f0928c010000004fc511ec0001
-
+	
 	Disk /vmfs/devices/disks/naa.600144f0928c010000004fc511ec0001: 107.3 GB, 107374182400 bytes
 	255 heads, 63 sectors/track, 13054 cylinders, total 209715200 sectors
 	Units = sectors of 1 * 512 = 512 bytes
-
+	
 	Device Boot Start End Blocks Id System
 	/vmfs/devices/disks/naa.600144f0928c010000004fc511ec0001p1 128 209712509 104856191 fb VMFS
 
@@ -40,20 +40,20 @@ That looks good. The offset is 128 sectors and the File System type is VMFS. If 
 
 
 	~ # fdisk -lu /vmfs/devices/disks/naa.600144f0928c010000004fc90a3a0001
-
+	
 	Disk /vmfs/devices/disks/naa.600144f0928c010000004fc90a3a0001: 139.5 GB, 139586437120 bytes
 	255 heads, 63 sectors/track, 16970 cylinders, total 272629760 sectors
 	Units = sectors of 1 * 512 = 512 bytes
-
+	
 	Device Boot Start End Blocks Id System
 	/vmfs/devices/disks/naa.600144f0928c010000004fc90a3a0001p1 63 272627069 136313471 42 SFS
 
 
-That looked a little weird, the Filesystem ID is 42 and the Name is SFS. From the Windows "[Disk Concepts and Troubleshooting](http://technet.microsoft.com/en-us/library/cc977219.aspx)" page:
+That looked a little weird, the Filesystem ID is 42 and the Name is SFS. From the Windows "[Disk Concepts and Troubleshooting](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-2000-server/cc977219(v=technet.10))" page:
 
 > 0x42 Dynamic disk volume
 
-Windows has two different disk types, basic and dynamic. From "[Basic and Dynamic Disks](http://msdn.microsoft.com/en-us/library/windows/desktop/aa363785(v=vs.85).aspx)"
+Windows has two different disk types, basic and dynamic. From "[Basic and Dynamic Disks](https://docs.microsoft.com/en-us/windows/win32/fileio/basic-and-dynamic-disks)"
 
 > **Basic Disks**
 > Basic disks are the storage types most often used with Windows. The term basic disk refers to a disk that contains partitions, such as primary partitions and logical drives, and these in turn are usually formatted with a file system to become a volume for file storage.

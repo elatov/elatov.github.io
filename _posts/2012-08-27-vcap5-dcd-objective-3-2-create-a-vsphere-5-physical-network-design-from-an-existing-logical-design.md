@@ -174,7 +174,7 @@ And from the same document:
 
 ### Implement logical Trust Zones using network security/firewall technologies.
 
-From the [VMUG](http://communities.vmware.com/servlet/JiveServlet/download/1633024-44565/VMUG%20Presentation.pptx) Presentation:
+From a VMUG Presentation:
 
 ![trust_zone_vcd](https://github.com/elatov/uploads/raw/master/2012/08/trust_zone_vcd.png)
 
@@ -201,7 +201,7 @@ If there is a requirement to use any of those then pick accordingly. I would use
 Plan ahead and see whether you need 1Gb or 10Gb. Also if you are planning to use VMdirect-IO Path, then you will need to plan ahead and get more NICs for other VMs. Also remember the Max Guide. For 4.1 only 4x10Gb NICs are supported and on ESX 5.x only 8x10Gb. Other limitation for 1Gb also apply and they are on a per-driver basis. Here are links to both of the Max Config guides:
 
 *   [Configuration Maximums VMware vSphere 4.1](http://www.vmware.com/pdf/vsphere4/r41/vsp_41_config_max.pdf)
-*   [Configuration Maximums VMware vSphere 5.0](http://www.vmware.com/pdf/vsphere5/r50/vsphere-50-configuration-maximums.pdf)
+*   [Configuration Maximums VMware vSphere 5.0](https://www.vmware.com/pdf/vsphere5/r50/vsphere-50-configuration-maximums.pdf)
 
 Also remember to put your 10Gb NIcs on PCIe 8x slots. If possible use NetQueue, helps with performance with 10Gb NICs.
 

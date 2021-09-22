@@ -9,7 +9,7 @@ tags: ['iptables', 'rhel','linux', 'samba','selinux']
 
 ## Samba
 
-From the [Deployment Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf):
+From the [Deployment Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/deployment_guide/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf):
 
 > Samba is an open source implementation of the Server Message Block (SMB) protocol. It allows the networking of Microsoft Windows, Linux, UNIX, and other operating systems together, enabling access to Windows-based file and printer shares. Samba's use of SMB allows it to appear as a Windows server to Windows clients.
 
@@ -410,7 +410,7 @@ By default we have the following configuration:
         passdb backend = tdbsam
         load printers = yes
         cups options = raw
-
+    
     [homes]
         comment = Home Directories
         browseable = no
@@ -434,19 +434,19 @@ We can also use **testparm** to list the configuration:
     Loaded services file OK.
     Server role: ROLE_STANDALONE
     Press enter to see a dump of your service definitions
-
+    
     [global]
         workgroup = MYGROUP
         server string = Samba Server Version %v
         log file = /var/log/samba/log.%m
         max log size = 50
         cups options = raw
-
+    
     [homes]
         comment = Home Directories
         read only = No
         browseable = No
-
+    
     [printers]
         comment = All Printers
         path = /var/spool/samba
@@ -464,7 +464,7 @@ The default shares the home directories which is good. I renamed my workgroup an
     Loaded services file OK.
     Server role: ROLE_STANDALONE
     Press enter to see a dump of your service definitions
-
+    
     [global]
         dos charset = CP850
         unix charset = UTF-8
@@ -836,12 +836,12 @@ The default shares the home directories which is good. I renamed my workgroup an
         vfs objects =
         msdfs root = No
         msdfs proxy =
-
+    
     [homes]
         comment = Home Directories
         read only = No
         browseable = No
-
+    
     [printers]
         comment = All Printers
         path = /var/spool/samba
@@ -948,7 +948,7 @@ At this point you can make sure that user can see the appropriate shares:
 
     [root@rhel1 ~]# net -l share -S rhel1 -U user1
     Enter user1's password:
-
+    
     Enumerating shared resources (exports) on remote server:
 
 
@@ -1007,7 +1007,7 @@ From the deployment guide:
 >
 >
 >     The following example displays a list of Samba users for a host named wakko:
->
+>    
 >         ~]$ net -l user -S wakko
 >         root password:
 >         User name             Comment
@@ -1205,17 +1205,17 @@ To anonymously query the server run the following:
     [root@rhel2 ~]# smbclient -L RHEL1 -N
     Anonymous login successful
     Domain=[LOCAL] OS=[Unix] Server=[Samba 3.5.6-86.el6]
-
+    
         Sharename       Type      Comment
         ---------       ----      -------
         IPC$            IPC       IPC Service (Samba Server Version 3.5.6-86.el6)
     Anonymous login successful
     Domain=[LOCAL] OS=[Unix] Server=[Samba 3.5.6-86.el6]
-
+    
         Server               Comment
         ---------            -------
         RHEL1                Samba Server Version 3.5.6-86.el6
-
+    
         Workgroup            Master
         ---------            -------
         LOCAL                RHEL1
@@ -1226,7 +1226,7 @@ To query the server as a user, run the following:
     [root@rhel2 ~]# smbclient -L RHEL1 -U user1
     Password:
     Domain=[RHEL1] OS=[Unix] Server=[Samba 3.5.6-86.el6]
-
+    
     Sharename       Type      Comment
     ---------       ----      -------
     IPC$            IPC       IPC Service (Samba Server Version 3.5.6-86.el6)
@@ -1234,7 +1234,7 @@ To query the server as a user, run the following:
     Domain=[RHEL1] OS=[Unix] Server=[Samba 3.5.6-86.el6]
     Server               Comment
     ---------            -------
-
+    
     Workgroup            Master
     ---------            -------
     LOCAL                RHEL1
@@ -1247,7 +1247,7 @@ I used the password I set with the **smbpasswd** command when I created the user
     Domain=[RHEL1] OS=[Unix] Server=[Samba 3.5.6-86.el6]
     smb: \> ls
     NT_STATUS_ACCESS_DENIED listing *
-
+    
             34300 blocks of size 262144. 537 blocks available
     smb: \> quit
 
@@ -1276,7 +1276,7 @@ then it worked fine:
       foo.txt                                      0  Fri Feb  8 07:24:20 2013
       .bash_profile                       H      176  Thu Jan 27 06:41:02 2011
       .xinitrc                           AH     1486  Sat Mar  8 11:30:02 2014
-
+    
             34300 blocks of size 262144. 537 blocks available
 
 
@@ -1291,16 +1291,16 @@ To make sure writes are working, upload a file:
 On the server side you can check who is connected with the **smbstatus** command:
 
     [root@rhel1 ~]# smbstatus
-
+    
     Samba version 3.5.6-86.el6
     PID     Username      Group         Machine
     -------------------------------------------------------------------
     12296     user1         user1         rhel2        (::ffff:192.168.2.3)
-
+    
     Service      pid     machine       Connected at
     -------------------------------------------------------
     user1        12296   rhel2         Sat Mar 29 16:16:12 2014
-
+    
     No locked files
 
 
@@ -1332,7 +1332,7 @@ We can then make sure we can write a file
 
 ### Samba and SELinux
 
-From [Managing Confined Services](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Managing_Confined_Services/Red_Hat_Enterprise_Linux-6-Managing_Confined_Services-en-US.pdf):
+From [Managing Confined Services](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/managing_confined_services/red_hat_enterprise_linux-6-managing_confined_services-en-us.pdf):
 
 > When SELinux is enabled, the Samba server (**smbd**) runs confined by default. Confined services run in their own domains, and are separated from other confined services.
 >
@@ -1415,17 +1415,17 @@ From the Managing Confined Services Guide:
 >         ~]$ smbclient -U username -L localhost
 >         Enter username's password:
 >         Domain=[HOSTNAME] OS=[Unix] Server=[Samba 3.4.0-0.41.el6]
->
+>        
 >         Sharename       Type      Comment
 >         ---------       ----      -------
 >         myshare         Disk      My share
 >         IPC$            IPC       IPC Service (Samba Server Version 3.4.0-0.41.el6)
 >         username        Disk      Home Directories
 >         Domain=[HOSTNAME] OS=[Unix] Server=[Samba 3.4.0-0.41.el6]
->
+>        
 >         Server               Comment
 >         ---------            -------
->
+>        
 >         Workgroup            Master
 >         ---------            -------
 >
@@ -1477,18 +1477,18 @@ let's make sure the configuration is okay:
         log file = /var/log/samba/log.%m
         max log size = 50
         cups options = raw
-
+    
     [homes]
         comment = Home Directories
         valid users = %S
         read only = No
-
+    
     [printers]
         comment = All Printers
         path = /var/spool/samba
         printable = Yes
         browseable = No
-
+    
     [share]
         comment = My share
         path = /share
@@ -1525,7 +1525,7 @@ Now let's try it again:
     smb: \> ls
       .                                   D        0  Sat Mar 29 16:54:19 2014
       ..                                 DR        0  Sat Mar 29 16:54:19 2014
-
+    
             34300 blocks of size 262144. 536 blocks available
     smb: \> !ls
     anaconda-ks.cfg  Desktop  install.log  install.log.syslog  repo
