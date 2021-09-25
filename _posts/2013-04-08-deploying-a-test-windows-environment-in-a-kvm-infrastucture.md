@@ -17,7 +17,7 @@ If you don't have [Virtual Machine Manager](http://virt-manager.org/) installed,
     sudo yum install virt-manager
 
 
-Depending on where your ISOs are stored you have a couple of options. If the ISOs are stored on the KVM server then you will have to use SSH X-Forwarding to do the initial setup, and after the initial install you can manage the VMs with **virt-manager** via *qemu+ssh* protocol instead of SSH X-Forwarding. The reason for this is because you can't browse local directories from **virt-manager** remotely. From '[Chapter 12. Managing Storage](https://doc.opensuse.org/documentation/leap/archive/15.0/virtualization/html/book.virt/cha.libvirt.storage.htmll)'
+Depending on where your ISOs are stored you have a couple of options. If the ISOs are stored on the KVM server then you will have to use SSH X-Forwarding to do the initial setup, and after the initial install you can manage the VMs with **virt-manager** via *qemu+ssh* protocol instead of SSH X-Forwarding. The reason for this is because you can't browse local directories from **virt-manager** remotely. From '[Chapter 12. Managing Storage](https://doc.opensuse.org/documentation/leap/archive/15.0/virtualization/html/book.virt/cha.libvirt.storage.html)'
 
 > Using the file browser by clicking on Browse is not possible when operating from remote.
 

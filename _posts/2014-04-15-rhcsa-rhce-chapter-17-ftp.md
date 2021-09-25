@@ -9,7 +9,7 @@ tags: ['selinux', 'ftp', 'rhel', 'linux']
 
 ## FTP
 
-From the [Deployment Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf):
+From the [Deployment Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/deployment_guide/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf):
 
 > File Transfer Protocol (FTP) is one of the oldest and most commonly used protocols found on the Internet today. Its purpose is to reliably transfer files between computer hosts on a network without requiring the user to log directly into the remote host or have knowledge of how to use the remote system. It allows users to access files on remote systems using a standard set of simple commands.
 
@@ -551,29 +551,29 @@ If we check out the messages log, we will see that SELinux is preventing that lo
 So check out the alert, lets run the suggested command:
 
     [root@rhel1 ~]# sealert -l 497302a8-2337-4b73-b7f1-078e01df7c66
-
+    
     Summary:
-
+    
     SELinux is preventing the ftp daemon from reading users home directories
     (/home).
-
+    
     Detailed Description:
-
+    
     SELinux has denied the ftp daemon access to users home directories (/home).
     Someone is attempting to login via your ftp daemon to a user account. If you
     only setup ftp to allow anonymous ftp, this could signal an intrusion attempt.
-
+    
     Allowing Access:
-
+    
     If you want ftp to allow users access to their home directories you need to turn
     on the ftp_home_dir boolean: "setsebool -P ftp_home_dir=1"
-
+    
     Fix Command:
-
+    
     setsebool -P ftp_home_dir=1
-
+    
     Additional Information:
-
+    
     Source Context                unconfined_u:system_r:ftpd_t:s0-s0:c0.c1023
     Target Context                system_u:object_r:home_root_t:s0
     Target Objects                /home [ dir ]
@@ -596,11 +596,11 @@ So check out the alert, lets run the suggested command:
     Last Seen                     Sun Apr  6 14:43:56 2014
     Local ID                      497302a8-2337-4b73-b7f1-078e01df7c66
     Line Numbers
-
+    
     Raw Audit Messages
-
+    
     node=rhel1.local.com type=AVC msg=audit(1396817036.502:2803): avc:  denied  { search } for  pid=22954 comm="vsftpd" name="home" dev=dm-0 ino=388614 scontext=unconfined_u:system_r:ftpd_t:s0-s0:c0.c1023 tcontext=system_u:object_r:home_root_t:s0 tclass=dir
-
+    
     node=rhel1.local.com type=SYSCALL msg=audit(1396817036.502:2803): arch=40000003 syscall=12 success=no exit=-13 a0=105b648 a1=1f4 a2=cd133c a3=16 items=0 ppid=22945 pid=22954 auid=0 uid=0 gid=0 euid=500 suid=500 fsuid=500 egid=500 sgid=500 fsgid=500 tty=(none) ses=381 comm="vsftpd" exe="/usr/sbin/vsftpd" subj=unconfined_u:system_r:ftpd_t:s0-s0:c0.c1023 key=(null)
 
 
@@ -662,7 +662,7 @@ Here are all the FTP related SELinux Booleans:
 
 ### FTP and SELinux
 
-From [Managing Confined Services](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Managing_Confined_Services/Red_Hat_Enterprise_Linux-6-Managing_Confined_Services-en-US.pdf)
+From [Managing Confined Services](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/managing_confined_services/red_hat_enterprise_linux-6-managing_confined_services-en-us.pdf)
 
 > The **vsftpd** FTP daemon runs confined by default. SELinux policy defines how **vsftpd** interacts with files, processes, and with the system in general. For example, when an authenticated user logs in via FTP, they cannot read from or write to files in their home directories: SELinux prevents **vsftpd** from accessing user home directories by default. Also, by default, **vsftpd** does not have access to NFS or CIFS volumes, and anonymous users do not have write access, even if such write access is configured in **/etc/vsftpd/vsftpd.conf**. Booleans can be enabled to allow the previously mentioned access.
 

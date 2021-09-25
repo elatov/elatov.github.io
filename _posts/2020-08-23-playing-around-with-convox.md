@@ -8,13 +8,13 @@ tags: [aws, convox]
 ---
 
 ## Deploying an Initial Convox Rack
-For testing purposes I created a free tier account on aws ([AWS Free Tier](https://aws.amazon.com/free/)). After that you can create an API key pair for the account and download it as a CSV file. Then you can link your AWS account to the convox console (check out more detailed documentation in [Console -> AWS Integration](https://convox.com/docs/aws-integration/)). At this point you can deploy a convox Rack, which will deploy a bunch of services in aws. After deploying a rack you will see the following output in convox (instructions laid out in [Deployment -> Installing a Rack](https://convox.com/docs/installing-a-rack/)):
+For testing purposes I created a free tier account on aws ([AWS Free Tier](https://aws.amazon.com/free/)). After that you can create an API key pair for the account and download it as a CSV file. Then you can link your AWS account to the convox console (check out more detailed documentation in [Console -> AWS Integration](https://docsv2.convox.com/introduction/rack#deploy-to-aws)). At this point you can deploy a convox Rack, which will deploy a bunch of services in aws. After deploying a rack you will see the following output in convox (instructions laid out in [Deployment -> Installing a Rack](https://docsv2.convox.com/introduction/rack#rack-installation)):
 
 ![convox-rack-deployed.png](https://res.cloudinary.com/elatov/image/upload/v1598198255/blog-pics/convox/convox-rack-deployed.png)
 
 ### Convox Architecture
 
-There is a pretty good overview of what a rack is at [Introduction -> Convox Rack](https://convox.com/docs/rack/), from that page:
+There is a pretty good overview of what a rack is at [Introduction -> Convox Rack](https://docsv2.convox.com/introduction/rack), from that page:
 
 > A Rack creates and manages all of the underlying infrastructure needed to run and monitor your applications. A Rack is the unit of network isolation – applications and services on a Rack can only communicate with other applications and services on the same Rack
 >

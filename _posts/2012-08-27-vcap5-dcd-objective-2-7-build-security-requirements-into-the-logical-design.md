@@ -54,7 +54,7 @@ From the [APAC BrownBag Session 5](http://vimeo.com/38646355) slide deck:
 
 ### Create a security policy based on existing security requirements and IT governance practices
 
-From this [great](http://communities.vmware.com/servlet/JiveServlet/download/1633024-44565/VMUG%20Presentation.pptx) VMUG presentation by Rob Randell:
+From this [great](http://www.cpd.iit.edu/netsecure08/ROBERT_RANDELL.pdf) VMUG presentation by Rob Randell:
 
 ![secure_and_compliant](https://github.com/elatov/uploads/raw/master/2012/08/secure_and_compliant.png)
 
@@ -113,8 +113,8 @@ Just depends on what is required. If you have to setup a DMZ, then an additional
 
 Recommended readings/recordings:
 
-*   [APAC BrownBag Session 5](http://vimeo.com/38646355)
-*   [vSphere Security Guide](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-security-guide.pdf)
-*   [VMware Security Briefing](http://communities.vmware.com/servlet/JiveServlet/download/1633024-44565/VMUG%20Presentation.pptx)
-*   [Infrastructure Security: Getting to the Bottom of Compliance in the Cloud](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/products/cloud-services/vmware-cloud-services-on-aws-security-overview-white-paper.pdf)
+* [APAC BrownBag Session 5](http://vimeo.com/38646355)
+* [vSphere Security Guide](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-security-guide.pdf)
+* [VMware Security Briefing](http://www.cpd.iit.edu/netsecure08/ROBERT_RANDELL.pdf)
+* [Infrastructure Security: Getting to the Bottom of Compliance in the Cloud](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/products/cloud-services/vmware-cloud-services-on-aws-security-overview-white-paper.pdf)
 

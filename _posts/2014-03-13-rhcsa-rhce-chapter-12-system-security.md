@@ -611,11 +611,11 @@ So let's try this out. First let's list the current rules:
     5        0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           tcp dpt:21
     6        0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           tcp dpt:20
     7       0     0 REJECT     all  --  *      *       0.0.0.0/0            0.0.0.0/0           reject-with icmp-host-prohibited
-
+    
     Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
     num   pkts bytes target     prot opt in     out     source               destination
     1        0     0 REJECT     all  --  *      *       0.0.0.0/0            0.0.0.0/0           reject-with icmp-host-prohibited
-
+    
     Chain OUTPUT (policy ACCEPT 80 packets, 12336 bytes)
     num   pkts bytes target     prot opt in     out     source               destination
 
@@ -778,7 +778,7 @@ The RHEL5 machine can't reach the internet:
 
     [root@rhel2 ~]# ping -c 2 google.com
     PING google.com (74.125.239.37) 56(84) bytes of data.
-
+    
     --- google.com ping statistics ---
     2 packets transmitted, 0 received, 100% packet loss, time 999ms
 
@@ -832,11 +832,11 @@ Let's make sure the rule is in place:
     [root@rhel1 ~]# iptables -t nat -L -n -v --line-numbers
     Chain PREROUTING (policy ACCEPT 3 packets, 213 bytes)
     num   pkts bytes target     prot opt in     out     source               destination
-
+    
     Chain POSTROUTING (policy ACCEPT 1 packets, 73 bytes)
     num   pkts bytes target     prot opt in     out     source               destination
     1        1    84 MASQUERADE  all  --  *      eth0    192.168.2.0/24       0.0.0.0/0
-
+    
     Chain OUTPUT (policy ACCEPT 1 packets, 73 bytes)
     num   pkts bytes target     prot opt in     out     source               destination
 
@@ -847,7 +847,7 @@ Now from our internal RHEL5 machine let's check if we can reach the internet:
     PING google.com (74.125.239.128) 56(84) bytes of data.
     64 bytes from nuq05s02-in-f0.1e100.net (74.125.239.128): icmp_seq=1 ttl=53 time=41.1 ms
     64 bytes from nuq05s02-in-f0.1e100.net (74.125.239.128): icmp_seq=2 ttl=53 time=39.2 ms
-
+    
     --- google.com ping statistics ---
     2 packets transmitted, 2 received, 0% packet loss, time 1000ms
     rtt min/avg/max/mdev = 39.286/40.213/41.140/0.927 ms
@@ -882,7 +882,7 @@ Notice I sent the request to *rhel1*, but in the end reached *rhel2*.
 
 ## Pluggable Authentication Module (PAM)
 
-From [Managing Single Sign-On and Smart Cards](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Managing_Smart_Cards/Red_Hat_Enterprise_Linux-6-Managing_Smart_Cards-en-US.pdf) here is what PAM is:
+From [Managing Single Sign-On and Smart Cards](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/Red_Hat_Enterprise_Linux-6-Managing_Smart_Cards-en-US.pdf) here is what PAM is:
 
 > Programs that grant users access to a system use authentication to verify each other's identity (that is, to establish that a user is who they say they are).
 >
@@ -1016,7 +1016,7 @@ From the same Guide:
 
 ### Other PAM Examples
 
-The [Security Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Security_Guide/Red_Hat_Enterprise_Linux-6-Security_Guide-en-US.pdf), has a lot of the PAM examples as well:
+The [Security Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/security_guide/red_hat_enterprise_linux-6-security_guide-en-us.pdf), has a lot of the PAM examples as well:
 
 > **Forcing Strong Passwords**
 >
@@ -1183,7 +1183,7 @@ After checking out some of the files, it looks like **pam_tally2** is what we ar
     [root@rhel2 ~]# head -5 /usr/share/doc/pam-0.99.6.2/txts/README.pam_tally2
     SUMMARY:
       pam_tally2.so:
-
+    
             Maintains a count of attempted accesses, can reset count on success,
                     can deny access if too many attempts fail.
 

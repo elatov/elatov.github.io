@@ -9,7 +9,7 @@ tags: ['exports', 'linux', 'nfs', 'rhel','selinux','iptables']
 
 ## NFS
 
-From the [Storage Administration Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Storage_Administration_Guide/Red_Hat_Enterprise_Linux-6-Storage_Administration_Guide-en-US.pdf):
+From the [Storage Administration Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/storage_administration_guide/red_hat_enterprise_linux-6-storage_administration_guide-en-us.pdf):
 
 > A Network File System (**NFS**) allows remote hosts to mount file systems over a network and interact with those file systems as though they are mounted locally. This enables system administrators to consolidate resources onto centralized servers on the network.
 >
@@ -276,7 +276,7 @@ Now let's disable everything below version 4. This is done by editing **/etc/sys
     # with yes being the default
     MOUNTD_NFS_V2="no"
     MOUNTD_NFS_V3="no"
-
+    
      # Turn off v2 and v3 protocol support
     RPCNFSDARGS="-N 2 -N 3"
 
@@ -436,7 +436,7 @@ We can check stats regarding the mount point with **nfsstat**:
     Client rpc stats:
     calls      retrans    authrefrsh
     59         0          0
-
+    
     Client nfs v4:
     null         read         write        commit       open         open_conf
     0         0% 2         3% 0         0% 0         0% 5         8% 2         3%
@@ -592,7 +592,7 @@ and I was able to add to the file without issues:
 
 ### NFS Security
 
-From [Managing Confined Services](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Managing_Confined_Services/Red_Hat_Enterprise_Linux-6-Managing_Confined_Services-en-US.pdf):
+From [Managing Confined Services](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/managing_confined_services/red_hat_enterprise_linux-6-managing_confined_services-en-us.pdf):
 
 > A Network File System (NFS) allows remote hosts to mount file systems over a network and interact with those file systems as though they are mounted locally. This enables system administrators to consolidate resources onto centralized servers on the network.
 >

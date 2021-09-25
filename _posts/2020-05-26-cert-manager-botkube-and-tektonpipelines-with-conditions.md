@@ -29,7 +29,7 @@ The [Cert Manager](https://cert-manager.io/docs/) components are documented very
 
 ![cert-man-componts.png](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/cert-manager-botkube/cert-man-componts.png)
 
-The installation is covered in [Installing with regular manifests](https://cert-manager.io/docs/installation/kubernetes/#installing-with-regular-manifests), so I just ran the following:
+The installation is covered in [Installing with regular manifests](https://cert-manager.io/docs/installation/kubectl/), so I just ran the following:
 
 ```bash
 kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v0.15.0/cert-manager.yaml
@@ -420,7 +420,7 @@ spec:
         name: bot-pipeline-template
 ```
 
-I did end up using a [CEL Interceptor](https://github.com/tektoncd/triggers/blob/master/docs/eventlisteners.md#CEL-Interceptors) since I wanted to ignore the **deployment** updates. We will see the full body of the message from **botkube** to find out how to generate the filter. Next here is the **triggerbinding**:
+I did end up using a [CEL Interceptor](https://github.com/tektoncd/triggers/blob/main/docs/interceptors.md#cel-interceptors) since I wanted to ignore the **deployment** updates. We will see the full body of the message from **botkube** to find out how to generate the filter. Next here is the **triggerbinding**:
 
 ```yaml
 > cat triggerbinding.yaml 

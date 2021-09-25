@@ -9,7 +9,7 @@ tags: ['linux', 'dhcp', 'ntp', 'rhel', 'telnet', 'xinetd']
 
 ## Xinetd
 
-From the [Security Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Security_Guide/Red_Hat_Enterprise_Linux-6-Security_Guide-en-US.pdf):
+From the [Security Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/security_guide/red_hat_enterprise_linux-6-security_guide-en-us.pdf):
 
 > The **xinetd** daemon is a TCP-wrapped *super* service which controls access to a subset of popular network services, including FTP, IMAP, and Telnet. It also provides service-specific configuration options for access control, enhanced logging, binding, redirection, and resource utilization control.
 >
@@ -414,7 +414,7 @@ and I saw the following in the logs:
 
 ## DHCP
 
-From the [Deployment Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf):
+From the [Deployment Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/deployment_guide/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf):
 
 > Dynamic Host Configuration Protocol (DHCP) is a network protocol that automatically assigns TCP/IP information to client machines. Each DHCP client connects to the centrally located DHCP server, which returns the network configuration (including the IP address, gateway, and DNS servers) of that client.
 >
@@ -850,7 +850,7 @@ Let's clean up the file and create a very basic configuration:
         range 192.168.2.3 192.168.2.9;
     }
     option domain-name-servers ns1.example.org, ns2.example.org;
-
+    
     log-facility local7;
 
 
@@ -884,7 +884,7 @@ From the client, try to get an IP really fast with the **dhclient** utility:
     Copyright 2004-2006 Internet Systems Consortium.
     All rights reserved.
     For info, please visit http://www.isc.org/sw/dhcp/
-
+    
     Listening on LPF/eth1/00:0c:29:4f:a1:ef
     Sending on   LPF/eth1/00:0c:29:4f:a1:ef
     Sending on   Socket/fallback
@@ -908,9 +908,9 @@ Then on the server side, make sure the DHCP lease database is updated:
     [root@rhel1 ~]# cat /var/lib/dhcpd/dhcpd.leases
     # The format of this file is documented in the dhcpd.leases(5) manual page.
     # This lease file was written by isc-dhcp-4.1.1-P1
-
+    
     server-duid "\000\001\000\001\032\345\326g\000\014)\024\205I";
-
+    
     lease 192.168.2.3 {
       starts 0 2014/04/20 00:53:36;
       ends 0 2014/04/20 01:03:36;
@@ -1075,28 +1075,28 @@ From the above guide:
 >
 >
 >     The **kod** option means a “Kiss-o'-death” packet is to be sent to reduce unwanted queries. The **nomodify** options prevents any changes to the configuration. The **notrap** option prevents **ntpdc** control message protocol traps. The **nopeer** option prevents a peer association being formed. The **noquery** option prevents **ntpq** and **ntpdc** queries, but not time queries, from being answered. The **-6** option is required before an IPv6 address.
->
+>    
 >     Addresses within the range **127.0.0.0/8** range are sometimes required by various processes or applications. As the "restrict default" line above prevents access to everything not explicitly allowed, access to the standard loopback address for IPv4 and IPv6 is permitted by means of the following lines:
->
+>    
 >         # the administrative functions.
 >         restrict 127.0.0.1
 >         restrict -6 ::1
 >
 >
 >     Addresses can be added underneath if specifically required by another application. The **-6** option is required before an IPv6 address.
->
+>    
 >     Hosts on the local network are not permitted because of the "restrict default" line above. To change this, for example to allow hosts from the **192.0.2.0/24** network to query the time and statistics but nothing more, a line in the following format is required:
->
+>    
 >         restrict 192.0.2.0 mask 255.255.255.0 nomodify notrap nopeer
 >
 >
 >     To allow unrestricted access from a specific host, for example **192.0.2.250/24**, a line in the following format is required:
->
+>    
 >         restrict 192.0.2.250
 >
 >
 >     A mask of **255.255.255.255** is applied if none is specified.
->
+>    
 >     The restrict commands are explained in the **ntp_acc**(5) man page.
 >
 > *   **The public servers entry** - By default, as of Red Hat Enterprise 6.5, the **ntp.conf** file contains four public server entries:
@@ -1523,5 +1523,4 @@ Also in the logs of the client, I saw the following:
     [root@rhel2 ~]# tail -2 /var/log/messages
     Apr 20 13:22:17 rhel2 ntpd[18049]: synchronized to 192.168.2.2, stratum 4
     Apr 20 13:22:17 rhel2 ntpd[18049]: kernel time sync enabled 0001
-
 

@@ -22,7 +22,7 @@ Their documentation has a pretty nice architecture diagram:
 
 ![tick-arch.png)](https://res.cloudinary.com/elatov/image/upload/v1618170364/blog-pics/grafana-rabbitmq/tick-stack-arch.png)
 
-The TICK makers also provide a [sample docker-compose](https://github.com/influxdata/TICK-docker/blob/master/README.md) setup for all 4 components.
+The TICK makers also provide a [sample docker-compose](https://github.com/influxdata/sandbox) setup for all 4 components.
 
 ### Expanding the Default TICK setup
 
@@ -237,7 +237,7 @@ After you chose a **measurement**, you can get a list of available fields:
 
 ## Creating a Simple Graph in Grafana from the RabbitMQ Measurements
 
-After [connecting grafana to influxdb](http://docs.grafana.org/features/datasources/influxdb/#adding-the-data-source) we can now create graphs pulling from the **influxdb**. There are two approaches to creating the metric. One you can use the UI and just do everything from the drop down, kind of like how we saw above. Another way, we can create the query directly into the editor:
+After [connecting grafana to influxdb](https://grafana.com/docs/grafana/latest/getting-started/getting-started-influxdb/) we can now create graphs pulling from the **influxdb**. There are two approaches to creating the metric. One you can use the UI and just do everything from the drop down, kind of like how we saw above. Another way, we can create the query directly into the editor:
 
 ![grafana-message-overview.png](https://res.cloudinary.com/elatov/image/upload/v1618170364/blog-pics/grafana-rabbitmq/grafana-message-overview.png)
 

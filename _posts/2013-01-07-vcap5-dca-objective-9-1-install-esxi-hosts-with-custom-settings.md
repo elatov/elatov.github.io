@@ -100,7 +100,7 @@ Then open up PowerCLI and import the zip as an Software Depot:
 
 
 	PowerCLI C:\> Add-EsxSoftwareDepot C:\Users\Administrator\Desktop\isos\update-from-esxi5.0-5.0_update01.zip
-
+	
 	Depot Url
 	---------
 	zip:C:\Users\Administrator\Desktop\isos\update-from-esxi5.0-5.0_update01.zip...
@@ -108,7 +108,7 @@ Then open up PowerCLI and import the zip as an Software Depot:
 To check out available profiles from the Depot you can do this :
 
 	PowerCLI C:\> Get-EsxImageProfile | select Name,Vendor
-
+	
 	Name Vendor
 	---- ------
 	ESXi-5.0.0-20120302001-standard VMware, Inc.
@@ -119,7 +119,7 @@ To check out available profiles from the Depot you can do this :
 To see available VIBs (packages) from the Depot, run the following:
 
 	PowerCLI C:\> Get-EsxSoftwarePackage
-
+	
 	Name Version Vendor Release Date
 	---- ------- ------ ------------
 	net-ixgbe 2.0.84.8.2-10vmw.500.0.0.46... VMware 8/19/2011...
@@ -131,7 +131,7 @@ To see available VIBs (packages) from the Depot, run the following:
 To see what VIBs are available from a specific profile you can do the following:
 
 	PowerCLI C:\> Get-EsxImageProfile ESXi-5.0.0-20120302001-no-tools | select -ExpandProperty VibList
-
+	
 	Name Version Vendor Release Date
 	---- ------- ------ ------------
 	ata-pata-atiixp 0.4.6-3vmw.500.0.0.469512 VMware 8/19/2011...
@@ -142,13 +142,13 @@ To see what VIBs are available from a specific profile you can do the following:
 Now if you want to create a profile by cloning an existing one, you can do the following:
 
 	PowerCLI C:\> New-EsxImageProfile -CloneProfile ESXi-5.0.0-20120302001-no-tools -Name My_Cloned_Profile
-
+	
 	Name Vendor Last Modified Acceptance Level
 	---- ------ ------------- ----------------
 	My_Cloned_Profile VMware, Inc. 2/17/2012 11... PartnerSupported
-
+	
 	PowerCLI C:\> Get-EsxImageProfile
-
+	
 	Name Vendor Last Modified Acceptance Level
 	---- ------ ------------- ----------------
 	My_Cloned_Profile VMware, Inc. 2/17/2012 11... PartnerSupported
@@ -158,28 +158,28 @@ Now if you want to create a profile by cloning an existing one, you can do the f
 	ESXi-5.0.0-20120301001s-no-... VMware, Inc. 2/17/2012 11... PartnerSupported
 
 
-We can also create profiles manually. There is a good example in "[VMware vSphere 5.0 Evaluation Guide Volume One](http://www.vmware.com/files/pdf/products/vsphere/VMware-vSphere-Evaluation-Guide-1.pdf)". Here is what I did to create a manual profile with just 4 VIBs:
+We can also create profiles manually. There is a good example in "[VMware vSphere 5.0 Evaluation Guide Volume One](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/whitepaper/vsphere/vmware-vsphere-evaluation-guide-1-white-paper.pdf)". Here is what I did to create a manual profile with just 4 VIBs:
 
 	PowerCLI C:\> New-EsxImageProfile -NewProfile My_Manual_Profile -vendor VMware -SoftwarePackage esx-base
-
+	
 	Name Vendor Last Modified Acceptance Level
 	---- ------ ------------- ----------------
 	My_Manual_Profile VMware 12/25/2012 3... VMwareCertified
-
+	
 	PowerCLI C:\> Add-EsxSoftwarePackage -ImageProfile My_Manual_Profile -SoftwarePackage esx-tboot
-
+	
 	Name Vendor Last Modified Acceptance Level
 	---- ------ ------------- ----------------
 	My_Manual_Profile VMware 12/25/2012 3... VMwareCertified
-
+	
 	PowerCLI C:\> Add-EsxSoftwarePackage -ImageProfile My_Manual_Profile -SoftwarePackage misc-drivers
-
+	
 	Name Vendor Last Modified Acceptance Level
 	---- ------ ------------- ----------------
 	My_Manual_Profile VMware 12/25/2012 3... VMwareCertified
-
+	
 	PowerCLI C:\> Add-EsxSoftwarePackage -ImageProfile My_Manual_Profile -SoftwarePackage net-e1000e
-
+	
 	Name Vendor Last Modified Acceptance Level
 	---- ------ ------------- ----------------
 	My_Manual_Profile VMware 12/25/2012 3... VMwareCertified
@@ -187,7 +187,7 @@ We can also create profiles manually. There is a good example in "[VMware vSpher
 Now checking over my manual profile, I see the following:
 
 	PowerCLI C:\> Get-EsxImageProfile
-
+	
 	Name Vendor Last Modified Acceptance Level
 	---- ------ ------------- ----------------
 	ESXi-5.0.0-20120301001s-no-... VMware, Inc. 2/17/2012 11... PartnerSupported
@@ -196,9 +196,9 @@ Now checking over my manual profile, I see the following:
 	ESXi-5.0.0-20120301001s-sta... VMware, Inc. 2/17/2012 11... PartnerSupported
 	My_Manual_Profile VMware 12/25/2012 1... VMwareCertified
 	ESXi-5.0.0-20120302001-stan... VMware, Inc. 2/17/2012 11... PartnerSupported
-
+	
 	PowerCLI C:\> Get-EsxImageProfile My_Manual_Profile | select -ExpandProperty VibList
-
+	
 	Name Version Vendor Release Date
 	---- ------- ------ ------------
 	net-e1000e 1.1.2-3vmw.500.1.11.623860 VMware 2/17/2012...
@@ -209,22 +209,22 @@ Now checking over my manual profile, I see the following:
 If you want to remove a VIB (package) from a profile, you can do the following:
 
 	PowerCLI C:\> Get-EsxImageProfile My_Manual_Profile | select -ExpandProperty VibList
-
+	
 	Name Version Vendor Release Date
 	---- ------- ------ ------------
 	net-e1000e 1.1.2-3vmw.500.1.11.623860 VMware 2/17/2012...
 	esx-tboot 5.0.0-0.0.469512 VMware 8/19/2011...
 	esx-base 5.0.0-1.11.623860 VMware 2/17/2012...
 	misc-drivers 5.0.0-1.11.623860 VMware 2/17/2012...
-
+	
 	PowerCLI C:\> Remove-EsxSoftwarePackage -ImageProfile My_Manual_Profile -SoftwarePackage net-e1000e
-
+	
 	Name Vendor Last Modified Acceptance Level
 	---- ------ ------------- ----------------
 	My_Manual_Profile VMware 12/25/2012 3... VMwareCertified
-
+	
 	PowerCLI C:\> Get-EsxImageProfile My_Manual_Profile | select -ExpandProperty VibList
-
+	
 	Name Version Vendor Release Date
 	---- ------- ------ ------------
 	esx-tboot 5.0.0-0.0.469512 VMware 8/19/2011...
@@ -290,9 +290,9 @@ VMware KB [2005205](http://kb.vmware.com/kb/2005205) talks about the process:
 >       For example:
 >
 >		Get-EsxImageProfile
->
->       The output appears similar to:
->
+>	
+> 	  The output appears similar to:
+>	
 >		Name Vendor Last Modified Acceptance
 >		-------------------------- ------ ------------- ---------------
 >		ESXi-5.0.0-456551-standard VMware mm/dd/yyyy PartnerSupported
@@ -340,13 +340,13 @@ Now let's import the offline bundle as a Software Depot:
 
 
 	PowerCLI C:\> Add-EsxSoftwareDepot C:\Users\Administrator\Desktop\isos\igb-3.1.17-455019\igb-3.1.17-offline_bundle-455019.zip
-
+	
 	Depot Url
 	---------
 	zip:C:\Users\Administrator\Desktop\isos\igb-3.1.17-455019\igb-3.1.17-offline...
-
+	
 	PowerCLI C:\> Get-EsxSoftwarePackage -Name "*igb*"
-
+	
 	Name Version Vendor Release Date
 	---- ------- ------ ------------
 	net-igb 2.1.11.1-3vmw.500.0.0.469512 VMware 8/19/2011...
@@ -355,7 +355,7 @@ Now let's import the offline bundle as a Software Depot:
 We can see our VIB is the one with the Vendor as "Intel". We had already cloned our 5.0U1 offline bundle, so let's check out what version of net-igb is in there:
 
 	PowerCLI C:\> Get-EsxImageProfile
-
+	
 	Name Vendor Last Modified Acceptance Level
 	---- ------ ------------- ----------------
 	ESXi-5.0.0-20120301001s-no-... VMware, Inc. 2/17/2012 11... PartnerSupported
@@ -364,14 +364,14 @@ We can see our VIB is the one with the Vendor as "Intel". We had already cloned 
 	ESXi-5.0.0-20120301001s-sta... VMware, Inc. 2/17/2012 11... PartnerSupported
 	My_Manual_Profile VMware 12/25/2012 1... VMwareCertified
 	ESXi-5.0.0-20120302001-stan... VMware, Inc. 2/17/2012 11... PartnerSupported
-
+	
 	PowerCLI C:\> Get-EsxImageProfile My_Cloned_Profile | Select -ExpandProperty VibList | findstr igb
 	net-igb 2.1.11.1-3vmw.500.0.0.469512 VMware 8/19/2011...
 
 So it looks like our cloned profile has an older version of the driver. So let's remove the old version and add the new async driver:
 
 	PowerCLI C:\> Remove-EsxSoftwarePackage -ImageProfile My_Cloned_Profile -SoftwarePackage net-igb
-
+	
 	Name Vendor Last Modified Acceptance Level
 	---- ------ ------------- ----------------
 	My_Cloned_Profile VMware, Inc. 12/25/2012 4... PartnerSupported
@@ -379,18 +379,18 @@ So it looks like our cloned profile has an older version of the driver. So let's
 Since the name of the driver is the same we will need to include the version number as well:
 
 	PowerCLI C:\> Get-EsxSoftwarePackage -Name "*igb*"
-
+	
 	Name Version Vendor Release Date
 	---- ------- ------ ------------
 	net-igb 2.1.11.1-3vmw.500.0.0.469512 VMware 8/19/2011...
 	net-igb 3.1.17-1OEM.500.0.0.406165 Intel 7/1/2011 ...
-
+	
 	PowerCLI C:\> Add-EsxSoftwarePackage -ImageProfile My_Cloned_Profile -SoftwarePackage "net-igb 3.1.*"
-
+	
 	Name Vendor Last Modified Acceptance Level
 	---- ------ ------------- ----------------
 	My_Cloned_Profile VMware, Inc. 12/25/2012 4... PartnerSupported
-
+	
 	PowerCLI C:\> Get-EsxImageProfile My_Cloned_Profile | Select -ExpandProperty VibList | findstr igb
 	net-igb 3.1.17-1OEM.500.0.0.406165 Intel 7/1/2011 ...
 

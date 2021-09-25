@@ -10,7 +10,7 @@ tags: ['dovecot', 'postfix', 'linux', 'rhel', 'smtp']
 
 ## Email
 
-From the [Deployment Guide][1]:
+From the [Deployment Guide][https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/deployment_guide/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf]:
 
 > Email was born in the 1960s. The mailbox was a file in a user's home directory that was readable only by that user. Primitive mail applications appended new text messages to the bottom of the file, making the user wade through the constantly growing file to find any particular message. This system was only capable of sending messages to users on the same system.
 >
@@ -255,9 +255,9 @@ Now let's switch user to **user1**, and see if the email is there:
     Content-Type: text/plain; charset=us-ascii
     From: root@rhel1.local.com (root)
     Status: R
-
+    
     this is a test email
-
+    
     & d
     & h
     No applicable messages
@@ -280,16 +280,16 @@ I then restarted **named**:
 then from the RH5, machine I was able to get the correct response back:
 
     [root@rhel2 ~]# dig MX local.com
-
+    
     ; <<>> DiG 9.3.6-P1-RedHat-9.3.6-4.P1.el5_4.2 <<>> MX local.com
     ;; global options:  printcmd
     ;; Got answer:
     ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 7120
     ;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 2, ADDITIONAL: 2
-
+    
     ;; QUESTION SECTION:
     ;local.com.         IN  MX
-
+    
     ;; ANSWER SECTION:
     local.com.      86400   IN  MX  10 rhel1.local.com.
 
@@ -401,9 +401,9 @@ Then on the mail server, check to see if that user has the mail:
     To: user1@local.com
     Subject: remote test
     Status: R
-
+    
     testing
-
+    
     & d
     & q
 
@@ -471,9 +471,9 @@ Then on the RH6 machine (as user1) we can check the mail:
     Delivered-To: user1@rhel1.local.com
     Subject: Manual Test
     Status: R
-
+    
     My Message
-
+    
     & d
     & q
 
@@ -485,15 +485,15 @@ If the mail queue gets stuck you can run the following to check the status:
     9330D40E5F     2499 Sat Apr 26 12:10:50  MAILER-DAEMON
                     (connect to rhel2.local.com[192.168.2.3]:25: No route to host)
                                              user2@rhel2.local.com
-
+    
     E802C40E60     2491 Sat Apr 26 15:17:53  MAILER-DAEMON
                     (connect to rhel2.local.com[192.168.2.3]:25: No route to host)
                                              root@rhel2.local.com
-
+    
     BFF9D40E5C     2495 Sat Apr 26 15:15:44  MAILER-DAEMON
                     (connect to rhel2.local.com[192.168.2.3]:25: No route to host)
                                              root@rhel2.local.com
-
+    
     -- 7 Kbytes in 3 Requests.
 
 
@@ -751,7 +751,7 @@ Had to set the following in the **/etc/dovecot/10-mail.conf**:
 
 After that, mutt showed me the following:
 
-![mutt-connected-to-imap][2]
+![mutt-connected-to-imap](https://github.com/elatov/uploads/raw/master/2014/04/mutt-connected-to-imap.png)
 
 Here is the connection to IMAP with telnet:
 
@@ -794,7 +794,7 @@ Here is the connection to IMAP with telnet:
     Message-Id: <201404262129.s3QLTebH017282@rhel2.local.com>
     To: user1@local.com
     Subject: testing
-
+    
     sdflksdfj
     )
     04 OK Fetch completed.
@@ -821,29 +821,29 @@ Now let's enable SSL for IMAP. First let's create the Self Signed SSl certificat
     distinguished_name = req_dn
     x509_extensions = cert_type
     prompt = no
-
+    
     [ req_dn ]
     # country (2 letter code)
     #C=FI
-
+    
     # State or Province Name (full name)
     #ST=
-
+    
     # Locality Name (eg. city)
     #L=Helsinki
-
+    
     # Organization (eg. company)
     #O=Dovecot
-
+    
     # Organizational Unit Name (eg. section)
     OU=IMAP server
-
+    
     # Common Name (*.example.com is also possible)
     CN=imap.example.com
-
+    
     # E-mail contact
     emailAddress=postmaster@example.com
-
+    
     [ cert_type ]
     nsCertType = server
 
@@ -857,29 +857,29 @@ Here is all the information that I changed:
     distinguished_name = req_dn
     x509_extensions = cert_type
     prompt = no
-
+    
     [ req_dn ]
     # country (2 letter code)
     C=US
-
+    
     # State or Province Name (full name)
     ST=Colorado
-
+    
     # Locality Name (eg. city)
     L=Boulder
-
+    
     # Organization (eg. company)
     O=HOME
-
+    
     # Organizational Unit Name (eg. section)
     OU=RHEL_LAB
-
+    
     # Common Name (*.example.com is also possible)
     CN=rhel1.local.com
-
+    
     # E-mail contact
     emailAddress=postmaster@local.com
-
+    
     [ cert_type ]
     nsCertType = server
 
@@ -898,7 +898,7 @@ Finally let's create the certificate:
     ......++++++
     writing new private key to '/etc/pki/dovecot/private/dovecot.pem'
     -----
-
+    
     subject= /C=US/ST=Colorado/L=Boulder/O=HOME/OU=RHEL_LAB/CN=rhel1.local.com/emailAddress=postmaster@local.com
     SHA1 Fingerprint=57:E9:21:84:13:21:31:D2:1B:97:DB:38:00:62:8E:83:55:6B:89:5C
 
@@ -998,11 +998,11 @@ Running the following on the RH5 machine:
 
 and I saw the following warning:
 
-[<img src="https://github.com/elatov/uploads/raw/master/2014/04/mutt-ssl-warning.png" alt="mutt-ssl-warning" width="803" height="458" class="alignnone size-full wp-image-10692" />][3]
+![mutt-ssl-warning](https://github.com/elatov/uploads/raw/master/2014/04/mutt-ssl-warning.png)
 
 After accepting the certificate, I saw my INBOX over IMAPS:
 
-![mutt-connected-to-imap][4]
+![mutt-connected-to-imap](https://github.com/elatov/uploads/raw/master/2014/04/mutt-connected-to-imap1.png)
 
 Here is the connection to the IMAP server over SSL with the **openssl** command:
 
@@ -1092,7 +1092,7 @@ Here is the connection to the IMAP server over SSL with the **openssl** command:
     Content-Transfer-Encoding: 7bit
     Message-Id: <20140426221736.46C1640E80@rhel1.local.com>
     From: root@rhel1.local.com (root)
-
+    
     test
     )
     04 OK Fetch completed.
@@ -1101,7 +1101,3 @@ Here is the connection to the IMAP server over SSL with the **openssl** command:
     05 OK Logout completed.
     closed
 
- [1]: https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf
- [2]: https://github.com/elatov/uploads/raw/master/2014/04/mutt-connected-to-imap.png
- [3]: https://github.com/elatov/uploads/raw/master/2014/04/mutt-ssl-warning.png
- [4]: https://github.com/elatov/uploads/raw/master/2014/04/mutt-connected-to-imap1.png

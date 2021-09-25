@@ -60,7 +60,7 @@ So intra-site replication is automatic, while inter-site is setup on a interval 
 
 ## How is AD Replication Triggered?
 
-From "[How the Active Directory Replication Model Works?](http://technet.microsoft.com/en-us/library/cc772726%28v=ws.10%29.aspx)":
+From "[How the Active Directory Replication Model Works?](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc772726(v=ws.10))":
 
 > **Originating Updates: Initiating Changes**
 > As a Lightweight Directory Access Protocol (LDAP) directory service, Active Directory supports the following four types of update requests:

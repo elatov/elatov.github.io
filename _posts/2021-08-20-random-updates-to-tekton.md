@@ -45,7 +45,8 @@ gcloud compute firewall-rules create allow-webhook-from-gke-master \
 After that the issue went away.
 
 ## Converting Conditions to When Expressions
-Initially I used [conditions](https://tekton.dev/docs/pipelines/conditions/) to conditionally run certain tasks, but it looks like [when expression](https://tekton.dev/docs/pipelines/pipelines/#guard-task-execution-using-whenexpressions) are going to replace `conditions`. So before I would create a condition like this:
+Initially I used [conditions](https://tekton.dev/docs/pipelines/conditions/) to conditionally run certain tasks, but it looks like [when expression](https://tekton.dev/docs/pipelines/pipelines/#guard-task-execution-using-when-expressions)
+are going to replace `conditions`. So before I would create a condition like this:
 
 ```bash
 > cat condition.yaml 

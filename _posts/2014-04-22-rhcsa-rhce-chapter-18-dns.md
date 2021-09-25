@@ -174,7 +174,7 @@ From the above guide:
 >       max-cache-size    256M;
 >       directory         "/var/named";
 >       statistics-file   "/var/named/data/named_stats.txt";
->    
+>        
 >       recursion         yes;
 >       dnssec-enable     yes;
 >       dnssec-validation yes;
@@ -1265,7 +1265,7 @@ Notice I don't get an *authoritative* answer, and this is expected since our nam
 
 ### Using the *rndc* Utility
 
-From the [Deployment guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf):
+From the [Deployment guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/deployment_guide/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf):
 
 > The **rndc** utility is a command line tool that allows you to administer the **named** service, both locally and from a remote machine. Its usage is as follows:
 >

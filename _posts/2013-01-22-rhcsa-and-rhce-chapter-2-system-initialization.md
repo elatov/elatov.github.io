@@ -9,7 +9,7 @@ tags: ['efi','rhel','mbr', 'linux','grub', 'inittab', 'rc_local', 'linux_rescue'
 
 ### Red Hat Boot Process
 
-The process is described in "[Red Hat Enterprise Linux 6 Installation Guide](https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf)":
+The process is described in "[Red Hat Enterprise Linux 6 Installation Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/installation_guide/red_hat_enterprise_linux-6-installation_guide-en-us.pdf)":
 
 > **F.2. A Detailed Look at the Boot Process**
 >
@@ -238,7 +238,7 @@ To change any of the above settings we can check out the help page:
     [root@rhel01 ~]# chkconfig --help
     chkconfig version 1.3.49.3 - Copyright (C) 1997-2000 Red Hat, Inc.
     This may be freely redistributed under the terms of the GNU Public License.
-
+    
     usage: chkconfig [--list] [--type <type>] [name]
     chkconfig --add <name>
     chkconfig --del <name>
@@ -315,7 +315,7 @@ Here is more information regarding GRUB:
 >
 >
 >     assigns the number 0 to the fourth hard drive, and the number 3 to the first hard drive. This option is especially useful if you configure your system with an option to boot a Windows operating system, because the Windows boot loader must find the Windows installation on the first hard drive. For example, if your Windows installation is on the fourth hard drive, the following entry in grub.conf will allow the Windows boot loader to load Windows correctly:
->
+>    
 >         title Windows
 >         map (hd0) (hd3)
 >         map (hd3) (hd0)
@@ -334,13 +334,13 @@ There is a pretty good article from the Red Hat Magazine: "[Using GRUB to overco
 
     # grub
     Probing devices to guess BIOS drives. This may take a long time.
-
+    
     GNU GRUB version 0.97 (640K lower / 3072K upper memory)
-
+    
     [ Minimal BASH-like line editing is supported. For the first word, TAB
     lists possible command completions. Anywhere else TAB lists the possible
     completions of a device/filename.]
-
+    
     grub> root (hd0,0)
     root (hd0,0)
     Filesystem type is ext2fs, partition type 0x83
@@ -456,5 +456,4 @@ Another thing that was mentioned thought the guide is **Upstart**. RHEL 6 doesn'
     start-ttys stop/waiting
     rcS-sulogin stop/waiting
     serial stop/waiting
-
 

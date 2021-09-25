@@ -3,8 +3,6 @@ title: Setup Your Own Certificate Authority (CA) on Linux and Use it in a Window
 author: Karim Elatov
 layout: post
 permalink: /2013/04/setup-your-own-certificate-authority-ca-on-linux-and-use-it-in-a-windows-environment/
-dsq_thread_id:
-  - 1404673780
 categories: ['home_lab', 'os']
 tags: ['linux','win2k8r2','ssl', 'gnomint', 'windows_group_policies']
 ---
@@ -21,9 +19,9 @@ We can see that certificate is issued by the same entity as the site-name itself
 
 ## Choosing a free Certificate Authority software
 
-If we take a look at this [wikipedia](http://en.wikipedia.org/wiki/Certificate_authority#Open_source_implementations) page, we will see the following list of available software:
+If we take a look at this [wikipedia](https://en.wikipedia.org/wiki/Public_key_infrastructure#Open_source_implementations) page, we will see the following list of available software:
 
-> *   [DogTag](http://pki.fedoraproject.org/wiki/PKI_Main_Page)
+> * [DogTag](http://pki.fedoraproject.org/wiki/PKI_Main_Page)
 > *   [EJBCA](http://www.ejbca.org/)
 > *   [gnoMint](http://gnomint.sourceforge.net/)
 > *   [OpenCA](https://www.openca.org/projects/openca/)
@@ -55,10 +53,10 @@ You can check out examples from "[CA.pl - friendlier interface for OpenSSL certi
 
     #Generate CA Certificate
     CA.pl -newca
-
+    
     #Generate a Certificate Signing Request (CSR)
     CA.pl -newreq
-
+    
     #Sign the CSR with your CA key
     CA.pl -sign
 
@@ -339,7 +337,7 @@ We will again use **openssl** to check the contents of SSL certificate:
                     39:3F:52:E5:F4:4F:F1:7F:48:73:A4:73:EB:F3:E0:C6:5A:4A:68:E8
                 X509v3 Authority Key Identifier:
                     keyid:39:3F:52:E5:F4:4F:F1:7F:48:73:A4:73:EB:F3:E0:C6:5A:4A:68:E8
-
+    
         Signature Algorithm: sha1WithRSAEncryption
              42:d1:be:db:42:ab:50:25:d2:bd:47:fc:05:f5:01:81:75:27:
 
@@ -391,7 +389,7 @@ Now that we have added our Root CA Certificate to our Group Policy, we need to u
 
     C:\Windows\system32>gpupdate /force
     Updating Policy...
-
+    
     User Policy update has completed successfully.
     Computer Policy update has completed successfully.
 

@@ -166,7 +166,7 @@ From [Performance Tuning Guide](https://access.redhat.com/documentation/en-us/re
 >
 > *   **SCHED_OTHER, or SCHED_NORMAL** The default scheduling policy. This policy uses the Completely Fair Scheduler (CFS) to provide fair access periods for all threads using this policy. CFS establishes a dynamic priority list partly based on the niceness value of each process thread. This gives users some indirect level of control over process priority, but the dynamic priority list can only be directly changed by the CFS.
 
-There was actually a little bit more info from [Part V. Kernel Tuning](https://www.suse.com/documentation/sles11/singlehtml/book_sle_tuning/book_sle_tuning.html#part.tuning.kernel):
+There was actually a little bit more info from [Part V. Kernel Tuning](https://doc.opensuse.org/documentation/leap/archive/42.3/tuning/html/book.sle.tuning/cha.tuning.taskscheduler.html#sec.tuning.taskscheduler.cfs.chrt):
 
 > **14.4.5. Changing Real-time Attributes of Processes with chrt**
 > The **chrt** command sets or retrieves the real-time scheduling attributes of a running process, or runs a command with the specified attributes. You can get or retrieve both the scheduling policy and priority of a process.
@@ -395,7 +395,7 @@ From [Realtime Tuning Guide](https://storage.googleapis.com/grand-drive-196322.a
 >         0
 >
 
-From the [Performance Tuning Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Performance_Tuning_Guide/Red_Hat_Enterprise_Linux-6-Performance_Tuning_Guide-en-US.pdf):
+From the [Performance Tuning Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/performance_tuning_guide/red_hat_enterprise_linux-6-performance_tuning_guide-en-us.pdf):
 
 > **5.2. Huge Pages and Transparent Huge Pages**
 > Memory is managed in blocks known as pages. A page is 4096 bytes. 1MB of memory is equal to 256 pages; 1GB of memory is equal to 256,000 pages, etc. CPUs have a built-in *memory management unit* that contains a list of these pages, with each page referenced through a page table entry.

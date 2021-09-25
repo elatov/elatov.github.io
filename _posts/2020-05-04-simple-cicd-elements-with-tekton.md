@@ -29,20 +29,20 @@ tekton-pipelines-controller-57c7799c8b-6t4r2   1/1     Running   0          23h
 tekton-pipelines-webhook-6fc8499666-tmhm8      1/1     Running   0          23h
 ```
 
-If you need to save output artifacts don't forget to create the necessary configuration and that's covered in [Configuring artifact storage](https://github.com/tektoncd/pipeline/blob/master/docs/install.md#configuring-artifact-storage). You can also customize the install by creating a [configmap](https://kubernetes.io/docs/concepts/configuration/configmap/) and the instructions for that are covered in [Customizing basic execution parameters](https://github.com/tektoncd/pipeline/blob/master/docs/install.md#customizing-basic-execution-parameters). I just wanted a simple configuration so I left the defaults. 
+If you need to save output artifacts don't forget to create the necessary configuration and that's covered in [Configuring artifact storage](https://github.com/tektoncd/pipeline/blob/main/docs/install.md#configuring-artifact-storage). You can also customize the install by creating a [configmap](https://kubernetes.io/docs/concepts/configuration/configmap/) and the instructions for that are covered in [Customizing basic execution parameters](https://github.com/tektoncd/pipeline/blob/main/docs/install.md#customizing-basic-execution-parameters). I just wanted a simple configuration so I left the defaults. 
 
 ### Running a Simple Task with TaskRun
 With **tekton** we have a couple of new resources/entities that are introduced and they are covered in the documentation:
 
 * [Tasks](https://github.com/tektoncd/pipeline/blob/master/docs/tasks.md)
 	* > A Task is a collection of Steps that you define and arrange in a specific order of execution as part of your continuous integration flow. A Task executes as a Pod on your Kubernetes cluster. A Task is available within a specific namespace, while a ClusterTask is available across the entire cluster. 
-	* There is a nice example of building a docker image in [Building and pushing a Docker image](https://github.com/tektoncd/pipeline/blob/master/docs/tasks.md#building-and-pushing-a-docker-image)
+	* There is a nice example of building a docker image in [Building and pushing a Docker image](https://github.com/tektoncd/pipeline/blob/main/docs/tasks.md#building-and-pushing-a-docker-image)
 * [TaskRuns](https://github.com/tektoncd/pipeline/blob/master/docs/taskruns.md)
 	* > A TaskRun allows you to instantiate and execute a Task on-cluster.
-	* Nice examples: [TaskRun with a referenced Task](https://github.com/tektoncd/pipeline/blob/master/docs/taskruns.md#example-taskrun-with-a-referenced-task) and [TaskRun with an embedded Task](https://github.com/tektoncd/pipeline/blob/master/docs/taskruns.md#example-taskrun-with-a-referenced-task)
+	* Nice examples: [TaskRun with a referenced Task](https://github.com/tektoncd/pipeline/blob/main/docs/taskruns.md#example-taskrun-with-a-referenced-task) and [TaskRun with an embedded Task](https://github.com/tektoncd/pipeline/blob/main/docs/taskruns.md#example-taskrun-with-an-embedded-task)
 * [Pipelines](https://github.com/tektoncd/pipeline/blob/master/docs/pipelines.md)
 	* > A Pipeline is a collection of Tasks that you define and arrange in a specific order of execution as part of your continuous integration flow. Each Task in a Pipeline executes as a Pod on your Kubernetes cluster. You can configure various execution conditions to fit your business needs.
-	* Nice example is at [Configuring the Task execution order](https://github.com/tektoncd/pipeline/blob/master/docs/pipelines.md#configuring-the-task-execution-order)
+	* Nice example is at [Configuring the Task execution order](https://github.com/tektoncd/pipeline/blob/main/docs/pipelines.md#configuring-the-task-execution-order)
 * [PipelineRuns](https://github.com/tektoncd/pipeline/blob/master/docs/pipelineruns.md)
 	
 	* > A PipelineRun allows you to instantiate and execute a Pipeline on-cluster. A PipelineRun automatically creates corresponding TaskRuns for every Task in your Pipeline. 
@@ -187,11 +187,11 @@ And this consists of 3 more new constructs:
 	* > EventListener is a Kubernetes custom resource that allows users a declarative way to process incoming HTTP based events with JSON payloads. EventListeners expose an addressable "Sink" to which incoming events are directed.
 	  >
 	  > Triggers within an `EventListener` can optionally specify **interceptors**, to modify the behavior or payload of Triggers.
-	* For now the following **interceptors** are supported: [Webhook Interceptors](https://github.com/tektoncd/triggers/blob/master/docs/eventlisteners.md#Webhook-Interceptors), [GitHub Interceptors](https://github.com/tektoncd/triggers/blob/master/docs/eventlisteners.md#GitHub-Interceptors), [GitLab Interceptors](https://github.com/tektoncd/triggers/blob/master/docs/eventlisteners.md#GitLab-Interceptors), [CEL Interceptors](https://github.com/tektoncd/triggers/blob/master/docs/eventlisteners.md#CEL-Interceptors)
+	* For now the following **interceptors** are supported: [Webhook Interceptors](https://github.com/tektoncd/triggers/blob/main/docs/interceptors.md#webhook-interceptors), [GitHub Interceptors](https://github.com/tektoncd/triggers/blob/main/docs/interceptors.md#github-interceptors), [GitLab Interceptors](https://github.com/tektoncd/triggers/blob/main/docs/interceptors.md#gitlab-interceptors), [CEL Interceptors](https://github.com/tektoncd/triggers/blob/main/docs/interceptors.md#cel-interceptors)
 	
 * [TriggerBindings](https://github.com/tektoncd/triggers/blob/master/docs/triggerbindings.md)
 	* > TriggerBindings enable you to capture fields from an event and store them as parameters.
-	* Nice example is seen in [Multiple Bindings](https://github.com/tektoncd/triggers/blob/master/docs/triggerbindings.md#multiple-bindings)
+	* Nice example is seen in [Multiple Bindings](https://github.com/tektoncd/triggers/blob/main/docs/triggerbindings.md#specifying-multiple-bindings)
 * [TriggerTemplates](https://github.com/tektoncd/triggers/blob/master/docs/triggertemplates.md)
 	* > A TriggerTemplate is a resource that can template resources. TriggerTemplates have parameters that can be substituted anywhere within the resource template.
 	  >
@@ -340,7 +340,7 @@ NAME          TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
 el-listener   ClusterIP   10.105.11.172   <none>        8080/TCP   6h42m
 ```
 
-By default it's of type [ClusterIP](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types) and there are instructions on how to expose it externally with an [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) (it's covered in [Exposing EventListeners Externally](https://github.com/tektoncd/triggers/blob/master/docs/exposing-eventlisteners.md)), but I skipped that since I didn't need it available externally. So then I **POST**'ed to my **listener**:
+By default it's of type [ClusterIP](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types) and there are instructions on how to expose it externally with an [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) (it's covered in [Exposing EventListeners Externally](https://github.com/tektoncd/triggers/blob/main/docs/eventlisteners.md#exposing-an-eventlistener-outside-of-the-cluster)), but I skipped that since I didn't need it available externally. So then I **POST**'ed to my **listener**:
 
 ```bash
 > curl -X POST -d '{"title":"test","link":"http://f"}' 10.105.11.172:8080

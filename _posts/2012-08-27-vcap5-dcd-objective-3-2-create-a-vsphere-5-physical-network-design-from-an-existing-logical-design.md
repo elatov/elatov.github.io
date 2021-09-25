@@ -174,7 +174,7 @@ And from the same document:
 
 ### Implement logical Trust Zones using network security/firewall technologies.
 
-From a VMUG Presentation:
+From a [VMUG Presentation](http://www.cpd.iit.edu/netsecure08/ROBERT_RANDELL.pdf):
 
 ![trust_zone_vcd](https://github.com/elatov/uploads/raw/master/2012/08/trust_zone_vcd.png)
 

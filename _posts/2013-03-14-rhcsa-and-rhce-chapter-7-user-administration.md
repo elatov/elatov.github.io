@@ -7,7 +7,7 @@ categories: ['os', 'certifications', 'rhcsa_rhce']
 tags: ['rhel', 'linux', 'user_management']
 ---
 
-Let's get straight to it, from the "[Red Hat Enterprise Linux 6 Deployment Guide](https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf)":
+Let's get straight to it, from the "[Red Hat Enterprise Linux 6 Deployment Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/deployment_guide/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf)":
 
 > **Chapter 3. Managing Users and Groups** The control of users and groups is a core element of Red Hat Enterprise Linux system administration. This chapter explains how to add, manage, and delete users and groups in the graphical user interface and on the command line, and covers advanced topics, such as enabling password aging or creating group directories.
 >
@@ -58,7 +58,7 @@ Let's get straight to it, from the "[Red Hat Enterprise Linux 6 Deployment Guide
 >
 >
 >     The line has the following characteristics:
->
+>    
 >     *   It begins with the username **juan**.
 >     *   There is an **x** for the password field indicating that the system is using shadow passwords.
 >     *   A **UID** greater than 499 is created. Under Red Hat Enterprise Linux, UIDs below 500 are reserved for system use and should not be assigned to users.
@@ -73,7 +73,7 @@ Let's get straight to it, from the "[Red Hat Enterprise Linux 6 Deployment Guide
 >
 >
 >     The line has the following characteristics:
->
+>    
 >     *   It begins with the username **juan**
 >     *   Two exclamation marks (**!!**) appear in the password field of the **/etc/shadow file**, which locks the account.
 >     *   The password is set to never expire
@@ -84,7 +84,7 @@ Let's get straight to it, from the "[Red Hat Enterprise Linux 6 Deployment Guide
 >
 >
 >     A group with the same name as a user is called a user private group. The line created in **/etc/group** has the following characteristics:
->
+>    
 >     *   It begins with the group name **juan**.
 >     *   An **x** appears in the password field indicating that the system is using shadow group passwords.
 >     *   The **GID** matches the one listed for user juan in **/etc/passwd**
@@ -95,7 +95,7 @@ Let's get straight to it, from the "[Red Hat Enterprise Linux 6 Deployment Guide
 >
 >
 >     The line has the following characteristics:
->
+>    
 >     *   It begins with the group name **juan**.
 >     *   An exclamation mark (**!**) appears in the password field of the **/etc/gshadow** file, which locks the group.
 >     *   All other fields are blank.
@@ -305,7 +305,7 @@ Now the group can't write to the file, so if you're sharing files with groups me
 
 ## RHEL File Permissions and Ownership
 
-To get into permissions more, let's check out this old "[Red Hat Enterprise Linux Step By Step Guide](https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/4/pdf/Step_by_Step_Guide/Red_Hat_Enterprise_Linux-4-Step_by_Step_Guide-en-US.pdf)":
+To get into permissions more, let's check out this old "[Red Hat Enterprise Linux Step By Step Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/Red_Hat_Enterprise_Linux-4-Step_by_Step_Guide-en-US.pdf)":
 
 > **4.11. Ownership and Permissions**
 >
@@ -441,7 +441,7 @@ Another way of using **chmod** is with octal numbers, from the same guide:
 >
 > Now, neither the **group** nor **others** have write permission to *foo.txt*.
 
-The last thing that we should cover is the 'sticky' bits. From the old "[Red Hat Enterprise Linux 4 Introduction To System Administration](https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/4/pdf/Introduction_To_System_Administration/Red_Hat_Enterprise_Linux-4-Introduction_To_System_Administration-en-US.pdf)":
+The last thing that we should cover is the 'sticky' bits. From the old "[Red Hat Enterprise Linux 4 Introduction To System Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/4/pdf/introduction_to_system_administration/red_hat_enterprise_linux-4-introduction_to_system_administration-en-us.pdf)":
 
 > There are three such special permissions within Red Hat Enterprise Linux. They are:
 >
@@ -553,7 +553,7 @@ Getting back to the "[Red Hat Enterprise Linux 6 Deployment Guide](https://acces
 >
 >
 >     To assign a null password instead, use the following command:
->
+>    
 >         passwd -d username
 >
 >
