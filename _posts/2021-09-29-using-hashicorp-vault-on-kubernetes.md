@@ -193,7 +193,7 @@ password    coolio
 
 Not too shabby :)
 ## Exposing Secrets to Pods
-There are a couple of ways of accomplishing this. The first one is using the vault agent. Basically you have a side car container running next to your application container and it takes care of presenting the secret to the application container. From [Vault Agent with Kubernetes](vault-agent-arch.png) here is a nice overview:
+There are a couple of ways of accomplishing this. The first one is using the vault agent. Basically you have a side car container running next to your application container and it takes care of presenting the secret to the application container. From [Vault Agent with Kubernetes](https://learn.hashicorp.com/tutorials/vault/agent-kubernetes) here is a nice overview:
 
 ![vault-agent-arch.png](https://res.cloudinary.com/elatov/image/upload/v1632942009/blog-pics/k8s-vault/vault-agent-arch.png)
 

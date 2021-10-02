@@ -516,7 +516,7 @@ The rhel5 client was still blocked. This way you could have a website owner cont
 
 ### Apache Authorization
 
-We can go one step further and create a password file which contains a list of users that are authorized to access a directory or page. The process is described on [this](https://access.redhat.com/site/solutions/64158) Redhat page. From the page:
+We can go one step further and create a password file which contains a list of users that are authorized to access a directory or page. The process is described on [this](https://access.redhat.com/solutions/64158) Redhat page. From the page:
 
 > **Issue**
 > Apache needs to be configured in such a way that requires authorization via **.htpassword** when requests are made from outside the local area network, while not requiring authorization from requests made from within the local area network.
@@ -1253,3 +1253,4 @@ Notice the first time I got a TCP_MISS (this was my first visit), and the next I
 
 The bottom two are the once going through the proxy and we can see that the IP (**192.168.2.2**) is the same as the server it self. This makes sense since the proxy server is running locally.
 
+/

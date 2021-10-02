@@ -985,7 +985,7 @@ If you want to configure your client to use DHCP permanently, we have to do the 
 
 ## NTP
 
-From the [Deployment Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf):
+From the [Deployment Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/deployment_guide/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf):
 
 > The Network Time Protocol (NTP) enables the accurate dissemination of time and date information in order to keep the time clocks on networked computer systems synchronized to a common reference over the network or the Internet. Many standards bodies around the world have atomic clocks which may be made available as a reference. The satellites that make up the Global Position System contain more than one atomic clock, making their time signals potentially very accurate. Their signals can be deliberately degraded for military reasons. An ideal situation would be where each site has a server, with its own reference clock attached, to act as a site-wide time server. Many devices which obtain the time and date via low frequency radio transmissions or the Global Position System (GPS) exist. However for most situations, a range of publicly accessible time servers connected to the Internet at geographically dispersed locations can be used. These **NTP** servers provide “Coordinated Universal Time” (UTC). Information about these time servers can found at *www.pool.ntp.org*.
 >
@@ -1075,28 +1075,28 @@ From the above guide:
 >
 >
 >     The **kod** option means a “Kiss-o'-death” packet is to be sent to reduce unwanted queries. The **nomodify** options prevents any changes to the configuration. The **notrap** option prevents **ntpdc** control message protocol traps. The **nopeer** option prevents a peer association being formed. The **noquery** option prevents **ntpq** and **ntpdc** queries, but not time queries, from being answered. The **-6** option is required before an IPv6 address.
->    
+>        
 >     Addresses within the range **127.0.0.0/8** range are sometimes required by various processes or applications. As the "restrict default" line above prevents access to everything not explicitly allowed, access to the standard loopback address for IPv4 and IPv6 is permitted by means of the following lines:
->    
+>        
 >         # the administrative functions.
 >         restrict 127.0.0.1
 >         restrict -6 ::1
 >
 >
 >     Addresses can be added underneath if specifically required by another application. The **-6** option is required before an IPv6 address.
->    
+>        
 >     Hosts on the local network are not permitted because of the "restrict default" line above. To change this, for example to allow hosts from the **192.0.2.0/24** network to query the time and statistics but nothing more, a line in the following format is required:
->    
+>        
 >         restrict 192.0.2.0 mask 255.255.255.0 nomodify notrap nopeer
 >
 >
 >     To allow unrestricted access from a specific host, for example **192.0.2.250/24**, a line in the following format is required:
->    
+>        
 >         restrict 192.0.2.250
 >
 >
 >     A mask of **255.255.255.255** is applied if none is specified.
->    
+>        
 >     The restrict commands are explained in the **ntp_acc**(5) man page.
 >
 > *   **The public servers entry** - By default, as of Red Hat Enterprise 6.5, the **ntp.conf** file contains four public server entries:

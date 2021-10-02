@@ -1000,7 +1000,7 @@ More from the same document:
 
 ## RHEL Network Tuning
 
-There are a lot of parameters to tune the kernel networking. From the "[Performance Tuning Guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Performance_Tuning_Guide/Red_Hat_Enterprise_Linux-6-Performance_Tuning_Guide-en-US.pdf)":
+There are a lot of parameters to tune the kernel networking. From the "[Performance Tuning Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/performance_tuning_guide/red_hat_enterprise_linux-6-performance_tuning_guide-en-us.pdf)":
 
 > **8.2. Optimized Network Settings**
 > Performance tuning is usually done in a pre-emptive fashion. Often, we adjust known variables before running an application or deploying a system. If the adjustment proves to be ineffective, we try adjusting other variables. The logic behind such thinking is that by default, the system is not operating at an optimal level of performance; as such, we think we need to adjust the system accordingly. In some cases, we do so via calculated guesses.

@@ -431,11 +431,11 @@ That looks good.
 
 ### User Login Information
 
-From [this](https://access.redhat.com/site/articles/3009) RHEL Forum:
+From [this](https://access.redhat.com/articles/3009) RHEL Forum:
 
 > The **lastb** command is able to show a list of failed users logins since the creation date of the **/var/log/btmp** file. The **/var/log/btmp** file is a binary file which can not be viewed with a normal text editor.
 
-and from [this](https://access.redhat.com/site/articles/1849) RHEL forum:
+and from [this](https://access.redhat.com/articles/1849) RHEL forum:
 
 > The **last** command will display all users logged into a system along with their current tty's. However, it will only display login information starting from the time **/var/log/wtmp** was created.
 
@@ -470,7 +470,7 @@ We can see a bunch of logins and their corresponding times.
     lp                                         **Never logged in**
 
 
-We can see the last login for each user that exists on the system. We can see some system users were never logged in, which is expected. We can also check out currently logged in users, from [this](https://access.redhat.com/site/articles/1907) RHEL Forum:
+We can see the last login for each user that exists on the system. We can see some system users were never logged in, which is expected. We can also check out currently logged in users, from [this](https://access.redhat.com/articles/1907) RHEL Forum:
 
 > To quickly check who is currently log in on the server and the programs they are currently running, run the 'w' command. This command would also show how they are logged in, if they logged in remotely and the current time, how long the their login session has lasted. Alternatively, you can use the 'who' command. Here is how each looks like:
 

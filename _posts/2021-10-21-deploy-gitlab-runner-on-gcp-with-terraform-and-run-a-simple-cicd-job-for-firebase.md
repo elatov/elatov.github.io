@@ -127,7 +127,7 @@ deploy-functions:
       - master
 ```
 
-If you just commit that to the repo, it will automatically start the build. As a quick test I installed [python-gitlab](https://python-gitlab.readthedocs.io/en/stable/cli.html) and created an [access token for gitlab](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html) so I could query status of [gitlab pipelines](https://docs.gitlab.com/ee/ci/pipelines/). First get the gitlab project ID and Job IDs. To get the **ProjectID**, you can run the following:
+If you just commit that to the repo, it will automatically start the build. As a quick test I installed [python-gitlab](https://python-gitlab.readthedocs.io/en/latest/index.html) and created an [access token for gitlab](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html) so I could query status of [gitlab pipelines](https://docs.gitlab.com/ee/ci/pipelines/). First get the gitlab project ID and Job IDs. To get the **ProjectID**, you can run the following:
 
 ```bash
 > gitlab project list --owned TRUE

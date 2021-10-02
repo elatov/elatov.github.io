@@ -77,7 +77,7 @@ Here is a good summary:
 > CACHEUSD: Memory (in MB) compressed by ESXi Host (Trouble when > 1)
 > SWR/s SWW/s: Rate at which the ESXi host is writing to or reading from swapped memory (Trouble when > 1)
 
-And from "[Performance Troubleshooting for VMware vSphere 4.1](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/vsphere41-performance-troubleshooting.pdff)":
+And from "[Performance Troubleshooting for VMware vSphere 4.1](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/vsphere41-performance-troubleshooting.pdf)":
 
 ![check for vm swapping VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance ](https://github.com/elatov/uploads/raw/master/2012/12/check_for_vm_swapping.png)
 

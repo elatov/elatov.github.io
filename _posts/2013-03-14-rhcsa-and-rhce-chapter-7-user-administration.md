@@ -58,7 +58,7 @@ Let's get straight to it, from the "[Red Hat Enterprise Linux 6 Deployment Guide
 >
 >
 >     The line has the following characteristics:
->    
+>        
 >     *   It begins with the username **juan**.
 >     *   There is an **x** for the password field indicating that the system is using shadow passwords.
 >     *   A **UID** greater than 499 is created. Under Red Hat Enterprise Linux, UIDs below 500 are reserved for system use and should not be assigned to users.
@@ -73,7 +73,7 @@ Let's get straight to it, from the "[Red Hat Enterprise Linux 6 Deployment Guide
 >
 >
 >     The line has the following characteristics:
->    
+>        
 >     *   It begins with the username **juan**
 >     *   Two exclamation marks (**!!**) appear in the password field of the **/etc/shadow file**, which locks the account.
 >     *   The password is set to never expire
@@ -84,7 +84,7 @@ Let's get straight to it, from the "[Red Hat Enterprise Linux 6 Deployment Guide
 >
 >
 >     A group with the same name as a user is called a user private group. The line created in **/etc/group** has the following characteristics:
->    
+>        
 >     *   It begins with the group name **juan**.
 >     *   An **x** appears in the password field indicating that the system is using shadow group passwords.
 >     *   The **GID** matches the one listed for user juan in **/etc/passwd**
@@ -95,7 +95,7 @@ Let's get straight to it, from the "[Red Hat Enterprise Linux 6 Deployment Guide
 >
 >
 >     The line has the following characteristics:
->    
+>        
 >     *   It begins with the group name **juan**.
 >     *   An exclamation mark (**!**) appears in the password field of the **/etc/gshadow** file, which locks the group.
 >     *   All other fields are blank.
@@ -453,7 +453,7 @@ Hopefully the above helps with permissions.
 
 ### Sharing Files with Group Members in RHEL
 
-We discussed sharing files with group members by using the **sgid** bit on a folder and with appropriate **umask** settings. Another way of sharing files is to setup a group password and allow users to login to that group. From "[Red Hat Enterprise Linux 4 Introduction To System Administration](https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/4/pdf/Introduction_To_System_Administration/Red_Hat_Enterprise_Linux-4-Introduction_To_System_Administration-en-US.pdf)":
+We discussed sharing files with group members by using the **sgid** bit on a folder and with appropriate **umask** settings. Another way of sharing files is to setup a group password and allow users to login to that group. From "[Red Hat Enterprise Linux 4 Introduction To System Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/4/pdf/introduction_to_system_administration/red_hat_enterprise_linux-4-introduction_to_system_administration-en-us.pdf)":
 
 > **6.3.2.4 . /etc/gshadow**
 >
@@ -533,7 +533,7 @@ We accomplished the same thing without using the **sgid** bit.
 
 ### RHEL Password Aging
 
-Getting back to the "[Red Hat Enterprise Linux 6 Deployment Guide](https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/pdf/Deployment_Guide/Red_Hat_Enterprise_Linux-6-Deployment_Guide-en-US.pdf)":
+Getting back to the "[Red Hat Enterprise Linux 6 Deployment Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/deployment_guide/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf)":
 
 > **3.3.3. Enabling Password Aging**
 >
@@ -553,7 +553,7 @@ Getting back to the "[Red Hat Enterprise Linux 6 Deployment Guide](https://acces
 >
 >
 >     To assign a null password instead, use the following command:
->    
+>        
 >         passwd -d username
 >
 >
