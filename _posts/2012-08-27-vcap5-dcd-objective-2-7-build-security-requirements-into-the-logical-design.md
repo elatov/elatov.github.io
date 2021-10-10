@@ -82,7 +82,7 @@ Let's say you have a requirement for certain VMs not to be access from the inter
 
 ### Given a regulatory requirement example, determine the proper security solution that would comply with it
 
-From "[Infrastructure Security: Getting to the Bottom of Compliance in the Cloud](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/products/cloud-services/vmware-cloud-services-on-aws-security-overview-white-paper.pdf)", linked in the blue print:
+From "[Infrastructure Security: Getting to the Bottom of Compliance in the Cloud](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/vmware-cloud-services-on-aws-security-overview-white-paper.pdf)", linked in the blue print:
 
 > **Build secure clouds customized to comply with the most rigorous requirements.**
 > The secure cloud’s ability to map high-trust zones of systems will enable organizations and cloud providers to customize their clouds to comply specifically with PCI DSS, HIPAA or other highly
