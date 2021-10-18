@@ -116,5 +116,5 @@ Recommended readings/recordings:
 * [APAC BrownBag Session 5](http://vimeo.com/38646355)
 * [vSphere Security Guide](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-security-guide.pdf)
 * [VMware Security Briefing](http://www.cpd.iit.edu/netsecure08/ROBERT_RANDELL.pdf)
-* [Infrastructure Security: Getting to the Bottom of Compliance in the Cloud](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/products/cloud-services/vmware-cloud-services-on-aws-security-overview-white-paper.pdf)
+* [Infrastructure Security: Getting to the Bottom of Compliance in the Cloud](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/vmware-cloud-services-on-aws-security-overview-white-paper.pdf)
 
