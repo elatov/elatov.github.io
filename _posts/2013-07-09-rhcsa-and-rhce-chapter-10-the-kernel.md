@@ -48,9 +48,9 @@ From [Conceptual Architecture of the Linux Kernel](https://raw.githubusercontent
 >
 > ![kernel subsystem RHCSA and RHCE Chapter 10   The Kernel](https://github.com/elatov/uploads/raw/master/2013/06/kernel_subsystem.png)
 
-Another view from [Anatomy of the Linux kernel](http://www.cyberciti.biz/tips/understanding-the-linux-kernel.html):
+Another view from [Anatomy of the Linux kernel](https://www.cyberciti.biz/tips/understanding-the-linux-kernel.html):
 
-> ![gnu linux RHCSA and RHCE Chapter 10   The Kernel](https://github.com/elatov/uploads/raw/master/2013/06/gnu_linux.png)
+> ![gnu linux RHCSA and RHCE Chapter 10  The Kernel](https://github.com/elatov/uploads/raw/master/2013/06/gnu_linux.png)
 
 ### RHEL CPU Scheduler
 
