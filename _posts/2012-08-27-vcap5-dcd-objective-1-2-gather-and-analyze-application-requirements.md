@@ -15,7 +15,7 @@ tags: ['application_requirements']
 
 ### Given a set of applications within a physical environment, determine the requirements for virtualization
 
-This is very application specific. Here are some example from [this](http://www.seancrookston.com/blog/2011/02/08/vcap-dcd-objective-1-2-gather-and-analyze-application-requirements/) blog:
+This is very application specific. Here are some example from [this](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/VCAP_DCD_Objective_1_2_Gather_and_analyze_application_requirements_Sean_Crookston.pdf) blog:
 
 > *   Oracle
 >     *   Use Large Memory Pages-again there are implications of making design decision like this. In the case of using large memory pages you must be aware that this will hinder the use of Transparent Page Sharing for the VMs memory.
