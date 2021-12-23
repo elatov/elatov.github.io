@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title: "Using cStor from openebs"
+title: "Using cStor from OpenEBS"
 author: Karim Elatov
 categories: [containers, storage]
 tags: [openebs, iscsi, kubernetes]
