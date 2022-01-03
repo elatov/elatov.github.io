@@ -157,9 +157,11 @@ read
 ## Get Secret from Vault with Ansible
 Reading over the [new documentation](https://docs.ansible.com/ansible/latest//collections/community/hashi_vault/hashi_vault_lookup.html) from Ansible, I ended up with the following line to get the secret:
 
+{% raw %}
 ```bash
 "{{ lookup('hashi_vault', 'secret=apps/data/my-app token=s.7z1Vxxx url=https://vault.kar.int')['data']['username'] }}"
 ```
+{% endraw %}
 
 And it actually worked out :) I needed to install a python module but other than that it was good to go:
 
