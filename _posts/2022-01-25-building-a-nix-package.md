@@ -568,4 +568,4 @@ I didn't know how to get the `githubId` and apparently it's available at:
 https://api.github.com/users/<userhandle>
 ```
 
-After you submit the pull request and hope for the best :)
+After you submit the pull request, hope for the best :) Also since there are so many pull requests sometimes these get lost in the process. If that happens post a message at the [PRs ready for review discourse channel](https://discourse.nixos.org/t/prs-ready-for-review) and someone will help out.
