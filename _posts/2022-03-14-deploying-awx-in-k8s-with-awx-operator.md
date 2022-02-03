@@ -130,3 +130,82 @@ Type "help" for help.
 postgres=# CREATE USER awx WITH ENCRYPTED PASSWORD 'awxpass';
 postgres=# CREATE DATABASE awx OWNER awx;
 ```
+
+After that the deployment finished and I had an AWX instance deployed:
+
+```bash
+> k get pods -n awx
+NAME                                               READY   STATUS    RESTARTS   AGE
+awx-9b6df9459-7p79d                                4/4     Running   0          2d5h
+awx-operator-controller-manager-7f56f8b69c-fqqds   2/2     Running   0          2d5h
+```
+### Create a user manually for AWX Web UI
+There is a [known issue](https://github.com/ansible/awx-operator/issues/123) where the default credentials don't work, even if you follow the instuctions to get the password:
+
+```bash
+$ k -n awx get secret awx-admin-password -o jsonpath="{.data.password}" | base64 -d
+```
+
+So I just created one manually:
+
+```bash
+> k exec -n awx -it $(k get pods -n awx -l app.kubernetes.io/component=awx -o name) -c awx-web -- /bin/bash
+bash-4.4$ awx-manage createsuperuser
+Username: test
+Email address:
+Password:
+Password (again):
+Superuser created successfully.
+```
+
+Then I followed similar instructions as in my [previous post](/2018/12/setting-up-and-using-awx-with-docker-compose/) to configure the project and templates. There are also other sides that cover the process pretty well:
+
+- [Install Ansible AWX on CentOS 8 / Rocky Linux 8](https://computingforgeeks.com/install-and-configure-ansible-awx-on-centos/)
+- [Getting started Ansible AWX tower for IT automation run first playbook(http://vcloud-lab.com/entries/devops/getting-started-ansible-awx-tower-for-it-automation-run-first-playbook)
+
+### Adding Custom Roles and Collections
+
+## Creating a Custom AWX_EE Image
+### Adding Mitogen in the Custom AWX_EE Image
+
+# this made me think it's possible
+https://www.reddit.com/r/ansible/comments/k5ur3n/mitogen_strategy_plugin_with_awxtower_question/
+https://github.com/ansible/awx-ee/issues/72
+https://thinkingoutcloud.org/2021/12/07/building-kubernetes-enabled-tower-awx-execution-environments-using-awx-ee-and-ansible-builder/
+https://docs.ansible.com/automation-controller/latest/html/userguide/execution_environments.html
+https://www.linkedin.com/pulse/ansible-execution-environments-phil-griffiths
+https://www.linkedin.com/pulse/creating-custom-ee-awx-phil-griffiths
+# this gave me an idea to use env at the EE base image level
+https://github.com/mitogen-hq/mitogen/issues/559
+# you can also specify the version of the control plane ee image
+https://github.com/ansible/awx-ee/issues/72#issuecomment-965531641
+# first I tried the ansible.cfg approach
+https://github.com/ansible/awx-operator#custom-volume-and-volume-mount-options
+# but that broke my project sync from git
+# same thing with the env approach
+https://github.com/ansible/awx-operator#exporting-environment-variables-to-containers
+#then I decided to modify my custom ee image build and set the environment variable at that level
+And that worked out great
+# I also specified the default ee custom image
+https://github.com/ansible/awx-operator#deploying-a-specific-version-of-awx
+# here is the progression in awx
+awx-with-mitogen-improving.png
+# I was getting a weird issue with mitogen failing to find the right collection
+# This page helped out https://github.com/mitogen-hq/mitogen/issues/794
+# it turned out I had a custom collections/ansible_collection in my github repo
+checking out the diff between my runs I saw the following
+> diff job_122.txt job_125.txt | head
+1c1
+< Identity added: /runner/artifacts/122/ssh_key_data (root@nb)
+---
+> Identity added: /runner/artifacts/125/ssh_key_data (root@nb)
+93c93
+< Loading collection ansible.posix from /runner/project/collections/ansible_collections/ansible/posix
+---
+> Loading collection ansible.posix from /runner/requirements_collections/ansible_collections/ansible/posix
+104,357d103
+< statically imported: /runner/project/roles/common/tasks/main-install.yaml
+
+# notice how the working one was getting it from the project, while the working
+# one was getting it from the location where requirements.yaml install in.
+# So I removed that from my git repo and then it started working.
