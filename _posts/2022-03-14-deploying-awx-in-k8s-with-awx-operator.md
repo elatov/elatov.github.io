@@ -158,42 +158,155 @@ Password (again):
 Superuser created successfully.
 ```
 
-Then I followed similar instructions as in my [previous post](/2018/12/setting-up-and-using-awx-with-docker-compose/) to configure the project and templates. There are also other sides that cover the process pretty well:
+Then I followed similar instructions as in my [previous post](/2018/12/setting-up-and-using-awx-with-docker-compose/) to configure the [project](https://docs.ansible.com/ansible-tower/latest/html/userguide/projects.html), [templates](https://docs.ansible.com/ansible-tower/latest/html/userguide/job_templates.html), and [credentials](https://docs.ansible.com/ansible-tower/latest/html/userguide/credentials.html). There are also other sites that cover the process pretty well:
 
 - [Install Ansible AWX on CentOS 8 / Rocky Linux 8](https://computingforgeeks.com/install-and-configure-ansible-awx-on-centos/)
-- [Getting started Ansible AWX tower for IT automation run first playbook(http://vcloud-lab.com/entries/devops/getting-started-ansible-awx-tower-for-it-automation-run-first-playbook)
+- [Getting started Ansible AWX tower for IT automation run first playbook](http://vcloud-lab.com/entries/devops/getting-started-ansible-awx-tower-for-it-automation-run-first-playbook)
 
 ### Adding Custom Roles and Collections
+There have been changes on how to include custom collections and role into your ansible playbooks in awx. These pages covers the setup:
+
+- [Ansible best practices: using project-local collections and roles](https://www.jeffgeerling.com/blog/2020/ansible-best-practices-using-project-local-collections-and-roles)
+- [Collections](https://github.com/ansible/awx/blob/devel/docs/collections.md)
+
+So I just ended up creating the following in my git repo:
+
+```bash
+> cat collections/requirements.yml 
+collections:
+  - name: community.crypto
+  - name: community.general
+  - name: community.hashi_vault
+  - name: ansible.posix
+> cat roles/requirements.yml      
+roles:
+  - name: robertdebock.epel
+```
+
+Then after doing a project sync, my playbooks were able to use all the necessary collections.
 
 ## Creating a Custom AWX_EE Image
-### Adding Mitogen in the Custom AWX_EE Image
+I was using a hashicorp vault to populate some of the variables and that kept failing since the `hvac` python module is not included in the default EE image. I ran into the [following issue](https://github.com/ansible/awx-operator/issues/588) and it looks like the way to handle that is to create a custom EE image and to include the module there. I ran into a couple of sites that described the process:
 
-# this made me think it's possible
-https://www.reddit.com/r/ansible/comments/k5ur3n/mitogen_strategy_plugin_with_awxtower_question/
-https://github.com/ansible/awx-ee/issues/72
-https://thinkingoutcloud.org/2021/12/07/building-kubernetes-enabled-tower-awx-execution-environments-using-awx-ee-and-ansible-builder/
-https://docs.ansible.com/automation-controller/latest/html/userguide/execution_environments.html
-https://www.linkedin.com/pulse/ansible-execution-environments-phil-griffiths
-https://www.linkedin.com/pulse/creating-custom-ee-awx-phil-griffiths
-# this gave me an idea to use env at the EE base image level
-https://github.com/mitogen-hq/mitogen/issues/559
-# you can also specify the version of the control plane ee image
-https://github.com/ansible/awx-ee/issues/72#issuecomment-965531641
-# first I tried the ansible.cfg approach
-https://github.com/ansible/awx-operator#custom-volume-and-volume-mount-options
-# but that broke my project sync from git
-# same thing with the env approach
-https://github.com/ansible/awx-operator#exporting-environment-variables-to-containers
-#then I decided to modify my custom ee image build and set the environment variable at that level
-And that worked out great
-# I also specified the default ee custom image
-https://github.com/ansible/awx-operator#deploying-a-specific-version-of-awx
-# here is the progression in awx
-awx-with-mitogen-improving.png
-# I was getting a weird issue with mitogen failing to find the right collection
-# This page helped out https://github.com/mitogen-hq/mitogen/issues/794
-# it turned out I had a custom collections/ansible_collection in my github repo
-checking out the diff between my runs I saw the following
+- [Building Kubernetes-enabled Tower/AWX Execution Environments Using AWX-EE and ansible-builder](https://thinkingoutcloud.org/2021/12/07/building-kubernetes-enabled-tower-awx-execution-environments-using-awx-ee-and-ansible-builder/)
+- [Execution Environments](https://docs.ansible.com/automation-controller/latest/html/userguide/execution_environments.html)
+- [Creating a custom EE for AWX](https://www.linkedin.com/pulse/creating-custom-ee-awx-phil-griffiths)
+
+First let's get the prereqs:
+
+```bash
+> pip install --user ansible-builder
+> git clone git@github.com:elatov/awx-ee.git
+> cd awx-ee
+```
+
+I ended up with the following configs:
+
+```bash
+> cat execution-environment.yml 
+---
+version: 1
+dependencies:
+  galaxy: _build/requirements.yml
+  python: _build/requirements.txt
+  system: _build/bindep.txt
+build_arg_defaults:
+  EE_BASE_IMAGE: 'quay.io/ansible/ansible-runner:stable-2.11-latest'
+additional_build_steps:
+  append:
+    - RUN alternatives --set python /usr/bin/python3
+    - COPY --from=quay.io/project-receptor/receptor:latest /usr/bin/receptor /usr/bin/receptor
+    - RUN mkdir -p /var/run/receptor
+    - ADD run.sh /run.sh
+    - CMD /run.sh
+    - USER 1000
+    - RUN git lfs install
+```
+
+And here is the file where you can add your custom python modules:
+
+```bash
+> cat _build/requirements.txt 
+hvac
+```
+I ended up customizing the base image and this was to ensure a development version is not included in the image. This is actually discussed in [this issue](https://github.com/ansible/awx-ee/issues/72). To build the image, you can run the following:
+
+```bash
+ansible-builder build --tag elatov/awx-custom-ee:0.0.4
+```
+
+For the tag specify your container registry. You can then test the image locally really quick:
+
+```bash
+> docker run --user 0 --entrypoint /bin/bash -it --rm elatov/awx-custom-ee:0.0.4  
+bash-4.4# git clone git@github.com:elatov/ansible-tower-samples.git
+bash-4.4# cd ansible-tower-samples
+bash-4.4# ansible-playbook -vvv hello_world.yml
+```
+
+If everything is working as expected then push the image to your registry:
+
+```bash
+> docker push elatov/awx-custom-ee:0.0.4
+```
+
+At this point you can either modify the [awx-operator](https://github.com/ansible/awx-operator) config and add the following section:
+
+```bash
+---
+spec:
+  ...
+  ee_images:
+    - name: custom-awx-ee
+      image: elatov/awx-custom-ee:0.0.4
+```
+
+Or you can just add the image manually in the UI as per the instructions in [Use an execution environment in jobs](https://docs.ansible.com/automation-controller/latest/html/userguide/execution_environments.html#use-an-ee-in-jobs).
+
+### Adding Mitogen in the Custom AWX_EE Image
+While I was creating a custom image, I decided to include [mitogen](https://github.com/mitogen-hq/mitogen/blob/master/docs/ansible_detailed.rst) in it. [This](https://www.reddit.com/r/ansible/comments/k5ur3n/mitogen_strategy_plugin_with_awxtower_question/) made me think it's possible. So I modified the `ansible-builder` config to have the following:
+
+```bash
+> cat execution-environment.yml 
+---
+version: 1
+dependencies:
+  galaxy: _build/requirements.yml
+  python: _build/requirements.txt
+  system: _build/bindep.txt
+build_arg_defaults:
+  EE_BASE_IMAGE: 'quay.io/ansible/ansible-runner:stable-2.11-latest'
+additional_build_steps:
+  append:
+    - RUN alternatives --set python /usr/bin/python3
+    - COPY --from=quay.io/project-receptor/receptor:latest /usr/bin/receptor /usr/bin/receptor
+    - RUN mkdir -p /var/run/receptor
+    - RUN mkdir -p /usr/local/mitogen
+    - COPY mitogen-0.3.2 /usr/local/mitogen/
+    - ENV ANSIBLE_STRATEGY_PLUGINS=/usr/local/mitogen/ansible_mitogen/plugins/strategy
+    - ENV ANSIBLE_STRATEGY=mitogen_linear
+    - ADD run.sh /run.sh
+    - CMD /run.sh
+    - USER 1000
+    - RUN git lfs install
+```
+
+Initially I tried to specify the `mitogen` configs in the `ansible.cfg` file as described in [Custom Volume and Volume Mount Options](https://github.com/ansible/awx-operator#custom-volume-and-volume-mount-options). But that broke the sync at the project level. The image used for the project syncing is different than the image used for the playbook runs. You can actually modify that as well as described [here](https://github.com/ansible/awx-ee/issues/72#issuecomment-965531641), you basically specify the following in your `awx-operator` config:
+
+```bash
+---
+spec:
+  ...
+  control_plane_ee_image: elatov/awx-custom-ee:0.0.4
+```
+
+For some reason I didn't want to mess with that yet, in case I do an update I would want it to use the default image. Then I decided to modify my custom ee image build and set the environment variable at image level it self (as you see above), and that worked out great
+
+#### Random mitogen notes
+
+I was getting a weird issue where when `mitogen` was used, the playbook would fail to find the right collection. I then ran into [this page](https://github.com/mitogen-hq/mitogen/issues/794) and it helped out. Basically if I ran the playbook just by itself it worked, but if I ran multiple playbooks then it would fail. So I enabled debug mode on the working and and non-working one and I checked out the differences:
+
+```bash
 > diff job_122.txt job_125.txt | head
 1c1
 < Identity added: /runner/artifacts/122/ssh_key_data (root@nb)
@@ -205,7 +318,9 @@ checking out the diff between my runs I saw the following
 > Loading collection ansible.posix from /runner/requirements_collections/ansible_collections/ansible/posix
 104,357d103
 < statically imported: /runner/project/roles/common/tasks/main-install.yaml
+```
+It turned out I had a custom `collections/ansible_collection` folder in my github repo. Notice how the working one was getting the collection directly from the project (**/runner/project/collections/**), while the working one was getting it from the location where `requirements.yml` is installed in (**/runner/requirements_collections/**). So I removed that from my git repo and then it started working. Also wanted to share the execution times of the playbooks in awx:
 
-# notice how the working one was getting it from the project, while the working
-# one was getting it from the location where requirements.yaml install in.
-# So I removed that from my git repo and then it started working.
+![awx-with-mitogen-improving.png](https://res.cloudinary.com/elatov/image/upload/v1644081199/blog-pics/awx-operator-setup/awx-with-mitogen-improving.png)
+
+The very first one about **40 minutes**, then after caching all the facts it was at **13 minutes** and lastly with `mitogen` enabled it's at **3 minutes** :)
