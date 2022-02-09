@@ -70,7 +70,7 @@ Saved 60 seconds in execution time.
 This made the biggest difference, initially I tried using the old version:
 
 ```bash
-$ curl -L https://github.com/mitogen-hq/mitogen/archive/refs/tags/v0.2.9.tar.gz
+$ curl -LO https://github.com/mitogen-hq/mitogen/archive/refs/tags/v0.2.9.tar.gz
 $ tar xvzf v0.2.9.tar.gz
 $ mv mitogen-0.2.9 /usr/local/.
 ```
@@ -110,7 +110,7 @@ ansible [core 2.12.1]
 Then I downloaded the latest version of [mitogen](https://github.com/mitogen-hq/mitogen/releases):
 
 ```bash
-$ curl -L https://github.com/mitogen-hq/mitogen/archive/refs/tags/v0.3.2.tar.gz
+$ curl -LO https://github.com/mitogen-hq/mitogen/archive/refs/tags/v0.3.2.tar.gz
 $ tar xvzf v0.3.2.tar.gz
 $ mv mitogen-0.3.2 /usr/local/.
 ```
