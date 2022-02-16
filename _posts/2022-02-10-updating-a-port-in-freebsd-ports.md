@@ -6,7 +6,7 @@ author: Karim Elatov
 categories: [os]
 tags: [freebsd, ports]
 ---
-I was in need of updating a FreeBSD port and this was the first time I was running through the process so I decided to jot down my process.
+I was in need of updating a FreeBSD port and this was the first time I was running through the process, so I decided to jot down my process.
 
 ## Getting the Source
 The overall process is laid out in [Chapter 11. Upgrading a Port](https://docs.freebsd.org/en/books/porters-handbook/upgrading/). I also wanted to use `git` so I also followed the instructions laid out in [11.1. Using Git to Make Patches](https://docs.freebsd.org/en/books/porters-handbook/upgrading/#git-diff) to make my changes. I basically ran the following to get the source:
