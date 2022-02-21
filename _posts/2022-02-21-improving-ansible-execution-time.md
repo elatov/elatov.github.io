@@ -124,7 +124,15 @@ strategy_plugins = /usr/local/mitogen-0.3.2/ansible_mitogen/plugins/strategy
 strategy = mitogen_linear
 ```
 
-And then my `ansible-playbook` went from total of 10 minutes to just 3 minutes.
+And then my `ansible-playbook` went from total of 10 minutes to just 3 minutes. Here is the final output after all the improvements:
+
+```bash
+Monday 21 February 2022  11:23:36 -0700 (0:00:00.033)   0:03:14.076 **** 
+======================================================================= 
+common : Install common packages -------------------------------- 5.65s
+falco : Ensure rsyslog is present ------------------------------- 5.58s
+falco : yum | kernel-devel install ------------------------------ 5.26s
+```
 
 ## Improve Code
 After all the changes, I looked at my top tasks and if any of them were over 5 seconds I wanted to see why. All 3 of the troublemakers were tasks that were using `yum` or `package` on a RedHat systems. Reading over some pages:
@@ -134,6 +142,7 @@ After all the changes, I looked at my top tasks and if any of them were over 5 s
 
 I realized I was doing exactly that and on some tasks I just called the list directly instead of looping and on some I would join the two lists to make sure I can pass that in:
 
+{% raw %}
 ```yaml
 - name: yum | kernel-devel install
   package:
@@ -141,5 +150,6 @@ I realized I was doing exactly that and on some tasks I just called the list dir
       - "{{ falco_pkgs | join(',') }}"
       - "kernel-devel-{{ ansible_kernel }}"
 ```
+{% endraw %}
 
 And that helped lower my tasks to be below 6 seconds. After all the different changes, I am definitely happy with the results. One thing I want to try is see if [ansible-pull](https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#ansible-pull) is a nice approach... maybe at a later time.
