@@ -4,7 +4,7 @@ layout: post
 title: "Improving Ansible Execution Time"
 author: Karim Elatov
 categories: [automation, devops, os]
-tags: [ansible]
+tags: [ansible, mitogen]
 ---
 
 I ran into a couple of guides on how to improve ansible execution time:
