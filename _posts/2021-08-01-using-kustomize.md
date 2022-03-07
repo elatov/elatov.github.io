@@ -15,7 +15,7 @@ From [their site](https://kubectl.docs.kubernetes.io/guides/introduction/kustomi
 
 It's a perfect tool to create environment based customizations to your k8s deployments. `kustomize` uses a concept of **bases** and **overlays**, where you define a base and then you create overlays which customize the configuration depending on your environment. There is a pretty cool diagram in [their github](https://github.com/kubernetes-sigs/kustomize):
 
-![overlay.jpg](https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/docs/images/overlay.jpg)
+![overlay.jpg](https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/images/overlay.jpg)
 
 And here is a simple directory hierarchy:
 
@@ -38,7 +38,7 @@ And here is a simple directory hierarchy:
 
 It's also a perfect tool to be added into your CI/CD pipeline. From [Workflow for off the shelf applications](https://kubectl.docs.kubernetes.io/guides/config_management/offtheshelf/), here is a nice overview:
 
-![ots.jpg](https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/docs/images/workflowOts.jpg)
+![ots.jpg](https://kubectl.docs.kubernetes.io/images/new_ots.jpg)
 
 So let's run through a couple of examples to see how it works. As a starting point, I created the following directory structure:
 
@@ -59,7 +59,7 @@ So let's run through a couple of examples to see how it works. As a starting poi
 ```
 
 ## Container Images
-First let's try out modifying the container image version (this example is covered in [images](https://kubectl.docs.kubernetes.io/references/kustomize/images/)). As an example let's create a simple deployment manifest:
+First let's try out modifying the container image version (this example is covered in [customizing](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/#customizing)). As an example let's create a simple deployment manifest:
 
 ```bash
 > cat base/deploy.yaml
@@ -120,7 +120,7 @@ deployment.apps/the-deployment created
 That was pretty easy.
 
 ## Patching
-`kustomize` has two approaches to patching files: [strategic merge patch](https://kubectl.docs.kubernetes.io/references/kustomize/patchesstrategicmerge/) and [json 6902 patch](https://kubectl.docs.kubernetes.io/references/kustomize/patchesjson6902/).
+`kustomize` has two approaches to patching files: [strategic merge patch](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/#customizing) and [json 6902 patch](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/#customizing).
 
 ### Strategic Merge Patch
 This is useful if you are making a lot of changes, so you can just provide a YAML file that looks like a k8s manifest file with all the resources you want to add/change. From the [Patching multiple resources at once](https://github.com/kubernetes-sigs/kustomize/blob/master/examples/patchMultipleObjects.md) example, let's inject a side car container into our deployment in our `dev` overlay. First let's add a `kustomization.yaml` file into the `dev` overlay:
@@ -239,7 +239,7 @@ spec:
 yay, that worked out as well.
 
 ## ConfigGenerator
-Let's cover one more example, the [configMapGenerator](https://kubectl.docs.kubernetes.io/references/kustomize/configmapgenerator/), this supports multiple approaches as well. I will cover two.
+Let's cover one more example, the [configMapGenerator](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/#configmapgenerator), this supports multiple approaches as well. I will cover two.
 
 ### Using Literals to Specify Configs as Strings
 There is also a nice example at [ConfigMap generation and rolling updates](https://github.com/kubernetes-sigs/kustomize/blob/master/examples/configGeneration.md). Let's say I create the following in my `base`:
