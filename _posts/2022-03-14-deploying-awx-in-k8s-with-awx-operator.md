@@ -10,7 +10,7 @@ tags: [awx, ansible, kubernetes]
 A while back I deployed AWX to run ansible playbooks (this is covered in [Setting Up and Using AWX with docker-compose](/2018/12/setting-up-and-using-awx-with-docker-compose/)). I wanted to refresh that configuration since the deployment model has switched.
 
 ## Deploy PostgreSQL in K8S
-I recently deployed OpenEBS to allow to create Persistent Volumes that has decent performance (this setup is covered in [Using cStor from OpenEBS](/2021/12/using-cstor-from-openebs/)). Using that as my storage backend I deployed a postgres deployment in kubernetes with persistent storage:
+I recently deployed OpenEBS to allow creation of Persistent Volumes that have decent performance (this setup is covered in [Using cStor from OpenEBS](/2021/12/using-cstor-from-openebs/)). Using that as my storage backend I deployed a postgres deployment in kubernetes with persistent storage:
 
 ```yaml
 apiVersion: apps/v1
