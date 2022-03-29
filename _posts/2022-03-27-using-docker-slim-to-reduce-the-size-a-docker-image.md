@@ -8,7 +8,7 @@ tags: [docker, python]
 ---
 
 ## Slimming down your container images
-There are a couple of sites that cover as to why you should keep your container images small:
+There are a couple of sites that cover why you should keep your container images small:
 
 - [The Quest for Minimal Docker Images, part 3](https://jpetazzo.github.io/2020/04/01/quest-minimal-docker-images-part-3/)
 - [Build smaller containers](https://fedoramagazine.org/build-smaller-containers/)

@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: "Deploying AWX in Kubernetes with AWX Operator"
 author: Karim Elatov
