@@ -315,7 +315,7 @@ Here is more information regarding GRUB:
 >
 >
 >     assigns the number 0 to the fourth hard drive, and the number 3 to the first hard drive. This option is especially useful if you configure your system with an option to boot a Windows operating system, because the Windows boot loader must find the Windows installation on the first hard drive. For example, if your Windows installation is on the fourth hard drive, the following entry in grub.conf will allow the Windows boot loader to load Windows correctly:
->    
+>            
 >         title Windows
 >         map (hd0) (hd3)
 >         map (hd3) (hd0)
@@ -330,7 +330,7 @@ Here is more information regarding GRUB:
 > *   **splashimage=path-to-image** — Specifies the location of the splash screen image to be used when GRUB boots.
 > *   **title group-title** — Specifies a title to be used with a particular group of commands used to load a kernel or operating system.
 
-There is a pretty good article from the Red Hat Magazine: "[Using GRUB to overcome boot problems](http://magazine.redhat.com/2007/03/21/using-grub-to-overcome-boot-problems/)" and in the comments there is an example of how to re-install grub if ever needed. Boot from a cd and type in '**linux rescue**' after the cd boots, you will have a shell from which you can re-install grub to fix any MBR issues that you may have. Here is how that looks like:
+There is a pretty good article from the Red Hat Magazine: "[Using GRUB to overcome boot problems](https://www.gnu.org/software/grub/manual/legacy/Installing-GRUB-natively.html)" and in the comments there is an example of how to re-install grub if ever needed. Boot from a cd and type in '**linux rescue**' after the cd boots, you will have a shell from which you can re-install grub to fix any MBR issues that you may have. Here is how that looks like:
 
     # grub
     Probing devices to guess BIOS drives. This may take a long time.

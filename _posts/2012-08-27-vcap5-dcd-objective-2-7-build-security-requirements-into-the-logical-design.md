@@ -9,8 +9,7 @@ tags: ['vshield', 'logical_design']
 
 ### Understand what security services are provided by VMware solutions
 
-vShield is the most popular service. If you need PCI compliance you can check out "[this](https://blogs.vmware.com/security/2014/02/vmware-cpc-releases-pci-dss-3-0-compliance-toolkit-virtual-environments-vcm.html) VMware blog:
-![compliance](https://github.com/elatov/uploads/raw/master/2012/08/compliance.png)
+vShield is the most popular service. If you need PCI compliance you can check out [VMware Compliance Center](https://www.vmware.com/solutions/compliance-cyber-risk.html) page. It has links how to accomplish certain level of compliance. There is also a tool called VMware Compliance Checker, but it seems that vRealize replaced the functionality as seen from [this](https://blogs.vmware.com/management/2017/07/vsphere-pci-dss-hipaa-compliance-vrealize-operations-6-6.html) page.
 
 VMware also provides hardening guides for each version of ESX, and here a [link](https://www.vmware.com/support/support-resources/hardening-guides.html) to all the different versions.
 
@@ -100,11 +99,12 @@ With vShield you can setup NATs, DMZs, Virus Checkers, and much more. There is e
 
 ### Based upon a specified security requirement, analyze the current state for areas of compliance/non-compliance.
 
-From the [VMware Compliance site](https://blogs.vmware.com/security/2014/02/vmware-cpc-releases-pci-dss-3-0-compliance-toolkit-virtual-environments-vcm.html):
+From the [VMware Compliance site](https://www.vmware.com/products/trust-center.html):
 
 > With proper technology based solutions such as VMware vShield and VMware vCenter Configuration Manager, achieving and demonstrating compliance on VMware vSphere based infrastructures is not only possible, but can often be easier than achieving the same on non virtualized environments.
 
 The above mentioned Compliance checker has been integrated into VMware vCenter Configuration Manager, so you can use that to see if you are compliant or not. Here is what the application looks like:
+
 ![vcm-compliance](https://github.com/elatov/uploads/raw/master/2012/08/vcm-compliance.png)
 
 ### Explain how compliance requirements will impact the logical security design
