@@ -18,7 +18,7 @@ Usually it's to improve startup time, security and maintenance. So common practi
 
 1. Start with a small base (alpine, distroless...etc)
 2. Use Multi-Stage Builds (this works well for statically complied software)
-3. Remove unnecessary software after the fact (this is what docker-slim does)
+3. Remove unnecessary software after the fact (this is what [docker-slim](https://github.com/docker-slim/docker-slim) does)
 4. Use a custom build pipeline to build a custom image (this is like [jib](https://github.com/GoogleContainerTools/jib), [nix](https://nix.dev/tutorials/building-and-running-docker-images), and [build packs](https://github.com/buildpacks/pack))
 
 I decided to try out [docker-slim](https://github.com/docker-slim/docker-slim)
@@ -105,7 +105,7 @@ There are a bunch of tools out that can analyze you container images:
 
 - [dive](https://github.com/wagoodman/dive)
 - [container-diff](https://github.com/GoogleContainerTools/container-diff)
-- [docker-slim xray][https://github.com/docker-slim/docker-slim#xray-command-options]
+- [docker-slim xray](https://github.com/docker-slim/docker-slim#xray-command-options)
 
 If you run `docker-slim xray` it will show you the largest files per layer in the container which is kind of nice:
 
@@ -186,7 +186,7 @@ openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libresolv.so.2", O_RDONLY|O_CLOEXEC) = 3
 openat(AT_FDCWD, "/etc/hosts", O_RDONLY|O_CLOEXEC) = 3
 ```
 
-If I remove the `strace` filter, I actaully the see code make some API calls get a token:
+If I remove the `strace` filter, I actually see the code make some API calls to get a token:
 
 ```bash
 connect(3, {sa_family=AF_INET, sin_port=htons(80), sin_addr=inet_addr("169.254.169.254")}, 16) = 0
