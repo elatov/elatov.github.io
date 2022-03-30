@@ -131,19 +131,18 @@ So that can give you an idea of which files you need to get rid of. You can also
 > container-diff analyze library/python-slim.slim -t file > second.txt
 > diff --side-by-side first.txt second.txt | head -15
 
------File-----							      -----File-----
-
-Analysis for library/python-slim:0.0.37:		|	Analysis for library/python-slim.slim:
-FILE                                              	FILE
-/app                                               	/app
-/app/python                                        	/app/python
-/app/requirements.txt                              	/app/requirements.txt
-/bin                                              |	/bin
-/bin/bash                                          	/bin/bash
-/bin/chgrp                                         <
-/bin/chmod                                         <
-/bin/chown                                         <
-/bin/cp                                            <
+-----File-----                              -----File-----
+Analysis for library/python-slim:0.0.37:    | Analysis for library/python-slim.slim:
+FILE                                        FILE
+/app                                        /app
+/app/python                                 /app/python
+/app/requirements.txt                       /app/requirements.txt
+/bin                                        | /bin
+/bin/bash                                   /bin/bash
+/bin/chgrp                                  <
+/bin/chmod                                  <
+/bin/chown                                  <
+/bin/cp                                     <
 ```
 
 Which gives you a quick look into what has changed.
