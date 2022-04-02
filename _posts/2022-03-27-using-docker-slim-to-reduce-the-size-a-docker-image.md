@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title: "Using docker slim to reduce the size a docker image"
+title: "Using docker slim to reduce the size of a docker image"
 author: Karim Elatov
 categories: [security, containers]
 tags: [docker, python]
