@@ -380,7 +380,7 @@ From "[vSphere PowerCLI User’s Guide PowerCLI 5.0](http://pubs.vmware.com/vsph
 >
 > Using the API Access cmdlets for low-level VMware vSphere management requires some knowledge of both PowerShell scripting and the VMware vSphere API.
 
-Get-View provides a lower level of functionality and is faster to execute the commands. From "[Get-view, list viewtypes, filter usage, Get-VIObjectbyVIView, and get-vm in powercli](http://psvmware.wordpress.com/2012/10/30/powershell-list-view-filter-and-viewtypes)":
+Get-View provides a lower level of functionality and is faster to execute the commands. From "[Get-view, list viewtypes, filter usage, Get-VIObjectbyVIView, and get-vm in powercli](https://grzegorzkulikowski.info/2012/10/30/powershell-list-view-filter-and-viewtypes/)":
 
 > In few words… While installing powercli you receive a set of cmdlets. You can get info about vms,datastores,clusters etc, etc… You can run verb cmdlets like set/new/invoke/move/restart/start/stop... etc. Well you can see it yourself executing ‘get-vicommand’ how many of those there are But in case that’s not enough you can access vsphere objects using views. You will discover that they provide even more options than cmdlets. Some things can’t be done using powercli cmdlets, and they need to be executed using views and their methods.
 >
