@@ -396,7 +396,7 @@ The title describes it best. If you have a multi-tiered application (ie DB,Web,a
 
 ### Size compute resources: Memory, CPU, I/O devices, Internal storage
 
-From "[Sizing server hardware for virtual machines](http://searchservervirtualization.techtarget.com/tip/Sizing-server-hardware-for-virtual-machines)":
+From "[Sizing server hardware for virtual machines](https://www.computerweekly.com/news/2240102027/Sizing-server-hardware-for-virtual-machines)":
 
 > CPU With the advent of multi-core CPUs, it has become easier and cheaper to increase the number of CPUs in a host server. Nowadays, almost all servers come with two or four cores per physical CPU. A good rule of thumb is that four single CPU VMs can be supported per CPU core. This can vary by as much as 1-2 per core, and up to 8-10 per core based on the average CPU utilization of applications running on VMs.
 >
@@ -436,7 +436,7 @@ From [this](https://github.com/elatov/uploads/raw/master/2013/04/vcap-dcd_notes.
 > *   Goal is to efficiently use the CPU capacity without reducing performance
 > *   More Cores = more sharing of memory and data buses
 
-Onto Memory, from "[Sizing server hardware for virtual machines](http://searchservervirtualization.techtarget.com/tip/Sizing-server-hardware-for-virtual-machines)":
+Onto Memory, from "[Sizing server hardware for virtual machines](https://www.computerweekly.com/news/2240102027/Sizing-server-hardware-for-virtual-machines)":
 
 > Memory
 > When it comes to figuring out how much RAM to put in a host server, I would recommend installing the maximum amount if possible.
@@ -465,7 +465,7 @@ From the same PDF:
 > *   Large memory pages will reduce memory over-commitment
 >     *   Large Pages are not shared For I/O Devices (HBAs and NICs),
 
-from "[Sizing server hardware for virtual machines](http://searchservervirtualization.techtarget.com/tip/Sizing-server-hardware-for-virtual-machines)":
+from "[Sizing server hardware for virtual machines](https://www.computerweekly.com/news/2240102027/Sizing-server-hardware-for-virtual-machines)":
 
 > Network
 > The number of network interface cards (NICs) needed in a virtual server will vary based on how much redundancy is desired, whether or not network storage will be used and which features will be selected. Using 802.1Q VLAN tagging provides the flexibility of using multiple VLANs on a single NIC, thus eliminating the need to have a separate NIC for each VLAN on a host server. For smaller servers, you can get away with using two NICs, but it is best to a have a minimum of four NICs on your host server. If you are using network storage, such as iSCSI, it would be wise to have more than four NICs, especially if you are going to use features like VMware's vMotion. When creating vSwitches it's best to assign multiple NIC's to them for redundancy and increased capacity available to VMs.
