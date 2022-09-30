@@ -202,7 +202,7 @@ We can also use the CSI provider and the guide is at [Mount Vault Secrets throug
 
 ![vault-csi-arch.png](https://res.cloudinary.com/elatov/image/upload/v1632942012/blog-pics/k8s-vault/vault-csi-arch.png)
 
-And lasty we can call the API directly using client libraries (Nice example with python is seen at [Securing secrets with python and vault](https://modularsystems.io/blog/securing-secrets-python-vault/))
+And lasty we can call the API directly using client libraries (Nice example with python is seen at [How to Store Your Secrets Using Vault and Python](https://python.plainenglish.io/how-to-store-your-secrets-using-vault-and-python-cf9ec0c70207))
 
 ### Vault CSI Driver in K8S
 

@@ -10,10 +10,9 @@ tags: [nix, nixos, git]
 There are definitely a bunch of steps and I will just run through them as I discovered them.
 
 ## Building with Nix
-Nix by it self allows for building packages without using the community driven [nixpkgs](https://github.com/NixOS/nixpkgs). There are some nice example that show you the basic setup:
+Nix by it self allows for building packages without using the community driven [nixpkgs](https://github.com/NixOS/nixpkgs). There are some nice examples that show you the basic setup:
 
 - [Working Derivation -> Enough of nix repl](https://nixos.org/guides/nix-pills/working-derivation.html#idm140737320271904)
-- [Expression Syntax](https://nixos.org/manual/nix/stable/expressions/expression-syntax.html)
 - [Your First Derivation](https://github.com/justinwoo/nix-shorts/blob/master/posts/your-first-derivation.md)
 - [nixpkgs/pkgs/applications/misc/hello/](https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/misc/hello/default.nix)
 - [How to Learn Nix, Part 11: Okay my actual first derivation](https://ianthehenry.com/posts/how-to-learn-nix/okay-my-actual-first-derivation/)
