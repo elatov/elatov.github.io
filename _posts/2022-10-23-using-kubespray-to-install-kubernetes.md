@@ -72,7 +72,7 @@ ingress_nginx_host_network: false
 ingress_publish_status_address: ""
 ```
 
-### Installing with kubespray
+## Installing with kubespray
 The install it self was pretty simple, it's covered in
 [Setting up your first cluster with Kubespray](https://github.com/kubernetes-sigs/kubespray/blob/master/docs/setting-up-your-first-cluster.md)
 and [Getting started](https://github.com/kubernetes-sigs/kubespray/blob/master/docs/getting-started.md):
