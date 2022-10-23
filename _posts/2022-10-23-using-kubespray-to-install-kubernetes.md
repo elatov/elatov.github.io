@@ -182,34 +182,34 @@ Or you can also pass it into as an extra variable:
 ```bash
 $ ansible-playbook upgrade-cluster.yml -b -i inventory/home/hosts.yaml -e kube_version=v1.19.7
 ...
-PLAY RECAP ****************************************************************************************************************************************************************************************************
+PLAY RECAP *********************************************************************************************
 localhost                  : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ma                         : ok=752  changed=59   unreachable=0    failed=0    skipped=1526 rescued=0    ignored=1
 nc                         : ok=478  changed=24   unreachable=0    failed=0    skipped=735  rescued=0    ignored=1
 nd                         : ok=478  changed=24   unreachable=0    failed=0    skipped=735  rescued=0    ignored=1
 
 Sunday 16 October 2022  21:42:15 -0600 (0:00:00.089)       0:14:45.172 ********
-===============================================================================
-kubernetes/control-plane : kubeadm | Upgrade first master -------------------------------------------------------------------------------------------------------------------------------------------- 101.72s
-download : download_container | Download image if required -------------------------------------------------------------------------------------------------------------------------------------------- 21.49s
-download : download_container | Download image if required -------------------------------------------------------------------------------------------------------------------------------------------- 16.24s
-download : download_container | Download image if required -------------------------------------------------------------------------------------------------------------------------------------------- 16.07s
-kubernetes-apps/ansible : Kubernetes Apps | Start Resources ------------------------------------------------------------------------------------------------------------------------------------------- 10.40s
-kubernetes-apps/ansible : Kubernetes Apps | Start Resources ------------------------------------------------------------------------------------------------------------------------------------------- 10.36s
-download : download_container | Download image if required --------------------------------------------------------------------------------------------------------------------------------------------- 9.44s
-kubernetes-apps/ansible : Kubernetes Apps | Lay Down CoreDNS templates --------------------------------------------------------------------------------------------------------------------------------- 7.99s
-upgrade/pre-upgrade : Drain node ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- 7.46s
-kubernetes-apps/ansible : Kubernetes Apps | Lay Down CoreDNS templates --------------------------------------------------------------------------------------------------------------------------------- 7.24s
-network_plugin/cilium : Cilium | Start Resources ------------------------------------------------------------------------------------------------------------------------------------------------------- 6.95s
-upgrade/pre-upgrade : Drain node ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- 6.73s
-network_plugin/cilium : Cilium | Create Cilium node manifests ------------------------------------------------------------------------------------------------------------------------------------------ 6.67s
-container-engine/validate-container-engine : Populate service facts ------------------------------------------------------------------------------------------------------------------------------------ 6.46s
-kubernetes-apps/metrics_server : Metrics Server | Apply manifests -------------------------------------------------------------------------------------------------------------------------------------- 6.35s
-etcd : reload etcd ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 6.34s
-kubernetes-apps/metrics_server : Metrics Server | Apply manifests -------------------------------------------------------------------------------------------------------------------------------------- 6.28s
-container-engine/validate-container-engine : Populate service facts ------------------------------------------------------------------------------------------------------------------------------------ 6.06s
-kubernetes-apps/metrics_server : Metrics Server | Create manifests ------------------------------------------------------------------------------------------------------------------------------------- 6.05s
-kubernetes-apps/metrics_server : Metrics Server | Create manifests ------------------------------------------------------------------------------------------------------------------------------------- 6.04s
+====================================================================
+kubernetes/control-plane : kubeadm | Upgrade first master --------------------------------------------------------------- 101.72s
+download : download_container | Download image if required ------------------------------------------------------------- 21.49s
+download : download_container | Download image if required ------------------------------------------------------------- 16.24s
+download : download_container | Download image if required ------------------------------------------------------------- 16.07s
+kubernetes-apps/ansible : Kubernetes Apps | Start Resources -------------------------------------------------------------- 10.40s
+kubernetes-apps/ansible : Kubernetes Apps | Start Resources -------------------------------------------------------------- 10.36s
+download : download_container | Download image if required --------------------------------------------------------------- 9.44s
+kubernetes-apps/ansible : Kubernetes Apps | Lay Down CoreDNS templates --------------------------------------------- 7.99s
+upgrade/pre-upgrade : Drain node --------------------------------------------------------------------------------------------------- 7.46s
+kubernetes-apps/ansible : Kubernetes Apps | Lay Down CoreDNS templates --------------------------------------------- 7.24s
+network_plugin/cilium : Cilium | Start Resources -------------------------------------------------------------------------------- 6.95s
+upgrade/pre-upgrade : Drain node --------------------------------------------------------------------------------------------------- 6.73s
+network_plugin/cilium : Cilium | Create Cilium node manifests -------------------------------------------------------------- 6.67s
+container-engine/validate-container-engine : Populate service facts ------------------------------------------------------- 6.46s
+kubernetes-apps/metrics_server : Metrics Server | Apply manifests -------------------------------------------------------- 6.35s
+etcd : reload etcd ------------------------------------------------------------------------------------------------------------------------ 6.34s
+kubernetes-apps/metrics_server : Metrics Server | Apply manifests -------------------------------------------------------- 6.28s
+container-engine/validate-container-engine : Populate service facts ------------------------------------------------------- 6.06s
+kubernetes-apps/metrics_server : Metrics Server | Create manifests ------------------------------------------------------- 6.05s
+kubernetes-apps/metrics_server : Metrics Server | Create manifests ------------------------------------------------------- 6.04s
 ```
 
 
