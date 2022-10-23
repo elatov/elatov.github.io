@@ -3,8 +3,8 @@ published: true
 layout: post
 title: "Using Kubespray to Install Kubernetes"
 author: Karim Elatov
-categories: []
-tags: []
+categories: [networking, containers]
+tags: [kubespray, kubernetes, metallb, nginx-ingress, cilium, ansible]
 ---
 I wanted to try out [kubespray](https://github.com/kubernetes-sigs/kubespray) to see if I can do an update all in one swoop (control plane and nodes). 
 
@@ -224,7 +224,7 @@ ansible-playbook -i inventory/remko/hosts.yaml reset.yml --become --become-user=
 ansible-playbook -i inventory/home/hosts.yaml cluster.yml --become --become-user=root
 ```
 
-### Exposing a simple service with an Ingress
+## Exposing a simple service with an Ingress
 Since I am using `MetalLB` and `Nginx Ingress`, first I created a service for the Ingress Controllers
 of type `LoadBalancer`:
 
@@ -320,7 +320,6 @@ You will see the ingress created:
 $ k get ing
 NAME      CLASS    HOSTS         ADDRESS                                  PORTS     AGE
 baz-int   <none>   baz.kar.int   192.168.1.51,192.168.1.52,192.168.1.53   80        73s
-
 ```
 
 And you will see the addresses of all the nodes. Then as as quick test let's make sure we can reach the
