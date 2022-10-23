@@ -219,7 +219,7 @@ To reset we can follow instructions from [Reset A Kubernetes Cluster Using Kubes
 
 ```bash
 # to Reset
-ansible-playbook -i inventory/remko/hosts.yaml reset.yml --become --become-user=root
+ansible-playbook -i inventory/home/hosts.yaml reset.yml --become --become-user=root
 # to reinstall
 ansible-playbook -i inventory/home/hosts.yaml cluster.yml --become --become-user=root
 ```
