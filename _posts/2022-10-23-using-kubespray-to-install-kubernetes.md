@@ -81,34 +81,34 @@ and [Getting started](https://github.com/kubernetes-sigs/kubespray/blob/master/d
 $ ansible-playbook -i inventory/home/hosts.yaml  --become --become-user=root cluster.yml
 ...
 ...
-PLAY RECAP ****************************************************************************************************************************************************************************************************
+PLAY RECAP ***********************************************************************************************
 localhost                  : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ma                         : ok=766  changed=126  unreachable=0    failed=0    skipped=1226 rescued=0    ignored=5
 nc                         : ok=486  changed=73   unreachable=0    failed=0    skipped=685  rescued=0    ignored=1
 nd                         : ok=486  changed=73   unreachable=0    failed=0    skipped=685  rescued=0    ignored=1
 
 Sunday 16 October 2022  21:06:30 -0600 (0:00:00.088)       0:18:29.934 ********
-===============================================================================
-download : download_container | Download image if required ------------------------------------------------------------------------------------------------------------------------------------------- 141.63s
-network_plugin/cilium : Cilium | Wait for pods to run ------------------------------------------------------------------------------------------------------------------------------------------------- 93.95s
-download : download_container | Download image if required -------------------------------------------------------------------------------------------------------------------------------------------- 43.38s
-download : download_file | Download item -------------------------------------------------------------------------------------------------------------------------------------------------------------- 37.10s
-download : download_container | Download image if required -------------------------------------------------------------------------------------------------------------------------------------------- 34.66s
-kubernetes/kubeadm : Join to cluster ------------------------------------------------------------------------------------------------------------------------------------------------------------------ 31.06s
-download : download_container | Download image if required -------------------------------------------------------------------------------------------------------------------------------------------- 22.52s
-download : download_container | Download image if required -------------------------------------------------------------------------------------------------------------------------------------------- 22.02s
-kubernetes/control-plane : kubeadm | Initialize first master ------------------------------------------------------------------------------------------------------------------------------------------ 18.55s
-download : download_container | Download image if required -------------------------------------------------------------------------------------------------------------------------------------------- 17.72s
-download : download_container | Download image if required -------------------------------------------------------------------------------------------------------------------------------------------- 16.08s
-download : download_container | Download image if required -------------------------------------------------------------------------------------------------------------------------------------------- 15.96s
-kubernetes-apps/ansible : Kubernetes Apps | Start Resources ------------------------------------------------------------------------------------------------------------------------------------------- 12.35s
-download : download_container | Download image if required -------------------------------------------------------------------------------------------------------------------------------------------- 11.96s
-download : download_file | Download item -------------------------------------------------------------------------------------------------------------------------------------------------------------- 11.12s
-network_plugin/cilium : Cilium | Start Resources ------------------------------------------------------------------------------------------------------------------------------------------------------ 10.78s
-kubernetes/preinstall : Update package management cache (APT) ----------------------------------------------------------------------------------------------------------------------------------------- 10.00s
-download : download_container | Download image if required --------------------------------------------------------------------------------------------------------------------------------------------- 9.56s
-kubernetes/node : install | Copy kubelet binary from download dir -------------------------------------------------------------------------------------------------------------------------------------- 9.45s
-download : download_container | Download image if required --------------------------------------------------------------------------------------------------------------------------------------------- 9.11s
+====================================================================
+download : download_container | Download image if required ----------------------------------------------- 141.63s
+network_plugin/cilium : Cilium | Wait for pods to run ------------------------------------------------------------- 93.95s
+download : download_container | Download image if required ------------------------------------------------- 43.38s
+download : download_file | Download item -------------------------------------------------------------------------- 37.10s
+download : download_container | Download image if required-------------------------------------------------- 34.66s
+kubernetes/kubeadm : Join to cluster ---------------------------------------------------------------------------------- 31.06s
+download : download_container | Download image if required -------------------------------------------------- 22.52s
+download : download_container | Download image if required -------------------------------------------------- 22.02s
+kubernetes/control-plane : kubeadm | Initialize first master ------------------------------------------------------ 18.55s
+download : download_container | Download image if required --------------------------------------------------- 17.72s
+download : download_container | Download image if required --------------------------------------------------- 16.08s
+download : download_container | Download image if required --------------------------------------------------- 15.96s
+kubernetes-apps/ansible : Kubernetes Apps | Start Resources ---------------------------------------------------- 12.35s
+download : download_container | Download image if required --------------------------------------------------- 11.96s
+download : download_file | Download item ---------------------------------------------------------------------------- 11.12s
+network_plugin/cilium : Cilium | Start Resources --------------------------------------------------------------------- 10.78s
+kubernetes/preinstall : Update package management cache (APT) ---------------------------------------------- 10.00s
+download : download_container | Download image if required ----------------------------------------------------- 9.56s
+kubernetes/node : install | Copy kubelet binary from download dir ------------------------------------------------ 9.45s
+download : download_container | Download image if required ------------------------------------------------------ 9.11s
 ```
 
 After the install is finished ssh to one of the controller nodes and grab the `kubeconfig`:
