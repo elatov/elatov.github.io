@@ -35,7 +35,7 @@ And from [this](http://en.wikipedia.org/wiki/Nested_RAID_levels) wiki page:
 
 ![raid10 wiki VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/raid10-wiki.png)
 
-If you want to know about read and write penalties, I would check out "[Calculate IOPS in a storage array](http://vmtoday.com/2010/01/storage-basics-part-iii-raid/)". From the last link:
+If you want to know about read and write penalties, I would check out "[Calculate IOPS in a storage array](https://www.yellow-bricks.com/2009/12/23/iops/)". From the last link:
 
 ![raid io impact VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/raid_io_impact.png)
 
@@ -786,7 +786,7 @@ Also check out KB "[Detaching a datastore or storage device from multiple ESXi 5
 >
 >
 >	 # partedUtil getptbl /vmfs/devices/disks/naa.60a98000572d54724a34655733506751
->	
+>		
 >	 Error: Could not stat device /vmfs/devices/disks/naa.60a98000572d54724a34655733506751- No such file or directory.
 >	 Unable to get device /vmfs/devices/disks/naa.60a98000572d54724a34655733506751
 >
