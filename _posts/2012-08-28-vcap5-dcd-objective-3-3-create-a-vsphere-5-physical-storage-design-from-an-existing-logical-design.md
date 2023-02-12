@@ -35,7 +35,7 @@ and also here is similar diagram from [this](http://blogs.vmware.com/vsphere/201
 
 ![sizing-storage](https://github.com/elatov/uploads/raw/master/2012/08/sizing-storage.png)
 
-If you want information on how each RAID works, I would suggest reading "[IOps?](http://vmtoday.com/2010/01/storage-basics-part-iii-raid/)".
+If you want information on how each RAID works, I would suggest reading "[Understanding RAID Performance at Various Levels](https://www.arcserve.com/blog/understanding-raid-performance-various-levels)".
 
 ### Based on the service catalog and given functional requirements, for each service: Determine the most appropriate storage technologies for the design.
 
