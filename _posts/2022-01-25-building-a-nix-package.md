@@ -7,10 +7,10 @@ categories: [automation,os]
 tags: [nix, nixos, git]
 ---
 # Building a Package for NixOS
-There are definitely a bunch of steps and I will just run through them as I discovered them.
+There are definitely a bunch of steps and I will just run through them as I discover them.
 
 ## Building with Nix
-Nix by it self allows for building packages without using the community driven [nixpkgs](https://github.com/NixOS/nixpkgs). There are some nice examples that show you the basic setup:
+Nix by it self allows for building packages without using the community driven [nixpkgs](https://github.com/NixOS/nixpkgs). There are some nice examples that shows you the basic setup:
 
 - [Working Derivation -> Enough of nix repl](https://nixos.org/guides/nix-pills/working-derivation.html#idm140737320271904)
 - [Your First Derivation](https://github.com/justinwoo/nix-shorts/blob/master/posts/your-first-derivation.md)
@@ -186,7 +186,7 @@ Resolving deltas: 100% (57731/57731), done.
 sha256-j5HjGcIqq93Ca9OBqEgSotoSXyw+q6Fqxa3hKk1ctwQ=
 ```
 
-Don't forget to add a `maintainer` field, if this is your first package you will have to add your self to the `maintainers` file as described in [maintainers](https://nixos.org/manual/nixpkgs/stable/#var-meta-maintainers). 
+Don't forget to add a `maintainer` field, if this is your first package you will have to add yourself to the `maintainers` file as described in [maintainers](https://nixos.org/manual/nixpkgs/stable/#var-meta-maintainers). 
 
 After it was all said and done, I had the following sections:
 
@@ -358,7 +358,7 @@ There are a bunch of good sites that cover the topic:
 - [Nixpkgs/Contributing](https://nixos.wiki/wiki/Nixpkgs/Contributing)
 
 
-Use `gh` to for fork and clone the originial **nixpkgs** repo:
+Use `gh` to fork and clone the originial **nixpkgs** repo:
 
 ```bash
 > gh auth login --web
@@ -541,7 +541,7 @@ Branch 'pkg/fwbuilder' set up to track remote branch 'pkg/fwbuilder' from 'origi
 
 Then we can go to github and open up a pull request against the [nixpkg repo](https://github.com/NixOS/nixpkgs).
 
-### Adding to maintainers
+### Adding maintainers
 As I mentioned above, if this is the first package you are adding to the [nixpkg repo](https://github.com/NixOS/nixpkgs),
 you will need to add yourself to the `nixpkgs/maintainers/maintainer-list.nix` file, it's in the following format:
 
