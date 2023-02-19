@@ -130,7 +130,7 @@ There are a couple of sections, here are the ones I worked on. I wanted to build
 So let's convert to the nix.
 
 ### Filling out Package info and Meta Attributes
-When creating a pacage we have to include the package information and also where to download it from. Most of the information is covered in [Meta-attributes](https://nixos.org/manual/nixpkgs/stable/#chap-meta), the most challenging was getting the hash, I found some good examples:
+When creating a package we have to include the package information and also where to download it from. Most of the information is covered in [Meta-attributes](https://nixos.org/manual/nixpkgs/stable/#chap-meta), the most challenging was getting the hash, I found some good examples:
 
 - [Building a Nix Package (The C&C++ Version)](https://gist.github.com/CMCDragonkai/41593d6d20a5f7c01b2e67a221aa0330)
 - [How to manually replicate/reproduce/obtain the sha256 hash specified in Nix with fetchgit or fetchFromGitHub?](https://github.com/NixOS/nix/issues/1880)
@@ -543,7 +543,7 @@ Then we can go to github and open up a pull request against the [nixpkg repo](ht
 
 ### Adding to maintainers
 As I mentioned above, if this is the first package you are adding to the [nixpkg repo](https://github.com/NixOS/nixpkgs),
-you will need to add yourselv to the `nixpkgs/maintainers/maintainer-list.nix` file, it's in the following format:
+you will need to add yourself to the `nixpkgs/maintainers/maintainer-list.nix` file, it's in the following format:
 
 ```bash
 handle = {
