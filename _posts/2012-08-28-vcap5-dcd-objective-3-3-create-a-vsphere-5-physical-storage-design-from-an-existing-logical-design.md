@@ -106,7 +106,7 @@ Here is the mentioned diagram from that article:
 
 ![vnx-vmware-iscsi-bp](https://github.com/elatov/uploads/raw/master/2012/08/vnx-vmware-iscsi-bp.png)
 
-For ALUA the PSP is usually MRU or Round Robin, depends on what the array vendor recommends. In vSphere 4.1 there a new PSP called Fixed_AP and that was used. If you want more information regarding Fixed_AP check out [this](http://virtuallyhyper.com/2012/04/vmw_psp_fixed-vs-vmw_psp_fixed_ap/) post by Jarret.
+For ALUA the PSP is usually MRU or Round Robin, depends on what the array vendor recommends. In vSphere 4.1 there a new PSP called Fixed_AP and that was used.
 
 
 Each of the array types are described in "[vSphere Storage Guide](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-storage-guide.pdf)". Here is a snippet from that guide:
@@ -369,7 +369,7 @@ From "[Fibre Channel SAN Topologies](https://github.com/elatov/uploads/raw/maste
 > *   Use single initiator zoning
 >     *   For Open Systems environments, ideally each initiator will be in a zone with a single target. However, due to the significant management overhead that this can impose, single initiator zones can contain multiple target ports but should never contain more than 16 target ports.
 
-From "[Optimizing the Performance and Management of 2 GBIT/SEC SAN Fabrics with ISL Trunking](http://hosteddocs.ittoolbox.com/KG010903.pdf)":
+From "[Optimizing the Performance and Management of 2 GBIT/SEC SAN Fabrics with ISL Trunking](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/KG010903.pdf)":
 
 > Long used in traditional Ethernet networking, Inter-Switch Link (ISL) Trunking can also dramatically improve the performance, manageability, and reliability for business-critical storage applications in Fibre Channel environments. By aggregating up to four ISLs into a single logical 8 Gbit/sec trunk group, this feature supports efficient high-speed communications throughout Storage Area Networks (SANs). By optimizing available switch resources, ISL Trunking decreases congestion.
 

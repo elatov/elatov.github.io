@@ -7,7 +7,7 @@ categories: ['home_lab', 'os']
 tags: ['linux', 'win2k8r2','libvirt', 'active_directory', 'kvm', 'spice']
 ---
 
-I was recently playing with KVM and needed to setup a domain controller for testing reasons. A great introduction to KVM can be seen in Jarret's "[Installing KVM as a Virtual Machine on ESXi 5 with Bridged Networking](http://virtuallyhyper.com/2012/07/installing-kvm-as-a-virtual-machine-on-esxi5-with-bridged-networking/)" post. It has all the steps on how to set deploy and configure it. All of the below instructions are assuming that you already have a KVM server up and running.
+I was recently playing with KVM and needed to setup a domain controller for testing reasons. A great introduction to KVM can be seen in William's "[Ipost](https://williamlam.com/2014/09/how-to-run-qemu-kvm-on-esxi.html)". It has all the steps on how to set deploy and configure it. All of the below instructions are assuming that you already have a KVM server up and running.
 
 
 ### Connect to the KVM Server with Virtual Machine Manager (virt-manager)
@@ -101,8 +101,7 @@ I then clicked "Forward" and it took to the 5th step (the last step):
 
 ![create new vm wizard step5 Deploying a Test Windows Environment in a KVM Infrastucture](https://github.com/elatov/uploads/raw/master/2013/04/create_new_vm_wizard_step5.png)
 
-Here you can select the networking setup for the VM. We were using "bridged" (the same setup that Jarret described in [his](http://virtuallyhyper.com/2012/07/installing-kvm-as-a-virtual-machine-on-esxi5-with-bridged-networking/) post). So I left the defaults and clicked "Finish". At that point the console to the VM started up:
-
+Here you can select the networking setup for the VM. We were using "bridged", so I left the defaults and clicked "Finish". At that point the console to the VM started up:
 
 ![create new vm console Deploying a Test Windows Environment in a KVM Infrastucture](https://github.com/elatov/uploads/raw/master/2013/04/create_new_vm_console.png)
 

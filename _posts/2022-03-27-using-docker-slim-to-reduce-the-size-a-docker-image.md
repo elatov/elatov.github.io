@@ -12,7 +12,7 @@ There are a couple of sites that cover why you should keep your container images
 
 - [The Quest for Minimal Docker Images, part 3](https://jpetazzo.github.io/2020/04/01/quest-minimal-docker-images-part-3/)
 - [Build smaller containers](https://fedoramagazine.org/build-smaller-containers/)
-- [Automatically reduce Docker container size using DockerSlim](https://www.slim.ai/blog/automatically-reduce-docker-container-size-using-dockerslim.html)
+- [Automatically reduce Docker container size using DockerSlim](https://www.slim.ai/blog/automating-dockerslim-in-your-ci-cd-pipeline/l)
 
 Usually it's to improve startup time, security and maintenance. So common practices include:
 
@@ -219,4 +219,4 @@ It just kept looking for `libnss_dns.so` but couldn't find it since it's not the
 /lib/x86_64-linux-gnu
 ```
 
-And then it worked as expected. 
+And then it worked as expected. https://www.slim.ai/blog/automatically-reduce-docker-container-size-using-dockerslim.htmlhttps://www.slim.ai/blog/automatically-reduce-docker-container-size-using-dockerslim.html
