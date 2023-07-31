@@ -224,15 +224,6 @@ From "[Defining an ideal virtual server consolidation ratio](http://searchserver
 >
 > Outside production, however, there are no such restrictions, with virtual server consolidation ratios often reaching 40:1, said Falzarano. He said he knew of environments at other organizations that drove VM densities much higher—in the neighborhood of 100:1.
 
-And from "[VMWare ESX Performance Optimization](http://www.ittoday.info/Articles/VMWare_ESX_Performance_Optimization.htm)":
-
-> You might be one of those users of VMware ESX that is happy with the performance of your virtualization platform or the performance of your individual or collective virtual machines. But what happens tomorrow if something in the environment changes and it negatively affects your performance? What happens if you need to achieve a 12:1 server consolidation ratio on an existing VMware ESX that today only hosts eight virtual machines? At that point, it may become extremely important to fine tune the environment in order to squeeze out every ounce of performance that your environment can offer.
->
-> **Host Server Memory Performance**
-> Much like the processor in a VMware ESX host server, the memory of the host server is also considered a significant bottleneck. And just like the processor scenario, it is important to add as much memory to your VMware ESX host server as possible. Having a sufficient amount of memory for all of your virtual machines is important to achieving good performance. A sufficient amount of memory is roughly equivalent to the amount of memory you would have assigned to each virtual machine if they were physical. As an example, to effectively run a Windows XP Professional virtual machine you might allocate 512MB of memory to it.
->
-> It is important to note here that system memory has quickly become one of the most expensive components found in today's modern server; so you need to make sure that you properly match up the amount of memory in the system to the virtual machine density that can be achieved with the amount of processing power available. In other words, if you have enough processor resources in your host server to support ten virtual machines, don't overpopulate your host server with expensive additional memory beyond what that density is capable of consuming if you cannot achieve a higher consolidation ratio due to processor limitations.
-
 During your initial capacity analysis figure out what the actual CPU and RAM usage is. Then purchase the necessary hardware to fill the need of the usage. Also keep in mind if Scale Out or Scale Up is your goal. If you decide to go for redundancy then Scale Out is your plan, in which case your consolidation ratio will be a little smaller since you will have smaller physical servers. If you decide to go with scale up (bigger servers) then your consolidation ratio will be better since the physical servers will have more CPU and RAM. A good thing to keep in mind, from [this](https://github.com/elatov/uploads/raw/master/2013/04/vcap-dcd_notes.pdf) PDF:
 
 > Cores per CPU:

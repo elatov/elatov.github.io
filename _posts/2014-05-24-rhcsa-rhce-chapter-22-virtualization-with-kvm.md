@@ -112,7 +112,7 @@ So let's go ahead and install the necessary package to run KVM
 
 	[root@rhel3 ~]# yum install qemu-kvm qemu-img
 
-My VM was running on VMware and I followed the instructions laid out [here](http://www.virtuallyghetto.com/2012/08/how-to-enable-nested-esxi-other.html) to enable nested hypervisor support. Jarret had a [great blog](http://virtuallyhyper.com/2012/07/installing-kvm-as-a-virtual-machine-on-esxi5-with-bridged-networking/) on how to do it with ESXi 5.0. I was acutally on ESXi 5.5 and all that I had to do was add the following to the **vmx** of the VM:
+My VM was running on VMware and I followed the instructions laid out [here](http://www.virtuallyghetto.com/2012/08/how-to-enable-nested-esxi-other.html) to enable nested hypervisor support. I was actually on ESXi 5.5 and all that I had to do was add the following to the **vmx** of the VM:
 
 	~ # tail -1 /vmfs/volumes/datastore1/RHEL_3/RHEL_3.vmx
 	vhv.enable = "TRUE"

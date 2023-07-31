@@ -151,10 +151,6 @@ $ where ldapsearch
 /usr/lib/mozldap/ldapsearch
 ```
 
-RedHat mostly uses the Mozilla version. From "[LDAP Tool Locations](https://access.redhat.com/documentation/en-us/red_hat_directory_server/10/html/administration_guide/ldap-tools-examples)":
-
-> For all Red Hat Directory Server guides and documentation, the LDAP tools used in the examples, such as **ldapsearch** and **ldapmodify**, are the Mozilla LDAP tools. For most Linux systems, OpenLDAP tools are already installed in the **/usr/bin/** directory.
-
 The two different versions have different arguments so make sure you know which one you are using. Let's perform an LDAP query with **openldap** tools first:
 
 ```bash
