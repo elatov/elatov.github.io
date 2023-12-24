@@ -8,11 +8,11 @@ tags: [kubernetes,kubespray,openebs,iscsi]
 
 ---
 
-I've been using [kubespray]() for a couple of months now and I've run into a couple of corner cases that I wanted to share.
+I've been using [kubespray](https://github.com/kubernetes-sigs/kubespray) for a couple of months now and I've run into a couple of corner cases that I wanted to share.
 
 ## Changing the OS of the worker nodes
 
-I initially started with ubuntu and I quickly realized there are just too many updates to keep up with. So I decided to switch to Debian. Under the [Adding/replacing a node](https://github.com/kubernetes-sigs/kubespray/blob/master/docs/nodes.md) there are really good instructions. I first started with the worker nodes, here are the steps I took. First remove drain the node:
+I initially started with ubuntu and I quickly realized there are just too many updates to keep up with. So I decided to switch to Debian. Under [Adding/replacing a node](https://github.com/kubernetes-sigs/kubespray/blob/master/docs/nodes.md) there are really good instructions. I first started with the worker nodes, here are the steps I took. First remove drain the node:
 
 ```bash
 > k drain nd --ignore-daemonsets --delete-emptydir-data --force
