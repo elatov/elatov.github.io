@@ -12,7 +12,7 @@ I've been using [kubespray](https://github.com/kubernetes-sigs/kubespray) for a 
 
 ## Changing the OS of the worker nodes
 
-I initially started with ubuntu and I quickly realized there are just too many updates to keep up with. So I decided to switch to Debian. Under [Adding/replacing a node](https://github.com/kubernetes-sigs/kubespray/blob/master/docs/nodes.md) there are really good instructions. I first started with the worker nodes, here are the steps I took. First remove drain the node:
+I initially started with ubuntu and I quickly realized there are just too many updates to keep up with. So I decided to switch to Debian. Under [Adding/replacing a node](https://github.com/kubernetes-sigs/kubespray/blob/master/docs/nodes.md) there are really good instructions. I first started with the worker nodes, here are the steps I took. First drain the node:
 
 ```bash
 > k drain nd --ignore-daemonsets --delete-emptydir-data --force
@@ -30,7 +30,7 @@ Then finally remove the node:
 > ansible-playbook -i inventory/home/hosts.yaml -b remove-node.yml -e node=nd
 ```
 
-At this point I got iso booted the VM from the ISO and installed Debian on it. I gave the node the same IP as before. Then I cleaned up ssh keys:
+At this point I booted the VM from the ISO and installed Debian on it. I gave the node the same IP as before. Then I cleaned up ssh keys:
 
 ```bash
 ssh-keygen -f "/home/elatov/.ssh/known_hosts" -R "nd"
@@ -60,7 +60,7 @@ To my surprise that actually worked out quite well.
 
 ### Changing OS for control plane nodes
 
-This requires multiple nodes running `etcd`, which is definitely a good idea. But I was just running a test cluster and I didn't really want to scale up my `etcd` install. Then upgrade the OS and then scale down the `etcd` instance. Especially since scaling down the `etcd` instance has a bunch of caveats. From the [Replacing a first control plane node](https://github.com/kubernetes-sigs/kubespray/blob/master/docs/nodes.md#replacing-a-first-control-plane-node). From the instructions it looks like we need to change the order of the nodes, change some configs..etc etc. So I got a little lazy and I just drained the control plane node and then converted my OS from ubuntu to debian by changing the `/etc/sources.list`. There is actually a nice guide at [ubuntu-deluxe](https://github.com/alexmyczko/autoexec.bat/blob/master/config.sys/ubuntu-deluxe) overall it was pretty straight forward and it worked out.
+This requires multiple nodes running `etcd`, which is definitely a good idea. But I was just running a test cluster and I didn't really want to scale up my `etcd` install. Then we need upgrade the OS and then scale down the `etcd` instance. Especially since scaling down the `etcd` instance has a bunch of caveats listed in [Replacing a first control plane node](https://github.com/kubernetes-sigs/kubespray/blob/master/docs/nodes.md#replacing-a-first-control-plane-node). From the instructions it looks like we need to change the order of the nodes, change some configs..etc etc. So I got a little lazy and I just drained the control plane node and then converted my OS from ubuntu to debian by changing the `/etc/sources.list` repositories. There is actually a nice guide at [ubuntu-deluxe](https://github.com/alexmyczko/autoexec.bat/blob/master/config.sys/ubuntu-deluxe) overall it was pretty straight forward and it worked out.
 
 ## Helping with stuck upgrades
 
