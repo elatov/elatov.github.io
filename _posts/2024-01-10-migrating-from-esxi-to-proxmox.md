@@ -80,7 +80,7 @@ Completed with errors
 
 This was a VM that had a pass-through video card:
 
-![esxi-vm-pci-device.png](esxi-vm-pci-device.png)
+![esxi-vm-pci-device.png](https://res.cloudinary.com/elatov/image/upload/v1591415062/blog-pics/esxi-to-proxmox/esxi-vm-pci-device.png)
 
 I deleted that and then the export worked.
 
@@ -264,7 +264,7 @@ And I was able to add new VMs to the Volume Group.
 
 First let's add the nfs storage which is where I copied the extracted `ova` file. Click **Datacenter** -> **Storage** -> **Add** -> **NFS**:
 
-![pm-nfs-storage.png](pm-nfs-storage.png)
+![pm-nfs-storage.png](https://res.cloudinary.com/elatov/image/upload/v1591415062/blog-pics/esxi-to-proxmox/pm-nfs-storage.png)
 
 After adding my NFS store, I was able to able to import my VM. I read the documentation [Migration of servers to Proxmox VE](https://pve.proxmox.com/wiki/Migration_of_servers_to_Proxmox_VE#Importing):
 
@@ -284,7 +284,7 @@ transferred 25.0 GiB of 25.0 GiB (100.00%)
 
 After the import I added a `vmxnet3` NIC and added a VLAN Tag to it:
 
-![pm-add-nic-to-vm.png](pm-add-nic-to-vm.png)
+![pm-add-nic-to-vm.png](https://res.cloudinary.com/elatov/image/upload/v1591415062/blog-pics/esxi-to-proxmox/pm-add-nic-to-vm.png)
 
 I powered it on, and I was able to reach it just like before:
 
@@ -382,11 +382,11 @@ And it's seen as a QEMU disk:
 
 The process is fairly easy, you just need to click on the hard disk and click **Move Storage** (this is also covered in [Storage Migration](https://pve.proxmox.com/wiki/Storage_Migration)). Initially when I tried I received this warning:
 
-![pm_failed_to_move_disk.png](pm_failed_to_move_disk.png)
+![pm_failed_to_move_disk.png](https://res.cloudinary.com/elatov/image/upload/v1591415062/blog-pics/esxi-to-proxmox/pm_failed_to_move_disk.png)
 
 I found a [forum on this](https://forum.proxmox.com/threads/problems-with-moving-disk-vm.124801/) and I needed to change the disk setting `Async IO` to `native` or `threads` from the default one of `io_uring`:
 
-![pm-change-disk-ao-sync.png](pm-change-disk-ao-sync.png)
+![pm-change-disk-ao-sync.png](https://res.cloudinary.com/elatov/image/upload/v1591415062/blog-pics/esxi-to-proxmox/pm-change-disk-ao-sync.png)
 
 After changing that I was able to move the disk to a different storage. After I moved the disk to the iSCSI LVM, while the performance went down, it was still pretty good:
 
