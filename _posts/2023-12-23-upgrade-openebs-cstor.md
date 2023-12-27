@@ -20,43 +20,8 @@ First we need to upgrade the [cstor operator](https://github.com/openebs/cstor-o
 namespace/openebs configured (dry run)
 serviceaccount/openebs-cstor-operator configured (dry run)
 clusterrole.rbac.authorization.k8s.io/openebs-cstor-operator configured (dry run)
-clusterrolebinding.rbac.authorization.k8s.io/openebs-cstor-operator configured (dry run)
-clusterrole.rbac.authorization.k8s.io/openebs-cstor-migration configured (dry run)
-clusterrolebinding.rbac.authorization.k8s.io/openebs-cstor-migration configured (dry run)
-customresourcedefinition.apiextensions.k8s.io/cstorbackups.cstor.openebs.io configured (dry run)
-customresourcedefinition.apiextensions.k8s.io/cstorcompletedbackups.cstor.openebs.io configured (dry run)
-customresourcedefinition.apiextensions.k8s.io/cstorpoolclusters.cstor.openebs.io configured (dry run)
-customresourcedefinition.apiextensions.k8s.io/cstorpoolinstances.cstor.openebs.io configured (dry run)
-customresourcedefinition.apiextensions.k8s.io/cstorrestores.cstor.openebs.io configured (dry run)
-customresourcedefinition.apiextensions.k8s.io/cstorvolumeattachments.cstor.openebs.io configured (dry run)
-customresourcedefinition.apiextensions.k8s.io/cstorvolumeconfigs.cstor.openebs.io configured (dry run)
-customresourcedefinition.apiextensions.k8s.io/cstorvolumepolicies.cstor.openebs.io configured (dry run)
-customresourcedefinition.apiextensions.k8s.io/cstorvolumereplicas.cstor.openebs.io configured (dry run)
-customresourcedefinition.apiextensions.k8s.io/cstorvolumes.cstor.openebs.io configured (dry run)
-customresourcedefinition.apiextensions.k8s.io/upgradetasks.openebs.io configured (dry run)
-customresourcedefinition.apiextensions.k8s.io/migrationtasks.openebs.io configured (dry run)
-customresourcedefinition.apiextensions.k8s.io/cstorvolumeattachments.cstor.openebs.io configured (dry run)
-customresourcedefinition.apiextensions.k8s.io/volumesnapshotclasses.snapshot.storage.k8s.io configured (dry run)
-customresourcedefinition.apiextensions.k8s.io/volumesnapshotcontents.snapshot.storage.k8s.io configured (dry run)
-customresourcedefinition.apiextensions.k8s.io/volumesnapshots.snapshot.storage.k8s.io configured (dry run)
-csidriver.storage.k8s.io/cstor.csi.openebs.io configured (dry run)
-clusterrolebinding.rbac.authorization.k8s.io/openebs-cstor-csi-snapshotter-binding configured (dry run)
-clusterrole.rbac.authorization.k8s.io/openebs-cstor-csi-snapshotter-role configured (dry run)
-serviceaccount/openebs-cstor-csi-controller-sa configured (dry run)
-clusterrole.rbac.authorization.k8s.io/openebs-cstor-csi-provisioner-role configured (dry run)
-clusterrolebinding.rbac.authorization.k8s.io/openebs-cstor-csi-provisioner-binding configured (dry run)
-priorityclass.scheduling.k8s.io/openebs-cstor-csi-controller-critical configured (dry run)
-priorityclass.scheduling.k8s.io/openebs-cstor-csi-node-critical configured (dry run)
-statefulset.apps/openebs-cstor-csi-controller configured (dry run)
-clusterrole.rbac.authorization.k8s.io/openebs-cstor-csi-attacher-role configured (dry run)
-clusterrolebinding.rbac.authorization.k8s.io/openebs-cstor-csi-attacher-binding configured (dry run)
-clusterrole.rbac.authorization.k8s.io/openebs-cstor-csi-cluster-registrar-role configured (dry run)
-clusterrolebinding.rbac.authorization.k8s.io/openebs-cstor-csi-cluster-registrar-binding configured (dry run)
-serviceaccount/openebs-cstor-csi-node-sa configured (dry run)
-clusterrole.rbac.authorization.k8s.io/openebs-cstor-csi-registrar-role configured (dry run)
-clusterrolebinding.rbac.authorization.k8s.io/openebs-cstor-csi-registrar-binding configured (dry run)
-configmap/openebs-cstor-csi-iscsiadm configured (dry run)
-daemonset.apps/openebs-cstor-csi-node configured (dry run)
+...
+...
 deployment.apps/cspc-operator configured (dry run)
 deployment.apps/cvc-operator configured (dry run)
 service/cvc-operator-service configured (dry run)
@@ -234,3 +199,45 @@ pvc-dc70575e-499f-4737-a148-e511453df233-target-5d6f64db86j8d7w   3/3     Runnin
 pvc-eacb5ff7-6c28-4ad5-88eb-e877eaa51b56-target-58fbdd855-nsmgt   3/3     Running     0          10m
 pvc-fc6ec633-d0e1-420c-b64b-cfefe3a425bd-target-7b79b67bcb55b9l   3/3     Running     0          6m38s
 ```
+
+## Fix VolumeAttachment Issue
+After the upgrade was done, I ran into another issue. One of the pods was stuck in `ContainerCreating` state and when I described the pod I saw this error:
+
+```bash
+Warning  FailedMount  42s (x8 over 106s)  kubelet, nd  MountVolume.MountDevice failed for volume "pvc-343ccf62-" : rpc error: code = Internal desc = cstorvolumeattachments.cstor.openebs.io "pvc-343ccf62-" not found
+```
+
+I doubl checked and the `cva` didn't exist:
+
+```bash
+k get cva -n openebs | grep pvc-343ccf62-
+```
+
+On the same node where the pod was stuck I checked out the logs of the `csi-node` pod:
+
+```bash
+> k get po -n openebs -l role=openebs-cstor-csi -o wide | grep nd
+openebs-cstor-csi-node-x5b78     2/2     Running   0            8h     192.168.1.53    nd     <none>           <none>
+```
+
+And for the logs:
+
+```bash
+> k logs -n openebs openebs-cstor-csi-node-x5b78 cstor-csi-plugin
+...
+time="2023-12-26T19:09:47Z" level=error msg="NodeUnPublishVolume: dir /var/lib/kubelet/pods/9883b6d2-ad22-41fc-a27d-910d876b4eb8/volumes/kubernetes.io~csi/pvc-fc6ec633-d0e1-420c-b64b-cfefe3a425bd/mount does not exist"
+```
+
+The directory was indeed missing, but I was surpised that the directory for the pvc existed at all. And in the directory it only had `vol_data.json` file and nothing else. That felt like a left over directory that shouldn't be there, so I deleted it:
+
+```bash
+rm -rf /var/lib/kubelet/pods/9883b6d2-ad22-41fc-a27d-910d876b4eb8/volumes/kubernetes.io~csi/pvc-fc6ec633-d0e1-420c-b64b-cfefe3a425bd
+```
+
+And I restarted the `csi-node` pod:
+
+```
+k delete po -n openebs openebs-cstor-csi-node-x5b78
+```
+
+And then the pod came up without issues.
