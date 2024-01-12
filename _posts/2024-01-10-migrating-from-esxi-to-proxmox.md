@@ -4,7 +4,7 @@ layout: post
 title: "Migrating From ESXi to Proxmox"
 author: Karim Elatov
 categories: [virtualization,storage,vmware,networking]
-tags: [proxmox,iscsi]
+tags: [proxmox,iscsi,ovftool]
 ---
 
 As I kept migrating to kubernetes, I stopped needing VMware to host my VMs. All I needed was just a hypervisor that runs the VMs, but I didn't need the fancy bells and whistles any more. I kept reading good things about [proxmox](https://www.proxmox.com/en/) and I wanted to give it a try.
