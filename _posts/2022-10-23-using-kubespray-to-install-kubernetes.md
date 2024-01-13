@@ -1,15 +1,19 @@
 ---
+
 published: true
 layout: post
 title: "Using Kubespray to Install Kubernetes"
 author: Karim Elatov
 categories: [networking, containers]
 tags: [kubespray, kubernetes, metallb, nginx-ingress, cilium, ansible]
+
 ---
+
 I wanted to try out [kubespray](https://github.com/kubernetes-sigs/kubespray) to see if I can do an update all in one swoop (control plane and nodes). 
 
 ## Prequisites
-Let's install the prequisites (from [debian](https://github.com/kubernetes-sigs/kubespray/blob/master/docs/debian.md) docs and also the [Installing Ansible on Debian](https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-debian) page), first let's install `ansible`:
+
+Let's install the prequisites (from [Installing Ansible on Debian](https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-debian) page), first let's install `ansible`:
 
 ```bash
 $ echo 'deb http://ppa.launchpad.net/ansible/ansible/ubuntu focal main' | sudo tee -a /etc/apt/sources.list.d/anisble.list
@@ -73,6 +77,7 @@ ingress_publish_status_address: ""
 ```
 
 ## Installing with kubespray
+
 The install it self was pretty simple, it's covered in
 [Setting up your first cluster with Kubespray](https://github.com/kubernetes-sigs/kubespray/blob/master/docs/setting-up-your-first-cluster.md)
 and [Getting started](https://github.com/kubernetes-sigs/kubespray/blob/master/docs/getting-started.md):
@@ -168,6 +173,7 @@ round-trip min/avg/max = 31.465/31.580/31.695 ms
 ```
 
 ## To perform an upgrade
+
 Most of the instructions are laid out in [Upgrades](https://github.com/kubernetes-sigs/kubespray/blob/master/docs/upgrades.md).
 The safest thing to do is either modify the `group_vars` file:
 
@@ -212,10 +218,9 @@ kubernetes-apps/metrics_server : Metrics Server | Create manifests -------------
 kubernetes-apps/metrics_server : Metrics Server | Create manifests ------------------------------------------------------- 6.04s
 ```
 
-
 ## To Reset
-To reset we can follow instructions from [Reset A Kubernetes Cluster Using Kubespray](https://d-nix.nl/2020/06/reset-a-kubernetes-cluster-using-kubespray/):
 
+To reset we can follow instructions from [Reset A Kubernetes Cluster Using Kubespray](https://d-nix.nl/2020/06/reset-a-kubernetes-cluster-using-kubespray/):
 
 ```bash
 # to Reset
@@ -225,6 +230,7 @@ ansible-playbook -i inventory/home/hosts.yaml cluster.yml --become --become-user
 ```
 
 ## Exposing a simple service with an Ingress
+
 Since I am using `MetalLB` and `Nginx Ingress`, first I created a service for the Ingress Controllers
 of type `LoadBalancer`:
 

@@ -14,7 +14,7 @@ Nix by it self allows for building packages without using the community driven [
 
 - [Working Derivation -> Enough of nix repl](https://nixos.org/guides/nix-pills/working-derivation.html#idm140737320271904)
 - [Your First Derivation](https://github.com/justinwoo/nix-shorts/blob/master/posts/your-first-derivation.md)
-- [nixpkgs/pkgs/applications/misc/hello/](https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/misc/hello/default.nix)
+- [nixpkgs/pkgs/applications/misc/hello/](https://github.com/NixOS/nixpkgs/blob/master/pkgs/by-name/he/hello/package.nix)
 - [How to Learn Nix, Part 11: Okay my actual first derivation](https://ianthehenry.com/posts/how-to-learn-nix/okay-my-actual-first-derivation/)
 
 Nix uses a term **derivation** which is basically a built package that is reproducible, almost like flatpak or snap.

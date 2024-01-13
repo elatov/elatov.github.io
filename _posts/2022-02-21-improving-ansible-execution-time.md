@@ -17,6 +17,7 @@ I ran into a couple of guides on how to improve ansible execution time:
 And I decided to try them out. 
 
 ## Get a Benchmark
+
 As described in [Identify slow tasks with callback plugins](https://www.redhat.com/sysadmin/faster-ansible-playbook-execution) we can, at a minimum, enable the following in `/etc/ansible/ansible.cfg`:
 
 ```bash
@@ -42,6 +43,7 @@ Deploy Web service ------------------------------------ 0.04s
 ```
 
 ## Enabling Facts Caching
+
 There is an awesome page that describes the setup process [Local cachíng of Ansible Facts](https://andreas.scherbaum.la/blog/archives/1019-Local-caching-of-Ansible-Facts.html). You just set the following settings in `/etc/ansible/ansible.cfg`:
 
 ```bash
@@ -67,6 +69,7 @@ common : Install common packages -------------------------- 5.13s
 Saved 60 seconds in execution time.
 
 ## Using Mitogen
+
 This made the biggest difference, initially I tried using the old version:
 
 ```bash
@@ -135,14 +138,16 @@ falco : yum | kernel-devel install ------------------------------ 5.26s
 ```
 
 ## Improve Code
+
 After all the changes, I looked at my top tasks and if any of them were over 5 seconds I wanted to see why. All 3 of the troublemakers were tasks that were using `yum` or `package` on a RedHat systems. Reading over some pages:
 
-- [Bundle package installations](https://www.treitos.com/blog/2020/improving-ansible-performance.html)
+- [Bundle package installations](https://www.reddit.com/r/ansible/comments/8vuurf/painfully_slow_yum_module/)
 - [Yum calls are expensive](https://www.linkedin.com/pulse/how-speed-up-ansible-playbooks-drastically-lionel-gurret)
 
 I realized I was doing exactly that and on some tasks I just called the list directly instead of looping and on some I would join the two lists to make sure I can pass that in:
 
 {% raw %}
+
 ```yaml
 - name: yum | kernel-devel install
   package:
@@ -150,6 +155,7 @@ I realized I was doing exactly that and on some tasks I just called the list dir
       - "{{ falco_pkgs | join(',') }}"
       - "kernel-devel-{{ ansible_kernel }}"
 ```
+
 {% endraw %}
 
 And that helped lower my tasks to be below 6 seconds. After all the different changes, I am definitely happy with the results. One thing I want to try is see if [ansible-pull](https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#ansible-pull) is a nice approach... maybe at a later time.
