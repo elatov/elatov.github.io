@@ -3,7 +3,7 @@ published: true
 layout: post
 title: "Upgrading pfSense to 2.7.x"
 author: Karim Elatov
-categories: [networking,security]
+categories: [networking, security]
 tags: [pfsense]
 ---
 
