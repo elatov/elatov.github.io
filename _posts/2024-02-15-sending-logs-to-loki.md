@@ -5,7 +5,6 @@ title: "Sending Logs To Loki"
 author: Karim Elatov
 categories: [containers, os, home_lab]
 tags: [kubernetes, argocd, loki, syslog-ng, proxmox, pfsense, rsyslog]
-
 ---
 
 I had a couple of use cases, let's try to cover them one by one.
