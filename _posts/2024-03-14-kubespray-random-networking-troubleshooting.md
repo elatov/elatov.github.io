@@ -7,7 +7,7 @@ categories: [networking, containers]
 tags: [kubespray, ipvs, ingress-nginx, metallb]
 ---
 
-I did my regular kubespray upgrade and after the upgrade some things stopped working.
+I did my regular kubespray upgrade and after the upgrade some things stopped working. Here are some issues I ran into.
 
 ## DNS failures
 
