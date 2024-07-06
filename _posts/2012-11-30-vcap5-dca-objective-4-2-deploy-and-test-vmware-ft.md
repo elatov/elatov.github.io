@@ -9,7 +9,7 @@ tags: ['fault_tolerance']
 
 ### Identify VMware FT hardware requirements
 
-From "[vSphere Availability ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf)":
+From "[vSphere Availability ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-availability-guide.pdf)":
 
 > **Host Requirements for Fault Tolerance**
 > You must meet the following host requirements before you use Fault Tolerance.
@@ -21,7 +21,7 @@ From "[vSphere Availability ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/co
 
 ### Identify VMware FT compatibility requirements
 
-From "[vSphere Availability ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf)":
+From "[vSphere Availability ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-availability-guide.pdf)":
 
 > **Cluster Requirements for Fault Tolerance**
 > You must meet the following cluster requirements before you use Fault Tolerance.
@@ -79,7 +79,7 @@ Here are the ones for VMs:
 
 ### Use VMware best practices to prepare a vSphere environment for FT
 
-From "[vSphere Availability ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf)":
+From "[vSphere Availability ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-availability-guide.pdf)":
 
 > **Best Practices for Fault Tolerance**
 > To ensure optimal Fault Tolerance results, VMware recommends that you follow certain best practices
@@ -143,7 +143,7 @@ And the list keeps going:
 
 ### Configure FT logging
 
-From "[vSphere Availability ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf)":
+From "[vSphere Availability ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-availability-guide.pdf)":
 
 > **Configure Networking for Host Machines**
 > On each host that you want to add to a vSphere HA cluster, you must configure two different networking switches so that the host can also support vSphere Fault Tolerance.
@@ -175,7 +175,7 @@ Here is how it looks like from vCenter:
 
 ### Prepare the infrastructure for FT compliance
 
-From "[vSphere Availability ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf)":
+From "[vSphere Availability ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-availability-guide.pdf)":
 
 > **Create vSphere HA Cluster and Check Compliance**
 > vSphere Fault Tolerance is used in the context of a vSphere HA cluster. After you have configured networking on each host, create the vSphere HA cluster and add the hosts to it. You can check to see if the cluster is configured correctly and complies with the requirements for the successful enablement of Fault Tolerance.

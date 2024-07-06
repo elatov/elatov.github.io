@@ -63,7 +63,7 @@ and here is another slide from the above deck:
 
 ### Incorporate customer risk tolerance into the security policy
 
-From the [vSphere Security Guide](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-security-guide.pdf):
+From the [vSphere Security Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-security-guide.pdf):
 
 > In addition to implementing the firewall, risks to the hosts are mitigated using other methods.
 >
@@ -114,7 +114,7 @@ Just depends on what is required. If you have to setup a DMZ, then an additional
 Recommended readings/recordings:
 
 * [APAC BrownBag Session 5](http://vimeo.com/38646355)
-* [vSphere Security Guide](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-security-guide.pdf)
+* [vSphere Security Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-security-guide.pdf)
 * [VMware Security Briefing](http://www.cpd.iit.edu/netsecure08/ROBERT_RANDELL.pdf)
 * [Infrastructure Security: Getting to the Bottom of Compliance in the Cloud](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/vmware-cloud-services-on-aws-security-overview-white-paper.pdf)
 

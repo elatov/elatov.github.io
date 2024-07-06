@@ -9,7 +9,7 @@ tags: ['iscsi', 'stp','beacon_probing']
 
 ### Identify VMware NIC Teaming policies
 
-From "[vSphere Networking ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-networking-guide.pdf)"
+From "[vSphere Networking ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-networking-guide.pdf)"
 
 > **Edit Failover and Load Balancing Policy for a vSphere Standard Switch**
 > Use Load Balancing and Failover policies to determine how network traffic is distributed between adapters and how to reroute traffic in the event of an adapter failure.
@@ -59,7 +59,7 @@ This was discussed in the above objectives.
 
 If you are using Software iSCSI and you want to utilized MPIO (MultiPath IO) then you will need to bind each vmk to a vmnic.
 
-From "[vSphere Storage ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf)":
+From "[vSphere Storage ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-storage-guide.pdf)":
 
 > **Change Port Group Policy for iSCSI VMkernel Adapters**
 > If you use a single vSphere standard switch to connect VMkernel to multiple network adapters, change the port group policy, so that it is compatible with the iSCSI network requirements.

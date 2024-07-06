@@ -35,7 +35,7 @@ From [this](https://github.com/elatov/uploads/raw/master/2013/04/vcap-dcd_notes.
 
 ### Based on an existing logical design, determine appropriate virtual disk type and placement
 
-From "[vSphere Virtual Machine Administration ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-virtual-machine-admin-guide.pdf)":
+From "[vSphere Virtual Machine Administration ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-virtual-machine-admin-guide.pdf)":
 
 > **About Virtual Disk Provisioning Policies**
 > When you perform certain virtual machine management operations, such as creating a virtual disk, cloning a virtual machine to a template, or migrating a virtual machine, you can specify a provisioning policy for the virtual disk file.
@@ -169,7 +169,7 @@ From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/
 >
 > ESXi 5.0 introduces virtual hardware version 8. By creating virtual machines using this hardware version, or upgrading existing virtual machines to this version, a number of additional capabilities become available. Some of these, such as support for virtual machines with up to 1TB of RAM and up to 32 vCPUs, support for virtual NUMA, and support for 3D graphics, can improve performance for some workloads.
 
-From "[vSphere Virtual Machine Administration ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-virtual-machine-admin-guide.pdf)":
+From "[vSphere Virtual Machine Administration ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-virtual-machine-admin-guide.pdf)":
 
 > **Virtual Machine Hardware**
 > You can add or configure some virtual machine hardware, only if the virtual machine uses the latest available hardware version. The PCI and SIO virtual hardware devices are part of the virtual motherboard, but cannot be configured or removed.
@@ -248,7 +248,7 @@ Here are examples of each 3rd party clustering products:
 *   [Oracle Databases on VMware High Availability](http://www.vmware.com/files/pdf/partners/oracle/Oracle_Databases_on_VMware_-_High_Availability_Guidelines.pdf)
 *   [Microsoft SQL Server on VMware Best Practices Guide](http://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/sql-server-on-vmware-best-practices-guide.pdf)
 *   [Microsoft Exchange 2013 on VMware Availability and Recovery Options](http://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/business-critical-apps/exchange/exchange-2013-on-vmware-availability-and-recovery-options.pdf)
-*   [Setup for Failover Clustering and Microsoft Cluster Service ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-mscs-guide.pdf)
+*   [Setup for Failover Clustering and Microsoft Cluster Service ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-651-setup-mscs.pdf)
 
 and from [APAC BrownBag Session 12](https://professionalvmware.com/vmware-certifications/):
 

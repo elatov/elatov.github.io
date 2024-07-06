@@ -238,7 +238,7 @@ And from KB 1003928:
 
 ### Troubleshoot the ESXi firewall
 
-From "[vSphere Command-Line Interface Concepts and Examples](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf)":
+From "[vSphere Command-Line Interface Concepts and Examples](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf)":
 
 > **To limit shell access**
 >

@@ -11,7 +11,7 @@ tags: ['vum']
 
 ### Identify firewall access rules for Update Manager
 
-From "[Installing and Administering VMware vSphere Update Manager](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf)", here is table of ports used by update manager:
+From "[Installing and Administering VMware vSphere Update Manager](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-update-manager-672-install-administration-guide.pdf)", here is table of ports used by update manager:
 
 ![vum_net_ports](https://github.com/elatov/uploads/raw/master/2012/12/vum_net_ports.png)
 
@@ -55,7 +55,7 @@ Here is more information from the same document:
 >
 > UMDS and the Update Manager Utility are installed on your system
 
-Now we can configure UMDS, from "[Installing and Administering VMware vSphere Update Manager](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf)":
+Now we can configure UMDS, from "[Installing and Administering VMware vSphere Update Manager](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-update-manager-672-install-administration-guide.pdf)":
 
 > **Setting Up and Using UMDS**
 > You can set up UMDS to download upgrades for virtual appliances, or patches and notifications for ESX/ESXi hosts. You can also set up UMDS to download ESX/ESXi 4.x and ESXi 5.0 patch binaries, patch metadata, and notifications from third-party portals.
@@ -103,7 +103,7 @@ Also check out "[here](http://www.jasemccarty.com/blog/?p=1859) is the pdf versi
 
 ### Configure a shared repository
 
-From "[Installing and Administering VMware vSphere Update Manager](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf)":
+From "[Installing and Administering VMware vSphere Update Manager](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-update-manager-672-install-administration-guide.pdf)":
 
 > **Use a Shared Repository as a Download Source**
 > You can configure Update Manager to use a shared repository as a source for downloading virtual appliance upgrades, as well as ESX/ESXi patches, extensions, and notifications.
@@ -157,7 +157,7 @@ Here is how it looks like from vCenter:
 
 ### Manually download updates to a repository
 
-From "[Installing and Administering VMware vSphere Update Manager](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf)":
+From "[Installing and Administering VMware vSphere Update Manager](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-update-manager-672-install-administration-guide.pdf)":
 
 > **Import Patches Manually**
 > Instead of using a shared repository or the Internet as a download source for patches and extensions, you can import patches and extensions manually by using an offline bundle.
@@ -276,7 +276,7 @@ and from "[VMware vSphere 5.0 Upgrade Best Practices](http://www.vmware.com/file
 
 ### Create and modify baseline groups
 
-From "[Installing and Administering VMware vSphere Update Manager](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf)":
+From "[Installing and Administering VMware vSphere Update Manager](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-update-manager-672-install-administration-guide.pdf)":
 
 > **Creating Baselines and Baseline Groups**
 > Baselines contain a collection of one or more patches, extensions, service packs, bug fixes, or upgrades, andcan be classified as patch, extension, or upgrade baselines. Baseline groups are assembled from existing baselines.
@@ -327,7 +327,7 @@ Screenshots of the above process were seen in the previous objective
 
 ### Troubleshoot Update Manager problem areas and issues
 
-In the "[Installing and Administering VMware vSphere Update Manager](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf)" guide here is an index of all the available troubleshooting scenarios.
+In the "[Installing and Administering VMware vSphere Update Manager](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-update-manager-672-install-administration-guide.pdf)" guide here is an index of all the available troubleshooting scenarios.
 
 > **Troubleshooting 173**
 > Connection Loss with Update Manager Server or vCenter Server in a Single vCenter Server System 173
@@ -351,7 +351,7 @@ In the "[Installing and Administering VMware vSphere Update Manager](http://pubs
 
 ### Generate database reports using MS Excel or MS SQL
 
-From "[Installing and Administering VMware vSphere Update Manager](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf)":
+From "[Installing and Administering VMware vSphere Update Manager](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-update-manager-672-install-administration-guide.pdf)":
 
 > **Generate Common Reports Using Microsoft Office Excel 2003**
 > Using Microsoft Excel, you can connect to the Update Manager database and query the database views to generate a common report
@@ -401,7 +401,7 @@ Also from the same document:
 
 ### Upgrade vApps using Update Manager
 
-From "[Installing and Administering VMware vSphere Update Manager](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf)":
+From "[Installing and Administering VMware vSphere Update Manager](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-update-manager-672-install-administration-guide.pdf)":
 
 > **Upgrading Virtual Appliances**
 > An upgrade remediation of a virtual appliance upgrades the entire software stack in the virtual appliance,including the operating system and applications. To upgrade the virtual appliance to the latest released or latest critical version, you can use one of the Update Manager predefined upgrade baselines or create your own.
@@ -451,7 +451,7 @@ That should be it.
 
 ### Utilize Update Manager PowerCLI to export baselines for testing
 
-From "[Installing and Administering VMware vSphere Update Manager](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf)":
+From "[Installing and Administering VMware vSphere Update Manager](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-update-manager-672-install-administration-guide.pdf)":
 
 > **Testing Patches or Extensions and Exporting Baselines to Another Update Manager Server**
 > Before you apply patches or extensions to ESX/ESXi hosts, you might want to test the patches and extensions by applying them to hosts in a test environment. You can then use Update Manager PowerCLI to export the tested baselines to another Update Manager server instance and apply the patches and extensions to the other hosts.

@@ -9,7 +9,7 @@ tags: ['trunk_port', 'pvlan','dvs']
 
 ### Identify types of VLANs and PVLANs
 
-From [vSphere Networkin ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-networking-guide.pdf):
+From [vSphere Networkin ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-networking-guide.pdf):
 
 > **VLAN Configuration**
 > Virtual LANs (VLANs) enable a single physical LAN segment to be further segmented so that groups of ports are isolated from one another as if they were on physically different segments.
@@ -72,7 +72,7 @@ From VMware KB [1010691](http://kb.vmware.com/kb/1010691) here is a pretty good 
 
 Basically if you want to add an extra layer of security for your environment and you have a use case for the PVLANs types (isolated, community, and promiscuous) then setup VLANs. As a side note physical switch configuration is required. More information on the physical switch setup can be seen in "[VLANs and Trunking](http://www.ciscopress.com/articles/article.asp?p=29803&#038;seqNum=6)"
 
-To configure it on the DVS, from "[vSphere Networking ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-networking-guide.pdf)":
+To configure it on the DVS, from "[vSphere Networking ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-networking-guide.pdf)":
 
 > **Create a Private VLAN**
 > You can create a private VLAN for use on a vSphere distributed switch and its associated distributed ports.

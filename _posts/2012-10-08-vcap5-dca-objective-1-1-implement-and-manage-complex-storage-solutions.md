@@ -121,7 +121,7 @@ Check out [VCAP5-DCD Objective 3.5](/2012/09/vcap5-dcd-objective-3-5-determine-v
 
 ### Configure vCenter Server storage filters
 
-From [vSphere Storage ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf):
+From [vSphere Storage ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-storage-guide.pdf):
 
 > When you perform VMFS datastore management operations, vCenter Server uses default storage protection filters. The filters help you to avoid storage corruption by retrieving only the storage devices that can be used for a particular operation. Unsuitable devices are not displayed for selection. You can turn off the filters to view all devices.
 
@@ -142,7 +142,7 @@ And more:
 
 ### Understand and apply VMFS re-signaturing
 
-From "[vSphere Storage ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf)":
+From "[vSphere Storage ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-storage-guide.pdf)":
 
 > **Managing Duplicate VMFS Datastores**
 >
@@ -284,7 +284,7 @@ Check out one of my [1011387](/2012/08/enabling-disk-enableuuid-on-a-nested-esx-
 
 ### Understand and apply LUN masking using PSA-related commands
 
-From [vSphere Storage ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf)
+From [vSphere Storage ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-storage-guide.pdf)
 
 > **Mask Paths**
 > You can prevent the host from accessing storage devices or LUNs or from using individual paths to a LUN. Use the esxcli commands to mask the paths. When you mask paths, you create claim rules that assign the MASK_PATH plug-in to the specified paths.
@@ -362,7 +362,7 @@ Use any of the tools above to get a good baseline and then plan accordingly with
 
 ### Identify and tag SSD devices
 
-From [vSphere Storage ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf) :
+From [vSphere Storage ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-storage-guide.pdf) :
 
 > **Tag Devices as SSD**
 > You can use PSA SATP claim rules to tag SSD devices that are not detected automatically.
@@ -447,7 +447,7 @@ From [vSphere Storage ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmwa
 
 ### Administer hardware acceleration for VAAI
 
-From [vSphere Storage ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf) :
+From [vSphere Storage ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-storage-guide.pdf) :
 
 > **Display Hardware Acceleration Plug-Ins and Filter**
 > To communicate with the devices that do not support the T10 SCSI standard, your host uses a combination of a single VAAI filter and a vendor-specific VAAI plug-in. Use the esxcli command to view the hardware acceleration filter and plug-ins currently loaded into your system.
@@ -519,7 +519,7 @@ And more from the same document:
 
 ### Configure and administer profile-based storage
 
-From [vSphere Storage ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf):
+From [vSphere Storage ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-storage-guide.pdf):
 
 > **Understanding Storage Capabilities**
 > A storage capability outlines the quality of service that a storage system can deliver. It is a guarantee that the storage system can provide a specific set of characteristics for capacity, performance, availability, redundancy, and so on.
@@ -595,7 +595,7 @@ Then under Summary of the Datastore you will see your capability assigned:
 
 ### Prepare storage for maintenance
 
-From [vSphere Storage ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf):
+From [vSphere Storage ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-storage-guide.pdf):
 
 > **Unmount VMFS or NFS Datastores**
 > When you unmount a datastore, it remains intact, but can no longer be seen from the hosts that you specify. The datastore continues to appear on other hosts, where it remains mounted.
@@ -841,7 +841,7 @@ Also check out KB "[Detaching a datastore or storage device from multiple ESXi 5
 
 ### Upgrade VMware storage infrastructure
 
-From [vSphere Storage ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf):
+From [vSphere Storage ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-storage-guide.pdf):
 
 > **Upgrade VMFS3 Datastores to VMFS5**
 > VMFS5 is a new version of the VMware cluster file system that provides performance and scalability improvements.

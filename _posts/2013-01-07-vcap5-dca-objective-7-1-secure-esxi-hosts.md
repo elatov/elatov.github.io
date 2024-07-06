@@ -72,7 +72,7 @@ These were covered in "[VCAP5-DCA Objective 2.1](/2012/10/vcap5-dca-objective-2-
 
 ### Add/Edit Remove users/groups on an ESXi host
 
-From "[vSphere Security ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf)":
+From "[vSphere Security ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-security-guide.pdf)":
 
 > **Add a Local User**
 > Adding a user to the users table updates the internal user list that the host maintains.
@@ -94,7 +94,7 @@ Here is how it looks like from the vSphere Client:
 
 ![add new user VCAP5 DCA Objective 7.1 – Secure ESXi Hosts ](https://github.com/elatov/uploads/raw/master/2012/12/add_new_user.png)
 
-From "[vSphere Security ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf)":
+From "[vSphere Security ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-security-guide.pdf)":
 
 > **Add a Group**
 > Adding a group to the groups table updates the internal group list maintained by the host.
@@ -116,7 +116,7 @@ Here is how it looks like from the vSphere Client:
 
 ### Customize SSH settings for increased security
 
-From "[Command-Line Management in vSphere 5.0 for Service Console Users](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-management-for-service-console-users.pdf)":
+From "[Command-Line Management in vSphere 5.0 for Service Console Users](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-60-command-line-management-for-service-console-users.pdf)":
 
 > **Remote Access to ESXi Shell Using SSH**
 > If Secure Shell is enabled for the ESXi Shell, you can run shell commands by using a Secure Shell client such as SSH or PuTTY.
@@ -165,7 +165,7 @@ You can also set a timeout for the shell with the following advanced option:
 
 ### Enable/Disable certificate checking
 
-From "[vSphere Security ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf)":
+From "[vSphere Security ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-security-guide.pdf)":
 
 > **Enable Certificate Checking and Verify Host Thumbprints**
 > To prevent man-in-the-middle attacks and to fully use the security that certificates provide, certificate checking is enabled by default. You can verify that certificate checking is enabled in the vSphere Client.
@@ -187,7 +187,7 @@ Here is how the setting looks like from vCenter:
 
 ### Generate ESXi host certificates
 
-From "[vSphere Security ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf)":
+From "[vSphere Security ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-security-guide.pdf)":
 
 > **Generate New Certificates for ESXi**
 > You typically generate new certificates only if you change the host name or accidentally delete the certificate. Under certain circumstances, you might be required to force the host to generate new certificates.
@@ -209,7 +209,7 @@ From "[vSphere Security ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vm
 
 ### Enable ESXi lockdown mode
 
-From "[vSphere Security ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf)":
+From "[vSphere Security ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-security-guide.pdf)":
 
 > **Lockdown Mode Behavior**
 > Enabling lockdown mode affects which users are authorized to access host services.
@@ -268,7 +268,7 @@ Here is how it looks like from the Console:
 
 ### Replace default certificate with CA-signed certificate
 
-From "[vSphere Security ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf)":
+From "[vSphere Security ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-security-guide.pdf)":
 
 > **Replace a Default Host Certificate with a CA-Signed Certificate**
 >
@@ -292,7 +292,7 @@ From "[vSphere Security ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vm
 
 ### Configure SSL timeouts
 
-From "[vSphere Security ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf)":
+From "[vSphere Security ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-security-guide.pdf)":
 
 > **Configure SSL Timeouts**
 > You can configure SSL timeouts for ESXi. Timeout periods can be set for two types of idle connections:
@@ -332,7 +332,7 @@ From "[vSphere Security ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vm
 
 ### Configure vSphere Authentication Proxy
 
-From "[vSphere Security ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf)":
+From "[vSphere Security ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-security-guide.pdf)":
 
 > **Using vSphere Authentication Proxy**
 > When you use the vSphere Authentication Proxy, you do not need to transmit Active Directory credentials to the host. Users supply the domain name of the Active Directory server and the IP address of the authentication proxy server when they add a host to a domain.
@@ -416,7 +416,7 @@ Lastly use the Proxy to add a host to a domain:
 
 ### Enable strong passwords and configure password policies
 
-From "[vSphere Security ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf)":
+From "[vSphere Security ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-security-guide.pdf)":
 
 > **Host Password Strength and Complexity**
 > By default, ESXi uses the pam_passwdqc.so plug-in to set the rules that users must observe when creating passwords and to check password strength.
@@ -532,7 +532,7 @@ If you want to check out the commands that were executed on the host, you can ch
 
 ### Manage Active Directory integration
 
-From "[vSphere Security ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf)":
+From "[vSphere Security ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-security-guide.pdf)":
 
 > **Add a Host to a Directory Service Domain**
 > To use a directory service, you must join the host to the directory service domain.

@@ -9,7 +9,7 @@ tags: ['kickstart', 'vum', 'vmotion', 'physical_design','ha','drs']
 
 ### Differentiate and describe client access options
 
-From "[vCenter Server and Host Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-host-management-guide.pdf)":
+From "[vCenter Server and Host Management ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-host-management-guide.pdf)":
 
 > **vSphere Client Interfaces**
 >
@@ -174,7 +174,7 @@ From [this](https://github.com/elatov/uploads/raw/master/2013/04/vcap-dcd_notes.
 
 ### Determine appropriate access control settings, create roles and assign users to roles
 
-From "[vSphere Security ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-security-guide.pdf)":
+From "[vSphere Security ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-security-guide.pdf)":
 
 > **Managing vSphere Users**
 > A user is an individual authorized to log in to either ESXi or vCenter Server. ESXi users fall into two categories: those who can access the host through vCenter Server and those who can access by directly logging in to the host from the vSphere Client, a third-party client, or a command shell.
@@ -375,9 +375,9 @@ From "[VMware vCenter Update Manager 5.0 Performance and Best Practices](http://
 > *   Make sure the Update Manager server host has at least 2GB of RAM to cache frequently used patch files in memory.
 > *   Allocate separate physical disks for the Update Manager patch store and the Update Manager database.
 
-Use VUM depending on the size of your environment. Also to determine the size of the database necessary for VUM check out "[VMware vSphere Update Manager Database Sizing Estimator](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-sizing-estimator.xls)". VUM is it's own product and it will definitely add more management over head. However if you have over 30 hosts then it will definitely be worth setting it up and using for patching your vSphere environment.
+Use VUM depending on the size of your environment. Also to determine the size of the database necessary for VUM check out "[VMware vSphere Update Manager Database Sizing Estimator](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-update-manager-50-sizing-estimator.xls)". VUM is it's own product and it will definitely add more management over head. However if you have over 30 hosts then it will definitely be worth setting it up and using for patching your vSphere environment.
 
-On top of that there is a Update Manager Download Service, from "[Installing and Administering VMware vSphere Update Manager 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf)":
+On top of that there is a Update Manager Download Service, from "[Installing and Administering VMware vSphere Update Manager 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-update-manager-672-install-administration-guide.pdf)":
 
 > **Installing, Setting Up, and Using Update Manager Download Service**
 > VMware vSphere Update Manager Download Service (UMDS) is an optional module of Update Manager. UMDS downloads upgrades for virtual appliances, patch metadata, patch binaries, and notifications that would not otherwise be available to the Update Manager server.
@@ -388,7 +388,7 @@ On top of that there is a Update Manager Download Service, from "[Installing and
 >
 > UMDS 5.0 supports patch recalls and notifications. A patch is recalled if the released patch has problems or potential issues. After you download patch data and notifications with UMDS, and export the downloads so that they become available to the Update Manager server, Update Manager deletes the recalled patches and displays the notifications on the Update Manager Notifications tab.
 
-This helps out if you have a secure environment and your VUM service and(or) hosts don't have access to internet. You can then setup UMDS on another network and then export the repository to a file or over the network. You can then configure the VUM service to use that repository, from "[Installing and Administering VMware vSphere Update Manager 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-install-administration-guide.pdf)":
+This helps out if you have a secure environment and your VUM service and(or) hosts don't have access to internet. You can then setup UMDS on another network and then export the repository to a file or over the network. You can then configure the VUM service to use that repository, from "[Installing and Administering VMware vSphere Update Manager 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-update-manager-672-install-administration-guide.pdf)":
 
 > **Configuring the Update Manager Download Sources**
 > You can configure the Update Manager server to download patches and extensions for ESX/ESXi hosts or upgrades for virtual appliances either from the Internet or from a shared repository of UMDS data. You can also import patches and extensions for ESX/ESXi hosts manually from a ZIP file.
@@ -613,7 +613,7 @@ So if the customer is big enough, ask them to go through the above class so they
 
 ### Based on the logical design, identify and implement logging, monitoring and reporting technologies.
 
-From "[vSphere Monitoring and Performance vSphere 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf)":
+From "[vSphere Monitoring and Performance vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf)":
 
 > **Monitoring Events, Alarms, and Automated Actions**
 > vSphere includes a user-configurable events and alarms subsystem. This subsystem tracks events happening throughout vSphere and stores the data in log files and the vCenter Server database. This subsystem also enables you to specify the conditions under which alarms are triggered. Alarms can change state from mild warnings to more serious alerts as system conditions change, and can trigger automated alarm actions. This functionality is useful when you want to be informed, or take immediate action, when certain events or conditions occur for a specific inventory object, or group of objects.

@@ -163,7 +163,7 @@ From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/
 
 ### Configure and apply advanced ESXi host attributes
 
-From "[vSphere Resource Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)":
+From "[vSphere Resource Management ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)":
 
 > **Set Advanced Host Attributes**
 >
@@ -180,7 +180,7 @@ Here is how it looks in the vCenter:
 
 ### Configure and apply advanced Virtual Machine attributes
 
-From "[vSphere Resource Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)":
+From "[vSphere Resource Management ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)":
 
 > **Set Advanced Virtual Machine Attributes**
 >
@@ -196,7 +196,7 @@ Here is how it looks like in vCenter:
 
 ### Configure advanced cluster attributes
 
-From "[vSphere Availability ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf)":
+From "[vSphere Availability ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-availability-guide.pdf)":
 
 > **Set Advanced vSphere HA Options**
 >

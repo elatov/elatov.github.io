@@ -11,7 +11,7 @@ tags: ['kickstart','powercli', 'auto_deploy']
 
 ### Identify custom installation options
 
-From "[vSphere Installation and Setup vSphere 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf)":
+From "[vSphere Installation and Setup vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf)":
 
 > **Options for Installing ESXi**
 > ESXi can be installed in several ways. To ensure the best vSphere deployment, understand the options thoroughly before beginning the installation.
@@ -51,7 +51,7 @@ From "[vSphere Installation and Setup vSphere 5.0](http://pubs.vmware.com/vspher
 
 ### Identify ESXi Image Builder requirements
 
-From "[vSphere Installation and Setup vSphere 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf)":
+From "[vSphere Installation and Setup vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf)":
 
 > **Install Image Builder PowerCLI and Prerequisite Software**
 > Before you can run Image Builder cmdlets, you must install vSphere PowerCLI and all prerequisite software. The Image Builder snap-in is included with the PowerCLI installation.
@@ -65,7 +65,7 @@ From "[vSphere Installation and Setup vSphere 5.0](http://pubs.vmware.com/vspher
 
 ### Create/Edit Image Profiles
 
-From "[vSphere Installation and Setup vSphere 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf)":
+From "[vSphere Installation and Setup vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf)":
 
 > Create an Image Profile
 > Cloning a published profile is the easiest way to create a custom image profile. Cloning a profile is especially useful if you want to remove a few VIBs from a profile, or if you want to use hosts from different vendors and want to use the same basic profile, but want to add vendor-specific VIBs. VMware partners or large installations might consider creating a profile from scratch.
@@ -467,7 +467,7 @@ We can see that it removed the old VIB in the process. Here is how the installed
 
 ### Configure advanced boot loader options
 
-From "[vSphere Installation and Setup vSphere 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf)":
+From "[vSphere Installation and Setup vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf)":
 
 > **Enter Boot Options to Start an Installation or Upgrade Script**
 > You can start an installation or upgrade script by typing boot command-line options at the boot command line.
@@ -501,7 +501,7 @@ Here is a list of all the supported boot options:
 
 ### Configure kernel options
 
-From "[vSphere Installation and Setup vSphere 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf)":
+From "[vSphere Installation and Setup vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf)":
 
 > **About the boot.cfg File**
 > The boot loader configuration file boot.cfg specifies the kernel, the kernel options, and the boot modules that the mboot.c32 boot loader uses in an ESXi installation.

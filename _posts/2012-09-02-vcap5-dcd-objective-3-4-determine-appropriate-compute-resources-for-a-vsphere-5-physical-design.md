@@ -44,14 +44,14 @@ From [this](https://github.com/elatov/uploads/raw/master/2013/04/vcap-dcd_notes.
 > *   Intel-VT
 > *   AMD-VI and RVI (Rapid Virtualization Index)
 
-From "[vSphere Installation and Setup vSphere 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf)":
+From "[vSphere Installation and Setup vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf)":
 
 > Hosts running virtual machines with 64-bit guest operating systems have the following hardware requirements:
 >
 > *   For AMD Opteron-based systems, the processors must be Opteron Rev E or later.
 > *   For Intel Xeon-based systems, the processors must include support for Intel Virtualization Technology (VT). Many servers that include CPUs with VT support might have VT disabled by default, so you must enable VT manually. If your CPUs support VT ,but you do not see this option in the BIOS, contact your vendor to request a BIOS version that lets you enable VT support.
 
-From "[vSphere Resource Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)":
+From "[vSphere Resource Management ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)":
 
 > **Using CPU Affinity**
 > By specifying a CPU affinity setting for each virtual machine, you can restrict the assignment of virtual machines to a subset of the available processors in multiprocessor systems. By using this feature, you can assign each virtual machine to processors in the specified affinity set.
@@ -261,7 +261,7 @@ From "[vSphere High Availability Deployment Best Practices](http://www.vmware.co
 >
 > In contrast, as cluster size increases, so does the HA management complexity of the cluster. This complexity is associated with general configuration factors as well as ongoing management tasks such as troubleshooting. This increase in management complexity, however, is overshadowed by the benefits a large cluster can provide. Features such as DRS and vSphere Distributed Power Management (VMware DPM) become very compelling with large clusters. In general, it is recommended that customers establish the largest clusters possible to reap the full benefits of these solutions.
 
-There is also an example in "[vSphere Availability ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf)":
+There is also an example in "[vSphere Availability ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-availability-guide.pdf)":
 
 > **Example: Admission Control Using Host Failures Cluster Tolerates Policy**
 > The way that slot size is calculated and used with this admission control policy is shown in an example. Make the following assumptions about a cluster:
@@ -296,7 +296,7 @@ Depending on what your HA policy is (decided from the above examples) calculate 
 
 ### Explain the implications of using reservations, limits, and shares on the physical design
 
-From "[vSphere Resource Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)":
+From "[vSphere Resource Management ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)":
 
 > **Resource Allocation Shares**
 > Shares specify the relative importance of a virtual machine (or resource pool). If a virtual machine has twice as many shares of a resource as another virtual machine, it is entitled to consume twice as much of that resource when these two virtual machines are competing for resources.
@@ -361,7 +361,7 @@ Reservations should be used for critical VMs that you want to ensure that they w
 
 ### Specify the resource pool and vApp configuration based upon resource requirements.
 
-From [vSphere Resource Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf):
+From [vSphere Resource Management ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf):
 
 > **Why Use Resource Pools?**
 > Resource pools allow you to delegate control over resources of a host (or a cluster), but the benefits are evident when you use resource pools to compartmentalize all resources in a cluster. Create multiple resource pools as direct children of the host or cluster and configure them. You can then delegate control over the resource pools to other individuals or organizations. Using resource pools can result in the following benefits.
@@ -475,7 +475,7 @@ From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com
 > *   On some 10 Gigabit Ethernet hardware network adapters, ESXi supports NetQueue, a technology that significantly improves performance of 10 Gigabit Ethernet network adapters in virtualized environments.
 > *   In addition to the PCI and PCI-X bus architectures, we now have the PCI Express (PCIe) architecture. Ideally single-port 10 Gigabit Ethernet network adapters should use PCIe x8 (or higher) or PCI-X 266 and dual-port 10 Gigabit Ethernet network adapters should use PCIe x16 (or higher). There should preferably be no “bridge chip” (e.g., PCI-X to PCIe or PCIe to PCI-X) in the path to the actual Ethernet device (including any embedded bridge chip on the device itself), as these chips can reduce performance.
 
-For Internal storage, from "[vSphere Installation and Setup vSphere 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf)":
+For Internal storage, from "[vSphere Installation and Setup vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf)":
 
 > **Storage Requirements for ESXi 5.0 Installation**
 > Installing ESXi 5.0 requires a boot device that is a minimum of 1GB in size. When booting from a local disk or SAN/iSCSI LUN, a 5.2GB disk is required to allow for the creation of the VMFS volume and a 4GB scratch partition on the boot device. If a smaller disk or LUN is used, the installer will attempt to allocate a scratch region on a separate local disk. If a local disk cannot be found the scratch partition, /scratch, will be located on the ESXi host ramdisk, linked to /tmp/scratch. You can reconfigure /scratch to use a separate disk or LUN. For best performance and memory optimization, VMware recommends that you do not leave /scratch on the ESXi host ramdisk.

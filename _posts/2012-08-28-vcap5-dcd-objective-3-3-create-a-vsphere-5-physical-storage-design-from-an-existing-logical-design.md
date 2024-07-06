@@ -109,7 +109,7 @@ Here is the mentioned diagram from that article:
 For ALUA the PSP is usually MRU or Round Robin, depends on what the array vendor recommends. In vSphere 4.1 there a new PSP called Fixed_AP and that was used.
 
 
-Each of the array types are described in "[vSphere Storage Guide](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-storage-guide.pdf)". Here is a snippet from that guide:
+Each of the array types are described in "[vSphere Storage Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-storage-guide.pdf)". Here is a snippet from that guide:
 
 > **Active-active storage system**
 > Allows access to the LUNs simultaneously through all the storage ports that are available without significant performance degradation. All the paths are active at all times, unless a path fails.
@@ -138,7 +138,7 @@ For the pathing policies, check out VMware KB [1011340](http://kb.vmware.com/kb/
 >
 > **Note:** The VMW_PSP_FIXED_AP policy has been removed from ESXi 5.0. For ALUA arrays in ESXi 5.0 the PSP MRU is normally selected but some storage arrays need to use Fixed
 
-If the array is capable of using VAAI definitely use, this allows you to offload certain tasks to array. From the [vSphere Storage Guide](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-storage-guide.pdf):
+If the array is capable of using VAAI definitely use, this allows you to offload certain tasks to array. From the [vSphere Storage Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-storage-guide.pdf):
 
 > **Hardware Acceleration for Block Storage Devices**
 > With hardware acceleration, your host can integrate with block storage devices, Fibre Channel or iSCSI, and use certain storage array operations. ESXi hardware acceleration supports the following array operations:
@@ -386,7 +386,7 @@ From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/
 > *   For iSCSI and NFS, if the network switch deployed for the data path supports VLAN, it might be beneficial to create a VLAN just for the ESXi host's vmknic and the iSCSI/NFS server. This minimizes network interference from other packet sources.
 > *   Be aware that with software-initiated iSCSI and NFS the network protocol processing takes place on the host system, and thus these might require more CPU resources than other storage options.
 
-From "[vSphere Storage Guide](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf)":
+From "[vSphere Storage Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-storage-guide.pdf)":
 
 > Configuration changes to avoid this problem involve making sure several input Ethernet links are not funneled into one output link, resulting in an oversubscribed link. When a number of links transmitting near capacity are switched to a smaller number of links, oversubscription is a possibility.
 >

@@ -11,7 +11,7 @@ tags: ['drs']
 
 ### Explain DRS / storage DRS affinity and anti-affinity rules
 
-From "[vSphere Resource Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)":
+From "[vSphere Resource Management ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)":
 
 > **Using DRS Affinity Rules**
 > You can control the placement of virtual machines on hosts within a cluster by using affinity rules.
@@ -44,7 +44,7 @@ From the same document:
 
 ### Identify required hardware components to support DPM
 
-From "[vSphere Resource Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)":
+From "[vSphere Resource Management ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)":
 
 > **Managing Power Resources**
 > The vSphere Distributed Power Management (DPM) feature allows a DRS cluster to reduce its power consumption by powering hosts on and off based on cluster resource utilization.
@@ -67,7 +67,7 @@ From "[vSphere Resource Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/t
 
 ### Identify EVC requirements, baselines and components
 
-From "[vCenter Server and Host Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-host-management-guide.pdf)":
+From "[vCenter Server and Host Management ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-host-management-guide.pdf)":
 
 > **CPU Compatibility and EVC**
 > vCenter Server performs a number of compatibility checks before allowing migration of running or suspended virtual machines to ensure that the virtual machine is compatible with the target host.
@@ -117,7 +117,7 @@ and lastly here are the requirements from the same document:
 
 ### Understand the DRS / storage DRS migration algorithms, the Load Imbalance Metrics, and their impact on migration recommendations
 
-From "[vSphere Resource Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)":
+From "[vSphere Resource Management ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)":
 
 > **Creating a DRS Cluster**
 > A DRS cluster is a collection of ESXi hosts and associated virtual machines with shared resources and a shared management interface. Before you can obtain the benefits of cluster-level resource management you must create a DRS cluster.
@@ -222,7 +222,7 @@ and here are the migration recommendations:
 
 ### Properly configure BIOS and management settings to support DPM
 
-The Bios Settings are Host specific, but for the Managements settings, from "[vSphere Resource Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)":
+The Bios Settings are Host specific, but for the Managements settings, from "[vSphere Resource Management ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)":
 
 > **Configure IPMI or iLO Settings for vSphere DPM**
 > Procedure
@@ -239,7 +239,7 @@ The Bios Settings are Host specific, but for the Managements settings, from "[vS
 
 ### Test DPM to verify proper configuration
 
-From "[vSphere Resource Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)":
+From "[vSphere Resource Management ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)":
 
 > **Test Wake-on-LAN for vSphere DPM**
 > The use of Wake-on-LAN (WOL) for the vSphere DPM feature is fully supported, if you configure and successfully test it according to the VMware guidelines. You must perform these steps before enabling vSphere DPM for a cluster for the first time or on any host that is being added to a cluster that is using vSphere DPM.
@@ -265,7 +265,7 @@ From "[vSphere Resource Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/t
 
 ### Configure appropriate DPM Threshold to meet business requirements
 
-From "[vCenter Server and Host Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-host-management-guide.pdf)":
+From "[vCenter Server and Host Management ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-host-management-guide.pdf)":
 
 > **vSphere DPM Threshold**
 > The power state (host power on or off) recommendations generated by the vSphere DPM feature are assigned priorities that range from priority-one recommendations to priority-five recommendations.
@@ -291,7 +291,7 @@ and here is a table from the same KB:
 
 ### Change the EVC mode on an existing DRS cluster
 
-From "[vSphere Resource Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)":
+From "[vSphere Resource Management ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)":
 
 > **Change the EVC Mode for a Cluster**
 > If all the hosts in a cluster are compatible with the new mode, you can change the EVC mode of an existing EVC cluster. You can raise the EVC mode to expose more CPU features, or lower the EVC mode to hide CPU features and increase compatibility.
@@ -320,7 +320,7 @@ Here is how the settings looks like in vCenter:
 
 ### Create DRS and DPM alarms
 
-The Bios Settings are Host specific, but for the Managements settings, from "[vSphere Resource Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)":
+The Bios Settings are Host specific, but for the Managements settings, from "[vSphere Resource Management ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)":
 
 > **Monitoring vSphere DPM**
 > You can use event-based alarms in vCenter Server to monitor vSphere DPM.
@@ -368,7 +368,7 @@ This was covered in [DCD Objective 3.4](/2012/09/vcap5-dcd-objective-3-4-determi
 
 ### Properly apply virtual machine automation levels based upon application requirements
 
-From "[vSphere Resource Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)":
+From "[vSphere Resource Management ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)":
 
 > **Set a Custom Automation Level for a Virtual Machine**
 > After you create a DRS cluster, you can customize the automation level for individual virtual machines to override the cluster’s default automation level.
@@ -394,7 +394,7 @@ Here is how it looks like in vCenter:
 
 ### Create and administer ESXi host and Datastore Clusters
 
-From "[vSphere Resource Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)":
+From "[vSphere Resource Management ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)":
 
 > **Create a DRS Cluster**
 > Create a DRS cluster using the New Cluster wizard in the vSphere Client.
@@ -428,7 +428,7 @@ From the same document:
 
 ### Administer DRS / Storage DRS
 
-From "[vSphere Resource Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)" here are some things you can do to a Storage DRS Cluster:
+From "[vSphere Resource Management ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)" here are some things you can do to a Storage DRS Cluster:
 
 > **Using Datastore Clusters to Manage Storage Resources**
 >

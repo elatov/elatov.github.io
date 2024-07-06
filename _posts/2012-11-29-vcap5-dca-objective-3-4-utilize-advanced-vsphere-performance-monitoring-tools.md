@@ -41,7 +41,7 @@ From "[Storage Workload Characterization and Consolidation in Virtualized Enviro
 
 ### Configure esxtop/resxtop custom profiles
 
-From '[vSphere Monitoring and Performance vSphere 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf)':
+From '[vSphere Monitoring and Performance vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf)':
 
 ![esxtop_save_profile](https://github.com/elatov/uploads/raw/master/2012/11/esxtop_save_profile.png)
 
@@ -53,7 +53,7 @@ Select the default file name and now the next time you launch *esxtop* it will s
 
 ### Determine use cases for and apply esxtop/resxtop Interactive, Batch and Replay modes
 
-From '[vSphere Monitoring and Performance vSphere 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf)':
+From '[vSphere Monitoring and Performance vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf)':
 
 > **Using esxtop or resxtop in Interactive Mode**
 > By default, resxtop and esxtop run in interactive mode. Interactive mode displays statistics in different panels.
@@ -148,7 +148,7 @@ To reset all counters to zero, run:
 
 ### Use esxtop/resxtop to collect performance data
 
-From '[vSphere Monitoring and Performance vSphere 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf)':
+From '[vSphere Monitoring and Performance vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf)':
 
 > **Use esxtop or resxtop in Batch Mode**
 > After you have prepared for batch mode, you can use esxtop or resxtop in this mode.

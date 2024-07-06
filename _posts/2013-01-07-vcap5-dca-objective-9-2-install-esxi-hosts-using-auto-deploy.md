@@ -56,7 +56,7 @@ Also here are the other prerequisites:
 
 ### Utilize Auto Deploy cmdlets to deploy ESXi hosts
 
-From "[vSphere Installation and Setup vSphere 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf)":
+From "[vSphere Installation and Setup vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf)":
 
 > Auto Deploy PowerCLI Cmdlet Overview
 > You specify the rules that assign image profiles and host profiles to hosts using a set of PowerCLI cmdlets that are included in VMware PowerCLI.

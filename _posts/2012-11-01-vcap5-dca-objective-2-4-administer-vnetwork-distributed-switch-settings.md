@@ -162,7 +162,7 @@ Everything depends on the requirements, if you need QOS, then you can set that u
 
 ### Configure and administer vSphere Network I/O Control
 
-From "[vSphere Networking ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-networking-guide.pdf)":
+From "[vSphere Networking ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-networking-guide.pdf)":
 
 > **vSphere Network I/O Control**
 > Network resource pools determine the bandwidth that different network traffic types are given on a vSphere distributed switch.

@@ -240,7 +240,7 @@ If any of the failed or dropped counters are high, it could be a sign of a bad N
 
 ### Configure and administer Port Mirroring
 
-From "[vSphere Networking ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-networking-guide.pdf)":
+From "[vSphere Networking ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-networking-guide.pdf)":
 
 > **Working With Port Mirroring**
 > Port mirroring allows you to mirror a distributed port's traffic to other distributed ports or specific physical switch ports.
@@ -339,7 +339,7 @@ Here is how it looks like in vCenter:
 
 ### Utilize Direct Console User Interface (DCUI) and ESXi Shell to troubleshoot, configure, and monitor ESXi networking
 
-From "[vSphere Installation and Setup vSphere 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf)":
+From "[vSphere Installation and Setup vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf)":
 
 > **Configure IP Settings from the Direct Console**
 > If you have physical access to the host or remote access to the direct console, you can use the direct console to configure the IP address, subnet mask, and default gateway.

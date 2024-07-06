@@ -57,7 +57,7 @@ This was covered in "[VCAP5-DCA Objective 1.1](/2012/10/vcap5-dca-objective-1-3-
 
 ### Use esxcli to troubleshoot VMkernel storage module configurations
 
-From "[vSphere Troubleshooting ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-troubleshooting-guide.pdf)"
+From "[vSphere Troubleshooting ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-troubleshooting-guide.pdf)"
 
 > **Adjust Queue Depth for QLogic and Emulex HBAs**
 > If you are not satisfied with your host's performance, change the maximum queue depth for the QLogic or Emulex HBA.
@@ -107,7 +107,7 @@ Here is more from the same guide:
 >
 
 ### Use esxcli to troubleshoot iSCSI related issues
-From "[vSphere Command-Line Interface Concepts and Examples](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf)":
+From "[vSphere Command-Line Interface Concepts and Examples](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf)":
 
 > Check whether software iSCSI is enabled:
 >
@@ -424,7 +424,7 @@ From a host, we can see the following:
 >     vmfsPath
 >
 
-From the "[vSphere Storage ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf)":
+From the "[vSphere Storage ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-storage-guide.pdf)":
 
 > **vmkfstools Options**
 > The vmkfstools command has several options. Some of the options are suggested for advanced users only.

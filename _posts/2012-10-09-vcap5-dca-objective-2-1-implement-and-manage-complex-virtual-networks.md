@@ -76,7 +76,7 @@ And the last section from the document:
 
 ### Configure SNMP
 
-From [vSphere Command-Line Interface Concepts and Examples](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf):
+From [vSphere Command-Line Interface Concepts and Examples](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf):
 
 > To configure SNMP communities,run vicfg-snmp -c, specifying a comma‐separated list of communities. For example:
 >
@@ -262,7 +262,7 @@ That should be it.
 
 ### Configure vSS and vDS settings using command line tools
 
-From [vSphere Command-Line Interface Concepts and Examples](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf):
+From [vSphere Command-Line Interface Concepts and Examples](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf):
 
 > On ESXi 5.0, ifconfig information should be the information of the VMkernel NIC that attaches to the Management Network port group. You can retrieve information by using ESXCLI commands.
 >
@@ -665,7 +665,7 @@ Use the unsupported net-dvs command to list all the DVS information:
 
 ### Configure NetFlow
 
-From [vSphere Networking ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-networking-guide.pdf):
+From [vSphere Networking ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-networking-guide.pdf):
 
 > **Configure NetFlow Settings**
 > NetFlow is a network analysis tool that you can use to monitor network monitoring and virtual machine traffic. NetFlow is available on vSphere distributed switch version 5.0.0 and later.
@@ -688,7 +688,7 @@ The topic is also discussed in the VMware Blogs "[vSphere 5 New Networking Featu
 
 ### Determine appropriate discovery protocol (CDP, LLDP)
 
-From "[vSphere Networking ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-networking-guide.pdf)":
+From "[vSphere Networking ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-networking-guide.pdf)":
 
 > **Switch Discovery Protocol**
 > Switch discovery protocols allow vSphere administrators to determine which switch port is connected to a given vSphere standard switch or vSphere distributed switch.

@@ -9,7 +9,7 @@ tags: ['ha']
 
 ### Identify the three admission control policies for HA
 
-From [vSphere Availability ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf):
+From [vSphere Availability ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-availability-guide.pdf):
 
 > **vSphere HA Admission Control**
 > vCenter Server uses admission control to ensure that sufficient resources are available in a cluster to provide failover protection and to ensure that virtual machine resource reservations are respected.
@@ -63,7 +63,7 @@ And here is the last policy:
 
 ### Identify heartbeat options and dependencies
 
-I would say there are 3 types. From [vSphere Availability ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf):
+I would say there are 3 types. From [vSphere Availability ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-availability-guide.pdf):
 
 > **Host Failure Types and Detection**
 > The master host monitors the liveness of the slave hosts in the cluster. This communication is done through the exchange of network heartbeats every second. When the master host stops receiving these heartbeats from a slave host, it checks for host liveness before declaring the host to have failed. The liveness check that the master host performs is to determine whether the slave host is exchanging heartbeats with one of the datastores. Also, the master host checks whether the host responds to ICMP pings sent to its management IP addresses.
@@ -81,7 +81,7 @@ So the last type is VMware-tools heartbeats.
 
 ### Calculate host failure requirements
 
-From [vSphere Availability ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf), here is an example from each policy:
+From [vSphere Availability ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-availability-guide.pdf), here is an example from each policy:
 
 > **Example: Admission Control Using Host Failures Cluster Tolerates Policy**
 > The way that slot size is calculated and used with this admission control policy is shown in an example. Make the following assumptions about a cluster:
@@ -123,7 +123,7 @@ If you go to the "Host and Cluster" View -> Right click on the cluster and selec
 
 ![custom_isolation_response](https://github.com/elatov/uploads/raw/master/2012/11/custom_isolation_response.png)
 
-Also from [vSphere Availability ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf), here are some advanced settings for the cluster:
+Also from [vSphere Availability ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-availability-guide.pdf), here are some advanced settings for the cluster:
 
 > **vSphere HA Advanced Attributes**
 > You can set advanced attributes that affect the behavior of your vSphere HA cluster.
@@ -202,7 +202,7 @@ So prevent network partitions make sure all the management interfaces can talk t
 
 ### Configure HA related alarms and monitor an HA cluster
 
-From [vSphere Availability ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf):
+From [vSphere Availability ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-availability-guide.pdf):
 
 > **Setting Alarms to Monitor Cluster Changes**
 > When vSphere HA or Fault Tolerance take action to maintain availability, for example, a virtual machine failover, you can be notified about such changes. Configure alarms in vCenter Server to be triggered when these actions occur, and have alerts, such as emails, sent to a specified set of administrators.
@@ -231,7 +231,7 @@ Lastly you can check out the "Configuration Issues":
 
 ### Create a custom slot size configuration
 
-From [vSphere Availability ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf):
+From [vSphere Availability ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-availability-guide.pdf):
 
 > **Slot Size Calculation**
 > Slot size is comprised of two components, CPU and memory.
@@ -243,7 +243,7 @@ From [vSphere Availability ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com
 
 ### Understand interactions between DRS and HA
 
-From [vSphere Availability ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf):
+From [vSphere Availability ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-availability-guide.pdf):
 
 > **Using vSphere HA and DRS Together**
 > Using vSphere HA with Distributed Resource Scheduler (DRS) combines automatic failover with load balancing. This combination can result in a more balanced cluster after vSphere HA has moved virtual machines to different hosts.
@@ -266,7 +266,7 @@ From [vSphere Availability ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com
 
 ### Analyze vSphere environment to determine appropriate HA admission control policy
 
-From [vSphere Availability ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf):
+From [vSphere Availability ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-availability-guide.pdf):
 
 > **Choosing an Admission Control Policy**
 > You should choose a vSphere HA admission control policy based on your availability needs and the characteristics of your cluster. When choosing an admission control policy, you should consider a number of factors.
@@ -289,7 +289,7 @@ The biggest thing here is reservations and limits that are set for the VMs. Ensu
 
 ### Analyze Virtual Machine workload to determine optimum slot size
 
-From [vSphere Availability ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf):
+From [vSphere Availability ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-availability-guide.pdf):
 
 > **Admission Control Best Practices**
 > Try to keep virtual machine sizing requirements similar across all configured virtual machines. The Host Failures Cluster Tolerates admission control policy uses slot sizes to calculate the amount of capacity needed to reserve for each virtual machine. The slot size is based on the largest reserved memory and CPU needed for any virtual machine. When you mix virtual machines of different CPU and memory requirements, the slot size calculation defaults to the largest possible, which limits consolidation.

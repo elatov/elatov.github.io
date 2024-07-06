@@ -65,7 +65,7 @@ Then the next screen will allow you to choose for which host to generate a log b
 
 ### Use esxcli system syslog to configure centralized logging on ESXi hosts
 
-From "[vSphere Command-Line Interface Concepts and Examples](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf)":
+From "[vSphere Command-Line Interface Concepts and Examples](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf)":
 
 > The *esxcli system syslog* command allows you to configure the logging behavior of your ESXi system. With vSphere 5.0, you can manage the top‐level logger and subloggers. The command has the following options.
 >

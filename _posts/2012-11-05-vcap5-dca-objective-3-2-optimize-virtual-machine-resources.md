@@ -250,7 +250,7 @@ All of the above options can be modified by going to the "Host and Clusters" Vie
 
 ### Understand appropriate use cases for CPU affinity
 
-From "[vSphere Resource Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)":
+From "[vSphere Resource Management ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)":
 
 > **Using CPU Affinity**
 > By specifying a CPU affinity setting for each virtual machine, you can restrict the assignment of virtual machines to a subset of the available processors in multiprocessor systems. By using this feature, you can assign each virtual machine to processors in the specified affinity set.
@@ -288,7 +288,7 @@ And here is one section from the same document:
 
 ### Configure alternate virtual machine swap locations
 
-From "[vSphere Resource Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)":
+From "[vSphere Resource Management ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)":
 
 > **Swap File Location**
 > By default, the swap file is created in the same location as the virtual machine's configuration file.

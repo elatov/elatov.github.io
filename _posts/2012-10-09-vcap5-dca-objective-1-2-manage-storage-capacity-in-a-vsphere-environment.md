@@ -13,7 +13,7 @@ For protocols we have Fibre Channel, iSCSI, NFS, FCoE. Check out "[Storage Proto
 
 ![storage_protocols](https://github.com/elatov/uploads/raw/master/2012/09/storage_protocols.png)
 
-For vmdks we have, Lazy Zeroed Thick, Eager Zeroed Thick, and Thin. From the "[vSphere Storage ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf)":
+For vmdks we have, Lazy Zeroed Thick, Eager Zeroed Thick, and Thin. From the "[vSphere Storage ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-storage-guide.pdf)":
 
 > **Thick Provision Lazy Zeroed**
 >
@@ -53,7 +53,7 @@ If you want to really check metrics, fire up esxtop and go to the Disk or LUN vi
 
 ### Apply space utilization data to manage storage resources
 
-If you run out of space. You could've discovered this by an alarm, storage view, or maybe just running 'df' on the system. To alleviate the issue, use storage vMotion (cold or live) to make space on the datastore. If you have the ability you should expand the VMFS datastore. From the [vSphere Storage ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf) guide:
+If you run out of space. You could've discovered this by an alarm, storage view, or maybe just running 'df' on the system. To alleviate the issue, use storage vMotion (cold or live) to make space on the datastore. If you have the ability you should expand the VMFS datastore. From the [vSphere Storage ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-storage-guide.pdf) guide:
 
 > **Increase a VMFS Datastore**
 > When you need to create virtual machines on a datastore, or when the virtual machines running on a datastore require more space, you can dynamically increase the capacity of a VMFS datastore. Use one of the following methods to increase a VMFS datastore:
@@ -98,7 +98,7 @@ Check under Triggered Alarms (Datastore View -> Select Datastore -> Select Alarm
 
 ### Configure Datastore Clusters
 
-From "[vSphere Resource Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)"
+From "[vSphere Resource Management ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-resource-management-guide.pdf)"
 
 > **Creating a Datastore Cluster**
 > A datastore cluster is a collection of datastores with shared resources and a shared management interface. Datastore clusters are to datastores what clusters are to hosts. When you create a datastore cluster, you can use vSphere Storage DRS to manage storage resources.

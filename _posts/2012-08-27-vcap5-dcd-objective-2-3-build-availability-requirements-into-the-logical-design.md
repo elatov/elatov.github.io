@@ -114,7 +114,7 @@ Depending on what type of failure you are defining a plan for, do it properly. F
 
 ### Prioritize each service in the Service Catalog according to availability requirements
 
-Using VMware HA set the reboot priority depending on the availability requirements. Most important Services/VMs can have the highest priority during an HA failover. From the "[vSphere Availability](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-availability-guide.pdf)" PDF, linked in the blue print:
+Using VMware HA set the reboot priority depending on the availability requirements. Most important Services/VMs can have the highest priority during an HA failover. From the "[vSphere Availability](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-availability-guide.pdf)" PDF, linked in the blue print:
 
 > **VM Restart Priority Setting**
 > VM restart priority determines the relative order in which virtual machines are restarted after a host failure.Such virtual machines are restarted sequentially on new hosts, with the highest priority virtual machines first and continuing to those with lower priority until all virtual machines are restarted or no more cluster resources are available.

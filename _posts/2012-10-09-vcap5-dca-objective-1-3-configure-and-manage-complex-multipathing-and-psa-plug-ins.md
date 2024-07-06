@@ -15,7 +15,7 @@ From this VMware KB [1011375](http://kb.vmware.com/kb/1011375):
 >
 > To manage storage multipathing, ESX/ESXi uses a special VMkernel layer, Pluggable Storage Architecture (PSA). The PSA is an open modular framework that coordinates the simultaneous operation of multiple multipathing plugins (MPPs). PSA is a collection of VMkernel APIs that allow third party hardware vendors to insert code directly into the ESX storage I/O path. This allows 3rd party software developers to design their own load balancing techniques and failover mechanisms for particular storage array. The PSA coordinates the operation of the NMP and any additional 3rd party MPP
 
-From the [vSphere Storage ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf):
+From the [vSphere Storage ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-storage-guide.pdf):
 
 ![vsphere_storage](https://github.com/elatov/uploads/raw/master/2012/09/vsphere_storage.png)
 
@@ -53,7 +53,7 @@ There is also an excellent blog written by Cormac Hogan on how IO is handled by 
 
 ### Install and Configure PSA plug-ins
 
-From [vSphere Storage ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf):
+From [vSphere Storage ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-storage-guide.pdf):
 
 > To list VMware SATPs, run the following command:
 >
@@ -92,7 +92,7 @@ From [vSphere Storage ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmwa
 >	 # esxcli storage nmp satp rule add -V NewVend -M NewMod -s VMW_SATP_INV
 >
 
-From "[vSphere Command-Line Interface Concepts and Examples ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf)"
+From "[vSphere Command-Line Interface Concepts and Examples ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf)"
 
 Add a new SATP
 
@@ -182,7 +182,7 @@ Change PSP for device/LUN:
 
 ### Understand different multipathing policy functionalities
 
-From the [vSphere Storage ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-storage-guide.pdf) :
+From the [vSphere Storage ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-storage-guide.pdf) :
 
 > By default, the VMware NMP supports the following PSPs:
 >
@@ -203,7 +203,7 @@ From the [vSphere Storage ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.
 
 ### Perform command line configuration of multipathing options
 
-From [vSphere Command-Line Interface Concepts and Examples ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf) :
+From [vSphere Command-Line Interface Concepts and Examples ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf) :
 
 > List all devices with their corresponding paths, state of the path, adapter type, and other information:
 >
@@ -290,7 +290,7 @@ From above:
 
 ### Configure Software iSCSI port binding
 
-From [vSphere Command-Line Interface Concepts and Examples ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf):
+From [vSphere Command-Line Interface Concepts and Examples ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf):
 
 Create a virtual Switch and enable jumbo frames on it:
 

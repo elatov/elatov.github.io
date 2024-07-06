@@ -9,7 +9,7 @@ tags: ['esx_firewall']
 
 ### Identify esxcli firewall configuration commands
 
-From "[vSphere Security ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-security-guide.pdf)":
+From "[vSphere Security ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-security-guide.pdf)":
 
 > **Firewall Configuration Using the ESXi Shell**
 > The vSphere Client graphical user interface provides the preferred means of performing many configuration tasks. However, you can use the ESXi Shell to configure ESXi at the command line if necessary.
@@ -37,7 +37,7 @@ So if the default Action is "DROP" then we are at high. If the the default actio
 
 ### Enable/Disable pre-configured services
 
-From "[vSphere Command-Line Interface Concepts and Examples ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf)":
+From "[vSphere Command-Line Interface Concepts and Examples ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-command-line-interface-solutions-and-examples-guide.pdf)":
 
 > **Using esxcli network firewall for ESXi Firewall Management**
 > To minimize the risk of an attack through the management interface, ESXi includes a firewall between the management interface and the network. To ensure the integrity of the host, only a small number of firewall ports are open by default. The vSphere Security documentation explains how to set up firewalls for your environment and which ports you might have to temporarily enable for certain traffic.
@@ -121,7 +121,7 @@ To enable or disable any of the above services you can do the following:
 
 ### Configure service behavior automation
 
-From "[vSphere Security ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-security-guide.pdf)":
+From "[vSphere Security ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-security-guide.pdf)":
 
 > **Automating Service Behavior Based on Firewall Settings**
 > ESXi can automate whether services start based on the status of firewall ports.
@@ -245,7 +245,7 @@ If you want to open up any of those port, just enable the service per the instru
 
 ### Create a custom service
 
-From "[vSphere Security ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-security-guide.pdf)":
+From "[vSphere Security ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-security-guide.pdf)":
 
 > **Rule Set Configuration Files**
 > A rule set configuration file contains firewall rules and describes each rule's relationship with ports and protocols. The rule set configuration file can contain rule sets for multiple services.

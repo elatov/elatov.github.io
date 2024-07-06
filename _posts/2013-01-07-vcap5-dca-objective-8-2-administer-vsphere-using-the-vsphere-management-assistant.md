@@ -9,7 +9,7 @@ tags: ['vma','gpt']
 
 ### Identify vMA prerequisites
 
-From "[vSphere Management Assistant Guide vSphere 5.1](http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf)":
+From "[vSphere Management Assistant Guide vSphere 5.1](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-management-assistant-65-guide.pdf)":
 
 > **Hardware Requirements**
 > To set up vMA, you must have an ESXi host. Because vMA runs a 64‐bit Linux guest operating system, the ESXi host on which it runs must support 64‐bit virtual machines.
@@ -38,13 +38,13 @@ From "[vSphere Management Assistant Guide vSphere 5.1](http://pubs.vmware.com/vs
 
 ### Identify vMA specific commands
 
-From "[vSphere Management Assistant Guide vSphere 5.1](http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf)":
+From "[vSphere Management Assistant Guide vSphere 5.1](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-management-assistant-65-guide.pdf)":
 
 ![vma commands VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant ](https://github.com/elatov/uploads/raw/master/2012/12/vma_commands.png)
 
 ### Determine when vMA is needed
 
-From "[vSphere Management Assistant Guide vSphere 5.1](http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf)":
+From "[vSphere Management Assistant Guide vSphere 5.1](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-management-assistant-65-guide.pdf)":
 
 > vMA Capabilities
 > vMA provides a flexible and authenticated platform for running scripts and programs.
@@ -66,7 +66,7 @@ I decided to install the 5.1 version of VMa just for fun. First download the zip
 
 ![vma download VCAP5 DCA Objective 8.2 – Administer vSphere Using the vSphere Management Assistant ](https://github.com/elatov/uploads/raw/master/2012/12/vma_download.png)
 
-Then from "[vSphere Management Assistant Guide vSphere 5.1](http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf)"::
+Then from "[vSphere Management Assistant Guide vSphere 5.1](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-management-assistant-65-guide.pdf)"::
 
 > **To deploy vMA**
 >
@@ -194,7 +194,7 @@ And then I was able to ssh to the machine with putty without issues:
 
 ### Add/Remove target servers
 
-From "[vSphere Management Assistant Guide vSphere 5.1](http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf)":
+From "[vSphere Management Assistant Guide vSphere 5.1](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-management-assistant-65-guide.pdf)":
 
 > **Add Target Servers to vMA**
 > After you configure vMA, you can add target servers that run the supported vCenter Server or ESXi version.
@@ -280,7 +280,7 @@ Notice how my prompt changed again.
 
 ### Perform updates to the vMA
 
-From "[vSphere Management Assistant Guide vSphere 5.1](http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf)":
+From "[vSphere Management Assistant Guide vSphere 5.1](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-management-assistant-65-guide.pdf)":
 
 > **Update vMA**
 > You can download software updates including security fixes fromVMware and components included in vMA, such as the SUSE Linux Enterprise Server updates and JRE.
@@ -542,7 +542,7 @@ Most of these were covered throughout the whole blue print.
 
 ### Troubleshoot common vMA errors and conditions
 
-From "[vSphere Management Assistant Guide vSphere 5.1](http://pubs.vmware.com/vsphere-51/topic/com.vmware.ICbase/PDF/vma_51_guide.pdf)":
+From "[vSphere Management Assistant Guide vSphere 5.1](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-management-assistant-65-guide.pdf)":
 
 > **Troubleshooting vMA**
 > You can find troubleshooting information for all VMware products in VMware Knowledge Base articles and information about vMA known issues in the release notes. Table 2‐3 explains a few commonly encountered issues that are easily resolved.

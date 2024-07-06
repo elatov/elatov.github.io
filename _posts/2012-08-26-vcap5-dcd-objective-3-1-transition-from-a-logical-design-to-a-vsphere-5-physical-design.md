@@ -41,7 +41,7 @@ Now our physical diagram would include:
 
 ### Given the operational structure of an organization, identify the appropriate management tools and roles for each staff member
 
-From the [vSphere Security Guide](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-security-guide.pdf), here is a list of predefined roles:
+From the [vSphere Security Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-security-guide.pdf), here is a list of predefined roles:
 
 > *   No Access
 > *   Read Only
