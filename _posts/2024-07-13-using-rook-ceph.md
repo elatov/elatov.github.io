@@ -259,7 +259,7 @@ ceph-blockpool   2   32  1.5 GiB      441  4.6 GiB   1.62     93 GiB
 
 Even though I have 1 `mon`, I decided to still use 3 for the `osd_pool_size`, that way it will replicate across multiple nodes/`osd`. As expected we can see I have a total of `300G` of raw storage but only `95G` from the available spaces in my pool.
 
-### Disabled SSL on the ceph dashboard
+### Disabling SSL on the ceph dashboard
 
 Since it's just an internal deployment, I didn't really need to enable `ssl` on the dashboard. Initially I just disabled it, but it still didn't work. I ran into [this old issue](https://github.com/rook/rook/issues/13577) and it looks like if you disable SSL you have to specify the port. So I updated my `values.yaml`:
 
