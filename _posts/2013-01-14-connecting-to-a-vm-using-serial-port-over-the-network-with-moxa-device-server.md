@@ -11,7 +11,7 @@ Before we get into how to set this up, let's get a good diagram going to better 
 
 ![VM Serial Connection Over Network Connecting to a VM using Serial Port Over the Network With a Moxa Device Server](https://github.com/elatov/uploads/raw/master/2012/12/VM_Serial_Connection_Over_Network.jpg)
 
-So to configure this from the VM, we can follow instructions laid out in "[vSphere Virtual Machine Administration ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-virtual-machine-admin-guide.pdf)". From that document:
+So to configure this from the VM, we can follow instructions laid out in "[vSphere Virtual Machine Administration ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-virtual-machine-admin-guide.pdf)". From that document:
 
 > **Using Serial Ports with vSphere Virtual Machines**
 > You can set up virtual serial ports connections for vSphere virtual machines in several ways. The connection method that you select depends on the task that you need to accomplish.

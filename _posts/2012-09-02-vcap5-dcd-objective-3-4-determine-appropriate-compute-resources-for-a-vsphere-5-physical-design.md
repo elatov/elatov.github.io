@@ -378,7 +378,7 @@ From [vSphere Resource Management ESXi 5.0](https://storage.googleapis.com/grand
 
 So if you have some SLA's defined, then define Resource Pools for each SLA. Also as mentioned you can use them to separate departments for organizational purposes.
 
-As for vApps, from "[vSphere Virtual Machine AdministrationESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-virtual-machine-admin-guide.pdf)":
+As for vApps, from "[vSphere Virtual Machine AdministrationESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-virtual-machine-admin-guide.pdf)":
 
 > **Managing Multi-Tiered Applications with vSphere vApp**
 > You can use VMware vSphere as a platform for running applications, in addition to using it as a platform for running virtual machines. The applications can be packaged to run directly on top of VMware vSphere. The format of how the applications are packaged and managed is called vSphere vApp. A vApp is a container, like a resource pool and can contain one or more virtual machines. A vApp also shares some functionality with virtual machines. A vApp can power on and power off, and can also be cloned. In the vSphere Client, a vApp is represented in both the Host and Clusters view and the VM and Template view. Each view has a specific summary page with the current status of the service and relevant summary information, as well as operations on the service.

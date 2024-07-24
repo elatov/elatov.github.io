@@ -15,7 +15,7 @@ From [their site](https://kubectl.docs.kubernetes.io/guides/introduction/kustomi
 
 It's a perfect tool to create environment based customizations to your k8s deployments. `kustomize` uses a concept of **bases** and **overlays**, where you define a base and then you create overlays which customize the configuration depending on your environment. There is a pretty cool diagram in [their github](https://github.com/kubernetes-sigs/kustomize):
 
-![overlay.jpg](https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/images/overlay.jpg)
+![overlay.jpg](https://res.cloudinary.com/elatov/image/upload/v1721854499/blog-pics/kustomize/mjshf2ye3fdcc5haw4az.jpg)
 
 And here is a simple directory hierarchy:
 

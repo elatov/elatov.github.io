@@ -11,7 +11,7 @@ tags: ['powercli']
 
 ### Identify vSphere PowerCLI requirements
 
-From "[vSphere PowerCLI User’s Guide PowerCLI 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp_powercli_50_usg.pdf)":
+From "[vSphere PowerCLI User’s Guide PowerCLI 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/vmware-powercli-132-user-guide.pdf)":
 
 > **PowerCLI Installation Prerequisites**
 > To install vSphere PowerCLI, you must have installed the following software
@@ -93,7 +93,7 @@ Double Clicking on the "PowerCLi" Icon will start PowerCLI:
 
 Notice that I also enabled 'remotesigned' execution of scripts.
 
-From "[vSphere PowerCLI User’s Guide PowerCLI 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp_powercli_50_usg.pdf)":
+From "[vSphere PowerCLI User’s Guide PowerCLI 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/vmware-powercli-132-user-guide.pdf)":
 
 > **Setting the Properties to Support Remote Signing**
 > For security reasons, Windows PowerShell supports an execution policy feature. It determines whether scripts are allowed to run and whether they must be digitally signed. By default, the execution policy is set to Restricted, which is the most secure policy. If you want to run scripts or load configuration files, you can change the execution policy by using the Set-ExecutionPolicy cmdlet.
@@ -112,7 +112,7 @@ After enabling the appropriate Execution policy, the powercli console will look 
 
 ### Install and configure Update Manager PowerShell Library
 
-From "[VMware vSphere Update Manager PowerCLI Installation and Administration Guide PowerCLI 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-powercli-50-inst-admg.pdf)":
+From "[VMware vSphere Update Manager PowerCLI Installation and Administration Guide PowerCLI 5.0](https://docs.vmware.com/en/VMware-PowerCLI/latest/powercli/GUID-BCD266EC-2A66-4F35-8E2E-0138C10D7007.html)":
 
 > **Install Update Manager PowerCLI**
 > You can download the Update Manager PowerCLI installer package from the product landing page at https://www.vmware.com/support/developer/ps-libs/vumps/.
@@ -365,7 +365,7 @@ And more examples from the same guide:
 >   The **-RunAsync** parameter specifies that the command runs asynchronously. This means that in contrast to a synchronous operation, you do not have to wait for the process to complete before supplying the next command in the command line.
 
 ### Use Web Service Access Cmdlets
-From "[vSphere PowerCLI User’s Guide PowerCLI 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsp_powercli_50_usg.pdf)":
+From "[vSphere PowerCLI User’s Guide PowerCLI 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/vmware-powercli-132-user-guide.pdf)":
 
 > **API Access Cmdlets**
 > The vSphere PowerCLI list of cmdlets includes two API Access cmdlets:

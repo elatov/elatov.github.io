@@ -64,7 +64,7 @@ Here is VGT:
 >     `switchport trunk allowed vlan x,y,z`
 >     `spanning-tree portfast trunk`
 
-From the [vShpere Documentation](http://pubs.vmware.com/vsphere-50/index.jsp?topic=%2Fcom.vmware.vsphere.networking.doc_50%2FGUID-A9287D46-FDE0-4D64-9348-3905FEAC7FAE.html):
+From the [vShpere Documentation](https://docs.vmware.com/en/VMware-vSphere/8.0/vsphere-networking/GUID-35B40B0B-0C13-43B2-BC85-18C9C91BE2D4.html):
 
 > **Private VLANs**
 > Private VLANs are used to solve VLAN ID limitations and waste of IP addresses for certain network setups.
@@ -180,7 +180,7 @@ From a [VMUG Presentation](http://www.cpd.iit.edu/netsecure08/ROBERT_RANDELL.pd
 
 ### Based on service level requirements, determine appropriate network performance characteristics.
 
-From the "[VMware vSphere Distributed Switch Best Practices](http://www.vmware.com/files/pdf/techpaper/vsphere-distributed-switch-best-practices.pdf)", BTW great paper:
+From the "[VMware vSphere Distributed Switch Best Practices](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/vsphere-distributed-switch-best-practices-white-paper.pdf)", BTW great paper:
 
 ![type-of-net-traffic](https://github.com/elatov/uploads/raw/master/2012/08/type-of-net-traffic.png)
 
@@ -207,7 +207,7 @@ Also remember to put your 10Gb NIcs on PCIe 8x slots. If possible use NetQueue, 
 
 ### Properly apply converged networking considering VMware best practices If limited on 10Gb NICs utilize NIOC as described in 
 
-[VMware Network I/O Control: Architecture, Performance and Best Practices VMware vSphere 4.1](http://www.vmware.com/files/pdf/techpaper/vsphere-distributed-switch-best-practices.pdf)":
+[VMware Network I/O Control: Architecture, Performance and Best Practices VMware vSphere 4.1](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/vmware_netioc_bestpractices-white-paper.pdf)":
 
 > Network convergence using 10GbE technology provides enormous opportunities for IT administrators and architects to simplify the physical network infrastructure while improving performance. Administrators and architects need a simple and reliable way to enable prioritization of critical traffic over the physical network if and when contention for those resources occurs. The Network I/O Control (NetIOC) feature available in VMware® vSphere™ 4.1 (“vSphere”) addresses these challenges by introducing a software approach to partitioning physical network bandwidth among the different types of network traffic flows. It does so by providing appropriate quality of service (QoS) policies enforcing traffic isolation, predictability and prioritization, therefore helping IT organizations overcome the contention resulting from consolidation.
 >

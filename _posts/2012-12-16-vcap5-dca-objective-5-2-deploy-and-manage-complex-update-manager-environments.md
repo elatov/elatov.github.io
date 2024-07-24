@@ -17,7 +17,7 @@ From "[Installing and Administering VMware vSphere Update Manager](https://stora
 
 ### Install and configure Update Manager Download Service
 
-From "[Reconfiguring VMware vSphere Update Manager](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-reconfig-guide.pdf)":
+From "[Reconfiguring VMware vSphere Update Manager](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-update-manager-651-reconfig-guide.pdf)":
 
 > **Install UMDS and the Update Manager Utility**
 > When you install UMDS, the Update Manager Utility is silently installed on your system as an additional component.
@@ -198,7 +198,7 @@ When the upload is done you will see a list of patches, including yours:
 
 ### Perform orchestrated vSphere upgrades
 
-From "[vSphere Upgrade vSphere 5.0 Update 1](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-upgrade-guide.pdf)":
+From "[vSphere Upgrade vSphere 5.0 Update 1](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-vcenter-server-703-upgrade-guide.pdf)":
 
 > **Perform an Orchestrated Upgrade of Hosts Using vSphere Update Manager**
 > You can use Update Manager to perform orchestrated upgrades of the ESX/ESXi hosts in your vSphere inventory by using a single upgrade baseline, or by using a baseline group.
@@ -568,7 +568,7 @@ You have now exported the tested baseline to another Update Manager server.
 
 ### Utilize the Update Manager Utility to reconfigure vUM settings
 
-From "[Reconfiguring VMware vSphere Update Manager](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-update-manager-50-reconfig-guide.pdf)":
+From "[Reconfiguring VMware vSphere Update Manager](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-update-manager-651-reconfig-guide.pdf)":
 
 > **Start the Update Manager Utility and Log In**
 > To use the Update Manager Utility, you must start the utility and log in

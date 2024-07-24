@@ -46,7 +46,7 @@ $ declare -a IPS=(192.168.1.51 192.168.1.52 192.168.1.53)
 $ CONFIG_FILE=inventory/home/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]}
 ```
 
-Before running the the install I decided to enable [MetalLB](https://github.com/kubernetes-sigs/kubespray/blob/master/docs/metallb.md):
+Before running the the install I decided to enable [MetalLB](https://github.com/kubernetes-sigs/kubespray/blob/master/docs/ingress/metallb.md):
 
 ```bash
 # inventory/home/group_vars/k8s_cluster/k8s-cluster.yaml
@@ -79,8 +79,8 @@ ingress_publish_status_address: ""
 ## Installing with kubespray
 
 The install it self was pretty simple, it's covered in
-[Setting up your first cluster with Kubespray](https://github.com/kubernetes-sigs/kubespray/blob/master/docs/setting-up-your-first-cluster.md)
-and [Getting started](https://github.com/kubernetes-sigs/kubespray/blob/master/docs/getting-started.md):
+[Setting up your first cluster with Kubespray](https://github.com/kubernetes-sigs/kubespray/blob/master/docs/getting_started/setting-up-your-first-cluster.md)
+and [Getting started](https://github.com/kubernetes-sigs/kubespray/blob/master/docs/getting_started/getting-started.md):
 
 ```bash
 $ ansible-playbook -i inventory/home/hosts.yaml  --become --become-user=root cluster.yml
@@ -174,7 +174,7 @@ round-trip min/avg/max = 31.465/31.580/31.695 ms
 
 ## To perform an upgrade
 
-Most of the instructions are laid out in [Upgrades](https://github.com/kubernetes-sigs/kubespray/blob/master/docs/upgrades.md).
+Most of the instructions are laid out in [Upgrades](https://github.com/kubernetes-sigs/kubespray/blob/master/docs/operations/upgrades.md).
 The safest thing to do is either modify the `group_vars` file:
 
 ```bash

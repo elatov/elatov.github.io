@@ -16,7 +16,7 @@ After the upgrade I started seeing the `nodelocaldns` pods show a bunch of `perm
 ```
 ```
 
-As a quick test I decided to disable [that feature](https://github.com/kubernetes-sigs/kubespray/blob/master/docs/dns-stack.md#nodelocal-dns-cache):
+As a quick test I decided to disable [that feature](https://github.com/kubernetes-sigs/kubespray/blob/master/docs/advanced/dns-stack.md#nodelocal-dns-cache):
 
 ```
 enable_nodelocaldns: false

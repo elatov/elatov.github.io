@@ -9,7 +9,7 @@ tags: ['performance']
 
 ### Identify resxtop/esxtop metrics related to memory and CPU
 
-From "[vSphere Monitoring and Performance](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-monitoring-performance-guide.pdf)", here are the CPU counters:
+From "[vSphere Monitoring and Performance](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf)", here are the CPU counters:
 
 ![esxtop cpu counters p1 VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance ](https://github.com/elatov/uploads/raw/master/2012/12/esxtop_cpu_counters_p1.png)
 

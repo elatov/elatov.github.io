@@ -108,7 +108,7 @@ Check out [Performance Best Practices for VMware vSphere 5.0](/2012/08/vcap5-dcd
 
 ### Determine the appropriate vCenter Server design and sizing requirements: vCenter Server Linked Mode, vCenter Server Virtual Appliance, vCenter Server heartbeat
 
-From "[vCenter Server and Host Management ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-host-management-guide.pdf)":
+From "[vCenter Server and Host Management ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-host-management-guide.pdf)":
 
 > **Using vCenter Server in Linked Mode**
 > You can join multiple vCenter Server systems using vCenter Linked Mode to allow them to share information. When a server is connected to other vCenter Server systems using Linked Mode, you can connect to that vCenter Server system and view and manage the inventories of the linked vCenter Server systems.Linked Mode uses Microsoft Active Directory Application Mode (ADAM) to store and synchronize data across multiple vCenter Server systems. ADAM is installed as part of vCenter Server installation. Each ADAM instance stores data from the vCenter Server systems in the group, including information about roles andlicenses. This information is replicated across all of the ADAM instances in the connected group to keep them in sync.
@@ -119,7 +119,7 @@ From "[vCenter Server and Host Management ESXi 5.0](http://pubs.vmware.com/vsphe
 > *   Search the inventories of the vCenter Server systems in the group.
 > *   View the inventories of the vCenter Server systems in the group in a single inventory view. So if you have multiple vCenter instances to manage different sites, for site recovery or just different locations, then vCenter Linked mode will help out with managing of all the different sites under one location
 
-From "[vSphere Installation and Setup vSphere 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-501-installation-setup-guide.pdf)":
+From "[vSphere Installation and Setup vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-installation-setup-guide.pdf)":
 
 > **Download and Deploy the VMware vCenter Server Appliance**
 > As an alternative to installing vCenter Server on a Windows machine, you can download the VMware vCenter Server Appliance. The vCenter Server Appliance is a preconfigured Linux-based virtual machine optimized for running vCenter Server and associated services.
@@ -531,7 +531,7 @@ For VMs, you have a couple of options as well:
 *   You can just use PXE to boot VMs
 *   You can deploy one VM at a time and have an ISO repository from which you can install the necessary OS
 
-From "[vSphere Virtual Machine Administration ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-virtual-machine-admin-guide.pdf)":
+From "[vSphere Virtual Machine Administration ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-703-virtual-machine-admin-guide.pdf)":
 
 > **About Provisioning Virtual Machines**
 > VMware provides several methods to provision vSphere virtual machines. The optimal method for your environment depends on factors such as the size and type of your infrastructure and the goals that you are trying to achieve.

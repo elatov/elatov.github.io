@@ -35,7 +35,7 @@ Here is a small example of an implementation plan:
 
 ### Incorporate customer objectives into a phased implementation schedule
 
-From "[The Roadmap to Virtual Infrastructure: Practical Implementation Strategies](http://download3.vmware.com/elq/pdf/wp_roadmaptovirtualinfrastructure.pdf)":
+From [The Roadmap to Virtual Infrastructure: Practical Implementation Strategies](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/wp_roadmaptovirtualinfrastructure.pdf):
 
 > **Typical Deployment Phasing**
 > While the goal of virtualization is to improve operations and reduce cost, the best practice in deploying virtualization is to take a phased implementation approach where you focus on the following areas:

@@ -9,7 +9,7 @@ tags: ['host_profile']
 
 ### Use Profile Editor to edit and/or disable policies
 
-From "[vSphere Host Profiles ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-host-profiles-guide.pdf)":
+From "[vSphere Host Profiles ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/vsphere-esxi-vcenter-server-703-host-profiles-guide.pdf)":
 
 > **Access Host Profiles View**
 > The Host Profiles main view lists all available profiles. Administrators can also use the Host Profiles main view to perform operations on host profiles and configure profiles.
@@ -86,7 +86,7 @@ Here is how editing of the Host Profile looks like in vCenter:
 
 ### Create sub-profiles
 
-From "[vSphere Host Profiles ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-host-profiles-guide.pdf)":
+From "[vSphere Host Profiles ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/vsphere-esxi-vcenter-server-703-host-profiles-guide.pdf)":
 
 > **Edit a Policy**
 > A policy describes how a specific configuration setting should be applied. The Profile Editor allows you to edit policies belonging to a specific host profile.
@@ -133,7 +133,7 @@ Expand the "Storage Configuration" under the profile section and change whatever
 
 ### Manage Answer Files
 
-From "[vSphere Host Profiles ESXi 5.0](http://pubs.vmware.com/vsphere-50/topic/com.vmware.ICbase/PDF/vsphere-esxi-vcenter-server-50-host-profiles-guide.pdf)":
+From "[vSphere Host Profiles ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/vsphere-esxi-vcenter-server-703-host-profiles-guide.pdf)":
 
 > To apply a host profile to a host, the host must be placed into maintenance mode. During this process, the user is prompted to type answers for policies that are specified during host profile creation.
 >

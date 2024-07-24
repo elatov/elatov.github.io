@@ -139,9 +139,9 @@ I would recommend watching:
 
 *   [APAC BrownBag Session 4](https://professionalvmware.com/vmware-certifications/)
 
-There is also an excellent VMware course on this:
+There is also an excellent course on this:
 
-*   [DRBC Design – Disaster Recovery and Business Continuity Fundamentals](http://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&a=one&id_subject=20313)
+*   [Business Continuity and Disaster Recovery](https://www.udemy.com/course/business-continuity-and-disaster-recovery-b)
 
-If you are a VMware Employee it's free :)
+It's has a nice overview.
 
