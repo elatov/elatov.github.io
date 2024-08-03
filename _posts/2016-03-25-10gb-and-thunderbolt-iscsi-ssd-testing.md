@@ -446,7 +446,7 @@ Just in case I rebooted the ESXi host. The read performance did get a little bet
 Since the converter had two 10Gb Nics, I decided to set up iSCSI MPIO with port binding. These sites cover most of the configuration:
 
 * [vSphere 5.0 Storage Features Part 12 – iSCSI Multipathing Enhancements](https://blogs.vmware.com/vsphere/2011/08/vsphere-50-storage-features-part-12-iscsi-multipathing-enhancements.html)
-* [Multipathing Configuration for Software iSCSI Using Port Binding](http://www.vmware.com/files/pdf/techpaper/vmware-multipathing-configuration-software-iSCSI-port-binding.pdf)
+* [Multipathing Configuration for Software iSCSI Using Port Binding](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vmware-multipathing-configuration-software-iscsi-port-binding-white-paper.pdf)
 * [Considerations for using software iSCSI port binding in ESX/ESXi](http://kb.vmware.com/kb/2038869)
 
 After I was done I saw multiple paths going to the same LUN:

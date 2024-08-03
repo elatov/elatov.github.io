@@ -63,7 +63,7 @@ Depending on the environment choose the storage protocol that will best fill the
 
 ### Create a physical storage design based on selected storage array capabilities, including but not limited to: Active/Active, Active/Passive, ALUA, VAAI, VASA, PSA (including PSPs and SATPs)
 
-Each Array has their best practices, I would suggest following those. Let's say you got an A/A array. A typical A/A array is an EMC Symmetrix. From "[Using VMware vSphere with EMC Symmetrix Storage](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/h2529-vmware-esx-svr-w-symmetrix-wp-ldv.pdf)":
+Each Array has their best practices, I would suggest following those. Let's say you got an A/A array. A typical A/A array is an EMC Symmetrix. From "[Using VMware vSphere with EMC Symmetrix Storage](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/h2529-vmware-esx-svr-w-symmetrix-wp-ldv.pdf)":
 
 > **Symmetrix DMX connectivity**
 > Each ESX host that uses Symmetrix DMX storage should have at least two physical HBAs, and each HBA should be connected to one front-end port on different directors. This configuration ensures two things:First, since there are two HBAs, if one goes down for any reason all connectivity is not lost. Second, this ensures continued access to the array from the ESX host even if a front-end port goes down for maintenance activities on the director.
@@ -83,7 +83,7 @@ Also from the same pdf:
 
 ![vmax-vmware-bp](https://github.com/elatov/uploads/raw/master/2012/08/vmax-vmware-bp.png)
 
-The recommended PSP for A/A Arrays is fixed. A typical A/P array is an HP EVA. From "[HP Enterprise Virtual Array Family with VMware vSphere 4.0 , 4.1 and 5.0 Configuration Best Practices](http://www.vmware.com/files/pdf/techpaper/hp-enterprise-virtual-array-family-vsphere-configuration.pdf)":
+The recommended PSP for A/A Arrays is fixed. A typical A/P array is an HP EVA. From "[HP Enterprise Virtual Array Family with VMware vSphere 4.0 , 4.1 and 5.0 Configuration Best Practices](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/hp-enterprise-virtual-array-family-vsphere-configuration.pdf)":
 
 > All I/Os to Vdisks 1 – 4 are routed through one or more ports on Controller 1 and through Paths 1and/or 3, regardless of the HBA that originates the I/O. Similarly, all I/Os to Vdisks 5 – 7 are routed to Controller 2 through Paths 3 and 4, regardless of the originating HBA.The vSphere 4.x/5 implementation yields much higher system resource utilization and throughput and, most importantly, delivers a balanced system out of the box, with no intricate configuration required. Here is the diagram they are discussing:
 
@@ -171,7 +171,7 @@ The blog "[Configuring VASA with EMC arrays – CLARiiON, VNX and VMAX](https://
 
 ### Identify proper combination of media and port criteria for given end-to-end performance requirements.
 
-From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf)":
+From "[Performance Best Practices for VMware vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/Perf_Best_Practices_vSphere5.0.pdf)":
 
 > *   Make sure that end-to-end Fibre Channel speeds are consistent to help avoid performance problems
 > *   For iSCSI and NFS, make sure that your network topology does not contain Ethernet bottlenecks, where multiple links are routed through fewer links, potentially resulting in oversubscription and dropped network packets. Any time a number of links transmitting near capacity are switched to a smaller number of links, such over-subscription is a possibility.
@@ -208,7 +208,7 @@ The last one kind of contradicts Brocades best practices, but it just depends on
 
 ### Based on service level requirements utilize VMware technologies, including but not limited to: Storage I/O Control, Storage Policies, Storage vMotion, Storage DRS
 
-From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf)"
+From "[Performance Best Practices for VMware vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/Perf_Best_Practices_vSphere5.0.pdf)"
 
 > **Storage I/O Resource Allocation**
 > VMware vSphere provides mechanisms to dynamically allocate storage I/O resources, allowing critical workloads to maintain their performance even during peak load periods when there is contention for I/O resources. This allocation can be performed at the level of the individual host or for an entire datastore. Both methods are described below.
@@ -232,7 +232,7 @@ From "[VMware Storage VMotion](http://blogs.vmware.com/vsphere/2011/03/under-the
 > *   Dynamically optimize storage I/O performance.Optimizing storage I/O performance often requires reconfiguration and reallocation of storage, which can be a highly disruptive process for both administrators and users and often requires scheduling downtime. With Storage VMotion, IT administrators can move virtual machine disk files to alternative LUNs that are properly configured to deliver optimal performance without the need for scheduled downtime, eliminating the time and cost associated with traditional methods
 > *   Efficiently manage storage capacity.Increasing or decreasing storage allocation requires multiple manual steps, including coordination between groups, scheduling downtime and adding additional storage. This is then followed by a lengthy migration of virtual machine disk files to the new datastore, resulting in significant service downtime. Storage VMotion improves this process by enabling administrators to take advantage of newly allocated storage in a non-disruptive manner. Storage VMotion can also be used as a storage tiering tool by moving data to different types of storage platforms based the data value, performance requirements and storage costs.
 
-From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf)":
+From "[Performance Best Practices for VMware vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/Perf_Best_Practices_vSphere5.0.pdf)":
 
 > **VMware Storage Distributed Resource Scheduler (Storage DRS)**
 > A new feature in vSphere 5.0, Storage Distributed Resource Scheduler (Storage DRS), provides I/O load balancing across datastores within a datastore cluster (a new vCenter object). This load balancing can avoid storage performance bottlenecks or address them if they occur.This section lists Storage DRS practices and configurations recommended by VMware for optimal performance.
@@ -250,12 +250,12 @@ Using all the functions mentioned above you can plan for upgrades appropriately,
 
 ### Determine use case for virtual storage appliances, including the vSphere Storage Appliance
 
-If you don't plan on getting a SAN and you are an SMB (small and medium-sized business) then this might be perfect. From "[VMware vSphere Storage Appliance](http://www.vmware.com/files/pdf/products/vsphere/vSphere-VSA-Datasheet.pdf)":
+If you don't plan on getting a SAN and you are an SMB (small and medium-sized business) then this might be perfect. From "[VMware vSphere Storage Appliance](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-vsa-datasheet.pdf)":
 
 > What Does vSphere Storage Appliance Deliver?
 > For many small environments (ranging from the smallest branch office to growing SMBs), virtualizing servers has required them to deal with the complexities of shared storage for the first time. Not anymore. VSA provides High Availability and automation capabilities of vSphere to any small environment without shared storage hardware. Get business continuity for all your applications, eliminate planned downtime due to server maintenance, and use policies to prioritize resources for your most important applications. VSA enables you to do all this, without shared storage hardware.
 
-There is a good cost-comparison [here](http://www.vmware.com/products/datacenter-virtualization/vsphere/vsphere-storage-appliance/cost-comparison.html):
+There is a good cost-comparison [here](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-vsa-datasheet.pdf):
 
 ![cost-comparison-vsa](https://github.com/elatov/uploads/raw/master/2012/08/cost-comparison-vsa.png)
 
@@ -267,7 +267,7 @@ And here is how the VSA works:
 
 ![vsa-san](https://github.com/elatov/uploads/raw/master/2012/08/vsa-san.png)
 
-If you want more information on how the VSA works, please read "[VMware vSphere Storage Appliance Technical Deep Dive](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/vm-vsphere-storage-appliance-deep-dive-white-paper.pdf)"
+If you want more information on how the VSA works, please read "[VMware vSphere Storage Appliance Technical Deep Dive](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vm-vsphere-storage-appliance-deep-dive-white-paper.pdf)"
 
 ### Given the functional requirements, size the storage for capacity, availability and performance, including: Virtual Storage, Physical Storage
 
@@ -333,7 +333,7 @@ As mentioned some array vendors provide recommendations as well, from "[Sizing L
 
 > Most people seem to agree that 10-25 VMDKs per LUN is the “sweet spot” or “magic number” and that typically results in LUN sizes anywhere from 300-700 GB. Before you freak out, please keep in mind those are just AVERAGES and 500 GB LUNs with 16 VMs per LUN certainly won’t work in every situation.
 
-From "[Scalable Storage Performance](http://www.vmware.com/techpapers/2008/scalable-storage-performance-1059.html)":
+From "[Scalable Storage Performance](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/scalable_storage_performance.pdf)":
 
 > A maximum number of outstanding I/O commands to the shared LUN (or VMFS volume) that depends on the storage array. This number must be determined for a particular storage array configuration supporting multiple ESX hosts. If the storage array has a per‐LUN queue depth, exceeding this value causes high latencies. If the storage array does not have a per‐LUN queue depth, the bottleneck is shiftedto the disks, and latencies increase. In either case, it is important to ensure that there are enough disks tosupport the influx of commands. It is hard to recommend an upper threshold for latency because it depends on individual applications. However, a 50 millisecond latency is high enough for most applications, and you should add more physical resources if you reach that point.
 >
@@ -373,13 +373,13 @@ From "[Optimizing the Performance and Management of 2 GBIT/SEC SAN Fabrics with 
 
 > Long used in traditional Ethernet networking, Inter-Switch Link (ISL) Trunking can also dramatically improve the performance, manageability, and reliability for business-critical storage applications in Fibre Channel environments. By aggregating up to four ISLs into a single logical 8 Gbit/sec trunk group, this feature supports efficient high-speed communications throughout Storage Area Networks (SANs). By optimizing available switch resources, ISL Trunking decreases congestion.
 
-From "[SAN Conceptual and Design Basics](http://www.vmware.com/pdf/esx_san_cfg_technote.pdf)":
+From "[SAN Conceptual and Design Basics](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/esx_san_cfg_technote.pdf)":
 
 ![san-redundancy](https://github.com/elatov/uploads/raw/master/2012/08/san-redundancy.png)
 
 So with FC use multipathing to plan for redundancy and for performance, and try to have a similar setup as the diagram above. To get rid of congestion, utilize ISL Trunking where possible. Try not to have two different vendors of HBAs. Either have all Qlogic or all Emulex. Also instead of getting 1 dual port HBA, get 2 single port HBA, this will help if a failure occurs.
 
-From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf)":
+From "[Performance Best Practices for VMware vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/Perf_Best_Practices_vSphere5.0.pdf)":
 
 > *   For iSCSI and NFS, make sure that your network topology does not contain Ethernet bottlenecks, where multiple links are routed through fewer links, potentially resulting in over-subscription and dropped network packets. Any time a number of links transmitting near capacity are switched to a smaller number of links, such over-subscription is a possibility.
 >     *   Recovering from these dropped network packets results in large performance degradation. In addition to time spent determining that data was dropped, the retransmission uses network bandwidth that could otherwise be used for new transactions.
@@ -396,7 +396,7 @@ Here is a diagram from the above article:
 
 ![multiple_links_over_iscsi](https://github.com/elatov/uploads/raw/master/2012/08/multiple_links_over_iscsi.png).
 
-If using Software iSCSI use port binding to enable multipathing. From "[Multipathing Configuration for Software iSCSI Using Port Binding](http://www.vmware.com/files/pdf/techpaper/vmware-multipathing-configuration-software-iSCSI-port-binding.pdf)":
+If using Software iSCSI use port binding to enable multipathing. From "[Multipathing Configuration for Software iSCSI Using Port Binding](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vmware-multipathing-configuration-software-iscsi-port-binding-white-paper.pdf)":
 
 > **Multipathing for Software iSCSI**
 > Multipathing between a server and storage array provides the ability to load-balance between paths when all paths are present and to handle failures of a path at any point between the server and the storage. Multipathing is a de facto standard for most Fibre Channel SAN environments. In most software iSCSI environments, multipathing is possible at the VMkernel network adapter level, but not the default configuration.
@@ -461,7 +461,7 @@ and this:
 
 ![ip_hash_with_netapp](https://github.com/elatov/uploads/raw/master/2012/08/ip_hash_with_netapp.png)
 
-So for NFS try to use etherchannel to allow load balancing. Use jumbo frames, with 10Gb preferrebly. If using old switches, use flow control to control congestion. Make sure you have a dedicated network for your NFS traffic and don't route your NFS traffic. More information on NAS and VMware can be seen in "[Best Practices for running VMware vSphere on Network Attached Storage](http://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/vmware-nfs-bestpractices-white-paper-en.pdf)".
+So for NFS try to use etherchannel to allow load balancing. Use jumbo frames, with 10Gb preferrebly. If using old switches, use flow control to control congestion. Make sure you have a dedicated network for your NFS traffic and don't route your NFS traffic. More information on NAS and VMware can be seen in "[Best Practices for running VMware vSphere on Network Attached Storage](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vmware-nfs-bestpractices-white-paper-en.pdf)".
 
 From "Introduction to Fibre Channel over Ethernet (FCoE)", here is a good picture of how FCoE is setup in an environment:
 

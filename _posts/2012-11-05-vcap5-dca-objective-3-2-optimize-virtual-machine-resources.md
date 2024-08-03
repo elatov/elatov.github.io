@@ -38,7 +38,7 @@ This was covered in Objective 3.1
 
 ### Identify VMware CPU load balancing techniques
 
-From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf)":
+From "[Performance Best Practices for VMware vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/Perf_Best_Practices_vSphere5.0.pdf)":
 
 > **ESXi CPU Considerations**
 > This subsection provides guidance regarding CPU considerations in VMware ESXi.
@@ -99,7 +99,7 @@ Also check out "[VMware Hot-Add Memory/CPU Support](https://www.petri.com/vspher
 
 ### Tune Virtual Machine memory configurations
 
-From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf)":
+From "[Performance Best Practices for VMware vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/Perf_Best_Practices_vSphere5.0.pdf)":
 
 > **Memory Overhead**
 >

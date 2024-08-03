@@ -71,7 +71,7 @@ SRM also allows for site failover and test site failovers. Also during site fail
 
 > BCDR plans have traditionally been documented as runbooks – i.e., what to do if disaster strikes. Increasingly, this runbook is being automated to make the process more predictable and less prone to error. The ability to test this plan is also a key consideration.
 
-Also from "[VMware vCenter Site Recovery Manager 5with vSphere Replication](http://www.vmware.com/files/pdf/products/SRM/VMware-vCenter-Site-Recovery-Manager-with-vSphere-Replication-Datasheet.pdf)":
+Also from "[VMware vCenter Site Recovery Manager 5with vSphere Replication](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vmware-vcenter-site-recovery-manager-with-vsphere-replication-datasheet.pdf)":
 
 > **Simplify the setup of recovery and migration plans.**
 > Traditional recovery plans are complex to set up. They are usually captured in manual runbooks, which are error-prone and quickly fall out of sync with configuration changes. With Site Recovery Manager, setting up a recovery plan is simple and can be done in a matter of minutes, instead of the weeks required to set up traditional runbooks. Through an interface that is tightly integrated with vCenter Server, the user simply selects which virtual machines to protect, maps virtual machines to resources at the recovery site and specifies the virtual machine boot sequence. Site Recovery Manager automatically dramatically simplifies recovery plans by automatically coordinating most of the manual steps of traditional recovery plans.
@@ -87,7 +87,7 @@ So with runbooks, scripts to setup IPs, and setting up custom RTOs, you can docu
 
 ### Based on customer requirements, create a data retention policy.
 
-With VMware Data Recovery you can define a retention policy. From "[VMware Data Recovery Administration Guide](http://www.vmware.com/pdf/vdr_12_admin.pdf)":
+With VMware Data Recovery you can define a retention policy. From "[VMware Data Recovery Administration Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vdr_12_admin.pdf)":
 
 > **Retention Policy**
 > Data Recovery backups are preserved for a variable period of time. You can choose to keep more or fewer backups for a longer or shorter period of time. Keeping more backups consumes more disk space, but also provides more points in time to which you can restore virtual machines. As backups age, some are automatically deleted to make room for new backups. You can use a predefined retention policy or create a custom policy.

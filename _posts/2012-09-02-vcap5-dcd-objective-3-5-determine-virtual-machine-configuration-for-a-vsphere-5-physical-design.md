@@ -94,7 +94,7 @@ From [this](https://github.com/elatov/uploads/raw/master/2013/04/vcap-dcd_notes.
 > *   Snapshot can negate performance of PVSCSI
 > *   Not Supported with FT From "
 
-[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf)":
+[Performance Best Practices for VMware vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/Perf_Best_Practices_vSphere5.0.pdf)":
 
 > **Guest Operating System Storage Considerations**
 >
@@ -107,7 +107,7 @@ From [this](https://github.com/elatov/uploads/raw/master/2013/04/vcap-dcd_notes.
 
 ### Size VMs appropriately according to application requirements, incorporating VMware best practices
 
-From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf)":
+From "[Performance Best Practices for VMware vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/Perf_Best_Practices_vSphere5.0.pdf)":
 
 > *   In most environments ESXi allows significant levels of CPU over commitment (that is, running more vCPUs on a host than the total number of physical processor cores in that host) without impacting virtual machine performance.
 > *   Configuring a virtual machine with more virtual CPUs (vCPUs) than its workload can use might cause slightly increased resource usage, potentially impacting performance on very heavily loaded systems. Common examples of this include a single-threaded workload running in a multiple-vCPU virtual machine or a multi-threaded workload in a virtual machine with more vCPUs than the workload can effectively use.
@@ -161,7 +161,7 @@ This was also discussed in [Objective 3.4](/2012/09/vcap5-dcd-objective-3-4-dete
 
 ### Based on an existing logical design, determine virtual hardware options
 
-From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf)":
+From "[Performance Best Practices for VMware vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/Perf_Best_Practices_vSphere5.0.pdf)":
 
 > Allocate to each virtual machine only as much virtual hardware as that virtual machine requires. Provisioning a virtual machine with more resources than it requires can, in some cases, reduce the performance of that virtual machine as well as other virtual machines sharing the same host.
 >
@@ -214,7 +214,7 @@ From "[VMware Fault Tolerance](https://storage.googleapis.com/grand-drive-196322
 > *   The two virtual machines constantly heartbeat against each other and if either virtual machine instance loses the heartbeat, the other takes over immediately. The heartbeats are very frequent, with millisecond intervals, making the failover instantaneous with no loss of data or state.
 > *   VMware Fault Tolerance requires a dedicated network connection, separate from the VMware VMotion™ network, between the two physical servers
 
-From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf)":
+From "[Performance Best Practices for VMware vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/Perf_Best_Practices_vSphere5.0.pdf)":
 
 > **VMware Fault Tolerance**
 >
@@ -260,7 +260,7 @@ So if you have a specific application like SQL, Oracle, or Exchange that canno
 
 ![AV-for-VMs](https://github.com/elatov/uploads/raw/master/2012/09/AV-for-VMs.png)
 
-So if you want a centralized Anti-Virus application, setup vShield End-Point. This does add on some complexity and management over head. If you end up setting up an Anti-Virus instance per VM try to schedule the AV Scans at different times. You can over load the system when all 100 of your VMs are doing an AV Scan at the same time. If you want more information on vShield check out "[Antivirus Practices for VMware View 5](http://www.vmware.com/techpapers/2013/antivirus-best-practices-for-horizon-view-5x-10258.html)". It talks about vShield End Point and some other best practices for VMware View. Here are some excerpts from that paper:
+So if you want a centralized Anti-Virus application, setup vShield End-Point. This does add on some complexity and management over head. If you end up setting up an Anti-Virus instance per VM try to schedule the AV Scans at different times. You can over load the system when all 100 of your VMs are doing an AV Scan at the same time. If you want more information on vShield check out "[Antivirus Practices for VMware View 5](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/VMware-View-AntiVirusPractices-TN-EN.pdf)". It talks about vShield End Point and some other best practices for VMware View. Here are some excerpts from that paper:
 
 > **Problems with Standard Antivirus Protection**
 > The typical top-down virus scanning model involves desktop antivirus scanning and signature file updates, with access to an auto-update server. During these operations, it is not uncommon for system resource usage to spike or become overly committed. Performance in the desktop environment is severely impacted by these “antivirus storms.”

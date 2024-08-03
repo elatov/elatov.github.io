@@ -11,7 +11,7 @@ tags: ['vshield', 'logical_design']
 
 vShield is the most popular service. If you need PCI compliance you can check out [VMware Compliance Center](https://www.vmware.com/solutions/compliance-cyber-risk.html) page. It has links how to accomplish certain level of compliance. There is also a tool called VMware Compliance Checker, but it seems that vRealize replaced the functionality as seen from [this](https://blogs.vmware.com/management/2017/07/vsphere-pci-dss-hipaa-compliance-vrealize-operations-6-6.html) page.
 
-VMware also provides hardening guides for each version of ESX, and here a [link](https://www.vmware.com/support/support-resources/hardening-guides.html) to all the different versions.
+VMware also provides hardening guides for each version of ESX, and here a [link](https://www.vmware.com/solutions/security/hardening-guides) to all the different versions.
 
 ### Identify and differentiate infrastructure qualities (Availability, Manageability, Performance, Recoverability, Security).
 
@@ -34,7 +34,7 @@ There is actually a [great](https://www.techrepublic.com/article/understanding-l
 > 4.  parental controls
 > 5.  privacy controls
 
-And Regarding Trust Zones, from "[Network Segmentation in Virtualized Environments](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/network_segmentation.pdf)":
+And Regarding Trust Zones, from "[Network Segmentation in Virtualized Environments](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/network_segmentation.pdf)":
 
 > As virtualization becomes the standard infrastructure for server deployments, a growing number of organizations want to consolidate servers that belong to different trust zones. A trust
 > zone is loosely defined as a network segment within which data flows relatively freely, whereas data flowing in and out of the trust zone is subject to stronger restrictions. Examples of trust
@@ -89,7 +89,7 @@ From "[Infrastructure Security: Getting to the Bottom of Compliance in the Cloud
 >
 > Furthermore, cloud services could be fine-tuned to provide different levels of data security. For instance, two clouds could be proven HIPAA-compliant, with one cloud tuned to provide lower-level security at a lower cost for data such as patients’ insurance information. The other HIPAA-compliant cloud, handling sensitive health information such as patient medical histories, would be tuned for maximum security. By tailoring cloud service levels, security and pricing to the value of information handled within each cloud, organizations provisioning private clouds can buy only what they need, making the cost benefits and business case for moving into the cloud even more compelling.
 
-With vShield you can setup NATs, DMZs, Virus Checkers, and much more. There is even a data security scanner, from the "[vShield Administration Guide](http://www.vmware.com/pdf/vshield_50_admin.pdf)":
+With vShield you can setup NATs, DMZs, Virus Checkers, and much more. There is even a data security scanner, from the "[vShield Administration Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vshield_50_admin.pdf)":
 
 > **Defining a Data Security Policy**
 > To detect sensitive data in your environment, you must create a data security policy. To define a policy, you must specify the following:

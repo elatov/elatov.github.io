@@ -45,7 +45,7 @@ From the [APAC BrownBag Session 14](https://professionalvmware.com/vmware-certif
 
 ### Using a conceptual design, create a logical design that meets performance requirements.
 
-Let's say we say that we will have production VMs and development VMs. From the Conceptual design we will just have two different containers that represent each type of a VM. For the Logical Design we will have DRS Resource Pools and Tiered Storage. Here is an example take from a VMware article called "[Storage Considerations for VMware vCloud Director](http://www.vmware.com/files/pdf/techpaper/VMW_10Q3_WP_vCloud_Director_Storage.pdf)":
+Let's say we say that we will have production VMs and development VMs. From the Conceptual design we will just have two different containers that represent each type of a VM. For the Logical Design we will have DRS Resource Pools and Tiered Storage. Here is an example take from a VMware article called "[Storage Considerations for VMware vCloud Director](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vmw-10q3-vcloud-director-storage-white-paper.pdf)":
 
 ![RP-tiered_storage](https://github.com/elatov/uploads/raw/master/2012/08/RP-tiered_storage.png)
 
@@ -92,6 +92,6 @@ From the same article as mentioned in the previous objective:
 For Troubleshooting Performance issues, I would suggest to read the following:
 
 *   [vSphere Monitoring and Performance Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf)
-*   [Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf)
+*   [Performance Best Practices for VMware vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/Perf_Best_Practices_vSphere5.0.pdf)
 *   [Virtual Performance](http://www.vmware.com/a/vmmark/)
 

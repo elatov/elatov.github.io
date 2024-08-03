@@ -24,7 +24,7 @@ For ESX(i) to properly connect to a NAS server it needs to have read/write permi
 
 > ESX does not support the delegate user functionality that enables access to NFS volumes using nonroot credentials.
 
-This may raise some security concerns and the recommendation is to place your NFS traffic on it's own segmented network to add an extra layer of security. Per the article [Best Practices for running VMware vSphere on Network Attached Storage](http://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/vmware-nfs-bestpractices-white-paper-en.pdf)
+This may raise some security concerns and the recommendation is to place your NFS traffic on it's own segmented network to add an extra layer of security. Per the article [Best Practices for running VMware vSphere on Network Attached Storage](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vmware-nfs-bestpractices-white-paper-en.pdf)
 
 > Another security concern is that the ESX Server must mount the NFS server with root access. This raises some concerns about hackers getting access to the NFS server. To address the concern, it is best practice to use of either dedicated LAN or VLAN to provide protection and isolation.
 

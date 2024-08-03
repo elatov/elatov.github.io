@@ -282,7 +282,7 @@ From [vSphere Availability ESXi 5.0](https://storage.googleapis.com/grand-drive-
 
 ### Analyze performance metrics to calculate host failure requirements
 
-The biggest thing here is reservations and limits that are set for the VMs. Ensure that all the reservations you have set can be accommodated with the current hosts. Check out the over all usage of CPU and Memory and make sure you are not nearing full utilization. Also size of the cluster matters. From "[vSphere High Availability Deployment Best Practices](http://www.vmware.com/files/pdf/techpaper/vmw-vsphere-high-availability.pdf)":
+The biggest thing here is reservations and limits that are set for the VMs. Ensure that all the reservations you have set can be accommodated with the current hosts. Check out the over all usage of CPU and Memory and make sure you are not nearing full utilization. Also size of the cluster matters. From "[vSphere High Availability Deployment Best Practices](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vmw-vsphere-high-availability-whitepaper.pdf)":
 
 > The overall size of a cluster is another important factor to consider. Smaller-sized clusters require a larger relative percentage of the available cluster resources to be set aside as reserve capacity to adequately handle failures. For example, for a cluster of three nodes to tolerate a single host failure, about 33 percent of the cluster
 > resources will be reserved for failover. A 10-node cluster requires that only 10 percent be reserved.

@@ -18,7 +18,7 @@ I was recently working with a customer who was experiencing a high number of Tre
 	Apr 19 09:36:37 ESX_Host vmkernel: 0:19:05:46.147 cpu0:4096)NMP: nmp_CompleteRetryForPath: Retry world recovered device 'naa.60060160467029002acca5f7836fe111'
 
 
-The customer had setup the CLARiiON to use ALUA (Assymetric Logical Unit Access) mode (fail over mode 4). From [EMC CLARiiON Integration with VMware ESX](https://www.vmware.com/pdf/clariion_wp_eng.pdf):
+The customer had setup the CLARiiON to use ALUA (Assymetric Logical Unit Access) mode (fail over mode 4). From [EMC CLARiiON Integration with VMware ESX](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/clariion_wp_eng.pdf):
 
 > On VMware 4.x servers with CX4 arrays, the FIXED or Round Robin policy is supported. The FIXED policy on the CX4 provides failback capability. To use the FIXED policy, you must be running FLARE release 28 version 04.28.000.5.704 or later. Also, the failovermode mode must be set to 4 (ALUA mode or Asymmetric Active/Active mode). The default failovermode for ESX 4.x is 1. Use the Failover Setup Wizard within Navisphere to change the failovermode from 1 to 4.
 
@@ -193,7 +193,7 @@ I also found VMware KB [2005369](http://kb.vmware.com/kb/2005369)  and it talks
 	#esxcli nmp psp setconfig --config useANO=1 --device <device uid>
 
 
-But we weren't using Round Robin and all the hosts were consistent in their preffered path to be the Active Optimized Path. The article [EMC CLARiiON Integration with VMware ESX](https://www.vmware.com/pdf/clariion_wp_eng.pdf), talks about some pros and cons of Round Robin Vs. FIXED:
+But we weren't using Round Robin and all the hosts were consistent in their preffered path to be the Active Optimized Path. The article [EMC CLARiiON Integration with VMware ESX](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/clariion_wp_eng.pdf), talks about some pros and cons of Round Robin Vs. FIXED:
 
 > When using the FIXED policy, the auto-restore or failback capability distributes the LUNs to their respective default storage processors (SPs) after an NDU operation. This prevents the LUNs from all being on a single storage processor after an NDU (Non-Disruptive Upgrade). When using the FIXED policy, ensure the preferred path setting is configured to be on the same storage processor for all ESX hosts accessing a given LUN.
 >

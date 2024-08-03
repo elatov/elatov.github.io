@@ -9,7 +9,7 @@ tags: ['performance', 'cisco_ucs', 'physical_design']
 
 ### Describe best practices with respect to CPU family choices
 
-From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf)":
+From "[Performance Best Practices for VMware vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/Perf_Best_Practices_vSphere5.0.pdf)":
 
 > **Hardware CPU Considerations**
 >
@@ -115,7 +115,7 @@ Some information regarding NUMA from the same document:
 >
 > Typically, you can use BIOS settings to enable and disable NUMA behavior. For example, in AMD Opteronbased HP Proliant servers, NUMA can be disabled by enabling node interleaving in the BIOS. If NUMA is enabled, the BIOS builds a system resource allocation table (SRAT) which ESXi uses to generate the NUMA information used in optimizations. For scheduling fairness, NUMA optimizations are not enabled for systems with too few cores per NUMA node or too few cores overall. You can modify the numa.rebalancecorestotal and numa.rebalancecoresnode options to change this behavior.
 
-From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf)":
+From "[Performance Best Practices for VMware vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/Perf_Best_Practices_vSphere5.0.pdf)":
 
 > **General BIOS Settings**
 >
@@ -242,7 +242,7 @@ Also if you are using Capacity Planner you can check your consolidation ratio, b
 
 ### Calculate the number of nodes in an HA cluster based upon host failure count and resource guarantees.
 
-From "[vSphere High Availability Deployment Best Practices](http://www.vmware.com/files/pdf/techpaper/vmw-vsphere-high-availability.pdf)":
+From "[vSphere High Availability Deployment Best Practices](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vmw-vsphere-high-availability-whitepaper.pdf)":
 
 > **Host Selection**
 >
@@ -291,7 +291,7 @@ And another example from the same document:
 
 Depending on what your HA policy is (decided from the above examples) calculate the total amount of resources used and total available resource. Then decide what kind of hardware will be capable of running the decided load with the failure scenario in mind. Back in the 4.x days, HA worked in a different manner and how many hosts added to a cluster from an enclosure chosen mattered, now with 5.x HA works in a different manner. If you want to know best practices for vSphere 4.x HA, check out:
 
-*   [VMware High Availability (VMware HA): Deployment Best Practices VMware vSphere 4.1](http://www.vmware.com/files/pdf/techpaper/VMW-Server-WP-BestPractices.pdf)
+*   [VMware High Availability (VMware HA): Deployment Best Practices VMware vSphere 4.1](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/vmw-server-wp-bestpractices-white-paper.pdf)
 *   [Blades and HA / Cluster design](http://www.yellow-bricks.com/2009/02/09/blades-and-ha-cluster-design/)
 
 ### Explain the implications of using reservations, limits, and shares on the physical design
@@ -461,7 +461,7 @@ from "[Sizing server hardware for virtual machines](https://www.computerweekly.c
 > Network
 > The number of network interface cards (NICs) needed in a virtual server will vary based on how much redundancy is desired, whether or not network storage will be used and which features will be selected. Using 802.1Q VLAN tagging provides the flexibility of using multiple VLANs on a single NIC, thus eliminating the need to have a separate NIC for each VLAN on a host server. For smaller servers, you can get away with using two NICs, but it is best to a have a minimum of four NICs on your host server. If you are using network storage, such as iSCSI, it would be wise to have more than four NICs, especially if you are going to use features like VMware's vMotion. When creating vSwitches it's best to assign multiple NIC's to them for redundancy and increased capacity available to VMs.
 
-From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf)":
+From "[Performance Best Practices for VMware vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/Perf_Best_Practices_vSphere5.0.pdf)":
 
 > *   Make sure that end-to-end Fibre Channel speeds are consistent to help avoid performance problems.
 > *   Configure maximum queue depth for Fibre Channel HBA cards.

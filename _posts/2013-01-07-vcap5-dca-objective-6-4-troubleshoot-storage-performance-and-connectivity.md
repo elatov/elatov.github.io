@@ -15,7 +15,7 @@ tags: ['queue_depth', 'davg', 'psp','nmp', 'tur', 'iscsi', 'performance','esxtop
 
 ### Describe the attributes of the VMFS-5 file system
 
-From "[VMware vSphere VMFS](https://www.vmware.com/pdf/vmfs-best-practices-wp.pdf)":
+From "[VMware vSphere VMFS](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vmware-vsphere-vmfs-best-practices-whitepaper.pdf)":
 
 > **Features of VMFS **
 > The following technical features of VMFS are among those that make it suitable for use in a virtual environment:
@@ -30,7 +30,7 @@ From "[VMware vSphere VMFS](https://www.vmware.com/pdf/vmfs-best-practices-wp.pd
 > *   Encapsulation of the entire virtual machine state in a single directory
 > *   Support for VMware vSphere Storage APIs – Array Integration (VAAI)
 
-Also from "[VMware vSphere VMFS-5 Upgrade Considerations](http://www.vmware.com/files/pdf/techpaper/VMFS-5_Upgrade_Considerations.pdf)":
+Also from "[VMware vSphere VMFS-5 Upgrade Considerations](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vmfs-5_upgrade_considerations-white-paper.pdf)":
 
 > **VMFS-5 Enhancements**
 > The following is a complete list of enhancements made in VMFS-5.
@@ -355,7 +355,7 @@ From the same guide here are the available options:
 
 ### Troubleshoot NFS mounting and permission issues
 
-From "[Best Practices for running VMware vSphere on Network Attached Storage](http://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/vmware-nfs-bestpractices-white-paper-en.pdf)"
+From "[Best Practices for running VMware vSphere on Network Attached Storage](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vmware-nfs-bestpractices-white-paper-en.pdf)"
 
 > VMware vSphere implementation of NFS supports NFS version 3 in TCP. There is currently no support for NFS version 2, UDP, or CIFS/SMB
 
@@ -399,7 +399,7 @@ Here is a quick summary:
 > - **ABRTS/s**: Commands aborted per second. If the storage system has not responded within 60 seconds VMs with an Windows Operating System will issue an abort. (Trouble when > 1)
 > - **GAVG**: GAVG = DAVG + KAVG, what the guest actually experiences. (Trouble when > 25)
 
-From "[Performance Troubleshooting for vSphere 4.1](http://www.vmware.com/resources/techresources/10179)":
+From "[Performance Troubleshooting for vSphere 4.1](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere41-performance-troubleshooting.pdf)":
 
 > ![storage performance troubleshooting VCAP5 DCA Objective 6.4 – Troubleshoot Storage Performance and Connectivity ](https://github.com/elatov/uploads/raw/master/2012/12/storage_performance_troubleshooting.png)
 

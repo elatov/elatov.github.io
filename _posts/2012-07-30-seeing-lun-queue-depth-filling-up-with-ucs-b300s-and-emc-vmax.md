@@ -68,7 +68,7 @@ The Cisco VIC sets the DQLEN value to be 32. From the Cisco article "[Cisco Unif
 >
 > This Cisco VIC adapter sets this value to 32 per LUN on ESX and Linux and 255 on Windows and does not expose this parameter in the FC adapter policy. Emulex and Qlogic expose this setting using their host based utilities. Many customers have asked about how to change this value using the Cisco VIC adapter. Cisco is considering this request as an enhancement for a future release. However FC performance with the VIC adapter has been excellent and there no cases in evidence (that the author is aware of) indicating that this setting is not optimal at its current value. It should be noted that this is the default value recommended by VMware for ESX and other operating systems vendors.
 
-The VMware white paper "[Scalable Storage Performance](http://www.vmware.com/techpapers/2008/scalable-storage-performance-1059.html)" describes what DQLEN is:
+The VMware white paper "[Scalable Storage Performance](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/scalable_storage_performance.pdf)" describes what DQLEN is:
 
 > The SCSI protocol allows multiple commands to be active on a LUN at the same time. SCSI device drivers have a configurable parameter called the LUN queue depth that determines how many commands can be active at one time to a given LUN. QLogic Fibre Channel HBAs support up to 255 outstanding commands per LUN,and Emulex HBAs support up to 128. However, the default value for both drivers is set to 32. If an ESX host generates more commands to a LUN than the LUN queue depth, the excess commands are queued in the ESX kernel, and this increases the latency.
 >

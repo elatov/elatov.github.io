@@ -17,9 +17,9 @@ If you are within an organization which has pre-made templates for this, then de
 *   [VMware vSphere 5.0 Evaluation Guide Volume Two – Advanced Storage Features](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/VMware-vSphere-Evaluation-Guide-2-Advanced-Storage.pdf)
 *   [VMware vSphere 5.0 Evaluation Guide Volume Three – Advanced Networking Features](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/vmware-vsphere-evaluation-guide-3-advanced-networking-white-paper.pdf)
 *   [VMware vSphere 5.0 Evaluation Guide Volume Four – Auto Deploy](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/vmware-vsphere-evaluation-guide-4-auto-deploy-white-paper.pdf)
-*   [VMware vCloud Director 1.5 Evaluation Guide](http://www.vmware.com/files/pdf/techpaper/VMW-vCloud-Director1_5-EvalGuide.pdf)
-*   [VMware Data Protection Evaluation Guide](http://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/whitepaper/products/vsphere/vmware-vsphere-data-protection-eval-guide-white-paper.pdf)
-*   [VMware vCenter Site Recovery Manager  5.0 Evaluation Guide](http://www.vmware.com/files/pdf/products/SRM/VMware-vCenter-Site-Recovery-Manager-Evaluation-Guide.pdf)
+*   [VMware vCloud Director 1.5 Evaluation Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vmw-vcloud-director1_5-evalguide-white-paper.pdf)
+*   [VMware Data Protection Evaluation Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vmware-vsphere-data-protection-eval-guide-white-paper.pdf)
+*   [VMware vCenter Site Recovery Manager  5.0 Evaluation Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/site_recovery_manager_evaluation_guide_noindex.pdf)
 
 ### Consider multiple product installation dependencies to create a validated configuration
 

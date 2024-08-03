@@ -9,7 +9,7 @@ tags: ['tso', 'vaai', 'thick_provisioning','performance']
 
 ### Identify appropriate BIOS and firmware setting requirements for optimal ESXi host performance
 
-From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf)":
+From "[Performance Best Practices for VMware vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/Perf_Best_Practices_vSphere5.0.pdf)":
 
 > **General BIOS Settings**
 >
@@ -39,7 +39,7 @@ Check out the VMware [2030818](http://vmware.com/go/hcl) for recommended drivers
 
 ### Tune ESXi host memory configuration
 
-From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf)":
+From "[Performance Best Practices for VMware vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/Perf_Best_Practices_vSphere5.0.pdf)":
 
 > **Memory Overcommit Techniques**
 >
@@ -78,7 +78,7 @@ And more from the same paper:
 
 ### Tune ESXi host networking configuration
 
-From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf)":
+From "[Performance Best Practices for VMware vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/Perf_Best_Practices_vSphere5.0.pdf)":
 
 > **Hardware Networking Considerations**
 >
@@ -98,7 +98,7 @@ From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/
 
 ### Tune ESXi host CPU configuration
 
-From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf)":
+From "[Performance Best Practices for VMware vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/Perf_Best_Practices_vSphere5.0.pdf)":
 
 > **General CPU Considerations**
 >
@@ -128,7 +128,7 @@ From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/
 
 ### Tune ESXi host storage configuration
 
-From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf)":
+From "[Performance Best Practices for VMware vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/Perf_Best_Practices_vSphere5.0.pdf)":
 
 > **Hardware Storage Considerations**
 > Back-end storage configuration can greatly affect performance.

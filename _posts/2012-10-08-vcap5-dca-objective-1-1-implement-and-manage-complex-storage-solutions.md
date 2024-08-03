@@ -64,7 +64,7 @@ Also check out this picture:
 
 ### Determine use cases for and configure VMware DirectPath I/O
 
-From "[Configuration Examples and Troubleshooting for VMDirectPath](http://www.vmware.com/pdf/vsp_4_vmdirectpath_host.pdf)":
+From "[Configuration Examples and Troubleshooting for VMDirectPath](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsp_4_vmdirectpath_host.pdf)":
 
 > VMDirectPath allows guest operating systems to directly access an I/O device, bypassing the virtualization layer. This direct path, or passthrough can improve performance for VMware ESX™ systems that utilize high‐speed I/O devices, such as 10 Gigabit Ethernet.
 
@@ -108,8 +108,8 @@ Also check out [VCAP5-DCD Objective 3.3](/2012/08/vcap5-dcd-objective-3-3-create
 
 Each vendor has their own best practices. Check out the following pages for a couple of vendors:
 
-*   [Using VMware vSphere with EMC Symmetrix Storage](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/h2529-vmware-esx-svr-w-symmetrix-wp-ldv.pdf)
-*   [HP Enterprise Virtual Array Family with VMware vSphere 4.0 , 4.1 and 5.0 Configuration Best Practices](http://www.vmware.com/files/pdf/techpaper/hp-enterprise-virtual-array-family-vsphere-configuration.pdf)
+*   [Using VMware vSphere with EMC Symmetrix Storage](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/h2529-vmware-esx-svr-w-symmetrix-wp-ldv.pdf)
+*   [HP Enterprise Virtual Array Family with VMware vSphere 4.0 , 4.1 and 5.0 Configuration Best Practices](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/hp-enterprise-virtual-array-family-vsphere-configuration.pdf)
 *   [Using EMC VNX Storage with VMware vSphere](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/h8229-vnx-vmware-tb.pdf)
 *   [NetApp and VMware vSphere Storage Best Practices](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/tr-3749.pdf)
 
@@ -354,9 +354,9 @@ Then use IOmeter or IOBlazer here are links to their corresponding flings:
 
 There are also application specific tools:
 
-*   [Microsoft Exchange Server 2010 Performance on VMware vSphere 5](http://www.vmware.com/techpapers/2011/microsoft-exchange-server-2010-performance-on-vsph-10204.html) (LoadGen)
+*   [Microsoft Exchange Server 2010 Performance on VMware vSphere 5](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/exchange-perf-vsphere5.pdf) (LoadGen)
 *   [Performance and Scalability of Microsoft SQL Server on VMware vSphere (http://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/vmware-sql-server-vsphere55-performance-white-paper.pdf) (TPC-E benchmark)
-*   [Oracle Databases on VMware VMware vSphere 5 RAC Workload Characterization Study (VMware VMFS)](http://www.vmware.com/files/pdf/partners/oracle/Oracle_Databases_on_VMware_-_Workload_Characterization_Study.pdf) (SwingBench)
+*   [Oracle Databases on VMware VMware vSphere 5 RAC Workload Characterization Study (VMware VMFS)](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/oracle-databases-on-vmware-workload-characterization-study.pdf) (SwingBench)
 
 Use any of the tools above to get a good baseline and then plan accordingly with your SAN Array.
 

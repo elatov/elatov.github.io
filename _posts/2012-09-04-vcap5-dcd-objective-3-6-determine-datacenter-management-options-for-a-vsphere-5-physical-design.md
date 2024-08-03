@@ -57,7 +57,7 @@ If the skill set is available from the company and one of the above tools can us
 
 ### Analyze cluster performance requirements for DRS and vMotion
 
-From "[Performance Best Practices for VMware vSphere 5.0](http://www.vmware.com/pdf/Perf_Best_Practices_vSphere5.0.pdf)":
+From "[Performance Best Practices for VMware vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/Perf_Best_Practices_vSphere5.0.pdf)":
 
 > **VMware vMotion**
 >
@@ -147,7 +147,7 @@ Duncan Epping has a good blog about the topic "[vCenter Appliance](http://www.ye
 >
 > Now that you’ve seen the limitations why would you even bother testing it? You will still need Windows if you are running VUM and you can only use Oracle for large environments… Those are probably the two biggest constraints for 80% of you reading this and I agree they are huge constraints. But I am not saying that you should go ahead and deploy this in production straight away, I do feel that the VCVA deserves to be tested as it is the way forward in my opinion! Why? Most importantly, it is very simple to implement
 
-From "[What’s New in VMware vSphere 5.0 - Availability](http://www.vmware.com/files/pdf/techpaper/Whats-New-VMware-vSphere-50-Availability-Technical-Whitepaper.pdf)":
+From "[What’s New in VMware vSphere 5.0 - Availability](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/whats-new-vmware-vsphere-50-availability-technical-whitepaper.pdf)":
 
 > **Management Availability**
 > Being the primary management point of a VMware environment, the availability of VMware vCenter™ Server is a critical consideration when constructing a highly available environment. Providing this availability for VMware vCenter Server is the primary function of VMware vCenter Server Heartbeat.
@@ -339,7 +339,7 @@ And for the [features](http://www.vmware.com/products/datacenter-virtualization/
 > *   Workflow automation from approvals provisioning, through de-provisioning
 > *   Automatically sends email notifications and approval requests Lastly here is a snapshot of the application from "
 
-[VMware Service Manager 9 - Asset Management](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/products/servicemanager/vmware-service-manager-version-9.0-readiness-assessment-service.pdf)":
+[VMware Service Manager 9 - Asset Management](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/data-services-manager.pdf)":
 
 ![vm-serv-mana-sub-request](https://github.com/elatov/uploads/raw/master/2012/09/vm-serv-mana-sub-request.png)
 
@@ -347,7 +347,7 @@ Lastly you can use the 'Asset Tag' option for a VM to keep track of VMs manually
 
 ### Based on the logical design, identify and implement release management technologies, such as Update Manager.
 
-From "[VMware vCenter Update Manager 5.0 Performance and Best Practices](http://www.vmware.com/techpapers/2011/vmware-vcenter-update-manager-50-performance-and-10208.html)":
+From "[VMware vCenter Update Manager 5.0 Performance and Best Practices](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vum-perf-vsphere5.pdf)":
 
 > VMware vCenter™ Update Manager (also known as VUM) provides a patch management framework for VMware vSphere®. IT administrators can use it to patch and upgrade:
 >
