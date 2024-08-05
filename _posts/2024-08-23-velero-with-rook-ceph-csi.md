@@ -153,3 +153,90 @@ And you will also see a `dataupload` CR:
 NAME                     STATUS      STARTED   BYTES DONE   TOTAL BYTES   STORAGE LOCATION   AGE   NODE
 postges-backup-2-l2qnx   Completed   20m       85824963     85824963      default            20m   ma
 ```
+
+## Checking the contents of the Backup Storage Location
+By default `velero` uses [kopia](https://kopia.io/docs/) as the file system data mover. From [Unified Repository & Kopia Integration Design](https://github.com/vmware-tanzu/velero/blob/main/design/Implemented/unified-repo-and-kopia-integration/unified-repo-and-kopia-integration.md):
+
+![velero-kopia-intergration.png](https://res.cloudinary.com/elatov/image/upload/v1722883161/blog-pics/velero-rook-ceph/slf3axlktnxoaaayp5re.png)
+
+`velero` basically initializes a repository and then uploads or downloads data to/from it. After performing the backup, we can actually use the [kopia](https://kopia.io/docs/installation/#kopia-download-links) binary to check out the contents of the backups. By default `kopia` encrypts all the data so we let's get the password used for that:
+
+```
+k get secret -n velero velero-repo-credentials -o jsonpath={.data.epository-password} | base64 -d
+```
+
+Then we can connect to the `repository`:
+
+```
+> kopia repository connect gcs --bucket my-backups --credentials-file ~/credentials-velero --prefix velero/kopia/default/
+Enter password to open repository:
+
+Connected to repository.
+
+NOTICE: Kopia will check for updates on GitHub every 7 days, starting 24 hours after first use.
+To disable this behavior, set environment variable KOPIA_CHECK_FOR_UPDATES=false
+```
+
+I needed the trailing `/` at the end, else it failed to connect and it looks like someone ran into a [similar issue](https://github.com/vmware-tanzu/velero/issues/7316). After that you can list the `snapshots`:
+
+```
+> kopia snapshot ls --all
+default@default:snapshot-data-upload-download/kopia/default/data-postgres-0
+  2024-08-05 12:22:40 MDT k9b864e38c1cb8c560031c6cd958237fa 119.1 MB dgrwxrwxr-x files:2501 dirs:29 (latest-1,hourly-1,daily-1,weekly-1,monthly-1,annual-1) pins:velero-pin
+```
+
+You can show that `content`:
+
+```
+> kopia content show k9b864e38c1cb8c560031c6cd958237fa
+{"stream":"kopia:directory","entries":[{"name":"data","type":"d","mode":"020000700","mtime":"2024-08-04T03:15:36.712Z","uid":1001,"gid":1001,"obj":"k3a1a83095384b41b4e04b6b3337c7c3a","summ":{"size":119092763,"files":2501,"symlinks":0,"dirs":27,"maxTime":"2024-08-05T18:22:00.724Z","numFailed":0}},{"name":"lost+found","type":"d","mode":"020000770","mtime":"2024-07-31T00:56:44Z","gid":1001,"obj":"kdf4f572c7fdfceb36619d7ef1c8ecf29","summ":{"size":0,"files":0,"symlinks":0,"dirs":1,"maxTime":"2024-07-31T00:56:44Z","numFailed":0}}],"summary":{"size":119092763,"files":2501,"symlinks":0,"dirs":29,"maxTime":"2024-08-05T18:22:00.724Z","numFailed":0}}
+```
+
+We can see in this instances it's directory, we can mount that directory locally:
+
+```
+> kopia mount k9b864e38c1cb8c560031c6cd958237fa /tmp/b
+Mounted 'k9b864e38c1cb8c560031c6cd958237fa' on /tmp/b
+Press Ctrl-C to unmount.
+```
+
+And from another shell you can confirm the files:
+
+```
+> ls /tmp/b/data
+base           pg_multixact  pg_stat_tmp  pg_xact
+global         pg_notify     pg_subtrans  postgresql.auto.conf
+pg_commit_ts   pg_replslot   pg_tblspc    postmaster.opts
+pg_dynshmem    pg_serial     pg_twophase  postmaster.pid
+pg_ident.conf  pg_snapshots  PG_VERSION
+pg_logical     pg_stat       pg_wal
+```
+
+You can also do a full `restore`:
+
+```
+> kopia restore k9b864e38c1cb8c560031c6cd958237fa /tmp/b
+Restoring to local filesystem (/tmp/b) with parallelism=8...
+Processed 65 (629.8 KB) of 2529 (119.1 MB) 603.7 KB/s (0.5%) remaining 3m15s.
+Processed 112 (68.1 MB) of 2529 (119.1 MB) 31.7 MB/s (57.2%) remaining 0s.
+Processed 140 (68.7 MB) of 2529 (119.1 MB) 21.1 MB/s (57.7%) remaining 1s.
+Processed 187 (69.8 MB) of 2529 (119.1 MB) 16.4 MB/s (58.6%) remaining 2s.
+Processed 206 (70.2 MB) of 2529 (119.1 MB) 13.3 MB/s (58.9%) remaining 2s.
+Processed 253 (71 MB) of 2529 (119.1 MB) 11.1 MB/s (59.6%) remaining 3s.
+...
+Processed 2515 (118.7 MB) of 2529 (119.1 MB) 2.6 MB/s (99.7%) remaining 0s.
+Processed 2530 (119.1 MB) of 2529 (119.1 MB) 2.6 MB/s (100.0%) remaining 0s.
+Restored 2501 files, 29 directories and 0 symbolic links (119.1 MB).
+```
+
+And you should see the same contents:
+
+```
+> ls /tmp/b/data
+base           pg_multixact  pg_stat_tmp  pg_xact
+global         pg_notify     pg_subtrans  postgresql.auto.conf
+pg_commit_ts   pg_replslot   pg_tblspc    postmaster.opts
+pg_dynshmem    pg_serial     pg_twophase  postmaster.pid
+pg_ident.conf  pg_snapshots  PG_VERSION
+pg_logical     pg_stat       pg_wal
+```
