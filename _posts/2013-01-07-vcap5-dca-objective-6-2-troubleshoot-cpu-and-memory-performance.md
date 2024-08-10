@@ -39,7 +39,6 @@ and here are the memory counters:
 
 ![perf charts mem counters VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance ](https://github.com/elatov/uploads/raw/master/2012/12/perf_charts_mem_counters.png)
 
-You can also check out the full list [here](http://pubs.vmware.com/vsphere-50/index.jsp?topic=/com.vmware.wssdk.apiref.doc_50/right-pane.html).
 
 ### Troubleshoot ESXi host and Virtual Machine CPU performance issues using appropriate metrics
 
@@ -54,7 +53,7 @@ Here is a good summary:
 > $MLMTD: Percentage of time a ready to vCPU was no schedules because of a CPU limit setting (Trouble when > 1, to resolve; remove the CPU limit)
 > $SWPWT: How Long a VM has to wait for swapped pages read from disk. (Trouble when > 5, possible reason; memory overcommitment
 
-Also this is from a 4.x document but it applies to 5.0 as well. Here is the document: "[Performance Troubleshooting for VMware vSphere 4.1](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/vsphere41-performance-troubleshooting.pdf)". From that document:
+Also this is from a 4.x document but it applies to 5.0 as well. Here is the document: "[Performance Troubleshooting for VMware vSphere 4.1](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/vsphere41-performance-troubleshooting.pdf)". From that document:
 
 ![check for host cpu saturation VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance ](https://github.com/elatov/uploads/raw/master/2012/12/check_for_host_cpu_saturation.png)
 
@@ -77,7 +76,7 @@ Here is a good summary:
 > CACHEUSD: Memory (in MB) compressed by ESXi Host (Trouble when > 1)
 > SWR/s SWW/s: Rate at which the ESXi host is writing to or reading from swapped memory (Trouble when > 1)
 
-And from "[Performance Troubleshooting for VMware vSphere 4.1](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/vsphere41-performance-troubleshooting.pdf)":
+And from "[Performance Troubleshooting for VMware vSphere 4.1](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/vsphere41-performance-troubleshooting.pdf)":
 
 ![check for vm swapping VCAP5 DCA Objective 6.2 – Troubleshoot CPU and Memory Performance ](https://github.com/elatov/uploads/raw/master/2012/12/check_for_vm_swapping.png)
 

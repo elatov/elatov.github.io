@@ -90,7 +90,7 @@ This makes sense, other ports are used for internal communication and we are def
 > n1000v(config-port-prof)#
 
 One note regarding this, you have to migrate all the VMs off the port-profile before making this change. This can be accomplished by creating a new port-profile and then using the "Migrate Virtual Machines" function from vCenter.
-I was actually in a critical situation and didn't want to make that many changes. Another way to get around the "Limit Exceeded" error is to increase the "Num Ports" or the "Max Ports" on the ProxySwitch. Don't confuse this with the Max ports for the whole DVS. From the [Maximums Guide for 4.1](http://www.vmware.com/pdf/vsphere4/r41/vsp_41_config_max.pdf):
+I was actually in a critical situation and didn't want to make that many changes. Another way to get around the "Limit Exceeded" error is to increase the "Num Ports" or the "Max Ports" on the ProxySwitch. Don't confuse this with the Max ports for the whole DVS. From the [Maximums Guide for 4.1](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/vsp_41_config_max.pdf):
 
 > **vNetwork Standard and Distributed Switch**
 > Total virtual network switch ports per host (vDS and vSS ports) 4096 *4*

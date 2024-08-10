@@ -47,7 +47,7 @@ From [The Roadmap to Virtual Infrastructure: Practical Implementation Strategies
 
 ### Match customer skills and abilities to implementation resource requirements
 
-From "[The Roadmap to Virtual Infrastructure: Practical Implementation Strategies](http://download3.vmware.com/elq/pdf/wp_roadmaptovirtualinfrastructure.pdf)":
+From "[The Roadmap to Virtual Infrastructure: Practical Implementation Strategies](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/wp_roadmaptovirtualinfrastructure.pdf)":
 
 > **Build a Virtualization Center of Excellence (2 to 4 weeks)**
 > Build a core virtualization team. The team should be comprised of individuals with the following characteristics:

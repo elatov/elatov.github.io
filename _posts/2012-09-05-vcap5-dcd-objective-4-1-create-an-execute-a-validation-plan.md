@@ -110,7 +110,7 @@ Now for a design verification you could have something comply to PCI compliance 
 
 ### From an existing template, choose the appropriate test areas.
 
-From "[Validation Test Plan](http://www.vmware.com/files/pdf/partners/09Q1_VM_Test_Plan.doc)", here is template that is used for test areas:
+From "[Validation Test Plan](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/09Q1_VM_Test_Plan.doc)", here is template that is used for test areas:
 
 > **(Optionally) VMware Infrastructure Testing**
 >
@@ -130,7 +130,7 @@ From "[Validation Test Plan](http://www.vmware.com/files/pdf/partners/09Q1_VM_Te
 
 ### Identify expected results
 
-This is provided by running some additional testing. Here is an example from "[Validation Test Plan](http://www.vmware.com/files/pdf/partners/09Q1_VM_Test_Plan.doc)":
+This is provided by running some additional testing. Here is an example from "[Validation Test Plan](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/09Q1_VM_Test_Plan.doc)":
 
 > **Benchmark Workload**
 >
@@ -141,7 +141,7 @@ This is provided by running some additional testing. Here is an example from "[V
 
 ### Demonstrate an ability to track results in an organized fashion
 
-Create test cases for your testing and keep track of each in a table. Here is an example from "[Validation Test Plan](http://www.vmware.com/files/pdf/partners/09Q1_VM_Test_Plan.doc)":
+Create test cases for your testing and keep track of each in a table. Here is an example from "[Validation Test Plan](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/09Q1_VM_Test_Plan.doc)":
 
 > **Test Cases**
 >
@@ -169,7 +169,7 @@ Some times the expected results are obtained from white papers and vendors. Alwa
 
 ### Apply validation plan metrics to demonstrate traceability to business objectives
 
-I think this table from "[Validation Test Plan](http://www.vmware.com/files/pdf/partners/09Q1_VM_Test_Plan.doc)":
+I think this table from "[Validation Test Plan](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/09Q1_VM_Test_Plan.doc)":
 
 ![app-bench](https://github.com/elatov/uploads/raw/master/2012/09/app-bench1.png)
 

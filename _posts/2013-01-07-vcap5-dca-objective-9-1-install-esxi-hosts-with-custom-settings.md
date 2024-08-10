@@ -158,7 +158,7 @@ Now if you want to create a profile by cloning an existing one, you can do the f
 	ESXi-5.0.0-20120301001s-no-... VMware, Inc. 2/17/2012 11... PartnerSupported
 
 
-We can also create profiles manually. There is a good example in "[VMware vSphere 5.0 Evaluation Guide Volume One](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/whitepaper/vsphere/vmware-vsphere-evaluation-guide-1-white-paper.pdf)". Here is what I did to create a manual profile with just 4 VIBs:
+We can also create profiles manually. There is a good example in "[VMware vSphere 5.0 Evaluation Guide Volume One](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/vmware-vsphere-evaluation-guide-1-white-paper.pdf)". Here is what I did to create a manual profile with just 4 VIBs:
 
 	PowerCLI C:\> New-EsxImageProfile -NewProfile My_Manual_Profile -vendor VMware -SoftwarePackage esx-base
 	

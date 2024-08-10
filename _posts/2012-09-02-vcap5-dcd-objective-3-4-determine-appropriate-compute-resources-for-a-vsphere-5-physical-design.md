@@ -236,7 +236,7 @@ Here is a real life example for the UCS blades from an old link that's no longer
 There is another good resource: Server [Consolidation Using Cisco
 Unified Computing System and EMC CLARiiON Storage](http://www.cisco.com/c/dam/en/us/solutions/collateral/data-center-virtualization/unified-computing/server_consolidation_white_paper.pdf)
 
-Also if you are using Capacity Planner you can check your consolidation ratio, by running different reports. For more information check out "[Twenty-to-One Consolidation on Intel Architecture](https://www.vmware.com/pdf/Intel_Consolidation.pdf)":
+Also if you are using Capacity Planner you can check your consolidation ratio, by running different reports. For more information check out "[Twenty-to-One Consolidation on Intel Architecture](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/Intel_Consolidation.pdf)":
 
 ![consolidation](https://github.com/elatov/uploads/raw/master/2012/09/consolidation.png)
 

@@ -18,7 +18,7 @@ From "[vSphere Security ESXi 5.0](https://storage.googleapis.com/grand-drive-196
 
 ### Explain the three firewall security levels
 
-This comes from the old "[ESX Configuration Guide ESX 4.1](http://www.vmware.com/pdf/vsphere4/r41/vsp_41_esx_server_config.pdf)":
+This comes from the old "[ESX Configuration Guide ESX 4.1](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/vsp_41_esx_server_config.pdf)":
 
 ![firewall security levels VCAP5 DCA Objective 7.2 – Configure and Maintain the ESXi Firewall ](https://github.com/elatov/uploads/raw/master/2012/12/firewall_security_levels.png)
 

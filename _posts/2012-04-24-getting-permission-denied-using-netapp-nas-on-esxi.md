@@ -20,7 +20,7 @@ Why are we seeing the *nsfnobody* user owning new files? This is actually the de
 
 > Very often, it is not desirable that the root user on a client machine is also treated as root when accessing files on the NFS server. To this end, uid 0 is normally mapped to a different id: the so-called anonymous or *nobody* uid. This mode of operation (called 'root squashing') is the default, and can be turned off with *no_root_squash*.
 
-For ESX(i) to properly connect to a NAS server it needs to have read/write permission for the root user. Per the [ESX Configuration Guide](http://www.vmware.com/pdf/vsphere4/r41/vsp_41_esx_server_config.pdf), from the "Network Attached Storage" section we see the following:
+For ESX(i) to properly connect to a NAS server it needs to have read/write permission for the root user. Per the [ESX Configuration Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/vsp_41_esx_server_config.pdf), from the "Network Attached Storage" section we see the following:
 
 > ESX does not support the delegate user functionality that enables access to NFS volumes using nonroot credentials.
 

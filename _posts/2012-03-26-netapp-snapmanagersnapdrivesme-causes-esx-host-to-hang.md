@@ -57,11 +57,11 @@ A lot of people ran into issue with having two VSS writers:
 There were also a couple of issues with using SnapDrive to add an RDM:
 
 - [FC RDM Luns in ESX4.1 virtual machines](http://communities.netapp.com/message/45241) 
-- [VMware KB 1029963](http://kb.vmware.com/kb/1029963)
+- [VMware KB 1029963](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/netapp-snapdrive-manager/vmware-kb-1029963.pdf)
 
 The Snapdrive and RDM issues seem to be fixed with the latest versions of all the products :). The former seems to still come up and it depends on what your goal is, but that last Netapp community page has a good description of what to try.
 
-If you want to see a good picture of the setup with the OS disks being vmdks and Exchange data disks are RDMs, I would suggest looking over this article, [Running Microsoft Enterprise Applications on VMware vSphere, NetApp Unified Storage, and Cisco Unified Fabric](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/partners/netapp/vmware-running-microsoft-enterprise-applications-on-vsphere-netapp-unified.pdf)
+If you want to see a good picture of the setup with the OS disks being vmdks and Exchange data disks are RDMs, I would suggest looking over this article, [Running Microsoft Enterprise Applications on VMware vSphere, NetApp Unified Storage, and Cisco Unified Fabric](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/Exchange_VSphere_UCS_NetApp.pdf)
 
 So now to the problem at hand. We had the following setup: used SnapDrive to add RDMs to the Exchange Server. Installed SME on the VM and used option two (from above) to take an application consistent backup with SME (not  VMware VSS-assisted backups). This worked just fine. Now the snapshot process for SMVI is a little different from a regular backup software, this document describes the process, [SnapManager 2.0 for Virtual Infrastructure Best Practices](http://www.redbooks.ibm.com/redbooks/pdfs/sg247867.pdf):
 
@@ -180,7 +180,7 @@ When I did that I ran into another issue, I saw the following on the screen when
     ..
 
 
-After some time, **hostd** did start up fine, but it was still concerning that hostd had issue locking the file. I did some additional research and it looks like the locking issue is fixed in ESXi 5.0U1 and 4.1U2. For 4.1 check out KB [VMware ESXi 5.0 Update 1 Release Notes](http://kb.vmware.com/kb/2001457) have a workaround listed:
+After some time, **hostd** did start up fine, but it was still concerning that hostd had issue locking the file. I did some additional research and it looks like the locking issue is fixed in ESXi 5.0U1 and 4.1U2. For 4.1 check out  VMware ESXi 5.0 Update 1 Release Notes, has a workaround listed:
 
 > **Updated Manually applying a host profile containing a large configuration might timeout**
 > Applying a host profile that contains a large configuration, for example, a very large number of vSwitches and port groups, might timeout if the target host is either not configured or only partially configured. In such cases, the user sees the Cannot apply the host configuration error message in the vSphere Client, although the underlying process on ESXi that is applying the configuration might continue to run.

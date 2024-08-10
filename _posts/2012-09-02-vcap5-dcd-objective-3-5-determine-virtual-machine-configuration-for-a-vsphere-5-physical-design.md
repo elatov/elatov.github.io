@@ -235,7 +235,7 @@ From [APAC BrownBag Session 12](https://professionalvmware.com/vmware-certificat
 
 ![vm-ft](https://github.com/elatov/uploads/raw/master/2012/09/vm-ft.png)
 
-From "[Virtualizing Business-Critical Applications on VMware](http://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/whitepaper/solutions/vmware-virtualizing-business-critical-apps-on-vmware_en-white-paper.pdf)"
+From "[Virtualizing Business-Critical Applications on VMware](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/vmware-virtualizing-business-critical-apps-on-vmware_en-white-paper.pdf)"
 
 > The siloed example of availability methods shown in Figure 11 requires expensive licenses, dedicated standby infrastructure, and highly skilled staff to configure and manage. The alternative to this expensive approach is a standardized approach using vSphere technology, though some companies choose to implement both appspecific and VMware solutions running in tandem. ![3rd-party-availability_apps](https://github.com/elatov/uploads/raw/master/2012/09/3rd-party-availability_apps.png)
 
@@ -245,7 +245,7 @@ Also from "[Virtualizing Business-Critical Applications on VMware vSphere](https
 
 Here are examples of each 3rd party clustering products:
 
-*   [Oracle Databases on VMware High Availability](http://www.vmware.com/files/pdf/partners/oracle/Oracle_Databases_on_VMware_-_High_Availability_Guidelines.pdf)
+*   [Oracle Databases on VMware High Availability](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/oracle-databases-on-vmware-high-availability-guidelines.pdf)
 *   [Microsoft SQL Server on VMware Best Practices Guide](http://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/sql-server-on-vmware-best-practices-guide.pdf)
 *   [Microsoft Exchange 2013 on VMware Availability and Recovery Options](http://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/business-critical-apps/exchange/exchange-2013-on-vmware-availability-and-recovery-options.pdf)
 *   [Setup for Failover Clustering and Microsoft Cluster Service ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-651-setup-mscs.pdf)

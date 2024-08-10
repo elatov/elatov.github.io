@@ -188,7 +188,7 @@ prometheus   Synced        Healthy
 
 ### Using ArgoCD Metrics with Prometheus
 
-[This page](https://docs.vmware.com/en/VMware-Application-Catalog/services/apps/GUID-apps-argo-cd-administration-enable-metrics.html) has nice descriptions of how to use the metrics:
+[This page](https://argo-cd.readthedocs.io/en/stable/operator-manual/metrics/) has nice descriptions of how to use the metrics:
 
 1. Enable the pod annotations
 ```bash

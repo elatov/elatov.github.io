@@ -9,7 +9,7 @@ tags: ['cdp', 'port_channel', 'beacon_probing','snmp','dvs']
 
 ### Identify common virtual switch configurations
 
-From [VMware Virtual Networking Concepts](http://www.vmware.com/files/pdf/virtual_networking_concepts.pdf)
+From [VMware Virtual Networking Concepts](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/virtual_networking_concepts.pdf)
 
 > **Load Balancing**
 > Load balancing allows you to spread network traffic from virtual machines on a virtual switch across two or more physical Ethernet adapters, giving higher throughput than a single physical adapter could provide. When you set NIC teaming policies, you have the following options for load balancing:
@@ -200,7 +200,7 @@ This was covered in the previous section
 
 ### Migrate a vSS network to a Hybrid or Full vDS solution
 
-From [VMware vNetwork Distributed Switch: Migration and Configuration](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/vsphere-vnetwork-ds-migration-configuration-wp.pdf)
+From [VMware vNetwork Distributed Switch: Migration and Configuration](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/vsphere-vnetwork-ds-migration-configuration-wp.pdf)
 
 ![vss_to_dvs_migration](https://github.com/elatov/uploads/raw/master/2012/09/vss_to_dvs_migration.png)
 

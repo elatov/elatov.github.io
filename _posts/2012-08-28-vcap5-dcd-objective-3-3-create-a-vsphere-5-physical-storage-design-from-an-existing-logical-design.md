@@ -51,7 +51,7 @@ From "[Storage Protocol Choices & Storage Best Practices for VMware ESX](https:/
 
 ![vmware-multi-protocol-storage](https://github.com/elatov/uploads/raw/master/2012/08/vmware-multi-protocol-storage.png)
 
-Also depending on what application needs to be run, check some requirements. Here is an example from "[Design and Sizing Examples: Microsoft Exchange Solutions on VMware](http://www.vmware.com/pdf/exchange_best_practices.pdf)":
+Also depending on what application needs to be run, check some requirements. Here is an example from "[Design and Sizing Examples: Microsoft Exchange Solutions on VMware](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/exchange_best_practices.pdf)":
 
 ![exchange_storage_setup](https://github.com/elatov/uploads/raw/master/2012/08/exchange_storage_setup.png)
 
@@ -271,7 +271,7 @@ If you want more information on how the VSA works, please read "[VMware vSphere 
 
 ### Given the functional requirements, size the storage for capacity, availability and performance, including: Virtual Storage, Physical Storage
 
-From "[VMware Virtual Machine File System: Technical Overview and Best Practices](http://www.vmware.com/pdf/vmfs-best-practices-wp.pdf)":
+From "[VMware Virtual Machine File System: Technical Overview and Best Practices](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/vmware-vsphere-vmfs-best-practices-whitepaper.pdf)":
 
 > **How Large a LUN?**
 > The best way to configure a LUN for a given VMFS volume is to size for throughput first and capacity second. That is, you should aggregate the total I/O throughput for all applications/VMs that might run on a given shared pool of storage, then make sure you have provisioned enough back-end disk spindles (disk array cache) and appropriate storage service to meet the requirements.

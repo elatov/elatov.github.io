@@ -43,9 +43,9 @@ From an old and discontinued blog, we can see that should be done during the Cur
 
 This again is very application specific. Just plan ahead and determine what is necessary for an application. Here is a very easy example, if you are using Microsoft Clustering Services, then you know you will need dedicated RDMs, which mean you need to plan accordingly to allocate more LUNs. This way other VMs can have to other LUNs as necessary. Different application have certain RAM prerequisites, plan ahead and make sure you don't over commit your CPU or Memory. Here are some links from the VCAP-DCD Blueprint to application specific requirements:
 
-*   [VMware Virtualizing Oracle Kit](http://info.vmware.com/content/12581_VirtApps_reg?cid=70180000000wJTz&pc=orcl&src=APPS-WEB-SOLN&elq=URLPage=139&xyz=)
-*   [VMware Virtualizing Exchange Kit](http://info.vmware.com/content/12581_VirtApps_reg?cid=70180000000wJUJ&pc=exch&src=APPS-WEB-SOLN&elq=URLPage=139&xyz=)
-*   [VMware Virtualizing SQL Kit](http://info.vmware.com/content/12581_VirtApps_reg?cid=70180000000wJUY&pc=sql&src=APPS-WEB-SOLN&elq=URLPage=139&xyz=)
-*   [VMware Virtualizing SAP Kit](http://info.vmware.com/content/12581_VirtApps_reg?cid=70180000000wJUT&pc=sap&src=APPS-WEB-SOLN&elq=URLPage=139&xyz=)
-*   [VMware Virtualizing Enterprise Java Kit](http://info.vmware.com/content/12581_VirtApps_reg?cid=70180000000wJUd&pc=java&src=APPS-WEB-SOLN&elq=URLPage=139&xyz=)
+*   [VMware Virtualizing Oracle Kit](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/oracle-databases-on-vmware-workload-characterization-study.pdf)
+*   [VMware Virtualizing Exchange Kit](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/vmw-microsoft-exchange-server-2019-on-vmware-best-practices.pdf)
+*   [VMware Virtualizing SQL Kit](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/architecting_microsoft_sql_server_on_vmware_vsphere_noindex.pdf)
+*   [VMware Virtualizing SAP Kit](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/sap-hana-on-vmware-vsphere-bp_0.pdf)
+*   [VMware Virtualizing Enterprise Java Kit](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/enterprise-java-applications-on-vmware-best-practices-guide.pdf)
 

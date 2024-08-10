@@ -68,7 +68,7 @@ From "[Performance Best Practices for VMware vSphere 5.0](https://storage.google
 
 ### Identify pre-requisites for Hot Add features
 
-From the [vSphere Documenation](http://pubs.vmware.com/vsphere-50/index.jsp?topic=%2Fcom.vmware.vsphere.vm_admin.doc_50%2FGUID-F102B9BD-1B92-4AC5-ADC0-BE4E90473C5F.html):
+From the [vSphere Documenation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-285BB774-CE69-4477-9011-598FEF1E9ACB.html):
 
 > Prerequisites Verify that the virtual machine is running under the following conditions:
 >
@@ -129,7 +129,7 @@ And some more information:
 
 ### Tune Virtual Machine networking configurations
 
-From the [vSphere Documenation](http://pubs.vmware.com/vsphere-50/index.jsp?topic=%2Fcom.vmware.vsphere.vm_admin.doc_50%2FGUID-F102B9BD-1B92-4AC5-ADC0-BE4E90473C5F.html):
+From the [vSphere Documenation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-285BB774-CE69-4477-9011-598FEF1E9ACB.html):
 
 > **DirectPath I/O**
 > In the case of networking, DirectPath I/O allows the virtual machine to access a physical NIC directly rather than using an emulated device (E1000) or a para-virtualized device (VMXNET, VMXNET3). While DirectPath I/O provides limited increases in throughput, it reduces CPU cost for networking-intensive workloads.
@@ -180,7 +180,7 @@ And more information:
 
 ### Tune Virtual Machine CPU configurations
 
-From the [vSphere Documenation](http://pubs.vmware.com/vsphere-50/index.jsp?topic=%2Fcom.vmware.vsphere.vm_admin.doc_50%2FGUID-F102B9BD-1B92-4AC5-ADC0-BE4E90473C5F.html):
+From the [vSphere Documenation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-285BB774-CE69-4477-9011-598FEF1E9ACB.html):
 
 > **Guest Operating System CPU Considerations**
 >
@@ -207,7 +207,7 @@ From the [vSphere Documenation](http://pubs.vmware.com/vsphere-50/index.jsp?topi
 
 ### Tune Virtual Machine storage configurations From the
 
-[vSphere Documenation](http://pubs.vmware.com/vsphere-50/index.jsp?topic=%2Fcom.vmware.vsphere.vm_admin.doc_50%2FGUID-F102B9BD-1B92-4AC5-ADC0-BE4E90473C5F.html):
+[vSphere Documenation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-285BB774-CE69-4477-9011-598FEF1E9ACB.html):
 
 > **Guest Operating System Storage Considerations**
 >
@@ -235,7 +235,7 @@ I actually covered this in [DCD Objective 3.5](/2012/09/vcap5-dcd-objective-3-5-
 
 ### Modify large memory page settings
 
-From the [vSphere Documenation](http://pubs.vmware.com/vsphere-50/index.jsp?topic=%2Fcom.vmware.vsphere.resmgmt.doc_50%2FGUID-D98E6EC9-3730-4BC0-A9FC-93B9079E1AEE.html):
+From the [vSphere Documenation](https://docs.vmware.com/en/VMware-vSphere/8.0/vsphere-resource-management/GUID-D98E6EC9-3730-4BC0-A9FC-93B9079E1AEE.html):
 
 > **Advanced Memory Attributes**
 > You can use the advanced memory attributes to customize memory resource usage. ![Large_Page_Options](https://github.com/elatov/uploads/raw/master/2012/10/Large_Page_Options.png)

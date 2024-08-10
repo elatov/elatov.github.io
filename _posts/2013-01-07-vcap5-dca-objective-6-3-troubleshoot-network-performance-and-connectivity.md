@@ -162,7 +162,7 @@ Here is a quick summary:
 
 ### Analyze troubleshooting data to determine if the root cause for a given network problem originates in the physical infrastructure or vSphere environment
 
-From "[Performance Troubleshooting for VMware vSphere 4.1](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/vsphere41-performance-troubleshooting.pdf)":
+From "[Performance Troubleshooting for VMware vSphere 4.1](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/vsphere41-performance-troubleshooting.pdf)":
 
 > **12.2. Dropped Receive Packets**
 > **12.2.1. Causes**
