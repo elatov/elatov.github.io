@@ -96,5 +96,5 @@ Definitely read over this document to get a good feeling of how to setup SRM and
 [A Practical Guide to Business Continuity and Disaster Recovery with VMware Infrastructure](http://blogs.vmware.com/vmtn/2008/08/book-a-practica.html)
 
 There is a lot of cases studies for SRM found here:
-[VMware vCenter Site Recovery Manager](http://www.vmware.com/products/datacenter-virtualization/site-recovery-manager/customer-case-studies.html)
+[VMware vCenter Site Recovery Manager](https://www.vmware.com/products/cloud-infrastructure/live-recovery#case-studies)
 

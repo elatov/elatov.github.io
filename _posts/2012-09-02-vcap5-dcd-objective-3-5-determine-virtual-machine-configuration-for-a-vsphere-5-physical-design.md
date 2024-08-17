@@ -239,7 +239,7 @@ From "[Virtualizing Business-Critical Applications on VMware](https://storage.go
 
 > The siloed example of availability methods shown in Figure 11 requires expensive licenses, dedicated standby infrastructure, and highly skilled staff to configure and manage. The alternative to this expensive approach is a standardized approach using vSphere technology, though some companies choose to implement both appspecific and VMware solutions running in tandem. ![3rd-party-availability_apps](https://github.com/elatov/uploads/raw/master/2012/09/3rd-party-availability_apps.png)
 
-Also from "[Virtualizing Business-Critical Applications on VMware vSphere](https://www.vmware.com/solutions/business-critical-apps.html)":
+Also from "[Virtualizing Business-Critical Applications on VMware vSphere](https://www.vmware.com/solutions/cloud-infrastructure/business-critical-apps)":
 
 ![percent-of-coverage_for-availability](https://github.com/elatov/uploads/raw/master/2012/09/percent-of-coverage_for-availability.png)
 
@@ -247,7 +247,7 @@ Here are examples of each 3rd party clustering products:
 
 *   [Oracle Databases on VMware High Availability](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/oracle-databases-on-vmware-high-availability-guidelines.pdf)
 *   [Microsoft SQL Server on VMware Best Practices Guide](http://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/sql-server-on-vmware-best-practices-guide.pdf)
-*   [Microsoft Exchange 2013 on VMware Availability and Recovery Options](http://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/business-critical-apps/exchange/exchange-2013-on-vmware-availability-and-recovery-options.pdf)
+*   [Microsoft Exchange 2013 on VMware Availability and Recovery Options](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/exchange-2013-on-vmware-availability-and-recovery-options.pdf)
 *   [Setup for Failover Clustering and Microsoft Cluster Service ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-651-setup-mscs.pdf)
 
 and from [APAC BrownBag Session 12](https://professionalvmware.com/vmware-certifications/):

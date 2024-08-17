@@ -79,7 +79,7 @@ Also check out "[VLANs and Trunking](http://www.ciscopress.com/articles/article.
 
 ### Describe switch-specific settings for ESXi-facing ports, including but not limited to (STP,Jumbo Frames, Load-balancing, Trunking)
 
-From "[VMware Virtual Networking Concepts](http://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/virtual_networking_concepts.pdf)":
+From "[VMware Virtual Networking Concepts](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/virtual_networking_concepts.pdf)":
 
 > **Spanning Tree Protocol Not Needed**
 > VMware Infrastructure 3 enforces a single-tier networking topology. In other words, there is no way to interconnect multiple virtual switches, thus the network cannot be configured to introduce loops. As a result, Spanning Tree Protocol (STP) is not needed and is not present.
@@ -121,7 +121,7 @@ From this [PDF](https://github.com/elatov/uploads/raw/master/2013/04/vcap-dcd_no
 
 ### Cite virtual switch security policies and settings
 
-From "[VMware Virtual Networking Concepts](http://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/virtual_networking_concepts.pdf)":
+From "[VMware Virtual Networking Concepts](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/virtual_networking_concepts.pdf)":
 
 > **Layer 2 Security Features**
 > The virtual switch has the ability to enforce security policies to prevent virtual machines from impersonating other nodes on the network. There are three components to this feature.
@@ -138,7 +138,7 @@ There are actually a lot of good VMware networking designs at the [blog](http://
 
 ### Determine and explain the selected network teaming and failover solution
 
-From "[VMware Virtual Networking Concepts](http://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/virtual_networking_concepts.pdf)":
+From "[VMware Virtual Networking Concepts](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/virtual_networking_concepts.pdf)":
 
 > **NIC Teaming**
 > You can connect a single virtual switch to multiple physical Ethernet adapters using the VMware Infrastructure feature called NIC teaming. A team can share the load of traffic between physical and virtual networks among some or all of its members and provide passive failover in the event of a hardware failure or a network outage. You can set NIC teaming policies at the port group level.

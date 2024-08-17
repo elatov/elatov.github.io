@@ -106,7 +106,7 @@ The popular logical design that we have seen is the remote site replication, her
 
 ### Define an availability plan, including maintenance processes.
 
-Another good link from the blue print is "[Business Continuity](http://www.vmware.com/business-continuity/high-availability)". From one of the articles:
+Another good link from the blue print is "[Business Continuity](https://vmc.techzone.vmware.com/resource/introduction-vmware-disaster-recovery-and-business-continuity)". From one of the articles:
 
 > VMware vSphere makes it possible to reduce both planned and unplanned downtime without the cost and complexity of alternative solutions. Organizations using VMware can slash planned downtime by eliminating most scheduled downtime for hardware maintenance. VMware VMotion™ technology, VMware Distributed Resource Scheduler (DRS) maintenance mode, and VMware Storage VMotion™ make it possible to move running workloads from one physical server to another without downtime or service interruption, enabling zero-downtime hardware maintenance.
 

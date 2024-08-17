@@ -99,7 +99,7 @@ From "[vSphere Host Profiles ESXi 5.0](https://storage.googleapis.com/grand-driv
 
 ### Use Host Profiles to deploy vDS
 
-From "[VMware Host Profiles: Technical Overview](http://www.vmware.com/files/pdf/techpaper/VMW-Host-Profiles-Tech-Overview.pdf)":
+From "[VMware Host Profiles: Technical Overview](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/vmw-host-profiles-tech-overview-white-paper.pdf)":
 
 > **Use Case 5: Using Host Profiles to Configure Hosts to Use VMware vNetwork Distributed Switch**
 > Host Profiles can be used to capture the vNetwork Standard Switch (vSS) and vNetwork Distributed Switch configuration of a VMware ESX host, and then apply and propagate that configuration to a number of other VMware ESX or ESXi hosts.

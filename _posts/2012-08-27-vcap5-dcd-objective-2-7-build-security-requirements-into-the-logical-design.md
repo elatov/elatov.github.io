@@ -9,7 +9,7 @@ tags: ['vshield', 'logical_design']
 
 ### Understand what security services are provided by VMware solutions
 
-vShield is the most popular service. If you need PCI compliance you can check out [VMware Compliance Center](https://www.vmware.com/solutions/compliance-cyber-risk.html) page. It has links how to accomplish certain level of compliance. There is also a tool called VMware Compliance Checker, but it seems that vRealize replaced the functionality as seen from [this](https://blogs.vmware.com/management/2017/07/vsphere-pci-dss-hipaa-compliance-vrealize-operations-6-6.html) page.
+vShield is the most popular service. If you need PCI compliance you can check out [VMware Compliance Center](https://www.vmware.com/solutions/security/compliance-risk-management) page. It has links how to accomplish certain level of compliance. There is also a tool called VMware Compliance Checker, but it seems that vRealize replaced the functionality as seen from [this](https://blogs.vmware.com/management/2017/07/vsphere-pci-dss-hipaa-compliance-vrealize-operations-6-6.html) page.
 
 VMware also provides hardening guides for each version of ESX, and here a [link](https://www.vmware.com/solutions/security/hardening-guides) to all the different versions.
 
