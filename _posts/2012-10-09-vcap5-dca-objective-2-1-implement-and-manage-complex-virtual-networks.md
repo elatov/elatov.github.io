@@ -684,7 +684,7 @@ Here is how it looks like in the GUI:
 
 ![netflow_settings](https://github.com/elatov/uploads/raw/master/2012/09/netflow_settings.png)
 
-The topic is also discussed in the VMware Blogs "[vSphere 5 New Networking Features – NetFlow](http://blogs.vmware.com/vsphere/2011/08/vsphere-5-new-networking-features-netflow.html)"
+The topic is also discussed in the VMware Blogs "[vSphere 5 New Networking Features – NetFlow](https://blogs.vmware.com/vsphere/2011/08/vsphere-5-new-networking-features-netflow.html)"
 
 ### Determine appropriate discovery protocol (CDP, LLDP)
 

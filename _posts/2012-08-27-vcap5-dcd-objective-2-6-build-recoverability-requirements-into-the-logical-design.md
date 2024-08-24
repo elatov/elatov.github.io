@@ -35,7 +35,7 @@ From the [APAC BrownBag Session 4](https://professionalvmware.com/vmware-certif
 
 ### Given specific RTO and RPO requirements, build these requirements into the logical design
 
-There is a great VMware article that has SRM Design considerations, and it's of course linked in the blue print. Here is this article "[A Practical Guide to Business Continuity and Disaster Recovery with VMware Infrastructure](http://blogs.vmware.com/vmtn/2008/08/book-a-practica.html)" and here are some excerpts from that article:
+There is a great VMware article that has SRM Design considerations, and it's of course linked in the blue print. Here is this article "[A Practical Guide to Business Continuity and Disaster Recovery with VMware Infrastructure](https://blogs.vmware.com/vmtn/2008/08/book-a-practica.html)" and here are some excerpts from that article:
 
 > The granularity study will be invaluable in understanding the replication strategy that you want implement. The main considerations here are: rate of change and groupings. Groupings are driven by the granularity study which we referred to above. Then a deeper level of analysis is required to establish the rate of change which determines WAN bandwidth requirements etc. This in conjunction with the Recovery Point Objectives can drive decisions around synchronous and asynchronous replication technologies. With these in mind it is then possible to have detailed discussions with the storage teams to line up the capabilities of the storage layer and its granularity to ensure a good mapping between the two.
 >
@@ -93,7 +93,7 @@ With VMware Data Recovery you can define a retention policy. From "[VMware Data 
 > Data Recovery backups are preserved for a variable period of time. You can choose to keep more or fewer backups for a longer or shorter period of time. Keeping more backups consumes more disk space, but also provides more points in time to which you can restore virtual machines. As backups age, some are automatically deleted to make room for new backups. You can use a predefined retention policy or create a custom policy.
 
 Definitely read over this document to get a good feeling of how to setup SRM and how it applies to business needs (SLAs, RPOs, and RTOs):
-[A Practical Guide to Business Continuity and Disaster Recovery with VMware Infrastructure](http://blogs.vmware.com/vmtn/2008/08/book-a-practica.html)
+[A Practical Guide to Business Continuity and Disaster Recovery with VMware Infrastructure](https://blogs.vmware.com/vmtn/2008/08/book-a-practica.html)
 
 There is a lot of cases studies for SRM found here:
 [VMware vCenter Site Recovery Manager](https://www.vmware.com/products/cloud-infrastructure/live-recovery#case-studies)

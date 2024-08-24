@@ -6,7 +6,7 @@ description: ""
 categories: [vmware]
 tags: [esxcli, heartbleed, ssl]
 ---
-I decided to apply the heartbleed patch on my ESXi host, there were some concerns and confusion with the latest NFS issue and 5.5GA versus 5.5U1. There is a lot of good information in [VMware KB 2076665](http://kb.vmware.com/kb/2076665). But I actually liked the summary from [this](http://blogs.vmware.com/kb/2014/04/patching-esxi-5-5-heartbleed-without-installing-update-1.html) VMware blogs page:
+I decided to apply the heartbleed patch on my ESXi host, there were some concerns and confusion with the latest NFS issue and 5.5GA versus 5.5U1. There is a lot of good information in [VMware KB 2076665](http://kb.vmware.com/kb/2076665). But I actually liked the summary from [this](https://blogs.vmware.com/kb/2014/04/patching-esxi-5-5-heartbleed-without-installing-update-1.html) VMware blogs page:
 
 > Stated simply, if you are…
 >

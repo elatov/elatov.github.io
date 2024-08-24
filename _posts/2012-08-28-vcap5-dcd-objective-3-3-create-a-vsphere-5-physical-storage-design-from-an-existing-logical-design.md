@@ -31,7 +31,7 @@ Here is a diagram from the above pdf:
 
 ![raid-with-iops](https://github.com/elatov/uploads/raw/master/2012/08/raid-with-iops.png)
 
-and also here is similar diagram from [this](http://blogs.vmware.com/vsphere/2012/06/troubleshooting-storage-performance-in-vsphere-part-2.html) VMware blog:
+and also here is similar diagram from [this](https://blogs.vmware.com/vsphere/2012/06/troubleshooting-storage-performance-in-vsphere-part-2.html) VMware blog:
 
 ![sizing-storage](https://github.com/elatov/uploads/raw/master/2012/08/sizing-storage.png)
 
@@ -39,7 +39,7 @@ If you want information on how each RAID works, I would suggest reading "[Unders
 
 ### Based on the service catalog and given functional requirements, for each service: Determine the most appropriate storage technologies for the design.
 
-I would check out the VMware blog "[Storage Protocol Comparison – A vSphere Perspective](http://blogs.vmware.com/vsphere/2012/02/storage-protocol-comparison-a-vsphere-perspective.html)". Here is a snippet from that page:
+I would check out the VMware blog "[Storage Protocol Comparison – A vSphere Perspective](https://blogs.vmware.com/vsphere/2012/02/storage-protocol-comparison-a-vsphere-perspective.html)". Here is a snippet from that page:
 
 ![prot-comp](https://github.com/elatov/uploads/raw/master/2012/08/prot-comp.png)
 
@@ -148,7 +148,7 @@ If the array is capable of using VAAI definitely use, this allows you to offload
 >
 > *   Hardware assisted locking, also called atomic test and set (ATS). Supports discrete virtual machine locking without use of SCSI reservations. This operation allows disk locking per sector, instead of the entire LUN as with SCSI reservations.
 
-If you want more information on how VAAI I would suggest reading the VMware blog entitled "[Performance Best Practices for VMware vSphere 5.0](http://blogs.vmware.com/vsphere/2012/06/low-level-vaai-behaviour.html)":
+If you want more information on how VAAI I would suggest reading the VMware blog entitled "[Performance Best Practices for VMware vSphere 5.0](https://blogs.vmware.com/vsphere/2012/06/low-level-vaai-behaviour.html)":
 
 > For the best storage performance, consider using VAAI-capable storage hardware. The performance gains from VAAI can be especially noticeable in VDI environments (where VAAI can improve boot-storm and desktop workload performance), large data centers (where VAAI can improve the performance of mass virtual machine provisioning and of thin-provisioned virtual disks), and in other large-scale deployments.
 
@@ -221,9 +221,9 @@ From "[Performance Best Practices for VMware vSphere 5.0](https://storage.google
 >
 > With SIOC enabled, the disk shares are evaluated globally and the portion of the datastore’s resources each host receives depends on the sum of the shares of the virtual machines running on that host relative to the sum of the shares of all the virtual machines accessing that datastore.
 
-If you want more information on how SIOC works, I would suggest reading "[Performance Implications of Storage I/O Control– Enabled NFS Datastores in VMware vSphere 5.0](http://blogs.vmware.com/performance/2011/08/sioc-nfs.html)".
+If you want more information on how SIOC works, I would suggest reading "[Performance Implications of Storage I/O Control– Enabled NFS Datastores in VMware vSphere 5.0](https://blogs.vmware.com/performance/2011/08/sioc-nfs.html)".
 
-From "[VMware Storage VMotion](http://blogs.vmware.com/vsphere/2011/03/under-the-covers-with-storage-vmotion.html)":
+From "[VMware Storage VMotion](https://blogs.vmware.com/vsphere/2011/03/under-the-covers-with-storage-vmotion.html)":
 
 > **How is VMware Storage VMotion Used in the Enterprise?**
 > Customers use VMware Storage VMotion to:

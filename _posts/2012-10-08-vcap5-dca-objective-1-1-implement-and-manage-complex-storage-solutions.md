@@ -41,7 +41,7 @@ If you want to know about read and write penalties, I would check out "[Calculat
 
 ### Identify supported HBA types
 
-From "[Storage Protocol Comparison – A vSphere Perspective](http://blogs.vmware.com/vsphere/2012/02/storage-protocol-comparison-a-vsphere-perspective.html)":
+From "[Storage Protocol Comparison – A vSphere Perspective](https://blogs.vmware.com/vsphere/2012/02/storage-protocol-comparison-a-vsphere-perspective.html)":
 
 > Fiber Channel can run on 1Gb/2Gb/4Gb/8Gb & 16Gb, but 16Gb HBAs must be throttled to run at 8Gb in vSphere 5.0.
 > ...
@@ -80,7 +80,7 @@ To start off here is a good diagram of how it works from "[N-Port Virtualization
 
 ![npiv cisco VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/npiv_cisco.png)
 
-From the VMware Blog "[NPIV: N-Port ID Virtualization](http://blogs.vmware.com/vsphere/2011/11/npiv-n-port-id-virtualization.html)"
+From the VMware Blog "[NPIV: N-Port ID Virtualization](https://blogs.vmware.com/vsphere/2011/11/npiv-n-port-id-virtualization.html)"
 
 > Let's start by describing what this feature is. NPIV stands for N-Port ID Virtualization. It is an ANSI T11 standard that describes how a single Fibre Channel Physical HBA port can register with a fabric using several worldwide port names (WWPNs), what might be considered Virtual WWNs. This in turn means that since there a multiple Virtual HBAs per physical HBA, we can allow WWNs to be assigned to each VM
 

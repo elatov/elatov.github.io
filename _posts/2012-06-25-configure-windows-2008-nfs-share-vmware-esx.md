@@ -7,7 +7,7 @@ categories: ['home_lab', 'storage', 'vmware']
 tags: [ 'nfs', 'win2k8r2']
 ---
 
-I decided to expand on the following VMware blog: [How to Enable NFS on Windows 2008 and Present to ESX](http://blogs.vmware.com/kb/2011/05/how-to-enable-nfs-on-windows-2008-and-present-to-esx.html). The same warning applies to this post as well:
+I decided to expand on the following VMware blog: [How to Enable NFS on Windows 2008 and Present to ESX](https://blogs.vmware.com/kb/2011/05/how-to-enable-nfs-on-windows-2008-and-present-to-esx.html). The same warning applies to this post as well:
 
 > **Warning:** Windows Services for UNIX is not a supported storage solution for use with ESX, and the information in this article is provided as-is
 

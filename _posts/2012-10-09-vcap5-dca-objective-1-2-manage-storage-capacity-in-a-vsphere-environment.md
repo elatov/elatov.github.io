@@ -9,7 +9,7 @@ tags: ['thick_provisioning', 'thin_provisioning', 'drs']
 
 ### Identify storage provisioning methods
 
-For protocols we have Fibre Channel, iSCSI, NFS, FCoE. Check out "[Storage Protocol Comparison – A vSphere Perspective](http://blogs.vmware.com/vsphere/2012/02/storage-protocol-comparison-a-vsphere-perspective.html)" to find out what the differences are. Here is a snippet from that page:
+For protocols we have Fibre Channel, iSCSI, NFS, FCoE. Check out "[Storage Protocol Comparison – A vSphere Perspective](https://blogs.vmware.com/vsphere/2012/02/storage-protocol-comparison-a-vsphere-perspective.html)" to find out what the differences are. Here is a snippet from that page:
 
 ![storage_protocols](https://github.com/elatov/uploads/raw/master/2012/09/storage_protocols.png)
 

@@ -49,7 +49,7 @@ And more information from the same guide:
 >
 > As the Pluggable Storage Architecture illustration shows, multiple third-party MPPs can run in parallel with the VMware NMP. When installed, the third-party MPPs replace the behavior of the NMP and take complete control of the path failover and the load-balancing operations for specified storage devices.
 
-There is also an excellent blog written by Cormac Hogan on how IO is handled by PSP, check it out in "[Path failure and related SATP/PSP behaviour](http://blogs.vmware.com/vsphere/2012/07/path-failure-and-related-satppsp-behaviour.html)"
+There is also an excellent blog written by Cormac Hogan on how IO is handled by PSP, check it out in "[Path failure and related SATP/PSP behaviour](https://blogs.vmware.com/vsphere/2012/07/path-failure-and-related-satppsp-behaviour.html)"
 
 ### Install and Configure PSA plug-ins
 

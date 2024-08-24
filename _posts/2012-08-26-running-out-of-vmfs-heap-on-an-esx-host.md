@@ -154,7 +154,7 @@ So we are approximately using 100TB of space across all the eight hosts. The iss
 	|----Current Value................................256
 
 
-Now that KB has a very theoretical calculation. If there were no other resources (ie just open VMDKs) then we could reach that. But if we have VAAI enabled and are using ATS, or if we use SIOC enabled on the Datastores, then these things also contribute to the VMFS heap. As we know VMFS5 uses a Unified 1MB Block size and if we have a VMDK bigger than 256GB, which is the max file size with that block size for VMFS3 (block size of 1MB), then this also uses more VMFS heap. More information on the new features of VMFS5 can be seen in the VMware blog entitled "[Low Level VAAI Behaviour](http://blogs.vmware.com/vsphere/2011/07/new-vsphere-50-storage-features-part-1-vmfs-5.html)".
+Now that KB has a very theoretical calculation. If there were no other resources (ie just open VMDKs) then we could reach that. But if we have VAAI enabled and are using ATS, or if we use SIOC enabled on the Datastores, then these things also contribute to the VMFS heap. As we know VMFS5 uses a Unified 1MB Block size and if we have a VMDK bigger than 256GB, which is the max file size with that block size for VMFS3 (block size of 1MB), then this also uses more VMFS heap. More information on the new features of VMFS5 can be seen in the VMware blog entitled "[Low Level VAAI Behaviour](https://blogs.vmware.com/vsphere/2011/07/new-vsphere-50-storage-features-part-1-vmfs-5.html)".
 All of these things make it very hard to calculate VMFS heap usage. If you want to check the current usage, you can do the following:
 
 

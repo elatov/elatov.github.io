@@ -71,7 +71,7 @@ So from the ESX side of things, there is nothing to be done when working with mu
 	010000E0 1 0:00000000 0
 
 
-The above output is showing the VM using IGMP V3. After we changed to version to 2, it didn't make a difference. We checked out the VMware blog "[Multicast Performance on vSphere 5.0](http://blogs.vmware.com/performance/2011/08/multicast-performance-on-vsphere-50.html)". There is a new setting called "splitRxMode", which can improve multicast traffic but we were running 4.x so this didn't apply to us.
+The above output is showing the VM using IGMP V3. After we changed to version to 2, it didn't make a difference. We checked out the VMware blog "[Multicast Performance on vSphere 5.0](https://blogs.vmware.com/performance/2011/08/multicast-performance-on-vsphere-50.html)". There is a new setting called "splitRxMode", which can improve multicast traffic but we were running 4.x so this didn't apply to us.
 
 We knew that Multicast traffic uses the UDP protocol, so we decided to run two iperf tests to compare if there is a difference between tcp traffic and udp traffic. For UDP traffic we ran the following:
 
@@ -118,7 +118,7 @@ As we doing the testing, using UDP, the server only received a maximum of around
 	OutMcastOctets: 12364
 
 
-So we were dropping a lot of the UDP traffic. We checked out Vmware blog "[Considerations for Maximizing UDP Performance](http://blogs.vmware.com/vsphere/2009/04/considerations-for-maximum-network-performance.html)". We checked all the recommendations:
+So we were dropping a lot of the UDP traffic. We checked out Vmware blog "[Considerations for Maximizing UDP Performance](https://blogs.vmware.com/vsphere/2009/04/considerations-for-maximum-network-performance.html)". We checked all the recommendations:
 
 > 1.  vNIC types: do not use vlance. vlance is our oldest vNIC and does not have good performance. If a VM has “Flexible” vNIC without VMware tools installed, the vNIC will end up being vlance (pcnet32).
 > 2.  In addition, for UDP, use either e1000 vNIC, or with ESX 4, vmxnet3, in order to be able to configure a larger vNIC Rx ring size. Because UDP can be a lot more bursty (due to lack of flow-control), having a larger Rx ring size helps to provide buffering/elasticity to better absorb the bursts. Both e1000 vNIC and our new vmxnet3 allows resizing the vNIC’s Rx ring size, up to around 1 to 2 thousand buffers. As a side note, there is some negative performance impact with larger ring size due to larger memory foot print. The new vxmnet3 vNIC is more efficient than the e1000 vNIC. Also in general, ESX 4 has some performance improvements over ESX 3.5.

@@ -50,7 +50,7 @@ vSS (virtual Standard Switch) is just a regular vswitch and is configured on a p
 	/net/vswitch/child[0000]/uplinks/child[0000]/pnic = "vmnic0"
 
 
-The vDS (virtual Distributed Switch) contains multiple proxy switches, which reside on each host that sync together with vCenter to have a single management point. Most of the configurations are in the vCenter Database. But each host contains a /etc/vmware/dvsdata file and .dvsData folder on some of your datastores. From "[vDS config location and HA](http://blogs.vmware.com/vsphere/2011/06/vds-config-location-and-ha.html)":
+The vDS (virtual Distributed Switch) contains multiple proxy switches, which reside on each host that sync together with vCenter to have a single management point. Most of the configurations are in the vCenter Database. But each host contains a /etc/vmware/dvsdata file and .dvsData folder on some of your datastores. From "[vDS config location and HA](https://blogs.vmware.com/vsphere/2011/06/vds-config-location-and-ha.html)":
 
 > *   The .dvsData folder is only created if you have a VM on that datastore that is attached to a vDS. Thus if there is only VM’s that is attached to a vSwitch on a datastore there will not be a .dvsData folder. Also only the datastore that holds the .vmx config file will have the .dvsData folder.
 > *   Inside the .dvsData folder there is a UUID number for each vDS switch.
@@ -194,7 +194,7 @@ Here is how it looks in vCenter:
 
 ![enable_nioc](https://github.com/elatov/uploads/raw/master/2012/10/enable_nioc.png)
 
-There is also a very good example in the VMware blog "[vSphere 5 New Networking Features – Enhanced NIOC](http://blogs.vmware.com/vsphere/2011/08/vsphere-5-new-networking-features-enhanced-nioc.html)". From the blog:
+There is also a very good example in the VMware blog "[vSphere 5 New Networking Features – Enhanced NIOC](https://blogs.vmware.com/vsphere/2011/08/vsphere-5-new-networking-features-enhanced-nioc.html)". From the blog:
 
 > **User-Defined Network Resource Pools**
 >

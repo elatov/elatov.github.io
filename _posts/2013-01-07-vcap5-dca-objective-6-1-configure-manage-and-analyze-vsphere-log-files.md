@@ -244,7 +244,7 @@ You can also check if the ports are in a listening state on the windows machine:
 
 Now you can configure hosts to log to this syslog collector. This setup for that was covered in previous objectives
 
-The ESXi Dump collector is very similar. Start up the vCenter installer and then follow the on-screen instructions. This [VMware](http://blogs.vmware.com/vsphere/2011/07/setting-up-the-esxi-50-dump-collector.html) Blog has a very good step-by-step guide. Here is the content from that blog:
+The ESXi Dump collector is very similar. Start up the vCenter installer and then follow the on-screen instructions. This [VMware](https://blogs.vmware.com/vsphere/2011/07/setting-up-the-esxi-50-dump-collector.html) Blog has a very good step-by-step guide. Here is the content from that blog:
 
 > ![vcenter install dump collector VCAP5 DCA Objective 6.1 – Configure, Manage, and Analyze vSphere Log Files ](https://github.com/elatov/uploads/raw/master/2012/12/vcenter_install_dump_collector.png)
 
