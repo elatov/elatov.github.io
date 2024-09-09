@@ -110,7 +110,7 @@ I found an old [loki issue](https://github.com/grafana/loki/issues/2232), but at
 
 - [How I fell in love with logs thanks to Grafana Loki](https://grafana.com/blog/2021/03/23/how-i-fell-in-love-with-logs-thanks-to-grafana-loki/)
 - [grafana-loki-syslog-aio example](https://github.com/lux4rd0/grafana-loki-syslog-aio/blob/main/config/syslog-ng.conf)
-- [Forwarding Syslog Messages to Loki via Promtail and syslog-ng with mTLS](https://eugenemdavis.net/forwarding-syslog-to-loki-mtls.html)
+- [Forwarding Syslog Messages to Loki via Promtail and syslog-ng with mTLS](https://eugenemdavis.net/archives/2022-06-14-forwarding-syslog-to-loki-mtls/)
 - [Using Rsyslog and Promtail to relay syslog messages to Loki](https://alexandre.deverteuil.net/post/syslog-relay-for-loki/)
 
 On top of those the [Configuring syslog-ng relays](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.38/administration-guide/12#TOPIC-2026161) page was really helpful in getting the right config. I also decided to use the this [syslog-ng container](https://hub.docker.com/r/linuxserver/syslog-ng). It felt like it was the most up to date one. There are also helm charts available [here](https://github.com/syslog-ng/syslog-ng/tree/master/contrib/syslog-ng-helm-chart) it uses the [balabit container](https://hub.docker.com/r/balabit/syslog-ng/) which also seems like it's kept up to date.

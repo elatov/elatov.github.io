@@ -87,7 +87,7 @@ From [CSI Snapshot Data Movement](https://velero.io/docs/main/csi-snapshot-data-
 3. Install Velero with CSI support on source cluster
 4. Perform the back up
 
-I was using the [velero helm chart](https://github.com/vmware-tanzu/helm-charts/tree/main), to perform the first 3 steps create the following `values.yaml` file (review [Velero and OpenEBS](2022/11/velero-and-openebs/) for the `backupStorageLocation` setup):
+I was using the [velero helm chart](https://github.com/vmware-tanzu/helm-charts/tree/main), to perform the first 3 steps create the following `values.yaml` file (review [Velero and OpenEBS](/2022/11/velero-and-openebs/) for the `backupStorageLocation` setup):
 
 ```
 initContainers:

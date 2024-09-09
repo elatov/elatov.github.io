@@ -307,7 +307,7 @@ There are a couple of application that can do asset management. The first one is
 > 
 > VMware Go Pro offers automated patch management across physical and virtual machines for both Microsoft and third-party applications to ensure that organizations are up-to-date with all of the latest software upgrades, thus mitigating the organization’s vulnerability to the latest IT threats. An integrated Help Desk with built-in analytics also helps improve IT productivity and service, automatically prioritizing issues by level of severity. Go Pro also offers a rich asset management capability, which provides control over all software and hardware assets.
 
-There is also VMware Service Manager. From "[VMware Service Manager Cloud Provisioning](https://www.vmware.com/products/service-manager.html)":
+There is also VMware Service Manager. From "[VMware Service Manager Cloud Provisioning](https://docs.vmware.com/en/VMware-Aria-Automation/index.html)":
 
 > How Does VMware Service Manager Work with vCloud Director?
 > The VMware Service Manager connector to vCloud Director provides additional functionality to vCloud Director:
@@ -319,7 +319,7 @@ There is also VMware Service Manager. From "[VMware Service Manager Cloud Provis
 >
 > VMware Service Manager can also utilize its connectors to vCenter Orchestrator and vCenter Configuration Manager to automate additional modifications to cloud infrastructure.
 
-And for the [features](http://www.vmware.com/products/datacenter-virtualization/service-manager/features.html) page:
+And from the [features](https://docs.vmware.com/en/VMware-Aria-Automation/index.html) page:
 
 > Give cloud consumers a unified experience and dramatically simplify the process of requesting cloud resources.
 >

@@ -30,7 +30,7 @@ When adding a git connector and pointing to the above ssh credential it will do 
 ![hio-git-connector-successful-test.png](https://res.cloudinary.com/elatov/image/upload/v1705896854/blog-pics/harness-ci/hio-git-connector-successful-test.png)
 
 ## Using the Clone Repo Step
-When creating a pipeline, as part of your stage you can create a step and choose the [clone repo](hio-add-clone-repo-step.png). At this point you can point to the git connector you created above:
+When creating a pipeline, as part of your stage you can create a step and choose the [clone repo](https://developer.harness.io/docs/continuous-integration/use-ci/codebase-configuration/git-clone-step/). At this point you can point to the git connector you created above:
 
 ![hio-add-clone-repo-step.png](https://res.cloudinary.com/elatov/image/upload/v1705896854/blog-pics/harness-ci/hio-add-clone-repo-step.png)
 

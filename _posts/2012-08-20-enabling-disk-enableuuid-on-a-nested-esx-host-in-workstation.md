@@ -134,7 +134,7 @@ Here are some common causes for LUNs to be seen as snapshots:
 3.  A LUN has been un-presented and a new LUN has been presented back with the same LUN ID but the SAN has not been scanned in the meantime.
 4.  A LUN has been snapshot’ed on the array and presented back to the ESX server (a real snapshot)
 
-Most of these are discussed in VMware KB [6482648](http://kb.vmware.com/kb/6482648).
+Most of these are discussed in VMware KB [6482648](https://knowledge.broadcom.com/external/article/323142).
 I checked to see if my local drive is seen as a snapshot:
 
 

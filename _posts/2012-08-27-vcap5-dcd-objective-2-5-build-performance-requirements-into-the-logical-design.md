@@ -74,7 +74,7 @@ Make sure to define what the capacity is of the current environment.
 
 ### Incorporate scalability requirements into the logical design.
 
-Use [vCops](https://www.vmware.com/support/pubs/vcops-pubs.html)
+Use [vCops](https://docs.vmware.com/en/vRealize-Operations/index.html)
 
 ### Determine performance component of SLAs and service level management processes
 
@@ -93,5 +93,5 @@ For Troubleshooting Performance issues, I would suggest to read the following:
 
 *   [vSphere Monitoring and Performance Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-50-monitoring-performance-guide.pdf)
 *   [Performance Best Practices for VMware vSphere 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/Perf_Best_Practices_vSphere5.0.pdf)
-*   [Virtual Performance](http://www.vmware.com/a/vmmark/)
+*   [Virtual Performance](https://www.vmware.com/products/vmmark)
 

@@ -236,7 +236,7 @@ From "[vSphere Upgrade vSphere 5.0 Update 1](https://storage.googleapis.com/gran
 > 10. Remediate Hosts Against Baseline Groups
 >     You can remediate hosts against attached groups of upgrade, patch, and extension baselines. Baseline groups might contain multiple patch and extension baselines, or an upgrade baseline combined with multiple patch and extension baselines.
 
-and from "[VMware vSphere 5.0 Upgrade Best Practices](http://www.vmware.com/files/pdf/techpaper/vSphere-5-Upgrade-Best-Practices-Guide.pdf)" we see the following:
+and from "[VMware vSphere 5.0 Upgrade Best Practices](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vSphere-5-Upgrade-Best-Practices-Guide.pdf)" we see the following:
 
 > **Uploading the ESXi Installation ISO**
 > Start the upgrade by uploading the ESXi 5.0 installation image into Update Manager. From the Update Manager screen, choose the ESXi Images tab and click the link to Import ESXi Image… . Follow the wizard to import the ESXi 5.0 Image.

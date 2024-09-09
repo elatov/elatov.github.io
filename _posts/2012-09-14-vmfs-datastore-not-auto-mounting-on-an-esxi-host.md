@@ -36,7 +36,7 @@ So only one of the LUNs was mounted, the other was not. Checking out fdisk for b
 	/vmfs/devices/disks/naa.600144f0928c010000004fc511ec0001p1 128 209712509 104856191 fb VMFS
 
 
-That looks good. The offset is 128 sectors and the File System type is VMFS. If you ever had to recreate a vmfs partition (instructions laid out in VMware KB [1002281](http://kb.vmware.com/kb/1002281)), you would tell right away that the above output looks good. Then running the same on the other LUN, I saw the following:
+That looks good. The offset is 128 sectors and the File System type is VMFS. If you ever had to recreate a vmfs partition (instructions laid out in VMware KB [1002281](https://knowledge.broadcom.com/external/article/309687/)), you would tell right away that the above output looks good. Then running the same on the other LUN, I saw the following:
 
 
 	~ # fdisk -lu /vmfs/devices/disks/naa.600144f0928c010000004fc90a3a0001
