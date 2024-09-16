@@ -29,7 +29,7 @@ For vmdks we have, Lazy Zeroed Thick, Eager Zeroed Thick, and Thin. From the "[v
 
 ### Identify available storage monitoring tools, metrics and alarms
 
-To check for different storage aspects you can use storage views. Check out "[Using VMware vSphere Storage Views](http://www.virtualizationadmin.com/articles-tutorials/vmware-esx-and-vsphere-articles/storage-management/using-vmware-vsphere-storage-views.html)". Go to "Datastore" View -> Click on a datastore -> Click on the "Storage View" Tab. It should look like this:
+To check for different storage aspects you can use storage views. Go to "Datastore" View -> Click on a datastore -> Click on the "Storage View" Tab. It should look like this:
 
 ![storage_view_vms](https://github.com/elatov/uploads/raw/master/2012/09/storage_view_vms.png)
 

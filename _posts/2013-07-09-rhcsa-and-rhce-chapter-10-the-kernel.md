@@ -121,7 +121,7 @@ We can check the scheduler information, by checking out the contents of **/proc/
 
 We can see that CFS is used. There is a lot of resources on the scheduler:
 
-*   [cfs-scheduler](http://people.redhat.com/mingo/cfs-scheduler/sched-design-CFS.txt)
+*   [cfs-scheduler](https://www.kernel.org/doc/Documentation/scheduler/sched-design-CFS.txt)
 *   [Completely Fair Scheduler](http://www.linuxjournal.com/magazine/completely-fair-scheduler)
 *   [Inside the Linux 2.6 Completely Fair Scheduler](http://www.ibm.com/developerworks/library/l-completely-fair-scheduler/)
 
