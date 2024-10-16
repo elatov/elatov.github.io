@@ -10,11 +10,11 @@ tags: [velero, helm, ceph, kubernetes]
 After switching to [rook-ceph](/2024/07/using-rook-ceph/) I needed to update my `velero` configuration to make sure I can take backups of my PVCs. In the process I ended up learning a lot about the `velero` backup flow.
 
 ## Velero Snapshot Data Movement
-By default `velero` doesn't backup data to a remote location (this is briefly discussed in [this issue](https://github.com/vmware-tanzu/velero/issues/7382)). It just creates a snapshot and if a `backupStorageLocation` is configured it will only copy the kubernetes resources (since kubernetes is mostly stateless). But in my setup I wanted to copy the PVC data as well. To my surprise there are actually a lot of parts involved in this type of backup. From [design/volume-snapshot-data-movement/backup-workflow.png](https://github.com/vmware-tanzu/velero/blob/main/design/volume-snapshot-data-movement/backup-workflow.png)
+By default `velero` doesn't backup data to a remote location (this is briefly discussed in [this issue](https://github.com/vmware-tanzu/velero/issues/7382)). It just creates a snapshot and if a `backupStorageLocation` is configured it will only copy the kubernetes resources (since kubernetes is mostly stateless). But in my setup I wanted to copy the PVC data as well. To my surprise there are actually a lot of parts involved in this type of backup. From [design/volume-snapshot-data-movement/backup-workflow.png](https://github.com/vmware-tanzu/velero/blob/main/design/Implemented/volume-snapshot-data-movement/backup-workflow.png)
 
 ![velero-snapshot-data-mover-design.png](https://res.cloudinary.com/elatov/image/upload/v1722396129/blog-pics/velero-rook-ceph/k9zcezmeniwla8d2fahh.png)
 
-And also from [design/volume-snapshot-data-movement/backup-sequence.png](https://github.com/vmware-tanzu/velero/blob/main/design/volume-snapshot-data-movement/backup-sequence.png):
+And also from [design/volume-snapshot-data-movement/backup-sequence.png](https://github.com/vmware-tanzu/velero/blob/main/design/Implemented/volume-snapshot-data-movement/backup-sequence.png):
 
 ![velero-snapshot-data-mover-sequence.png](https://res.cloudinary.com/elatov/image/upload/v1722396129/blog-pics/velero-rook-ceph/uk42cr6fgsglmndhhjkt.png)
 

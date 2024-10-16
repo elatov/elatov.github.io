@@ -13,7 +13,7 @@ Recently, I ran into an issue where all links under **/dev/disk/by-id** were mis
 
 *   **0x83** is Device Identification Vital Product Data and **0x80** is Unit Serial Number
 
-as you can see, nothing is returned. I did some research and I found that after ESX 4.0, a SCSI inquiry will not be answered within the VM. There is actually a VMware KB that talks about it, VMware KB [The Case of VMware and the missing SCSI ID](https://knowledge.broadcom.com/external/article?articleNumber=332420). Now to fix the issue we can set the following in the **vmx** file:
+as you can see, nothing is returned. I did some research and I found that after ESX 4.0, a SCSI inquiry will not be answered within the VM. There is actually a VMware KB that talks about it, VMware KB [The Case of VMware and the missing SCSI ID](https://knowledge.broadcom.com/external/article?articleNumber=313972). Now to fix the issue we can set the following in the **vmx** file:
 
     disk.EnableUUID = "TRUE"
 

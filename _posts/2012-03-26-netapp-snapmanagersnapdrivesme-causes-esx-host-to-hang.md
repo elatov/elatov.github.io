@@ -161,7 +161,7 @@ There was actually another backtrace right after that one too, but this is the i
     hostdstats 166M 166M 0B 100% --
 
 
-So the **hostdstats** part of the RAM disk has become full. I remembered an old KB ([1005884](http://kb.vmware.com/kb/1005884)) that talked about clearing the hostdstats. So I followed the instructions in the KB:
+So the **hostdstats** part of the RAM disk has become full. I remembered an old KB ([1005884](https://knowledge.broadcom.com/external/article/341344)) that talked about clearing the hostdstats. So I followed the instructions in the KB:
 
 1.  rm -fr /var/lib/vmware/hostd/stats
 2.  services.sh restart
