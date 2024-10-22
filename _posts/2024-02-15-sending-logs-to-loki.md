@@ -11,7 +11,7 @@ I had a couple of use cases, let's try to cover them one by one.
 
 ## Sending Kubernetes Logs and events to Loki
 
-There are instructions in [Send Kubernetes metrics, logs, and events to Grafana Cloud with Helm and Argo CD](https://grafana.com/docs/grafana-cloud/monitor-infrastructure/kubernetes-monitoring/configuration/configure-infrastructure-manually/argocd-config/). I was surprised to see an example for ArgoCD, but I was also really happy. Then I reviewed the [logs-only example](https://github.com/grafana/k8s-monitoring-helm/tree/main/examples/logs-only) from grafana. The only thing I was missing was getting the right version of the helm chart. It was actually one behind from the releases in github. So I added the repo and checked with `helm`:
+There are instructions in [Send Kubernetes metrics, logs, and events to Grafana Cloud with Helm and Argo CD](https://grafana.com/docs/grafana-cloud/monitor-infrastructure/kubernetes-monitoring/configuration/configure-infrastructure-manually/argocd-config/). I was surprised to see an example for ArgoCD, but I was also really happy. Then I reviewed the [logs-only example](https://github.com/grafana/k8s-monitoring-helm/tree/main/charts/k8s-monitoring-v1/docs/examples/logs-only) from grafana. The only thing I was missing was getting the right version of the helm chart. It was actually one behind from the releases in github. So I added the repo and checked with `helm`:
 
 ```bash
 > helm repo add grafana https://grafana.github.io/helm-charts

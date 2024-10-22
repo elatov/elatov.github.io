@@ -228,7 +228,7 @@ build components:
 
 ### ArgoCD Notifications
 
-Recently the ArgoCD Notifications project became part of the main ArgoCD project. It supports Slack and other services as well. I actually wanted to see how to use slack with it. Some nice examples of the slack are seen [here](https://argocd-notifications.readthedocs.io/en/latest/services/slack/). So let's install the controller first:
+Recently the ArgoCD Notifications project became part of the main ArgoCD project. It supports Slack and other services as well. I actually wanted to see how to use slack with it. Some nice examples of the slack are seen [here](https://argo-cd.readthedocs.io/en/stable/operator-manual/notifications/services/slack/). So let's install the controller first:
 
 ```bash
 > kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj-labs/argocd-notifications/v1.1.0/manifests/install.yaml
@@ -247,7 +247,7 @@ After some time you should see the controller deployed:
 NAME                                               READY   STATUS    RESTARTS   AGE
 argocd-notifications-controller-5c548f8dc9-rgx5n   1/1     Running   0          104s
 ```
-Create a Slack app as per the instructions in [Slack Configuration](https://argocd-notifications.readthedocs.io/en/stable/services/slack/) and don't forget to add the app into the desired channel:
+Create a Slack app as per the instructions in [Slack Configuration](https://argo-cd.readthedocs.io/en/stable/operator-manual/notifications/services/slack/) and don't forget to add the app into the desired channel:
 
 ![slack-argocd-app-added.png](https://res.cloudinary.com/elatov/image/upload/v1639356856/blog-pics/argocd-deploy/slack-argocd-app-added.png)
 
@@ -283,7 +283,7 @@ And you should see a message get to slack right away:
 
 ![slack-argocd-message.png](https://res.cloudinary.com/elatov/image/upload/v1639356856/blog-pics/argocd-deploy/slack-argocd-message.png)
 
-You can also enable them globally as described in [Default Subscriptions](https://argocd-notifications.readthedocs.io/en/latest/subscriptions/#default-subscriptions). So I created the following to config to enable all the triggers:
+You can also enable them globally as described in [Default Subscriptions](https://argo-cd.readthedocs.io/en/stable/operator-manual/notifications/subscriptions/#default-subscriptions). So I created the following to config to enable all the triggers:
 
 ```bash
 > cat argocd-notifications-cm-merge.yaml

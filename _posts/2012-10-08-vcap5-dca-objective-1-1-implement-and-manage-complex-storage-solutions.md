@@ -347,10 +347,10 @@ Determine what kind of workload your application requires. From "[EMC CLARiiON F
 
 ![application io workloads VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/application_io_workloads.png)
 
-Then use IOmeter or IOBlazer here are links to their corresponding flings:
+Then use HCIBench and IOMeter (originally IO-Analyzer and IOBlazer, but those have been deprecated) here are links to their corresponding tools:
 
-*   [IOmeter](http://labs.vmware.com/flings/io-analyzer)
-*   [IOBlazer](http://labs.vmware.com/flings/ioblazer)
+*   [IOmeter](https://virtunetsystems.com/steps-to-run-iometer-in-a-vmware-vm/)
+*   [HCIBench](https://github.com/vmware-labs/hci-benchmark-appliance)
 
 There are also application specific tools:
 
