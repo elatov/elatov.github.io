@@ -27,7 +27,7 @@ Multiple LUNs are seeing a value above 1000ms for the DAVG/cmd value. The DAVG v
 
 ![sync_CR_messages_to_hitachi_array_1](https://github.com/elatov/uploads/raw/master/2012/04/sync_CR_messages_to_hitachi_array_1.png)
 
-So we were seeing SCSI Reservation Conflict Messages. There is a great KB on Analyzing the 'Sync CR' messages, VMware KB [1030381](http://kb.vmware.com/kb/1005009) this is what SYNC CR messages mean:
+So we were seeing SCSI Reservation Conflict Messages. There is a great KB on Analyzing the 'Sync CR' messages, VMware KB [1030381](https://knowledge.broadcom.com/external/article?legacyId=1005009) this is what SYNC CR messages mean:
 
 > **VMK_SCSI_DEVICE_RESERVATION_CONFLICT = 0x18**
 > vmkernel: 1:08:40:03.933 cpu5:4736)ScsiDeviceToken: 115: Completed IO with status H:0x0 D:0x18 P:0x0 after losingreservation on device naa.6006016026601d007c174a7aa292df11
@@ -38,7 +38,7 @@ So we were seeing SCSI Reservation Conflict Messages. There is a great KB on Ana
 >
 > The opcode or SCSI Command Operation Code referenced in this message is 28 or 0x28. This is a READ(10) command or a 10 byte READ, which is a command to be issued by a VM.
 
-That is exactly what we were seeing (a READ command failing due to a SCSI reservation conflict). The above messages are basically a retry count down (a SCSI command has failed and it is retrying that command, after a certain amount of retries it fails), and eventually show you the LUN that has the stuck reservation, like this (from KB [1005009](http://kb.vmware.com/kb/1005009)):
+That is exactly what we were seeing (a READ command failing due to a SCSI reservation conflict). The above messages are basically a retry count down (a SCSI command has failed and it is retrying that command, after a certain amount of retries it fails), and eventually show you the LUN that has the stuck reservation, like this (from KB [1005009](https://knowledge.broadcom.com/external/article?legacyId=1005009)):
 
 > SCSI: vm 1043: 5522: Sync CR at 64
 > SCSI: vm 1043: 5522: Sync CR at 48
@@ -49,15 +49,15 @@ That is exactly what we were seeing (a READ command failing due to a SCSI reserv
 > WARNING: SCSI: 5628: status SCSI reservation conflict, rstatus 0xc0de01 for vmhba1:0:7. residual R 919, CR 0, ER 3
 > WARNING: J3: 1970: Error committing txn to slot 0: SCSI reservation conflict
 
-In my case the run-time path (vmhba1:0:7) message never showed up, which means that the SCSI command actually gets through (eventually) and it was just taking a while. Given the latency that we saw from above, this isn't unexpected. If the run-time path messages eventually showed then you can use the instructions laid out in VMware KB [1021187](http://kb.vmware.com/kb/1021187) to send a **LUN RESET** to clear any stuck SCSI Reservations.
+In my case the run-time path (vmhba1:0:7) message never showed up, which means that the SCSI command actually gets through (eventually) and it was just taking a while. Given the latency that we saw from above, this isn't unexpected. If the run-time path messages eventually showed then you can use the instructions laid out in VMware KB [1021187](https://knowledge.broadcom.com/external/article?legacyId=1021187) to send a **LUN RESET** to clear any stuck SCSI Reservations.
 
-There is also a VMware KB specifically for Hitachi Arrays regarding SCSI Reservations conflicts ([1005010](http://kb.vmware.com/kb/1005010)). From that article there are some good things to check on the array side to prevent SCSI Reservations Conflicts, here is a list:
+There is also a VMware KB specifically for Hitachi Arrays regarding SCSI Reservations conflicts ([1005010](https://knowledge.broadcom.com/external/article?legacyId=1005010)). From that article there are some good things to check on the array side to prevent SCSI Reservations Conflicts, here is a list:
 
 > *   VMware recommends using non-LUSE based LUNs for VMFS volumes
 > *   If you are using LUSE based LUNs, make sure that the Microcode version on the array is at least 50-07-66-00/00 then enable Host Mode Option 19
 > *   On USP V and USP virtual machines, set the Host Mode to “VMware”
 
-There is also another VMware KB ([3408142](http://kb.vmware.com/kb/3408142)) regarding SCSI Reservations issue on HDS arrays, which makes the same recommendations and also mentions that some **SYNC CRs** are okay:
+There is also another VMware KB ([3408142](https://knowledge.broadcom.com/external/article?legacyId=3408142)) regarding SCSI Reservations issue on HDS arrays, which makes the same recommendations and also mentions that some **SYNC CRs** are okay:
 
 > This issue is typically usually caused by SCSI reservation failure.
 >
@@ -90,7 +90,7 @@ We were actually using ESX 4.0, so I decided to change the pathing policy from F
     ~ # esxcfg-scsidevs -c | egrep -o "^naa.[0-9a-f]+" | grep naa.60060e800 | xargs -n 1 esxcli nmp device setpolicy --psp VWM_PSP_RR --device
 
 
-**Note:** More information regarding changing the PSP on devices and the command line difference between ESX versions, can be found at VMware KB [1036189](http://kb.vmware.com/kb/1036189)
+**Note:** More information regarding changing the PSP on devices and the command line difference between ESX versions, can be found at VMware KB [1036189](https://knowledge.broadcom.com/external/article?legacyId=1036189)
 
 I did that across all the hosts and then after 5-10 minutes the DAVG went down, the SYNC CR messages stopped, and the performance of the VMs returned to normal.
 

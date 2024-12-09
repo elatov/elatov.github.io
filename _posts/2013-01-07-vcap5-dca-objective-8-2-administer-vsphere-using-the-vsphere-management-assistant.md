@@ -330,7 +330,7 @@ So the bottom one is the local drive with VMFS5 and the top on is LUN0 of size 1
 	16970 255 63 272629760
 
 
-From VMware KB [1036609](http://kb.vmware.com/kb/1036609):
+From VMware KB [1036609](https://knowledge.broadcom.com/external/article?legacyId=1036609):
 
 > The first line is only present in the getptbl form of the command, and displays the disk label identifying the partitioning scheme being used. Common labels are bsd, dvh, gpt, loop, mac, msdos, pc98, and sun. Of these, only the msdos label and vFAT partitioning scheme is used by ESXi/ESX.
 >

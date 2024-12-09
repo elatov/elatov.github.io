@@ -195,7 +195,7 @@ Checking out the frequency of the path thrashing and what LUN this kept happenin
 	5 vmhba39:C0:T0:L15 vmhba39:C0:T4:L15
 
 
-We saw LUN 1 jump back an forth between both of Targets 24 times but we also saw other LUNs jump back and forth as well. The above messages matched VMware KB [2005369](http://kb.vmware.com/kb/2005369). I asked the customer if we were seeing trespasses and we did, but not as much as we saw of Login and Logout events on the array. Checking the logs to see if we disconnected from the array, I saw the following:
+We saw LUN 1 jump back an forth between both of Targets 24 times but we also saw other LUNs jump back and forth as well. The above messages matched VMware KB [2005369](https://knowledge.broadcom.com/external/article?legacyId=2005369). I asked the customer if we were seeing trespasses and we did, but not as much as we saw of Login and Logout events on the array. Checking the logs to see if we disconnected from the array, I saw the following:
 
 
 	/var/log # egrep 'OFFLINE|ONLINE' messages* | awk '{print $9,$10,$17}' | sort | uniq -c

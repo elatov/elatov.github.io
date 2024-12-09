@@ -119,7 +119,7 @@ The most important line is the following:
 	Storage Array Type Device Config: {navireg=on, ipfilter=on}{implicit_support=on;explicit_support=on;explicit_allow=on;alua_followover=on;{TPG_id=1,TPG_state=ANO}{TPG_id=2,TPG_state=AO}}
 
 
-Definitions of all the settings can be found at VMware KB [1022030](http://kb.vmware.com/kb/1022030):
+Definitions of all the settings can be found at VMware KB [1022030](https://knowledge.broadcom.com/external/article?legacyId=1022030):
 
 > implicit_support=on
 >
@@ -187,7 +187,7 @@ Now running the *nmp path* commands, we saw the following:
 
 So the top path is going through TGP2 and the state of that TPG is AO (active/optimal) and that is the preferred path. The bottom path is going through TPG1 and the state is ANO (Active/non-optimal) and that is not the preffered path. I checked the other hosts and they looked the same, so no user preffered paths have been set and all the host are going through the AO path.
 
-I also found VMware KB [2005369](http://kb.vmware.com/kb/2005369)  and it talks about how with Round Robin you can allow the ESX host to use Active Non-Optimized paths:
+I also found VMware KB [2005369](https://knowledge.broadcom.com/external/article?legacyId=2005369)  and it talks about how with Round Robin you can allow the ESX host to use Active Non-Optimized paths:
 
 
 	#esxcli nmp psp setconfig --config useANO=1 --device <device uid>

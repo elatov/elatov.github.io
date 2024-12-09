@@ -83,7 +83,7 @@ So it was the local disk that was experiencing the issue and probably causing th
 > Disabling interrupt remapping eliminates support for x2apic mode. X2apic mode provides 32-bit Central Processing Unit (CPU) addressability for interrupt delivery. Without x2apic, the system can only support a maximum of 255 processor cores.
 > Systems with VMware 4.x installed will not see this issue.
 
-That matched my issue pretty closely. I went ahead and followed the instruction laid out in VMware KB [1030265](http://kb.vmware.com/kb/1030265) and ran the following:
+That matched my issue pretty closely. I went ahead and followed the instruction laid out in VMware KB [1030265](https://knowledge.broadcom.com/external/article?legacyId=1030265) and ran the following:
 
 
 	~ # esxcfg-advcfg -k TRUE iovDisableIR

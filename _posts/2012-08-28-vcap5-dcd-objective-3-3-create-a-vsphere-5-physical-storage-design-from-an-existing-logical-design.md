@@ -120,7 +120,7 @@ Each of the array types are described in "[vSphere Storage Guide](https://storag
 > **Asymmetrical storage system**
 > Supports Asymmetric Logical Unit Access (ALUA). ALUA-complaint storage systems provide different levels of access per port. ALUA allows hosts to determine the states of target ports and prioritize paths. The host uses some of the active paths as primary while others as secondary.
 
-For the pathing policies, check out VMware KB [1011340](http://kb.vmware.com/kb/1011340), from that KB:
+For the pathing policies, check out VMware KB [1011340](https://knowledge.broadcom.com/external/article?legacyId=1011340), from that KB:
 
 > These pathing policies can be used with VMware ESX/ESXi 4.x and ESXi 5.x:
 >

@@ -24,7 +24,7 @@ Now querying for host resources, I only see a limited output:
 	HOST-RESOURCES-MIB::hrSystemUptime.0 = No more variables left in this MIB View (It is past the end of the MIB tree)
 
 
-This is actually expected since net-snmp on ESX is not supported as per KB [1020649](http://kb.vmware.com/kb/1020649). However there is supposed to be a lot more output, checking out the setting for the snmpd service I see the following:
+This is actually expected since net-snmp on ESX is not supported as per KB [1020649](https://knowledge.broadcom.com/external/article?legacyId=1020649). However there is supposed to be a lot more output, checking out the setting for the snmpd service I see the following:
 
 
 	# grep 1.3.6.1.2.1.25 /etc/snmp/snmpd.conf

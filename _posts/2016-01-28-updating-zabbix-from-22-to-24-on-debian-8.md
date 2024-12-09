@@ -76,7 +76,7 @@ While VMs with e1000 Nics had the performance data:
 
 ![vm-contains-net-perf-data](https://raw.githubusercontent.com/elatov/upload/master/zabbix-to-24/vm-contains-net-perf-data.png)
 
-Initially I ran into this old VMware KB: [Networking performance data is missing when the VMXNET3 adapter is used (1015402)](http://kb.vmware.com/kb/1015402), but I was on ESXi 6.0 not 4.x. Then by dumb luck I ran into the release notes for [ESXi 6.0 Update 1a](https://kb.vmware.com/kb/2124716) and I saw the following:
+Initially I ran into this old VMware KB: [Networking performance data is missing when the VMXNET3 adapter is used (1015402)](https://knowledge.broadcom.com/external/article?legacyId=1015402), but I was on ESXi 6.0 not 4.x. Then by dumb luck I ran into the release notes for [ESXi 6.0 Update 1a](https://kb.vmware.com/kb/2124716) and I saw the following:
 
 > **Virtual machine Network performance data metrics not available for VM configured with VMXNET3 connected to a standard vSwitch**
 >

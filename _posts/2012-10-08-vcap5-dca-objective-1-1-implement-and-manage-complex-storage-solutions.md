@@ -72,7 +72,7 @@ From "[How to access USB and Other PCI Devices in VMware ESXi4 VMs with VMDirect
 
 ![vm direct path io VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/vm-direct_path_io.png)
 
-The above page has good example of how to set it up. Also check out VMware KB [VMware VMDirectPath I/O](http://kb.vmware.com/kb/1010789) for a list of supported hardware.
+The above page has good example of how to set it up. Also check out VMware KB [VMware VMDirectPath I/O](https://knowledge.broadcom.com/external/article?legacyId=1010789) for a list of supported hardware.
 
 ### Determine requirements for and configure NPIV
 
@@ -677,7 +677,7 @@ Also from the same guide:
 >
 > You can now perform a reconfiguration of the storage device by using the array console.
 
-Also check out KB "[Detaching a datastore or storage device from multiple ESXi 5.0 hosts](http://kb.vmware.com/kb/2004605)". From the first KB:
+Also check out KB "[Detaching a datastore or storage device from multiple ESXi 5.0 hosts](https://knowledge.broadcom.com/external/article?legacyId=2004605)". From the first KB:
 
 > To unpresent a LUN from an ESXi 5.0 host from the command line:
 >

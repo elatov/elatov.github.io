@@ -23,7 +23,7 @@ and also this:
 
 > As you can see, the I/O requests flow into the per virtual machine queue, which then flows into the per HBA queue, and then finally the I/O flows from the adapter queue into the per LUN queue for the LUN the I/O is going to. From the default sizes you can see that each VM is able to issue 32 concurrent I/O requests, the adapter queue beneath it is generally quite large and can normally accept all those I/O requests, but the LUN queue beneath that typically only has a size of 32 itself.
 
-If you want to check what your queues are currently set to, you can take a look at [VMware KB 1027901](http://kb.vmware.com/kb/1027901).
+If you want to check what your queues are currently set to, you can take a look at [VMware KB 1027901](https://knowledge.broadcom.com/external/article?legacyId=1027901).
 
 Not a lot of things touch upon for the Adapter Queue Length (AQLEN). The Emulex driver has an option for this (but apparently this is not settable after ESX 3.5, more information [here](http://www.yellow-bricks.com/2008/01/31/queue-depth-and-alike-settings-lost-after-an-upgrade-to-esx-35/)):
 
@@ -43,7 +43,7 @@ If you are using Software iSCSI there is an option for this as well:
 
 Like mentioned in the above VMware blog the typical size is 1024 (or something in the thousands) but usually the default size is good. The vendor knows the best option for this piece of hardware and it's rarely possible to change that value.
 
-The interesting setting is the LUN/Device Queue Length (DQLEN). There are many ways to tweak this option. The first way is to do it via the driver, more on this in [VMware KB 1267](http://kb.vmware.com/kb/1267). For each of the drivers the options are the following:
+The interesting setting is the LUN/Device Queue Length (DQLEN). There are many ways to tweak this option. The first way is to do it via the driver, more on this in [VMware KB 1267](https://knowledge.broadcom.com/external/article?legacyId=1267). For each of the drivers the options are the following:
 
 
 	~ # vmkload_mod -s lpfc820 | grep lpfc_lun_queue_depth -A 1
@@ -78,7 +78,7 @@ There is also another way of tweaking this value and that is with Disk.SchedNumR
 
 ![all_storage_queues](https://github.com/elatov/uploads/raw/master/2012/07/all_storage_queues.png)
 
-To edit this option you can follow instructions from [VMware KB 1268](http://kb.vmware.com/kb/1268). There is a caveat with this option. From the above KB:
+To edit this option you can follow instructions from [VMware KB 1268](https://knowledge.broadcom.com/external/article?legacyId=1268). There is a caveat with this option. From the above KB:
 
 > **Note:** This limit does not apply when only one virtual machine is active on a Datastore/LUN. In that case, the bandwidth is limited by the queue depth of the storage adapter.
 
@@ -92,7 +92,7 @@ And one more note regarding DSNRO, from the same PDF:
 
 So when modifying the LUN Queue Length on the HBA drivers also modify the DSNRO accordingly. Because DQLEN will be set to the minimum of the two. If you want to read more on how DSNRO works, I suggest reading this yellow brick blog "[Disk.SchedNumReqOutstanding the story](http://www.yellow-bricks.com/2011/06/23/disk-schednumreqoutstanding-the-story/)".
 
-There are two other things that can affect the DQLEN value. The first one is the adaptive queue depth algorithm. More information can be found in the [VMware KB 1008113](http://kb.vmware.com/kb/1008113). From that KB:
+There are two other things that can affect the DQLEN value. The first one is the adaptive queue depth algorithm. More information can be found in the [VMware KB 1008113](https://knowledge.broadcom.com/external/article?legacyId=1008113). From that KB:
 
 > VMware ESX 3.5 Update 4 and ESX 4.0 introduces an adaptive queue depth algorithm that adjusts the LUN queue depth in the VMkernel I/O stack. This algorithm is activated when the storage array indicates I/O congestion by returning a BUSY or QUEUE FULL status. These status codes may indicate congestion at the LUN level or at the port (or ports) on the array. When congestion is detected, VMkernel throttles the LUN queue depth. The VMkernel attempts to gradually restore the queue depth when congestion conditions subside.
 >

@@ -244,7 +244,7 @@ Then checking for the files:
 
 ### Install/uninstall custom drivers
 
-VMware KB [2005205](http://kb.vmware.com/kb/2005205) talks about the process:
+VMware KB [2005205](https://knowledge.broadcom.com/external/article?legacyId=2005205) talks about the process:
 
 > **To add async drivers to the ESXi installation ISO**:
 >

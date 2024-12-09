@@ -614,7 +614,7 @@ So it took about 15 minutes. Checking out esxtop, I saw that it was transferring
 
 I found a couple of links that talked about NFC (which is used for the transfer) and they talked about NFC (in converter) having slowed down because of enabling SSL:
 
-*   [Disabling SSL for NFC data traffic in vCenter Server](http://kb.vmware.com/kb/2056830)
+*   [Disabling SSL for NFC data traffic in vCenter Server](https://knowledge.broadcom.com/external/article?legacyId=2056830)
 *   [Enable SSL Certificate Validation Over NFC](http://pubs.vmware.com/vsphere-51/index.jsp?topic=/com.vmware.vsphere.security.doc/GUID-B58A5750-A15C-4051-BD87-49F3B5C762B5.html)
 *   [Increasing the cloning performance](https://communities.vmware.com/message/1851162)
 *   [Copy VM by ovftool from ESXI 5 to ESXI 5 is slow](https://communities.vmware.com/thread/431090)

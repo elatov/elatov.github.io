@@ -12,7 +12,7 @@ Today I ran into an interesting issue. A customer called in saying that his VMs 
 
 ![datastore_snapshots_1](https://github.com/elatov/uploads/raw/master/2012/04/datastore_snapshots_1.png)
 
-The original datastores showed up as Inactive in the same view and looked exactly as descibed in [KB 9453805](http://kb.vmware.com/kb/9453805). To get all the VMs up and running, we had to follow the intructions laid out in the above KB.
+The original datastores showed up as Inactive in the same view and looked exactly as descibed in [KB 9453805](https://knowledge.broadcom.com/external/article?legacyId=9453805). To get all the VMs up and running, we had to follow the intructions laid out in the above KB.
 
 1.  Click on the Inactive datastore and select the Virtual Machine Tab
 2.  Power Off all the VMs listed in Virtual Machine Tab (after doing this, the VMs showed up inactive as well)
@@ -45,11 +45,11 @@ Only one host was resignaturing the LUNs that were showing up as snapshots. I th
 	/adv/LVM/EnableResignature = "1"
 
 
-That option was enabled, [KB 2010051](http://kb.vmware.com/kb/2010051) talks about what that option does:
+That option was enabled, [KB 2010051](https://knowledge.broadcom.com/external/article?legacyId=2010051) talks about what that option does:
 
 > Setting the LVM.enableResignature flag on ESX hosts is a host-wide operation. If this flag is set to 1, all snapshot LUNs that are visible to the ESX host and can be resignatured, are resignatured during the host rescan or upon the next host reboot.
 
-I asked the customer if anything had happened with that host and they had mentioned that the host been recently rebooted, and shortly after the reboot the issues started happening. So that answered the first question as to why we saw snapshot'ed datastores. Now the second question was, why was the *EnableResignature* option set? I asked the customer if they had introduced any new software to their environment, and they had recently installed SRM and had done a failover and failback. When doing an SRM failover that option is automatically set. More information regarding SRM setting the *EnableResignature* option can be seen at [KB 2010051](http://kb.vmware.com/kb/2010051)
+I asked the customer if anything had happened with that host and they had mentioned that the host been recently rebooted, and shortly after the reboot the issues started happening. So that answered the first question as to why we saw snapshot'ed datastores. Now the second question was, why was the *EnableResignature* option set? I asked the customer if they had introduced any new software to their environment, and they had recently installed SRM and had done a failover and failback. When doing an SRM failover that option is automatically set. More information regarding SRM setting the *EnableResignature* option can be seen at [KB 2010051](https://knowledge.broadcom.com/external/article?legacyId=2010051)
 
 Now the last question was why are we were seeing snapshot'ed LUNs in the environment. The answer was quite simple, the customer was using an EMC Symmetrix DMX SAN which had two different FAs presenting the same LUN with a different LUN ID. More information can be found in [KB 6482648](https://knowledge.broadcom.com/external/article/323142) as to why that will cause issues. After I had forwarded that KB to the customer, he remembered that he had issues in the past with LUN presentation. He also mentioned that they are actually moving to a different SAN (EMC Symmetrix VMAX) and they will ensure that LUNs are presented properly from the new SAN to prevent the LUNs from showing up as snapshots.
 

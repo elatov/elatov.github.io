@@ -24,7 +24,7 @@ Reading over the [vSphere Upgrade Guide for vSphere 5.1](http://pubs.vmware.com/
 
 ![51 upgrade methp2 Updating ESXi 5.0U2 to ESXi 5.1U1](https://github.com/elatov/uploads/raw/master/2014/01/51-upgrade-methp2.png)
 
-There is also [VMware KB 2032757](http://kb.vmware.com/kb/2032757) which summarizes the upgrade guide into a KB. The KB is really helpful except it has a conflicting statement. The KB has a table that says **esxcli** cannot be used when going from 5.0 to 5.1. Here is the table:
+There is also [VMware KB 2032757](https://knowledge.broadcom.com/external/article?legacyId=2032757) which summarizes the upgrade guide into a KB. The KB is really helpful except it has a conflicting statement. The KB has a table that says **esxcli** cannot be used when going from 5.0 to 5.1. Here is the table:
 
 ![wrong table from Kb Updating ESXi 5.0U2 to ESXi 5.1U1](https://github.com/elatov/uploads/raw/master/2014/01/wrong_table_from_Kb.png)
 

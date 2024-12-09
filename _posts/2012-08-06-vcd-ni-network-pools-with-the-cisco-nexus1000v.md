@@ -54,7 +54,7 @@ Next create a Port Profile which will be used for your type of Network Segmentat
 
 ***Note** make sure you have a uplink (type ethernet) port-profile that allows the above VLAN
 
-Next we create a Network Segmentation Policy, this actually depends on your Tenant ID of your Organization Instance from vCloud director. To obtain the Tenant ID follow the instructions laid out in VMware KB [2012943](http://kb.vmware.com/kb/2012943). My Tenant ID is "e461e9cc-1205-40f4-9f36-ad0e841d9c73", so here is how the creating of the policy looked like:
+Next we create a Network Segmentation Policy, this actually depends on your Tenant ID of your Organization Instance from vCloud director. To obtain the Tenant ID follow the instructions laid out in VMware KB [2012943](https://knowledge.broadcom.com/external/article?legacyId=2012943). My Tenant ID is "e461e9cc-1205-40f4-9f36-ad0e841d9c73", so here is how the creating of the policy looked like:
 
 
 	switch# conf t

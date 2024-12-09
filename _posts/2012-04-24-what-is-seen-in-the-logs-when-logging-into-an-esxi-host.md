@@ -96,7 +96,7 @@ If you have physical access to an ESXi host and you connect directly to the DCUI
 	Apr 22 13:32:26 DCUI: authentication of user root succeeded
 
 
-From the DCUI, you can enable Tech Support Mode (TSM) and then login to get an interactive shell by clicking ALT-F1. More information regarding TSM and how to enable it, can be found in VMware KB [1017910](http://kb.vmware.com/kb/1017910). If you do that then you will see the following logs in your /var/log/messages file:
+From the DCUI, you can enable Tech Support Mode (TSM) and then login to get an interactive shell by clicking ALT-F1. More information regarding TSM and how to enable it, can be found in VMware KB [1017910](https://knowledge.broadcom.com/external/article?legacyId=1017910). If you do that then you will see the following logs in your /var/log/messages file:
 
 
 	Apr 22 13:36:06 root: TSM Displaying TSM login: runlevel =
@@ -143,7 +143,7 @@ If you connect to the vCenter using the vSphere client, you will only see the lo
 	[2012-04-16 21:42:11.111 02584 info 'App'] [VpxLRO] -- FINISH task-internal-1788204 -- -- vim.SessionManager.loginBySSPI -- 0CCF336E-E963-44C9-8AF6-90D4B10EFE74
 
 
-**Note:** Log location depends on your Windows version, please consult VMware KB [1021804](http://kb.vmware.com/kb/1021804) to make sure you are looking at the correct location.
+**Note:** Log location depends on your Windows version, please consult VMware KB [1021804](https://knowledge.broadcom.com/external/article?legacyId=1021804) to make sure you are looking at the correct location.
 
 ### Related Posts
 

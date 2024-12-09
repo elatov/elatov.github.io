@@ -321,7 +321,7 @@ Now for the second machine we will keep it safe. The second machine that I used 
 	LogVol00 VolGroup00 -wi-ao 7.91G
 	LogVol01 VolGroup00 -wi-ao 1.97G
 
-On the second machine, we are going to expand the VMDK, create a new partition from the newly expanded space, add that new partition as a PV, and then do the same steps as before. Most of the steps can be seen at the following VMware KB ([1006371](http://kb.vmware.com/kb/1006371)). Here is how fdisk looks like after I expanded the vmdk:
+On the second machine, we are going to expand the VMDK, create a new partition from the newly expanded space, add that new partition as a PV, and then do the same steps as before. Most of the steps can be seen at the following VMware KB ([1006371](https://knowledge.broadcom.com/external/article?legacyId=1006371)). Here is how fdisk looks like after I expanded the vmdk:
 
 	[root@rac2 ~]# fdisk -l /dev/sda
 	

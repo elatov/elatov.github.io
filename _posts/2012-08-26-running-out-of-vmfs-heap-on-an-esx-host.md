@@ -124,7 +124,7 @@ Now getting a grand total of all of that, I get the following:
 	97.60
 
 
-So we are approximately using 100TB of space across all the eight hosts. The issue would come up when we would consolidate the cluster to about 2 or 3 hosts. That would mean that we would have about either 50TB per host (with 2 hosts) or 33TB per host (with 3 hosts). Now looking at VMware KB [1004424](http://kb.vmware.com/kb/1004424). We can see that setting the *VMFS3.MaxHeapSizeMB* to 256MB we should be able to handle 64TB of open space. Checking our hosts, we already had that option set:
+So we are approximately using 100TB of space across all the eight hosts. The issue would come up when we would consolidate the cluster to about 2 or 3 hosts. That would mean that we would have about either 50TB per host (with 2 hosts) or 33TB per host (with 3 hosts). Now looking at VMware KB [1004424](https://knowledge.broadcom.com/external/article?legacyId=1004424). We can see that setting the *VMFS3.MaxHeapSizeMB* to 256MB we should be able to handle 64TB of open space. Checking our hosts, we already had that option set:
 
 
 	$ for log in `ls -d esx-*`; do echo $log; grep '\.MaxHeapSizeMB' -A 1 $log/commands/esxcfg-info_-a.txt; done
@@ -183,7 +183,7 @@ All of these things make it very hard to calculate VMFS heap usage. If you want 
 	lowest percent free of max size ever encountered:84
 
 
-Keep an eye on the *percent free of max size* option, that is what your is heap currently at, and then also check out *lowest percent free of max size ever encountered*, this will tell you what the lowest value the heap has ever been. If the latter option is getting close to 20% then you might want to think about increasing your *MaxHeapSizeMB* setting per the instructions laid out in VMware KB [VMFS Heap Considerations](http://kb.vmware.com/kb/1004424)", and it talks about the default values for different versions of ESX(i) and it makes recommendations for how much space can be handled for each. From the blog:
+Keep an eye on the *percent free of max size* option, that is what your is heap currently at, and then also check out *lowest percent free of max size ever encountered*, this will tell you what the lowest value the heap has ever been. If the latter option is getting close to 20% then you might want to think about increasing your *MaxHeapSizeMB* setting per the instructions laid out in VMware KB [VMFS Heap Considerations](https://knowledge.broadcom.com/external/article?legacyId=1004424)", and it talks about the default values for different versions of ESX(i) and it makes recommendations for how much space can be handled for each. From the blog:
 
 > As a rule of thumb, we are conservatively estimating that a single ESXi host should have enough default heap space (80MB) to address around 10TB of open files/VMDKs on a VMFS-5 volume.
 > ...

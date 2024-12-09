@@ -45,7 +45,7 @@ This is pretty much what I was seeing, so we logged into the NetApp array and ch
 	/vol/NA_NFS1 -sec=sys,rw,root=10.2.1.131,nosuid
 
 
-While I was on the NAS array I decided to double check the qtree settings. I wasn't having locking issues, but just for good measure. More information regarding qtree issues can be seen at VMware KB [1008591](http://kb.vmware.com/kb/1008591), I saw the following qtree settings:
+While I was on the NAS array I decided to double check the qtree settings. I wasn't having locking issues, but just for good measure. More information regarding qtree issues can be seen at VMware KB [1008591](https://knowledge.broadcom.com/external/article?legacyId=1008591), I saw the following qtree settings:
 
 
 	NA-NAS05>qtree status

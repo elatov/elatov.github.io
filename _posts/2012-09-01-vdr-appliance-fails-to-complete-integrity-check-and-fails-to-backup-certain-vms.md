@@ -55,7 +55,7 @@ We updated to the latest version of VDR but unfortunately that didn't help out, 
 >
 > Hope it helps to save your time
 
-The first part of the solution was already in place in VDR 2.0.1, so we didn't have to do that. After adding the lines to the above file (from part 2), the Integrity Check succeeded, however we found some damaged restore points. We followed the instructions in VMware KB [1013387](http://kb.vmware.com/kb/1013387) to clear the damaged restore points and to run another manual Integrity Check.
+The first part of the solution was already in place in VDR 2.0.1, so we didn't have to do that. After adding the lines to the above file (from part 2), the Integrity Check succeeded, however we found some damaged restore points. We followed the instructions in VMware KB [1013387](https://knowledge.broadcom.com/external/article?legacyId=1013387) to clear the damaged restore points and to run another manual Integrity Check.
 
 We then re-enabled the Email_Server_Backup_Job and it started to fail right away and it actually kept leaving VMware snapshots behind. I then wanted to concentrate on the VMware snapshots failing. The first thing I noticed that that the VM was actually on Virtual HW # 4:
 
@@ -71,7 +71,7 @@ Since VDR uses Change Block Tracking (CBT) to efficiently make backups, the VM a
 >
 > **NOTE** These optimizations apply to virtual machines created with hardware version 7 or later, but they do not apply to virtual machines created with VMware products prior to vSphere 4.0. For example, change block tracking is not used with virtual machines created with Virtual Infrastructure 3.5 or earlier. As a result, Virtual machines created with earlier Hardware versions take longer to back up.
 
-Following the instructions laid out in VMware KB [1010675](http://kb.vmware.com/kb/1010675), we updated the virtual HW to version 7, but it didn't help out. I then looked at the *vmware.log* file as the snapshot deletion process was going and I saw the following:
+Following the instructions laid out in VMware KB [1010675](https://knowledge.broadcom.com/external/article?legacyId=1010675), we updated the virtual HW to version 7, but it didn't help out. I then looked at the *vmware.log* file as the snapshot deletion process was going and I saw the following:
 
 
     2012-07-06T21:01:10.891Z| vcpu-0| DISKLIB-CBT : Opening cbt node /vmfs/devices/cbt/88f0572-cbt
@@ -107,7 +107,7 @@ VDDK 5.0U1 is included in ESXi 5.0U1, from the release notes:
 
 > Backup partners who encounter these issues should encourage customers to run ESXi 5.0 U1 and to replace VDDK with the new build.
 
-We were running 5.0GA, so we went ahead and updated to 5.0U1 (vCenter and ESXi) and the snapshot removal process started working properly without leaving any snapshots behind. This actually explained as to why our Integrity Checks were failing. Our snapshots would always fail and the CBT would only try to back up the last changed blocks but they just kept adding up from previous snapshots and it would cause inconsistent backups. Having discovered that, we added two new RDMs to the VDR appliance and put each of them on a separate SCSI controller (more information on how to do that can be seen in VMware KB [1037094](http://kb.vmware.com/kb/1037094)). We then mounted those two RDMs as two brand new Dedupe Stores.
+We were running 5.0GA, so we went ahead and updated to 5.0U1 (vCenter and ESXi) and the snapshot removal process started working properly without leaving any snapshots behind. This actually explained as to why our Integrity Checks were failing. Our snapshots would always fail and the CBT would only try to back up the last changed blocks but they just kept adding up from previous snapshots and it would cause inconsistent backups. Having discovered that, we added two new RDMs to the VDR appliance and put each of them on a separate SCSI controller (more information on how to do that can be seen in VMware KB [1037094](https://knowledge.broadcom.com/external/article?legacyId=1037094)). We then mounted those two RDMs as two brand new Dedupe Stores.
 
 We re-configured the backup jobs to now point to the new Dedupe Stores and re-enabled the Email_Server_Backup_Job and it still failed to even start the backup. We logged into the VDR appliance via ssh as root and we checked out the */var/vmware/datarecovery/datarecovery-0.log* file. When it was failing we saw the following log entry:
 
@@ -115,7 +115,7 @@ We re-configured the backup jobs to now point to the new Dedupe Stores and re-en
     7/7/2012 18:06:28.000: 0x0123e6a8: $[*20750]Trouble reading files, error -3956 ( operation failed)
 
 
-As I was logged into the appliance I saw that the hostname of the appliance was *localhost*. If the appliance has the name of *localhost* it usually means that DNS is currently not setup properly, some times that cause random backup issues. From VMware KB [1037995](http://kb.vmware.com/kb/1037995):
+As I was logged into the appliance I saw that the hostname of the appliance was *localhost*. If the appliance has the name of *localhost* it usually means that DNS is currently not setup properly, some times that cause random backup issues. From VMware KB [1037995](https://knowledge.broadcom.com/external/article?legacyId=1037995):
 
 > Verify DNS (including Reverse DNS) settings. Confirm that you can:
 >

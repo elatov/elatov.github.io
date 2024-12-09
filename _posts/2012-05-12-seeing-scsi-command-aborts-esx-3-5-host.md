@@ -36,7 +36,7 @@ I recently ran into an interesting issue with an ESX 3.5 host. We were seeing SC
 
 
 It looks like all of a sudden at Apr 27th at 10:14 AM the lpfc (emulex) driver started aborting SCSI
-commands. I found VMware KB [1004157](http://kb.vmware.com/kb/1004157) that matched the above messages.
+commands. I found VMware KB [1004157](https://knowledge.broadcom.com/external/article?legacyId=1004157) that matched the above messages.
 
 The KB talks about some possibilities as to why this could happen and some possible fixes as well:
 
@@ -59,7 +59,7 @@ On another host, I saw the following:
 	Apr 27 10:16:31 esx_host2 vmkernel: 110:04:49:23.213 cpu2:1039)WARNING: SCSI: 119: Failing I/O due to too many reservation conflicts
 
 
-It looks like the other host was having SCSI reservation issues. I found another VMware KB [1021187](http://kb.vmware.com/kb/1021187) that matched the symptoms of both hosts. From the second KB article here is scenario that could cause the above symptoms:
+It looks like the other host was having SCSI reservation issues. I found another VMware KB [1021187](https://knowledge.broadcom.com/external/article?legacyId=1021187) that matched the symptoms of both hosts. From the second KB article here is scenario that could cause the above symptoms:
 
 > 1.  ESX host X's HBA sends a SCSI reserve command to the array to reserve LUN Y.
 > 2.  Array places reservation on LUN Y for the initiator.
@@ -94,9 +94,9 @@ We see a gap in the above logs, and from the other host, we saw a similar gap in
 	Apr 27 16:59:58 esx_host2 vmkernel: 110:11:32:49.390 cpu0:1035)World: vm 1150: 895: Starting world vmware-vmx with flags 4
 
 
-It sounded like esx_host1 had an issue talking to the array (possible causes in KB [1004157](http://kb.vmware.com/kb/1004157)) from
+It sounded like esx_host1 had an issue talking to the array (possible causes in KB [1004157](https://knowledge.broadcom.com/external/article?legacyId=1004157)) from
 10:14 to 10:26 and that caused the other host esx_host2 to have SCSI Reservation issues (scenario
-described in KB [1021187](http://kb.vmware.com/kb/1021187)). After some time, esx_host1 was finally able to connect to the array and release the stuck SCSI reservation.
+described in KB [1021187](https://knowledge.broadcom.com/external/article?legacyId=1021187)). After some time, esx_host1 was finally able to connect to the array and release the stuck SCSI reservation.
 
 Looking over esx_host1 I  also saw a lot of these messages during the time issue:
 
@@ -132,7 +132,7 @@ Now checking for that message and looking at which LUNs exhibited the issue, I s
 	1 vmhba1:0:150
 
 
-That is a lot of LUNS from the same HBA. Those messages are described in VMware KB [1029456](http://kb.vmware.com/kb/1029456), and the suggestion is to update the firmware:
+That is a lot of LUNS from the same HBA. Those messages are described in VMware KB [1029456](https://knowledge.broadcom.com/external/article?legacyId=1029456), and the suggestion is to update the firmware:
 
 >   There is no Sense Key or Addition Sense Code/ASC Qualifier information for this status as this is a host side condition.
 >

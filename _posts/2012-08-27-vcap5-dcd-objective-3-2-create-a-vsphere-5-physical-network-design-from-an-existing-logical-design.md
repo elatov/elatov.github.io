@@ -9,7 +9,7 @@ tags: ['fcoe', 'trunk_port', 'stp', 'port_channel','vlan', 'logical_design']
 
 ### Describe VLAN options, including Private VLANs, with respect to virtual and physical switches
 
-From VMware KB [1003806](http://kb.vmware.com/kb/1003806):
+From VMware KB [1003806](https://knowledge.broadcom.com/external/article?legacyId=1003806):
 
 > Virtual LAN (VLAN) implementation is recommended in ESX/ESXi networking environments because:
 >
@@ -93,7 +93,7 @@ From "[VMware Virtual Networking Concepts](https://storage.googleapis.com/grand-
 > *   Etherchannel negotiation, such as PAgP or LACP — must be disabled because they are not supported.
 > *   Trunking negotiation (saves about four seconds).
 
-From VMware KB [1003712](http://kb.vmware.com/kb/1003712):
+From VMware KB [1003712](https://knowledge.broadcom.com/external/article?legacyId=1003712):
 
 > Jumbo Frames is officially supported in ESXi/ESX 4.x and later. For Jumbo Frames to be effective, the network must support Jumbo Frames (end-to-end). Configuration of Jumbo Frames on virtual switches is currently only available from the command line. Configuration of Jumbo Frames on vNetwork Distributed Switches can be done from vCenter.
 >

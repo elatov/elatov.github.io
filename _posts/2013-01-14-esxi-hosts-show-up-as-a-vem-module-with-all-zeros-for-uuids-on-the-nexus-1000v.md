@@ -81,7 +81,7 @@ and from one of the non-working host:
 	00000000-0000-0000-0000-000000000000
 
 
-Looking over VMware KB [1006250](http://kb.vmware.com/kb/1006250), we see the following:
+Looking over VMware KB [1006250](https://knowledge.broadcom.com/external/article?legacyId=1006250), we see the following:
 
 > The UUID is read by the ESX host from the SMBIOS
 > ...
@@ -177,7 +177,7 @@ One last note, don't confuse this UUID for the "System UUID", they are two compl
 	|----System UUID.................................................4ff35a91-ab62-fc60-8199-0050561721df
 
 
-VMware KB [1024791](http://kb.vmware.com/kb/1008728) talk about it's uses. Here are a couple:
+VMware KB [1024791](https://knowledge.broadcom.com/external/article?legacyId=1008728) talk about it's uses. Here are a couple:
 
 1.  For locking files
 2.  Generating Mac Addresses for management interfaces

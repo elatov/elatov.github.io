@@ -66,7 +66,7 @@ To do VGT with DVS. Go To "Networking" View -> Right Click on your DVPortGroup a
 
 ### Determine use cases for and configure PVLANs
 
-From VMware KB [1010691](http://kb.vmware.com/kb/1010691) here is a pretty good diagram:
+From VMware KB [1010691](https://knowledge.broadcom.com/external/article?legacyId=1010691) here is a pretty good diagram:
 
 ![pvlans_vmware](https://github.com/elatov/uploads/raw/master/2012/09/pvlans_vmware.png)
 

@@ -6,7 +6,7 @@ description: ""
 categories: [vmware]
 tags: [esxcli, heartbleed, ssl]
 ---
-I decided to apply the heartbleed patch on my ESXi host, there were some concerns and confusion with the latest NFS issue and 5.5GA versus 5.5U1. There is a lot of good information in [VMware KB 2076665](http://kb.vmware.com/kb/2076665). But I actually liked the summary from [this](https://blogs.vmware.com/kb/2014/04/patching-esxi-5-5-heartbleed-without-installing-update-1.html) VMware blogs page:
+I decided to apply the heartbleed patch on my ESXi host, there were some concerns and confusion with the latest NFS issue and 5.5GA versus 5.5U1. There is a lot of good information in [VMware KB 2076665](https://knowledge.broadcom.com/external/article?legacyId=2076665). But I actually liked the summary from [this](https://blogs.vmware.com/kb/2014/04/patching-esxi-5-5-heartbleed-without-installing-update-1.html) VMware blogs page:
 
 > Stated simply, if you are…
 >
@@ -84,7 +84,7 @@ and I still had two NICs:
 	vmnic0  0000:001:00.0  tg3     Up     1000  Full    68:5b:35:c9:96:10  1500  Broadcom Corporation NetXtreme BCM57766 Gigabit Ethernet
 	vmnic1  0000:009:00.0  tg3     Up     1000  Full    68:5b:35:91:47:85  1500  Broadcom Corporation NetXtreme BCM57762 Gigabit Ethernet PCIe
 
-Everything looked good. Now before we take the host out of maintenance mode, let's go ahead and get new SSL certs in place. The instructions for that are laid out in the [same KB](http://kb.vmware.com/kb/2076665). First let's backup the existing certs:
+Everything looked good. Now before we take the host out of maintenance mode, let's go ahead and get new SSL certs in place. The instructions for that are laid out in the [same KB](https://knowledge.broadcom.com/external/article?legacyId=2076665). First let's backup the existing certs:
 
 	~ # mkdir /vmfs/volumes/backups/certs
 	~ # ls -l /etc/vmware/ssl/

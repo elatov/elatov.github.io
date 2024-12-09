@@ -107,7 +107,7 @@ Now translating the SCSI Sense Code: **2/0 0x6 0x3f 0xe**, I get the following
 *ASC additional sense code*
 *ASCQ additional sense code qualifier*
 
-To translate SCSI sense codes this is a pretty good KB for that, [2000609](http://kb.vmware.com/kb/289902). From that KB
+To translate SCSI sense codes this is a pretty good KB for that, [2000609](https://knowledge.broadcom.com/external/article?legacyId=289902). From that KB
 
 > Updates the NMP module to add support to the *PREEMPT_AND_ABORT* service action in the *PERSISTENT RESERVE OUT SCSI* command for passthrough RDMs, which is required by the Symantec clustering software.
 

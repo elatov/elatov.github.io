@@ -42,7 +42,7 @@ we see a *be* and that is pointing to the *be2net* or *be2iscsi* driver causing 
 	Version: Version 4.0.88.0, Build: 515841, Interface: 9.2 Built on: Oct 28 2011
 
 
-I actually ran into VMware KB [2007397](http://kb.vmware.com/kb/2007397), from that KB:
+I actually ran into VMware KB [2007397](https://knowledge.broadcom.com/external/article?legacyId=2007397), from that KB:
 
 > **Emulex OneConnect driver not supported on vSphere 5.0 for HP hardware**
 > ...

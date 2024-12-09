@@ -69,7 +69,7 @@ And here is how the actual configuration of the Moxa device is:
 > 8.  In the main menu under (3) Serial settings, select the serial port that you wish to configure. Adjust the communication parameters as necessary for your serial device, such as 115200, N, 8, 1.
 > 9.  In the main menu, select (s) Save/Restart to restart the NPort with the new settings activated.
 
-So we are going to use the "Port URI" since we are not using a vSPC (ie Avocent ACS v6000 Virtual Serial Port Concentrator). More information on that can be seen in VMware KB [1022303](http://kb.vmware.com/kb/1022303). And as per the Moxa documentation the port that I need to connect to is **4001** . Here is how my VM looked like after the configuration was done:
+So we are going to use the "Port URI" since we are not using a vSPC (ie Avocent ACS v6000 Virtual Serial Port Concentrator). More information on that can be seen in VMware KB [1022303](https://knowledge.broadcom.com/external/article?legacyId=1022303). And as per the Moxa documentation the port that I need to connect to is **4001** . Here is how my VM looked like after the configuration was done:
 
 ![vm serial port conf Connecting to a VM using Serial Port Over the Network With a Moxa Device Server](https://github.com/elatov/uploads/raw/master/2012/12/vm_serial_port_conf.png)
 
@@ -214,7 +214,7 @@ Then from the other connection:
     }
 
 
-We can clearly see an increase in dropped packets as we try to connect out with our **nc** command. I then followed the instruction laid out in VMware KB [2008226](http://kb.vmware.com/kb/2008226) to add a new rule to just allow outbound traffic to destination port 4001. First let's see the last rule in our firewall ruleset:
+We can clearly see an increase in dropped packets as we try to connect out with our **nc** command. I then followed the instruction laid out in VMware KB [2008226](https://knowledge.broadcom.com/external/article?legacyId=2008226) to add a new rule to just allow outbound traffic to destination port 4001. First let's see the last rule in our firewall ruleset:
 
     /etc/vmware/firewall # tail -14 service.xml
     <!-- netDump -->

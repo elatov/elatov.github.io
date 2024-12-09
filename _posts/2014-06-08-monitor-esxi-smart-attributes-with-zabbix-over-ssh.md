@@ -6,7 +6,7 @@ categories: [storage,vmware, os]
 tags: [debian,zabbix, smart, monitoring]
 ---
 
-From [VMware KB 2040405](http://kb.vmware.com/kb/2040405) I saw that we can now get SMART attributes from local disks on an ESXi host. For example here is what I saw on the Mac Mini with the SSD:
+From [VMware KB 2040405](https://knowledge.broadcom.com/external/article?legacyId=2040405) I saw that we can now get SMART attributes from local disks on an ESXi host. For example here is what I saw on the Mac Mini with the SSD:
 
 	~ # esxcli storage core device smart get -d t10.ATA_____APPLE_SSD_SM256E________________________S1AANYNF302924______
 	Parameter                     Value  Threshold  Worst

@@ -7,7 +7,7 @@ categories: ['storage', 'vmware']
 tags: ['performance', 'cbt', 'equallogic', 'iometer', 'vm_snapshot', 'unstun_time']
 ---
 
-I had an interesting issue that took a while to solve. Whenever we consolidated snapshots it would take a while and the VM would lose a high number of pings. Some ping loss is okay and is expected since we are stunning the VM during the commit of the snapshot. More information on snapshot consolidation can be found in VMware KB [1002836](http://kb.vmware.com/kb/1002836).  However an excessive amount of ping loss should not be seen. Looking over the vmware.log file of the VM we saw the following messages:
+I had an interesting issue that took a while to solve. Whenever we consolidated snapshots it would take a while and the VM would lose a high number of pings. Some ping loss is okay and is expected since we are stunning the VM during the commit of the snapshot. More information on snapshot consolidation can be found in VMware KB [1002836](https://knowledge.broadcom.com/external/article?legacyId=1002836).  However an excessive amount of ping loss should not be seen. Looking over the vmware.log file of the VM we saw the following messages:
 
 
 	2012-03-23T16:22:51.876Z| vcpu-0| Checkpoint_Unstun: vm stopped for 3658889 us

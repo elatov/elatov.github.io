@@ -177,7 +177,7 @@ So the uplink (vmnic2) that those two VMs were using went down. Now looking at t
 	2012-08-30T05:51:44.230Z cpu21:444905)vmnic4 : 02:00.6 Link Up - 10 Gbps Full Duplex
 
 
-So right as we replaced the VCM the NICs came up and the VMs regained network connectivity. Remember we were using NLB in Unicast mode, from this VMware KB [1556](http://kb.vmware.com/kb/1556):
+So right as we replaced the VCM the NICs came up and the VMs regained network connectivity. Remember we were using NLB in Unicast mode, from this VMware KB [1556](https://knowledge.broadcom.com/external/article?legacyId=1556):
 
 > To configure NLB UNICAST mode:
 > ESX vSwitch properties Notify Switches = NO
@@ -272,7 +272,7 @@ and as we expected there is a 'notify switch' option in our 'link behavior' sect
 	propType = CONFIG
 
 
-So we know those two ports do not have the "Notify Switch" option set, which is good since this is necessary for NLB in unicast to work properly. Now what does the option 'notify switch' do exactly. Upon any changes to a VM, the VMkernel sends a Gratuitous ARP to the physical switch to make sure it updates it's CAM tables. If that option is disabled then the VMkernel doesn't send the GARP out and the physical switch doesn't know if a VM had moved over to another physical NIC. From VMware KB [1556](http://kb.vmware.com/kb/1556):
+So we know those two ports do not have the "Notify Switch" option set, which is good since this is necessary for NLB in unicast to work properly. Now what does the option 'notify switch' do exactly. Upon any changes to a VM, the VMkernel sends a Gratuitous ARP to the physical switch to make sure it updates it's CAM tables. If that option is disabled then the VMkernel doesn't send the GARP out and the physical switch doesn't know if a VM had moved over to another physical NIC. From VMware KB [1556](https://knowledge.broadcom.com/external/article?legacyId=1556):
 
 > In the ESX host, the VMkernel sends a RARP packet each time certain actions occur—for example, a virtual machine is powered on, experiences teaming failover, performs certain VMotion operations, and so forth. The RARP packet informs the switch of the MAC address of that virtual machine. In a NLB cluster environment, this exposes the MAC address of the cluster NIC as soon as a NLB node is powered on.
 

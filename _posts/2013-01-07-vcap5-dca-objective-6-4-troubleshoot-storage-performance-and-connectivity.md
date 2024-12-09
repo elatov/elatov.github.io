@@ -530,7 +530,7 @@ This was covered in "[VCAP5-DCA Objective 1.1](/2012/10/vcap5-dca-objective-1-1-
 
 ### Analyze log files to identify storage and multipathing problems
 
-VMware KB [1027963](http://kb.vmware.com/kb/1027963) has really good examples of pathing failover and log snippets. From the KB:
+VMware KB [1027963](https://knowledge.broadcom.com/external/article?legacyId=1027963) has really good examples of pathing failover and log snippets. From the KB:
 
 > The VMware ESX/ESXi 4.x and 5.0 storage multipathing failover sequence is:
 >

@@ -7,7 +7,7 @@ categories: ['storage', 'vmware']
 tags: ['powercli', 'rvtools', 'vcheck', 'vm_snapshot']
 ---
 
-Someone had asked me recently: What happens if the snapshot consolidation process take a long time and the task is no longer seen in the vShpere client? First I would recommend to login directly to the host and check if the VM has a running task. An example can be seen in VMware KB [1013003](http://kb.vmware.com/kb/1013003). From the KB, first find the VM_ID of your VM:
+Someone had asked me recently: What happens if the snapshot consolidation process take a long time and the task is no longer seen in the vShpere client? First I would recommend to login directly to the host and check if the VM has a running task. An example can be seen in VMware KB [1013003](https://knowledge.broadcom.com/external/article?legacyId=1013003). From the KB, first find the VM_ID of your VM:
 
 
 	~ # vmware-vim-cmd vmsvc/getallvms
@@ -55,7 +55,7 @@ For ESXi:
 	/vmfs/volumes/datastore1/VM-1 # watch -d 'ls -lut | grep -E "delta|flat"'
 
 
-The above command is described in VMware KB [1007566](http://kb.vmware.com/kb/1007566), from that KB:
+The above command is described in VMware KB [1007566](https://knowledge.broadcom.com/external/article?legacyId=1007566), from that KB:
 
 > for "watch"
 > -d highlights the differences between successive updates
@@ -67,7 +67,7 @@ The above command is described in VMware KB [1007566](http://kb.vmware.com/kb/10
 
 When you run the command it will basically execute 'ls' with the above parameters every 2 seconds and any changes that occur with updated time or size differences will be highlighted.
 
-The task timing out from the vShpere Client is actually expected. From VMware KB [1004790](http://kb.vmware.com/kb/1004790):
+The task timing out from the vShpere Client is actually expected. From VMware KB [1004790](https://knowledge.broadcom.com/external/article?legacyId=1004790):
 
 > vCenter has a default 15 minute timeout for any task.
 > ...
@@ -93,7 +93,7 @@ In the same KB it talks about increasing the timeout, from the KB:
 
 The example in the KB shows you how to change it from the default value of 15 minutes to 3 hours, probably an over kill but then you make sure the corner case of long snapshot consolidation timing out won't happen again.
 
-Personally, I think the real fix to this issue is to follow best practices. From VMware KB [1025279](http://kb.vmware.com/kb/1025279) The title of the KB is "Best practices for virtual machine snapshots in the VMware environment". Here is the important bullet point from that KB:
+Personally, I think the real fix to this issue is to follow best practices. From VMware KB [1025279](https://knowledge.broadcom.com/external/article?legacyId=1025279) The title of the KB is "Best practices for virtual machine snapshots in the VMware environment". Here is the important bullet point from that KB:
 
 > - Use no single snapshot for more than 24-72 hours.
 > 	- This prevents snapshots from growing so large as to cause issues when deleting/committing them to the original virtual machine disks. Take the snapshot, make the changes to the virtual machine, and delete/commit the snapshot as soon as you have verified the proper working state of the virtual machine.
@@ -101,7 +101,7 @@ Personally, I think the real fix to this issue is to follow best practices. From
 
 Most of the time I see the removal task take a while, when the snapshot (delta) file is huge. If we can prevent delta files from getting large, we can prevent the task from taking more that 15 minutes to complete (under normal conditions). There are many ways to make that happen, but we need to be proactive.
 
-The first way is to setup vCenter Alarms to warn us when VMs have snapshots. VMware KB [1018029](http://kb.vmware.com/kb/1018029) has instructions on how to set that up.
+The first way is to setup vCenter Alarms to warn us when VMs have snapshots. VMware KB [1018029](https://knowledge.broadcom.com/external/article?legacyId=1018029) has instructions on how to set that up.
 
 Second way is to use other tools like powerCLI to run through your VM Inventory to create list of VMs which have snapshots. Check out "[vCheck (Daily Report)](http://www.virtu-al.net/2009/06/22/powercli-snapreminder/)". You can set it as a scheduled task and it will run and generate a report of your VMware inventory. Among many other statistics it will report VMs with snapshots.
 

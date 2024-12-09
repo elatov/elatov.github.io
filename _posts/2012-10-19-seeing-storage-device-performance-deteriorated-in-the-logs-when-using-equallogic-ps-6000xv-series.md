@@ -7,7 +7,7 @@ categories: ['storage', 'vmware']
 tags: ['nmp', 'disk_max_io_size', 'equallogic','iometer', 'performance','iscsi']
 ---
 
-A customer was seeing 'Storage Device Performance Deteriorated" message in the logs during their backup operation. More information regarding this message can be seen in VMware KB [Configuring VMware vSphere Software iSCSI With Dell EqualLogic PS Series Storage](http://kb.vmware.com/kb/2007236)". Here are a few things that stood out from the document:
+A customer was seeing 'Storage Device Performance Deteriorated" message in the logs during their backup operation. More information regarding this message can be seen in VMware KB [Configuring VMware vSphere Software iSCSI With Dell EqualLogic PS Series Storage](https://knowledge.broadcom.com/external/article?legacyId=2007236)". Here are a few things that stood out from the document:
 
 > the iSCSI switch environment can be on a different subnet than the public environment or existing service console. Each VMkernel Port will need its own IP Address and they must all be on the same subnet and be on the same subnet as the PS Series Group IP Address.
 >
@@ -130,7 +130,7 @@ And it was. The customer was also using the Round Robin Pathing Policy for this 
     Working Paths: vmhba36:C1:T0:L0, vmhba36:C0:T0:L0
 
 
-So the configuration looked good. I then decided to figure out if a certain load was causing the latency. Following the instructions laid out in VMware KB [2019131](http://kb.vmware.com/kb/2019131) we ran IOmeter and here were the results:
+So the configuration looked good. I then decided to figure out if a certain load was causing the latency. Following the instructions laid out in VMware KB [2019131](https://knowledge.broadcom.com/external/article?legacyId=2019131) we ran IOmeter and here were the results:
 
 {:.kt}
 | Test         | Read_IOPs | Read_MB | Write_IOPs | Write_MB | Read_Lat | Write_Lat |
@@ -199,7 +199,7 @@ And lastly here is the one from the ESXi 5.0 host:
 
 ![dpack_esxi5](https://github.com/elatov/uploads/raw/master/2012/10/dpack_esxi5.png)
 
-We can see that the higher the block size the higher the latency and the Windows 2K8 R2 machine also had high latency. I then decided to change the **DiskMaxIOSize** per VMware KB [1003469](http://kb.vmware.com/kb/1003469). That stopped the message from happening as often but it still happened once in a while.
+We can see that the higher the block size the higher the latency and the Windows 2K8 R2 machine also had high latency. I then decided to change the **DiskMaxIOSize** per VMware KB [1003469](https://knowledge.broadcom.com/external/article?legacyId=1003469). That stopped the message from happening as often but it still happened once in a while.
 
 In conclusion, we learned that Win2k8 has very high block size (during regular windows copy operations) and the Dell Equallogic doesn't like high block because it incurs high latency. The latency was seen during backups and backups are expected to have high block size so the issue that we were experiencing was expected. With above changes we decreased the frequency of the message but it was still happening at night (during backups) which was expected. Lastly check out this VMware blog "[Large I/O block size operations show high latency on Windows 2008](https://blogs.vmware.com/kb/2012/10/large-io-block-size-operations-show-high-latency-on-windows-2008.html)"where it talks about Win2k8 Guest OSes cause such high latency and it's a false positive.
 

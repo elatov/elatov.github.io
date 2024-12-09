@@ -371,7 +371,7 @@ From [vSphere Command-Line Interface Concepts and Examples](https://storage.goog
 >	 esxcli network ip interface list
 >
 
-From VMware KB [1008127](http://kb.vmware.com/kb/1008127):
+From VMware KB [1008127](https://knowledge.broadcom.com/external/article?legacyId=1008127):
 
 > These commands allow you to add or remove network cards (known as uplinks) to or from a vNetwork Distributed Switch (vDS):
 >

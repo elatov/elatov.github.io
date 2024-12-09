@@ -284,7 +284,7 @@ That is really slow, but it's not like the *omnios* machine was over loaded or a
 
 ### iSCSI ZFS with WriteBack Cache
 
-So then I checked out the LUN and I saw that **write-back cache** was not enabled. Per [this](http://kb.vmware.com/kb/1006602) VMware KB, it's recommended to enable that. So inside *napp-it*, I went ahead and enabled that:
+So then I checked out the LUN and I saw that **write-back cache** was not enabled. Per [this](https://knowledge.broadcom.com/external/article?legacyId=1006602) VMware KB, it's recommended to enable that. So inside *napp-it*, I went ahead and enabled that:
 
 ![enable write cache ZFS iSCSI Benchmark Tests on ESX](https://github.com/elatov/uploads/raw/master/2013/12/enable-write-cache.png)
 
@@ -306,7 +306,7 @@ That is way better, now I am writing at **~80MB/s**.
 
 ### IOmeter Tests with iSCSI
 
-I then installed a windows VM and installed **IOmeter** on it. I then added a **VMDK** to the VM that resided on my test LUN. After that I followed the instructions laid out in [this](http://kb.vmware.com/kb/2019131) VMware KB to do some performance testing. The KB provides a predefined set of *IOmeter* tests; they are mostly **4K-32K**, Read and Write tests. The output of *IOmeter* is in CSV format and you can use *Excel* to check out the results. There is also a pretty [cool perl](http://pvenezia.com/iw/iometer-parse-html.pl) script which grabs a couple of columns and generates an HTML file of those columns. I modified the script to grab latency stats as well. I also modified the *IOmeter* results to only include sequential tests (excluded the random tests). Here is the result of my initial test:
+I then installed a windows VM and installed **IOmeter** on it. I then added a **VMDK** to the VM that resided on my test LUN. After that I followed the instructions laid out in [this](https://knowledge.broadcom.com/external/article?legacyId=2019131) VMware KB to do some performance testing. The KB provides a predefined set of *IOmeter* tests; they are mostly **4K-32K**, Read and Write tests. The output of *IOmeter* is in CSV format and you can use *Excel* to check out the results. There is also a pretty [cool perl](http://pvenezia.com/iw/iometer-parse-html.pl) script which grabs a couple of columns and generates an HTML file of those columns. I modified the script to grab latency stats as well. I also modified the *IOmeter* results to only include sequential tests (excluded the random tests). Here is the result of my initial test:
 
 ![iometer results reg test1 ZFS iSCSI Benchmark Tests on ESX](https://github.com/elatov/uploads/raw/master/2013/12/iometer-results-reg-test1.png)
 
@@ -578,9 +578,9 @@ The above options helped out my Fedora box more than my Debian VM.
 Throughout my testing I did a couple of things. I would say the below had minimal if no impact on the performance:
 
 1.  Install VMware tools
-2.  From [VMware KB 1017652](http://kb.vmware.com/kb/1017652) use the **pvscsi** virtual adapter
-3.  From [Linux 2.6 kernel-based virtual machines experience slow disk I/O performance](http://kb.vmware.com/kb/2011861) set the I/O Scheduler to **noop** (`echo noop > /sys/block/sdb/queue/scheduler`).
-4.  Per [this](http://kb.vmware.com/kb/1003469) HP KB, change the **MaxIOSize** option in VMware (`esxcli system settings advanced set -o /Disk/DiskMaxIOSize -i 128`)
+2.  From [VMware KB 1017652](https://knowledge.broadcom.com/external/article?legacyId=1017652) use the **pvscsi** virtual adapter
+3.  From [Linux 2.6 kernel-based virtual machines experience slow disk I/O performance](https://knowledge.broadcom.com/external/article?legacyId=2011861) set the I/O Scheduler to **noop** (`echo noop > /sys/block/sdb/queue/scheduler`).
+4.  Per [this](https://knowledge.broadcom.com/external/article?legacyId=1003469) HP KB, change the **MaxIOSize** option in VMware (`esxcli system settings advanced set -o /Disk/DiskMaxIOSize -i 128`)
 5.  Modify the following ZFS settings on the ZFS Volume, taken from [this](https://www.solaris-cookbook.eu/solaris/solaris-10-zfs-evil-tuning-guide/) blog.
     1.  Turn off the **checksum** (`zfs set checksum=off data/test`)
     2.  Change **Primary Cache** (`zfs set primarycache=metadata data/test`)

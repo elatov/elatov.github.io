@@ -15,7 +15,7 @@ There are a couple of steps to this process. First you need to determine if you 
 
 > The distributed Virtual Switch corresponding to the proxy switches d5 6e 22 50 dd f2 94 7b-a6 1f b2 c2 e6 aa 0f bf on the host does not exist in vCenter or does not contain the host.
 
-This is discussed in VMware KB [vSphere DvSwitch caveats and best practices!](http://kb.vmware.com/kb/1017558)"
+This is discussed in VMware KB [vSphere DvSwitch caveats and best practices!](https://knowledge.broadcom.com/external/article?legacyId=1017558)"
 
 **2.** Under "Host and Clusters" if you select a Host and then go to Configuration -> Networking -> vNetwork Distributed Switch
 
@@ -57,7 +57,7 @@ If the host is up, it should synchronize in 5 minutes, or you can manually synch
 
 ![rectify_out_of_sync_dvs](https://github.com/elatov/uploads/raw/master/2012/09/rectify_out_of_sync_dvs.jpg)
 
-Also one more note, don't confuse the dvs synchronization with the locked ports time out. The default for that is 24 hours and that can be changed. To change the default time out for locked ports follow the instructions laid out in VMware KB [1010913](http://kb.vmware.com/kb/1010913)
+Also one more note, don't confuse the dvs synchronization with the locked ports time out. The default for that is 24 hours and that can be changed. To change the default time out for locked ports follow the instructions laid out in VMware KB [1010913](https://knowledge.broadcom.com/external/article?legacyId=1010913)
 
 Now, once you have identified an "Inconsistent" DVS, let's start fixing it.
 

@@ -25,7 +25,7 @@ There is actually an ongoing VMware community thread [309844](http://communities
 1. Disable and remove the Floppy device from the VM (it's not used any ways)
 2. Downgrade vmware-tools versions from 8.3.7 (ESX 4.1U2) to 8.3.2 (ESX 4.1GA)
 
-To find out your version of vmware-tools follow the instructions in VMware KB [392](http://kb.vmware.com/kb/392). If you are running anything other than 8.3.2 then you can download the older tools from here:
+To find out your version of vmware-tools follow the instructions in VMware KB [392](https://knowledge.broadcom.com/external/article?legacyId=392). If you are running anything other than 8.3.2 then you can download the older tools from here:
 
 For 32 Bit:
 

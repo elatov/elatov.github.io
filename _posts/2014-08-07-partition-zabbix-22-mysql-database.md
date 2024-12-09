@@ -74,7 +74,7 @@ On the VM let's scan for new SCSI devices. First determine which SCSI host we ne
 	[0:0:0:0]    disk    VMware   Virtual disk     1.0   /dev/sda
 	[2:0:0:0]    cd/dvd  NECVMWar VMware IDE CDR10 1.00  /dev/sr0
 
-It looks like **/dev/sda** (the first disk) is on **scsi_host0** (and I added the vmdk as the second device of the first SCSI controller... these were the **0 1** parameters at the end of my **vim-cmd** command... for more information check out [VMware KB 1006685](http://kb.vmware.com/kb/1006685)). So let's scan **scsi_host0**:
+It looks like **/dev/sda** (the first disk) is on **scsi_host0** (and I added the vmdk as the second device of the first SCSI controller... these were the **0 1** parameters at the end of my **vim-cmd** command... for more information check out [VMware KB 1006685](https://knowledge.broadcom.com/external/article?legacyId=1006685)). So let's scan **scsi_host0**:
 
 	root@kerch:~# echo "- - -" > /sys/class/scsi_host/host0/scan
 

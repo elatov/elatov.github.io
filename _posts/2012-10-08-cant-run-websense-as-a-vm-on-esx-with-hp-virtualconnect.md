@@ -32,8 +32,8 @@ Now as soon as we plugged GigEthernet 1/8 into the ESX host we were not able to 
 
 So we basically we needed to:
 
-*   Set the vSwitch to be in promiscuous mode. This allows every VM that is on that vSwitch to see all the traffic. Instructions laid out in VMware KB [1004099](http://kb.vmware.com/kb/1004099)
-*   If we are mirroring multiple VLANs then we need to set the VLAN Tag as 4095 on the PortGroup where the WebSense VM resides. This allows all VLANs to pass through the port group. Instructions on how to set that up are in VMware KB [1004252](http://kb.vmware.com/kb/1004252)
+*   Set the vSwitch to be in promiscuous mode. This allows every VM that is on that vSwitch to see all the traffic. Instructions laid out in VMware KB [1004099](https://knowledge.broadcom.com/external/article?legacyId=1004099)
+*   If we are mirroring multiple VLANs then we need to set the VLAN Tag as 4095 on the PortGroup where the WebSense VM resides. This allows all VLANs to pass through the port group. Instructions on how to set that up are in VMware KB [1004252](https://knowledge.broadcom.com/external/article?legacyId=1004252)
 *   Put the NIC inside the OS to promiscuos mode, Wireshark does this but default. This allows the VM to receive traffic destined to other address than it self or broadcasts.
 
 So here is how the setup looked like:

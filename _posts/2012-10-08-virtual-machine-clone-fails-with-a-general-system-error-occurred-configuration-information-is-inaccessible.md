@@ -18,7 +18,7 @@ Checking out the /var/log/vmware/hostd.log file, I saw the following error:
 	[2012-10-03 22:19:06.783 62040B90 error 'vm:/vmfs/volumes/4f5275da-25b5f33c-40e5-0019b9d0aecd/New Virtual Machine/New Virtual Machine.vmx' opID=D6A05DBB-0000170C-d4-bd-7b] vim.VirtualMachine vim.VirtualMachine:512 does not have any configuration information.
 
 
-It looks like as it was creating the newly cloned VM, it would fail with some invalid configuration message. I actually ran across VMware KB [2012959](http://kb.vmware.com/kb/2012959). The KB matched my above message and from KB here are the symptoms:
+It looks like as it was creating the newly cloned VM, it would fail with some invalid configuration message. I actually ran across VMware KB [2012959](https://knowledge.broadcom.com/external/article?legacyId=2012959). The KB matched my above message and from KB here are the symptoms:
 
 > Possible scenarios to consider:
 >

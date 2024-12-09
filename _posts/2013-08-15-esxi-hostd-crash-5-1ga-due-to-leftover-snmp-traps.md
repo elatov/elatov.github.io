@@ -106,7 +106,7 @@ There was actually an event fired for the "ramdisk" is full:
     --> }
 
 
-I found [this](http://kb.vmware.com/kb/2040707) VMware KB, notice some of the symptoms list the following:
+I found [this](https://knowledge.broadcom.com/external/article?legacyId=2040707) VMware KB, notice some of the symptoms list the following:
 
 > Opening a virtual machine console from the vSphere Client fails with the error:
 >

@@ -30,7 +30,7 @@ Recently I ran into an issue with Microsoft Cluster Servers (MSCS) on two VMware
 	vmhba33:C0:T12:L0 LUN:0 state:active iscsi Adapter: iqn.1998-01.com.vmware:xxxxx  Target: IQN=iqn.2001-05.com.equallogic:xxxxx Alias= Session=00023d000002 PortalTag=1
 
 
-As you can see the SATP used is VMW_SATP_EQL and the PSP used is DELL_PSP_EQL_ROUTED for that LUN. The PSP is DELL_PSP_EQL_ROUTED works in a very similar way as VMW_PSP_RR. All paths are seen as active and IO can go across all the paths. Per KB [EqualLogic PS6000X](http://kb.vmware.com/kb/1037959)) we can see that a FIXED pathing policy can be used for this Array, so let's set the pathing policy to FIXED for the RDMs used for MSCS:
+As you can see the SATP used is VMW_SATP_EQL and the PSP used is DELL_PSP_EQL_ROUTED for that LUN. The PSP is DELL_PSP_EQL_ROUTED works in a very similar way as VMW_PSP_RR. All paths are seen as active and IO can go across all the paths. Per KB [EqualLogic PS6000X](https://knowledge.broadcom.com/external/article?legacyId=1037959)) we can see that a FIXED pathing policy can be used for this Array, so let's set the pathing policy to FIXED for the RDMs used for MSCS:
 
 
 	# esxcli nmp device setpolicy --psp VMW_PSP_FIXED -d naa.6090a088006f910fe8df241e1a01d012
@@ -49,5 +49,5 @@ After that we don't see all the paths set as working paths:
 	Working Paths: vmhba33:C7:T12:L0
 
 
-After setting changing the PSP, both VMs booted up just fine and didn't have any issue sharing the RDM. Since we are using iSCSI, I would also recommend not presenting RDMs but instead using an in-guest iSCSI initiator to get to a supported configuration. See [this KB](http://kb.vmware.com/kb/1037959) for more information on supported MSCS configurations.
+After setting changing the PSP, both VMs booted up just fine and didn't have any issue sharing the RDM. Since we are using iSCSI, I would also recommend not presenting RDMs but instead using an in-guest iSCSI initiator to get to a supported configuration. See [this KB](https://knowledge.broadcom.com/external/article?legacyId=1037959) for more information on supported MSCS configurations.
 

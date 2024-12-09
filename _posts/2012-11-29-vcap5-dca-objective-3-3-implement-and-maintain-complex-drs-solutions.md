@@ -281,7 +281,7 @@ Here is how the configuration looks from the vCenter:
 
 ### Configure EVC using appropriate baseline
 
-From VMware KB [1003212](http://kb.vmware.com/kb/1003212) here is are the baselines:
+From VMware KB [1003212](https://knowledge.broadcom.com/external/article?legacyId=1003212) here is are the baselines:
 
 ![evc_baselines](https://github.com/elatov/uploads/raw/master/2012/10/evc_baselines.png)
 

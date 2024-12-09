@@ -9,7 +9,7 @@ tags: ['iscsi', 'nmp', 'psa','satp','psp']
 
 ### Explain the Pluggable Storage Architecture (PSA) layout
 
-From this VMware KB [1011375](http://kb.vmware.com/kb/1011375):
+From this VMware KB [1011375](https://knowledge.broadcom.com/external/article?legacyId=1011375):
 
 > **Pluggable Storage Architecture (PSA)**
 >

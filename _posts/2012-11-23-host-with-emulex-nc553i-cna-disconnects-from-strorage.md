@@ -30,7 +30,7 @@ Issue begins with SCSI commands failing with a host status of 0xb (H:0xb):
 	2012-11-01T04:12:00.960Z cpu17:4113)NMP: nmp_ThrottleLogForDevice:2318: Cmd 0x28 (0x41244109c100, 12535) to dev "naa.xxx" on path "vmhba2:C0:T0:L6" Failed: H:0xb D:0x0 P:0x0 Possible sense data: 0x0 0x0 0x0. Act:NONE
 
 
-The H:0xb status means DID_REQUEUE, which means the Emulex driver has re-issued the failed command. Check out VMware KB [1029039](http://kb.vmware.com/kb/1029039) for more information on SCSI sense codes.
+The H:0xb status means DID_REQUEUE, which means the Emulex driver has re-issued the failed command. Check out VMware KB [1029039](https://knowledge.broadcom.com/external/article?legacyId=1029039) for more information on SCSI sense codes.
 
 SCSI commands continue to fail with no fail-over condition reported by the HBA to the ESX multipathing stack.
 

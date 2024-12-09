@@ -9,7 +9,7 @@ tags: ['iscsi', 'netcat', 'dcui', 'esx_firewall', 'syslog']
 
 ### Identify vCenter Server log file names and locations
 
-From VMware KB [1021804](http://kb.vmware.com/kb/1021804):
+From VMware KB [1021804](https://knowledge.broadcom.com/external/article?legacyId=1021804):
 
 > *   vCenter Server 2.5-5.x on Windows XP, 2000, 2003: %ALLUSERSPROFILE%\Application Data\VMware\VMware VirtualCenter\Logs\
 > *   vCenter Server 2.5-5.x on Windows Vista, 7, 2008: %ALLUSERSPROFILE%\VMware\VMware VirtualCenter\Logs\
@@ -18,7 +18,7 @@ From VMware KB [1021804](http://kb.vmware.com/kb/1021804):
 
 ### Identify ESXi log files names and locations
 
-From VMware KB [2004201](http://kb.vmware.com/kb/2004201):
+From VMware KB [2004201](https://knowledge.broadcom.com/external/article?legacyId=2004201):
 
 > *   /var/log/auth.log: ESXi Shell authentication success and failure.
 > *   /var/log/dhclient.log: DHCP client service, including discovery, address lease requests and renewals.
@@ -176,7 +176,7 @@ From the above we see that we are connecting to IP "192.168.1.107" and the iqn o
 
 ### Analyze log entries to identify and resolve issues
 
-This is a per-issue kind of scenario. It really depends on what you are searching for and what issues you are facing. VMware KB [1019238](http://kb.vmware.com/kb/1019238) has examples of logs snippets to determine why a host restarted. Here is small summary from the KB:
+This is a per-issue kind of scenario. It really depends on what you are searching for and what issues you are facing. VMware KB [1019238](https://knowledge.broadcom.com/external/article?legacyId=1019238) has examples of logs snippets to determine why a host restarted. Here is small summary from the KB:
 
 > When a user or script reboots a VMware ESX host, it generates a series events under /var/log/messages similar to:
 >

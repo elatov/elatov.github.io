@@ -14,7 +14,7 @@ So I decided it was time to update my *MacMini 6,2* that was running ESXi. It wa
 
 ### Preparing for the Update
 
-Looking over [Methods for upgrading to VMware ESXi 6.0 (2109711)](http://kb.vmware.com/kb/2109711), here are the supported upgrade paths:
+Looking over [Methods for upgrading to VMware ESXi 6.0 (2109711)](https://knowledge.broadcom.com/external/article?legacyId=2109711), here are the supported upgrade paths:
 
 > You can upgrade an ESXi 5.0.x, ESXi 5.1.x, or ESXi 5.5.х host directly to 6.0, using any of these methods. For more details, see the Supported Upgrades to ESXi 6.0 section in the vSphere Upgrade Guide.
 
@@ -77,7 +77,7 @@ Then double checking the patch:
     ESXi-6.0.0-20150704001-no-tools   VMware, Inc.  PartnerSupported
     ESXi-6.0.0-20150704001-standard   VMware, Inc.  PartnerSupported
 
-From [VMware ESXi 6.0, Patch Release ESXi600-201507001 (2111982)](http://kb.vmware.com/kb/2111982), here is note about the profiles that have the **s** in them:
+From [VMware ESXi 6.0, Patch Release ESXi600-201507001 (2111982)](https://knowledge.broadcom.com/external/article?legacyId=2111982), here is note about the profiles that have the **s** in them:
 
 > VMware patch and update releases contain general and security-only image profiles. Security-only image profiles are applicable to new security fixes only. No new bug fixes are included, but bug fixes from earlier patch/update releases are included.
 >

@@ -139,11 +139,11 @@ The **vmnic0** MAC is the physical MAC address assigned to the ESXi host. Now lo
 	vmk0      Management Network 10.0.1.128 255.255.255.0 10.0.1.255 ->00:0c:29:2c:54:17<- 1500 true    STATIC
 
 
-So the management interface of the ESXi host uses the same MAC as the physical NIC. Where on the ESX host the management interface creates a virtual MAC address and uses that. This is actually expected and per KB [1031111](http://kb.vmware.com/kb/1031111) you can change the behavior with a setting.
+So the management interface of the ESXi host uses the same MAC as the physical NIC. Where on the ESX host the management interface creates a virtual MAC address and uses that. This is actually expected and per KB [1031111](https://knowledge.broadcom.com/external/article?legacyId=1031111) you can change the behavior with a setting.
 
 So for security reasons VMware workstation is not allowing to send traffic with a MAC address other than what is assigned to the VM. I found a couple web pages which described how to get around the issue: 
 
-* [VMware KB 1008473](http://kb.vmware.com/kb/1008473)
+* [VMware KB 1008473](https://knowledge.broadcom.com/external/article?legacyId=1008473)
 * [VMware Communities 184111](http://communities.vmware.com/thread/184111)
 * [sanbarrow](http://sanbarrow.com/vmx/vmx-network-advanced.html)
 

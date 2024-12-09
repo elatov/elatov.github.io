@@ -26,7 +26,7 @@ Notice that the traffic destined for 10.0.1.0 subnet will leave out of vmk0 if i
 > Keep the vMotion connection on a separate network devoted to vMotion. When migration with vMotion
 > occurs, the contents of the guest operating system’s memory is transmitted over the network. You can do this either by using VLANs to segment a single physical network or separate physical networks (the latter is preferable).
 
-Personally, I would recommend to separate all of your traffic by subnets: NFS, FT, vMotion, and etc... (VMware KB [1006989](http://kb.vmware.com/kb/1006989)).The above PDF also refers to this:
+Personally, I would recommend to separate all of your traffic by subnets: NFS, FT, vMotion, and etc... (VMware KB [1006989](https://knowledge.broadcom.com/external/article?legacyId=1006989)).The above PDF also refers to this:
 
 > To physically separate network services and to dedicate a particular set of NICs to a specific network
 > service, create a vSwitch for each service. If this is not possible, separate them on a single vSwitch by
@@ -34,7 +34,7 @@ Personally, I would recommend to separate all of your traffic by subnets: NFS, F
 > administrator that the networks or VLANs you choose are isolated in the rest of your environment and
 > that no routers connect them.
 
-VMware KB [2010877](http://kb.vmware.com/kb/2010877) talks about the same thing. It also mentions the difference between ESX vs. ESXi, but that is another topic for another post :).
+VMware KB [2010877](https://knowledge.broadcom.com/external/article?legacyId=2010877) talks about the same thing. It also mentions the difference between ESX vs. ESXi, but that is another topic for another post :).
 
 **Update**: If you ABSOLUTELY MUST go against best practices, Joe posted about a "workaround" here: [Against Best Practices: vMotion and Management on the Same Network](http://virtuallyhyper.com/2012/04/against-best-practices-vmotion-and-management-on-the-same-network/)
 

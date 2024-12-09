@@ -55,7 +55,7 @@ The second line, is the vmkernel noticing that a command aborted, specifically c
 	2010-10-30T02:20:55.013Z cpu14:4110)NMP: nmp_ThrottleLogForDevice:2318: Cmd 0x28 (0x412441199080) to dev "naa.60a9800064655a77524a6c4938685950" on path "vmhba2:C0:T1:L1" Failed: H:0x8 D:0x0 P:0x0 Possible sense data: 0x0 0x0 0x0.Act:EVAL
 
 
-The NMP (Native Multipath Plugin) returns a Host status of 0x8, which translates to VMK_SCSI_HOST_RESET. More information on SCSI Host statuses can be at VMware KB [1029039](http://kb.vmware.com/kb/1029039). From that KB:
+The NMP (Native Multipath Plugin) returns a Host status of 0x8, which translates to VMK_SCSI_HOST_RESET. More information on SCSI Host statuses can be at VMware KB [1029039](https://knowledge.broadcom.com/external/article?legacyId=1029039). From that KB:
 
 > VMK_SCSI_HOST_RESET = 0x08 or 0x8
 >
@@ -67,9 +67,9 @@ This makes sense since we aborted the IO. Then the last line:
 	2010-10-30T02:20:55.013Z cpu14:4110)WARNING: NMP: nmp_DeviceRequestFastDeviceProbe:237:NMP device "naa.60a9800064655a77524a6c4938685950" state in doubt; requested fast path state update...
 
 
-When a command is aborted, a TUR (TEST_UNIT_READY) command is issued down the path where the command did not complete to ensure that this path is still good to use. More information on path failover be seen in VMware KB [1027963](http://kb.vmware.com/kb/1027963).
+When a command is aborted, a TUR (TEST_UNIT_READY) command is issued down the path where the command did not complete to ensure that this path is still good to use. More information on path failover be seen in VMware KB [1027963](https://knowledge.broadcom.com/external/article?legacyId=1027963).
 
-A TUR is issued every 300 seconds as part of the path evaluation, this behavior can be changed with a variable called "Disk.PathEvalTime", however in our case a TUR is issued immediately due to the aborted command. More information on Disk.PathEvalTime can be seen in VMware KB [1004378](http://kb.vmware.com/kb/1004378).
+A TUR is issued every 300 seconds as part of the path evaluation, this behavior can be changed with a variable called "Disk.PathEvalTime", however in our case a TUR is issued immediately due to the aborted command. More information on Disk.PathEvalTime can be seen in VMware KB [1004378](https://knowledge.broadcom.com/external/article?legacyId=1004378).
 
 So I went ahead and disabled that path since we were having issues sending IO down that path:
 

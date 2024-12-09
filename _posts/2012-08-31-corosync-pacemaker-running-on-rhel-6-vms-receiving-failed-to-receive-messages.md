@@ -127,13 +127,13 @@ So we were dropping a lot of the UDP traffic. We checked out Vmware blog "[Consi
 > 5.  Another note/question is the number of Virtual CPUs in a VM. Having more Virtual CPUs may have some detrimental effects due to the added coordination needed between the multiple Virtual CPUs. If a uniprocessor VM suffices, that sometimes performs better.
 > 6.  Finally, if the customer can use the newest processors, e.g. Intel’s Nehalem (5500 series), the boost from hardware improvement is quite substantial.
 
-Checking over Esxtop we didn't see any dropped packets, but we followed the intructions laid out in VMware KB [1010071](http://kb.vmware.com/kb/1010071) and increased our ring buffers:
+Checking over Esxtop we didn't see any dropped packets, but we followed the intructions laid out in VMware KB [1010071](https://knowledge.broadcom.com/external/article?legacyId=1010071) and increased our ring buffers:
 
 
 	ethtool -G eth1 rx 4096
 
 
-But that didn't make a difference. We then ran into VMware KB [1026055](http://kb.vmware.com/kb/1026055), it suggested to disable msi, by adding:
+But that didn't make a difference. We then ran into VMware KB [1026055](https://knowledge.broadcom.com/external/article?legacyId=1026055), it suggested to disable msi, by adding:
 
 
 	pci=nomsi

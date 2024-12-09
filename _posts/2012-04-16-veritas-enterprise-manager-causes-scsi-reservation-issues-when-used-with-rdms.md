@@ -8,7 +8,7 @@ categories: ['storage', 'vmware']
 tags: ['fiber_channel', 'nmp', 'fdisk', 'rdm', 'scsi_reservations']
 ---
 
-I recently ran into an issue where a customer was seeing "SCSI Reservation" messages on one of their hosts. I asked for a log bundle (KB [653](http://kb.vmware.com/kb/653)), and they had sent me one. I was looking over the vmkernel logs (/var/log/vmkernel) and I saw the following:
+I recently ran into an issue where a customer was seeing "SCSI Reservation" messages on one of their hosts. I asked for a log bundle (KB [653](https://knowledge.broadcom.com/external/article?legacyId=653)), and they had sent me one. I was looking over the vmkernel logs (/var/log/vmkernel) and I saw the following:
 
 
 	vmkernel.9:Mar 10 01:00:45 esx_host vmkernel: 97:00:40:02.937 cpu15:14570)VMW_SATP_SVC: satp_svc_UpdatePath: Failed to update path "vmhba2:C0:T1:L80" state. Status=SCSI reservation conflict

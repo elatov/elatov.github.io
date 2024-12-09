@@ -81,7 +81,7 @@ And on my test VM running a **tcpdump** showed the following:
 
 ###Establishing the IPSec Tunnel To Local Environment
 
-There is a pretty good KB on the process from VMware: [Configuring IPsec VPN within VMware vCloud Air to a remote network](http://kb.vmware.com/kb/2051370) and there is a pretty good diagram that represents all the networks:
+There is a pretty good KB on the process from VMware: [Configuring IPsec VPN within VMware vCloud Air to a remote network](https://knowledge.broadcom.com/external/article?legacyId=2051370) and there is a pretty good diagram that represents all the networks:
 
 ![vca-ipsec-diag](https://raw.githubusercontent.com/elatov/upload/master/vcloud_air_test/vca-ipsec-diag.png)
 

@@ -7,7 +7,7 @@ categories: ['networking', 'storage', 'vmware']
 tags: ['performance', 'fedora', 'linux', 'esxtop', 'gnuplot']
 ---
 
-Let's say you collected esxtop batch data per the instructions laid out in VMware KB [1004953](http://kb.vmware.com/kb/1004953). So in the end you just had a huge CSV (Comma Separated Values) file, with a lot of data. In my example I was seeing some latency on my NFS datastore and I wanted to find out what is going on. I downloaded the file to my linux machine and here is resulted file:
+Let's say you collected esxtop batch data per the instructions laid out in VMware KB [1004953](https://knowledge.broadcom.com/external/article?legacyId=1004953). So in the end you just had a huge CSV (Comma Separated Values) file, with a lot of data. In my example I was seeing some latency on my NFS datastore and I wanted to find out what is going on. I downloaded the file to my linux machine and here is resulted file:
 
 
 	$ ls -lh esxtop_data.csv

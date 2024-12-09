@@ -36,7 +36,7 @@ Around that time, I see the following in /var/log/messages on the ESXi Host:
 	Oct 4 08:11:46 vmkernel: 40:12:10:48.668 cpu15:7448)UserDump: 1587: Userworld coredump complete.
 
 
-It looks like hostd core dumped. I then ran across VMware KB [2017008](http://kb.vmware.com/kb/2017008) which matched my issue and symptoms. For example here are some of the symptoms:
+It looks like hostd core dumped. I then ran across VMware KB [2017008](https://knowledge.broadcom.com/external/article?legacyId=2017008) which matched my issue and symptoms. For example here are some of the symptoms:
 
 > *   The hostd.log is terminated without mentioning rotating...
 > *   You may see hostd core(s) generated under /var/core/core-vix-async-pipe-pid-EPOCH.gz

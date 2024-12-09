@@ -44,7 +44,7 @@ When it comes to virtual switch talking to the physical network these are involv
 
 STP - Spanning Tree Issue (it's recommended to be disable or at least set portfast, more information in VMware KB [1003804](https://knowledge.broadcom.com/external/article?legacyId=1003804) )
 LACP - Link Aggregation Control Protocol only supported with 5.1
-Etherchannel - Supported only with the IP_hash Algorithtm (for sample config check out VMware KB [1004048](http://kb.vmware.com/kb/1004048)
+Etherchannel - Supported only with the IP_hash Algorithtm (for sample config check out VMware KB [1004048](https://knowledge.broadcom.com/external/article?legacyId=1004048)
 QOS - Quality of Service, with VMware only 802.1p tagging is supported (for a good example check out [What’s New in VMware vSphere 5.0 Networking](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/whats-new-vmware-vsphere-50-networking-technical-whitepaper.pdf))
 
 ### Understand the NIC Teaming failover types and related physical network settings

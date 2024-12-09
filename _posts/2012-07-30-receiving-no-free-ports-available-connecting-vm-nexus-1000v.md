@@ -61,7 +61,7 @@ I was getting a 'Limit exceeded' message. Checking out the 'esxcfg-vswitch -l' o
 	11221 1 VM2 ethernet0
 
 
-We can see that the "Used Ports" are showing as 155, and that is a little misleading. Since this is a DVS we have different types of port binding. The different kinds of Port Bindings are described in VMware [KB 1022312](http://kb.vmware.com/kb/1022312). Since this is a Nexus port-profile, it is created with static port binding (same behavior with VMware DVS PortGroups). This means that, from the KB:
+We can see that the "Used Ports" are showing as 155, and that is a little misleading. Since this is a DVS we have different types of port binding. The different kinds of Port Bindings are described in VMware [KB 1022312](https://knowledge.broadcom.com/external/article?legacyId=1022312). Since this is a Nexus port-profile, it is created with static port binding (same behavior with VMware DVS PortGroups). This means that, from the KB:
 
 > When you connect a virtual machine to a port group configured with static binding, a port is immediately assigned and reserved for it, guaranteeing connectivity at all times. The port is disconnected only when the virtual machine is removed from the port group.
 
@@ -98,7 +98,7 @@ I was actually in a critical situation and didn't want to make that many changes
 >
 > *4th Note- Default is 256 with a maximum of 15 VDS’s running concurrently. If the number of ports is increased to 4096, then only one VDS can exist on the host.
 
-So you can have a total of 20000 ports on the DVS (BTW VMware [link](http://kb.vmware.com/kb/1038193) to his post. He had two methods, one it to edit the vCenter Database and the other was via a Powercli script. I took his script and the script from the above KB and made another one, it looked like this:
+So you can have a total of 20000 ports on the DVS (BTW VMware [link](https://knowledge.broadcom.com/external/article?legacyId=1038193) to his post. He had two methods, one it to edit the vCenter Database and the other was via a Powercli script. I took his script and the script from the above KB and made another one, it looked like this:
 
 
 	Connect-VIServer -server 127.0.0.1
@@ -135,7 +135,7 @@ It looks like this:
 
 ![VC_5_Change_Ports_per_host](https://github.com/elatov/uploads/raw/master/2012/07/VC_5_Change_Ports_per_host.png)
 
-A reboot of each host is required if done after the creation of the DVS. [VMware KB 2004075](http://kb.vmware.com/kb/2004075) has more instructions on changing the Max ProxySwitch Ports when using vCenter 5.0. Here is a Table of the versions that I was on:
+A reboot of each host is required if done after the creation of the DVS. [VMware KB 2004075](https://knowledge.broadcom.com/external/article?legacyId=2004075) has more instructions on changing the Max ProxySwitch Ports when using vCenter 5.0. Here is a Table of the versions that I was on:
 
 {:.kt}
 |ESX| vCenter| Nexus 1000v|

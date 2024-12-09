@@ -426,7 +426,7 @@ It's going at ~6.5Gb/s.
 From the above results small IO didn't do too well and some times Writes were way faster than Reads.
 
 #### Disable Delayed Ack (Nagle Algorithm) on ESXi
-So the first thing I tried was to disable Delay Acks for the iSCSI stack on the ESXi server. From [this VMware KB](http://kb.vmware.com/kb/1002598):
+So the first thing I tried was to disable Delay Acks for the iSCSI stack on the ESXi server. From [this VMware KB](https://knowledge.broadcom.com/external/article?legacyId=1002598):
 
 > Some iSCSI storage arrays from different array vendors do not behave appropriately during periods of network congestion. This problem is related to the TCP/IP implementation of these arrays and can severely impact the read performance of storage attached to the ESXi/ESX software through the iSCSI initiator.
 
@@ -447,7 +447,7 @@ Since the converter had two 10Gb Nics, I decided to set up iSCSI MPIO with port 
 
 * [vSphere 5.0 Storage Features Part 12 – iSCSI Multipathing Enhancements](https://blogs.vmware.com/vsphere/2011/08/vsphere-50-storage-features-part-12-iscsi-multipathing-enhancements.html)
 * [Multipathing Configuration for Software iSCSI Using Port Binding](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vmware-multipathing-configuration-software-iscsi-port-binding-white-paper.pdf)
-* [Considerations for using software iSCSI port binding in ESX/ESXi](http://kb.vmware.com/kb/2038869)
+* [Considerations for using software iSCSI port binding in ESX/ESXi](https://knowledge.broadcom.com/external/article?legacyId=2038869)
 
 After I was done I saw multiple paths going to the same LUN:
 
@@ -510,7 +510,7 @@ You will notice the default it's MRU (**Path Selection Policy: VMW_PSP_MRU**). I
 You will also notice that the Round Robin occurs after 1000 iops as per and it's recommended to change that to 1. Couple of Links:
 
 * [Best Practices for VMware vSphere with NexentaStor](https://raw.githubusercontent.com/elatov/upload/master/10gb-tests/Best_Practices_for_VMware_vSphere_with_NexentaStor.pdf)
-* [Adjusting Round Robin IOPS limit from default 1000 to 1](http://kb.vmware.com/kb/2069356)
+* [Adjusting Round Robin IOPS limit from default 1000 to 1](https://knowledge.broadcom.com/external/article?legacyId=2069356)
 
 From the VMware KB:
 

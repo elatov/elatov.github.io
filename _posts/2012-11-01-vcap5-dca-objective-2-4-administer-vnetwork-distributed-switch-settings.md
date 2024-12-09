@@ -75,7 +75,7 @@ This was covered in the previous objectives
 
 ### Determine use cases for and apply Port Binding settings
 
-From VMware KB [1022312](http://kb.vmware.com/kb/1022312):
+From VMware KB [1022312](https://knowledge.broadcom.com/external/article?legacyId=1022312):
 
 > **Static binding**
 >

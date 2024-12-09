@@ -44,7 +44,7 @@ From the above logs, we can see that we had IO failing to the array. Here is the
     Host Device Name vmhba0
 
 
-I did a couple of searches and I came across VMware KB [article](http://kb.vmware.com/kb/2014323). All of them were regarding the QLE81xx or QMI81xx CNAs having issues with ESXi. All of the above KBs recommended to disable MSI-X Interrupts. This can be done by running the following on the host:
+I did a couple of searches and I came across VMware KB [article](https://knowledge.broadcom.com/external/article?legacyId=2014323). All of them were regarding the QLE81xx or QMI81xx CNAs having issues with ESXi. All of the above KBs recommended to disable MSI-X Interrupts. This can be done by running the following on the host:
 
     ### For ESXi 5.x
     ~ # esxcli system module parameters set -m qla2xxx --parameter-string "ql2xenablemsi24xx=0"
@@ -52,7 +52,7 @@ I did a couple of searches and I came across VMware KB [article](http://kb.vmwar
     ~ # esxcfg-module -s "ql2xenablemsi=1" qla2xxx
 
 
-We were on 5.0, so we ran the top command. After running the above command the messages were not as frequent but still happening. Lastly I ran into VMware KB [link](http://kb.vmware.com/kb/2008044) to the release notes). After applying that firmware version, the messages stopped.
+We were on 5.0, so we ran the top command. After running the above command the messages were not as frequent but still happening. Lastly I ran into VMware KB [link](https://knowledge.broadcom.com/external/article?legacyId=2008044) to the release notes). After applying that firmware version, the messages stopped.
 
 ### Related Posts
 

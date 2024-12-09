@@ -7,7 +7,7 @@ categories: ['networking', 'vmware']
 tags: ['auto_negotiate',  'ixgbe']
 ---
 
-We were following the instructions laid out in VMware KB [1004089](http://kb.vmware.com/kb/1004089) to set a NIC to auto negotiate with the upstream switch. Upon running the command, we would see the following message:
+We were following the instructions laid out in VMware KB [1004089](https://knowledge.broadcom.com/external/article?legacyId=1004089) to set a NIC to auto negotiate with the upstream switch. Upon running the command, we would see the following message:
 
 
 	~ # esxcfg-nics -a vmnic7

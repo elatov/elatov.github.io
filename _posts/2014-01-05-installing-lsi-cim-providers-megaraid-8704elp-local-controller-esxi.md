@@ -253,7 +253,7 @@ So then running the following helped out:
 
 ### Monitoring LSI Raid Status
 
-LSI provides the [VMware Communities Discussion 2105886](http://kb.vmware.com/kb/2004166)). I only had one host, so I didn't have vCenter installed. I wanted to configure alarms like you can in vCenter, but without vCenter. This way I could not only monitor the LSI RAID status but other ESXi related functions as well.
+LSI provides the [VMware Communities Discussion 2105886](https://knowledge.broadcom.com/external/article?legacyId=2004166)). I only had one host, so I didn't have vCenter installed. I wanted to configure alarms like you can in vCenter, but without vCenter. This way I could not only monitor the LSI RAID status but other ESXi related functions as well.
 
 I came across [Veeam Backup](http://www.veeam.com/virtual-server-management-one-free.html) (there is a free version as well).
 

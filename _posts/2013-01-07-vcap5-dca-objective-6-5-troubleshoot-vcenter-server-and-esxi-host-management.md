@@ -170,7 +170,7 @@ Lastly you can check if the host is talking with the vCenter by checking udp tra
 
 ### Troubleshoot vCenter Server service and database connection issues
 
-The is a lot of good information in VMware KB [1003926](http://kb.vmware.com/kb/1003928). Here is a snippet from 1003926:
+The is a lot of good information in VMware KB [1003926](https://knowledge.broadcom.com/external/article?legacyId=1003928). Here is a snippet from 1003926:
 
 > *   If you try to start the VMware VirtualCenter Server service, you may see the errors:
 >     *   Could not start the VMware VirtualCenter Server service on Local Computer. Error 1067: The process terminated unexpectedly.
@@ -281,7 +281,7 @@ From "[vSphere Command-Line Interface Concepts and Examples](https://storage.goo
 >         sshServer 192.XXX.10.10, 192.XXX.1.0/24
 >
 
-From VMware KB [2008226](http://kb.vmware.com/kb/2008226):
+From VMware KB [2008226](https://knowledge.broadcom.com/external/article?legacyId=2008226):
 
 > To enable DNS for TCP, complete these steps:
 >

@@ -19,7 +19,7 @@ Recently ran into an issue where some of the VMs on an ESX host didn't have netw
 	Management Network 50 1 vmnic0
 
 
-From the above we can see that "VM Network" is the PortGroup setup for our VMs. One thing to notice is that we are actually Tagging this PortGroup with VLAN 1. We usually call this VST (Virtual Switch Tagging). VMware KB [1004074](http://kb.vmware.com/kb/1004074) actually describes VST in detail.
+From the above we can see that "VM Network" is the PortGroup setup for our VMs. One thing to notice is that we are actually Tagging this PortGroup with VLAN 1. We usually call this VST (Virtual Switch Tagging). VMware KB [1004074](https://knowledge.broadcom.com/external/article?legacyId=1004074) actually describes VST in detail.
 
 Next thing I wanted to check was the physical switch configuration. To do that we can use CDP (Cisco Discovery Protocol) to first find out what physical switch port we are connected to:
 
@@ -42,7 +42,7 @@ Next thing I wanted to check was the physical switch configuration. To do that w
 	portId = "GigabitEthernet0/27",
 
 
-More information regarding CDP can be seen in VMware KB [1007069](http://kb.vmware.com/kb/1007069). From the above output we can see that we were connected to "GigabitEthernet0/27". So we logged into the switch to check out the configuration and we saw the following:
+More information regarding CDP can be seen in VMware KB [1007069](https://knowledge.broadcom.com/external/article?legacyId=1007069). From the above output we can see that we were connected to "GigabitEthernet0/27". So we logged into the switch to check out the configuration and we saw the following:
 
 
 	core_switch# show run int gi0/27
@@ -69,7 +69,7 @@ Since VLAN 1 is usually the default VLAN, when you trunk the default VLAN it wil
 	Management Network 50 1 vmnic0
 
 
-So now it was kind of setup as EST (External Switch Tagging). More information regarding EST can be seen in VMware KB [1004127](http://kb.vmware.com/kb/1004127). After making that change the VMs were able to get online without any issue.
+So now it was kind of setup as EST (External Switch Tagging). More information regarding EST can be seen in VMware KB [1004127](https://knowledge.broadcom.com/external/article?legacyId=1004127). After making that change the VMs were able to get online without any issue.
 
 ### Related Posts
 

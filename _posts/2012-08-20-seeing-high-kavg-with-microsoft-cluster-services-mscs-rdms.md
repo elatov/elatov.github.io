@@ -22,7 +22,7 @@ We can see that there actually isn't that much IO going to that LUN. As the issu
 	Aug 16 20:11:17 vmkernel: 3:12:42:56.982 cpu4:4100)ScsiDeviceIO: 1688: Command 0x28 to device "naa.60060xxxx" failed H:0x5 D:0x0 P:0x0 Possible sense data: 0x0 0x0 0x0.
 
 
-VMware KB [1016106](http://kb.vmware.com/kb/1016106), matches the error. We were using MSCS but already had the patch applied mentioned in the above KB and the following option set:
+VMware KB [1016106](https://knowledge.broadcom.com/external/article?legacyId=1016106), matches the error. We were using MSCS but already had the patch applied mentioned in the above KB and the following option set:
 
 > ESXi 4.1: VMware ESXi 4.1 Patch ESXi410-201107401-BG: Updates Firmware (2000609)
 > ESX/ESXi 4.1: Change the advanced option Scsi.CRTimeoutDuringBoot to 1.
@@ -82,7 +82,7 @@ We can see that the column "CONS/S" has a high number for the device that is exp
 	}
 
 
-We can see that we have a high number of Reservation Conflicts on this device. This is a known issue and from this VMware KB [1009287](http://kb.vmware.com/kb/1009287) here is why:
+We can see that we have a high number of Reservation Conflicts on this device. This is a known issue and from this VMware KB [1009287](https://knowledge.broadcom.com/external/article?legacyId=1009287) here is why:
 
 > This issue may occur if:
 >
@@ -100,7 +100,7 @@ To fix this issue you can try the following:
 >
 > **Note**: If a host is exhibiting these symptoms and does not host any of the MSCS virtual machine nodes, you may want to consider masking out the LUNs for these hosts.
 
-If you have the luxury of updating to ESXi 5.0 then there is another fix for this. You can set the LUN as perennially reserved and then you won't run into this issue. More info from VMware KB [1016106](http://kb.vmware.com/kb/1016106):
+If you have the luxury of updating to ESXi 5.0 then there is another fix for this. You can set the LUN as perennially reserved and then you won't run into this issue. More info from VMware KB [1016106](https://knowledge.broadcom.com/external/article?legacyId=1016106):
 
 > ESXi 5.0 uses a different technique to determine if Raw Device Mapped (RDM) LUNs are used for MSCS cluster devices, by introducing a configuration flag to mark each device as "perennially reserved" that is participating in an MSCS cluster. During a boot of an ESXi system the storage mid-layer attempts to discover all devices presented to an ESXi system during device claiming phase. However, MSCS LUNs that have a permanent SCSI reservation cause the boot process to elongate as the ESX cannot interrogate the LUN due to the persistent SCSI reservation placed on a device by an active MSCS Node hosted on another ESXi host.
 >

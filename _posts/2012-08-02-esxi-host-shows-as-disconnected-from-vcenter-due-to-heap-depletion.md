@@ -7,11 +7,11 @@ categories: ['networking' , 'vmware']
 tags: ['deep_security_virtual_appliance', 'hostd', 'netgpheap', 'vpxa']
 ---
 
-I recently had a very interesting issue. An ESXi host was showing up as disconnected in vCenter, however going directly to the host worked fine. Trying to reconnect the host back in vCenter would fail. Just from the previous discoveries we knew that something was wrong with the vpxa service on the host. On ESX(i) there are two processes that run. First is the hostd agent, it's best described in VMware KB [1002849](http://kb.vmware.com/kb/1002849):
+I recently had a very interesting issue. An ESXi host was showing up as disconnected in vCenter, however going directly to the host worked fine. Trying to reconnect the host back in vCenter would fail. Just from the previous discoveries we knew that something was wrong with the vpxa service on the host. On ESX(i) there are two processes that run. First is the hostd agent, it's best described in VMware KB [1002849](https://knowledge.broadcom.com/external/article?legacyId=1002849):
 
 > The vmware-hostd management service is the main communication channel between ESX/ESXi hosts and VMkernel. If vmware-hostd fails, ESX/ESXi hosts disconnects from vCenter Server/VirtualCenter and cannot be managed, even if you try to connect to the ESX/ESXi host directly
 
-Second is the vpxa agent, and that is best described in VMware KB [1006128](http://kb.vmware.com/kb/1006128):
+Second is the vpxa agent, and that is best described in VMware KB [1006128](https://knowledge.broadcom.com/external/article?legacyId=1006128):
 
 > The vCenter Server Agent, also referred to as vpxa or the vmware-vpxa service, is what allows a vCenter Server to connect to a ESX host. Specifically, vpxa is the communication conduit to the hostd, which in turn communicates to the ESX kernel.
 
