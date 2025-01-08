@@ -315,14 +315,14 @@ I started reading up on `iwlwifi` and it looks like there are known issues:
 - [Freezing/Lag Spikes caused by iwlwifi [SOLVED]](https://bbs.archlinux.org/viewtopic.php?id=277833)
 - [After upgrading to Linux 5.18.11 from 5.18.9, My WiFi problems have](https://bbs.archlinux.org/viewtopic.php?pid=2048944)
 
-I tried a variety of options, and after changing I ran the following to apply the changes
+I tried a variety of options, and after changing the module parameters, I ran the following to apply the changes
 
 ```
 sudo rmmod iwlmvm iwlwifi
 sudo modprobe iwlwifi
 ```
 
-But the only thing that helped was `11n_disable=1`, but that would limit my speed to ~10mbps (similar issue is described [here](https://bbs.archlinux.org/viewtopic.php?id=278344) and [here](https://forum.manjaro.org/t/internet-speed-is-slow/103443/26?page=2)). So then as a quick test I only set this option `disable_11ac=0` and then my speeds went up:
+But the only thing that helped was `11n_disable=1`, but that would limit my speed to ~10mbps (similar issue is described [here](https://bbs.archlinux.org/viewtopic.php?id=278344) and [here](https://forum.manjaro.org/t/internet-speed-is-slow/103443/26?page=2)). So then as a quick test I only set this option `disable_11ax=1` and then my speeds went up:
 
 ```
 > speedtest
@@ -330,9 +330,9 @@ Retrieving speedtest.net configuration...
 Testing from Verizon Fios (xx.xx.xx.xx)...
 Retrieving speedtest.net server list...
 Selecting best server based on ping...
-Hosted by PVDataNet (New York, NY) [3.56 km]: 13.198 ms
+Hosted by yaemi.one (Jersey City, NJ) [0.38 km]: 13.653 ms
 Testing download speed................................................................................
-Download: 172.37 Mbit/s
+Download: 330.33 Mbit/s
 Testing upload speed......................................................................................................
-Upload: 189.01 Mbit/s
+Upload: 331.72 Mbit/s
 ```
