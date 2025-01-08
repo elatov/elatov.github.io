@@ -136,7 +136,7 @@ W0106 12:46:43.115467   28126 utils.go:69] The recommended value for "clusterDNS
 To see the stack trace of this error execute with --v=5 or higher
 ```
 
-So then I decided to skip the preflight check and just perform the upgrade:
+There was an [old bug](https://github.com/kubernetes/kubeadm/issues/3050) with `kubeadm` with a single control plane node cluster which I thought was fixed, but it suggested to skip the preflight check. So I decided to skip the preflight check and just perform the upgrade:
 
 ```
 > sudo /usr/local/bin/kubeadm upgrade apply -y v1.31.4 --certificate-renewal=True --ignore-preflight-errors="CreateJob" --allow-experimental-upgrades --etcd-upgrade=false --force
