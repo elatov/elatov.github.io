@@ -68,7 +68,7 @@ Jan 05 17:44:26 nuc kernel: iwlwifi 0000:00:14.3: Queue 3 is stuck 0 3
 I ran into this thread [[SOLVED] [GOOGLE NEST] 11n_disable=1 needed](https://bbs.archlinux.org/viewtopic.php?id=278344) and as a quick test I wanted to use my phone as a hot spot to see if that helps out. 
 
 ## Connecting to WiFi with systemd-networkd and wpa_supplicant
-A while back I configured the machine to connect to my WiFI using [systemd-networkd](https://wiki.gentoo.org/wiki/Systemd/systemd-networkd#Wireless_card). So first I created this file:
+A while back I configured my machine to connect to my WiFI using [systemd-networkd](https://wiki.gentoo.org/wiki/Systemd/systemd-networkd#Wireless_card). So first I created this file:
 
 ```
 > cat /etc/systemd/network/51-wifi-dhcp.network
@@ -207,7 +207,7 @@ Then rebuild:
 emerge --ask --changed-use --deep @world
 ```
 
-I then needed to enabled `iwd` since `networkmamanager` works well with that over `wpa_supplicant`, while I was at it, I decided to keep `dhcpd` (in case I ever want to switch back to the `systemd-networkd` setup):
+I then needed to enable `iwd` since `networkmamanager` works well with that over `wpa_supplicant`, while I was at it, I decided to keep `dhcpd` (in case I ever want to switch back to the `systemd-networkd` setup):
 
 ```
 echo "net-misc/networkmanager dhcpcd iwd" >> /etc/portage/package.use/networkmanager
