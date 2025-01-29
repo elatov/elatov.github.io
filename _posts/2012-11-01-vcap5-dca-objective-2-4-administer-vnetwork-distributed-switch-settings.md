@@ -129,7 +129,7 @@ To change the settings go to "Networking" View -> Right Click on a DVPortGroup -
 
 ### Configure Live Port Moving
 
-From [Public Docs](https://kb.vmware.com/s/article/1010593):
+From [Public Docs](https://knowledge.broadcom.com/external/article?legacyId=1010593):
 
 > **Edit Advanced dvPort Group Properties**
 > Use the dvPort Group Properties dialog box to configure advanced dvPort group properties such as port override settings.

@@ -807,7 +807,7 @@ Or you can actually run **slabtop** and see real time usage. Here is how my **sl
       5973   5649  94%    0.34K    543   11  2172K inode_cache
 
 
-We can see that our *inode_cache* is taking **2172K**. I didn't find that many tuning options for VFS. From [RHEL Global File System](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/pdf/global_file_system_2/red_hat_enterprise_linux-7-global_file_system_2-en-us.pdf):
+We can see that our *inode_cache* is taking **2172K**. I didn't find that many tuning options for VFS. From [RHEL Global File System](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-7-global_file_system_2-en-us.pdf):
 
 > **2.5.3. VFS Tuning Options: Research and Experiment**
 > Like all Linux file systems, GFS2 sits on top of a layer called the virtual file system (VFS). You can tune the VFS layer to improve underlying GFS2 performance by using the sysctl(8) command. For example, the values for **dirty_background_ratio** and **vfs_cache_pressure** may be adjusted depending on your situation. To fetch the current values, use the following commands:
