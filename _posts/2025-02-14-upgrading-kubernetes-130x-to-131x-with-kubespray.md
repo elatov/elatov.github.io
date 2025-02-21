@@ -15,7 +15,7 @@ I just kicked off the upgrade as I usually do:
 > ansible-playbook -i inventory/home/hosts.yaml -b upgrade-cluster.yml
 ```
 
-And it failed on the control plane node, since during the `drain` the node hung:
+And it failed on the control plane node, during the `drain` the node hung:
 
 ```
 TASK [upgrade/pre-upgrade : Set if node needs cordoning] *******************************************************************************************************************
