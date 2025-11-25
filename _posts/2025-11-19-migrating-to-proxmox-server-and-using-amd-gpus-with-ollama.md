@@ -682,24 +682,31 @@ E: The following information from --solver 3.0 may provide additional context:
       [no choices]
 ```
 
-As a test I installed an **ubuntu 25** VM and tried the same test but even with the latest kernel on ubuntu 25 is had the same issue:
+As per [this comment](https://github.com/ROCm/ROCm/issues/5536#issuecomment-3572351495), trying the latest `debian` version **forky** worked out. Here is the kernel version at the time:
 
 ```
-ub:~$ lsb_release -a
-No LSB modules are available.
-Distributor ID:	Ubuntu
-Description:	Ubuntu 25.10
-Release:	25.10
-Codename:	questing
-ub:~$ uname -r
-6.17.0-6-generic
+~$ uname -a
+Linux ub 6.17.8+deb14-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.17.8-1 (2025-11-15) x86_64 GNU/Linux
 ```
 
-And here is the version on the **debian 13** machine.
+And I ran the following to start `ollama`:
 
 ```
-> uname -a
-Linux ma 6.12.57+deb13-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.12.57-1 (2025-11-05) x86_64 GNU/Linux
+export OLLAMA_DEBUG=1
+export OLLAMA_VULKAN=1
+export OLLAMA_HOST=0.0.0.0
+export OLLAMA_KEEP_ALIVE=-1
+ollama serve
 ```
 
-I guess I will wait a little bit to get the correct kernel and try again then.
+For now I will configure the helm chart to point to an external server:
+
+```
+> head values.yaml
+ollamaUrls:
+  - "http://deb.kar.int:11434"
+ollama:
+  enabled: false
+```
+
+And when stable `debian` gets to that kernel version I will switch over.
