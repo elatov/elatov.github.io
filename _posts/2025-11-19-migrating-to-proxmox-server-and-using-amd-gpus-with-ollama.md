@@ -240,7 +240,12 @@ vi /etc/fstab
 update-initramfs -u -k all
 ```
 
-I also ran into this pretty awesome guide [Switch Debian from legacy to UEFI boot mode](https://blog.getreu.net/projects/legacy-to-uefi-boot/) in case you need to switch from an MBR type partition table to GPT (I didn't have to do that, but it just depends on the OS you started with). After all of those changes, the the OS finally booted 
+I also ran into these pretty awesome guides 
+
+- [Switch Debian from legacy to UEFI boot mode](https://blog.getreu.net/projects/legacy-to-uefi-boot/)
+- [Move your Linux from legacy BIOS to UEFI in place with minimal downtime](https://www.redhat.com/en/blog/bios-uefi)
+
+They cover the conversion in more depth and also cover the converion to a `gpt` type partition table (which luckily I didn't have to do). After all of those changes, the the OS finally booted 
 
 
 ### Updating to Debian 13
