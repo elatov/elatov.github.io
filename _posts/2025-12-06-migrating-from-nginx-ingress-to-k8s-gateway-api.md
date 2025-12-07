@@ -119,7 +119,7 @@ I did run into an interesting issue where Multiplexing hasn't been finalized  [C
 
 ### Authentication with the Istio Gateway
 
-I was lazy for some of my applications and didn't enable authentixation on the application side initially. But at this moment I took the opportunity and enabled **Basic Auth** on `alertmanager`, it included a lot of changes but they are all covered [here](https://github.com/prometheus-community/helm-charts/issues/3701)
+I was lazy for some of my applications and didn't enable authentication on the application side initially. But at this moment I took the opportunity and enabled **Basic Auth** on `alertmanager`, it included a lot of changes but they are all covered [here](https://github.com/prometheus-community/helm-charts/issues/3701)
 
 #### Configuring oauth2-proxy with istio
 
@@ -182,7 +182,7 @@ extraArgs:
   authenticated-emails-file: /etc/oauth2-proxy/custom-config/restricted_users.txt
 ```
 
-In this setup I have an `httproute` for each the `oauth2-proxy` and the application it self. For `istiod` I had the following `values.yaml`:
+In this setup I have an `httproute` resource for each the `oauth2-proxy` and the application it self. For `istiod` I had the following `values.yaml`:
 
 ```
 > cat values.yaml
@@ -233,7 +233,7 @@ spec:
 
 It's quite as setup, from one of the above guides here how the traffic will flow:
 
-![istio-oauth2-proxy-flow](https://res.cloudinary.com/elatov/image/upload/v1765074890/blog-pics/nginx-ingress-to-gateway-api/istio-oauth2-proxy-flow.png)
+![istio-oauth2-proxy-flow](https://res.cloudinary.com/elatov/image/upload/v1765075768/blog-pics/nginx-ingress-to-gateway-api/istio-oauth2-proxy-flow-mermaid.png)
 
 For troubleshooting it helps to enable debug logs to review how the authorization and routing is working on the istio gateway side:
 
