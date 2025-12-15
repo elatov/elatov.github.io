@@ -4,7 +4,7 @@ layout: post
 title: "Convert from Legacy BIOS to EUFI"
 author: Karim Elatov
 categories: [os,storage,virtualization]
-tags: [eufi, proxmox, gpt, bios]
+tags: [eufi, proxmox, gpt, bios, mbr]
 ---
 I wanted to convert the rest of my VMs to use EUFI on proxmox. Here are the steps I followed.
 
