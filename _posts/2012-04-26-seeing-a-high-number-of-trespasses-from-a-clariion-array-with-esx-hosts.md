@@ -22,7 +22,7 @@ The customer had setup the CLARiiON to use ALUA (Assymetric Logical Unit Access)
 
 > On VMware 4.x servers with CX4 arrays, the FIXED or Round Robin policy is supported. The FIXED policy on the CX4 provides failback capability. To use the FIXED policy, you must be running FLARE release 28 version 04.28.000.5.704 or later. Also, the failovermode mode must be set to 4 (ALUA mode or Asymmetric Active/Active mode). The default failovermode for ESX 4.x is 1. Use the Failover Setup Wizard within Navisphere to change the failovermode from 1 to 4.
 
-Since all CLARiiON arrays are active/passive, from [A couple important (ALUA and SRM) notes](http://virtualgeek.typepad.com/virtual_geek/2009/09/a-couple-important-alua-and-srm-notes.html):
+Since all CLARiiON arrays are active/passive, from [A couple important (ALUA and SRM) notes](https://www.yellow-bricks.com/2009/02/10/load-balancing-your-luns-on-activeactive-sans/):
 
 > CLARiiON arrays are in VMware’s nomenclature an “active/passive” array – they have a LUN ownership
 > model where internally a LUN is “owned” by one storage processor or the other. This is common in

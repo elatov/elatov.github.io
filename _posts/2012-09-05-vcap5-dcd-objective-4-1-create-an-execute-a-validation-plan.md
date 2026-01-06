@@ -160,7 +160,7 @@ There are also tools to make sure check the health of an environment. Check out 
 > *   [Health Check script by A.Mikkelsen](http://sourceforge.net/projects/esxhealthscript/) - for a quick overview of the current situation and setup, small files and easy to carry around, runs from the Service Console.
 > *   VMware Health Analyzer Appliance - A linux appliance that can connect to your VC/ESX and analyze log files. At this point in time it’s only available for VMware Employees or Partners with access to Partner Central.
 > *   [Report into MS Word](http://communities.vmware.com/docs/DOC-7070) - Alan Renouf created this great reporting powershell scripts. It dumps info into a word document. (And i’ve heard he’s also working on a Visio export)
-> *   [Health Check Script](http://www.ivobeerens.nl/2008/08/28/vmware-powershell-healthcheck-script/) - Create an html report with datastore, cpu, memory and snapshot info… and more.
+> *   [Health Check Script](https://www.ivobeerens.nl/blog/2008/08/vmware-powershell-healthcheck-script/) - Create an html report with datastore, cpu, memory and snapshot info… and more.
 > *   [RVTools](http://www.robware.net/) - Gives a quick overview of current VM setup like snapshots, memory, cpu etc.
 
 ### Compare actual and expected results and explain differences

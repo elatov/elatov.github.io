@@ -190,7 +190,7 @@ Based on the type of traffic they can use NIOC to allocate appropriate bandwidth
 
 ### Given a current network configuration as well as technical requirements and constraints,determine the appropriate virtual switch solution: vSphere Standard Switch, vSphere Distributed Switch, Third-party solutions (ex. Nexus 1000V),Hybrid solutions
 
-Here is a [link](http://www.cisco.com/en/US/prod/collateral/switches/ps9441/ps9902/solution_overview_c22-526262.pdf) that talks about all the different features of all the different virtual Switches. Here is just a snippet from the page:
+Here is a [link](https://www.cisco.com/web/JP/product/hs/switches/nexus1000/prodlit/pdf/solution_overview_c22-526262.pdf) that talks about all the different features of all the different virtual Switches. Here is just a snippet from the page:
 
 ![vswitch-feature-comparison](https://github.com/elatov/uploads/raw/master/2012/08/vswitch-feature-comparison.png)
 

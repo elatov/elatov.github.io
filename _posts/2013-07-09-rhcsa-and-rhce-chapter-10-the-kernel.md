@@ -492,7 +492,7 @@ More tuning from the original paper:
 >
 > The proc ﬁle system interface is a convenient method for making adjustments to the VM while attempting to isolate the peak performance of a system. For convenience, the following sections list the VM tunable parameters as the ﬁlenames they are exported as in **/proc/sys/vm**
 
-Here are some generic trouble shooting steps from this [RHEL](http://wiki.deimos.fr/images/8/89/Memory_management_and_tuning_options_in_Red_Hat_Enterprise_Linux.pdf) page:
+Here are some generic trouble shooting steps from this [RHEL](https://wiki.deimos.fr/static/pdf/memory_management_and_tuning_options_in_red_hat_enterprise_linux.pdf) page:
 
 > **LowMem Starvation**
 > Memory usage on 32-bit system can become problematic under some workloads, especially for I/O intensive applications such as:

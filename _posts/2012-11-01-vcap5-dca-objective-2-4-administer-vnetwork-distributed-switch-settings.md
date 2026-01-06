@@ -150,7 +150,7 @@ Here is how the GUI looks like:
 
 ### Given a set of network requirements, identify the appropriate distributed switch technology to use
 
-From "[Virtual Networking Features of VMware vSphere Distributed Switch and Cisco Nexus 1000V Series Switches](http://www.cisco.com/en/US/prod/collateral/switches/ps9441/ps9902/solution_overview_c22-526262.pdf)", here is a good feature list of the DVS:
+From "[Virtual Networking Features of VMware vSphere Distributed Switch and Cisco Nexus 1000V Series Switches](https://www.cisco.com/web/JP/product/hs/switches/nexus1000/prodlit/pdf/solution_overview_c22-526262.pdf)", here is a good feature list of the DVS:
 
 ![p1_dvs_features](https://github.com/elatov/uploads/raw/master/2012/10/p1_dvs_features.png)
 
