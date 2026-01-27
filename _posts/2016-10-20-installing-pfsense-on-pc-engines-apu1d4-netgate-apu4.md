@@ -8,10 +8,10 @@ tags: [freebsd,pfsense,serial]
 ---
 I got a hold of a pretty unique device, it's system board that is designed for a simple router. Check out some sites that talk about the system board:
 
-* [Netgate APU4](http://store.netgate.com/APU4.aspx)
+* [Netgate APU4](https://docs.netgate.com/pfsense/en/latest/solutions/apu/index.html)
 * [apu1d4 System board](http://www.pcengines.ch/apu1d4.htm)
 
-You can even buy a DIY kit: [APU1D4 DIY Kit](http://store.netgate.com/kit-APU1C4.aspx). On top of the Kit I ended up getting an SD card: [Transcend 16GB SDHC Class 10 UHS-1 Flash Memory Card](http://www.amazon.com/Transcend-Class-UHS-1-Memory-TS16GSDHC10U1E/dp/B006LFVKES)
+The device had an SD card: [Transcend 16GB SDHC Class 10 UHS-1 Flash Memory Card](http://www.amazon.com/Transcend-Class-UHS-1-Memory-TS16GSDHC10U1E/dp/B006LFVKES)
 
 Here is the device when it's all ready:
 

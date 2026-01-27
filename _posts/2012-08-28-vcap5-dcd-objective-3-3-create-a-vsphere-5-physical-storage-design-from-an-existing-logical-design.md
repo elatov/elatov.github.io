@@ -329,9 +329,9 @@ Duncan Epping also has a formula for this, from "[VMFS/LUN size?](http://www.yel
 >     360 rounded up -> 375GB >
 >
 
-As mentioned some array vendors provide recommendations as well, from "[Sizing LUNs – A Citrix Perspective](https://www.citrix.com/blogs/2014/01/02/new-citrix-best-practices/)":
+As mentioned some array vendors provide recommendations as well, from "Sizing LUNs – A Citrix Perspective" (link is gone) :
 
-> Most people seem to agree that 10-25 VMDKs per LUN is the “sweet spot” or “magic number” and that typically results in LUN sizes anywhere from 300-700 GB. Before you freak out, please keep in mind those are just AVERAGES and 500 GB LUNs with 16 VMs per LUN certainly won’t work in every situation.
+> Most people seem to agree that 10-25 VMDKs per LUN is the "sweet spot" or "magic number" and that typically results in LUN sizes anywhere from 300-700 GB. Before you freak out, please keep in mind those are just AVERAGES and 500 GB LUNs with 16 VMs per LUN certainly won’t work in every situation.
 
 From "[Scalable Storage Performance](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/scalable_storage_performance.pdf)":
 
