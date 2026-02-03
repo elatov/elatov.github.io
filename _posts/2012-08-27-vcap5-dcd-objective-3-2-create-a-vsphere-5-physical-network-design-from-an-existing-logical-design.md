@@ -132,7 +132,7 @@ From "[VMware Virtual Networking Concepts](https://storage.googleapis.com/grand-
 
 ### Based on the service catalog and given functional requirements, for each service: Determine the most appropriate networking technologies for the design
 
-There are actually a lot of good VMware networking designs at the [blog](http://kendrickcoleman.com/index.php/Tech-Blog/vmware-vsphere-5-host-nic-network-design-layout-and-vswitch-configuration-major-update.html) written by Kendick Coleman. Each design has it's pros and cons. Here is a design factoring in redundancy:
+There are actually a lot of good VMware networking designs at a blog written by Kendick Coleman. Each design has it's pros and cons. Here is a design factoring in redundancy:
 
 ![example_of_redundant_vmware-network-design](https://github.com/elatov/uploads/raw/master/2012/08/example_of_redundant_vmware-network-design.png)
 

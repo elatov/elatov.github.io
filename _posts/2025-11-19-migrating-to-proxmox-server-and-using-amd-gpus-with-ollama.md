@@ -12,7 +12,7 @@ Back in the day I tried deploying [open-webui](https://github.com/open-webui/ope
 I was planning on decommissioning the original server so I didn't want to enable HA and live migrate the VMs. I did find other people mentioning that this migration can be done by using backups:
 
   - [Migrate VM to different host](https://forum.proxmox.com/threads/migrate-vm-to-different-host.106486/)
-  - [Migrating a virtual machine from one server to another](Migrating a virtual machine from one server to another)
+  - [Migrating a virtual machine from one server to another](https://forum.proxmox.com/threads/migrating-a-virtual-machine-from-one-server-to-another.118821/)
 
 I had some VMs that used a local drive and another drive that is connected to the iSCSI storage. So I found [backup single disk in VM](https://forum.proxmox.com/threads/backup-single-disk-in-vm.94543/) and we can edit a disk we don't want to backup (In my case it was the one connected to the iSCSI storage):
 
