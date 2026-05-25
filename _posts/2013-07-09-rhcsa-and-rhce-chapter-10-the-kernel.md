@@ -123,7 +123,7 @@ We can see that CFS is used. There is a lot of resources on the scheduler:
 
 *   [cfs-scheduler](https://www.kernel.org/doc/Documentation/scheduler/sched-design-CFS.txt)
 *   [Completely Fair Scheduler](http://www.linuxjournal.com/magazine/completely-fair-scheduler)
-*   [Inside the Linux 2.6 Completely Fair Scheduler](http://www.ibm.com/developerworks/library/l-completely-fair-scheduler/)
+*   [Inside the Linux 2.6 Completely Fair Scheduler](https://developer.ibm.com/tutorials/l-completely-fair-scheduler/)
 
 From [Performance Tuning Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/performance_tuning_guide/red_hat_enterprise_linux-6-performance_tuning_guide-en-us.pdf):
 
@@ -651,7 +651,7 @@ Most of these were covered above. To get a good overall usage of memory and swap
 
 ## Linux VFS
 
-From "[Anatomy of the Linux virtual file system switch](http://www.ibm.com/developerworks/library/l-virtual-filesystem-switch/)":
+From "[Anatomy of the Linux virtual file system switch](https://developer.ibm.com/tutorials/l-linux-filesystem/)":
 
 > The flexibility and extensibility of support for Linux file systems is a direct result of an abstracted set of interfaces. At the core of that set of interfaces is the virtual file system switch (VFS).
 >
