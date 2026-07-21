@@ -826,7 +826,7 @@ We can see that our *inode_cache* is taking **2172K**. I didn't find that many t
 
 ## Linux Kernel Networking
 
-From [The Performance Analysis of Linux Networking – Packet Receiving](http://cd-docdb.fnal.gov/0019/001968/001/Linux-Pkt-Recv-Performance-Analysis-Final.pdf):
+From [The Performance Analysis of Linux Networking – Packet Receiving](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/Linux-Pkt-Recv-Performance-Analysis-Final.pdf):
 
 > **2. Packet Receiving Process**
 > Figure 1 demonstrates generally the trip of a packet from its ingress into a Linux end system to its final delivery to the application. In general, the packet’s trip can be classified into three stages:

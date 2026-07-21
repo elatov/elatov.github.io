@@ -76,7 +76,7 @@ The above page has good example of how to set it up. Also check out VMware KB [V
 
 ### Determine requirements for and configure NPIV
 
-To start off here is a good diagram of how it works from "[N-Port Virtualization in the Data Center](http://www.cisco.com/en/US/prod/collateral/ps4159/ps6409/ps5989/ps9898/white_paper_c11-459263.html)"
+To start off here is a good diagram of how it works from [N-Port Virtualization in the Data Center](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/white_paper_c11-459263.pdf)
 
 ![npiv cisco VCAP5 DCA Objective 1.1 – Implement and Manage Complex Storage Solutions ](https://github.com/elatov/uploads/raw/master/2012/09/npiv_cisco.png)
 
