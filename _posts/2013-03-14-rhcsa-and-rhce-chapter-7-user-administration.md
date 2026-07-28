@@ -7,7 +7,7 @@ categories: ['os', 'certifications', 'rhcsa_rhce']
 tags: ['rhel', 'linux', 'user_management']
 ---
 
-Let's get straight to it, from the "[Red Hat Enterprise Linux 6 Deployment Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/deployment_guide/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf)":
+Let's get straight to it, from the "[Red Hat Enterprise Linux 6 Deployment Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf)":
 
 > **Chapter 3. Managing Users and Groups** The control of users and groups is a core element of Red Hat Enterprise Linux system administration. This chapter explains how to add, manage, and delete users and groups in the graphical user interface and on the command line, and covers advanced topics, such as enabling password aging or creating group directories.
 >
@@ -533,7 +533,7 @@ We accomplished the same thing without using the **sgid** bit.
 
 ### RHEL Password Aging
 
-Getting back to the "[Red Hat Enterprise Linux 6 Deployment Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/deployment_guide/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf)":
+Getting back to the "[Red Hat Enterprise Linux 6 Deployment Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf)":
 
 > **3.3.3. Enabling Password Aging**
 >

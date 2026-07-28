@@ -401,7 +401,7 @@ I then logged and started to setup network.
 
 ### RedHat Networking Configuration
 
-From "[Red Hat Enterprise Linux 6 Deployment Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/deployment_guide/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf)":
+From "[Red Hat Enterprise Linux 6 Deployment Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf)":
 
 > **8.2. Interface Configuration Files**
 >

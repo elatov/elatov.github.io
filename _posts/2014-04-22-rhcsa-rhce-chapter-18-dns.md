@@ -9,7 +9,7 @@ tags: ['bind', 'dns', 'linux','rhel']
 
 ## DNS
 
-From the [Deployment Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/deployment_guide/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf):
+From the [Deployment Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf):
 
 > **DNS** (Domain Name System), also known as a *nameserver*, is a network system that associates hostnames with their respective IP addresses. For users, this has the advantage that they can refer to machines on the network by names that are usually easier to remember than the numerical network addresses. For system administrators, using the nameserver allows them to change the IP address for a host without ever affecting the name-based queries, or to decide which machines handle these queries.
 >
@@ -1265,7 +1265,7 @@ Notice I don't get an *authoritative* answer, and this is expected since our nam
 
 ### Using the *rndc* Utility
 
-From the [Deployment guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/deployment_guide/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf):
+From the [Deployment guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf):
 
 > The **rndc** utility is a command line tool that allows you to administer the **named** service, both locally and from a remote machine. Its usage is as follows:
 >

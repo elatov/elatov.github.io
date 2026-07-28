@@ -9,7 +9,7 @@ tags: ['linux','apache', 'rhel', 'squid']
 
 ## Apache
 
-From the [Deployment Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/deployment_guide/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf):
+From the [Deployment Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf):
 
 > **HTTP** (Hypertext Transfer Protocol) server, or a web server, is a network service that serves content to a client over the web. This typically means web pages, but any other documents can be served as well.
 >

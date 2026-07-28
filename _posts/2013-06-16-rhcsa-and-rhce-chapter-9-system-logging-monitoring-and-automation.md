@@ -9,7 +9,7 @@ tags: ['rhel', 'linux', 'rsyslog', 'performance']
 
 ## Syslog
 
-From [Red Hat Enterprise Linux 6 Deployment Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/deployment_guide/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf):
+From [Red Hat Enterprise Linux 6 Deployment Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf):
 
 > **Chapter 20. Viewing and Managing Log Files**
 > *Log files* are files that contain messages about the system, including the kernel, services, and applications running on it. There are different log files for different information. For example, there is a default system log file, a log file just for security messages, and a log file for cron tasks.
@@ -756,7 +756,7 @@ We definitely see a decrease in *free* memory (the filesystem caches a lot of th
 
 ## Automation
 
-From [Red Hat Enterprise Linux 6 Deployment Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/deployment_guide/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf):
+From [Red Hat Enterprise Linux 6 Deployment Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf):
 
 > **Chapter 21. Automating System Tasks**
 > Tasks, also known as jobs, can be configured to run automatically within a specified period of time, on a specified date, or when the system load average decreases below 0.8.

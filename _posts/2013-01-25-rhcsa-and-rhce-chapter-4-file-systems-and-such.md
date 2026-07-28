@@ -791,7 +791,7 @@ and same thing goes for **umount**:
     [root@rhel01 ~]# umount /mnt
 
 
-The last thing I saw in "[Red Hat Enterprise Linux 6 Deployment Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/deployment_guide/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf)" is the following:
+The last thing I saw in "[Red Hat Enterprise Linux 6 Deployment Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf)" is the following:
 
 > **E.2.21. /proc/mounts**
 >
@@ -811,7 +811,7 @@ So as you mount a file system on a machine you can check **/etc/mtab** or **/pro
 
 ### Device Encryption
 
-Now if we wanted to encrypt a file system we can also do that. From "[Red Hat Enterprise Linux 6 Installation Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/deployment_guide/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf)":
+Now if we wanted to encrypt a file system we can also do that. From "[Red Hat Enterprise Linux 6 Installation Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf)":
 
 > **C.1. What is block device encryption?**
 >

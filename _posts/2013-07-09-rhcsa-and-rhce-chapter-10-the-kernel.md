@@ -1194,7 +1194,7 @@ There are a lot of parameters to tune the kernel networking. From the "[Performa
 
 ### The proc File System
 
-As you have noticed most of the kernel tuning is done under **/proc** or via **sysctl**. So let's cover that, from the [Deployment Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/deployment_guide/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf):
+As you have noticed most of the kernel tuning is done under **/proc** or via **sysctl**. So let's cover that, from the [Deployment Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf):
 
 > **The proc File System**
 > The Linux kernel has two primary functions: to control access to physical devices on the computer and to schedule when and how processes interact with these devices. The /proc/ directory (also called the proc file system) contains a hierarchy of special files which represent the current state of the kernel, allowing applications and users to peer into the kernel's view of the system.

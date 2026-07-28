@@ -9,7 +9,7 @@ tags: ['linux', 'rhel', 'vnc']
 
 ## OpenSSH
 
-There are a couple of ways to manage RHEL machines. The primary one is over SSH. SSH is described in the [Deployment Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/deployment_guide/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf). From the Deployment Guide:
+There are a couple of ways to manage RHEL machines. The primary one is over SSH. SSH is described in the [Deployment Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf). From the Deployment Guide:
 
 > **SSH** (Secure Shell) is a protocol which facilitates secure communications between two systems using a client/server architecture and allows users to log into server host systems remotely. Unlike other remote communication protocols, such as FTP or Telnet, SSH encrypts the login session, rendering the connection difficult for intruders to collect unencrypted passwords.
 >

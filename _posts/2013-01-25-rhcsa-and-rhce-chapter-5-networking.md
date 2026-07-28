@@ -44,7 +44,7 @@ We can see that **eth0** has **IP** 10.131.65.22 with a **subnet mask** of 255.2
 
 ### Network Interface Actions
 
-Now after you have setup the interfaces you take them down. From "[Red Hat Enterprise Linux 6 Deployment Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/deployment_guide/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf)":
+Now after you have setup the interfaces you take them down. From "[Red Hat Enterprise Linux 6 Deployment Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-deployment_guide-en-us.pdf)":
 
 > First, bring up the bond you created by running **ifconfig** bond up as root:
 >
