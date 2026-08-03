@@ -9,7 +9,7 @@ tags: ['efi','rhel','mbr', 'linux','grub', 'inittab', 'rc_local', 'linux_rescue'
 
 ### Red Hat Boot Process
 
-The process is described in "[Red Hat Enterprise Linux 6 Installation Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/installation_guide/red_hat_enterprise_linux-6-installation_guide-en-us.pdf)":
+The process is described in "[Red Hat Enterprise Linux 6 Installation Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-installation_guide-en-us.pdf)":
 
 > **F.2. A Detailed Look at the Boot Process**
 >

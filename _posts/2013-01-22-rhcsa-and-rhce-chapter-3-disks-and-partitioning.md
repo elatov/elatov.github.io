@@ -15,7 +15,7 @@ Before we keep going with disk and partitioning, I want to setup the RHEL Instal
     /usr/bin/which: no parted in (/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin)
 
 
-From "[Red Hat Enterprise Linux 6 Installation Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/installation_guide/red_hat_enterprise_linux-6-installation_guide-en-us.pdf)":
+From "[Red Hat Enterprise Linux 6 Installation Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-installation_guide-en-us.pdf)":
 
 > **35.3.1.2. Using a Red Hat Enterprise Linux Installation DVD as a Software Repository**
 >
@@ -186,7 +186,7 @@ Now to install the package:
 
 ### Hard Disks
 
-Now to partitions, from "[Red Hat Enterprise Linux 6 Installation Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/installation_guide/red_hat_enterprise_linux-6-installation_guide-en-us.pdf)":
+Now to partitions, from "[Red Hat Enterprise Linux 6 Installation Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-installation_guide-en-us.pdf)":
 
 > **A.1. Hard Disk Basic Concepts**
 >
@@ -606,7 +606,7 @@ Now let's do similar functions with **parted**.
 
 ### Partitioning with *parted*
 
-From "[Red Hat Enterprise Linux 6 Storage Administration Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/storage_administration_guide/red_hat_enterprise_linux-6-storage_administration_guide-en-us.pdf)"
+From "[Red Hat Enterprise Linux 6 Storage Administration Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-storage_administration_guide-en-us.pdf)"
 
 > **Chapter 5. Partitions**
 >
@@ -1177,7 +1177,7 @@ So it looks like it's taking up all the space. Of course this was a round about 
 
 ### RAID
 
-Now let's move to **mdadm**. From "[Red Hat Enterprise Linux 6 Storage Administration Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/storage_administration_guide/red_hat_enterprise_linux-6-storage_administration_guide-en-us.pdf)":
+Now let's move to **mdadm**. From "[Red Hat Enterprise Linux 6 Storage Administration Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-storage_administration_guide-en-us.pdf)":
 
 > **Chapter 16. Redundant Array of Independent Disks (RAID)**
 >
@@ -1273,7 +1273,7 @@ Now let's move to **mdadm**. From "[Red Hat Enterprise Linux 6 Storage Administr
 
 ### RAID Device with *mdadm*
 
-From an older guide "[Red Hat Enterprise Linux 5 Installation Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/pdf/installation_guide/red_hat_enterprise_linux-5-installation_guide-en-us.pdf)", here is an example of creating a raid configuration with **dmadm**:
+From an older guide "[Red Hat Enterprise Linux 5 Installation Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-5-installation_guide-en-us.pdf)", here is an example of creating a raid configuration with **dmadm**:
 
 > **22.3.1. Creating a RAID Device With mdadm**
 >

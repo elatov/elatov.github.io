@@ -9,7 +9,7 @@ tags: [ 'exports', 'rhel', 'linux', 'fstab', 'dd', 'ext3', 'luks']
 
 ### File Systems
 
-After we have partitioned our drives to our heart's desire, we should actually start using them. The first thing that we need to do is put a file system on our partitions so we can later mount them. From "[Red Hat Enterprise Linux 6 Storage Administration Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/storage_administration_guide/red_hat_enterprise_linux-6-storage_administration_guide-en-us.pdf)", here are some file systems that are supported my RHEL:
+After we have partitioned our drives to our heart's desire, we should actually start using them. The first thing that we need to do is put a file system on our partitions so we can later mount them. From "[Red Hat Enterprise Linux 6 Storage Administration Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-storage_administration_guide-en-us.pdf)", here are some file systems that are supported my RHEL:
 
 > **2.2. Overview of Supported File Systems**
 >

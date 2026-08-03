@@ -9,7 +9,7 @@ tags: ['exports', 'linux', 'nfs', 'rhel','selinux','iptables']
 
 ## NFS
 
-From the [Storage Administration Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/storage_administration_guide/red_hat_enterprise_linux-6-storage_administration_guide-en-us.pdf):
+From the [Storage Administration Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-storage_administration_guide-en-us.pdf):
 
 > A Network File System (**NFS**) allows remote hosts to mount file systems over a network and interact with those file systems as though they are mounted locally. This enables system administrators to consolidate resources onto centralized servers on the network.
 >

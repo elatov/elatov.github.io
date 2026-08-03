@@ -7,7 +7,7 @@ categories: ['storage', 'networking', 'certifications', 'home_lab', 'rhcsa_rhce'
 tags: ['ext3', 'port_channel','grub', 'rhel', 'linux', 'mbr']
 ---
 
-There is a lot of good information in "[Red Hat Enterprise Linux 6 Installation Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/installation_guide/red_hat_enterprise_linux-6-installation_guide-en-us.pdf)". From that Guide:
+There is a lot of good information in "[Red Hat Enterprise Linux 6 Installation Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-installation_guide-en-us.pdf)". From that Guide:
 
 > **9.3. Welcome to Red Hat Enterprise Linux**
 >
