@@ -14,7 +14,7 @@ I wanted to try out a simple use case of having an agent automatically create dr
 
 Some of those steps didn't end up working out, but let's cover the journey. 
 
-### Improving Ollama NFS PVC performance
+## Improving Ollama NFS PVC performance
 I don't really have that much space for my [rook ceph](/2024/07/using-rook-ceph/) setup (and I usually only use that for heavy writes, like databases), so I used `nfs` based CSI [nfs-subdir-external-provisioner](https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner) for the [ollama](migrating-to-proxmox-server-and-using-amd-gpus-with-ollama/#installing-ollama-with-rocm) pod. I did realize it took a while to download big models. To help out I did make one modification and added the following `MountOptions`:
 
 ```
@@ -146,7 +146,7 @@ Here are some of the options that I used:
 - `rsize=1048576` and `wsize=1048576`: Sets transfer sizes to 1 MB per RPC chunk, maximizing bulk transfer efficiency for multi-gigabyte LLM files.
 
 
-### Installing kagent
+## Installing kagent
 I used [helm](https://kagent.dev/docs/kagent/introduction/installation/#using-helm) to install `kagent`. First the CRDs:
 
 ```
@@ -812,7 +812,7 @@ As of right now the MCP server in `kagent` only accepts a static access token (i
 2. setup an oauth proxy ([openresty](https://oneuptime.com/blog/post/2026-02-08-how-to-configure-openresty-nginx-lua-in-docker/view) or [envoyproxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/lua_filter))
 3. Or use your own MCP server which can perform the oauth (similar to the example above)
 
-### Final Flow
+## Final Flow
 There are so many moving parts so I put together the overall flow:
 
 ![kagent-flow-diagram.png](https://res.cloudinary.com/elatov/image/upload/v1786307893/blog-pics/kagent/kagent-flow-diagram.png)
