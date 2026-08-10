@@ -369,7 +369,7 @@ eval duration:        211.565ms
 eval rate:            42.54 tokens/s
 ```
 
-I tried a couple of different models but still the same issue. Just for the sake of testing, I decided to use `gemini` (instead of `ollama`). So I created the following `modelconfig`:
+I tried a couple of different models but still the same issue. I got it working with the `llama3.1:8b` model, but it took a lot of prompting to get all the correct response correctly (I had to explicitly define how it should use the tools and how the fields need to be specified in the response). Just for the sake of testing, I decided to use `gemini` (instead of `ollama`). So I created the following `modelconfig`:
 
 ```
 apiVersion: kagent.dev/v1alpha2
@@ -817,7 +817,7 @@ There are so many moving parts so I put together the overall flow:
 
 ![kagent-flow-diagram.png](https://res.cloudinary.com/elatov/image/upload/v1786307893/blog-pics/kagent/kagent-flow-diagram.png)
 
-And here is how it looks like when it's working (this is when using the official `gmailmcp` server or the local gmail mcp server and the `gemini` model... I need to spend some time to figure out how I can use `ollama` with `kagent`):
+And here is how it looks like when it's working (this is when using the official `gmailmcp` server or the local gmail mcp server and the `gemini` model or the `llama3.1:8b` model):
 
 ![kagent-ui-process-request.png](https://res.cloudinary.com/elatov/image/upload/v1786307893/blog-pics/kagent/kagent-ui-process-request.png)
 
