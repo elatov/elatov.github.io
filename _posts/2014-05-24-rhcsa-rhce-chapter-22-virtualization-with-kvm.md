@@ -21,7 +21,7 @@ and from the [Virtualization Tuning and Optimization Guide](https://access.redha
 
 ### Installing The Hypervisor
 
-From the [Virtualization Host Configuration and Guest Installation Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/virtualization_host_configuration_and_guest_installation_guide/red_hat_enterprise_linux-6-virtualization_host_configuration_and_guest_installation_guide-en-us.pdf)
+From the [Virtualization Host Configuration and Guest Installation Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-virtualization_host_configuration_and_guest_installation_guide-en-us.pdf)
 
 > ###Configuring a Virtualization Host installation
 > This section covers installing virtualization tools and virtualization packages as part of a fresh Red Hat Enterprise Linux installation.
