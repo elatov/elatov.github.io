@@ -246,7 +246,7 @@ Also from "[Virtualizing Business-Critical Applications on VMware vSphere](https
 Here are examples of each 3rd party clustering products:
 
 *   [Oracle Databases on VMware High Availability](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/oracle-databases-on-vmware-high-availability-guidelines.pdf)
-*   [Microsoft SQL Server on VMware Best Practices Guide](http://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/sql-server-on-vmware-best-practices-guide.pdf)
+*   [Microsoft SQL Server on VMware Best Practices Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/sql-server-on-vmware-best-practices-guide.pdf)
 *   [Microsoft Exchange 2013 on VMware Availability and Recovery Options](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/exchange-2013-on-vmware-availability-and-recovery-options.pdf)
 *   [Setup for Failover Clustering and Microsoft Cluster Service ESXi 5.0](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dca/vsphere-esxi-vcenter-server-651-setup-mscs.pdf)
 
