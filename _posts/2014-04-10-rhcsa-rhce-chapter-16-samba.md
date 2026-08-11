@@ -1332,7 +1332,7 @@ We can then make sure we can write a file
 
 ### Samba and SELinux
 
-From [Managing Confined Services](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/managing_confined_services/red_hat_enterprise_linux-6-managing_confined_services-en-us.pdf):
+From [Managing Confined Services](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-managing_confined_services-en-us.pdf):
 
 > When SELinux is enabled, the Samba server (**smbd**) runs confined by default. Confined services run in their own domains, and are separated from other confined services.
 >

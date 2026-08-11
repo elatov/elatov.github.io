@@ -662,7 +662,7 @@ Here are all the FTP related SELinux Booleans:
 
 ### FTP and SELinux
 
-From [Managing Confined Services](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/managing_confined_services/red_hat_enterprise_linux-6-managing_confined_services-en-us.pdf)
+From [Managing Confined Services](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-managing_confined_services-en-us.pdf)
 
 > The **vsftpd** FTP daemon runs confined by default. SELinux policy defines how **vsftpd** interacts with files, processes, and with the system in general. For example, when an authenticated user logs in via FTP, they cannot read from or write to files in their home directories: SELinux prevents **vsftpd** from accessing user home directories by default. Also, by default, **vsftpd** does not have access to NFS or CIFS volumes, and anonymous users do not have write access, even if such write access is configured in **/etc/vsftpd/vsftpd.conf**. Booleans can be enabled to allow the previously mentioned access.
 

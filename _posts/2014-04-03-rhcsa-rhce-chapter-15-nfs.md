@@ -592,7 +592,7 @@ and I was able to add to the file without issues:
 
 ### NFS Security
 
-From [Managing Confined Services](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/managing_confined_services/red_hat_enterprise_linux-6-managing_confined_services-en-us.pdf):
+From [Managing Confined Services](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-managing_confined_services-en-us.pdf):
 
 > A Network File System (NFS) allows remote hosts to mount file systems over a network and interact with those file systems as though they are mounted locally. This enables system administrators to consolidate resources onto centralized servers on the network.
 >
