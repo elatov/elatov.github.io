@@ -234,7 +234,7 @@ Here is a real life example for the UCS blades from an old link that's no longer
 > There are a total of 7 blades in our VMware environment, but only 5 of those are dedicated to our main HA/DRS cluster. That gives us ~240 gigs of RAM for the main cluster. Currently, I am seeing a VM consolidation ratio of about 24 VMs (virtual machines) per B200-M1 blade. The limitation here is definitely the RAM. The CPU itself is less than 25% utilized per blade.
 
 There is another good resource: Server [Consolidation Using Cisco
-Unified Computing System and EMC CLARiiON Storage](http://www.cisco.com/c/dam/en/us/solutions/collateral/data-center-virtualization/unified-computing/server_consolidation_white_paper.pdf)
+Unified Computing System and EMC CLARiiON Storage](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/server_consolidation_white_paper.pdf)
 
 Also if you are using Capacity Planner you can check your consolidation ratio, by running different reports. For more information check out "[Twenty-to-One Consolidation on Intel Architecture](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/vcap5-dcd/Intel_Consolidation.pdf)":
 
