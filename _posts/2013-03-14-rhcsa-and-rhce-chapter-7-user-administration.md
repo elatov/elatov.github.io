@@ -441,7 +441,7 @@ Another way of using **chmod** is with octal numbers, from the same guide:
 >
 > Now, neither the **group** nor **others** have write permission to *foo.txt*.
 
-The last thing that we should cover is the 'sticky' bits. From the old "[Red Hat Enterprise Linux 4 Introduction To System Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/4/pdf/introduction_to_system_administration/red_hat_enterprise_linux-4-introduction_to_system_administration-en-us.pdf)":
+The last thing that we should cover is the 'sticky' bits. From the old "[Red Hat Enterprise Linux 4 Introduction To System Administration](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-4-introduction_to_system_administration-en-us.pdf)":
 
 > There are three such special permissions within Red Hat Enterprise Linux. They are:
 >
@@ -453,7 +453,7 @@ Hopefully the above helps with permissions.
 
 ### Sharing Files with Group Members in RHEL
 
-We discussed sharing files with group members by using the **sgid** bit on a folder and with appropriate **umask** settings. Another way of sharing files is to setup a group password and allow users to login to that group. From "[Red Hat Enterprise Linux 4 Introduction To System Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/4/pdf/introduction_to_system_administration/red_hat_enterprise_linux-4-introduction_to_system_administration-en-us.pdf)":
+We discussed sharing files with group members by using the **sgid** bit on a folder and with appropriate **umask** settings. Another way of sharing files is to setup a group password and allow users to login to that group. From "[Red Hat Enterprise Linux 4 Introduction To System Administration](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-4-introduction_to_system_administration-en-us.pdf)":
 
 > **6.3.2.4 . /etc/gshadow**
 >
