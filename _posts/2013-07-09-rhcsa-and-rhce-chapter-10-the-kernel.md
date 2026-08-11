@@ -125,7 +125,7 @@ We can see that CFS is used. There is a lot of resources on the scheduler:
 *   [Completely Fair Scheduler](http://www.linuxjournal.com/magazine/completely-fair-scheduler)
 *   [Inside the Linux 2.6 Completely Fair Scheduler](https://developer.ibm.com/tutorials/l-completely-fair-scheduler/)
 
-From [Performance Tuning Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/performance_tuning_guide/red_hat_enterprise_linux-6-performance_tuning_guide-en-us.pdf):
+From [Performance Tuning Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-performance_tuning_guide-en-us.pdf):
 
 > **4.2. CPU Scheduling**
 > The scheduler is responsible for keeping the CPUs in the system busy. The Linux scheduler implements a number of scheduling policies, which determine when and for how long a thread runs on a particular CPU core.
@@ -395,7 +395,7 @@ From [Realtime Tuning Guide](https://storage.googleapis.com/grand-drive-196322.a
 >         0
 >
 
-From the [Performance Tuning Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/performance_tuning_guide/red_hat_enterprise_linux-6-performance_tuning_guide-en-us.pdf):
+From the [Performance Tuning Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-performance_tuning_guide-en-us.pdf):
 
 > **5.2. Huge Pages and Transparent Huge Pages**
 > Memory is managed in blocks known as pages. A page is 4096 bytes. 1MB of memory is equal to 256 pages; 1GB of memory is equal to 256,000 pages, etc. CPUs have a built-in *memory management unit* that contains a list of these pages, with each page referenced through a page table entry.
@@ -1000,7 +1000,7 @@ More from the same document:
 
 ## RHEL Network Tuning
 
-There are a lot of parameters to tune the kernel networking. From the "[Performance Tuning Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/performance_tuning_guide/red_hat_enterprise_linux-6-performance_tuning_guide-en-us.pdf)":
+There are a lot of parameters to tune the kernel networking. From the "[Performance Tuning Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-performance_tuning_guide-en-us.pdf)":
 
 > **8.2. Optimized Network Settings**
 > Performance tuning is usually done in a pre-emptive fashion. Often, we adjust known variables before running an application or deploying a system. If the adjustment proves to be ineffective, we try adjusting other variables. The logic behind such thinking is that by default, the system is not operating at an optimal level of performance; as such, we think we need to adjust the system accordingly. In some cases, we do so via calculated guesses.

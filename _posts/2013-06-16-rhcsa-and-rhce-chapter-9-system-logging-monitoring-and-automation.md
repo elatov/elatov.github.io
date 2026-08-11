@@ -488,7 +488,7 @@ and here is the other one:
 
 ## Monitoring The System
 
-From [Red Hat Enterprise Linux 6 Performance Tuning Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/performance_tuning_guide/red_hat_enterprise_linux-6-performance_tuning_guide-en-us.pdf):
+From [Red Hat Enterprise Linux 6 Performance Tuning Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-performance_tuning_guide-en-us.pdf):
 
 > **3.3. Built-in Command-line Monitoring Tools**
 > In addition to graphical monitoring tools, Red Hat Enterprise Linux provides several tools that can be used to monitor a system from the command line. The advantage of these tools is that they can be used outside run level 5. This section discusses each tool briefly, and suggests the purposes to which each tool is best suited.
