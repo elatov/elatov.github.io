@@ -9,7 +9,7 @@ tags: ['nat','iptables', 'vnc', 'kvm', 'rhel', 'libvirt', 'linux']
 
 
 ### KVM
-From the [Virtualization Getting Started Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/virtualization_getting_started_guide/red_hat_enterprise_linux-6-virtualization_getting_started_guide-en-us.pdf):
+From the [Virtualization Getting Started Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-virtualization_getting_started_guide-en-us.pdf):
 
 > What is KVM?
 >
