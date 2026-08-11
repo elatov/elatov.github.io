@@ -7,7 +7,7 @@ categories: ['os', 'certifications', 'rhcsa_rhce']
 tags: ['linux', 'rhel', 'selinux']
 ---
 
-Most of the information is covered in [Security-Enhanced Linux](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/security-enhanced_linux/red_hat_enterprise_linux-6-security-enhanced_linux-en-us.pdf) Guide. From the guide here is what SELinux is:
+Most of the information is covered in [Security-Enhanced Linux](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-security-enhanced_linux-en-us.pdf) Guide. From the guide here is what SELinux is:
 
 > Security-Enhanced Linux (SELinux) is an implementation of a mandatory access control mechanism in the Linux kernel, checking for allowed operations after standard discretionary access controls are checked. It was created by the National Security Agency and can enforce rules on files and processes in a Linux system, and on their actions, based on defined policies.
 >
