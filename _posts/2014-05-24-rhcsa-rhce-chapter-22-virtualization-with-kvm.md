@@ -15,7 +15,7 @@ From the [Virtualization Getting Started Guide](https://storage.googleapis.com/g
 >
 > KVM (Kernel-based Virtual Machine) is a full virtualization solution for Linux on AMD64 and Intel 64 hardware that is built into the standard Red Hat Enterprise Linux 6 kernel. It can run multiple, unmodified Windows and Linux guest operating systems. The KVM hypervisor in Red Hat Enterprise Linux is managed with the **libvirt** API and tools built for **libvirt** (such as **virt-manager** and **virsh**). Virtual machines are executed and run as multi-threaded Linux processes controlled by these tools.
 
-and from the [Virtualization Tuning and Optimization Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/virtualization_tuning_and_optimization_guide/red_hat_enterprise_linux-6-virtualization_tuning_and_optimization_guide-en-us.pdf) here is a quick overview:
+and from the [Virtualization Tuning and Optimization Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-virtualization_tuning_and_optimization_guide-en-us.pdf) here is a quick overview:
 
 ![kvm-overview.png](https://raw.githubusercontent.com/elatov/upload/master/rhce_p22/kvm-overview.png)
 
