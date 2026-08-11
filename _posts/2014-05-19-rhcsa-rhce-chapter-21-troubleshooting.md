@@ -742,7 +742,7 @@ Try the following to make sure your networking is copacetic:
 
 There are many more things to try if you are trying a specific application. You can try to get a packet capture with **tcpdump** (covered in [Chapter 5][24]) and check to see what is happening at layer 7 of the OSI stack.
 
-[1]: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/installation_guide/installation-guide.pdf
+[1]: https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-installation_guide-en-us.pdf
 [2]: /2013/01/rhcsa-and-rhce-chapter-2-system-initialization/
 [3]: https://github.com/elatov/uploads/raw/master/2014/05/grub-menu.png
 [4]: https://github.com/elatov/uploads/raw/master/2014/05/grub-menu-after-e.png
