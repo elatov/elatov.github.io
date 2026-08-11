@@ -732,7 +732,7 @@ So now we queried the DNS server and used that **IP** from that response. Lastly
 
 ### Network Port Information
 
-Now let's move onto other cool networking utilities that can help troubleshoot networking issues. From "[Red Hat Enterprise Linux 6 Security Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/security_guide/red_hat_enterprise_linux-6-security_guide-en-us.pdf)"
+Now let's move onto other cool networking utilities that can help troubleshoot networking issues. From "[Red Hat Enterprise Linux 6 Security Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-security_guide-en-us.pdf)"
 
 > **2.2.8. Verifying Which Ports Are Listening**
 >

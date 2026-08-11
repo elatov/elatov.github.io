@@ -9,7 +9,7 @@ tags: ['linux', 'iptables', 'pam', 'rhel', 'tcp_wrappers', 'nat']
 
 ## TCP Wrappers
 
-From the [Security Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/security_guide/red_hat_enterprise_linux-6-security_guide-en-us.pdf):
+From the [Security Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-security_guide-en-us.pdf):
 
 > The TCP Wrappers packages (tcp_wrappers and tcp_wrappers-libs) are installed by default and provide host-based access control to network services. The most important component within the package is the **/lib/libwrap.so** or **/lib64/libwrap.so** library. In general terms, a TCP-wrapped service is one that has been compiled against the **libwrap.so** library.
 >
@@ -1016,7 +1016,7 @@ From the same Guide:
 
 ### Other PAM Examples
 
-The [Security Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/security_guide/red_hat_enterprise_linux-6-security_guide-en-us.pdf), has a lot of the PAM examples as well:
+The [Security Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-security_guide-en-us.pdf), has a lot of the PAM examples as well:
 
 > **Forcing Strong Passwords**
 >
