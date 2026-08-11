@@ -131,7 +131,7 @@ and of course the CPU flags were there as well:
 
 ### The libvirt daemon
 
-From the [Virtualization Administration Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/pdf/virtualization_administration_guide/virtualization-administration-guide.pdf)
+From the [Virtualization Administration Guide](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-virtualization-administration-guide.pdf)
 
 > The **libvirt** daemon provides an interface for managing virtual machines. You must have the libvirtd daemon installed and running on every remote host that needs managing.
 >
