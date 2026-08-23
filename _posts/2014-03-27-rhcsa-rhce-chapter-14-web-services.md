@@ -1000,7 +1000,7 @@ From [Managing Confined Services](https://storage.googleapis.com/grand-drive-196
 >     ~]# yum install squid
 >
 
-I also ran into a great RedHat Magazine article entitled [Squid in 5 minutes](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/deploying_different_types_of_servers/configuring-the-squid-caching-proxy-server_deploying-different-types-of-servers). Here is the guide:
+I also ran into a great RedHat Magazine article entitled [Squid in 5 minutes](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/Red_Hat_Enterprise_Linux-8-Deploying_different_types_of_servers-en-US.pdf). Here is the guide:
 
 > There are many great tools that Squid has to offer, but when I need to redirect http traffic to a caching server for performance increases or security, squid’s my pick. Squid has built in proxy and caching tools that are simple, yet effective.
 >
