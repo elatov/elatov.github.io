@@ -752,7 +752,7 @@ on the other terminal I ran the **vmstat** command and here is what I saw:
      0  0      0   9196   6852 438548    0    0     0     0   17    9  1  0 99  0  0
 
 
-We definitely see a decrease in *free* memory (the filesystem caches a lot of the IO), an increase in *IO* (bo = Blocks sent to a block device), and of course an increase in interrupts (system *in*) since we were writing to a disk. For more information regarding IRQs, check out [Interrupts and IRQ Tuning](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/performance_tuning_guide/s-cpu-irq) from the Performance Tuning guide.
+We definitely see a decrease in *free* memory (the filesystem caches a lot of the IO), an increase in *IO* (bo = Blocks sent to a block device), and of course an increase in interrupts (system *in*) since we were writing to a disk. For more information regarding IRQs, check out [Interrupts and IRQ Tuning](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/red_hat_enterprise_linux-6-performance_tuning_guide-en-us.pdf) from the Performance Tuning guide.
 
 ## Automation
 
