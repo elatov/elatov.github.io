@@ -177,7 +177,7 @@ Now if you try to connect to the KVM server with **virt-manager** via *qemu+ssh*
 
 ### Setup a Windows Active Directory Server
 
-Most of the instructions are laid out [here](https://support.rackspace.com/how-to/installing-active-directory-domain-services-on-windows-server-2008-r2-enterprise-64-bit/). After Windows 2008 R2 is installed, launch the Server Manager by entering:
+Most of the instructions are laid out [here](https://docs.rackspace.com/docs/installing-active-directory-domain-services-on-windows-server-2008-r2-enterprise-64-bit). After Windows 2008 R2 is installed, launch the Server Manager by entering:
 
     servermanager.msc
 
