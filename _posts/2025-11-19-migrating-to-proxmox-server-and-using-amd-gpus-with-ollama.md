@@ -47,7 +47,6 @@ Then, as per [How do you attach a disk to a VM?](https://forum.proxmox.com/threa
 
 I ran into a bunch of guides for this:
 
-- [VM iGPU Passthrough](https://strixhalo.wiki/Guides/VM-iGPU-Passthrough)
 - [ryzen-gpu-passthrough-proxmox](https://github.com/isc30/ryzen-gpu-passthrough-proxmox)
 - [AMD Ryzen 9 AI HX 370 iGPU Passthrough](https://www.reddit.com/r/Proxmox/comments/1ml4zea/amd_ryzen_9_ai_hx_370_igpu_passthrough/)
 - [How to setup Proxmox 9 with GPU passthrough to an Ubuntu 25 VM (to use Ollama/Steam) on Strix Halo Max 395+](https://forum.level1techs.com/t/how-to-setup-proxmox-9-with-gpu-passthrough-to-an-ubuntu-25-vm-to-use-ollama-steam-on-strix-halo-max-395/239880)
@@ -362,7 +361,7 @@ When using AMD GPUs, we have to use [amdgpu](https://github.com/ROCm/amdgpu) and
 
 ![rocm-ryzen-support](https://res.cloudinary.com/elatov/image/upload/v1763599734/blog-pics/proxmox-gpu/rocm-ryzen-support.png)
 
-It does cover my GPU, then coincidentally I ran into [this issue](https://github.com/ROCm/ROCm/issues/5671) and it describes the steps to install on **debian 13**. The best thing to do is to just intall the `amdgpu` driver as per [Quick start installation guide](https://rocm.docs.amd.com/projects/install-on-linux/en/latest/install/quick-start.html):
+It does cover my GPU, then coincidentally I ran into [this issue](https://github.com/ROCm/legacy-rocm-build/issues/5671) and it describes the steps to install on **debian 13**. The best thing to do is to just intall the `amdgpu` driver as per [Quick start installation guide](https://rocm.docs.amd.com/projects/install-on-linux/en/latest/install/quick-start.html):
 
 ```
 wget https://repo.radeon.com/amdgpu-install/7.1/ubuntu/noble/amdgpu-install_7.1.70100-1_all.deb
@@ -387,7 +386,7 @@ Then after rebooting the VM should see GPUs and no more `MES` messages:
 amdgpu 0000:01:00.0: amdgpu: MES FW version must be >= 0x7f to enable LR compute workaround.
 ```
 
-Check out [comment #2](https://github.com/ROCm/ROCm/issues/5671#issuecomment-3545735279) for the full `dmesg` output of healthy `amdgpu` loading of the GPU devices. And the memory is allocated correctly:
+Check out [comment #2](https://github.com/ROCm/legacy-rocm-build/issues/5671#issuecomment-3545735279) for the full `dmesg` output of healthy `amdgpu` loading of the GPU devices. And the memory is allocated correctly:
 
 ```
 > sudo dmesg | grep "amdgpu.*memory"
@@ -652,7 +651,7 @@ And I noticed a bunch of `kworkerd` processes stuck:
 534
 ```
 
-This looks like a known issue: [ROCm Driver hangs kworkers when using ollama](https://github.com/ROCm/ROCm/issues/5536) and it should be fixed in the `6.17.8` kernel. Someone also mentioned that using `vulkan` can help out. I tried to install the vulkan enabled `amdgpu` module, but it failed:
+This looks like a known issue: [ROCm Driver hangs kworkers when using ollama](https://github.com/ROCm/legacy-rocm-build/issues/5536) and it should be fixed in the `6.17.8` kernel. Someone also mentioned that using `vulkan` can help out. I tried to install the vulkan enabled `amdgpu` module, but it failed:
 
 ```
 > sudo amdgpu-install --usecase=dkms --vulkan=radv
@@ -687,7 +686,7 @@ E: The following information from --solver 3.0 may provide additional context:
       [no choices]
 ```
 
-As per [this comment](https://github.com/ROCm/ROCm/issues/5536#issuecomment-3572351495), trying the latest `debian` version **forky** worked out. Here is the kernel version at the time:
+As per [this comment](https://github.com/ROCm/legacy-rocm-build/issues/5536#issuecomment-3572351495), trying the latest `debian` version **forky** worked out. Here is the kernel version at the time:
 
 ```
 ~$ uname -a

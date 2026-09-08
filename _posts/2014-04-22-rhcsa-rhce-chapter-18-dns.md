@@ -1170,7 +1170,7 @@ and on the secondary/slave you will see the following:
 
 #### *named* caching only example
 
-From [DNS Configuration Types](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/linux_domain_identity_authentication_and_policy_guide/managing-dns-forwarding):
+From [DNS Configuration Types](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/Red_Hat_Enterprise_Linux-7-Linux_Domain_Identity_Authentication_and_Policy_Guide-en-US.pdf):
 
 > A DNS Caching Server (frequently called a Resolver) obtains information from another server (a Zone Master) in response to a host query and then saves (caches) the data locally. On a second or subsequent request for the same data the Caching Server (Resolver) will respond with its locally stored data (the cache) until the time-to-live (TTL) value of the response expires, at which time the server will refresh the data from the zone master.
 >

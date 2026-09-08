@@ -54,7 +54,7 @@ Another view from [Anatomy of the Linux kernel](https://www.cyberciti.biz/tips/u
 
 ### RHEL CPU Scheduler
 
-From [RedHat 6 Release notes](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/6.0_release_notes/kernel):
+From [RedHat 6 Release notes](https://storage.googleapis.com/grand-drive-196322.appspot.com/blog_pics/rhcsa-and-rhce/Red_Hat_Enterprise_Linux-6-6.0_Release_Notes-en-US.pdf):
 
 > **12.2.1. Completely Fair Scheduler (CFS)**
 > A process (or task) scheduler is a specific kernel subsystem that is responsible for assigning the order in which processes are sent to the CPU. The kernel (version 2.6.32) shipped in Red Hat Enterprise Linux 6 replaces the O(1) scheduler with the new Completely Fair Scheduler (CFS). The CFS implements the fair queuing scheduling algorithm.
